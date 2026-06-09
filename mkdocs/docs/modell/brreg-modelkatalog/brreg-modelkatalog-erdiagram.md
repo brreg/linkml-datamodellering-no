@@ -1,6 +1,0 @@
-```mermaid
-erDiagram
-
-
-
-```

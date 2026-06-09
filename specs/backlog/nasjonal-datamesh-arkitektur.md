@@ -399,7 +399,7 @@ Alle publiserte artefakter frå dette repoet er maskinlesbare i dag:
 
 ## Avgrensingar og prinsipp
 
-- **Ingen sentral datalagring** — dette repoet lagrar aldri rådata, berre skjema og metadata
+- **Ingen sentral datalagring** — dette repoet lagrar aldri rådata (utenom begreper), berre skjema, metadata og begreper
 - **Pull-modell for publisering** — katalogtenestene haustar frå GitHub Pages; ingen direkte push-API
 - **Maskinporten er infrastruktur** — publisering til katalogane krev Maskinporten-token, men dette er eit driftsansvar, ikkje eit modellansvar
 - **SERES er avvikla** — ingen integrasjon planlagt; Altinn Studio (XSD) er etterfølgjaren

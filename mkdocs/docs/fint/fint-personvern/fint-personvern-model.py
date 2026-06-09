@@ -1,5 +1,5 @@
 # Auto generated from fint-personvern-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-02T06:41:49
+# Generation date: 2026-06-08T14:31:17
 # Schema: fint-personvern
 #
 # id: https://data.norge.no/fint/fint-personvern

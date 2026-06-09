@@ -9,47 +9,7 @@
     rdfs:comment "Rotcontainer for FINT Ressurs-instansar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class res:Enhetsgruppemedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
-        [ sh:class res:Brukertype ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:brukertypar> ],
-        [ sh:class res:Applikasjonsressurstilgjengelighet ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
-        [ sh:class res:Applikasjonsressurs ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
-        [ sh:class res:Enhetsgruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
-        [ sh:class res:Plattform ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:plattformar> ],
-        [ sh:class res:Identitet ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:identitetar> ],
-        [ sh:class res:Applikasjonskategori ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonskategoriar> ],
-        [ sh:class res:Applikasjon ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
-        [ sh:class res:Lisensmodell ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
-        [ sh:class res:Status ;
+    sh:property [ sh:class res:Status ;
             sh:nodeKind sh:IRI ;
             sh:order 15 ;
             sh:path <https://schema.fintlabs.no/ressurs/:statusar> ],
@@ -57,18 +17,58 @@
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path <https://schema.fintlabs.no/ressurs/:rettigheiter> ],
-        [ sh:class res:DigitalEnhet ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/ressurs/:digitaleEiningar> ],
         [ sh:class res:Handhevingstype ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path <https://schema.fintlabs.no/ressurs/:handhaevingstypar> ],
+        [ sh:class res:Enhetsgruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
+        [ sh:class res:Applikasjon ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
+        [ sh:class res:Identitet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:identitetar> ],
+        [ sh:class res:DigitalEnhet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:digitaleEiningar> ],
         [ sh:class res:Produsent ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path <https://schema.fintlabs.no/ressurs/:produsentar> ],
+        [ sh:class res:Applikasjonskategori ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonskategoriar> ],
+        [ sh:class res:Applikasjonsressurstilgjengelighet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
+        [ sh:class res:Enhetsgruppemedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
+        [ sh:class res:Brukertype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:brukertypar> ],
+        [ sh:class res:Applikasjonsressurs ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
+        [ sh:class res:Plattform ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:plattformar> ],
+        [ sh:class res:Lisensmodell ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
         [ sh:class res:Enhetstype ;
             sh:nodeKind sh:IRI ;
             sh:order 10 ;
@@ -79,29 +79,16 @@ res:Applikasjon a sh:NodeShape ;
     rdfs:comment "Ein applikasjon med tilhøyrande ressursar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class res:Applikasjonsressurs ;
+            sh:description "Ulike ressursar (lisensar) knytt til ein applikasjon." ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:navn ],
+            sh:order 5 ;
+            sh:path res:applikasjonsressurs ],
         [ sh:class res:Applikasjonskategori ;
             sh:description "Kategoriar av applikasjonar." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path res:applikasjonskategori ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:beskrivelse ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -109,16 +96,29 @@ res:Applikasjon a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:class res:Applikasjonsressurs ;
-            sh:description "Ulike ressursar (lisensar) knytt til ein applikasjon." ;
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path res:applikasjonsressurs ],
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class res:Plattform ;
             sh:description "Plattforma ressursen er knytt til." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path res:plattform ] ;
+            sh:path res:plattform ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ] ;
     sh:targetClass res:Applikasjon .
 
 res:Applikasjonskategori a sh:NodeShape ;
@@ -131,19 +131,6 @@ res:Applikasjonskategori a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -155,20 +142,32 @@ res:Applikasjonskategori a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
     sh:targetClass res:Applikasjonskategori .
 
 res:Applikasjonsressurstilgjengelighet a sh:NodeShape ;
     rdfs:comment "Kva organisasjonselements brukarar som har tilgang til ein ressurs." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Totalt tal på lisensar." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path fint:gyldighetsperiode ],
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path res:lisensantall ],
         [ sh:description "Referanse til Organisasjonselement som har tilgang til ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -182,17 +181,18 @@ res:Applikasjonsressurstilgjengelighet a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path res:ressursRef ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Totalt tal på lisensar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path res:lisensantall ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass res:Applikasjonsressurstilgjengelighet .
 
 res:Brukertype a sh:NodeShape ;
@@ -200,30 +200,30 @@ res:Brukertype a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -236,25 +236,12 @@ res:DigitalEnhet a sh:NodeShape ;
     rdfs:comment "Ei digital eining som t.d. PC, nettbrett eller mobil." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Identifikator ;
-            sh:description "Einingsens ID i datakatalogen." ;
+    sh:property [ sh:class res:Status ;
+            sh:description "Status på eininga i fagsystemet." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path res:dataobjektId ],
-        [ sh:class res:Enhetstype ;
-            sh:description "Type digital eining." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path res:enhetstype ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
+            sh:order 10 ;
+            sh:path res:status ],
         [ sh:datatype xsd:string ;
             sh:description "Unikt serienummer frå einingsprodusentens." ;
             sh:maxCount 1 ;
@@ -262,56 +249,18 @@ res:DigitalEnhet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path res:serienummer ],
-        [ sh:class res:Enhetsgruppemedlemskap ;
-            sh:description "Einingsgruppemelemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path res:enhetsgruppemedlemskap ],
         [ sh:description "Referanse til Organisasjonselement som har eigarskap." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path res:eier ],
-        [ sh:class fint:Elev ;
-            sh:description "Referanse til Elev (Utdanning)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path fint:elev ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:description "Referanse til Personalressurs (Administrasjon)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path res:personalressurs ],
-        [ sh:class res:Produsent ;
-            sh:description "Namn på produsenten av eininga." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path res:produsent ],
-        [ sh:description "Referanse til Organisasjonselement som administrerer eininga." ;
+        [ sh:class res:Enhetstype ;
+            sh:description "Type digital eining." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path res:administrator ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir om eininga er eigd av organisasjonen eller privatperson." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path res:privateid ],
-        [ sh:class res:Status ;
-            sh:description "Status på eininga i fagsystemet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path res:status ],
+            sh:order 11 ;
+            sh:path res:enhetstype ],
         [ sh:class res:Plattform ;
             sh:description "Plattforma ressursen er knytt til." ;
             sh:maxCount 1 ;
@@ -319,36 +268,74 @@ res:DigitalEnhet a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path res:plattform ],
+        [ sh:description "Referanse til Personalressurs (Administrasjon)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path res:personalressurs ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir om eininga er eigd av organisasjonen eller privatperson." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path res:privateid ],
+        [ sh:description "Referanse til Organisasjonselement som administrerer eininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path res:administrator ],
+        [ sh:class res:Enhetsgruppemedlemskap ;
+            sh:description "Einingsgruppemelemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path res:enhetsgruppemedlemskap ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:class fint:Elev ;
+            sh:description "Referanse til Elev (Utdanning)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path fint:elev ],
+        [ sh:class res:Produsent ;
+            sh:description "Namn på produsenten av eininga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path res:produsent ],
         [ sh:datatype xsd:boolean ;
             sh:description "Kvifor eininga er ein- eller flerbrukarenheit." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path res:flerbrukerenhet ] ;
+            sh:path res:flerbrukerenhet ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Einingsens ID i datakatalogen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path res:dataobjektId ] ;
     sh:targetClass res:DigitalEnhet .
 
 res:Enhetsgruppe a sh:NodeShape ;
     rdfs:comment "Ei gruppering av einsarta digitale einingar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:navn ],
-        [ sh:class res:Enhetsgruppemedlemskap ;
+    sh:property [ sh:class res:Enhetsgruppemedlemskap ;
             sh:description "Einingsgruppemelemskap." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path res:enhetsgruppemedlemskap ],
-        [ sh:description "Referanse til Organisasjonselement grupperinga er tilknytt." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path res:organisasjonsenhet ],
         [ sh:class res:Plattform ;
             sh:description "Plattforma ressursen er knytt til." ;
             sh:maxCount 1 ;
@@ -356,29 +343,43 @@ res:Enhetsgruppe a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path res:plattform ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class res:Enhetstype ;
             sh:description "Type digital eining." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path res:enhetstype ] ;
+            sh:path res:enhetstype ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:navn ],
+        [ sh:description "Referanse til Organisasjonselement grupperinga er tilknytt." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path res:organisasjonsenhet ] ;
     sh:targetClass res:Enhetsgruppe .
 
 res:Handhevingstype a sh:NodeShape ;
     rdfs:comment "Korleis ulike lisensmodellar kan handhevast." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -386,37 +387,31 @@ res:Handhevingstype a sh:NodeShape ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
     sh:targetClass res:Handhevingstype .
 
 res:Identitet a sh:NodeShape ;
     rdfs:comment "Identitet som identifiserer innehavaren av rettigheiter i organisasjonen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class res:Rettighet ;
-            sh:description "Rettigheiter knytt til identiteten." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path res:rettighet ],
-        [ sh:description "Referanse til Personalressurs (Administrasjon)." ;
+    sh:property [ sh:description "Referanse til Personalressurs (Administrasjon)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
@@ -425,51 +420,25 @@ res:Identitet a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class res:Rettighet ;
+            sh:description "Rettigheiter knytt til identiteten." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path res:rettighet ] ;
     sh:targetClass res:Identitet .
 
 res:Lisensmodell a sh:NodeShape ;
     rdfs:comment "Lisensmodellar som kan knytast til ein lisens." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
+    sh:property [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ] ;
-    sh:targetClass res:Lisensmodell .
-
-res:Produsent a sh:NodeShape ;
-    rdfs:comment "Produsent av ei digital eining." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -481,12 +450,43 @@ res:Produsent a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass res:Lisensmodell .
+
+res:Produsent a sh:NodeShape ;
+    rdfs:comment "Produsent av ei digital eining." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -512,6 +512,12 @@ res:Rettighet a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 4 ;
             sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
@@ -526,17 +532,6 @@ res:Rettighet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path fint:passiv ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class res:Identitet ;
             sh:description "Identitetar knytt til rettigheta." ;
             sh:nodeKind sh:IRI ;
@@ -548,24 +543,36 @@ res:Rettighet a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path fint:navn ] ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass res:Rettighet .
 
 res:Status a sh:NodeShape ;
     rdfs:comment "Status på ei digital eining i fagsystemet." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -578,14 +585,7 @@ res:Status a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
+            sh:path fint:kode ] ;
     sh:targetClass res:Status .
 
 res:Applikasjonsressurs a sh:NodeShape ;
@@ -598,18 +598,6 @@ res:Applikasjonsressurs a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path res:lisensantall ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class res:Applikasjon ;
             sh:description "Applikasjonen ressursen (lisensen) er knytt til." ;
             sh:maxCount 1 ;
@@ -617,29 +605,30 @@ res:Applikasjonsressurs a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path res:applikasjon ],
-        [ sh:class res:Applikasjonsressurstilgjengelighet ;
-            sh:description "Angir kva organisasjonseining og kor mange ressursar som skal tilordnast." ;
+        [ sh:class res:Handhevingstype ;
+            sh:description "Korleis lisensmodellen skal handhevast." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path res:ressurstilgjengelighet ],
+            sh:order 10 ;
+            sh:path res:handhevingstype ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:description "Referanse til Organisasjonselement som har eigarskap." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path res:eier ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Kostnad per ressurs." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path res:enhetskostnad ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:beskrivelse ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -647,50 +636,61 @@ res:Applikasjonsressurs a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "True dersom tildeling av ressursen krev godkjenning." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path res:kreverGodkjenning ],
-        [ sh:class res:Handhevingstype ;
-            sh:description "Korleis lisensmodellen skal handhevast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path res:handhevingstype ],
         [ sh:class res:Lisensmodell ;
             sh:description "Lisensmodellen applikasjonsressursen har." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path res:lisensmodell ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "True dersom tildeling av ressursen krev godkjenning." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path res:kreverGodkjenning ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Kostnad per ressurs." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path res:enhetskostnad ],
         [ sh:class res:Brukertype ;
             sh:description "For kva brukertypar lisensen er gyldig." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
-            sh:path res:brukertype ] ;
+            sh:path res:brukertype ],
+        [ sh:class res:Applikasjonsressurstilgjengelighet ;
+            sh:description "Angir kva organisasjonseining og kor mange ressursar som skal tilordnast." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path res:ressurstilgjengelighet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ] ;
     sh:targetClass res:Applikasjonsressurs .
 
 res:Enhetsgruppemedlemskap a sh:NodeShape ;
     rdfs:comment "Medlemskap mellom ei digital eining og ei einingsgruppe." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class res:DigitalEnhet ;
-            sh:description "Den digitale eininga dette medlemskapet tilhøyrer." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path res:digitalEnhet ],
-        [ sh:class res:Enhetsgruppe ;
+    sh:property [ sh:class res:Enhetsgruppe ;
             sh:description "Einingsgruppen dette medlemskapet tilhøyrer." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path res:enhetsgruppe ],
+        [ sh:class res:DigitalEnhet ;
+            sh:description "Den digitale eininga dette medlemskapet tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path res:digitalEnhet ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -708,12 +708,6 @@ res:Enhetstype a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -726,6 +720,12 @@ res:Enhetstype a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -739,7 +739,19 @@ res:Plattform a sh:NodeShape ;
     rdfs:comment "Plattforma tenesta kan leverast på." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -751,18 +763,6 @@ res:Plattform a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;

@@ -1,5 +1,5 @@
 # Auto generated from fair-metadata-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-02T06:41:43
+# Generation date: 2026-06-08T14:31:12
 # Schema: fair-metadata
 #
 # id: https://data.norge.no/fair/fair-metadata

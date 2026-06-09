@@ -1,0 +1,2661 @@
+{
+    "$defs": {
+        "Adressenummer": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "bokstav": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "nummer"
+            ],
+            "title": "Adressenummer",
+            "type": "object"
+        },
+        "Aktivitet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "aktivitet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "datoGyldigFra": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "aktivitet"
+            ],
+            "title": "Aktivitet",
+            "type": "object"
+        },
+        "Ansvarsandel": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "broek": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "prosent": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Ansvarsandel",
+            "type": "object"
+        },
+        "Beliggenhetsadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "coNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "stedsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vegadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Beliggenhetsadresse",
+            "type": "object"
+        },
+        "Broek": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nevner": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "teller": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Broek",
+            "type": "object"
+        },
+        "DelerEierskifte": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "beskrivelse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "underenhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DelerEierskifte",
+            "type": "object"
+        },
+        "EierskifteAktivitet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "eierskiftedato": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "gjelderHeleAktiviteten": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "boolean"
+                },
+                "hvilkeDeler": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "organisasjonsnummerHovedenhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "typeEierskifte": {
+                    "$ref": "#/$defs/TypeEierskifte",
+                    "description": "TODO: beskriv eigenskapen"
+                }
+            },
+            "required": [
+                "id",
+                "typeEierskifte",
+                "organisasjonsnummerHovedenhet",
+                "gjelderHeleAktiviteten",
+                "eierskiftedato"
+            ],
+            "title": "EierskifteAktivitet",
+            "type": "object"
+        },
+        "Fagsystemreferanse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "fagsystemID": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "orgnrFagsystem": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "referanseFagsystem": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "fagsystemID",
+                "orgnrFagsystem",
+                "referanseFagsystem"
+            ],
+            "title": "Fagsystemreferanse",
+            "type": "object"
+        },
+        "Foretaksinformasjon": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "oenskesRegistrertIForetaksregisteret": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "oenskesSlettetIForetaksregisteret": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Foretaksinformasjon",
+            "type": "object"
+        },
+        "Forretningsadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "coNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "stedsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "utgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "vNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vegadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Forretningsadresse",
+            "type": "object"
+        },
+        "Gebyransvarlig": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "e_postadresse": {
+                    "description": "The type of property E-postadresse (E-postadresse) has subclasses. Double-click on this comment to see the class hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "eksternFakturareferanse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gebyransvarligType": {
+                    "$ref": "#/$defs/GebyransvarligType",
+                    "description": "TODO: beskriv eigenskapen"
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mobilnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "person": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "virksomhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "gebyransvarligType"
+            ],
+            "title": "Gebyransvarlig",
+            "type": "object"
+        },
+        "GebyransvarligType": {
+            "description": "TODO: beskriv enumet",
+            "enum": [
+                "virksomhetenSelv",
+                "person",
+                "virksomhet"
+            ],
+            "title": "GebyransvarligType",
+            "type": "string"
+        },
+        "GeneratedContainer": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv containerklassen",
+            "properties": {
+                "adressenummerer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Adressenummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aktiviteter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Aktivitet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ansvarsandeler": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Ansvarsandel"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "beliggenhetsadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Beliggenhetsadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "broeker": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Broek"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "delerEierskifteer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/DelerEierskifte"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "eierskifteAktiviteter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/EierskifteAktivitet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fagsystemreferanseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Fagsystemreferanse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "foretaksinformasjoner": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Foretaksinformasjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "forretningsadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Forretningsadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "gebyransvarliger": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Gebyransvarlig"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "innrapporteringer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Innrapportering"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "innsenderer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Innsender"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "internasjonalAdresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/InternasjonalAdresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kontaktopplysninger": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Kontaktopplysning"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "matrikkelnummerer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Matrikkelnummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "mobilnummerer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Mobilnummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "omdanninger": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Omdanning"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Person"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Postadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postboksadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Postboksadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "prokurabestemmelseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Prokurabestemmelse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "prokuraer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Prokura"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rolleer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Rolle"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rolleinnehaverer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Rolleinnehaver"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rollesetter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Rollesett"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rolletypegruppeer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Rolletypegruppe"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "signaturberettigetEllerProkurister": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/SignaturberettigetEllerProkurist"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "signaturretter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Signaturrett"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "signaturrettsbestemmelseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Signaturrettsbestemmelse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "signeringer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Signering"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "stedsadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Stedsadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "telefonnummerer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Telefonnummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "typeAktiviteter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/TypeAktivitet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "varslingsadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Varslingsadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "vegadresseer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Vegadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "virksomheter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/Virksomhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "virksomhetsinformasjonHovedenheter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/VirksomhetsinformasjonHovedenhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "virksomhetsinformasjonUnderenheter": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "$ref": "#/$defs/VirksomhetsinformasjonUnderenhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GeneratedContainer",
+            "type": "object"
+        },
+        "Innrapportering": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "fagsystemReferanse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gebyransvarlig": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "innsender": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "innsendertjenste": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "innsendingstidspunkt": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "lenkeForEttersending": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "maalformForTilbakemelding": {
+                    "$ref": "#/$defs/Maalform",
+                    "description": "TODO: beskriv eigenskapen"
+                },
+                "signering": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tjenestevariant": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "versjon": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "pattern": "^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)$",
+                    "type": "string"
+                },
+                "virksomhetsinformasjon": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "versjon",
+                "innsendertjenste",
+                "innsendingstidspunkt",
+                "maalformForTilbakemelding",
+                "tjenestevariant",
+                "virksomhetsinformasjon",
+                "innsender"
+            ],
+            "title": "Innrapportering",
+            "type": "object"
+        },
+        "Innsender": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "e_postadresse": {
+                    "description": "The type of property E-postadresse (E-postadresse) has subclasses. Double-click on this comment to see the class hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mobilnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "person": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "test": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "virksomhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "test"
+            ],
+            "title": "Innsender",
+            "type": "object"
+        },
+        "InternasjonalAdresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "adresseidentifikator": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressenavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "boenhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "byEllerStedsnavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bygning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "distriktEllerBydel": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "etasjenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "friAdressetekst": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "landkode": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "postboks": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postkode": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "region": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "landkode"
+            ],
+            "title": "InternasjonalAdresse",
+            "type": "object"
+        },
+        "Kontaktopplysning": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "e_postadresse": {
+                    "description": "The type of property E-postadresse (E-postadresse) has subclasses. Double-click on this comment to see the class hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "e_postadresseUtgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mobilnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mobilnummerUtgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "nettadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nettadresseUtgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "telefonnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "telefonnummerUtgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Kontaktopplysning",
+            "type": "object"
+        },
+        "Maalform": {
+            "description": "TODO: beskriv enumet",
+            "enum": [
+                "nob",
+                "nno"
+            ],
+            "title": "Maalform",
+            "type": "string"
+        },
+        "Matrikkelnummer": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "bruksnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "festenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "gaardsnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Matrikkelnummer",
+            "type": "object"
+        },
+        "Mobilnummer": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "internasjonaltPrefiks": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "pattern": "^[\\d+() -]+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nasjonaltNummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "nasjonaltNummer"
+            ],
+            "title": "Mobilnummer",
+            "type": "object"
+        },
+        "Omdanning": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nyOrganisasjonsform": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "nyOrganisasjonsform"
+            ],
+            "title": "Omdanning",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "fulltNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mappingId": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "mappingId",
+                "fulltNavn"
+            ],
+            "title": "Person",
+            "type": "object"
+        },
+        "Postadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "coNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "internasjonalAdresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postboksadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stedsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "utgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "vNavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vegadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Postadresse",
+            "type": "object"
+        },
+        "Postboksadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "postboksanleggsnavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postboksnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "postnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "postboksnummer",
+                "postnummer",
+                "kommunenummer"
+            ],
+            "title": "Postboksadresse",
+            "type": "object"
+        },
+        "Prokura": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "bekreftelseProtokoll": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "prokurabestemmelse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Prokura",
+            "type": "object"
+        },
+        "Prokurabestemmelse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "regel": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "rollesett": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "regel",
+                "rollesett"
+            ],
+            "title": "Prokurabestemmelse",
+            "type": "object"
+        },
+        "Rolle": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "rolleinnehaver": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "rolletype": {
+                    "$ref": "#/$defs/Rolletype",
+                    "description": "TODO: beskriv eigenskapen"
+                },
+                "tildelerAvRolle": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "rolletype",
+                "rolleinnehaver"
+            ],
+            "title": "Rolle",
+            "type": "object"
+        },
+        "Rolleinnehaver": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "ansvarsandel": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "avdelingskontor": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fratredenErVarslet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "oenskerAAFratre": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "person": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "valgtAv": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "virksomhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Rolleinnehaver",
+            "type": "object"
+        },
+        "Rollesett": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "minsteAntall": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "minsteMengdeangivelse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "rolletype": {
+                    "$ref": "#/$defs/Rolletype",
+                    "description": "TODO: beskriv eigenskapen"
+                },
+                "signaturberettigetEllerProkurist": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "rolletype"
+            ],
+            "title": "Rollesett",
+            "type": "object"
+        },
+        "Rolletype": {
+            "description": "TODO: beskriv enumet",
+            "enum": [
+                "rolletype.dagligLeder",
+                "rolletype.revisor",
+                "rolletype.prokurist",
+                "rolletype.signaturberettiget",
+                "rolletype.forretningsfoerer",
+                "rolletype.regnskapsfoerer",
+                "rolletype.innehaver",
+                "rolletype.bostyrer",
+                "rolletype.kontaktperson",
+                "rolletype.styreleder",
+                "rolletype.nestleder",
+                "rolletype.styremedlem",
+                "rolletype.varamedlem",
+                "rolletype.observatoer"
+            ],
+            "title": "Rolletype",
+            "type": "string"
+        },
+        "Rolletypegruppe": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "bekreftelseProtokoll": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kjoennssammensetningAnsattvalgte": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "kjoennssammensetningStyre": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "rolle": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rollegruppe": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "utgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "rollegruppe"
+            ],
+            "title": "Rolletypegruppe",
+            "type": "object"
+        },
+        "SignaturberettigetEllerProkurist": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "person": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "virksomhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SignaturberettigetEllerProkurist",
+            "type": "object"
+        },
+        "Signaturrett": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "bekreftelseProtokoll": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "signaturrettsbestemmelsse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utgaar": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Signaturrett",
+            "type": "object"
+        },
+        "Signaturrettsbestemmelse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "regel": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "rollesett": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "regel",
+                "rollesett"
+            ],
+            "title": "Signaturrettsbestemmelse",
+            "type": "object"
+        },
+        "Signering": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Signering",
+            "type": "object"
+        },
+        "Stedsadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "postnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "stedsnavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kommunenummer",
+                "postnummer"
+            ],
+            "title": "Stedsadresse",
+            "type": "object"
+        },
+        "Telefonnummer": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "internasjonaltPrefiks": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "pattern": "^[\\d+() -]+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nasjonaltNummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "nasjonaltNummer"
+            ],
+            "title": "Telefonnummer",
+            "type": "object"
+        },
+        "TypeAktivitet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "aktivitetskode": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "rekkefoelge": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "integer"
+                },
+                "tekst": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "rekkefoelge",
+                "tekst"
+            ],
+            "title": "TypeAktivitet",
+            "type": "object"
+        },
+        "TypeEierskifte": {
+            "description": "TODO: beskriv enumet",
+            "enum": [
+                "overtakelse",
+                "overdragelse"
+            ],
+            "title": "TypeEierskifte",
+            "type": "string"
+        },
+        "Varslingsadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "e_postadresse": {
+                    "description": "The type of property E-postadresse (E-postadresse) has subclasses. Double-click on this comment to see the class hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mobilnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Varslingsadresse",
+            "type": "object"
+        },
+        "Vegadresse": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "adressenavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "adressetilleggsnavn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bruksenhetsnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "pattern": "^[LHUK][0-9]{4}?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "nummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "postnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "vegadresseId": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "adressenavn",
+                "nummer",
+                "kommunenummer",
+                "postnummer"
+            ],
+            "title": "Vegadresse",
+            "type": "object"
+        },
+        "Virksomhet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "virksomhetsidentifikator": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "virksomhetsidentifikator"
+            ],
+            "title": "Virksomhet",
+            "type": "object"
+        },
+        "VirksomhetsinformasjonHovedenhet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "aktivitet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ansvarsform": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bekreftelseProtokollOpploesningOgOmgjoering": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "bekreftelseProtokollSletting": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "datoForAvtale": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "eierskifte": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "foretaksinformasjon": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "formaal": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "forretningsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "harAnsvarsbegrensning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktopplysning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "maalform": {
+                    "$ref": "#/$defs/Maalform",
+                    "description": "TODO: beskriv eigenskapen"
+                },
+                "matrikkelnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meldtOmgjoeringAvOpploesning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "meldtOpploesning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "omdanning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "oppfyllerKravTilNaeringsvirksomhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "organisasjonsform": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": "string"
+                },
+                "organisasjonsnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prokura": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "registrertITilknyttetRegister": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rolletypegruppe": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "signaturrett": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stiftelsesdato": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "varslingsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vedtektsdato": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "venterAAFaaAnsatte": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "virksomhetsinformasjonUnderenhet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "virksomhetstype": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "organisasjonsform"
+            ],
+            "title": "VirksomhetsinformasjonHovedenhet",
+            "type": "object"
+        },
+        "VirksomhetsinformasjonUnderenhet": {
+            "additionalProperties": false,
+            "description": "TODO: beskriv klassen",
+            "properties": {
+                "aktivitet": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "beliggenhetsadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unik URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktopplysning": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nedleggelsesdato": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "oppstartsdato": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postadresse": {
+                    "description": "TODO: beskriv eigenskapen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "VirksomhetsinformasjonUnderenhet",
+            "type": "object"
+        }
+    },
+    "$id": "https://example.org/generated",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "TODO: beskriv containerklassen",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "adressenummerer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Adressenummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "aktiviteter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Aktivitet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "ansvarsandeler": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Ansvarsandel"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "beliggenhetsadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Beliggenhetsadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "broeker": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Broek"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "delerEierskifteer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/DelerEierskifte"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "eierskifteAktiviteter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/EierskifteAktivitet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fagsystemreferanseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Fagsystemreferanse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "foretaksinformasjoner": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Foretaksinformasjon"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "forretningsadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Forretningsadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "gebyransvarliger": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Gebyransvarlig"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "innrapporteringer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Innrapportering"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "innsenderer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Innsender"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "internasjonalAdresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/InternasjonalAdresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kontaktopplysninger": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Kontaktopplysning"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "matrikkelnummerer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Matrikkelnummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "mobilnummerer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Mobilnummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "omdanninger": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Omdanning"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "personer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Person"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "postadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Postadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "postboksadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Postboksadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "prokurabestemmelseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Prokurabestemmelse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "prokuraer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Prokura"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rolleer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Rolle"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rolleinnehaverer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Rolleinnehaver"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rollesetter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Rollesett"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rolletypegruppeer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Rolletypegruppe"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "signaturberettigetEllerProkurister": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/SignaturberettigetEllerProkurist"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "signaturretter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Signaturrett"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "signaturrettsbestemmelseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Signaturrettsbestemmelse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "signeringer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Signering"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "stedsadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Stedsadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "telefonnummerer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Telefonnummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "typeAktiviteter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/TypeAktivitet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "varslingsadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Varslingsadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "vegadresseer": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Vegadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "virksomheter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/Virksomhet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "virksomhetsinformasjonHovedenheter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/VirksomhetsinformasjonHovedenhet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "virksomhetsinformasjonUnderenheter": {
+            "description": "TODO: beskriv eigenskapen",
+            "items": {
+                "$ref": "#/$defs/VirksomhetsinformasjonUnderenhet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "title": "generated",
+    "type": "object",
+    "version": null
+}
+

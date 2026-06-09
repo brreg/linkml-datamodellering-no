@@ -1,0 +1,424 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// TODO: beskriv klassen
+message Adressenummer
+ {
+  uriorcurie id = 0
+  adressenummer nummer = 0
+  husbokstav bokstav = 0
+ }
+// TODO: beskriv klassen
+message Aktivitet
+ {
+  uriorcurie id = 0
+  aktivitet aktivitet = 0
+  dato datoGyldigFra = 0
+ }
+// TODO: beskriv klassen
+message Ansvarsandel
+ {
+  uriorcurie id = 0
+  broek broek = 0
+  float prosent = 0
+ }
+// TODO: beskriv klassen
+message Beliggenhetsadresse
+ {
+  uriorcurie id = 0
+  string coNavn = 0
+  string vNavn = 0
+  vegadresse vegadresse = 0
+  stedsadresse stedsadresse = 0
+ }
+// TODO: beskriv klassen
+message Broek
+ {
+  uriorcurie id = 0
+  integer teller = 0
+  integer nevner = 0
+ }
+// TODO: beskriv klassen
+message DelerEierskifte
+ {
+  uriorcurie id = 0
+  string beskrivelse = 0
+ repeated  organisasjonsnummer underenhet = 0
+ }
+// TODO: beskriv klassen
+message EierskifteAktivitet
+ {
+  uriorcurie id = 0
+  typeEierskifte typeEierskifte = 0
+  organisasjonsnummer organisasjonsnummerHovedenhet = 0
+  boolean gjelderHeleAktiviteten = 0
+  dato eierskiftedato = 0
+  delerEierskifte hvilkeDeler = 0
+ }
+// TODO: beskriv klassen
+message Fagsystemreferanse
+ {
+  uriorcurie id = 0
+  fagsystemId fagsystemID = 0
+  organisasjonsnummer orgnrFagsystem = 0
+  tekst50 referanseFagsystem = 0
+ }
+// TODO: beskriv klassen
+message Foretaksinformasjon
+ {
+  uriorcurie id = 0
+  boolean oenskesRegistrertIForetaksregisteret = 0
+  boolean oenskesSlettetIForetaksregisteret = 0
+ }
+// TODO: beskriv klassen
+message Forretningsadresse
+ {
+  uriorcurie id = 0
+  string coNavn = 0
+  string vNavn = 0
+  boolean utgaar = 0
+  stedsadresse stedsadresse = 0
+  vegadresse vegadresse = 0
+ }
+// TODO: beskriv klassen
+message Gebyransvarlig
+ {
+  uriorcurie id = 0
+  string eksternFakturareferanse = 0
+  gebyransvarligType gebyransvarligType = 0
+  virksomhet virksomhet = 0
+  person person = 0
+  mobilnummer mobilnummer = 0
+  ePostadresse ePostadresse = 0
+ }
+// TODO: beskriv containerklassen
+message GeneratedContainer
+ {
+ repeated  innrapportering innrapporteringer = 0
+ repeated  virksomhetsinformasjonHovedenhet virksomhetsinformasjonHovedenheter = 0
+ repeated  forretningsadresse forretningsadresseer = 0
+ repeated  stedsadresse stedsadresseer = 0
+ repeated  vegadresse vegadresseer = 0
+ repeated  adressenummer adressenummerer = 0
+ repeated  varslingsadresse varslingsadresseer = 0
+ repeated  mobilnummer mobilnummerer = 0
+ repeated  postadresse postadresseer = 0
+ repeated  postboksadresse postboksadresseer = 0
+ repeated  internasjonalAdresse internasjonalAdresseer = 0
+ repeated  kontaktopplysning kontaktopplysninger = 0
+ repeated  telefonnummer telefonnummerer = 0
+ repeated  virksomhetsinformasjonUnderenhet virksomhetsinformasjonUnderenheter = 0
+ repeated  beliggenhetsadresse beliggenhetsadresseer = 0
+ repeated  aktivitet aktiviteter = 0
+ repeated  typeAktivitet typeAktiviteter = 0
+ repeated  omdanning omdanninger = 0
+ repeated  rolletypegruppe rolletypegruppeer = 0
+ repeated  rolle rolleer = 0
+ repeated  rolleinnehaver rolleinnehaverer = 0
+ repeated  ansvarsandel ansvarsandeler = 0
+ repeated  broek broeker = 0
+ repeated  virksomhet virksomheter = 0
+ repeated  person personer = 0
+ repeated  prokura prokuraer = 0
+ repeated  prokurabestemmelse prokurabestemmelseer = 0
+ repeated  rollesett rollesetter = 0
+ repeated  signaturberettigetEllerProkurist signaturberettigetEllerProkurister = 0
+ repeated  signaturrett signaturretter = 0
+ repeated  signaturrettsbestemmelse signaturrettsbestemmelseer = 0
+ repeated  foretaksinformasjon foretaksinformasjoner = 0
+ repeated  eierskifteAktivitet eierskifteAktiviteter = 0
+ repeated  delerEierskifte delerEierskifteer = 0
+ repeated  matrikkelnummer matrikkelnummerer = 0
+ repeated  innsender innsenderer = 0
+ repeated  fagsystemreferanse fagsystemreferanseer = 0
+ repeated  signering signeringer = 0
+ repeated  gebyransvarlig gebyransvarliger = 0
+ }
+// TODO: beskriv klassen
+message Innrapportering
+ {
+  uriorcurie id = 0
+  versjonsnummer versjon = 0
+  innsendertjenesteType innsendertjenste = 0
+  datoKlokkeslett innsendingstidspunkt = 0
+  maalform maalformForTilbakemelding = 0
+  tjenestevariant tjenestevariant = 0
+  virksomhetsinformasjonHovedenhet virksomhetsinformasjon = 0
+  innsender innsender = 0
+  fagsystemreferanse fagsystemReferanse = 0
+  signering signering = 0
+  gebyransvarlig gebyransvarlig = 0
+  uRL lenkeForEttersending = 0
+ }
+// TODO: beskriv klassen
+message Innsender
+ {
+  uriorcurie id = 0
+  virksomhet virksomhet = 0
+  person person = 0
+  ePostadresse ePostadresse = 0
+  mobilnummer mobilnummer = 0
+  string test = 0
+ }
+// TODO: beskriv klassen
+message InternasjonalAdresse
+ {
+  uriorcurie id = 0
+  string adressenavn = 0
+  string adressenummer = 0
+  string bygning = 0
+  string etasjenummer = 0
+  string boenhet = 0
+  string postboks = 0
+  string postkode = 0
+  string byEllerStedsnavn = 0
+  string region = 0
+  string distriktEllerBydel = 0
+ repeated  string friAdressetekst = 0
+  string adresseidentifikator = 0
+  landkode landkode = 0
+ }
+// TODO: beskriv klassen
+message Kontaktopplysning
+ {
+  uriorcurie id = 0
+  mobilnummer mobilnummer = 0
+  ePostadresse ePostadresse = 0
+  uRL nettadresse = 0
+  boolean mobilnummerUtgaar = 0
+  boolean ePostadresseUtgaar = 0
+  boolean nettadresseUtgaar = 0
+  telefonnummer telefonnummer = 0
+  boolean telefonnummerUtgaar = 0
+ }
+// TODO: beskriv klassen
+message Matrikkelnummer
+ {
+  uriorcurie id = 0
+  kommunenummer kommunenummer = 0
+  integer gaardsnummer = 0
+  integer bruksnummer = 0
+  integer festenummer = 0
+ }
+// TODO: beskriv klassen
+message Mobilnummer
+ {
+  uriorcurie id = 0
+  internasjonaltPrefiks internasjonaltPrefiks = 0
+  nasjonaltNummer nasjonaltNummer = 0
+ }
+// TODO: beskriv klassen
+message Omdanning
+ {
+  uriorcurie id = 0
+  organisasjonsform nyOrganisasjonsform = 0
+ }
+// TODO: beskriv klassen
+message Person
+ {
+  uriorcurie id = 0
+  personMappingId mappingId = 0
+  string fulltNavn = 0
+ }
+// TODO: beskriv klassen
+message Postadresse
+ {
+  uriorcurie id = 0
+  string coNavn = 0
+  string vNavn = 0
+  boolean utgaar = 0
+  vegadresse vegadresse = 0
+  postboksadresse postboksadresse = 0
+  internasjonalAdresse internasjonalAdresse = 0
+  stedsadresse stedsadresse = 0
+ }
+// TODO: beskriv klassen
+message Postboksadresse
+ {
+  uriorcurie id = 0
+  postboksnummer postboksnummer = 0
+  string postboksanleggsnavn = 0
+  postnummer postnummer = 0
+  kommunenummer kommunenummer = 0
+ }
+// TODO: beskriv klassen
+message Prokura
+ {
+  uriorcurie id = 0
+  boolean utgaar = 0
+ repeated  prokurabestemmelse prokurabestemmelse = 0
+  boolean bekreftelseProtokoll = 0
+ }
+// TODO: beskriv klassen
+message Prokurabestemmelse
+ {
+  uriorcurie id = 0
+  signaturrettEllerProkuraregel regel = 0
+ repeated  rollesett rollesett = 0
+ }
+// TODO: beskriv klassen
+message Rolle
+ {
+  uriorcurie id = 0
+  rolletype rolletype = 0
+  personMappingId tildelerAvRolle = 0
+  rolleinnehaver rolleinnehaver = 0
+ }
+// TODO: beskriv klassen
+message Rolleinnehaver
+ {
+  uriorcurie id = 0
+  boolean oenskerAAFratre = 0
+  ansvarsandel ansvarsandel = 0
+  organisasjonsnummer avdelingskontor = 0
+  boolean fratredenErVarslet = 0
+  valgtAv valgtAv = 0
+  virksomhet virksomhet = 0
+  person person = 0
+ }
+// TODO: beskriv klassen
+message Rollesett
+ {
+  uriorcurie id = 0
+  rolletype rolletype = 0
+ repeated  signaturberettigetEllerProkurist signaturberettigetEllerProkurist = 0
+  mengdeangivelse minsteMengdeangivelse = 0
+  integer minsteAntall = 0
+ }
+// TODO: beskriv klassen
+message Rolletypegruppe
+ {
+  uriorcurie id = 0
+  rolletypegruppe2 rollegruppe = 0
+  boolean utgaar = 0
+  boolean kjoennssammensetningAnsattvalgte = 0
+  boolean kjoennssammensetningStyre = 0
+ repeated  rolle rolle = 0
+  boolean bekreftelseProtokoll = 0
+ }
+// TODO: beskriv klassen
+message SignaturberettigetEllerProkurist
+ {
+  uriorcurie id = 0
+  virksomhet virksomhet = 0
+  person person = 0
+ }
+// TODO: beskriv klassen
+message Signaturrett
+ {
+  uriorcurie id = 0
+  boolean utgaar = 0
+ repeated  signaturrettsbestemmelse signaturrettsbestemmelsse = 0
+  boolean bekreftelseProtokoll = 0
+ }
+// TODO: beskriv klassen
+message Signaturrettsbestemmelse
+ {
+  uriorcurie id = 0
+  signaturrettEllerProkuraregel regel = 0
+ repeated  rollesett rollesett = 0
+ }
+// TODO: beskriv klassen
+message Signering
+ {
+  uriorcurie id = 0
+ }
+// TODO: beskriv klassen
+message Stedsadresse
+ {
+  uriorcurie id = 0
+  string stedsnavn = 0
+  kommunenummer kommunenummer = 0
+  postnummer postnummer = 0
+ }
+// TODO: beskriv klassen
+message Telefonnummer
+ {
+  uriorcurie id = 0
+  internasjonaltPrefiks internasjonaltPrefiks = 0
+  nasjonaltNummer nasjonaltNummer = 0
+ }
+// TODO: beskriv klassen
+message TypeAktivitet
+ {
+  uriorcurie id = 0
+  integer rekkefoelge = 0
+  aktivitetskode aktivitetskode = 0
+  tekst1000 tekst = 0
+ }
+// TODO: beskriv klassen
+message Varslingsadresse
+ {
+  uriorcurie id = 0
+  mobilnummer mobilnummer = 0
+  ePostadresse ePostadresse = 0
+ }
+// TODO: beskriv klassen
+message Vegadresse
+ {
+  uriorcurie id = 0
+  string vegadresseId = 0
+  string adressenavn = 0
+  bruksenhetsnummer bruksenhetsnummer = 0
+  adressenummer nummer = 0
+  string adressetilleggsnavn = 0
+  kommunenummer kommunenummer = 0
+  postnummer postnummer = 0
+ }
+// TODO: beskriv klassen
+message Virksomhet
+ {
+  uriorcurie id = 0
+  organisasjonsnummer virksomhetsidentifikator = 0
+  virksomhetsnavn navn = 0
+ }
+// TODO: beskriv klassen
+message VirksomhetsinformasjonHovedenhet
+ {
+  uriorcurie id = 0
+  organisasjonsform organisasjonsform = 0
+  virksomhetstype virksomhetstype = 0
+  organisasjonsnummer organisasjonsnummer = 0
+  virksomhetsnavn navn = 0
+  maalform maalform = 0
+  boolean oppfyllerKravTilNaeringsvirksomhet = 0
+  boolean venterAAFaaAnsatte = 0
+  dato datoForAvtale = 0
+  dato stiftelsesdato = 0
+  dato vedtektsdato = 0
+  string formaal = 0
+  boolean harAnsvarsbegrensning = 0
+  ansvarsform ansvarsform = 0
+  forretningsadresse forretningsadresse = 0
+  varslingsadresse varslingsadresse = 0
+  postadresse postadresse = 0
+  kontaktopplysning kontaktopplysning = 0
+ repeated  virksomhetsinformasjonUnderenhet virksomhetsinformasjonUnderenhet = 0
+  aktivitet aktivitet = 0
+  omdanning omdanning = 0
+ repeated  rolletypegruppe rolletypegruppe = 0
+  prokura prokura = 0
+  signaturrett signaturrett = 0
+  boolean meldtOpploesning = 0
+  boolean meldtOmgjoeringAvOpploesning = 0
+  foretaksinformasjon foretaksinformasjon = 0
+ repeated  eierskifteAktivitet eierskifte = 0
+  boolean bekreftelseProtokollSletting = 0
+ repeated  matrikkelnummer matrikkelnummer = 0
+ repeated  tilknyttetRegistertype registrertITilknyttetRegister = 0
+  boolean bekreftelseProtokollOpploesningOgOmgjoering = 0
+ }
+// TODO: beskriv klassen
+message VirksomhetsinformasjonUnderenhet
+ {
+  uriorcurie id = 0
+  dato oppstartsdato = 0
+  virksomhetsnavn navn = 0
+  organisasjonsnummer organisasjonsnummer = 0
+  dato nedleggelsesdato = 0
+  beliggenhetsadresse beliggenhetsadresse = 0
+  postadresse postadresse = 0
+  kontaktopplysning kontaktopplysning = 0
+  aktivitet aktivitet = 0
+ }
+

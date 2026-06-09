@@ -4,43 +4,43 @@ Alle kommandoar køyrer via containerar — ingen lokal Python-installasjon tren
 
 ## Oppsett og føresetnadar
 
-| Kommando | Beskriving |
-|---|---|
-| `make check-prereqs` | Sjekk at Podman, GNU make, user namespace og diskplass er korrekt konfigurert |
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make check-prereqs` | Sjekkar at Podman, GNU make, user namespace og ledig diskplass er korrekt konfigurert | Skriv OK/FEIL per føresetnad til stdout; avsluttar med kode 1 ved feil |
 
 ## Container-image-bygging
 
 Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
-| Kommando | Image | Bruk |
+| Kommando | Beskriving | Output |
 |---|---|---|
-| `make linkml-build-docker` | `linkml-local` | Artefaktgenerering og validering |
-| `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
-| `make python-build-docker` | `python-pytest` | Python-testar |
-| `make mcp-mod-build` | `mcp-linkml-modell-utkast` | Modell-utkast MCP-server |
-| `make mcp-begrep-build` | `mcp-linkml-begrep-utkast` | Begrepsinstans-generator MCP-server |
-| `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
+| `make linkml-build-docker` | Byggjer container-image for artefaktgenerering og validering. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/linkml-local:latest` |
+| `make docs-build-docker` | Byggjer container-image for dokumentasjonsportalen. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/mkdocs-local:latest` |
+| `make python-build-docker` | Byggjer container-image for Python-testar. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/python-pytest:latest` |
+| `make mcp-mod-build` | Byggjer container-image for modell-utkast MCP-server. | Image `localhost/mcp-linkml-modell-utkast:latest` |
+| `make mcp-begrep-build` | Byggjer container-image for begrepsinstans-generator MCP-server. | Image `localhost/mcp-linkml-begrep-utkast:latest` |
+| `make mcp-val-build` | Byggjer container-image for validator MCP-server. | Image `localhost/mcp-linkml-validator:latest` |
 
 ## Ny modell
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make new-model NAME=<namn> DOMAIN=<domene>` | Opprett filstruktur og boilerplate for ny modell | `src/linkml/<domene>/<namn>/<namn>-schema.yaml`<br>`src/linkml/<domene>/<namn>/examples/<namn>-eksempel.yaml` |
+| `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-modell. Skjemaet passerer `POLICY=bronze` utan manuell redigering. | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
 
 Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 
 ## Validering
 
-| Kommando | Beskriving |
-|---|---|
-| `./tests/lint_schema.bash <skjema>` | Linter skjema (rask enkeltsjekk) |
-| `./tests/validate_schema.bash <skjema> <eksempel>` | Valider eksempelfil mot skjema (rask enkeltsjekk, utan lint og generatorar) |
-| `make test SCHEMA=<sti>` | Køyr full testsuite (lint + validering + alle generatorar) for eitt skjema |
-| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering, bronze-nivå |
-| `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering, silver-nivå |
-| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering, gold-nivå |
-| `make test` | Lint alle skjema og valider alle eksempelfiler |
-| `make validate` | Valider alle skjema mot LinkML-metaskjemaet |
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `./tests/lint_schema.bash <modell>` | Linter eit enkelt skjema raskt utan å køyre generatorar. Nyttig for hurtigsjekk under utvikling. | OK/FEIL til stdout; avsluttar med kode 1 ved feil |
+| `./tests/validate_schema.bash <modell> <eksempel>` | Validerer éin eksempelfil mot eit skjema utan lint og generatorar. Raskaste enkeltsjekk av datainnhald. | OK/FEIL til stdout; avsluttar med kode 1 ved feil |
+| `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
+| `make test` | Linter alle skjema og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
+| `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
 
 ### Validerings-Policyar
 
@@ -71,26 +71,26 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make gen-jsonld` | JSON-LD kontekst | `generated/<domene>/<skjema>/<skjema>-context.jsonld` |
-| `make gen-shacl` | SHACL shapes | `generated/<domene>/<skjema>/<skjema>-shapes.ttl` |
-| `make gen-python` | Python-dataklassar | `generated/<domene>/<skjema>/<skjema>-model.py` |
-| `make gen-jsonschema` | JSON Schema | `generated/<domene>/<skjema>/<skjema>-schema.json` |
-| `make gen-owl` | OWL/Turtle-ontologi | `generated/<domene>/<skjema>/<skjema>-ontology.ttl` |
-| `make gen-rdf` | RDF/Turtle-graf av skjemaet | `generated/<domene>/<skjema>/<skjema>-schema.ttl` |
-| `make gen-erdiagram` | Mermaid ER-diagram | `generated/<domene>/<skjema>/<skjema>-erdiagram.md` |
-| `make gen-docs` | HTML-klassereferanse | `generated/<domene>/<skjema>/docs/` |
-| `make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domene>/<skjema>/<skjema>-eksempel.ttl` |
+| `make gen-jsonld` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
+| `make gen-shacl` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
+| `make gen-python` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` |
+| `make gen-jsonschema` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` |
+| `make gen-owl` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
+| `make gen-rdf` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` |
+| `make gen-erdiagram` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
+| `make gen-docs` | HTML-klassereferanse | `generated/<domain>/<modell>/docs/` |
+| `make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |
 | `make clean` | Slett `generated/` | — |
 
-Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen Makefile-endringar nødvendig.
+Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ingen Makefile-endringar nødvendig.
 
 ## Dokumentasjonsportal
 
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make publish` | Kopier `generated/` → `mkdocs/docs/` og regenerer `mkdocs.yml` | `mkdocs/docs/` |
-| `make docs-serve` | Start lokal dev-server med live reload | `http://localhost:8000` |
-| `make docs-build` | Bygg statisk HTML-site (produksjon) | `mkdocs/site/` |
+| `make docs-serve` | Start lokal dev-server med live reload. Leser `mkdocs/docs/` | `http://localhost:8000` |
+| `make docs-build` | Bygg statisk HTML-site (CI-pipeline for produksjon) | `mkdocs/site/` |
 | `make docs-build-fast` | Same som `docs-build`, men hoppar over uendra sider | `mkdocs/site/` |
 
 `make publish` køyrer `mkdocs/publish.sh` som kopier artefakter og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
@@ -99,30 +99,29 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make mcp-generate SCHEMA=<sti>` | Generer LinkML-utkast frå JSON Schema-fil | `<same katalog>/<skjema>-schema.yaml` |
-| `make mcp-generate SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same med eksplisitt format og profil | `<same katalog>/<skjema>-schema.yaml` |
-| `make mcp-mod-build` | Bygg container-image | — |
-| `make mcp-mod-smoke` | Røyktest med eksempel-meldingar | — |
-| `make mcp-mod-test` | Køyr alle unit-testar | — |
-| `make mcp-mod-run` | Start server interaktivt (stdin/stdout) | — |
+| `make mcp-generate SCHEMA=<sti>` | Genererer eit LinkML-skjemautkast frå ei JSON Schema-fil ved hjelp av MCP-serveren. | `<same katalog>/<modell>-schema.yaml` |
+| `make mcp-generate SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same som over med eksplisitt format og profil. | `<same katalog>/<modell>-schema.yaml` |
+| `make mcp-mod-build` | Byggjer container-image for MCP-serveren (eingongsoperasjon). | Image `localhost/mcp-linkml-modell-utkast:latest` |
+| `make mcp-mod-smoke` | Køyrer røyktest med eksempel-meldingar for å verifisere at serveren svarar korrekt. | Testresultat til stdout; avsluttar med kode 1 ved feil |
+| `make mcp-mod-test` | Køyrer alle unit-testar for MCP-serveren. | Testresultat til stdout; avsluttar med kode 1 ved feil |
+| `make mcp-mod-run` | Startar MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
 ## mcp-linkml-begrep-utkast
 
-| Kommando | Beskriving |
-|---|---|
-| `make mcp-begrep-build` | Bygg container-image |
-| `make mcp-begrep-run` | Start server interaktivt (stdin/stdout) |
-| `make mcp-begrep-smoke` | Røyktest med eksempel-meldingar |
-| `make mcp-begrep-list-profiles` | List tilgjengelege organisasjonsprofiler |
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make mcp-begrep-build` | Byggjer container-image for MCP-serveren (eingongsoperasjon). | Image `localhost/mcp-linkml-begrep-utkast:latest` |
+| `make mcp-begrep-run` | Startar MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
+| `make mcp-begrep-smoke` | Køyrer røyktest med eksempel-meldingar for å verifisere at serveren svarar korrekt. | Testresultat til stdout; avsluttar med kode 1 ved feil |
+| `make mcp-begrep-list-profiles` | Listar alle tilgjengelege organisasjonsprofiler som kan brukast ved oppretting av begrep. | JSON-liste over profil-ID-ar til stdout |
 
 ## LinkML-validator mcp-server (mcp-linkml-validator)
 
-| Kommando | Beskriving |
-|---|---|
-| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Validerer LinkML skjema mot bronze policyen |
-| `make mcp-val-build` | Bygg container-image |
-| `make mcp-val-smoke` | Røyktest med eksempel-meldingar |
-| `make mcp-val-test` | Køyr policy-testar |
-| `make mcp-val-run` | Start server interaktivt (stdin/stdout) |
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make mcp-val-build` | Byggjer container-image for validator MCP-serveren (eingongsoperasjon). | Image `localhost/mcp-linkml-validator:latest` |
+| `make mcp-val-smoke` | Køyrer røyktest med eksempel-meldingar for å verifisere at serveren svarar korrekt. | Testresultat til stdout; avsluttar med kode 1 ved feil |
+| `make mcp-val-test` | Køyrer alle policy-testar for validator MCP-serveren. | Testresultat til stdout; avsluttar med kode 1 ved feil |
+| `make mcp-val-run` | Startar validator MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
 

@@ -1,5 +1,5 @@
 # Auto generated from dqv-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-02T06:41:52
+# Generation date: 2026-06-08T14:31:13
 # Schema: dqv-ap-no
 #
 # id: https://data.norge.no/ap-no/dqv-ap-no

@@ -28,7 +28,7 @@
     linkml:default_prefix "https://data.norge.no/begrepskatalog/brreg-begrepskatalog/" ;
     linkml:default_range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/string> ;
     linkml:description "Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog." ;
-    linkml:generation_date "2026-06-08T09:38:22"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-08T14:31:46"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/begrepskatalog/brreg-begrepskatalog"^^xsd:anyURI ;
     linkml:imports "../../ap-no/common/common-ap-no-schema"^^xsd:anyURI,
         "../../ap-no/skos-ap-no/skos-ap-no-schema"^^xsd:anyURI,

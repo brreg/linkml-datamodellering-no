@@ -92,6 +92,7 @@ nav:
       - 'ngr-virksomhet': ngr/ngr-virksomhet/index.md
   - 'OREG – Offentlege registre':
       - oreg/index.md
+      - 'enhetsregisteret-bvrinn': oreg/enhetsregisteret-bvrinn/index.md
       - 'register-over-aksjeeiere': oreg/register-over-aksjeeiere/index.md
   - 'SAMT – Kommunale integrasjonar':
       - samt/index.md

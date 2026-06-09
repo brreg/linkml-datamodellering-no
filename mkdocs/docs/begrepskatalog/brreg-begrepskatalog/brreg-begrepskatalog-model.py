@@ -1,5 +1,5 @@
 # Auto generated from brreg-begrepskatalog-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T09:38:11
+# Generation date: 2026-06-08T14:31:13
 # Schema: brreg-begrepskatalog
 #
 # id: https://data.norge.no/begrepskatalog/brreg-begrepskatalog
