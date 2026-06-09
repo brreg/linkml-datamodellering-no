@@ -23,6 +23,4 @@ conventional commits for versjonering av modeller
 lage tester som genererer til eit format, for så å generere tilbake til LinkML format og verifisere at resultatet blir det samme
 
 
-lage subset for metadata
-
 validere br krav til metadata

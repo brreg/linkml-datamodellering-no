@@ -8,7 +8,7 @@ description: >
   ressurs.tilgang (identitetar og rettigheiter).
 version: "4.0.20"
 
-default_prefix: https://schema.fintlabs.no/ressurs/
+default_prefix: https://data.norge.no/fint/fint-ressurs/
 default_range: string
 
 imports:

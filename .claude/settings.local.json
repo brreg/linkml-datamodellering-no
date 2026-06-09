@@ -72,7 +72,10 @@
       "Bash(grep -n \"^  [A-Z][a-zA-Z]*:$\" /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml)",
       "Bash(grep -n \"^  [A-Z][a-zA-Z]*:$\" /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.yaml)",
       "Bash(sed -n '49,58p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)",
-      "Bash(sed -n '56,72p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)"
+      "Bash(sed -n '56,72p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)",
+      "Bash(make lint *)",
+      "Bash(make validate-instance *)",
+      "Bash(make gen-rdf *)"
     ]
   },
   "enableAllProjectMcpServers": true,

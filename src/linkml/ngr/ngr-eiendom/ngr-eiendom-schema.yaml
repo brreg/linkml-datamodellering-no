@@ -121,10 +121,7 @@ classes:
         range: Etasje
         multivalued: true
         inlined_as_list: true
-      teiger:
-        range: Teig
-        multivalued: true
-        inlined_as_list: true
+
       tinglystEierforhold:
         range: TinglystEierforhold
         multivalued: true
@@ -153,14 +150,7 @@ classes:
         range: Rettighetshaver
         multivalued: true
         inlined_as_list: true
-      tinglystHeftelser:
-        range: TinglystHeftelse
-        multivalued: true
-        inlined_as_list: true
-      rettigheter:
-        range: RettighetForAaBenytteEiendom
-        multivalued: true
-        inlined_as_list: true
+
       borettslag:
         range: Borettslag
         multivalued: true

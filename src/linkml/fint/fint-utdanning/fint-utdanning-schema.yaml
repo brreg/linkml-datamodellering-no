@@ -7,7 +7,7 @@ description: >
   kontaktlærergrupper, utdanningsprogram, programområde, vurdering, lærling og OT.
 version: "4.0.20"
 
-default_prefix: https://schema.fintlabs.no/utdanning/
+default_prefix: https://data.norge.no/fint/fint-utdanning/
 default_range: string
 
 imports:

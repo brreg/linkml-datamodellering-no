@@ -8,7 +8,7 @@ prefixes:
   samtbuskole: https://example.no/ontology/skole#
   org:    http://www.w3.org/ns/org#
 
-default_prefix: samtbuskole
+default_prefix: https://data.norge.no/samt/samt-bu/
 default_range: string
 
 imports:
@@ -137,6 +137,7 @@ classes:
         inlined_as_list: true
 
   Skole:
+    class_uri: samtbuskole:Skole
     description: En skole er en privat eller offentlig institusjon eller et lærested hvor lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
     exact_mappings:
       - org:OrganizationalUnit
@@ -150,6 +151,7 @@ classes:
 
   # --- Abstrakt superklasse ---
   Skoleeier:
+    class_uri: samtbuskole:Skoleeier
     abstract: true
     exact_mappings:
       - foaf:Agent
@@ -161,6 +163,7 @@ classes:
       - https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a
 
   Kommune:
+    class_uri: samtbuskole:Kommune
     exact_mappings:
       - org:Organization
     description: En kommune er et geografisk avgrenset område som utgjør en egen politisk og administrativ enhet innen en statsdannelse.
@@ -171,6 +174,7 @@ classes:
       - https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633
 
   Fylke:
+    class_uri: samtbuskole:Fylke
     description: Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt geografisk område, tilsvarende amt og len.
     exact_mappings:
       - org:Organization
@@ -179,6 +183,7 @@ classes:
       - fylkesnummer
 
   PrivatVirksomhet:
+    class_uri: samtbuskole:PrivatVirksomhet
     description: Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon som produserer varer eller tjenester.
     exact_mappings:
       - org:Organization
@@ -188,6 +193,7 @@ classes:
       - organisasjonsnummer
 
   Basisgruppe:
+    class_uri: samtbuskole:Basisgruppe
     description: Skoleklasse som hovedsaklig samler elever i ulike fag.
     close_mappings:
       - schema:EducationalOccupationalProgram
@@ -199,6 +205,7 @@ classes:
       - del_av_skole
 
   Person:
+    class_uri: samtbuskole:Person
     description: Eit menneske individ
     abstract: true
     exact_mappings:
@@ -210,6 +217,7 @@ classes:
       - https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e
 
   Elev:
+    class_uri: samtbuskole:Elev
     description: En person som går på skole
     close_mappings:
       - schema:Student
@@ -218,12 +226,14 @@ classes:
       - horer_til_basisgruppe
 
   Rektor:
+    class_uri: samtbuskole:Rektor
     description: Høgaste akademiske leder av en skole
     is_a: Person
     slots:
       - enhetsleder_for
 
   Kontaktlaerer:
+    class_uri: samtbuskole:Kontaktlaerer
     description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane i basisgruppa
     close_mappings:
       - schema:Teacher
@@ -244,6 +254,7 @@ slots:
   #   description: Global identifikator (CURIE/URI).
 
   navn:
+    slot_uri: samtbuskole:navn
     range: string
     description: Namn på ressursen.
 
@@ -272,11 +283,13 @@ slots:
     range: string
 
   trinniva:
+    slot_uri: samtbuskole:trinniva
     description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
     range: string
 
   # --- Relasjoner ---
   har_skoleeier:
+    slot_uri: samtbuskole:harSkoleeier
     description: Skoleeier for skolen
     exact_mappings:
       - org:hasUnit
@@ -293,6 +306,7 @@ slots:
 
 
   horer_til_basisgruppe:
+    slot_uri: samtbuskole:horerTilBasisgruppe
     description: Basisgruppe elev tilhører
     close_mappings:
       - schema:memberOf
@@ -301,6 +315,7 @@ slots:
 
 
   enhetsleder_for:
+    slot_uri: samtbuskole:enhetslederFor
     description: Enhet rektor er enhetsleder for
     close_mappings:
       - org:headOf
@@ -309,6 +324,7 @@ slots:
 
 
   tilknyttet_basisgruppe:
+    slot_uri: samtbuskole:tilknyttetBasisgruppe
     description: Basisgruppe kontaktlærer er tilknyttet
     close_mappings:
       - schema:teaches
@@ -317,12 +333,14 @@ slots:
 
 
   har_saerlig_ansvar_for:
+    slot_uri: samtbuskole:harSaerligAnsvarFor
     description: Elev kontaktlæreren har særlig ansvar for
     domain: Kontaktlaerer
     range: Elev
 
 
   jobber_paa_skole:
+    slot_uri: samtbuskole:jobberPaaSkole
     description: Skolen kontaktlæreren jobber på
     close_mappings:
       - schema:worksFor

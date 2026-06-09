@@ -9,7 +9,7 @@ generators:
   json_schema: true
   owl: true
   owl_flags: "--log_level ERROR"
-  rdf: false
+  rdf: true
   protobuf: true
   erdiagram: true
   docs: true
