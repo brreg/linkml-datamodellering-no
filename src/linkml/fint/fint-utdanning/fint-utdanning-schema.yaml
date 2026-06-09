@@ -43,6 +43,8 @@ classes:
         inlined_as_list: true
       elevforhold:
         range: Elevforhold
+        multivalued: true
+        inlined_as_list: true
       elevtilrettelegging:
         range: Elevtilrettelegging
         multivalued: true
@@ -54,6 +56,7 @@ classes:
       klassemedlemskap:
         range: Klassemedlemskap
         multivalued: true
+        inlined_as_list: true
       kontaktlaerergrupper:
         range: Kontaktlaerergruppe
         multivalued: true
@@ -61,6 +64,7 @@ classes:
       kontaktlaerergruppemedlemskap:
         range: Kontaktlaerergruppemedlemskap
         multivalued: true
+        inlined_as_list: true
       persongrupper:
         range: Persongruppe
         multivalued: true
@@ -68,9 +72,11 @@ classes:
       persongruppemedlemskap:
         range: Persongruppemedlemskap
         multivalued: true
+        inlined_as_list: true
       varsel:
         range: Varsel
         multivalued: true
+        inlined_as_list: true
       arstrinn:
         range: Arstrinn
         multivalued: true
@@ -82,13 +88,19 @@ classes:
       programomrademedlemskap:
         range: Programomrademedlemskap
         multivalued: true
+        inlined_as_list: true
       utdanningsprogram:
         range: Utdanningsprogram
         multivalued: true
+        inlined_as_list: true
       eksamen:
         range: Eksamen
+        multivalued: true
+        inlined_as_list: true
       fag:
         range: Fag
+        multivalued: true
+        inlined_as_list: true
       faggrupper:
         range: Faggruppe
         multivalued: true
@@ -96,8 +108,11 @@ classes:
       faggruppemedlemskap:
         range: Faggruppemedlemskap
         multivalued: true
+        inlined_as_list: true
       rom:
         range: Rom
+        multivalued: true
+        inlined_as_list: true
       timar:
         range: Time
         multivalued: true
@@ -105,6 +120,7 @@ classes:
       undervisningsforhold:
         range: Undervisningsforhold
         multivalued: true
+        inlined_as_list: true
       undervisningsgrupper:
         range: Undervisningsgruppe
         multivalued: true
@@ -112,6 +128,7 @@ classes:
       undervisningsgruppemedlemskap:
         range: Undervisningsgruppemedlemskap
         multivalued: true
+        inlined_as_list: true
       anmerkningar:
         range: Anmerkninger
         multivalued: true
@@ -123,13 +140,19 @@ classes:
       eksamensgruppemedlemskap:
         range: Eksamensgruppemedlemskap
         multivalued: true
+        inlined_as_list: true
       eksamensvurdering:
         range: Eksamensvurdering
         multivalued: true
+        inlined_as_list: true
       elevfravar:
         range: Elevfravar
+        multivalued: true
+        inlined_as_list: true
       elevvurdering:
         range: Elevvurdering
+        multivalued: true
+        inlined_as_list: true
       fravarsoversikt:
         range: Fravarsoversikt
         multivalued: true
@@ -137,42 +160,63 @@ classes:
       fraversregistrering:
         range: Fraversregistrering
         multivalued: true
+        inlined_as_list: true
       halvaarsfagvurdering:
         range: Halvaarsfagvurdering
         multivalued: true
+        inlined_as_list: true
       halvaarsordensvurdering:
         range: Halvaarsordensvurdering
         multivalued: true
+        inlined_as_list: true
       karakterhistorie:
         range: Karakterhistorie
         multivalued: true
+        inlined_as_list: true
       sensor:
         range: Sensor
         multivalued: true
+        inlined_as_list: true
       sluttfagvurdering:
         range: Sluttfagvurdering
         multivalued: true
+        inlined_as_list: true
       sluttordensvurdering:
         range: Sluttordensvurdering
         multivalued: true
+        inlined_as_list: true
       underveisfagvurdering:
         range: Underveisfagvurdering
         multivalued: true
+        inlined_as_list: true
       underveisordensvurdering:
         range: Underveisordensvurdering
         multivalued: true
+        inlined_as_list: true
       vitnemalsmerknad:
         range: Vitnemalsmerknad
+        multivalued: true
+        inlined_as_list: true
       betalingsstatus:
         range: Betalingsstatus
+        multivalued: true
+        inlined_as_list: true
       fagstatus:
         range: Fagstatus
+        multivalued: true
+        inlined_as_list: true
       karakterstatus:
         range: Karakterstatus
+        multivalued: true
+        inlined_as_list: true
       skoleaar:
         range: Skoleaar
+        multivalued: true
+        inlined_as_list: true
       tilrettelegging:
         range: Tilrettelegging
+        multivalued: true
+        inlined_as_list: true
       avlagteprover:
         range: AvlagtProve
         multivalued: true
@@ -248,83 +292,6 @@ classes:
       varseltypar:
         range: Varseltype
         multivalued: true
-        inlined_as_list: true
-    slot_usage:
-      elevforhold:
-        multivalued: true
-        inlined_as_list: true
-      eksamen:
-        multivalued: true
-        inlined_as_list: true
-      fag:
-        multivalued: true
-        inlined_as_list: true
-      rom:
-        multivalued: true
-        inlined_as_list: true
-      elevfravar:
-        multivalued: true
-        inlined_as_list: true
-      elevvurdering:
-        multivalued: true
-        inlined_as_list: true
-      vitnemalsmerknad:
-        multivalued: true
-        inlined_as_list: true
-      betalingsstatus:
-        multivalued: true
-        inlined_as_list: true
-      fagstatus:
-        multivalued: true
-        inlined_as_list: true
-      karakterstatus:
-        multivalued: true
-        inlined_as_list: true
-      skoleaar:
-        multivalued: true
-        inlined_as_list: true
-      tilrettelegging:
-        multivalued: true
-        inlined_as_list: true
-      klassemedlemskap:
-        inlined_as_list: true
-      kontaktlaerergruppemedlemskap:
-        inlined_as_list: true
-      persongruppemedlemskap:
-        inlined_as_list: true
-      programomrademedlemskap:
-        inlined_as_list: true
-      undervisningsgruppemedlemskap:
-        inlined_as_list: true
-      eksamensgruppemedlemskap:
-        inlined_as_list: true
-      faggruppemedlemskap:
-        inlined_as_list: true
-      utdanningsprogram:
-        inlined_as_list: true
-      undervisningsforhold:
-        inlined_as_list: true
-      varsel:
-        inlined_as_list: true
-      karakterhistorie:
-        inlined_as_list: true
-      sensor:
-        inlined_as_list: true
-      fraversregistrering:
-        inlined_as_list: true
-      halvaarsfagvurdering:
-        inlined_as_list: true
-      halvaarsordensvurdering:
-        inlined_as_list: true
-      sluttfagvurdering:
-        inlined_as_list: true
-      sluttordensvurdering:
-        inlined_as_list: true
-      underveisfagvurdering:
-        inlined_as_list: true
-      underveisordensvurdering:
-        inlined_as_list: true
-      eksamensvurdering:
         inlined_as_list: true
 
   # --- utdanning.basisklasser (abstrakte) ------------------------------------

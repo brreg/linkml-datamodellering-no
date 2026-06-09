@@ -31,11 +31,34 @@ fair-metadata         ← kan importeres av alle domenemodeller
 make lint SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
 make validate-instance SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml INSTANCE=src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml
 
+# Rask roundtrip-verifisering (JSON og TTL) — ~30 sek i staden for ~3 min:
+make roundtrip SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
+
 # MCP-validator dersom dette er angitt av bruker:
 make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
 make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
 make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
+
+## Kjente feil
+
+Alle kjente feil med aktive workarounds er dokumenterte i `specs/bugs/`.
+Sjå `specs/bugs/README.md` for full oversikt.
+
+**Konvensjon:** kvar skip-betingelse i `tests/test_make.sh` skal referere til
+ei tilhøyrande fil i `specs/bugs/` med BUG-ID i kommentaren og meldinga, t.d.:
+
+```bash
+# BUG-1: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
+# Sjå specs/bugs/langstring-rdflib-roundtrip.md
+if [[ "$name" == "skjema-med-langstring" ]]; then
+    echo "Hoppar over for $name (BUG-1: ...)"
+    return 0
+fi
+```
+
+Når ein ny bug vert oppdaga og workaround lagt inn, opprett ei ny fil i
+`specs/bugs/` og oppdater `specs/bugs/README.md`.
 
 ## Dokumentasjonsportal (mkdocs)
 

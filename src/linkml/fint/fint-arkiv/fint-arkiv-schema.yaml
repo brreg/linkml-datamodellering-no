@@ -672,6 +672,8 @@ classes:
         inlined_as_list: true
       klassifikasjonssystem:
         range: Klassifikasjonssystem
+        multivalued: true
+        inlined_as_list: true
       tilgangar:
         range: Tilgang
         multivalued: true
@@ -770,10 +772,6 @@ classes:
         inlined_as_list: true
       variantformatar:
         range: Variantformat
-        multivalued: true
-        inlined_as_list: true
-    slot_usage:
-      klassifikasjonssystem:
         multivalued: true
         inlined_as_list: true
 
