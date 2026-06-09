@@ -25,14 +25,14 @@ make mcp-val-build
 Valider eit skjema og tilhøyrande eksempel etter kvar endring:
 
 ```bash
-./tests/validate_schema.bash src/linkml/<domene>/<modell>/<modell>-schema.yaml examples/<domene>/<modell>-eksempel.yaml
+make validate-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml INSTANCE=src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 ```
 
 Valider mot kvalitetsprofil (bronze = minimumskrav):
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
 ```
 
 ## Ny domenemodell
@@ -42,7 +42,7 @@ Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 ## Generer artefakter lokalt
 
 ```bash
-make <domene>          # t.d. make ngr, make ap-no, make fair
+make <domain>          # t.d. make ngr, make ap-no, make fair
 make docs-serve        # start lokal dokumentasjonsportal på http://localhost:8000
 ```
 

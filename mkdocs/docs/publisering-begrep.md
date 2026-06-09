@@ -20,8 +20,8 @@ Repoet skil mellom to typar YAML-filer:
 
 | Katalog | Føremål | Publiserast? |
 |---|---|---|
-| `src/linkml/<domene>/<modell>/examples/` | Illustrative døme — viser gyldig datafil, nyttast i gen-doc | **Nei** |
-| `src/linkml/<domene>/<modell>/data/` | Reelle produksjonsdata — det som vert publisert | **Ja** |
+| `src/linkml/<domain>/<modell>/examples/` | Illustrative døme — viser gyldig datafil, nyttast i gen-doc | **Nei** |
+| `src/linkml/<domain>/<modell>/data/` | Reelle produksjonsdata — det som vert publisert | **Ja** |
 
 Eksempelfiler skal **aldri** sendast til Felles Begrepskatalog. Berre filer
 under `data/` vert konverterte og publiserte.

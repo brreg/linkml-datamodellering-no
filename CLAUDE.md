@@ -28,12 +28,13 @@ fair-metadata         ← kan importeres av alle domenemodeller
 
 ```bash
 # Lint og valider eksempel etter kvar endring i eit skjema:
-./tests/validate_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml ./src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml
+make lint SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
+make validate-instance SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml INSTANCE=src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ## Dokumentasjonsportal (mkdocs)
@@ -163,7 +164,7 @@ Sjå `mkdocs/docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
 ```
 src/linkml/
-  <domene>/
+  <domain>/
     <modell>/
       <modell>-schema.yaml
       manifest.yaml             ← publiserings- og generatorkonfig
@@ -221,8 +222,8 @@ CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-unde
 Alle filer nyttar **`kebab-case`**, alltid norsk eller domene-etablert forkortning:
 
 ```
-src/linkml/<domene>/<modell>/<modell>-schema.yaml
-src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml
+src/linkml/<domain>/<modell>/<modell>-schema.yaml
+src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 ```
 
 ### Schema-metadata

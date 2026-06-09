@@ -12,12 +12,12 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build
 ### 1a. — Scaffold
 
 ```bash
-make new-model NAME=<modell> DOMAIN=<domene>
+make new-model NAME=<modell> DOMAIN=<domain>
 ```
 
 Dette oppretter:
 ```
-src/linkml/<domene>/<modell>/
+src/linkml/<domain>/<modell>/
 ├── <modell>-schema.yaml       ← hovudskjema med stub-klasse og containerklasse
 ├── manifest.yaml              ← publiserings- og generatorkonfig
 ├── description.md             ← valfri beskrivelse av modellen, injiserast i portal-index etter ER-diagrammet
@@ -31,26 +31,26 @@ Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
 
 `make mcp-generate SCHEMA=tmp/modell.json`
 
- → genererer tmp/modell-schema.yaml. Kopier til `src/linkml/<domene>/<modell>/<modell>-schema.yaml`
+ → genererer tmp/modell-schema.yaml. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
 ### 2 — Rediger skjemaet
 
 Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) for eksempel på gyldig skjema med forklaringer.
 
-Opne `src/linkml/<domene>/<modell>/<modell>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
+Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
 
 
 
 ### 3 — Valider undervegs
 
 For hurtig validering kan du linte skjemaet:
-`./tests/lint_schema.bash src/linkml/<domene>/<modell>/<modell>-schema.yaml`
+`make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
 Lint + validering mot medaljong-profil:
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 | Policy | Sjekkar |
@@ -62,7 +62,7 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 ### 4 — Full testsuite
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
 ```
-make test SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml
+make test SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
 ```
 
 
@@ -146,7 +146,7 @@ imports:
 Valider mot gold-policy (gold-policy validerer spesifikt FAIR konformitet):
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ---

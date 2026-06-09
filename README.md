@@ -41,11 +41,11 @@ make new-model NAME=modellnavn DOMAIN=domene
 # 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
 make mcp-generate SCHEMA=tmp/modellnavn.json
-# → genererer tmp/modellnavn-schema.yaml. Flytt ho til src/linkml/domene/modellnavn/
+# → genererer tmp/modellnavn-schema.yaml. Flytt ho til src/linkml/domain/modellnavn/
 ```
 ```bash
 # 2. Rediger modellfila etter behov
-#    → src/linkml/domene/modellnavn/modellnavn-schema.yaml
+#    → src/linkml/domain/modellnavn/modellnavn-schema.yaml
 ```
 ```bash
 # 3. Valider skjema
@@ -55,10 +55,10 @@ make mcp-validate \
 ```
 ```bash
 # 4. Generer artefakter og publiser til dokumentasjonsportal
-make domene && make publish && make docs-serve   # → http://localhost:8000
+make <domain> && make publish && make docs-serve   # → http://localhost:8000
 ```
 
-Nye skjema under `src/linkml/<domene>/<modellnavn>/` vert oppdaga automatisk.
+Nye skjema under `src/linkml/<domain>/<modellnavn>/` vert oppdaga automatisk.
 
 For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) og [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/).
 
@@ -124,7 +124,7 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 ## Skjema
 
-Skjema ligg under `src/linkml/<domene>/<skjema>/`
+Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
@@ -154,7 +154,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 ## Genererte artefakter
 
-Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/manifest-config/) for detaljar.
+Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/manifest-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|
@@ -178,7 +178,7 @@ linkml-datamodellering-no/
 ├── src/
 │   ├── assets/                                    # Containere, skript og malar
 │   ├── linkml/                                    # Kilde for LinkML modeller (og begrepsinstanser)
-│   │   └── <domene>/
+│   │   └── <domain>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
 │   │           ├── manifest.yaml                  # Modell-manifest
