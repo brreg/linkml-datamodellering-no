@@ -506,7 +506,13 @@ classes:
         multivalued: true
         inlined_as_list: true
       kjonn:
+        range: Kjonn
+        multivalued: true
+        inlined_as_list: true
       fylke:
+        range: Fylke
+        multivalued: true
+        inlined_as_list: true
       kommunar:
         range: Kommune
         multivalued: true
@@ -526,28 +532,40 @@ classes:
         inlined_as_list: true
       arbeidsforhold:
         range: Arbeidsforhold
+        multivalued: true
+        inlined_as_list: true
       arbeidslokasjoner:
         range: Arbeidslokasjon
         multivalued: true
         inlined_as_list: true
       fastlonn:
         range: Fastlonn
+        multivalued: true
+        inlined_as_list: true
       fasttillegg:
         range: Fasttillegg
+        multivalued: true
+        inlined_as_list: true
       fravaer:
         range: Fravaer
+        multivalued: true
+        inlined_as_list: true
       fullmakter:
         range: Fullmakt
         multivalued: true
         inlined_as_list: true
       organisasjonselement:
         range: Organisasjonselement
+        multivalued: true
+        inlined_as_list: true
       rollar:
         range: Rolle
         multivalued: true
         inlined_as_list: true
       variabellonn:
         range: Variabellonn
+        multivalued: true
+        inlined_as_list: true
       # Domenekodeverk
       aktivitetar:
         range: Aktivitet
@@ -555,8 +573,12 @@ classes:
         inlined_as_list: true
       anlegg:
         range: Anlegg
+        multivalued: true
+        inlined_as_list: true
       ansvar:
         range: Ansvar
+        multivalued: true
+        inlined_as_list: true
       artar:
         range: Art
         multivalued: true
@@ -567,8 +589,12 @@ classes:
         inlined_as_list: true
       diverse:
         range: Diverse
+        multivalued: true
+        inlined_as_list: true
       formaal:
         range: Formaal
+        multivalued: true
+        inlined_as_list: true
       fravaersgrunnar:
         range: Fravaersgrunn
         multivalued: true
@@ -591,8 +617,12 @@ classes:
         inlined_as_list: true
       lopenummer:
         range: Lopenummer
+        multivalued: true
+        inlined_as_list: true
       objekt:
         range: Objekt
+        multivalued: true
+        inlined_as_list: true
       organisasjonstypar:
         range: Organisasjonstype
         multivalued: true
@@ -603,6 +633,8 @@ classes:
         inlined_as_list: true
       prosjekt:
         range: Prosjekt
+        multivalued: true
+        inlined_as_list: true
       prosjektartar:
         range: Prosjektart
         multivalued: true
@@ -617,52 +649,6 @@ classes:
         inlined_as_list: true
       uketimetall:
         range: Uketimetall
-        multivalued: true
-        inlined_as_list: true
-    slot_usage:
-      arbeidsforhold:
-        multivalued: true
-        inlined_as_list: true
-      fastlonn:
-        multivalued: true
-        inlined_as_list: true
-      fasttillegg:
-        multivalued: true
-        inlined_as_list: true
-      fravaer:
-        multivalued: true
-        inlined_as_list: true
-      organisasjonselement:
-        multivalued: true
-        inlined_as_list: true
-      variabellonn:
-        multivalued: true
-        inlined_as_list: true
-      anlegg:
-        multivalued: true
-        inlined_as_list: true
-      ansvar:
-        multivalued: true
-        inlined_as_list: true
-      diverse:
-        multivalued: true
-        inlined_as_list: true
-      formaal:
-        multivalued: true
-        inlined_as_list: true
-      lopenummer:
-        multivalued: true
-        inlined_as_list: true
-      objekt:
-        multivalued: true
-        inlined_as_list: true
-      prosjekt:
-        multivalued: true
-        inlined_as_list: true
-      kjonn:
-        multivalued: true
-        inlined_as_list: true
-      fylke:
         multivalued: true
         inlined_as_list: true
 

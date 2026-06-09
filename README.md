@@ -198,5 +198,10 @@ linkml-datamodellering-no/
 ├── tests/                                         # Testar og fixtures
 ├── generated/                                     # Genererte artefakter (ikkje sjekka inn i git)
 ├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
+│   └── docs/                                      # Den publiserte dokumentasjonsportalen
+├── specs/
+│   ├── backlog/                                   # Planer for endringar og nye features
+│   ├── done/                                      # Utførte planer
+│   └── bugs/                                      # Kjente bugs
 └── tmp/                                           # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```

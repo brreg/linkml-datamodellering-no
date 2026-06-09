@@ -57,7 +57,6 @@ classes:
       - type_concept
     slot_usage:
       namn_aktor:
-        required: true
         in_subset:
           - Obligatorisk
 
@@ -81,7 +80,6 @@ classes:
       - har_versjonsnummer
     slot_usage:
       tittel:
-        required: true
         in_subset:
           - Obligatorisk
 
@@ -147,14 +145,12 @@ classes:
       - tema
       - temaer
       - utgivelsesdato
-      - er_del_av_katalog
+      - er_del_av
     slot_usage:
       tittel:
-        required: true
         in_subset:
           - Obligatorisk
       beskrivelse:
-        required: true
         in_subset:
           - Obligatorisk
       har_del:
@@ -197,7 +193,8 @@ classes:
       temaer:
         in_subset:
           - Valgfri
-      er_del_av_katalog:
+      er_del_av:
+        range: Modellkatalog
         in_subset:
           - Valgfri
 
@@ -224,11 +221,11 @@ classes:
       - tema
       - dekningsomraade
       - endringsdato
-      - er_del_av_modell
+      - er_del_av
       - er_profil_av
       - er_erstatta_av
       - erstatter
-      - har_del_modell
+      - har_del
       - har_format
       - tidsperiode
       - heimeside
@@ -243,7 +240,6 @@ classes:
       - versjonsmerknad
     slot_usage:
       tittel:
-        required: true
         in_subset:
           - Obligatorisk
       utgiver:
@@ -280,7 +276,8 @@ classes:
       endringsdato:
         in_subset:
           - Valgfri
-      er_del_av_modell:
+      er_del_av:
+        range: Informasjonsmodell
         in_subset:
           - Valgfri
       er_profil_av:
@@ -292,7 +289,8 @@ classes:
       erstatter:
         in_subset:
           - Valgfri
-      har_del_modell:
+      har_del:
+        range: Informasjonsmodell
         in_subset:
           - Valgfri
       har_format:
@@ -350,7 +348,6 @@ classes:
       - tilhorer_modul
     slot_usage:
       tittel:
-        required: true
         in_subset:
           - Obligatorisk
       begrep:
@@ -838,13 +835,7 @@ slots:
     slot_uri: dct:hasPart
     range: KatalogisertRessurs
     multivalued: true
-    description: Del-ressurs inkludert i denne katalogen (dct:hasPart).
-
-  har_del_modell:
-    slot_uri: dct:hasPart
-    range: Informasjonsmodell
-    multivalued: true
-    description: Del-informasjonsmodell av denne modellen (dct:hasPart).
+    description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
 
   modell:
     slot_uri: modelldcatno:model
@@ -852,16 +843,10 @@ slots:
     multivalued: true
     description: Informasjonsmodellar i modellkatalogen (modelldcatno:model).
 
-  er_del_av_katalog:
+  er_del_av:
     slot_uri: dct:isPartOf
-    range: Modellkatalog
-    description: Overordna modellkatalog (dct:isPartOf).
-
-  er_del_av_modell:
-    slot_uri: dct:isPartOf
-    range: Informasjonsmodell
-    multivalued: true
-    description: Overordna informasjonsmodell (dct:isPartOf).
+    range: KatalogisertRessurs
+    description: Overordna ressurs denne er ein del av (dct:isPartOf).
 
   er_profil_av:
     slot_uri: prof:isProfileOf

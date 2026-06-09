@@ -75,7 +75,8 @@
       "Bash(sed -n '56,72p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)",
       "Bash(make lint *)",
       "Bash(make validate-instance *)",
-      "Bash(make gen-rdf *)"
+      "Bash(make gen-rdf *)",
+      "Bash(make roundtrip *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -136,7 +136,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
-.PHONY: all test validate lint validate-instance clean domains gen-config \
+.PHONY: all test roundtrip validate lint validate-instance clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
@@ -167,6 +167,13 @@ test:
 	@echo "$(CLR_HDR)*** make test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	bash tests/test_make.sh "$(SCHEMA)"
+
+# Bruk: make roundtrip [SCHEMA=<sti-til-skjema>]
+roundtrip:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make roundtrip$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema))$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	TEST_FILTER=roundtrip bash tests/test_make.sh "$(SCHEMA)"
 
 validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

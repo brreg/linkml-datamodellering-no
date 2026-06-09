@@ -360,6 +360,8 @@ classes:
         inlined_as_list: true
       fakturagrunnlag:
         range: Fakturagrunnlag
+        multivalued: true
+        inlined_as_list: true
       fakturautstederear:
         range: Fakturautsteder
         multivalued: true
@@ -392,10 +394,6 @@ classes:
         inlined_as_list: true
       valutaer:
         range: OkonomiValuta
-        multivalued: true
-        inlined_as_list: true
-    slot_usage:
-      fakturagrunnlag:
         multivalued: true
         inlined_as_list: true
 

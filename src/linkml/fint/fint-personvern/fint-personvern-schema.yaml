@@ -121,12 +121,10 @@ classes:
         inlined_as_list: true
       behandlingsgrunnlag:
         range: Behandlingsgrunnlag
-      personopplysningar:
-        range: Personopplysning
         multivalued: true
         inlined_as_list: true
-    slot_usage:
-      behandlingsgrunnlag:
+      personopplysningar:
+        range: Personopplysning
         multivalued: true
         inlined_as_list: true
 

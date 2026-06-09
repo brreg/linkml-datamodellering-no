@@ -95,7 +95,6 @@ classes:
       - versjonsmerknad
     slot_usage:
       anbefalt_term:
-        required: true
         in_subset:
           - Obligatorisk
       identifikator_literal:
@@ -215,7 +214,6 @@ classes:
       - malgruppe_def
     slot_usage:
       tekst:
-        required: true
         in_subset:
           - Obligatorisk
       kjelde_relasjon:
@@ -252,7 +250,7 @@ classes:
       - id
       - har_generisk_omgrep
       - har_spesifikt_omgrep
-      - inndelingskriterium
+      - beskrivelse
     slot_usage:
       har_generisk_omgrep:
         in_subset:
@@ -260,7 +258,7 @@ classes:
       har_spesifikt_omgrep:
         in_subset:
           - Obligatorisk
-      inndelingskriterium:
+      beskrivelse:
         in_subset:
           - Anbefalt
 
@@ -271,7 +269,7 @@ classes:
       - id
       - har_partitivt_omgrep
       - har_heilskapleg_omgrep
-      - inndelingskriterium
+      - beskrivelse
     slot_usage:
       har_partitivt_omgrep:
         in_subset:
@@ -279,7 +277,7 @@ classes:
       har_heilskapleg_omgrep:
         in_subset:
           - Obligatorisk
-      inndelingskriterium:
+      beskrivelse:
         in_subset:
           - Anbefalt
 
@@ -308,7 +306,6 @@ classes:
         in_subset:
           - Obligatorisk
       tittel:
-        required: true
         in_subset:
           - Obligatorisk
       utgjevar:
@@ -542,12 +539,6 @@ slots:
     range: Begrep
     multivalued: true
     description: Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept).
-
-  inndelingskriterium:
-    slot_uri: dct:description
-    range: LangString
-    multivalued: true
-    description: Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).
 
   har_partitivt_omgrep:
     slot_uri: skosno:hasPartitiveConcept

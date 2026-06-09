@@ -6,9 +6,10 @@ description: Ontodia-vennlig LinkML-modell for skoler
 prefixes:
   linkml: https://w3id.org/linkml/
   samtbuskole: https://example.no/ontology/skole#
+  samtbu: https://data.norge.no/samt/samt-bu/
   org:    http://www.w3.org/ns/org#
 
-default_prefix: https://data.norge.no/samt/samt-bu/
+default_prefix: samtbu
 default_range: string
 
 imports:
