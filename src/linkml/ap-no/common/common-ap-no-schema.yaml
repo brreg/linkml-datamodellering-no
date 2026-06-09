@@ -72,6 +72,9 @@ subsets:
   Valgfri:
     description: Valfrie eigenskapar i ein AP-NO-profil.
 
+  Metadata:
+    description: Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet.
+
 # ---------------------------------------------------------------------------
 # Klassar
 # ---------------------------------------------------------------------------
