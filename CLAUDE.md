@@ -2,6 +2,7 @@
 
 ## Førende prinsipper
 - Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
+- **Planen kjem først:** Når brukaren ber om noko som *ikkje* er å utføre ein eksisterande spesifikasjon, skal det alltid skrivast ein plan til `specs/backlog/<kortnamn>.md` før arbeidet startar. Planen skal følgje same format som andre spesifikasjonar i mappa (bakgrunn, nummererte steg, prioritert handlingsliste, avhengigheiter). Spør ikkje om løyve — berre skriv planen og informer brukaren om kvar ho ligg.
 - Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal spesifikasjonsfila oppdaterast med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), og deretter flyttast til `specs/done/`.
 - Etter at ein spesifikasjon er utført, generer alltid eit utkast til commit-melding i conventional commits-format (sjå `specs/backlog/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme): `<type>(<scope>): <skildring>`
 

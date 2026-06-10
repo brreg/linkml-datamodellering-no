@@ -8,6 +8,7 @@ on:
       - 'src/linkml/**'
       - 'src/assets/containers/Dockerfile.linkml'
       - 'src/assets/containers/Dockerfile.python'
+      - 'src/assets/containers/Dockerfile.avrotize'
       - 'src/assets/containers/requirements-python-test.txt'
       - 'src/assets/templates/**'
       - 'mkdocs/**'
@@ -102,6 +103,33 @@ jobs:
           podman tag localhost/python-pytest:latest "$IMAGE"
           podman push "$IMAGE"
 
+      - name: Cache avrotize-local image
+        id: cache-avrotize
+        uses: actions/cache@v5
+        with:
+          path: avrotize-local.tar.zst
+          key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
+      - name: Sjekk om avrotize-local finst i GHCR
+        id: ghcr-avrotize
+        if: steps.cache-avrotize.outputs.cache-hit == 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
+          podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
+      - name: Bygg avrotize-local image
+        if: steps.cache-avrotize.outputs.cache-hit != 'true'
+        run: |
+          make avrotize-build-docker
+          podman save localhost/avrotize-local:latest | zstd -T0 > avrotize-local.tar.zst
+      - name: Last inn avrotize-local frå cache
+        if: steps.cache-avrotize.outputs.cache-hit == 'true' && steps.ghcr-avrotize.outputs.exists != 'true'
+        run: podman load < <(zstd -d -c avrotize-local.tar.zst)
+      - name: Push avrotize-local til GHCR
+        if: steps.ghcr-avrotize.outputs.exists != 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
+          podman tag localhost/avrotize-local:latest "$IMAGE"
+          podman push "$IMAGE"
+
   generate:
     name: "generate / ${{ matrix.domain }}"
     needs: [ensure-images]
@@ -123,7 +151,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/${{ matrix.domain }}/
-          key: v2-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/templates/**', 'Makefile') }}
+          key: v2-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/templates/**', 'Makefile') }}
 
       - name: Gjenopprett linkml-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -141,17 +169,26 @@ jobs:
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
           fail-on-cache-miss: true
 
+      - name: Gjenopprett avrotize-local frå cache
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: actions/cache/restore@v5
+        with:
+          path: avrotize-local.tar.zst
+          key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
+          fail-on-cache-miss: true
+
       - name: Last images inn i podman
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           podman load < <(zstd -d -c linkml-local.tar.zst)
           podman load < <(zstd -d -c python-pytest.tar.zst)
+          podman load < <(zstd -d -c avrotize-local.tar.zst)
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples data; do
+          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples data xsd; do
             make domain-gen-$artifact DOMAIN=${{ matrix.domain }}
           done
 

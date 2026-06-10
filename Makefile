@@ -3,6 +3,9 @@ SHELL           	:= /bin/bash
 LINKML_IMAGE    	:= localhost/linkml-local:latest
 LINKML_DOCKERFILE 	:= src/assets/containers/Dockerfile.linkml
 LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root $(LINKML_IMAGE)
+AVROTIZE_IMAGE		:= localhost/avrotize-local:latest
+AVROTIZE_DOCKERFILE	:= src/assets/containers/Dockerfile.avrotize
+AVROTIZE_RUN		:= podman run --rm -v "$(CURDIR):/work" $(AVROTIZE_IMAGE)
 GEN_DIR    			:= generated
 SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
@@ -116,6 +119,35 @@ define run_gen_rdf
 @$(foreach s,$(1),$(if $(filter true,$(GEN_RDF_SKIP_$(call schema_key,$(s)))),echo "Hoppar over gen-rdf for $(call schema_name,$(s)) (GEN_RDF_SKIP_$(call schema_key,$(s)) er sett)";,echo "$(CLR_STEP)→ gen-rdf  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl;))
 endef
 
+# Per-schema XSD generator via avrotize: JSON Schema → (fix dates) → XSD.
+# Hoppar over skjema der manifest.yaml ikkje har "xsd: true".
+# Avheng av at gen-jsonschema er køyrt først.
+define run_gen_xsd
+@for schema in $(1); do \
+	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  xsd: true" "$$manifest"; then \
+		continue; \
+	fi; \
+	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
+	if [ ! -f "$$jsonschema" ]; then \
+		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-xsd for $$name" >&2; \
+		continue; \
+	fi; \
+	avsc=$(GEN_DIR)/$$domain/$$name/$$name.avsc; \
+	xsd=$(GEN_DIR)/$$domain/$$name/$$name.xsd; \
+	namespace=$$(grep '^id:' "$$schema" | head -1 | awk '{print $$2}'); \
+	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	echo "$(CLR_STEP)→ gen-xsd  $$schema$(CLR_RST)"; \
+	$(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc; \
+	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd; \
+	rm -f "$$avsc"; \
+	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
+		/work/src/assets/scripts/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema; \
+done
+endef
+
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
@@ -154,7 +186,8 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         domain-validate-bronze domain-validate-examples \
         schema-gen-linkml schema-gen-context schema-gen-shapes schema-gen-python \
         schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
-        schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples \
+        schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples schema-gen-xsd \
+        gen-xsd domain-gen-xsd \
         check-published-uris check-prereqs \
         update-modellkatalog new-org-catalog \
         gource-build gource-preview gource-video _gource-render
@@ -238,6 +271,11 @@ gen-rdf:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_rdf,$(SCHEMAS))
 
+gen-xsd:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-xsd$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call run_gen_xsd,$(SCHEMAS))
 
 linkml-build-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -250,6 +288,12 @@ python-build-docker:
 	@echo "$(CLR_HDR)*** make python-build-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
+
+avrotize-build-docker:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make avrotize-build-docker$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman build -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
 
 
 
@@ -421,6 +465,7 @@ $(1):
 	$$(call run_gen_erdiagram,$$(_schemas_$(1)))
 	$$(call run_gen,$$(_schemas_$(1)),gen-proto,schema.proto)
 	$$(call run_gen_plantuml,$$(_schemas_$(1)))
+	$$(call run_gen_xsd,$$(_schemas_$(1)))
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
@@ -546,6 +591,9 @@ domain-gen-proto:
 domain-gen-plantuml:
 	$(call run_gen_plantuml,$(_schemas_$(DOMAIN)))
 
+domain-gen-xsd:
+	$(call run_gen_xsd,$(_schemas_$(DOMAIN)))
+
 # ---------------------------------------------------------------------------
 # Per-skjema-mål for CI — krev SCHEMA=<sti-til-skjema>
 # Eksempel: make schema-gen-shapes SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml
@@ -584,6 +632,9 @@ schema-gen-proto:
 
 schema-gen-plantuml:
 	$(call run_gen_plantuml,$(SCHEMA))
+
+schema-gen-xsd:
+	$(call run_gen_xsd,$(SCHEMA))
 
 schema-gen-examples:
 	@domain=$(call schema_domain,$(SCHEMA)); \

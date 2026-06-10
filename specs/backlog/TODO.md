@@ -7,8 +7,6 @@ automatisk publisering av modell til felles datakatalog (må testes)
 (importere begreper fra felles begrepskatalog)
 automatisk publisere begreper til felles begrepskatalog (må testes)
 
-sette eigerksap til domener/modeller i .codeowners
-
 modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
@@ -18,12 +16,11 @@ integrere mot custom schemaregistry (apicur.io)
 
 integrere mot custom datakatalog (gcp data catalog)
 
-conventional commits for versjonering av modeller (plan laga)
-
 generere xml (vurdere avrotize mot andre alternativer)
 
 validere br krav til metadata (har laga validering av Digdir krav til metadata)
 
+teste fra-magicdraw-xmi til-linkml-yaml til-magicdraw-xmi for å verifisere om vi kan produsere gyldig magicdraw xmi-fil
 
 Eit av måla med dette repoet er å realisere Digdirs Rammeverk for informasjonsforvaltning som eit nasjonalt verktøy.
 Lag en spesifikasjon som kartlegger hvor godt dette repoet stemmer overens med Digdirs Rammeverk for informasjonsforvaltning:
