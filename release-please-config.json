@@ -231,6 +231,17 @@
           "jsonpath": "$.version"
         }
       ]
+    },
+    "src/linkml/samt/samt-bu": {
+      "component": "samt-bu",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/samt/samt-bu/samt-bu-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
