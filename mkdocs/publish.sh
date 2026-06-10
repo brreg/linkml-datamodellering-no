@@ -48,6 +48,8 @@ artifact_label() {
         context.jsonld) echo "JSON-LD kontekst" ;;
         schema.json)    echo "JSON Schema" ;;
         schema.xsd)     echo "XML Schema (XSD)" ;;
+        openapi.yaml)   echo "OpenAPI 3.1" ;;
+        asyncapi.yaml)  echo "AsyncAPI 3.0" ;;
         model.py)       echo "Python-klasser" ;;
         schema.proto)   echo "Protobuf-skjema" ;;
         erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
@@ -57,7 +59,7 @@ artifact_label() {
 }
 
 # Rekkjefølgje på artefakter i tabellen
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
 # Per-skjema prosessering (køyrer parallelt)
