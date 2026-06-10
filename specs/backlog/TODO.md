@@ -11,7 +11,6 @@ modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
 
-generer OpenAPI/AsyncAPI spesifikasjon 
 integrere mot custom schemaregistry (apicur.io)
 
 integrere mot custom datakatalog (gcp data catalog)

@@ -85,7 +85,8 @@
       "Bash(podman search *)",
       "Bash(wait)",
       "Bash(make asyncapi-build-docker *)",
-      "Bash(make schema-gen-openapi *)"
+      "Bash(make schema-gen-openapi *)",
+      "Bash(curl -s \"https://registry.hub.docker.com/v2/repositories/apicurio/apicurio-registry/tags?page_size=5\")"
     ]
   },
   "enableAllProjectMcpServers": true,
