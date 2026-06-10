@@ -165,6 +165,7 @@ jobs:
     permissions:
       contents: read
       actions: write
+      packages: read
     strategy:
       matrix:
         domain: [ap-no, begrepskatalog, fair, fint, modellkatalog, ngr, oreg, samt]
@@ -187,7 +188,6 @@ jobs:
         with:
           path: linkml-local.tar.zst
           key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          fail-on-cache-miss: true
 
       - name: Gjenopprett python-pytest frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -195,7 +195,6 @@ jobs:
         with:
           path: python-pytest.tar.zst
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
-          fail-on-cache-miss: true
 
       - name: Gjenopprett avrotize-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -203,7 +202,6 @@ jobs:
         with:
           path: avrotize-local.tar.zst
           key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
-          fail-on-cache-miss: true
 
       - name: Gjenopprett asyncapi-cli-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -211,15 +209,32 @@ jobs:
         with:
           path: asyncapi-cli-local.tar.zst
           key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
-          fail-on-cache-miss: true
 
-      - name: Last images inn i podman
+      - name: Logg inn på GHCR
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Last images inn i podman (cache eller GHCR)
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
-          podman load < <(zstd -d -c linkml-local.tar.zst)
-          podman load < <(zstd -d -c python-pytest.tar.zst)
-          podman load < <(zstd -d -c avrotize-local.tar.zst)
-          podman load < <(zstd -d -c asyncapi-cli-local.tar.zst)
+          load_image() {
+            local tar="$1" local_tag="$2" ghcr_tag="$3"
+            if [ -f "$tar" ]; then
+              podman load < <(zstd -d -c "$tar")
+            else
+              echo "Cache miss for $tar — hentar frå GHCR: $ghcr_tag"
+              podman pull "$ghcr_tag"
+              podman tag "$ghcr_tag" "$local_tag"
+            fi
+          }
+          load_image linkml-local.tar.zst localhost/linkml-local:latest \
+            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}"
+          load_image python-pytest.tar.zst localhost/python-pytest:latest \
+            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
+          load_image avrotize-local.tar.zst localhost/avrotize-local:latest \
+            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}"
+          load_image asyncapi-cli-local.tar.zst localhost/asyncapi-cli-local:latest \
+            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}"
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'

@@ -55,6 +55,7 @@ jobs:
       - name: Last opp trivy-validator.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
+        continue-on-error: true
         with:
           sarif_file: trivy-validator.sarif
           category: trivy-validator
@@ -62,6 +63,7 @@ jobs:
       - name: Last opp trivy-generator.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
+        continue-on-error: true
         with:
           sarif_file: trivy-generator.sarif
           category: trivy-generator
@@ -69,6 +71,7 @@ jobs:
       - name: Last opp trivy-begrep.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
+        continue-on-error: true
         with:
           sarif_file: trivy-begrep.sarif
           category: trivy-begrep
@@ -76,6 +79,7 @@ jobs:
       - name: Last opp trivy-assets.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
+        continue-on-error: true
         with:
           sarif_file: trivy-assets.sarif
           category: trivy-assets
