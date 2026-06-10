@@ -78,7 +78,10 @@
       "Bash(make gen-rdf *)",
       "Bash(make roundtrip *)",
       "WebFetch(domain:www.digdir.no)",
-      "Bash(make mcp-mod-test *)"
+      "Bash(make mcp-mod-test *)",
+      "Bash(make avrotize-build-docker *)",
+      "Bash(xmllint --noout /mnt/c/dev/github/linkml-datamodellering-no/generated/samt/samt-bu/samt-bu.xsd)",
+      "Bash(make schema-gen-xsd *)"
     ]
   },
   "enableAllProjectMcpServers": true,

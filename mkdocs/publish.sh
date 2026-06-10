@@ -47,6 +47,7 @@ artifact_label() {
         schema.ttl)     echo "RDF/Turtle skjema" ;;
         context.jsonld) echo "JSON-LD kontekst" ;;
         schema.json)    echo "JSON Schema" ;;
+        schema.xsd)     echo "XML Schema (XSD)" ;;
         model.py)       echo "Python-klasser" ;;
         schema.proto)   echo "Protobuf-skjema" ;;
         erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
@@ -56,7 +57,7 @@ artifact_label() {
 }
 
 # Rekkjefølgje på artefakter i tabellen
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
 # Per-skjema prosessering (køyrer parallelt)

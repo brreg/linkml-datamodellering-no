@@ -13,3 +13,4 @@ generators:
   docs: true
   plantuml: false
   example_rdf: true
+  xsd: false
