@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:tenester](https://schema.fintlabs.no/personvern/:tenester)
+URI: [https://data.norge.no/fint/fint-personvern/tenester](https://data.norge.no/fint/fint-personvern/tenester)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/personvern/:tenester](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:tenester |
-| native | https://schema.fintlabs.no/personvern/:tenester |
+| self | https://data.norge.no/fint/fint-personvern/tenester |
+| native | https://data.norge.no/fint/fint-personvern/tenester |
 
 
 

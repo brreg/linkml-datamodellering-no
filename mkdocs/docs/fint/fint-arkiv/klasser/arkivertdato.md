@@ -71,7 +71,7 @@ URI: [ark:arkivertDato](https://schema.fintlabs.no/arkiv/arkivertDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:arkivertDato |
-| native | https://schema.fintlabs.no/arkiv/:arkivertDato |
+| native | https://data.norge.no/fint/fint-arkiv/arkivertDato |
 
 
 

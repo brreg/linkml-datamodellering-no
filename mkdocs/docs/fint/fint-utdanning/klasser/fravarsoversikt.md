@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:fravarsoversikt](https://schema.fintlabs.no/utdanning/:fravarsoversikt)
+URI: [https://data.norge.no/fint/fint-utdanning/fravarsoversikt](https://data.norge.no/fint/fint-utdanning/fravarsoversikt)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:fravarsoversikt](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:fravarsoversikt |
-| native | https://schema.fintlabs.no/utdanning/:fravarsoversikt |
+| self | https://data.norge.no/fint/fint-utdanning/fravarsoversikt |
+| native | https://data.norge.no/fint/fint-utdanning/fravarsoversikt |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:leverandornummer](https://schema.fintlabs.no/okonomi/leverandornummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:leverandornummer |
-| native | https://schema.fintlabs.no/okonomi/:leverandornummer |
+| native | https://data.norge.no/fint/fint-okonomi/leverandornummer |
 
 
 

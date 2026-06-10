@@ -1,5 +1,5 @@
 # Auto generated from brreg-begrepskatalog-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:13
+# Generation date: 2026-06-09T15:55:23
 # Schema: brreg-begrepskatalog
 #
 # id: https://data.norge.no/begrepskatalog/brreg-begrepskatalog
@@ -267,10 +267,10 @@ class Begrep(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Begrep")
 
     id: Union[str, BegrepId] = None
-    anbefalt_term: Union[str, list[str]] = None
     identifikator_literal: str = None
     kontaktpunkt_vcard: Union[Union[str, VCardKontaktId], list[Union[str, VCardKontaktId]]] = None
     utgjevar: Union[str, OrganisasjonId] = None
+    anbefalt_term: Optional[Union[str, list[str]]] = empty_list()
     definisjon: Optional[Union[str, list[str]]] = empty_list()
     har_definisjon: Optional[Union[Union[str, DefinisjonId], list[Union[str, DefinisjonId]]]] = empty_list()
     ansvarleg_verksemd: Optional[Union[str, OrganisasjonId]] = None
@@ -309,12 +309,6 @@ class Begrep(YAMLRoot):
         if not isinstance(self.id, BegrepId):
             self.id = BegrepId(self.id)
 
-        if self._is_empty(self.anbefalt_term):
-            self.MissingRequiredField("anbefalt_term")
-        if not isinstance(self.anbefalt_term, list):
-            self.anbefalt_term = [self.anbefalt_term] if self.anbefalt_term is not None else []
-        self.anbefalt_term = [v if isinstance(v, str) else str(v) for v in self.anbefalt_term]
-
         if self._is_empty(self.identifikator_literal):
             self.MissingRequiredField("identifikator_literal")
         if not isinstance(self.identifikator_literal, str):
@@ -330,6 +324,10 @@ class Begrep(YAMLRoot):
             self.MissingRequiredField("utgjevar")
         if not isinstance(self.utgjevar, OrganisasjonId):
             self.utgjevar = OrganisasjonId(self.utgjevar)
+
+        if not isinstance(self.anbefalt_term, list):
+            self.anbefalt_term = [self.anbefalt_term] if self.anbefalt_term is not None else []
+        self.anbefalt_term = [v if isinstance(v, str) else str(v) for v in self.anbefalt_term]
 
         if not isinstance(self.definisjon, list):
             self.definisjon = [self.definisjon] if self.definisjon is not None else []
@@ -464,7 +462,7 @@ class Definisjon(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Definisjon")
 
     id: Union[str, DefinisjonId] = None
-    tekst: str = None
+    tekst: Optional[str] = None
     kjelde_relasjon: Optional[Union[str, BegrepId]] = None
     kjelde: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     malgruppe_def: Optional[Union[str, BegrepId]] = None
@@ -475,9 +473,7 @@ class Definisjon(YAMLRoot):
         if not isinstance(self.id, DefinisjonId):
             self.id = DefinisjonId(self.id)
 
-        if self._is_empty(self.tekst):
-            self.MissingRequiredField("tekst")
-        if not isinstance(self.tekst, str):
+        if self.tekst is not None and not isinstance(self.tekst, str):
             self.tekst = str(self.tekst)
 
         if self.kjelde_relasjon is not None and not isinstance(self.kjelde_relasjon, BegrepId):
@@ -544,7 +540,7 @@ class GeneriskRelasjon(YAMLRoot):
     id: Union[str, GeneriskRelasjonId] = None
     har_generisk_omgrep: Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]] = empty_list()
     har_spesifikt_omgrep: Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]] = empty_list()
-    inndelingskriterium: Optional[Union[str, list[str]]] = empty_list()
+    beskrivelse: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -560,9 +556,9 @@ class GeneriskRelasjon(YAMLRoot):
             self.har_spesifikt_omgrep = [self.har_spesifikt_omgrep] if self.har_spesifikt_omgrep is not None else []
         self.har_spesifikt_omgrep = [v if isinstance(v, BegrepId) else BegrepId(v) for v in self.har_spesifikt_omgrep]
 
-        if not isinstance(self.inndelingskriterium, list):
-            self.inndelingskriterium = [self.inndelingskriterium] if self.inndelingskriterium is not None else []
-        self.inndelingskriterium = [v if isinstance(v, str) else str(v) for v in self.inndelingskriterium]
+        if not isinstance(self.beskrivelse, list):
+            self.beskrivelse = [self.beskrivelse] if self.beskrivelse is not None else []
+        self.beskrivelse = [v if isinstance(v, str) else str(v) for v in self.beskrivelse]
 
         super().__post_init__(**kwargs)
 
@@ -582,7 +578,7 @@ class PartitivRelasjon(YAMLRoot):
     id: Union[str, PartitivRelasjonId] = None
     har_partitivt_omgrep: Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]] = empty_list()
     har_heilskapleg_omgrep: Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]] = empty_list()
-    inndelingskriterium: Optional[Union[str, list[str]]] = empty_list()
+    beskrivelse: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -598,9 +594,9 @@ class PartitivRelasjon(YAMLRoot):
             self.har_heilskapleg_omgrep = [self.har_heilskapleg_omgrep] if self.har_heilskapleg_omgrep is not None else []
         self.har_heilskapleg_omgrep = [v if isinstance(v, BegrepId) else BegrepId(v) for v in self.har_heilskapleg_omgrep]
 
-        if not isinstance(self.inndelingskriterium, list):
-            self.inndelingskriterium = [self.inndelingskriterium] if self.inndelingskriterium is not None else []
-        self.inndelingskriterium = [v if isinstance(v, str) else str(v) for v in self.inndelingskriterium]
+        if not isinstance(self.beskrivelse, list):
+            self.beskrivelse = [self.beskrivelse] if self.beskrivelse is not None else []
+        self.beskrivelse = [v if isinstance(v, str) else str(v) for v in self.beskrivelse]
 
         super().__post_init__(**kwargs)
 
@@ -621,8 +617,8 @@ class Samling(YAMLRoot):
     identifikator_literal: str = None
     medlem: Union[Union[str, BegrepId], list[Union[str, BegrepId]]] = None
     kontaktpunkt_vcard: Union[Union[str, VCardKontaktId], list[Union[str, VCardKontaktId]]] = None
-    tittel: Union[str, list[str]] = None
     utgjevar: Union[str, OrganisasjonId] = None
+    tittel: Optional[Union[str, list[str]]] = empty_list()
     beskrivelse: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -648,16 +644,14 @@ class Samling(YAMLRoot):
             self.kontaktpunkt_vcard = [self.kontaktpunkt_vcard] if self.kontaktpunkt_vcard is not None else []
         self.kontaktpunkt_vcard = [v if isinstance(v, VCardKontaktId) else VCardKontaktId(v) for v in self.kontaktpunkt_vcard]
 
-        if self._is_empty(self.tittel):
-            self.MissingRequiredField("tittel")
-        if not isinstance(self.tittel, list):
-            self.tittel = [self.tittel] if self.tittel is not None else []
-        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
-
         if self._is_empty(self.utgjevar):
             self.MissingRequiredField("utgjevar")
         if not isinstance(self.utgjevar, OrganisasjonId):
             self.utgjevar = OrganisasjonId(self.utgjevar)
+
+        if not isinstance(self.tittel, list):
+            self.tittel = [self.tittel] if self.tittel is not None else []
+        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
 
         if not isinstance(self.beskrivelse, list):
             self.beskrivelse = [self.beskrivelse] if self.beskrivelse is not None else []
@@ -856,9 +850,6 @@ slots.har_generisk_omgrep = Slot(uri=SKOSNO.hasGenericConcept, name="har_generis
 slots.har_spesifikt_omgrep = Slot(uri=SKOSNO.hasSpecificConcept, name="har_spesifikt_omgrep", curie=SKOSNO.curie('hasSpecificConcept'),
                    model_uri=DEFAULT_.har_spesifikt_omgrep, domain=None, range=Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]])
 
-slots.inndelingskriterium = Slot(uri=DCT.description, name="inndelingskriterium", curie=DCT.curie('description'),
-                   model_uri=DEFAULT_.inndelingskriterium, domain=None, range=Optional[Union[str, list[str]]])
-
 slots.har_partitivt_omgrep = Slot(uri=SKOSNO.hasPartitiveConcept, name="har_partitivt_omgrep", curie=SKOSNO.curie('hasPartitiveConcept'),
                    model_uri=DEFAULT_.har_partitivt_omgrep, domain=None, range=Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]])
 
@@ -950,7 +941,7 @@ slots.begrepContainer__kontaktpunkt = Slot(uri=DEFAULT_.kontaktpunkt, name="begr
                    model_uri=DEFAULT_.begrepContainer__kontaktpunkt, domain=None, range=Optional[Union[list[Union[str, VCardKontaktId]], dict[Union[str, VCardKontaktId], Union[dict, VCardKontakt]]]])
 
 slots.Begrep_anbefalt_term = Slot(uri=SKOS.prefLabel, name="Begrep_anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=DEFAULT_.Begrep_anbefalt_term, domain=Begrep, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Begrep_anbefalt_term, domain=Begrep, range=Optional[Union[str, list[str]]])
 
 slots.Begrep_identifikator_literal = Slot(uri=DCT.identifier, name="Begrep_identifikator_literal", curie=DCT.curie('identifier'),
                    model_uri=DEFAULT_.Begrep_identifikator_literal, domain=Begrep, range=str)
@@ -1055,7 +1046,7 @@ slots.Begrep_versjonsmerknad = Slot(uri=ADMS.versionNotes, name="Begrep_versjons
                    model_uri=DEFAULT_.Begrep_versjonsmerknad, domain=Begrep, range=Optional[Union[str, list[str]]])
 
 slots.Definisjon_tekst = Slot(uri=RDF.value, name="Definisjon_tekst", curie=RDF.curie('value'),
-                   model_uri=DEFAULT_.Definisjon_tekst, domain=Definisjon, range=str)
+                   model_uri=DEFAULT_.Definisjon_tekst, domain=Definisjon, range=Optional[str])
 
 slots.Definisjon_kjelde_relasjon = Slot(uri=SKOSNO.relationshipWithSource, name="Definisjon_kjelde_relasjon", curie=SKOSNO.curie('relationshipWithSource'),
                    model_uri=DEFAULT_.Definisjon_kjelde_relasjon, domain=Definisjon, range=Optional[Union[str, BegrepId]])
@@ -1078,8 +1069,8 @@ slots.GeneriskRelasjon_har_generisk_omgrep = Slot(uri=SKOSNO.hasGenericConcept, 
 slots.GeneriskRelasjon_har_spesifikt_omgrep = Slot(uri=SKOSNO.hasSpecificConcept, name="GeneriskRelasjon_har_spesifikt_omgrep", curie=SKOSNO.curie('hasSpecificConcept'),
                    model_uri=DEFAULT_.GeneriskRelasjon_har_spesifikt_omgrep, domain=GeneriskRelasjon, range=Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]])
 
-slots.GeneriskRelasjon_inndelingskriterium = Slot(uri=DCT.description, name="GeneriskRelasjon_inndelingskriterium", curie=DCT.curie('description'),
-                   model_uri=DEFAULT_.GeneriskRelasjon_inndelingskriterium, domain=GeneriskRelasjon, range=Optional[Union[str, list[str]]])
+slots.GeneriskRelasjon_beskrivelse = Slot(uri=DCT.description, name="GeneriskRelasjon_beskrivelse", curie=DCT.curie('description'),
+                   model_uri=DEFAULT_.GeneriskRelasjon_beskrivelse, domain=GeneriskRelasjon, range=Optional[Union[str, list[str]]])
 
 slots.PartitivRelasjon_har_partitivt_omgrep = Slot(uri=SKOSNO.hasPartitiveConcept, name="PartitivRelasjon_har_partitivt_omgrep", curie=SKOSNO.curie('hasPartitiveConcept'),
                    model_uri=DEFAULT_.PartitivRelasjon_har_partitivt_omgrep, domain=PartitivRelasjon, range=Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]])
@@ -1087,8 +1078,8 @@ slots.PartitivRelasjon_har_partitivt_omgrep = Slot(uri=SKOSNO.hasPartitiveConcep
 slots.PartitivRelasjon_har_heilskapleg_omgrep = Slot(uri=SKOSNO.hasComprehensiveConcept, name="PartitivRelasjon_har_heilskapleg_omgrep", curie=SKOSNO.curie('hasComprehensiveConcept'),
                    model_uri=DEFAULT_.PartitivRelasjon_har_heilskapleg_omgrep, domain=PartitivRelasjon, range=Optional[Union[Union[str, BegrepId], list[Union[str, BegrepId]]]])
 
-slots.PartitivRelasjon_inndelingskriterium = Slot(uri=DCT.description, name="PartitivRelasjon_inndelingskriterium", curie=DCT.curie('description'),
-                   model_uri=DEFAULT_.PartitivRelasjon_inndelingskriterium, domain=PartitivRelasjon, range=Optional[Union[str, list[str]]])
+slots.PartitivRelasjon_beskrivelse = Slot(uri=DCT.description, name="PartitivRelasjon_beskrivelse", curie=DCT.curie('description'),
+                   model_uri=DEFAULT_.PartitivRelasjon_beskrivelse, domain=PartitivRelasjon, range=Optional[Union[str, list[str]]])
 
 slots.Samling_identifikator_literal = Slot(uri=DCT.identifier, name="Samling_identifikator_literal", curie=DCT.curie('identifier'),
                    model_uri=DEFAULT_.Samling_identifikator_literal, domain=Samling, range=str)
@@ -1100,7 +1091,7 @@ slots.Samling_kontaktpunkt_vcard = Slot(uri=DCAT.contactPoint, name="Samling_kon
                    model_uri=DEFAULT_.Samling_kontaktpunkt_vcard, domain=Samling, range=Union[Union[str, VCardKontaktId], list[Union[str, VCardKontaktId]]])
 
 slots.Samling_tittel = Slot(uri=DCT.title, name="Samling_tittel", curie=DCT.curie('title'),
-                   model_uri=DEFAULT_.Samling_tittel, domain=Samling, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Samling_tittel, domain=Samling, range=Optional[Union[str, list[str]]])
 
 slots.Samling_utgjevar = Slot(uri=DCT.publisher, name="Samling_utgjevar", curie=DCT.curie('publisher'),
                    model_uri=DEFAULT_.Samling_utgjevar, domain=Samling, range=Union[str, OrganisasjonId])

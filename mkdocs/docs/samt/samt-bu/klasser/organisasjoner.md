@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:organisasjoner](https://example.no/ontology/skole#organisasjoner)
+URI: [samtbu:organisasjoner](https://data.norge.no/samt/samt-bu/organisasjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:organisasjoner](https://example.no/ontology/skole#organisasjon
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:organisasjoner |
-| native | samtbuskole:organisasjoner |
+| self | samtbu:organisasjoner |
+| native | samtbu:organisasjoner |
 
 
 

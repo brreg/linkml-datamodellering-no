@@ -22,7 +22,7 @@ URI: [okn:fakturagrunnlag](https://schema.fintlabs.no/okonomi/fakturagrunnlag)
 | --- | --- | --- |
 | [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
 | [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  yes  |
-| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  yes  |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [okn:fakturagrunnlag](https://schema.fintlabs.no/okonomi/fakturagrunnlag)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturagrunnlag |
-| native | https://schema.fintlabs.no/okonomi/:fakturagrunnlag |
+| native | https://data.norge.no/fint/fint-okonomi/fakturagrunnlag |
 
 
 

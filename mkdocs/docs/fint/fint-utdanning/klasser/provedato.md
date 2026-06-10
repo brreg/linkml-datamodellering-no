@@ -70,7 +70,7 @@ URI: [utd:provedato](https://schema.fintlabs.no/utdanning/provedato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:provedato |
-| native | https://schema.fintlabs.no/utdanning/:provedato |
+| native | https://data.norge.no/fint/fint-utdanning/provedato |
 
 
 

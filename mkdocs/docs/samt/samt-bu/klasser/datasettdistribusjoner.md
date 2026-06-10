@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:datasettdistribusjoner](https://example.no/ontology/skole#datasettdistribusjoner)
+URI: [samtbu:datasettdistribusjoner](https://data.norge.no/samt/samt-bu/datasettdistribusjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:datasettdistribusjoner](https://example.no/ontology/skole#data
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:datasettdistribusjoner |
-| native | samtbuskole:datasettdistribusjoner |
+| self | samtbu:datasettdistribusjoner |
+| native | samtbu:datasettdistribusjoner |
 
 
 

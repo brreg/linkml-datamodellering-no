@@ -67,6 +67,13 @@ URI: [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor)
     * **Rektor**
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor) |
+
+
 ## Eigenskapar
 
 
@@ -161,7 +168,7 @@ URI: [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Rektor |
-| native | samtbuskole:Rektor |
+| native | samtbu:Rektor |
 
 
 
@@ -193,6 +200,7 @@ rank: 1000
 is_a: Person
 slots:
 - enhetsleder_for
+class_uri: samtbuskole:Rektor
 
 ```
 </details>
@@ -215,6 +223,7 @@ attributes:
     - org:headOf
     rank: 1000
     domain: Rektor
+    slot_uri: samtbuskole:enhetslederFor
     owner: Rektor
     domain_of:
     - Rektor
@@ -260,6 +269,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Rektor
     domain_of:
     - Skole
@@ -267,6 +277,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Rektor
 
 ```
 </details>

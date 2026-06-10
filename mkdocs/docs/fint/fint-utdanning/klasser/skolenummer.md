@@ -70,7 +70,7 @@ URI: [utd:skolenummer](https://schema.fintlabs.no/utdanning/skolenummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skolenummer |
-| native | https://schema.fintlabs.no/utdanning/:skolenummer |
+| native | https://data.norge.no/fint/fint-utdanning/skolenummer |
 
 
 

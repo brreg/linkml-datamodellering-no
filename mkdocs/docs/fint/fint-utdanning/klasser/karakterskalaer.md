@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:karakterskalaer](https://schema.fintlabs.no/utdanning/:karakterskalaer)
+URI: [https://data.norge.no/fint/fint-utdanning/karakterskalaer](https://data.norge.no/fint/fint-utdanning/karakterskalaer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:karakterskalaer](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:karakterskalaer |
-| native | https://schema.fintlabs.no/utdanning/:karakterskalaer |
+| self | https://data.norge.no/fint/fint-utdanning/karakterskalaer |
+| native | https://data.norge.no/fint/fint-utdanning/karakterskalaer |
 
 
 

@@ -71,7 +71,7 @@ URI: [org:unitOf](http://www.w3.org/ns/org#unitOf)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | org:unitOf |
-| native | samtbuskole:del_av_skole |
+| native | samtbu:del_av_skole |
 | close | schema:isPartOf |
 
 

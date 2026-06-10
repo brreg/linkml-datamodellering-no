@@ -252,7 +252,7 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Anmerkninger |
-| native | https://schema.fintlabs.no/utdanning/:Anmerkninger |
+| native | https://data.norge.no/fint/fint-utdanning/Anmerkninger |
 
 
 

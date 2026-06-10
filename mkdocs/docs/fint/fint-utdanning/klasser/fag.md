@@ -26,7 +26,7 @@ URI: [utd:fag](https://schema.fintlabs.no/utdanning/fag)
 | [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 | [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
 | [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
 | [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
@@ -80,7 +80,7 @@ URI: [utd:fag](https://schema.fintlabs.no/utdanning/fag)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fag |
-| native | https://schema.fintlabs.no/utdanning/:fag |
+| native | https://data.norge.no/fint/fint-utdanning/fag |
 
 
 

@@ -572,7 +572,7 @@ URI: [ark:TilskuddFartoy](https://schema.fintlabs.no/arkiv/TilskuddFartoy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:TilskuddFartoy |
-| native | https://schema.fintlabs.no/arkiv/:TilskuddFartoy |
+| native | https://data.norge.no/fint/fint-arkiv/TilskuddFartoy |
 
 
 

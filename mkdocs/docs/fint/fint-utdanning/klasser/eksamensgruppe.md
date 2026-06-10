@@ -77,7 +77,7 @@ URI: [utd:eksamensgruppe](https://schema.fintlabs.no/utdanning/eksamensgruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:eksamensgruppe |
-| native | https://schema.fintlabs.no/utdanning/:eksamensgruppe |
+| native | https://data.norge.no/fint/fint-utdanning/eksamensgruppe |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:personar](https://schema.fintlabs.no/administrasjon/:personar)
+URI: [https://data.norge.no/fint/fint-administrasjon/personar](https://data.norge.no/fint/fint-administrasjon/personar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:personar](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:personar |
-| native | https://schema.fintlabs.no/administrasjon/:personar |
+| self | https://data.norge.no/fint/fint-administrasjon/personar |
+| native | https://data.norge.no/fint/fint-administrasjon/personar |
 
 
 

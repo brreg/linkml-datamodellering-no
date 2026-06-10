@@ -1,5 +1,5 @@
 # Auto generated from fint-ressurs-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:16
+# Generation date: 2026-06-09T13:51:22
 # Schema: fint-ressurs
 #
 # id: https://data.norge.no/fint/fint-ressurs
@@ -67,7 +67,7 @@ version = "4.0.20"
 FINT = CurieNamespace('fint', 'https://schema.fintlabs.no/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RES = CurieNamespace('res', 'https://schema.fintlabs.no/ressurs/')
-DEFAULT_ = RES
+DEFAULT_ = CurieNamespace('', 'https://data.norge.no/fint/fint-ressurs/')
 
 
 # Types
@@ -188,10 +188,10 @@ class RessursContainer(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = RES["RessursContainer"]
-    class_class_curie: ClassVar[str] = "res:RessursContainer"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/RessursContainer")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "RessursContainer"
-    class_model_uri: ClassVar[URIRef] = RES.RessursContainer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/RessursContainer")
 
     applikasjonar: Optional[Union[dict[Union[str, ApplikasjonId], Union[dict, "Applikasjon"]], list[Union[dict, "Applikasjon"]]]] = empty_dict()
     applikasjonsressursar: Optional[Union[dict[Union[str, ApplikasjonsressursId], Union[dict, "Applikasjonsressurs"]], list[Union[dict, "Applikasjonsressurs"]]]] = empty_dict()
@@ -256,7 +256,7 @@ class Applikasjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Applikasjon"]
     class_class_curie: ClassVar[str] = "res:Applikasjon"
     class_name: ClassVar[str] = "Applikasjon"
-    class_model_uri: ClassVar[URIRef] = RES.Applikasjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Applikasjon")
 
     id: Union[str, ApplikasjonId] = None
     navn: str = None
@@ -310,7 +310,7 @@ class Applikasjonsressurs(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Applikasjonsressurs"]
     class_class_curie: ClassVar[str] = "res:Applikasjonsressurs"
     class_name: ClassVar[str] = "Applikasjonsressurs"
-    class_model_uri: ClassVar[URIRef] = RES.Applikasjonsressurs
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Applikasjonsressurs")
 
     id: Union[str, ApplikasjonsressursId] = None
     navn: str = None
@@ -393,7 +393,7 @@ class Applikasjonsressurstilgjengelighet(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Applikasjonsressurstilgjengelighet"]
     class_class_curie: ClassVar[str] = "res:Applikasjonsressurstilgjengelighet"
     class_name: ClassVar[str] = "Applikasjonsressurstilgjengelighet"
-    class_model_uri: ClassVar[URIRef] = RES.Applikasjonsressurstilgjengelighet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Applikasjonsressurstilgjengelighet")
 
     id: Union[str, ApplikasjonsressurstilgjengelighetId] = None
     gyldighetsperiode: Union[dict, "Periode"] = None
@@ -438,7 +438,7 @@ class DigitalEnhet(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["DigitalEnhet"]
     class_class_curie: ClassVar[str] = "res:DigitalEnhet"
     class_name: ClassVar[str] = "DigitalEnhet"
-    class_model_uri: ClassVar[URIRef] = RES.DigitalEnhet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/DigitalEnhet")
 
     id: Union[str, DigitalEnhetId] = None
     serienummer: str = None
@@ -526,7 +526,7 @@ class Enhetsgruppe(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Enhetsgruppe"]
     class_class_curie: ClassVar[str] = "res:Enhetsgruppe"
     class_name: ClassVar[str] = "Enhetsgruppe"
-    class_model_uri: ClassVar[URIRef] = RES.Enhetsgruppe
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Enhetsgruppe")
 
     id: Union[str, EnhetsgruppeId] = None
     navn: str = None
@@ -578,7 +578,7 @@ class Enhetsgruppemedlemskap(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Enhetsgruppemedlemskap"]
     class_class_curie: ClassVar[str] = "res:Enhetsgruppemedlemskap"
     class_name: ClassVar[str] = "Enhetsgruppemedlemskap"
-    class_model_uri: ClassVar[URIRef] = RES.Enhetsgruppemedlemskap
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Enhetsgruppemedlemskap")
 
     id: Union[str, EnhetsgruppemedlemskapId] = None
     digitalEnhet: Union[str, DigitalEnhetId] = None
@@ -613,7 +613,7 @@ class Identitet(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Identitet"]
     class_class_curie: ClassVar[str] = "res:Identitet"
     class_name: ClassVar[str] = "Identitet"
-    class_model_uri: ClassVar[URIRef] = RES.Identitet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Identitet")
 
     id: Union[str, IdentitetId] = None
     personalressurs: Optional[Union[str, URIorCURIE]] = None
@@ -645,7 +645,7 @@ class Rettighet(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Rettighet"]
     class_class_curie: ClassVar[str] = "res:Rettighet"
     class_name: ClassVar[str] = "Rettighet"
-    class_model_uri: ClassVar[URIRef] = RES.Rettighet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Rettighet")
 
     id: Union[str, RettighetId] = None
     kode: str = None
@@ -699,7 +699,7 @@ class Applikasjonskategori(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Applikasjonskategori"]
     class_class_curie: ClassVar[str] = "res:Applikasjonskategori"
     class_name: ClassVar[str] = "Applikasjonskategori"
-    class_model_uri: ClassVar[URIRef] = RES.Applikasjonskategori
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Applikasjonskategori")
 
     id: Union[str, ApplikasjonskategoriId] = None
     kode: str = None
@@ -742,7 +742,7 @@ class Brukertype(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Brukertype"]
     class_class_curie: ClassVar[str] = "res:Brukertype"
     class_name: ClassVar[str] = "Brukertype"
-    class_model_uri: ClassVar[URIRef] = RES.Brukertype
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Brukertype")
 
     id: Union[str, BrukertypeId] = None
     kode: str = None
@@ -785,7 +785,7 @@ class Enhetstype(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Enhetstype"]
     class_class_curie: ClassVar[str] = "res:Enhetstype"
     class_name: ClassVar[str] = "Enhetstype"
-    class_model_uri: ClassVar[URIRef] = RES.Enhetstype
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Enhetstype")
 
     id: Union[str, EnhetstypeId] = None
     kode: str = None
@@ -828,7 +828,7 @@ class Handhevingstype(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Handhevingstype"]
     class_class_curie: ClassVar[str] = "res:Handhevingstype"
     class_name: ClassVar[str] = "Handhevingstype"
-    class_model_uri: ClassVar[URIRef] = RES.Handhevingstype
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Handhevingstype")
 
     id: Union[str, HandhevingstypeId] = None
     kode: str = None
@@ -871,7 +871,7 @@ class Lisensmodell(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Lisensmodell"]
     class_class_curie: ClassVar[str] = "res:Lisensmodell"
     class_name: ClassVar[str] = "Lisensmodell"
-    class_model_uri: ClassVar[URIRef] = RES.Lisensmodell
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Lisensmodell")
 
     id: Union[str, LisensmodellId] = None
     kode: str = None
@@ -914,7 +914,7 @@ class Plattform(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Plattform"]
     class_class_curie: ClassVar[str] = "res:Plattform"
     class_name: ClassVar[str] = "Plattform"
-    class_model_uri: ClassVar[URIRef] = RES.Plattform
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Plattform")
 
     id: Union[str, PlattformId] = None
     kode: str = None
@@ -957,7 +957,7 @@ class Produsent(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Produsent"]
     class_class_curie: ClassVar[str] = "res:Produsent"
     class_name: ClassVar[str] = "Produsent"
-    class_model_uri: ClassVar[URIRef] = RES.Produsent
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Produsent")
 
     id: Union[str, ProdusentId] = None
     kode: str = None
@@ -1000,7 +1000,7 @@ class Status(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = RES["Status"]
     class_class_curie: ClassVar[str] = "res:Status"
     class_name: ClassVar[str] = "Status"
-    class_model_uri: ClassVar[URIRef] = RES.Status
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Status")
 
     id: Union[str, StatusId] = None
     kode: str = None
@@ -1043,7 +1043,7 @@ class Aktoer(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Aktoer"]
     class_class_curie: ClassVar[str] = "fint:Aktoer"
     class_name: ClassVar[str] = "Aktoer"
-    class_model_uri: ClassVar[URIRef] = RES.Aktoer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Aktoer")
 
     kontaktinformasjon: Optional[Union[dict, "Kontaktinformasjon"]] = None
     postadresse: Optional[Union[dict, "Adresse"]] = None
@@ -1068,7 +1068,7 @@ class Begrep(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Begrep"]
     class_class_curie: ClassVar[str] = "fint:Begrep"
     class_name: ClassVar[str] = "Begrep"
-    class_model_uri: ClassVar[URIRef] = RES.Begrep
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Begrep")
 
     id: Union[str, BegrepId] = None
     kode: str = None
@@ -1111,7 +1111,7 @@ class Elev(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Elev"]
     class_class_curie: ClassVar[str] = "fint:Elev"
     class_name: ClassVar[str] = "Elev"
-    class_model_uri: ClassVar[URIRef] = RES.Elev
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Elev")
 
     id: Union[str, ElevId] = None
     elevnummer: Optional[Union[dict, "Identifikator"]] = None
@@ -1142,7 +1142,7 @@ class Enhet(Aktoer):
     class_class_uri: ClassVar[URIRef] = FINT["Enhet"]
     class_class_curie: ClassVar[str] = "fint:Enhet"
     class_name: ClassVar[str] = "Enhet"
-    class_model_uri: ClassVar[URIRef] = RES.Enhet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Enhet")
 
     forretningsadresse: Optional[Union[dict, "Adresse"]] = None
     organisasjonsnavn: Optional[str] = None
@@ -1171,7 +1171,7 @@ class Identifikator(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Identifikator"]
     class_class_curie: ClassVar[str] = "fint:Identifikator"
     class_name: ClassVar[str] = "Identifikator"
-    class_model_uri: ClassVar[URIRef] = RES.Identifikator
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Identifikator")
 
     identifikatorverdi: str = None
     gyldighetsperiode: Optional[Union[dict, "Periode"]] = None
@@ -1198,7 +1198,7 @@ class Periode(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Periode"]
     class_class_curie: ClassVar[str] = "fint:Periode"
     class_name: ClassVar[str] = "Periode"
-    class_model_uri: ClassVar[URIRef] = RES.Periode
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Periode")
 
     start: Union[str, XSDDateTime] = None
     beskrivelse: Optional[str] = None
@@ -1229,7 +1229,7 @@ class Personnavn(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Personnavn"]
     class_class_curie: ClassVar[str] = "fint:Personnavn"
     class_name: ClassVar[str] = "Personnavn"
-    class_model_uri: ClassVar[URIRef] = RES.Personnavn
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Personnavn")
 
     fornavn: str = None
     etternavn: str = None
@@ -1262,7 +1262,7 @@ class Kontaktinformasjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Kontaktinformasjon"]
     class_class_curie: ClassVar[str] = "fint:Kontaktinformasjon"
     class_name: ClassVar[str] = "Kontaktinformasjon"
-    class_model_uri: ClassVar[URIRef] = RES.Kontaktinformasjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Kontaktinformasjon")
 
     epostadresse: Optional[str] = None
     mobiltelefonnummer: Optional[str] = None
@@ -1299,7 +1299,7 @@ class Adresse(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Adresse"]
     class_class_curie: ClassVar[str] = "fint:Adresse"
     class_name: ClassVar[str] = "Adresse"
-    class_model_uri: ClassVar[URIRef] = RES.Adresse
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Adresse")
 
     adresselinje: Optional[Union[str, list[str]]] = empty_list()
     postnummer: Optional[str] = None
@@ -1333,7 +1333,7 @@ class Matrikkelnummer(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Matrikkelnummer"]
     class_class_curie: ClassVar[str] = "fint:Matrikkelnummer"
     class_name: ClassVar[str] = "Matrikkelnummer"
-    class_model_uri: ClassVar[URIRef] = RES.Matrikkelnummer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Matrikkelnummer")
 
     adresse: Optional[Union[dict, Adresse]] = None
     bruksnummer: Optional[str] = None
@@ -1374,7 +1374,7 @@ class Landkode(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Landkode"]
     class_class_curie: ClassVar[str] = "fint:Landkode"
     class_name: ClassVar[str] = "Landkode"
-    class_model_uri: ClassVar[URIRef] = RES.Landkode
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Landkode")
 
     id: Union[str, LandkodeId] = None
     kode: str = None
@@ -1399,7 +1399,7 @@ class Kjonn(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Kjonn"]
     class_class_curie: ClassVar[str] = "fint:Kjonn"
     class_name: ClassVar[str] = "Kjonn"
-    class_model_uri: ClassVar[URIRef] = RES.Kjonn
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Kjonn")
 
     id: Union[str, KjonnId] = None
     kode: str = None
@@ -1424,7 +1424,7 @@ class Fylke(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Fylke"]
     class_class_curie: ClassVar[str] = "fint:Fylke"
     class_name: ClassVar[str] = "Fylke"
-    class_model_uri: ClassVar[URIRef] = RES.Fylke
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Fylke")
 
     id: Union[str, FylkeId] = None
     kode: str = None
@@ -1454,7 +1454,7 @@ class Kommune(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Kommune"]
     class_class_curie: ClassVar[str] = "fint:Kommune"
     class_name: ClassVar[str] = "Kommune"
-    class_model_uri: ClassVar[URIRef] = RES.Kommune
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Kommune")
 
     id: Union[str, KommuneId] = None
     kode: str = None
@@ -1485,7 +1485,7 @@ class Spraak(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Spraak"]
     class_class_curie: ClassVar[str] = "fint:Spraak"
     class_name: ClassVar[str] = "Spraak"
-    class_model_uri: ClassVar[URIRef] = RES.Spraak
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Spraak")
 
     id: Union[str, SpraakId] = None
     kode: str = None
@@ -1510,7 +1510,7 @@ class Valuta(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Valuta"]
     class_class_curie: ClassVar[str] = "fint:Valuta"
     class_name: ClassVar[str] = "Valuta"
-    class_model_uri: ClassVar[URIRef] = RES.Valuta
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Valuta")
 
     id: Union[str, ValutaId] = None
     bokstavkode: Union[dict, Identifikator] = None
@@ -1551,7 +1551,7 @@ class Person(Aktoer):
     class_class_uri: ClassVar[URIRef] = FINT["Person"]
     class_class_curie: ClassVar[str] = "fint:Person"
     class_name: ClassVar[str] = "Person"
-    class_model_uri: ClassVar[URIRef] = RES.Person
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Person")
 
     id: Union[str, PersonId] = None
     fodselsnummer: Union[dict, Identifikator] = None
@@ -1651,7 +1651,7 @@ class Kontaktperson(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Kontaktperson"]
     class_class_curie: ClassVar[str] = "fint:Kontaktperson"
     class_name: ClassVar[str] = "Kontaktperson"
-    class_model_uri: ClassVar[URIRef] = RES.Kontaktperson
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Kontaktperson")
 
     id: Union[str, KontaktpersonId] = None
     type: str = None
@@ -1693,7 +1693,7 @@ class Virksomhet(Enhet):
     class_class_uri: ClassVar[URIRef] = FINT["Virksomhet"]
     class_class_curie: ClassVar[str] = "fint:Virksomhet"
     class_name: ClassVar[str] = "Virksomhet"
-    class_model_uri: ClassVar[URIRef] = RES.Virksomhet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-ressurs/Virksomhet")
 
     id: Union[str, VirksomhetId] = None
     virksomhetsId: Union[dict, Identifikator] = None
@@ -1725,689 +1725,689 @@ class slots:
     pass
 
 slots.plattform = Slot(uri=RES.plattform, name="plattform", curie=RES.curie('plattform'),
-                   model_uri=RES.plattform, domain=None, range=Optional[Union[str, PlattformId]])
+                   model_uri=DEFAULT_.plattform, domain=None, range=Optional[Union[str, PlattformId]])
 
 slots.enhetstype = Slot(uri=RES.enhetstype, name="enhetstype", curie=RES.curie('enhetstype'),
-                   model_uri=RES.enhetstype, domain=None, range=Optional[Union[str, EnhetstypeId]])
+                   model_uri=DEFAULT_.enhetstype, domain=None, range=Optional[Union[str, EnhetstypeId]])
 
 slots.enhetsgruppemedlemskap = Slot(uri=RES.enhetsgruppemedlemskap, name="enhetsgruppemedlemskap", curie=RES.curie('enhetsgruppemedlemskap'),
-                   model_uri=RES.enhetsgruppemedlemskap, domain=None, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
+                   model_uri=DEFAULT_.enhetsgruppemedlemskap, domain=None, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
 
 slots.personalressurs = Slot(uri=RES.personalressurs, name="personalressurs", curie=RES.curie('personalressurs'),
-                   model_uri=RES.personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.eier = Slot(uri=RES.eier, name="eier", curie=RES.curie('eier'),
-                   model_uri=RES.eier, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.eier, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.lisensantall = Slot(uri=RES.lisensantall, name="lisensantall", curie=RES.curie('lisensantall'),
-                   model_uri=RES.lisensantall, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.lisensantall, domain=None, range=Optional[int])
 
 slots.applikasjonsressurs = Slot(uri=RES.applikasjonsressurs, name="applikasjonsressurs", curie=RES.curie('applikasjonsressurs'),
-                   model_uri=RES.applikasjonsressurs, domain=None, range=Optional[Union[Union[str, ApplikasjonsressursId], list[Union[str, ApplikasjonsressursId]]]])
+                   model_uri=DEFAULT_.applikasjonsressurs, domain=None, range=Optional[Union[Union[str, ApplikasjonsressursId], list[Union[str, ApplikasjonsressursId]]]])
 
 slots.applikasjonskategori = Slot(uri=RES.applikasjonskategori, name="applikasjonskategori", curie=RES.curie('applikasjonskategori'),
-                   model_uri=RES.applikasjonskategori, domain=None, range=Optional[Union[Union[str, ApplikasjonskategoriId], list[Union[str, ApplikasjonskategoriId]]]])
+                   model_uri=DEFAULT_.applikasjonskategori, domain=None, range=Optional[Union[Union[str, ApplikasjonskategoriId], list[Union[str, ApplikasjonskategoriId]]]])
 
 slots.applikasjon = Slot(uri=RES.applikasjon, name="applikasjon", curie=RES.curie('applikasjon'),
-                   model_uri=RES.applikasjon, domain=None, range=Optional[Union[str, ApplikasjonId]])
+                   model_uri=DEFAULT_.applikasjon, domain=None, range=Optional[Union[str, ApplikasjonId]])
 
 slots.brukertype = Slot(uri=RES.brukertype, name="brukertype", curie=RES.curie('brukertype'),
-                   model_uri=RES.brukertype, domain=None, range=Optional[Union[Union[str, BrukertypeId], list[Union[str, BrukertypeId]]]])
+                   model_uri=DEFAULT_.brukertype, domain=None, range=Optional[Union[Union[str, BrukertypeId], list[Union[str, BrukertypeId]]]])
 
 slots.handhevingstype = Slot(uri=RES.handhevingstype, name="handhevingstype", curie=RES.curie('handhevingstype'),
-                   model_uri=RES.handhevingstype, domain=None, range=Optional[Union[str, HandhevingstypeId]])
+                   model_uri=DEFAULT_.handhevingstype, domain=None, range=Optional[Union[str, HandhevingstypeId]])
 
 slots.lisensmodell = Slot(uri=RES.lisensmodell, name="lisensmodell", curie=RES.curie('lisensmodell'),
-                   model_uri=RES.lisensmodell, domain=None, range=Optional[Union[str, LisensmodellId]])
+                   model_uri=DEFAULT_.lisensmodell, domain=None, range=Optional[Union[str, LisensmodellId]])
 
 slots.ressurstilgjengelighet = Slot(uri=RES.ressurstilgjengelighet, name="ressurstilgjengelighet", curie=RES.curie('ressurstilgjengelighet'),
-                   model_uri=RES.ressurstilgjengelighet, domain=None, range=Optional[Union[Union[str, ApplikasjonsressurstilgjengelighetId], list[Union[str, ApplikasjonsressurstilgjengelighetId]]]])
+                   model_uri=DEFAULT_.ressurstilgjengelighet, domain=None, range=Optional[Union[Union[str, ApplikasjonsressurstilgjengelighetId], list[Union[str, ApplikasjonsressurstilgjengelighetId]]]])
 
 slots.enhetskostnad = Slot(uri=RES.enhetskostnad, name="enhetskostnad", curie=RES.curie('enhetskostnad'),
-                   model_uri=RES.enhetskostnad, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.enhetskostnad, domain=None, range=Optional[int])
 
 slots.kreverGodkjenning = Slot(uri=RES.kreverGodkjenning, name="kreverGodkjenning", curie=RES.curie('kreverGodkjenning'),
-                   model_uri=RES.kreverGodkjenning, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.kreverGodkjenning, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.konsument = Slot(uri=RES.konsument, name="konsument", curie=RES.curie('konsument'),
-                   model_uri=RES.konsument, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.konsument, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.ressursRef = Slot(uri=RES.ressursRef, name="ressursRef", curie=RES.curie('ressursRef'),
-                   model_uri=RES.ressursRef, domain=None, range=Optional[Union[str, ApplikasjonsressursId]])
+                   model_uri=DEFAULT_.ressursRef, domain=None, range=Optional[Union[str, ApplikasjonsressursId]])
 
 slots.serienummer = Slot(uri=RES.serienummer, name="serienummer", curie=RES.curie('serienummer'),
-                   model_uri=RES.serienummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.serienummer, domain=None, range=Optional[str])
 
 slots.dataobjektId = Slot(uri=RES.dataobjektId, name="dataobjektId", curie=RES.curie('dataobjektId'),
-                   model_uri=RES.dataobjektId, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.dataobjektId, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.flerbrukerenhet = Slot(uri=RES.flerbrukerenhet, name="flerbrukerenhet", curie=RES.curie('flerbrukerenhet'),
-                   model_uri=RES.flerbrukerenhet, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.flerbrukerenhet, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.privateid = Slot(uri=RES.privateid, name="privateid", curie=RES.curie('privateid'),
-                   model_uri=RES.privateid, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.privateid, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.administrator = Slot(uri=RES.administrator, name="administrator", curie=RES.curie('administrator'),
-                   model_uri=RES.administrator, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.administrator, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.status = Slot(uri=RES.status, name="status", curie=RES.curie('status'),
-                   model_uri=RES.status, domain=None, range=Optional[Union[str, StatusId]])
+                   model_uri=DEFAULT_.status, domain=None, range=Optional[Union[str, StatusId]])
 
 slots.produsent = Slot(uri=RES.produsent, name="produsent", curie=RES.curie('produsent'),
-                   model_uri=RES.produsent, domain=None, range=Optional[Union[str, ProdusentId]])
+                   model_uri=DEFAULT_.produsent, domain=None, range=Optional[Union[str, ProdusentId]])
 
 slots.organisasjonsenhet = Slot(uri=RES.organisasjonsenhet, name="organisasjonsenhet", curie=RES.curie('organisasjonsenhet'),
-                   model_uri=RES.organisasjonsenhet, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.organisasjonsenhet, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.digitalEnhet = Slot(uri=RES.digitalEnhet, name="digitalEnhet", curie=RES.curie('digitalEnhet'),
-                   model_uri=RES.digitalEnhet, domain=None, range=Optional[Union[str, DigitalEnhetId]])
+                   model_uri=DEFAULT_.digitalEnhet, domain=None, range=Optional[Union[str, DigitalEnhetId]])
 
 slots.enhetsgruppe = Slot(uri=RES.enhetsgruppe, name="enhetsgruppe", curie=RES.curie('enhetsgruppe'),
-                   model_uri=RES.enhetsgruppe, domain=None, range=Optional[Union[str, EnhetsgruppeId]])
+                   model_uri=DEFAULT_.enhetsgruppe, domain=None, range=Optional[Union[str, EnhetsgruppeId]])
 
 slots.rettighet = Slot(uri=RES.rettighet, name="rettighet", curie=RES.curie('rettighet'),
-                   model_uri=RES.rettighet, domain=None, range=Optional[Union[Union[str, RettighetId], list[Union[str, RettighetId]]]])
+                   model_uri=DEFAULT_.rettighet, domain=None, range=Optional[Union[Union[str, RettighetId], list[Union[str, RettighetId]]]])
 
 slots.identitet = Slot(uri=RES.identitet, name="identitet", curie=RES.curie('identitet'),
-                   model_uri=RES.identitet, domain=None, range=Optional[Union[Union[str, IdentitetId], list[Union[str, IdentitetId]]]])
+                   model_uri=DEFAULT_.identitet, domain=None, range=Optional[Union[Union[str, IdentitetId], list[Union[str, IdentitetId]]]])
 
 slots.id = Slot(uri=FINT.id, name="id", curie=FINT.curie('id'),
-                   model_uri=RES.id, domain=None, range=URIRef)
+                   model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
 slots.gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.gyldighetsperiode, domain=None, range=Optional[Union[dict, Periode]])
+                   model_uri=DEFAULT_.gyldighetsperiode, domain=None, range=Optional[Union[dict, Periode]])
 
 slots.kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=RES.kontaktinformasjon, domain=None, range=Optional[Union[dict, Kontaktinformasjon]])
+                   model_uri=DEFAULT_.kontaktinformasjon, domain=None, range=Optional[Union[dict, Kontaktinformasjon]])
 
 slots.postadresse = Slot(uri=FINT.postadresse, name="postadresse", curie=FINT.curie('postadresse'),
-                   model_uri=RES.postadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.postadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.forretningsadresse = Slot(uri=FINT.forretningsadresse, name="forretningsadresse", curie=FINT.curie('forretningsadresse'),
-                   model_uri=RES.forretningsadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.forretningsadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.organisasjonsnavn = Slot(uri=FINT.organisasjonsnavn, name="organisasjonsnavn", curie=FINT.curie('organisasjonsnavn'),
-                   model_uri=RES.organisasjonsnavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.organisasjonsnavn, domain=None, range=Optional[str])
 
 slots.organisasjonsnummer = Slot(uri=FINT.organisasjonsnummer, name="organisasjonsnummer", curie=FINT.curie('organisasjonsnummer'),
-                   model_uri=RES.organisasjonsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.organisasjonsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.kode = Slot(uri=FINT.kode, name="kode", curie=FINT.curie('kode'),
-                   model_uri=RES.kode, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.kode, domain=None, range=Optional[str])
 
 slots.navn = Slot(uri=FINT.navn, name="navn", curie=FINT.curie('navn'),
-                   model_uri=RES.navn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.navn, domain=None, range=Optional[str])
 
 slots.passiv = Slot(uri=FINT.passiv, name="passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.passiv, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.passiv, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.identifikatorverdi = Slot(uri=FINT.identifikatorverdi, name="identifikatorverdi", curie=FINT.curie('identifikatorverdi'),
-                   model_uri=RES.identifikatorverdi, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.identifikatorverdi, domain=None, range=Optional[str])
 
 slots.beskrivelse = Slot(uri=FINT.beskrivelse, name="beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=RES.beskrivelse, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.beskrivelse, domain=None, range=Optional[str])
 
 slots.start = Slot(uri=FINT.start, name="start", curie=FINT.curie('start'),
-                   model_uri=RES.start, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.start, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.slutt = Slot(uri=FINT.slutt, name="slutt", curie=FINT.curie('slutt'),
-                   model_uri=RES.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.fornavn = Slot(uri=FINT.fornavn, name="fornavn", curie=FINT.curie('fornavn'),
-                   model_uri=RES.fornavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.fornavn, domain=None, range=Optional[str])
 
 slots.mellomnavn = Slot(uri=FINT.mellomnavn, name="mellomnavn", curie=FINT.curie('mellomnavn'),
-                   model_uri=RES.mellomnavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.mellomnavn, domain=None, range=Optional[str])
 
 slots.etternavn = Slot(uri=FINT.etternavn, name="etternavn", curie=FINT.curie('etternavn'),
-                   model_uri=RES.etternavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.etternavn, domain=None, range=Optional[str])
 
 slots.epostadresse = Slot(uri=FINT.epostadresse, name="epostadresse", curie=FINT.curie('epostadresse'),
-                   model_uri=RES.epostadresse, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.epostadresse, domain=None, range=Optional[str])
 
 slots.mobiltelefonnummer = Slot(uri=FINT.mobiltelefonnummer, name="mobiltelefonnummer", curie=FINT.curie('mobiltelefonnummer'),
-                   model_uri=RES.mobiltelefonnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.mobiltelefonnummer, domain=None, range=Optional[str])
 
 slots.nettsted = Slot(uri=FINT.nettsted, name="nettsted", curie=FINT.curie('nettsted'),
-                   model_uri=RES.nettsted, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.nettsted, domain=None, range=Optional[str])
 
 slots.sip = Slot(uri=FINT.sip, name="sip", curie=FINT.curie('sip'),
-                   model_uri=RES.sip, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.sip, domain=None, range=Optional[str])
 
 slots.telefonnummer = Slot(uri=FINT.telefonnummer, name="telefonnummer", curie=FINT.curie('telefonnummer'),
-                   model_uri=RES.telefonnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.telefonnummer, domain=None, range=Optional[str])
 
 slots.adresselinje = Slot(uri=FINT.adresselinje, name="adresselinje", curie=FINT.curie('adresselinje'),
-                   model_uri=RES.adresselinje, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=DEFAULT_.adresselinje, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.postnummer = Slot(uri=FINT.postnummer, name="postnummer", curie=FINT.curie('postnummer'),
-                   model_uri=RES.postnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.postnummer, domain=None, range=Optional[str])
 
 slots.poststed = Slot(uri=FINT.poststed, name="poststed", curie=FINT.curie('poststed'),
-                   model_uri=RES.poststed, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.poststed, domain=None, range=Optional[str])
 
 slots.land = Slot(uri=FINT.land, name="land", curie=FINT.curie('land'),
-                   model_uri=RES.land, domain=None, range=Optional[Union[str, LandkodeId]])
+                   model_uri=DEFAULT_.land, domain=None, range=Optional[Union[str, LandkodeId]])
 
 slots.adresse = Slot(uri=FINT.adresse, name="adresse", curie=FINT.curie('adresse'),
-                   model_uri=RES.adresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.adresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.bruksnummer = Slot(uri=FINT.bruksnummer, name="bruksnummer", curie=FINT.curie('bruksnummer'),
-                   model_uri=RES.bruksnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.bruksnummer, domain=None, range=Optional[str])
 
 slots.festenummer = Slot(uri=FINT.festenummer, name="festenummer", curie=FINT.curie('festenummer'),
-                   model_uri=RES.festenummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.festenummer, domain=None, range=Optional[str])
 
 slots.gaardsnummer = Slot(uri=FINT.gaardsnummer, name="gaardsnummer", curie=FINT.curie('gaardsnummer'),
-                   model_uri=RES.gaardsnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.gaardsnummer, domain=None, range=Optional[str])
 
 slots.seksjonsnummer = Slot(uri=FINT.seksjonsnummer, name="seksjonsnummer", curie=FINT.curie('seksjonsnummer'),
-                   model_uri=RES.seksjonsnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.seksjonsnummer, domain=None, range=Optional[str])
 
 slots.kommunenummer = Slot(uri=FINT.kommunenummer, name="kommunenummer", curie=FINT.curie('kommunenummer'),
-                   model_uri=RES.kommunenummer, domain=None, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.kommunenummer, domain=None, range=Optional[Union[str, KommuneId]])
 
 slots.fylke = Slot(uri=FINT.fylke, name="fylke", curie=FINT.curie('fylke'),
-                   model_uri=RES.fylke, domain=None, range=Optional[Union[str, FylkeId]])
+                   model_uri=DEFAULT_.fylke, domain=None, range=Optional[Union[str, FylkeId]])
 
 slots.kommune = Slot(uri=FINT.kommune, name="kommune", curie=FINT.curie('kommune'),
-                   model_uri=RES.kommune, domain=None, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.kommune, domain=None, range=Optional[Union[str, KommuneId]])
 
 slots.kjonn = Slot(uri=FINT.kjonn, name="kjonn", curie=FINT.curie('kjonn'),
-                   model_uri=RES.kjonn, domain=None, range=Optional[Union[str, KjonnId]])
+                   model_uri=DEFAULT_.kjonn, domain=None, range=Optional[Union[str, KjonnId]])
 
 slots.bokstavkode = Slot(uri=FINT.bokstavkode, name="bokstavkode", curie=FINT.curie('bokstavkode'),
-                   model_uri=RES.bokstavkode, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.bokstavkode, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.valuta_navn = Slot(uri=FINT.valutaNavn, name="valuta_navn", curie=FINT.curie('valutaNavn'),
-                   model_uri=RES.valuta_navn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.valuta_navn, domain=None, range=Optional[str])
 
 slots.nummerkode = Slot(uri=FINT.nummerkode, name="nummerkode", curie=FINT.curie('nummerkode'),
-                   model_uri=RES.nummerkode, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.nummerkode, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.bilde = Slot(uri=FINT.bilde, name="bilde", curie=FINT.curie('bilde'),
-                   model_uri=RES.bilde, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.bilde, domain=None, range=Optional[str])
 
 slots.bostedsadresse = Slot(uri=FINT.bostedsadresse, name="bostedsadresse", curie=FINT.curie('bostedsadresse'),
-                   model_uri=RES.bostedsadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.bostedsadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.fodselsdato = Slot(uri=FINT.fodselsdato, name="fodselsdato", curie=FINT.curie('fodselsdato'),
-                   model_uri=RES.fodselsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.fodselsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.fodselsnummer = Slot(uri=FINT.fodselsnummer, name="fodselsnummer", curie=FINT.curie('fodselsnummer'),
-                   model_uri=RES.fodselsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.fodselsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.person_navn = Slot(uri=FINT.personNavn, name="person_navn", curie=FINT.curie('personNavn'),
-                   model_uri=RES.person_navn, domain=None, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.person_navn, domain=None, range=Optional[Union[dict, Personnavn]])
 
 slots.parorende = Slot(uri=FINT.parorende, name="parorende", curie=FINT.curie('parorende'),
-                   model_uri=RES.parorende, domain=None, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
+                   model_uri=DEFAULT_.parorende, domain=None, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
 
 slots.statsborgerskap = Slot(uri=FINT.statsborgerskap, name="statsborgerskap", curie=FINT.curie('statsborgerskap'),
-                   model_uri=RES.statsborgerskap, domain=None, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
+                   model_uri=DEFAULT_.statsborgerskap, domain=None, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
 
 slots.foreldreansvar = Slot(uri=FINT.foreldreansvar, name="foreldreansvar", curie=FINT.curie('foreldreansvar'),
-                   model_uri=RES.foreldreansvar, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.foreldreansvar, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.foreldre = Slot(uri=FINT.foreldre, name="foreldre", curie=FINT.curie('foreldre'),
-                   model_uri=RES.foreldre, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.foreldre, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.maalform = Slot(uri=FINT.maalform, name="maalform", curie=FINT.curie('maalform'),
-                   model_uri=RES.maalform, domain=None, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.maalform, domain=None, range=Optional[Union[str, SpraakId]])
 
 slots.morsmaal = Slot(uri=FINT.morsmaal, name="morsmaal", curie=FINT.curie('morsmaal'),
-                   model_uri=RES.morsmaal, domain=None, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.morsmaal, domain=None, range=Optional[Union[str, SpraakId]])
 
 slots.laerling = Slot(uri=FINT.laerling, name="laerling", curie=FINT.curie('laerling'),
-                   model_uri=RES.laerling, domain=None, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.laerling, domain=None, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 
 slots.elev = Slot(uri=FINT.elev, name="elev", curie=FINT.curie('elev'),
-                   model_uri=RES.elev, domain=None, range=Optional[Union[str, ElevId]])
+                   model_uri=DEFAULT_.elev, domain=None, range=Optional[Union[str, ElevId]])
 
 slots.elevnummer = Slot(uri=FINT.elevnummer, name="elevnummer", curie=FINT.curie('elevnummer'),
-                   model_uri=RES.elevnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.elevnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.person = Slot(uri=FINT.person, name="person", curie=FINT.curie('person'),
-                   model_uri=RES.person, domain=None, range=Optional[Union[str, PersonId]])
+                   model_uri=DEFAULT_.person, domain=None, range=Optional[Union[str, PersonId]])
 
 slots.otungdom = Slot(uri=FINT.otungdom, name="otungdom", curie=FINT.curie('otungdom'),
-                   model_uri=RES.otungdom, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.otungdom, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.kontaktperson_navn = Slot(uri=FINT.kontaktpersonNavn, name="kontaktperson_navn", curie=FINT.curie('kontaktpersonNavn'),
-                   model_uri=RES.kontaktperson_navn, domain=None, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.kontaktperson_navn, domain=None, range=Optional[Union[dict, Personnavn]])
 
 slots.type = Slot(uri=FINT.type, name="type", curie=FINT.curie('type'),
-                   model_uri=RES.type, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.type, domain=None, range=Optional[str])
 
 slots.kontaktperson = Slot(uri=FINT.kontaktpersonFor, name="kontaktperson", curie=FINT.curie('kontaktpersonFor'),
-                   model_uri=RES.kontaktperson, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.kontaktperson, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.virksomhetsId = Slot(uri=FINT.virksomhetsId, name="virksomhetsId", curie=FINT.curie('virksomhetsId'),
-                   model_uri=RES.virksomhetsId, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.virksomhetsId, domain=None, range=Optional[Union[dict, Identifikator]])
 
-slots.ressursContainer__applikasjonar = Slot(uri=RES.applikasjonar, name="ressursContainer__applikasjonar", curie=RES.curie('applikasjonar'),
-                   model_uri=RES.ressursContainer__applikasjonar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonId], Union[dict, Applikasjon]], list[Union[dict, Applikasjon]]]])
+slots.ressursContainer__applikasjonar = Slot(uri=DEFAULT_.applikasjonar, name="ressursContainer__applikasjonar", curie=DEFAULT_.curie('applikasjonar'),
+                   model_uri=DEFAULT_.ressursContainer__applikasjonar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonId], Union[dict, Applikasjon]], list[Union[dict, Applikasjon]]]])
 
-slots.ressursContainer__applikasjonsressursar = Slot(uri=RES.applikasjonsressursar, name="ressursContainer__applikasjonsressursar", curie=RES.curie('applikasjonsressursar'),
-                   model_uri=RES.ressursContainer__applikasjonsressursar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonsressursId], Union[dict, Applikasjonsressurs]], list[Union[dict, Applikasjonsressurs]]]])
+slots.ressursContainer__applikasjonsressursar = Slot(uri=DEFAULT_.applikasjonsressursar, name="ressursContainer__applikasjonsressursar", curie=DEFAULT_.curie('applikasjonsressursar'),
+                   model_uri=DEFAULT_.ressursContainer__applikasjonsressursar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonsressursId], Union[dict, Applikasjonsressurs]], list[Union[dict, Applikasjonsressurs]]]])
 
-slots.ressursContainer__applikasjonsressurstilgjengelegheit = Slot(uri=RES.applikasjonsressurstilgjengelegheit, name="ressursContainer__applikasjonsressurstilgjengelegheit", curie=RES.curie('applikasjonsressurstilgjengelegheit'),
-                   model_uri=RES.ressursContainer__applikasjonsressurstilgjengelegheit, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonsressurstilgjengelighetId], Union[dict, Applikasjonsressurstilgjengelighet]], list[Union[dict, Applikasjonsressurstilgjengelighet]]]])
+slots.ressursContainer__applikasjonsressurstilgjengelegheit = Slot(uri=DEFAULT_.applikasjonsressurstilgjengelegheit, name="ressursContainer__applikasjonsressurstilgjengelegheit", curie=DEFAULT_.curie('applikasjonsressurstilgjengelegheit'),
+                   model_uri=DEFAULT_.ressursContainer__applikasjonsressurstilgjengelegheit, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonsressurstilgjengelighetId], Union[dict, Applikasjonsressurstilgjengelighet]], list[Union[dict, Applikasjonsressurstilgjengelighet]]]])
 
-slots.ressursContainer__digitaleEiningar = Slot(uri=RES.digitaleEiningar, name="ressursContainer__digitaleEiningar", curie=RES.curie('digitaleEiningar'),
-                   model_uri=RES.ressursContainer__digitaleEiningar, domain=None, range=Optional[Union[dict[Union[str, DigitalEnhetId], Union[dict, DigitalEnhet]], list[Union[dict, DigitalEnhet]]]])
+slots.ressursContainer__digitaleEiningar = Slot(uri=DEFAULT_.digitaleEiningar, name="ressursContainer__digitaleEiningar", curie=DEFAULT_.curie('digitaleEiningar'),
+                   model_uri=DEFAULT_.ressursContainer__digitaleEiningar, domain=None, range=Optional[Union[dict[Union[str, DigitalEnhetId], Union[dict, DigitalEnhet]], list[Union[dict, DigitalEnhet]]]])
 
-slots.ressursContainer__einingsgrupper = Slot(uri=RES.einingsgrupper, name="ressursContainer__einingsgrupper", curie=RES.curie('einingsgrupper'),
-                   model_uri=RES.ressursContainer__einingsgrupper, domain=None, range=Optional[Union[dict[Union[str, EnhetsgruppeId], Union[dict, Enhetsgruppe]], list[Union[dict, Enhetsgruppe]]]])
+slots.ressursContainer__einingsgrupper = Slot(uri=DEFAULT_.einingsgrupper, name="ressursContainer__einingsgrupper", curie=DEFAULT_.curie('einingsgrupper'),
+                   model_uri=DEFAULT_.ressursContainer__einingsgrupper, domain=None, range=Optional[Union[dict[Union[str, EnhetsgruppeId], Union[dict, Enhetsgruppe]], list[Union[dict, Enhetsgruppe]]]])
 
-slots.ressursContainer__einingsgruppedmedlemskap = Slot(uri=RES.einingsgruppedmedlemskap, name="ressursContainer__einingsgruppedmedlemskap", curie=RES.curie('einingsgruppedmedlemskap'),
-                   model_uri=RES.ressursContainer__einingsgruppedmedlemskap, domain=None, range=Optional[Union[dict[Union[str, EnhetsgruppemedlemskapId], Union[dict, Enhetsgruppemedlemskap]], list[Union[dict, Enhetsgruppemedlemskap]]]])
+slots.ressursContainer__einingsgruppedmedlemskap = Slot(uri=DEFAULT_.einingsgruppedmedlemskap, name="ressursContainer__einingsgruppedmedlemskap", curie=DEFAULT_.curie('einingsgruppedmedlemskap'),
+                   model_uri=DEFAULT_.ressursContainer__einingsgruppedmedlemskap, domain=None, range=Optional[Union[dict[Union[str, EnhetsgruppemedlemskapId], Union[dict, Enhetsgruppemedlemskap]], list[Union[dict, Enhetsgruppemedlemskap]]]])
 
-slots.ressursContainer__identitetar = Slot(uri=RES.identitetar, name="ressursContainer__identitetar", curie=RES.curie('identitetar'),
-                   model_uri=RES.ressursContainer__identitetar, domain=None, range=Optional[Union[dict[Union[str, IdentitetId], Union[dict, Identitet]], list[Union[dict, Identitet]]]])
+slots.ressursContainer__identitetar = Slot(uri=DEFAULT_.identitetar, name="ressursContainer__identitetar", curie=DEFAULT_.curie('identitetar'),
+                   model_uri=DEFAULT_.ressursContainer__identitetar, domain=None, range=Optional[Union[dict[Union[str, IdentitetId], Union[dict, Identitet]], list[Union[dict, Identitet]]]])
 
-slots.ressursContainer__rettigheiter = Slot(uri=RES.rettigheiter, name="ressursContainer__rettigheiter", curie=RES.curie('rettigheiter'),
-                   model_uri=RES.ressursContainer__rettigheiter, domain=None, range=Optional[Union[dict[Union[str, RettighetId], Union[dict, Rettighet]], list[Union[dict, Rettighet]]]])
+slots.ressursContainer__rettigheiter = Slot(uri=DEFAULT_.rettigheiter, name="ressursContainer__rettigheiter", curie=DEFAULT_.curie('rettigheiter'),
+                   model_uri=DEFAULT_.ressursContainer__rettigheiter, domain=None, range=Optional[Union[dict[Union[str, RettighetId], Union[dict, Rettighet]], list[Union[dict, Rettighet]]]])
 
-slots.ressursContainer__applikasjonskategoriar = Slot(uri=RES.applikasjonskategoriar, name="ressursContainer__applikasjonskategoriar", curie=RES.curie('applikasjonskategoriar'),
-                   model_uri=RES.ressursContainer__applikasjonskategoriar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonskategoriId], Union[dict, Applikasjonskategori]], list[Union[dict, Applikasjonskategori]]]])
+slots.ressursContainer__applikasjonskategoriar = Slot(uri=DEFAULT_.applikasjonskategoriar, name="ressursContainer__applikasjonskategoriar", curie=DEFAULT_.curie('applikasjonskategoriar'),
+                   model_uri=DEFAULT_.ressursContainer__applikasjonskategoriar, domain=None, range=Optional[Union[dict[Union[str, ApplikasjonskategoriId], Union[dict, Applikasjonskategori]], list[Union[dict, Applikasjonskategori]]]])
 
-slots.ressursContainer__brukertypar = Slot(uri=RES.brukertypar, name="ressursContainer__brukertypar", curie=RES.curie('brukertypar'),
-                   model_uri=RES.ressursContainer__brukertypar, domain=None, range=Optional[Union[dict[Union[str, BrukertypeId], Union[dict, Brukertype]], list[Union[dict, Brukertype]]]])
+slots.ressursContainer__brukertypar = Slot(uri=DEFAULT_.brukertypar, name="ressursContainer__brukertypar", curie=DEFAULT_.curie('brukertypar'),
+                   model_uri=DEFAULT_.ressursContainer__brukertypar, domain=None, range=Optional[Union[dict[Union[str, BrukertypeId], Union[dict, Brukertype]], list[Union[dict, Brukertype]]]])
 
-slots.ressursContainer__einingstypar = Slot(uri=RES.einingstypar, name="ressursContainer__einingstypar", curie=RES.curie('einingstypar'),
-                   model_uri=RES.ressursContainer__einingstypar, domain=None, range=Optional[Union[dict[Union[str, EnhetstypeId], Union[dict, Enhetstype]], list[Union[dict, Enhetstype]]]])
+slots.ressursContainer__einingstypar = Slot(uri=DEFAULT_.einingstypar, name="ressursContainer__einingstypar", curie=DEFAULT_.curie('einingstypar'),
+                   model_uri=DEFAULT_.ressursContainer__einingstypar, domain=None, range=Optional[Union[dict[Union[str, EnhetstypeId], Union[dict, Enhetstype]], list[Union[dict, Enhetstype]]]])
 
-slots.ressursContainer__handhaevingstypar = Slot(uri=RES.handhaevingstypar, name="ressursContainer__handhaevingstypar", curie=RES.curie('handhaevingstypar'),
-                   model_uri=RES.ressursContainer__handhaevingstypar, domain=None, range=Optional[Union[dict[Union[str, HandhevingstypeId], Union[dict, Handhevingstype]], list[Union[dict, Handhevingstype]]]])
+slots.ressursContainer__handhaevingstypar = Slot(uri=DEFAULT_.handhaevingstypar, name="ressursContainer__handhaevingstypar", curie=DEFAULT_.curie('handhaevingstypar'),
+                   model_uri=DEFAULT_.ressursContainer__handhaevingstypar, domain=None, range=Optional[Union[dict[Union[str, HandhevingstypeId], Union[dict, Handhevingstype]], list[Union[dict, Handhevingstype]]]])
 
-slots.ressursContainer__lisensmodellar = Slot(uri=RES.lisensmodellar, name="ressursContainer__lisensmodellar", curie=RES.curie('lisensmodellar'),
-                   model_uri=RES.ressursContainer__lisensmodellar, domain=None, range=Optional[Union[dict[Union[str, LisensmodellId], Union[dict, Lisensmodell]], list[Union[dict, Lisensmodell]]]])
+slots.ressursContainer__lisensmodellar = Slot(uri=DEFAULT_.lisensmodellar, name="ressursContainer__lisensmodellar", curie=DEFAULT_.curie('lisensmodellar'),
+                   model_uri=DEFAULT_.ressursContainer__lisensmodellar, domain=None, range=Optional[Union[dict[Union[str, LisensmodellId], Union[dict, Lisensmodell]], list[Union[dict, Lisensmodell]]]])
 
-slots.ressursContainer__plattformar = Slot(uri=RES.plattformar, name="ressursContainer__plattformar", curie=RES.curie('plattformar'),
-                   model_uri=RES.ressursContainer__plattformar, domain=None, range=Optional[Union[dict[Union[str, PlattformId], Union[dict, Plattform]], list[Union[dict, Plattform]]]])
+slots.ressursContainer__plattformar = Slot(uri=DEFAULT_.plattformar, name="ressursContainer__plattformar", curie=DEFAULT_.curie('plattformar'),
+                   model_uri=DEFAULT_.ressursContainer__plattformar, domain=None, range=Optional[Union[dict[Union[str, PlattformId], Union[dict, Plattform]], list[Union[dict, Plattform]]]])
 
-slots.ressursContainer__produsentar = Slot(uri=RES.produsentar, name="ressursContainer__produsentar", curie=RES.curie('produsentar'),
-                   model_uri=RES.ressursContainer__produsentar, domain=None, range=Optional[Union[dict[Union[str, ProdusentId], Union[dict, Produsent]], list[Union[dict, Produsent]]]])
+slots.ressursContainer__produsentar = Slot(uri=DEFAULT_.produsentar, name="ressursContainer__produsentar", curie=DEFAULT_.curie('produsentar'),
+                   model_uri=DEFAULT_.ressursContainer__produsentar, domain=None, range=Optional[Union[dict[Union[str, ProdusentId], Union[dict, Produsent]], list[Union[dict, Produsent]]]])
 
-slots.ressursContainer__statusar = Slot(uri=RES.statusar, name="ressursContainer__statusar", curie=RES.curie('statusar'),
-                   model_uri=RES.ressursContainer__statusar, domain=None, range=Optional[Union[dict[Union[str, StatusId], Union[dict, Status]], list[Union[dict, Status]]]])
+slots.ressursContainer__statusar = Slot(uri=DEFAULT_.statusar, name="ressursContainer__statusar", curie=DEFAULT_.curie('statusar'),
+                   model_uri=DEFAULT_.ressursContainer__statusar, domain=None, range=Optional[Union[dict[Union[str, StatusId], Union[dict, Status]], list[Union[dict, Status]]]])
 
 slots.person__personalressurs = Slot(uri=FINT.personalressurs, name="person__personalressurs", curie=FINT.curie('personalressurs'),
-                   model_uri=RES.person__personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.person__personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.Applikasjon_navn = Slot(uri=FINT.navn, name="Applikasjon_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Applikasjon_navn, domain=Applikasjon, range=str)
+                   model_uri=DEFAULT_.Applikasjon_navn, domain=Applikasjon, range=str)
 
 slots.Applikasjon_beskrivelse = Slot(uri=FINT.beskrivelse, name="Applikasjon_beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=RES.Applikasjon_beskrivelse, domain=Applikasjon, range=Optional[str])
+                   model_uri=DEFAULT_.Applikasjon_beskrivelse, domain=Applikasjon, range=Optional[str])
 
 slots.Applikasjon_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Applikasjon_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Applikasjon_gyldighetsperiode, domain=Applikasjon, range=Union[dict, "Periode"])
+                   model_uri=DEFAULT_.Applikasjon_gyldighetsperiode, domain=Applikasjon, range=Union[dict, "Periode"])
 
 slots.Applikasjon_plattform = Slot(uri=RES.plattform, name="Applikasjon_plattform", curie=RES.curie('plattform'),
-                   model_uri=RES.Applikasjon_plattform, domain=Applikasjon, range=Optional[Union[Union[str, PlattformId], list[Union[str, PlattformId]]]])
+                   model_uri=DEFAULT_.Applikasjon_plattform, domain=Applikasjon, range=Optional[Union[Union[str, PlattformId], list[Union[str, PlattformId]]]])
 
 slots.Applikasjon_applikasjonsressurs = Slot(uri=RES.applikasjonsressurs, name="Applikasjon_applikasjonsressurs", curie=RES.curie('applikasjonsressurs'),
-                   model_uri=RES.Applikasjon_applikasjonsressurs, domain=Applikasjon, range=Optional[Union[Union[str, ApplikasjonsressursId], list[Union[str, ApplikasjonsressursId]]]])
+                   model_uri=DEFAULT_.Applikasjon_applikasjonsressurs, domain=Applikasjon, range=Optional[Union[Union[str, ApplikasjonsressursId], list[Union[str, ApplikasjonsressursId]]]])
 
 slots.Applikasjon_applikasjonskategori = Slot(uri=RES.applikasjonskategori, name="Applikasjon_applikasjonskategori", curie=RES.curie('applikasjonskategori'),
-                   model_uri=RES.Applikasjon_applikasjonskategori, domain=Applikasjon, range=Optional[Union[Union[str, ApplikasjonskategoriId], list[Union[str, ApplikasjonskategoriId]]]])
+                   model_uri=DEFAULT_.Applikasjon_applikasjonskategori, domain=Applikasjon, range=Optional[Union[Union[str, ApplikasjonskategoriId], list[Union[str, ApplikasjonskategoriId]]]])
 
 slots.Applikasjonsressurs_navn = Slot(uri=FINT.navn, name="Applikasjonsressurs_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Applikasjonsressurs_navn, domain=Applikasjonsressurs, range=str)
+                   model_uri=DEFAULT_.Applikasjonsressurs_navn, domain=Applikasjonsressurs, range=str)
 
 slots.Applikasjonsressurs_beskrivelse = Slot(uri=FINT.beskrivelse, name="Applikasjonsressurs_beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=RES.Applikasjonsressurs_beskrivelse, domain=Applikasjonsressurs, range=Optional[str])
+                   model_uri=DEFAULT_.Applikasjonsressurs_beskrivelse, domain=Applikasjonsressurs, range=Optional[str])
 
 slots.Applikasjonsressurs_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Applikasjonsressurs_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Applikasjonsressurs_gyldighetsperiode, domain=Applikasjonsressurs, range=Union[dict, "Periode"])
+                   model_uri=DEFAULT_.Applikasjonsressurs_gyldighetsperiode, domain=Applikasjonsressurs, range=Union[dict, "Periode"])
 
 slots.Applikasjonsressurs_enhetskostnad = Slot(uri=RES.enhetskostnad, name="Applikasjonsressurs_enhetskostnad", curie=RES.curie('enhetskostnad'),
-                   model_uri=RES.Applikasjonsressurs_enhetskostnad, domain=Applikasjonsressurs, range=Optional[int])
+                   model_uri=DEFAULT_.Applikasjonsressurs_enhetskostnad, domain=Applikasjonsressurs, range=Optional[int])
 
 slots.Applikasjonsressurs_kreverGodkjenning = Slot(uri=RES.kreverGodkjenning, name="Applikasjonsressurs_kreverGodkjenning", curie=RES.curie('kreverGodkjenning'),
-                   model_uri=RES.Applikasjonsressurs_kreverGodkjenning, domain=Applikasjonsressurs, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Applikasjonsressurs_kreverGodkjenning, domain=Applikasjonsressurs, range=Optional[Union[bool, Bool]])
 
 slots.Applikasjonsressurs_lisensantall = Slot(uri=RES.lisensantall, name="Applikasjonsressurs_lisensantall", curie=RES.curie('lisensantall'),
-                   model_uri=RES.Applikasjonsressurs_lisensantall, domain=Applikasjonsressurs, range=Optional[int])
+                   model_uri=DEFAULT_.Applikasjonsressurs_lisensantall, domain=Applikasjonsressurs, range=Optional[int])
 
 slots.Applikasjonsressurs_eier = Slot(uri=RES.eier, name="Applikasjonsressurs_eier", curie=RES.curie('eier'),
-                   model_uri=RES.Applikasjonsressurs_eier, domain=Applikasjonsressurs, range=Union[str, URIorCURIE])
+                   model_uri=DEFAULT_.Applikasjonsressurs_eier, domain=Applikasjonsressurs, range=Union[str, URIorCURIE])
 
 slots.Applikasjonsressurs_applikasjon = Slot(uri=RES.applikasjon, name="Applikasjonsressurs_applikasjon", curie=RES.curie('applikasjon'),
-                   model_uri=RES.Applikasjonsressurs_applikasjon, domain=Applikasjonsressurs, range=Union[str, ApplikasjonId])
+                   model_uri=DEFAULT_.Applikasjonsressurs_applikasjon, domain=Applikasjonsressurs, range=Union[str, ApplikasjonId])
 
 slots.Applikasjonsressurs_brukertype = Slot(uri=RES.brukertype, name="Applikasjonsressurs_brukertype", curie=RES.curie('brukertype'),
-                   model_uri=RES.Applikasjonsressurs_brukertype, domain=Applikasjonsressurs, range=Union[Union[str, BrukertypeId], list[Union[str, BrukertypeId]]])
+                   model_uri=DEFAULT_.Applikasjonsressurs_brukertype, domain=Applikasjonsressurs, range=Union[Union[str, BrukertypeId], list[Union[str, BrukertypeId]]])
 
 slots.Applikasjonsressurs_handhevingstype = Slot(uri=RES.handhevingstype, name="Applikasjonsressurs_handhevingstype", curie=RES.curie('handhevingstype'),
-                   model_uri=RES.Applikasjonsressurs_handhevingstype, domain=Applikasjonsressurs, range=Optional[Union[str, HandhevingstypeId]])
+                   model_uri=DEFAULT_.Applikasjonsressurs_handhevingstype, domain=Applikasjonsressurs, range=Optional[Union[str, HandhevingstypeId]])
 
 slots.Applikasjonsressurs_lisensmodell = Slot(uri=RES.lisensmodell, name="Applikasjonsressurs_lisensmodell", curie=RES.curie('lisensmodell'),
-                   model_uri=RES.Applikasjonsressurs_lisensmodell, domain=Applikasjonsressurs, range=Optional[Union[str, LisensmodellId]])
+                   model_uri=DEFAULT_.Applikasjonsressurs_lisensmodell, domain=Applikasjonsressurs, range=Optional[Union[str, LisensmodellId]])
 
 slots.Applikasjonsressurs_ressurstilgjengelighet = Slot(uri=RES.ressurstilgjengelighet, name="Applikasjonsressurs_ressurstilgjengelighet", curie=RES.curie('ressurstilgjengelighet'),
-                   model_uri=RES.Applikasjonsressurs_ressurstilgjengelighet, domain=Applikasjonsressurs, range=Optional[Union[Union[str, ApplikasjonsressurstilgjengelighetId], list[Union[str, ApplikasjonsressurstilgjengelighetId]]]])
+                   model_uri=DEFAULT_.Applikasjonsressurs_ressurstilgjengelighet, domain=Applikasjonsressurs, range=Optional[Union[Union[str, ApplikasjonsressurstilgjengelighetId], list[Union[str, ApplikasjonsressurstilgjengelighetId]]]])
 
 slots.Applikasjonsressurstilgjengelighet_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Applikasjonsressurstilgjengelighet_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Applikasjonsressurstilgjengelighet_gyldighetsperiode, domain=Applikasjonsressurstilgjengelighet, range=Union[dict, "Periode"])
+                   model_uri=DEFAULT_.Applikasjonsressurstilgjengelighet_gyldighetsperiode, domain=Applikasjonsressurstilgjengelighet, range=Union[dict, "Periode"])
 
 slots.Applikasjonsressurstilgjengelighet_lisensantall = Slot(uri=RES.lisensantall, name="Applikasjonsressurstilgjengelighet_lisensantall", curie=RES.curie('lisensantall'),
-                   model_uri=RES.Applikasjonsressurstilgjengelighet_lisensantall, domain=Applikasjonsressurstilgjengelighet, range=Optional[int])
+                   model_uri=DEFAULT_.Applikasjonsressurstilgjengelighet_lisensantall, domain=Applikasjonsressurstilgjengelighet, range=Optional[int])
 
 slots.Applikasjonsressurstilgjengelighet_konsument = Slot(uri=RES.konsument, name="Applikasjonsressurstilgjengelighet_konsument", curie=RES.curie('konsument'),
-                   model_uri=RES.Applikasjonsressurstilgjengelighet_konsument, domain=Applikasjonsressurstilgjengelighet, range=Union[str, URIorCURIE])
+                   model_uri=DEFAULT_.Applikasjonsressurstilgjengelighet_konsument, domain=Applikasjonsressurstilgjengelighet, range=Union[str, URIorCURIE])
 
 slots.Applikasjonsressurstilgjengelighet_ressursRef = Slot(uri=RES.ressursRef, name="Applikasjonsressurstilgjengelighet_ressursRef", curie=RES.curie('ressursRef'),
-                   model_uri=RES.Applikasjonsressurstilgjengelighet_ressursRef, domain=Applikasjonsressurstilgjengelighet, range=Union[str, ApplikasjonsressursId])
+                   model_uri=DEFAULT_.Applikasjonsressurstilgjengelighet_ressursRef, domain=Applikasjonsressurstilgjengelighet, range=Union[str, ApplikasjonsressursId])
 
 slots.DigitalEnhet_serienummer = Slot(uri=RES.serienummer, name="DigitalEnhet_serienummer", curie=RES.curie('serienummer'),
-                   model_uri=RES.DigitalEnhet_serienummer, domain=DigitalEnhet, range=str)
+                   model_uri=DEFAULT_.DigitalEnhet_serienummer, domain=DigitalEnhet, range=str)
 
 slots.DigitalEnhet_navn = Slot(uri=FINT.navn, name="DigitalEnhet_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.DigitalEnhet_navn, domain=DigitalEnhet, range=Optional[str])
+                   model_uri=DEFAULT_.DigitalEnhet_navn, domain=DigitalEnhet, range=Optional[str])
 
 slots.DigitalEnhet_dataobjektId = Slot(uri=RES.dataobjektId, name="DigitalEnhet_dataobjektId", curie=RES.curie('dataobjektId'),
-                   model_uri=RES.DigitalEnhet_dataobjektId, domain=DigitalEnhet, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.DigitalEnhet_dataobjektId, domain=DigitalEnhet, range=Optional[Union[dict, "Identifikator"]])
 
 slots.DigitalEnhet_flerbrukerenhet = Slot(uri=RES.flerbrukerenhet, name="DigitalEnhet_flerbrukerenhet", curie=RES.curie('flerbrukerenhet'),
-                   model_uri=RES.DigitalEnhet_flerbrukerenhet, domain=DigitalEnhet, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.DigitalEnhet_flerbrukerenhet, domain=DigitalEnhet, range=Optional[Union[bool, Bool]])
 
 slots.DigitalEnhet_privateid = Slot(uri=RES.privateid, name="DigitalEnhet_privateid", curie=RES.curie('privateid'),
-                   model_uri=RES.DigitalEnhet_privateid, domain=DigitalEnhet, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.DigitalEnhet_privateid, domain=DigitalEnhet, range=Optional[Union[bool, Bool]])
 
 slots.DigitalEnhet_administrator = Slot(uri=RES.administrator, name="DigitalEnhet_administrator", curie=RES.curie('administrator'),
-                   model_uri=RES.DigitalEnhet_administrator, domain=DigitalEnhet, range=Union[str, URIorCURIE])
+                   model_uri=DEFAULT_.DigitalEnhet_administrator, domain=DigitalEnhet, range=Union[str, URIorCURIE])
 
 slots.DigitalEnhet_eier = Slot(uri=RES.eier, name="DigitalEnhet_eier", curie=RES.curie('eier'),
-                   model_uri=RES.DigitalEnhet_eier, domain=DigitalEnhet, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.DigitalEnhet_eier, domain=DigitalEnhet, range=Optional[Union[str, URIorCURIE]])
 
 slots.DigitalEnhet_personalressurs = Slot(uri=RES.personalressurs, name="DigitalEnhet_personalressurs", curie=RES.curie('personalressurs'),
-                   model_uri=RES.DigitalEnhet_personalressurs, domain=DigitalEnhet, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.DigitalEnhet_personalressurs, domain=DigitalEnhet, range=Optional[Union[str, URIorCURIE]])
 
 slots.DigitalEnhet_elev = Slot(uri=FINT.elev, name="DigitalEnhet_elev", curie=FINT.curie('elev'),
-                   model_uri=RES.DigitalEnhet_elev, domain=DigitalEnhet, range=Optional[Union[str, ElevId]])
+                   model_uri=DEFAULT_.DigitalEnhet_elev, domain=DigitalEnhet, range=Optional[Union[str, ElevId]])
 
 slots.DigitalEnhet_status = Slot(uri=RES.status, name="DigitalEnhet_status", curie=RES.curie('status'),
-                   model_uri=RES.DigitalEnhet_status, domain=DigitalEnhet, range=Optional[Union[str, StatusId]])
+                   model_uri=DEFAULT_.DigitalEnhet_status, domain=DigitalEnhet, range=Optional[Union[str, StatusId]])
 
 slots.DigitalEnhet_enhetstype = Slot(uri=RES.enhetstype, name="DigitalEnhet_enhetstype", curie=RES.curie('enhetstype'),
-                   model_uri=RES.DigitalEnhet_enhetstype, domain=DigitalEnhet, range=Union[str, EnhetstypeId])
+                   model_uri=DEFAULT_.DigitalEnhet_enhetstype, domain=DigitalEnhet, range=Union[str, EnhetstypeId])
 
 slots.DigitalEnhet_plattform = Slot(uri=RES.plattform, name="DigitalEnhet_plattform", curie=RES.curie('plattform'),
-                   model_uri=RES.DigitalEnhet_plattform, domain=DigitalEnhet, range=Union[str, PlattformId])
+                   model_uri=DEFAULT_.DigitalEnhet_plattform, domain=DigitalEnhet, range=Union[str, PlattformId])
 
 slots.DigitalEnhet_produsent = Slot(uri=RES.produsent, name="DigitalEnhet_produsent", curie=RES.curie('produsent'),
-                   model_uri=RES.DigitalEnhet_produsent, domain=DigitalEnhet, range=Optional[Union[str, ProdusentId]])
+                   model_uri=DEFAULT_.DigitalEnhet_produsent, domain=DigitalEnhet, range=Optional[Union[str, ProdusentId]])
 
 slots.DigitalEnhet_enhetsgruppemedlemskap = Slot(uri=RES.enhetsgruppemedlemskap, name="DigitalEnhet_enhetsgruppemedlemskap", curie=RES.curie('enhetsgruppemedlemskap'),
-                   model_uri=RES.DigitalEnhet_enhetsgruppemedlemskap, domain=DigitalEnhet, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
+                   model_uri=DEFAULT_.DigitalEnhet_enhetsgruppemedlemskap, domain=DigitalEnhet, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
 
 slots.Enhetsgruppe_navn = Slot(uri=FINT.navn, name="Enhetsgruppe_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Enhetsgruppe_navn, domain=Enhetsgruppe, range=str)
+                   model_uri=DEFAULT_.Enhetsgruppe_navn, domain=Enhetsgruppe, range=str)
 
 slots.Enhetsgruppe_organisasjonsenhet = Slot(uri=RES.organisasjonsenhet, name="Enhetsgruppe_organisasjonsenhet", curie=RES.curie('organisasjonsenhet'),
-                   model_uri=RES.Enhetsgruppe_organisasjonsenhet, domain=Enhetsgruppe, range=Union[str, URIorCURIE])
+                   model_uri=DEFAULT_.Enhetsgruppe_organisasjonsenhet, domain=Enhetsgruppe, range=Union[str, URIorCURIE])
 
 slots.Enhetsgruppe_enhetstype = Slot(uri=RES.enhetstype, name="Enhetsgruppe_enhetstype", curie=RES.curie('enhetstype'),
-                   model_uri=RES.Enhetsgruppe_enhetstype, domain=Enhetsgruppe, range=Union[str, EnhetstypeId])
+                   model_uri=DEFAULT_.Enhetsgruppe_enhetstype, domain=Enhetsgruppe, range=Union[str, EnhetstypeId])
 
 slots.Enhetsgruppe_plattform = Slot(uri=RES.plattform, name="Enhetsgruppe_plattform", curie=RES.curie('plattform'),
-                   model_uri=RES.Enhetsgruppe_plattform, domain=Enhetsgruppe, range=Union[str, PlattformId])
+                   model_uri=DEFAULT_.Enhetsgruppe_plattform, domain=Enhetsgruppe, range=Union[str, PlattformId])
 
 slots.Enhetsgruppe_enhetsgruppemedlemskap = Slot(uri=RES.enhetsgruppemedlemskap, name="Enhetsgruppe_enhetsgruppemedlemskap", curie=RES.curie('enhetsgruppemedlemskap'),
-                   model_uri=RES.Enhetsgruppe_enhetsgruppemedlemskap, domain=Enhetsgruppe, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
+                   model_uri=DEFAULT_.Enhetsgruppe_enhetsgruppemedlemskap, domain=Enhetsgruppe, range=Optional[Union[Union[str, EnhetsgruppemedlemskapId], list[Union[str, EnhetsgruppemedlemskapId]]]])
 
 slots.Enhetsgruppemedlemskap_digitalEnhet = Slot(uri=RES.digitalEnhet, name="Enhetsgruppemedlemskap_digitalEnhet", curie=RES.curie('digitalEnhet'),
-                   model_uri=RES.Enhetsgruppemedlemskap_digitalEnhet, domain=Enhetsgruppemedlemskap, range=Union[str, DigitalEnhetId])
+                   model_uri=DEFAULT_.Enhetsgruppemedlemskap_digitalEnhet, domain=Enhetsgruppemedlemskap, range=Union[str, DigitalEnhetId])
 
 slots.Enhetsgruppemedlemskap_enhetsgruppe = Slot(uri=RES.enhetsgruppe, name="Enhetsgruppemedlemskap_enhetsgruppe", curie=RES.curie('enhetsgruppe'),
-                   model_uri=RES.Enhetsgruppemedlemskap_enhetsgruppe, domain=Enhetsgruppemedlemskap, range=Union[str, EnhetsgruppeId])
+                   model_uri=DEFAULT_.Enhetsgruppemedlemskap_enhetsgruppe, domain=Enhetsgruppemedlemskap, range=Union[str, EnhetsgruppeId])
 
 slots.Identitet_personalressurs = Slot(uri=RES.personalressurs, name="Identitet_personalressurs", curie=RES.curie('personalressurs'),
-                   model_uri=RES.Identitet_personalressurs, domain=Identitet, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Identitet_personalressurs, domain=Identitet, range=Optional[Union[str, URIorCURIE]])
 
 slots.Identitet_rettighet = Slot(uri=RES.rettighet, name="Identitet_rettighet", curie=RES.curie('rettighet'),
-                   model_uri=RES.Identitet_rettighet, domain=Identitet, range=Optional[Union[Union[str, RettighetId], list[Union[str, RettighetId]]]])
+                   model_uri=DEFAULT_.Identitet_rettighet, domain=Identitet, range=Optional[Union[Union[str, RettighetId], list[Union[str, RettighetId]]]])
 
 slots.Rettighet_kode = Slot(uri=FINT.kode, name="Rettighet_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Rettighet_kode, domain=Rettighet, range=str)
+                   model_uri=DEFAULT_.Rettighet_kode, domain=Rettighet, range=str)
 
 slots.Rettighet_navn = Slot(uri=FINT.navn, name="Rettighet_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Rettighet_navn, domain=Rettighet, range=str)
+                   model_uri=DEFAULT_.Rettighet_navn, domain=Rettighet, range=str)
 
 slots.Rettighet_beskrivelse = Slot(uri=FINT.beskrivelse, name="Rettighet_beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=RES.Rettighet_beskrivelse, domain=Rettighet, range=str)
+                   model_uri=DEFAULT_.Rettighet_beskrivelse, domain=Rettighet, range=str)
 
 slots.Rettighet_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Rettighet_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Rettighet_gyldighetsperiode, domain=Rettighet, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Rettighet_gyldighetsperiode, domain=Rettighet, range=Optional[Union[dict, "Periode"]])
 
 slots.Rettighet_passiv = Slot(uri=FINT.passiv, name="Rettighet_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Rettighet_passiv, domain=Rettighet, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Rettighet_passiv, domain=Rettighet, range=Optional[Union[bool, Bool]])
 
 slots.Rettighet_identitet = Slot(uri=RES.identitet, name="Rettighet_identitet", curie=RES.curie('identitet'),
-                   model_uri=RES.Rettighet_identitet, domain=Rettighet, range=Optional[Union[Union[str, IdentitetId], list[Union[str, IdentitetId]]]])
+                   model_uri=DEFAULT_.Rettighet_identitet, domain=Rettighet, range=Optional[Union[Union[str, IdentitetId], list[Union[str, IdentitetId]]]])
 
 slots.Applikasjonskategori_kode = Slot(uri=FINT.kode, name="Applikasjonskategori_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Applikasjonskategori_kode, domain=Applikasjonskategori, range=str)
+                   model_uri=DEFAULT_.Applikasjonskategori_kode, domain=Applikasjonskategori, range=str)
 
 slots.Applikasjonskategori_navn = Slot(uri=FINT.navn, name="Applikasjonskategori_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Applikasjonskategori_navn, domain=Applikasjonskategori, range=str)
+                   model_uri=DEFAULT_.Applikasjonskategori_navn, domain=Applikasjonskategori, range=str)
 
 slots.Applikasjonskategori_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Applikasjonskategori_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Applikasjonskategori_gyldighetsperiode, domain=Applikasjonskategori, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Applikasjonskategori_gyldighetsperiode, domain=Applikasjonskategori, range=Optional[Union[dict, "Periode"]])
 
 slots.Applikasjonskategori_passiv = Slot(uri=FINT.passiv, name="Applikasjonskategori_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Applikasjonskategori_passiv, domain=Applikasjonskategori, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Applikasjonskategori_passiv, domain=Applikasjonskategori, range=Optional[Union[bool, Bool]])
 
 slots.Brukertype_kode = Slot(uri=FINT.kode, name="Brukertype_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Brukertype_kode, domain=Brukertype, range=str)
+                   model_uri=DEFAULT_.Brukertype_kode, domain=Brukertype, range=str)
 
 slots.Brukertype_navn = Slot(uri=FINT.navn, name="Brukertype_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Brukertype_navn, domain=Brukertype, range=str)
+                   model_uri=DEFAULT_.Brukertype_navn, domain=Brukertype, range=str)
 
 slots.Brukertype_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Brukertype_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Brukertype_gyldighetsperiode, domain=Brukertype, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Brukertype_gyldighetsperiode, domain=Brukertype, range=Optional[Union[dict, "Periode"]])
 
 slots.Brukertype_passiv = Slot(uri=FINT.passiv, name="Brukertype_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Brukertype_passiv, domain=Brukertype, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Brukertype_passiv, domain=Brukertype, range=Optional[Union[bool, Bool]])
 
 slots.Enhetstype_kode = Slot(uri=FINT.kode, name="Enhetstype_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Enhetstype_kode, domain=Enhetstype, range=str)
+                   model_uri=DEFAULT_.Enhetstype_kode, domain=Enhetstype, range=str)
 
 slots.Enhetstype_navn = Slot(uri=FINT.navn, name="Enhetstype_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Enhetstype_navn, domain=Enhetstype, range=str)
+                   model_uri=DEFAULT_.Enhetstype_navn, domain=Enhetstype, range=str)
 
 slots.Enhetstype_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Enhetstype_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Enhetstype_gyldighetsperiode, domain=Enhetstype, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Enhetstype_gyldighetsperiode, domain=Enhetstype, range=Optional[Union[dict, "Periode"]])
 
 slots.Enhetstype_passiv = Slot(uri=FINT.passiv, name="Enhetstype_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Enhetstype_passiv, domain=Enhetstype, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Enhetstype_passiv, domain=Enhetstype, range=Optional[Union[bool, Bool]])
 
 slots.Handhevingstype_kode = Slot(uri=FINT.kode, name="Handhevingstype_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Handhevingstype_kode, domain=Handhevingstype, range=str)
+                   model_uri=DEFAULT_.Handhevingstype_kode, domain=Handhevingstype, range=str)
 
 slots.Handhevingstype_navn = Slot(uri=FINT.navn, name="Handhevingstype_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Handhevingstype_navn, domain=Handhevingstype, range=str)
+                   model_uri=DEFAULT_.Handhevingstype_navn, domain=Handhevingstype, range=str)
 
 slots.Handhevingstype_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Handhevingstype_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Handhevingstype_gyldighetsperiode, domain=Handhevingstype, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Handhevingstype_gyldighetsperiode, domain=Handhevingstype, range=Optional[Union[dict, "Periode"]])
 
 slots.Handhevingstype_passiv = Slot(uri=FINT.passiv, name="Handhevingstype_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Handhevingstype_passiv, domain=Handhevingstype, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Handhevingstype_passiv, domain=Handhevingstype, range=Optional[Union[bool, Bool]])
 
 slots.Lisensmodell_kode = Slot(uri=FINT.kode, name="Lisensmodell_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Lisensmodell_kode, domain=Lisensmodell, range=str)
+                   model_uri=DEFAULT_.Lisensmodell_kode, domain=Lisensmodell, range=str)
 
 slots.Lisensmodell_navn = Slot(uri=FINT.navn, name="Lisensmodell_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Lisensmodell_navn, domain=Lisensmodell, range=str)
+                   model_uri=DEFAULT_.Lisensmodell_navn, domain=Lisensmodell, range=str)
 
 slots.Lisensmodell_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Lisensmodell_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Lisensmodell_gyldighetsperiode, domain=Lisensmodell, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Lisensmodell_gyldighetsperiode, domain=Lisensmodell, range=Optional[Union[dict, "Periode"]])
 
 slots.Lisensmodell_passiv = Slot(uri=FINT.passiv, name="Lisensmodell_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Lisensmodell_passiv, domain=Lisensmodell, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Lisensmodell_passiv, domain=Lisensmodell, range=Optional[Union[bool, Bool]])
 
 slots.Plattform_kode = Slot(uri=FINT.kode, name="Plattform_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Plattform_kode, domain=Plattform, range=str)
+                   model_uri=DEFAULT_.Plattform_kode, domain=Plattform, range=str)
 
 slots.Plattform_navn = Slot(uri=FINT.navn, name="Plattform_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Plattform_navn, domain=Plattform, range=str)
+                   model_uri=DEFAULT_.Plattform_navn, domain=Plattform, range=str)
 
 slots.Plattform_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Plattform_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Plattform_gyldighetsperiode, domain=Plattform, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Plattform_gyldighetsperiode, domain=Plattform, range=Optional[Union[dict, "Periode"]])
 
 slots.Plattform_passiv = Slot(uri=FINT.passiv, name="Plattform_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Plattform_passiv, domain=Plattform, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Plattform_passiv, domain=Plattform, range=Optional[Union[bool, Bool]])
 
 slots.Produsent_kode = Slot(uri=FINT.kode, name="Produsent_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Produsent_kode, domain=Produsent, range=str)
+                   model_uri=DEFAULT_.Produsent_kode, domain=Produsent, range=str)
 
 slots.Produsent_navn = Slot(uri=FINT.navn, name="Produsent_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Produsent_navn, domain=Produsent, range=str)
+                   model_uri=DEFAULT_.Produsent_navn, domain=Produsent, range=str)
 
 slots.Produsent_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Produsent_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Produsent_gyldighetsperiode, domain=Produsent, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Produsent_gyldighetsperiode, domain=Produsent, range=Optional[Union[dict, "Periode"]])
 
 slots.Produsent_passiv = Slot(uri=FINT.passiv, name="Produsent_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Produsent_passiv, domain=Produsent, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Produsent_passiv, domain=Produsent, range=Optional[Union[bool, Bool]])
 
 slots.Status_kode = Slot(uri=FINT.kode, name="Status_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Status_kode, domain=Status, range=str)
+                   model_uri=DEFAULT_.Status_kode, domain=Status, range=str)
 
 slots.Status_navn = Slot(uri=FINT.navn, name="Status_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Status_navn, domain=Status, range=str)
+                   model_uri=DEFAULT_.Status_navn, domain=Status, range=str)
 
 slots.Status_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Status_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Status_gyldighetsperiode, domain=Status, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Status_gyldighetsperiode, domain=Status, range=Optional[Union[dict, "Periode"]])
 
 slots.Status_passiv = Slot(uri=FINT.passiv, name="Status_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Status_passiv, domain=Status, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Status_passiv, domain=Status, range=Optional[Union[bool, Bool]])
 
 slots.Aktoer_kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="Aktoer_kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=RES.Aktoer_kontaktinformasjon, domain=Aktoer, range=Optional[Union[dict, "Kontaktinformasjon"]])
+                   model_uri=DEFAULT_.Aktoer_kontaktinformasjon, domain=Aktoer, range=Optional[Union[dict, "Kontaktinformasjon"]])
 
 slots.Aktoer_postadresse = Slot(uri=FINT.postadresse, name="Aktoer_postadresse", curie=FINT.curie('postadresse'),
-                   model_uri=RES.Aktoer_postadresse, domain=Aktoer, range=Optional[Union[dict, "Adresse"]])
+                   model_uri=DEFAULT_.Aktoer_postadresse, domain=Aktoer, range=Optional[Union[dict, "Adresse"]])
 
 slots.Begrep_kode = Slot(uri=FINT.kode, name="Begrep_kode", curie=FINT.curie('kode'),
-                   model_uri=RES.Begrep_kode, domain=Begrep, range=str)
+                   model_uri=DEFAULT_.Begrep_kode, domain=Begrep, range=str)
 
 slots.Begrep_navn = Slot(uri=FINT.navn, name="Begrep_navn", curie=FINT.curie('navn'),
-                   model_uri=RES.Begrep_navn, domain=Begrep, range=str)
+                   model_uri=DEFAULT_.Begrep_navn, domain=Begrep, range=str)
 
 slots.Begrep_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Begrep_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=RES.Begrep_gyldighetsperiode, domain=Begrep, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Begrep_gyldighetsperiode, domain=Begrep, range=Optional[Union[dict, "Periode"]])
 
 slots.Begrep_passiv = Slot(uri=FINT.passiv, name="Begrep_passiv", curie=FINT.curie('passiv'),
-                   model_uri=RES.Begrep_passiv, domain=Begrep, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Begrep_passiv, domain=Begrep, range=Optional[Union[bool, Bool]])
 
 slots.Elev_elevnummer = Slot(uri=FINT.elevnummer, name="Elev_elevnummer", curie=FINT.curie('elevnummer'),
-                   model_uri=RES.Elev_elevnummer, domain=Elev, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.Elev_elevnummer, domain=Elev, range=Optional[Union[dict, "Identifikator"]])
 
 slots.Elev_person = Slot(uri=FINT.person, name="Elev_person", curie=FINT.curie('person'),
-                   model_uri=RES.Elev_person, domain=Elev, range=Optional[Union[str, PersonId]])
+                   model_uri=DEFAULT_.Elev_person, domain=Elev, range=Optional[Union[str, PersonId]])
 
 slots.Enhet_forretningsadresse = Slot(uri=FINT.forretningsadresse, name="Enhet_forretningsadresse", curie=FINT.curie('forretningsadresse'),
-                   model_uri=RES.Enhet_forretningsadresse, domain=Enhet, range=Optional[Union[dict, "Adresse"]])
+                   model_uri=DEFAULT_.Enhet_forretningsadresse, domain=Enhet, range=Optional[Union[dict, "Adresse"]])
 
 slots.Enhet_organisasjonsnavn = Slot(uri=FINT.organisasjonsnavn, name="Enhet_organisasjonsnavn", curie=FINT.curie('organisasjonsnavn'),
-                   model_uri=RES.Enhet_organisasjonsnavn, domain=Enhet, range=Optional[str])
+                   model_uri=DEFAULT_.Enhet_organisasjonsnavn, domain=Enhet, range=Optional[str])
 
 slots.Enhet_organisasjonsnummer = Slot(uri=FINT.organisasjonsnummer, name="Enhet_organisasjonsnummer", curie=FINT.curie('organisasjonsnummer'),
-                   model_uri=RES.Enhet_organisasjonsnummer, domain=Enhet, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.Enhet_organisasjonsnummer, domain=Enhet, range=Optional[Union[dict, "Identifikator"]])
 
 slots.Identifikator_identifikatorverdi = Slot(uri=FINT.identifikatorverdi, name="Identifikator_identifikatorverdi", curie=FINT.curie('identifikatorverdi'),
-                   model_uri=RES.Identifikator_identifikatorverdi, domain=Identifikator, range=str)
+                   model_uri=DEFAULT_.Identifikator_identifikatorverdi, domain=Identifikator, range=str)
 
 slots.Periode_start = Slot(uri=FINT.start, name="Periode_start", curie=FINT.curie('start'),
-                   model_uri=RES.Periode_start, domain=Periode, range=Union[str, XSDDateTime])
+                   model_uri=DEFAULT_.Periode_start, domain=Periode, range=Union[str, XSDDateTime])
 
 slots.Personnavn_fornavn = Slot(uri=FINT.fornavn, name="Personnavn_fornavn", curie=FINT.curie('fornavn'),
-                   model_uri=RES.Personnavn_fornavn, domain=Personnavn, range=str)
+                   model_uri=DEFAULT_.Personnavn_fornavn, domain=Personnavn, range=str)
 
 slots.Personnavn_etternavn = Slot(uri=FINT.etternavn, name="Personnavn_etternavn", curie=FINT.curie('etternavn'),
-                   model_uri=RES.Personnavn_etternavn, domain=Personnavn, range=str)
+                   model_uri=DEFAULT_.Personnavn_etternavn, domain=Personnavn, range=str)
 
 slots.Fylke_kommune = Slot(uri=FINT.kommune, name="Fylke_kommune", curie=FINT.curie('kommune'),
-                   model_uri=RES.Fylke_kommune, domain=Fylke, range=Optional[Union[Union[str, KommuneId], list[Union[str, KommuneId]]]])
+                   model_uri=DEFAULT_.Fylke_kommune, domain=Fylke, range=Optional[Union[Union[str, KommuneId], list[Union[str, KommuneId]]]])
 
 slots.Kommune_fylke = Slot(uri=FINT.fylke, name="Kommune_fylke", curie=FINT.curie('fylke'),
-                   model_uri=RES.Kommune_fylke, domain=Kommune, range=Union[str, FylkeId])
+                   model_uri=DEFAULT_.Kommune_fylke, domain=Kommune, range=Union[str, FylkeId])
 
 slots.Valuta_bokstavkode = Slot(uri=FINT.bokstavkode, name="Valuta_bokstavkode", curie=FINT.curie('bokstavkode'),
-                   model_uri=RES.Valuta_bokstavkode, domain=Valuta, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Valuta_bokstavkode, domain=Valuta, range=Union[dict, Identifikator])
 
 slots.Valuta_valuta_navn = Slot(uri=FINT.valutaNavn, name="Valuta_valuta_navn", curie=FINT.curie('valutaNavn'),
-                   model_uri=RES.Valuta_valuta_navn, domain=Valuta, range=str)
+                   model_uri=DEFAULT_.Valuta_valuta_navn, domain=Valuta, range=str)
 
 slots.Valuta_nummerkode = Slot(uri=FINT.nummerkode, name="Valuta_nummerkode", curie=FINT.curie('nummerkode'),
-                   model_uri=RES.Valuta_nummerkode, domain=Valuta, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Valuta_nummerkode, domain=Valuta, range=Union[dict, Identifikator])
 
 slots.Person_fodselsnummer = Slot(uri=FINT.fodselsnummer, name="Person_fodselsnummer", curie=FINT.curie('fodselsnummer'),
-                   model_uri=RES.Person_fodselsnummer, domain=Person, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Person_fodselsnummer, domain=Person, range=Union[dict, Identifikator])
 
 slots.Person_person_navn = Slot(uri=FINT.personNavn, name="Person_person_navn", curie=FINT.curie('personNavn'),
-                   model_uri=RES.Person_person_navn, domain=Person, range=Union[dict, Personnavn])
+                   model_uri=DEFAULT_.Person_person_navn, domain=Person, range=Union[dict, Personnavn])
 
 slots.Person_bilde = Slot(uri=FINT.bilde, name="Person_bilde", curie=FINT.curie('bilde'),
-                   model_uri=RES.Person_bilde, domain=Person, range=Optional[str])
+                   model_uri=DEFAULT_.Person_bilde, domain=Person, range=Optional[str])
 
 slots.Person_bostedsadresse = Slot(uri=FINT.bostedsadresse, name="Person_bostedsadresse", curie=FINT.curie('bostedsadresse'),
-                   model_uri=RES.Person_bostedsadresse, domain=Person, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.Person_bostedsadresse, domain=Person, range=Optional[Union[dict, Adresse]])
 
 slots.Person_fodselsdato = Slot(uri=FINT.fodselsdato, name="Person_fodselsdato", curie=FINT.curie('fodselsdato'),
-                   model_uri=RES.Person_fodselsdato, domain=Person, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.Person_fodselsdato, domain=Person, range=Optional[Union[str, XSDDate]])
 
 slots.Person_parorende = Slot(uri=FINT.parorende, name="Person_parorende", curie=FINT.curie('parorende'),
-                   model_uri=RES.Person_parorende, domain=Person, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
+                   model_uri=DEFAULT_.Person_parorende, domain=Person, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
 
 slots.Person_statsborgerskap = Slot(uri=FINT.statsborgerskap, name="Person_statsborgerskap", curie=FINT.curie('statsborgerskap'),
-                   model_uri=RES.Person_statsborgerskap, domain=Person, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
+                   model_uri=DEFAULT_.Person_statsborgerskap, domain=Person, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
 
 slots.Person_kommune = Slot(uri=FINT.kommune, name="Person_kommune", curie=FINT.curie('kommune'),
-                   model_uri=RES.Person_kommune, domain=Person, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.Person_kommune, domain=Person, range=Optional[Union[str, KommuneId]])
 
 slots.Person_kjonn = Slot(uri=FINT.kjonn, name="Person_kjonn", curie=FINT.curie('kjonn'),
-                   model_uri=RES.Person_kjonn, domain=Person, range=Optional[Union[str, KjonnId]])
+                   model_uri=DEFAULT_.Person_kjonn, domain=Person, range=Optional[Union[str, KjonnId]])
 
 slots.Person_foreldreansvar = Slot(uri=FINT.foreldreansvar, name="Person_foreldreansvar", curie=FINT.curie('foreldreansvar'),
-                   model_uri=RES.Person_foreldreansvar, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Person_foreldreansvar, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Person_foreldre = Slot(uri=FINT.foreldre, name="Person_foreldre", curie=FINT.curie('foreldre'),
-                   model_uri=RES.Person_foreldre, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Person_foreldre, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Person_maalform = Slot(uri=FINT.maalform, name="Person_maalform", curie=FINT.curie('maalform'),
-                   model_uri=RES.Person_maalform, domain=Person, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.Person_maalform, domain=Person, range=Optional[Union[str, SpraakId]])
 
 slots.Person_morsmaal = Slot(uri=FINT.morsmaal, name="Person_morsmaal", curie=FINT.curie('morsmaal'),
-                   model_uri=RES.Person_morsmaal, domain=Person, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.Person_morsmaal, domain=Person, range=Optional[Union[str, SpraakId]])
 
 slots.Person_laerling = Slot(uri=FINT.laerling, name="Person_laerling", curie=FINT.curie('laerling'),
-                   model_uri=RES.Person_laerling, domain=Person, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.Person_laerling, domain=Person, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 
 slots.Person_elev = Slot(uri=FINT.elev, name="Person_elev", curie=FINT.curie('elev'),
-                   model_uri=RES.Person_elev, domain=Person, range=Optional[Union[str, ElevId]])
+                   model_uri=DEFAULT_.Person_elev, domain=Person, range=Optional[Union[str, ElevId]])
 
 slots.Person_otungdom = Slot(uri=FINT.otungdom, name="Person_otungdom", curie=FINT.curie('otungdom'),
-                   model_uri=RES.Person_otungdom, domain=Person, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Person_otungdom, domain=Person, range=Optional[Union[str, URIorCURIE]])
 
 slots.Kontaktperson_type = Slot(uri=FINT.type, name="Kontaktperson_type", curie=FINT.curie('type'),
-                   model_uri=RES.Kontaktperson_type, domain=Kontaktperson, range=str)
+                   model_uri=DEFAULT_.Kontaktperson_type, domain=Kontaktperson, range=str)
 
 slots.Kontaktperson_kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="Kontaktperson_kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=RES.Kontaktperson_kontaktinformasjon, domain=Kontaktperson, range=Optional[Union[dict, Kontaktinformasjon]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktinformasjon, domain=Kontaktperson, range=Optional[Union[dict, Kontaktinformasjon]])
 
 slots.Kontaktperson_kontaktperson_navn = Slot(uri=FINT.kontaktpersonNavn, name="Kontaktperson_kontaktperson_navn", curie=FINT.curie('kontaktpersonNavn'),
-                   model_uri=RES.Kontaktperson_kontaktperson_navn, domain=Kontaktperson, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktperson_navn, domain=Kontaktperson, range=Optional[Union[dict, Personnavn]])
 
 slots.Kontaktperson_kontaktperson = Slot(uri=FINT.kontaktpersonFor, name="Kontaktperson_kontaktperson", curie=FINT.curie('kontaktpersonFor'),
-                   model_uri=RES.Kontaktperson_kontaktperson, domain=Kontaktperson, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktperson, domain=Kontaktperson, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Virksomhet_virksomhetsId = Slot(uri=FINT.virksomhetsId, name="Virksomhet_virksomhetsId", curie=FINT.curie('virksomhetsId'),
-                   model_uri=RES.Virksomhet_virksomhetsId, domain=Virksomhet, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Virksomhet_virksomhetsId, domain=Virksomhet, range=Union[dict, Identifikator])
 
 slots.Virksomhet_laerling = Slot(uri=FINT.laerling, name="Virksomhet_laerling", curie=FINT.curie('laerling'),
-                   model_uri=RES.Virksomhet_laerling, domain=Virksomhet, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.Virksomhet_laerling, domain=Virksomhet, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 

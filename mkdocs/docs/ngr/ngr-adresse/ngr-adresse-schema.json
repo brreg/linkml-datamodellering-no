@@ -31,27 +31,9 @@
                         "null"
                     ]
                 },
-                "bruksenheter": {
-                    "items": {
-                        "$ref": "#/$defs/Bruksenhet"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "bruksenhetsnummer": {
                     "items": {
                         "$ref": "#/$defs/Bruksenhetsnummer"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "bygningar": {
-                    "items": {
-                        "$ref": "#/$defs/Bygning"
                     },
                     "type": [
                         "array",
@@ -863,27 +845,9 @@
                 "null"
             ]
         },
-        "bruksenheter": {
-            "items": {
-                "$ref": "#/$defs/Bruksenhet"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
         "bruksenhetsnummer": {
             "items": {
                 "$ref": "#/$defs/Bruksenhetsnummer"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "bygningar": {
-            "items": {
-                "$ref": "#/$defs/Bygning"
             },
             "type": [
                 "array",

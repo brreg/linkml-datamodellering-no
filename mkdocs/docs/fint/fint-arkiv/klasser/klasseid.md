@@ -70,7 +70,7 @@ URI: [ark:klasseId](https://schema.fintlabs.no/arkiv/klasseId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:klasseId |
-| native | https://schema.fintlabs.no/arkiv/:klasseId |
+| native | https://data.norge.no/fint/fint-arkiv/klasseId |
 
 
 

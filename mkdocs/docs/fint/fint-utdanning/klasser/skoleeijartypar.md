@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:skoleeijartypar](https://schema.fintlabs.no/utdanning/:skoleeijartypar)
+URI: [https://data.norge.no/fint/fint-utdanning/skoleeijartypar](https://data.norge.no/fint/fint-utdanning/skoleeijartypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:skoleeijartypar](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:skoleeijartypar |
-| native | https://schema.fintlabs.no/utdanning/:skoleeijartypar |
+| self | https://data.norge.no/fint/fint-utdanning/skoleeijartypar |
+| native | https://data.norge.no/fint/fint-utdanning/skoleeijartypar |
 
 
 

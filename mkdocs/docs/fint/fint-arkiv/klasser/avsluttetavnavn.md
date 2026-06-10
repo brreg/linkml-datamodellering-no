@@ -70,7 +70,7 @@ URI: [ark:avsluttetAvNavn](https://schema.fintlabs.no/arkiv/avsluttetAvNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:avsluttetAvNavn |
-| native | https://schema.fintlabs.no/arkiv/:avsluttetAvNavn |
+| native | https://data.norge.no/fint/fint-arkiv/avsluttetAvNavn |
 
 
 

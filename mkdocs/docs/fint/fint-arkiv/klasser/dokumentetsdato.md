@@ -70,7 +70,7 @@ URI: [ark:dokumentetsDato](https://schema.fintlabs.no/arkiv/dokumentetsDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentetsDato |
-| native | https://schema.fintlabs.no/arkiv/:dokumentetsDato |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentetsDato |
 
 
 

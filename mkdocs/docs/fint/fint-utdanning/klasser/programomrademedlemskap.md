@@ -21,7 +21,7 @@ URI: [utd:programomrademedlemskap](https://schema.fintlabs.no/utdanning/programo
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:programomrademedlemskap](https://schema.fintlabs.no/utdanning/programo
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:programomrademedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:programomrademedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/programomrademedlemskap |
 
 
 

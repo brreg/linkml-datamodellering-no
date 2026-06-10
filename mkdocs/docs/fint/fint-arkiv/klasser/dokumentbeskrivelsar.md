@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar](https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar)
+URI: [https://data.norge.no/fint/fint-arkiv/dokumentbeskrivelsar](https://data.norge.no/fint/fint-arkiv/dokumentbeskrivelsar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar |
-| native | https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar |
+| self | https://data.norge.no/fint/fint-arkiv/dokumentbeskrivelsar |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentbeskrivelsar |
 
 
 

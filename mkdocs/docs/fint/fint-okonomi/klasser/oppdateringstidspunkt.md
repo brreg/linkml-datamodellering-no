@@ -70,7 +70,7 @@ URI: [okn:oppdateringstidspunkt](https://schema.fintlabs.no/okonomi/oppdaterings
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:oppdateringstidspunkt |
-| native | https://schema.fintlabs.no/okonomi/:oppdateringstidspunkt |
+| native | https://data.norge.no/fint/fint-okonomi/oppdateringstidspunkt |
 
 
 

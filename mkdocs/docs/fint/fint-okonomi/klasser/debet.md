@@ -70,7 +70,7 @@ URI: [okn:debet](https://schema.fintlabs.no/okonomi/debet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:debet |
-| native | https://schema.fintlabs.no/okonomi/:debet |
+| native | https://data.norge.no/fint/fint-okonomi/debet |
 
 
 

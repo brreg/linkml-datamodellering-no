@@ -70,7 +70,7 @@ URI: [adm:undervisningsforhold](https://schema.fintlabs.no/administrasjon/underv
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:undervisningsforhold |
-| native | https://schema.fintlabs.no/administrasjon/:undervisningsforhold |
+| native | https://data.norge.no/fint/fint-administrasjon/undervisningsforhold |
 
 
 

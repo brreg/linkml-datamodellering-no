@@ -70,7 +70,7 @@ URI: [adm:lokasjonsnavn](https://schema.fintlabs.no/administrasjon/lokasjonsnavn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:lokasjonsnavn |
-| native | https://schema.fintlabs.no/administrasjon/:lokasjonsnavn |
+| native | https://data.norge.no/fint/fint-administrasjon/lokasjonsnavn |
 
 
 

@@ -70,7 +70,7 @@ URI: [res:organisasjonsenhet](https://schema.fintlabs.no/ressurs/organisasjonsen
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:organisasjonsenhet |
-| native | https://schema.fintlabs.no/ressurs/:organisasjonsenhet |
+| native | https://data.norge.no/fint/fint-ressurs/organisasjonsenhet |
 
 
 

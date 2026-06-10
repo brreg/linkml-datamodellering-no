@@ -289,7 +289,7 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:Applikasjonsressurstilgjengelighet |
-| native | https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet |
+| native | https://data.norge.no/fint/fint-ressurs/Applikasjonsressurstilgjengelighet |
 
 
 

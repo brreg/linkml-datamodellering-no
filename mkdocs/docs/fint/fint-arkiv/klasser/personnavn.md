@@ -70,7 +70,7 @@ URI: [ark:personnavn](https://schema.fintlabs.no/arkiv/personnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:personnavn |
-| native | https://schema.fintlabs.no/arkiv/:personnavn |
+| native | https://data.norge.no/fint/fint-arkiv/personnavn |
 
 
 

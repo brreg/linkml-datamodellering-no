@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:saksmappetypar](https://schema.fintlabs.no/arkiv/:saksmappetypar)
+URI: [https://data.norge.no/fint/fint-arkiv/saksmappetypar](https://data.norge.no/fint/fint-arkiv/saksmappetypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:saksmappetypar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:saksmappetypar |
-| native | https://schema.fintlabs.no/arkiv/:saksmappetypar |
+| self | https://data.norge.no/fint/fint-arkiv/saksmappetypar |
+| native | https://data.norge.no/fint/fint-arkiv/saksmappetypar |
 
 
 

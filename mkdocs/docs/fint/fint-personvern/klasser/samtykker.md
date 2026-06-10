@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:samtykker](https://schema.fintlabs.no/personvern/:samtykker)
+URI: [https://data.norge.no/fint/fint-personvern/samtykker](https://data.norge.no/fint/fint-personvern/samtykker)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/personvern/:samtykker](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:samtykker |
-| native | https://schema.fintlabs.no/personvern/:samtykker |
+| self | https://data.norge.no/fint/fint-personvern/samtykker |
+| native | https://data.norge.no/fint/fint-personvern/samtykker |
 
 
 

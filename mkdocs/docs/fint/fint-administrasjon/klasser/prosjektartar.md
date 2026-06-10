@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:prosjektartar](https://schema.fintlabs.no/administrasjon/:prosjektartar)
+URI: [https://data.norge.no/fint/fint-administrasjon/prosjektartar](https://data.norge.no/fint/fint-administrasjon/prosjektartar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:prosjektartar](https://schema.f
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:prosjektartar |
-| native | https://schema.fintlabs.no/administrasjon/:prosjektartar |
+| self | https://data.norge.no/fint/fint-administrasjon/prosjektartar |
+| native | https://data.norge.no/fint/fint-administrasjon/prosjektartar |
 
 
 

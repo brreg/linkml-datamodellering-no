@@ -70,7 +70,7 @@ URI: [utd:sensornummer](https://schema.fintlabs.no/utdanning/sensornummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:sensornummer |
-| native | https://schema.fintlabs.no/utdanning/:sensornummer |
+| native | https://data.norge.no/fint/fint-utdanning/sensornummer |
 
 
 

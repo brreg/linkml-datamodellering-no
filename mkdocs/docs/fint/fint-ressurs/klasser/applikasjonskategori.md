@@ -71,7 +71,7 @@ URI: [res:applikasjonskategori](https://schema.fintlabs.no/ressurs/applikasjonsk
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:applikasjonskategori |
-| native | https://schema.fintlabs.no/ressurs/:applikasjonskategori |
+| native | https://data.norge.no/fint/fint-ressurs/applikasjonskategori |
 
 
 

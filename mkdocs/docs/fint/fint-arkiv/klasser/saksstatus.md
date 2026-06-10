@@ -76,7 +76,7 @@ URI: [ark:saksstatus](https://schema.fintlabs.no/arkiv/saksstatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksstatus |
-| native | https://schema.fintlabs.no/arkiv/:saksstatus |
+| native | https://data.norge.no/fint/fint-arkiv/saksstatus |
 
 
 

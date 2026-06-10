@@ -70,7 +70,7 @@ URI: [ark:kallesignal](https://schema.fintlabs.no/arkiv/kallesignal)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:kallesignal |
-| native | https://schema.fintlabs.no/arkiv/:kallesignal |
+| native | https://data.norge.no/fint/fint-arkiv/kallesignal |
 
 
 

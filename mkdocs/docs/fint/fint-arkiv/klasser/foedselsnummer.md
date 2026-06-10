@@ -71,7 +71,7 @@ URI: [ark:foedselsnummer](https://schema.fintlabs.no/arkiv/foedselsnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:foedselsnummer |
-| native | https://schema.fintlabs.no/arkiv/:foedselsnummer |
+| native | https://data.norge.no/fint/fint-arkiv/foedselsnummer |
 
 
 

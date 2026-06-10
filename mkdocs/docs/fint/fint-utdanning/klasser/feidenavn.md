@@ -70,7 +70,7 @@ URI: [utd:feidenavn](https://schema.fintlabs.no/utdanning/feidenavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:feidenavn |
-| native | https://schema.fintlabs.no/utdanning/:feidenavn |
+| native | https://data.norge.no/fint/fint-utdanning/feidenavn |
 
 
 

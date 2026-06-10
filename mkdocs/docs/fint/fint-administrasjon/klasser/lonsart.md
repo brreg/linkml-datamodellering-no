@@ -73,7 +73,7 @@ URI: [adm:lonsart](https://schema.fintlabs.no/administrasjon/lonsart)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:lonsart |
-| native | https://schema.fintlabs.no/administrasjon/:lonsart |
+| native | https://data.norge.no/fint/fint-administrasjon/lonsart |
 
 
 

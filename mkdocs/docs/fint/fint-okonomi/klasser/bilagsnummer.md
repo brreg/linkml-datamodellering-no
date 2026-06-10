@@ -70,7 +70,7 @@ URI: [okn:bilagsnummer](https://schema.fintlabs.no/okonomi/bilagsnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:bilagsnummer |
-| native | https://schema.fintlabs.no/okonomi/:bilagsnummer |
+| native | https://data.norge.no/fint/fint-okonomi/bilagsnummer |
 
 
 

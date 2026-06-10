@@ -578,7 +578,7 @@ URI: [ark:TilskuddFredaBygningPrivatEie](https://schema.fintlabs.no/arkiv/Tilsku
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:TilskuddFredaBygningPrivatEie |
-| native | https://schema.fintlabs.no/arkiv/:TilskuddFredaBygningPrivatEie |
+| native | https://data.norge.no/fint/fint-arkiv/TilskuddFredaBygningPrivatEie |
 
 
 

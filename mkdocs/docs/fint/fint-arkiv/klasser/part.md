@@ -81,7 +81,7 @@ URI: [ark:part](https://schema.fintlabs.no/arkiv/part)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:part |
-| native | https://schema.fintlabs.no/arkiv/:part |
+| native | https://data.norge.no/fint/fint-arkiv/part |
 
 
 

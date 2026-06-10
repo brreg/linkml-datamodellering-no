@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kvalitetsdimensjoner](https://example.no/ontology/skole#kvalitetsdimensjoner)
+URI: [samtbu:kvalitetsdimensjoner](https://data.norge.no/samt/samt-bu/kvalitetsdimensjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kvalitetsdimensjoner](https://example.no/ontology/skole#kvalit
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kvalitetsdimensjoner |
-| native | samtbuskole:kvalitetsdimensjoner |
+| self | samtbu:kvalitetsdimensjoner |
+| native | samtbu:kvalitetsdimensjoner |
 
 
 

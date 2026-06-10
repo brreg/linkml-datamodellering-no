@@ -73,7 +73,7 @@ URI: [adm:attestert](https://schema.fintlabs.no/administrasjon/attestert)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:attestert |
-| native | https://schema.fintlabs.no/administrasjon/:attestert |
+| native | https://data.norge.no/fint/fint-administrasjon/attestert |
 
 
 

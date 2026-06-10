@@ -422,7 +422,7 @@ URI: [ark:Sak](https://schema.fintlabs.no/arkiv/Sak)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Sak |
-| native | https://schema.fintlabs.no/arkiv/:Sak |
+| native | https://data.norge.no/fint/fint-arkiv/Sak |
 
 
 

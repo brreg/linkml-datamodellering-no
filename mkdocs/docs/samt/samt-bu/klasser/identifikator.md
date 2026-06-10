@@ -151,6 +151,12 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 ## See Also
@@ -195,6 +201,8 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
@@ -218,6 +226,8 @@ class_uri: adms:Identifier
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a

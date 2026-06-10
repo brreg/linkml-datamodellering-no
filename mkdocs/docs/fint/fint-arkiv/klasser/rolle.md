@@ -70,7 +70,7 @@ URI: [ark:rolle](https://schema.fintlabs.no/arkiv/rolle)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:rolle |
-| native | https://schema.fintlabs.no/arkiv/:rolle |
+| native | https://data.norge.no/fint/fint-arkiv/rolle |
 
 
 

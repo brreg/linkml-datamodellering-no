@@ -647,6 +647,7 @@ Name: fint-arkiv
 | JSON-LD kontekst | [fint-arkiv-context.jsonld](fint-arkiv-context.jsonld) |
 | JSON Schema | [fint-arkiv-schema.json](fint-arkiv-schema.json) |
 | OWL ontologi | [fint-arkiv-ontology.ttl](fint-arkiv-ontology.ttl) |
+| RDF/Turtle skjema | [fint-arkiv-schema.ttl](fint-arkiv-schema.ttl) |
 | Python-klasser | [fint-arkiv-model.py](fint-arkiv-model.py) |
 | Protobuf-skjema | [fint-arkiv-schema.proto](fint-arkiv-schema.proto) |
 | ER-diagram (Mermaid) | [fint-arkiv-erdiagram.md](fint-arkiv-erdiagram.md) |

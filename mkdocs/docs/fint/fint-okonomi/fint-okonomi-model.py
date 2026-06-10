@@ -1,5 +1,5 @@
 # Auto generated from fint-okonomi-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:11
+# Generation date: 2026-06-09T14:36:48
 # Schema: fint-okonomi
 #
 # id: https://data.norge.no/fint/fint-okonomi
@@ -67,7 +67,7 @@ version = "4.0.20"
 FINT = CurieNamespace('fint', 'https://schema.fintlabs.no/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 OKN = CurieNamespace('okn', 'https://schema.fintlabs.no/okonomi/')
-DEFAULT_ = OKN
+DEFAULT_ = CurieNamespace('', 'https://data.norge.no/fint/fint-okonomi/')
 
 
 # Types
@@ -164,13 +164,13 @@ class OkonomiContainer(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = OKN["OkonomiContainer"]
-    class_class_curie: ClassVar[str] = "okn:OkonomiContainer"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/OkonomiContainer")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "OkonomiContainer"
-    class_model_uri: ClassVar[URIRef] = OKN.OkonomiContainer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/OkonomiContainer")
 
     fakturaer: Optional[Union[dict[Union[str, FakturaId], Union[dict, "Faktura"]], list[Union[dict, "Faktura"]]]] = empty_dict()
-    fakturagrunnlag: Optional[Union[str, FakturagrunnlagId]] = None
+    fakturagrunnlag: Optional[Union[dict[Union[str, FakturagrunnlagId], Union[dict, "Fakturagrunnlag"]], list[Union[dict, "Fakturagrunnlag"]]]] = empty_dict()
     fakturautstederear: Optional[Union[dict[Union[str, FakturautstederId], Union[dict, "Fakturautsteder"]], list[Union[dict, "Fakturautsteder"]]]] = empty_dict()
     transaksjonar: Optional[Union[dict[Union[str, TransaksjonId], Union[dict, "Transaksjon"]], list[Union[dict, "Transaksjon"]]]] = empty_dict()
     posteringar: Optional[Union[dict[Union[str, PosteringId], Union[dict, "Postering"]], list[Union[dict, "Postering"]]]] = empty_dict()
@@ -183,8 +183,7 @@ class OkonomiContainer(YAMLRoot):
     def __post_init__(self, *_: str, **kwargs: Any):
         self._normalize_inlined_as_list(slot_name="fakturaer", slot_type=Faktura, key_name="id", keyed=True)
 
-        if self.fakturagrunnlag is not None and not isinstance(self.fakturagrunnlag, FakturagrunnlagId):
-            self.fakturagrunnlag = FakturagrunnlagId(self.fakturagrunnlag)
+        self._normalize_inlined_as_list(slot_name="fakturagrunnlag", slot_type=Fakturagrunnlag, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="fakturautstederear", slot_type=Fakturautsteder, key_name="id", keyed=True)
 
@@ -202,8 +201,6 @@ class OkonomiContainer(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="valutaer", slot_type=OkonomiValuta, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="fakturagrunnlag", slot_type=Fakturagrunnlag, key_name="id", keyed=True)
-
         super().__post_init__(**kwargs)
 
 
@@ -217,7 +214,7 @@ class Faktura(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Faktura"]
     class_class_curie: ClassVar[str] = "okn:Faktura"
     class_name: ClassVar[str] = "Faktura"
-    class_model_uri: ClassVar[URIRef] = OKN.Faktura
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Faktura")
 
     id: Union[str, FakturaId] = None
     fakturanummer: Union[dict, "Identifikator"] = None
@@ -296,7 +293,7 @@ class Fakturagrunnlag(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Fakturagrunnlag"]
     class_class_curie: ClassVar[str] = "okn:Fakturagrunnlag"
     class_name: ClassVar[str] = "Fakturagrunnlag"
-    class_model_uri: ClassVar[URIRef] = OKN.Fakturagrunnlag
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Fakturagrunnlag")
 
     id: Union[str, FakturagrunnlagId] = None
     ordrenummer: Union[dict, "Identifikator"] = None
@@ -363,7 +360,7 @@ class Fakturautsteder(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Fakturautsteder"]
     class_class_curie: ClassVar[str] = "okn:Fakturautsteder"
     class_name: ClassVar[str] = "Fakturautsteder"
-    class_model_uri: ClassVar[URIRef] = OKN.Fakturautsteder
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Fakturautsteder")
 
     id: Union[str, FakturautstederId] = None
     navn: str = None
@@ -406,7 +403,7 @@ class Fakturamottaker(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Fakturamottaker"]
     class_class_curie: ClassVar[str] = "okn:Fakturamottaker"
     class_name: ClassVar[str] = "Fakturamottaker"
-    class_model_uri: ClassVar[URIRef] = OKN.Fakturamottaker
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Fakturamottaker")
 
     person: Union[str, PersonId] = None
 
@@ -429,7 +426,7 @@ class Fakturalinje(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Fakturalinje"]
     class_class_curie: ClassVar[str] = "okn:Fakturalinje"
     class_name: ClassVar[str] = "Fakturalinje"
-    class_model_uri: ClassVar[URIRef] = OKN.Fakturalinje
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Fakturalinje")
 
     antall: float = None
     pris: int = None
@@ -469,7 +466,7 @@ class Transaksjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Transaksjon"]
     class_class_curie: ClassVar[str] = "okn:Transaksjon"
     class_name: ClassVar[str] = "Transaksjon"
-    class_model_uri: ClassVar[URIRef] = OKN.Transaksjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Transaksjon")
 
     id: Union[str, TransaksjonId] = None
     transaksjonsId: Union[dict, "Identifikator"] = None
@@ -546,7 +543,7 @@ class Postering(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Postering"]
     class_class_curie: ClassVar[str] = "okn:Postering"
     class_name: ClassVar[str] = "Postering"
-    class_model_uri: ClassVar[URIRef] = OKN.Postering
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Postering")
 
     id: Union[str, PosteringId] = None
     posteringsId: Union[dict, "Identifikator"] = None
@@ -597,7 +594,7 @@ class Leverandor(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Leverandor"]
     class_class_curie: ClassVar[str] = "okn:Leverandor"
     class_name: ClassVar[str] = "Leverandor"
-    class_model_uri: ClassVar[URIRef] = OKN.Leverandor
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Leverandor")
 
     id: Union[str, LeverandorId] = None
     kontonummer: Optional[str] = None
@@ -640,7 +637,7 @@ class Leverandorgruppe(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Leverandorgruppe"]
     class_class_curie: ClassVar[str] = "okn:Leverandorgruppe"
     class_name: ClassVar[str] = "Leverandorgruppe"
-    class_model_uri: ClassVar[URIRef] = OKN.Leverandorgruppe
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Leverandorgruppe")
 
     id: Union[str, LeverandorgruppeId] = None
     navn: str = None
@@ -674,7 +671,7 @@ class Bilag(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Bilag"]
     class_class_curie: ClassVar[str] = "okn:Bilag"
     class_name: ClassVar[str] = "Bilag"
-    class_model_uri: ClassVar[URIRef] = OKN.Bilag
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Bilag")
 
     bilagsdato: Union[str, XSDDate] = None
     bilagsnummer: Optional[str] = None
@@ -717,7 +714,7 @@ class Kontostreng(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Kontostreng"]
     class_class_curie: ClassVar[str] = "okn:Kontostreng"
     class_name: ClassVar[str] = "Kontostreng"
-    class_model_uri: ClassVar[URIRef] = OKN.Kontostreng
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Kontostreng")
 
     art: Optional[str] = None
     funksjon: Optional[str] = None
@@ -750,7 +747,7 @@ class Vare(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Vare"]
     class_class_curie: ClassVar[str] = "okn:Vare"
     class_name: ClassVar[str] = "Vare"
-    class_model_uri: ClassVar[URIRef] = OKN.Vare
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Vare")
 
     id: Union[str, VareId] = None
     kode: str = None
@@ -821,7 +818,7 @@ class Merverdiavgift(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Merverdiavgift"]
     class_class_curie: ClassVar[str] = "okn:Merverdiavgift"
     class_name: ClassVar[str] = "Merverdiavgift"
-    class_model_uri: ClassVar[URIRef] = OKN.Merverdiavgift
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Merverdiavgift")
 
     id: Union[str, MerverdiavgiftId] = None
     kode: str = None
@@ -870,7 +867,7 @@ class OkonomiValuta(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OKN["Valuta"]
     class_class_curie: ClassVar[str] = "okn:Valuta"
     class_name: ClassVar[str] = "OkonomiValuta"
-    class_model_uri: ClassVar[URIRef] = OKN.OkonomiValuta
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/OkonomiValuta")
 
     id: Union[str, OkonomiValutaId] = None
     kode: str = None
@@ -913,7 +910,7 @@ class Aktoer(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Aktoer"]
     class_class_curie: ClassVar[str] = "fint:Aktoer"
     class_name: ClassVar[str] = "Aktoer"
-    class_model_uri: ClassVar[URIRef] = OKN.Aktoer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Aktoer")
 
     kontaktinformasjon: Optional[Union[dict, "Kontaktinformasjon"]] = None
     postadresse: Optional[Union[dict, "Adresse"]] = None
@@ -938,7 +935,7 @@ class Begrep(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Begrep"]
     class_class_curie: ClassVar[str] = "fint:Begrep"
     class_name: ClassVar[str] = "Begrep"
-    class_model_uri: ClassVar[URIRef] = OKN.Begrep
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Begrep")
 
     id: Union[str, BegrepId] = None
     kode: str = None
@@ -981,7 +978,7 @@ class Elev(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Elev"]
     class_class_curie: ClassVar[str] = "fint:Elev"
     class_name: ClassVar[str] = "Elev"
-    class_model_uri: ClassVar[URIRef] = OKN.Elev
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Elev")
 
     id: Union[str, ElevId] = None
     elevnummer: Optional[Union[dict, "Identifikator"]] = None
@@ -1012,7 +1009,7 @@ class Enhet(Aktoer):
     class_class_uri: ClassVar[URIRef] = FINT["Enhet"]
     class_class_curie: ClassVar[str] = "fint:Enhet"
     class_name: ClassVar[str] = "Enhet"
-    class_model_uri: ClassVar[URIRef] = OKN.Enhet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Enhet")
 
     forretningsadresse: Optional[Union[dict, "Adresse"]] = None
     organisasjonsnavn: Optional[str] = None
@@ -1041,7 +1038,7 @@ class Identifikator(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Identifikator"]
     class_class_curie: ClassVar[str] = "fint:Identifikator"
     class_name: ClassVar[str] = "Identifikator"
-    class_model_uri: ClassVar[URIRef] = OKN.Identifikator
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Identifikator")
 
     identifikatorverdi: str = None
     gyldighetsperiode: Optional[Union[dict, "Periode"]] = None
@@ -1068,7 +1065,7 @@ class Periode(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Periode"]
     class_class_curie: ClassVar[str] = "fint:Periode"
     class_name: ClassVar[str] = "Periode"
-    class_model_uri: ClassVar[URIRef] = OKN.Periode
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Periode")
 
     start: Union[str, XSDDateTime] = None
     beskrivelse: Optional[str] = None
@@ -1099,7 +1096,7 @@ class Personnavn(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Personnavn"]
     class_class_curie: ClassVar[str] = "fint:Personnavn"
     class_name: ClassVar[str] = "Personnavn"
-    class_model_uri: ClassVar[URIRef] = OKN.Personnavn
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Personnavn")
 
     fornavn: str = None
     etternavn: str = None
@@ -1132,7 +1129,7 @@ class Kontaktinformasjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Kontaktinformasjon"]
     class_class_curie: ClassVar[str] = "fint:Kontaktinformasjon"
     class_name: ClassVar[str] = "Kontaktinformasjon"
-    class_model_uri: ClassVar[URIRef] = OKN.Kontaktinformasjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Kontaktinformasjon")
 
     epostadresse: Optional[str] = None
     mobiltelefonnummer: Optional[str] = None
@@ -1169,7 +1166,7 @@ class Adresse(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Adresse"]
     class_class_curie: ClassVar[str] = "fint:Adresse"
     class_name: ClassVar[str] = "Adresse"
-    class_model_uri: ClassVar[URIRef] = OKN.Adresse
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Adresse")
 
     adresselinje: Optional[Union[str, list[str]]] = empty_list()
     postnummer: Optional[str] = None
@@ -1203,7 +1200,7 @@ class Matrikkelnummer(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Matrikkelnummer"]
     class_class_curie: ClassVar[str] = "fint:Matrikkelnummer"
     class_name: ClassVar[str] = "Matrikkelnummer"
-    class_model_uri: ClassVar[URIRef] = OKN.Matrikkelnummer
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Matrikkelnummer")
 
     adresse: Optional[Union[dict, Adresse]] = None
     bruksnummer: Optional[str] = None
@@ -1244,7 +1241,7 @@ class Landkode(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Landkode"]
     class_class_curie: ClassVar[str] = "fint:Landkode"
     class_name: ClassVar[str] = "Landkode"
-    class_model_uri: ClassVar[URIRef] = OKN.Landkode
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Landkode")
 
     id: Union[str, LandkodeId] = None
     kode: str = None
@@ -1269,7 +1266,7 @@ class Kjonn(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Kjonn"]
     class_class_curie: ClassVar[str] = "fint:Kjonn"
     class_name: ClassVar[str] = "Kjonn"
-    class_model_uri: ClassVar[URIRef] = OKN.Kjonn
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Kjonn")
 
     id: Union[str, KjonnId] = None
     kode: str = None
@@ -1294,7 +1291,7 @@ class Fylke(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Fylke"]
     class_class_curie: ClassVar[str] = "fint:Fylke"
     class_name: ClassVar[str] = "Fylke"
-    class_model_uri: ClassVar[URIRef] = OKN.Fylke
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Fylke")
 
     id: Union[str, FylkeId] = None
     kode: str = None
@@ -1324,7 +1321,7 @@ class Kommune(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Kommune"]
     class_class_curie: ClassVar[str] = "fint:Kommune"
     class_name: ClassVar[str] = "Kommune"
-    class_model_uri: ClassVar[URIRef] = OKN.Kommune
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Kommune")
 
     id: Union[str, KommuneId] = None
     kode: str = None
@@ -1355,7 +1352,7 @@ class Spraak(Begrep):
     class_class_uri: ClassVar[URIRef] = FINT["Spraak"]
     class_class_curie: ClassVar[str] = "fint:Spraak"
     class_name: ClassVar[str] = "Spraak"
-    class_model_uri: ClassVar[URIRef] = OKN.Spraak
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Spraak")
 
     id: Union[str, SpraakId] = None
     kode: str = None
@@ -1380,7 +1377,7 @@ class Valuta(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Valuta"]
     class_class_curie: ClassVar[str] = "fint:Valuta"
     class_name: ClassVar[str] = "Valuta"
-    class_model_uri: ClassVar[URIRef] = OKN.Valuta
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Valuta")
 
     id: Union[str, ValutaId] = None
     bokstavkode: Union[dict, Identifikator] = None
@@ -1421,7 +1418,7 @@ class Person(Aktoer):
     class_class_uri: ClassVar[URIRef] = FINT["Person"]
     class_class_curie: ClassVar[str] = "fint:Person"
     class_name: ClassVar[str] = "Person"
-    class_model_uri: ClassVar[URIRef] = OKN.Person
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Person")
 
     id: Union[str, PersonId] = None
     fodselsnummer: Union[dict, Identifikator] = None
@@ -1521,7 +1518,7 @@ class Kontaktperson(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FINT["Kontaktperson"]
     class_class_curie: ClassVar[str] = "fint:Kontaktperson"
     class_name: ClassVar[str] = "Kontaktperson"
-    class_model_uri: ClassVar[URIRef] = OKN.Kontaktperson
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Kontaktperson")
 
     id: Union[str, KontaktpersonId] = None
     type: str = None
@@ -1563,7 +1560,7 @@ class Virksomhet(Enhet):
     class_class_uri: ClassVar[URIRef] = FINT["Virksomhet"]
     class_class_curie: ClassVar[str] = "fint:Virksomhet"
     class_name: ClassVar[str] = "Virksomhet"
-    class_model_uri: ClassVar[URIRef] = OKN.Virksomhet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/fint/fint-okonomi/Virksomhet")
 
     id: Union[str, VirksomhetId] = None
     virksomhetsId: Union[dict, Identifikator] = None
@@ -1595,737 +1592,734 @@ class slots:
     pass
 
 slots.fakturagrunnlag = Slot(uri=OKN.fakturagrunnlag, name="fakturagrunnlag", curie=OKN.curie('fakturagrunnlag'),
-                   model_uri=OKN.fakturagrunnlag, domain=None, range=Optional[Union[str, FakturagrunnlagId]])
+                   model_uri=DEFAULT_.fakturagrunnlag, domain=None, range=Optional[Union[str, FakturagrunnlagId]])
 
 slots.fakturautsteder = Slot(uri=OKN.fakturautsteder, name="fakturautsteder", curie=OKN.curie('fakturautsteder'),
-                   model_uri=OKN.fakturautsteder, domain=None, range=Optional[Union[str, FakturautstederId]])
+                   model_uri=DEFAULT_.fakturautsteder, domain=None, range=Optional[Union[str, FakturautstederId]])
 
 slots.belop = Slot(uri=OKN.belop, name="belop", curie=OKN.curie('belop'),
-                   model_uri=OKN.belop, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.belop, domain=None, range=Optional[int])
 
 slots.forfallsdato = Slot(uri=OKN.forfallsdato, name="forfallsdato", curie=OKN.curie('forfallsdato'),
-                   model_uri=OKN.forfallsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.forfallsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.pris = Slot(uri=OKN.pris, name="pris", curie=OKN.curie('pris'),
-                   model_uri=OKN.pris, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.pris, domain=None, range=Optional[int])
 
 slots.kontering = Slot(uri=OKN.kontering, name="kontering", curie=OKN.curie('kontering'),
-                   model_uri=OKN.kontering, domain=None, range=Optional[Union[dict, Kontostreng]])
+                   model_uri=DEFAULT_.kontering, domain=None, range=Optional[Union[dict, Kontostreng]])
 
 slots.vare = Slot(uri=OKN.vare, name="vare", curie=OKN.curie('vare'),
-                   model_uri=OKN.vare, domain=None, range=Optional[Union[str, VareId]])
+                   model_uri=DEFAULT_.vare, domain=None, range=Optional[Union[str, VareId]])
 
 slots.leverandor = Slot(uri=OKN.leverandor, name="leverandor", curie=OKN.curie('leverandor'),
-                   model_uri=OKN.leverandor, domain=None, range=Optional[Union[str, LeverandorId]])
+                   model_uri=DEFAULT_.leverandor, domain=None, range=Optional[Union[str, LeverandorId]])
 
 slots.fakturanummer = Slot(uri=OKN.fakturanummer, name="fakturanummer", curie=OKN.curie('fakturanummer'),
-                   model_uri=OKN.fakturanummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.fakturanummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.dato = Slot(uri=OKN.dato, name="dato", curie=OKN.curie('dato'),
-                   model_uri=OKN.dato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.dato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.mottaker = Slot(uri=OKN.mottaker, name="mottaker", curie=OKN.curie('mottaker'),
-                   model_uri=OKN.mottaker, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.mottaker, domain=None, range=Optional[str])
 
 slots.betalt = Slot(uri=OKN.betalt, name="betalt", curie=OKN.curie('betalt'),
-                   model_uri=OKN.betalt, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.betalt, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.fakturert = Slot(uri=OKN.fakturert, name="fakturert", curie=OKN.curie('fakturert'),
-                   model_uri=OKN.fakturert, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.fakturert, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.kreditert = Slot(uri=OKN.kreditert, name="kreditert", curie=OKN.curie('kreditert'),
-                   model_uri=OKN.kreditert, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.kreditert, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.restbelop = Slot(uri=OKN.restbelop, name="restbelop", curie=OKN.curie('restbelop'),
-                   model_uri=OKN.restbelop, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.restbelop, domain=None, range=Optional[int])
 
 slots.ordrenummer = Slot(uri=OKN.ordrenummer, name="ordrenummer", curie=OKN.curie('ordrenummer'),
-                   model_uri=OKN.ordrenummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.ordrenummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.fakturamottaker = Slot(uri=OKN.fakturamottaker, name="fakturamottaker", curie=OKN.curie('fakturamottaker'),
-                   model_uri=OKN.fakturamottaker, domain=None, range=Optional[Union[dict, Fakturamottaker]])
+                   model_uri=DEFAULT_.fakturamottaker, domain=None, range=Optional[Union[dict, Fakturamottaker]])
 
 slots.fakturalinjer = Slot(uri=OKN.fakturalinjer, name="fakturalinjer", curie=OKN.curie('fakturalinjer'),
-                   model_uri=OKN.fakturalinjer, domain=None, range=Optional[Union[Union[dict, Fakturalinje], list[Union[dict, Fakturalinje]]]])
+                   model_uri=DEFAULT_.fakturalinjer, domain=None, range=Optional[Union[Union[dict, Fakturalinje], list[Union[dict, Fakturalinje]]]])
 
 slots.leveringsdato = Slot(uri=OKN.leveringsdato, name="leveringsdato", curie=OKN.curie('leveringsdato'),
-                   model_uri=OKN.leveringsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.leveringsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.nettobelop = Slot(uri=OKN.nettobelop, name="nettobelop", curie=OKN.curie('nettobelop'),
-                   model_uri=OKN.nettobelop, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.nettobelop, domain=None, range=Optional[int])
 
 slots.avgiftsbelop = Slot(uri=OKN.avgiftsbelop, name="avgiftsbelop", curie=OKN.curie('avgiftsbelop'),
-                   model_uri=OKN.avgiftsbelop, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.avgiftsbelop, domain=None, range=Optional[int])
 
 slots.totalbelop = Slot(uri=OKN.totalbelop, name="totalbelop", curie=OKN.curie('totalbelop'),
-                   model_uri=OKN.totalbelop, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.totalbelop, domain=None, range=Optional[int])
 
 slots.faktura = Slot(uri=OKN.faktura, name="faktura", curie=OKN.curie('faktura'),
-                   model_uri=OKN.faktura, domain=None, range=Optional[Union[Union[str, FakturaId], list[Union[str, FakturaId]]]])
+                   model_uri=DEFAULT_.faktura, domain=None, range=Optional[Union[Union[str, FakturaId], list[Union[str, FakturaId]]]])
 
 slots.organisasjonselement = Slot(uri=OKN.organisasjonselement, name="organisasjonselement", curie=OKN.curie('organisasjonselement'),
-                   model_uri=OKN.organisasjonselement, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.organisasjonselement, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.antall = Slot(uri=OKN.antall, name="antall", curie=OKN.curie('antall'),
-                   model_uri=OKN.antall, domain=None, range=Optional[float])
+                   model_uri=DEFAULT_.antall, domain=None, range=Optional[float])
 
 slots.fritekst = Slot(uri=OKN.fritekst, name="fritekst", curie=OKN.curie('fritekst'),
-                   model_uri=OKN.fritekst, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=DEFAULT_.fritekst, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.transaksjonsId = Slot(uri=OKN.transaksjonsId, name="transaksjonsId", curie=OKN.curie('transaksjonsId'),
-                   model_uri=OKN.transaksjonsId, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.transaksjonsId, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.bilag = Slot(uri=OKN.bilag, name="bilag", curie=OKN.curie('bilag'),
-                   model_uri=OKN.bilag, domain=None, range=Optional[Union[Union[dict, Bilag], list[Union[dict, Bilag]]]])
+                   model_uri=DEFAULT_.bilag, domain=None, range=Optional[Union[Union[dict, Bilag], list[Union[dict, Bilag]]]])
 
 slots.transaksjonstidspunkt = Slot(uri=OKN.transaksjonstidspunkt, name="transaksjonstidspunkt", curie=OKN.curie('transaksjonstidspunkt'),
-                   model_uri=OKN.transaksjonstidspunkt, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.transaksjonstidspunkt, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.oppdateringstidspunkt = Slot(uri=OKN.oppdateringstidspunkt, name="oppdateringstidspunkt", curie=OKN.curie('oppdateringstidspunkt'),
-                   model_uri=OKN.oppdateringstidspunkt, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.oppdateringstidspunkt, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.postering = Slot(uri=OKN.postering, name="postering", curie=OKN.curie('postering'),
-                   model_uri=OKN.postering, domain=None, range=Optional[Union[Union[str, PosteringId], list[Union[str, PosteringId]]]])
+                   model_uri=DEFAULT_.postering, domain=None, range=Optional[Union[Union[str, PosteringId], list[Union[str, PosteringId]]]])
 
 slots.ansvarlig = Slot(uri=OKN.ansvarlig, name="ansvarlig", curie=OKN.curie('ansvarlig'),
-                   model_uri=OKN.ansvarlig, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.ansvarlig, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.valuta = Slot(uri=OKN.valuta, name="valuta", curie=OKN.curie('valuta'),
-                   model_uri=OKN.valuta, domain=None, range=Optional[Union[str, OkonomiValutaId]])
+                   model_uri=DEFAULT_.valuta, domain=None, range=Optional[Union[str, OkonomiValutaId]])
 
 slots.posteringsId = Slot(uri=OKN.posteringsId, name="posteringsId", curie=OKN.curie('posteringsId'),
-                   model_uri=OKN.posteringsId, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.posteringsId, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.debet = Slot(uri=OKN.debet, name="debet", curie=OKN.curie('debet'),
-                   model_uri=OKN.debet, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.debet, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.transaksjon = Slot(uri=OKN.transaksjon, name="transaksjon", curie=OKN.curie('transaksjon'),
-                   model_uri=OKN.transaksjon, domain=None, range=Optional[Union[str, TransaksjonId]])
+                   model_uri=DEFAULT_.transaksjon, domain=None, range=Optional[Union[str, TransaksjonId]])
 
 slots.kontonummer = Slot(uri=OKN.kontonummer, name="kontonummer", curie=OKN.curie('kontonummer'),
-                   model_uri=OKN.kontonummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.kontonummer, domain=None, range=Optional[str])
 
 slots.leverandornummer = Slot(uri=OKN.leverandornummer, name="leverandornummer", curie=OKN.curie('leverandornummer'),
-                   model_uri=OKN.leverandornummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.leverandornummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.leverandorgruppe = Slot(uri=OKN.leverandorgruppe, name="leverandorgruppe", curie=OKN.curie('leverandorgruppe'),
-                   model_uri=OKN.leverandorgruppe, domain=None, range=Optional[Union[str, LeverandorgruppeId]])
+                   model_uri=DEFAULT_.leverandorgruppe, domain=None, range=Optional[Union[str, LeverandorgruppeId]])
 
 slots.virksomhet = Slot(uri=OKN.virksomhet, name="virksomhet", curie=OKN.curie('virksomhet'),
-                   model_uri=OKN.virksomhet, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.virksomhet, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.bilagsdato = Slot(uri=OKN.bilagsdato, name="bilagsdato", curie=OKN.curie('bilagsdato'),
-                   model_uri=OKN.bilagsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.bilagsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.bilagsnummer = Slot(uri=OKN.bilagsnummer, name="bilagsnummer", curie=OKN.curie('bilagsnummer'),
-                   model_uri=OKN.bilagsnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.bilagsnummer, domain=None, range=Optional[str])
 
 slots.referanse = Slot(uri=OKN.referanse, name="referanse", curie=OKN.curie('referanse'),
-                   model_uri=OKN.referanse, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.referanse, domain=None, range=Optional[str])
 
 slots.url = Slot(uri=OKN.url, name="url", curie=OKN.curie('url'),
-                   model_uri=OKN.url, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.url, domain=None, range=Optional[str])
 
 slots.filnavn = Slot(uri=OKN.filnavn, name="filnavn", curie=OKN.curie('filnavn'),
-                   model_uri=OKN.filnavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.filnavn, domain=None, range=Optional[str])
 
 slots.data = Slot(uri=OKN.data, name="data", curie=OKN.curie('data'),
-                   model_uri=OKN.data, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.data, domain=None, range=Optional[str])
 
 slots.art = Slot(uri=OKN.art, name="art", curie=OKN.curie('art'),
-                   model_uri=OKN.art, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.art, domain=None, range=Optional[str])
 
 slots.funksjon = Slot(uri=OKN.funksjon, name="funksjon", curie=OKN.curie('funksjon'),
-                   model_uri=OKN.funksjon, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.funksjon, domain=None, range=Optional[str])
 
 slots.ansvar = Slot(uri=OKN.ansvar, name="ansvar", curie=OKN.curie('ansvar'),
-                   model_uri=OKN.ansvar, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.ansvar, domain=None, range=Optional[str])
 
 slots.prosjekt = Slot(uri=OKN.prosjekt, name="prosjekt", curie=OKN.curie('prosjekt'),
-                   model_uri=OKN.prosjekt, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.prosjekt, domain=None, range=Optional[str])
 
 slots.enhet = Slot(uri=OKN.enhet, name="enhet", curie=OKN.curie('enhet'),
-                   model_uri=OKN.enhet, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.enhet, domain=None, range=Optional[str])
 
 slots.merverdiavgift = Slot(uri=OKN.merverdiavgift, name="merverdiavgift", curie=OKN.curie('merverdiavgift'),
-                   model_uri=OKN.merverdiavgift, domain=None, range=Optional[Union[str, MerverdiavgiftId]])
+                   model_uri=DEFAULT_.merverdiavgift, domain=None, range=Optional[Union[str, MerverdiavgiftId]])
 
 slots.sats = Slot(uri=OKN.sats, name="sats", curie=OKN.curie('sats'),
-                   model_uri=OKN.sats, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.sats, domain=None, range=Optional[int])
 
 slots.id = Slot(uri=FINT.id, name="id", curie=FINT.curie('id'),
-                   model_uri=OKN.id, domain=None, range=URIRef)
+                   model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
 slots.gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=OKN.gyldighetsperiode, domain=None, range=Optional[Union[dict, Periode]])
+                   model_uri=DEFAULT_.gyldighetsperiode, domain=None, range=Optional[Union[dict, Periode]])
 
 slots.kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=OKN.kontaktinformasjon, domain=None, range=Optional[Union[dict, Kontaktinformasjon]])
+                   model_uri=DEFAULT_.kontaktinformasjon, domain=None, range=Optional[Union[dict, Kontaktinformasjon]])
 
 slots.postadresse = Slot(uri=FINT.postadresse, name="postadresse", curie=FINT.curie('postadresse'),
-                   model_uri=OKN.postadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.postadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.forretningsadresse = Slot(uri=FINT.forretningsadresse, name="forretningsadresse", curie=FINT.curie('forretningsadresse'),
-                   model_uri=OKN.forretningsadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.forretningsadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.organisasjonsnavn = Slot(uri=FINT.organisasjonsnavn, name="organisasjonsnavn", curie=FINT.curie('organisasjonsnavn'),
-                   model_uri=OKN.organisasjonsnavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.organisasjonsnavn, domain=None, range=Optional[str])
 
 slots.organisasjonsnummer = Slot(uri=FINT.organisasjonsnummer, name="organisasjonsnummer", curie=FINT.curie('organisasjonsnummer'),
-                   model_uri=OKN.organisasjonsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.organisasjonsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.kode = Slot(uri=FINT.kode, name="kode", curie=FINT.curie('kode'),
-                   model_uri=OKN.kode, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.kode, domain=None, range=Optional[str])
 
 slots.navn = Slot(uri=FINT.navn, name="navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.navn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.navn, domain=None, range=Optional[str])
 
 slots.passiv = Slot(uri=FINT.passiv, name="passiv", curie=FINT.curie('passiv'),
-                   model_uri=OKN.passiv, domain=None, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.passiv, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.identifikatorverdi = Slot(uri=FINT.identifikatorverdi, name="identifikatorverdi", curie=FINT.curie('identifikatorverdi'),
-                   model_uri=OKN.identifikatorverdi, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.identifikatorverdi, domain=None, range=Optional[str])
 
 slots.beskrivelse = Slot(uri=FINT.beskrivelse, name="beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=OKN.beskrivelse, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.beskrivelse, domain=None, range=Optional[str])
 
 slots.start = Slot(uri=FINT.start, name="start", curie=FINT.curie('start'),
-                   model_uri=OKN.start, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.start, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.slutt = Slot(uri=FINT.slutt, name="slutt", curie=FINT.curie('slutt'),
-                   model_uri=OKN.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.fornavn = Slot(uri=FINT.fornavn, name="fornavn", curie=FINT.curie('fornavn'),
-                   model_uri=OKN.fornavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.fornavn, domain=None, range=Optional[str])
 
 slots.mellomnavn = Slot(uri=FINT.mellomnavn, name="mellomnavn", curie=FINT.curie('mellomnavn'),
-                   model_uri=OKN.mellomnavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.mellomnavn, domain=None, range=Optional[str])
 
 slots.etternavn = Slot(uri=FINT.etternavn, name="etternavn", curie=FINT.curie('etternavn'),
-                   model_uri=OKN.etternavn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.etternavn, domain=None, range=Optional[str])
 
 slots.epostadresse = Slot(uri=FINT.epostadresse, name="epostadresse", curie=FINT.curie('epostadresse'),
-                   model_uri=OKN.epostadresse, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.epostadresse, domain=None, range=Optional[str])
 
 slots.mobiltelefonnummer = Slot(uri=FINT.mobiltelefonnummer, name="mobiltelefonnummer", curie=FINT.curie('mobiltelefonnummer'),
-                   model_uri=OKN.mobiltelefonnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.mobiltelefonnummer, domain=None, range=Optional[str])
 
 slots.nettsted = Slot(uri=FINT.nettsted, name="nettsted", curie=FINT.curie('nettsted'),
-                   model_uri=OKN.nettsted, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.nettsted, domain=None, range=Optional[str])
 
 slots.sip = Slot(uri=FINT.sip, name="sip", curie=FINT.curie('sip'),
-                   model_uri=OKN.sip, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.sip, domain=None, range=Optional[str])
 
 slots.telefonnummer = Slot(uri=FINT.telefonnummer, name="telefonnummer", curie=FINT.curie('telefonnummer'),
-                   model_uri=OKN.telefonnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.telefonnummer, domain=None, range=Optional[str])
 
 slots.adresselinje = Slot(uri=FINT.adresselinje, name="adresselinje", curie=FINT.curie('adresselinje'),
-                   model_uri=OKN.adresselinje, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=DEFAULT_.adresselinje, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.postnummer = Slot(uri=FINT.postnummer, name="postnummer", curie=FINT.curie('postnummer'),
-                   model_uri=OKN.postnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.postnummer, domain=None, range=Optional[str])
 
 slots.poststed = Slot(uri=FINT.poststed, name="poststed", curie=FINT.curie('poststed'),
-                   model_uri=OKN.poststed, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.poststed, domain=None, range=Optional[str])
 
 slots.land = Slot(uri=FINT.land, name="land", curie=FINT.curie('land'),
-                   model_uri=OKN.land, domain=None, range=Optional[Union[str, LandkodeId]])
+                   model_uri=DEFAULT_.land, domain=None, range=Optional[Union[str, LandkodeId]])
 
 slots.adresse = Slot(uri=FINT.adresse, name="adresse", curie=FINT.curie('adresse'),
-                   model_uri=OKN.adresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.adresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.bruksnummer = Slot(uri=FINT.bruksnummer, name="bruksnummer", curie=FINT.curie('bruksnummer'),
-                   model_uri=OKN.bruksnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.bruksnummer, domain=None, range=Optional[str])
 
 slots.festenummer = Slot(uri=FINT.festenummer, name="festenummer", curie=FINT.curie('festenummer'),
-                   model_uri=OKN.festenummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.festenummer, domain=None, range=Optional[str])
 
 slots.gaardsnummer = Slot(uri=FINT.gaardsnummer, name="gaardsnummer", curie=FINT.curie('gaardsnummer'),
-                   model_uri=OKN.gaardsnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.gaardsnummer, domain=None, range=Optional[str])
 
 slots.seksjonsnummer = Slot(uri=FINT.seksjonsnummer, name="seksjonsnummer", curie=FINT.curie('seksjonsnummer'),
-                   model_uri=OKN.seksjonsnummer, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.seksjonsnummer, domain=None, range=Optional[str])
 
 slots.kommunenummer = Slot(uri=FINT.kommunenummer, name="kommunenummer", curie=FINT.curie('kommunenummer'),
-                   model_uri=OKN.kommunenummer, domain=None, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.kommunenummer, domain=None, range=Optional[Union[str, KommuneId]])
 
 slots.fylke = Slot(uri=FINT.fylke, name="fylke", curie=FINT.curie('fylke'),
-                   model_uri=OKN.fylke, domain=None, range=Optional[Union[str, FylkeId]])
+                   model_uri=DEFAULT_.fylke, domain=None, range=Optional[Union[str, FylkeId]])
 
 slots.kommune = Slot(uri=FINT.kommune, name="kommune", curie=FINT.curie('kommune'),
-                   model_uri=OKN.kommune, domain=None, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.kommune, domain=None, range=Optional[Union[str, KommuneId]])
 
 slots.kjonn = Slot(uri=FINT.kjonn, name="kjonn", curie=FINT.curie('kjonn'),
-                   model_uri=OKN.kjonn, domain=None, range=Optional[Union[str, KjonnId]])
+                   model_uri=DEFAULT_.kjonn, domain=None, range=Optional[Union[str, KjonnId]])
 
 slots.bokstavkode = Slot(uri=FINT.bokstavkode, name="bokstavkode", curie=FINT.curie('bokstavkode'),
-                   model_uri=OKN.bokstavkode, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.bokstavkode, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.valuta_navn = Slot(uri=FINT.valutaNavn, name="valuta_navn", curie=FINT.curie('valutaNavn'),
-                   model_uri=OKN.valuta_navn, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.valuta_navn, domain=None, range=Optional[str])
 
 slots.nummerkode = Slot(uri=FINT.nummerkode, name="nummerkode", curie=FINT.curie('nummerkode'),
-                   model_uri=OKN.nummerkode, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.nummerkode, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.bilde = Slot(uri=FINT.bilde, name="bilde", curie=FINT.curie('bilde'),
-                   model_uri=OKN.bilde, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.bilde, domain=None, range=Optional[str])
 
 slots.bostedsadresse = Slot(uri=FINT.bostedsadresse, name="bostedsadresse", curie=FINT.curie('bostedsadresse'),
-                   model_uri=OKN.bostedsadresse, domain=None, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.bostedsadresse, domain=None, range=Optional[Union[dict, Adresse]])
 
 slots.fodselsdato = Slot(uri=FINT.fodselsdato, name="fodselsdato", curie=FINT.curie('fodselsdato'),
-                   model_uri=OKN.fodselsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.fodselsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.fodselsnummer = Slot(uri=FINT.fodselsnummer, name="fodselsnummer", curie=FINT.curie('fodselsnummer'),
-                   model_uri=OKN.fodselsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.fodselsnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.person_navn = Slot(uri=FINT.personNavn, name="person_navn", curie=FINT.curie('personNavn'),
-                   model_uri=OKN.person_navn, domain=None, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.person_navn, domain=None, range=Optional[Union[dict, Personnavn]])
 
 slots.parorende = Slot(uri=FINT.parorende, name="parorende", curie=FINT.curie('parorende'),
-                   model_uri=OKN.parorende, domain=None, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
+                   model_uri=DEFAULT_.parorende, domain=None, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
 
 slots.statsborgerskap = Slot(uri=FINT.statsborgerskap, name="statsborgerskap", curie=FINT.curie('statsborgerskap'),
-                   model_uri=OKN.statsborgerskap, domain=None, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
+                   model_uri=DEFAULT_.statsborgerskap, domain=None, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
 
 slots.foreldreansvar = Slot(uri=FINT.foreldreansvar, name="foreldreansvar", curie=FINT.curie('foreldreansvar'),
-                   model_uri=OKN.foreldreansvar, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.foreldreansvar, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.foreldre = Slot(uri=FINT.foreldre, name="foreldre", curie=FINT.curie('foreldre'),
-                   model_uri=OKN.foreldre, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.foreldre, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.maalform = Slot(uri=FINT.maalform, name="maalform", curie=FINT.curie('maalform'),
-                   model_uri=OKN.maalform, domain=None, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.maalform, domain=None, range=Optional[Union[str, SpraakId]])
 
 slots.morsmaal = Slot(uri=FINT.morsmaal, name="morsmaal", curie=FINT.curie('morsmaal'),
-                   model_uri=OKN.morsmaal, domain=None, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.morsmaal, domain=None, range=Optional[Union[str, SpraakId]])
 
 slots.laerling = Slot(uri=FINT.laerling, name="laerling", curie=FINT.curie('laerling'),
-                   model_uri=OKN.laerling, domain=None, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.laerling, domain=None, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 
 slots.elev = Slot(uri=FINT.elev, name="elev", curie=FINT.curie('elev'),
-                   model_uri=OKN.elev, domain=None, range=Optional[Union[str, ElevId]])
+                   model_uri=DEFAULT_.elev, domain=None, range=Optional[Union[str, ElevId]])
 
 slots.elevnummer = Slot(uri=FINT.elevnummer, name="elevnummer", curie=FINT.curie('elevnummer'),
-                   model_uri=OKN.elevnummer, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.elevnummer, domain=None, range=Optional[Union[dict, Identifikator]])
 
 slots.person = Slot(uri=FINT.person, name="person", curie=FINT.curie('person'),
-                   model_uri=OKN.person, domain=None, range=Optional[Union[str, PersonId]])
+                   model_uri=DEFAULT_.person, domain=None, range=Optional[Union[str, PersonId]])
 
 slots.otungdom = Slot(uri=FINT.otungdom, name="otungdom", curie=FINT.curie('otungdom'),
-                   model_uri=OKN.otungdom, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.otungdom, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.kontaktperson_navn = Slot(uri=FINT.kontaktpersonNavn, name="kontaktperson_navn", curie=FINT.curie('kontaktpersonNavn'),
-                   model_uri=OKN.kontaktperson_navn, domain=None, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.kontaktperson_navn, domain=None, range=Optional[Union[dict, Personnavn]])
 
 slots.type = Slot(uri=FINT.type, name="type", curie=FINT.curie('type'),
-                   model_uri=OKN.type, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.type, domain=None, range=Optional[str])
 
 slots.kontaktperson = Slot(uri=FINT.kontaktpersonFor, name="kontaktperson", curie=FINT.curie('kontaktpersonFor'),
-                   model_uri=OKN.kontaktperson, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.kontaktperson, domain=None, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.virksomhetsId = Slot(uri=FINT.virksomhetsId, name="virksomhetsId", curie=FINT.curie('virksomhetsId'),
-                   model_uri=OKN.virksomhetsId, domain=None, range=Optional[Union[dict, Identifikator]])
+                   model_uri=DEFAULT_.virksomhetsId, domain=None, range=Optional[Union[dict, Identifikator]])
 
-slots.okonomiContainer__fakturaer = Slot(uri=OKN.fakturaer, name="okonomiContainer__fakturaer", curie=OKN.curie('fakturaer'),
-                   model_uri=OKN.okonomiContainer__fakturaer, domain=None, range=Optional[Union[dict[Union[str, FakturaId], Union[dict, Faktura]], list[Union[dict, Faktura]]]])
+slots.okonomiContainer__fakturaer = Slot(uri=DEFAULT_.fakturaer, name="okonomiContainer__fakturaer", curie=DEFAULT_.curie('fakturaer'),
+                   model_uri=DEFAULT_.okonomiContainer__fakturaer, domain=None, range=Optional[Union[dict[Union[str, FakturaId], Union[dict, Faktura]], list[Union[dict, Faktura]]]])
 
-slots.okonomiContainer__fakturagrunnlag = Slot(uri=OKN.fakturagrunnlag, name="okonomiContainer__fakturagrunnlag", curie=OKN.curie('fakturagrunnlag'),
-                   model_uri=OKN.okonomiContainer__fakturagrunnlag, domain=None, range=Optional[Union[str, FakturagrunnlagId]])
+slots.okonomiContainer__fakturagrunnlag = Slot(uri=DEFAULT_.fakturagrunnlag, name="okonomiContainer__fakturagrunnlag", curie=DEFAULT_.curie('fakturagrunnlag'),
+                   model_uri=DEFAULT_.okonomiContainer__fakturagrunnlag, domain=None, range=Optional[Union[dict[Union[str, FakturagrunnlagId], Union[dict, Fakturagrunnlag]], list[Union[dict, Fakturagrunnlag]]]])
 
-slots.okonomiContainer__fakturautstederear = Slot(uri=OKN.fakturautstederear, name="okonomiContainer__fakturautstederear", curie=OKN.curie('fakturautstederear'),
-                   model_uri=OKN.okonomiContainer__fakturautstederear, domain=None, range=Optional[Union[dict[Union[str, FakturautstederId], Union[dict, Fakturautsteder]], list[Union[dict, Fakturautsteder]]]])
+slots.okonomiContainer__fakturautstederear = Slot(uri=DEFAULT_.fakturautstederear, name="okonomiContainer__fakturautstederear", curie=DEFAULT_.curie('fakturautstederear'),
+                   model_uri=DEFAULT_.okonomiContainer__fakturautstederear, domain=None, range=Optional[Union[dict[Union[str, FakturautstederId], Union[dict, Fakturautsteder]], list[Union[dict, Fakturautsteder]]]])
 
-slots.okonomiContainer__transaksjonar = Slot(uri=OKN.transaksjonar, name="okonomiContainer__transaksjonar", curie=OKN.curie('transaksjonar'),
-                   model_uri=OKN.okonomiContainer__transaksjonar, domain=None, range=Optional[Union[dict[Union[str, TransaksjonId], Union[dict, Transaksjon]], list[Union[dict, Transaksjon]]]])
+slots.okonomiContainer__transaksjonar = Slot(uri=DEFAULT_.transaksjonar, name="okonomiContainer__transaksjonar", curie=DEFAULT_.curie('transaksjonar'),
+                   model_uri=DEFAULT_.okonomiContainer__transaksjonar, domain=None, range=Optional[Union[dict[Union[str, TransaksjonId], Union[dict, Transaksjon]], list[Union[dict, Transaksjon]]]])
 
-slots.okonomiContainer__posteringar = Slot(uri=OKN.posteringar, name="okonomiContainer__posteringar", curie=OKN.curie('posteringar'),
-                   model_uri=OKN.okonomiContainer__posteringar, domain=None, range=Optional[Union[dict[Union[str, PosteringId], Union[dict, Postering]], list[Union[dict, Postering]]]])
+slots.okonomiContainer__posteringar = Slot(uri=DEFAULT_.posteringar, name="okonomiContainer__posteringar", curie=DEFAULT_.curie('posteringar'),
+                   model_uri=DEFAULT_.okonomiContainer__posteringar, domain=None, range=Optional[Union[dict[Union[str, PosteringId], Union[dict, Postering]], list[Union[dict, Postering]]]])
 
-slots.okonomiContainer__leverandorar = Slot(uri=OKN.leverandorar, name="okonomiContainer__leverandorar", curie=OKN.curie('leverandorar'),
-                   model_uri=OKN.okonomiContainer__leverandorar, domain=None, range=Optional[Union[dict[Union[str, LeverandorId], Union[dict, Leverandor]], list[Union[dict, Leverandor]]]])
+slots.okonomiContainer__leverandorar = Slot(uri=DEFAULT_.leverandorar, name="okonomiContainer__leverandorar", curie=DEFAULT_.curie('leverandorar'),
+                   model_uri=DEFAULT_.okonomiContainer__leverandorar, domain=None, range=Optional[Union[dict[Union[str, LeverandorId], Union[dict, Leverandor]], list[Union[dict, Leverandor]]]])
 
-slots.okonomiContainer__leverandorgrupper = Slot(uri=OKN.leverandorgrupper, name="okonomiContainer__leverandorgrupper", curie=OKN.curie('leverandorgrupper'),
-                   model_uri=OKN.okonomiContainer__leverandorgrupper, domain=None, range=Optional[Union[dict[Union[str, LeverandorgruppeId], Union[dict, Leverandorgruppe]], list[Union[dict, Leverandorgruppe]]]])
+slots.okonomiContainer__leverandorgrupper = Slot(uri=DEFAULT_.leverandorgrupper, name="okonomiContainer__leverandorgrupper", curie=DEFAULT_.curie('leverandorgrupper'),
+                   model_uri=DEFAULT_.okonomiContainer__leverandorgrupper, domain=None, range=Optional[Union[dict[Union[str, LeverandorgruppeId], Union[dict, Leverandorgruppe]], list[Union[dict, Leverandorgruppe]]]])
 
-slots.okonomiContainer__varer = Slot(uri=OKN.varer, name="okonomiContainer__varer", curie=OKN.curie('varer'),
-                   model_uri=OKN.okonomiContainer__varer, domain=None, range=Optional[Union[dict[Union[str, VareId], Union[dict, Vare]], list[Union[dict, Vare]]]])
+slots.okonomiContainer__varer = Slot(uri=DEFAULT_.varer, name="okonomiContainer__varer", curie=DEFAULT_.curie('varer'),
+                   model_uri=DEFAULT_.okonomiContainer__varer, domain=None, range=Optional[Union[dict[Union[str, VareId], Union[dict, Vare]], list[Union[dict, Vare]]]])
 
-slots.okonomiContainer__merverdiavgifter = Slot(uri=OKN.merverdiavgifter, name="okonomiContainer__merverdiavgifter", curie=OKN.curie('merverdiavgifter'),
-                   model_uri=OKN.okonomiContainer__merverdiavgifter, domain=None, range=Optional[Union[dict[Union[str, MerverdiavgiftId], Union[dict, Merverdiavgift]], list[Union[dict, Merverdiavgift]]]])
+slots.okonomiContainer__merverdiavgifter = Slot(uri=DEFAULT_.merverdiavgifter, name="okonomiContainer__merverdiavgifter", curie=DEFAULT_.curie('merverdiavgifter'),
+                   model_uri=DEFAULT_.okonomiContainer__merverdiavgifter, domain=None, range=Optional[Union[dict[Union[str, MerverdiavgiftId], Union[dict, Merverdiavgift]], list[Union[dict, Merverdiavgift]]]])
 
-slots.okonomiContainer__valutaer = Slot(uri=OKN.valutaer, name="okonomiContainer__valutaer", curie=OKN.curie('valutaer'),
-                   model_uri=OKN.okonomiContainer__valutaer, domain=None, range=Optional[Union[dict[Union[str, OkonomiValutaId], Union[dict, OkonomiValuta]], list[Union[dict, OkonomiValuta]]]])
+slots.okonomiContainer__valutaer = Slot(uri=DEFAULT_.valutaer, name="okonomiContainer__valutaer", curie=DEFAULT_.curie('valutaer'),
+                   model_uri=DEFAULT_.okonomiContainer__valutaer, domain=None, range=Optional[Union[dict[Union[str, OkonomiValutaId], Union[dict, OkonomiValuta]], list[Union[dict, OkonomiValuta]]]])
 
 slots.person__personalressurs = Slot(uri=FINT.personalressurs, name="person__personalressurs", curie=FINT.curie('personalressurs'),
-                   model_uri=OKN.person__personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.OkonomiContainer_fakturagrunnlag = Slot(uri=OKN.fakturagrunnlag, name="OkonomiContainer_fakturagrunnlag", curie=OKN.curie('fakturagrunnlag'),
-                   model_uri=OKN.OkonomiContainer_fakturagrunnlag, domain=OkonomiContainer, range=Optional[Union[dict[Union[str, FakturagrunnlagId], Union[dict, "Fakturagrunnlag"]], list[Union[dict, "Fakturagrunnlag"]]]])
+                   model_uri=DEFAULT_.person__personalressurs, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.Faktura_fakturanummer = Slot(uri=OKN.fakturanummer, name="Faktura_fakturanummer", curie=OKN.curie('fakturanummer'),
-                   model_uri=OKN.Faktura_fakturanummer, domain=Faktura, range=Union[dict, "Identifikator"])
+                   model_uri=DEFAULT_.Faktura_fakturanummer, domain=Faktura, range=Union[dict, "Identifikator"])
 
 slots.Faktura_dato = Slot(uri=OKN.dato, name="Faktura_dato", curie=OKN.curie('dato'),
-                   model_uri=OKN.Faktura_dato, domain=Faktura, range=Union[str, XSDDate])
+                   model_uri=DEFAULT_.Faktura_dato, domain=Faktura, range=Union[str, XSDDate])
 
 slots.Faktura_forfallsdato = Slot(uri=OKN.forfallsdato, name="Faktura_forfallsdato", curie=OKN.curie('forfallsdato'),
-                   model_uri=OKN.Faktura_forfallsdato, domain=Faktura, range=Union[str, XSDDate])
+                   model_uri=DEFAULT_.Faktura_forfallsdato, domain=Faktura, range=Union[str, XSDDate])
 
 slots.Faktura_belop = Slot(uri=OKN.belop, name="Faktura_belop", curie=OKN.curie('belop'),
-                   model_uri=OKN.Faktura_belop, domain=Faktura, range=int)
+                   model_uri=DEFAULT_.Faktura_belop, domain=Faktura, range=int)
 
 slots.Faktura_mottaker = Slot(uri=OKN.mottaker, name="Faktura_mottaker", curie=OKN.curie('mottaker'),
-                   model_uri=OKN.Faktura_mottaker, domain=Faktura, range=str)
+                   model_uri=DEFAULT_.Faktura_mottaker, domain=Faktura, range=str)
 
 slots.Faktura_adresse = Slot(uri=FINT.adresse, name="Faktura_adresse", curie=FINT.curie('adresse'),
-                   model_uri=OKN.Faktura_adresse, domain=Faktura, range=Optional[Union[dict, "Adresse"]])
+                   model_uri=DEFAULT_.Faktura_adresse, domain=Faktura, range=Optional[Union[dict, "Adresse"]])
 
 slots.Faktura_betalt = Slot(uri=OKN.betalt, name="Faktura_betalt", curie=OKN.curie('betalt'),
-                   model_uri=OKN.Faktura_betalt, domain=Faktura, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Faktura_betalt, domain=Faktura, range=Optional[Union[bool, Bool]])
 
 slots.Faktura_fakturert = Slot(uri=OKN.fakturert, name="Faktura_fakturert", curie=OKN.curie('fakturert'),
-                   model_uri=OKN.Faktura_fakturert, domain=Faktura, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Faktura_fakturert, domain=Faktura, range=Optional[Union[bool, Bool]])
 
 slots.Faktura_kreditert = Slot(uri=OKN.kreditert, name="Faktura_kreditert", curie=OKN.curie('kreditert'),
-                   model_uri=OKN.Faktura_kreditert, domain=Faktura, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Faktura_kreditert, domain=Faktura, range=Optional[Union[bool, Bool]])
 
 slots.Faktura_restbelop = Slot(uri=OKN.restbelop, name="Faktura_restbelop", curie=OKN.curie('restbelop'),
-                   model_uri=OKN.Faktura_restbelop, domain=Faktura, range=Optional[int])
+                   model_uri=DEFAULT_.Faktura_restbelop, domain=Faktura, range=Optional[int])
 
 slots.Faktura_fakturagrunnlag = Slot(uri=OKN.fakturagrunnlag, name="Faktura_fakturagrunnlag", curie=OKN.curie('fakturagrunnlag'),
-                   model_uri=OKN.Faktura_fakturagrunnlag, domain=Faktura, range=Union[str, FakturagrunnlagId])
+                   model_uri=DEFAULT_.Faktura_fakturagrunnlag, domain=Faktura, range=Union[str, FakturagrunnlagId])
 
 slots.Fakturagrunnlag_ordrenummer = Slot(uri=OKN.ordrenummer, name="Fakturagrunnlag_ordrenummer", curie=OKN.curie('ordrenummer'),
-                   model_uri=OKN.Fakturagrunnlag_ordrenummer, domain=Fakturagrunnlag, range=Union[dict, "Identifikator"])
+                   model_uri=DEFAULT_.Fakturagrunnlag_ordrenummer, domain=Fakturagrunnlag, range=Union[dict, "Identifikator"])
 
 slots.Fakturagrunnlag_fakturamottaker = Slot(uri=OKN.fakturamottaker, name="Fakturagrunnlag_fakturamottaker", curie=OKN.curie('fakturamottaker'),
-                   model_uri=OKN.Fakturagrunnlag_fakturamottaker, domain=Fakturagrunnlag, range=Union[dict, "Fakturamottaker"])
+                   model_uri=DEFAULT_.Fakturagrunnlag_fakturamottaker, domain=Fakturagrunnlag, range=Union[dict, "Fakturamottaker"])
 
 slots.Fakturagrunnlag_fakturalinjer = Slot(uri=OKN.fakturalinjer, name="Fakturagrunnlag_fakturalinjer", curie=OKN.curie('fakturalinjer'),
-                   model_uri=OKN.Fakturagrunnlag_fakturalinjer, domain=Fakturagrunnlag, range=Union[Union[dict, "Fakturalinje"], list[Union[dict, "Fakturalinje"]]])
+                   model_uri=DEFAULT_.Fakturagrunnlag_fakturalinjer, domain=Fakturagrunnlag, range=Union[Union[dict, "Fakturalinje"], list[Union[dict, "Fakturalinje"]]])
 
 slots.Fakturagrunnlag_leveringsdato = Slot(uri=OKN.leveringsdato, name="Fakturagrunnlag_leveringsdato", curie=OKN.curie('leveringsdato'),
-                   model_uri=OKN.Fakturagrunnlag_leveringsdato, domain=Fakturagrunnlag, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.Fakturagrunnlag_leveringsdato, domain=Fakturagrunnlag, range=Optional[Union[str, XSDDate]])
 
 slots.Fakturagrunnlag_nettobelop = Slot(uri=OKN.nettobelop, name="Fakturagrunnlag_nettobelop", curie=OKN.curie('nettobelop'),
-                   model_uri=OKN.Fakturagrunnlag_nettobelop, domain=Fakturagrunnlag, range=Optional[int])
+                   model_uri=DEFAULT_.Fakturagrunnlag_nettobelop, domain=Fakturagrunnlag, range=Optional[int])
 
 slots.Fakturagrunnlag_avgiftsbelop = Slot(uri=OKN.avgiftsbelop, name="Fakturagrunnlag_avgiftsbelop", curie=OKN.curie('avgiftsbelop'),
-                   model_uri=OKN.Fakturagrunnlag_avgiftsbelop, domain=Fakturagrunnlag, range=Optional[int])
+                   model_uri=DEFAULT_.Fakturagrunnlag_avgiftsbelop, domain=Fakturagrunnlag, range=Optional[int])
 
 slots.Fakturagrunnlag_totalbelop = Slot(uri=OKN.totalbelop, name="Fakturagrunnlag_totalbelop", curie=OKN.curie('totalbelop'),
-                   model_uri=OKN.Fakturagrunnlag_totalbelop, domain=Fakturagrunnlag, range=Optional[int])
+                   model_uri=DEFAULT_.Fakturagrunnlag_totalbelop, domain=Fakturagrunnlag, range=Optional[int])
 
 slots.Fakturagrunnlag_faktura = Slot(uri=OKN.faktura, name="Fakturagrunnlag_faktura", curie=OKN.curie('faktura'),
-                   model_uri=OKN.Fakturagrunnlag_faktura, domain=Fakturagrunnlag, range=Optional[Union[Union[str, FakturaId], list[Union[str, FakturaId]]]])
+                   model_uri=DEFAULT_.Fakturagrunnlag_faktura, domain=Fakturagrunnlag, range=Optional[Union[Union[str, FakturaId], list[Union[str, FakturaId]]]])
 
 slots.Fakturagrunnlag_fakturautsteder = Slot(uri=OKN.fakturautsteder, name="Fakturagrunnlag_fakturautsteder", curie=OKN.curie('fakturautsteder'),
-                   model_uri=OKN.Fakturagrunnlag_fakturautsteder, domain=Fakturagrunnlag, range=Union[str, FakturautstederId])
+                   model_uri=DEFAULT_.Fakturagrunnlag_fakturautsteder, domain=Fakturagrunnlag, range=Union[str, FakturautstederId])
 
 slots.Fakturautsteder_navn = Slot(uri=FINT.navn, name="Fakturautsteder_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.Fakturautsteder_navn, domain=Fakturautsteder, range=str)
+                   model_uri=DEFAULT_.Fakturautsteder_navn, domain=Fakturautsteder, range=str)
 
 slots.Fakturautsteder_fakturagrunnlag = Slot(uri=OKN.fakturagrunnlag, name="Fakturautsteder_fakturagrunnlag", curie=OKN.curie('fakturagrunnlag'),
-                   model_uri=OKN.Fakturautsteder_fakturagrunnlag, domain=Fakturautsteder, range=Optional[Union[Union[str, FakturagrunnlagId], list[Union[str, FakturagrunnlagId]]]])
+                   model_uri=DEFAULT_.Fakturautsteder_fakturagrunnlag, domain=Fakturautsteder, range=Optional[Union[Union[str, FakturagrunnlagId], list[Union[str, FakturagrunnlagId]]]])
 
 slots.Fakturautsteder_organisasjonselement = Slot(uri=OKN.organisasjonselement, name="Fakturautsteder_organisasjonselement", curie=OKN.curie('organisasjonselement'),
-                   model_uri=OKN.Fakturautsteder_organisasjonselement, domain=Fakturautsteder, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Fakturautsteder_organisasjonselement, domain=Fakturautsteder, range=Optional[Union[str, URIorCURIE]])
 
 slots.Fakturautsteder_vare = Slot(uri=OKN.vare, name="Fakturautsteder_vare", curie=OKN.curie('vare'),
-                   model_uri=OKN.Fakturautsteder_vare, domain=Fakturautsteder, range=Optional[Union[Union[str, VareId], list[Union[str, VareId]]]])
+                   model_uri=DEFAULT_.Fakturautsteder_vare, domain=Fakturautsteder, range=Optional[Union[Union[str, VareId], list[Union[str, VareId]]]])
 
 slots.Fakturamottaker_person = Slot(uri=FINT.person, name="Fakturamottaker_person", curie=FINT.curie('person'),
-                   model_uri=OKN.Fakturamottaker_person, domain=Fakturamottaker, range=Union[str, PersonId])
+                   model_uri=DEFAULT_.Fakturamottaker_person, domain=Fakturamottaker, range=Union[str, PersonId])
 
 slots.Fakturalinje_antall = Slot(uri=OKN.antall, name="Fakturalinje_antall", curie=OKN.curie('antall'),
-                   model_uri=OKN.Fakturalinje_antall, domain=Fakturalinje, range=float)
+                   model_uri=DEFAULT_.Fakturalinje_antall, domain=Fakturalinje, range=float)
 
 slots.Fakturalinje_pris = Slot(uri=OKN.pris, name="Fakturalinje_pris", curie=OKN.curie('pris'),
-                   model_uri=OKN.Fakturalinje_pris, domain=Fakturalinje, range=int)
+                   model_uri=DEFAULT_.Fakturalinje_pris, domain=Fakturalinje, range=int)
 
 slots.Fakturalinje_fritekst = Slot(uri=OKN.fritekst, name="Fakturalinje_fritekst", curie=OKN.curie('fritekst'),
-                   model_uri=OKN.Fakturalinje_fritekst, domain=Fakturalinje, range=Optional[Union[str, list[str]]])
+                   model_uri=DEFAULT_.Fakturalinje_fritekst, domain=Fakturalinje, range=Optional[Union[str, list[str]]])
 
 slots.Fakturalinje_vare = Slot(uri=OKN.vare, name="Fakturalinje_vare", curie=OKN.curie('vare'),
-                   model_uri=OKN.Fakturalinje_vare, domain=Fakturalinje, range=Union[str, VareId])
+                   model_uri=DEFAULT_.Fakturalinje_vare, domain=Fakturalinje, range=Union[str, VareId])
 
 slots.Transaksjon_transaksjonsId = Slot(uri=OKN.transaksjonsId, name="Transaksjon_transaksjonsId", curie=OKN.curie('transaksjonsId'),
-                   model_uri=OKN.Transaksjon_transaksjonsId, domain=Transaksjon, range=Union[dict, "Identifikator"])
+                   model_uri=DEFAULT_.Transaksjon_transaksjonsId, domain=Transaksjon, range=Union[dict, "Identifikator"])
 
 slots.Transaksjon_belop = Slot(uri=OKN.belop, name="Transaksjon_belop", curie=OKN.curie('belop'),
-                   model_uri=OKN.Transaksjon_belop, domain=Transaksjon, range=int)
+                   model_uri=DEFAULT_.Transaksjon_belop, domain=Transaksjon, range=int)
 
 slots.Transaksjon_forfallsdato = Slot(uri=OKN.forfallsdato, name="Transaksjon_forfallsdato", curie=OKN.curie('forfallsdato'),
-                   model_uri=OKN.Transaksjon_forfallsdato, domain=Transaksjon, range=Union[str, XSDDate])
+                   model_uri=DEFAULT_.Transaksjon_forfallsdato, domain=Transaksjon, range=Union[str, XSDDate])
 
 slots.Transaksjon_beskrivelse = Slot(uri=FINT.beskrivelse, name="Transaksjon_beskrivelse", curie=FINT.curie('beskrivelse'),
-                   model_uri=OKN.Transaksjon_beskrivelse, domain=Transaksjon, range=Optional[str])
+                   model_uri=DEFAULT_.Transaksjon_beskrivelse, domain=Transaksjon, range=Optional[str])
 
 slots.Transaksjon_bilag = Slot(uri=OKN.bilag, name="Transaksjon_bilag", curie=OKN.curie('bilag'),
-                   model_uri=OKN.Transaksjon_bilag, domain=Transaksjon, range=Optional[Union[Union[dict, "Bilag"], list[Union[dict, "Bilag"]]]])
+                   model_uri=DEFAULT_.Transaksjon_bilag, domain=Transaksjon, range=Optional[Union[Union[dict, "Bilag"], list[Union[dict, "Bilag"]]]])
 
 slots.Transaksjon_transaksjonstidspunkt = Slot(uri=OKN.transaksjonstidspunkt, name="Transaksjon_transaksjonstidspunkt", curie=OKN.curie('transaksjonstidspunkt'),
-                   model_uri=OKN.Transaksjon_transaksjonstidspunkt, domain=Transaksjon, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.Transaksjon_transaksjonstidspunkt, domain=Transaksjon, range=Optional[Union[str, XSDDateTime]])
 
 slots.Transaksjon_oppdateringstidspunkt = Slot(uri=OKN.oppdateringstidspunkt, name="Transaksjon_oppdateringstidspunkt", curie=OKN.curie('oppdateringstidspunkt'),
-                   model_uri=OKN.Transaksjon_oppdateringstidspunkt, domain=Transaksjon, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=DEFAULT_.Transaksjon_oppdateringstidspunkt, domain=Transaksjon, range=Optional[Union[str, XSDDateTime]])
 
 slots.Transaksjon_leverandor = Slot(uri=OKN.leverandor, name="Transaksjon_leverandor", curie=OKN.curie('leverandor'),
-                   model_uri=OKN.Transaksjon_leverandor, domain=Transaksjon, range=Optional[Union[str, LeverandorId]])
+                   model_uri=DEFAULT_.Transaksjon_leverandor, domain=Transaksjon, range=Optional[Union[str, LeverandorId]])
 
 slots.Transaksjon_postering = Slot(uri=OKN.postering, name="Transaksjon_postering", curie=OKN.curie('postering'),
-                   model_uri=OKN.Transaksjon_postering, domain=Transaksjon, range=Union[Union[str, PosteringId], list[Union[str, PosteringId]]])
+                   model_uri=DEFAULT_.Transaksjon_postering, domain=Transaksjon, range=Union[Union[str, PosteringId], list[Union[str, PosteringId]]])
 
 slots.Transaksjon_ansvarlig = Slot(uri=OKN.ansvarlig, name="Transaksjon_ansvarlig", curie=OKN.curie('ansvarlig'),
-                   model_uri=OKN.Transaksjon_ansvarlig, domain=Transaksjon, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Transaksjon_ansvarlig, domain=Transaksjon, range=Optional[Union[str, URIorCURIE]])
 
 slots.Transaksjon_valuta = Slot(uri=OKN.valuta, name="Transaksjon_valuta", curie=OKN.curie('valuta'),
-                   model_uri=OKN.Transaksjon_valuta, domain=Transaksjon, range=Union[str, OkonomiValutaId])
+                   model_uri=DEFAULT_.Transaksjon_valuta, domain=Transaksjon, range=Union[str, OkonomiValutaId])
 
 slots.Postering_posteringsId = Slot(uri=OKN.posteringsId, name="Postering_posteringsId", curie=OKN.curie('posteringsId'),
-                   model_uri=OKN.Postering_posteringsId, domain=Postering, range=Union[dict, "Identifikator"])
+                   model_uri=DEFAULT_.Postering_posteringsId, domain=Postering, range=Union[dict, "Identifikator"])
 
 slots.Postering_belop = Slot(uri=OKN.belop, name="Postering_belop", curie=OKN.curie('belop'),
-                   model_uri=OKN.Postering_belop, domain=Postering, range=int)
+                   model_uri=DEFAULT_.Postering_belop, domain=Postering, range=int)
 
 slots.Postering_debet = Slot(uri=OKN.debet, name="Postering_debet", curie=OKN.curie('debet'),
-                   model_uri=OKN.Postering_debet, domain=Postering, range=Union[bool, Bool])
+                   model_uri=DEFAULT_.Postering_debet, domain=Postering, range=Union[bool, Bool])
 
 slots.Postering_kontering = Slot(uri=OKN.kontering, name="Postering_kontering", curie=OKN.curie('kontering'),
-                   model_uri=OKN.Postering_kontering, domain=Postering, range=Union[dict, "Kontostreng"])
+                   model_uri=DEFAULT_.Postering_kontering, domain=Postering, range=Union[dict, "Kontostreng"])
 
 slots.Postering_transaksjon = Slot(uri=OKN.transaksjon, name="Postering_transaksjon", curie=OKN.curie('transaksjon'),
-                   model_uri=OKN.Postering_transaksjon, domain=Postering, range=Optional[Union[str, TransaksjonId]])
+                   model_uri=DEFAULT_.Postering_transaksjon, domain=Postering, range=Optional[Union[str, TransaksjonId]])
 
 slots.Leverandor_kontonummer = Slot(uri=OKN.kontonummer, name="Leverandor_kontonummer", curie=OKN.curie('kontonummer'),
-                   model_uri=OKN.Leverandor_kontonummer, domain=Leverandor, range=Optional[str])
+                   model_uri=DEFAULT_.Leverandor_kontonummer, domain=Leverandor, range=Optional[str])
 
 slots.Leverandor_leverandornummer = Slot(uri=OKN.leverandornummer, name="Leverandor_leverandornummer", curie=OKN.curie('leverandornummer'),
-                   model_uri=OKN.Leverandor_leverandornummer, domain=Leverandor, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.Leverandor_leverandornummer, domain=Leverandor, range=Optional[Union[dict, "Identifikator"]])
 
 slots.Leverandor_person = Slot(uri=FINT.person, name="Leverandor_person", curie=FINT.curie('person'),
-                   model_uri=OKN.Leverandor_person, domain=Leverandor, range=Optional[Union[str, PersonId]])
+                   model_uri=DEFAULT_.Leverandor_person, domain=Leverandor, range=Optional[Union[str, PersonId]])
 
 slots.Leverandor_leverandorgruppe = Slot(uri=OKN.leverandorgruppe, name="Leverandor_leverandorgruppe", curie=OKN.curie('leverandorgruppe'),
-                   model_uri=OKN.Leverandor_leverandorgruppe, domain=Leverandor, range=Optional[Union[str, LeverandorgruppeId]])
+                   model_uri=DEFAULT_.Leverandor_leverandorgruppe, domain=Leverandor, range=Optional[Union[str, LeverandorgruppeId]])
 
 slots.Leverandor_virksomhet = Slot(uri=OKN.virksomhet, name="Leverandor_virksomhet", curie=OKN.curie('virksomhet'),
-                   model_uri=OKN.Leverandor_virksomhet, domain=Leverandor, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Leverandor_virksomhet, domain=Leverandor, range=Optional[Union[str, URIorCURIE]])
 
 slots.Leverandorgruppe_navn = Slot(uri=FINT.navn, name="Leverandorgruppe_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.Leverandorgruppe_navn, domain=Leverandorgruppe, range=str)
+                   model_uri=DEFAULT_.Leverandorgruppe_navn, domain=Leverandorgruppe, range=str)
 
 slots.Leverandorgruppe_leverandor = Slot(uri=OKN.leverandor, name="Leverandorgruppe_leverandor", curie=OKN.curie('leverandor'),
-                   model_uri=OKN.Leverandorgruppe_leverandor, domain=Leverandorgruppe, range=Optional[Union[Union[str, LeverandorId], list[Union[str, LeverandorId]]]])
+                   model_uri=DEFAULT_.Leverandorgruppe_leverandor, domain=Leverandorgruppe, range=Optional[Union[Union[str, LeverandorId], list[Union[str, LeverandorId]]]])
 
 slots.Bilag_bilagsdato = Slot(uri=OKN.bilagsdato, name="Bilag_bilagsdato", curie=OKN.curie('bilagsdato'),
-                   model_uri=OKN.Bilag_bilagsdato, domain=Bilag, range=Union[str, XSDDate])
+                   model_uri=DEFAULT_.Bilag_bilagsdato, domain=Bilag, range=Union[str, XSDDate])
 
 slots.Bilag_bilagsnummer = Slot(uri=OKN.bilagsnummer, name="Bilag_bilagsnummer", curie=OKN.curie('bilagsnummer'),
-                   model_uri=OKN.Bilag_bilagsnummer, domain=Bilag, range=Optional[str])
+                   model_uri=DEFAULT_.Bilag_bilagsnummer, domain=Bilag, range=Optional[str])
 
 slots.Bilag_referanse = Slot(uri=OKN.referanse, name="Bilag_referanse", curie=OKN.curie('referanse'),
-                   model_uri=OKN.Bilag_referanse, domain=Bilag, range=Optional[str])
+                   model_uri=DEFAULT_.Bilag_referanse, domain=Bilag, range=Optional[str])
 
 slots.Bilag_url = Slot(uri=OKN.url, name="Bilag_url", curie=OKN.curie('url'),
-                   model_uri=OKN.Bilag_url, domain=Bilag, range=Optional[str])
+                   model_uri=DEFAULT_.Bilag_url, domain=Bilag, range=Optional[str])
 
 slots.Bilag_filnavn = Slot(uri=OKN.filnavn, name="Bilag_filnavn", curie=OKN.curie('filnavn'),
-                   model_uri=OKN.Bilag_filnavn, domain=Bilag, range=Optional[str])
+                   model_uri=DEFAULT_.Bilag_filnavn, domain=Bilag, range=Optional[str])
 
 slots.Bilag_data = Slot(uri=OKN.data, name="Bilag_data", curie=OKN.curie('data'),
-                   model_uri=OKN.Bilag_data, domain=Bilag, range=Optional[str])
+                   model_uri=DEFAULT_.Bilag_data, domain=Bilag, range=Optional[str])
 
 slots.Kontostreng_art = Slot(uri=OKN.art, name="Kontostreng_art", curie=OKN.curie('art'),
-                   model_uri=OKN.Kontostreng_art, domain=Kontostreng, range=Optional[str])
+                   model_uri=DEFAULT_.Kontostreng_art, domain=Kontostreng, range=Optional[str])
 
 slots.Kontostreng_funksjon = Slot(uri=OKN.funksjon, name="Kontostreng_funksjon", curie=OKN.curie('funksjon'),
-                   model_uri=OKN.Kontostreng_funksjon, domain=Kontostreng, range=Optional[str])
+                   model_uri=DEFAULT_.Kontostreng_funksjon, domain=Kontostreng, range=Optional[str])
 
 slots.Kontostreng_ansvar = Slot(uri=OKN.ansvar, name="Kontostreng_ansvar", curie=OKN.curie('ansvar'),
-                   model_uri=OKN.Kontostreng_ansvar, domain=Kontostreng, range=Optional[str])
+                   model_uri=DEFAULT_.Kontostreng_ansvar, domain=Kontostreng, range=Optional[str])
 
 slots.Kontostreng_prosjekt = Slot(uri=OKN.prosjekt, name="Kontostreng_prosjekt", curie=OKN.curie('prosjekt'),
-                   model_uri=OKN.Kontostreng_prosjekt, domain=Kontostreng, range=Optional[str])
+                   model_uri=DEFAULT_.Kontostreng_prosjekt, domain=Kontostreng, range=Optional[str])
 
 slots.Vare_kode = Slot(uri=FINT.kode, name="Vare_kode", curie=FINT.curie('kode'),
-                   model_uri=OKN.Vare_kode, domain=Vare, range=str)
+                   model_uri=DEFAULT_.Vare_kode, domain=Vare, range=str)
 
 slots.Vare_navn = Slot(uri=FINT.navn, name="Vare_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.Vare_navn, domain=Vare, range=str)
+                   model_uri=DEFAULT_.Vare_navn, domain=Vare, range=str)
 
 slots.Vare_enhet = Slot(uri=OKN.enhet, name="Vare_enhet", curie=OKN.curie('enhet'),
-                   model_uri=OKN.Vare_enhet, domain=Vare, range=str)
+                   model_uri=DEFAULT_.Vare_enhet, domain=Vare, range=str)
 
 slots.Vare_pris = Slot(uri=OKN.pris, name="Vare_pris", curie=OKN.curie('pris'),
-                   model_uri=OKN.Vare_pris, domain=Vare, range=int)
+                   model_uri=DEFAULT_.Vare_pris, domain=Vare, range=int)
 
 slots.Vare_kontering = Slot(uri=OKN.kontering, name="Vare_kontering", curie=OKN.curie('kontering'),
-                   model_uri=OKN.Vare_kontering, domain=Vare, range=Optional[Union[dict, Kontostreng]])
+                   model_uri=DEFAULT_.Vare_kontering, domain=Vare, range=Optional[Union[dict, Kontostreng]])
 
 slots.Vare_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Vare_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=OKN.Vare_gyldighetsperiode, domain=Vare, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Vare_gyldighetsperiode, domain=Vare, range=Optional[Union[dict, "Periode"]])
 
 slots.Vare_passiv = Slot(uri=FINT.passiv, name="Vare_passiv", curie=FINT.curie('passiv'),
-                   model_uri=OKN.Vare_passiv, domain=Vare, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Vare_passiv, domain=Vare, range=Optional[Union[bool, Bool]])
 
 slots.Vare_fakturautsteder = Slot(uri=OKN.fakturautsteder, name="Vare_fakturautsteder", curie=OKN.curie('fakturautsteder'),
-                   model_uri=OKN.Vare_fakturautsteder, domain=Vare, range=Union[str, FakturautstederId])
+                   model_uri=DEFAULT_.Vare_fakturautsteder, domain=Vare, range=Union[str, FakturautstederId])
 
 slots.Vare_merverdiavgift = Slot(uri=OKN.merverdiavgift, name="Vare_merverdiavgift", curie=OKN.curie('merverdiavgift'),
-                   model_uri=OKN.Vare_merverdiavgift, domain=Vare, range=Union[str, MerverdiavgiftId])
+                   model_uri=DEFAULT_.Vare_merverdiavgift, domain=Vare, range=Union[str, MerverdiavgiftId])
 
 slots.Merverdiavgift_kode = Slot(uri=FINT.kode, name="Merverdiavgift_kode", curie=FINT.curie('kode'),
-                   model_uri=OKN.Merverdiavgift_kode, domain=Merverdiavgift, range=str)
+                   model_uri=DEFAULT_.Merverdiavgift_kode, domain=Merverdiavgift, range=str)
 
 slots.Merverdiavgift_navn = Slot(uri=FINT.navn, name="Merverdiavgift_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.Merverdiavgift_navn, domain=Merverdiavgift, range=str)
+                   model_uri=DEFAULT_.Merverdiavgift_navn, domain=Merverdiavgift, range=str)
 
 slots.Merverdiavgift_sats = Slot(uri=OKN.sats, name="Merverdiavgift_sats", curie=OKN.curie('sats'),
-                   model_uri=OKN.Merverdiavgift_sats, domain=Merverdiavgift, range=int)
+                   model_uri=DEFAULT_.Merverdiavgift_sats, domain=Merverdiavgift, range=int)
 
 slots.Merverdiavgift_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Merverdiavgift_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=OKN.Merverdiavgift_gyldighetsperiode, domain=Merverdiavgift, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Merverdiavgift_gyldighetsperiode, domain=Merverdiavgift, range=Optional[Union[dict, "Periode"]])
 
 slots.Merverdiavgift_passiv = Slot(uri=FINT.passiv, name="Merverdiavgift_passiv", curie=FINT.curie('passiv'),
-                   model_uri=OKN.Merverdiavgift_passiv, domain=Merverdiavgift, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Merverdiavgift_passiv, domain=Merverdiavgift, range=Optional[Union[bool, Bool]])
 
 slots.OkonomiValuta_kode = Slot(uri=FINT.kode, name="OkonomiValuta_kode", curie=FINT.curie('kode'),
-                   model_uri=OKN.OkonomiValuta_kode, domain=OkonomiValuta, range=str)
+                   model_uri=DEFAULT_.OkonomiValuta_kode, domain=OkonomiValuta, range=str)
 
 slots.OkonomiValuta_navn = Slot(uri=FINT.navn, name="OkonomiValuta_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.OkonomiValuta_navn, domain=OkonomiValuta, range=str)
+                   model_uri=DEFAULT_.OkonomiValuta_navn, domain=OkonomiValuta, range=str)
 
 slots.OkonomiValuta_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="OkonomiValuta_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=OKN.OkonomiValuta_gyldighetsperiode, domain=OkonomiValuta, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.OkonomiValuta_gyldighetsperiode, domain=OkonomiValuta, range=Optional[Union[dict, "Periode"]])
 
 slots.OkonomiValuta_passiv = Slot(uri=FINT.passiv, name="OkonomiValuta_passiv", curie=FINT.curie('passiv'),
-                   model_uri=OKN.OkonomiValuta_passiv, domain=OkonomiValuta, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.OkonomiValuta_passiv, domain=OkonomiValuta, range=Optional[Union[bool, Bool]])
 
 slots.Aktoer_kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="Aktoer_kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=OKN.Aktoer_kontaktinformasjon, domain=Aktoer, range=Optional[Union[dict, "Kontaktinformasjon"]])
+                   model_uri=DEFAULT_.Aktoer_kontaktinformasjon, domain=Aktoer, range=Optional[Union[dict, "Kontaktinformasjon"]])
 
 slots.Aktoer_postadresse = Slot(uri=FINT.postadresse, name="Aktoer_postadresse", curie=FINT.curie('postadresse'),
-                   model_uri=OKN.Aktoer_postadresse, domain=Aktoer, range=Optional[Union[dict, "Adresse"]])
+                   model_uri=DEFAULT_.Aktoer_postadresse, domain=Aktoer, range=Optional[Union[dict, "Adresse"]])
 
 slots.Begrep_kode = Slot(uri=FINT.kode, name="Begrep_kode", curie=FINT.curie('kode'),
-                   model_uri=OKN.Begrep_kode, domain=Begrep, range=str)
+                   model_uri=DEFAULT_.Begrep_kode, domain=Begrep, range=str)
 
 slots.Begrep_navn = Slot(uri=FINT.navn, name="Begrep_navn", curie=FINT.curie('navn'),
-                   model_uri=OKN.Begrep_navn, domain=Begrep, range=str)
+                   model_uri=DEFAULT_.Begrep_navn, domain=Begrep, range=str)
 
 slots.Begrep_gyldighetsperiode = Slot(uri=FINT.gyldighetsperiode, name="Begrep_gyldighetsperiode", curie=FINT.curie('gyldighetsperiode'),
-                   model_uri=OKN.Begrep_gyldighetsperiode, domain=Begrep, range=Optional[Union[dict, "Periode"]])
+                   model_uri=DEFAULT_.Begrep_gyldighetsperiode, domain=Begrep, range=Optional[Union[dict, "Periode"]])
 
 slots.Begrep_passiv = Slot(uri=FINT.passiv, name="Begrep_passiv", curie=FINT.curie('passiv'),
-                   model_uri=OKN.Begrep_passiv, domain=Begrep, range=Optional[Union[bool, Bool]])
+                   model_uri=DEFAULT_.Begrep_passiv, domain=Begrep, range=Optional[Union[bool, Bool]])
 
 slots.Elev_elevnummer = Slot(uri=FINT.elevnummer, name="Elev_elevnummer", curie=FINT.curie('elevnummer'),
-                   model_uri=OKN.Elev_elevnummer, domain=Elev, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.Elev_elevnummer, domain=Elev, range=Optional[Union[dict, "Identifikator"]])
 
 slots.Elev_person = Slot(uri=FINT.person, name="Elev_person", curie=FINT.curie('person'),
-                   model_uri=OKN.Elev_person, domain=Elev, range=Optional[Union[str, PersonId]])
+                   model_uri=DEFAULT_.Elev_person, domain=Elev, range=Optional[Union[str, PersonId]])
 
 slots.Enhet_forretningsadresse = Slot(uri=FINT.forretningsadresse, name="Enhet_forretningsadresse", curie=FINT.curie('forretningsadresse'),
-                   model_uri=OKN.Enhet_forretningsadresse, domain=Enhet, range=Optional[Union[dict, "Adresse"]])
+                   model_uri=DEFAULT_.Enhet_forretningsadresse, domain=Enhet, range=Optional[Union[dict, "Adresse"]])
 
 slots.Enhet_organisasjonsnavn = Slot(uri=FINT.organisasjonsnavn, name="Enhet_organisasjonsnavn", curie=FINT.curie('organisasjonsnavn'),
-                   model_uri=OKN.Enhet_organisasjonsnavn, domain=Enhet, range=Optional[str])
+                   model_uri=DEFAULT_.Enhet_organisasjonsnavn, domain=Enhet, range=Optional[str])
 
 slots.Enhet_organisasjonsnummer = Slot(uri=FINT.organisasjonsnummer, name="Enhet_organisasjonsnummer", curie=FINT.curie('organisasjonsnummer'),
-                   model_uri=OKN.Enhet_organisasjonsnummer, domain=Enhet, range=Optional[Union[dict, "Identifikator"]])
+                   model_uri=DEFAULT_.Enhet_organisasjonsnummer, domain=Enhet, range=Optional[Union[dict, "Identifikator"]])
 
 slots.Identifikator_identifikatorverdi = Slot(uri=FINT.identifikatorverdi, name="Identifikator_identifikatorverdi", curie=FINT.curie('identifikatorverdi'),
-                   model_uri=OKN.Identifikator_identifikatorverdi, domain=Identifikator, range=str)
+                   model_uri=DEFAULT_.Identifikator_identifikatorverdi, domain=Identifikator, range=str)
 
 slots.Periode_start = Slot(uri=FINT.start, name="Periode_start", curie=FINT.curie('start'),
-                   model_uri=OKN.Periode_start, domain=Periode, range=Union[str, XSDDateTime])
+                   model_uri=DEFAULT_.Periode_start, domain=Periode, range=Union[str, XSDDateTime])
 
 slots.Personnavn_fornavn = Slot(uri=FINT.fornavn, name="Personnavn_fornavn", curie=FINT.curie('fornavn'),
-                   model_uri=OKN.Personnavn_fornavn, domain=Personnavn, range=str)
+                   model_uri=DEFAULT_.Personnavn_fornavn, domain=Personnavn, range=str)
 
 slots.Personnavn_etternavn = Slot(uri=FINT.etternavn, name="Personnavn_etternavn", curie=FINT.curie('etternavn'),
-                   model_uri=OKN.Personnavn_etternavn, domain=Personnavn, range=str)
+                   model_uri=DEFAULT_.Personnavn_etternavn, domain=Personnavn, range=str)
 
 slots.Fylke_kommune = Slot(uri=FINT.kommune, name="Fylke_kommune", curie=FINT.curie('kommune'),
-                   model_uri=OKN.Fylke_kommune, domain=Fylke, range=Optional[Union[Union[str, KommuneId], list[Union[str, KommuneId]]]])
+                   model_uri=DEFAULT_.Fylke_kommune, domain=Fylke, range=Optional[Union[Union[str, KommuneId], list[Union[str, KommuneId]]]])
 
 slots.Kommune_fylke = Slot(uri=FINT.fylke, name="Kommune_fylke", curie=FINT.curie('fylke'),
-                   model_uri=OKN.Kommune_fylke, domain=Kommune, range=Union[str, FylkeId])
+                   model_uri=DEFAULT_.Kommune_fylke, domain=Kommune, range=Union[str, FylkeId])
 
 slots.Valuta_bokstavkode = Slot(uri=FINT.bokstavkode, name="Valuta_bokstavkode", curie=FINT.curie('bokstavkode'),
-                   model_uri=OKN.Valuta_bokstavkode, domain=Valuta, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Valuta_bokstavkode, domain=Valuta, range=Union[dict, Identifikator])
 
 slots.Valuta_valuta_navn = Slot(uri=FINT.valutaNavn, name="Valuta_valuta_navn", curie=FINT.curie('valutaNavn'),
-                   model_uri=OKN.Valuta_valuta_navn, domain=Valuta, range=str)
+                   model_uri=DEFAULT_.Valuta_valuta_navn, domain=Valuta, range=str)
 
 slots.Valuta_nummerkode = Slot(uri=FINT.nummerkode, name="Valuta_nummerkode", curie=FINT.curie('nummerkode'),
-                   model_uri=OKN.Valuta_nummerkode, domain=Valuta, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Valuta_nummerkode, domain=Valuta, range=Union[dict, Identifikator])
 
 slots.Person_fodselsnummer = Slot(uri=FINT.fodselsnummer, name="Person_fodselsnummer", curie=FINT.curie('fodselsnummer'),
-                   model_uri=OKN.Person_fodselsnummer, domain=Person, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Person_fodselsnummer, domain=Person, range=Union[dict, Identifikator])
 
 slots.Person_person_navn = Slot(uri=FINT.personNavn, name="Person_person_navn", curie=FINT.curie('personNavn'),
-                   model_uri=OKN.Person_person_navn, domain=Person, range=Union[dict, Personnavn])
+                   model_uri=DEFAULT_.Person_person_navn, domain=Person, range=Union[dict, Personnavn])
 
 slots.Person_bilde = Slot(uri=FINT.bilde, name="Person_bilde", curie=FINT.curie('bilde'),
-                   model_uri=OKN.Person_bilde, domain=Person, range=Optional[str])
+                   model_uri=DEFAULT_.Person_bilde, domain=Person, range=Optional[str])
 
 slots.Person_bostedsadresse = Slot(uri=FINT.bostedsadresse, name="Person_bostedsadresse", curie=FINT.curie('bostedsadresse'),
-                   model_uri=OKN.Person_bostedsadresse, domain=Person, range=Optional[Union[dict, Adresse]])
+                   model_uri=DEFAULT_.Person_bostedsadresse, domain=Person, range=Optional[Union[dict, Adresse]])
 
 slots.Person_fodselsdato = Slot(uri=FINT.fodselsdato, name="Person_fodselsdato", curie=FINT.curie('fodselsdato'),
-                   model_uri=OKN.Person_fodselsdato, domain=Person, range=Optional[Union[str, XSDDate]])
+                   model_uri=DEFAULT_.Person_fodselsdato, domain=Person, range=Optional[Union[str, XSDDate]])
 
 slots.Person_parorende = Slot(uri=FINT.parorende, name="Person_parorende", curie=FINT.curie('parorende'),
-                   model_uri=OKN.Person_parorende, domain=Person, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
+                   model_uri=DEFAULT_.Person_parorende, domain=Person, range=Optional[Union[Union[str, KontaktpersonId], list[Union[str, KontaktpersonId]]]])
 
 slots.Person_statsborgerskap = Slot(uri=FINT.statsborgerskap, name="Person_statsborgerskap", curie=FINT.curie('statsborgerskap'),
-                   model_uri=OKN.Person_statsborgerskap, domain=Person, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
+                   model_uri=DEFAULT_.Person_statsborgerskap, domain=Person, range=Optional[Union[Union[str, LandkodeId], list[Union[str, LandkodeId]]]])
 
 slots.Person_kommune = Slot(uri=FINT.kommune, name="Person_kommune", curie=FINT.curie('kommune'),
-                   model_uri=OKN.Person_kommune, domain=Person, range=Optional[Union[str, KommuneId]])
+                   model_uri=DEFAULT_.Person_kommune, domain=Person, range=Optional[Union[str, KommuneId]])
 
 slots.Person_kjonn = Slot(uri=FINT.kjonn, name="Person_kjonn", curie=FINT.curie('kjonn'),
-                   model_uri=OKN.Person_kjonn, domain=Person, range=Optional[Union[str, KjonnId]])
+                   model_uri=DEFAULT_.Person_kjonn, domain=Person, range=Optional[Union[str, KjonnId]])
 
 slots.Person_foreldreansvar = Slot(uri=FINT.foreldreansvar, name="Person_foreldreansvar", curie=FINT.curie('foreldreansvar'),
-                   model_uri=OKN.Person_foreldreansvar, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Person_foreldreansvar, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Person_foreldre = Slot(uri=FINT.foreldre, name="Person_foreldre", curie=FINT.curie('foreldre'),
-                   model_uri=OKN.Person_foreldre, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Person_foreldre, domain=Person, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Person_maalform = Slot(uri=FINT.maalform, name="Person_maalform", curie=FINT.curie('maalform'),
-                   model_uri=OKN.Person_maalform, domain=Person, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.Person_maalform, domain=Person, range=Optional[Union[str, SpraakId]])
 
 slots.Person_morsmaal = Slot(uri=FINT.morsmaal, name="Person_morsmaal", curie=FINT.curie('morsmaal'),
-                   model_uri=OKN.Person_morsmaal, domain=Person, range=Optional[Union[str, SpraakId]])
+                   model_uri=DEFAULT_.Person_morsmaal, domain=Person, range=Optional[Union[str, SpraakId]])
 
 slots.Person_laerling = Slot(uri=FINT.laerling, name="Person_laerling", curie=FINT.curie('laerling'),
-                   model_uri=OKN.Person_laerling, domain=Person, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.Person_laerling, domain=Person, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 
 slots.Person_elev = Slot(uri=FINT.elev, name="Person_elev", curie=FINT.curie('elev'),
-                   model_uri=OKN.Person_elev, domain=Person, range=Optional[Union[str, ElevId]])
+                   model_uri=DEFAULT_.Person_elev, domain=Person, range=Optional[Union[str, ElevId]])
 
 slots.Person_otungdom = Slot(uri=FINT.otungdom, name="Person_otungdom", curie=FINT.curie('otungdom'),
-                   model_uri=OKN.Person_otungdom, domain=Person, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=DEFAULT_.Person_otungdom, domain=Person, range=Optional[Union[str, URIorCURIE]])
 
 slots.Kontaktperson_type = Slot(uri=FINT.type, name="Kontaktperson_type", curie=FINT.curie('type'),
-                   model_uri=OKN.Kontaktperson_type, domain=Kontaktperson, range=str)
+                   model_uri=DEFAULT_.Kontaktperson_type, domain=Kontaktperson, range=str)
 
 slots.Kontaktperson_kontaktinformasjon = Slot(uri=FINT.kontaktinformasjon, name="Kontaktperson_kontaktinformasjon", curie=FINT.curie('kontaktinformasjon'),
-                   model_uri=OKN.Kontaktperson_kontaktinformasjon, domain=Kontaktperson, range=Optional[Union[dict, Kontaktinformasjon]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktinformasjon, domain=Kontaktperson, range=Optional[Union[dict, Kontaktinformasjon]])
 
 slots.Kontaktperson_kontaktperson_navn = Slot(uri=FINT.kontaktpersonNavn, name="Kontaktperson_kontaktperson_navn", curie=FINT.curie('kontaktpersonNavn'),
-                   model_uri=OKN.Kontaktperson_kontaktperson_navn, domain=Kontaktperson, range=Optional[Union[dict, Personnavn]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktperson_navn, domain=Kontaktperson, range=Optional[Union[dict, Personnavn]])
 
 slots.Kontaktperson_kontaktperson = Slot(uri=FINT.kontaktpersonFor, name="Kontaktperson_kontaktperson", curie=FINT.curie('kontaktpersonFor'),
-                   model_uri=OKN.Kontaktperson_kontaktperson, domain=Kontaktperson, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
+                   model_uri=DEFAULT_.Kontaktperson_kontaktperson, domain=Kontaktperson, range=Optional[Union[Union[str, PersonId], list[Union[str, PersonId]]]])
 
 slots.Virksomhet_virksomhetsId = Slot(uri=FINT.virksomhetsId, name="Virksomhet_virksomhetsId", curie=FINT.curie('virksomhetsId'),
-                   model_uri=OKN.Virksomhet_virksomhetsId, domain=Virksomhet, range=Union[dict, Identifikator])
+                   model_uri=DEFAULT_.Virksomhet_virksomhetsId, domain=Virksomhet, range=Union[dict, Identifikator])
 
 slots.Virksomhet_laerling = Slot(uri=FINT.laerling, name="Virksomhet_laerling", curie=FINT.curie('laerling'),
-                   model_uri=OKN.Virksomhet_laerling, domain=Virksomhet, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
+                   model_uri=DEFAULT_.Virksomhet_laerling, domain=Virksomhet, range=Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]])
 

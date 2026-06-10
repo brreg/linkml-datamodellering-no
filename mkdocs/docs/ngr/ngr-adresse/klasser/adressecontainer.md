@@ -52,17 +52,6 @@ URI: [https://data.norge.no/ngr/ngr-adresse/AdresseContainer](https://data.norge
     
 
         
-      AdresseContainer : bruksenheter
-        
-          
-    
-        
-        
-        AdresseContainer --> "*" Bruksenhet : bruksenheter
-        click Bruksenhet href "../Bruksenhet/"
-    
-
-        
       AdresseContainer : bruksenhetsnummer
         
           
@@ -71,17 +60,6 @@ URI: [https://data.norge.no/ngr/ngr-adresse/AdresseContainer](https://data.norge
         
         AdresseContainer --> "*" Bruksenhetsnummer : bruksenhetsnummer
         click Bruksenhetsnummer href "../Bruksenhetsnummer/"
-    
-
-        
-      AdresseContainer : bygningar
-        
-          
-    
-        
-        
-        AdresseContainer --> "*" Bygning : bygningar
-        click Bygning href "../Bygning/"
     
 
         
@@ -316,21 +294,9 @@ URI: [https://data.norge.no/ngr/ngr-adresse/AdresseContainer](https://data.norge
   
   
 
-  
-  
-
-  
-  
 
 
 
-
-
-  
-  
-
-  
-  
 
   
   
@@ -444,30 +410,10 @@ URI: [https://data.norge.no/ngr/ngr-adresse/AdresseContainer](https://data.norge
   
   
 
-  
-  
-
-  
-  
 
 
 
 
-
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
 
   
   
@@ -618,8 +564,6 @@ URI: [https://data.norge.no/ngr/ngr-adresse/AdresseContainer](https://data.norge
 | [svalbardOmrader](svalbardomrader.md) | * <br/> [Svalbard](svalbard.md) |  |
 | [postboksar](postboksar.md) | * <br/> [Postboks](postboks.md) |  |
 | [representasjonspunkt](representasjonspunkt.md) | * <br/> [Representasjonspunkt](representasjonspunkt.md) |  |
-| [bygningar](bygningar.md) | * <br/> [Bygning](bygning.md) |  |
-| [bruksenheter](bruksenheter.md) | * <br/> [Bruksenhet](bruksenhet.md) |  |
 
 
 
@@ -840,24 +784,6 @@ attributes:
     range: Representasjonspunkt
     multivalued: true
     inlined_as_list: true
-  bygningar:
-    name: bygningar
-    from_schema: https://data.norge.no/ngr/ngr-adresse
-    rank: 1000
-    domain_of:
-    - AdresseContainer
-    range: Bygning
-    multivalued: true
-    inlined_as_list: true
-  bruksenheter:
-    name: bruksenheter
-    from_schema: https://data.norge.no/ngr/ngr-adresse
-    rank: 1000
-    domain_of:
-    - AdresseContainer
-    range: Bruksenhet
-    multivalued: true
-    inlined_as_list: true
 tree_root: true
 
 ```
@@ -1068,28 +994,6 @@ attributes:
     domain_of:
     - AdresseContainer
     range: Representasjonspunkt
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  bygningar:
-    name: bygningar
-    from_schema: https://data.norge.no/ngr/ngr-adresse
-    rank: 1000
-    owner: AdresseContainer
-    domain_of:
-    - AdresseContainer
-    range: Bygning
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  bruksenheter:
-    name: bruksenheter
-    from_schema: https://data.norge.no/ngr/ngr-adresse
-    rank: 1000
-    owner: AdresseContainer
-    domain_of:
-    - AdresseContainer
-    range: Bruksenhet
     multivalued: true
     inlined: true
     inlined_as_list: true

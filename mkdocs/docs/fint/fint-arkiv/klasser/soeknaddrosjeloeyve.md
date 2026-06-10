@@ -500,7 +500,7 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:SoeknadDrosjeloeyve |
-| native | https://schema.fintlabs.no/arkiv/:SoeknadDrosjeloeyve |
+| native | https://data.norge.no/fint/fint-arkiv/SoeknadDrosjeloeyve |
 
 
 

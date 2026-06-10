@@ -70,7 +70,7 @@ URI: [adm:fortsetter](https://schema.fintlabs.no/administrasjon/fortsetter)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fortsetter |
-| native | https://schema.fintlabs.no/administrasjon/:fortsetter |
+| native | https://data.norge.no/fint/fint-administrasjon/fortsetter |
 
 
 

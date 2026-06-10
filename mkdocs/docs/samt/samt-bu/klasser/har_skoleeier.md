@@ -9,7 +9,7 @@ _Skoleeier for skolen_
 
 
 
-URI: [samtbuskole:har_skoleeier](https://example.no/ontology/skole#har_skoleeier)
+URI: [samtbuskole:harSkoleeier](https://example.no/ontology/skole#harSkoleeier)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:har_skoleeier](https://example.no/ontology/skole#har_skoleeier
 | Range | [Skoleeier](skoleeier.md) |
 | Domain | [Skole](skole.md) |
 | Domain Of | [Skole](skole.md) |
+| Slot URI | [samtbuskole:harSkoleeier](https://example.no/ontology/skole#harSkoleeier) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:har_skoleeier](https://example.no/ontology/skole#har_skoleeier
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:har_skoleeier |
-| native | samtbuskole:har_skoleeier |
+| self | samtbuskole:harSkoleeier |
+| native | samtbu:har_skoleeier |
 | exact | org:hasUnit |
 
 
@@ -87,6 +88,7 @@ exact_mappings:
 - org:hasUnit
 rank: 1000
 domain: Skole
+slot_uri: samtbuskole:harSkoleeier
 domain_of:
 - Skole
 range: Skoleeier

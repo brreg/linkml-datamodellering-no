@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:varseltypar](https://schema.fintlabs.no/utdanning/:varseltypar)
+URI: [https://data.norge.no/fint/fint-utdanning/varseltypar](https://data.norge.no/fint/fint-utdanning/varseltypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:varseltypar](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:varseltypar |
-| native | https://schema.fintlabs.no/utdanning/:varseltypar |
+| self | https://data.norge.no/fint/fint-utdanning/varseltypar |
+| native | https://data.norge.no/fint/fint-utdanning/varseltypar |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:kommunar](https://schema.fintlabs.no/administrasjon/:kommunar)
+URI: [https://data.norge.no/fint/fint-administrasjon/kommunar](https://data.norge.no/fint/fint-administrasjon/kommunar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:kommunar](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:kommunar |
-| native | https://schema.fintlabs.no/administrasjon/:kommunar |
+| self | https://data.norge.no/fint/fint-administrasjon/kommunar |
+| native | https://data.norge.no/fint/fint-administrasjon/kommunar |
 
 
 

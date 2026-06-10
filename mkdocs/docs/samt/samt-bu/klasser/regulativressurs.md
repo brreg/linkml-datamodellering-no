@@ -311,6 +311,12 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -368,6 +374,8 @@ har_referanse:
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
@@ -389,6 +397,8 @@ class_uri: eli:LegalResource
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 attributes:
   id:

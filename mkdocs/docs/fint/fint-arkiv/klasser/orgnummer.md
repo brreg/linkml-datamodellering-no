@@ -72,7 +72,7 @@ URI: [ark:organisasjonsnummer](https://schema.fintlabs.no/arkiv/organisasjonsnum
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:organisasjonsnummer |
-| native | https://schema.fintlabs.no/arkiv/:orgnummer |
+| native | https://data.norge.no/fint/fint-arkiv/orgnummer |
 
 
 

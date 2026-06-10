@@ -176,7 +176,7 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Utdanningsforhold |
-| native | https://schema.fintlabs.no/utdanning/:Utdanningsforhold |
+| native | https://data.norge.no/fint/fint-utdanning/Utdanningsforhold |
 
 
 

@@ -71,7 +71,7 @@ URI: [ark:matrikkelnummer](https://schema.fintlabs.no/arkiv/matrikkelnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:matrikkelnummer |
-| native | https://schema.fintlabs.no/arkiv/:matrikkelnummer |
+| native | https://data.norge.no/fint/fint-arkiv/matrikkelnummer |
 
 
 

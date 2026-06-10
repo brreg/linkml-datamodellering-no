@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:provestatuser](https://schema.fintlabs.no/utdanning/:provestatuser)
+URI: [https://data.norge.no/fint/fint-utdanning/provestatuser](https://data.norge.no/fint/fint-utdanning/provestatuser)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:provestatuser](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:provestatuser |
-| native | https://schema.fintlabs.no/utdanning/:provestatuser |
+| self | https://data.norge.no/fint/fint-utdanning/provestatuser |
+| native | https://data.norge.no/fint/fint-utdanning/provestatuser |
 
 
 

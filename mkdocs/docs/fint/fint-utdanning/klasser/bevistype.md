@@ -70,7 +70,7 @@ URI: [utd:bevistype](https://schema.fintlabs.no/utdanning/bevistype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:bevistype |
-| native | https://schema.fintlabs.no/utdanning/:bevistype |
+| native | https://data.norge.no/fint/fint-utdanning/bevistype |
 
 
 

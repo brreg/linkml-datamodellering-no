@@ -70,7 +70,7 @@ URI: [okn:transaksjon](https://schema.fintlabs.no/okonomi/transaksjon)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:transaksjon |
-| native | https://schema.fintlabs.no/okonomi/:transaksjon |
+| native | https://data.norge.no/fint/fint-okonomi/transaksjon |
 
 
 

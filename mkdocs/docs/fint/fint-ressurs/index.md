@@ -243,6 +243,7 @@ Name: fint-ressurs
 | JSON-LD kontekst | [fint-ressurs-context.jsonld](fint-ressurs-context.jsonld) |
 | JSON Schema | [fint-ressurs-schema.json](fint-ressurs-schema.json) |
 | OWL ontologi | [fint-ressurs-ontology.ttl](fint-ressurs-ontology.ttl) |
+| RDF/Turtle skjema | [fint-ressurs-schema.ttl](fint-ressurs-schema.ttl) |
 | Python-klasser | [fint-ressurs-model.py](fint-ressurs-model.py) |
 | Protobuf-skjema | [fint-ressurs-schema.proto](fint-ressurs-schema.proto) |
 | ER-diagram (Mermaid) | [fint-ressurs-erdiagram.md](fint-ressurs-erdiagram.md) |

@@ -70,7 +70,7 @@ URI: [utd:arbeidsforhold](https://schema.fintlabs.no/utdanning/arbeidsforhold)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:arbeidsforhold |
-| native | https://schema.fintlabs.no/utdanning/:arbeidsforhold |
+| native | https://data.norge.no/fint/fint-utdanning/arbeidsforhold |
 
 
 

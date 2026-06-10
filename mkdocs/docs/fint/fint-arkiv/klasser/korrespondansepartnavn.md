@@ -70,7 +70,7 @@ URI: [ark:korrespondansepartNavn](https://schema.fintlabs.no/arkiv/korrespondans
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:korrespondansepartNavn |
-| native | https://schema.fintlabs.no/arkiv/:korrespondansepartNavn |
+| native | https://data.norge.no/fint/fint-arkiv/korrespondansepartNavn |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kvalitetsmaalinger](https://example.no/ontology/skole#kvalitetsmaalinger)
+URI: [samtbu:kvalitetsmaalinger](https://data.norge.no/samt/samt-bu/kvalitetsmaalinger)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kvalitetsmaalinger](https://example.no/ontology/skole#kvalitet
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kvalitetsmaalinger |
-| native | samtbuskole:kvalitetsmaalinger |
+| self | samtbu:kvalitetsmaalinger |
+| native | samtbu:kvalitetsmaalinger |
 
 
 

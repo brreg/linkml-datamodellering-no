@@ -70,7 +70,7 @@ URI: [utd:utsteder](https://schema.fintlabs.no/utdanning/utsteder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:utsteder |
-| native | https://schema.fintlabs.no/utdanning/:utsteder |
+| native | https://data.norge.no/fint/fint-utdanning/utsteder |
 
 
 

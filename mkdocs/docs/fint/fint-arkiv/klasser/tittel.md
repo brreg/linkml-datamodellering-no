@@ -84,7 +84,7 @@ URI: [ark:tittel](https://schema.fintlabs.no/arkiv/tittel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tittel |
-| native | https://schema.fintlabs.no/arkiv/:tittel |
+| native | https://data.norge.no/fint/fint-arkiv/tittel |
 
 
 

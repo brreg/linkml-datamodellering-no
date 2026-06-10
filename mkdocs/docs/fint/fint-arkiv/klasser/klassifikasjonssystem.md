@@ -22,7 +22,7 @@ URI: [ark:klassifikasjonssystem](https://schema.fintlabs.no/arkiv/klassifikasjon
 | --- | --- | --- |
 | [Arkivdel](arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  yes  |
 | [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  yes  |
-| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  yes  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [ark:klassifikasjonssystem](https://schema.fintlabs.no/arkiv/klassifikasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:klassifikasjonssystem |
-| native | https://schema.fintlabs.no/arkiv/:klassifikasjonssystem |
+| native | https://data.norge.no/fint/fint-arkiv/klassifikasjonssystem |
 
 
 

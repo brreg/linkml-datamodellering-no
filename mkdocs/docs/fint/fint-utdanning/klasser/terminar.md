@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:terminar](https://schema.fintlabs.no/utdanning/:terminar)
+URI: [https://data.norge.no/fint/fint-utdanning/terminar](https://data.norge.no/fint/fint-utdanning/terminar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:terminar](https://schema.fintlabs.no
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:terminar |
-| native | https://schema.fintlabs.no/utdanning/:terminar |
+| self | https://data.norge.no/fint/fint-utdanning/terminar |
+| native | https://data.norge.no/fint/fint-utdanning/terminar |
 
 
 

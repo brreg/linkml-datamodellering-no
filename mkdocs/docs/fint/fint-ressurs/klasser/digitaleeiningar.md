@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:digitaleEiningar](https://schema.fintlabs.no/ressurs/:digitaleEiningar)
+URI: [https://data.norge.no/fint/fint-ressurs/digitaleEiningar](https://data.norge.no/fint/fint-ressurs/digitaleEiningar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:digitaleEiningar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:digitaleEiningar |
-| native | https://schema.fintlabs.no/ressurs/:digitaleEiningar |
+| self | https://data.norge.no/fint/fint-ressurs/digitaleEiningar |
+| native | https://data.norge.no/fint/fint-ressurs/digitaleEiningar |
 
 
 

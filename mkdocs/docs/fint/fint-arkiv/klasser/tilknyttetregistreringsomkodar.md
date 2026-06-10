@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar](https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar)
+URI: [https://data.norge.no/fint/fint-arkiv/tilknyttetRegistreringSomKodar](https://data.norge.no/fint/fint-arkiv/tilknyttetRegistreringSomKodar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar](https://
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar |
-| native | https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar |
+| self | https://data.norge.no/fint/fint-arkiv/tilknyttetRegistreringSomKodar |
+| native | https://data.norge.no/fint/fint-arkiv/tilknyttetRegistreringSomKodar |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:merknadstypar](https://schema.fintlabs.no/arkiv/:merknadstypar)
+URI: [https://data.norge.no/fint/fint-arkiv/merknadstypar](https://data.norge.no/fint/fint-arkiv/merknadstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:merknadstypar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:merknadstypar |
-| native | https://schema.fintlabs.no/arkiv/:merknadstypar |
+| self | https://data.norge.no/fint/fint-arkiv/merknadstypar |
+| native | https://data.norge.no/fint/fint-arkiv/merknadstypar |
 
 
 

@@ -70,7 +70,7 @@ URI: [ark:kildesystemId](https://schema.fintlabs.no/arkiv/kildesystemId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:kildesystemId |
-| native | https://schema.fintlabs.no/arkiv/:kildesystemId |
+| native | https://data.norge.no/fint/fint-arkiv/kildesystemId |
 
 
 

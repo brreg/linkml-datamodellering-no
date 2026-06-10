@@ -71,7 +71,7 @@ URI: [pvn:samtykke](https://schema.fintlabs.no/personvern/samtykke)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:samtykke |
-| native | https://schema.fintlabs.no/personvern/:samtykke |
+| native | https://data.norge.no/fint/fint-personvern/samtykke |
 
 
 

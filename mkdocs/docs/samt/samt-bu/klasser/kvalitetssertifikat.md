@@ -151,6 +151,12 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -191,6 +197,8 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 ```yaml
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 class_uri: dqv:QualityCertificate
@@ -204,6 +212,8 @@ class_uri: dqv:QualityCertificate
 ```yaml
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 attributes:

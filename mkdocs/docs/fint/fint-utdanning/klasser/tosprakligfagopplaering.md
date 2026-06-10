@@ -70,7 +70,7 @@ URI: [utd:tosprakligFagopplaering](https://schema.fintlabs.no/utdanning/tosprakl
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:tosprakligFagopplaering |
-| native | https://schema.fintlabs.no/utdanning/:tosprakligFagopplaering |
+| native | https://data.norge.no/fint/fint-utdanning/tosprakligFagopplaering |
 
 
 

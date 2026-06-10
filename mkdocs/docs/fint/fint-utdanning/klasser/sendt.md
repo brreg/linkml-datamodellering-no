@@ -70,7 +70,7 @@ URI: [utd:sendt](https://schema.fintlabs.no/utdanning/sendt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:sendt |
-| native | https://schema.fintlabs.no/utdanning/:sendt |
+| native | https://data.norge.no/fint/fint-utdanning/sendt |
 
 
 

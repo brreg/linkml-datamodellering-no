@@ -70,7 +70,7 @@ URI: [adm:arbeidsforholdsperiode](https://schema.fintlabs.no/administrasjon/arbe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:arbeidsforholdsperiode |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidsforholdsperiode |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidsforholdsperiode |
 
 
 

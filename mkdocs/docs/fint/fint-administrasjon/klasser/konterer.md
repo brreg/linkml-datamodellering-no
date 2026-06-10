@@ -73,7 +73,7 @@ URI: [adm:konterer](https://schema.fintlabs.no/administrasjon/konterer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:konterer |
-| native | https://schema.fintlabs.no/administrasjon/:konterer |
+| native | https://data.norge.no/fint/fint-administrasjon/konterer |
 
 
 

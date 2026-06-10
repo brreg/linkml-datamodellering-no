@@ -70,7 +70,7 @@ URI: [utd:forersPaaVitnemaal](https://schema.fintlabs.no/utdanning/forersPaaVitn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:forersPaaVitnemaal |
-| native | https://schema.fintlabs.no/utdanning/:forersPaaVitnemaal |
+| native | https://data.norge.no/fint/fint-utdanning/forersPaaVitnemaal |
 
 
 

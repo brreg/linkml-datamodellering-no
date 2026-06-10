@@ -100,7 +100,6 @@ URI: [ngr:Bygning](https://data.norge.no/vocabulary/ngr-adresse#Bygning)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](adressecontainer.md) | [bygningar](bygningar.md) | range | [Bygning](bygning.md) |
 | [OffisiellAdresse](offisielladresse.md) | [adresserer_bygning](adresserer_bygning.md) | range | [Bygning](bygning.md) |
 
 

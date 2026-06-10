@@ -70,7 +70,7 @@ URI: [adm:ansettelsesprosent](https://schema.fintlabs.no/administrasjon/ansettel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ansettelsesprosent |
-| native | https://schema.fintlabs.no/administrasjon/:ansettelsesprosent |
+| native | https://data.norge.no/fint/fint-administrasjon/ansettelsesprosent |
 
 
 

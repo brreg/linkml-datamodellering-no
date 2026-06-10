@@ -70,7 +70,7 @@ URI: [ark:merknadstekst](https://schema.fintlabs.no/arkiv/merknadstekst)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:merknadstekst |
-| native | https://schema.fintlabs.no/arkiv/:merknadstekst |
+| native | https://data.norge.no/fint/fint-arkiv/merknadstekst |
 
 
 

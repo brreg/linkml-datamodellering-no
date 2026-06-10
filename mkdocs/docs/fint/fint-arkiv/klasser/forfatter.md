@@ -73,7 +73,7 @@ URI: [ark:forfatter](https://schema.fintlabs.no/arkiv/forfatter)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:forfatter |
-| native | https://schema.fintlabs.no/arkiv/:forfatter |
+| native | https://data.norge.no/fint/fint-arkiv/forfatter |
 
 
 

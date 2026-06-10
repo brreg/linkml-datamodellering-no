@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:skjermingsheimlar](https://schema.fintlabs.no/arkiv/:skjermingsheimlar)
+URI: [https://data.norge.no/fint/fint-arkiv/skjermingsheimlar](https://data.norge.no/fint/fint-arkiv/skjermingsheimlar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:skjermingsheimlar](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:skjermingsheimlar |
-| native | https://schema.fintlabs.no/arkiv/:skjermingsheimlar |
+| self | https://data.norge.no/fint/fint-arkiv/skjermingsheimlar |
+| native | https://data.norge.no/fint/fint-arkiv/skjermingsheimlar |
 
 
 

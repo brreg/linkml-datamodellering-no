@@ -63,13 +63,13 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
     
 
         
-      Informasjonsmodell : er_del_av_modell
+      Informasjonsmodell : er_del_av
         
           
     
         
         
-        Informasjonsmodell --> "*" Informasjonsmodell : er_del_av_modell
+        Informasjonsmodell --> "0..1" Informasjonsmodell : er_del_av
         click Informasjonsmodell href "../Informasjonsmodell/"
     
 
@@ -118,13 +118,13 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
     
 
         
-      Informasjonsmodell : har_del_modell
+      Informasjonsmodell : har_del
         
           
     
         
         
-        Informasjonsmodell --> "*" Informasjonsmodell : har_del_modell
+        Informasjonsmodell --> "*" Informasjonsmodell : har_del
         click Informasjonsmodell href "../Informasjonsmodell/"
     
 
@@ -300,7 +300,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
     
         
         
-        Informasjonsmodell --> "1..*" LangString : tittel
+        Informasjonsmodell --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -471,7 +471,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
 
 
@@ -737,11 +737,11 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 | --- | --- | --- |
 | [dekningsomraade](dekningsomraade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
 | [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
-| [er_del_av_modell](er_del_av_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Overordna informasjonsmodell (dct:isPartOf) |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [Informasjonsmodell](informasjonsmodell.md) | Overordna ressurs denne er ein del av (dct:isPartOf) |
 | [er_profil_av](er_profil_av.md) | * <br/> [Standard](standard.md) | Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf) |
 | [er_erstatta_av](er_erstatta_av.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodell som erstattar denne (dct:isReplacedBy) |
 | [erstatter](erstatter.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodell som denne erstattar (dct:replaces) |
-| [har_del_modell](har_del_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Del-informasjonsmodell av denne modellen (dct:hasPart) |
+| [har_del](har_del.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Del-ressurs inkludert i denne ressursen (dct:hasPart) |
 | [har_format](har_format.md) | * <br/> [Dokument](dokument.md) | Dokument som representerer ein annan form av modellen (dct:hasFormat) |
 | [tidsperiode](tidsperiode.md) | * <br/> [Tidsperiode](tidsperiode.md) | Tidsperiode ressursen dekkar (dct:temporal) |
 | [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
@@ -1163,10 +1163,10 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Modellkatalog](modellkatalog.md) | [modell](modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
-| [Informasjonsmodell](informasjonsmodell.md) | [er_del_av_modell](er_del_av_modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [er_del_av](er_del_av.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
 | [Informasjonsmodell](informasjonsmodell.md) | [er_erstatta_av](er_erstatta_av.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
 | [Informasjonsmodell](informasjonsmodell.md) | [erstatter](erstatter.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
-| [Informasjonsmodell](informasjonsmodell.md) | [har_del_modell](har_del_modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [har_del](har_del.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
 | [ModellkatalogContainer](modellkatalogcontainer.md) | [informasjonsmodellar](informasjonsmodellar.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
 
 
@@ -1174,6 +1174,12 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 
 
+
+
+## In Subsets
+
+
+* [Metadata](metadata.md)
 
 
 
@@ -1236,6 +1242,8 @@ lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 ```yaml
 name: Informasjonsmodell
 description: Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:InformationModel).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -1251,11 +1259,11 @@ slots:
 - tema
 - dekningsomraade
 - endringsdato
-- er_del_av_modell
+- er_del_av
 - er_profil_av
 - er_erstatta_av
 - erstatter
-- har_del_modell
+- har_del
 - har_format
 - tidsperiode
 - heimeside
@@ -1273,7 +1281,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   utgiver:
     name: utgiver
     in_subset:
@@ -1319,10 +1326,11 @@ slot_usage:
     name: endringsdato
     in_subset:
     - Valgfri
-  er_del_av_modell:
-    name: er_del_av_modell
+  er_del_av:
+    name: er_del_av
     in_subset:
     - Valgfri
+    range: Informasjonsmodell
   er_profil_av:
     name: er_profil_av
     in_subset:
@@ -1335,10 +1343,11 @@ slot_usage:
     name: erstatter
     in_subset:
     - Valgfri
-  har_del_modell:
-    name: har_del_modell
+  har_del:
+    name: har_del
     in_subset:
     - Valgfri
+    range: Informasjonsmodell
   har_format:
     name: har_format
     in_subset:
@@ -1398,13 +1407,14 @@ class_uri: modelldcatno:InformationModel
 ```yaml
 name: Informasjonsmodell
 description: Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:InformationModel).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   tittel:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   utgiver:
     name: utgiver
     in_subset:
@@ -1450,10 +1460,11 @@ slot_usage:
     name: endringsdato
     in_subset:
     - Valgfri
-  er_del_av_modell:
-    name: er_del_av_modell
+  er_del_av:
+    name: er_del_av
     in_subset:
     - Valgfri
+    range: Informasjonsmodell
   er_profil_av:
     name: er_profil_av
     in_subset:
@@ -1466,10 +1477,11 @@ slot_usage:
     name: erstatter
     in_subset:
     - Valgfri
-  har_del_modell:
-    name: har_del_modell
+  har_del:
+    name: har_del
     in_subset:
     - Valgfri
+    range: Informasjonsmodell
   har_format:
     name: har_format
     in_subset:
@@ -1562,7 +1574,6 @@ attributes:
     - Eigenskap
     - Merknad
     range: LangString
-    required: true
     multivalued: true
   utgiver:
     name: utgiver
@@ -1710,18 +1721,18 @@ attributes:
     - Modellkatalog
     - Informasjonsmodell
     range: date
-  er_del_av_modell:
-    name: er_del_av_modell
-    description: Overordna informasjonsmodell (dct:isPartOf).
+  er_del_av:
+    name: er_del_av
+    description: Overordna ressurs denne er ein del av (dct:isPartOf).
     in_subset:
     - Valgfri
     from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
     slot_uri: dct:isPartOf
     owner: Informasjonsmodell
     domain_of:
+    - Modellkatalog
     - Informasjonsmodell
     range: Informasjonsmodell
-    multivalued: true
   er_profil_av:
     name: er_profil_av
     description: Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf).
@@ -1758,15 +1769,16 @@ attributes:
     - Informasjonsmodell
     range: Informasjonsmodell
     multivalued: true
-  har_del_modell:
-    name: har_del_modell
-    description: Del-informasjonsmodell av denne modellen (dct:hasPart).
+  har_del:
+    name: har_del
+    description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
     in_subset:
     - Valgfri
     from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
     slot_uri: dct:hasPart
     owner: Informasjonsmodell
     domain_of:
+    - Modellkatalog
     - Informasjonsmodell
     range: Informasjonsmodell
     multivalued: true

@@ -361,7 +361,7 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Karakterskala |
-| native | https://schema.fintlabs.no/utdanning/:Karakterskala |
+| native | https://data.norge.no/fint/fint-utdanning/Karakterskala |
 
 
 

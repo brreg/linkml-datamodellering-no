@@ -70,7 +70,7 @@ URI: [ark:filstorrelse](https://schema.fintlabs.no/arkiv/filstorrelse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:filstorrelse |
-| native | https://schema.fintlabs.no/arkiv/:filstorrelse |
+| native | https://data.norge.no/fint/fint-arkiv/filstorrelse |
 
 
 

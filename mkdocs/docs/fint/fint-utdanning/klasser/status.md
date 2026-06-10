@@ -70,7 +70,7 @@ URI: [utd:status](https://schema.fintlabs.no/utdanning/status)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:status |
-| native | https://schema.fintlabs.no/utdanning/:status |
+| native | https://data.norge.no/fint/fint-utdanning/status |
 
 
 

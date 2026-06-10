@@ -28,7 +28,7 @@ URI: [utd:elevvurdering](https://schema.fintlabs.no/utdanning/elevvurdering)
 | [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  yes  |
 | [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  yes  |
 | [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -78,7 +78,7 @@ URI: [utd:elevvurdering](https://schema.fintlabs.no/utdanning/elevvurdering)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:elevvurdering |
-| native | https://schema.fintlabs.no/utdanning/:elevvurdering |
+| native | https://data.norge.no/fint/fint-utdanning/elevvurdering |
 
 
 

@@ -28,7 +28,7 @@
     linkml:default_prefix "https://data.norge.no/begrepskatalog/brreg-begrepskatalog/" ;
     linkml:default_range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/string> ;
     linkml:description "Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog." ;
-    linkml:generation_date "2026-06-08T14:31:46"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-09T15:55:31"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/begrepskatalog/brreg-begrepskatalog"^^xsd:anyURI ;
     linkml:imports "../../ap-no/common/common-ap-no-schema"^^xsd:anyURI,
         "../../ap-no/skos-ap-no/skos-ap-no-schema"^^xsd:anyURI,
@@ -75,12 +75,12 @@
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Definisjon_kjelde_relasjon>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Definisjon_malgruppe_def>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Definisjon_tekst>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_beskrivelse>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_generisk_omgrep>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_spesifikt_omgrep>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_inndelingskriterium>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_beskrivelse>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_heilskapleg_omgrep>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_partitivt_omgrep>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_inndelingskriterium>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling_beskrivelse>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling_identifikator_literal>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling_kontaktpunkt_vcard>,
@@ -130,7 +130,6 @@
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/heimeside>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/id>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/identifikator_literal>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/inndelingskriterium>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/kjelde>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/kjelde_relasjon>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/kontaktpunkt_vcard>,
@@ -160,6 +159,7 @@
     linkml:source_file_date "2026-05-27T14:09:04"^^xsd:dateTime ;
     linkml:source_file_size 1658 ;
     linkml:subsets <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Metadata>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Obligatorisk>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Valgfri> ;
     linkml:types <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Duration>,
@@ -200,6 +200,11 @@
     linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/GYear"^^xsd:anyURI ;
     linkml:description "Gregorisk årstal (xsd:gYear), t.d. 2024." ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#gYear"^^xsd:anyURI .
+
+<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Metadata> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/Metadata"^^xsd:anyURI ;
+    linkml:description "Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet." .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/NonNegativeInteger> a linkml:TypeDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
@@ -561,7 +566,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Begrep> ;
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://www.w3.org/2004/02/skos/core#prefLabel"^^xsd:anyURI ;
     linkml:usage_slot_name "anbefalt_term" .
 
@@ -1199,9 +1203,25 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Definisjon> ;
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"^^xsd:anyURI ;
     linkml:usage_slot_name "tekst" .
+
+<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_beskrivelse> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    skos:prefLabel "beskrivelse" ;
+    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/beskrivelse"^^xsd:anyURI ;
+    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    linkml:domain <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
+    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
+    linkml:is_a <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/beskrivelse> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:usage_slot_name "beskrivelse" .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_generisk_omgrep> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Obligatorisk> ;
@@ -1237,23 +1257,6 @@
     linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasSpecificConcept"^^xsd:anyURI ;
     linkml:usage_slot_name "har_spesifikt_omgrep" .
 
-<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_inndelingskriterium> a linkml:SlotDefinition ;
-    OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt> ;
-    skos:inScheme "https://data.norge.no/ap-no/skos-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    skos:prefLabel "inndelingskriterium" ;
-    linkml:definition_uri "https://data.norge.no/ap-no/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
-    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
-    linkml:domain <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
-    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
-    linkml:is_a <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/inndelingskriterium> ;
-    linkml:is_usage_slot true ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon> ;
-    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    linkml:usage_slot_name "inndelingskriterium" .
-
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Mediatype> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:MediaTypeOrExtent"^^xsd:anyURI ;
@@ -1262,6 +1265,23 @@
     linkml:description "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/id> .
+
+<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_beskrivelse> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    skos:prefLabel "beskrivelse" ;
+    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/beskrivelse"^^xsd:anyURI ;
+    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    linkml:domain <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
+    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
+    linkml:is_a <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/beskrivelse> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:usage_slot_name "beskrivelse" .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_heilskapleg_omgrep> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Obligatorisk> ;
@@ -1296,23 +1316,6 @@
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Begrep> ;
     linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasPartitiveConcept"^^xsd:anyURI ;
     linkml:usage_slot_name "har_partitivt_omgrep" .
-
-<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_inndelingskriterium> a linkml:SlotDefinition ;
-    OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt> ;
-    skos:inScheme "https://data.norge.no/ap-no/skos-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    skos:prefLabel "inndelingskriterium" ;
-    linkml:definition_uri "https://data.norge.no/ap-no/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
-    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
-    linkml:domain <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
-    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
-    linkml:is_a <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/inndelingskriterium> ;
-    linkml:is_usage_slot true ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
-    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    linkml:usage_slot_name "inndelingskriterium" .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling_beskrivelse> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Anbefalt> ;
@@ -1398,7 +1401,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
     linkml:usage_slot_name "tittel" .
 
@@ -1545,17 +1547,6 @@
     linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/BegrepContainer> ;
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
     linkml:slot_uri "https://data.norge.no/begrepskatalog/brreg-begrepskatalog/samlingar"^^xsd:anyURI .
-
-<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/beskrivelse> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/beskrivelse"^^xsd:anyURI ;
-    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
-    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/datastruktur_term> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/skos-ap-no"^^xsd:anyURI ;
@@ -2028,18 +2019,6 @@
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/string> ;
     linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI .
 
-<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/inndelingskriterium> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/skos-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
-    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
-    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> ;
-    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
-    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
-
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/kontaktpunkt_vcard> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/skos-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
@@ -2062,6 +2041,19 @@
     linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
     linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Organisasjon> ;
     linkml:slot_uri "http://purl.org/dc/terms/publisher"^^xsd:anyURI .
+
+<https://data.norge.no/begrepskatalog/brreg-begrepskatalog/beskrivelse> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/beskrivelse"^^xsd:anyURI ;
+    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    linkml:domain_of <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Samling> ;
+    linkml:range <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/uri> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.ietf.org/rfc/rfc3987.txt" ;
@@ -2198,9 +2190,9 @@
     linkml:definition_uri "https://data.norge.no/ap-no/skos-ap-no/GeneriskRelasjon"^^xsd:anyURI ;
     linkml:description "Ein generisk relasjon mellom eit overomgrep og eit underomgrep." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_generisk_omgrep>,
+    linkml:slots <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_beskrivelse>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_generisk_omgrep>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_har_spesifikt_omgrep>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/GeneriskRelasjon_inndelingskriterium>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/id> .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon> a linkml:ClassDefinition ;
@@ -2210,9 +2202,9 @@
     linkml:definition_uri "https://data.norge.no/ap-no/skos-ap-no/PartitivRelasjon"^^xsd:anyURI ;
     linkml:description "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_heilskapleg_omgrep>,
+    linkml:slots <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_beskrivelse>,
+        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_heilskapleg_omgrep>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_har_partitivt_omgrep>,
-        <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/PartitivRelasjon_inndelingskriterium>,
         <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/id> .
 
 <https://data.norge.no/begrepskatalog/brreg-begrepskatalog/Valgfri> a linkml:SubsetDefinition ;

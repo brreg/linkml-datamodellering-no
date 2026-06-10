@@ -71,7 +71,7 @@ URI: [res:rettighet](https://schema.fintlabs.no/ressurs/rettighet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:rettighet |
-| native | https://schema.fintlabs.no/ressurs/:rettighet |
+| native | https://data.norge.no/fint/fint-ressurs/rettighet |
 
 
 

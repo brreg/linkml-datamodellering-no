@@ -70,7 +70,7 @@ URI: [res:dataobjektId](https://schema.fintlabs.no/ressurs/dataobjektId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:dataobjektId |
-| native | https://schema.fintlabs.no/ressurs/:dataobjektId |
+| native | https://data.norge.no/fint/fint-ressurs/dataobjektId |
 
 
 

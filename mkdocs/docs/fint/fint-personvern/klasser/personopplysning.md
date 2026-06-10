@@ -70,7 +70,7 @@ URI: [pvn:personopplysning](https://schema.fintlabs.no/personvern/personopplysni
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:personopplysning |
-| native | https://schema.fintlabs.no/personvern/:personopplysning |
+| native | https://data.norge.no/fint/fint-personvern/personopplysning |
 
 
 

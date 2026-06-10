@@ -277,6 +277,12 @@ URI: [modelldcatno:Association](https://data.norge.no/vocabulary/modelldcatno#As
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -317,6 +323,8 @@ URI: [modelldcatno:Association](https://data.norge.no/vocabulary/modelldcatno#As
 ```yaml
 name: Assosiasjon
 description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -337,6 +345,8 @@ class_uri: modelldcatno:Association
 ```yaml
 name: Assosiasjon
 description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

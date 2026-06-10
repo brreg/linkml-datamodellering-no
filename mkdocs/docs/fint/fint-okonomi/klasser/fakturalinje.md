@@ -254,7 +254,7 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:Fakturalinje |
-| native | https://schema.fintlabs.no/okonomi/:Fakturalinje |
+| native | https://data.norge.no/fint/fint-okonomi/Fakturalinje |
 
 
 

@@ -22,7 +22,7 @@ URI: [utd:elevfravar](https://schema.fintlabs.no/utdanning/elevfravar)
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:elevfravar](https://schema.fintlabs.no/utdanning/elevfravar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:elevfravar |
-| native | https://schema.fintlabs.no/utdanning/:elevfravar |
+| native | https://data.norge.no/fint/fint-utdanning/elevfravar |
 
 
 

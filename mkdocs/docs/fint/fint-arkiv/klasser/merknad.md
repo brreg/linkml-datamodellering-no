@@ -80,7 +80,7 @@ URI: [ark:merknad](https://schema.fintlabs.no/arkiv/merknad)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:merknad |
-| native | https://schema.fintlabs.no/arkiv/:merknad |
+| native | https://data.norge.no/fint/fint-arkiv/merknad |
 
 
 

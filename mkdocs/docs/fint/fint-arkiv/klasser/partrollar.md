@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:partRollar](https://schema.fintlabs.no/arkiv/:partRollar)
+URI: [https://data.norge.no/fint/fint-arkiv/partRollar](https://data.norge.no/fint/fint-arkiv/partRollar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:partRollar](https://schema.fintlabs.no/a
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:partRollar |
-| native | https://schema.fintlabs.no/arkiv/:partRollar |
+| self | https://data.norge.no/fint/fint-arkiv/partRollar |
+| native | https://data.norge.no/fint/fint-arkiv/partRollar |
 
 
 

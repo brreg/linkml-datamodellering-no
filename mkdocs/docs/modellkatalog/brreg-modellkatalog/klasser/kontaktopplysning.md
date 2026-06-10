@@ -111,6 +111,12 @@ URI: [vcard:Organization](http://www.w3.org/2006/vcard/ns#Organization)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -151,6 +157,8 @@ URI: [vcard:Organization](http://www.w3.org/2006/vcard/ns#Organization)
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon (vcard:Organization).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -165,6 +173,8 @@ class_uri: vcard:Organization
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon (vcard:Organization).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 attributes:
   id:

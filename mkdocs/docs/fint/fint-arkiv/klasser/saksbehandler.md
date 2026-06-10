@@ -71,7 +71,7 @@ URI: [ark:saksbehandler](https://schema.fintlabs.no/arkiv/saksbehandler)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksbehandler |
-| native | https://schema.fintlabs.no/arkiv/:saksbehandler |
+| native | https://data.norge.no/fint/fint-arkiv/saksbehandler |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:prosjekt](https://schema.fintlabs.no/okonomi/prosjekt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:prosjekt |
-| native | https://schema.fintlabs.no/okonomi/:prosjekt |
+| native | https://data.norge.no/fint/fint-okonomi/prosjekt |
 
 
 

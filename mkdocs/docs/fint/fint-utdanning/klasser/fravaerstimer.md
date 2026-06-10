@@ -70,7 +70,7 @@ URI: [utd:fravaerstimer](https://schema.fintlabs.no/utdanning/fravaerstimer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fravaerstimer |
-| native | https://schema.fintlabs.no/utdanning/:fravaerstimer |
+| native | https://data.norge.no/fint/fint-utdanning/fravaerstimer |
 
 
 

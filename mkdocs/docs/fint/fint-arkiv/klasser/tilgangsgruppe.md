@@ -78,7 +78,7 @@ URI: [ark:tilgangsgruppe](https://schema.fintlabs.no/arkiv/tilgangsgruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tilgangsgruppe |
-| native | https://schema.fintlabs.no/arkiv/:tilgangsgruppe |
+| native | https://data.norge.no/fint/fint-arkiv/tilgangsgruppe |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:avlagteprover](https://schema.fintlabs.no/utdanning/:avlagteprover)
+URI: [https://data.norge.no/fint/fint-utdanning/avlagteprover](https://data.norge.no/fint/fint-utdanning/avlagteprover)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:avlagteprover](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:avlagteprover |
-| native | https://schema.fintlabs.no/utdanning/:avlagteprover |
+| self | https://data.norge.no/fint/fint-utdanning/avlagteprover |
+| native | https://data.norge.no/fint/fint-utdanning/avlagteprover |
 
 
 

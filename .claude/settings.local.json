@@ -88,7 +88,10 @@
       "Bash(make schema-gen-openapi *)",
       "Bash(curl -s \"https://registry.hub.docker.com/v2/repositories/apicurio/apicurio-registry/tags?page_size=5\")",
       "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-apne-data\")",
-      "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet\")"
+      "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet\")",
+      "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-modelldcat-ap-no\")",
+      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files --deleted)",
+      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no status --short)"
     ]
   },
   "enableAllProjectMcpServers": true,

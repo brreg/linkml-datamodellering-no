@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:rettigheiter](https://schema.fintlabs.no/ressurs/:rettigheiter)
+URI: [https://data.norge.no/fint/fint-ressurs/rettigheiter](https://data.norge.no/fint/fint-ressurs/rettigheiter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:rettigheiter](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:rettigheiter |
-| native | https://schema.fintlabs.no/ressurs/:rettigheiter |
+| self | https://data.norge.no/fint/fint-ressurs/rettigheiter |
+| native | https://data.norge.no/fint/fint-ressurs/rettigheiter |
 
 
 

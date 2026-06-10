@@ -250,6 +250,12 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -290,6 +296,8 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
 ```yaml
 name: Betingelsesregel
 description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Merknad
 slots:
@@ -316,6 +324,8 @@ class_uri: modelldcatno:ConstraintRule
 ```yaml
 name: Betingelsesregel
 description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Merknad
 slot_usage:

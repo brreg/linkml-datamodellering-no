@@ -71,7 +71,7 @@ URI: [adm:personalansvar](https://schema.fintlabs.no/administrasjon/personalansv
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:personalansvar |
-| native | https://schema.fintlabs.no/administrasjon/:personalansvar |
+| native | https://data.norge.no/fint/fint-administrasjon/personalansvar |
 
 
 

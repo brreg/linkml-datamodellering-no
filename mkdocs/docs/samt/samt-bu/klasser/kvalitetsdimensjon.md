@@ -199,6 +199,12 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -251,6 +257,8 @@ har_definisjon:
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -276,6 +284,8 @@ class_uri: dqv:Dimension
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   har_anbefalt_term:

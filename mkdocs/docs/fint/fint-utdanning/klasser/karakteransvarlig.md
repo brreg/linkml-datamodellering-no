@@ -70,7 +70,7 @@ URI: [utd:karakteransvarlig](https://schema.fintlabs.no/utdanning/karakteransvar
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:karakteransvarlig |
-| native | https://schema.fintlabs.no/utdanning/:karakteransvarlig |
+| native | https://data.norge.no/fint/fint-utdanning/karakteransvarlig |
 
 
 

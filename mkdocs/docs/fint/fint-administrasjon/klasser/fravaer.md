@@ -21,7 +21,7 @@ URI: [adm:fravaer](https://schema.fintlabs.no/administrasjon/fravaer)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [adm:fravaer](https://schema.fintlabs.no/administrasjon/fravaer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fravaer |
-| native | https://schema.fintlabs.no/administrasjon/:fravaer |
+| native | https://data.norge.no/fint/fint-administrasjon/fravaer |
 
 
 

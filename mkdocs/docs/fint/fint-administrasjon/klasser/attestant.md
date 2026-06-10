@@ -73,7 +73,7 @@ URI: [adm:attestant](https://schema.fintlabs.no/administrasjon/attestant)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:attestant |
-| native | https://schema.fintlabs.no/administrasjon/:attestant |
+| native | https://data.norge.no/fint/fint-administrasjon/attestant |
 
 
 

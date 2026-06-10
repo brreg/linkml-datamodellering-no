@@ -71,7 +71,7 @@ URI: [okn:postering](https://schema.fintlabs.no/okonomi/postering)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:postering |
-| native | https://schema.fintlabs.no/okonomi/:postering |
+| native | https://data.norge.no/fint/fint-okonomi/postering |
 
 
 

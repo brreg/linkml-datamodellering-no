@@ -73,7 +73,7 @@ URI: [adm:kontostreng](https://schema.fintlabs.no/administrasjon/kontostreng)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:kontostreng |
-| native | https://schema.fintlabs.no/administrasjon/:kontostreng |
+| native | https://data.norge.no/fint/fint-administrasjon/kontostreng |
 
 
 

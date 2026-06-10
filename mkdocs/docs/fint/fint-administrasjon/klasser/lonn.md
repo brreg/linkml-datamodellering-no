@@ -548,7 +548,7 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:Lonn |
-| native | https://schema.fintlabs.no/administrasjon/:Lonn |
+| native | https://data.norge.no/fint/fint-administrasjon/Lonn |
 
 
 

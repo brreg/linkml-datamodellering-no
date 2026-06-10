@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#private_virksomheter)
+URI: [samtbu:private_virksomheter](https://data.norge.no/samt/samt-bu/private_virksomheter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#privat
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:private_virksomheter |
-| native | samtbuskole:private_virksomheter |
+| self | samtbu:private_virksomheter |
+| native | samtbu:private_virksomheter |
 
 
 

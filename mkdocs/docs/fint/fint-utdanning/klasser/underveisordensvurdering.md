@@ -21,7 +21,7 @@ URI: [utd:underveisordensvurdering](https://schema.fintlabs.no/utdanning/underve
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:underveisordensvurdering](https://schema.fintlabs.no/utdanning/underve
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:underveisordensvurdering |
-| native | https://schema.fintlabs.no/utdanning/:underveisordensvurdering |
+| native | https://data.norge.no/fint/fint-utdanning/underveisordensvurdering |
 
 
 

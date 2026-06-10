@@ -9,7 +9,7 @@ _Rotcontainer for FINT Økonomi-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintlabs.no/okonomi/:OkonomiContainer)
+URI: [https://data.norge.no/fint/fint-okonomi/OkonomiContainer](https://data.norge.no/fint/fint-okonomi/OkonomiContainer)
 
 
 
@@ -265,14 +265,6 @@ URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintl
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -384,8 +376,8 @@ URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:OkonomiContainer |
-| native | https://schema.fintlabs.no/okonomi/:OkonomiContainer |
+| self | https://data.norge.no/fint/fint-okonomi/OkonomiContainer |
+| native | https://data.norge.no/fint/fint-okonomi/OkonomiContainer |
 
 
 
@@ -404,11 +396,6 @@ name: OkonomiContainer
 description: Rotcontainer for FINT Økonomi-instansar.
 from_schema: https://data.norge.no/fint/fint-okonomi
 rank: 1000
-slot_usage:
-  fakturagrunnlag:
-    name: fakturagrunnlag
-    multivalued: true
-    inlined_as_list: true
 attributes:
   fakturaer:
     name: fakturaer
@@ -427,6 +414,8 @@ attributes:
     - Faktura
     - Fakturautsteder
     range: Fakturagrunnlag
+    multivalued: true
+    inlined_as_list: true
   fakturautstederear:
     name: fakturautstederear
     from_schema: https://data.norge.no/fint/fint-okonomi
@@ -512,11 +501,6 @@ name: OkonomiContainer
 description: Rotcontainer for FINT Økonomi-instansar.
 from_schema: https://data.norge.no/fint/fint-okonomi
 rank: 1000
-slot_usage:
-  fakturagrunnlag:
-    name: fakturagrunnlag
-    multivalued: true
-    inlined_as_list: true
 attributes:
   fakturaer:
     name: fakturaer

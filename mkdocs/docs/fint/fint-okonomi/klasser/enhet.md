@@ -70,7 +70,7 @@ URI: [okn:enhet](https://schema.fintlabs.no/okonomi/enhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:enhet |
-| native | https://schema.fintlabs.no/okonomi/:enhet |
+| native | https://data.norge.no/fint/fint-okonomi/enhet |
 
 
 

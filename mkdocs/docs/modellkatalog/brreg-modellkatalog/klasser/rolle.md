@@ -277,6 +277,12 @@ URI: [modelldcatno:Role](https://data.norge.no/vocabulary/modelldcatno#Role)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -317,6 +323,8 @@ URI: [modelldcatno:Role](https://data.norge.no/vocabulary/modelldcatno#Role)
 ```yaml
 name: Rolle
 description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -337,6 +345,8 @@ class_uri: modelldcatno:Role
 ```yaml
 name: Rolle
 description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

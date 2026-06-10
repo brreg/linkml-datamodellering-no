@@ -70,7 +70,7 @@ URI: [ark:merknadsdato](https://schema.fintlabs.no/arkiv/merknadsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:merknadsdato |
-| native | https://schema.fintlabs.no/arkiv/:merknadsdato |
+| native | https://data.norge.no/fint/fint-arkiv/merknadsdato |
 
 
 

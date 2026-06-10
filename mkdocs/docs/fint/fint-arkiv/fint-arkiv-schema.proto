@@ -28,7 +28,7 @@ message ArkivContainer
  repeated  dokumentfil dokumentfiler = 0
  repeated  dokumentbeskrivelse dokumentbeskrivelsar = 0
  repeated  journalpost journalpostar = 0
-  klassifikasjonssystem klassifikasjonssystem = 0
+ repeated  klassifikasjonssystem klassifikasjonssystem = 0
  repeated  tilgang tilgangar = 0
  repeated  sak sakar = 0
  repeated  personalmappe personalmappeListe = 0

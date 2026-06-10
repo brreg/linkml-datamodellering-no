@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:lisensmodellar](https://schema.fintlabs.no/ressurs/:lisensmodellar)
+URI: [https://data.norge.no/fint/fint-ressurs/lisensmodellar](https://data.norge.no/fint/fint-ressurs/lisensmodellar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:lisensmodellar](https://schema.fintlab
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:lisensmodellar |
-| native | https://schema.fintlabs.no/ressurs/:lisensmodellar |
+| self | https://data.norge.no/fint/fint-ressurs/lisensmodellar |
+| native | https://data.norge.no/fint/fint-ressurs/lisensmodellar |
 
 
 

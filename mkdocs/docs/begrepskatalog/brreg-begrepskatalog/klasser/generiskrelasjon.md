@@ -19,6 +19,17 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
  classDiagram
     class GeneriskRelasjon
     click GeneriskRelasjon href "../GeneriskRelasjon/"
+      GeneriskRelasjon : beskrivelse
+        
+          
+    
+        
+        
+        GeneriskRelasjon --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       GeneriskRelasjon : har_generisk_omgrep
         
           
@@ -49,17 +60,6 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
         
         GeneriskRelasjon --> "1" Uriorcurie : id
         click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
-    
-
-        
-      GeneriskRelasjon : inndelingskriterium
-        
-          
-    
-        
-        
-        GeneriskRelasjon --> "*" LangString : inndelingskriterium
-        click LangString href "../LangString/"
     
 
         
@@ -133,7 +133,7 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](langstring.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
 
@@ -275,7 +275,7 @@ slots:
 - id
 - har_generisk_omgrep
 - har_spesifikt_omgrep
-- inndelingskriterium
+- beskrivelse
 slot_usage:
   har_generisk_omgrep:
     name: har_generisk_omgrep
@@ -285,8 +285,8 @@ slot_usage:
     name: har_spesifikt_omgrep
     in_subset:
     - Obligatorisk
-  inndelingskriterium:
-    name: inndelingskriterium
+  beskrivelse:
+    name: beskrivelse
     in_subset:
     - Anbefalt
 class_uri: skosno:GenericConceptRelation
@@ -310,8 +310,8 @@ slot_usage:
     name: har_spesifikt_omgrep
     in_subset:
     - Obligatorisk
-  inndelingskriterium:
-    name: inndelingskriterium
+  beskrivelse:
+    name: beskrivelse
     in_subset:
     - Anbefalt
 attributes:
@@ -359,17 +359,18 @@ attributes:
     - GeneriskRelasjon
     range: Begrep
     multivalued: true
-  inndelingskriterium:
-    name: inndelingskriterium
-    description: Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).
+  beskrivelse:
+    name: beskrivelse
+    description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/ap-no/skos-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: GeneriskRelasjon
     domain_of:
     - GeneriskRelasjon
     - PartitivRelasjon
+    - Samling
     range: LangString
     multivalued: true
 class_uri: skosno:GenericConceptRelation

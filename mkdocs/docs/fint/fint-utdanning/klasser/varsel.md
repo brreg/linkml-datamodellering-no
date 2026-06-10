@@ -21,7 +21,7 @@ URI: [utd:varsel](https://schema.fintlabs.no/utdanning/varsel)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:varsel](https://schema.fintlabs.no/utdanning/varsel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:varsel |
-| native | https://schema.fintlabs.no/utdanning/:varsel |
+| native | https://data.norge.no/fint/fint-utdanning/varsel |
 
 
 

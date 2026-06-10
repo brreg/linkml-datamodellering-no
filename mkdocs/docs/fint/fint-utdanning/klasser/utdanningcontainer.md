@@ -9,7 +9,7 @@ _Rotcontainer for FINT Utdanning-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.fintlabs.no/utdanning/:UtdanningContainer)
+URI: [https://data.norge.no/fint/fint-utdanning/UtdanningContainer](https://data.norge.no/fint/fint-utdanning/UtdanningContainer)
 
 
 
@@ -1399,13 +1399,26 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
+  
+
+  
+  
+  
+  
     
-      
+  
+
+  
+  
+  
+  
     
-      
-    
+  
+
+  
+  
   
   
     
@@ -1428,14 +1441,6 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -1450,50 +1455,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
 
   
   
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
   
   
     
@@ -1516,59 +1483,6 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -1583,72 +1497,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
 
   
   
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
   
   
     
@@ -1671,14 +1525,6 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -1686,43 +1532,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
 
   
   
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
   
   
     
@@ -1738,13 +1553,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1753,13 +1567,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1768,13 +1581,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1783,13 +1595,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1798,13 +1609,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1813,13 +1623,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1828,13 +1637,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1843,13 +1651,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1858,13 +1665,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1873,13 +1679,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1888,73 +1693,12 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
 
   
   
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
   
   
     
@@ -2200,8 +1944,8 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:UtdanningContainer |
-| native | https://schema.fintlabs.no/utdanning/:UtdanningContainer |
+| self | https://data.norge.no/fint/fint-utdanning/UtdanningContainer |
+| native | https://data.norge.no/fint/fint-utdanning/UtdanningContainer |
 
 
 
@@ -2220,115 +1964,6 @@ name: UtdanningContainer
 description: Rotcontainer for FINT Utdanning-instansar.
 from_schema: https://data.norge.no/fint/fint-utdanning
 rank: 1000
-slot_usage:
-  elevforhold:
-    name: elevforhold
-    multivalued: true
-    inlined_as_list: true
-  eksamen:
-    name: eksamen
-    multivalued: true
-    inlined_as_list: true
-  fag:
-    name: fag
-    multivalued: true
-    inlined_as_list: true
-  rom:
-    name: rom
-    multivalued: true
-    inlined_as_list: true
-  elevfravar:
-    name: elevfravar
-    multivalued: true
-    inlined_as_list: true
-  elevvurdering:
-    name: elevvurdering
-    multivalued: true
-    inlined_as_list: true
-  vitnemalsmerknad:
-    name: vitnemalsmerknad
-    multivalued: true
-    inlined_as_list: true
-  betalingsstatus:
-    name: betalingsstatus
-    multivalued: true
-    inlined_as_list: true
-  fagstatus:
-    name: fagstatus
-    multivalued: true
-    inlined_as_list: true
-  karakterstatus:
-    name: karakterstatus
-    multivalued: true
-    inlined_as_list: true
-  skoleaar:
-    name: skoleaar
-    multivalued: true
-    inlined_as_list: true
-  tilrettelegging:
-    name: tilrettelegging
-    multivalued: true
-    inlined_as_list: true
-  klassemedlemskap:
-    name: klassemedlemskap
-    inlined_as_list: true
-  kontaktlaerergruppemedlemskap:
-    name: kontaktlaerergruppemedlemskap
-    inlined_as_list: true
-  persongruppemedlemskap:
-    name: persongruppemedlemskap
-    inlined_as_list: true
-  programomrademedlemskap:
-    name: programomrademedlemskap
-    inlined_as_list: true
-  undervisningsgruppemedlemskap:
-    name: undervisningsgruppemedlemskap
-    inlined_as_list: true
-  eksamensgruppemedlemskap:
-    name: eksamensgruppemedlemskap
-    inlined_as_list: true
-  faggruppemedlemskap:
-    name: faggruppemedlemskap
-    inlined_as_list: true
-  utdanningsprogram:
-    name: utdanningsprogram
-    inlined_as_list: true
-  undervisningsforhold:
-    name: undervisningsforhold
-    inlined_as_list: true
-  varsel:
-    name: varsel
-    inlined_as_list: true
-  karakterhistorie:
-    name: karakterhistorie
-    inlined_as_list: true
-  sensor:
-    name: sensor
-    inlined_as_list: true
-  fraversregistrering:
-    name: fraversregistrering
-    inlined_as_list: true
-  halvaarsfagvurdering:
-    name: halvaarsfagvurdering
-    inlined_as_list: true
-  halvaarsordensvurdering:
-    name: halvaarsordensvurdering
-    inlined_as_list: true
-  sluttfagvurdering:
-    name: sluttfagvurdering
-    inlined_as_list: true
-  sluttordensvurdering:
-    name: sluttordensvurdering
-    inlined_as_list: true
-  underveisfagvurdering:
-    name: underveisfagvurdering
-    inlined_as_list: true
-  underveisordensvurdering:
-    name: underveisordensvurdering
-    inlined_as_list: true
-  eksamensvurdering:
-    name: eksamensvurdering
-    inlined_as_list: true
 attributes:
   elevar:
     name: elevar
@@ -2373,6 +2008,8 @@ attributes:
     - Elevvurdering
     - Fravarsoversikt
     range: Elevforhold
+    multivalued: true
+    inlined_as_list: true
   elevtilrettelegging:
     name: elevtilrettelegging
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2400,6 +2037,7 @@ attributes:
     - Klasse
     range: Klassemedlemskap
     multivalued: true
+    inlined_as_list: true
   kontaktlaerergrupper:
     name: kontaktlaerergrupper
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2417,6 +2055,7 @@ attributes:
     - Elevforhold
     range: Kontaktlaerergruppemedlemskap
     multivalued: true
+    inlined_as_list: true
   persongrupper:
     name: persongrupper
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2435,6 +2074,7 @@ attributes:
     - Persongruppe
     range: Persongruppemedlemskap
     multivalued: true
+    inlined_as_list: true
   varsel:
     name: varsel
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2443,6 +2083,7 @@ attributes:
     - Faggruppemedlemskap
     range: Varsel
     multivalued: true
+    inlined_as_list: true
   arstrinn:
     name: arstrinn
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2469,6 +2110,7 @@ attributes:
     - Elevforhold
     range: Programomrademedlemskap
     multivalued: true
+    inlined_as_list: true
   utdanningsprogram:
     name: utdanningsprogram
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2477,6 +2119,7 @@ attributes:
     - Skole
     range: Utdanningsprogram
     multivalued: true
+    inlined_as_list: true
   eksamen:
     name: eksamen
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2485,6 +2128,8 @@ attributes:
     - Rom
     - Eksamensgruppe
     range: Eksamen
+    multivalued: true
+    inlined_as_list: true
   fag:
     name: fag
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2497,6 +2142,8 @@ attributes:
     - Eksamensgruppe
     - Fravarsoversikt
     range: Fag
+    multivalued: true
+    inlined_as_list: true
   faggrupper:
     name: faggrupper
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2516,6 +2163,7 @@ attributes:
     - Faggruppe
     range: Faggruppemedlemskap
     multivalued: true
+    inlined_as_list: true
   rom:
     name: rom
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2524,6 +2172,8 @@ attributes:
     - Eksamen
     - Time
     range: Rom
+    multivalued: true
+    inlined_as_list: true
   timar:
     name: timar
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2546,6 +2196,7 @@ attributes:
     - Eksamensgruppe
     range: Undervisningsforhold
     multivalued: true
+    inlined_as_list: true
   undervisningsgrupper:
     name: undervisningsgrupper
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2563,6 +2214,7 @@ attributes:
     - Elevforhold
     range: Undervisningsgruppemedlemskap
     multivalued: true
+    inlined_as_list: true
   anmerkningar:
     name: anmerkningar
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2589,6 +2241,7 @@ attributes:
     - Elevforhold
     range: Eksamensgruppemedlemskap
     multivalued: true
+    inlined_as_list: true
   eksamensvurdering:
     name: eksamensvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2597,6 +2250,7 @@ attributes:
     - Elevvurdering
     range: Eksamensvurdering
     multivalued: true
+    inlined_as_list: true
   elevfravar:
     name: elevfravar
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2605,6 +2259,8 @@ attributes:
     - Elevforhold
     - Fraversregistrering
     range: Elevfravar
+    multivalued: true
+    inlined_as_list: true
   elevvurdering:
     name: elevvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2619,6 +2275,8 @@ attributes:
     - Underveisfagvurdering
     - Underveisordensvurdering
     range: Elevvurdering
+    multivalued: true
+    inlined_as_list: true
   fravarsoversikt:
     name: fravarsoversikt
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2636,6 +2294,7 @@ attributes:
     - Elevfravar
     range: Fraversregistrering
     multivalued: true
+    inlined_as_list: true
   halvaarsfagvurdering:
     name: halvaarsfagvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2644,6 +2303,7 @@ attributes:
     - Elevvurdering
     range: Halvaarsfagvurdering
     multivalued: true
+    inlined_as_list: true
   halvaarsordensvurdering:
     name: halvaarsordensvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2652,6 +2312,7 @@ attributes:
     - Elevvurdering
     range: Halvaarsordensvurdering
     multivalued: true
+    inlined_as_list: true
   karakterhistorie:
     name: karakterhistorie
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2661,6 +2322,7 @@ attributes:
     - Sluttfagvurdering
     range: Karakterhistorie
     multivalued: true
+    inlined_as_list: true
   sensor:
     name: sensor
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2670,6 +2332,7 @@ attributes:
     - Eksamensgruppe
     range: Sensor
     multivalued: true
+    inlined_as_list: true
   sluttfagvurdering:
     name: sluttfagvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2678,6 +2341,7 @@ attributes:
     - Elevvurdering
     range: Sluttfagvurdering
     multivalued: true
+    inlined_as_list: true
   sluttordensvurdering:
     name: sluttordensvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2686,6 +2350,7 @@ attributes:
     - Elevvurdering
     range: Sluttordensvurdering
     multivalued: true
+    inlined_as_list: true
   underveisfagvurdering:
     name: underveisfagvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2694,6 +2359,7 @@ attributes:
     - Elevvurdering
     range: Underveisfagvurdering
     multivalued: true
+    inlined_as_list: true
   underveisordensvurdering:
     name: underveisordensvurdering
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2702,6 +2368,7 @@ attributes:
     - Elevvurdering
     range: Underveisordensvurdering
     multivalued: true
+    inlined_as_list: true
   vitnemalsmerknad:
     name: vitnemalsmerknad
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2709,6 +2376,8 @@ attributes:
     - UtdanningContainer
     - Elevvurdering
     range: Vitnemalsmerknad
+    multivalued: true
+    inlined_as_list: true
   betalingsstatus:
     name: betalingsstatus
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2716,6 +2385,8 @@ attributes:
     - UtdanningContainer
     - Eksamensgruppemedlemskap
     range: Betalingsstatus
+    multivalued: true
+    inlined_as_list: true
   fagstatus:
     name: fagstatus
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2723,6 +2394,8 @@ attributes:
     - UtdanningContainer
     - Faggruppemedlemskap
     range: Fagstatus
+    multivalued: true
+    inlined_as_list: true
   karakterstatus:
     name: karakterstatus
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2730,6 +2403,8 @@ attributes:
     - UtdanningContainer
     - Karakterhistorie
     range: Karakterstatus
+    multivalued: true
+    inlined_as_list: true
   skoleaar:
     name: skoleaar
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2746,6 +2421,8 @@ attributes:
     - Anmerkninger
     - Eksamensgruppe
     range: Skoleaar
+    multivalued: true
+    inlined_as_list: true
   tilrettelegging:
     name: tilrettelegging
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2755,6 +2432,8 @@ attributes:
     - Elevtilrettelegging
     - Fag
     range: Tilrettelegging
+    multivalued: true
+    inlined_as_list: true
   avlagteprover:
     name: avlagteprover
     from_schema: https://data.norge.no/fint/fint-utdanning
@@ -2939,115 +2618,6 @@ name: UtdanningContainer
 description: Rotcontainer for FINT Utdanning-instansar.
 from_schema: https://data.norge.no/fint/fint-utdanning
 rank: 1000
-slot_usage:
-  elevforhold:
-    name: elevforhold
-    multivalued: true
-    inlined_as_list: true
-  eksamen:
-    name: eksamen
-    multivalued: true
-    inlined_as_list: true
-  fag:
-    name: fag
-    multivalued: true
-    inlined_as_list: true
-  rom:
-    name: rom
-    multivalued: true
-    inlined_as_list: true
-  elevfravar:
-    name: elevfravar
-    multivalued: true
-    inlined_as_list: true
-  elevvurdering:
-    name: elevvurdering
-    multivalued: true
-    inlined_as_list: true
-  vitnemalsmerknad:
-    name: vitnemalsmerknad
-    multivalued: true
-    inlined_as_list: true
-  betalingsstatus:
-    name: betalingsstatus
-    multivalued: true
-    inlined_as_list: true
-  fagstatus:
-    name: fagstatus
-    multivalued: true
-    inlined_as_list: true
-  karakterstatus:
-    name: karakterstatus
-    multivalued: true
-    inlined_as_list: true
-  skoleaar:
-    name: skoleaar
-    multivalued: true
-    inlined_as_list: true
-  tilrettelegging:
-    name: tilrettelegging
-    multivalued: true
-    inlined_as_list: true
-  klassemedlemskap:
-    name: klassemedlemskap
-    inlined_as_list: true
-  kontaktlaerergruppemedlemskap:
-    name: kontaktlaerergruppemedlemskap
-    inlined_as_list: true
-  persongruppemedlemskap:
-    name: persongruppemedlemskap
-    inlined_as_list: true
-  programomrademedlemskap:
-    name: programomrademedlemskap
-    inlined_as_list: true
-  undervisningsgruppemedlemskap:
-    name: undervisningsgruppemedlemskap
-    inlined_as_list: true
-  eksamensgruppemedlemskap:
-    name: eksamensgruppemedlemskap
-    inlined_as_list: true
-  faggruppemedlemskap:
-    name: faggruppemedlemskap
-    inlined_as_list: true
-  utdanningsprogram:
-    name: utdanningsprogram
-    inlined_as_list: true
-  undervisningsforhold:
-    name: undervisningsforhold
-    inlined_as_list: true
-  varsel:
-    name: varsel
-    inlined_as_list: true
-  karakterhistorie:
-    name: karakterhistorie
-    inlined_as_list: true
-  sensor:
-    name: sensor
-    inlined_as_list: true
-  fraversregistrering:
-    name: fraversregistrering
-    inlined_as_list: true
-  halvaarsfagvurdering:
-    name: halvaarsfagvurdering
-    inlined_as_list: true
-  halvaarsordensvurdering:
-    name: halvaarsordensvurdering
-    inlined_as_list: true
-  sluttfagvurdering:
-    name: sluttfagvurdering
-    inlined_as_list: true
-  sluttordensvurdering:
-    name: sluttordensvurdering
-    inlined_as_list: true
-  underveisfagvurdering:
-    name: underveisfagvurdering
-    inlined_as_list: true
-  underveisordensvurdering:
-    name: underveisordensvurdering
-    inlined_as_list: true
-  eksamensvurdering:
-    name: eksamensvurdering
-    inlined_as_list: true
 attributes:
   elevar:
     name: elevar

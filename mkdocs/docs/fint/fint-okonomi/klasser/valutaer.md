@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:valutaer](https://schema.fintlabs.no/okonomi/:valutaer)
+URI: [https://data.norge.no/fint/fint-okonomi/valutaer](https://data.norge.no/fint/fint-okonomi/valutaer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:valutaer](https://schema.fintlabs.no/o
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:valutaer |
-| native | https://schema.fintlabs.no/okonomi/:valutaer |
+| self | https://data.norge.no/fint/fint-okonomi/valutaer |
+| native | https://data.norge.no/fint/fint-okonomi/valutaer |
 
 
 

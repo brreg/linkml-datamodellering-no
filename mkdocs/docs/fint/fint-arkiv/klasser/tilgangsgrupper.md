@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:tilgangsgrupper](https://schema.fintlabs.no/arkiv/:tilgangsgrupper)
+URI: [https://data.norge.no/fint/fint-arkiv/tilgangsgrupper](https://data.norge.no/fint/fint-arkiv/tilgangsgrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:tilgangsgrupper](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:tilgangsgrupper |
-| native | https://schema.fintlabs.no/arkiv/:tilgangsgrupper |
+| self | https://data.norge.no/fint/fint-arkiv/tilgangsgrupper |
+| native | https://data.norge.no/fint/fint-arkiv/tilgangsgrupper |
 
 
 

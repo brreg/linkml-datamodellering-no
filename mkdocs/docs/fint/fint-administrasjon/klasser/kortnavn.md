@@ -70,7 +70,7 @@ URI: [adm:kortnavn](https://schema.fintlabs.no/administrasjon/kortnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:kortnavn |
-| native | https://schema.fintlabs.no/administrasjon/:kortnavn |
+| native | https://data.norge.no/fint/fint-administrasjon/kortnavn |
 
 
 

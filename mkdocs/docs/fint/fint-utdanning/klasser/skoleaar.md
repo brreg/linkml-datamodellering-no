@@ -30,7 +30,7 @@ URI: [utd:skoleaar](https://schema.fintlabs.no/utdanning/skoleaar)
 | [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  yes  |
 | [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
 | [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
 | [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
@@ -87,7 +87,7 @@ URI: [utd:skoleaar](https://schema.fintlabs.no/utdanning/skoleaar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skoleaar |
-| native | https://schema.fintlabs.no/utdanning/:skoleaar |
+| native | https://data.norge.no/fint/fint-utdanning/skoleaar |
 
 
 

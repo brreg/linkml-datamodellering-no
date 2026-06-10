@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:dokumenttypar](https://schema.fintlabs.no/arkiv/:dokumenttypar)
+URI: [https://data.norge.no/fint/fint-arkiv/dokumenttypar](https://data.norge.no/fint/fint-arkiv/dokumenttypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:dokumenttypar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:dokumenttypar |
-| native | https://schema.fintlabs.no/arkiv/:dokumenttypar |
+| self | https://data.norge.no/fint/fint-arkiv/dokumenttypar |
+| native | https://data.norge.no/fint/fint-arkiv/dokumenttypar |
 
 
 

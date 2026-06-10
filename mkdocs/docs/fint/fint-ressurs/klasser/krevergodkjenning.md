@@ -70,7 +70,7 @@ URI: [res:kreverGodkjenning](https://schema.fintlabs.no/ressurs/kreverGodkjennin
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:kreverGodkjenning |
-| native | https://schema.fintlabs.no/ressurs/:kreverGodkjenning |
+| native | https://data.norge.no/fint/fint-ressurs/kreverGodkjenning |
 
 
 

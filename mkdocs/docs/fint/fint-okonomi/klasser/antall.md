@@ -70,7 +70,7 @@ URI: [okn:antall](https://schema.fintlabs.no/okonomi/antall)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:antall |
-| native | https://schema.fintlabs.no/okonomi/:antall |
+| native | https://data.norge.no/fint/fint-okonomi/antall |
 
 
 

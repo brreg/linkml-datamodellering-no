@@ -21,7 +21,7 @@ URI: [utd:halvaarsordensvurdering](https://schema.fintlabs.no/utdanning/halvaars
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:halvaarsordensvurdering](https://schema.fintlabs.no/utdanning/halvaars
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:halvaarsordensvurdering |
-| native | https://schema.fintlabs.no/utdanning/:halvaarsordensvurdering |
+| native | https://data.norge.no/fint/fint-utdanning/halvaarsordensvurdering |
 
 
 

@@ -9,7 +9,7 @@ _Skolen kontaktlæreren jobber på_
 
 
 
-URI: [samtbuskole:jobber_paa_skole](https://example.no/ontology/skole#jobber_paa_skole)
+URI: [samtbuskole:jobberPaaSkole](https://example.no/ontology/skole#jobberPaaSkole)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:jobber_paa_skole](https://example.no/ontology/skole#jobber_paa
 | Range | [Skole](skole.md) |
 | Domain | [Kontaktlaerer](kontaktlaerer.md) |
 | Domain Of | [Kontaktlaerer](kontaktlaerer.md) |
+| Slot URI | [samtbuskole:jobberPaaSkole](https://example.no/ontology/skole#jobberPaaSkole) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:jobber_paa_skole](https://example.no/ontology/skole#jobber_paa
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:jobber_paa_skole |
-| native | samtbuskole:jobber_paa_skole |
+| self | samtbuskole:jobberPaaSkole |
+| native | samtbu:jobber_paa_skole |
 | close | schema:worksFor, org:memberOf |
 
 
@@ -88,6 +89,7 @@ close_mappings:
 - org:memberOf
 rank: 1000
 domain: Kontaktlaerer
+slot_uri: samtbuskole:jobberPaaSkole
 domain_of:
 - Kontaktlaerer
 range: Skole

@@ -22,7 +22,7 @@ URI: [utd:sensor](https://schema.fintlabs.no/utdanning/sensor)
 | --- | --- | --- |
 | [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [utd:sensor](https://schema.fintlabs.no/utdanning/sensor)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:sensor |
-| native | https://schema.fintlabs.no/utdanning/:sensor |
+| native | https://data.norge.no/fint/fint-utdanning/sensor |
 
 
 

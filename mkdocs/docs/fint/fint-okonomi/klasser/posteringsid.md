@@ -70,7 +70,7 @@ URI: [okn:posteringsId](https://schema.fintlabs.no/okonomi/posteringsId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:posteringsId |
-| native | https://schema.fintlabs.no/okonomi/:posteringsId |
+| native | https://data.norge.no/fint/fint-okonomi/posteringsId |
 
 
 

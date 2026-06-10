@@ -70,7 +70,7 @@ URI: [ark:journalstatus](https://schema.fintlabs.no/arkiv/journalstatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalstatus |
-| native | https://schema.fintlabs.no/arkiv/:journalstatus |
+| native | https://data.norge.no/fint/fint-arkiv/journalstatus |
 
 
 

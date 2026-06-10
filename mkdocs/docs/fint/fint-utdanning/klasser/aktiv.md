@@ -70,7 +70,7 @@ URI: [utd:aktiv](https://schema.fintlabs.no/utdanning/aktiv)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:aktiv |
-| native | https://schema.fintlabs.no/utdanning/:aktiv |
+| native | https://data.norge.no/fint/fint-utdanning/aktiv |
 
 
 

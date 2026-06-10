@@ -70,7 +70,7 @@ URI: [ark:journalPostnummer](https://schema.fintlabs.no/arkiv/journalPostnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalPostnummer |
-| native | https://schema.fintlabs.no/arkiv/:journalPostnummer |
+| native | https://data.norge.no/fint/fint-arkiv/journalPostnummer |
 
 
 

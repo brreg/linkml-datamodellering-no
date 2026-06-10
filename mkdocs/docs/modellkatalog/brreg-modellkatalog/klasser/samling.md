@@ -235,6 +235,12 @@ URI: [modelldcatno:Collection](https://data.norge.no/vocabulary/modelldcatno#Col
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -275,6 +281,8 @@ URI: [modelldcatno:Collection](https://data.norge.no/vocabulary/modelldcatno#Col
 ```yaml
 name: Samling
 description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 class_uri: modelldcatno:Collection
@@ -288,6 +296,8 @@ class_uri: modelldcatno:Collection
 ```yaml
 name: Samling
 description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 attributes:

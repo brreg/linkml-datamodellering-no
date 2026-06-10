@@ -66,7 +66,7 @@ class "Behandlingsgrunnlag" [[{Rettsleg grunnlag for behandling av personopplysn
     {field} passiv : boolean  
 }
 "PersonvernContainer" *--> "0..*" "Personopplysning" : "personopplysningar"
-"PersonvernContainer" --> "0..1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"
+"PersonvernContainer" *--> "0..*" "Behandlingsgrunnlag" : "behandlingsgrunnlag"
 "PersonvernContainer" *--> "0..*" "Behandling" : "behandlingar"
 "Personopplysning" *--> "0..1" "Periode" : "gyldighetsperiode"
 "Behandling" --> "1" "Personopplysning" : "personopplysning"
@@ -212,7 +212,6 @@ class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenes
 "Aktoer" ^-- "Enhet"
 "Person" --> "0..1" "Elev" : "elev"(i)
 "Behandling" --> "1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"
-"PersonvernContainer" *--> "0..*" "Behandlingsgrunnlag" : "behandlingsgrunnlag"(i)
 "Behandling" --> "0..1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"(i)
 "Samtykke" --> "0..1" "Behandling" : "behandling"(i)
 "Tjeneste" --> "0..1" "Behandling" : "behandling"(i)

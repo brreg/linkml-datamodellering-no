@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:laerlingar](https://schema.fintlabs.no/utdanning/:laerlingar)
+URI: [https://data.norge.no/fint/fint-utdanning/laerlingar](https://data.norge.no/fint/fint-utdanning/laerlingar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:laerlingar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:laerlingar |
-| native | https://schema.fintlabs.no/utdanning/:laerlingar |
+| self | https://data.norge.no/fint/fint-utdanning/laerlingar |
+| native | https://data.norge.no/fint/fint-utdanning/laerlingar |
 
 
 

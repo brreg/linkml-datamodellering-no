@@ -72,7 +72,7 @@ URI: [ark:nokkelord](https://schema.fintlabs.no/arkiv/nokkelord)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:nokkelord |
-| native | https://schema.fintlabs.no/arkiv/:nokkelord |
+| native | https://data.norge.no/fint/fint-arkiv/nokkelord |
 
 
 

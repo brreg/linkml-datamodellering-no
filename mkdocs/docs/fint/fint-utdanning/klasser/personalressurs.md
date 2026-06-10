@@ -71,7 +71,7 @@ URI: [utd:personalressurs](https://schema.fintlabs.no/utdanning/personalressurs)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:personalressurs |
-| native | https://schema.fintlabs.no/utdanning/:personalressurs |
+| native | https://data.norge.no/fint/fint-utdanning/personalressurs |
 
 
 

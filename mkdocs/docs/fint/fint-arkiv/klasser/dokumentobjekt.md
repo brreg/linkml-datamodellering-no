@@ -71,7 +71,7 @@ URI: [ark:dokumentobjekt](https://schema.fintlabs.no/arkiv/dokumentobjekt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentobjekt |
-| native | https://schema.fintlabs.no/arkiv/:dokumentobjekt |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentobjekt |
 
 
 

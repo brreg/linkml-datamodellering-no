@@ -325,7 +325,7 @@ URI: [utd:OtEnhet](https://schema.fintlabs.no/utdanning/OtEnhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:OtEnhet |
-| native | https://schema.fintlabs.no/utdanning/:OtEnhet |
+| native | https://data.norge.no/fint/fint-utdanning/OtEnhet |
 
 
 

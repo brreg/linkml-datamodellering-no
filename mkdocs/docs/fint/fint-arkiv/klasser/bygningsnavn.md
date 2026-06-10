@@ -70,7 +70,7 @@ URI: [ark:bygningsnavn](https://schema.fintlabs.no/arkiv/bygningsnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:bygningsnavn |
-| native | https://schema.fintlabs.no/arkiv/:bygningsnavn |
+| native | https://data.norge.no/fint/fint-arkiv/bygningsnavn |
 
 
 

@@ -47,7 +47,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
     
         
         
-        Aktor --> "1..*" LangString : namn_aktor
+        Aktor --> "*" LangString : namn_aktor
         click LangString href "../LangString/"
     
 
@@ -105,7 +105,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [namn_aktor](namn_aktor.md) | 1..* <br/> [LangString](langstring.md) | Namn på aktøren (foaf:name) |
+| [namn_aktor](namn_aktor.md) | * <br/> [LangString](langstring.md) | Namn på aktøren (foaf:name) |
 
 
 
@@ -210,6 +210,12 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -268,6 +274,8 @@ namn_aktor:
 ```yaml
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -279,7 +287,6 @@ slot_usage:
     name: namn_aktor
     in_subset:
     - Obligatorisk
-    required: true
 class_uri: foaf:Agent
 
 ```
@@ -291,13 +298,14 @@ class_uri: foaf:Agent
 ```yaml
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   namn_aktor:
     name: namn_aktor
     in_subset:
     - Obligatorisk
-    required: true
 attributes:
   id:
     name: id
@@ -336,7 +344,6 @@ attributes:
     domain_of:
     - Aktor
     range: LangString
-    required: true
     multivalued: true
   identifikator_literal:
     name: identifikator_literal

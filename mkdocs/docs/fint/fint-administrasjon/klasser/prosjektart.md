@@ -71,7 +71,7 @@ URI: [adm:prosjektart](https://schema.fintlabs.no/administrasjon/prosjektart)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:prosjektart |
-| native | https://schema.fintlabs.no/administrasjon/:prosjektart |
+| native | https://data.norge.no/fint/fint-administrasjon/prosjektart |
 
 
 

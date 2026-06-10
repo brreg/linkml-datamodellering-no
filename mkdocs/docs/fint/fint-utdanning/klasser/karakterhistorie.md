@@ -22,7 +22,7 @@ URI: [utd:karakterhistorie](https://schema.fintlabs.no/utdanning/karakterhistori
 | --- | --- | --- |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  yes  |
 | [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [utd:karakterhistorie](https://schema.fintlabs.no/utdanning/karakterhistori
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:karakterhistorie |
-| native | https://schema.fintlabs.no/utdanning/:karakterhistorie |
+| native | https://data.norge.no/fint/fint-utdanning/karakterhistorie |
 
 
 

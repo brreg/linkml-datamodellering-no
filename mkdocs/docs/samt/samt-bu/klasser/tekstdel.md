@@ -232,6 +232,12 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -294,6 +300,8 @@ spraak:
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -325,6 +333,8 @@ class_uri: oa:TextualBody
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   har_verdi_tekstdel:

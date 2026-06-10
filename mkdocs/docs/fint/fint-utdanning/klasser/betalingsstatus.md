@@ -21,7 +21,7 @@ URI: [utd:betalingsstatus](https://schema.fintlabs.no/utdanning/betalingsstatus)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [utd:betalingsstatus](https://schema.fintlabs.no/utdanning/betalingsstatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:betalingsstatus |
-| native | https://schema.fintlabs.no/utdanning/:betalingsstatus |
+| native | https://data.norge.no/fint/fint-utdanning/betalingsstatus |
 
 
 

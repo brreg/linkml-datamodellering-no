@@ -70,7 +70,7 @@ URI: [utd:juridiskNavn](https://schema.fintlabs.no/utdanning/juridiskNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:juridiskNavn |
-| native | https://schema.fintlabs.no/utdanning/:juridiskNavn |
+| native | https://data.norge.no/fint/fint-utdanning/juridiskNavn |
 
 
 

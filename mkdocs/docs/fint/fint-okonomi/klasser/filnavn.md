@@ -70,7 +70,7 @@ URI: [okn:filnavn](https://schema.fintlabs.no/okonomi/filnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:filnavn |
-| native | https://schema.fintlabs.no/okonomi/:filnavn |
+| native | https://data.norge.no/fint/fint-okonomi/filnavn |
 
 
 

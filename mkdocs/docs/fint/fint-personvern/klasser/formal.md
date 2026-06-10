@@ -70,7 +70,7 @@ URI: [pvn:formal](https://schema.fintlabs.no/personvern/formal)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:formal |
-| native | https://schema.fintlabs.no/personvern/:formal |
+| native | https://data.norge.no/fint/fint-personvern/formal |
 
 
 

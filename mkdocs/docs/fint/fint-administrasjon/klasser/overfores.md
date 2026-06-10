@@ -70,7 +70,7 @@ URI: [adm:overfores](https://schema.fintlabs.no/administrasjon/overfores)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:overfores |
-| native | https://schema.fintlabs.no/administrasjon/:overfores |
+| native | https://data.norge.no/fint/fint-administrasjon/overfores |
 
 
 

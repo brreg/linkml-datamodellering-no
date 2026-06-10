@@ -70,7 +70,7 @@ URI: [utd:organisasjon](https://schema.fintlabs.no/utdanning/organisasjon)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:organisasjon |
-| native | https://schema.fintlabs.no/utdanning/:organisasjon |
+| native | https://data.norge.no/fint/fint-utdanning/organisasjon |
 
 
 

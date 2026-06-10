@@ -70,7 +70,7 @@ URI: [okn:merverdiavgift](https://schema.fintlabs.no/okonomi/merverdiavgift)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:merverdiavgift |
-| native | https://schema.fintlabs.no/okonomi/:merverdiavgift |
+| native | https://data.norge.no/fint/fint-okonomi/merverdiavgift |
 
 
 

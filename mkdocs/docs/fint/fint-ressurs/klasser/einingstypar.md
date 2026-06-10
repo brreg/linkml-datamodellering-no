@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:einingstypar](https://schema.fintlabs.no/ressurs/:einingstypar)
+URI: [https://data.norge.no/fint/fint-ressurs/einingstypar](https://data.norge.no/fint/fint-ressurs/einingstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:einingstypar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:einingstypar |
-| native | https://schema.fintlabs.no/ressurs/:einingstypar |
+| self | https://data.norge.no/fint/fint-ressurs/einingstypar |
+| native | https://data.norge.no/fint/fint-ressurs/einingstypar |
 
 
 

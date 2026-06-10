@@ -70,7 +70,7 @@ URI: [adm:jobbtittel](https://schema.fintlabs.no/administrasjon/jobbtittel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:jobbtittel |
-| native | https://schema.fintlabs.no/administrasjon/:jobbtittel |
+| native | https://data.norge.no/fint/fint-administrasjon/jobbtittel |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:bedrift](https://schema.fintlabs.no/utdanning/bedrift)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:bedrift |
-| native | https://schema.fintlabs.no/utdanning/:bedrift |
+| native | https://data.norge.no/fint/fint-utdanning/bedrift |
 
 
 

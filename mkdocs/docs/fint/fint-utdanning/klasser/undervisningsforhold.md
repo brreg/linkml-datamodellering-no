@@ -26,7 +26,7 @@ URI: [utd:undervisningsforhold](https://schema.fintlabs.no/utdanning/undervisnin
 | [Time](time.md) | Ein time i timeplanen |  yes  |
 | [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -77,7 +77,7 @@ URI: [utd:undervisningsforhold](https://schema.fintlabs.no/utdanning/undervisnin
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:undervisningsforhold |
-| native | https://schema.fintlabs.no/utdanning/:undervisningsforhold |
+| native | https://data.norge.no/fint/fint-utdanning/undervisningsforhold |
 
 
 

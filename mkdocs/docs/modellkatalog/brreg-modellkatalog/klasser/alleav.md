@@ -248,6 +248,12 @@ URI: [modelldcatno:AllOf](https://data.norge.no/vocabulary/modelldcatno#AllOf)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -288,6 +294,8 @@ URI: [modelldcatno:AllOf](https://data.norge.no/vocabulary/modelldcatno#AllOf)
 ```yaml
 name: AlleAv
 description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Valg
 class_uri: modelldcatno:AllOf
@@ -301,6 +309,8 @@ class_uri: modelldcatno:AllOf
 ```yaml
 name: AlleAv
 description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Valg
 attributes:

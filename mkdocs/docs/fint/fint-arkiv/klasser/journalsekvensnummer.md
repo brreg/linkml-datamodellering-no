@@ -70,7 +70,7 @@ URI: [ark:journalSekvensnummer](https://schema.fintlabs.no/arkiv/journalSekvensn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalSekvensnummer |
-| native | https://schema.fintlabs.no/arkiv/:journalSekvensnummer |
+| native | https://data.norge.no/fint/fint-arkiv/journalSekvensnummer |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:fullfortkode](https://schema.fintlabs.no/utdanning/fullfortkode)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fullfortkode |
-| native | https://schema.fintlabs.no/utdanning/:fullfortkode |
+| native | https://data.norge.no/fint/fint-utdanning/fullfortkode |
 
 
 

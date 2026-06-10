@@ -70,7 +70,7 @@ URI: [utd:foretrukketSensor](https://schema.fintlabs.no/utdanning/foretrukketSen
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:foretrukketSensor |
-| native | https://schema.fintlabs.no/utdanning/:foretrukketSensor |
+| native | https://data.norge.no/fint/fint-utdanning/foretrukketSensor |
 
 
 

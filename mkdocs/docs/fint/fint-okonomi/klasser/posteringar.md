@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:posteringar](https://schema.fintlabs.no/okonomi/:posteringar)
+URI: [https://data.norge.no/fint/fint-okonomi/posteringar](https://data.norge.no/fint/fint-okonomi/posteringar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:posteringar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:posteringar |
-| native | https://schema.fintlabs.no/okonomi/:posteringar |
+| self | https://data.norge.no/fint/fint-okonomi/posteringar |
+| native | https://data.norge.no/fint/fint-okonomi/posteringar |
 
 
 

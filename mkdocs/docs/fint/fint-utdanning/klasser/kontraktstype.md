@@ -70,7 +70,7 @@ URI: [utd:kontraktstype](https://schema.fintlabs.no/utdanning/kontraktstype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:kontraktstype |
-| native | https://schema.fintlabs.no/utdanning/:kontraktstype |
+| native | https://data.norge.no/fint/fint-utdanning/kontraktstype |
 
 
 

@@ -76,7 +76,7 @@ URI: [ark:utlaantDato](https://schema.fintlabs.no/arkiv/utlaantDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:utlaantDato |
-| native | https://schema.fintlabs.no/arkiv/:utlaantDato |
+| native | https://data.norge.no/fint/fint-arkiv/utlaantDato |
 
 
 

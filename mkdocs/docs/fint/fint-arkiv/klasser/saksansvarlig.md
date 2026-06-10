@@ -76,7 +76,7 @@ URI: [ark:saksansvarlig](https://schema.fintlabs.no/arkiv/saksansvarlig)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksansvarlig |
-| native | https://schema.fintlabs.no/arkiv/:saksansvarlig |
+| native | https://data.norge.no/fint/fint-arkiv/saksansvarlig |
 
 
 

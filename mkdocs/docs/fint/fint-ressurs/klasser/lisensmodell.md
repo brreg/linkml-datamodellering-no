@@ -70,7 +70,7 @@ URI: [res:lisensmodell](https://schema.fintlabs.no/ressurs/lisensmodell)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:lisensmodell |
-| native | https://schema.fintlabs.no/ressurs/:lisensmodell |
+| native | https://data.norge.no/fint/fint-ressurs/lisensmodell |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:organisasjonstypar](https://schema.fintlabs.no/administrasjon/:organisasjonstypar)
+URI: [https://data.norge.no/fint/fint-administrasjon/organisasjonstypar](https://data.norge.no/fint/fint-administrasjon/organisasjonstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:organisasjonstypar](https://sch
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:organisasjonstypar |
-| native | https://schema.fintlabs.no/administrasjon/:organisasjonstypar |
+| self | https://data.norge.no/fint/fint-administrasjon/organisasjonstypar |
+| native | https://data.norge.no/fint/fint-administrasjon/organisasjonstypar |
 
 
 

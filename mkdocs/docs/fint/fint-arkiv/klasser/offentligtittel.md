@@ -79,7 +79,7 @@ URI: [ark:offentligTittel](https://schema.fintlabs.no/arkiv/offentligTittel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:offentligTittel |
-| native | https://schema.fintlabs.no/arkiv/:offentligTittel |
+| native | https://data.norge.no/fint/fint-arkiv/offentligTittel |
 
 
 

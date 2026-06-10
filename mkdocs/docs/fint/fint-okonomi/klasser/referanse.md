@@ -70,7 +70,7 @@ URI: [okn:referanse](https://schema.fintlabs.no/okonomi/referanse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:referanse |
-| native | https://schema.fintlabs.no/okonomi/:referanse |
+| native | https://data.norge.no/fint/fint-okonomi/referanse |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:fravarsprosent](https://schema.fintlabs.no/utdanning/fravarsprosent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fravarsprosent |
-| native | https://schema.fintlabs.no/utdanning/:fravarsprosent |
+| native | https://data.norge.no/fint/fint-utdanning/fravarsprosent |
 
 
 

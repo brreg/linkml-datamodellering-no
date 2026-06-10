@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:statusar](https://schema.fintlabs.no/ressurs/:statusar)
+URI: [https://data.norge.no/fint/fint-ressurs/statusar](https://data.norge.no/fint/fint-ressurs/statusar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:statusar](https://schema.fintlabs.no/r
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:statusar |
-| native | https://schema.fintlabs.no/ressurs/:statusar |
+| self | https://data.norge.no/fint/fint-ressurs/statusar |
+| native | https://data.norge.no/fint/fint-ressurs/statusar |
 
 
 

@@ -22,7 +22,7 @@ URI: [utd:rom](https://schema.fintlabs.no/utdanning/rom)
 | --- | --- | --- |
 | [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  yes  |
 | [Time](time.md) | Ein time i timeplanen |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:rom](https://schema.fintlabs.no/utdanning/rom)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:rom |
-| native | https://schema.fintlabs.no/utdanning/:rom |
+| native | https://data.norge.no/fint/fint-utdanning/rom |
 
 
 

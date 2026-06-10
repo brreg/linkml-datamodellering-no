@@ -70,7 +70,7 @@ URI: [adm:fravaerstype](https://schema.fintlabs.no/administrasjon/fravaerstype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fravaerstype |
-| native | https://schema.fintlabs.no/administrasjon/:fravaerstype |
+| native | https://data.norge.no/fint/fint-administrasjon/fravaerstype |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:journalstatuskodar](https://schema.fintlabs.no/arkiv/:journalstatuskodar)
+URI: [https://data.norge.no/fint/fint-arkiv/journalstatuskodar](https://data.norge.no/fint/fint-arkiv/journalstatuskodar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:journalstatuskodar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:journalstatuskodar |
-| native | https://schema.fintlabs.no/arkiv/:journalstatuskodar |
+| self | https://data.norge.no/fint/fint-arkiv/journalstatuskodar |
+| native | https://data.norge.no/fint/fint-arkiv/journalstatuskodar |
 
 
 

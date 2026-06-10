@@ -72,7 +72,7 @@ URI: [ark:dokumentbeskrivelse](https://schema.fintlabs.no/arkiv/dokumentbeskrive
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentbeskrivelse |
-| native | https://schema.fintlabs.no/arkiv/:dokumentbeskrivelse |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentbeskrivelse |
 
 
 

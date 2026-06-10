@@ -70,7 +70,7 @@ URI: [adm:rolleNavn](https://schema.fintlabs.no/administrasjon/rolleNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:rolleNavn |
-| native | https://schema.fintlabs.no/administrasjon/:rolleNavn |
+| native | https://data.norge.no/fint/fint-administrasjon/rolleNavn |
 
 
 

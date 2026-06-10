@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste](https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste)
+URI: [https://data.norge.no/fint/fint-arkiv/soeknadDrosjeloeyve_liste](https://data.norge.no/fint/fint-arkiv/soeknadDrosjeloeyve_liste)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste](https://schem
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste |
-| native | https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste |
+| self | https://data.norge.no/fint/fint-arkiv/soeknadDrosjeloeyve_liste |
+| native | https://data.norge.no/fint/fint-arkiv/soeknadDrosjeloeyve_liste |
 
 
 

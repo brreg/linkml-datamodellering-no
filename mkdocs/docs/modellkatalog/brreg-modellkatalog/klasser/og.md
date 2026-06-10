@@ -176,6 +176,12 @@ URI: [modelldcatno:And](https://data.norge.no/vocabulary/modelldcatno#And)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -216,6 +222,8 @@ URI: [modelldcatno:And](https://data.norge.no/vocabulary/modelldcatno#And)
 ```yaml
 name: Og
 description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 class_uri: modelldcatno:And
@@ -229,6 +237,8 @@ class_uri: modelldcatno:And
 ```yaml
 name: Og
 description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 attributes:

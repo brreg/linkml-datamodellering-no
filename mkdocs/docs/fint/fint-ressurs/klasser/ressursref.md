@@ -70,7 +70,7 @@ URI: [res:ressursRef](https://schema.fintlabs.no/ressurs/ressursRef)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:ressursRef |
-| native | https://schema.fintlabs.no/ressurs/:ressursRef |
+| native | https://data.norge.no/fint/fint-ressurs/ressursRef |
 
 
 

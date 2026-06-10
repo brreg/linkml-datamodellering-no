@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:skolar](https://schema.fintlabs.no/utdanning/:skolar)
+URI: [https://data.norge.no/fint/fint-utdanning/skolar](https://data.norge.no/fint/fint-utdanning/skolar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:skolar](https://schema.fintlabs.no/u
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:skolar |
-| native | https://schema.fintlabs.no/utdanning/:skolar |
+| self | https://data.norge.no/fint/fint-utdanning/skolar |
+| native | https://data.norge.no/fint/fint-utdanning/skolar |
 
 
 

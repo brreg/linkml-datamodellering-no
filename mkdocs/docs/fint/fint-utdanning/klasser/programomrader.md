@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:programomrader](https://schema.fintlabs.no/utdanning/:programomrader)
+URI: [https://data.norge.no/fint/fint-utdanning/programomrader](https://data.norge.no/fint/fint-utdanning/programomrader)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:programomrader](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:programomrader |
-| native | https://schema.fintlabs.no/utdanning/:programomrader |
+| self | https://data.norge.no/fint/fint-utdanning/programomrader |
+| native | https://data.norge.no/fint/fint-utdanning/programomrader |
 
 
 

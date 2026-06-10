@@ -138,6 +138,12 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -178,6 +184,8 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 ```yaml
 name: Lisensdokument
 description: Eit lisensdokument (dct:LicenseDocument).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -193,6 +201,8 @@ class_uri: dct:LicenseDocument
 ```yaml
 name: Lisensdokument
 description: Eit lisensdokument (dct:LicenseDocument).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 attributes:
   id:

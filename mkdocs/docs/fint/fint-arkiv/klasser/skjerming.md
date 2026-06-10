@@ -82,7 +82,7 @@ URI: [ark:skjerming](https://schema.fintlabs.no/arkiv/skjerming)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:skjerming |
-| native | https://schema.fintlabs.no/arkiv/:skjerming |
+| native | https://data.norge.no/fint/fint-arkiv/skjerming |
 
 
 

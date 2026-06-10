@@ -70,7 +70,7 @@ URI: [utd:eksamensdato](https://schema.fintlabs.no/utdanning/eksamensdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:eksamensdato |
-| native | https://schema.fintlabs.no/utdanning/:eksamensdato |
+| native | https://data.norge.no/fint/fint-utdanning/eksamensdato |
 
 
 

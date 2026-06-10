@@ -73,7 +73,7 @@ URI: [utd:skoleressurs](https://schema.fintlabs.no/utdanning/skoleressurs)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skoleressurs |
-| native | https://schema.fintlabs.no/utdanning/:skoleressurs |
+| native | https://data.norge.no/fint/fint-utdanning/skoleressurs |
 
 
 

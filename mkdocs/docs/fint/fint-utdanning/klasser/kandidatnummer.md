@@ -70,7 +70,7 @@ URI: [utd:kandidatnummer](https://schema.fintlabs.no/utdanning/kandidatnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:kandidatnummer |
-| native | https://schema.fintlabs.no/utdanning/:kandidatnummer |
+| native | https://data.norge.no/fint/fint-utdanning/kandidatnummer |
 
 
 

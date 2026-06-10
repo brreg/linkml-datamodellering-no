@@ -70,7 +70,7 @@ URI: [pvn:organisasjonselement](https://schema.fintlabs.no/personvern/organisasj
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:organisasjonselement |
-| native | https://schema.fintlabs.no/personvern/:organisasjonselement |
+| native | https://data.norge.no/fint/fint-personvern/organisasjonselement |
 
 
 

@@ -70,7 +70,7 @@ URI: [adm:arbeidssted](https://schema.fintlabs.no/administrasjon/arbeidssted)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:arbeidssted |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidssted |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidssted |
 
 
 

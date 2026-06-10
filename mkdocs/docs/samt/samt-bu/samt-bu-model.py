@@ -1,5 +1,5 @@
 # Auto generated from samt-bu-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:20
+# Generation date: 2026-06-09T14:25:27
 # Schema: skole_ontologi
 #
 # id: https://example.no/ontology/samt-bu-skole
@@ -82,6 +82,7 @@ OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+SAMTBU = CurieNamespace('samtbu', 'https://data.norge.no/samt/samt-bu/')
 SAMTBUSKOLE = CurieNamespace('samtbuskole', 'https://example.no/ontology/skole#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
@@ -89,7 +90,7 @@ SPDX = CurieNamespace('spdx', 'http://spdx.org/rdf/terms#')
 TIME = CurieNamespace('time', 'http://www.w3.org/6006/time#')
 VCARD = CurieNamespace('vcard', 'http://www.w3.org/2006/vcard/ns#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = SAMTBUSKOLE
+DEFAULT_ = SAMTBU
 
 
 # Types
@@ -98,7 +99,7 @@ class Spraak(str):
     type_class_uri = DCT["language"]
     type_class_curie = "dct:language"
     type_name = "Spraak"
-    type_model_uri = SAMTBUSKOLE.Spraak
+    type_model_uri = SAMTBU.Spraak
 
 
 class LangString(str):
@@ -106,7 +107,7 @@ class LangString(str):
     type_class_uri = RDF["langString"]
     type_class_curie = "rdf:langString"
     type_name = "LangString"
-    type_model_uri = SAMTBUSKOLE.LangString
+    type_model_uri = SAMTBU.LangString
 
 
 class NonNegativeInteger(int):
@@ -114,7 +115,7 @@ class NonNegativeInteger(int):
     type_class_uri = XSD["nonNegativeInteger"]
     type_class_curie = "xsd:nonNegativeInteger"
     type_name = "NonNegativeInteger"
-    type_model_uri = SAMTBUSKOLE.NonNegativeInteger
+    type_model_uri = SAMTBU.NonNegativeInteger
 
 
 class Duration(str):
@@ -122,7 +123,7 @@ class Duration(str):
     type_class_uri = XSD["duration"]
     type_class_curie = "xsd:duration"
     type_name = "Duration"
-    type_model_uri = SAMTBUSKOLE.Duration
+    type_model_uri = SAMTBU.Duration
 
 
 class GYear(str):
@@ -130,7 +131,7 @@ class GYear(str):
     type_class_uri = XSD["gYear"]
     type_class_curie = "xsd:gYear"
     type_name = "GYear"
-    type_model_uri = SAMTBUSKOLE.GYear
+    type_model_uri = SAMTBU.GYear
 
 
 # Class references
@@ -293,10 +294,10 @@ class SamtBuContainer(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["SamtBuContainer"]
-    class_class_curie: ClassVar[str] = "samtbuskole:SamtBuContainer"
+    class_class_uri: ClassVar[URIRef] = SAMTBU["SamtBuContainer"]
+    class_class_curie: ClassVar[str] = "samtbu:SamtBuContainer"
     class_name: ClassVar[str] = "SamtBuContainer"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.SamtBuContainer
+    class_model_uri: ClassVar[URIRef] = SAMTBU.SamtBuContainer
 
     kontaktpunkter: Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, "Kontaktopplysning"]], list[Union[dict, "Kontaktopplysning"]]]] = empty_dict()
     utgivere: Optional[Union[dict[Union[str, AktorId], Union[dict, "Aktor"]], list[Union[dict, "Aktor"]]]] = empty_dict()
@@ -384,7 +385,7 @@ class Skole(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Skole"]
     class_class_curie: ClassVar[str] = "samtbuskole:Skole"
     class_name: ClassVar[str] = "Skole"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Skole
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Skole
 
     id: Union[str, SkoleId] = None
     navn: Optional[str] = None
@@ -415,7 +416,7 @@ class Skoleeier(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Skoleeier"]
     class_class_curie: ClassVar[str] = "samtbuskole:Skoleeier"
     class_name: ClassVar[str] = "Skoleeier"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Skoleeier
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Skoleeier
 
     id: Union[str, SkoleeierId] = None
     navn: Optional[str] = None
@@ -443,7 +444,7 @@ class Kommune(Skoleeier):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Kommune"]
     class_class_curie: ClassVar[str] = "samtbuskole:Kommune"
     class_name: ClassVar[str] = "Kommune"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kommune
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kommune
 
     id: Union[str, KommuneId] = None
     kommunenummer: Optional[str] = None
@@ -471,7 +472,7 @@ class Fylke(Skoleeier):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Fylke"]
     class_class_curie: ClassVar[str] = "samtbuskole:Fylke"
     class_name: ClassVar[str] = "Fylke"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Fylke
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Fylke
 
     id: Union[str, FylkeId] = None
     fylkesnummer: Optional[str] = None
@@ -499,7 +500,7 @@ class PrivatVirksomhet(Skoleeier):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["PrivatVirksomhet"]
     class_class_curie: ClassVar[str] = "samtbuskole:PrivatVirksomhet"
     class_name: ClassVar[str] = "PrivatVirksomhet"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.PrivatVirksomhet
+    class_model_uri: ClassVar[URIRef] = SAMTBU.PrivatVirksomhet
 
     id: Union[str, PrivatVirksomhetId] = None
     organisasjonsnummer: Optional[str] = None
@@ -526,7 +527,7 @@ class Basisgruppe(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Basisgruppe"]
     class_class_curie: ClassVar[str] = "samtbuskole:Basisgruppe"
     class_name: ClassVar[str] = "Basisgruppe"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Basisgruppe
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Basisgruppe
 
     id: Union[str, BasisgruppeId] = None
     navn: Optional[str] = None
@@ -561,7 +562,7 @@ class Person(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Person"]
     class_class_curie: ClassVar[str] = "samtbuskole:Person"
     class_name: ClassVar[str] = "Person"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Person
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Person
 
     id: Union[str, PersonId] = None
     navn: Optional[str] = None
@@ -588,7 +589,7 @@ class Elev(Person):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Elev"]
     class_class_curie: ClassVar[str] = "samtbuskole:Elev"
     class_name: ClassVar[str] = "Elev"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Elev
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Elev
 
     id: Union[str, ElevId] = None
     horer_til_basisgruppe: Optional[Union[str, BasisgruppeId]] = None
@@ -615,7 +616,7 @@ class Rektor(Person):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Rektor"]
     class_class_curie: ClassVar[str] = "samtbuskole:Rektor"
     class_name: ClassVar[str] = "Rektor"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Rektor
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Rektor
 
     id: Union[str, RektorId] = None
     enhetsleder_for: Optional[Union[str, SkoleId]] = None
@@ -642,7 +643,7 @@ class Kontaktlaerer(Person):
     class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Kontaktlaerer"]
     class_class_curie: ClassVar[str] = "samtbuskole:Kontaktlaerer"
     class_name: ClassVar[str] = "Kontaktlaerer"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kontaktlaerer
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kontaktlaerer
 
     id: Union[str, KontaktlaererId] = None
     tilknyttet_basisgruppe: Optional[Union[str, BasisgruppeId]] = None
@@ -677,7 +678,7 @@ class KatalogisertRessurs(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCAT["Resource"]
     class_class_curie: ClassVar[str] = "dcat:Resource"
     class_name: ClassVar[str] = "KatalogisertRessurs"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.KatalogisertRessurs
+    class_model_uri: ClassVar[URIRef] = SAMTBU.KatalogisertRessurs
 
     id: Union[str, KatalogisertRessursId] = None
 
@@ -700,7 +701,7 @@ class Aktor(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = FOAF["Agent"]
     class_class_curie: ClassVar[str] = "foaf:Agent"
     class_name: ClassVar[str] = "Aktor"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Aktor
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Aktor
 
     id: Union[str, AktorId] = None
     navn_aktor: Union[str, list[str]] = None
@@ -738,7 +739,7 @@ class Kontaktopplysning(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = VCARD["Kind"]
     class_class_curie: ClassVar[str] = "vcard:Kind"
     class_name: ClassVar[str] = "Kontaktopplysning"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kontaktopplysning
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kontaktopplysning
 
     id: Union[str, KontaktopplysningId] = None
     navn_vcard: Union[str, list[str]] = None
@@ -776,7 +777,7 @@ class Tidsrom(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCT["PeriodOfTime"]
     class_class_curie: ClassVar[str] = "dct:PeriodOfTime"
     class_name: ClassVar[str] = "Tidsrom"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Tidsrom
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Tidsrom
 
     id: Union[str, TidsromId] = None
     startdato: Optional[Union[str, XSDDate]] = None
@@ -815,7 +816,7 @@ class RegulativRessurs(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = ELI["LegalResource"]
     class_class_curie: ClassVar[str] = "eli:LegalResource"
     class_name: ClassVar[str] = "RegulativRessurs"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.RegulativRessurs
+    class_model_uri: ClassVar[URIRef] = SAMTBU.RegulativRessurs
 
     id: Union[str, RegulativRessursId] = None
     beskrivelse: Optional[Union[str, list[str]]] = empty_list()
@@ -871,7 +872,7 @@ class Identifikator(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = ADMS["Identifier"]
     class_class_curie: ClassVar[str] = "adms:Identifier"
     class_name: ClassVar[str] = "Identifikator"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Identifikator
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Identifikator
 
     id: Union[str, IdentifikatorId] = None
     notasjon: str = None
@@ -900,7 +901,7 @@ class Rettighetserklaring(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCT["RightsStatement"]
     class_class_curie: ClassVar[str] = "dct:RightsStatement"
     class_name: ClassVar[str] = "Rettighetserklaring"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Rettighetserklaring
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Rettighetserklaring
 
     id: Union[str, RettighetserklaringId] = None
     anvendelsesretningslinjer: Optional[str] = None
@@ -955,7 +956,7 @@ class Sjekksum(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SPDX["Checksum"]
     class_class_curie: ClassVar[str] = "spdx:Checksum"
     class_name: ClassVar[str] = "Sjekksum"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Sjekksum
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Sjekksum
 
     id: Union[str, SjekksumId] = None
     algoritme: str = None
@@ -990,7 +991,7 @@ class Gebyr(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = CV["Cost"]
     class_class_curie: ClassVar[str] = "cv:Cost"
     class_name: ClassVar[str] = "Gebyr"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Gebyr
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Gebyr
 
     id: Union[str, GebyrId] = None
     belop: Optional[str] = None
@@ -1031,7 +1032,7 @@ class Relasjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCAT["Relationship"]
     class_class_curie: ClassVar[str] = "dcat:Relationship"
     class_name: ClassVar[str] = "Relasjon"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Relasjon
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Relasjon
 
     id: Union[str, RelasjonId] = None
     har_rolle: str = None
@@ -1066,7 +1067,7 @@ class Distribusjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCAT["Distribution"]
     class_class_curie: ClassVar[str] = "dcat:Distribution"
     class_name: ClassVar[str] = "Distribusjon"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Distribusjon
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Distribusjon
 
     id: Union[str, DistribusjonId] = None
     tilgangs_url: Union[Union[str, URI], list[Union[str, URI]]] = None
@@ -1192,7 +1193,7 @@ class Datasett(KatalogisertRessurs):
     class_class_uri: ClassVar[URIRef] = DCAT["Dataset"]
     class_class_curie: ClassVar[str] = "dcat:Dataset"
     class_name: ClassVar[str] = "Datasett"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Datasett
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Datasett
 
     id: Union[str, DatasettId] = None
     beskrivelse: Union[str, list[str]] = None
@@ -1388,7 +1389,7 @@ class Datasettserie(KatalogisertRessurs):
     class_class_uri: ClassVar[URIRef] = DCAT["DatasetSeries"]
     class_class_curie: ClassVar[str] = "dcat:DatasetSeries"
     class_name: ClassVar[str] = "Datasettserie"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Datasettserie
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Datasettserie
 
     id: Union[str, DatasettserieId] = None
     beskrivelse: Union[str, list[str]] = None
@@ -1480,7 +1481,7 @@ class Datatjeneste(KatalogisertRessurs):
     class_class_uri: ClassVar[URIRef] = DCAT["DataService"]
     class_class_curie: ClassVar[str] = "dcat:DataService"
     class_name: ClassVar[str] = "Datatjeneste"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Datatjeneste
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Datatjeneste
 
     id: Union[str, DatatjenesteId] = None
     endepunkts_url: Union[Union[str, URI], list[Union[str, URI]]] = None
@@ -1618,7 +1619,7 @@ class Katalogpost(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCAT["CatalogRecord"]
     class_class_curie: ClassVar[str] = "dcat:CatalogRecord"
     class_name: ClassVar[str] = "Katalogpost"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Katalogpost
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Katalogpost
 
     id: Union[str, KatalogpostId] = None
     endringsdato: Union[str, XSDDate] = None
@@ -1685,7 +1686,7 @@ class Katalog(KatalogisertRessurs):
     class_class_uri: ClassVar[URIRef] = DCAT["Catalog"]
     class_class_curie: ClassVar[str] = "dcat:Catalog"
     class_name: ClassVar[str] = "Katalog"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Katalog
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Katalog
 
     id: Union[str, KatalogId] = None
     beskrivelse: Union[str, list[str]] = None
@@ -1814,7 +1815,7 @@ class Kvalitetsdimensjon(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DQV["Dimension"]
     class_class_curie: ClassVar[str] = "dqv:Dimension"
     class_name: ClassVar[str] = "Kvalitetsdimensjon"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetsdimensjon
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetsdimensjon
 
     id: Union[str, KvalitetsdimensjonId] = None
     har_anbefalt_term: Optional[Union[str, list[str]]] = empty_list()
@@ -1847,7 +1848,7 @@ class Kvalitetsdeldimensjon(Kvalitetsdimensjon):
     class_class_uri: ClassVar[URIRef] = DQVNO["SubDimension"]
     class_class_curie: ClassVar[str] = "dqvno:SubDimension"
     class_name: ClassVar[str] = "Kvalitetsdeldimensjon"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetsdeldimensjon
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetsdeldimensjon
 
     id: Union[str, KvalitetsdeldimensjonId] = None
     er_deldimensjon_av: Union[str, KvalitetsdimensjonId] = None
@@ -1886,7 +1887,7 @@ class Kvalitetsmaal(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DQV["Metric"]
     class_class_curie: ClassVar[str] = "dqv:Metric"
     class_name: ClassVar[str] = "Kvalitetsmaal"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetsmaal
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetsmaal
 
     id: Union[str, KvalitetsmaalId] = None
     er_i_kvalitetsdeldimensjon: Union[str, KvalitetsdeldimensjonId] = None
@@ -1929,7 +1930,7 @@ class Kvalitetsmerknad(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DQV["QualityAnnotation"]
     class_class_curie: ClassVar[str] = "dqv:QualityAnnotation"
     class_name: ClassVar[str] = "Kvalitetsmerknad"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetsmerknad
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetsmerknad
 
     id: Union[str, KvalitetsmerknadId] = None
     er_motivert_av: Union[str, URIorCURIE] = None
@@ -1976,7 +1977,7 @@ class Brukartilbakemelding(Kvalitetsmerknad):
     class_class_uri: ClassVar[URIRef] = DQV["UserQualityFeedback"]
     class_class_curie: ClassVar[str] = "dqv:UserQualityFeedback"
     class_name: ClassVar[str] = "Brukartilbakemelding"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Brukartilbakemelding
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Brukartilbakemelding
 
     id: Union[str, BrukartilbakemeldingId] = None
     er_motivert_av: Union[str, URIorCURIE] = None
@@ -2000,7 +2001,7 @@ class Kvalitetssertifikat(Kvalitetsmerknad):
     class_class_uri: ClassVar[URIRef] = DQV["QualityCertificate"]
     class_class_curie: ClassVar[str] = "dqv:QualityCertificate"
     class_name: ClassVar[str] = "Kvalitetssertifikat"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetssertifikat
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetssertifikat
 
     id: Union[str, KvalitetssertifikatId] = None
     er_motivert_av: Union[str, URIorCURIE] = None
@@ -2024,7 +2025,7 @@ class Kvalitetsmaaling(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DQV["QualityMeasurement"]
     class_class_curie: ClassVar[str] = "dqv:QualityMeasurement"
     class_name: ClassVar[str] = "Kvalitetsmaaling"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Kvalitetsmaaling
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Kvalitetsmaaling
 
     id: Union[str, KvalitetsmaalingId] = None
     er_kvalitetsmaaling_av: Union[str, KvalitetsmaalId] = None
@@ -2062,7 +2063,7 @@ class Standard(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCT["Standard"]
     class_class_curie: ClassVar[str] = "dct:Standard"
     class_name: ClassVar[str] = "Standard"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Standard
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Standard
 
     id: Union[str, StandardId] = None
     tittel: Union[str, list[str]] = None
@@ -2111,7 +2112,7 @@ class Tekstdel(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OA["TextualBody"]
     class_class_curie: ClassVar[str] = "oa:TextualBody"
     class_name: ClassVar[str] = "Tekstdel"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Tekstdel
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Tekstdel
 
     id: Union[str, TekstdelId] = None
     har_verdi_tekstdel: str = None
@@ -2149,7 +2150,7 @@ class Mediatype(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = DCT["MediaTypeOrExtent"]
     class_class_curie: ClassVar[str] = "dct:MediaTypeOrExtent"
     class_name: ClassVar[str] = "Mediatype"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Mediatype
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Mediatype
 
     id: Union[str, MediatypeId] = None
 
@@ -2172,7 +2173,7 @@ class Konsept(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SKOS["Concept"]
     class_class_curie: ClassVar[str] = "skos:Concept"
     class_name: ClassVar[str] = "Konsept"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Konsept
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Konsept
 
     id: Union[str, KonseptId] = None
 
@@ -2195,7 +2196,7 @@ class Begrepssamling(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SKOS["ConceptScheme"]
     class_class_curie: ClassVar[str] = "skos:ConceptScheme"
     class_name: ClassVar[str] = "Begrepssamling"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Begrepssamling
+    class_model_uri: ClassVar[URIRef] = SAMTBU.Begrepssamling
 
     id: Union[str, BegrepssamlingId] = None
 
@@ -2216,707 +2217,707 @@ class slots:
     pass
 
 slots.navn = Slot(uri=SAMTBUSKOLE.navn, name="navn", curie=SAMTBUSKOLE.curie('navn'),
-                   model_uri=SAMTBUSKOLE.navn, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.navn, domain=None, range=Optional[str])
 
 slots.kommunenummer = Slot(uri=DCAT.identifier, name="kommunenummer", curie=DCAT.curie('identifier'),
-                   model_uri=SAMTBUSKOLE.kommunenummer, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.kommunenummer, domain=None, range=Optional[str])
 
 slots.fylkesnummer = Slot(uri=DCAT.identifier, name="fylkesnummer", curie=DCAT.curie('identifier'),
-                   model_uri=SAMTBUSKOLE.fylkesnummer, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.fylkesnummer, domain=None, range=Optional[str])
 
 slots.organisasjonsnummer = Slot(uri=DCT.identifier, name="organisasjonsnummer", curie=DCT.curie('identifier'),
-                   model_uri=SAMTBUSKOLE.organisasjonsnummer, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.organisasjonsnummer, domain=None, range=Optional[str])
 
 slots.trinniva = Slot(uri=SAMTBUSKOLE.trinniva, name="trinniva", curie=SAMTBUSKOLE.curie('trinniva'),
-                   model_uri=SAMTBUSKOLE.trinniva, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.trinniva, domain=None, range=Optional[str])
 
-slots.har_skoleeier = Slot(uri=SAMTBUSKOLE.har_skoleeier, name="har_skoleeier", curie=SAMTBUSKOLE.curie('har_skoleeier'),
-                   model_uri=SAMTBUSKOLE.har_skoleeier, domain=Skole, range=Optional[Union[str, SkoleeierId]])
+slots.har_skoleeier = Slot(uri=SAMTBUSKOLE.harSkoleeier, name="har_skoleeier", curie=SAMTBUSKOLE.curie('harSkoleeier'),
+                   model_uri=SAMTBU.har_skoleeier, domain=Skole, range=Optional[Union[str, SkoleeierId]])
 
 slots.del_av_skole = Slot(uri=ORG.unitOf, name="del_av_skole", curie=ORG.curie('unitOf'),
-                   model_uri=SAMTBUSKOLE.del_av_skole, domain=Basisgruppe, range=Optional[Union[str, SkoleId]])
+                   model_uri=SAMTBU.del_av_skole, domain=Basisgruppe, range=Optional[Union[str, SkoleId]])
 
-slots.horer_til_basisgruppe = Slot(uri=SAMTBUSKOLE.horer_til_basisgruppe, name="horer_til_basisgruppe", curie=SAMTBUSKOLE.curie('horer_til_basisgruppe'),
-                   model_uri=SAMTBUSKOLE.horer_til_basisgruppe, domain=Elev, range=Optional[Union[str, BasisgruppeId]])
+slots.horer_til_basisgruppe = Slot(uri=SAMTBUSKOLE.horerTilBasisgruppe, name="horer_til_basisgruppe", curie=SAMTBUSKOLE.curie('horerTilBasisgruppe'),
+                   model_uri=SAMTBU.horer_til_basisgruppe, domain=Elev, range=Optional[Union[str, BasisgruppeId]])
 
-slots.enhetsleder_for = Slot(uri=SAMTBUSKOLE.enhetsleder_for, name="enhetsleder_for", curie=SAMTBUSKOLE.curie('enhetsleder_for'),
-                   model_uri=SAMTBUSKOLE.enhetsleder_for, domain=Rektor, range=Optional[Union[str, SkoleId]])
+slots.enhetsleder_for = Slot(uri=SAMTBUSKOLE.enhetslederFor, name="enhetsleder_for", curie=SAMTBUSKOLE.curie('enhetslederFor'),
+                   model_uri=SAMTBU.enhetsleder_for, domain=Rektor, range=Optional[Union[str, SkoleId]])
 
-slots.tilknyttet_basisgruppe = Slot(uri=SAMTBUSKOLE.tilknyttet_basisgruppe, name="tilknyttet_basisgruppe", curie=SAMTBUSKOLE.curie('tilknyttet_basisgruppe'),
-                   model_uri=SAMTBUSKOLE.tilknyttet_basisgruppe, domain=Kontaktlaerer, range=Optional[Union[str, BasisgruppeId]])
+slots.tilknyttet_basisgruppe = Slot(uri=SAMTBUSKOLE.tilknyttetBasisgruppe, name="tilknyttet_basisgruppe", curie=SAMTBUSKOLE.curie('tilknyttetBasisgruppe'),
+                   model_uri=SAMTBU.tilknyttet_basisgruppe, domain=Kontaktlaerer, range=Optional[Union[str, BasisgruppeId]])
 
-slots.har_saerlig_ansvar_for = Slot(uri=SAMTBUSKOLE.har_saerlig_ansvar_for, name="har_saerlig_ansvar_for", curie=SAMTBUSKOLE.curie('har_saerlig_ansvar_for'),
-                   model_uri=SAMTBUSKOLE.har_saerlig_ansvar_for, domain=Kontaktlaerer, range=Optional[Union[str, ElevId]])
+slots.har_saerlig_ansvar_for = Slot(uri=SAMTBUSKOLE.harSaerligAnsvarFor, name="har_saerlig_ansvar_for", curie=SAMTBUSKOLE.curie('harSaerligAnsvarFor'),
+                   model_uri=SAMTBU.har_saerlig_ansvar_for, domain=Kontaktlaerer, range=Optional[Union[str, ElevId]])
 
-slots.jobber_paa_skole = Slot(uri=SAMTBUSKOLE.jobber_paa_skole, name="jobber_paa_skole", curie=SAMTBUSKOLE.curie('jobber_paa_skole'),
-                   model_uri=SAMTBUSKOLE.jobber_paa_skole, domain=Kontaktlaerer, range=Optional[Union[str, SkoleId]])
+slots.jobber_paa_skole = Slot(uri=SAMTBUSKOLE.jobberPaaSkole, name="jobber_paa_skole", curie=SAMTBUSKOLE.curie('jobberPaaSkole'),
+                   model_uri=SAMTBU.jobber_paa_skole, domain=Kontaktlaerer, range=Optional[Union[str, SkoleId]])
 
 slots.tittel_literal = Slot(uri=DCT.title, name="tittel_literal", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.tittel_literal, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.tittel_literal, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.notasjon = Slot(uri=SKOS.notation, name="notasjon", curie=SKOS.curie('notation'),
-                   model_uri=SAMTBUSKOLE.notasjon, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.notasjon, domain=None, range=Optional[str])
 
 slots.versjon = Slot(uri=DCAT.version, name="versjon", curie=DCAT.curie('version'),
-                   model_uri=SAMTBUSKOLE.versjon, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.versjon, domain=None, range=Optional[str])
 
 slots.navn_aktor = Slot(uri=FOAF.name, name="navn_aktor", curie=FOAF.curie('name'),
-                   model_uri=SAMTBUSKOLE.navn_aktor, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.navn_aktor, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.navn_vcard = Slot(uri=VCARD.fn, name="navn_vcard", curie=VCARD.curie('fn'),
-                   model_uri=SAMTBUSKOLE.navn_vcard, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.navn_vcard, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.algoritme = Slot(uri=SPDX.algorithm, name="algoritme", curie=SPDX.curie('algorithm'),
-                   model_uri=SAMTBUSKOLE.algoritme, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.algoritme, domain=None, range=Optional[str])
 
 slots.sjekksumverdi = Slot(uri=SPDX.checksumValue, name="sjekksumverdi", curie=SPDX.curie('checksumValue'),
-                   model_uri=SAMTBUSKOLE.sjekksumverdi, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.sjekksumverdi, domain=None, range=Optional[str])
 
 slots.belop = Slot(uri=CV.hasValue, name="belop", curie=CV.curie('hasValue'),
-                   model_uri=SAMTBUSKOLE.belop, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.belop, domain=None, range=Optional[str])
 
 slots.startdato = Slot(uri=DCAT.startDate, name="startdato", curie=DCAT.curie('startDate'),
-                   model_uri=SAMTBUSKOLE.startdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.startdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.sluttdato = Slot(uri=DCAT.endDate, name="sluttdato", curie=DCAT.curie('endDate'),
-                   model_uri=SAMTBUSKOLE.sluttdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.sluttdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.tidsopplosning = Slot(uri=DCAT.temporalResolution, name="tidsopplosning", curie=DCAT.curie('temporalResolution'),
-                   model_uri=SAMTBUSKOLE.tidsopplosning, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.tidsopplosning, domain=None, range=Optional[str])
 
 slots.endepunkts_url = Slot(uri=DCAT.endpointURL, name="endepunkts_url", curie=DCAT.curie('endpointURL'),
-                   model_uri=SAMTBUSKOLE.endepunkts_url, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.endepunkts_url, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.endepunktsbeskrivelse = Slot(uri=DCAT.endpointDescription, name="endepunktsbeskrivelse", curie=DCAT.curie('endpointDescription'),
-                   model_uri=SAMTBUSKOLE.endepunktsbeskrivelse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.endepunktsbeskrivelse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.tilgangs_url = Slot(uri=DCAT.accessURL, name="tilgangs_url", curie=DCAT.curie('accessURL'),
-                   model_uri=SAMTBUSKOLE.tilgangs_url, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.tilgangs_url, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.nedlastningslenke = Slot(uri=DCAT.downloadURL, name="nedlastningslenke", curie=DCAT.curie('downloadURL'),
-                   model_uri=SAMTBUSKOLE.nedlastningslenke, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.nedlastningslenke, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.landingsside = Slot(uri=DCAT.landingPage, name="landingsside", curie=DCAT.curie('landingPage'),
-                   model_uri=SAMTBUSKOLE.landingsside, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.landingsside, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.har_epost = Slot(uri=VCARD.hasEmail, name="har_epost", curie=VCARD.curie('hasEmail'),
-                   model_uri=SAMTBUSKOLE.har_epost, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_epost, domain=None, range=Optional[str])
 
 slots.har_kontaktside = Slot(uri=VCARD.hasURL, name="har_kontaktside", curie=VCARD.curie('hasURL'),
-                   model_uri=SAMTBUSKOLE.har_kontaktside, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_kontaktside, domain=None, range=Optional[str])
 
 slots.dokumentasjon = Slot(uri=FOAF.page, name="dokumentasjon", curie=FOAF.curie('page'),
-                   model_uri=SAMTBUSKOLE.dokumentasjon, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.dokumentasjon, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.referanse = Slot(uri=RDFS.seeAlso, name="referanse", curie=RDFS.curie('seeAlso'),
-                   model_uri=SAMTBUSKOLE.referanse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.referanse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.relatert_ressurs = Slot(uri=DCT.relation, name="relatert_ressurs", curie=DCT.curie('relation'),
-                   model_uri=SAMTBUSKOLE.relatert_ressurs, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.relatert_ressurs, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.kilde_post = Slot(uri=DCT.source, name="kilde_post", curie=DCT.curie('source'),
-                   model_uri=SAMTBUSKOLE.kilde_post, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SAMTBU.kilde_post, domain=None, range=Optional[Union[str, URI]])
 
 slots.krediteringsurl = Slot(uri=ODRS.attributionURL, name="krediteringsurl", curie=ODRS.curie('attributionURL'),
-                   model_uri=SAMTBUSKOLE.krediteringsurl, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SAMTBU.krediteringsurl, domain=None, range=Optional[Union[str, URI]])
 
 slots.filstorrelse = Slot(uri=DCAT.byteSize, name="filstorrelse", curie=DCAT.curie('byteSize'),
-                   model_uri=SAMTBUSKOLE.filstorrelse, domain=None, range=Optional[int])
+                   model_uri=SAMTBU.filstorrelse, domain=None, range=Optional[int])
 
 slots.har_kvalitetsmerknad = Slot(uri=DQV.hasQualityAnnotation, name="har_kvalitetsmerknad", curie=DQV.curie('hasQualityAnnotation'),
-                   model_uri=SAMTBUSKOLE.har_kvalitetsmerknad, domain=None, range=Optional[Union[Union[str, KvalitetsmerknadId], list[Union[str, KvalitetsmerknadId]]]])
+                   model_uri=SAMTBU.har_kvalitetsmerknad, domain=None, range=Optional[Union[Union[str, KvalitetsmerknadId], list[Union[str, KvalitetsmerknadId]]]])
 
 slots.anvendelsesretningslinjer = Slot(uri=ODRS.reuserGuidelines, name="anvendelsesretningslinjer", curie=ODRS.curie('reuserGuidelines'),
-                   model_uri=SAMTBUSKOLE.anvendelsesretningslinjer, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.anvendelsesretningslinjer, domain=None, range=Optional[str])
 
 slots.jurisdiksjon = Slot(uri=ODRS.jurisdiction, name="jurisdiksjon", curie=ODRS.curie('jurisdiction'),
-                   model_uri=SAMTBUSKOLE.jurisdiksjon, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.jurisdiksjon, domain=None, range=Optional[str])
 
 slots.krediteringstekst = Slot(uri=ODRS.attributionText, name="krediteringstekst", curie=ODRS.curie('attributionText'),
-                   model_uri=SAMTBUSKOLE.krediteringstekst, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.krediteringstekst, domain=None, range=Optional[str])
 
 slots.opphavsrettserklaring = Slot(uri=ODRS.copyrightStatement, name="opphavsrettserklaring", curie=ODRS.curie('copyrightStatement'),
-                   model_uri=SAMTBUSKOLE.opphavsrettserklaring, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.opphavsrettserklaring, domain=None, range=Optional[str])
 
 slots.opphavsrettsinnehaver = Slot(uri=ODRS.copyrightHolder, name="opphavsrettsinnehaver", curie=ODRS.curie('copyrightHolder'),
-                   model_uri=SAMTBUSKOLE.opphavsrettsinnehaver, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.opphavsrettsinnehaver, domain=None, range=Optional[str])
 
 slots.opphavsrettsnotis = Slot(uri=ODRS.copyrightNotice, name="opphavsrettsnotis", curie=ODRS.curie('copyrightNotice'),
-                   model_uri=SAMTBUSKOLE.opphavsrettsnotis, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.opphavsrettsnotis, domain=None, range=Optional[str])
 
 slots.opphavsrettsaar = Slot(uri=ODRS.copyrightYear, name="opphavsrettsaar", curie=ODRS.curie('copyrightYear'),
-                   model_uri=SAMTBUSKOLE.opphavsrettsaar, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.opphavsrettsaar, domain=None, range=Optional[str])
 
 slots.utgiver = Slot(uri=DCT.publisher, name="utgiver", curie=DCT.curie('publisher'),
-                   model_uri=SAMTBUSKOLE.utgiver, domain=None, range=Optional[Union[str, AktorId]])
+                   model_uri=SAMTBU.utgiver, domain=None, range=Optional[Union[str, AktorId]])
 
 slots.produsent = Slot(uri=DCT.creator, name="produsent", curie=DCT.curie('creator'),
-                   model_uri=SAMTBUSKOLE.produsent, domain=None, range=Optional[Union[str, AktorId]])
+                   model_uri=SAMTBU.produsent, domain=None, range=Optional[Union[str, AktorId]])
 
 slots.kontaktpunkt = Slot(uri=DCAT.contactPoint, name="kontaktpunkt", curie=DCAT.curie('contactPoint'),
-                   model_uri=SAMTBUSKOLE.kontaktpunkt, domain=None, range=Optional[Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]]])
+                   model_uri=SAMTBU.kontaktpunkt, domain=None, range=Optional[Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]]])
 
 slots.tema = Slot(uri=DCAT.theme, name="tema", curie=DCAT.curie('theme'),
-                   model_uri=SAMTBUSKOLE.tema, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.tema, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.temaer = Slot(uri=DCAT.themeTaxonomy, name="temaer", curie=DCAT.curie('themeTaxonomy'),
-                   model_uri=SAMTBUSKOLE.temaer, domain=None, range=Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]])
+                   model_uri=SAMTBU.temaer, domain=None, range=Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]])
 
 slots.begrep = Slot(uri=DCT.subject, name="begrep", curie=DCT.curie('subject'),
-                   model_uri=SAMTBUSKOLE.begrep, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.begrep, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.medietype = Slot(uri=DCAT.mediaType, name="medietype", curie=DCAT.curie('mediaType'),
-                   model_uri=SAMTBUSKOLE.medietype, domain=None, range=Optional[Union[str, MediatypeId]])
+                   model_uri=SAMTBU.medietype, domain=None, range=Optional[Union[str, MediatypeId]])
 
 slots.komprimeringsformat = Slot(uri=DCAT.compressFormat, name="komprimeringsformat", curie=DCAT.curie('compressFormat'),
-                   model_uri=SAMTBUSKOLE.komprimeringsformat, domain=None, range=Optional[Union[str, MediatypeId]])
+                   model_uri=SAMTBU.komprimeringsformat, domain=None, range=Optional[Union[str, MediatypeId]])
 
 slots.pakkeformat = Slot(uri=DCAT.packageFormat, name="pakkeformat", curie=DCAT.curie('packageFormat'),
-                   model_uri=SAMTBUSKOLE.pakkeformat, domain=None, range=Optional[Union[str, MediatypeId]])
+                   model_uri=SAMTBU.pakkeformat, domain=None, range=Optional[Union[str, MediatypeId]])
 
 slots.frekvens = Slot(uri=DCT.accrualPeriodicity, name="frekvens", curie=DCT.curie('accrualPeriodicity'),
-                   model_uri=SAMTBUSKOLE.frekvens, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.frekvens, domain=None, range=Optional[str])
 
 slots.tilgjengelighet = Slot(uri=DCATAP.availability, name="tilgjengelighet", curie=DCATAP.curie('availability'),
-                   model_uri=SAMTBUSKOLE.tilgjengelighet, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.tilgjengelighet, domain=None, range=Optional[str])
 
 slots.har_rolle = Slot(uri=DCAT.hadRole, name="har_rolle", curie=DCAT.curie('hadRole'),
-                   model_uri=SAMTBUSKOLE.har_rolle, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_rolle, domain=None, range=Optional[str])
 
 slots.lisens = Slot(uri=DCT.license, name="lisens", curie=DCT.curie('license'),
-                   model_uri=SAMTBUSKOLE.lisens, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.lisens, domain=None, range=Optional[str])
 
 slots.gjeldende_lovgivning = Slot(uri=DCATAP.applicableLegislation, name="gjeldende_lovgivning", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=SAMTBUSKOLE.gjeldende_lovgivning, domain=None, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
+                   model_uri=SAMTBU.gjeldende_lovgivning, domain=None, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
 
 slots.tidsrom = Slot(uri=DCT.temporal, name="tidsrom", curie=DCT.curie('temporal'),
-                   model_uri=SAMTBUSKOLE.tidsrom, domain=None, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
+                   model_uri=SAMTBU.tidsrom, domain=None, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
 
 slots.tilgangsrettigheter = Slot(uri=DCT.accessRights, name="tilgangsrettigheter", curie=DCT.curie('accessRights'),
-                   model_uri=SAMTBUSKOLE.tilgangsrettigheter, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.tilgangsrettigheter, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.rettigheter = Slot(uri=DCT.rights, name="rettigheter", curie=DCT.curie('rights'),
-                   model_uri=SAMTBUSKOLE.rettigheter, domain=None, range=Optional[Union[str, RettighetserklaringId]])
+                   model_uri=SAMTBU.rettigheter, domain=None, range=Optional[Union[str, RettighetserklaringId]])
 
 slots.i_samsvar_med = Slot(uri=DCT.conformsTo, name="i_samsvar_med", curie=DCT.curie('conformsTo'),
-                   model_uri=SAMTBUSKOLE.i_samsvar_med, domain=None, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
+                   model_uri=SAMTBU.i_samsvar_med, domain=None, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
 
 slots.sjekksum = Slot(uri=SPDX.checksum, name="sjekksum", curie=SPDX.curie('checksum'),
-                   model_uri=SAMTBUSKOLE.sjekksum, domain=None, range=Optional[Union[str, SjekksumId]])
+                   model_uri=SAMTBU.sjekksum, domain=None, range=Optional[Union[str, SjekksumId]])
 
 slots.policy = Slot(uri=ODRL.hasPolicy, name="policy", curie=ODRL.curie('hasPolicy'),
-                   model_uri=SAMTBUSKOLE.policy, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.policy, domain=None, range=Optional[str])
 
 slots.eierskapshistorikk = Slot(uri=DCT.provenance, name="eierskapshistorikk", curie=DCT.curie('provenance'),
-                   model_uri=SAMTBUSKOLE.eierskapshistorikk, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.eierskapshistorikk, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.ble_generert_ved = Slot(uri=PROV.wasGeneratedBy, name="ble_generert_ved", curie=PROV.curie('wasGeneratedBy'),
-                   model_uri=SAMTBUSKOLE.ble_generert_ved, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.ble_generert_ved, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.annen_ansvarlig_aktor = Slot(uri=PROV.qualifiedAttribution, name="annen_ansvarlig_aktor", curie=PROV.curie('qualifiedAttribution'),
-                   model_uri=SAMTBUSKOLE.annen_ansvarlig_aktor, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.annen_ansvarlig_aktor, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.annen_identifikator = Slot(uri=ADMS.identifier, name="annen_identifikator", curie=ADMS.curie('identifier'),
-                   model_uri=SAMTBUSKOLE.annen_identifikator, domain=None, range=Optional[Union[Union[str, IdentifikatorId], list[Union[str, IdentifikatorId]]]])
+                   model_uri=SAMTBU.annen_identifikator, domain=None, range=Optional[Union[Union[str, IdentifikatorId], list[Union[str, IdentifikatorId]]]])
 
 slots.annen_spesifikk_relasjon = Slot(uri=DCAT.qualifiedRelation, name="annen_spesifikk_relasjon", curie=DCAT.curie('qualifiedRelation'),
-                   model_uri=SAMTBUSKOLE.annen_spesifikk_relasjon, domain=None, range=Optional[Union[Union[str, RelasjonId], list[Union[str, RelasjonId]]]])
+                   model_uri=SAMTBU.annen_spesifikk_relasjon, domain=None, range=Optional[Union[Union[str, RelasjonId], list[Union[str, RelasjonId]]]])
 
 slots.relasjon_til = Slot(uri=DCT.relation, name="relasjon_til", curie=DCT.curie('relation'),
-                   model_uri=SAMTBUSKOLE.relasjon_til, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SAMTBU.relasjon_til, domain=None, range=Optional[Union[str, URI]])
 
 slots.primaertema = Slot(uri=FOAF.primaryTopic, name="primaertema", curie=FOAF.curie('primaryTopic'),
-                   model_uri=SAMTBUSKOLE.primaertema, domain=None, range=Optional[Union[str, KatalogisertRessursId]])
+                   model_uri=SAMTBU.primaertema, domain=None, range=Optional[Union[str, KatalogisertRessursId]])
 
 slots.datasettdistribusjon = Slot(uri=DCAT.distribution, name="datasettdistribusjon", curie=DCAT.curie('distribution'),
-                   model_uri=SAMTBUSKOLE.datasettdistribusjon, domain=None, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
+                   model_uri=SAMTBU.datasettdistribusjon, domain=None, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
 
 slots.eksempeldata = Slot(uri=ADMS.sample, name="eksempeldata", curie=ADMS.curie('sample'),
-                   model_uri=SAMTBUSKOLE.eksempeldata, domain=None, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
+                   model_uri=SAMTBU.eksempeldata, domain=None, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
 
 slots.tilgangstjeneste = Slot(uri=DCAT.accessService, name="tilgangstjeneste", curie=DCAT.curie('accessService'),
-                   model_uri=SAMTBUSKOLE.tilgangstjeneste, domain=None, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
+                   model_uri=SAMTBU.tilgangstjeneste, domain=None, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
 
 slots.tilgjengeliggjor_datasett = Slot(uri=DCAT.servesDataset, name="tilgjengeliggjor_datasett", curie=DCAT.curie('servesDataset'),
-                   model_uri=SAMTBUSKOLE.tilgjengeliggjor_datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
+                   model_uri=SAMTBU.tilgjengeliggjor_datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
 
 slots.har_gebyr = Slot(uri=CV.hasCost, name="har_gebyr", curie=CV.curie('hasCost'),
-                   model_uri=SAMTBUSKOLE.har_gebyr, domain=None, range=Optional[Union[Union[str, GebyrId], list[Union[str, GebyrId]]]])
+                   model_uri=SAMTBU.har_gebyr, domain=None, range=Optional[Union[Union[str, GebyrId], list[Union[str, GebyrId]]]])
 
 slots.kilde_datasett = Slot(uri=DCT.source, name="kilde_datasett", curie=DCT.curie('source'),
-                   model_uri=SAMTBUSKOLE.kilde_datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
+                   model_uri=SAMTBU.kilde_datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
 
 slots.i_serie = Slot(uri=DCAT.inSeries, name="i_serie", curie=DCAT.curie('inSeries'),
-                   model_uri=SAMTBUSKOLE.i_serie, domain=None, range=Optional[Union[Union[str, DatasettserieId], list[Union[str, DatasettserieId]]]])
+                   model_uri=SAMTBU.i_serie, domain=None, range=Optional[Union[Union[str, DatasettserieId], list[Union[str, DatasettserieId]]]])
 
 slots.siste = Slot(uri=DCAT.last, name="siste", curie=DCAT.curie('last'),
-                   model_uri=SAMTBUSKOLE.siste, domain=None, range=Optional[Union[str, DatasettId]])
+                   model_uri=SAMTBU.siste, domain=None, range=Optional[Union[str, DatasettId]])
 
 slots.forste = Slot(uri=DCAT.first, name="forste", curie=DCAT.curie('first'),
-                   model_uri=SAMTBUSKOLE.forste, domain=None, range=Optional[Union[str, DatasettId]])
+                   model_uri=SAMTBU.forste, domain=None, range=Optional[Union[str, DatasettId]])
 
 slots.relatert_regulativ_ressurs = Slot(uri=DCT.relation, name="relatert_regulativ_ressurs", curie=DCT.curie('relation'),
-                   model_uri=SAMTBUSKOLE.relatert_regulativ_ressurs, domain=None, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
+                   model_uri=SAMTBU.relatert_regulativ_ressurs, domain=None, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
 
 slots.datasett = Slot(uri=DCAT.dataset, name="datasett", curie=DCAT.curie('dataset'),
-                   model_uri=SAMTBUSKOLE.datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
+                   model_uri=SAMTBU.datasett, domain=None, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
 
 slots.datatjeneste = Slot(uri=DCAT.service, name="datatjeneste", curie=DCAT.curie('service'),
-                   model_uri=SAMTBUSKOLE.datatjeneste, domain=None, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
+                   model_uri=SAMTBU.datatjeneste, domain=None, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
 
 slots.har_del = Slot(uri=DCT.hasPart, name="har_del", curie=DCT.curie('hasPart'),
-                   model_uri=SAMTBUSKOLE.har_del, domain=None, range=Optional[Union[Union[str, KatalogId], list[Union[str, KatalogId]]]])
+                   model_uri=SAMTBU.har_del, domain=None, range=Optional[Union[Union[str, KatalogId], list[Union[str, KatalogId]]]])
 
 slots.underkatalog = Slot(uri=DCAT.catalog, name="underkatalog", curie=DCAT.curie('catalog'),
-                   model_uri=SAMTBUSKOLE.underkatalog, domain=None, range=Optional[Union[Union[str, KatalogId], list[Union[str, KatalogId]]]])
+                   model_uri=SAMTBU.underkatalog, domain=None, range=Optional[Union[Union[str, KatalogId], list[Union[str, KatalogId]]]])
 
 slots.katalogpost = Slot(uri=DCAT.record, name="katalogpost", curie=DCAT.curie('record'),
-                   model_uri=SAMTBUSKOLE.katalogpost, domain=None, range=Optional[Union[Union[str, KatalogpostId], list[Union[str, KatalogpostId]]]])
+                   model_uri=SAMTBU.katalogpost, domain=None, range=Optional[Union[Union[str, KatalogpostId], list[Union[str, KatalogpostId]]]])
 
 slots.begynnelse = Slot(uri=TIME.hasBeginning, name="begynnelse", curie=TIME.curie('hasBeginning'),
-                   model_uri=SAMTBUSKOLE.begynnelse, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=SAMTBU.begynnelse, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.slutt = Slot(uri=TIME.hasEnd, name="slutt", curie=TIME.curie('hasEnd'),
-                   model_uri=SAMTBUSKOLE.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=SAMTBU.slutt, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.har_kvalitetsmaaling = Slot(uri=DQV.hasQualityMeasurement, name="har_kvalitetsmaaling", curie=DQV.curie('hasQualityMeasurement'),
-                   model_uri=SAMTBUSKOLE.har_kvalitetsmaaling, domain=None, range=Optional[Union[Union[str, KvalitetsmaalingId], list[Union[str, KvalitetsmaalingId]]]])
+                   model_uri=SAMTBU.har_kvalitetsmaaling, domain=None, range=Optional[Union[Union[str, KvalitetsmaalingId], list[Union[str, KvalitetsmaalingId]]]])
 
 slots.er_deldimensjon_av = Slot(uri=SKOS.broader, name="er_deldimensjon_av", curie=SKOS.curie('broader'),
-                   model_uri=SAMTBUSKOLE.er_deldimensjon_av, domain=None, range=Optional[Union[str, KvalitetsdimensjonId]])
+                   model_uri=SAMTBU.er_deldimensjon_av, domain=None, range=Optional[Union[str, KvalitetsdimensjonId]])
 
 slots.har_anbefalt_term = Slot(uri=SKOS.prefLabel, name="har_anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=SAMTBUSKOLE.har_anbefalt_term, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.har_anbefalt_term, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.har_definisjon = Slot(uri=SKOS.definition, name="har_definisjon", curie=SKOS.curie('definition'),
-                   model_uri=SAMTBUSKOLE.har_definisjon, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.har_definisjon, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.er_i_kvalitetsdeldimensjon = Slot(uri=DQVNO.inSubDimension, name="er_i_kvalitetsdeldimensjon", curie=DQVNO.curie('inSubDimension'),
-                   model_uri=SAMTBUSKOLE.er_i_kvalitetsdeldimensjon, domain=None, range=Optional[Union[str, KvalitetsdeldimensjonId]])
+                   model_uri=SAMTBU.er_i_kvalitetsdeldimensjon, domain=None, range=Optional[Union[str, KvalitetsdeldimensjonId]])
 
 slots.har_forventet_datatype = Slot(uri=DQV.expectedDataType, name="har_forventet_datatype", curie=DQV.curie('expectedDataType'),
-                   model_uri=SAMTBUSKOLE.har_forventet_datatype, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=SAMTBU.har_forventet_datatype, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.er_motivert_av = Slot(uri=OA.motivatedBy, name="er_motivert_av", curie=OA.curie('motivatedBy'),
-                   model_uri=SAMTBUSKOLE.er_motivert_av, domain=None, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=SAMTBU.er_motivert_av, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.er_i_kvalitetsdimensjon = Slot(uri=DQV.inDimension, name="er_i_kvalitetsdimensjon", curie=DQV.curie('inDimension'),
-                   model_uri=SAMTBUSKOLE.er_i_kvalitetsdimensjon, domain=None, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
+                   model_uri=SAMTBU.er_i_kvalitetsdimensjon, domain=None, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
 
 slots.har_tekstdel = Slot(uri=OA.hasBody, name="har_tekstdel", curie=OA.curie('hasBody'),
-                   model_uri=SAMTBUSKOLE.har_tekstdel, domain=None, range=Optional[Union[str, TekstdelId]])
+                   model_uri=SAMTBU.har_tekstdel, domain=None, range=Optional[Union[str, TekstdelId]])
 
 slots.har_maal = Slot(uri=OA.hasTarget, name="har_maal", curie=OA.curie('hasTarget'),
-                   model_uri=SAMTBUSKOLE.har_maal, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SAMTBU.har_maal, domain=None, range=Optional[Union[str, URI]])
 
 slots.er_kvalitetsmaaling_av = Slot(uri=DQV.isMeasurementOf, name="er_kvalitetsmaaling_av", curie=DQV.curie('isMeasurementOf'),
-                   model_uri=SAMTBUSKOLE.er_kvalitetsmaaling_av, domain=None, range=Optional[Union[str, KvalitetsmaalId]])
+                   model_uri=SAMTBU.er_kvalitetsmaaling_av, domain=None, range=Optional[Union[str, KvalitetsmaalId]])
 
 slots.har_verdi = Slot(uri=DQV.value, name="har_verdi", curie=DQV.curie('value'),
-                   model_uri=SAMTBUSKOLE.har_verdi, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_verdi, domain=None, range=Optional[str])
 
 slots.har_verdi_tekstdel = Slot(uri=RDFS.value, name="har_verdi_tekstdel", curie=RDFS.curie('value'),
-                   model_uri=SAMTBUSKOLE.har_verdi_tekstdel, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_verdi_tekstdel, domain=None, range=Optional[str])
 
 slots.id = Slot(uri=CAPNO.id, name="id", curie=CAPNO.curie('id'),
-                   model_uri=SAMTBUSKOLE.id, domain=None, range=URIRef)
+                   model_uri=SAMTBU.id, domain=None, range=URIRef)
 
 slots.tittel = Slot(uri=DCT.title, name="tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.tittel, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.tittel, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.beskrivelse = Slot(uri=DCT.description, name="beskrivelse", curie=DCT.curie('description'),
-                   model_uri=SAMTBUSKOLE.beskrivelse, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.beskrivelse, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.identifikator_literal = Slot(uri=DCT.identifier, name="identifikator_literal", curie=DCT.curie('identifier'),
-                   model_uri=SAMTBUSKOLE.identifikator_literal, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.identifikator_literal, domain=None, range=Optional[str])
 
 slots.type_concept = Slot(uri=DCT.type, name="type_concept", curie=DCT.curie('type'),
-                   model_uri=SAMTBUSKOLE.type_concept, domain=None, range=Optional[Union[str, KonseptId]])
+                   model_uri=SAMTBU.type_concept, domain=None, range=Optional[Union[str, KonseptId]])
 
 slots.endringsdato = Slot(uri=DCT.modified, name="endringsdato", curie=DCT.curie('modified'),
-                   model_uri=SAMTBUSKOLE.endringsdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.endringsdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.utgivelsesdato = Slot(uri=DCT.issued, name="utgivelsesdato", curie=DCT.curie('issued'),
-                   model_uri=SAMTBUSKOLE.utgivelsesdato, domain=None, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.utgivelsesdato, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.spraak = Slot(uri=DCT.language, name="spraak", curie=DCT.curie('language'),
-                   model_uri=SAMTBUSKOLE.spraak, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.spraak, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.format = Slot(uri=DCT.format, name="format", curie=DCT.curie('format'),
-                   model_uri=SAMTBUSKOLE.format, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.format, domain=None, range=Optional[str])
 
 slots.har_referanse = Slot(uri=RDFS.seeAlso, name="har_referanse", curie=RDFS.curie('seeAlso'),
-                   model_uri=SAMTBUSKOLE.har_referanse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.har_referanse, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.har_merknad = Slot(uri=RDFS.comment, name="har_merknad", curie=RDFS.curie('comment'),
-                   model_uri=SAMTBUSKOLE.har_merknad, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.har_merknad, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.har_versjonsnummer = Slot(uri=OWL.versionInfo, name="har_versjonsnummer", curie=OWL.curie('versionInfo'),
-                   model_uri=SAMTBUSKOLE.har_versjonsnummer, domain=None, range=Optional[str])
+                   model_uri=SAMTBU.har_versjonsnummer, domain=None, range=Optional[str])
 
 slots.nokkelord = Slot(uri=DCAT.keyword, name="nokkelord", curie=DCAT.curie('keyword'),
-                   model_uri=SAMTBUSKOLE.nokkelord, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.nokkelord, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.dekningsomraade = Slot(uri=DCT.spatial, name="dekningsomraade", curie=DCT.curie('spatial'),
-                   model_uri=SAMTBUSKOLE.dekningsomraade, domain=None, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
+                   model_uri=SAMTBU.dekningsomraade, domain=None, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
 
 slots.status = Slot(uri=ADMS.status, name="status", curie=ADMS.curie('status'),
-                   model_uri=SAMTBUSKOLE.status, domain=None, range=Optional[Union[str, KonseptId]])
+                   model_uri=SAMTBU.status, domain=None, range=Optional[Union[str, KonseptId]])
 
 slots.valuta = Slot(uri=CV.currency, name="valuta", curie=CV.curie('currency'),
-                   model_uri=SAMTBUSKOLE.valuta, domain=None, range=Optional[Union[str, KonseptId]])
+                   model_uri=SAMTBU.valuta, domain=None, range=Optional[Union[str, KonseptId]])
 
 slots.heimeside = Slot(uri=FOAF.homepage, name="heimeside", curie=FOAF.curie('homepage'),
-                   model_uri=SAMTBUSKOLE.heimeside, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.heimeside, domain=None, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.anbefalt_term = Slot(uri=SKOS.prefLabel, name="anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=SAMTBUSKOLE.anbefalt_term, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.anbefalt_term, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.versjonsmerknad = Slot(uri=ADMS.versionNotes, name="versjonsmerknad", curie=ADMS.curie('versionNotes'),
-                   model_uri=SAMTBUSKOLE.versjonsmerknad, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.versjonsmerknad, domain=None, range=Optional[Union[str, list[str]]])
 
-slots.samtBuContainer__kontaktpunkter = Slot(uri=SAMTBUSKOLE.kontaktpunkter, name="samtBuContainer__kontaktpunkter", curie=SAMTBUSKOLE.curie('kontaktpunkter'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kontaktpunkter, domain=None, range=Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, Kontaktopplysning]], list[Union[dict, Kontaktopplysning]]]])
+slots.samtBuContainer__kontaktpunkter = Slot(uri=SAMTBU.kontaktpunkter, name="samtBuContainer__kontaktpunkter", curie=SAMTBU.curie('kontaktpunkter'),
+                   model_uri=SAMTBU.samtBuContainer__kontaktpunkter, domain=None, range=Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, Kontaktopplysning]], list[Union[dict, Kontaktopplysning]]]])
 
-slots.samtBuContainer__utgivere = Slot(uri=SAMTBUSKOLE.utgivere, name="samtBuContainer__utgivere", curie=SAMTBUSKOLE.curie('utgivere'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__utgivere, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+slots.samtBuContainer__utgivere = Slot(uri=SAMTBU.utgivere, name="samtBuContainer__utgivere", curie=SAMTBU.curie('utgivere'),
+                   model_uri=SAMTBU.samtBuContainer__utgivere, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
 
-slots.samtBuContainer__organisasjoner = Slot(uri=SAMTBUSKOLE.organisasjoner, name="samtBuContainer__organisasjoner", curie=SAMTBUSKOLE.curie('organisasjoner'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__organisasjoner, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+slots.samtBuContainer__organisasjoner = Slot(uri=SAMTBU.organisasjoner, name="samtBuContainer__organisasjoner", curie=SAMTBU.curie('organisasjoner'),
+                   model_uri=SAMTBU.samtBuContainer__organisasjoner, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
 
-slots.samtBuContainer__gjeldende_lovgivninger = Slot(uri=SAMTBUSKOLE.gjeldende_lovgivninger, name="samtBuContainer__gjeldende_lovgivninger", curie=SAMTBUSKOLE.curie('gjeldende_lovgivninger'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__gjeldende_lovgivninger, domain=None, range=Optional[Union[dict[Union[str, RegulativRessursId], Union[dict, RegulativRessurs]], list[Union[dict, RegulativRessurs]]]])
+slots.samtBuContainer__gjeldende_lovgivninger = Slot(uri=SAMTBU.gjeldende_lovgivninger, name="samtBuContainer__gjeldende_lovgivninger", curie=SAMTBU.curie('gjeldende_lovgivninger'),
+                   model_uri=SAMTBU.samtBuContainer__gjeldende_lovgivninger, domain=None, range=Optional[Union[dict[Union[str, RegulativRessursId], Union[dict, RegulativRessurs]], list[Union[dict, RegulativRessurs]]]])
 
-slots.samtBuContainer__datasettdistribusjoner = Slot(uri=SAMTBUSKOLE.datasettdistribusjoner, name="samtBuContainer__datasettdistribusjoner", curie=SAMTBUSKOLE.curie('datasettdistribusjoner'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__datasettdistribusjoner, domain=None, range=Optional[Union[dict[Union[str, DistribusjonId], Union[dict, Distribusjon]], list[Union[dict, Distribusjon]]]])
+slots.samtBuContainer__datasettdistribusjoner = Slot(uri=SAMTBU.datasettdistribusjoner, name="samtBuContainer__datasettdistribusjoner", curie=SAMTBU.curie('datasettdistribusjoner'),
+                   model_uri=SAMTBU.samtBuContainer__datasettdistribusjoner, domain=None, range=Optional[Union[dict[Union[str, DistribusjonId], Union[dict, Distribusjon]], list[Union[dict, Distribusjon]]]])
 
-slots.samtBuContainer__dataset_metadata = Slot(uri=SAMTBUSKOLE.dataset_metadata, name="samtBuContainer__dataset_metadata", curie=SAMTBUSKOLE.curie('dataset_metadata'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__dataset_metadata, domain=None, range=Optional[Union[dict[Union[str, DatasettId], Union[dict, Datasett]], list[Union[dict, Datasett]]]])
+slots.samtBuContainer__dataset_metadata = Slot(uri=SAMTBU.dataset_metadata, name="samtBuContainer__dataset_metadata", curie=SAMTBU.curie('dataset_metadata'),
+                   model_uri=SAMTBU.samtBuContainer__dataset_metadata, domain=None, range=Optional[Union[dict[Union[str, DatasettId], Union[dict, Datasett]], list[Union[dict, Datasett]]]])
 
-slots.samtBuContainer__kvalitetsmerknader = Slot(uri=SAMTBUSKOLE.kvalitetsmerknader, name="samtBuContainer__kvalitetsmerknader", curie=SAMTBUSKOLE.curie('kvalitetsmerknader'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsmerknader, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmerknadId], Union[dict, Kvalitetsmerknad]], list[Union[dict, Kvalitetsmerknad]]]])
+slots.samtBuContainer__kvalitetsmerknader = Slot(uri=SAMTBU.kvalitetsmerknader, name="samtBuContainer__kvalitetsmerknader", curie=SAMTBU.curie('kvalitetsmerknader'),
+                   model_uri=SAMTBU.samtBuContainer__kvalitetsmerknader, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmerknadId], Union[dict, Kvalitetsmerknad]], list[Union[dict, Kvalitetsmerknad]]]])
 
-slots.samtBuContainer__brukertilbakemeldinger = Slot(uri=SAMTBUSKOLE.brukertilbakemeldinger, name="samtBuContainer__brukertilbakemeldinger", curie=SAMTBUSKOLE.curie('brukertilbakemeldinger'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__brukertilbakemeldinger, domain=None, range=Optional[Union[dict[Union[str, BrukartilbakemeldingId], Union[dict, Brukartilbakemelding]], list[Union[dict, Brukartilbakemelding]]]])
+slots.samtBuContainer__brukertilbakemeldinger = Slot(uri=SAMTBU.brukertilbakemeldinger, name="samtBuContainer__brukertilbakemeldinger", curie=SAMTBU.curie('brukertilbakemeldinger'),
+                   model_uri=SAMTBU.samtBuContainer__brukertilbakemeldinger, domain=None, range=Optional[Union[dict[Union[str, BrukartilbakemeldingId], Union[dict, Brukartilbakemelding]], list[Union[dict, Brukartilbakemelding]]]])
 
-slots.samtBuContainer__kvalitetsmaalinger = Slot(uri=SAMTBUSKOLE.kvalitetsmaalinger, name="samtBuContainer__kvalitetsmaalinger", curie=SAMTBUSKOLE.curie('kvalitetsmaalinger'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsmaalinger, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmaalingId], Union[dict, Kvalitetsmaaling]], list[Union[dict, Kvalitetsmaaling]]]])
+slots.samtBuContainer__kvalitetsmaalinger = Slot(uri=SAMTBU.kvalitetsmaalinger, name="samtBuContainer__kvalitetsmaalinger", curie=SAMTBU.curie('kvalitetsmaalinger'),
+                   model_uri=SAMTBU.samtBuContainer__kvalitetsmaalinger, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmaalingId], Union[dict, Kvalitetsmaaling]], list[Union[dict, Kvalitetsmaaling]]]])
 
-slots.samtBuContainer__grupper = Slot(uri=SAMTBUSKOLE.grupper, name="samtBuContainer__grupper", curie=SAMTBUSKOLE.curie('grupper'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__grupper, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+slots.samtBuContainer__grupper = Slot(uri=SAMTBU.grupper, name="samtBuContainer__grupper", curie=SAMTBU.curie('grupper'),
+                   model_uri=SAMTBU.samtBuContainer__grupper, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
 
-slots.samtBuContainer__standarder = Slot(uri=SAMTBUSKOLE.standarder, name="samtBuContainer__standarder", curie=SAMTBUSKOLE.curie('standarder'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__standarder, domain=None, range=Optional[Union[dict[Union[str, StandardId], Union[dict, Standard]], list[Union[dict, Standard]]]])
+slots.samtBuContainer__standarder = Slot(uri=SAMTBU.standarder, name="samtBuContainer__standarder", curie=SAMTBU.curie('standarder'),
+                   model_uri=SAMTBU.samtBuContainer__standarder, domain=None, range=Optional[Union[dict[Union[str, StandardId], Union[dict, Standard]], list[Union[dict, Standard]]]])
 
-slots.samtBuContainer__kvalitetsdimensjoner = Slot(uri=SAMTBUSKOLE.kvalitetsdimensjoner, name="samtBuContainer__kvalitetsdimensjoner", curie=SAMTBUSKOLE.curie('kvalitetsdimensjoner'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsdimensjoner, domain=None, range=Optional[Union[dict[Union[str, KvalitetsdimensjonId], Union[dict, Kvalitetsdimensjon]], list[Union[dict, Kvalitetsdimensjon]]]])
+slots.samtBuContainer__kvalitetsdimensjoner = Slot(uri=SAMTBU.kvalitetsdimensjoner, name="samtBuContainer__kvalitetsdimensjoner", curie=SAMTBU.curie('kvalitetsdimensjoner'),
+                   model_uri=SAMTBU.samtBuContainer__kvalitetsdimensjoner, domain=None, range=Optional[Union[dict[Union[str, KvalitetsdimensjonId], Union[dict, Kvalitetsdimensjon]], list[Union[dict, Kvalitetsdimensjon]]]])
 
-slots.samtBuContainer__tidsromer = Slot(uri=SAMTBUSKOLE.tidsromer, name="samtBuContainer__tidsromer", curie=SAMTBUSKOLE.curie('tidsromer'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__tidsromer, domain=None, range=Optional[Union[dict[Union[str, TidsromId], Union[dict, Tidsrom]], list[Union[dict, Tidsrom]]]])
+slots.samtBuContainer__tidsromer = Slot(uri=SAMTBU.tidsromer, name="samtBuContainer__tidsromer", curie=SAMTBU.curie('tidsromer'),
+                   model_uri=SAMTBU.samtBuContainer__tidsromer, domain=None, range=Optional[Union[dict[Union[str, TidsromId], Union[dict, Tidsrom]], list[Union[dict, Tidsrom]]]])
 
-slots.samtBuContainer__tekstdeler = Slot(uri=SAMTBUSKOLE.tekstdeler, name="samtBuContainer__tekstdeler", curie=SAMTBUSKOLE.curie('tekstdeler'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__tekstdeler, domain=None, range=Optional[Union[dict[Union[str, TekstdelId], Union[dict, Tekstdel]], list[Union[dict, Tekstdel]]]])
+slots.samtBuContainer__tekstdeler = Slot(uri=SAMTBU.tekstdeler, name="samtBuContainer__tekstdeler", curie=SAMTBU.curie('tekstdeler'),
+                   model_uri=SAMTBU.samtBuContainer__tekstdeler, domain=None, range=Optional[Union[dict[Union[str, TekstdelId], Union[dict, Tekstdel]], list[Union[dict, Tekstdel]]]])
 
-slots.samtBuContainer__id = Slot(uri=SAMTBUSKOLE.id, name="samtBuContainer__id", curie=SAMTBUSKOLE.curie('id'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__id, domain=None, range=Optional[str])
+slots.samtBuContainer__id = Slot(uri=SAMTBU.id, name="samtBuContainer__id", curie=SAMTBU.curie('id'),
+                   model_uri=SAMTBU.samtBuContainer__id, domain=None, range=Optional[str])
 
-slots.samtBuContainer__skoler = Slot(uri=SAMTBUSKOLE.skoler, name="samtBuContainer__skoler", curie=SAMTBUSKOLE.curie('skoler'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__skoler, domain=None, range=Optional[Union[dict[Union[str, SkoleId], Union[dict, Skole]], list[Union[dict, Skole]]]])
+slots.samtBuContainer__skoler = Slot(uri=SAMTBU.skoler, name="samtBuContainer__skoler", curie=SAMTBU.curie('skoler'),
+                   model_uri=SAMTBU.samtBuContainer__skoler, domain=None, range=Optional[Union[dict[Union[str, SkoleId], Union[dict, Skole]], list[Union[dict, Skole]]]])
 
-slots.samtBuContainer__kommuner = Slot(uri=SAMTBUSKOLE.kommuner, name="samtBuContainer__kommuner", curie=SAMTBUSKOLE.curie('kommuner'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kommuner, domain=None, range=Optional[Union[dict[Union[str, KommuneId], Union[dict, Kommune]], list[Union[dict, Kommune]]]])
+slots.samtBuContainer__kommuner = Slot(uri=SAMTBU.kommuner, name="samtBuContainer__kommuner", curie=SAMTBU.curie('kommuner'),
+                   model_uri=SAMTBU.samtBuContainer__kommuner, domain=None, range=Optional[Union[dict[Union[str, KommuneId], Union[dict, Kommune]], list[Union[dict, Kommune]]]])
 
-slots.samtBuContainer__fylker = Slot(uri=SAMTBUSKOLE.fylker, name="samtBuContainer__fylker", curie=SAMTBUSKOLE.curie('fylker'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__fylker, domain=None, range=Optional[Union[dict[Union[str, FylkeId], Union[dict, Fylke]], list[Union[dict, Fylke]]]])
+slots.samtBuContainer__fylker = Slot(uri=SAMTBU.fylker, name="samtBuContainer__fylker", curie=SAMTBU.curie('fylker'),
+                   model_uri=SAMTBU.samtBuContainer__fylker, domain=None, range=Optional[Union[dict[Union[str, FylkeId], Union[dict, Fylke]], list[Union[dict, Fylke]]]])
 
-slots.samtBuContainer__private_virksomheter = Slot(uri=SAMTBUSKOLE.private_virksomheter, name="samtBuContainer__private_virksomheter", curie=SAMTBUSKOLE.curie('private_virksomheter'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__private_virksomheter, domain=None, range=Optional[Union[dict[Union[str, PrivatVirksomhetId], Union[dict, PrivatVirksomhet]], list[Union[dict, PrivatVirksomhet]]]])
+slots.samtBuContainer__private_virksomheter = Slot(uri=SAMTBU.private_virksomheter, name="samtBuContainer__private_virksomheter", curie=SAMTBU.curie('private_virksomheter'),
+                   model_uri=SAMTBU.samtBuContainer__private_virksomheter, domain=None, range=Optional[Union[dict[Union[str, PrivatVirksomhetId], Union[dict, PrivatVirksomhet]], list[Union[dict, PrivatVirksomhet]]]])
 
-slots.samtBuContainer__basisgrupper = Slot(uri=SAMTBUSKOLE.basisgrupper, name="samtBuContainer__basisgrupper", curie=SAMTBUSKOLE.curie('basisgrupper'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__basisgrupper, domain=None, range=Optional[Union[dict[Union[str, BasisgruppeId], Union[dict, Basisgruppe]], list[Union[dict, Basisgruppe]]]])
+slots.samtBuContainer__basisgrupper = Slot(uri=SAMTBU.basisgrupper, name="samtBuContainer__basisgrupper", curie=SAMTBU.curie('basisgrupper'),
+                   model_uri=SAMTBU.samtBuContainer__basisgrupper, domain=None, range=Optional[Union[dict[Union[str, BasisgruppeId], Union[dict, Basisgruppe]], list[Union[dict, Basisgruppe]]]])
 
-slots.samtBuContainer__elever = Slot(uri=SAMTBUSKOLE.elever, name="samtBuContainer__elever", curie=SAMTBUSKOLE.curie('elever'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__elever, domain=None, range=Optional[Union[dict[Union[str, ElevId], Union[dict, Elev]], list[Union[dict, Elev]]]])
+slots.samtBuContainer__elever = Slot(uri=SAMTBU.elever, name="samtBuContainer__elever", curie=SAMTBU.curie('elever'),
+                   model_uri=SAMTBU.samtBuContainer__elever, domain=None, range=Optional[Union[dict[Union[str, ElevId], Union[dict, Elev]], list[Union[dict, Elev]]]])
 
-slots.samtBuContainer__rektorer = Slot(uri=SAMTBUSKOLE.rektorer, name="samtBuContainer__rektorer", curie=SAMTBUSKOLE.curie('rektorer'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__rektorer, domain=None, range=Optional[Union[dict[Union[str, RektorId], Union[dict, Rektor]], list[Union[dict, Rektor]]]])
+slots.samtBuContainer__rektorer = Slot(uri=SAMTBU.rektorer, name="samtBuContainer__rektorer", curie=SAMTBU.curie('rektorer'),
+                   model_uri=SAMTBU.samtBuContainer__rektorer, domain=None, range=Optional[Union[dict[Union[str, RektorId], Union[dict, Rektor]], list[Union[dict, Rektor]]]])
 
-slots.samtBuContainer__kontaktlaerere = Slot(uri=SAMTBUSKOLE.kontaktlaerere, name="samtBuContainer__kontaktlaerere", curie=SAMTBUSKOLE.curie('kontaktlaerere'),
-                   model_uri=SAMTBUSKOLE.samtBuContainer__kontaktlaerere, domain=None, range=Optional[Union[dict[Union[str, KontaktlaererId], Union[dict, Kontaktlaerer]], list[Union[dict, Kontaktlaerer]]]])
+slots.samtBuContainer__kontaktlaerere = Slot(uri=SAMTBU.kontaktlaerere, name="samtBuContainer__kontaktlaerere", curie=SAMTBU.curie('kontaktlaerere'),
+                   model_uri=SAMTBU.samtBuContainer__kontaktlaerere, domain=None, range=Optional[Union[dict[Union[str, KontaktlaererId], Union[dict, Kontaktlaerer]], list[Union[dict, Kontaktlaerer]]]])
 
 slots.Aktor_navn_aktor = Slot(uri=FOAF.name, name="Aktor_navn_aktor", curie=FOAF.curie('name'),
-                   model_uri=SAMTBUSKOLE.Aktor_navn_aktor, domain=Aktor, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Aktor_navn_aktor, domain=Aktor, range=Union[str, list[str]])
 
 slots.Kontaktopplysning_navn_vcard = Slot(uri=VCARD.fn, name="Kontaktopplysning_navn_vcard", curie=VCARD.curie('fn'),
-                   model_uri=SAMTBUSKOLE.Kontaktopplysning_navn_vcard, domain=Kontaktopplysning, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Kontaktopplysning_navn_vcard, domain=Kontaktopplysning, range=Union[str, list[str]])
 
 slots.Identifikator_notasjon = Slot(uri=SKOS.notation, name="Identifikator_notasjon", curie=SKOS.curie('notation'),
-                   model_uri=SAMTBUSKOLE.Identifikator_notasjon, domain=Identifikator, range=str)
+                   model_uri=SAMTBU.Identifikator_notasjon, domain=Identifikator, range=str)
 
 slots.Sjekksum_algoritme = Slot(uri=SPDX.algorithm, name="Sjekksum_algoritme", curie=SPDX.curie('algorithm'),
-                   model_uri=SAMTBUSKOLE.Sjekksum_algoritme, domain=Sjekksum, range=str)
+                   model_uri=SAMTBU.Sjekksum_algoritme, domain=Sjekksum, range=str)
 
 slots.Sjekksum_sjekksumverdi = Slot(uri=SPDX.checksumValue, name="Sjekksum_sjekksumverdi", curie=SPDX.curie('checksumValue'),
-                   model_uri=SAMTBUSKOLE.Sjekksum_sjekksumverdi, domain=Sjekksum, range=str)
+                   model_uri=SAMTBU.Sjekksum_sjekksumverdi, domain=Sjekksum, range=str)
 
 slots.Relasjon_har_rolle = Slot(uri=DCAT.hadRole, name="Relasjon_har_rolle", curie=DCAT.curie('hadRole'),
-                   model_uri=SAMTBUSKOLE.Relasjon_har_rolle, domain=Relasjon, range=str)
+                   model_uri=SAMTBU.Relasjon_har_rolle, domain=Relasjon, range=str)
 
 slots.Relasjon_relasjon_til = Slot(uri=DCT.relation, name="Relasjon_relasjon_til", curie=DCT.curie('relation'),
-                   model_uri=SAMTBUSKOLE.Relasjon_relasjon_til, domain=Relasjon, range=Union[str, URI])
+                   model_uri=SAMTBU.Relasjon_relasjon_til, domain=Relasjon, range=Union[str, URI])
 
 slots.Distribusjon_tilgangs_url = Slot(uri=DCAT.accessURL, name="Distribusjon_tilgangs_url", curie=DCAT.curie('accessURL'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_tilgangs_url, domain=Distribusjon, range=Union[Union[str, URI], list[Union[str, URI]]])
+                   model_uri=SAMTBU.Distribusjon_tilgangs_url, domain=Distribusjon, range=Union[Union[str, URI], list[Union[str, URI]]])
 
 slots.Distribusjon_beskrivelse = Slot(uri=DCT.description, name="Distribusjon_beskrivelse", curie=DCT.curie('description'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_beskrivelse, domain=Distribusjon, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Distribusjon_beskrivelse, domain=Distribusjon, range=Optional[Union[str, list[str]]])
 
 slots.Distribusjon_format = Slot(uri=DCT.format, name="Distribusjon_format", curie=DCT.curie('format'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_format, domain=Distribusjon, range=Optional[str])
+                   model_uri=SAMTBU.Distribusjon_format, domain=Distribusjon, range=Optional[str])
 
 slots.Distribusjon_lisens = Slot(uri=DCT.license, name="Distribusjon_lisens", curie=DCT.curie('license'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_lisens, domain=Distribusjon, range=Optional[str])
+                   model_uri=SAMTBU.Distribusjon_lisens, domain=Distribusjon, range=Optional[str])
 
 slots.Distribusjon_status = Slot(uri=ADMS.status, name="Distribusjon_status", curie=ADMS.curie('status'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_status, domain=Distribusjon, range=Optional[Union[str, KonseptId]])
+                   model_uri=SAMTBU.Distribusjon_status, domain=Distribusjon, range=Optional[Union[str, KonseptId]])
 
 slots.Distribusjon_tilgjengelighet = Slot(uri=DCATAP.availability, name="Distribusjon_tilgjengelighet", curie=DCATAP.curie('availability'),
-                   model_uri=SAMTBUSKOLE.Distribusjon_tilgjengelighet, domain=Distribusjon, range=Optional[str])
+                   model_uri=SAMTBU.Distribusjon_tilgjengelighet, domain=Distribusjon, range=Optional[str])
 
 slots.Datasett_har_kvalitetsmerknad = Slot(uri=DQV.hasQualityAnnotation, name="Datasett_har_kvalitetsmerknad", curie=DQV.curie('hasQualityAnnotation'),
-                   model_uri=SAMTBUSKOLE.Datasett_har_kvalitetsmerknad, domain=Datasett, range=Optional[Union[Union[str, KvalitetsmerknadId], list[Union[str, KvalitetsmerknadId]]]])
+                   model_uri=SAMTBU.Datasett_har_kvalitetsmerknad, domain=Datasett, range=Optional[Union[Union[str, KvalitetsmerknadId], list[Union[str, KvalitetsmerknadId]]]])
 
 slots.Datasett_har_kvalitetsmaaling = Slot(uri=DQV.hasQualityMeasurement, name="Datasett_har_kvalitetsmaaling", curie=DQV.curie('hasQualityMeasurement'),
-                   model_uri=SAMTBUSKOLE.Datasett_har_kvalitetsmaaling, domain=Datasett, range=Optional[Union[Union[str, KvalitetsmaalingId], list[Union[str, KvalitetsmaalingId]]]])
+                   model_uri=SAMTBU.Datasett_har_kvalitetsmaaling, domain=Datasett, range=Optional[Union[Union[str, KvalitetsmaalingId], list[Union[str, KvalitetsmaalingId]]]])
 
 slots.Datasett_beskrivelse = Slot(uri=DCT.description, name="Datasett_beskrivelse", curie=DCT.curie('description'),
-                   model_uri=SAMTBUSKOLE.Datasett_beskrivelse, domain=Datasett, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasett_beskrivelse, domain=Datasett, range=Union[str, list[str]])
 
 slots.Datasett_kontaktpunkt = Slot(uri=DCAT.contactPoint, name="Datasett_kontaktpunkt", curie=DCAT.curie('contactPoint'),
-                   model_uri=SAMTBUSKOLE.Datasett_kontaktpunkt, domain=Datasett, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
+                   model_uri=SAMTBU.Datasett_kontaktpunkt, domain=Datasett, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
 
 slots.Datasett_tema = Slot(uri=DCAT.theme, name="Datasett_tema", curie=DCAT.curie('theme'),
-                   model_uri=SAMTBUSKOLE.Datasett_tema, domain=Datasett, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasett_tema, domain=Datasett, range=Union[str, list[str]])
 
 slots.Datasett_tittel = Slot(uri=DCT.title, name="Datasett_tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.Datasett_tittel, domain=Datasett, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasett_tittel, domain=Datasett, range=Union[str, list[str]])
 
 slots.Datasett_utgiver = Slot(uri=DCT.publisher, name="Datasett_utgiver", curie=DCT.curie('publisher'),
-                   model_uri=SAMTBUSKOLE.Datasett_utgiver, domain=Datasett, range=Union[str, AktorId])
+                   model_uri=SAMTBU.Datasett_utgiver, domain=Datasett, range=Union[str, AktorId])
 
 slots.Datasett_begrep = Slot(uri=DCT.subject, name="Datasett_begrep", curie=DCT.curie('subject'),
-                   model_uri=SAMTBUSKOLE.Datasett_begrep, domain=Datasett, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Datasett_begrep, domain=Datasett, range=Optional[Union[str, list[str]]])
 
 slots.Datasett_ble_generert_ved = Slot(uri=PROV.wasGeneratedBy, name="Datasett_ble_generert_ved", curie=PROV.curie('wasGeneratedBy'),
-                   model_uri=SAMTBUSKOLE.Datasett_ble_generert_ved, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.Datasett_ble_generert_ved, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.Datasett_datasettdistribusjon = Slot(uri=DCAT.distribution, name="Datasett_datasettdistribusjon", curie=DCAT.curie('distribution'),
-                   model_uri=SAMTBUSKOLE.Datasett_datasettdistribusjon, domain=Datasett, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
+                   model_uri=SAMTBU.Datasett_datasettdistribusjon, domain=Datasett, range=Optional[Union[Union[str, DistribusjonId], list[Union[str, DistribusjonId]]]])
 
 slots.Datasett_dekningsomraade = Slot(uri=DCT.spatial, name="Datasett_dekningsomraade", curie=DCT.curie('spatial'),
-                   model_uri=SAMTBUSKOLE.Datasett_dekningsomraade, domain=Datasett, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
+                   model_uri=SAMTBU.Datasett_dekningsomraade, domain=Datasett, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
 
 slots.Datasett_gjeldende_lovgivning = Slot(uri=DCATAP.applicableLegislation, name="Datasett_gjeldende_lovgivning", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=SAMTBUSKOLE.Datasett_gjeldende_lovgivning, domain=Datasett, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
+                   model_uri=SAMTBU.Datasett_gjeldende_lovgivning, domain=Datasett, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
 
 slots.Datasett_nokkelord = Slot(uri=DCAT.keyword, name="Datasett_nokkelord", curie=DCAT.curie('keyword'),
-                   model_uri=SAMTBUSKOLE.Datasett_nokkelord, domain=Datasett, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Datasett_nokkelord, domain=Datasett, range=Optional[Union[str, list[str]]])
 
 slots.Datasett_tidsrom = Slot(uri=DCT.temporal, name="Datasett_tidsrom", curie=DCT.curie('temporal'),
-                   model_uri=SAMTBUSKOLE.Datasett_tidsrom, domain=Datasett, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
+                   model_uri=SAMTBU.Datasett_tidsrom, domain=Datasett, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
 
 slots.Datasett_tilgangsrettigheter = Slot(uri=DCT.accessRights, name="Datasett_tilgangsrettigheter", curie=DCT.curie('accessRights'),
-                   model_uri=SAMTBUSKOLE.Datasett_tilgangsrettigheter, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.Datasett_tilgangsrettigheter, domain=Datasett, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.Datasettserie_beskrivelse = Slot(uri=DCT.description, name="Datasettserie_beskrivelse", curie=DCT.curie('description'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_beskrivelse, domain=Datasettserie, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasettserie_beskrivelse, domain=Datasettserie, range=Union[str, list[str]])
 
 slots.Datasettserie_kontaktpunkt = Slot(uri=DCAT.contactPoint, name="Datasettserie_kontaktpunkt", curie=DCAT.curie('contactPoint'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_kontaktpunkt, domain=Datasettserie, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
+                   model_uri=SAMTBU.Datasettserie_kontaktpunkt, domain=Datasettserie, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
 
 slots.Datasettserie_tema = Slot(uri=DCAT.theme, name="Datasettserie_tema", curie=DCAT.curie('theme'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_tema, domain=Datasettserie, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasettserie_tema, domain=Datasettserie, range=Union[str, list[str]])
 
 slots.Datasettserie_tittel = Slot(uri=DCT.title, name="Datasettserie_tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_tittel, domain=Datasettserie, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datasettserie_tittel, domain=Datasettserie, range=Union[str, list[str]])
 
 slots.Datasettserie_utgiver = Slot(uri=DCT.publisher, name="Datasettserie_utgiver", curie=DCT.curie('publisher'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_utgiver, domain=Datasettserie, range=Union[str, AktorId])
+                   model_uri=SAMTBU.Datasettserie_utgiver, domain=Datasettserie, range=Union[str, AktorId])
 
 slots.Datasettserie_dekningsomraade = Slot(uri=DCT.spatial, name="Datasettserie_dekningsomraade", curie=DCT.curie('spatial'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_dekningsomraade, domain=Datasettserie, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
+                   model_uri=SAMTBU.Datasettserie_dekningsomraade, domain=Datasettserie, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
 
 slots.Datasettserie_gjeldende_lovgivning = Slot(uri=DCATAP.applicableLegislation, name="Datasettserie_gjeldende_lovgivning", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_gjeldende_lovgivning, domain=Datasettserie, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
+                   model_uri=SAMTBU.Datasettserie_gjeldende_lovgivning, domain=Datasettserie, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
 
 slots.Datasettserie_siste = Slot(uri=DCAT.last, name="Datasettserie_siste", curie=DCAT.curie('last'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_siste, domain=Datasettserie, range=Optional[Union[str, DatasettId]])
+                   model_uri=SAMTBU.Datasettserie_siste, domain=Datasettserie, range=Optional[Union[str, DatasettId]])
 
 slots.Datasettserie_tidsrom = Slot(uri=DCT.temporal, name="Datasettserie_tidsrom", curie=DCT.curie('temporal'),
-                   model_uri=SAMTBUSKOLE.Datasettserie_tidsrom, domain=Datasettserie, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
+                   model_uri=SAMTBU.Datasettserie_tidsrom, domain=Datasettserie, range=Optional[Union[Union[str, TidsromId], list[Union[str, TidsromId]]]])
 
 slots.Datatjeneste_endepunkts_url = Slot(uri=DCAT.endpointURL, name="Datatjeneste_endepunkts_url", curie=DCAT.curie('endpointURL'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_endepunkts_url, domain=Datatjeneste, range=Union[Union[str, URI], list[Union[str, URI]]])
+                   model_uri=SAMTBU.Datatjeneste_endepunkts_url, domain=Datatjeneste, range=Union[Union[str, URI], list[Union[str, URI]]])
 
 slots.Datatjeneste_kontaktpunkt = Slot(uri=DCAT.contactPoint, name="Datatjeneste_kontaktpunkt", curie=DCAT.curie('contactPoint'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_kontaktpunkt, domain=Datatjeneste, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
+                   model_uri=SAMTBU.Datatjeneste_kontaktpunkt, domain=Datatjeneste, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
 
 slots.Datatjeneste_tittel = Slot(uri=DCT.title, name="Datatjeneste_tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_tittel, domain=Datatjeneste, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Datatjeneste_tittel, domain=Datatjeneste, range=Union[str, list[str]])
 
 slots.Datatjeneste_utgiver = Slot(uri=DCT.publisher, name="Datatjeneste_utgiver", curie=DCT.curie('publisher'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_utgiver, domain=Datatjeneste, range=Union[str, AktorId])
+                   model_uri=SAMTBU.Datatjeneste_utgiver, domain=Datatjeneste, range=Union[str, AktorId])
 
 slots.Datatjeneste_endepunktsbeskrivelse = Slot(uri=DCAT.endpointDescription, name="Datatjeneste_endepunktsbeskrivelse", curie=DCAT.curie('endpointDescription'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_endepunktsbeskrivelse, domain=Datatjeneste, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.Datatjeneste_endepunktsbeskrivelse, domain=Datatjeneste, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.Datatjeneste_format = Slot(uri=DCT.format, name="Datatjeneste_format", curie=DCT.curie('format'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_format, domain=Datatjeneste, range=Optional[str])
+                   model_uri=SAMTBU.Datatjeneste_format, domain=Datatjeneste, range=Optional[str])
 
 slots.Datatjeneste_gjeldende_lovgivning = Slot(uri=DCATAP.applicableLegislation, name="Datatjeneste_gjeldende_lovgivning", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_gjeldende_lovgivning, domain=Datatjeneste, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
+                   model_uri=SAMTBU.Datatjeneste_gjeldende_lovgivning, domain=Datatjeneste, range=Optional[Union[Union[str, RegulativRessursId], list[Union[str, RegulativRessursId]]]])
 
 slots.Datatjeneste_i_samsvar_med = Slot(uri=DCT.conformsTo, name="Datatjeneste_i_samsvar_med", curie=DCT.curie('conformsTo'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_i_samsvar_med, domain=Datatjeneste, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
+                   model_uri=SAMTBU.Datatjeneste_i_samsvar_med, domain=Datatjeneste, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
 
 slots.Datatjeneste_nokkelord = Slot(uri=DCAT.keyword, name="Datatjeneste_nokkelord", curie=DCAT.curie('keyword'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_nokkelord, domain=Datatjeneste, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Datatjeneste_nokkelord, domain=Datatjeneste, range=Optional[Union[str, list[str]]])
 
 slots.Datatjeneste_tema = Slot(uri=DCAT.theme, name="Datatjeneste_tema", curie=DCAT.curie('theme'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_tema, domain=Datatjeneste, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Datatjeneste_tema, domain=Datatjeneste, range=Optional[Union[str, list[str]]])
 
 slots.Datatjeneste_tilgjengeliggjor_datasett = Slot(uri=DCAT.servesDataset, name="Datatjeneste_tilgjengeliggjor_datasett", curie=DCAT.curie('servesDataset'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_tilgjengeliggjor_datasett, domain=Datatjeneste, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
+                   model_uri=SAMTBU.Datatjeneste_tilgjengeliggjor_datasett, domain=Datatjeneste, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
 
 slots.Datatjeneste_tilgjengelighet = Slot(uri=DCATAP.availability, name="Datatjeneste_tilgjengelighet", curie=DCATAP.curie('availability'),
-                   model_uri=SAMTBUSKOLE.Datatjeneste_tilgjengelighet, domain=Datatjeneste, range=Optional[str])
+                   model_uri=SAMTBU.Datatjeneste_tilgjengelighet, domain=Datatjeneste, range=Optional[str])
 
 slots.Katalogpost_endringsdato = Slot(uri=DCT.modified, name="Katalogpost_endringsdato", curie=DCT.curie('modified'),
-                   model_uri=SAMTBUSKOLE.Katalogpost_endringsdato, domain=Katalogpost, range=Union[str, XSDDate])
+                   model_uri=SAMTBU.Katalogpost_endringsdato, domain=Katalogpost, range=Union[str, XSDDate])
 
 slots.Katalogpost_primaertema = Slot(uri=FOAF.primaryTopic, name="Katalogpost_primaertema", curie=FOAF.curie('primaryTopic'),
-                   model_uri=SAMTBUSKOLE.Katalogpost_primaertema, domain=Katalogpost, range=Union[str, KatalogisertRessursId])
+                   model_uri=SAMTBU.Katalogpost_primaertema, domain=Katalogpost, range=Union[str, KatalogisertRessursId])
 
 slots.Katalogpost_i_samsvar_med = Slot(uri=DCT.conformsTo, name="Katalogpost_i_samsvar_med", curie=DCT.curie('conformsTo'),
-                   model_uri=SAMTBUSKOLE.Katalogpost_i_samsvar_med, domain=Katalogpost, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
+                   model_uri=SAMTBU.Katalogpost_i_samsvar_med, domain=Katalogpost, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
 
 slots.Katalogpost_status = Slot(uri=ADMS.status, name="Katalogpost_status", curie=ADMS.curie('status'),
-                   model_uri=SAMTBUSKOLE.Katalogpost_status, domain=Katalogpost, range=Optional[Union[str, KonseptId]])
+                   model_uri=SAMTBU.Katalogpost_status, domain=Katalogpost, range=Optional[Union[str, KonseptId]])
 
 slots.Katalogpost_utgivelsesdato = Slot(uri=DCT.issued, name="Katalogpost_utgivelsesdato", curie=DCT.curie('issued'),
-                   model_uri=SAMTBUSKOLE.Katalogpost_utgivelsesdato, domain=Katalogpost, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.Katalogpost_utgivelsesdato, domain=Katalogpost, range=Optional[Union[str, XSDDate]])
 
 slots.Katalog_beskrivelse = Slot(uri=DCT.description, name="Katalog_beskrivelse", curie=DCT.curie('description'),
-                   model_uri=SAMTBUSKOLE.Katalog_beskrivelse, domain=Katalog, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Katalog_beskrivelse, domain=Katalog, range=Union[str, list[str]])
 
 slots.Katalog_kontaktpunkt = Slot(uri=DCAT.contactPoint, name="Katalog_kontaktpunkt", curie=DCAT.curie('contactPoint'),
-                   model_uri=SAMTBUSKOLE.Katalog_kontaktpunkt, domain=Katalog, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
+                   model_uri=SAMTBU.Katalog_kontaktpunkt, domain=Katalog, range=Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]])
 
 slots.Katalog_tittel = Slot(uri=DCT.title, name="Katalog_tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.Katalog_tittel, domain=Katalog, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Katalog_tittel, domain=Katalog, range=Union[str, list[str]])
 
 slots.Katalog_utgiver = Slot(uri=DCT.publisher, name="Katalog_utgiver", curie=DCT.curie('publisher'),
-                   model_uri=SAMTBUSKOLE.Katalog_utgiver, domain=Katalog, range=Union[str, AktorId])
+                   model_uri=SAMTBU.Katalog_utgiver, domain=Katalog, range=Union[str, AktorId])
 
 slots.Katalog_datasett = Slot(uri=DCAT.dataset, name="Katalog_datasett", curie=DCAT.curie('dataset'),
-                   model_uri=SAMTBUSKOLE.Katalog_datasett, domain=Katalog, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
+                   model_uri=SAMTBU.Katalog_datasett, domain=Katalog, range=Optional[Union[Union[str, DatasettId], list[Union[str, DatasettId]]]])
 
 slots.Katalog_datatjeneste = Slot(uri=DCAT.service, name="Katalog_datatjeneste", curie=DCAT.curie('service'),
-                   model_uri=SAMTBUSKOLE.Katalog_datatjeneste, domain=Katalog, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
+                   model_uri=SAMTBU.Katalog_datatjeneste, domain=Katalog, range=Optional[Union[Union[str, DatatjenesteId], list[Union[str, DatatjenesteId]]]])
 
 slots.Katalog_dekningsomraade = Slot(uri=DCT.spatial, name="Katalog_dekningsomraade", curie=DCT.curie('spatial'),
-                   model_uri=SAMTBUSKOLE.Katalog_dekningsomraade, domain=Katalog, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
+                   model_uri=SAMTBU.Katalog_dekningsomraade, domain=Katalog, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])
 
 slots.Katalog_endringsdato = Slot(uri=DCT.modified, name="Katalog_endringsdato", curie=DCT.curie('modified'),
-                   model_uri=SAMTBUSKOLE.Katalog_endringsdato, domain=Katalog, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.Katalog_endringsdato, domain=Katalog, range=Optional[Union[str, XSDDate]])
 
 slots.Katalog_heimeside = Slot(uri=FOAF.homepage, name="Katalog_heimeside", curie=FOAF.curie('homepage'),
-                   model_uri=SAMTBUSKOLE.Katalog_heimeside, domain=Katalog, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.Katalog_heimeside, domain=Katalog, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.Katalog_lisens = Slot(uri=DCT.license, name="Katalog_lisens", curie=DCT.curie('license'),
-                   model_uri=SAMTBUSKOLE.Katalog_lisens, domain=Katalog, range=Optional[str])
+                   model_uri=SAMTBU.Katalog_lisens, domain=Katalog, range=Optional[str])
 
 slots.Katalog_spraak = Slot(uri=DCT.language, name="Katalog_spraak", curie=DCT.curie('language'),
-                   model_uri=SAMTBUSKOLE.Katalog_spraak, domain=Katalog, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Katalog_spraak, domain=Katalog, range=Optional[Union[str, list[str]]])
 
 slots.Katalog_temaer = Slot(uri=DCAT.themeTaxonomy, name="Katalog_temaer", curie=DCAT.curie('themeTaxonomy'),
-                   model_uri=SAMTBUSKOLE.Katalog_temaer, domain=Katalog, range=Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]])
+                   model_uri=SAMTBU.Katalog_temaer, domain=Katalog, range=Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]])
 
 slots.Katalog_utgivelsesdato = Slot(uri=DCT.issued, name="Katalog_utgivelsesdato", curie=DCT.curie('issued'),
-                   model_uri=SAMTBUSKOLE.Katalog_utgivelsesdato, domain=Katalog, range=Optional[Union[str, XSDDate]])
+                   model_uri=SAMTBU.Katalog_utgivelsesdato, domain=Katalog, range=Optional[Union[str, XSDDate]])
 
 slots.Kvalitetsdimensjon_har_anbefalt_term = Slot(uri=SKOS.prefLabel, name="Kvalitetsdimensjon_har_anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsdimensjon_har_anbefalt_term, domain=Kvalitetsdimensjon, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsdimensjon_har_anbefalt_term, domain=Kvalitetsdimensjon, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsdimensjon_har_definisjon = Slot(uri=SKOS.definition, name="Kvalitetsdimensjon_har_definisjon", curie=SKOS.curie('definition'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsdimensjon_har_definisjon, domain=Kvalitetsdimensjon, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsdimensjon_har_definisjon, domain=Kvalitetsdimensjon, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsdeldimensjon_er_deldimensjon_av = Slot(uri=SKOS.broader, name="Kvalitetsdeldimensjon_er_deldimensjon_av", curie=SKOS.curie('broader'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsdeldimensjon_er_deldimensjon_av, domain=Kvalitetsdeldimensjon, range=Union[str, KvalitetsdimensjonId])
+                   model_uri=SAMTBU.Kvalitetsdeldimensjon_er_deldimensjon_av, domain=Kvalitetsdeldimensjon, range=Union[str, KvalitetsdimensjonId])
 
 slots.Kvalitetsdeldimensjon_har_anbefalt_term = Slot(uri=SKOS.prefLabel, name="Kvalitetsdeldimensjon_har_anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsdeldimensjon_har_anbefalt_term, domain=Kvalitetsdeldimensjon, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsdeldimensjon_har_anbefalt_term, domain=Kvalitetsdeldimensjon, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsdeldimensjon_har_definisjon = Slot(uri=SKOS.definition, name="Kvalitetsdeldimensjon_har_definisjon", curie=SKOS.curie('definition'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsdeldimensjon_har_definisjon, domain=Kvalitetsdeldimensjon, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsdeldimensjon_har_definisjon, domain=Kvalitetsdeldimensjon, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsmaal_er_i_kvalitetsdeldimensjon = Slot(uri=DQVNO.inSubDimension, name="Kvalitetsmaal_er_i_kvalitetsdeldimensjon", curie=DQVNO.curie('inSubDimension'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaal_er_i_kvalitetsdeldimensjon, domain=Kvalitetsmaal, range=Union[str, KvalitetsdeldimensjonId])
+                   model_uri=SAMTBU.Kvalitetsmaal_er_i_kvalitetsdeldimensjon, domain=Kvalitetsmaal, range=Union[str, KvalitetsdeldimensjonId])
 
 slots.Kvalitetsmaal_har_forventet_datatype = Slot(uri=DQV.expectedDataType, name="Kvalitetsmaal_har_forventet_datatype", curie=DQV.curie('expectedDataType'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaal_har_forventet_datatype, domain=Kvalitetsmaal, range=Optional[Union[str, URIorCURIE]])
+                   model_uri=SAMTBU.Kvalitetsmaal_har_forventet_datatype, domain=Kvalitetsmaal, range=Optional[Union[str, URIorCURIE]])
 
 slots.Kvalitetsmaal_har_anbefalt_term = Slot(uri=SKOS.prefLabel, name="Kvalitetsmaal_har_anbefalt_term", curie=SKOS.curie('prefLabel'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaal_har_anbefalt_term, domain=Kvalitetsmaal, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsmaal_har_anbefalt_term, domain=Kvalitetsmaal, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsmaal_har_definisjon = Slot(uri=SKOS.definition, name="Kvalitetsmaal_har_definisjon", curie=SKOS.curie('definition'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaal_har_definisjon, domain=Kvalitetsmaal, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsmaal_har_definisjon, domain=Kvalitetsmaal, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsmerknad_er_motivert_av = Slot(uri=OA.motivatedBy, name="Kvalitetsmerknad_er_motivert_av", curie=OA.curie('motivatedBy'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmerknad_er_motivert_av, domain=Kvalitetsmerknad, range=Union[str, URIorCURIE])
+                   model_uri=SAMTBU.Kvalitetsmerknad_er_motivert_av, domain=Kvalitetsmerknad, range=Union[str, URIorCURIE])
 
 slots.Kvalitetsmerknad_er_i_kvalitetsdimensjon = Slot(uri=DQV.inDimension, name="Kvalitetsmerknad_er_i_kvalitetsdimensjon", curie=DQV.curie('inDimension'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmerknad_er_i_kvalitetsdimensjon, domain=Kvalitetsmerknad, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
+                   model_uri=SAMTBU.Kvalitetsmerknad_er_i_kvalitetsdimensjon, domain=Kvalitetsmerknad, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
 
 slots.Kvalitetsmerknad_har_tekstdel = Slot(uri=OA.hasBody, name="Kvalitetsmerknad_har_tekstdel", curie=OA.curie('hasBody'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmerknad_har_tekstdel, domain=Kvalitetsmerknad, range=Optional[Union[str, TekstdelId]])
+                   model_uri=SAMTBU.Kvalitetsmerknad_har_tekstdel, domain=Kvalitetsmerknad, range=Optional[Union[str, TekstdelId]])
 
 slots.Kvalitetsmerknad_har_merknad = Slot(uri=RDFS.comment, name="Kvalitetsmerknad_har_merknad", curie=RDFS.curie('comment'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmerknad_har_merknad, domain=Kvalitetsmerknad, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsmerknad_har_merknad, domain=Kvalitetsmerknad, range=Optional[Union[str, list[str]]])
 
 slots.Kvalitetsmerknad_har_maal = Slot(uri=OA.hasTarget, name="Kvalitetsmerknad_har_maal", curie=OA.curie('hasTarget'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmerknad_har_maal, domain=Kvalitetsmerknad, range=Optional[Union[str, URI]])
+                   model_uri=SAMTBU.Kvalitetsmerknad_har_maal, domain=Kvalitetsmerknad, range=Optional[Union[str, URI]])
 
 slots.Kvalitetsmaaling_er_kvalitetsmaaling_av = Slot(uri=DQV.isMeasurementOf, name="Kvalitetsmaaling_er_kvalitetsmaaling_av", curie=DQV.curie('isMeasurementOf'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaaling_er_kvalitetsmaaling_av, domain=Kvalitetsmaaling, range=Union[str, KvalitetsmaalId])
+                   model_uri=SAMTBU.Kvalitetsmaaling_er_kvalitetsmaaling_av, domain=Kvalitetsmaaling, range=Union[str, KvalitetsmaalId])
 
 slots.Kvalitetsmaaling_har_verdi = Slot(uri=DQV.value, name="Kvalitetsmaaling_har_verdi", curie=DQV.curie('value'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaaling_har_verdi, domain=Kvalitetsmaaling, range=Optional[str])
+                   model_uri=SAMTBU.Kvalitetsmaaling_har_verdi, domain=Kvalitetsmaaling, range=Optional[str])
 
 slots.Kvalitetsmaaling_har_merknad = Slot(uri=RDFS.comment, name="Kvalitetsmaaling_har_merknad", curie=RDFS.curie('comment'),
-                   model_uri=SAMTBUSKOLE.Kvalitetsmaaling_har_merknad, domain=Kvalitetsmaaling, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Kvalitetsmaaling_har_merknad, domain=Kvalitetsmaaling, range=Optional[Union[str, list[str]]])
 
 slots.Standard_tittel = Slot(uri=DCT.title, name="Standard_tittel", curie=DCT.curie('title'),
-                   model_uri=SAMTBUSKOLE.Standard_tittel, domain=Standard, range=Union[str, list[str]])
+                   model_uri=SAMTBU.Standard_tittel, domain=Standard, range=Union[str, list[str]])
 
 slots.Standard_er_i_kvalitetsdimensjon = Slot(uri=DQV.inDimension, name="Standard_er_i_kvalitetsdimensjon", curie=DQV.curie('inDimension'),
-                   model_uri=SAMTBUSKOLE.Standard_er_i_kvalitetsdimensjon, domain=Standard, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
+                   model_uri=SAMTBU.Standard_er_i_kvalitetsdimensjon, domain=Standard, range=Optional[Union[Union[str, KvalitetsdimensjonId], list[Union[str, KvalitetsdimensjonId]]]])
 
 slots.Standard_har_referanse = Slot(uri=RDFS.seeAlso, name="Standard_har_referanse", curie=RDFS.curie('seeAlso'),
-                   model_uri=SAMTBUSKOLE.Standard_har_referanse, domain=Standard, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
+                   model_uri=SAMTBU.Standard_har_referanse, domain=Standard, range=Optional[Union[Union[str, URI], list[Union[str, URI]]]])
 
 slots.Standard_har_merknad = Slot(uri=RDFS.comment, name="Standard_har_merknad", curie=RDFS.curie('comment'),
-                   model_uri=SAMTBUSKOLE.Standard_har_merknad, domain=Standard, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Standard_har_merknad, domain=Standard, range=Optional[Union[str, list[str]]])
 
 slots.Standard_har_versjonsnummer = Slot(uri=OWL.versionInfo, name="Standard_har_versjonsnummer", curie=OWL.curie('versionInfo'),
-                   model_uri=SAMTBUSKOLE.Standard_har_versjonsnummer, domain=Standard, range=Optional[str])
+                   model_uri=SAMTBU.Standard_har_versjonsnummer, domain=Standard, range=Optional[str])
 
 slots.Tekstdel_har_verdi_tekstdel = Slot(uri=RDFS.value, name="Tekstdel_har_verdi_tekstdel", curie=RDFS.curie('value'),
-                   model_uri=SAMTBUSKOLE.Tekstdel_har_verdi_tekstdel, domain=Tekstdel, range=str)
+                   model_uri=SAMTBU.Tekstdel_har_verdi_tekstdel, domain=Tekstdel, range=str)
 
 slots.Tekstdel_format = Slot(uri=DCT.format, name="Tekstdel_format", curie=DCT.curie('format'),
-                   model_uri=SAMTBUSKOLE.Tekstdel_format, domain=Tekstdel, range=Optional[str])
+                   model_uri=SAMTBU.Tekstdel_format, domain=Tekstdel, range=Optional[str])
 
 slots.Tekstdel_spraak = Slot(uri=DCT.language, name="Tekstdel_spraak", curie=DCT.curie('language'),
-                   model_uri=SAMTBUSKOLE.Tekstdel_spraak, domain=Tekstdel, range=Optional[Union[str, list[str]]])
+                   model_uri=SAMTBU.Tekstdel_spraak, domain=Tekstdel, range=Optional[Union[str, list[str]]])
 

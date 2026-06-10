@@ -60,6 +60,13 @@ URI: [samtbuskole:Skole](https://example.no/ontology/skole#Skole)
 
 <!-- no inheritance hierarchy -->
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Skole](https://example.no/ontology/skole#Skole) |
+
+
 ## Eigenskapar
 
 
@@ -189,7 +196,7 @@ URI: [samtbuskole:Skole](https://example.no/ontology/skole#Skole)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Skole |
-| native | samtbuskole:Skole |
+| native | samtbu:Skole |
 | exact | org:OrganizationalUnit, schema:EducationalOrganization |
 
 
@@ -237,6 +244,7 @@ slots:
 - id
 - navn
 - har_skoleeier
+class_uri: samtbuskole:Skole
 
 ```
 </details>
@@ -297,6 +305,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Skole
     domain_of:
     - Skole
@@ -312,10 +321,12 @@ attributes:
     - org:hasUnit
     rank: 1000
     domain: Skole
+    slot_uri: samtbuskole:harSkoleeier
     owner: Skole
     domain_of:
     - Skole
     range: Skoleeier
+class_uri: samtbuskole:Skole
 
 ```
 </details>

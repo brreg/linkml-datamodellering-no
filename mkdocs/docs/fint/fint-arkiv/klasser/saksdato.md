@@ -76,7 +76,7 @@ URI: [ark:saksdato](https://schema.fintlabs.no/arkiv/saksdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksdato |
-| native | https://schema.fintlabs.no/arkiv/:saksdato |
+| native | https://data.norge.no/fint/fint-arkiv/saksdato |
 
 
 

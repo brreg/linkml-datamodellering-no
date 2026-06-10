@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:produsentar](https://schema.fintlabs.no/ressurs/:produsentar)
+URI: [https://data.norge.no/fint/fint-ressurs/produsentar](https://data.norge.no/fint/fint-ressurs/produsentar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:produsentar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:produsentar |
-| native | https://schema.fintlabs.no/ressurs/:produsentar |
+| self | https://data.norge.no/fint/fint-ressurs/produsentar |
+| native | https://data.norge.no/fint/fint-ressurs/produsentar |
 
 
 

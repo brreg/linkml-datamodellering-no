@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:gjeldende_lovgivninger](https://example.no/ontology/skole#gjeldende_lovgivninger)
+URI: [samtbu:gjeldende_lovgivninger](https://data.norge.no/samt/samt-bu/gjeldende_lovgivninger)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:gjeldende_lovgivninger](https://example.no/ontology/skole#gjel
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:gjeldende_lovgivninger |
-| native | samtbuskole:gjeldende_lovgivninger |
+| self | samtbu:gjeldende_lovgivninger |
+| native | samtbu:gjeldende_lovgivninger |
 
 
 

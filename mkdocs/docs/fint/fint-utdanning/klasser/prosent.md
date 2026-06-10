@@ -70,7 +70,7 @@ URI: [utd:prosent](https://schema.fintlabs.no/utdanning/prosent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:prosent |
-| native | https://schema.fintlabs.no/utdanning/:prosent |
+| native | https://data.norge.no/fint/fint-utdanning/prosent |
 
 
 

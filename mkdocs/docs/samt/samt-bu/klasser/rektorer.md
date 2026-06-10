@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:rektorer](https://example.no/ontology/skole#rektorer)
+URI: [samtbu:rektorer](https://data.norge.no/samt/samt-bu/rektorer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:rektorer](https://example.no/ontology/skole#rektorer)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:rektorer |
-| native | samtbuskole:rektorer |
+| self | samtbu:rektorer |
+| native | samtbu:rektorer |
 
 
 

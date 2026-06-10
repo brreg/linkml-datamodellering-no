@@ -70,7 +70,7 @@ URI: [ark:partNavn](https://schema.fintlabs.no/arkiv/partNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:partNavn |
-| native | https://schema.fintlabs.no/arkiv/:partNavn |
+| native | https://data.norge.no/fint/fint-arkiv/partNavn |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkter)
+URI: [samtbu:kontaktpunkter](https://data.norge.no/samt/samt-bu/kontaktpunkter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkt
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kontaktpunkter |
-| native | samtbuskole:kontaktpunkter |
+| self | samtbu:kontaktpunkter |
+| native | samtbu:kontaktpunkter |
 
 
 

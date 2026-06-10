@@ -37,7 +37,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "ansvarleg_verksemd": {
                     "description": "Fagleg ansvarleg organisasjon for omgrepet (dct:creator).",
@@ -354,7 +357,6 @@
             },
             "required": [
                 "id",
-                "anbefalt_term",
                 "identifikator_literal",
                 "kontaktpunkt_vcard",
                 "utgjevar"
@@ -492,12 +494,14 @@
                 },
                 "tekst": {
                     "description": "Definissjonstekst (rdf:value).",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tekst"
+                "id"
             ],
             "title": "Definisjon",
             "type": "object"
@@ -506,6 +510,16 @@
             "additionalProperties": false,
             "description": "Ein generisk relasjon mellom eit overomgrep og eit underomgrep.",
             "properties": {
+                "beskrivelse": {
+                    "description": "Fritekstbeskrivelse av ressursen (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "har_generisk_omgrep": {
                     "description": "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept).",
                     "items": {
@@ -529,16 +543,6 @@
                 "id": {
                     "description": "URI-identifikator for ressursen.",
                     "type": "string"
-                },
-                "inndelingskriterium": {
-                    "description": "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 }
             },
             "required": [
@@ -596,6 +600,16 @@
             "additionalProperties": false,
             "description": "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.",
             "properties": {
+                "beskrivelse": {
+                    "description": "Fritekstbeskrivelse av ressursen (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "har_heilskapleg_omgrep": {
                     "description": "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept).",
                     "items": {
@@ -619,16 +633,6 @@
                 "id": {
                     "description": "URI-identifikator for ressursen.",
                     "type": "string"
-                },
-                "inndelingskriterium": {
-                    "description": "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 }
             },
             "required": [
@@ -678,7 +682,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "utgjevar": {
                     "description": "Organisasjon ansvarleg for \u00e5 publisere omgrepet (dct:publisher).",
@@ -690,7 +697,6 @@
                 "identifikator_literal",
                 "medlem",
                 "kontaktpunkt_vcard",
-                "tittel",
                 "utgjevar"
             ],
             "title": "Samling",

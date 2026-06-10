@@ -289,7 +289,7 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:Valuta |
-| native | https://schema.fintlabs.no/okonomi/:OkonomiValuta |
+| native | https://data.norge.no/fint/fint-okonomi/OkonomiValuta |
 
 
 

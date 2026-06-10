@@ -29,14 +29,14 @@ Definisjon {
 }
 GeneriskRelasjon {
     uriorcurie id  
-    LangStringList inndelingskriterium  
+    LangStringList beskrivelse  
 }
 Organisasjon {
     uriorcurie id  
 }
 PartitivRelasjon {
     uriorcurie id  
-    LangStringList inndelingskriterium  
+    LangStringList beskrivelse  
 }
 Samling {
     uriorcurie id  

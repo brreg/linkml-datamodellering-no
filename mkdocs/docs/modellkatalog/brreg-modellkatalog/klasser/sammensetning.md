@@ -277,6 +277,12 @@ URI: [modelldcatno:Composition](https://data.norge.no/vocabulary/modelldcatno#Co
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -317,6 +323,8 @@ URI: [modelldcatno:Composition](https://data.norge.no/vocabulary/modelldcatno#Co
 ```yaml
 name: Sammensetning
 description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -337,6 +345,8 @@ class_uri: modelldcatno:Composition
 ```yaml
 name: Sammensetning
 description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

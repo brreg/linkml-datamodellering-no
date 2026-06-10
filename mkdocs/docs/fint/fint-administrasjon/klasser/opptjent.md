@@ -73,7 +73,7 @@ URI: [adm:opptjent](https://schema.fintlabs.no/administrasjon/opptjent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:opptjent |
-| native | https://schema.fintlabs.no/administrasjon/:opptjent |
+| native | https://data.norge.no/fint/fint-administrasjon/opptjent |
 
 
 

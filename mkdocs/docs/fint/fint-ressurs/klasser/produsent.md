@@ -70,7 +70,7 @@ URI: [res:produsent](https://schema.fintlabs.no/ressurs/produsent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:produsent |
-| native | https://schema.fintlabs.no/ressurs/:produsent |
+| native | https://data.norge.no/fint/fint-ressurs/produsent |
 
 
 

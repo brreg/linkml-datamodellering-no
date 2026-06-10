@@ -70,7 +70,7 @@ URI: [okn:transaksjonstidspunkt](https://schema.fintlabs.no/okonomi/transaksjons
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:transaksjonstidspunkt |
-| native | https://schema.fintlabs.no/okonomi/:transaksjonstidspunkt |
+| native | https://data.norge.no/fint/fint-okonomi/transaksjonstidspunkt |
 
 
 

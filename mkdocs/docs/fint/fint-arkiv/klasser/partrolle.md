@@ -70,7 +70,7 @@ URI: [ark:partRolle](https://schema.fintlabs.no/arkiv/partRolle)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:partRolle |
-| native | https://schema.fintlabs.no/arkiv/:partRolle |
+| native | https://data.norge.no/fint/fint-arkiv/partRolle |
 
 
 

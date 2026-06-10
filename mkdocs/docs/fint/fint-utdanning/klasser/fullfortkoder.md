@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:fullfortkoder](https://schema.fintlabs.no/utdanning/:fullfortkoder)
+URI: [https://data.norge.no/fint/fint-utdanning/fullfortkoder](https://data.norge.no/fint/fint-utdanning/fullfortkoder)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:fullfortkoder](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:fullfortkoder |
-| native | https://schema.fintlabs.no/utdanning/:fullfortkoder |
+| self | https://data.norge.no/fint/fint-utdanning/fullfortkoder |
+| native | https://data.norge.no/fint/fint-utdanning/fullfortkoder |
 
 
 

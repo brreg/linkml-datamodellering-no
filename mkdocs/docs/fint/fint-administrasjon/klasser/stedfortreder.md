@@ -71,7 +71,7 @@ URI: [adm:stedfortreder](https://schema.fintlabs.no/administrasjon/stedfortreder
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:stedfortreder |
-| native | https://schema.fintlabs.no/administrasjon/:stedfortreder |
+| native | https://data.norge.no/fint/fint-administrasjon/stedfortreder |
 
 
 

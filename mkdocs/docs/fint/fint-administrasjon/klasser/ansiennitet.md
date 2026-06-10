@@ -70,7 +70,7 @@ URI: [adm:ansiennitet](https://schema.fintlabs.no/administrasjon/ansiennitet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ansiennitet |
-| native | https://schema.fintlabs.no/administrasjon/:ansiennitet |
+| native | https://data.norge.no/fint/fint-administrasjon/ansiennitet |
 
 
 

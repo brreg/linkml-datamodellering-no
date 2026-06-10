@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:kontaktpersonar](https://schema.fintlabs.no/administrasjon/:kontaktpersonar)
+URI: [https://data.norge.no/fint/fint-administrasjon/kontaktpersonar](https://data.norge.no/fint/fint-administrasjon/kontaktpersonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:kontaktpersonar](https://schema
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:kontaktpersonar |
-| native | https://schema.fintlabs.no/administrasjon/:kontaktpersonar |
+| self | https://data.norge.no/fint/fint-administrasjon/kontaktpersonar |
+| native | https://data.norge.no/fint/fint-administrasjon/kontaktpersonar |
 
 
 

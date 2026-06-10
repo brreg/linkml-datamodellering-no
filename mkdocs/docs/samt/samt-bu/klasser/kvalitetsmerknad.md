@@ -318,6 +318,12 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -370,6 +376,8 @@ har_tekstdel: dqv:tekstdel-2
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -411,6 +419,8 @@ class_uri: dqv:QualityAnnotation
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_motivert_av:

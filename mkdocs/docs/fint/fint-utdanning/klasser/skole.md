@@ -79,7 +79,7 @@ URI: [utd:skole](https://schema.fintlabs.no/utdanning/skole)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skole |
-| native | https://schema.fintlabs.no/utdanning/:skole |
+| native | https://data.norge.no/fint/fint-utdanning/skole |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:rollar](https://schema.fintlabs.no/arkiv/:rollar)
+URI: [https://data.norge.no/fint/fint-arkiv/rollar](https://data.norge.no/fint/fint-arkiv/rollar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:rollar](https://schema.fintlabs.no/arkiv
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:rollar |
-| native | https://schema.fintlabs.no/arkiv/:rollar |
+| self | https://data.norge.no/fint/fint-arkiv/rollar |
+| native | https://data.norge.no/fint/fint-arkiv/rollar |
 
 
 

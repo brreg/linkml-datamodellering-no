@@ -70,7 +70,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:identifier |
-| native | samtbuskole:organisasjonsnummer |
+| native | samtbu:organisasjonsnummer |
 | exact | adms:identifier |
 
 

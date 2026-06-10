@@ -146,7 +146,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "type_concept": {
                     "description": "Type ressurs fr\u00e5 eit kontrollert vokabular (dct:type).",
@@ -157,8 +160,7 @@
                 }
             },
             "required": [
-                "id",
-                "namn_aktor"
+                "id"
             ],
             "title": "Aktor",
             "type": "object"
@@ -858,12 +860,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Datatype",
             "type": "object"
@@ -1236,7 +1240,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "totalt_sifre": {
                     "description": "Maks totalt tal p\u00e5 siffer (xsd:totalDigits).",
@@ -1256,8 +1263,7 @@
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "EnkelType",
             "type": "object"
@@ -1384,13 +1390,10 @@
                         "null"
                     ]
                 },
-                "er_del_av_modell": {
-                    "description": "Overordna informasjonsmodell (dct:isPartOf).",
-                    "items": {
-                        "type": "string"
-                    },
+                "er_del_av": {
+                    "description": "Overordna ressurs denne er ein del av (dct:isPartOf).",
                     "type": [
-                        "array",
+                        "string",
                         "null"
                     ]
                 },
@@ -1434,8 +1437,8 @@
                         "null"
                     ]
                 },
-                "har_del_modell": {
-                    "description": "Del-informasjonsmodell av denne modellen (dct:hasPart).",
+                "har_del": {
+                    "description": "Del-ressurs inkludert i denne ressursen (dct:hasPart).",
                     "items": {
                         "type": "string"
                     },
@@ -1576,7 +1579,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "type_concept": {
                     "description": "Type ressurs fr\u00e5 eit kontrollert vokabular (dct:type).",
@@ -1610,7 +1616,6 @@
             },
             "required": [
                 "id",
-                "tittel",
                 "utgiver"
             ],
             "title": "Informasjonsmodell",
@@ -1861,12 +1866,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Kodeliste",
             "type": "object"
@@ -2075,12 +2082,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Modellelement",
             "type": "object"
@@ -2094,7 +2103,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "endringsdato": {
                     "description": "Dato for siste endring av ressursen (dct:modified).",
@@ -2104,15 +2116,15 @@
                         "null"
                     ]
                 },
-                "er_del_av_katalog": {
-                    "description": "Overordna modellkatalog (dct:isPartOf).",
+                "er_del_av": {
+                    "description": "Overordna ressurs denne er ein del av (dct:isPartOf).",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "har_del": {
-                    "description": "Del-ressurs inkludert i denne katalogen (dct:hasPart).",
+                    "description": "Del-ressurs inkludert i denne ressursen (dct:hasPart).",
                     "items": {
                         "type": "string"
                     },
@@ -2196,7 +2208,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "utgivelsesdato": {
                     "description": "Dato ressursen vart f\u00f8rste gong publisert (dct:issued).",
@@ -2213,8 +2228,6 @@
             },
             "required": [
                 "id",
-                "tittel",
-                "beskrivelse",
                 "har_del",
                 "identifikator_literal",
                 "kontaktpunkt",
@@ -2354,12 +2367,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Modul",
             "type": "object"
@@ -2553,12 +2568,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Objekttype",
             "type": "object"
@@ -2955,12 +2972,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "RootObjekttype",
             "type": "object"
@@ -3367,12 +3386,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "id",
-                "tittel"
+                "id"
             ],
             "title": "Standard",
             "type": "object"

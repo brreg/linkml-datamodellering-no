@@ -72,7 +72,7 @@ URI: [ark:kulturminneId](https://schema.fintlabs.no/arkiv/kulturminneId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:kulturminneId |
-| native | https://schema.fintlabs.no/arkiv/:kulturminneId |
+| native | https://data.norge.no/fint/fint-arkiv/kulturminneId |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:organisasjonselement](https://schema.fintlabs.no/okonomi/organisasjons
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:organisasjonselement |
-| native | https://schema.fintlabs.no/okonomi/:organisasjonselement |
+| native | https://data.norge.no/fint/fint-okonomi/organisasjonselement |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:laretid](https://schema.fintlabs.no/utdanning/laretid)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:laretid |
-| native | https://schema.fintlabs.no/utdanning/:laretid |
+| native | https://data.norge.no/fint/fint-utdanning/laretid |
 
 
 

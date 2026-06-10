@@ -3,7 +3,7 @@
 # Slot: har_del 
 
 
-_Del-ressurs inkludert i denne katalogen (dct:hasPart)._
+_Del-ressurs inkludert i denne ressursen (dct:hasPart)._
 
 
 
@@ -21,6 +21,7 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Modellkatalog](modellkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:... |  yes  |
 
 
 
@@ -34,7 +35,7 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 | Property | Value |
 | --- | --- |
 | Range | [KatalogisertRessurs](katalogisertressurs.md) |
-| Domain Of | [Modellkatalog](modellkatalog.md) |
+| Domain Of | [Modellkatalog](modellkatalog.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:hasPart](http://purl.org/dc/terms/hasPart) |
 
 ### Cardinality and Requirements
@@ -81,11 +82,12 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 <details>
 ```yaml
 name: har_del
-description: Del-ressurs inkludert i denne katalogen (dct:hasPart).
+description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_uri: dct:hasPart
 domain_of:
 - Modellkatalog
+- Informasjonsmodell
 range: KatalogisertRessurs
 multivalued: true
 

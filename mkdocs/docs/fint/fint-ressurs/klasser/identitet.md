@@ -71,7 +71,7 @@ URI: [res:identitet](https://schema.fintlabs.no/ressurs/identitet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:identitet |
-| native | https://schema.fintlabs.no/ressurs/:identitet |
+| native | https://data.norge.no/fint/fint-ressurs/identitet |
 
 
 

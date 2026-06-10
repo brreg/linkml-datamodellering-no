@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:plattformar](https://schema.fintlabs.no/ressurs/:plattformar)
+URI: [https://data.norge.no/fint/fint-ressurs/plattformar](https://data.norge.no/fint/fint-ressurs/plattformar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:plattformar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:plattformar |
-| native | https://schema.fintlabs.no/ressurs/:plattformar |
+| self | https://data.norge.no/fint/fint-ressurs/plattformar |
+| native | https://data.norge.no/fint/fint-ressurs/plattformar |
 
 
 

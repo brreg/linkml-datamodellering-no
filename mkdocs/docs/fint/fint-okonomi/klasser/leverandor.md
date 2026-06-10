@@ -71,7 +71,7 @@ URI: [okn:leverandor](https://schema.fintlabs.no/okonomi/leverandor)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:leverandor |
-| native | https://schema.fintlabs.no/okonomi/:leverandor |
+| native | https://data.norge.no/fint/fint-okonomi/leverandor |
 
 
 

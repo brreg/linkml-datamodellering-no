@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:klassifikasjonstypar](https://schema.fintlabs.no/arkiv/:klassifikasjonstypar)
+URI: [https://data.norge.no/fint/fint-arkiv/klassifikasjonstypar](https://data.norge.no/fint/fint-arkiv/klassifikasjonstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:klassifikasjonstypar](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:klassifikasjonstypar |
-| native | https://schema.fintlabs.no/arkiv/:klassifikasjonstypar |
+| self | https://data.norge.no/fint/fint-arkiv/klassifikasjonstypar |
+| native | https://data.norge.no/fint/fint-arkiv/klassifikasjonstypar |
 
 
 

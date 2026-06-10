@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:applikasjonar](https://schema.fintlabs.no/ressurs/:applikasjonar)
+URI: [https://data.norge.no/fint/fint-ressurs/applikasjonar](https://data.norge.no/fint/fint-ressurs/applikasjonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:applikasjonar](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:applikasjonar |
-| native | https://schema.fintlabs.no/ressurs/:applikasjonar |
+| self | https://data.norge.no/fint/fint-ressurs/applikasjonar |
+| native | https://data.norge.no/fint/fint-ressurs/applikasjonar |
 
 
 

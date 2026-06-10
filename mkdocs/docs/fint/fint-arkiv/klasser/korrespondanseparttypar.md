@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:korrespondanseparttypar](https://schema.fintlabs.no/arkiv/:korrespondanseparttypar)
+URI: [https://data.norge.no/fint/fint-arkiv/korrespondanseparttypar](https://data.norge.no/fint/fint-arkiv/korrespondanseparttypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:korrespondanseparttypar](https://schema.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:korrespondanseparttypar |
-| native | https://schema.fintlabs.no/arkiv/:korrespondanseparttypar |
+| self | https://data.norge.no/fint/fint-arkiv/korrespondanseparttypar |
+| native | https://data.norge.no/fint/fint-arkiv/korrespondanseparttypar |
 
 
 

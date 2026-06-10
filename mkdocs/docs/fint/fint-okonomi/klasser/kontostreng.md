@@ -255,7 +255,7 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:Kontostreng |
-| native | https://schema.fintlabs.no/okonomi/:Kontostreng |
+| native | https://data.norge.no/fint/fint-okonomi/Kontostreng |
 
 
 

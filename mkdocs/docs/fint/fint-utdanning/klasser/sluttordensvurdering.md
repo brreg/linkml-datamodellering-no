@@ -21,7 +21,7 @@ URI: [utd:sluttordensvurdering](https://schema.fintlabs.no/utdanning/sluttordens
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:sluttordensvurdering](https://schema.fintlabs.no/utdanning/sluttordens
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:sluttordensvurdering |
-| native | https://schema.fintlabs.no/utdanning/:sluttordensvurdering |
+| native | https://data.norge.no/fint/fint-utdanning/sluttordensvurdering |
 
 
 

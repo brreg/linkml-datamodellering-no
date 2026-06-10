@@ -193,7 +193,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
     
         
         
-        EnkelType --> "1..*" LangString : tittel
+        EnkelType --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -474,7 +474,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
 | [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
 | [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
@@ -496,6 +496,12 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 
 
+
+
+## In Subsets
+
+
+* [Metadata](metadata.md)
 
 
 
@@ -538,6 +544,8 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 ```yaml
 name: EnkelType
 description: Ein enkel type med restriksjonar (xsd-fasettar).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Modellelement
 slots:
@@ -568,6 +576,8 @@ class_uri: modelldcatno:SimpleType
 ```yaml
 name: EnkelType
 description: Ein enkel type med restriksjonar (xsd-fasettar).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Modellelement
 slot_usage:
@@ -720,7 +730,6 @@ attributes:
     - Eigenskap
     - Merknad
     range: LangString
-    required: true
     multivalued: true
   begrep:
     name: begrep

@@ -21,7 +21,7 @@ URI: [pvn:behandlingsgrunnlag](https://schema.fintlabs.no/personvern/behandlings
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  yes  |
-| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  yes  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [pvn:behandlingsgrunnlag](https://schema.fintlabs.no/personvern/behandlings
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:behandlingsgrunnlag |
-| native | https://schema.fintlabs.no/personvern/:behandlingsgrunnlag |
+| native | https://data.norge.no/fint/fint-personvern/behandlingsgrunnlag |
 
 
 

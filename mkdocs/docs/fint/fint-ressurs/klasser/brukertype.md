@@ -71,7 +71,7 @@ URI: [res:brukertype](https://schema.fintlabs.no/ressurs/brukertype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:brukertype |
-| native | https://schema.fintlabs.no/ressurs/:brukertype |
+| native | https://data.norge.no/fint/fint-ressurs/brukertype |
 
 
 

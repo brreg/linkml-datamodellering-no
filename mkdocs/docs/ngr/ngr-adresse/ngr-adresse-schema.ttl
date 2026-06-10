@@ -8,20 +8,20 @@
 <https://data.norge.no/ngr/ngr-adresse/ngr-adresse> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Adresse" ;
-    sh:declare [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
+    sh:declare [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:prefix "xsd" ],
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ],
-        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
-            sh:prefix "geo" ],
         [ sh:namespace "https://data.norge.no/vocabulary/ngr-adresse#"^^xsd:anyURI ;
             sh:prefix "ngr" ],
+        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+            sh:prefix "geo" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
         [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
-            sh:prefix "locn" ],
-        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            sh:prefix "rdf" ] ;
+            sh:prefix "locn" ] ;
     linkml:classes <https://data.norge.no/ngr/ngr-adresse/AdresseContainer>,
         <https://data.norge.no/ngr/ngr-adresse/Adressekode>,
         <https://data.norge.no/ngr/ngr-adresse/Adressenavn>,
@@ -49,7 +49,7 @@
     linkml:default_range <https://data.norge.no/ngr/ngr-adresse/string> ;
     linkml:description "Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse" ;
     linkml:enums <https://data.norge.no/ngr/ngr-adresse/Etasjeplan> ;
-    linkml:generation_date "2026-06-08T14:31:47"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-09T16:31:53"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;
@@ -87,9 +87,7 @@
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adressekoder>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adressenavn>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adresseomrader>,
-        <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenheter>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenhetsnummer>,
-        <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bygningar>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__fylke>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__grunnkretsar>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__husnummer>,
@@ -143,8 +141,8 @@
         <https://data.norge.no/ngr/ngr-adresse/stemmekretsnummer>,
         <https://data.norge.no/ngr/ngr-adresse/tettstedsnummer> ;
     linkml:source_file "ngr-adresse-schema.yaml" ;
-    linkml:source_file_date "2026-05-27T14:09:06"^^xsd:dateTime ;
-    linkml:source_file_size 18786 ;
+    linkml:source_file_date "2026-06-09T12:10:26"^^xsd:dateTime ;
+    linkml:source_file_size 18588 ;
     linkml:subsets <https://data.norge.no/ngr/ngr-adresse/Anbefalt>,
         <https://data.norge.no/ngr/ngr-adresse/Obligatorisk>,
         <https://data.norge.no/ngr/ngr-adresse/Valgfri> ;
@@ -204,20 +202,10 @@
     linkml:repr "bool" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#boolean"^^xsd:anyURI .
 
-<https://data.norge.no/ngr/ngr-adresse/bruksenheter> a linkml:SlotDefinition ;
-    linkml:inlined_as_list true ;
-    linkml:multivalued true ;
-    linkml:range <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> .
-
 <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer> a linkml:SlotDefinition ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
     linkml:range <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> .
-
-<https://data.norge.no/ngr/ngr-adresse/bygningar> a linkml:SlotDefinition ;
-    linkml:inlined_as_list true ;
-    linkml:multivalued true ;
-    linkml:range <https://data.norge.no/ngr/ngr-adresse/Bygning> .
 
 <https://data.norge.no/ngr/ngr-adresse/curie> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.w3.org/TR/curie/" ;
@@ -994,17 +982,6 @@
     linkml:range <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> ;
     linkml:slot_uri "https://data.norge.no/ngr/ngr-adresse/adresseomrader"^^xsd:anyURI .
 
-<https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenheter> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
-    skos:prefLabel "bruksenheter" ;
-    linkml:domain_of <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> ;
-    linkml:inlined true ;
-    linkml:inlined_as_list true ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> ;
-    linkml:range <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> ;
-    linkml:slot_uri "https://data.norge.no/ngr/ngr-adresse/bruksenheter"^^xsd:anyURI .
-
 <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenhetsnummer> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
     skos:prefLabel "bruksenhetsnummer" ;
@@ -1015,17 +992,6 @@
     linkml:owner <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> ;
     linkml:range <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> ;
     linkml:slot_uri "https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer"^^xsd:anyURI .
-
-<https://data.norge.no/ngr/ngr-adresse/adresseContainer__bygningar> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
-    skos:prefLabel "bygningar" ;
-    linkml:domain_of <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> ;
-    linkml:inlined true ;
-    linkml:inlined_as_list true ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> ;
-    linkml:range <https://data.norge.no/ngr/ngr-adresse/Bygning> ;
-    linkml:slot_uri "https://data.norge.no/ngr/ngr-adresse/bygningar"^^xsd:anyURI .
 
 <https://data.norge.no/ngr/ngr-adresse/adresseContainer__fylke> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
@@ -1568,6 +1534,15 @@
     linkml:definition_uri "https://data.norge.no/ngr/ngr-adresse/Anbefalt"^^xsd:anyURI ;
     linkml:description "Anbefalte eigenskapar i domenemodellen." .
 
+<https://data.norge.no/ngr/ngr-adresse/Bygning> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "ngr:Bygning"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/vocabulary/ngr-adresse#Bygning"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ngr/ngr-adresse/Bygning"^^xsd:anyURI ;
+    linkml:description "Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/ngr/ngr-adresse/id> .
+
 <https://data.norge.no/ngr/ngr-adresse/GeografiskAdresse> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
     skos:mappingRelation "locn:Address"^^xsd:anyURI ;
@@ -1587,6 +1562,15 @@
     linkml:imported_from "linkml:types" ;
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+
+<https://data.norge.no/ngr/ngr-adresse/Bruksenhet> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "ngr:Bruksenhet"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ngr/ngr-adresse/Bruksenhet"^^xsd:anyURI ;
+    linkml:description "Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/ngr/ngr-adresse/id> .
 
 <https://data.norge.no/ngr/ngr-adresse/Grunnkrets> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
@@ -1658,15 +1642,6 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#float"^^xsd:anyURI .
 
-<https://data.norge.no/ngr/ngr-adresse/Bygning> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "ngr:Bygning"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/vocabulary/ngr-adresse#Bygning"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ngr/ngr-adresse/Bygning"^^xsd:anyURI ;
-    linkml:description "Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen." ;
-    linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/ngr/ngr-adresse/id> .
-
 <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
     skos:mappingRelation "ngr:Adresseomrade"^^xsd:anyURI ;
@@ -1676,15 +1651,6 @@
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/ngr/ngr-adresse/id>,
         <https://data.norge.no/ngr/ngr-adresse/namn> .
-
-<https://data.norge.no/ngr/ngr-adresse/Bruksenhet> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "ngr:Bruksenhet"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ngr/ngr-adresse/Bruksenhet"^^xsd:anyURI ;
-    linkml:description "Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen." ;
-    linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/ngr/ngr-adresse/id> .
 
 <https://data.norge.no/ngr/ngr-adresse/Fylke> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
@@ -1881,9 +1847,7 @@
     linkml:attributes <https://data.norge.no/ngr/ngr-adresse/adressekoder>,
         <https://data.norge.no/ngr/ngr-adresse/adressenavn>,
         <https://data.norge.no/ngr/ngr-adresse/adresseomrader>,
-        <https://data.norge.no/ngr/ngr-adresse/bruksenheter>,
         <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer>,
-        <https://data.norge.no/ngr/ngr-adresse/bygningar>,
         <https://data.norge.no/ngr/ngr-adresse/fylke>,
         <https://data.norge.no/ngr/ngr-adresse/grunnkretsar>,
         <https://data.norge.no/ngr/ngr-adresse/husnummer>,
@@ -1905,9 +1869,7 @@
     linkml:slots <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adressekoder>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adressenavn>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__adresseomrader>,
-        <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenheter>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bruksenhetsnummer>,
-        <https://data.norge.no/ngr/ngr-adresse/adresseContainer__bygningar>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__fylke>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__grunnkretsar>,
         <https://data.norge.no/ngr/ngr-adresse/adresseContainer__husnummer>,

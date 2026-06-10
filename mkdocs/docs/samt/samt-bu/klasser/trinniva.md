@@ -35,6 +35,7 @@ URI: [samtbuskole:trinniva](https://example.no/ontology/skole#trinniva)
 | --- | --- |
 | Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Basisgruppe](basisgruppe.md) |
+| Slot URI | [samtbuskole:trinniva](https://example.no/ontology/skole#trinniva) |
 
 ### Cardinality and Requirements
 
@@ -69,7 +70,7 @@ URI: [samtbuskole:trinniva](https://example.no/ontology/skole#trinniva)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:trinniva |
-| native | samtbuskole:trinniva |
+| native | samtbu:trinniva |
 
 
 
@@ -82,6 +83,7 @@ name: trinniva
 description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+slot_uri: samtbuskole:trinniva
 domain_of:
 - Basisgruppe
 range: string

@@ -70,7 +70,7 @@ URI: [adm:leder](https://schema.fintlabs.no/administrasjon/leder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:leder |
-| native | https://schema.fintlabs.no/administrasjon/:leder |
+| native | https://data.norge.no/fint/fint-administrasjon/leder |
 
 
 

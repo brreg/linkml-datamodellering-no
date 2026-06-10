@@ -70,7 +70,7 @@ URI: [adm:fullmektig](https://schema.fintlabs.no/administrasjon/fullmektig)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fullmektig |
-| native | https://schema.fintlabs.no/administrasjon/:fullmektig |
+| native | https://data.norge.no/fint/fint-administrasjon/fullmektig |
 
 
 

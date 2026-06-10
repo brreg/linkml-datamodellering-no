@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
+URI: [samtbu:standarder](https://data.norge.no/samt/samt-bu/standarder)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:standarder |
-| native | samtbuskole:standarder |
+| self | samtbu:standarder |
+| native | samtbu:standarder |
 
 
 

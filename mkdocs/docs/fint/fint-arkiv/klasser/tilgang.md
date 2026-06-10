@@ -71,7 +71,7 @@ URI: [ark:tilgang](https://schema.fintlabs.no/arkiv/tilgang)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tilgang |
-| native | https://schema.fintlabs.no/arkiv/:tilgang |
+| native | https://data.norge.no/fint/fint-arkiv/tilgang |
 
 
 

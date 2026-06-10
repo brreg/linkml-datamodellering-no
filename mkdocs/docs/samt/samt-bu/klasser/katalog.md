@@ -809,6 +809,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -850,6 +856,8 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slots:
@@ -943,6 +951,8 @@ class_uri: dcat:Catalog
 name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slot_usage:

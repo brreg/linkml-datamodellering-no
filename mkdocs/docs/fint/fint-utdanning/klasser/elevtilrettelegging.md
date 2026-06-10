@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:elevtilrettelegging](https://schema.fintlabs.no/utdanning/:elevtilrettelegging)
+URI: [https://data.norge.no/fint/fint-utdanning/elevtilrettelegging](https://data.norge.no/fint/fint-utdanning/elevtilrettelegging)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:elevtilrettelegging](https://schema.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:elevtilrettelegging |
-| native | https://schema.fintlabs.no/utdanning/:elevtilrettelegging |
+| self | https://data.norge.no/fint/fint-utdanning/elevtilrettelegging |
+| native | https://data.norge.no/fint/fint-utdanning/elevtilrettelegging |
 
 
 

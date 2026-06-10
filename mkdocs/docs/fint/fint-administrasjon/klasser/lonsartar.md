@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:lonsartar](https://schema.fintlabs.no/administrasjon/:lonsartar)
+URI: [https://data.norge.no/fint/fint-administrasjon/lonsartar](https://data.norge.no/fint/fint-administrasjon/lonsartar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:lonsartar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:lonsartar |
-| native | https://schema.fintlabs.no/administrasjon/:lonsartar |
+| self | https://data.norge.no/fint/fint-administrasjon/lonsartar |
+| native | https://data.norge.no/fint/fint-administrasjon/lonsartar |
 
 
 

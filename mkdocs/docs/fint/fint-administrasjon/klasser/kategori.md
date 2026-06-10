@@ -70,7 +70,7 @@ URI: [adm:kategori](https://schema.fintlabs.no/administrasjon/kategori)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:kategori |
-| native | https://schema.fintlabs.no/administrasjon/:kategori |
+| native | https://data.norge.no/fint/fint-administrasjon/kategori |
 
 
 

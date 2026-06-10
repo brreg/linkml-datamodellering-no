@@ -193,6 +193,12 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -233,6 +239,8 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 ```yaml
 name: Dokument
 description: Eit dokument (foaf:Document).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -250,6 +258,8 @@ class_uri: foaf:Document
 ```yaml
 name: Dokument
 description: Eit dokument (foaf:Document).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 attributes:
   id:

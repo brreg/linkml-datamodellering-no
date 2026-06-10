@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste](https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste)
+URI: [https://data.norge.no/fint/fint-arkiv/tilskuddFredaBygningPrivatEie_liste](https://data.norge.no/fint/fint-arkiv/tilskuddFredaBygningPrivatEie_liste)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste](htt
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste |
-| native | https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste |
+| self | https://data.norge.no/fint/fint-arkiv/tilskuddFredaBygningPrivatEie_liste |
+| native | https://data.norge.no/fint/fint-arkiv/tilskuddFredaBygningPrivatEie_liste |
 
 
 

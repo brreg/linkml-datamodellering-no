@@ -70,7 +70,7 @@ URI: [ark:opprettetAvNavn](https://schema.fintlabs.no/arkiv/opprettetAvNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:opprettetAvNavn |
-| native | https://schema.fintlabs.no/arkiv/:opprettetAvNavn |
+| native | https://data.norge.no/fint/fint-arkiv/opprettetAvNavn |
 
 
 

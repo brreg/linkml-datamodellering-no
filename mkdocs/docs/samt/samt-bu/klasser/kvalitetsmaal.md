@@ -265,6 +265,12 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -305,6 +311,8 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -341,6 +349,8 @@ class_uri: dqv:Metric
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_i_kvalitetsdeldimensjon:

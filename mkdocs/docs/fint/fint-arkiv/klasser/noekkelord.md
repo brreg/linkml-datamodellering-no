@@ -78,7 +78,7 @@ URI: [ark:noekkelord](https://schema.fintlabs.no/arkiv/noekkelord)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:noekkelord |
-| native | https://schema.fintlabs.no/arkiv/:noekkelord |
+| native | https://data.norge.no/fint/fint-arkiv/noekkelord |
 
 
 

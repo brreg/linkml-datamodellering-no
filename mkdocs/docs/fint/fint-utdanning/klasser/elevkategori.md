@@ -289,7 +289,7 @@ URI: [utd:Elevkategori](https://schema.fintlabs.no/utdanning/Elevkategori)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Elevkategori |
-| native | https://schema.fintlabs.no/utdanning/:Elevkategori |
+| native | https://data.norge.no/fint/fint-utdanning/Elevkategori |
 
 
 

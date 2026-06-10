@@ -131,6 +131,7 @@ Name: skole_ontologi
 | Subset | Description |
 | --- | --- |
 | [Anbefalt](klasser/anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
+| [Metadata](klasser/metadata.md) | Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet |
 | [Obligatorisk](klasser/obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
 | [Valgfri](klasser/valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |
 
@@ -142,7 +143,11 @@ Name: skole_ontologi
 | SHACL shapes | [samt-bu-shapes.ttl](samt-bu-shapes.ttl) |
 | JSON-LD kontekst | [samt-bu-context.jsonld](samt-bu-context.jsonld) |
 | JSON Schema | [samt-bu-schema.json](samt-bu-schema.json) |
+| XML Schema (XSD) | [samt-bu-schema.xsd](samt-bu-schema.xsd) |
+| OpenAPI 3.1 | [samt-bu-openapi.yaml](samt-bu-openapi.yaml) |
+| AsyncAPI 3.0 | [samt-bu-asyncapi.yaml](samt-bu-asyncapi.yaml) |
 | OWL ontologi | [samt-bu-ontology.ttl](samt-bu-ontology.ttl) |
+| RDF/Turtle skjema | [samt-bu-schema.ttl](samt-bu-schema.ttl) |
 | Python-klasser | [samt-bu-model.py](samt-bu-model.py) |
 | Protobuf-skjema | [samt-bu-schema.proto](samt-bu-schema.proto) |
 | ER-diagram (Mermaid) | [samt-bu-erdiagram.md](samt-bu-erdiagram.md) |

@@ -176,6 +176,12 @@ URI: [modelldcatno:Not](https://data.norge.no/vocabulary/modelldcatno#Not)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -216,6 +222,8 @@ URI: [modelldcatno:Not](https://data.norge.no/vocabulary/modelldcatno#Not)
 ```yaml
 name: Ikke
 description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 class_uri: modelldcatno:Not
@@ -229,6 +237,8 @@ class_uri: modelldcatno:Not
 ```yaml
 name: Ikke
 description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 attributes:

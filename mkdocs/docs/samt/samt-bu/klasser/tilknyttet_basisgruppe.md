@@ -9,7 +9,7 @@ _Basisgruppe kontaktlærer er tilknyttet_
 
 
 
-URI: [samtbuskole:tilknyttet_basisgruppe](https://example.no/ontology/skole#tilknyttet_basisgruppe)
+URI: [samtbuskole:tilknyttetBasisgruppe](https://example.no/ontology/skole#tilknyttetBasisgruppe)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:tilknyttet_basisgruppe](https://example.no/ontology/skole#tilk
 | Range | [Basisgruppe](basisgruppe.md) |
 | Domain | [Kontaktlaerer](kontaktlaerer.md) |
 | Domain Of | [Kontaktlaerer](kontaktlaerer.md) |
+| Slot URI | [samtbuskole:tilknyttetBasisgruppe](https://example.no/ontology/skole#tilknyttetBasisgruppe) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:tilknyttet_basisgruppe](https://example.no/ontology/skole#tilk
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:tilknyttet_basisgruppe |
-| native | samtbuskole:tilknyttet_basisgruppe |
+| self | samtbuskole:tilknyttetBasisgruppe |
+| native | samtbu:tilknyttet_basisgruppe |
 | close | schema:teaches |
 
 
@@ -87,6 +88,7 @@ close_mappings:
 - schema:teaches
 rank: 1000
 domain: Kontaktlaerer
+slot_uri: samtbuskole:tilknyttetBasisgruppe
 domain_of:
 - Kontaktlaerer
 range: Basisgruppe

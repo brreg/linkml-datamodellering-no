@@ -78,7 +78,7 @@ URI: [utd:vurderingsdato](https://schema.fintlabs.no/utdanning/vurderingsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:vurderingsdato |
-| native | https://schema.fintlabs.no/utdanning/:vurderingsdato |
+| native | https://data.norge.no/fint/fint-utdanning/vurderingsdato |
 
 
 

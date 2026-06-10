@@ -70,7 +70,7 @@ URI: [okn:funksjon](https://schema.fintlabs.no/okonomi/funksjon)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:funksjon |
-| native | https://schema.fintlabs.no/okonomi/:funksjon |
+| native | https://data.norge.no/fint/fint-okonomi/funksjon |
 
 
 

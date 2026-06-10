@@ -70,7 +70,7 @@ URI: [utd:oppmoetetidspunkt](https://schema.fintlabs.no/utdanning/oppmoetetidspu
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:oppmoetetidspunkt |
-| native | https://schema.fintlabs.no/utdanning/:oppmoetetidspunkt |
+| native | https://data.norge.no/fint/fint-utdanning/oppmoetetidspunkt |
 
 
 

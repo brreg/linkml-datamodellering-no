@@ -70,7 +70,7 @@ URI: [res:status](https://schema.fintlabs.no/ressurs/status)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:status |
-| native | https://schema.fintlabs.no/ressurs/:status |
+| native | https://data.norge.no/fint/fint-ressurs/status |
 
 
 

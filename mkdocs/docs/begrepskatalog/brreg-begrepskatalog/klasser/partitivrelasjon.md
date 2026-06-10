@@ -19,6 +19,17 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
  classDiagram
     class PartitivRelasjon
     click PartitivRelasjon href "../PartitivRelasjon/"
+      PartitivRelasjon : beskrivelse
+        
+          
+    
+        
+        
+        PartitivRelasjon --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       PartitivRelasjon : har_heilskapleg_omgrep
         
           
@@ -49,17 +60,6 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
         
         PartitivRelasjon --> "1" Uriorcurie : id
         click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
-    
-
-        
-      PartitivRelasjon : inndelingskriterium
-        
-          
-    
-        
-        
-        PartitivRelasjon --> "*" LangString : inndelingskriterium
-        click LangString href "../LangString/"
     
 
         
@@ -133,7 +133,7 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](langstring.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
 
@@ -275,7 +275,7 @@ slots:
 - id
 - har_partitivt_omgrep
 - har_heilskapleg_omgrep
-- inndelingskriterium
+- beskrivelse
 slot_usage:
   har_partitivt_omgrep:
     name: har_partitivt_omgrep
@@ -285,8 +285,8 @@ slot_usage:
     name: har_heilskapleg_omgrep
     in_subset:
     - Obligatorisk
-  inndelingskriterium:
-    name: inndelingskriterium
+  beskrivelse:
+    name: beskrivelse
     in_subset:
     - Anbefalt
 class_uri: skosno:PartitiveConceptRelation
@@ -310,8 +310,8 @@ slot_usage:
     name: har_heilskapleg_omgrep
     in_subset:
     - Obligatorisk
-  inndelingskriterium:
-    name: inndelingskriterium
+  beskrivelse:
+    name: beskrivelse
     in_subset:
     - Anbefalt
 attributes:
@@ -359,17 +359,18 @@ attributes:
     - PartitivRelasjon
     range: Begrep
     multivalued: true
-  inndelingskriterium:
-    name: inndelingskriterium
-    description: Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).
+  beskrivelse:
+    name: beskrivelse
+    description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/ap-no/skos-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: PartitivRelasjon
     domain_of:
     - GeneriskRelasjon
     - PartitivRelasjon
+    - Samling
     range: LangString
     multivalued: true
 class_uri: skosno:PartitiveConceptRelation

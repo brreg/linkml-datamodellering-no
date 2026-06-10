@@ -22,7 +22,7 @@ URI: [adm:organisasjonselement](https://schema.fintlabs.no/administrasjon/organi
 | --- | --- | --- |
 | [Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [adm:organisasjonselement](https://schema.fintlabs.no/administrasjon/organi
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:organisasjonselement |
-| native | https://schema.fintlabs.no/administrasjon/:organisasjonselement |
+| native | https://data.norge.no/fint/fint-administrasjon/organisasjonselement |
 
 
 

@@ -71,7 +71,7 @@ URI: [ark:administrativenhet](https://schema.fintlabs.no/arkiv/administrativenhe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:administrativenhet |
-| native | https://schema.fintlabs.no/arkiv/:administrativenhet |
+| native | https://data.norge.no/fint/fint-arkiv/administrativenhet |
 
 
 

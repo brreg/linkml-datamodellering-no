@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:fullmakter](https://schema.fintlabs.no/administrasjon/:fullmakter)
+URI: [https://data.norge.no/fint/fint-administrasjon/fullmakter](https://data.norge.no/fint/fint-administrasjon/fullmakter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:fullmakter](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:fullmakter |
-| native | https://schema.fintlabs.no/administrasjon/:fullmakter |
+| self | https://data.norge.no/fint/fint-administrasjon/fullmakter |
+| native | https://data.norge.no/fint/fint-administrasjon/fullmakter |
 
 
 

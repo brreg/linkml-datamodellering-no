@@ -277,6 +277,12 @@ URI: [modelldcatno:Specialization](https://data.norge.no/vocabulary/modelldcatno
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -318,6 +324,8 @@ URI: [modelldcatno:Specialization](https://data.norge.no/vocabulary/modelldcatno
 name: Spesialisering
 description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt
   modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -339,6 +347,8 @@ class_uri: modelldcatno:Specialization
 name: Spesialisering
 description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt
   modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

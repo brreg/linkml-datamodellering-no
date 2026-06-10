@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:handhaevingstypar](https://schema.fintlabs.no/ressurs/:handhaevingstypar)
+URI: [https://data.norge.no/fint/fint-ressurs/handhaevingstypar](https://data.norge.no/fint/fint-ressurs/handhaevingstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:handhaevingstypar](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:handhaevingstypar |
-| native | https://schema.fintlabs.no/ressurs/:handhaevingstypar |
+| self | https://data.norge.no/fint/fint-ressurs/handhaevingstypar |
+| native | https://data.norge.no/fint/fint-ressurs/handhaevingstypar |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:brukertilbakemeldinger](https://example.no/ontology/skole#brukertilbakemeldinger)
+URI: [samtbu:brukertilbakemeldinger](https://data.norge.no/samt/samt-bu/brukertilbakemeldinger)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:brukertilbakemeldinger](https://example.no/ontology/skole#bruk
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:brukertilbakemeldinger |
-| native | samtbuskole:brukertilbakemeldinger |
+| self | samtbu:brukertilbakemeldinger |
+| native | samtbu:brukertilbakemeldinger |
 
 
 

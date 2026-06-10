@@ -24,7 +24,7 @@ URI: [adm:ansvar](https://schema.fintlabs.no/administrasjon/ansvar)
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -74,7 +74,7 @@ URI: [adm:ansvar](https://schema.fintlabs.no/administrasjon/ansvar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ansvar |
-| native | https://schema.fintlabs.no/administrasjon/:ansvar |
+| native | https://data.norge.no/fint/fint-administrasjon/ansvar |
 
 
 

@@ -21,7 +21,7 @@ URI: [utd:vitnemalsmerknad](https://schema.fintlabs.no/utdanning/vitnemalsmerkna
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [utd:vitnemalsmerknad](https://schema.fintlabs.no/utdanning/vitnemalsmerkna
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:vitnemalsmerknad |
-| native | https://schema.fintlabs.no/utdanning/:vitnemalsmerknad |
+| native | https://data.norge.no/fint/fint-utdanning/vitnemalsmerknad |
 
 
 

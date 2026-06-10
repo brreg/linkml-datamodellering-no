@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:einingsgrupper](https://schema.fintlabs.no/ressurs/:einingsgrupper)
+URI: [https://data.norge.no/fint/fint-ressurs/einingsgrupper](https://data.norge.no/fint/fint-ressurs/einingsgrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:einingsgrupper](https://schema.fintlab
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:einingsgrupper |
-| native | https://schema.fintlabs.no/ressurs/:einingsgrupper |
+| self | https://data.norge.no/fint/fint-ressurs/einingsgrupper |
+| native | https://data.norge.no/fint/fint-ressurs/einingsgrupper |
 
 
 

@@ -73,7 +73,7 @@ URI: [adm:art](https://schema.fintlabs.no/administrasjon/art)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:art |
-| native | https://schema.fintlabs.no/administrasjon/:art |
+| native | https://data.norge.no/fint/fint-administrasjon/art |
 
 
 

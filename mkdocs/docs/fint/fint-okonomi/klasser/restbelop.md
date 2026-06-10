@@ -70,7 +70,7 @@ URI: [okn:restbelop](https://schema.fintlabs.no/okonomi/restbelop)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:restbelop |
-| native | https://schema.fintlabs.no/okonomi/:restbelop |
+| native | https://data.norge.no/fint/fint-okonomi/restbelop |
 
 
 

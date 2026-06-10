@@ -70,7 +70,7 @@ URI: [adm:hovedstilling](https://schema.fintlabs.no/administrasjon/hovedstilling
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:hovedstilling |
-| native | https://schema.fintlabs.no/administrasjon/:hovedstilling |
+| native | https://data.norge.no/fint/fint-administrasjon/hovedstilling |
 
 
 

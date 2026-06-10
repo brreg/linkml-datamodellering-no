@@ -70,7 +70,7 @@ URI: [ark:rekkefolge](https://schema.fintlabs.no/arkiv/rekkefolge)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:rekkefolge |
-| native | https://schema.fintlabs.no/arkiv/:rekkefoelge |
+| native | https://data.norge.no/fint/fint-arkiv/rekkefoelge |
 
 
 

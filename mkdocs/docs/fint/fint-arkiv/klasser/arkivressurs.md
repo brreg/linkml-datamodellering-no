@@ -72,7 +72,7 @@ URI: [ark:arkivressurs](https://schema.fintlabs.no/arkiv/arkivressurs)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:arkivressurs |
-| native | https://schema.fintlabs.no/arkiv/:arkivressurs |
+| native | https://data.norge.no/fint/fint-arkiv/arkivressurs |
 
 
 

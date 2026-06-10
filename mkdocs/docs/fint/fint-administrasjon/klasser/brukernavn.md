@@ -70,7 +70,7 @@ URI: [adm:brukernavn](https://schema.fintlabs.no/administrasjon/brukernavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:brukernavn |
-| native | https://schema.fintlabs.no/administrasjon/:brukernavn |
+| native | https://data.norge.no/fint/fint-administrasjon/brukernavn |
 
 
 

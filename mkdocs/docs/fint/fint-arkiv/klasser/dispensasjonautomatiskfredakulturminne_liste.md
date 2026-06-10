@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_liste](https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_liste)
+URI: [https://data.norge.no/fint/fint-arkiv/dispensasjonAutomatiskFredaKulturminne_liste](https://data.norge.no/fint/fint-arkiv/dispensasjonAutomatiskFredaKulturminne_liste)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_l
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_liste |
-| native | https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_liste |
+| self | https://data.norge.no/fint/fint-arkiv/dispensasjonAutomatiskFredaKulturminne_liste |
+| native | https://data.norge.no/fint/fint-arkiv/dispensasjonAutomatiskFredaKulturminne_liste |
 
 
 

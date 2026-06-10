@@ -70,7 +70,7 @@ URI: [utd:delegert](https://schema.fintlabs.no/utdanning/delegert)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:delegert |
-| native | https://schema.fintlabs.no/utdanning/:delegert |
+| native | https://data.norge.no/fint/fint-utdanning/delegert |
 
 
 

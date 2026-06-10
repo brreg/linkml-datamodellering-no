@@ -70,7 +70,7 @@ URI: [utd:kategori](https://schema.fintlabs.no/utdanning/kategori)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:kategori |
-| native | https://schema.fintlabs.no/utdanning/:kategori |
+| native | https://data.norge.no/fint/fint-utdanning/kategori |
 
 
 

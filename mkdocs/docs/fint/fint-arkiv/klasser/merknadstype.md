@@ -70,7 +70,7 @@ URI: [ark:merknadstype](https://schema.fintlabs.no/arkiv/merknadstype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:merknadstype |
-| native | https://schema.fintlabs.no/arkiv/:merknadstype |
+| native | https://data.norge.no/fint/fint-arkiv/merknadstype |
 
 
 

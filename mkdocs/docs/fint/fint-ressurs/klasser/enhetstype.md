@@ -71,7 +71,7 @@ URI: [res:enhetstype](https://schema.fintlabs.no/ressurs/enhetstype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:enhetstype |
-| native | https://schema.fintlabs.no/ressurs/:enhetstype |
+| native | https://data.norge.no/fint/fint-ressurs/enhetstype |
 
 
 

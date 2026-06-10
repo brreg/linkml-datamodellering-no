@@ -70,7 +70,7 @@ URI: [dcat:identifier](http://www.w3.org/ns/dcat#identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:identifier |
-| native | samtbuskole:kommunenummer |
+| native | samtbu:kommunenummer |
 | close | skos:notation |
 
 

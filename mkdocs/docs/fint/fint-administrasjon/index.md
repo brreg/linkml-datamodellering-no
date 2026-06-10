@@ -479,6 +479,7 @@ Name: fint-administrasjon
 | JSON-LD kontekst | [fint-administrasjon-context.jsonld](fint-administrasjon-context.jsonld) |
 | JSON Schema | [fint-administrasjon-schema.json](fint-administrasjon-schema.json) |
 | OWL ontologi | [fint-administrasjon-ontology.ttl](fint-administrasjon-ontology.ttl) |
+| RDF/Turtle skjema | [fint-administrasjon-schema.ttl](fint-administrasjon-schema.ttl) |
 | Python-klasser | [fint-administrasjon-model.py](fint-administrasjon-model.py) |
 | Protobuf-skjema | [fint-administrasjon-schema.proto](fint-administrasjon-schema.proto) |
 | ER-diagram (Mermaid) | [fint-administrasjon-erdiagram.md](fint-administrasjon-erdiagram.md) |

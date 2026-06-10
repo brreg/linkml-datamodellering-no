@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:arstrinn](https://schema.fintlabs.no/utdanning/:arstrinn)
+URI: [https://data.norge.no/fint/fint-utdanning/arstrinn](https://data.norge.no/fint/fint-utdanning/arstrinn)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:arstrinn](https://schema.fintlabs.no
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:arstrinn |
-| native | https://schema.fintlabs.no/utdanning/:arstrinn |
+| self | https://data.norge.no/fint/fint-utdanning/arstrinn |
+| native | https://data.norge.no/fint/fint-utdanning/arstrinn |
 
 
 

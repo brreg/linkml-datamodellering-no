@@ -609,6 +609,12 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -649,6 +655,8 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 ```yaml
 name: Eigenskap
 description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 abstract: true
 slots:
@@ -725,6 +733,8 @@ class_uri: modelldcatno:Property
 ```yaml
 name: Eigenskap
 description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 abstract: true
 slot_usage:

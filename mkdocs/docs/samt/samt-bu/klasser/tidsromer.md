@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
+URI: [samtbu:tidsromer](https://data.norge.no/samt/samt-bu/tidsromer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:tidsromer |
-| native | samtbuskole:tidsromer |
+| self | samtbu:tidsromer |
+| native | samtbu:tidsromer |
 
 
 

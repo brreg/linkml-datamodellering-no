@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:faggrupper](https://schema.fintlabs.no/utdanning/:faggrupper)
+URI: [https://data.norge.no/fint/fint-utdanning/faggrupper](https://data.norge.no/fint/fint-utdanning/faggrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:faggrupper](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:faggrupper |
-| native | https://schema.fintlabs.no/utdanning/:faggrupper |
+| self | https://data.norge.no/fint/fint-utdanning/faggrupper |
+| native | https://data.norge.no/fint/fint-utdanning/faggrupper |
 
 
 

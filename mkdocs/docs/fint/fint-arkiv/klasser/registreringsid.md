@@ -71,7 +71,7 @@ URI: [ark:registreringsId](https://schema.fintlabs.no/arkiv/registreringsId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:registreringsId |
-| native | https://schema.fintlabs.no/arkiv/:registreringsId |
+| native | https://data.norge.no/fint/fint-arkiv/registreringsId |
 
 
 

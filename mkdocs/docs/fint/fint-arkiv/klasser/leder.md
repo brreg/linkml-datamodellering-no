@@ -70,7 +70,7 @@ URI: [ark:leder](https://schema.fintlabs.no/arkiv/leder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:leder |
-| native | https://schema.fintlabs.no/arkiv/:leder |
+| native | https://data.norge.no/fint/fint-arkiv/leder |
 
 
 

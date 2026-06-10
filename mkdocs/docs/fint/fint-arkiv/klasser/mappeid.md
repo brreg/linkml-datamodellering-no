@@ -77,7 +77,7 @@ URI: [ark:mappeId](https://schema.fintlabs.no/arkiv/mappeId)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:mappeId |
-| native | https://schema.fintlabs.no/arkiv/:mappeId |
+| native | https://data.norge.no/fint/fint-arkiv/mappeId |
 
 
 

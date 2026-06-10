@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:timar](https://schema.fintlabs.no/utdanning/:timar)
+URI: [https://data.norge.no/fint/fint-utdanning/timar](https://data.norge.no/fint/fint-utdanning/timar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:timar](https://schema.fintlabs.no/ut
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:timar |
-| native | https://schema.fintlabs.no/utdanning/:timar |
+| self | https://data.norge.no/fint/fint-utdanning/timar |
+| native | https://data.norge.no/fint/fint-utdanning/timar |
 
 
 

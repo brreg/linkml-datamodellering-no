@@ -1,5 +1,5 @@
 # Auto generated from ngr-adresse-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:14
+# Generation date: 2026-06-09T16:31:45
 # Schema: ngr-adresse
 #
 # id: https://data.norge.no/ngr/ngr-adresse
@@ -195,8 +195,6 @@ class AdresseContainer(YAMLRoot):
     svalbardOmrader: Optional[Union[dict[Union[str, SvalbardId], Union[dict, "Svalbard"]], list[Union[dict, "Svalbard"]]]] = empty_dict()
     postboksar: Optional[Union[dict[Union[str, PostboksId], Union[dict, "Postboks"]], list[Union[dict, "Postboks"]]]] = empty_dict()
     representasjonspunkt: Optional[Union[dict[Union[str, RepresentasjonspunktId], Union[dict, "Representasjonspunkt"]], list[Union[dict, "Representasjonspunkt"]]]] = empty_dict()
-    bygningar: Optional[Union[list[Union[str, BygningId]], dict[Union[str, BygningId], Union[dict, "Bygning"]]]] = empty_dict()
-    bruksenheter: Optional[Union[list[Union[str, BruksenhetId]], dict[Union[str, BruksenhetId], Union[dict, "Bruksenhet"]]]] = empty_dict()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         self._normalize_inlined_as_list(slot_name="offisielleAdresser", slot_type=OffisiellAdresse, key_name="id", keyed=True)
@@ -234,10 +232,6 @@ class AdresseContainer(YAMLRoot):
         self._normalize_inlined_as_list(slot_name="postboksar", slot_type=Postboks, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="representasjonspunkt", slot_type=Representasjonspunkt, key_name="id", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="bygningar", slot_type=Bygning, key_name="id", keyed=True)
-
-        self._normalize_inlined_as_list(slot_name="bruksenheter", slot_type=Bruksenhet, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1143,12 +1137,6 @@ slots.adresseContainer__postboksar = Slot(uri=DEFAULT_.postboksar, name="adresse
 
 slots.adresseContainer__representasjonspunkt = Slot(uri=DEFAULT_.representasjonspunkt, name="adresseContainer__representasjonspunkt", curie=DEFAULT_.curie('representasjonspunkt'),
                    model_uri=DEFAULT_.adresseContainer__representasjonspunkt, domain=None, range=Optional[Union[dict[Union[str, RepresentasjonspunktId], Union[dict, Representasjonspunkt]], list[Union[dict, Representasjonspunkt]]]])
-
-slots.adresseContainer__bygningar = Slot(uri=DEFAULT_.bygningar, name="adresseContainer__bygningar", curie=DEFAULT_.curie('bygningar'),
-                   model_uri=DEFAULT_.adresseContainer__bygningar, domain=None, range=Optional[Union[list[Union[str, BygningId]], dict[Union[str, BygningId], Union[dict, Bygning]]]])
-
-slots.adresseContainer__bruksenheter = Slot(uri=DEFAULT_.bruksenheter, name="adresseContainer__bruksenheter", curie=DEFAULT_.curie('bruksenheter'),
-                   model_uri=DEFAULT_.adresseContainer__bruksenheter, domain=None, range=Optional[Union[list[Union[str, BruksenhetId]], dict[Union[str, BruksenhetId], Union[dict, Bruksenhet]]]])
 
 slots.OffisiellAdresse_kommunenummer_ref = Slot(uri=NGR.harKommunenummer, name="OffisiellAdresse_kommunenummer_ref", curie=NGR.curie('harKommunenummer'),
                    model_uri=DEFAULT_.OffisiellAdresse_kommunenummer_ref, domain=OffisiellAdresse, range=Union[str, KommuneId])

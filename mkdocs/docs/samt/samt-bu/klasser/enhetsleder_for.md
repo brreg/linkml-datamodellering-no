@@ -9,7 +9,7 @@ _Enhet rektor er enhetsleder for_
 
 
 
-URI: [samtbuskole:enhetsleder_for](https://example.no/ontology/skole#enhetsleder_for)
+URI: [samtbuskole:enhetslederFor](https://example.no/ontology/skole#enhetslederFor)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:enhetsleder_for](https://example.no/ontology/skole#enhetsleder
 | Range | [Skole](skole.md) |
 | Domain | [Rektor](rektor.md) |
 | Domain Of | [Rektor](rektor.md) |
+| Slot URI | [samtbuskole:enhetslederFor](https://example.no/ontology/skole#enhetslederFor) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:enhetsleder_for](https://example.no/ontology/skole#enhetsleder
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:enhetsleder_for |
-| native | samtbuskole:enhetsleder_for |
+| self | samtbuskole:enhetslederFor |
+| native | samtbu:enhetsleder_for |
 | close | org:headOf |
 
 
@@ -87,6 +88,7 @@ close_mappings:
 - org:headOf
 rank: 1000
 domain: Rektor
+slot_uri: samtbuskole:enhetslederFor
 domain_of:
 - Rektor
 range: Skole

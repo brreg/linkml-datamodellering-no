@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:elevar](https://schema.fintlabs.no/utdanning/:elevar)
+URI: [https://data.norge.no/fint/fint-utdanning/elevar](https://data.norge.no/fint/fint-utdanning/elevar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:elevar](https://schema.fintlabs.no/u
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:elevar |
-| native | https://schema.fintlabs.no/utdanning/:elevar |
+| self | https://data.norge.no/fint/fint-utdanning/elevar |
+| native | https://data.norge.no/fint/fint-utdanning/elevar |
 
 
 

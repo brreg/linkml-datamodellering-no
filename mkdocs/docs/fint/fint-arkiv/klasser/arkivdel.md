@@ -81,7 +81,7 @@ URI: [ark:arkivdel](https://schema.fintlabs.no/arkiv/arkivdel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:arkivdel |
-| native | https://schema.fintlabs.no/arkiv/:arkivdel |
+| native | https://data.norge.no/fint/fint-arkiv/arkivdel |
 
 
 

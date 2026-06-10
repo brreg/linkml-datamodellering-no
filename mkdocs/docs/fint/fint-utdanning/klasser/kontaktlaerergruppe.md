@@ -73,7 +73,7 @@ URI: [utd:kontaktlaerergruppe](https://schema.fintlabs.no/utdanning/kontaktlaere
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:kontaktlaerergruppe |
-| native | https://schema.fintlabs.no/utdanning/:kontaktlaerergruppe |
+| native | https://data.norge.no/fint/fint-utdanning/kontaktlaerergruppe |
 
 
 

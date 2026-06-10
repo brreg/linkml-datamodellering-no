@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:otEnheter](https://schema.fintlabs.no/utdanning/:otEnheter)
+URI: [https://data.norge.no/fint/fint-utdanning/otEnheter](https://data.norge.no/fint/fint-utdanning/otEnheter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:otEnheter](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:otEnheter |
-| native | https://schema.fintlabs.no/utdanning/:otEnheter |
+| self | https://data.norge.no/fint/fint-utdanning/otEnheter |
+| native | https://data.norge.no/fint/fint-utdanning/otEnheter |
 
 
 

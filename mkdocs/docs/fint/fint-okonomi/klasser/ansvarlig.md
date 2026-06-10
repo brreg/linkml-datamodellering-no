@@ -70,7 +70,7 @@ URI: [okn:ansvarlig](https://schema.fintlabs.no/okonomi/ansvarlig)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:ansvarlig |
-| native | https://schema.fintlabs.no/okonomi/:ansvarlig |
+| native | https://data.norge.no/fint/fint-okonomi/ansvarlig |
 
 
 

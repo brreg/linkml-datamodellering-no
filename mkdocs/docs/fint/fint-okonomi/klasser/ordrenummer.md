@@ -70,7 +70,7 @@ URI: [okn:ordrenummer](https://schema.fintlabs.no/okonomi/ordrenummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:ordrenummer |
-| native | https://schema.fintlabs.no/okonomi/:ordrenummer |
+| native | https://data.norge.no/fint/fint-okonomi/ordrenummer |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:nus](https://schema.fintlabs.no/utdanning/nus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:nus |
-| native | https://schema.fintlabs.no/utdanning/:nus |
+| native | https://data.norge.no/fint/fint-utdanning/nus |
 
 
 

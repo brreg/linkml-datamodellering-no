@@ -72,7 +72,7 @@ URI: [ark:personalressurs](https://schema.fintlabs.no/arkiv/personalressurs)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:personalressurs |
-| native | https://schema.fintlabs.no/arkiv/:personalressurs |
+| native | https://data.norge.no/fint/fint-arkiv/personalressurs |
 
 
 

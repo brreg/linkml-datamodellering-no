@@ -70,7 +70,7 @@ URI: [ark:klassifikasjonstype](https://schema.fintlabs.no/arkiv/klassifikasjonst
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:klassifikasjonstype |
-| native | https://schema.fintlabs.no/arkiv/:klassifikasjonstype |
+| native | https://data.norge.no/fint/fint-arkiv/klassifikasjonstype |
 
 
 

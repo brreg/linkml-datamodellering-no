@@ -70,7 +70,7 @@ URI: [adm:organisasjonstype](https://schema.fintlabs.no/administrasjon/organisas
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:organisasjonstype |
-| native | https://schema.fintlabs.no/administrasjon/:organisasjonstype |
+| native | https://data.norge.no/fint/fint-administrasjon/organisasjonstype |
 
 
 

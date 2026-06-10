@@ -70,7 +70,7 @@ URI: [ark:antallVedlegg](https://schema.fintlabs.no/arkiv/antallVedlegg)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:antallVedlegg |
-| native | https://schema.fintlabs.no/arkiv/:antallVedlegg |
+| native | https://data.norge.no/fint/fint-arkiv/antallVedlegg |
 
 
 

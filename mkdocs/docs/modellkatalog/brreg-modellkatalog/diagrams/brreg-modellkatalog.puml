@@ -4,7 +4,7 @@ hide circle
 hide empty members
 class "Informasjonsmodell" [[{Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:InformationModel).}]] {
     {field} id : uriorcurie  
-    {field} tittel : LangString  [1..*]
+    {field} tittel : LangString  [0..*]
     {field} beskrivelse : LangString  [0..*]
     {field} identifikator_literal : string  
     {field} informasjonsmodellidentifikator : string  
@@ -25,7 +25,7 @@ class "Tidsperiode" [[{Eit tidsintervall med start- og sluttdato.}]] {
 "Informasjonsmodell" --> "0..*" "Tidsperiode" : "tidsperiode"(i)
 class "Standard" [[{Ein standard (dct:Standard).}]] {
     {field} id : uriorcurie  
-    {field} tittel : LangString  [1..*]
+    {field} tittel : LangString  [0..*]
     {field} har_referanse : uri  [0..*]
     {field} har_versjonsnummer : string  
 }
@@ -41,7 +41,7 @@ class "Kontaktopplysning" [[{Kontaktinformasjon (vcard:Organization).}]] {
 }
 class "Aktor" [[{Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.}]] {
     {field} id : uriorcurie  
-    {field} namn_aktor : LangString  [1..*]
+    {field} namn_aktor : LangString  [0..*]
     {field} identifikator_literal : string  
 }
 abstract "Eigenskap" [[{Abstrakt basisklasse for eigenskapar knytt til eit modellelement.}]] {
@@ -58,20 +58,20 @@ abstract "Eigenskap" [[{Abstrakt basisklasse for eigenskapar knytt til eit model
 class "Kodeliste" [[{Ei kodeliste — eit kontrollert vokabular av tillate verdiar.}]] {
     {field} har_referanse : uri  [0..*]
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
 class "Objekttype" [[{Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.}]] {
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
 class "Modellkatalog" [[{Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).}]] {
     {field} id : uriorcurie  
-    {field} tittel : LangString  [1..*]
-    {field} beskrivelse : LangString  [1..*]
+    {field} tittel : LangString  [0..*]
+    {field} beskrivelse : LangString  [0..*]
     {field} identifikator_literal : string  
     {field} endringsdato : date  
     {field} heimeside : uri  [0..*]
@@ -109,7 +109,7 @@ class "Rolle" [[{Ein rolle — ein eigenskap som knyter ein objekttype til ein a
 }
 abstract "Modellelement" [[{Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.}]] {
     {field} id : uriorcurie  
-    {field} tittel : LangString  [1..*]
+    {field} tittel : LangString  [0..*]
     {field} identifikator_literal : string  
     {field} beskrivelse : LangString  [0..*]
 }
@@ -131,7 +131,7 @@ class "Lisensdokument" [[{Eit lisensdokument (dct:LicenseDocument).}]] {
 class "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast (dcat:Resource).}]] {
     {field} id : uriorcurie  
 }
-"Modellkatalog" --> "0..1" "Modellkatalog" : "er_del_av_katalog"
+"Modellkatalog" --> "0..1" "Modellkatalog" : "er_del_av"
 "Modellkatalog" --> "0..*" "Begrepssamling" : "temaer"
 "Modellkatalog" --> "0..*" "Konsept" : "tema"
 "Modellkatalog" --> "0..*" "Informasjonsmodell" : "modell"
@@ -141,7 +141,7 @@ class "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast 
 "Modellkatalog" --> "1..*" "KatalogisertRessurs" : "har_del"
 class "Modul" [[{Ein modul som grupperer modellelement i informasjonsmodellen.}]] {
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
@@ -237,7 +237,7 @@ class "Valg" [[{Eit val — ein eigenskap som representerer eit val mellom model
 }
 class "RootObjekttype" [[{Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.}]] {
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
@@ -254,13 +254,13 @@ class "EnkelType" [[{Ein enkel type med restriksjonar (xsd-fasettar).}]] {
     {field} monster : string  
     {field} totalt_sifre : NonNegativeInteger  
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
 class "Datatype" [[{Ein datatype — ein strukturert samansett type.}]] {
     {field} id(i) : uriorcurie  
-    {field} tittel(i) : LangString  [1..*]
+    {field} tittel(i) : LangString  [0..*]
     {field} identifikator_literal(i) : string  
     {field} beskrivelse(i) : LangString  [0..*]
 }
@@ -380,7 +380,10 @@ class "Kodeelement" [[{Eit element i ei kodeliste (modelldcatno:CodeElement).}]]
 "Kodeelement" --> "0..*" "Kodeliste" : "topp_begrep_av"(i)
 "Kodeelement" --> "0..1" "Kodeelement" : "neste"
 "Kodeelement" --> "0..1" "Kodeelement" : "forrige"
+"Modellkatalog" --> "0..1" "KatalogisertRessurs" : "er_del_av"(i)
+"Informasjonsmodell" --> "0..1" "KatalogisertRessurs" : "er_del_av"(i)
 "Modellkatalog" --> "0..*" "KatalogisertRessurs" : "har_del"(i)
+"Informasjonsmodell" --> "0..*" "KatalogisertRessurs" : "har_del"(i)
 class "Dokument" [[{Eit dokument (foaf:Document).}]] {
     {field} id : uriorcurie  
     {field} tittel : LangString  [0..*]
@@ -389,10 +392,10 @@ class "Dokument" [[{Eit dokument (foaf:Document).}]] {
 }
 "Informasjonsmodell" --> "0..1" "Aktor" : "skapar"
 "Informasjonsmodell" --> "0..*" "Dokument" : "har_format"
-"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "har_del_modell"
+"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "har_del"
 "Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "erstatter"
 "Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_erstatta_av"
-"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_del_av_modell"
+"Informasjonsmodell" --> "0..1" "Informasjonsmodell" : "er_del_av"
 "Informasjonsmodell" --> "1" "Aktor" : "utgiver"
 "Modellkatalog" --> "0..*" "Informasjonsmodell" : "modell"(i)
 "Attributt" --> "0..*" "EnkelType" : "har_enkel_type"

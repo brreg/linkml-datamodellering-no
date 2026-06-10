@@ -21,7 +21,7 @@ URI: [utd:undervisningsgruppemedlemskap](https://schema.fintlabs.no/utdanning/un
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:undervisningsgruppemedlemskap](https://schema.fintlabs.no/utdanning/un
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:undervisningsgruppemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:undervisningsgruppemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/undervisningsgruppemedlemskap |
 
 
 

@@ -10,8 +10,7 @@ class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
     {field} identifikatorverdi : string  
 }
 class "AdministrasjonContainer" [[{Rotcontainer for FINT Administrasjon-instansar.}]] {
-    {field} kjonn : string  
-    {field} fylke : string  
+
 }
 "Valuta" *--> "1" "Identifikator" : "nummerkode"
 "Valuta" *--> "1" "Identifikator" : "bokstavkode"
@@ -239,11 +238,10 @@ class "Ansvar" [[{Del av kontostrengen som beskriv kven som har ansvaret for ei 
 "Organisasjonselement" *--> "0..1" "Adresse" : "forretningsadresse"
 "Organisasjonselement" *--> "1" "Identifikator" : "organisasjonsKode"
 "Organisasjonselement" *--> "1" "Identifikator" : "organisasjonsId"
-"AdministrasjonContainer" *--> "0..*" "Organisasjonselement" : "organisasjonselement"(i)
 "Ansvar" --> "0..*" "Organisasjonselement" : "organisasjonselement"
 "Arbeidsforhold" --> "1" "Organisasjonselement" : "arbeidssted"
 "Fullmakt" --> "0..1" "Organisasjonselement" : "organisasjonselement"
-"AdministrasjonContainer" --> "0..1" "Organisasjonselement" : "organisasjonselement"
+"AdministrasjonContainer" *--> "0..*" "Organisasjonselement" : "organisasjonselement"
 "Arbeidsforhold" --> "0..1" "Organisasjonselement" : "arbeidssted"(i)
 "Personalressurs" --> "0..*" "Organisasjonselement" : "lederFor"(i)
 "Ansvar" --> "0..1" "Organisasjonselement" : "organisasjonselement"(i)
@@ -301,9 +299,8 @@ class "Lonsart" [[{Type ytelse.}]] {
 }
 "Variabellonn" --> "1" "Arbeidsforhold" : "arbeidsforhold"
 "Variabellonn" --> "1" "Lonsart" : "lonsart"
-"AdministrasjonContainer" *--> "0..*" "Variabellonn" : "variabellonn"(i)
 "Arbeidsforhold" --> "0..*" "Variabellonn" : "variabellonn"
-"AdministrasjonContainer" --> "0..1" "Variabellonn" : "variabellonn"
+"AdministrasjonContainer" *--> "0..*" "Variabellonn" : "variabellonn"
 "Arbeidsforhold" --> "0..1" "Variabellonn" : "variabellonn"(i)
 class "Art" [[{Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld.}]] {
     {field} id(i) : uriorcurie  
@@ -427,27 +424,24 @@ class "Aktivitet" [[{Del av kontostrengen og detaljering av funksjon.}]] {
 "Kontostreng" --> "0..1" "Prosjektart" : "prosjektart"(i)
 "Prosjekt" --> "0..1" "Prosjektart" : "prosjektart"(i)
 "Begrep" ^-- "Prosjektart"
-"AdministrasjonContainer" *--> "0..*" "Prosjekt" : "prosjekt"(i)
 "Arbeidsforhold" --> "0..1" "Prosjekt" : "prosjekt"
 "Fullmakt" --> "0..1" "Prosjekt" : "prosjekt"
-"AdministrasjonContainer" --> "0..1" "Prosjekt" : "prosjekt"
+"AdministrasjonContainer" *--> "0..*" "Prosjekt" : "prosjekt"
 "Kontostreng" --> "0..1" "Prosjekt" : "prosjekt"(i)
 "Prosjektart" --> "0..1" "Prosjekt" : "prosjekt"(i)
 "Fullmakt" --> "0..1" "Prosjekt" : "prosjekt"(i)
 "Arbeidsforhold" --> "0..1" "Prosjekt" : "prosjekt"(i)
 "Begrep" ^-- "Prosjekt"
-"AdministrasjonContainer" *--> "0..*" "Objekt" : "objekt"(i)
 "Arbeidsforhold" --> "0..1" "Objekt" : "objekt"
 "Fullmakt" --> "0..1" "Objekt" : "objekt"
-"AdministrasjonContainer" --> "0..1" "Objekt" : "objekt"
+"AdministrasjonContainer" *--> "0..*" "Objekt" : "objekt"
 "Kontostreng" --> "0..1" "Objekt" : "objekt"(i)
 "Fullmakt" --> "0..1" "Objekt" : "objekt"(i)
 "Arbeidsforhold" --> "0..1" "Objekt" : "objekt"(i)
 "Begrep" ^-- "Objekt"
-"AdministrasjonContainer" *--> "0..*" "Lopenummer" : "lopenummer"(i)
 "Arbeidsforhold" --> "0..1" "Lopenummer" : "lopenummer"
 "Fullmakt" --> "0..1" "Lopenummer" : "lopenummer"
-"AdministrasjonContainer" --> "0..1" "Lopenummer" : "lopenummer"
+"AdministrasjonContainer" *--> "0..*" "Lopenummer" : "lopenummer"
 "Kontostreng" --> "0..1" "Lopenummer" : "lopenummer"(i)
 "Fullmakt" --> "0..1" "Lopenummer" : "lopenummer"(i)
 "Arbeidsforhold" --> "0..1" "Lopenummer" : "lopenummer"(i)
@@ -486,7 +480,7 @@ class "Fylke" [[{Liste over Norges fylker.}]] {
 "Fylke" --> "0..1" "Kommune" : "kommune"(i)
 "Person" --> "0..1" "Kommune" : "kommune"(i)
 "Begrep" ^-- "Kommune"
-"AdministrasjonContainer" *--> "0..*" "Kjonn" : "kjonn"(i)
+"AdministrasjonContainer" *--> "0..*" "Kjonn" : "kjonn"
 "Person" --> "0..1" "Kjonn" : "kjonn"(i)
 "Begrep" ^-- "Kjonn"
 abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
@@ -521,7 +515,7 @@ class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenes
 "Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
 "AdministrasjonContainer" *--> "0..*" "Virksomhet" : "virksomhetar"
 "Enhet" ^-- "Virksomhet"
-"AdministrasjonContainer" *--> "0..*" "Fylke" : "fylke"(i)
+"AdministrasjonContainer" *--> "0..*" "Fylke" : "fylke"
 "Kommune" --> "0..1" "Fylke" : "fylke"(i)
 "Begrep" ^-- "Fylke"
 "Funksjon" --> "0..*" "Funksjon" : "underordnet"
@@ -556,36 +550,31 @@ class "Fravaersgrunn" [[{Grunn til fråvær.}]] {
 "Fravaer" --> "0..1" "Fravaer" : "fortsettelse"
 "Fravaer" --> "1..*" "Arbeidsforhold" : "arbeidsforhold"
 "Fravaer" --> "0..1" "Fravaersgrunn" : "fravaersgrunn"
-"AdministrasjonContainer" *--> "0..*" "Fravaer" : "fravaer"(i)
 "Arbeidsforhold" --> "0..*" "Fravaer" : "fravaer"
-"AdministrasjonContainer" --> "0..1" "Fravaer" : "fravaer"
+"AdministrasjonContainer" *--> "0..*" "Fravaer" : "fravaer"
 "Arbeidsforhold" --> "0..1" "Fravaer" : "fravaer"(i)
 "AdministrasjonContainer" *--> "0..*" "Fravaersgrunn" : "fravaersgrunnar"
 "Fravaer" --> "0..1" "Fravaersgrunn" : "fravaersgrunn"(i)
 "Begrep" ^-- "Fravaersgrunn"
-"AdministrasjonContainer" *--> "0..*" "Formaal" : "formaal"(i)
 "Arbeidsforhold" --> "0..1" "Formaal" : "formaal"
-"AdministrasjonContainer" --> "0..1" "Formaal" : "formaal"
+"AdministrasjonContainer" *--> "0..*" "Formaal" : "formaal"
 "Kontostreng" --> "0..1" "Formaal" : "formaal"(i)
 "Fullmakt" --> "0..1" "Formaal" : "formaal"(i)
 "Arbeidsforhold" --> "0..1" "Formaal" : "formaal"(i)
 "Begrep" ^-- "Formaal"
 "Fasttillegg" --> "1" "Arbeidsforhold" : "arbeidsforhold"
-"AdministrasjonContainer" *--> "0..*" "Fasttillegg" : "fasttillegg"(i)
 "Arbeidsforhold" --> "0..*" "Fasttillegg" : "fasttillegg"
-"AdministrasjonContainer" --> "0..1" "Fasttillegg" : "fasttillegg"
+"AdministrasjonContainer" *--> "0..*" "Fasttillegg" : "fasttillegg"
 "Arbeidsforhold" --> "0..1" "Fasttillegg" : "fasttillegg"(i)
 "Fastlonn" --> "1" "Arbeidsforhold" : "arbeidsforhold"
-"AdministrasjonContainer" *--> "0..*" "Fastlonn" : "fastlonn"(i)
 "Arbeidsforhold" --> "0..*" "Fastlonn" : "fastlonn"
-"AdministrasjonContainer" --> "0..1" "Fastlonn" : "fastlonn"
+"AdministrasjonContainer" *--> "0..*" "Fastlonn" : "fastlonn"
 "Arbeidsforhold" --> "0..1" "Fastlonn" : "fastlonn"(i)
 "Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
 "Aktoer" ^-- "Enhet"
 "Person" --> "0..1" "Elev" : "elev"(i)
-"AdministrasjonContainer" *--> "0..*" "Diverse" : "diverse"(i)
 "Arbeidsforhold" --> "0..1" "Diverse" : "diverse"
-"AdministrasjonContainer" --> "0..1" "Diverse" : "diverse"
+"AdministrasjonContainer" *--> "0..*" "Diverse" : "diverse"
 "Kontostreng" --> "0..1" "Diverse" : "diverse"(i)
 "Fullmakt" --> "0..1" "Diverse" : "diverse"(i)
 "Arbeidsforhold" --> "0..1" "Diverse" : "diverse"(i)
@@ -641,8 +630,7 @@ class "Arbeidsforholdstype" [[{Viser kva behov hos arbeidsgjevar arbeidsforholde
 "Arbeidsforhold" --> "0..1" "Ansvar" : "ansvar"
 "Arbeidsforhold" --> "0..1" "Anlegg" : "anlegg"
 "Arbeidsforhold" --> "0..1" "Aktivitet" : "aktivitet"
-"AdministrasjonContainer" *--> "0..*" "Arbeidsforhold" : "arbeidsforhold"(i)
-"AdministrasjonContainer" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"
+"AdministrasjonContainer" *--> "0..*" "Arbeidsforhold" : "arbeidsforhold"
 "Fastlonn" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
 "Fasttillegg" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
 "Variabellonn" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
@@ -653,14 +641,12 @@ class "Arbeidsforholdstype" [[{Viser kva behov hos arbeidsgjevar arbeidsforholde
 "Personalressurs" --> "0..*" "Arbeidsforhold" : "personalansvar"(i)
 "Ansvar" --> "0..*" "Ansvar" : "underordnet"
 "Ansvar" --> "0..1" "Ansvar" : "overordnet"
-"AdministrasjonContainer" *--> "0..*" "Ansvar" : "ansvar"(i)
-"AdministrasjonContainer" --> "0..1" "Ansvar" : "ansvar"
+"AdministrasjonContainer" *--> "0..*" "Ansvar" : "ansvar"
 "Kontostreng" --> "0..1" "Ansvar" : "ansvar"(i)
 "Fullmakt" --> "0..1" "Ansvar" : "ansvar"(i)
 "Organisasjonselement" --> "0..1" "Ansvar" : "ansvar"(i)
 "Arbeidsforhold" --> "0..1" "Ansvar" : "ansvar"(i)
-"AdministrasjonContainer" *--> "0..*" "Anlegg" : "anlegg"(i)
-"AdministrasjonContainer" --> "0..1" "Anlegg" : "anlegg"
+"AdministrasjonContainer" *--> "0..*" "Anlegg" : "anlegg"
 "Kontostreng" --> "0..1" "Anlegg" : "anlegg"(i)
 "Fullmakt" --> "0..1" "Anlegg" : "anlegg"(i)
 "Arbeidsforhold" --> "0..1" "Anlegg" : "anlegg"(i)

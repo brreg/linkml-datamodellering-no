@@ -335,7 +335,7 @@ URI: [utd:FagvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Fagvurderin
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:FagvurderingAbstrakt |
-| native | https://schema.fintlabs.no/utdanning/:FagvurderingAbstrakt |
+| native | https://data.norge.no/fint/fint-utdanning/FagvurderingAbstrakt |
 
 
 

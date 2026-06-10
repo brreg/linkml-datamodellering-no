@@ -70,7 +70,7 @@ URI: [adm:fravaersgrunn](https://schema.fintlabs.no/administrasjon/fravaersgrunn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fravaersgrunn |
-| native | https://schema.fintlabs.no/administrasjon/:fravaersgrunn |
+| native | https://data.norge.no/fint/fint-administrasjon/fravaersgrunn |
 
 
 

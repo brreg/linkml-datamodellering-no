@@ -70,7 +70,7 @@ URI: [pvn:opprettet](https://schema.fintlabs.no/personvern/opprettet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:opprettet |
-| native | https://schema.fintlabs.no/personvern/:opprettet |
+| native | https://data.norge.no/fint/fint-personvern/opprettet |
 
 
 

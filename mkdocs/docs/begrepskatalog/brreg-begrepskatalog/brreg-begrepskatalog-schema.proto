@@ -80,7 +80,7 @@ message GeneriskRelasjon
   uriorcurie id = 0
  repeated  begrep harGeneriskOmgrep = 0
  repeated  begrep harSpesifiktOmgrep = 0
- repeated  langString inndelingskriterium = 0
+ repeated  langString beskrivelse = 0
  }
 // Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
 message Konsept
@@ -103,7 +103,7 @@ message PartitivRelasjon
   uriorcurie id = 0
  repeated  begrep harPartitivtOmgrep = 0
  repeated  begrep harHeilskaplegOmgrep = 0
- repeated  langString inndelingskriterium = 0
+ repeated  langString beskrivelse = 0
  }
 // Ei namngitt samling av omgrep (skos:Collection).
 message Samling

@@ -21,7 +21,7 @@ URI: [adm:fasttillegg](https://schema.fintlabs.no/administrasjon/fasttillegg)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [adm:fasttillegg](https://schema.fintlabs.no/administrasjon/fasttillegg)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fasttillegg |
-| native | https://schema.fintlabs.no/administrasjon/:fasttillegg |
+| native | https://data.norge.no/fint/fint-administrasjon/fasttillegg |
 
 
 
