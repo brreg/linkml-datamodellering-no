@@ -123,6 +123,70 @@ def _check_schema_field_present(sv, schema, config, issues):
         ))
 
 
+def _check_schema_has_annotation(sv, schema, config, issues):
+    key = config["annotation"]
+    allowed_values = config.get("allowed_values", [])
+    value_pattern = config.get("value_pattern", "")
+    ann = schema.annotations or {}
+    raw = ann.get(key)
+    value = str(raw.value if hasattr(raw, "value") else raw or "")
+    code = f"schema_has_annotation_{key}"
+    if not value:
+        issues.append(issue(
+            config["severity"], code, "schema",
+            f"schema.annotations.{key} manglar",
+        ))
+        return
+    if value_pattern and not re.match(value_pattern, value):
+        issues.append(issue(
+            config["severity"], code, "schema",
+            f"schema.annotations.{key} '{value}' passar ikkje forventa format",
+        ))
+    elif allowed_values and value not in allowed_values:
+        issues.append(issue(
+            config["severity"], code, "schema",
+            f"schema.annotations.{key} '{value}' er ikkje ein av: {', '.join(allowed_values)}",
+        ))
+
+
+def _check_default_prefix_is_https_uri(sv, schema, config, issues):
+    dp = str(schema.default_prefix or "")
+    if not (dp.startswith("https://") and dp.endswith("/")):
+        issues.append(issue(
+            config["severity"], "default_prefix_is_https_uri", "schema",
+            f"schema.default_prefix '{dp}' er ikkje ein absolutt HTTPS-URI med avsluttande '/' "
+            f"(t.d. https://data.norge.no/ngr/ngr-adresse/)",
+        ))
+
+
+def _check_class_names_pascal_case(sv, schema, config, issues):
+    exclude = set(config.get("exclude_schemas", []))
+    if (schema.name or "") in exclude:
+        return
+    for cname, cls in (schema.classes or {}).items():
+        if cls.tree_root:
+            continue
+        if not cname[0].isupper():
+            issues.append(issue(
+                config["severity"], "class_names_pascal_case", f"class:{cname}",
+                f"Klassenamn '{cname}' skal starte med stor forbokstav (PascalCase)",
+            ))
+
+
+def _check_slot_names_snake_case(sv, schema, config, issues):
+    import re as _re
+    exclude = set(config.get("exclude_schemas", []))
+    if (schema.name or "") in exclude:
+        return
+    pattern = _re.compile(r'^[a-z][a-z0-9_]*$')
+    for sname in (schema.slots or {}):
+        if not pattern.match(sname):
+            issues.append(issue(
+                config["severity"], "slot_names_snake_case", f"slot:{sname}",
+                f"Slotnamn '{sname}' er ikkje snake_case (berre a-z, 0-9, _)",
+            ))
+
+
 def _check_all_classes_have_class_uri(sv, schema, config, issues):
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
@@ -355,6 +419,10 @@ def _check_merged_class_has_any_slot_with_uri(sv, schema, config, issues):
 _CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
+    "schema_has_annotation":           _check_schema_has_annotation,
+    "default_prefix_is_https_uri":     _check_default_prefix_is_https_uri,
+    "class_names_pascal_case":         _check_class_names_pascal_case,
+    "slot_names_snake_case":           _check_slot_names_snake_case,
     "all_classes_have_class_uri":      _check_all_classes_have_class_uri,
     "all_slots_have_slot_uri":         _check_all_slots_have_slot_uri,
     "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,

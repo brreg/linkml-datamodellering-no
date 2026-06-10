@@ -69,8 +69,8 @@ TOOL_GENERATE = {
             },
             "profile": {
                 "type": "string",
-                "description": "Konverteringsprofil (default: 'default').",
-                "default": "default",
+                "description": "Konverteringsprofil (default: 'bronze'). Tilgjengelege: 'bronze', 'silver'.",
+                "default": "bronze",
             },
             "validate": {
                 "type": "boolean",
@@ -160,7 +160,7 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
     schema_id    = arguments.get("schemaId",    "https://example.org/schema")
     schema_name  = arguments.get("schemaName",  "schema")
     schema_title = arguments.get("schemaTitle", "")
-    profile_name = arguments.get("profile",     "default")
+    profile_name = arguments.get("profile",     "bronze")
     do_validate  = arguments.get("validate",    True)
 
     valid_formats = {"json-schema", "empty"}

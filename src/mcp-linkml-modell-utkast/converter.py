@@ -14,11 +14,27 @@ from pathlib import Path
 # Profil
 # ---------------------------------------------------------------------------
 
+def _deep_merge(base: dict, override: dict) -> dict:
+    """Slår saman to dicts; override-verdiar vinn. Nøsta dicts vert slått saman rekursivt."""
+    result = dict(base)
+    for k, v in override.items():
+        if k in result and isinstance(result[k], dict) and isinstance(v, dict):
+            result[k] = _deep_merge(result[k], v)
+        else:
+            result[k] = v
+    return result
+
+
 def load_profile(name: str) -> dict:
-    """Lastar ein namngitt profil frå profiles/-katalogen."""
+    """Lastar ein namngitt profil frå profiles/-katalogen. Handterer 'extends:'-arv."""
     profile_dir = Path(__file__).parent / "profiles"
     with open(profile_dir / f"{name}.yaml", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+        data = yaml.safe_load(f) or {}
+    parent_name = data.pop("extends", None)
+    if parent_name:
+        parent = load_profile(parent_name)
+        data = _deep_merge(parent, data)
+    return data
 
 
 # ---------------------------------------------------------------------------
@@ -264,14 +280,21 @@ def convert(
 
     # ── Skjema-topp ──────────────────────────────────────────────────────────
     schema: dict = {"id": schema_id, "name": schema_name}
-    if schema_title:
-        schema["title"] = schema_title
+    schema["title"] = schema_title or f"TODO: tittel for {schema_name}"
     schema["description"] = (
         json_schema.get("description")
         or f"Generert frå JSON Schema '{schema_name}'."
     )
+    schema["version"] = "0.1.0"
+    schema["license"] = "https://creativecommons.org/licenses/by/4.0/"
+
+    # ── Silver-annotasjonar frå profil ────────────────────────────────────────
+    profile_annotations = profile.get("schema_annotations")
+    if profile_annotations:
+        schema["annotations"] = dict(profile_annotations)
+
     schema["prefixes"]       = prefixes
-    schema["default_prefix"] = prefix_name
+    schema["default_prefix"] = schema_uri  # absolutt HTTPS-URI med avsluttande /
 
     defaults = profile.get("schema_defaults") or {}
     schema["default_range"] = defaults.get("default_range", "string")

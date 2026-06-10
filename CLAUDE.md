@@ -40,6 +40,16 @@ make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLIC
 make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
+## Policy-hierarki
+
+Bronze/silver/gold validerer **skjemakvalitet** (modellens metadata og struktur),
+ikkje instansdata. Instansdata vert validert med `make validate-instance`.
+
+`felles-datakatalog` og `felles-begrepskatalog` er separate policyer for
+skjema som publiserer til eksterne katalogar (`publish_external: true`).
+
+Sjå `src/mcp-linkml-validator/policies/README.md` for fullstendig sjekkliste per nivå.
+
 ## Kjente feil
 
 Alle kjente feil med aktive workarounds er dokumenterte i `specs/bugs/`.
@@ -322,3 +332,26 @@ https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/
 ```
 
 (`see_also:` nyttar legitimt `https://data.norge.no/concepts/<UUID>` — det er eit anna felt.)
+
+### Silver-annotasjonar (Digdir-regel 9, 10, 11)
+
+Skjema med `data_policy: silver` eller høgare skal ha desse annotasjonane.
+Nøkkelnamna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
+
+| Annotasjon | Svarar til | Verdiformat |
+|---|---|---|
+| `annotations.utgiver` | `Informasjonsmodell.utgiver` (`dct:publisher`) | `https://data.norge.no/organizations/<orgnr>` |
+| `annotations.endringsdato` | `Informasjonsmodell.endringsdato` (`dct:modified`) | ISO 8601-dato, t.d. `"2026-06-10"` |
+| `annotations.utgivelsesdato` | `Informasjonsmodell.utgivelsesdato` (`dct:issued`) | ISO 8601-dato |
+| `annotations.status` | `Informasjonsmodell.status` (`adms:status`) | ADMS Status-URI (sjå under) |
+
+ADMS Status-verdiar:
+
+| Status | URI |
+|---|---|
+| Under utarbeidelse | `http://purl.org/adms/status/UnderDevelopment` |
+| Ferdigstilt | `http://purl.org/adms/status/Completed` |
+| Foreldet | `http://purl.org/adms/status/Deprecated` |
+| Trukket tilbake | `http://purl.org/adms/status/Withdrawn` |
+
+CI genererer `Informasjonsmodell`-instansar for modellkatalogen frå desse annotasjonane.

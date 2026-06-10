@@ -43,6 +43,7 @@ print(json.dumps({
             'inputFormat': 'empty',
             'schemaId': '$SCHEMA_ID',
             'schemaName': '$SCHEMA_NAME',
+            'schemaTitle': 'TODO: tittel for $NAME',
             'validate': False,
         }
     }
@@ -83,19 +84,28 @@ mkdir -p "$EXAMPLES_DIR"
     echo "# TODO: Legg til slots og slot_usage for eigenskapane i modellen."
 } > "$SCHEMA_FILE"
 
-# Ekstraher container-slot-namn frå det genererte YAML-et
-CONTAINER_SLOT=$(python3 -c "
+# Ekstraher container-klassnamn og første slot-namn frå det genererte YAML-et
+read CONTAINER_CLASS CONTAINER_SLOT < <(python3 -c "
 import yaml, sys
 schema = yaml.safe_load('''$LINKML_YAML''')
-attrs = schema.get('classes', {}).get('Containerklasse', {}).get('attributes', {})
-print(list(attrs.keys())[0] if attrs else '${SCHEMA_NAME}er')
-" 2>/dev/null || echo "${SCHEMA_NAME}er")
+classes = schema.get('classes', {})
+container_name = '${SCHEMA_NAME}Container'
+container_slot = '${SCHEMA_NAME}er'
+for cname, cdef in classes.items():
+    if cdef.get('tree_root'):
+        container_name = cname
+        attrs = cdef.get('attributes', {})
+        if attrs:
+            container_slot = list(attrs.keys())[0]
+        break
+print(container_name, container_slot)
+" 2>/dev/null || echo "${SCHEMA_NAME}Container ${SCHEMA_NAME}er")
 
 cat > "$EXAMPLE_FILE" << EOF
 # Eksempel for $NAME
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
-Containerklasse:
+$CONTAINER_CLASS:
   $CONTAINER_SLOT:
     - id: $SCHEMA_ID/eksempel-1
 EOF

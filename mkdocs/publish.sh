@@ -370,6 +370,7 @@ nav:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
+      - Valideringsreglar: valideringregler.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
       - Bruk frå eksternt repo: ekstern-bruk.md

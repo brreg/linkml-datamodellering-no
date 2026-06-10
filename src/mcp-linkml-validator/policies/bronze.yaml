@@ -5,6 +5,7 @@ required:
   schema:
     - id
     - name
+    - title
   class: []
   slot: []
 
@@ -12,7 +13,6 @@ required:
 recommended:
   schema:
     - description
-    - title
     - version
   class:
     - description
@@ -32,6 +32,54 @@ checks:
       schema.id skal vere ein HTTP(S)-URI — persistent og globalt unik identifikator.
       Gjer skjemaet adresserbart og søkbart i katalogtenester.
     check: schema_id_is_http_uri
+
+  schema_has_default_prefix:
+    severity: error
+    description: >
+      schema.default_prefix skal vere til stades. Utan default_prefix kan ikkje
+      modellelement adresserast med persistente URI-ar (Digdir-regel 4: Identifiserbarhet).
+    check: schema_field_present
+    field: default_prefix
+
+  default_prefix_is_https_uri:
+    severity: error
+    description: >
+      schema.default_prefix skal vere ein absolutt HTTPS-URI som sluttar med '/'.
+      Sikrar at genererte element-URI-ar er globalt unike og persistente
+      (Digdir-regel 4: Identifiserbarhet).
+    check: default_prefix_is_https_uri
+
+  schema_has_license:
+    severity: warning
+    description: >
+      schema.license bør vere til stades med URI til ein open lisens
+      (t.d. CC BY 4.0). Støttar Digdir-regel 7 (Tilgjengeliggjøring) om at
+      modellen skal vere fritt tilgjengeleg.
+    check: schema_field_present
+    field: license
+
+  class_names_pascal_case:
+    severity: warning
+    description: >
+      Klassenamn skal starte med stor forbokstav (PascalCase). Følgjer
+      Digdir-regel 3 (Navne- og skrivekonvensjoner) og gjer klasser
+      skiljbare frå slot- og attributtnamn.
+    check: class_names_pascal_case
+
+  slot_names_snake_case:
+    severity: warning
+    description: >
+      Slotnamn skal bruke liten forbokstav og understrek (snake_case). Følgjer
+      Digdir-regel 3 (Navne- og skrivekonvensjoner).
+    check: slot_names_snake_case
+    exclude_schemas:
+      - fint-administrasjon
+      - fint-arkiv
+      - fint-common
+      - fint-okonomi
+      - fint-personvern
+      - fint-ressurs
+      - fint-utdanning
 
   all_classes_have_class_uri:
     severity: warning

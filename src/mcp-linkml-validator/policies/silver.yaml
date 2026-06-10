@@ -21,6 +21,42 @@ common_classes:
 
 checks:
 
+  # ── Livssyklusmetadata (Digdir-regel 9, 10, 11) ────────────────────────────
+
+  schema_has_annotation_utgiver:
+    severity: warning
+    description: >
+      schema.annotations.utgiver bør vere til stades med URI til ansvarleg
+      organisasjon (https://data.norge.no/organizations/<orgnr>).
+      Svarar til Informasjonsmodell.utgiver (dct:publisher) i ModelDCAT-AP-NO.
+      Digdir-regel 10: Ansvar.
+    check: schema_has_annotation
+    annotation: utgiver
+    value_pattern: "^https://data\\.norge\\.no/organizations/\\d+$"
+
+  schema_has_annotation_endringsdato:
+    severity: warning
+    description: >
+      schema.annotations.endringsdato bør vere til stades (ISO 8601-dato).
+      Svarar til Informasjonsmodell.endringsdato (dct:modified) i ModelDCAT-AP-NO.
+      Digdir-regel 9: Datering.
+    check: schema_has_annotation
+    annotation: endringsdato
+
+  schema_has_annotation_status:
+    severity: warning
+    description: >
+      schema.annotations.status bør vere til stades med ein ADMS Status-URI.
+      Svarar til Informasjonsmodell.status (adms:status) i ModelDCAT-AP-NO.
+      Digdir-regel 11: Modellstatus.
+    check: schema_has_annotation
+    annotation: status
+    allowed_values:
+      - http://purl.org/adms/status/UnderDevelopment
+      - http://purl.org/adms/status/Completed
+      - http://purl.org/adms/status/Deprecated
+      - http://purl.org/adms/status/Withdrawn
+
   # ── Katalog (dcat:Catalog) ──────────────────────────────────────────────────
 
   katalog_beskrivelse:

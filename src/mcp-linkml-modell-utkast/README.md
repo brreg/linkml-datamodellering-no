@@ -42,14 +42,20 @@ JSON Schema (fil)
 
 | Element | Beskriving |
 |---|---|
-| `id`, `name`, `description` | Henta frå argumenta eller JSON Schema |
-| `prefixes` | Standard vokabularprefiksar frå profilen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + `ex:` som placeholder |
+| `id`, `name` | Frå `schemaId` og `schemaName`-argumenta |
+| `title` | Frå `schemaTitle`-argumentet, eller `TODO: tittel for <name>` |
+| `description` | Frå JSON Schema `description`, eller auto-generert |
+| `version` | `0.1.0` (bronze-krav) |
+| `license` | `https://creativecommons.org/licenses/by/4.0/` (endre ved behov) |
+| `annotations.*` | Berre i silver-profil: `utgiver`, `endringsdato`, `utgivelsesdato`, `status` med TODO-stubs |
+| `prefixes` | Standard vokabularprefiksar frå profilen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + schema-avleia prefiks |
+| `default_prefix` | Absolutt HTTPS-URI avleia frå `schemaId` (t.d. `https://data.norge.no/ngr/adresse/`) |
 | `imports` | `linkml:types` (standard) |
 | `subsets` | `Obligatorisk`, `Anbefalt`, `Valgfri` |
 | `slots.id` | Global `id`-slot med `identifier: true` og `range: uriorcurie` |
-| `slots.<prop>` | Ein global slot per eigeskap i JSON Schema, med `slot_uri: ex:<prop>` |
+| `slots.<prop>` | Ein global slot per eigeskap i JSON Schema, med `slot_uri: <prefix>:<prop>` |
 | `classes.<Klasse>` | Ein klasse per `$defs`-objekt. Har `class_uri`, `annotations.begrepsidentifikator: TODO` og `slot_usage` med `required`/`in_subset` |
-| `classes.Containerklasse` | `tree_root: true`, med `multivalued`/`inlined`/`inlined_as_list`-attributt per klasse |
+| `classes.<Name>Container` | `tree_root: true`, med `multivalued`/`inlined`/`inlined_as_list`-attributt per klasse |
 
 ### Typeomsetting
 
@@ -82,15 +88,15 @@ Når `validate: true` (standard) køyrer to steg automatisk etter generering:
 
 ## Profiler
 
-Profiler styrer korleis konverteringa oppfører seg. Standard profil er `default`.
+Profiler styrer korleis konverteringa oppfører seg. Standard profil er `bronze`.
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json PROFILE=default
+make mcp-generate SCHEMA=tmp/modell.json PROFILE=bronze
 
 # List tilgjengelege profiler via MCP-verktøyet list_profiles
 ```
 
-Profilane ligg i `profiles/<namn>.yaml` og definerer:
+Profilane ligg i `profiles/<namn>.yaml`. Profilen `silver` arvar `bronze` via `extends: bronze`.
 
 | Konfig-nøkkel | Beskriving |
 |---|---|
@@ -101,8 +107,29 @@ Profilane ligg i `profiles/<namn>.yaml` og definerer:
 | `generation.add_id_slot` | Legg til `id`-slot med `identifier: true` (standard: true) |
 | `generation.add_container_class` | Generer containerklasse (standard: true) |
 | `generation.add_begrep_annotation` | Legg til `begrepsidentifikator: TODO`-stub (standard: true) |
+| `schema_annotations` | Berre i silver: legg til `annotations.*`-blokk med TODO-stubs for livssyklusmetadata |
 | `subsets.required_maps_to` | Subset for `required`-felt (standard: `Obligatorisk`) |
 | `subsets.non_required_default` | Subset for andre felt (standard: `Anbefalt`) |
+
+### Silver-profil
+
+Bruk `PROFILE=silver` for å generere skjema med silver-annotasjonar (Digdir-regel 9, 10, 11):
+
+```bash
+make mcp-generate SCHEMA=tmp/modell.json PROFILE=silver
+```
+
+Det genererte skjemaet vil innehalde ein `annotations:`-blokk med TODO-stubs:
+
+```yaml
+annotations:
+  utgiver: "https://data.norge.no/organizations/TODO"
+  endringsdato: "TODO"
+  utgivelsesdato: "TODO"
+  status: "http://purl.org/adms/status/UnderDevelopment"
+```
+
+Fyll inn korrekte verdiar og valider: `make mcp-validate POLICY=silver`.
 
 ## MCP-verktøy
 
@@ -115,11 +142,13 @@ Profilane ligg i `profiles/<namn>.yaml` og definerer:
 
 Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 
-1. **Erstatt `ex:`-prefiksar** med faktiske vokabular-URIar (`dct:`, `dcat:`, `skos:` o.l.)
+1. **Erstatt placeholder-prefiksar** (`<schema_name>:`) med faktiske vokabular-URIar (`dct:`, `dcat:`, `skos:` o.l.)
 2. **Fyll inn `begrepsidentifikator`** — finn rett begrep på [data.norge.no/concepts](https://data.norge.no/concepts) og kopier URI-en, på forma `https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>`
-3. **Juster klassenamn** til norsk bokmål om nødvendig
-4. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.
-5. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:
+3. **Fyll inn `title`** — erstatt TODO-stubben med ein meiningsfull tittel
+4. **Juster klassenamn** til norsk bokmål om nødvendig
+5. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.
+6. **Fyll inn silver-annotasjonar** om skjemaet har `data_policy: silver` eller høgare (berre silver-profil): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
+7. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:
 
 ```bash
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze

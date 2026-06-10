@@ -317,7 +317,7 @@ class TestConversion(unittest.TestCase):
                 }
             }
         })
-        self.assertEqual(schema["classes"]["Hendelse"]["class_uri"], "ex:Hendelse")
+        self.assertEqual(schema["classes"]["Hendelse"]["class_uri"], "test:Hendelse")
 
     def test_slot_uri_vert_sett(self):
         schema, _ = _convert({
@@ -328,7 +328,7 @@ class TestConversion(unittest.TestCase):
                 }
             }
         })
-        self.assertEqual(schema["slots"]["tittel"]["slot_uri"], "ex:tittel")
+        self.assertEqual(schema["slots"]["tittel"]["slot_uri"], "test:tittel")
 
     def test_subsets_er_alltid_med(self):
         schema, _ = _convert({"type": "object", "properties": {}}, schema_name="Tom")
@@ -410,8 +410,8 @@ class TestGeneratedOutput(unittest.TestCase):
         finally:
             os.unlink(fname)
 
-    def test_load_profile_les_default(self):
-        p = load_profile("default")
+    def test_load_profile_les_bronze(self):
+        p = load_profile("bronze")
         self.assertEqual(p["version"], 1)
         self.assertIn("type_mapping", p)
         self.assertIn("format_mapping", p)
@@ -657,18 +657,18 @@ class TestListProfiles(unittest.TestCase):
         resp = _call("tools/call", {"name": "list_profiles", "arguments": {}})
         return json.loads(resp["result"]["content"][0]["text"])
 
-    def test_returnerer_minst_default(self):
+    def test_returnerer_minst_bronze(self):
         names = [p["name"] for p in self._profiles()]
-        self.assertIn("default", names)
+        self.assertIn("bronze", names)
 
     def test_kvar_profil_har_name_og_description(self):
         for p in self._profiles():
             self.assertIn("name", p)
             self.assertIn("description", p)
 
-    def test_default_har_ikkje_tom_description(self):
-        default = next(p for p in self._profiles() if p["name"] == "default")
-        self.assertTrue(len(default["description"]) > 0)
+    def test_bronze_har_ikkje_tom_description(self):
+        bronze = next(p for p in self._profiles() if p["name"] == "bronze")
+        self.assertTrue(len(bronze["description"]) > 0)
 
 
 if __name__ == "__main__":
