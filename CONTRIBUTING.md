@@ -13,7 +13,7 @@ Repoet er ope, og alle kan bidra ved å sende PR frå ein fork. Det er to typar 
 ## Kom i gang
 
 Om du representerer ein ny organisasjon som ikkje er registrert i `CODEOWNERS.md` enno,
-sjå [Ny organisasjon](mkdocs/docs/ny-org.md) først.
+sjå [Bli modelleigar](mkdocs/docs/ny-org.md) først.
 
 Sjå [Ny domenemodell](mkdocs/docs/ny-domenemodell.md) for fullstendig rettleiing om
 føresetnader, oppsett, validering og steg-for-steg-instruksjonar for å leggje til ein modell.
