@@ -1,4 +1,4 @@
-modellkatalogar:
+modellkataloger:
   - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
     tittel:
       - "Brønnøysundregistra – Modellkatalog"
@@ -26,7 +26,7 @@ modellkatalogar:
       - http://publications.europa.eu/resource/authority/language/NOB
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-informasjonsmodellar:
+informasjonsmodeller:
   - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
       - "Nasjonale grunndata – Adresse"
@@ -111,11 +111,11 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/familie-og-sivilstand
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-aktorer:
+aktoerer:
   - id: https://brreg.no/kontakt/modellforvaltning
-    namn_aktor:
+    navn_aktoer:
       - "Registerenheten i Brønnøysund – Modellforvaltning"
 
   - id: https://data.norge.no/organizations/974760673
-    namn_aktor:
+    navn_aktoer:
       - "Registerenheten i Brønnøysund"

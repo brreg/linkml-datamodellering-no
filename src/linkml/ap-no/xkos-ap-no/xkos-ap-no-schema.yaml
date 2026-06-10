@@ -47,7 +47,7 @@ classes:
       - tema
       - nokkelord
       - spraak
-      - har_versjonsnummer
+      - versjonsnummer
       - endringsdato
       - utgivelsesdato
       - heimeside
@@ -77,7 +77,7 @@ classes:
       spraak:
         in_subset:
           - Anbefalt
-      har_versjonsnummer:
+      versjonsnummer:
         in_subset:
           - Anbefalt
       endringsdato:

@@ -91,7 +91,7 @@ classes:
       - spesifiserer
       - euvoc_status
       - verdiomrade
-      - har_versjonsnummer
+      - versjonsnummer
       - versjonsmerknad
     slot_usage:
       anbefalt_term:
@@ -196,7 +196,7 @@ classes:
       verdiomrade:
         in_subset:
           - Valgfri
-      har_versjonsnummer:
+      versjonsnummer:
         in_subset:
           - Valgfri
       versjonsmerknad:

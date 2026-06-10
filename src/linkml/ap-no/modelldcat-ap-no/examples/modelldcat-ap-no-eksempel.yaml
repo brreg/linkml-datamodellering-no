@@ -33,7 +33,7 @@ informasjonsmodellar:
       - https://example.org/objekttypar/vegadresse
       - https://example.org/objekttypar/matrikkeladresse
       - https://example.org/kodelister/adressetype
-    har_versjonsnummer: "1.0"
+    versjonsnummer: "1.0"
     utgivelsesdato: "2024-01-15"
 
 objekttypar:

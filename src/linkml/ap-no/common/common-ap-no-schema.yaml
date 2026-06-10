@@ -169,7 +169,7 @@ slots:
     multivalued: true
     description: Fritekstmerknad (rdfs:comment).
 
-  har_versjonsnummer:
+  versjonsnummer:
     slot_uri: owl:versionInfo
     range: string
     description: Versjonsnummer for ressursen (owl:versionInfo).

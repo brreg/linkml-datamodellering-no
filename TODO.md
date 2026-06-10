@@ -1,4 +1,4 @@
-Modellere opp BR modell fra MagicDraw
+Modellere opp BR modell fra MagicDraw (bvrinn)
 
 teste ut anna publiseringsløsning enn mkdocs
 
@@ -20,7 +20,6 @@ integrere mot custom datakatalog (gcp data catalog)
 
 conventional commits for versjonering av modeller
 
-lage tester som genererer til eit format, for så å generere tilbake til LinkML format og verifisere at resultatet blir det samme
-
+generere xml (vurdere avrotize mot andre alternativer)
 
 validere br krav til metadata

@@ -69,7 +69,7 @@ standardar:
       - ISO 19157 - Geographic information - Data quality
     har_referanse:
       - https://www.iso.org/standard/32575.html
-    har_versjonsnummer: "2013"
+    versjonsnummer: "2013"
     er_i_kvalitetsdimensjon:
       - https://data.norge.no/vocabulary/dqvno#completeness
 
