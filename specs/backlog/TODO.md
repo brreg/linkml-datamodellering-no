@@ -11,9 +11,9 @@ modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
 
-integrere mot custom schemaregistry (apicur.io)
+integrere mot custom schemaregistry (apicur.io). Avvist. Må utføres i eit anna repo.
 
-integrere mot custom datakatalog (gcp data catalog)
+integrere mot custom datakatalog (gcp data catalog) Avvist. Må utføres i eit anna repo.
 
 validere br krav til metadata (har laga validering av Digdir krav til metadata)
 
@@ -22,8 +22,10 @@ teste fra-magicdraw-xmi til-linkml-yaml til-magicdraw-xmi for å verifisere om v
 Eit av måla med dette repoet er å realisere Digdirs Rammeverk for informasjonsforvaltning som eit nasjonalt verktøy.
 Lag en spesifikasjon som kartlegger hvor godt dette repoet stemmer overens med Digdirs Rammeverk for informasjonsforvaltning:
 https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626
+
 Vurder overensstemmelse med kvar av kildene under. For kvar kilde skriv oversikt over gap og tiltak som må utføres for å tette gapet.
-Tilgjengeliggjøring av åpne daga: https://data.norge.no/guide/veileder-apne-data
+Tilgjengeliggjøring av åpne daga: https://data.norge.no/guide/veileder-apne-data*
+
 Beskrivelse av kvalitet på datasett - kvantifiserbar kvalitet: https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet
 Veileder for beskrivelse av informasjonsmodeller: https://data.norge.no/guide/veileder-modelldcat-ap-no
 Standard for beskrivelse av datasett, datatjenester og datakataloger: https://data.norge.no/specification/dcat-ap-no/
