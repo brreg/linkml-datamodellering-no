@@ -51,7 +51,8 @@ jobs:
             -v "$PWD:/repo" -w /repo \
             --entrypoint="" \
             node:22-alpine \
-            sh -c "npm install --save-dev @commitlint/cli @commitlint/config-conventional 2>/dev/null && \
+            sh -c "apk add --no-cache git 2>/dev/null && \
+              npm install --save-dev @commitlint/cli @commitlint/config-conventional 2>/dev/null && \
               echo 'module.exports={extends:[\"@commitlint/config-conventional\"]}' > commitlint.config.js && \
               npx commitlint --from origin/${{ github.base_ref }} --to HEAD"
 
