@@ -1,4 +1,4 @@
-Modellere opp BR modell fra MagicDraw (bvrinn)
+Modellere opp BR modell fra MagicDraw (bvrinn) (må testes meir)
 
 teste ut anna publiseringsløsning enn mkdocs
 
@@ -15,8 +15,6 @@ generer OpenAPI/AsyncAPI spesifikasjon
 integrere mot custom schemaregistry (apicur.io)
 
 integrere mot custom datakatalog (gcp data catalog)
-
-generere xml (vurdere avrotize mot andre alternativer)
 
 validere br krav til metadata (har laga validering av Digdir krav til metadata)
 

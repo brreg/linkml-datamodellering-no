@@ -6,6 +6,9 @@ LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNI
 AVROTIZE_IMAGE		:= localhost/avrotize-local:latest
 AVROTIZE_DOCKERFILE	:= src/assets/containers/Dockerfile.avrotize
 AVROTIZE_RUN		:= podman run --rm -v "$(CURDIR):/work" $(AVROTIZE_IMAGE)
+ASYNCAPI_IMAGE		:= localhost/asyncapi-cli-local:latest
+ASYNCAPI_DOCKERFILE	:= src/assets/containers/Dockerfile.asyncapi-cli
+ASYNCAPI_RUN		:= podman run --rm -v "$(CURDIR):/work" $(ASYNCAPI_IMAGE)
 GEN_DIR    			:= generated
 SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
@@ -136,7 +139,7 @@ define run_gen_xsd
 		continue; \
 	fi; \
 	avsc=$(GEN_DIR)/$$domain/$$name/$$name.avsc; \
-	xsd=$(GEN_DIR)/$$domain/$$name/$$name.xsd; \
+	xsd=$(GEN_DIR)/$$domain/$$name/$$name-schema.xsd; \
 	namespace=$$(grep '^id:' "$$schema" | head -1 | awk '{print $$2}'); \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
 	echo "$(CLR_STEP)→ gen-xsd  $$schema$(CLR_RST)"; \
@@ -145,6 +148,57 @@ define run_gen_xsd
 	rm -f "$$avsc"; \
 	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
 		/work/src/assets/scripts/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema; \
+done
+endef
+
+# Per-schema AsyncAPI 3.0 generator: JSON Schema → AsyncAPI YAML → validate.
+# Hoppar over skjema der manifest.yaml ikkje har "asyncapi: true".
+# Avheng av at gen-jsonschema er køyrt først.
+define run_gen_asyncapi
+@for schema in $(1); do \
+	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
+		continue; \
+	fi; \
+	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
+	if [ ! -f "$$jsonschema" ]; then \
+		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name" >&2; \
+		continue; \
+	fi; \
+	out=$(GEN_DIR)/$$domain/$$name/$$name-asyncapi.yaml; \
+	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
+	$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+		/work/$$jsonschema /work/$$schema --out /work/$$out; \
+	podman run --rm -v "$(CURDIR):/work" $(ASYNCAPI_IMAGE) \
+		validate /work/$$out; \
+done
+endef
+
+# Per-schema OpenAPI 3.1 generator: JSON Schema → OpenAPI YAML → validate.
+# Hoppar over skjema der manifest.yaml ikkje har "openapi: true".
+# Avheng av at gen-jsonschema er køyrt først.
+define run_gen_openapi
+@for schema in $(1); do \
+	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
+		continue; \
+	fi; \
+	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
+	if [ ! -f "$$jsonschema" ]; then \
+		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name" >&2; \
+		continue; \
+	fi; \
+	out=$(GEN_DIR)/$$domain/$$name/$$name-openapi.yaml; \
+	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	echo "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
+	$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+		/work/$$jsonschema /work/$$schema --out /work/$$out; \
+	$(PYTHON_RUN) openapi-spec-validator /work/$$out; \
 done
 endef
 
@@ -170,7 +224,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 
 .PHONY: all test roundtrip validate lint validate-instance clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
-        linkml-build-docker python-build-docker \
+        linkml-build-docker python-build-docker avrotize-build-docker asyncapi-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
         mcp-mod-build mcp-mod-run mcp-mod-smoke mcp-mod-test mcp-generate new-model \
         mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles \
@@ -188,6 +242,8 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
         schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples schema-gen-xsd \
         gen-xsd domain-gen-xsd \
+        gen-asyncapi domain-gen-asyncapi schema-gen-asyncapi \
+        gen-openapi domain-gen-openapi schema-gen-openapi \
         check-published-uris check-prereqs \
         update-modellkatalog new-org-catalog \
         gource-build gource-preview gource-video _gource-render
@@ -277,6 +333,18 @@ gen-xsd:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_xsd,$(SCHEMAS))
 
+gen-asyncapi:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-asyncapi$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call run_gen_asyncapi,$(SCHEMAS))
+
+gen-openapi:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-openapi$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call run_gen_openapi,$(SCHEMAS))
+
 linkml-build-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make linkml-build-docker$(CLR_RST)"
@@ -294,6 +362,12 @@ avrotize-build-docker:
 	@echo "$(CLR_HDR)*** make avrotize-build-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
+
+asyncapi-build-docker:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make asyncapi-build-docker$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman build -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
 
 
 
@@ -466,6 +540,8 @@ $(1):
 	$$(call run_gen,$$(_schemas_$(1)),gen-proto,schema.proto)
 	$$(call run_gen_plantuml,$$(_schemas_$(1)))
 	$$(call run_gen_xsd,$$(_schemas_$(1)))
+	$$(call run_gen_openapi,$$(_schemas_$(1)))
+	$$(call run_gen_asyncapi,$$(_schemas_$(1)))
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
@@ -594,6 +670,12 @@ domain-gen-plantuml:
 domain-gen-xsd:
 	$(call run_gen_xsd,$(_schemas_$(DOMAIN)))
 
+domain-gen-asyncapi:
+	$(call run_gen_asyncapi,$(_schemas_$(DOMAIN)))
+
+domain-gen-openapi:
+	$(call run_gen_openapi,$(_schemas_$(DOMAIN)))
+
 # ---------------------------------------------------------------------------
 # Per-skjema-mål for CI — krev SCHEMA=<sti-til-skjema>
 # Eksempel: make schema-gen-shapes SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml
@@ -635,6 +717,12 @@ schema-gen-plantuml:
 
 schema-gen-xsd:
 	$(call run_gen_xsd,$(SCHEMA))
+
+schema-gen-asyncapi:
+	$(call run_gen_asyncapi,$(SCHEMA))
+
+schema-gen-openapi:
+	$(call run_gen_openapi,$(SCHEMA))
 
 schema-gen-examples:
 	@domain=$(call schema_domain,$(SCHEMA)); \
