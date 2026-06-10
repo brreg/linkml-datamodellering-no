@@ -127,6 +127,12 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -167,6 +173,8 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 ```yaml
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 abstract: true
 slots:
@@ -182,6 +190,8 @@ class_uri: dcat:Resource
 ```yaml
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 abstract: true
 attributes:

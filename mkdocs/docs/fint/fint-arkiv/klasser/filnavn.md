@@ -70,7 +70,7 @@ URI: [ark:filnavn](https://schema.fintlabs.no/arkiv/filnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:filnavn |
-| native | https://schema.fintlabs.no/arkiv/:filnavn |
+| native | https://data.norge.no/fint/fint-arkiv/filnavn |
 
 
 

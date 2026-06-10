@@ -187,6 +187,12 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -227,6 +233,8 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
@@ -254,6 +262,8 @@ class_uri: dcat:Relationship
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_usage:
   har_rolle:

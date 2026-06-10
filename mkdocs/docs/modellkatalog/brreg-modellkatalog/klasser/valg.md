@@ -286,6 +286,12 @@ URI: [modelldcatno:Choice](https://data.norge.no/vocabulary/modelldcatno#Choice)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -326,6 +332,8 @@ URI: [modelldcatno:Choice](https://data.norge.no/vocabulary/modelldcatno#Choice)
 ```yaml
 name: Valg
 description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -346,6 +354,8 @@ class_uri: modelldcatno:Choice
 ```yaml
 name: Valg
 description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

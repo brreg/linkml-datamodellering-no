@@ -70,7 +70,7 @@ URI: [ark:versjonsnummer](https://schema.fintlabs.no/arkiv/versjonsnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:versjonsnummer |
-| native | https://schema.fintlabs.no/arkiv/:versjonsnummer |
+| native | https://data.norge.no/fint/fint-arkiv/versjonsnummer |
 
 
 

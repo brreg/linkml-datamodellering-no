@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:personalressurskategoriar](https://schema.fintlabs.no/administrasjon/:personalressurskategoriar)
+URI: [https://data.norge.no/fint/fint-administrasjon/personalressurskategoriar](https://data.norge.no/fint/fint-administrasjon/personalressurskategoriar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:personalressurskategoriar](http
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:personalressurskategoriar |
-| native | https://schema.fintlabs.no/administrasjon/:personalressurskategoriar |
+| self | https://data.norge.no/fint/fint-administrasjon/personalressurskategoriar |
+| native | https://data.norge.no/fint/fint-administrasjon/personalressurskategoriar |
 
 
 

@@ -71,7 +71,7 @@ URI: [okn:vare](https://schema.fintlabs.no/okonomi/vare)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:vare |
-| native | https://schema.fintlabs.no/okonomi/:vare |
+| native | https://data.norge.no/fint/fint-okonomi/vare |
 
 
 

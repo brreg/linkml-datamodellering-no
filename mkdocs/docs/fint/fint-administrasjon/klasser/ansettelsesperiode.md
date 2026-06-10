@@ -70,7 +70,7 @@ URI: [adm:ansettelsesperiode](https://schema.fintlabs.no/administrasjon/ansettel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ansettelsesperiode |
-| native | https://schema.fintlabs.no/administrasjon/:ansettelsesperiode |
+| native | https://data.norge.no/fint/fint-administrasjon/ansettelsesperiode |
 
 
 

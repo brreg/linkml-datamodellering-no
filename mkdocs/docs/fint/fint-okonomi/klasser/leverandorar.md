@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:leverandorar](https://schema.fintlabs.no/okonomi/:leverandorar)
+URI: [https://data.norge.no/fint/fint-okonomi/leverandorar](https://data.norge.no/fint/fint-okonomi/leverandorar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:leverandorar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:leverandorar |
-| native | https://schema.fintlabs.no/okonomi/:leverandorar |
+| self | https://data.norge.no/fint/fint-okonomi/leverandorar |
+| native | https://data.norge.no/fint/fint-okonomi/leverandorar |
 
 
 

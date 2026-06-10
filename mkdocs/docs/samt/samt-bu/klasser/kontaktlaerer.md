@@ -89,6 +89,13 @@ URI: [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer
     * **Kontaktlaerer**
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer) |
+
+
 ## Eigenskapar
 
 
@@ -223,7 +230,7 @@ URI: [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Kontaktlaerer |
-| native | samtbuskole:Kontaktlaerer |
+| native | samtbu:Kontaktlaerer |
 | close | schema:Teacher |
 
 
@@ -265,6 +272,7 @@ slots:
 - tilknyttet_basisgruppe
 - har_saerlig_ansvar_for
 - jobber_paa_skole
+class_uri: samtbuskole:Kontaktlaerer
 
 ```
 </details>
@@ -292,6 +300,7 @@ attributes:
     - schema:teaches
     rank: 1000
     domain: Kontaktlaerer
+    slot_uri: samtbuskole:tilknyttetBasisgruppe
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -302,6 +311,7 @@ attributes:
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
     domain: Kontaktlaerer
+    slot_uri: samtbuskole:harSaerligAnsvarFor
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -315,6 +325,7 @@ attributes:
     - org:memberOf
     rank: 1000
     domain: Kontaktlaerer
+    slot_uri: samtbuskole:jobberPaaSkole
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -360,6 +371,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Kontaktlaerer
     domain_of:
     - Skole
@@ -367,6 +379,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Kontaktlaerer
 
 ```
 </details>

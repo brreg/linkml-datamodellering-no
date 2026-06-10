@@ -81,7 +81,7 @@ URI: [ark:opprettetDato](https://schema.fintlabs.no/arkiv/opprettetDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:opprettetDato |
-| native | https://schema.fintlabs.no/arkiv/:opprettetDato |
+| native | https://data.norge.no/fint/fint-arkiv/opprettetDato |
 
 
 

@@ -23,7 +23,7 @@ URI: [utd:faggruppemedlemskap](https://schema.fintlabs.no/utdanning/faggruppemed
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  yes  |
 | [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -74,7 +74,7 @@ URI: [utd:faggruppemedlemskap](https://schema.fintlabs.no/utdanning/faggruppemed
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:faggruppemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:faggruppemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/faggruppemedlemskap |
 
 
 

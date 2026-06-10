@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:autorisasjonar](https://schema.fintlabs.no/arkiv/:autorisasjonar)
+URI: [https://data.norge.no/fint/fint-arkiv/autorisasjonar](https://data.norge.no/fint/fint-arkiv/autorisasjonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:autorisasjonar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:autorisasjonar |
-| native | https://schema.fintlabs.no/arkiv/:autorisasjonar |
+| self | https://data.norge.no/fint/fint-arkiv/autorisasjonar |
+| native | https://data.norge.no/fint/fint-arkiv/autorisasjonar |
 
 
 

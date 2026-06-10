@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:arkivressursar](https://schema.fintlabs.no/arkiv/:arkivressursar)
+URI: [https://data.norge.no/fint/fint-arkiv/arkivressursar](https://data.norge.no/fint/fint-arkiv/arkivressursar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:arkivressursar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:arkivressursar |
-| native | https://schema.fintlabs.no/arkiv/:arkivressursar |
+| self | https://data.norge.no/fint/fint-arkiv/arkivressursar |
+| native | https://data.norge.no/fint/fint-arkiv/arkivressursar |
 
 
 

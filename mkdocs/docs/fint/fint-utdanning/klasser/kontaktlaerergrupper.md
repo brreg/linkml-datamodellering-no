@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper](https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper)
+URI: [https://data.norge.no/fint/fint-utdanning/kontaktlaerergrupper](https://data.norge.no/fint/fint-utdanning/kontaktlaerergrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper](https://schema
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper |
-| native | https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper |
+| self | https://data.norge.no/fint/fint-utdanning/kontaktlaerergrupper |
+| native | https://data.norge.no/fint/fint-utdanning/kontaktlaerergrupper |
 
 
 

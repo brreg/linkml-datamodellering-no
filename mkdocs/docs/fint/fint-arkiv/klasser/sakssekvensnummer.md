@@ -76,7 +76,7 @@ URI: [ark:sakssekvensnummer](https://schema.fintlabs.no/arkiv/sakssekvensnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:sakssekvensnummer |
-| native | https://schema.fintlabs.no/arkiv/:sakssekvensnummer |
+| native | https://data.norge.no/fint/fint-arkiv/sakssekvensnummer |
 
 
 

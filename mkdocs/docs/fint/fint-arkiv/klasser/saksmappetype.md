@@ -76,7 +76,7 @@ URI: [ark:saksmappetype](https://schema.fintlabs.no/arkiv/saksmappetype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksmappetype |
-| native | https://schema.fintlabs.no/arkiv/:saksmappetype |
+| native | https://data.norge.no/fint/fint-arkiv/saksmappetype |
 
 
 

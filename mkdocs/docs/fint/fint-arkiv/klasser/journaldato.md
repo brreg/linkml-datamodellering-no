@@ -70,7 +70,7 @@ URI: [ark:journalDato](https://schema.fintlabs.no/arkiv/journalDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalDato |
-| native | https://schema.fintlabs.no/arkiv/:journalDato |
+| native | https://data.norge.no/fint/fint-arkiv/journalDato |
 
 
 

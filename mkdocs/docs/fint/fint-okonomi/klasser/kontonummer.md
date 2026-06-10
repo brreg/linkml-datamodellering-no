@@ -70,7 +70,7 @@ URI: [okn:kontonummer](https://schema.fintlabs.no/okonomi/kontonummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:kontonummer |
-| native | https://schema.fintlabs.no/okonomi/:kontonummer |
+| native | https://data.norge.no/fint/fint-okonomi/kontonummer |
 
 
 

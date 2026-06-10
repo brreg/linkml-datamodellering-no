@@ -74,7 +74,7 @@ URI: [adm:periode](https://schema.fintlabs.no/administrasjon/periode)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:periode |
-| native | https://schema.fintlabs.no/administrasjon/:periode |
+| native | https://data.norge.no/fint/fint-administrasjon/periode |
 
 
 

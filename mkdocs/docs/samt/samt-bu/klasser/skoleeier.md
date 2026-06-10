@@ -64,6 +64,13 @@ URI: [samtbuskole:Skoleeier](https://example.no/ontology/skole#Skoleeier)
     * [PrivatVirksomhet](privatvirksomhet.md)
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Skoleeier](https://example.no/ontology/skole#Skoleeier) |
+
+
 ## Eigenskapar
 
 
@@ -172,7 +179,7 @@ URI: [samtbuskole:Skoleeier](https://example.no/ontology/skole#Skoleeier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Skoleeier |
-| native | samtbuskole:Skoleeier |
+| native | samtbu:Skoleeier |
 | exact | foaf:Agent |
 
 
@@ -200,6 +207,7 @@ abstract: true
 slots:
 - id
 - navn
+class_uri: samtbuskole:Skoleeier
 
 ```
 </details>
@@ -259,6 +267,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Skoleeier
     domain_of:
     - Skole
@@ -266,6 +275,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Skoleeier
 
 ```
 </details>

@@ -72,7 +72,7 @@ URI: [adm:ramme](https://schema.fintlabs.no/administrasjon/ramme)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ramme |
-| native | https://schema.fintlabs.no/administrasjon/:ramme |
+| native | https://data.norge.no/fint/fint-administrasjon/ramme |
 
 
 

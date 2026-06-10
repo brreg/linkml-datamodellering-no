@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaerere)
+URI: [samtbu:kontaktlaerere](https://data.norge.no/samt/samt-bu/kontaktlaerere)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaere
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kontaktlaerere |
-| native | samtbuskole:kontaktlaerere |
+| self | samtbu:kontaktlaerere |
+| native | samtbu:kontaktlaerere |
 
 
 

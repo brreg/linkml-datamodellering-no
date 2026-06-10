@@ -73,7 +73,7 @@ URI: [adm:overordnet](https://schema.fintlabs.no/administrasjon/overordnet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:overordnet |
-| native | https://schema.fintlabs.no/administrasjon/:overordnet |
+| native | https://data.norge.no/fint/fint-administrasjon/overordnet |
 
 
 

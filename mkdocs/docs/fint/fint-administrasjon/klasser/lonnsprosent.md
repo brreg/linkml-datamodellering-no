@@ -70,7 +70,7 @@ URI: [adm:lonnsprosent](https://schema.fintlabs.no/administrasjon/lonnsprosent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:lonnsprosent |
-| native | https://schema.fintlabs.no/administrasjon/:lonnsprosent |
+| native | https://data.norge.no/fint/fint-administrasjon/lonnsprosent |
 
 
 

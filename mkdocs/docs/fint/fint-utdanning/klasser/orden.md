@@ -74,7 +74,7 @@ URI: [utd:orden](https://schema.fintlabs.no/utdanning/orden)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:orden |
-| native | https://schema.fintlabs.no/utdanning/:orden |
+| native | https://data.norge.no/fint/fint-utdanning/orden |
 
 
 

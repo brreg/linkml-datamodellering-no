@@ -100,7 +100,6 @@ URI: [ngr:Bruksenhet](https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](adressecontainer.md) | [bruksenheter](bruksenheter.md) | range | [Bruksenhet](bruksenhet.md) |
 | [OffisiellAdresse](offisielladresse.md) | [adresserer_bruksenhet](adresserer_bruksenhet.md) | range | [Bruksenhet](bruksenhet.md) |
 
 

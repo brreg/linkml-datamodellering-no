@@ -70,7 +70,7 @@ URI: [adm:ansattnummer](https://schema.fintlabs.no/administrasjon/ansattnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:ansattnummer |
-| native | https://schema.fintlabs.no/administrasjon/:ansattnummer |
+| native | https://data.norge.no/fint/fint-administrasjon/ansattnummer |
 
 
 

@@ -9,7 +9,7 @@ _Basisgruppe elev tilhører_
 
 
 
-URI: [samtbuskole:horer_til_basisgruppe](https://example.no/ontology/skole#horer_til_basisgruppe)
+URI: [samtbuskole:horerTilBasisgruppe](https://example.no/ontology/skole#horerTilBasisgruppe)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:horer_til_basisgruppe](https://example.no/ontology/skole#horer
 | Range | [Basisgruppe](basisgruppe.md) |
 | Domain | [Elev](elev.md) |
 | Domain Of | [Elev](elev.md) |
+| Slot URI | [samtbuskole:horerTilBasisgruppe](https://example.no/ontology/skole#horerTilBasisgruppe) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:horer_til_basisgruppe](https://example.no/ontology/skole#horer
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:horer_til_basisgruppe |
-| native | samtbuskole:horer_til_basisgruppe |
+| self | samtbuskole:horerTilBasisgruppe |
+| native | samtbu:horer_til_basisgruppe |
 | close | schema:memberOf |
 
 
@@ -87,6 +88,7 @@ close_mappings:
 - schema:memberOf
 rank: 1000
 domain: Elev
+slot_uri: samtbuskole:horerTilBasisgruppe
 domain_of:
 - Elev
 range: Basisgruppe

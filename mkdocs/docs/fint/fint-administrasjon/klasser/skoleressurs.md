@@ -70,7 +70,7 @@ URI: [adm:skoleressurs](https://schema.fintlabs.no/administrasjon/skoleressurs)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:skoleressurs |
-| native | https://schema.fintlabs.no/administrasjon/:skoleressurs |
+| native | https://data.norge.no/fint/fint-administrasjon/skoleressurs |
 
 
 

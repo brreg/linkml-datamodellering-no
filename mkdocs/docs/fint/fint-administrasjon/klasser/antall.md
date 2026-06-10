@@ -70,7 +70,7 @@ URI: [adm:antall](https://schema.fintlabs.no/administrasjon/antall)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:antall |
-| native | https://schema.fintlabs.no/administrasjon/:antall |
+| native | https://data.norge.no/fint/fint-administrasjon/antall |
 
 
 

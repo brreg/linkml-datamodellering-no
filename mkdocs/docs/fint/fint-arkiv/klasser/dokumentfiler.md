@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:dokumentfiler](https://schema.fintlabs.no/arkiv/:dokumentfiler)
+URI: [https://data.norge.no/fint/fint-arkiv/dokumentfiler](https://data.norge.no/fint/fint-arkiv/dokumentfiler)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:dokumentfiler](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:dokumentfiler |
-| native | https://schema.fintlabs.no/arkiv/:dokumentfiler |
+| self | https://data.norge.no/fint/fint-arkiv/dokumentfiler |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentfiler |
 
 
 

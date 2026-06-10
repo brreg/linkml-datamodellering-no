@@ -71,7 +71,7 @@ URI: [adm:forelder](https://schema.fintlabs.no/administrasjon/forelder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:forelder |
-| native | https://schema.fintlabs.no/administrasjon/:forelder |
+| native | https://data.norge.no/fint/fint-administrasjon/forelder |
 
 
 

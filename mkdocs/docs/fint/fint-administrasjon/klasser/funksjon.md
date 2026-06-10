@@ -72,7 +72,7 @@ URI: [adm:funksjon](https://schema.fintlabs.no/administrasjon/funksjon)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:funksjon |
-| native | https://schema.fintlabs.no/administrasjon/:funksjon |
+| native | https://data.norge.no/fint/fint-administrasjon/funksjon |
 
 
 

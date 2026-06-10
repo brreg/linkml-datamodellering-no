@@ -9,7 +9,7 @@ _Rotcontainer for FINT Personvern-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:PersonvernContainer](https://schema.fintlabs.no/personvern/:PersonvernContainer)
+URI: [https://data.norge.no/fint/fint-personvern/PersonvernContainer](https://data.norge.no/fint/fint-personvern/PersonvernContainer)
 
 
 
@@ -179,14 +179,6 @@ URI: [https://schema.fintlabs.no/personvern/:PersonvernContainer](https://schema
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -244,8 +236,8 @@ URI: [https://schema.fintlabs.no/personvern/:PersonvernContainer](https://schema
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:PersonvernContainer |
-| native | https://schema.fintlabs.no/personvern/:PersonvernContainer |
+| self | https://data.norge.no/fint/fint-personvern/PersonvernContainer |
+| native | https://data.norge.no/fint/fint-personvern/PersonvernContainer |
 
 
 
@@ -264,11 +256,6 @@ name: PersonvernContainer
 description: Rotcontainer for FINT Personvern-instansar.
 from_schema: https://data.norge.no/fint/fint-personvern
 rank: 1000
-slot_usage:
-  behandlingsgrunnlag:
-    name: behandlingsgrunnlag
-    multivalued: true
-    inlined_as_list: true
 attributes:
   behandlingar:
     name: behandlingar
@@ -304,6 +291,8 @@ attributes:
     - PersonvernContainer
     - Behandling
     range: Behandlingsgrunnlag
+    multivalued: true
+    inlined_as_list: true
   personopplysningar:
     name: personopplysningar
     from_schema: https://data.norge.no/fint/fint-personvern
@@ -326,11 +315,6 @@ name: PersonvernContainer
 description: Rotcontainer for FINT Personvern-instansar.
 from_schema: https://data.norge.no/fint/fint-personvern
 rank: 1000
-slot_usage:
-  behandlingsgrunnlag:
-    name: behandlingsgrunnlag
-    multivalued: true
-    inlined_as_list: true
 attributes:
   behandlingar:
     name: behandlingar

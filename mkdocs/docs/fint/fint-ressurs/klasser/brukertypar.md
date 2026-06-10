@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:brukertypar](https://schema.fintlabs.no/ressurs/:brukertypar)
+URI: [https://data.norge.no/fint/fint-ressurs/brukertypar](https://data.norge.no/fint/fint-ressurs/brukertypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:brukertypar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:brukertypar |
-| native | https://schema.fintlabs.no/ressurs/:brukertypar |
+| self | https://data.norge.no/fint/fint-ressurs/brukertypar |
+| native | https://data.norge.no/fint/fint-ressurs/brukertypar |
 
 
 

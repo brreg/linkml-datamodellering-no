@@ -80,7 +80,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
     
         
         
-        Samling --> "1..*" LangString : tittel
+        Samling --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -158,7 +158,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 | [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [medlem](medlem.md) | 1..* <br/> [Begrep](begrep.md) | Omgrep som er medlem av samlinga (skos:member) |
 | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](vcardkontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
 
 
@@ -427,7 +427,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   utgjevar:
     name: utgjevar
     in_subset:
@@ -469,7 +468,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   utgjevar:
     name: utgjevar
     in_subset:
@@ -551,7 +549,6 @@ attributes:
     domain_of:
     - Samling
     range: LangString
-    required: true
     multivalued: true
   utgjevar:
     name: utgjevar
@@ -575,6 +572,8 @@ attributes:
     slot_uri: dct:description
     owner: Samling
     domain_of:
+    - GeneriskRelasjon
+    - PartitivRelasjon
     - Samling
     range: LangString
     multivalued: true

@@ -70,7 +70,7 @@ URI: [okn:betalt](https://schema.fintlabs.no/okonomi/betalt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:betalt |
-| native | https://schema.fintlabs.no/okonomi/:betalt |
+| native | https://data.norge.no/fint/fint-okonomi/betalt |
 
 
 

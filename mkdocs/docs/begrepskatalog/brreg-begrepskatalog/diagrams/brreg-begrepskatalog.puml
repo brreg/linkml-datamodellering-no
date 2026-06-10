@@ -4,7 +4,7 @@ hide circle
 hide empty members
 class "Begrep" [[{Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).}]] {
     {field} id : uriorcurie  
-    {field} anbefalt_term : LangString  [1..*]
+    {field} anbefalt_term : LangString  [0..*]
     {field} definisjon : LangString  [0..*]
     {field} identifikator_literal : string  
     {field} gyldig_fra : date  
@@ -26,7 +26,7 @@ class "VCardKontakt" [[{Kontaktinformasjon (vCard) for omgrepseigaren.}]] {
 class "Samling" [[{Ei namngitt samling av omgrep (skos:Collection).}]] {
     {field} id : uriorcurie  
     {field} identifikator_literal : string  
-    {field} tittel : LangString  [1..*]
+    {field} tittel : LangString  [0..*]
     {field} beskrivelse : LangString  [0..*]
 }
 class "BegrepContainer" [[{None}]] {
@@ -47,7 +47,7 @@ class "Organisasjon" [[{Ein organisasjon som er utgjevar eller ansvarleg for eit
 "Begrep" --> "0..*" "Samling" : "er_medlem_av"(i)
 class "PartitivRelasjon" [[{Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.}]] {
     {field} id : uriorcurie  
-    {field} inndelingskriterium : LangString  [0..*]
+    {field} beskrivelse : LangString  [0..*]
 }
 "PartitivRelasjon" --> "0..*" "Begrep" : "har_heilskapleg_omgrep"
 "PartitivRelasjon" --> "0..*" "Begrep" : "har_partitivt_omgrep"
@@ -68,7 +68,7 @@ class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
 }
 class "GeneriskRelasjon" [[{Ein generisk relasjon mellom eit overomgrep og eit underomgrep.}]] {
     {field} id : uriorcurie  
-    {field} inndelingskriterium : LangString  [0..*]
+    {field} beskrivelse : LangString  [0..*]
 }
 "GeneriskRelasjon" --> "0..*" "Begrep" : "har_spesifikt_omgrep"
 "GeneriskRelasjon" --> "0..*" "Begrep" : "har_generisk_omgrep"

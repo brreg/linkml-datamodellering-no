@@ -72,7 +72,7 @@ URI: [res:plattform](https://schema.fintlabs.no/ressurs/plattform)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:plattform |
-| native | https://schema.fintlabs.no/ressurs/:plattform |
+| native | https://data.norge.no/fint/fint-ressurs/plattform |
 
 
 

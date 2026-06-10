@@ -248,6 +248,12 @@ URI: [modelldcatno:AnyOf](https://data.norge.no/vocabulary/modelldcatno#AnyOf)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -288,6 +294,8 @@ URI: [modelldcatno:AnyOf](https://data.norge.no/vocabulary/modelldcatno#AnyOf)
 ```yaml
 name: NoenAv
 description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Valg
 class_uri: modelldcatno:AnyOf
@@ -301,6 +309,8 @@ class_uri: modelldcatno:AnyOf
 ```yaml
 name: NoenAv
 description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Valg
 attributes:

@@ -70,7 +70,7 @@ URI: [okn:url](https://schema.fintlabs.no/okonomi/url)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:url |
-| native | https://schema.fintlabs.no/okonomi/:url |
+| native | https://data.norge.no/fint/fint-okonomi/url |
 
 
 

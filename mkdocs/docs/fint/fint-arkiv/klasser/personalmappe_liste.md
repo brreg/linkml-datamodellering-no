@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:personalmappe_liste](https://schema.fintlabs.no/arkiv/:personalmappe_liste)
+URI: [https://data.norge.no/fint/fint-arkiv/personalmappe_liste](https://data.norge.no/fint/fint-arkiv/personalmappe_liste)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:personalmappe_liste](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:personalmappe_liste |
-| native | https://schema.fintlabs.no/arkiv/:personalmappe_liste |
+| self | https://data.norge.no/fint/fint-arkiv/personalmappe_liste |
+| native | https://data.norge.no/fint/fint-arkiv/personalmappe_liste |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:fravaersgrunnar](https://schema.fintlabs.no/administrasjon/:fravaersgrunnar)
+URI: [https://data.norge.no/fint/fint-administrasjon/fravaersgrunnar](https://data.norge.no/fint/fint-administrasjon/fravaersgrunnar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:fravaersgrunnar](https://schema
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:fravaersgrunnar |
-| native | https://schema.fintlabs.no/administrasjon/:fravaersgrunnar |
+| self | https://data.norge.no/fint/fint-administrasjon/fravaersgrunnar |
+| native | https://data.norge.no/fint/fint-administrasjon/fravaersgrunnar |
 
 
 

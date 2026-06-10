@@ -607,10 +607,9 @@ class "Klassifikasjonssystem" [[{Overordna struktur for mappene i ein eller flei
 "Klassifikasjonssystem" --> "0..1" "Klassifikasjonstype" : "klassifikasjonstype"(i)
 "Klassifikasjonssystem" --> "1..*" "Arkivdel" : "arkivdel"
 "Klassifikasjonssystem" *--> "1..*" "Klasse" : "klasse"
-"ArkivContainer" *--> "0..*" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
 "Arkivdel" --> "0..*" "Klassifikasjonssystem" : "klassifikasjonssystem"
 "Klasse" --> "1" "Klassifikasjonssystem" : "klassifikasjonssystem"
-"ArkivContainer" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"
+"ArkivContainer" *--> "0..*" "Klassifikasjonssystem" : "klassifikasjonssystem"
 "Arkivdel" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
 "Klasse" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
 "Mappe" *--> "0..1" "Klasse" : "klasse"(i)

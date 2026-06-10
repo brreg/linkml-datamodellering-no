@@ -71,7 +71,7 @@ URI: [utd:avlagtprove](https://schema.fintlabs.no/utdanning/avlagtprove)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:avlagtprove |
-| native | https://schema.fintlabs.no/utdanning/:avlagtprove |
+| native | https://data.norge.no/fint/fint-utdanning/avlagtprove |
 
 
 

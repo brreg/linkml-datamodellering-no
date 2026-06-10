@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:fagmerknader](https://schema.fintlabs.no/utdanning/:fagmerknader)
+URI: [https://data.norge.no/fint/fint-utdanning/fagmerknader](https://data.norge.no/fint/fint-utdanning/fagmerknader)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:fagmerknader](https://schema.fintlab
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:fagmerknader |
-| native | https://schema.fintlabs.no/utdanning/:fagmerknader |
+| self | https://data.norge.no/fint/fint-utdanning/fagmerknader |
+| native | https://data.norge.no/fint/fint-utdanning/fagmerknader |
 
 
 

@@ -74,7 +74,7 @@ URI: [utd:termin](https://schema.fintlabs.no/utdanning/termin)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:termin |
-| native | https://schema.fintlabs.no/utdanning/:termin |
+| native | https://data.norge.no/fint/fint-utdanning/termin |
 
 
 

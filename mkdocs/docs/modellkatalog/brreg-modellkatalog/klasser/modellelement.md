@@ -106,7 +106,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
     
         
         
-        Modellelement --> "1..*" LangString : tittel
+        Modellelement --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -171,7 +171,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -400,6 +400,12 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -440,6 +446,8 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 ```yaml
 name: Modellelement
 description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 abstract: true
 slots:
@@ -455,7 +463,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   begrep:
     name: begrep
     in_subset:
@@ -487,6 +494,8 @@ class_uri: modelldcatno:ModelElement
 ```yaml
 name: Modellelement
 description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 abstract: true
 slot_usage:
@@ -494,7 +503,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   begrep:
     name: begrep
     in_subset:
@@ -559,7 +567,6 @@ attributes:
     - Eigenskap
     - Merknad
     range: LangString
-    required: true
     multivalued: true
   begrep:
     name: begrep

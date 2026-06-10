@@ -158,6 +158,12 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -210,6 +216,8 @@ har_tekstdel: dqv:tekstdel-1
 ```yaml
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 class_uri: dqv:UserQualityFeedback
@@ -223,6 +231,8 @@ class_uri: dqv:UserQualityFeedback
 ```yaml
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 attributes:

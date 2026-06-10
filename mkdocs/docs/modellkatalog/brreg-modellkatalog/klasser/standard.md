@@ -58,7 +58,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
     
         
         
-        Standard --> "1..*" LangString : tittel
+        Standard --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -105,7 +105,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -208,6 +208,12 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -248,6 +254,8 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 ```yaml
 name: Standard
 description: Ein standard (dct:Standard).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -259,7 +267,6 @@ slot_usage:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
 class_uri: dct:Standard
 
 ```
@@ -271,13 +278,14 @@ class_uri: dct:Standard
 ```yaml
 name: Standard
 description: Ein standard (dct:Standard).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   tittel:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
 attributes:
   id:
     name: id
@@ -322,7 +330,6 @@ attributes:
     - Eigenskap
     - Merknad
     range: LangString
-    required: true
     multivalued: true
   har_referanse:
     name: har_referanse

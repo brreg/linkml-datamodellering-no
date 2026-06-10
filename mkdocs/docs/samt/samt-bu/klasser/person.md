@@ -64,6 +64,13 @@ URI: [samtbuskole:Person](https://example.no/ontology/skole#Person)
     * [Kontaktlaerer](kontaktlaerer.md)
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Person](https://example.no/ontology/skole#Person) |
+
+
 ## Eigenskapar
 
 
@@ -165,7 +172,7 @@ URI: [samtbuskole:Person](https://example.no/ontology/skole#Person)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Person |
-| native | samtbuskole:Person |
+| native | samtbu:Person |
 | exact | foaf:Person |
 
 
@@ -193,6 +200,7 @@ abstract: true
 slots:
 - id
 - navn
+class_uri: samtbuskole:Person
 
 ```
 </details>
@@ -252,6 +260,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Person
     domain_of:
     - Skole
@@ -259,6 +268,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Person
 
 ```
 </details>

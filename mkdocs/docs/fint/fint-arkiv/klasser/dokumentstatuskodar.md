@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:dokumentstatuskodar](https://schema.fintlabs.no/arkiv/:dokumentstatuskodar)
+URI: [https://data.norge.no/fint/fint-arkiv/dokumentstatuskodar](https://data.norge.no/fint/fint-arkiv/dokumentstatuskodar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:dokumentstatuskodar](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:dokumentstatuskodar |
-| native | https://schema.fintlabs.no/arkiv/:dokumentstatuskodar |
+| self | https://data.norge.no/fint/fint-arkiv/dokumentstatuskodar |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentstatuskodar |
 
 
 

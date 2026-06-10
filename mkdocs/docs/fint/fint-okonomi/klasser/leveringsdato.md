@@ -70,7 +70,7 @@ URI: [okn:leveringsdato](https://schema.fintlabs.no/okonomi/leveringsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:leveringsdato |
-| native | https://schema.fintlabs.no/okonomi/:leveringsdato |
+| native | https://data.norge.no/fint/fint-okonomi/leveringsdato |
 
 
 

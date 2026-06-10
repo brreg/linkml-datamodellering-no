@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:fakturautstederear](https://schema.fintlabs.no/okonomi/:fakturautstederear)
+URI: [https://data.norge.no/fint/fint-okonomi/fakturautstederear](https://data.norge.no/fint/fint-okonomi/fakturautstederear)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:fakturautstederear](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:fakturautstederear |
-| native | https://schema.fintlabs.no/okonomi/:fakturautstederear |
+| self | https://data.norge.no/fint/fint-okonomi/fakturautstederear |
+| native | https://data.norge.no/fint/fint-okonomi/fakturautstederear |
 
 
 

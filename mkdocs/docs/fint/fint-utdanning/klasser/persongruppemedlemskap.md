@@ -22,7 +22,7 @@ URI: [utd:persongruppemedlemskap](https://schema.fintlabs.no/utdanning/persongru
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [utd:persongruppemedlemskap](https://schema.fintlabs.no/utdanning/persongru
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:persongruppemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:persongruppemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/persongruppemedlemskap |
 
 
 

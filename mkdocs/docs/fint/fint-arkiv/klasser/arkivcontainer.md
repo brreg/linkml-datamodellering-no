@@ -9,7 +9,7 @@ _Rotcontainer for FINT Arkiv-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:ArkivContainer](https://schema.fintlabs.no/arkiv/:ArkivContainer)
+URI: [https://data.norge.no/fint/fint-arkiv/ArkivContainer](https://data.norge.no/fint/fint-arkiv/ArkivContainer)
 
 
 
@@ -747,14 +747,6 @@ URI: [https://schema.fintlabs.no/arkiv/:ArkivContainer](https://schema.fintlabs.
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -1000,8 +992,8 @@ URI: [https://schema.fintlabs.no/arkiv/:ArkivContainer](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:ArkivContainer |
-| native | https://schema.fintlabs.no/arkiv/:ArkivContainer |
+| self | https://data.norge.no/fint/fint-arkiv/ArkivContainer |
+| native | https://data.norge.no/fint/fint-arkiv/ArkivContainer |
 
 
 
@@ -1020,11 +1012,6 @@ name: ArkivContainer
 description: Rotcontainer for FINT Arkiv-instansar.
 from_schema: https://data.norge.no/fint/fint-arkiv
 rank: 1000
-slot_usage:
-  klassifikasjonssystem:
-    name: klassifikasjonssystem
-    multivalued: true
-    inlined_as_list: true
 attributes:
   arkivdelar:
     name: arkivdelar
@@ -1097,6 +1084,8 @@ attributes:
     - Arkivdel
     - Klasse
     range: Klassifikasjonssystem
+    multivalued: true
+    inlined_as_list: true
   tilgangar:
     name: tilgangar
     from_schema: https://data.norge.no/fint/fint-arkiv
@@ -1326,11 +1315,6 @@ name: ArkivContainer
 description: Rotcontainer for FINT Arkiv-instansar.
 from_schema: https://data.norge.no/fint/fint-arkiv
 rank: 1000
-slot_usage:
-  klassifikasjonssystem:
-    name: klassifikasjonssystem
-    multivalued: true
-    inlined_as_list: true
 attributes:
   arkivdelar:
     name: arkivdelar

@@ -70,7 +70,7 @@ URI: [ark:arbeidssted](https://schema.fintlabs.no/arkiv/arbeidssted)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:arbeidssted |
-| native | https://schema.fintlabs.no/arkiv/:arbeidssted |
+| native | https://data.norge.no/fint/fint-arkiv/arbeidssted |
 
 
 

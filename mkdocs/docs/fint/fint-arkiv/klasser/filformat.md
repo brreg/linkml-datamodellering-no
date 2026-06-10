@@ -70,7 +70,7 @@ URI: [ark:filformat](https://schema.fintlabs.no/arkiv/filformat)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:filformat |
-| native | https://schema.fintlabs.no/arkiv/:filformat |
+| native | https://data.norge.no/fint/fint-arkiv/filformat |
 
 
 

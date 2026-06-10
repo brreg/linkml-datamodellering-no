@@ -70,7 +70,7 @@ URI: [res:flerbrukerenhet](https://schema.fintlabs.no/ressurs/flerbrukerenhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:flerbrukerenhet |
-| native | https://schema.fintlabs.no/ressurs/:flerbrukerenhet |
+| native | https://data.norge.no/fint/fint-ressurs/flerbrukerenhet |
 
 
 

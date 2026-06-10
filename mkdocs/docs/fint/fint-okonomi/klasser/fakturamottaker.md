@@ -70,7 +70,7 @@ URI: [okn:fakturamottaker](https://schema.fintlabs.no/okonomi/fakturamottaker)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturamottaker |
-| native | https://schema.fintlabs.no/okonomi/:fakturamottaker |
+| native | https://data.norge.no/fint/fint-okonomi/fakturamottaker |
 
 
 

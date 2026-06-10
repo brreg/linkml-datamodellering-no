@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:elevkategoriar](https://schema.fintlabs.no/utdanning/:elevkategoriar)
+URI: [https://data.norge.no/fint/fint-utdanning/elevkategoriar](https://data.norge.no/fint/fint-utdanning/elevkategoriar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:elevkategoriar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:elevkategoriar |
-| native | https://schema.fintlabs.no/utdanning/:elevkategoriar |
+| self | https://data.norge.no/fint/fint-utdanning/elevkategoriar |
+| native | https://data.norge.no/fint/fint-utdanning/elevkategoriar |
 
 
 

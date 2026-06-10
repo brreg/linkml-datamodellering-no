@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:virksomhetar](https://schema.fintlabs.no/administrasjon/:virksomhetar)
+URI: [https://data.norge.no/fint/fint-administrasjon/virksomhetar](https://data.norge.no/fint/fint-administrasjon/virksomhetar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:virksomhetar](https://schema.fi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:virksomhetar |
-| native | https://schema.fintlabs.no/administrasjon/:virksomhetar |
+| self | https://data.norge.no/fint/fint-administrasjon/virksomhetar |
+| native | https://data.norge.no/fint/fint-administrasjon/virksomhetar |
 
 
 

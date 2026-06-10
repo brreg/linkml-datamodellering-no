@@ -150,7 +150,7 @@
                 },
                 "fylke": {
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/Fylke"
                     },
                     "type": [
                         "array",
@@ -159,7 +159,7 @@
                 },
                 "kjonn": {
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/Kjonn"
                     },
                     "type": [
                         "array",
@@ -3897,7 +3897,7 @@
         },
         "fylke": {
             "items": {
-                "type": "string"
+                "$ref": "#/$defs/Fylke"
             },
             "type": [
                 "array",
@@ -3906,7 +3906,7 @@
         },
         "kjonn": {
             "items": {
-                "type": "string"
+                "$ref": "#/$defs/Kjonn"
             },
             "type": [
                 "array",

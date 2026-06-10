@@ -70,7 +70,7 @@ URI: [utd:skala](https://schema.fintlabs.no/utdanning/skala)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skala |
-| native | https://schema.fintlabs.no/utdanning/:skala |
+| native | https://data.norge.no/fint/fint-utdanning/skala |
 
 
 

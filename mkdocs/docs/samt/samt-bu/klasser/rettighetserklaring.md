@@ -335,6 +335,12 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -375,6 +381,8 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
@@ -397,6 +405,8 @@ class_uri: dct:RightsStatement
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 attributes:
   id:

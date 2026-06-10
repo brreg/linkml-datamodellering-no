@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:aktivitetar](https://schema.fintlabs.no/administrasjon/:aktivitetar)
+URI: [https://data.norge.no/fint/fint-administrasjon/aktivitetar](https://data.norge.no/fint/fint-administrasjon/aktivitetar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:aktivitetar](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:aktivitetar |
-| native | https://schema.fintlabs.no/administrasjon/:aktivitetar |
+| self | https://data.norge.no/fint/fint-administrasjon/aktivitetar |
+| native | https://data.norge.no/fint/fint-administrasjon/aktivitetar |
 
 
 

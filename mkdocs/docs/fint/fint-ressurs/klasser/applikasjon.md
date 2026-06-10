@@ -70,7 +70,7 @@ URI: [res:applikasjon](https://schema.fintlabs.no/ressurs/applikasjon)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:applikasjon |
-| native | https://schema.fintlabs.no/ressurs/:applikasjon |
+| native | https://data.norge.no/fint/fint-ressurs/applikasjon |
 
 
 

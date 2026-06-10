@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar](https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar)
+URI: [https://data.norge.no/fint/fint-administrasjon/arbeidsforholdstypar](https://data.norge.no/fint/fint-administrasjon/arbeidsforholdstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar](https://s
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar |
+| self | https://data.norge.no/fint/fint-administrasjon/arbeidsforholdstypar |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidsforholdstypar |
 
 
 

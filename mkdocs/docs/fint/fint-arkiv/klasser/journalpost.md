@@ -77,7 +77,7 @@ URI: [ark:journalpost](https://schema.fintlabs.no/arkiv/journalpost)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalpost |
-| native | https://schema.fintlabs.no/arkiv/:journalpost |
+| native | https://data.norge.no/fint/fint-arkiv/journalpost |
 
 
 

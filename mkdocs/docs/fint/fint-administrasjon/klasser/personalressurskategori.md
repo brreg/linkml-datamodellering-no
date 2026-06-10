@@ -70,7 +70,7 @@ URI: [adm:personalressurskategori](https://schema.fintlabs.no/administrasjon/per
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:personalressurskategori |
-| native | https://schema.fintlabs.no/administrasjon/:personalressurskategori |
+| native | https://data.norge.no/fint/fint-administrasjon/personalressurskategori |
 
 
 

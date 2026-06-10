@@ -70,7 +70,7 @@ URI: [ark:formatDetaljer](https://schema.fintlabs.no/arkiv/formatDetaljer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:formatDetaljer |
-| native | https://schema.fintlabs.no/arkiv/:formatDetaljer |
+| native | https://data.norge.no/fint/fint-arkiv/formatDetaljer |
 
 
 

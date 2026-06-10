@@ -70,7 +70,7 @@ URI: [ark:sendtDato](https://schema.fintlabs.no/arkiv/sendtDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:sendtDato |
-| native | https://schema.fintlabs.no/arkiv/:sendtDato |
+| native | https://data.norge.no/fint/fint-arkiv/sendtDato |
 
 
 

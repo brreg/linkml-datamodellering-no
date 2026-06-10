@@ -74,7 +74,7 @@ URI: [adm:kildesystemId](https://schema.fintlabs.no/administrasjon/kildesystemId
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:kildesystemId |
-| native | https://schema.fintlabs.no/administrasjon/:kildesystemId |
+| native | https://data.norge.no/fint/fint-administrasjon/kildesystemId |
 
 
 

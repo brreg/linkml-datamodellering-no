@@ -70,7 +70,7 @@ URI: [res:digitalEnhet](https://schema.fintlabs.no/ressurs/digitalEnhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:digitalEnhet |
-| native | https://schema.fintlabs.no/ressurs/:digitalEnhet |
+| native | https://data.norge.no/fint/fint-ressurs/digitalEnhet |
 
 
 

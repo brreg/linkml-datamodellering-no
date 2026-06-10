@@ -70,7 +70,7 @@ URI: [adm:timerPerUke](https://schema.fintlabs.no/administrasjon/timerPerUke)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:timerPerUke |
-| native | https://schema.fintlabs.no/administrasjon/:timerPerUke |
+| native | https://data.norge.no/fint/fint-administrasjon/timerPerUke |
 
 
 

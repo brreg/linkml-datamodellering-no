@@ -70,7 +70,7 @@ URI: [ark:journalposttype](https://schema.fintlabs.no/arkiv/journalposttype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalposttype |
-| native | https://schema.fintlabs.no/arkiv/:journalposttype |
+| native | https://data.norge.no/fint/fint-arkiv/journalposttype |
 
 
 

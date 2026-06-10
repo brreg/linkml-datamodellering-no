@@ -23,7 +23,7 @@ URI: [utd:tilrettelegging](https://schema.fintlabs.no/utdanning/tilrettelegging)
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  yes  |
 | [Fag](fag.md) | Eit skulefag |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [utd:tilrettelegging](https://schema.fintlabs.no/utdanning/tilrettelegging)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:tilrettelegging |
-| native | https://schema.fintlabs.no/utdanning/:tilrettelegging |
+| native | https://data.norge.no/fint/fint-utdanning/tilrettelegging |
 
 
 

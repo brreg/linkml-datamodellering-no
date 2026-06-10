@@ -70,7 +70,7 @@ URI: [okn:bilagsdato](https://schema.fintlabs.no/okonomi/bilagsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:bilagsdato |
-| native | https://schema.fintlabs.no/okonomi/:bilagsdato |
+| native | https://data.norge.no/fint/fint-okonomi/bilagsdato |
 
 
 

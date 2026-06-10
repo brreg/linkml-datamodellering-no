@@ -71,7 +71,7 @@ URI: [ark:referanseArkivdel](https://schema.fintlabs.no/arkiv/referanseArkivdel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:referanseArkivdel |
-| native | https://schema.fintlabs.no/arkiv/:referanseArkivdel |
+| native | https://data.norge.no/fint/fint-arkiv/referanseArkivdel |
 
 
 

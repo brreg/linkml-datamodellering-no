@@ -77,7 +77,7 @@ URI: [ark:journalenhet](https://schema.fintlabs.no/arkiv/journalenhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:journalenhet |
-| native | https://schema.fintlabs.no/arkiv/:journalenhet |
+| native | https://data.norge.no/fint/fint-arkiv/journalenhet |
 
 
 

@@ -124,6 +124,7 @@ Name: fint-personvern
 | JSON-LD kontekst | [fint-personvern-context.jsonld](fint-personvern-context.jsonld) |
 | JSON Schema | [fint-personvern-schema.json](fint-personvern-schema.json) |
 | OWL ontologi | [fint-personvern-ontology.ttl](fint-personvern-ontology.ttl) |
+| RDF/Turtle skjema | [fint-personvern-schema.ttl](fint-personvern-schema.ttl) |
 | Python-klasser | [fint-personvern-model.py](fint-personvern-model.py) |
 | Protobuf-skjema | [fint-personvern-schema.proto](fint-personvern-schema.proto) |
 | ER-diagram (Mermaid) | [fint-personvern-erdiagram.md](fint-personvern-erdiagram.md) |

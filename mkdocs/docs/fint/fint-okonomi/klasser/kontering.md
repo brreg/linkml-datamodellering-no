@@ -71,7 +71,7 @@ URI: [okn:kontering](https://schema.fintlabs.no/okonomi/kontering)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:kontering |
-| native | https://schema.fintlabs.no/okonomi/:kontering |
+| native | https://data.norge.no/fint/fint-okonomi/kontering |
 
 
 

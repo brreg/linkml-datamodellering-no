@@ -70,7 +70,7 @@ URI: [okn:sats](https://schema.fintlabs.no/okonomi/sats)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:sats |
-| native | https://schema.fintlabs.no/okonomi/:sats |
+| native | https://data.norge.no/fint/fint-okonomi/sats |
 
 
 

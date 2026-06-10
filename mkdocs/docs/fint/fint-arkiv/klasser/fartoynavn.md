@@ -70,7 +70,7 @@ URI: [ark:fartoyNavn](https://schema.fintlabs.no/arkiv/fartoyNavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:fartoyNavn |
-| native | https://schema.fintlabs.no/arkiv/:fartoyNavn |
+| native | https://data.norge.no/fint/fint-arkiv/fartoyNavn |
 
 
 

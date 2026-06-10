@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:brevtypar](https://schema.fintlabs.no/utdanning/:brevtypar)
+URI: [https://data.norge.no/fint/fint-utdanning/brevtypar](https://data.norge.no/fint/fint-utdanning/brevtypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:brevtypar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:brevtypar |
-| native | https://schema.fintlabs.no/utdanning/:brevtypar |
+| self | https://data.norge.no/fint/fint-utdanning/brevtypar |
+| native | https://data.norge.no/fint/fint-utdanning/brevtypar |
 
 
 

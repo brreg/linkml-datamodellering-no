@@ -578,7 +578,7 @@ URI: [ark:DispensasjonAutomatiskFredaKulturminne](https://schema.fintlabs.no/ark
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:DispensasjonAutomatiskFredaKulturminne |
-| native | https://schema.fintlabs.no/arkiv/:DispensasjonAutomatiskFredaKulturminne |
+| native | https://data.norge.no/fint/fint-arkiv/DispensasjonAutomatiskFredaKulturminne |
 
 
 

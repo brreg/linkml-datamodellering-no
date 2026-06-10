@@ -70,7 +70,7 @@ URI: [utd:fagmerknad](https://schema.fintlabs.no/utdanning/fagmerknad)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fagmerknad |
-| native | https://schema.fintlabs.no/utdanning/:fagmerknad |
+| native | https://data.norge.no/fint/fint-utdanning/fagmerknad |
 
 
 

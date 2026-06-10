@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:uketimetall](https://schema.fintlabs.no/administrasjon/:uketimetall)
+URI: [https://data.norge.no/fint/fint-administrasjon/uketimetall](https://data.norge.no/fint/fint-administrasjon/uketimetall)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:uketimetall](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:uketimetall |
-| native | https://schema.fintlabs.no/administrasjon/:uketimetall |
+| self | https://data.norge.no/fint/fint-administrasjon/uketimetall |
+| native | https://data.norge.no/fint/fint-administrasjon/uketimetall |
 
 
 

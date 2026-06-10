@@ -228,7 +228,7 @@ class "Faktura" [[{Betalingskrav utforma og oversendt frå fakturautstedar til f
 "OkonomiContainer" *--> "0..*" "Leverandorgruppe" : "leverandorgrupper"
 "OkonomiContainer" *--> "0..*" "Leverandor" : "leverandorar"
 "OkonomiContainer" *--> "0..*" "Fakturautsteder" : "fakturautstederear"
-"OkonomiContainer" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"
+"OkonomiContainer" *--> "0..*" "Fakturagrunnlag" : "fakturagrunnlag"
 "OkonomiContainer" *--> "0..*" "Faktura" : "fakturaer"
 "Vare" --> "0..1" "Merverdiavgift" : "merverdiavgift"(i)
 class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
@@ -312,7 +312,6 @@ class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenes
 "Fakturagrunnlag" *--> "0..*" "Fakturalinje" : "fakturalinjer"(i)
 "Fakturagrunnlag" --> "0..*" "Faktura" : "faktura"
 "Faktura" --> "1" "Fakturagrunnlag" : "fakturagrunnlag"
-"OkonomiContainer" *--> "0..*" "Fakturagrunnlag" : "fakturagrunnlag"(i)
 "Faktura" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"(i)
 "Fakturautsteder" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"(i)
 "Faktura" *--> "0..1" "Adresse" : "adresse"

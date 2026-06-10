@@ -23,7 +23,7 @@ URI: [adm:anlegg](https://schema.fintlabs.no/administrasjon/anlegg)
 | [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [adm:anlegg](https://schema.fintlabs.no/administrasjon/anlegg)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:anlegg |
-| native | https://schema.fintlabs.no/administrasjon/:anlegg |
+| native | https://data.norge.no/fint/fint-administrasjon/anlegg |
 
 
 

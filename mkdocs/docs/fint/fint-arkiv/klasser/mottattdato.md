@@ -70,7 +70,7 @@ URI: [ark:mottattDato](https://schema.fintlabs.no/arkiv/mottattDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:mottattDato |
-| native | https://schema.fintlabs.no/arkiv/:mottattDato |
+| native | https://data.norge.no/fint/fint-arkiv/mottattDato |
 
 
 

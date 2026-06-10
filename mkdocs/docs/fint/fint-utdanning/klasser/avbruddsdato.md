@@ -70,7 +70,7 @@ URI: [utd:avbruddsdato](https://schema.fintlabs.no/utdanning/avbruddsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:avbruddsdato |
-| native | https://schema.fintlabs.no/utdanning/:avbruddsdato |
+| native | https://data.norge.no/fint/fint-utdanning/avbruddsdato |
 
 
 

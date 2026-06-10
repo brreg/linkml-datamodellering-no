@@ -815,6 +815,12 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -885,6 +891,8 @@ tilgjengelighet: http://publications.europa.eu/resource/authority/planned-availa
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
@@ -948,6 +956,8 @@ class_uri: dcat:Distribution
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_usage:
   tilgangs_url:

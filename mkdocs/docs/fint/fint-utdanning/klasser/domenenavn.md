@@ -70,7 +70,7 @@ URI: [utd:domenenavn](https://schema.fintlabs.no/utdanning/domenenavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:domenenavn |
-| native | https://schema.fintlabs.no/utdanning/:domenenavn |
+| native | https://data.norge.no/fint/fint-utdanning/domenenavn |
 
 
 

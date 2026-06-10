@@ -713,7 +713,7 @@ URI: [ark:Saksmappe](https://schema.fintlabs.no/arkiv/Saksmappe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Saksmappe |
-| native | https://schema.fintlabs.no/arkiv/:Saksmappe |
+| native | https://data.norge.no/fint/fint-arkiv/Saksmappe |
 
 
 

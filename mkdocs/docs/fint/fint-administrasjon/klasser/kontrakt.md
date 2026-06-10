@@ -72,7 +72,7 @@ URI: [adm:kontrakt](https://schema.fintlabs.no/administrasjon/kontrakt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:kontrakt |
-| native | https://schema.fintlabs.no/administrasjon/:kontrakt |
+| native | https://data.norge.no/fint/fint-administrasjon/kontrakt |
 
 
 

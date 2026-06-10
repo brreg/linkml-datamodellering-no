@@ -9,7 +9,7 @@ _Containerklasse for alle klasser som kan inngå i datasettet._
 
 
 
-URI: [samtbuskole:SamtBuContainer](https://example.no/ontology/skole#SamtBuContainer)
+URI: [samtbu:SamtBuContainer](https://data.norge.no/samt/samt-bu/SamtBuContainer)
 
 
 
@@ -740,8 +740,8 @@ URI: [samtbuskole:SamtBuContainer](https://example.no/ontology/skole#SamtBuConta
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:SamtBuContainer |
-| native | samtbuskole:SamtBuContainer |
+| self | samtbu:SamtBuContainer |
+| native | samtbu:SamtBuContainer |
 
 
 

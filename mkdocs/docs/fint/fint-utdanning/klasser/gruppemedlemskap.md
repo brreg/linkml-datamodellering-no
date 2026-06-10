@@ -74,7 +74,7 @@ URI: [utd:gruppemedlemskap](https://schema.fintlabs.no/utdanning/gruppemedlemska
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:gruppemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:gruppemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/gruppemedlemskap |
 
 
 

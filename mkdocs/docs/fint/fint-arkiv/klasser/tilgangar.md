@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:tilgangar](https://schema.fintlabs.no/arkiv/:tilgangar)
+URI: [https://data.norge.no/fint/fint-arkiv/tilgangar](https://data.norge.no/fint/fint-arkiv/tilgangar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:tilgangar](https://schema.fintlabs.no/ar
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:tilgangar |
-| native | https://schema.fintlabs.no/arkiv/:tilgangar |
+| self | https://data.norge.no/fint/fint-arkiv/tilgangar |
+| native | https://data.norge.no/fint/fint-arkiv/tilgangar |
 
 
 

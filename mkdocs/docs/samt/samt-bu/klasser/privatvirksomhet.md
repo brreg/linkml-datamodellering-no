@@ -67,6 +67,13 @@ URI: [samtbuskole:PrivatVirksomhet](https://example.no/ontology/skole#PrivatVirk
     * **PrivatVirksomhet**
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:PrivatVirksomhet](https://example.no/ontology/skole#PrivatVirksomhet) |
+
+
 ## Eigenskapar
 
 
@@ -160,7 +167,7 @@ URI: [samtbuskole:PrivatVirksomhet](https://example.no/ontology/skole#PrivatVirk
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:PrivatVirksomhet |
-| native | samtbuskole:PrivatVirksomhet |
+| native | samtbu:PrivatVirksomhet |
 | exact | org:Organization, schema:Organization |
 
 
@@ -197,6 +204,7 @@ rank: 1000
 is_a: Skoleeier
 slots:
 - organisasjonsnummer
+class_uri: samtbuskole:PrivatVirksomhet
 
 ```
 </details>
@@ -270,6 +278,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: PrivatVirksomhet
     domain_of:
     - Skole
@@ -277,6 +286,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:PrivatVirksomhet
 
 ```
 </details>

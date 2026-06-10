@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:kontrakter](https://schema.fintlabs.no/administrasjon/:kontrakter)
+URI: [https://data.norge.no/fint/fint-administrasjon/kontrakter](https://data.norge.no/fint/fint-administrasjon/kontrakter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:kontrakter](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:kontrakter |
-| native | https://schema.fintlabs.no/administrasjon/:kontrakter |
+| self | https://data.norge.no/fint/fint-administrasjon/kontrakter |
+| native | https://data.norge.no/fint/fint-administrasjon/kontrakter |
 
 
 

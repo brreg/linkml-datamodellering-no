@@ -70,7 +70,7 @@ URI: [ark:referanseDokumentfil](https://schema.fintlabs.no/arkiv/referanseDokume
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:referanseDokumentfil |
-| native | https://schema.fintlabs.no/arkiv/:referanseDokumentfil |
+| native | https://data.norge.no/fint/fint-arkiv/referanseDokumentfil |
 
 
 

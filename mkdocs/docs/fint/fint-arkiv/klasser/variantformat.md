@@ -70,7 +70,7 @@ URI: [ark:variantFormat](https://schema.fintlabs.no/arkiv/variantFormat)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:variantFormat |
-| native | https://schema.fintlabs.no/arkiv/:variantFormat |
+| native | https://data.norge.no/fint/fint-arkiv/variantFormat |
 
 
 

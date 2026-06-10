@@ -236,6 +236,12 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -286,6 +292,8 @@ har_verdi: 'true'
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -317,6 +325,8 @@ class_uri: dqv:QualityMeasurement
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_kvalitetsmaaling_av:

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:identitetar](https://schema.fintlabs.no/ressurs/:identitetar)
+URI: [https://data.norge.no/fint/fint-ressurs/identitetar](https://data.norge.no/fint/fint-ressurs/identitetar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:identitetar](https://schema.fintlabs.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:identitetar |
-| native | https://schema.fintlabs.no/ressurs/:identitetar |
+| self | https://data.norge.no/fint/fint-ressurs/identitetar |
+| native | https://data.norge.no/fint/fint-ressurs/identitetar |
 
 
 

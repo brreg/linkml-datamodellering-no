@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:fakturaer](https://schema.fintlabs.no/okonomi/:fakturaer)
+URI: [https://data.norge.no/fint/fint-okonomi/fakturaer](https://data.norge.no/fint/fint-okonomi/fakturaer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:fakturaer](https://schema.fintlabs.no/
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:fakturaer |
-| native | https://schema.fintlabs.no/okonomi/:fakturaer |
+| self | https://data.norge.no/fint/fint-okonomi/fakturaer |
+| native | https://data.norge.no/fint/fint-okonomi/fakturaer |
 
 
 

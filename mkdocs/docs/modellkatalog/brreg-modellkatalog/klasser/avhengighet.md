@@ -277,6 +277,12 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -318,6 +324,8 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
 name: Avhengighet
 description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av
   det andre.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -339,6 +347,8 @@ class_uri: modelldcatno:Dependency
 name: Avhengighet
 description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av
   det andre.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

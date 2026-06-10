@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap](https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap)
+URI: [https://data.norge.no/fint/fint-ressurs/einingsgruppedmedlemskap](https://data.norge.no/fint/fint-ressurs/einingsgruppedmedlemskap)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap](https://sche
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap |
-| native | https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap |
+| self | https://data.norge.no/fint/fint-ressurs/einingsgruppedmedlemskap |
+| native | https://data.norge.no/fint/fint-ressurs/einingsgruppedmedlemskap |
 
 
 

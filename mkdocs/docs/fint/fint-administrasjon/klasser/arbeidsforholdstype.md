@@ -70,7 +70,7 @@ URI: [adm:arbeidsforholdstype](https://schema.fintlabs.no/administrasjon/arbeids
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:arbeidsforholdstype |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidsforholdstype |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidsforholdstype |
 
 
 

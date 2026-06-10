@@ -73,7 +73,7 @@ URI: [utd:skuletime](https://schema.fintlabs.no/utdanning/skuletime)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skuletime |
-| native | https://schema.fintlabs.no/utdanning/:skuletime |
+| native | https://data.norge.no/fint/fint-utdanning/skuletime |
 
 
 

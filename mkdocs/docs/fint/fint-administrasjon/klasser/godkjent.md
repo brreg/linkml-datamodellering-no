@@ -70,7 +70,7 @@ URI: [adm:godkjent](https://schema.fintlabs.no/administrasjon/godkjent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:godkjent |
-| native | https://schema.fintlabs.no/administrasjon/:godkjent |
+| native | https://data.norge.no/fint/fint-administrasjon/godkjent |
 
 
 

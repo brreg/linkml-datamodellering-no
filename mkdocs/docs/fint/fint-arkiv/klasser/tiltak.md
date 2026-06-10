@@ -70,7 +70,7 @@ URI: [ark:tiltak](https://schema.fintlabs.no/arkiv/tiltak)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tiltak |
-| native | https://schema.fintlabs.no/arkiv/:tiltak |
+| native | https://data.norge.no/fint/fint-arkiv/tiltak |
 
 
 

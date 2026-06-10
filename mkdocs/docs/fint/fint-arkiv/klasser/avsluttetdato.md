@@ -78,7 +78,7 @@ URI: [ark:avsluttetDato](https://schema.fintlabs.no/arkiv/avsluttetDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:avsluttetDato |
-| native | https://schema.fintlabs.no/arkiv/:avsluttetDato |
+| native | https://data.norge.no/fint/fint-arkiv/avsluttetDato |
 
 
 

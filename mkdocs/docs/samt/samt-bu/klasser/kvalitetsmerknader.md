@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitetsmerknader)
+URI: [samtbu:kvalitetsmerknader](https://data.norge.no/samt/samt-bu/kvalitetsmerknader)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitet
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kvalitetsmerknader |
-| native | samtbuskole:kvalitetsmerknader |
+| self | samtbu:kvalitetsmerknader |
+| native | samtbu:kvalitetsmerknader |
 
 
 

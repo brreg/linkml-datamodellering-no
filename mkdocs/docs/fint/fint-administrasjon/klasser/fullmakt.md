@@ -71,7 +71,7 @@ URI: [adm:fullmakt](https://schema.fintlabs.no/administrasjon/fullmakt)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fullmakt |
-| native | https://schema.fintlabs.no/administrasjon/:fullmakt |
+| native | https://data.norge.no/fint/fint-administrasjon/fullmakt |
 
 
 

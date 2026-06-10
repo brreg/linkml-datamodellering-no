@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:behandlingar](https://schema.fintlabs.no/personvern/:behandlingar)
+URI: [https://data.norge.no/fint/fint-personvern/behandlingar](https://data.norge.no/fint/fint-personvern/behandlingar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/personvern/:behandlingar](https://schema.fintla
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:behandlingar |
-| native | https://schema.fintlabs.no/personvern/:behandlingar |
+| self | https://data.norge.no/fint/fint-personvern/behandlingar |
+| native | https://data.norge.no/fint/fint-personvern/behandlingar |
 
 
 

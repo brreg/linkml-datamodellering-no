@@ -153,6 +153,8 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 ## Genererte artefakter
 
+> **Pull, ikkje push.** Dette repoet genererer og publiserer artefaktar til GitHub Pages og GitHub Releases. Andre system hentar artefaktane derifrå sjølve — repoet pusher aldri artefaktar til eksterne kjelder. Å pushe til ekstern schema-registry, datakatalog eller anna API krev spesialtilpassingar per målsystem og knyt repoet til ekstern tilgjengelegheit og autentisering, noko som er utanfor dette repoets ansvarsfelt.
+
 Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/manifest-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
@@ -197,5 +199,10 @@ linkml-datamodellering-no/
 ├── tests/                                         # Testar og fixtures
 ├── generated/                                     # Genererte artefakter (ikkje sjekka inn i git)
 ├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
+│   └── docs/                                      # Den publiserte dokumentasjonsportalen
+├── specs/
+│   ├── backlog/                                   # Planer for endringar og nye features
+│   ├── done/                                      # Utførte planer
+│   └── bugs/                                      # Kjente bugs
 └── tmp/                                           # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```

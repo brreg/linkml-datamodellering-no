@@ -71,7 +71,7 @@ URI: [pvn:behandling](https://schema.fintlabs.no/personvern/behandling)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:behandling |
-| native | https://schema.fintlabs.no/personvern/:behandling |
+| native | https://data.norge.no/fint/fint-personvern/behandling |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:mottaker](https://schema.fintlabs.no/okonomi/mottaker)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:mottaker |
-| native | https://schema.fintlabs.no/okonomi/:mottaker |
+| native | https://data.norge.no/fint/fint-okonomi/mottaker |
 
 
 

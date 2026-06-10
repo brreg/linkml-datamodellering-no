@@ -21,7 +21,7 @@ URI: [utd:fraversregistrering](https://schema.fintlabs.no/utdanning/fraversregis
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:fraversregistrering](https://schema.fintlabs.no/utdanning/fraversregis
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fraversregistrering |
-| native | https://schema.fintlabs.no/utdanning/:fraversregistrering |
+| native | https://data.norge.no/fint/fint-utdanning/fraversregistrering |
 
 
 

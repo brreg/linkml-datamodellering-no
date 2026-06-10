@@ -73,7 +73,7 @@ URI: [utd:faggruppe](https://schema.fintlabs.no/utdanning/faggruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:faggruppe |
-| native | https://schema.fintlabs.no/utdanning/:faggruppe |
+| native | https://data.norge.no/fint/fint-utdanning/faggruppe |
 
 
 

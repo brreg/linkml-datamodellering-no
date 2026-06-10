@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:kommuner](https://example.no/ontology/skole#kommuner)
+URI: [samtbu:kommuner](https://data.norge.no/samt/samt-bu/kommuner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:kommuner](https://example.no/ontology/skole#kommuner)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:kommuner |
-| native | samtbuskole:kommuner |
+| self | samtbu:kommuner |
+| native | samtbu:kommuner |
 
 
 

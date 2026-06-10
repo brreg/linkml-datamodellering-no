@@ -70,7 +70,7 @@ URI: [ark:merknadRegistrertAv](https://schema.fintlabs.no/arkiv/merknadRegistrer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:merknadRegistrertAv |
-| native | https://schema.fintlabs.no/arkiv/:merknadRegistrertAv |
+| native | https://data.norge.no/fint/fint-arkiv/merknadRegistrertAv |
 
 
 

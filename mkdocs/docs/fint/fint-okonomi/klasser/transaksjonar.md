@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:transaksjonar](https://schema.fintlabs.no/okonomi/:transaksjonar)
+URI: [https://data.norge.no/fint/fint-okonomi/transaksjonar](https://data.norge.no/fint/fint-okonomi/transaksjonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:transaksjonar](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:transaksjonar |
-| native | https://schema.fintlabs.no/okonomi/:transaksjonar |
+| self | https://data.norge.no/fint/fint-okonomi/transaksjonar |
+| native | https://data.norge.no/fint/fint-okonomi/transaksjonar |
 
 
 

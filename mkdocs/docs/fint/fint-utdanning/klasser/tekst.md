@@ -70,7 +70,7 @@ URI: [utd:tekst](https://schema.fintlabs.no/utdanning/tekst)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:tekst |
-| native | https://schema.fintlabs.no/utdanning/:tekst |
+| native | https://data.norge.no/fint/fint-utdanning/tekst |
 
 
 

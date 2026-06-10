@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:avbruddsaarsaker](https://schema.fintlabs.no/utdanning/:avbruddsaarsaker)
+URI: [https://data.norge.no/fint/fint-utdanning/avbruddsaarsaker](https://data.norge.no/fint/fint-utdanning/avbruddsaarsaker)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:avbruddsaarsaker](https://schema.fin
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:avbruddsaarsaker |
-| native | https://schema.fintlabs.no/utdanning/:avbruddsaarsaker |
+| self | https://data.norge.no/fint/fint-utdanning/avbruddsaarsaker |
+| native | https://data.norge.no/fint/fint-utdanning/avbruddsaarsaker |
 
 
 

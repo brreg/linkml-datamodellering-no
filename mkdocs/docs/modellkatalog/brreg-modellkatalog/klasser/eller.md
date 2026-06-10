@@ -176,6 +176,12 @@ URI: [modelldcatno:Or](https://data.norge.no/vocabulary/modelldcatno#Or)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -216,6 +222,8 @@ URI: [modelldcatno:Or](https://data.norge.no/vocabulary/modelldcatno#Or)
 ```yaml
 name: Eller
 description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 class_uri: modelldcatno:Or
@@ -229,6 +237,8 @@ class_uri: modelldcatno:Or
 ```yaml
 name: Eller
 description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 attributes:

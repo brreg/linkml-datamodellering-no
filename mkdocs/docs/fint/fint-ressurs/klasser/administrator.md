@@ -70,7 +70,7 @@ URI: [res:administrator](https://schema.fintlabs.no/ressurs/administrator)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:administrator |
-| native | https://schema.fintlabs.no/ressurs/:administrator |
+| native | https://data.norge.no/fint/fint-ressurs/administrator |
 
 
 

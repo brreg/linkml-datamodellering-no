@@ -71,7 +71,7 @@ URI: [adm:belop](https://schema.fintlabs.no/administrasjon/belop)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:belop |
-| native | https://schema.fintlabs.no/administrasjon/:belop |
+| native | https://data.norge.no/fint/fint-administrasjon/belop |
 
 
 

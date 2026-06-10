@@ -221,6 +221,12 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -261,6 +267,8 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
@@ -279,6 +287,8 @@ class_uri: cv:Cost
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 attributes:
   id:

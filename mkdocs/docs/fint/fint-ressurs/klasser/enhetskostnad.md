@@ -70,7 +70,7 @@ URI: [res:enhetskostnad](https://schema.fintlabs.no/ressurs/enhetskostnad)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:enhetskostnad |
-| native | https://schema.fintlabs.no/ressurs/:enhetskostnad |
+| native | https://data.norge.no/fint/fint-ressurs/enhetskostnad |
 
 
 

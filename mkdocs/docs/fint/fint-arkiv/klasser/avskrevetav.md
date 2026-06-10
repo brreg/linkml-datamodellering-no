@@ -70,7 +70,7 @@ URI: [ark:avskrevetAv](https://schema.fintlabs.no/arkiv/avskrevetAv)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:avskrevetAv |
-| native | https://schema.fintlabs.no/arkiv/:avskrevetAv |
+| native | https://data.norge.no/fint/fint-arkiv/avskrevetAv |
 
 
 

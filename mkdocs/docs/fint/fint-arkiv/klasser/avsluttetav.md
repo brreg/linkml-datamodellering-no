@@ -77,7 +77,7 @@ URI: [ark:avsluttetAv](https://schema.fintlabs.no/arkiv/avsluttetAv)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:avsluttetAv |
-| native | https://schema.fintlabs.no/arkiv/:avsluttetAv |
+| native | https://data.norge.no/fint/fint-arkiv/avsluttetAv |
 
 
 

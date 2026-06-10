@@ -245,7 +245,7 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Gruppe |
-| native | https://schema.fintlabs.no/utdanning/:Gruppe |
+| native | https://data.norge.no/fint/fint-utdanning/Gruppe |
 
 
 

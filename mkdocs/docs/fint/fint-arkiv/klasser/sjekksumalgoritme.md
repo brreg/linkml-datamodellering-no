@@ -70,7 +70,7 @@ URI: [ark:sjekksumAlgoritme](https://schema.fintlabs.no/arkiv/sjekksumAlgoritme)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:sjekksumAlgoritme |
-| native | https://schema.fintlabs.no/arkiv/:sjekksumAlgoritme |
+| native | https://data.norge.no/fint/fint-arkiv/sjekksumAlgoritme |
 
 
 

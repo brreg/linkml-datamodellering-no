@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:landkodar](https://schema.fintlabs.no/administrasjon/:landkodar)
+URI: [https://data.norge.no/fint/fint-administrasjon/landkodar](https://data.norge.no/fint/fint-administrasjon/landkodar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:landkodar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:landkodar |
-| native | https://schema.fintlabs.no/administrasjon/:landkodar |
+| self | https://data.norge.no/fint/fint-administrasjon/landkodar |
+| native | https://data.norge.no/fint/fint-administrasjon/landkodar |
 
 
 

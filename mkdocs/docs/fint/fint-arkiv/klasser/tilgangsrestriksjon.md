@@ -71,7 +71,7 @@ URI: [ark:tilgangsrestriksjon](https://schema.fintlabs.no/arkiv/tilgangsrestriks
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tilgangsrestriksjon |
-| native | https://schema.fintlabs.no/arkiv/:tilgangsrestriksjon |
+| native | https://data.norge.no/fint/fint-arkiv/tilgangsrestriksjon |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:foretrukketSkole](https://schema.fintlabs.no/utdanning/foretrukketSkol
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:foretrukketSkole |
-| native | https://schema.fintlabs.no/utdanning/:foretrukketSkole |
+| native | https://data.norge.no/fint/fint-utdanning/foretrukketSkole |
 
 
 

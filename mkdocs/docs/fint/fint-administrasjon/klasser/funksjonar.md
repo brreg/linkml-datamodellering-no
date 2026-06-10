@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:funksjonar](https://schema.fintlabs.no/administrasjon/:funksjonar)
+URI: [https://data.norge.no/fint/fint-administrasjon/funksjonar](https://data.norge.no/fint/fint-administrasjon/funksjonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:funksjonar](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:funksjonar |
-| native | https://schema.fintlabs.no/administrasjon/:funksjonar |
+| self | https://data.norge.no/fint/fint-administrasjon/funksjonar |
+| native | https://data.norge.no/fint/fint-administrasjon/funksjonar |
 
 
 

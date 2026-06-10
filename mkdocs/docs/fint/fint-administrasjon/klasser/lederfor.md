@@ -71,7 +71,7 @@ URI: [adm:lederFor](https://schema.fintlabs.no/administrasjon/lederFor)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:lederFor |
-| native | https://schema.fintlabs.no/administrasjon/:lederFor |
+| native | https://data.norge.no/fint/fint-administrasjon/lederFor |
 
 
 

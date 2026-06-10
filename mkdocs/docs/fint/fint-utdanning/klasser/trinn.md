@@ -72,7 +72,7 @@ URI: [utd:trinn](https://schema.fintlabs.no/utdanning/trinn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:trinn |
-| native | https://schema.fintlabs.no/utdanning/:trinn |
+| native | https://data.norge.no/fint/fint-utdanning/trinn |
 
 
 

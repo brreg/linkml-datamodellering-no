@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:basisgrupper](https://example.no/ontology/skole#basisgrupper)
+URI: [samtbu:basisgrupper](https://data.norge.no/samt/samt-bu/basisgrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:basisgrupper](https://example.no/ontology/skole#basisgrupper)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:basisgrupper |
-| native | samtbuskole:basisgrupper |
+| self | samtbu:basisgrupper |
+| native | samtbu:basisgrupper |
 
 
 

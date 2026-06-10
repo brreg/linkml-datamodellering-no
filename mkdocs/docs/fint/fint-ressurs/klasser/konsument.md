@@ -70,7 +70,7 @@ URI: [res:konsument](https://schema.fintlabs.no/ressurs/konsument)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:konsument |
-| native | https://schema.fintlabs.no/ressurs/:konsument |
+| native | https://data.norge.no/fint/fint-ressurs/konsument |
 
 
 

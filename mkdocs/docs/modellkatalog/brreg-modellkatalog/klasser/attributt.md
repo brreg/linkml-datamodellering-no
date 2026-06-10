@@ -385,6 +385,12 @@ URI: [modelldcatno:Attribute](https://data.norge.no/vocabulary/modelldcatno#Attr
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -425,6 +431,8 @@ URI: [modelldcatno:Attribute](https://data.norge.no/vocabulary/modelldcatno#Attr
 ```yaml
 name: Attributt
 description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -460,6 +468,8 @@ class_uri: modelldcatno:Attribute
 ```yaml
 name: Attributt
 description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

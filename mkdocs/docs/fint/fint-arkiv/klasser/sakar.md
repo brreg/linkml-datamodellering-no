@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:sakar](https://schema.fintlabs.no/arkiv/:sakar)
+URI: [https://data.norge.no/fint/fint-arkiv/sakar](https://data.norge.no/fint/fint-arkiv/sakar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:sakar](https://schema.fintlabs.no/arkiv/
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:sakar |
-| native | https://schema.fintlabs.no/arkiv/:sakar |
+| self | https://data.norge.no/fint/fint-arkiv/sakar |
+| native | https://data.norge.no/fint/fint-arkiv/sakar |
 
 
 

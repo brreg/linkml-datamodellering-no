@@ -74,7 +74,7 @@ URI: [utd:atferd](https://schema.fintlabs.no/utdanning/atferd)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:atferd |
-| native | https://schema.fintlabs.no/utdanning/:atferd |
+| native | https://data.norge.no/fint/fint-utdanning/atferd |
 
 
 

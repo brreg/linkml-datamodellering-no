@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:spraak](https://schema.fintlabs.no/administrasjon/:spraak)
+URI: [https://data.norge.no/fint/fint-administrasjon/spraak](https://data.norge.no/fint/fint-administrasjon/spraak)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:spraak](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:spraak |
-| native | https://schema.fintlabs.no/administrasjon/:spraak |
+| self | https://data.norge.no/fint/fint-administrasjon/spraak |
+| native | https://data.norge.no/fint/fint-administrasjon/spraak |
 
 
 

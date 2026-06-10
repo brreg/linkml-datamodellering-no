@@ -73,7 +73,7 @@ URI: [adm:anvist](https://schema.fintlabs.no/administrasjon/anvist)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:anvist |
-| native | https://schema.fintlabs.no/administrasjon/:anvist |
+| native | https://data.norge.no/fint/fint-administrasjon/anvist |
 
 
 

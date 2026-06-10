@@ -70,7 +70,7 @@ URI: [utd:delegertTil](https://schema.fintlabs.no/utdanning/delegertTil)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:delegertTil |
-| native | https://schema.fintlabs.no/utdanning/:delegertTil |
+| native | https://data.norge.no/fint/fint-utdanning/delegertTil |
 
 
 

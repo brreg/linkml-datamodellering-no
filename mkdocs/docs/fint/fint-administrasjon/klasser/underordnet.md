@@ -74,7 +74,7 @@ URI: [adm:underordnet](https://schema.fintlabs.no/administrasjon/underordnet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:underordnet |
-| native | https://schema.fintlabs.no/administrasjon/:underordnet |
+| native | https://data.norge.no/fint/fint-administrasjon/underordnet |
 
 
 

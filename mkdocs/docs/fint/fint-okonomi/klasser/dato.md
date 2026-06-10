@@ -70,7 +70,7 @@ URI: [okn:dato](https://schema.fintlabs.no/okonomi/dato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:dato |
-| native | https://schema.fintlabs.no/okonomi/:dato |
+| native | https://data.norge.no/fint/fint-okonomi/dato |
 
 
 

@@ -902,7 +902,7 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Registrering |
-| native | https://schema.fintlabs.no/arkiv/:Registrering |
+| native | https://data.norge.no/fint/fint-arkiv/Registrering |
 
 
 

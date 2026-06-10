@@ -70,7 +70,7 @@ URI: [ark:avskrivningsdato](https://schema.fintlabs.no/arkiv/avskrivningsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:avskrivningsdato |
-| native | https://schema.fintlabs.no/arkiv/:avskrivningsdato |
+| native | https://data.norge.no/fint/fint-arkiv/avskrivningsdato |
 
 
 

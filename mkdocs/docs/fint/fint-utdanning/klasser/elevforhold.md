@@ -30,7 +30,7 @@ URI: [utd:elevforhold](https://schema.fintlabs.no/utdanning/elevforhold)
 | [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  yes  |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 | [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -80,7 +80,7 @@ URI: [utd:elevforhold](https://schema.fintlabs.no/utdanning/elevforhold)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:elevforhold |
-| native | https://schema.fintlabs.no/utdanning/:elevforhold |
+| native | https://data.norge.no/fint/fint-utdanning/elevforhold |
 
 
 

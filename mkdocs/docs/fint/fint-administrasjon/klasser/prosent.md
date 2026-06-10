@@ -71,7 +71,7 @@ URI: [adm:prosent](https://schema.fintlabs.no/administrasjon/prosent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:prosent |
-| native | https://schema.fintlabs.no/administrasjon/:prosent |
+| native | https://data.norge.no/fint/fint-administrasjon/prosent |
 
 
 

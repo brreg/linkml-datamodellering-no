@@ -608,7 +608,7 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Personalmappe |
-| native | https://schema.fintlabs.no/arkiv/:Personalmappe |
+| native | https://data.norge.no/fint/fint-arkiv/Personalmappe |
 
 
 

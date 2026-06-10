@@ -71,7 +71,7 @@ URI: [okn:forfallsdato](https://schema.fintlabs.no/okonomi/forfallsdato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:forfallsdato |
-| native | https://schema.fintlabs.no/okonomi/:forfallsdato |
+| native | https://data.norge.no/fint/fint-okonomi/forfallsdato |
 
 
 

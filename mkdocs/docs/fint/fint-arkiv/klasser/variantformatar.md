@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:variantformatar](https://schema.fintlabs.no/arkiv/:variantformatar)
+URI: [https://data.norge.no/fint/fint-arkiv/variantformatar](https://data.norge.no/fint/fint-arkiv/variantformatar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:variantformatar](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:variantformatar |
-| native | https://schema.fintlabs.no/arkiv/:variantformatar |
+| self | https://data.norge.no/fint/fint-arkiv/variantformatar |
+| native | https://data.norge.no/fint/fint-arkiv/variantformatar |
 
 
 

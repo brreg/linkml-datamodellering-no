@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:artar](https://schema.fintlabs.no/administrasjon/:artar)
+URI: [https://data.norge.no/fint/fint-administrasjon/artar](https://data.norge.no/fint/fint-administrasjon/artar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:artar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:artar |
-| native | https://schema.fintlabs.no/administrasjon/:artar |
+| self | https://data.norge.no/fint/fint-administrasjon/artar |
+| native | https://data.norge.no/fint/fint-administrasjon/artar |
 
 
 

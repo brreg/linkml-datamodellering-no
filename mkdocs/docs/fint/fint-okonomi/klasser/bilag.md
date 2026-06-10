@@ -71,7 +71,7 @@ URI: [okn:bilag](https://schema.fintlabs.no/okonomi/bilag)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:bilag |
-| native | https://schema.fintlabs.no/okonomi/:bilag |
+| native | https://data.norge.no/fint/fint-okonomi/bilag |
 
 
 

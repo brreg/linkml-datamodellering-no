@@ -201,11 +201,11 @@ message Informasjonsmodell
  repeated  konsept tema = 0
  repeated  konsept dekningsomraade = 0
   date endringsdato = 0
- repeated  informasjonsmodell erDelAvModell = 0
+  informasjonsmodell erDelAv = 0
  repeated  standard erProfilAv = 0
  repeated  informasjonsmodell erErstattaAv = 0
  repeated  informasjonsmodell erstatter = 0
- repeated  informasjonsmodell harDelModell = 0
+ repeated  informasjonsmodell harDel = 0
  repeated  dokument harFormat = 0
  repeated  tidsperiode tidsperiode = 0
  repeated  uri heimeside = 0
@@ -311,7 +311,7 @@ message Modellkatalog
  repeated  konsept tema = 0
  repeated  begrepssamling temaer = 0
   date utgivelsesdato = 0
-  modellkatalog erDelAvKatalog = 0
+  modellkatalog erDelAv = 0
  }
 message ModellkatalogContainer
  {

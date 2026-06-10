@@ -71,7 +71,7 @@ URI: [okn:pris](https://schema.fintlabs.no/okonomi/pris)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:pris |
-| native | https://schema.fintlabs.no/okonomi/:pris |
+| native | https://data.norge.no/fint/fint-okonomi/pris |
 
 
 

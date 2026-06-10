@@ -71,6 +71,13 @@ URI: [samtbuskole:Basisgruppe](https://example.no/ontology/skole#Basisgruppe)
 
 <!-- no inheritance hierarchy -->
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Basisgruppe](https://example.no/ontology/skole#Basisgruppe) |
+
+
 ## Eigenskapar
 
 
@@ -212,7 +219,7 @@ URI: [samtbuskole:Basisgruppe](https://example.no/ontology/skole#Basisgruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Basisgruppe |
-| native | samtbuskole:Basisgruppe |
+| native | samtbu:Basisgruppe |
 | close | schema:EducationalOccupationalProgram, schema:Course |
 
 
@@ -260,6 +267,7 @@ slots:
 - navn
 - trinniva
 - del_av_skole
+class_uri: samtbuskole:Basisgruppe
 
 ```
 </details>
@@ -317,6 +325,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Basisgruppe
     domain_of:
     - Skole
@@ -329,6 +338,7 @@ attributes:
     description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:trinniva
     owner: Basisgruppe
     domain_of:
     - Basisgruppe
@@ -346,6 +356,7 @@ attributes:
     domain_of:
     - Basisgruppe
     range: Skole
+class_uri: samtbuskole:Basisgruppe
 
 ```
 </details>

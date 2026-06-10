@@ -70,7 +70,7 @@ URI: [res:enhetsgruppe](https://schema.fintlabs.no/ressurs/enhetsgruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:enhetsgruppe |
-| native | https://schema.fintlabs.no/ressurs/:enhetsgruppe |
+| native | https://data.norge.no/fint/fint-ressurs/enhetsgruppe |
 
 
 

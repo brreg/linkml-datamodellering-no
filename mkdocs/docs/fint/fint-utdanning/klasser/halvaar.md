@@ -70,7 +70,7 @@ URI: [utd:halvaar](https://schema.fintlabs.no/utdanning/halvaar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:halvaar |
-| native | https://schema.fintlabs.no/utdanning/:halvaar |
+| native | https://data.norge.no/fint/fint-utdanning/halvaar |
 
 
 

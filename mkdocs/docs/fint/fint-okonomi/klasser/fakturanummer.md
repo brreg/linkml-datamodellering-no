@@ -70,7 +70,7 @@ URI: [okn:fakturanummer](https://schema.fintlabs.no/okonomi/fakturanummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturanummer |
-| native | https://schema.fintlabs.no/okonomi/:fakturanummer |
+| native | https://data.norge.no/fint/fint-okonomi/fakturanummer |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:skoleeierType](https://schema.fintlabs.no/utdanning/skoleeierType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skoleeierType |
-| native | https://schema.fintlabs.no/utdanning/:skoleeierType |
+| native | https://data.norge.no/fint/fint-utdanning/skoleeierType |
 
 
 

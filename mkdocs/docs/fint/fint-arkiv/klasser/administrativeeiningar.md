@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:administrativeEiningar](https://schema.fintlabs.no/arkiv/:administrativeEiningar)
+URI: [https://data.norge.no/fint/fint-arkiv/administrativeEiningar](https://data.norge.no/fint/fint-arkiv/administrativeEiningar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:administrativeEiningar](https://schema.f
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:administrativeEiningar |
-| native | https://schema.fintlabs.no/arkiv/:administrativeEiningar |
+| self | https://data.norge.no/fint/fint-arkiv/administrativeEiningar |
+| native | https://data.norge.no/fint/fint-arkiv/administrativeEiningar |
 
 
 

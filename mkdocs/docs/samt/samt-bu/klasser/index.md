@@ -76,5 +76,6 @@ Name: skole_ontologi
 | Subset | Description |
 | --- | --- |
 | [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
+| [Metadata](metadata.md) | Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet |
 | [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
 | [Valgfri](valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |

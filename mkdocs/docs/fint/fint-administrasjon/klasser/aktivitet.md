@@ -72,7 +72,7 @@ URI: [adm:aktivitet](https://schema.fintlabs.no/administrasjon/aktivitet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:aktivitet |
-| native | https://schema.fintlabs.no/administrasjon/:aktivitet |
+| native | https://data.norge.no/fint/fint-administrasjon/aktivitet |
 
 
 

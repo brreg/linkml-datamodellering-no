@@ -71,7 +71,7 @@ URI: [res:lisensantall](https://schema.fintlabs.no/ressurs/lisensantall)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:lisensantall |
-| native | https://schema.fintlabs.no/ressurs/:lisensantall |
+| native | https://data.norge.no/fint/fint-ressurs/lisensantall |
 
 
 

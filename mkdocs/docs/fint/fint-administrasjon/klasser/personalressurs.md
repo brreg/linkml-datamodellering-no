@@ -71,7 +71,7 @@ URI: [adm:personalressurs](https://schema.fintlabs.no/administrasjon/personalres
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:personalressurs |
-| native | https://schema.fintlabs.no/administrasjon/:personalressurs |
+| native | https://data.norge.no/fint/fint-administrasjon/personalressurs |
 
 
 

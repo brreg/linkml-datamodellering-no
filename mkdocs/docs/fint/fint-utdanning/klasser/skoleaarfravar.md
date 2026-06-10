@@ -70,7 +70,7 @@ URI: [utd:skoleaarFravar](https://schema.fintlabs.no/utdanning/skoleaarFravar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:skoleaarFravar |
-| native | https://schema.fintlabs.no/utdanning/:skoleaarFravar |
+| native | https://data.norge.no/fint/fint-utdanning/skoleaarFravar |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:karakterverdiar](https://schema.fintlabs.no/utdanning/:karakterverdiar)
+URI: [https://data.norge.no/fint/fint-utdanning/karakterverdiar](https://data.norge.no/fint/fint-utdanning/karakterverdiar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:karakterverdiar](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:karakterverdiar |
-| native | https://schema.fintlabs.no/utdanning/:karakterverdiar |
+| self | https://data.norge.no/fint/fint-utdanning/karakterverdiar |
+| native | https://data.norge.no/fint/fint-utdanning/karakterverdiar |
 
 
 

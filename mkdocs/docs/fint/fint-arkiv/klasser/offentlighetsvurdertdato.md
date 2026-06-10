@@ -70,7 +70,7 @@ URI: [ark:offentlighetsvurdertDato](https://schema.fintlabs.no/arkiv/offentlighe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:offentlighetsvurdertDato |
-| native | https://schema.fintlabs.no/arkiv/:offentlighetsvurdertDato |
+| native | https://data.norge.no/fint/fint-arkiv/offentlighetsvurdertDato |
 
 
 

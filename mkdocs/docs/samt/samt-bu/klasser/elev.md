@@ -67,6 +67,13 @@ URI: [samtbuskole:Elev](https://example.no/ontology/skole#Elev)
     * **Elev**
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Elev](https://example.no/ontology/skole#Elev) |
+
+
 ## Eigenskapar
 
 
@@ -162,7 +169,7 @@ URI: [samtbuskole:Elev](https://example.no/ontology/skole#Elev)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Elev |
-| native | samtbuskole:Elev |
+| native | samtbu:Elev |
 | close | schema:Student |
 
 
@@ -213,6 +220,7 @@ rank: 1000
 is_a: Person
 slots:
 - horer_til_basisgruppe
+class_uri: samtbuskole:Elev
 
 ```
 </details>
@@ -237,6 +245,7 @@ attributes:
     - schema:memberOf
     rank: 1000
     domain: Elev
+    slot_uri: samtbuskole:horerTilBasisgruppe
     owner: Elev
     domain_of:
     - Elev
@@ -282,6 +291,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Elev
     domain_of:
     - Skole
@@ -289,6 +299,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Elev
 
 ```
 </details>

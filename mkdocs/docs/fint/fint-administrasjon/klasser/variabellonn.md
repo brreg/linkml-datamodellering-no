@@ -21,7 +21,7 @@ URI: [adm:variabellonn](https://schema.fintlabs.no/administrasjon/variabellonn)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [adm:variabellonn](https://schema.fintlabs.no/administrasjon/variabellonn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:variabellonn |
-| native | https://schema.fintlabs.no/administrasjon/:variabellonn |
+| native | https://data.norge.no/fint/fint-administrasjon/variabellonn |
 
 
 

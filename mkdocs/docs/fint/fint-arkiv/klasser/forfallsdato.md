@@ -70,7 +70,7 @@ URI: [ark:forfallsDato](https://schema.fintlabs.no/arkiv/forfallsDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:forfallsDato |
-| native | https://schema.fintlabs.no/arkiv/:forfallsDato |
+| native | https://data.norge.no/fint/fint-arkiv/forfallsDato |
 
 
 

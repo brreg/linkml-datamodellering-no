@@ -163,7 +163,7 @@ message PersonvernContainer
  repeated  behandling behandlingar = 0
  repeated  samtykke samtykker = 0
  repeated  tjeneste tenester = 0
-  behandlingsgrunnlag behandlingsgrunnlag = 0
+ repeated  behandlingsgrunnlag behandlingsgrunnlag = 0
  repeated  personopplysning personopplysningar = 0
  }
 // Tillating til behandling av personopplysning.

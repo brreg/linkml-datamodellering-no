@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:leverandorgrupper](https://schema.fintlabs.no/okonomi/:leverandorgrupper)
+URI: [https://data.norge.no/fint/fint-okonomi/leverandorgrupper](https://data.norge.no/fint/fint-okonomi/leverandorgrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:leverandorgrupper](https://schema.fint
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:leverandorgrupper |
-| native | https://schema.fintlabs.no/okonomi/:leverandorgrupper |
+| self | https://data.norge.no/fint/fint-okonomi/leverandorgrupper |
+| native | https://data.norge.no/fint/fint-okonomi/leverandorgrupper |
 
 
 

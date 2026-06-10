@@ -75,7 +75,7 @@ URI: [utd:vigoreferanse](https://schema.fintlabs.no/utdanning/vigoreferanse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:vigoreferanse |
-| native | https://schema.fintlabs.no/utdanning/:vigoreferanse |
+| native | https://data.norge.no/fint/fint-utdanning/vigoreferanse |
 
 
 

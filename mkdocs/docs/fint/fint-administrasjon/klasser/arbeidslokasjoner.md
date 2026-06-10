@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner](https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner)
+URI: [https://data.norge.no/fint/fint-administrasjon/arbeidslokasjoner](https://data.norge.no/fint/fint-administrasjon/arbeidslokasjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner](https://sche
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner |
+| self | https://data.norge.no/fint/fint-administrasjon/arbeidslokasjoner |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidslokasjoner |
 
 
 

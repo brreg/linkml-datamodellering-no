@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:fravaerstypar](https://schema.fintlabs.no/administrasjon/:fravaerstypar)
+URI: [https://data.norge.no/fint/fint-administrasjon/fravaerstypar](https://data.norge.no/fint/fint-administrasjon/fravaerstypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:fravaerstypar](https://schema.f
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:fravaerstypar |
-| native | https://schema.fintlabs.no/administrasjon/:fravaerstypar |
+| self | https://data.norge.no/fint/fint-administrasjon/fravaerstypar |
+| native | https://data.norge.no/fint/fint-administrasjon/fravaerstypar |
 
 
 

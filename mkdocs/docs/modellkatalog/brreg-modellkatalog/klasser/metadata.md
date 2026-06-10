@@ -1,0 +1,55 @@
+# Subset: Metadata 
+
+
+_Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet._
+
+
+
+URI: [Metadata](metadata.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/ap-no/common-ap-no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

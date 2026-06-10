@@ -70,7 +70,7 @@ URI: [adm:stillingstittel](https://schema.fintlabs.no/administrasjon/stillingsti
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:stillingstittel |
-| native | https://schema.fintlabs.no/administrasjon/:stillingstittel |
+| native | https://data.norge.no/fint/fint-administrasjon/stillingstittel |
 
 
 

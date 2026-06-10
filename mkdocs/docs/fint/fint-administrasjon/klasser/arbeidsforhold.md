@@ -27,7 +27,7 @@ URI: [adm:arbeidsforhold](https://schema.fintlabs.no/administrasjon/arbeidsforho
 | [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
 | [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 | [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -77,7 +77,7 @@ URI: [adm:arbeidsforhold](https://schema.fintlabs.no/administrasjon/arbeidsforho
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:arbeidsforhold |
-| native | https://schema.fintlabs.no/administrasjon/:arbeidsforhold |
+| native | https://data.norge.no/fint/fint-administrasjon/arbeidsforhold |
 
 
 

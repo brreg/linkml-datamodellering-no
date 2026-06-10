@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:bevistypar](https://schema.fintlabs.no/utdanning/:bevistypar)
+URI: [https://data.norge.no/fint/fint-utdanning/bevistypar](https://data.norge.no/fint/fint-utdanning/bevistypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:bevistypar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:bevistypar |
-| native | https://schema.fintlabs.no/utdanning/:bevistypar |
+| self | https://data.norge.no/fint/fint-utdanning/bevistypar |
+| native | https://data.norge.no/fint/fint-utdanning/bevistypar |
 
 
 

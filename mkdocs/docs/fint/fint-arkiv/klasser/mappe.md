@@ -650,7 +650,7 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Mappe |
-| native | https://schema.fintlabs.no/arkiv/:Mappe |
+| native | https://data.norge.no/fint/fint-arkiv/Mappe |
 
 
 

@@ -70,7 +70,7 @@ URI: [utd:avbruddsarsak](https://schema.fintlabs.no/utdanning/avbruddsarsak)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:avbruddsarsak |
-| native | https://schema.fintlabs.no/utdanning/:avbruddsarsak |
+| native | https://data.norge.no/fint/fint-utdanning/avbruddsarsak |
 
 
 

@@ -80,7 +80,7 @@ URI: [ark:klasse](https://schema.fintlabs.no/arkiv/klasse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:klasse |
-| native | https://schema.fintlabs.no/arkiv/:klasse |
+| native | https://data.norge.no/fint/fint-arkiv/klasse |
 
 
 

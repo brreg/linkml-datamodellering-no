@@ -102,6 +102,12 @@ URI: [dct:Location](http://purl.org/dc/terms/Location)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -142,6 +148,8 @@ URI: [dct:Location](http://purl.org/dc/terms/Location)
 ```yaml
 name: Lokasjon
 description: Eit geografisk område (dct:Location).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -156,6 +164,8 @@ class_uri: dct:Location
 ```yaml
 name: Lokasjon
 description: Eit geografisk område (dct:Location).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 attributes:
   id:

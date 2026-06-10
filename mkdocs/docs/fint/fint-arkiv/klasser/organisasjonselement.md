@@ -70,7 +70,7 @@ URI: [ark:organisasjonselement](https://schema.fintlabs.no/arkiv/organisasjonsel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:organisasjonselement |
-| native | https://schema.fintlabs.no/arkiv/:organisasjonselement |
+| native | https://data.norge.no/fint/fint-arkiv/organisasjonselement |
 
 
 

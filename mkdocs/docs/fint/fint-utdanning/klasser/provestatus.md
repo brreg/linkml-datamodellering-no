@@ -70,7 +70,7 @@ URI: [utd:provestatus](https://schema.fintlabs.no/utdanning/provestatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:provestatus |
-| native | https://schema.fintlabs.no/utdanning/:provestatus |
+| native | https://data.norge.no/fint/fint-utdanning/provestatus |
 
 
 

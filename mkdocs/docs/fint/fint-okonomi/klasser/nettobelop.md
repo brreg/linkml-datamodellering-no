@@ -70,7 +70,7 @@ URI: [okn:nettobelop](https://schema.fintlabs.no/okonomi/nettobelop)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:nettobelop |
-| native | https://schema.fintlabs.no/okonomi/:nettobelop |
+| native | https://data.norge.no/fint/fint-okonomi/nettobelop |
 
 
 

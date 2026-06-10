@@ -70,7 +70,7 @@ URI: [res:privateid](https://schema.fintlabs.no/ressurs/privateid)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:privateid |
-| native | https://schema.fintlabs.no/ressurs/:privateid |
+| native | https://data.norge.no/fint/fint-ressurs/privateid |
 
 
 

@@ -71,7 +71,7 @@ URI: [okn:fakturalinjer](https://schema.fintlabs.no/okonomi/fakturalinjer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturalinjer |
-| native | https://schema.fintlabs.no/okonomi/:fakturalinjer |
+| native | https://data.norge.no/fint/fint-okonomi/fakturalinjer |
 
 
 

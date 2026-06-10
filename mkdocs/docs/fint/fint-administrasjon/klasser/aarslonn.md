@@ -70,7 +70,7 @@ URI: [adm:aarslonn](https://schema.fintlabs.no/administrasjon/aarslonn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:aarslonn |
-| native | https://schema.fintlabs.no/administrasjon/:aarslonn |
+| native | https://data.norge.no/fint/fint-administrasjon/aarslonn |
 
 
 

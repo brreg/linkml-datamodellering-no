@@ -25,7 +25,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
     
         
         
-        Modellkatalog --> "1..*" LangString : beskrivelse
+        Modellkatalog --> "*" LangString : beskrivelse
         click LangString href "../LangString/"
     
 
@@ -41,13 +41,13 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
     
 
         
-      Modellkatalog : er_del_av_katalog
+      Modellkatalog : er_del_av
         
           
     
         
         
-        Modellkatalog --> "0..1" Modellkatalog : er_del_av_katalog
+        Modellkatalog --> "0..1" Modellkatalog : er_del_av
         click Modellkatalog href "../Modellkatalog/"
     
 
@@ -168,7 +168,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
     
         
         
-        Modellkatalog --> "1..*" LangString : tittel
+        Modellkatalog --> "*" LangString : tittel
         click LangString href "../LangString/"
     
 
@@ -283,9 +283,9 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [har_del](har_del.md) | 1..* <br/> [KatalogisertRessurs](katalogisertressurs.md) | Del-ressurs inkludert i denne katalogen (dct:hasPart) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [har_del](har_del.md) | 1..* <br/> [KatalogisertRessurs](katalogisertressurs.md) | Del-ressurs inkludert i denne ressursen (dct:hasPart) |
 | [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
 | [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
@@ -431,7 +431,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [temaer](temaer.md) | * <br/> [Begrepssamling](begrepssamling.md) | Temavokabular brukt i katalogen (dcat:themeTaxonomy) |
-| [er_del_av_katalog](er_del_av_katalog.md) | 0..1 <br/> [Modellkatalog](modellkatalog.md) | Overordna modellkatalog (dct:isPartOf) |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [Modellkatalog](modellkatalog.md) | Overordna ressurs denne er ein del av (dct:isPartOf) |
 
 
 
@@ -658,7 +658,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modellkatalog](modellkatalog.md) | [er_del_av_katalog](er_del_av_katalog.md) | range | [Modellkatalog](modellkatalog.md) |
+| [Modellkatalog](modellkatalog.md) | [er_del_av](er_del_av.md) | range | [Modellkatalog](modellkatalog.md) |
 | [ModellkatalogContainer](modellkatalogcontainer.md) | [modellkatalogar](modellkatalogar.md) | range | [Modellkatalog](modellkatalog.md) |
 
 
@@ -666,6 +666,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 
 
+
+
+## In Subsets
+
+
+* [Metadata](metadata.md)
 
 
 
@@ -731,6 +737,8 @@ lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 ```yaml
 name: Modellkatalog
 description: Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -748,18 +756,16 @@ slots:
 - tema
 - temaer
 - utgivelsesdato
-- er_del_av_katalog
+- er_del_av
 slot_usage:
   tittel:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   beskrivelse:
     name: beskrivelse
     in_subset:
     - Obligatorisk
-    required: true
   har_del:
     name: har_del
     in_subset:
@@ -812,10 +818,11 @@ slot_usage:
     name: temaer
     in_subset:
     - Valgfri
-  er_del_av_katalog:
-    name: er_del_av_katalog
+  er_del_av:
+    name: er_del_av
     in_subset:
     - Valgfri
+    range: Modellkatalog
 class_uri: dcat:Catalog
 
 ```
@@ -827,18 +834,18 @@ class_uri: dcat:Catalog
 ```yaml
 name: Modellkatalog
 description: Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   tittel:
     name: tittel
     in_subset:
     - Obligatorisk
-    required: true
   beskrivelse:
     name: beskrivelse
     in_subset:
     - Obligatorisk
-    required: true
   har_del:
     name: har_del
     in_subset:
@@ -891,10 +898,11 @@ slot_usage:
     name: temaer
     in_subset:
     - Valgfri
-  er_del_av_katalog:
-    name: er_del_av_katalog
+  er_del_av:
+    name: er_del_av
     in_subset:
     - Valgfri
+    range: Modellkatalog
 attributes:
   id:
     name: id
@@ -939,7 +947,6 @@ attributes:
     - Eigenskap
     - Merknad
     range: LangString
-    required: true
     multivalued: true
   beskrivelse:
     name: beskrivelse
@@ -955,11 +962,10 @@ attributes:
     - Modellelement
     - Eigenskap
     range: LangString
-    required: true
     multivalued: true
   har_del:
     name: har_del
-    description: Del-ressurs inkludert i denne katalogen (dct:hasPart).
+    description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
     in_subset:
     - Obligatorisk
     from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
@@ -967,6 +973,7 @@ attributes:
     owner: Modellkatalog
     domain_of:
     - Modellkatalog
+    - Informasjonsmodell
     range: KatalogisertRessurs
     required: true
     multivalued: true
@@ -1116,9 +1123,9 @@ attributes:
     - Modellkatalog
     - Informasjonsmodell
     range: date
-  er_del_av_katalog:
-    name: er_del_av_katalog
-    description: Overordna modellkatalog (dct:isPartOf).
+  er_del_av:
+    name: er_del_av
+    description: Overordna ressurs denne er ein del av (dct:isPartOf).
     in_subset:
     - Valgfri
     from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
@@ -1126,6 +1133,7 @@ attributes:
     owner: Modellkatalog
     domain_of:
     - Modellkatalog
+    - Informasjonsmodell
     range: Modellkatalog
 class_uri: dcat:Catalog
 

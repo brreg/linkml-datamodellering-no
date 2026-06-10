@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:rammer](https://schema.fintlabs.no/administrasjon/:rammer)
+URI: [https://data.norge.no/fint/fint-administrasjon/rammer](https://data.norge.no/fint/fint-administrasjon/rammer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:rammer](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:rammer |
-| native | https://schema.fintlabs.no/administrasjon/:rammer |
+| self | https://data.norge.no/fint/fint-administrasjon/rammer |
+| native | https://data.norge.no/fint/fint-administrasjon/rammer |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:anmerkningar](https://schema.fintlabs.no/utdanning/:anmerkningar)
+URI: [https://data.norge.no/fint/fint-utdanning/anmerkningar](https://data.norge.no/fint/fint-utdanning/anmerkningar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:anmerkningar](https://schema.fintlab
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:anmerkningar |
-| native | https://schema.fintlabs.no/utdanning/:anmerkningar |
+| self | https://data.norge.no/fint/fint-utdanning/anmerkningar |
+| native | https://data.norge.no/fint/fint-utdanning/anmerkningar |
 
 
 

@@ -71,7 +71,7 @@ URI: [okn:fakturautsteder](https://schema.fintlabs.no/okonomi/fakturautsteder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturautsteder |
-| native | https://schema.fintlabs.no/okonomi/:fakturautsteder |
+| native | https://data.norge.no/fint/fint-okonomi/fakturautsteder |
 
 
 

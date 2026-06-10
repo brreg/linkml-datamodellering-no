@@ -70,7 +70,7 @@ URI: [okn:data](https://schema.fintlabs.no/okonomi/data)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:data |
-| native | https://schema.fintlabs.no/okonomi/:data |
+| native | https://data.norge.no/fint/fint-okonomi/data |
 
 
 

@@ -253,7 +253,7 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:Dokumentfil |
-| native | https://schema.fintlabs.no/arkiv/:Dokumentfil |
+| native | https://data.norge.no/fint/fint-arkiv/Dokumentfil |
 
 
 

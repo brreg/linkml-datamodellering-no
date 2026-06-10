@@ -21,7 +21,7 @@ URI: [utd:karakterstatus](https://schema.fintlabs.no/utdanning/karakterstatus)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [utd:karakterstatus](https://schema.fintlabs.no/utdanning/karakterstatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:karakterstatus |
-| native | https://schema.fintlabs.no/utdanning/:karakterstatus |
+| native | https://data.norge.no/fint/fint-utdanning/karakterstatus |
 
 
 

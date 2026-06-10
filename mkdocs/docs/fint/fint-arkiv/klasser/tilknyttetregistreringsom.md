@@ -71,7 +71,7 @@ URI: [ark:tilknyttetRegistreringSom](https://schema.fintlabs.no/arkiv/tilknyttet
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tilknyttetRegistreringSom |
-| native | https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSom |
+| native | https://data.norge.no/fint/fint-arkiv/tilknyttetRegistreringSom |
 
 
 

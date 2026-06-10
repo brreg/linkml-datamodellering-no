@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:stillingskoder](https://schema.fintlabs.no/administrasjon/:stillingskoder)
+URI: [https://data.norge.no/fint/fint-administrasjon/stillingskoder](https://data.norge.no/fint/fint-administrasjon/stillingskoder)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:stillingskoder](https://schema.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:stillingskoder |
-| native | https://schema.fintlabs.no/administrasjon/:stillingskoder |
+| self | https://data.norge.no/fint/fint-administrasjon/stillingskoder |
+| native | https://data.norge.no/fint/fint-administrasjon/stillingskoder |
 
 
 

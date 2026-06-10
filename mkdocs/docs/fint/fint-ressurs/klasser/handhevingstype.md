@@ -70,7 +70,7 @@ URI: [res:handhevingstype](https://schema.fintlabs.no/ressurs/handhevingstype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:handhevingstype |
-| native | https://schema.fintlabs.no/ressurs/:handhevingstype |
+| native | https://data.norge.no/fint/fint-ressurs/handhevingstype |
 
 
 

@@ -72,7 +72,7 @@ URI: [ark:soeknadsnummer](https://schema.fintlabs.no/arkiv/soeknadsnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:soeknadsnummer |
-| native | https://schema.fintlabs.no/arkiv/:soeknadsnummer |
+| native | https://data.norge.no/fint/fint-arkiv/soeknadsnummer |
 
 
 

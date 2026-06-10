@@ -21,7 +21,7 @@ URI: [fint:kjonn](https://schema.fintlabs.no/kjonn)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Person](person.md) | Fysiske private personar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 

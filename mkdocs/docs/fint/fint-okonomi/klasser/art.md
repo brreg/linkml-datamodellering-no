@@ -70,7 +70,7 @@ URI: [okn:art](https://schema.fintlabs.no/okonomi/art)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:art |
-| native | https://schema.fintlabs.no/okonomi/:art |
+| native | https://data.norge.no/fint/fint-okonomi/art |
 
 
 

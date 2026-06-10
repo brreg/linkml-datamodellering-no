@@ -75,7 +75,7 @@ URI: [utd:programomrade](https://schema.fintlabs.no/utdanning/programomrade)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:programomrade |
-| native | https://schema.fintlabs.no/utdanning/:programomrade |
+| native | https://data.norge.no/fint/fint-utdanning/programomrade |
 
 
 

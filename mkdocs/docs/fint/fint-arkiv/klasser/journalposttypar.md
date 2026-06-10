@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:journalposttypar](https://schema.fintlabs.no/arkiv/:journalposttypar)
+URI: [https://data.norge.no/fint/fint-arkiv/journalposttypar](https://data.norge.no/fint/fint-arkiv/journalposttypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:journalposttypar](https://schema.fintlab
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:journalposttypar |
-| native | https://schema.fintlabs.no/arkiv/:journalposttypar |
+| self | https://data.norge.no/fint/fint-arkiv/journalposttypar |
+| native | https://data.norge.no/fint/fint-arkiv/journalposttypar |
 
 
 

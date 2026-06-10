@@ -79,7 +79,7 @@ URI: [utd:kommentar](https://schema.fintlabs.no/utdanning/kommentar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:kommentar |
-| native | https://schema.fintlabs.no/utdanning/:kommentar |
+| native | https://data.norge.no/fint/fint-utdanning/kommentar |
 
 
 

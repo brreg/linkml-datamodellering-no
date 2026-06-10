@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:skoleressursar](https://schema.fintlabs.no/utdanning/:skoleressursar)
+URI: [https://data.norge.no/fint/fint-utdanning/skoleressursar](https://data.norge.no/fint/fint-utdanning/skoleressursar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:skoleressursar](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:skoleressursar |
-| native | https://schema.fintlabs.no/utdanning/:skoleressursar |
+| self | https://data.norge.no/fint/fint-utdanning/skoleressursar |
+| native | https://data.norge.no/fint/fint-utdanning/skoleressursar |
 
 
 

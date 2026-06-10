@@ -70,7 +70,7 @@ URI: [utd:persongruppe](https://schema.fintlabs.no/utdanning/persongruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:persongruppe |
-| native | https://schema.fintlabs.no/utdanning/:persongruppe |
+| native | https://data.norge.no/fint/fint-utdanning/persongruppe |
 
 
 

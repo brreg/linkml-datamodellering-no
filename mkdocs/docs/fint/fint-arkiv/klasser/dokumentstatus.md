@@ -70,7 +70,7 @@ URI: [ark:dokumentstatus](https://schema.fintlabs.no/arkiv/dokumentstatus)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentstatus |
-| native | https://schema.fintlabs.no/arkiv/:dokumentstatus |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentstatus |
 
 
 

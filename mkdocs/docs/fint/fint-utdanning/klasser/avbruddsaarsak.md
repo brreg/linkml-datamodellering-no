@@ -289,7 +289,7 @@ URI: [utd:Avbruddsaarsak](https://schema.fintlabs.no/utdanning/Avbruddsaarsak)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Avbruddsaarsak |
-| native | https://schema.fintlabs.no/utdanning/:Avbruddsaarsak |
+| native | https://data.norge.no/fint/fint-utdanning/Avbruddsaarsak |
 
 
 

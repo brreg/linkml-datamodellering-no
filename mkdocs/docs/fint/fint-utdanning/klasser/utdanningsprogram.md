@@ -21,7 +21,7 @@ URI: [utd:utdanningsprogram](https://schema.fintlabs.no/utdanning/utdanningsprog
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:utdanningsprogram](https://schema.fintlabs.no/utdanning/utdanningsprog
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:utdanningsprogram |
-| native | https://schema.fintlabs.no/utdanning/:utdanningsprogram |
+| native | https://data.norge.no/fint/fint-utdanning/utdanningsprogram |
 
 
 

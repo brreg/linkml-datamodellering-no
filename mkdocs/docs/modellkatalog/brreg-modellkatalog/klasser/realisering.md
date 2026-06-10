@@ -277,6 +277,12 @@ URI: [modelldcatno:Realization](https://data.norge.no/vocabulary/modelldcatno#Re
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -317,6 +323,8 @@ URI: [modelldcatno:Realization](https://data.norge.no/vocabulary/modelldcatno#Re
 ```yaml
 name: Realisering
 description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -337,6 +345,8 @@ class_uri: modelldcatno:Realization
 ```yaml
 name: Realisering
 description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

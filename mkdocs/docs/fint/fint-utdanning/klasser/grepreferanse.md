@@ -73,7 +73,7 @@ URI: [utd:grepreferanse](https://schema.fintlabs.no/utdanning/grepreferanse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:grepreferanse |
-| native | https://schema.fintlabs.no/utdanning/:grepreferanse |
+| native | https://data.norge.no/fint/fint-utdanning/grepreferanse |
 
 
 

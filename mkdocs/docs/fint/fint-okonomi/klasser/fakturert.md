@@ -70,7 +70,7 @@ URI: [okn:fakturert](https://schema.fintlabs.no/okonomi/fakturert)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fakturert |
-| native | https://schema.fintlabs.no/okonomi/:fakturert |
+| native | https://data.norge.no/fint/fint-okonomi/fakturert |
 
 
 

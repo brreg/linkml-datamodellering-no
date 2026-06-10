@@ -22,8 +22,6 @@ message AdresseContainer
  repeated  svalbard svalbardOmrader = 0
  repeated  postboks postboksar = 0
  repeated  representasjonspunkt representasjonspunkt = 0
- repeated  bygning bygningar = 0
- repeated  bruksenhet bruksenheter = 0
  }
 // Firesifra kommunal kode som identifiserer eit adressenavn.
 message Adressekode

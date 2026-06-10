@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:eksamensformer](https://schema.fintlabs.no/utdanning/:eksamensformer)
+URI: [https://data.norge.no/fint/fint-utdanning/eksamensformer](https://data.norge.no/fint/fint-utdanning/eksamensformer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:eksamensformer](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:eksamensformer |
-| native | https://schema.fintlabs.no/utdanning/:eksamensformer |
+| self | https://data.norge.no/fint/fint-utdanning/eksamensformer |
+| native | https://data.norge.no/fint/fint-utdanning/eksamensformer |
 
 
 

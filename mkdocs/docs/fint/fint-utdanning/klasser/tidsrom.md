@@ -71,7 +71,7 @@ URI: [utd:tidsrom](https://schema.fintlabs.no/utdanning/tidsrom)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:tidsrom |
-| native | https://schema.fintlabs.no/utdanning/:tidsrom |
+| native | https://data.norge.no/fint/fint-utdanning/tidsrom |
 
 
 

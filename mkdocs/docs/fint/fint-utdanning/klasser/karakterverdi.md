@@ -70,7 +70,7 @@ URI: [utd:karakterverdi](https://schema.fintlabs.no/utdanning/karakterverdi)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:karakterverdi |
-| native | https://schema.fintlabs.no/utdanning/:karakterverdi |
+| native | https://data.norge.no/fint/fint-utdanning/karakterverdi |
 
 
 

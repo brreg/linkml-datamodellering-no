@@ -9,7 +9,7 @@ _Rotcontainer for FINT Administrasjon-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer)
+URI: [https://data.norge.no/fint/fint-administrasjon/AdministrasjonContainer](https://data.norge.no/fint/fint-administrasjon/AdministrasjonContainer)
 
 
 
@@ -201,8 +201,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
     
         
         
-        AdministrasjonContainer --> "*" String : fylke
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        AdministrasjonContainer --> "*" Fylke : fylke
+        click Fylke href "../Fylke/"
     
 
         
@@ -212,8 +212,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
     
         
         
-        AdministrasjonContainer --> "*" String : kjonn
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        AdministrasjonContainer --> "*" Kjonn : kjonn
+        click Kjonn href "../Kjonn/"
     
 
         
@@ -886,29 +886,6 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -943,191 +920,6 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
 
   
   
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
-  
-  
-    
-  
-
-  
-  
-  
-    
-      
-    
-      
-    
-      
-    
   
   
     
@@ -1171,14 +963,6 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
   
   
   
-    
-      
-    
-      
-    
-      
-    
-  
   
     
   
@@ -1186,13 +970,12 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
   
   
   
+  
     
-      
-    
-      
-    
-      
-    
+  
+
+  
+  
   
   
     
@@ -1215,13 +998,110 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
   
   
   
+  
     
-      
+  
+
+  
+  
+  
+  
     
-      
+  
+
+  
+  
+  
+  
     
-      
+  
+
+  
+  
+  
+  
     
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
   
   
     
@@ -1264,8 +1144,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
 | [kontaktpersonar](kontaktpersonar.md) | * <br/> [Kontaktperson](kontaktperson.md) |  |
 | [virksomhetar](virksomhetar.md) | * <br/> [Virksomhet](virksomhet.md) |  |
 | [landkodar](landkodar.md) | * <br/> [Landkode](landkode.md) |  |
-| [kjonn](kjonn.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) |  |
-| [fylke](fylke.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) |  |
+| [kjonn](kjonn.md) | * <br/> [Kjonn](kjonn.md) |  |
+| [fylke](fylke.md) | * <br/> [Fylke](fylke.md) |  |
 | [kommunar](kommunar.md) | * <br/> [Kommune](kommune.md) |  |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) |  |
 | [valuta](valuta.md) | * <br/> [Valuta](valuta.md) |  |
@@ -1336,8 +1216,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer |
-| native | https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer |
+| self | https://data.norge.no/fint/fint-administrasjon/AdministrasjonContainer |
+| native | https://data.norge.no/fint/fint-administrasjon/AdministrasjonContainer |
 
 
 
@@ -1356,67 +1236,6 @@ name: AdministrasjonContainer
 description: Rotcontainer for FINT Administrasjon-instansar.
 from_schema: https://data.norge.no/fint/fint-administrasjon
 rank: 1000
-slot_usage:
-  arbeidsforhold:
-    name: arbeidsforhold
-    multivalued: true
-    inlined_as_list: true
-  fastlonn:
-    name: fastlonn
-    multivalued: true
-    inlined_as_list: true
-  fasttillegg:
-    name: fasttillegg
-    multivalued: true
-    inlined_as_list: true
-  fravaer:
-    name: fravaer
-    multivalued: true
-    inlined_as_list: true
-  organisasjonselement:
-    name: organisasjonselement
-    multivalued: true
-    inlined_as_list: true
-  variabellonn:
-    name: variabellonn
-    multivalued: true
-    inlined_as_list: true
-  anlegg:
-    name: anlegg
-    multivalued: true
-    inlined_as_list: true
-  ansvar:
-    name: ansvar
-    multivalued: true
-    inlined_as_list: true
-  diverse:
-    name: diverse
-    multivalued: true
-    inlined_as_list: true
-  formaal:
-    name: formaal
-    multivalued: true
-    inlined_as_list: true
-  lopenummer:
-    name: lopenummer
-    multivalued: true
-    inlined_as_list: true
-  objekt:
-    name: objekt
-    multivalued: true
-    inlined_as_list: true
-  prosjekt:
-    name: prosjekt
-    multivalued: true
-    inlined_as_list: true
-  kjonn:
-    name: kjonn
-    multivalued: true
-    inlined_as_list: true
-  fylke:
-    name: fylke
-    multivalued: true
-    inlined_as_list: true
 attributes:
   personar:
     name: personar
@@ -1461,6 +1280,9 @@ attributes:
     domain_of:
     - Person
     - AdministrasjonContainer
+    range: Kjonn
+    multivalued: true
+    inlined_as_list: true
   fylke:
     name: fylke
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1468,6 +1290,9 @@ attributes:
     domain_of:
     - Kommune
     - AdministrasjonContainer
+    range: Fylke
+    multivalued: true
+    inlined_as_list: true
   kommunar:
     name: kommunar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1517,6 +1342,8 @@ attributes:
     - Organisasjonselement
     - Personalressurs
     range: Arbeidsforhold
+    multivalued: true
+    inlined_as_list: true
   arbeidslokasjoner:
     name: arbeidslokasjoner
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1533,6 +1360,8 @@ attributes:
     - AdministrasjonContainer
     - Arbeidsforhold
     range: Fastlonn
+    multivalued: true
+    inlined_as_list: true
   fasttillegg:
     name: fasttillegg
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1540,6 +1369,8 @@ attributes:
     - AdministrasjonContainer
     - Arbeidsforhold
     range: Fasttillegg
+    multivalued: true
+    inlined_as_list: true
   fravaer:
     name: fravaer
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1547,6 +1378,8 @@ attributes:
     - AdministrasjonContainer
     - Arbeidsforhold
     range: Fravaer
+    multivalued: true
+    inlined_as_list: true
   fullmakter:
     name: fullmakter
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1564,6 +1397,8 @@ attributes:
     - Ansvar
     - Fullmakt
     range: Organisasjonselement
+    multivalued: true
+    inlined_as_list: true
   rollar:
     name: rollar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1580,6 +1415,8 @@ attributes:
     - AdministrasjonContainer
     - Arbeidsforhold
     range: Variabellonn
+    multivalued: true
+    inlined_as_list: true
   aktivitetar:
     name: aktivitetar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1598,6 +1435,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Anlegg
+    multivalued: true
+    inlined_as_list: true
   ansvar:
     name: ansvar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1608,6 +1447,8 @@ attributes:
     - Organisasjonselement
     - Arbeidsforhold
     range: Ansvar
+    multivalued: true
+    inlined_as_list: true
   artar:
     name: artar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1635,6 +1476,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Diverse
+    multivalued: true
+    inlined_as_list: true
   formaal:
     name: formaal
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1644,6 +1487,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Formaal
+    multivalued: true
+    inlined_as_list: true
   fravaersgrunnar:
     name: fravaersgrunnar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1698,6 +1543,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Lopenummer
+    multivalued: true
+    inlined_as_list: true
   objekt:
     name: objekt
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1707,6 +1554,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Objekt
+    multivalued: true
+    inlined_as_list: true
   organisasjonstypar:
     name: organisasjonstypar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1735,6 +1584,8 @@ attributes:
     - Fullmakt
     - Arbeidsforhold
     range: Prosjekt
+    multivalued: true
+    inlined_as_list: true
   prosjektartar:
     name: prosjektartar
     from_schema: https://data.norge.no/fint/fint-administrasjon
@@ -1784,67 +1635,6 @@ name: AdministrasjonContainer
 description: Rotcontainer for FINT Administrasjon-instansar.
 from_schema: https://data.norge.no/fint/fint-administrasjon
 rank: 1000
-slot_usage:
-  arbeidsforhold:
-    name: arbeidsforhold
-    multivalued: true
-    inlined_as_list: true
-  fastlonn:
-    name: fastlonn
-    multivalued: true
-    inlined_as_list: true
-  fasttillegg:
-    name: fasttillegg
-    multivalued: true
-    inlined_as_list: true
-  fravaer:
-    name: fravaer
-    multivalued: true
-    inlined_as_list: true
-  organisasjonselement:
-    name: organisasjonselement
-    multivalued: true
-    inlined_as_list: true
-  variabellonn:
-    name: variabellonn
-    multivalued: true
-    inlined_as_list: true
-  anlegg:
-    name: anlegg
-    multivalued: true
-    inlined_as_list: true
-  ansvar:
-    name: ansvar
-    multivalued: true
-    inlined_as_list: true
-  diverse:
-    name: diverse
-    multivalued: true
-    inlined_as_list: true
-  formaal:
-    name: formaal
-    multivalued: true
-    inlined_as_list: true
-  lopenummer:
-    name: lopenummer
-    multivalued: true
-    inlined_as_list: true
-  objekt:
-    name: objekt
-    multivalued: true
-    inlined_as_list: true
-  prosjekt:
-    name: prosjekt
-    multivalued: true
-    inlined_as_list: true
-  kjonn:
-    name: kjonn
-    multivalued: true
-    inlined_as_list: true
-  fylke:
-    name: fylke
-    multivalued: true
-    inlined_as_list: true
 attributes:
   personar:
     name: personar
@@ -1898,7 +1688,7 @@ attributes:
     domain_of:
     - Person
     - AdministrasjonContainer
-    range: string
+    range: Kjonn
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -1910,7 +1700,7 @@ attributes:
     domain_of:
     - Kommune
     - AdministrasjonContainer
-    range: string
+    range: Fylke
     multivalued: true
     inlined: true
     inlined_as_list: true

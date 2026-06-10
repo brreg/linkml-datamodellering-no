@@ -71,7 +71,7 @@ URI: [utd:verdi](https://schema.fintlabs.no/utdanning/verdi)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:verdi |
-| native | https://schema.fintlabs.no/utdanning/:verdi |
+| native | https://data.norge.no/fint/fint-utdanning/verdi |
 
 
 

@@ -70,7 +70,7 @@ URI: [ark:dokumentType](https://schema.fintlabs.no/arkiv/dokumentType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentType |
-| native | https://schema.fintlabs.no/arkiv/:dokumentType |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentType |
 
 
 

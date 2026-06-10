@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:fravartypar](https://schema.fintlabs.no/utdanning/:fravartypar)
+URI: [https://data.norge.no/fint/fint-utdanning/fravartypar](https://data.norge.no/fint/fint-utdanning/fravartypar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:fravartypar](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:fravartypar |
-| native | https://schema.fintlabs.no/utdanning/:fravartypar |
+| self | https://data.norge.no/fint/fint-utdanning/fravartypar |
+| native | https://data.norge.no/fint/fint-utdanning/fravartypar |
 
 
 

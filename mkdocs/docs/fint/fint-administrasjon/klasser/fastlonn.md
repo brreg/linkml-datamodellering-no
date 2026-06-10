@@ -21,7 +21,7 @@ URI: [adm:fastlonn](https://schema.fintlabs.no/administrasjon/fastlonn)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -71,7 +71,7 @@ URI: [adm:fastlonn](https://schema.fintlabs.no/administrasjon/fastlonn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:fastlonn |
-| native | https://schema.fintlabs.no/administrasjon/:fastlonn |
+| native | https://data.norge.no/fint/fint-administrasjon/fastlonn |
 
 
 

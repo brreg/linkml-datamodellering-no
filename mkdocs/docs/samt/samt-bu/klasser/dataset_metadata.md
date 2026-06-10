@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_metadata)
+URI: [samtbu:dataset_metadata](https://data.norge.no/samt/samt-bu/dataset_metadata)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_me
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:dataset_metadata |
-| native | samtbuskole:dataset_metadata |
+| self | samtbu:dataset_metadata |
+| native | samtbu:dataset_metadata |
 
 
 

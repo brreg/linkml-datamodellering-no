@@ -67,6 +67,13 @@ URI: [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune)
     * **Kommune**
 
 
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune) |
+
+
 ## Eigenskapar
 
 
@@ -164,7 +171,7 @@ URI: [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:Kommune |
-| native | samtbuskole:Kommune |
+| native | samtbu:Kommune |
 | exact | org:Organization |
 
 
@@ -202,6 +209,7 @@ rank: 1000
 is_a: Skoleeier
 slots:
 - kommunenummer
+class_uri: samtbuskole:Kommune
 
 ```
 </details>
@@ -275,6 +283,7 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
+    slot_uri: samtbuskole:navn
     owner: Kommune
     domain_of:
     - Skole
@@ -282,6 +291,7 @@ attributes:
     - Basisgruppe
     - Person
     range: string
+class_uri: samtbuskole:Kommune
 
 ```
 </details>

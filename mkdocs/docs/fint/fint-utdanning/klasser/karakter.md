@@ -74,7 +74,7 @@ URI: [utd:karakter](https://schema.fintlabs.no/utdanning/karakter)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:karakter |
-| native | https://schema.fintlabs.no/utdanning/:karakter |
+| native | https://data.norge.no/fint/fint-utdanning/karakter |
 
 
 

@@ -176,6 +176,12 @@ URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -216,6 +222,8 @@ URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
 ```yaml
 name: XEllerY
 description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 class_uri: modelldcatno:Xor
@@ -229,6 +237,8 @@ class_uri: modelldcatno:Xor
 ```yaml
 name: XEllerY
 description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Betingelsesregel
 attributes:

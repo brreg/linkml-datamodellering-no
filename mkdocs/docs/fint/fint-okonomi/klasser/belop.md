@@ -72,7 +72,7 @@ URI: [okn:belop](https://schema.fintlabs.no/okonomi/belop)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:belop |
-| native | https://schema.fintlabs.no/okonomi/:belop |
+| native | https://data.norge.no/fint/fint-okonomi/belop |
 
 
 

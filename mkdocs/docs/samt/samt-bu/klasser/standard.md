@@ -311,6 +311,12 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -365,6 +371,8 @@ har_referanse:
 ```yaml
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
@@ -406,6 +414,8 @@ class_uri: dct:Standard
 ```yaml
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   tittel:

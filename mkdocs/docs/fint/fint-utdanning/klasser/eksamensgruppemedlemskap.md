@@ -21,7 +21,7 @@ URI: [utd:eksamensgruppemedlemskap](https://schema.fintlabs.no/utdanning/eksamen
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:eksamensgruppemedlemskap](https://schema.fintlabs.no/utdanning/eksamen
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:eksamensgruppemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:eksamensgruppemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/eksamensgruppemedlemskap |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/utdanning/:undervisningsgrupper](https://schema.fintlabs.no/utdanning/:undervisningsgrupper)
+URI: [https://data.norge.no/fint/fint-utdanning/undervisningsgrupper](https://data.norge.no/fint/fint-utdanning/undervisningsgrupper)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/utdanning/:undervisningsgrupper](https://schema
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/utdanning/:undervisningsgrupper |
-| native | https://schema.fintlabs.no/utdanning/:undervisningsgrupper |
+| self | https://data.norge.no/fint/fint-utdanning/undervisningsgrupper |
+| native | https://data.norge.no/fint/fint-utdanning/undervisningsgrupper |
 
 
 

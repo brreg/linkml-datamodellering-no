@@ -363,7 +363,7 @@ URI: [utd:Time](https://schema.fintlabs.no/utdanning/Time)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Time |
-| native | https://schema.fintlabs.no/utdanning/:Time |
+| native | https://data.norge.no/fint/fint-utdanning/Time |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:valuta](https://schema.fintlabs.no/okonomi/valuta)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:valuta |
-| native | https://schema.fintlabs.no/okonomi/:valuta |
+| native | https://data.norge.no/fint/fint-okonomi/valuta |
 
 
 

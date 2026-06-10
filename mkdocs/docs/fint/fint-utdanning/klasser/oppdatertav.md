@@ -70,7 +70,7 @@ URI: [utd:oppdatertAv](https://schema.fintlabs.no/utdanning/oppdatertAv)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:oppdatertAv |
-| native | https://schema.fintlabs.no/utdanning/:oppdatertAv |
+| native | https://data.norge.no/fint/fint-utdanning/oppdatertAv |
 
 
 

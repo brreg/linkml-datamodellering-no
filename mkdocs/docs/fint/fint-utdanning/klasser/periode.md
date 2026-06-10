@@ -70,7 +70,7 @@ URI: [utd:periode](https://schema.fintlabs.no/utdanning/periode)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:periode |
-| native | https://schema.fintlabs.no/utdanning/:periode |
+| native | https://data.norge.no/fint/fint-utdanning/periode |
 
 
 

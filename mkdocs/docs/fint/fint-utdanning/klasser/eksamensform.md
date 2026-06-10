@@ -71,7 +71,7 @@ URI: [utd:eksamensform](https://schema.fintlabs.no/utdanning/eksamensform)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:eksamensform |
-| native | https://schema.fintlabs.no/utdanning/:eksamensform |
+| native | https://data.norge.no/fint/fint-utdanning/eksamensform |
 
 
 

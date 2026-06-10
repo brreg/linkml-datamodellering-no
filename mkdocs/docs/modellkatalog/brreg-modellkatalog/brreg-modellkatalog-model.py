@@ -1,5 +1,5 @@
 # Auto generated from brreg-modellkatalog-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T14:31:16
+# Generation date: 2026-06-09T15:56:57
 # Schema: brreg-modellkatalog
 #
 # id: https://data.norge.no/modellkatalog/brreg-modellkatalog
@@ -355,7 +355,7 @@ class Aktor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Aktor")
 
     id: Union[str, AktorId] = None
-    namn_aktor: Union[str, list[str]] = None
+    namn_aktor: Optional[Union[str, list[str]]] = empty_list()
     identifikator_literal: Optional[str] = None
     type_concept: Optional[Union[str, KonseptId]] = None
 
@@ -365,8 +365,6 @@ class Aktor(YAMLRoot):
         if not isinstance(self.id, AktorId):
             self.id = AktorId(self.id)
 
-        if self._is_empty(self.namn_aktor):
-            self.MissingRequiredField("namn_aktor")
         if not isinstance(self.namn_aktor, list):
             self.namn_aktor = [self.namn_aktor] if self.namn_aktor is not None else []
         self.namn_aktor = [v if isinstance(v, str) else str(v) for v in self.namn_aktor]
@@ -416,7 +414,7 @@ class Standard(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Standard")
 
     id: Union[str, StandardId] = None
-    tittel: Union[str, list[str]] = None
+    tittel: Optional[Union[str, list[str]]] = empty_list()
     har_referanse: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     har_versjonsnummer: Optional[str] = None
 
@@ -426,8 +424,6 @@ class Standard(YAMLRoot):
         if not isinstance(self.id, StandardId):
             self.id = StandardId(self.id)
 
-        if self._is_empty(self.tittel):
-            self.MissingRequiredField("tittel")
         if not isinstance(self.tittel, list):
             self.tittel = [self.tittel] if self.tittel is not None else []
         self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
@@ -573,12 +569,12 @@ class Modellkatalog(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog")
 
     id: Union[str, ModellkatalogId] = None
-    tittel: Union[str, list[str]] = None
-    beskrivelse: Union[str, list[str]] = None
     har_del: Union[Union[str, KatalogisertRessursId], list[Union[str, KatalogisertRessursId]]] = None
     identifikator_literal: str = None
     kontaktpunkt: Union[Union[str, KontaktopplysningId], list[Union[str, KontaktopplysningId]]] = None
     utgiver: Union[str, AktorId] = None
+    tittel: Optional[Union[str, list[str]]] = empty_list()
+    beskrivelse: Optional[Union[str, list[str]]] = empty_list()
     endringsdato: Optional[Union[str, XSDDate]] = None
     heimeside: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
     lisens: Optional[Union[str, LisensdokumentId]] = None
@@ -587,25 +583,13 @@ class Modellkatalog(YAMLRoot):
     tema: Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]] = empty_list()
     temaer: Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]] = empty_list()
     utgivelsesdato: Optional[Union[str, XSDDate]] = None
-    er_del_av_katalog: Optional[Union[str, ModellkatalogId]] = None
+    er_del_av: Optional[Union[str, ModellkatalogId]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ModellkatalogId):
             self.id = ModellkatalogId(self.id)
-
-        if self._is_empty(self.tittel):
-            self.MissingRequiredField("tittel")
-        if not isinstance(self.tittel, list):
-            self.tittel = [self.tittel] if self.tittel is not None else []
-        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
-
-        if self._is_empty(self.beskrivelse):
-            self.MissingRequiredField("beskrivelse")
-        if not isinstance(self.beskrivelse, list):
-            self.beskrivelse = [self.beskrivelse] if self.beskrivelse is not None else []
-        self.beskrivelse = [v if isinstance(v, str) else str(v) for v in self.beskrivelse]
 
         if self._is_empty(self.har_del):
             self.MissingRequiredField("har_del")
@@ -628,6 +612,14 @@ class Modellkatalog(YAMLRoot):
             self.MissingRequiredField("utgiver")
         if not isinstance(self.utgiver, AktorId):
             self.utgiver = AktorId(self.utgiver)
+
+        if not isinstance(self.tittel, list):
+            self.tittel = [self.tittel] if self.tittel is not None else []
+        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
+
+        if not isinstance(self.beskrivelse, list):
+            self.beskrivelse = [self.beskrivelse] if self.beskrivelse is not None else []
+        self.beskrivelse = [v if isinstance(v, str) else str(v) for v in self.beskrivelse]
 
         if self.endringsdato is not None and not isinstance(self.endringsdato, XSDDate):
             self.endringsdato = XSDDate(self.endringsdato)
@@ -658,8 +650,8 @@ class Modellkatalog(YAMLRoot):
         if self.utgivelsesdato is not None and not isinstance(self.utgivelsesdato, XSDDate):
             self.utgivelsesdato = XSDDate(self.utgivelsesdato)
 
-        if self.er_del_av_katalog is not None and not isinstance(self.er_del_av_katalog, ModellkatalogId):
-            self.er_del_av_katalog = ModellkatalogId(self.er_del_av_katalog)
+        if self.er_del_av is not None and not isinstance(self.er_del_av, ModellkatalogId):
+            self.er_del_av = ModellkatalogId(self.er_del_av)
 
         super().__post_init__(**kwargs)
 
@@ -677,8 +669,8 @@ class Informasjonsmodell(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell")
 
     id: Union[str, InformasjonsmodellId] = None
-    tittel: Union[str, list[str]] = None
     utgiver: Union[str, AktorId] = None
+    tittel: Optional[Union[str, list[str]]] = empty_list()
     begrep: Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]] = empty_list()
     beskrivelse: Optional[Union[str, list[str]]] = empty_list()
     identifikator_literal: Optional[str] = None
@@ -689,11 +681,11 @@ class Informasjonsmodell(YAMLRoot):
     tema: Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]] = empty_list()
     dekningsomraade: Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]] = empty_list()
     endringsdato: Optional[Union[str, XSDDate]] = None
-    er_del_av_modell: Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]] = empty_list()
+    er_del_av: Optional[Union[str, InformasjonsmodellId]] = None
     er_profil_av: Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]] = empty_list()
     er_erstatta_av: Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]] = empty_list()
     erstatter: Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]] = empty_list()
-    har_del_modell: Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]] = empty_list()
+    har_del: Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]] = empty_list()
     har_format: Optional[Union[Union[str, DokumentId], list[Union[str, DokumentId]]]] = empty_list()
     tidsperiode: Optional[Union[Union[str, TidsperiodeId], list[Union[str, TidsperiodeId]]]] = empty_list()
     heimeside: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
@@ -713,16 +705,14 @@ class Informasjonsmodell(YAMLRoot):
         if not isinstance(self.id, InformasjonsmodellId):
             self.id = InformasjonsmodellId(self.id)
 
-        if self._is_empty(self.tittel):
-            self.MissingRequiredField("tittel")
-        if not isinstance(self.tittel, list):
-            self.tittel = [self.tittel] if self.tittel is not None else []
-        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
-
         if self._is_empty(self.utgiver):
             self.MissingRequiredField("utgiver")
         if not isinstance(self.utgiver, AktorId):
             self.utgiver = AktorId(self.utgiver)
+
+        if not isinstance(self.tittel, list):
+            self.tittel = [self.tittel] if self.tittel is not None else []
+        self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
 
         if not isinstance(self.begrep, list):
             self.begrep = [self.begrep] if self.begrep is not None else []
@@ -760,9 +750,8 @@ class Informasjonsmodell(YAMLRoot):
         if self.endringsdato is not None and not isinstance(self.endringsdato, XSDDate):
             self.endringsdato = XSDDate(self.endringsdato)
 
-        if not isinstance(self.er_del_av_modell, list):
-            self.er_del_av_modell = [self.er_del_av_modell] if self.er_del_av_modell is not None else []
-        self.er_del_av_modell = [v if isinstance(v, InformasjonsmodellId) else InformasjonsmodellId(v) for v in self.er_del_av_modell]
+        if self.er_del_av is not None and not isinstance(self.er_del_av, InformasjonsmodellId):
+            self.er_del_av = InformasjonsmodellId(self.er_del_av)
 
         if not isinstance(self.er_profil_av, list):
             self.er_profil_av = [self.er_profil_av] if self.er_profil_av is not None else []
@@ -776,9 +765,9 @@ class Informasjonsmodell(YAMLRoot):
             self.erstatter = [self.erstatter] if self.erstatter is not None else []
         self.erstatter = [v if isinstance(v, InformasjonsmodellId) else InformasjonsmodellId(v) for v in self.erstatter]
 
-        if not isinstance(self.har_del_modell, list):
-            self.har_del_modell = [self.har_del_modell] if self.har_del_modell is not None else []
-        self.har_del_modell = [v if isinstance(v, InformasjonsmodellId) else InformasjonsmodellId(v) for v in self.har_del_modell]
+        if not isinstance(self.har_del, list):
+            self.har_del = [self.har_del] if self.har_del is not None else []
+        self.har_del = [v if isinstance(v, InformasjonsmodellId) else InformasjonsmodellId(v) for v in self.har_del]
 
         if not isinstance(self.har_format, list):
             self.har_format = [self.har_format] if self.har_format is not None else []
@@ -839,7 +828,7 @@ class Modellelement(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellelement")
 
     id: Union[str, ModellelementId] = None
-    tittel: Union[str, list[str]] = None
+    tittel: Optional[Union[str, list[str]]] = empty_list()
     begrep: Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]] = empty_list()
     identifikator_literal: Optional[str] = None
     har_eigenskap: Optional[Union[Union[str, EigenskapId], list[Union[str, EigenskapId]]]] = empty_list()
@@ -852,8 +841,6 @@ class Modellelement(YAMLRoot):
         if not isinstance(self.id, ModellelementId):
             self.id = ModellelementId(self.id)
 
-        if self._is_empty(self.tittel):
-            self.MissingRequiredField("tittel")
         if not isinstance(self.tittel, list):
             self.tittel = [self.tittel] if self.tittel is not None else []
         self.tittel = [v if isinstance(v, str) else str(v) for v in self.tittel]
@@ -893,7 +880,6 @@ class Objekttype(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Objekttype")
 
     id: Union[str, ObjekttypeId] = None
-    tittel: Union[str, list[str]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -917,7 +903,6 @@ class RootObjekttype(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/RootObjekttype")
 
     id: Union[str, RootObjekttypeId] = None
-    tittel: Union[str, list[str]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -941,7 +926,6 @@ class Datatype(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Datatype")
 
     id: Union[str, DatatypeId] = None
-    tittel: Union[str, list[str]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -965,7 +949,6 @@ class EnkelType(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/EnkelType")
 
     id: Union[str, EnkelTypeId] = None
-    tittel: Union[str, list[str]] = None
     typedefinisjon_referanse: Optional[Union[str, URI]] = None
     fraksjonssifre: Optional[int] = None
     lengde: Optional[int] = None
@@ -1033,7 +1016,6 @@ class Kodeliste(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Kodeliste")
 
     id: Union[str, KodelisteId] = None
-    tittel: Union[str, list[str]] = None
     har_referanse: Optional[Union[Union[str, URI], list[Union[str, URI]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -1062,7 +1044,6 @@ class Modul(Modellelement):
     class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/modellkatalog/brreg-modellkatalog/Modul")
 
     id: Union[str, ModulId] = None
-    tittel: Union[str, list[str]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -1869,17 +1850,11 @@ slots.begrep = Slot(uri=DCT.subject, name="begrep", curie=DCT.curie('subject'),
 slots.har_del = Slot(uri=DCT.hasPart, name="har_del", curie=DCT.curie('hasPart'),
                    model_uri=DEFAULT_.har_del, domain=None, range=Optional[Union[Union[str, KatalogisertRessursId], list[Union[str, KatalogisertRessursId]]]])
 
-slots.har_del_modell = Slot(uri=DCT.hasPart, name="har_del_modell", curie=DCT.curie('hasPart'),
-                   model_uri=DEFAULT_.har_del_modell, domain=None, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
-
 slots.modell = Slot(uri=MODELLDCATNO.model, name="modell", curie=MODELLDCATNO.curie('model'),
                    model_uri=DEFAULT_.modell, domain=None, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
 
-slots.er_del_av_katalog = Slot(uri=DCT.isPartOf, name="er_del_av_katalog", curie=DCT.curie('isPartOf'),
-                   model_uri=DEFAULT_.er_del_av_katalog, domain=None, range=Optional[Union[str, ModellkatalogId]])
-
-slots.er_del_av_modell = Slot(uri=DCT.isPartOf, name="er_del_av_modell", curie=DCT.curie('isPartOf'),
-                   model_uri=DEFAULT_.er_del_av_modell, domain=None, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
+slots.er_del_av = Slot(uri=DCT.isPartOf, name="er_del_av", curie=DCT.curie('isPartOf'),
+                   model_uri=DEFAULT_.er_del_av, domain=None, range=Optional[Union[str, KatalogisertRessursId]])
 
 slots.er_profil_av = Slot(uri=PROF.isProfileOf, name="er_profil_av", curie=PROF.curie('isProfileOf'),
                    model_uri=DEFAULT_.er_profil_av, domain=None, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
@@ -2131,16 +2106,16 @@ slots.modellkatalogContainer__kontaktpunkt = Slot(uri=DEFAULT_.kontaktpunkt, nam
                    model_uri=DEFAULT_.modellkatalogContainer__kontaktpunkt, domain=None, range=Optional[Union[list[Union[str, KontaktopplysningId]], dict[Union[str, KontaktopplysningId], Union[dict, Kontaktopplysning]]]])
 
 slots.Aktor_namn_aktor = Slot(uri=FOAF.name, name="Aktor_namn_aktor", curie=FOAF.curie('name'),
-                   model_uri=DEFAULT_.Aktor_namn_aktor, domain=Aktor, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Aktor_namn_aktor, domain=Aktor, range=Optional[Union[str, list[str]]])
 
 slots.Standard_tittel = Slot(uri=DCT.title, name="Standard_tittel", curie=DCT.curie('title'),
-                   model_uri=DEFAULT_.Standard_tittel, domain=Standard, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Standard_tittel, domain=Standard, range=Optional[Union[str, list[str]]])
 
 slots.Modellkatalog_tittel = Slot(uri=DCT.title, name="Modellkatalog_tittel", curie=DCT.curie('title'),
-                   model_uri=DEFAULT_.Modellkatalog_tittel, domain=Modellkatalog, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Modellkatalog_tittel, domain=Modellkatalog, range=Optional[Union[str, list[str]]])
 
 slots.Modellkatalog_beskrivelse = Slot(uri=DCT.description, name="Modellkatalog_beskrivelse", curie=DCT.curie('description'),
-                   model_uri=DEFAULT_.Modellkatalog_beskrivelse, domain=Modellkatalog, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Modellkatalog_beskrivelse, domain=Modellkatalog, range=Optional[Union[str, list[str]]])
 
 slots.Modellkatalog_har_del = Slot(uri=DCT.hasPart, name="Modellkatalog_har_del", curie=DCT.curie('hasPart'),
                    model_uri=DEFAULT_.Modellkatalog_har_del, domain=Modellkatalog, range=Union[Union[str, KatalogisertRessursId], list[Union[str, KatalogisertRessursId]]])
@@ -2178,11 +2153,11 @@ slots.Modellkatalog_utgivelsesdato = Slot(uri=DCT.issued, name="Modellkatalog_ut
 slots.Modellkatalog_temaer = Slot(uri=DCAT.themeTaxonomy, name="Modellkatalog_temaer", curie=DCAT.curie('themeTaxonomy'),
                    model_uri=DEFAULT_.Modellkatalog_temaer, domain=Modellkatalog, range=Optional[Union[Union[str, BegrepssamlingId], list[Union[str, BegrepssamlingId]]]])
 
-slots.Modellkatalog_er_del_av_katalog = Slot(uri=DCT.isPartOf, name="Modellkatalog_er_del_av_katalog", curie=DCT.curie('isPartOf'),
-                   model_uri=DEFAULT_.Modellkatalog_er_del_av_katalog, domain=Modellkatalog, range=Optional[Union[str, ModellkatalogId]])
+slots.Modellkatalog_er_del_av = Slot(uri=DCT.isPartOf, name="Modellkatalog_er_del_av", curie=DCT.curie('isPartOf'),
+                   model_uri=DEFAULT_.Modellkatalog_er_del_av, domain=Modellkatalog, range=Optional[Union[str, ModellkatalogId]])
 
 slots.Informasjonsmodell_tittel = Slot(uri=DCT.title, name="Informasjonsmodell_tittel", curie=DCT.curie('title'),
-                   model_uri=DEFAULT_.Informasjonsmodell_tittel, domain=Informasjonsmodell, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Informasjonsmodell_tittel, domain=Informasjonsmodell, range=Optional[Union[str, list[str]]])
 
 slots.Informasjonsmodell_utgiver = Slot(uri=DCT.publisher, name="Informasjonsmodell_utgiver", curie=DCT.curie('publisher'),
                    model_uri=DEFAULT_.Informasjonsmodell_utgiver, domain=Informasjonsmodell, range=Union[str, AktorId])
@@ -2217,8 +2192,8 @@ slots.Informasjonsmodell_dekningsomraade = Slot(uri=DCT.spatial, name="Informasj
 slots.Informasjonsmodell_endringsdato = Slot(uri=DCT.modified, name="Informasjonsmodell_endringsdato", curie=DCT.curie('modified'),
                    model_uri=DEFAULT_.Informasjonsmodell_endringsdato, domain=Informasjonsmodell, range=Optional[Union[str, XSDDate]])
 
-slots.Informasjonsmodell_er_del_av_modell = Slot(uri=DCT.isPartOf, name="Informasjonsmodell_er_del_av_modell", curie=DCT.curie('isPartOf'),
-                   model_uri=DEFAULT_.Informasjonsmodell_er_del_av_modell, domain=Informasjonsmodell, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
+slots.Informasjonsmodell_er_del_av = Slot(uri=DCT.isPartOf, name="Informasjonsmodell_er_del_av", curie=DCT.curie('isPartOf'),
+                   model_uri=DEFAULT_.Informasjonsmodell_er_del_av, domain=Informasjonsmodell, range=Optional[Union[str, InformasjonsmodellId]])
 
 slots.Informasjonsmodell_er_profil_av = Slot(uri=PROF.isProfileOf, name="Informasjonsmodell_er_profil_av", curie=PROF.curie('isProfileOf'),
                    model_uri=DEFAULT_.Informasjonsmodell_er_profil_av, domain=Informasjonsmodell, range=Optional[Union[Union[str, StandardId], list[Union[str, StandardId]]]])
@@ -2229,8 +2204,8 @@ slots.Informasjonsmodell_er_erstatta_av = Slot(uri=DCT.isReplacedBy, name="Infor
 slots.Informasjonsmodell_erstatter = Slot(uri=DCT.replaces, name="Informasjonsmodell_erstatter", curie=DCT.curie('replaces'),
                    model_uri=DEFAULT_.Informasjonsmodell_erstatter, domain=Informasjonsmodell, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
 
-slots.Informasjonsmodell_har_del_modell = Slot(uri=DCT.hasPart, name="Informasjonsmodell_har_del_modell", curie=DCT.curie('hasPart'),
-                   model_uri=DEFAULT_.Informasjonsmodell_har_del_modell, domain=Informasjonsmodell, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
+slots.Informasjonsmodell_har_del = Slot(uri=DCT.hasPart, name="Informasjonsmodell_har_del", curie=DCT.curie('hasPart'),
+                   model_uri=DEFAULT_.Informasjonsmodell_har_del, domain=Informasjonsmodell, range=Optional[Union[Union[str, InformasjonsmodellId], list[Union[str, InformasjonsmodellId]]]])
 
 slots.Informasjonsmodell_har_format = Slot(uri=DCT.hasFormat, name="Informasjonsmodell_har_format", curie=DCT.curie('hasFormat'),
                    model_uri=DEFAULT_.Informasjonsmodell_har_format, domain=Informasjonsmodell, range=Optional[Union[Union[str, DokumentId], list[Union[str, DokumentId]]]])
@@ -2269,7 +2244,7 @@ slots.Informasjonsmodell_versjonsmerknad = Slot(uri=ADMS.versionNotes, name="Inf
                    model_uri=DEFAULT_.Informasjonsmodell_versjonsmerknad, domain=Informasjonsmodell, range=Optional[Union[str, list[str]]])
 
 slots.Modellelement_tittel = Slot(uri=DCT.title, name="Modellelement_tittel", curie=DCT.curie('title'),
-                   model_uri=DEFAULT_.Modellelement_tittel, domain=Modellelement, range=Union[str, list[str]])
+                   model_uri=DEFAULT_.Modellelement_tittel, domain=Modellelement, range=Optional[Union[str, list[str]]])
 
 slots.Modellelement_begrep = Slot(uri=DCT.subject, name="Modellelement_begrep", curie=DCT.curie('subject'),
                    model_uri=DEFAULT_.Modellelement_begrep, domain=Modellelement, range=Optional[Union[Union[str, KonseptId], list[Union[str, KonseptId]]]])

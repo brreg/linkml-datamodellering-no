@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:varer](https://schema.fintlabs.no/okonomi/:varer)
+URI: [https://data.norge.no/fint/fint-okonomi/varer](https://data.norge.no/fint/fint-okonomi/varer)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:varer](https://schema.fintlabs.no/okon
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:varer |
-| native | https://schema.fintlabs.no/okonomi/:varer |
+| self | https://data.norge.no/fint/fint-okonomi/varer |
+| native | https://data.norge.no/fint/fint-okonomi/varer |
 
 
 

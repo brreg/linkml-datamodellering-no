@@ -71,7 +71,7 @@ URI: [okn:fritekst](https://schema.fintlabs.no/okonomi/fritekst)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:fritekst |
-| native | https://schema.fintlabs.no/okonomi/:fritekst |
+| native | https://data.norge.no/fint/fint-okonomi/fritekst |
 
 
 

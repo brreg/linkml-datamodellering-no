@@ -71,7 +71,7 @@ URI: [res:eier](https://schema.fintlabs.no/ressurs/eier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:eier |
-| native | https://schema.fintlabs.no/ressurs/:eier |
+| native | https://data.norge.no/fint/fint-ressurs/eier |
 
 
 

@@ -190,7 +190,7 @@ message Merverdiavgift
 message OkonomiContainer
  {
  repeated  faktura fakturaer = 0
-  fakturagrunnlag fakturagrunnlag = 0
+ repeated  fakturagrunnlag fakturagrunnlag = 0
  repeated  fakturautsteder fakturautstederear = 0
  repeated  transaksjon transaksjonar = 0
  repeated  postering posteringar = 0

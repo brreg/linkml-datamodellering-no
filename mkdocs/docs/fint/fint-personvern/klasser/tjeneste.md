@@ -70,7 +70,7 @@ URI: [pvn:tjeneste](https://schema.fintlabs.no/personvern/tjeneste)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:tjeneste |
-| native | https://schema.fintlabs.no/personvern/:tjeneste |
+| native | https://data.norge.no/fint/fint-personvern/tjeneste |
 
 
 

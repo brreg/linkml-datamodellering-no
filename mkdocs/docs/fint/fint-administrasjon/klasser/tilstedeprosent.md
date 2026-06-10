@@ -70,7 +70,7 @@ URI: [adm:tilstedeprosent](https://schema.fintlabs.no/administrasjon/tilstedepro
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:tilstedeprosent |
-| native | https://schema.fintlabs.no/administrasjon/:tilstedeprosent |
+| native | https://data.norge.no/fint/fint-administrasjon/tilstedeprosent |
 
 
 

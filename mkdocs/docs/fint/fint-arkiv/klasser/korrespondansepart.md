@@ -72,7 +72,7 @@ URI: [ark:korrespondansepart](https://schema.fintlabs.no/arkiv/korrespondansepar
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:korrespondansepart |
-| native | https://schema.fintlabs.no/arkiv/:korrespondansepart |
+| native | https://data.norge.no/fint/fint-arkiv/korrespondansepart |
 
 
 

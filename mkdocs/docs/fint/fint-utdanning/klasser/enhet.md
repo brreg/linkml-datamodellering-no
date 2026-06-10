@@ -70,7 +70,7 @@ URI: [utd:enhet](https://schema.fintlabs.no/utdanning/enhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:enhet |
-| native | https://schema.fintlabs.no/utdanning/:enhet |
+| native | https://data.norge.no/fint/fint-utdanning/enhet |
 
 
 

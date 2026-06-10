@@ -44,6 +44,7 @@ URI: [samtbuskole:navn](https://example.no/ontology/skole#navn)
 | --- | --- |
 | Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Skole](skole.md), [Skoleeier](skoleeier.md), [Basisgruppe](basisgruppe.md), [Person](person.md) |
+| Slot URI | [samtbuskole:navn](https://example.no/ontology/skole#navn) |
 
 ### Cardinality and Requirements
 
@@ -78,7 +79,7 @@ URI: [samtbuskole:navn](https://example.no/ontology/skole#navn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | samtbuskole:navn |
-| native | samtbuskole:navn |
+| native | samtbu:navn |
 
 
 
@@ -91,6 +92,7 @@ name: navn
 description: Namn på ressursen.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+slot_uri: samtbuskole:navn
 domain_of:
 - Skole
 - Skoleeier

@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
+URI: [samtbu:fylker](https://data.norge.no/samt/samt-bu/fylker)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:fylker |
-| native | samtbuskole:fylker |
+| self | samtbu:fylker |
+| native | samtbu:fylker |
 
 
 

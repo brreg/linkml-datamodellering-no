@@ -26,7 +26,8 @@ https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/
 Vurder overensstemmelse med kvar av kildene under. For kvar kilde skriv oversikt over gap og tiltak som må utføres for å tette gapet.
 Tilgjengeliggjøring av åpne daga: https://data.norge.no/guide/veileder-apne-data*
 
-Beskrivelse av kvalitet på datasett - kvantifiserbar kvalitet: https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet
+Beskrivelse av kvalitet på datasett - kvantifiserbar kvalitet: https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet*
+
 Veileder for beskrivelse av informasjonsmodeller: https://data.norge.no/guide/veileder-modelldcat-ap-no
 Standard for beskrivelse av datasett, datatjenester og datakataloger: https://data.norge.no/specification/dcat-ap-no/
 Forvaltningsstandard for begrepsbeskrivelser: https://www.digdir.no/standarder/forvaltningsstandard-omgrepsbeskrivingar-skos-ap-no-begrep/1682

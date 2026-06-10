@@ -143,11 +143,9 @@ class "Fylke" [[{Eit norsk fylke.}]] {
 "AdresseContainer" *--> "0..*" "Kirkesokn" : "kirkesokn"
 "AdresseContainer" *--> "0..*" "Grunnkrets" : "grunnkretsar"
 "AdresseContainer" *--> "0..*" "Fylke" : "fylke"
-"AdresseContainer" *--> "0..*" "Bygning" : "bygningar"
 "OffisiellAdresse" --> "0..1" "Bygning" : "adresserer_bygning"(i)
 "AdresseContainer" *--> "0..*" "Bruksenhetsnummer" : "bruksenhetsnummer"
 "OffisiellAdresse" --> "0..1" "Bruksenhetsnummer" : "bruksenhetsnummer_ref"(i)
-"AdresseContainer" *--> "0..*" "Bruksenhet" : "bruksenheter"
 "OffisiellAdresse" --> "0..1" "Bruksenhet" : "adresserer_bruksenhet"(i)
 class "Adresseomrade" [[{Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn.}]] {
     {field} id : uriorcurie  

@@ -71,7 +71,7 @@ URI: [okn:faktura](https://schema.fintlabs.no/okonomi/faktura)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:faktura |
-| native | https://schema.fintlabs.no/okonomi/:faktura |
+| native | https://data.norge.no/fint/fint-okonomi/faktura |
 
 
 

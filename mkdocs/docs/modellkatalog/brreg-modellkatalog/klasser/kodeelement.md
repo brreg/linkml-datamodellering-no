@@ -618,6 +618,12 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -658,6 +664,8 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 ```yaml
 name: Kodeelement
 description: Eit element i ei kodeliste (modelldcatno:CodeElement).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -715,6 +723,8 @@ class_uri: modelldcatno:CodeElement
 ```yaml
 name: Kodeelement
 description: Eit element i ei kodeliste (modelldcatno:CodeElement).
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   i_skjema:

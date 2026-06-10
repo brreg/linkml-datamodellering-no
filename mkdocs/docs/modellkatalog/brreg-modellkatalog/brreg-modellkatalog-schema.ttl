@@ -11,14 +11,14 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Brønnøysundregistra – Modellkatalog" ;
     pav:version "1.0.0" ;
-    sh:declare [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/modelldcatno#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "https://data.norge.no/vocabulary/modelldcatno#"^^xsd:anyURI ;
             sh:prefix "modelldcatno" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
         [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ] ;
+            sh:prefix "dct" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ] ;
     linkml:classes <https://data.norge.no/modellkatalog/brreg-modellkatalog/Abstraksjon>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Aktor>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/AlleAv>,
@@ -63,7 +63,7 @@
     linkml:default_prefix "https://data.norge.no/modellkatalog/brreg-modellkatalog/" ;
     linkml:default_range <https://data.norge.no/modellkatalog/brreg-modellkatalog/string> ;
     linkml:description "Modellkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO direkte via import." ;
-    linkml:generation_date "2026-06-08T14:31:52"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-09T15:57:06"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/modellkatalog/brreg-modellkatalog"^^xsd:anyURI ;
     linkml:imports "../../ap-no/common/common-ap-no-schema"^^xsd:anyURI,
         "../../ap-no/modelldcat-ap-no/modelldcat-ap-no-schema"^^xsd:anyURI,
@@ -96,12 +96,12 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_beskrivelse>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_dekningsomraade>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_endringsdato>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av_modell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_erstatta_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_i_samsvar_med>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_profil_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_erstatter>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del_modell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_format>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_versjonsnummer>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_heimeside>,
@@ -140,7 +140,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellelement_tittel>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_beskrivelse>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_endringsdato>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av_katalog>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_har_del>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_heimeside>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_identifikator_literal>,
@@ -175,8 +175,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/eksklusjonsnotat>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/endringsdato>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_abstraksjon_av>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_katalog>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_modell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_erstatta_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_i_samsvar_med>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_profil_av>,
@@ -186,7 +185,6 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/fraksjonssifre>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_datatype>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del_modell>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_eigenskap>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_enkel_type>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_format>,
@@ -261,6 +259,7 @@
     linkml:source_file_date "2026-05-27T14:09:05"^^xsd:dateTime ;
     linkml:source_file_size 1621 ;
     linkml:subsets <https://data.norge.no/modellkatalog/brreg-modellkatalog/Anbefalt>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Obligatorisk>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
     linkml:types <https://data.norge.no/modellkatalog/brreg-modellkatalog/Duration>,
@@ -289,6 +288,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/uriorcurie> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/AlleAv> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:AllOf"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#AllOf"^^xsd:anyURI ;
@@ -319,6 +319,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#duration"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Eller> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Or"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Or"^^xsd:anyURI ;
@@ -343,6 +344,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#gYear"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Ikke> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Not"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Not"^^xsd:anyURI ;
@@ -360,6 +362,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/NoenAv> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:AnyOf"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#AnyOf"^^xsd:anyURI ;
@@ -383,6 +386,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Og> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:And"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#And"^^xsd:anyURI ;
@@ -400,6 +404,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/RootObjekttype> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:RootObjectType"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#RootObjectType"^^xsd:anyURI ;
@@ -416,6 +421,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Samling> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Collection"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Collection"^^xsd:anyURI ;
@@ -438,6 +444,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/XEllerY> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Xor"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Xor"^^xsd:anyURI ;
@@ -687,7 +694,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Aktor> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://xmlns.com/foaf/0.1/name"^^xsd:anyURI ;
     linkml:usage_slot_name "namn_aktor" .
 
@@ -874,22 +880,21 @@
     linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
     linkml:usage_slot_name "endringsdato" .
 
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av_modell> a linkml:SlotDefinition ;
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    skos:prefLabel "er_del_av_modell" ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av_modell"^^xsd:anyURI ;
-    linkml:description "Overordna informasjonsmodell (dct:isPartOf)." ;
+    skos:prefLabel "er_del_av" ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av"^^xsd:anyURI ;
+    linkml:description "Overordna ressurs denne er ein del av (dct:isPartOf)." ;
     linkml:domain <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_modell> ;
+    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av> ;
     linkml:is_usage_slot true ;
-    linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:slot_uri "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    linkml:usage_slot_name "er_del_av_modell" .
+    linkml:usage_slot_name "er_del_av" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_erstatta_av> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
@@ -959,22 +964,22 @@
     linkml:slot_uri "http://purl.org/dc/terms/replaces"^^xsd:anyURI ;
     linkml:usage_slot_name "erstatter" .
 
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del_modell> a linkml:SlotDefinition ;
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
-    skos:prefLabel "har_del_modell" ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del_modell"^^xsd:anyURI ;
-    linkml:description "Del-informasjonsmodell av denne modellen (dct:hasPart)." ;
+    skos:prefLabel "har_del" ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del"^^xsd:anyURI ;
+    linkml:description "Del-ressurs inkludert i denne ressursen (dct:hasPart)." ;
     linkml:domain <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del_modell> ;
+    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del> ;
     linkml:is_usage_slot true ;
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:slot_uri "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
-    linkml:usage_slot_name "har_del_modell" .
+    linkml:usage_slot_name "har_del" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_format> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
@@ -1222,7 +1227,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
     linkml:usage_slot_name "tittel" .
 
@@ -1395,6 +1399,7 @@
     linkml:usage_slot_name "topp_begrep_av" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Lokasjon> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:Location"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/Location"^^xsd:anyURI ;
@@ -1426,7 +1431,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
     linkml:usage_slot_name "beskrivelse" .
 
@@ -1446,21 +1450,21 @@
     linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
     linkml:usage_slot_name "endringsdato" .
 
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av_katalog> a linkml:SlotDefinition ;
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valgfri> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    skos:prefLabel "er_del_av_katalog" ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av_katalog"^^xsd:anyURI ;
-    linkml:description "Overordna modellkatalog (dct:isPartOf)." ;
+    skos:prefLabel "er_del_av" ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av"^^xsd:anyURI ;
+    linkml:description "Overordna ressurs denne er ein del av (dct:isPartOf)." ;
     linkml:domain <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_katalog> ;
+    linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av> ;
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:slot_uri "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    linkml:usage_slot_name "er_del_av_katalog" .
+    linkml:usage_slot_name "er_del_av" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_har_del> a linkml:SlotDefinition ;
     OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Obligatorisk> ;
@@ -1468,7 +1472,7 @@
     skos:mappingRelation "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
     skos:prefLabel "har_del" ;
     linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del"^^xsd:anyURI ;
-    linkml:description "Del-ressurs inkludert i denne katalogen (dct:hasPart)." ;
+    linkml:description "Del-ressurs inkludert i denne ressursen (dct:hasPart)." ;
     linkml:domain <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:is_a <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del> ;
@@ -1630,7 +1634,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
     linkml:usage_slot_name "tittel" .
 
@@ -1745,7 +1748,6 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Standard> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
     linkml:usage_slot_name "tittel" .
 
@@ -1889,27 +1891,6 @@
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellelement> ;
     linkml:slot_uri "https://data.norge.no/vocabulary/modelldcatno#isAbstractionOf"^^xsd:anyURI .
 
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_katalog> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av_katalog"^^xsd:anyURI ;
-    linkml:description "Overordna modellkatalog (dct:isPartOf)." ;
-    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:slot_uri "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI .
-
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av_modell> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av_modell"^^xsd:anyURI ;
-    linkml:description "Overordna informasjonsmodell (dct:isPartOf)." ;
-    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:slot_uri "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI .
-
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/er_erstatta_av> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "http://purl.org/dc/terms/isReplacedBy"^^xsd:anyURI ;
@@ -1994,28 +1975,6 @@
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Attributt> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Datatype> ;
     linkml:slot_uri "https://data.norge.no/vocabulary/modelldcatno#hasDataType"^^xsd:anyURI .
-
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del"^^xsd:anyURI ;
-    linkml:description "Del-ressurs inkludert i denne katalogen (dct:hasPart)." ;
-    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
-    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/KatalogisertRessurs> ;
-    linkml:slot_uri "http://purl.org/dc/terms/hasPart"^^xsd:anyURI .
-
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del_modell> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del_modell"^^xsd:anyURI ;
-    linkml:description "Del-informasjonsmodell av denne modellen (dct:hasPart)." ;
-    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
-    linkml:slot_uri "http://purl.org/dc/terms/hasPart"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_eigenskap> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
@@ -2596,6 +2555,7 @@
     linkml:slot_uri "http://www.w3.org/ns/adms#versionNotes"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Datatype> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:DataType"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#DataType"^^xsd:anyURI ;
@@ -2632,6 +2592,29 @@
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/date> ;
     linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI .
+
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/er_del_av> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/er_del_av"^^xsd:anyURI ;
+    linkml:description "Overordna ressurs denne er ein del av (dct:isPartOf)." ;
+    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
+    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
+    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/KatalogisertRessurs> ;
+    linkml:slot_uri "http://purl.org/dc/terms/isPartOf"^^xsd:anyURI .
+
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/har_del> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/hasPart"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/har_del"^^xsd:anyURI ;
+    linkml:description "Del-ressurs inkludert i denne ressursen (dct:hasPart)." ;
+    linkml:domain_of <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
+    linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/KatalogisertRessurs> ;
+    linkml:slot_uri "http://purl.org/dc/terms/hasPart"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/har_referanse> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
@@ -2712,15 +2695,6 @@
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/Aktor> ;
     linkml:slot_uri "http://purl.org/dc/terms/publisher"^^xsd:anyURI .
-
-<https://data.norge.no/modellkatalog/brreg-modellkatalog/KatalogisertRessurs> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
-    skos:mappingRelation "dcat:Resource"^^xsd:anyURI ;
-    linkml:class_uri "http://www.w3.org/ns/dcat#Resource"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/KatalogisertRessurs"^^xsd:anyURI ;
-    linkml:description "Basisklasse for ressursar som kan katalogiserast (dcat:Resource)." ;
-    linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Spraak> a linkml:TypeDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
@@ -2807,7 +2781,18 @@
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/KatalogisertRessurs> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
+    skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "dcat:Resource"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/ns/dcat#Resource"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/modelldcat-ap-no/KatalogisertRessurs"^^xsd:anyURI ;
+    linkml:description "Basisklasse for ressursar som kan katalogiserast (dcat:Resource)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
+
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modul> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Module"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Module"^^xsd:anyURI ;
@@ -2852,6 +2837,7 @@
     linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Abstraksjon> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Abstraction"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Abstraction"^^xsd:anyURI ;
@@ -2875,6 +2861,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Assosiasjon> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Association"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Association"^^xsd:anyURI ;
@@ -2898,6 +2885,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Avhengighet> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Dependency"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Dependency"^^xsd:anyURI ;
@@ -2956,6 +2944,7 @@
     linkml:usage_slot_name "betinger" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Kontaktopplysning> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "vcard:Organization"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2006/vcard/ns#Organization"^^xsd:anyURI ;
@@ -2965,6 +2954,7 @@
     linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Lisensdokument> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:LicenseDocument"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/LicenseDocument"^^xsd:anyURI ;
@@ -2975,6 +2965,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/type_concept> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Realisering> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Realization"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Realization"^^xsd:anyURI ;
@@ -2998,6 +2989,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Rolle> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Role"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Role"^^xsd:anyURI ;
@@ -3021,6 +3013,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Sammensetning> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Composition"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Composition"^^xsd:anyURI ;
@@ -3044,6 +3037,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Spesialisering> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Specialization"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Specialization"^^xsd:anyURI ;
@@ -3151,6 +3145,7 @@
     linkml:usage_slot_name "tittel" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Objekttype> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:ObjectType"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#ObjectType"^^xsd:anyURI ;
@@ -3180,6 +3175,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Dokument> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "foaf:Document"^^xsd:anyURI ;
     linkml:class_uri "http://xmlns.com/foaf/0.1/Document"^^xsd:anyURI ;
@@ -3289,11 +3285,11 @@
     linkml:multivalued true ;
     linkml:owner <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellelement> ;
     linkml:range <https://data.norge.no/modellkatalog/brreg-modellkatalog/LangString> ;
-    linkml:required true ;
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
     linkml:usage_slot_name "tittel" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Tidsperiode> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:PeriodOfTime"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/PeriodOfTime"^^xsd:anyURI ;
@@ -3305,6 +3301,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/startdato> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Valg> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Choice"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Choice"^^xsd:anyURI ;
@@ -3381,6 +3378,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Kodeliste> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:CodeList"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#CodeList"^^xsd:anyURI ;
@@ -3398,6 +3396,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Standard> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:Standard"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/Standard"^^xsd:anyURI ;
@@ -3608,6 +3607,7 @@
     linkml:usage_slot_name "tittel" .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Betingelsesregel> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:ConstraintRule"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#ConstraintRule"^^xsd:anyURI ;
@@ -3651,6 +3651,7 @@
     linkml:description "Obligatoriske eigenskapar i ein AP-NO-profil." .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Aktor> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "foaf:Agent"^^xsd:anyURI ;
     linkml:class_uri "http://xmlns.com/foaf/0.1/Agent"^^xsd:anyURI ;
@@ -3673,6 +3674,7 @@
     linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Attributt> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Attribute"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Attribute"^^xsd:anyURI ;
@@ -3709,6 +3711,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Merknad> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Note"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#Note"^^xsd:anyURI ;
@@ -3723,6 +3726,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/EnkelType> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:SimpleType"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#SimpleType"^^xsd:anyURI ;
@@ -3761,6 +3765,11 @@
     linkml:description "Språktagget streng (rdf:langString)." ;
     linkml:uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"^^xsd:anyURI .
 
+<https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/Metadata"^^xsd:anyURI ;
+    linkml:description "Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet." .
+
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/ap-no/common-ap-no"^^xsd:anyURI ;
     linkml:definition_uri "https://data.norge.no/ap-no/common-ap-no/id"^^xsd:anyURI ;
@@ -3794,6 +3803,7 @@
     linkml:description "Anbefalte eigenskapar i ein AP-NO-profil." .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Kodeelement> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:CodeElement"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#CodeElement"^^xsd:anyURI ;
@@ -3819,6 +3829,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/skjult_term> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellelement> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:ModelElement"^^xsd:anyURI ;
     linkml:abstract true ;
@@ -3835,6 +3846,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dcat:Catalog"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/ns/dcat#Catalog"^^xsd:anyURI ;
@@ -3843,7 +3855,7 @@
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_beskrivelse>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_endringsdato>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av_katalog>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_er_del_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_har_del>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_heimeside>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Modellkatalog_identifikator_literal>,
@@ -3859,6 +3871,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Eigenskap> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:Property"^^xsd:anyURI ;
     linkml:abstract true ;
@@ -3881,6 +3894,7 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/id> .
 
 <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell> a linkml:ClassDefinition ;
+    OIO:inSubset <https://data.norge.no/modellkatalog/brreg-modellkatalog/Metadata> ;
     skos:inScheme "https://data.norge.no/ap-no/modelldcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "modelldcatno:InformationModel"^^xsd:anyURI ;
     linkml:class_uri "https://data.norge.no/vocabulary/modelldcatno#InformationModel"^^xsd:anyURI ;
@@ -3891,12 +3905,12 @@
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_beskrivelse>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_dekningsomraade>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_endringsdato>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av_modell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_del_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_erstatta_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_i_samsvar_med>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_er_profil_av>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_erstatter>,
-        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del_modell>,
+        <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_del>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_format>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_har_versjonsnummer>,
         <https://data.norge.no/modellkatalog/brreg-modellkatalog/Informasjonsmodell_heimeside>,

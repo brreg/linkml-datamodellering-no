@@ -70,7 +70,7 @@ URI: [ark:tilknyttetDato](https://schema.fintlabs.no/arkiv/tilknyttetDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:tilknyttetDato |
-| native | https://schema.fintlabs.no/arkiv/:tilknyttetDato |
+| native | https://data.norge.no/fint/fint-arkiv/tilknyttetDato |
 
 
 

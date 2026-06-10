@@ -332,7 +332,7 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:OrdensvurderingAbstrakt |
-| native | https://schema.fintlabs.no/utdanning/:OrdensvurderingAbstrakt |
+| native | https://data.norge.no/fint/fint-utdanning/OrdensvurderingAbstrakt |
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
+URI: [samtbu:tekstdeler](https://data.norge.no/samt/samt-bu/tekstdeler)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:tekstdeler |
-| native | samtbuskole:tekstdeler |
+| self | samtbu:tekstdeler |
+| native | samtbu:tekstdeler |
 
 
 

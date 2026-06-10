@@ -70,7 +70,7 @@ URI: [adm:personalleder](https://schema.fintlabs.no/administrasjon/personalleder
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:personalleder |
-| native | https://schema.fintlabs.no/administrasjon/:personalleder |
+| native | https://data.norge.no/fint/fint-administrasjon/personalleder |
 
 
 

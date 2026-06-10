@@ -70,7 +70,7 @@ URI: [ark:skjermingshjemmel](https://schema.fintlabs.no/arkiv/skjermingshjemmel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:skjermingshjemmel |
-| native | https://schema.fintlabs.no/arkiv/:skjermingshjemmel |
+| native | https://data.norge.no/fint/fint-arkiv/skjermingshjemmel |
 
 
 

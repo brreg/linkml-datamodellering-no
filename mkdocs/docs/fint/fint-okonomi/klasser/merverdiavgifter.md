@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/okonomi/:merverdiavgifter](https://schema.fintlabs.no/okonomi/:merverdiavgifter)
+URI: [https://data.norge.no/fint/fint-okonomi/merverdiavgifter](https://data.norge.no/fint/fint-okonomi/merverdiavgifter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/okonomi/:merverdiavgifter](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/okonomi/:merverdiavgifter |
-| native | https://schema.fintlabs.no/okonomi/:merverdiavgifter |
+| self | https://data.norge.no/fint/fint-okonomi/merverdiavgifter |
+| native | https://data.norge.no/fint/fint-okonomi/merverdiavgifter |
 
 
 

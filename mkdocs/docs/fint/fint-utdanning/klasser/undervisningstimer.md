@@ -70,7 +70,7 @@ URI: [utd:undervisningstimer](https://schema.fintlabs.no/utdanning/undervisnings
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:undervisningstimer |
-| native | https://schema.fintlabs.no/utdanning/:undervisningstimer |
+| native | https://data.norge.no/fint/fint-utdanning/undervisningstimer |
 
 
 

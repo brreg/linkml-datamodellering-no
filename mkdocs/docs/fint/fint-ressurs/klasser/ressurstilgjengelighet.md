@@ -71,7 +71,7 @@ URI: [res:ressurstilgjengelighet](https://schema.fintlabs.no/ressurs/ressurstilg
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:ressurstilgjengelighet |
-| native | https://schema.fintlabs.no/ressurs/:ressurstilgjengelighet |
+| native | https://data.norge.no/fint/fint-ressurs/ressurstilgjengelighet |
 
 
 

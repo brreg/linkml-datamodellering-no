@@ -164,6 +164,12 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -204,6 +210,8 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slots:
@@ -233,6 +241,8 @@ class_uri: dqvno:SubDimension
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slot_usage:

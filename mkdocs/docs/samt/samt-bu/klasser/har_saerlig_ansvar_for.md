@@ -9,7 +9,7 @@ _Elev kontaktlæreren har særlig ansvar for_
 
 
 
-URI: [samtbuskole:har_saerlig_ansvar_for](https://example.no/ontology/skole#har_saerlig_ansvar_for)
+URI: [samtbuskole:harSaerligAnsvarFor](https://example.no/ontology/skole#harSaerligAnsvarFor)
 <!-- no inheritance hierarchy -->
 
 
@@ -36,6 +36,7 @@ URI: [samtbuskole:har_saerlig_ansvar_for](https://example.no/ontology/skole#har_
 | Range | [Elev](elev.md) |
 | Domain | [Kontaktlaerer](kontaktlaerer.md) |
 | Domain Of | [Kontaktlaerer](kontaktlaerer.md) |
+| Slot URI | [samtbuskole:harSaerligAnsvarFor](https://example.no/ontology/skole#harSaerligAnsvarFor) |
 
 ### Cardinality and Requirements
 
@@ -69,8 +70,8 @@ URI: [samtbuskole:har_saerlig_ansvar_for](https://example.no/ontology/skole#har_
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:har_saerlig_ansvar_for |
-| native | samtbuskole:har_saerlig_ansvar_for |
+| self | samtbuskole:harSaerligAnsvarFor |
+| native | samtbu:har_saerlig_ansvar_for |
 
 
 
@@ -84,6 +85,7 @@ description: Elev kontaktlæreren har særlig ansvar for
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
 domain: Kontaktlaerer
+slot_uri: samtbuskole:harSaerligAnsvarFor
 domain_of:
 - Kontaktlaerer
 range: Elev

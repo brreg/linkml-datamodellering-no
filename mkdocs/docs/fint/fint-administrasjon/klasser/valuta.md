@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/administrasjon/:valuta](https://schema.fintlabs.no/administrasjon/:valuta)
+URI: [https://data.norge.no/fint/fint-administrasjon/valuta](https://data.norge.no/fint/fint-administrasjon/valuta)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/administrasjon/:valuta](https://schema.fintlabs
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/administrasjon/:valuta |
-| native | https://schema.fintlabs.no/administrasjon/:valuta |
+| self | https://data.norge.no/fint/fint-administrasjon/valuta |
+| native | https://data.norge.no/fint/fint-administrasjon/valuta |
 
 
 

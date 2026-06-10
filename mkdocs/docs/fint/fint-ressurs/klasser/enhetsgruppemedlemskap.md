@@ -72,7 +72,7 @@ URI: [res:enhetsgruppemedlemskap](https://schema.fintlabs.no/ressurs/enhetsgrupp
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:enhetsgruppemedlemskap |
-| native | https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap |
+| native | https://data.norge.no/fint/fint-ressurs/enhetsgruppemedlemskap |
 
 
 

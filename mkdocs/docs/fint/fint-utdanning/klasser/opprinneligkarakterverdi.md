@@ -70,7 +70,7 @@ URI: [utd:opprinneligKarakterverdi](https://schema.fintlabs.no/utdanning/opprinn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:opprinneligKarakterverdi |
-| native | https://schema.fintlabs.no/utdanning/:opprinneligKarakterverdi |
+| native | https://data.norge.no/fint/fint-utdanning/opprinneligKarakterverdi |
 
 
 

@@ -70,7 +70,7 @@ URI: [res:serienummer](https://schema.fintlabs.no/ressurs/serienummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | res:serienummer |
-| native | https://schema.fintlabs.no/ressurs/:serienummer |
+| native | https://data.norge.no/fint/fint-ressurs/serienummer |
 
 
 

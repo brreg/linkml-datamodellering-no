@@ -70,7 +70,7 @@ URI: [okn:leverandorgruppe](https://schema.fintlabs.no/okonomi/leverandorgruppe)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:leverandorgruppe |
-| native | https://schema.fintlabs.no/okonomi/:leverandorgruppe |
+| native | https://data.norge.no/fint/fint-okonomi/leverandorgruppe |
 
 
 

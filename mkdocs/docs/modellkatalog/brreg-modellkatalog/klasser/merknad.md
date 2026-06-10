@@ -301,6 +301,12 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -341,6 +347,8 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 ```yaml
 name: Merknad
 description: Ei merknad knytt til eit modellelement eller eigenskap.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slots:
 - id
@@ -381,6 +389,8 @@ class_uri: modelldcatno:Note
 ```yaml
 name: Merknad
 description: Ei merknad knytt til eit modellelement eller eigenskap.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 slot_usage:
   annoterer:

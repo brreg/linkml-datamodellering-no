@@ -74,7 +74,7 @@ URI: [utd:klasse](https://schema.fintlabs.no/utdanning/klasse)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:klasse |
-| native | https://schema.fintlabs.no/utdanning/:klasse |
+| native | https://data.norge.no/fint/fint-utdanning/klasse |
 
 
 

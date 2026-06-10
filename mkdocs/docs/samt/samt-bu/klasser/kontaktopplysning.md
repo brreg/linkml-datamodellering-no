@@ -211,6 +211,12 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 ## See Also
@@ -277,6 +283,8 @@ har_kontaktside: https://www.udir.no/tekniskkontakt
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
@@ -302,6 +310,8 @@ class_uri: vcard:Kind
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc

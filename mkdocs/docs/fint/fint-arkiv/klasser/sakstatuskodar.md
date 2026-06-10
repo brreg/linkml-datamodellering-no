@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:sakstatuskodar](https://schema.fintlabs.no/arkiv/:sakstatuskodar)
+URI: [https://data.norge.no/fint/fint-arkiv/sakstatuskodar](https://data.norge.no/fint/fint-arkiv/sakstatuskodar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:sakstatuskodar](https://schema.fintlabs.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:sakstatuskodar |
-| native | https://schema.fintlabs.no/arkiv/:sakstatuskodar |
+| self | https://data.norge.no/fint/fint-arkiv/sakstatuskodar |
+| native | https://data.norge.no/fint/fint-arkiv/sakstatuskodar |
 
 
 

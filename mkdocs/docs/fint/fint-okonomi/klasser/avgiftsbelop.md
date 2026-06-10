@@ -70,7 +70,7 @@ URI: [okn:avgiftsbelop](https://schema.fintlabs.no/okonomi/avgiftsbelop)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:avgiftsbelop |
-| native | https://schema.fintlabs.no/okonomi/:avgiftsbelop |
+| native | https://data.norge.no/fint/fint-okonomi/avgiftsbelop |
 
 
 

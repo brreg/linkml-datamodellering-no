@@ -22,7 +22,7 @@ URI: [utd:eksamen](https://schema.fintlabs.no/utdanning/eksamen)
 | --- | --- | --- |
 | [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -72,7 +72,7 @@ URI: [utd:eksamen](https://schema.fintlabs.no/utdanning/eksamen)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:eksamen |
-| native | https://schema.fintlabs.no/utdanning/:eksamen |
+| native | https://data.norge.no/fint/fint-utdanning/eksamen |
 
 
 

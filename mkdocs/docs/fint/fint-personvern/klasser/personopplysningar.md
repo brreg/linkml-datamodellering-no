@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:personopplysningar](https://schema.fintlabs.no/personvern/:personopplysningar)
+URI: [https://data.norge.no/fint/fint-personvern/personopplysningar](https://data.norge.no/fint/fint-personvern/personopplysningar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/personvern/:personopplysningar](https://schema.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:personopplysningar |
-| native | https://schema.fintlabs.no/personvern/:personopplysningar |
+| self | https://data.norge.no/fint/fint-personvern/personopplysningar |
+| native | https://data.norge.no/fint/fint-personvern/personopplysningar |
 
 
 

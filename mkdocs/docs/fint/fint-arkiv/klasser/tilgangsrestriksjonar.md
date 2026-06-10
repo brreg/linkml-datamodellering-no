@@ -4,7 +4,7 @@
 
 
 
-URI: [https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar](https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar)
+URI: [https://data.norge.no/fint/fint-arkiv/tilgangsrestriksjonar](https://data.norge.no/fint/fint-arkiv/tilgangsrestriksjonar)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar](https://schema.fi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar |
-| native | https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar |
+| self | https://data.norge.no/fint/fint-arkiv/tilgangsrestriksjonar |
+| native | https://data.norge.no/fint/fint-arkiv/tilgangsrestriksjonar |
 
 
 

@@ -70,7 +70,7 @@ URI: [okn:kreditert](https://schema.fintlabs.no/okonomi/kreditert)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:kreditert |
-| native | https://schema.fintlabs.no/okonomi/:kreditert |
+| native | https://data.norge.no/fint/fint-okonomi/kreditert |
 
 
 

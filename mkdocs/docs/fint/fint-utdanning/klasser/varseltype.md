@@ -289,7 +289,7 @@ URI: [utd:Varseltype](https://schema.fintlabs.no/utdanning/Varseltype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:Varseltype |
-| native | https://schema.fintlabs.no/utdanning/:Varseltype |
+| native | https://data.norge.no/fint/fint-utdanning/Varseltype |
 
 
 

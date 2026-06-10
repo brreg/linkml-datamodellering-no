@@ -277,6 +277,12 @@ URI: [modelldcatno:Abstraction](https://data.norge.no/vocabulary/modelldcatno#Ab
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -317,6 +323,8 @@ URI: [modelldcatno:Abstraction](https://data.norge.no/vocabulary/modelldcatno#Ab
 ```yaml
 name: Abstraksjon
 description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slots:
@@ -337,6 +345,8 @@ class_uri: modelldcatno:Abstraction
 ```yaml
 name: Abstraksjon
 description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/modelldcat-ap-no
 is_a: Eigenskap
 slot_usage:

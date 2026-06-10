@@ -20,6 +20,8 @@ URI: [dct:description](http://purl.org/dc/terms/description)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
 | [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
@@ -34,7 +36,7 @@ URI: [dct:description](http://purl.org/dc/terms/description)
 | Property | Value |
 | --- | --- |
 | Range | [LangString](langstring.md) |
-| Domain Of | [Samling](samling.md) |
+| Domain Of | [GeneriskRelasjon](generiskrelasjon.md), [PartitivRelasjon](partitivrelasjon.md), [Samling](samling.md) |
 | Slot URI | [dct:description](http://purl.org/dc/terms/description) |
 
 ### Cardinality and Requirements
@@ -85,6 +87,8 @@ description: Fritekstbeskrivelse av ressursen (dct:description).
 from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:description
 domain_of:
+- GeneriskRelasjon
+- PartitivRelasjon
 - Samling
 range: LangString
 multivalued: true

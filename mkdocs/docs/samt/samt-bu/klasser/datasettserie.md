@@ -552,6 +552,12 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 
 
+## In Subsets
+
+
+* [Metadata](metadata.md)
+
+
 
 
 
@@ -592,6 +598,8 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slots:
@@ -661,6 +669,8 @@ class_uri: dcat:DatasetSeries
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
+in_subset:
+- Metadata
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slot_usage:

@@ -9,7 +9,7 @@ _Rotcontainer for FINT Ressurs-instansar._
 
 
 
-URI: [https://schema.fintlabs.no/ressurs/:RessursContainer](https://schema.fintlabs.no/ressurs/:RessursContainer)
+URI: [https://data.norge.no/fint/fint-ressurs/RessursContainer](https://data.norge.no/fint/fint-ressurs/RessursContainer)
 
 
 
@@ -544,8 +544,8 @@ URI: [https://schema.fintlabs.no/ressurs/:RessursContainer](https://schema.fintl
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/ressurs/:RessursContainer |
-| native | https://schema.fintlabs.no/ressurs/:RessursContainer |
+| self | https://data.norge.no/fint/fint-ressurs/RessursContainer |
+| native | https://data.norge.no/fint/fint-ressurs/RessursContainer |
 
 
 

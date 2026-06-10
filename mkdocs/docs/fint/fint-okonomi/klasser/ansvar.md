@@ -70,7 +70,7 @@ URI: [okn:ansvar](https://schema.fintlabs.no/okonomi/ansvar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | okn:ansvar |
-| native | https://schema.fintlabs.no/okonomi/:ansvar |
+| native | https://data.norge.no/fint/fint-okonomi/ansvar |
 
 
 

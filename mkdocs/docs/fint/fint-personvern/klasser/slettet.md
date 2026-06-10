@@ -71,7 +71,7 @@ URI: [pvn:slettet](https://schema.fintlabs.no/personvern/slettet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:slettet |
-| native | https://schema.fintlabs.no/personvern/:slettet |
+| native | https://data.norge.no/fint/fint-personvern/slettet |
 
 
 

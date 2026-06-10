@@ -70,7 +70,7 @@ URI: [pvn:aktiv](https://schema.fintlabs.no/personvern/aktiv)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | pvn:aktiv |
-| native | https://schema.fintlabs.no/personvern/:aktiv |
+| native | https://data.norge.no/fint/fint-personvern/aktiv |
 
 
 

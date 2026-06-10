@@ -70,7 +70,7 @@ URI: [utd:brevtype](https://schema.fintlabs.no/utdanning/brevtype)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:brevtype |
-| native | https://schema.fintlabs.no/utdanning/:brevtype |
+| native | https://data.norge.no/fint/fint-utdanning/brevtype |
 
 
 

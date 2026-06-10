@@ -76,7 +76,7 @@ URI: [ark:saksaar](https://schema.fintlabs.no/arkiv/saksaar)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:saksaar |
-| native | https://schema.fintlabs.no/arkiv/:saksaar |
+| native | https://data.norge.no/fint/fint-arkiv/saksaar |
 
 
 

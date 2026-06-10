@@ -71,7 +71,7 @@ URI: [utd:fraversregistreringer](https://schema.fintlabs.no/utdanning/fraversreg
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:fraversregistreringer |
-| native | https://schema.fintlabs.no/utdanning/:fraversregistreringer |
+| native | https://data.norge.no/fint/fint-utdanning/fraversregistreringer |
 
 
 

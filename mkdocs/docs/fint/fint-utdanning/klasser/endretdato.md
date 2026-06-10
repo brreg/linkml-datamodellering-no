@@ -70,7 +70,7 @@ URI: [utd:endretDato](https://schema.fintlabs.no/utdanning/endretDato)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:endretDato |
-| native | https://schema.fintlabs.no/utdanning/:endretDato |
+| native | https://data.norge.no/fint/fint-utdanning/endretDato |
 
 
 

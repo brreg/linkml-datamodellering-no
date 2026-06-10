@@ -71,7 +71,7 @@ URI: [ark:kontaktperson](https://schema.fintlabs.no/arkiv/kontaktperson)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:kontaktperson |
-| native | https://schema.fintlabs.no/arkiv/:kontaktperson_str |
+| native | https://data.norge.no/fint/fint-arkiv/kontaktperson_str |
 
 
 

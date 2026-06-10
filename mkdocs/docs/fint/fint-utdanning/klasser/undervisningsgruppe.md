@@ -73,7 +73,7 @@ URI: [utd:undervisningsgruppe](https://schema.fintlabs.no/utdanning/undervisning
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:undervisningsgruppe |
-| native | https://schema.fintlabs.no/utdanning/:undervisningsgruppe |
+| native | https://data.norge.no/fint/fint-utdanning/undervisningsgruppe |
 
 
 

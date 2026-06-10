@@ -22,7 +22,7 @@ URI: [utd:klassemedlemskap](https://schema.fintlabs.no/utdanning/klassemedlemska
 | --- | --- | --- |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -73,7 +73,7 @@ URI: [utd:klassemedlemskap](https://schema.fintlabs.no/utdanning/klassemedlemska
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | utd:klassemedlemskap |
-| native | https://schema.fintlabs.no/utdanning/:klassemedlemskap |
+| native | https://data.norge.no/fint/fint-utdanning/klassemedlemskap |
 
 
 

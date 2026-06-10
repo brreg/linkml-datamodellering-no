@@ -262,6 +262,7 @@ Name: fint-okonomi
 | JSON-LD kontekst | [fint-okonomi-context.jsonld](fint-okonomi-context.jsonld) |
 | JSON Schema | [fint-okonomi-schema.json](fint-okonomi-schema.json) |
 | OWL ontologi | [fint-okonomi-ontology.ttl](fint-okonomi-ontology.ttl) |
+| RDF/Turtle skjema | [fint-okonomi-schema.ttl](fint-okonomi-schema.ttl) |
 | Python-klasser | [fint-okonomi-model.py](fint-okonomi-model.py) |
 | Protobuf-skjema | [fint-okonomi-schema.proto](fint-okonomi-schema.proto) |
 | ER-diagram (Mermaid) | [fint-okonomi-erdiagram.md](fint-okonomi-erdiagram.md) |

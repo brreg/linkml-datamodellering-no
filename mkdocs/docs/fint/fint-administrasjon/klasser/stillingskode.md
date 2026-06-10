@@ -70,7 +70,7 @@ URI: [adm:stillingskode](https://schema.fintlabs.no/administrasjon/stillingskode
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:stillingskode |
-| native | https://schema.fintlabs.no/administrasjon/:stillingskode |
+| native | https://data.norge.no/fint/fint-administrasjon/stillingskode |
 
 
 

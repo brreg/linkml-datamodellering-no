@@ -4,7 +4,7 @@
 
 
 
-URI: [samtbuskole:utgivere](https://example.no/ontology/skole#utgivere)
+URI: [samtbu:utgivere](https://data.norge.no/samt/samt-bu/utgivere)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [samtbuskole:utgivere](https://example.no/ontology/skole#utgivere)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | samtbuskole:utgivere |
-| native | samtbuskole:utgivere |
+| self | samtbu:utgivere |
+| native | samtbu:utgivere |
 
 
 

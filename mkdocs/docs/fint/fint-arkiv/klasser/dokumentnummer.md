@@ -70,7 +70,7 @@ URI: [ark:dokumentnummer](https://schema.fintlabs.no/arkiv/dokumentnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | ark:dokumentnummer |
-| native | https://schema.fintlabs.no/arkiv/:dokumentnummer |
+| native | https://data.norge.no/fint/fint-arkiv/dokumentnummer |
 
 
 

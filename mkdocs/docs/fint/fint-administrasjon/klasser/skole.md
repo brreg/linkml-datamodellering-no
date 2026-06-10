@@ -70,7 +70,7 @@ URI: [adm:skole](https://schema.fintlabs.no/administrasjon/skole)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adm:skole |
-| native | https://schema.fintlabs.no/administrasjon/:skole |
+| native | https://data.norge.no/fint/fint-administrasjon/skole |
 
 
 
