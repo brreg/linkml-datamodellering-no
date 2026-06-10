@@ -51,8 +51,8 @@ validation:
     omitted_files: ignore
 
 nav:
-  - Heim: index.md
   - Rettleiingar:
+      - index.md
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
