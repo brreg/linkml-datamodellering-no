@@ -1,0 +1,236 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    "src/linkml/ap-no/cpsv-ap-no": {
+      "component": "cpsv-ap-no",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ap-no/dcat-ap-no": {
+      "component": "dcat-ap-no",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ap-no/dqv-ap-no": {
+      "component": "dqv-ap-no",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ap-no/modelldcat-ap-no": {
+      "component": "modelldcat-ap-no",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ap-no/skos-ap-no": {
+      "component": "skos-ap-no",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/begrepskatalog/brreg-begrepskatalog": {
+      "component": "brreg-begrepskatalog",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fair/fair-metadata": {
+      "component": "fair-metadata",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fair/fair-metadata/fair-metadata-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-administrasjon": {
+      "component": "fint-administrasjon",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-arkiv": {
+      "component": "fint-arkiv",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-arkiv/fint-arkiv-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-common": {
+      "component": "fint-common",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-common/fint-common-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-okonomi": {
+      "component": "fint-okonomi",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-okonomi/fint-okonomi-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-personvern": {
+      "component": "fint-personvern",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-personvern/fint-personvern-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-ressurs": {
+      "component": "fint-ressurs",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-ressurs/fint-ressurs-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/fint/fint-utdanning": {
+      "component": "fint-utdanning",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/fint/fint-utdanning/fint-utdanning-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/modellkatalog/brreg-modellkatalog": {
+      "component": "brreg-modellkatalog",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/referanse": {
+      "component": "referanse",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/referanse/referanse-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ngr/ngr-adresse": {
+      "component": "ngr-adresse",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ngr/ngr-eiendom": {
+      "component": "ngr-eiendom",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ngr/ngr-eiendom/ngr-eiendom-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ngr/ngr-person": {
+      "component": "ngr-person",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ngr/ngr-person/ngr-person-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/ngr/ngr-virksomhet": {
+      "component": "ngr-virksomhet",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/ngr/ngr-virksomhet/ngr-virksomhet-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "src/linkml/oreg/register-over-aksjeeiere": {
+      "component": "register-over-aksjeeiere",
+      "release-type": "simple",
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml",
+          "jsonpath": "$.version"
+        }
+      ]
+    }
+  }
+}

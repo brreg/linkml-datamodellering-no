@@ -231,6 +231,26 @@ Nokre modellar (t.d. `referanse-schema.yaml`) har versjonsfelt, medan andre mang
 
 ---
 
+## LLM-arbeidsflyt: utkast til commit-melding
+
+Kvar gong ein LLM-agent utfører ein spesifikasjon frå `specs/backlog/`, skal den
+avslutte med eit utkast til commit-melding i conventional commits-format. Dette
+gjer det enkelt for brukaren å velje rett type og scope utan å kjenne formatet utanåt.
+
+Instruksjonen skal inn i `CLAUDE.md` slik at all LLM-assistert spec-gjennomføring
+følgjer same mønster:
+
+```markdown
+Når alle tiltak i ein spesifikasjon er utførte, generer eit utkast til commit-melding
+i conventional commits-format (sjå `specs/backlog/conventional-commits-modellversjonering.md`):
+
+<type>(<scope>): <skildring>
+
+Eksempel: feat(ngr-adresse): legg til postnummer-slot
+```
+
+---
+
 ## Prioritert tiltaksliste
 
 | # | Tiltak | Avhengigheit | Prioritet |
@@ -242,3 +262,37 @@ Nokre modellar (t.d. `referanse-schema.yaml`) har versjonsfelt, medan andre mang
 | 5 | Legg til `release-please`-workflow i GitHub Actions | Tiltak 4 | Medium |
 | 6 | Generer initial `.release-please-manifest.json` frå eksisterande versjonar | Tiltak 4 | Medium |
 | 7 | Krev `version:` i manifest-validering for `publish_external: true`-modellar | Tiltak 5 | Lav |
+| 8 | Legg til instruksjon i `CLAUDE.md` om å generere commit-meldings-utkast etter spec-gjennomføring | — | Høg |
+
+---
+
+## Utført
+
+Utført 2026-06-10.
+
+**Tiltak 1 — `CONTRIBUTING.md`:** Ny seksjon «Commit-meldingar» med tabell over typar og
+semver-effekt, scope-konvensjon og døme. Lenke til Conventional Commits-standarden.
+
+**Tiltak 2 — commitlint i CI:** Ny `commitlint`-jobb i `validate.yml`, køyrer berre på
+pull requests, nyttar `node:22-alpine`-container utan lokal installasjon.
+
+**Tiltak 3 — `bump-version.sh`:** Oppretta i `src/assets/scripts/`. Finn siste tagg per
+modell, les commits, bestemmer bump-nivå (major/minor/patch/none), oppdaterer `version:`
+i schema-YAML og lagar Git-tagg. Støttar `--dry-run`.
+
+**Tiltak 4 — `release-please-config.json`:** Generert for alle 21 skjema med `version:`-felt
+(inkl. dei fem NGR/oreg-skjemaa som vart lagt til i tiltak 7).
+
+**Tiltak 5 — `release-please.yml`:** Ny GitHub Actions-workflow på push til `main`.
+
+**Tiltak 6 — `.release-please-manifest.json`:** Generert frå eksisterande `version:`-verdiar
+i alle skjema.
+
+**Tiltak 7 — krav om `version:` for publish_external:** Fem skjema mangla `version:`
+(`ngr-adresse`, `ngr-eiendom`, `ngr-person`, `ngr-virksomhet`, `register-over-aksjeeiere`) —
+alle fekk `version: "1.0.0"`. Ny `check-publish-version`-jobb i `validate.yml` feilar CI
+viss eit `publish_external: true`-skjema manglar `version:`.
+
+**Avvik:** commitlint køyrer i `validate.yml` (ikkje eigen workflow) for å halde
+CI-strukturen enkel. Validering av commit-format skjer berre på pull requests, ikkje på
+direkte push til `main`.

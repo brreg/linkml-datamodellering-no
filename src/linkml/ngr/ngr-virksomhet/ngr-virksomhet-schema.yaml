@@ -1,5 +1,6 @@
 id: https://data.norge.no/ngr/ngr-virksomhet
 name: ngr-virksomhet
+version: "1.0.0"
 title: Nasjonale grunndata – Virksomhet
 description: >-
   Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast).

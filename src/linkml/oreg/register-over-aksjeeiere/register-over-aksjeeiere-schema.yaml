@@ -1,5 +1,6 @@
 id: https://example.no/ontology/aksje-eierskap
 name: register-over-aksjeeiere
+version: "1.0.0"
 title: Aksje- og eigarskapsmodell
 description: >
   LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar.

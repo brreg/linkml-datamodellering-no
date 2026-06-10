@@ -14,6 +14,47 @@ on:
 
 jobs:
 
+  check-publish-version:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - name: Krev version:-felt i alle publish_external-skjema
+        run: |
+          fail=0
+          for mf in $(find src/linkml -name "manifest.yaml"); do
+            grep -q "publish_external: true" "$mf" || continue
+            grep -q "generators:" "$mf" || continue
+            dir=$(dirname "$mf")
+            schema=$(find "$dir" -maxdepth 1 -name "*-schema.yaml" | head -1)
+            [[ -z "$schema" ]] && continue
+            if ! grep -q "^version:" "$schema"; then
+              echo "FEIL: $schema manglar version:-felt (publish_external: true)"
+              fail=1
+            fi
+          done
+          exit $fail
+
+  commitlint:
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Valider commit-meldingar (conventional commits)
+        run: |
+          podman run --rm \
+            -v "$PWD:/repo" -w /repo \
+            --entrypoint="" \
+            node:22-alpine \
+            sh -c "npm install --save-dev @commitlint/cli @commitlint/config-conventional 2>/dev/null && \
+              echo 'module.exports={extends:[\"@commitlint/config-conventional\"]}' > commitlint.config.js && \
+              npx commitlint --from origin/${{ github.base_ref }} --to HEAD"
+
   checkout-source:
     runs-on: ubuntu-22.04
     permissions:

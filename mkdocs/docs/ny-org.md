@@ -126,7 +126,7 @@ før PR-en kan mergast.
 
 ## Tverretatleg samarbeid
 
-### Importere ein annan org sin AP-NO-profil
+### Importere ap-no profil
 
 Alle AP-NO-profilar i `src/linkml/ap-no/` er felles infrastruktur og kan importerast
 av alle domenemodeller uavhengig av eigar-org:
@@ -147,6 +147,8 @@ Breaking changes (fjerne/endre eksisterande slottar eller klasser) krev ein RFC-
 med 14 dagars diskusjonsperiode — sjå `GOVERNANCE.md` for detaljar.
 
 ### Referere til ein annan org sin modell
+
+Alle modellar i dette repoet er offentlige og kan gjenbrukes i andre modellar.
 
 Bruk `schema_id`-URIen frå den andre org sin modell som `slot_uri` eller `class_uri`:
 
