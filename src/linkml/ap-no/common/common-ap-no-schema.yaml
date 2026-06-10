@@ -5,6 +5,12 @@ description: >-
   Felles typar, subsets, klassar og slots som går igjen i alle norske
   W3C-applikasjonsprofiler (AP-NO). Importerast av dei einskilde profilane.
 
+annotations:
+  utgiver: https://data.norge.no/organizations/991825827
+  endringsdato: "2026-06-10"
+  utgivelsesdato: "2023-01-01"
+  status: http://purl.org/adms/status/UnderDevelopment
+
 prefixes:
   linkml:  https://w3id.org/linkml/
   capno:   https://data.norge.no/ap-no/common-ap-no/

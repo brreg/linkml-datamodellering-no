@@ -210,3 +210,8 @@ instance_checks:
     pattern: "^https://data\\.norge\\.no/organizations/\\d{9}$"
     known_values:
       - https://data.norge.no/organizations/974760673
+      - https://data.norge.no/organizations/991825827
+      - https://data.norge.no/organizations/971040238
+      - https://data.norge.no/organizations/974761076
+      - https://data.norge.no/organizations/971032146
+      - https://data.norge.no/organizations/985870714

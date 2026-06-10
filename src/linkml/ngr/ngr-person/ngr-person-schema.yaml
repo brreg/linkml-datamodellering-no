@@ -7,6 +7,12 @@ description: >-
   eigarrettar og kontaktopplysningar frå Folkeregisteret og KRR.
   Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
 
+annotations:
+  utgiver: https://data.norge.no/organizations/974761076
+  endringsdato: "2026-06-10"
+  utgivelsesdato: "2023-01-01"
+  status: http://purl.org/adms/status/UnderDevelopment
+
 prefixes:
   linkml:  https://w3id.org/linkml/
   ngrp:    https://data.norge.no/vocabulary/ngr-person#
