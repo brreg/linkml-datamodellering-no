@@ -6,7 +6,7 @@ description: >-
   med lenking framfor inlining.
   Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
 
-version: "2.0"
+version: "2.0.0"
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
