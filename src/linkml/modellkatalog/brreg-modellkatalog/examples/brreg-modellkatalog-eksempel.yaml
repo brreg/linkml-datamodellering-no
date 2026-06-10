@@ -1,4 +1,4 @@
-modellkatalogar:
+modellkataloger:
   - id: https://example.org/modellkatalogar/eksempel-katalog
     tittel:
       - "Eksempel – Modellkatalog"
@@ -16,7 +16,7 @@ modellkatalogar:
       - http://publications.europa.eu/resource/authority/language/NOB
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-informasjonsmodellar:
+informasjonsmodeller:
   - id: https://example.org/modellkatalogar/eksempel-katalog/eksempel-modell
     tittel:
       - "Eksempelmodell"
@@ -31,11 +31,11 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/naering-og-sysselsetting
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-aktorer:
+aktoerer:
   - id: https://example.org/kontakt/modellforvaltning
-    namn_aktor:
+    navn_aktoer:
       - "Eksempelorganisasjon – Modellforvaltning"
 
   - id: https://data.norge.no/organizations/974760673
-    namn_aktor:
+    navn_aktoer:
       - "Registerenheten i Brønnøysund"

@@ -24,17 +24,17 @@ classes:
   ModellkatalogContainer:
     tree_root: true
     attributes:
-      modellkatalogar:
+      modellkataloger:
         range: Modellkatalog
         multivalued: true
         inlined: true
         inlined_as_list: true
-      informasjonsmodellar:
+      informasjonsmodeller:
         range: Informasjonsmodell
         multivalued: true
         inlined: true
         inlined_as_list: true
-      objekttypar:
+      objekttyper:
         range: Objekttype
         multivalued: true
         inlined: true
@@ -44,13 +44,13 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      eigenskapar:
-        range: Eigenskap
+      egenskaper:
+        range: Egenskap
         multivalued: true
         inlined: true
         inlined_as_list: true
-      aktorer:
-        range: Aktor
+      aktoerer:
+        range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true

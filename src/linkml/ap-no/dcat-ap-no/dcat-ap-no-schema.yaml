@@ -112,7 +112,7 @@ classes:
   #     - id
   #     - tittel
   #     - har_referanse
-  #     - har_versjonsnummer
+  #     - versjonsnummer
   #   slot_usage:
   #     tittel:
   #       required: true
