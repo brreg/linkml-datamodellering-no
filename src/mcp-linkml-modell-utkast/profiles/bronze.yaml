@@ -1,9 +1,9 @@
 version: 1
 description: >
-  AP-NO-profil for JSON Schema → LinkML-konvertering.
-  Implementerer prinsippa i CLAUDE.md for norsk offentleg sektor:
-  globale slots, lenking framfor inlining, norske klassenamn,
-  obligatorisk/anbefalt/valgfri-subsets og containerklasse med tree_root.
+  Bronze-profil for JSON Schema → LinkML-konvertering.
+  Implementerer grunnkrava i bronze-policy: globale slots, lenking framfor inlining,
+  norske klassenamn, obligatorisk/anbefalt/valgfri-subsets og containerklasse med tree_root.
+  Det genererte skjemaet passerer make mcp-validate POLICY=bronze utan manuell redigering.
 
 naming:
   class_uri_prefix: "ex"

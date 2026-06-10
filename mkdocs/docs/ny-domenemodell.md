@@ -29,9 +29,13 @@ Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodeller
 ### 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
 
-`make mcp-generate SCHEMA=tmp/modell.json`
+```bash
+make mcp-generate SCHEMA=tmp/modell.json
+# Silver-annotasjonar (utgiver, endringsdato, status) automatisk:
+make mcp-generate SCHEMA=tmp/modell.json PROFILE=silver
+```
 
- → genererer tmp/modell-schema.yaml. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
+→ genererer `tmp/modell-schema.yaml`. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
 ### 2 — Rediger skjemaet
 
@@ -55,9 +59,11 @@ make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLIC
 
 | Policy | Sjekkar |
 |---|---|
-| [`bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) | `id`, `name`, `description`; alle klasser har identifikator og begrepsreferanse til felles begrepskatalog |
-| [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#s%C3%B8lv) | Bronze + skjemaet inneheld obligatoriske klasser i DCAT-AP-NO og DQV-AP-NO |
-| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
+| [`bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/README.md) | `id`, `name`, `title` (error); `default_prefix` (https-URI, error); `description`, `version`, `license` (warning); PascalCase-klasser, snake_case-slots, `class_uri`, `slot_uri`, `begrepsidentifikator` (warning) |
+| [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/README.md) | Bronze + `annotations.utgiver`, `annotations.endringsdato`, `annotations.status` (warning) + DCAT-AP-NO/DQV-AP-NO strukturkrav (error) |
+| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/README.md) | Silver + FAIR F1–R1.3: full semantisk interoperabilitet |
+
+Sjå [Valideringsreglar](valideringregler.md) for fullstendig oversikt over kva som vert sjekka på kvart nivå.
 
 ### 4 — Full testsuite
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
@@ -200,10 +206,13 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] id er ein HTTPS-URI
 [ ] title og description er sett på skjemanivå
 [ ] version er sett (t.d. "1.0.0")
+[ ] default_prefix er ein absolutt HTTPS-URI med avsluttande /
 [ ] Importerer AP-NO-profil(ar) — ikkje common-ap-no direkte
 [ ] Klasse- og slotnamn er på norsk bokmål
 [ ] Alle klasser (unntatt tree_root) har class_uri
 [ ] Alle globale slots har slot_uri
 [ ] make mcp-validate POLICY=bronze gir 0 feil
+[ ] Om data_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
+    annotations.utgivelsesdato og annotations.status er fylt inn
 [ ] make test køyrer utan feil
 ```

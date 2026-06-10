@@ -1,8 +1,6 @@
-# mcp-linkml-validator
+# Valideringsreglar
 
-MCP-server for policy-basert validering av LinkML-skjema.
-
-Valideringa køyrer i tre steg, men **lint og instansvalidering køyrer berre éin gong — på bronsenivå**. Silver og gull arvar bronse og legg berre til fleire policy-sjekkar; dei køyrer ikkje lint eller instansvalidering på nytt.
+Validering av LinkML-skjema køyrer i tre steg, men **lint og instansvalidering køyrer berre éin gong — på bronsenivå**. Silver og gull arvar bronse og legg berre til fleire policy-sjekkar; dei køyrer ikkje lint eller instansvalidering på nytt.
 
 | Steg | Bronze | Silver | Gold |
 |---|---|---|---|
@@ -124,7 +122,7 @@ som har ein tilhøyrande datafil.
 ### Felles Begrepskatalog (`felles-begrepskatalog`)
 
 For begrepskatalogskjema som publiserer til [data.norge.no/concepts](https://data.norge.no/concepts)
-via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/) for full rettleiing.
+via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md) for full rettleiing.
 
 **Import og prefiks:**
 
@@ -159,7 +157,7 @@ via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.g
 | warning | `skos:scopeNote` | `begrep_har_merknad` |
 | warning | `skos:altLabel` | `begrep_har_tillate_term` |
 
-**`Definisjon`-, `AssosiativRelasjon`-, `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav** er dokumenterte i [`policies/felles-begrepskatalog.yaml`](policies/felles-begrepskatalog.yaml).
+**`Definisjon`-, `AssosiativRelasjon`-, `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav** er dokumenterte i [`policies/felles-begrepskatalog.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml).
 
 **Instanssjekk:**
 
@@ -172,7 +170,7 @@ via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.g
 ### Felles Datakatalog (`felles-datakatalog`)
 
 For modellkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
-via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/) for full rettleiing.
+via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](publisering-modell.md) for full rettleiing.
 
 **Import og prefiks:**
 
@@ -244,7 +242,9 @@ make mcp-validate SCHEMA=... POLICY=bronze
 make mcp-validate SCHEMA=... POLICY=felles-begrepskatalog INSTANCE=...
 ```
 
-## MCP-verktøy
+---
+
+## Teknisk referanse — MCP-verktøy
 
 | Verktøy | Skildring |
 |---|---|

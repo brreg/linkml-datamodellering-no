@@ -7,6 +7,12 @@ description: >
   kontaktlærergrupper, utdanningsprogram, programområde, vurdering, lærling og OT.
 version: "4.0.20"
 
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-06-10"
+  utgivelsesdato: "2023-01-01"
+  status: http://purl.org/adms/status/Completed
+
 default_prefix: https://data.norge.no/fint/fint-utdanning/
 default_range: string
 

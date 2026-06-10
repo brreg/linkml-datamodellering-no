@@ -156,6 +156,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
         schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples \
         check-published-uris check-prereqs \
+        update-modellkatalog \
         gource-build gource-preview gource-video _gource-render
 
 all: test
@@ -343,6 +344,14 @@ clean:
 	@echo "$(CLR_HDR)*** make clean$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	rm -rf $(GEN_DIR)
+
+# Oppdater Informasjonsmodell-innslag i modellkatalogen frå schema.annotations.*.
+# Les annotations frå alle skjema med annotations.utgiver og skriv til katalogdatafila.
+update-modellkatalog:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make update-modellkatalog$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	python3 src/assets/scripts/update-modellkatalog.py
 
 # Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make <domain>-targets er køyrde fyrst.
@@ -748,14 +757,14 @@ linkml-gen-run: mcp-mod-run
 linkml-gen-smoke: mcp-mod-smoke
 linkml-gen-test-converter: mcp-mod-test
 
-# Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]
+# Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
 mcp-generate:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]"; exit 1)
+	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
 	@python3 -c "\
 import json; \
 content = open('$(SCHEMA)').read(); \
 fmt = '$(or $(FORMAT),json-schema)'; \
-profile = '$(or $(PROFILE),default)'; \
+profile = '$(or $(PROFILE),bronze)'; \
 msgs = [ \
   {'jsonrpc':'2.0','id':1,'method':'initialize','params':{}}, \
   {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'generate_linkml','arguments':{'inputFormat':fmt,'inputContent':content,'schemaId':'https://example.org/generated','schemaName':'generated','profile':profile}}}, \

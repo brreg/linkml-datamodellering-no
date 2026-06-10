@@ -5,6 +5,12 @@ description: >-
   LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
   Basert på https://data.norge.no/specification/xkos-ap-no
 
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-06-10"
+  utgivelsesdato: "2023-01-01"
+  status: http://purl.org/adms/status/Completed
+
 prefixes:
   linkml:   https://w3id.org/linkml/
   xkos:     http://rdf-vocabulary.ddialliance.org/xkos#
