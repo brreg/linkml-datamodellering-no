@@ -1,5 +1,20 @@
 # Plan: Fiks release-please-feil
 
+## Utført
+
+Utført 2026-06-10. Alle tiltak gjennomførte.
+
+**Kva som vart gjort:**
+- `issues: write` lagt til i `permissions:`-blokka i `.github/workflows/release-please.yml` — nødvendig fordi `release-please-action@v5` set alle ulistad scope til `none` når `permissions:` er eksplisitt spesifisert, noko som gav HTTP 401 ved etikettering av release-PR-ar
+- `samt-bu` lagt til i `release-please-config.json` og `.release-please-manifest.json` med versjon `1.0.0`
+- 22 bootstrap-taggar oppretta lokalt (`cpsv-ap-no-v1.0.0` … `samt-bu-v1.0.0`) — må pushast med `git push origin --tags`
+
+**Avvik frå plan:**
+- Bootstrap-tagg for `samt-bu` (tiltak 4) vart oppretta samstundes med dei andre 21 taggane i tiltak 2 — ikkje som eit separat steg
+- Verifisering (tiltak 5) avheng av at brukaren pushar taggane og triggar workflowen manuelt
+
+---
+
 ## Bakgrunn
 
 `release-please`-workflowen feiler med to uavhengige rotårsaker:
