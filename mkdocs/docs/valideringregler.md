@@ -96,7 +96,7 @@ Gyldige verdiar for `annotations.status`: `http://purl.org/adms/status/UnderDeve
 
 ### Gull
 
-Arvar sølv og bronse. Implementerer FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable). Alle brot gir `error` — også dei som er åtvarslane på bronse.
+Arvar sølv og bronse. Implementerer FAIR-prinsippa (**F**indable, **A**ccessible, **I**nteroperable, **R**eusable). Alle brot gir `error` — også dei som er åtvarslane på bronse.
 
 | FAIR | Krav | Kode |
 |---|---|---|

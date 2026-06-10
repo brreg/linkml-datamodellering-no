@@ -1,5 +1,6 @@
 id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
+version: "1.0.0"
 title: Nasjonale grunndata – Adresse
 description: >-
   Domenemodell for norske adressar basert på Nasjonale grunndata (utkast).

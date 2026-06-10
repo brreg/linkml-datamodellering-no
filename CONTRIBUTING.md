@@ -38,6 +38,36 @@ make <domain>          # t.d. make ngr, make ap-no, make fair
 make docs-serve        # start lokal dokumentasjonsportal på http://localhost:8000
 ```
 
+## Commit-meldingar
+
+Repoet nyttar [Conventional Commits](https://www.conventionalcommits.org/)-formatet:
+
+```
+<type>(<scope>): <skildring>
+```
+
+| Type | Semver-effekt | Bruksområde |
+|---|---|---|
+| `feat` | MINOR | Ny klasse, nytt slot |
+| `fix` | PATCH | Rettjing av feil range, URI o.l. |
+| `refactor` | PATCH | Omstrukturering utan semantisk endring |
+| `docs` | — | Skildringar, README, portalinnhald |
+| `chore` | — | CI, skript, manifest utan modellendringar |
+| `feat!` / `fix!` | MAJOR | Brotande endring (legg til `!` eller `BREAKING CHANGE:`-footer) |
+
+**Scope** er modellnamnet i kebab-case, same som katalognamnet under `src/linkml/`:
+
+```
+feat(ngr-adresse): legg til postnummer-slot
+fix(dcat-ap-no): rett feil range på kontaktpunkt-slot
+feat!(fint-administrasjon): fjern utgått klasse
+docs(samt-bu): oppdater skildringar
+chore(*): oppdater CI-konfigurasjon
+```
+
+Bruk `*` for endringar som ikkje tilhøyrer éin bestemt modell. CI validerer
+commit-format automatisk via commitlint.
+
 ## Pull request
 
 1. Lag ein ny branch frå `main`

@@ -3,6 +3,7 @@
 ## Førende prinsipper
 - Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
 - Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal spesifikasjonsfila oppdaterast med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), og deretter flyttast til `specs/done/`.
+- Etter at ein spesifikasjon er utført, generer alltid eit utkast til commit-melding i conventional commits-format (sjå `specs/backlog/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme): `<type>(<scope>): <skildring>`
 
 ## LinkML Importhierarki
 

@@ -22,10 +22,8 @@ conventional commits for versjonering av modeller (plan laga)
 
 generere xml (vurdere avrotize mot andre alternativer)
 
-validere br krav til metadata
+validere br krav til metadata (har laga validering av Digdir krav til metadata)
 
-lage CODEOWNERS.md der kvar modell får sin egen owner. I generering av modellkataloger src/assets/scripts/update-modellkatalog.py må vi ta hensymn til modelleigerskap i CODEOWNERS og gruppere modeller som eiges av samme organisasjon i samme modellkatalog. Det skal altså lages en modellkatalog pr organisasjon som eiger modeller i CODEOWNERS.md. Lag dokumentasjon som forklarer kva som skal til for at ein ny organisasjon skal ta ibruk repoet.
-I tillegg må konseptet legge tilrette for at det skal være enkelt å kunne samarbeide om modellutvikling på tvers av organisasjoner. Vurder om vi må oppdatere CONTRIBUTING.md og om vi treng ei GOVERNANCE.md fil. Skriv til ./specs/backlog
 
 Eit av måla med dette repoet er å realisere Digdirs Rammeverk for informasjonsforvaltning som eit nasjonalt verktøy.
 Lag en spesifikasjon som kartlegger hvor godt dette repoet stemmer overens med Digdirs Rammeverk for informasjonsforvaltning:
