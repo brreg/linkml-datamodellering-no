@@ -161,3 +161,23 @@ kjem inn — det er lettare å etablere styringsmodellen tidleg enn å innføre 
 
 Anbefalt timing: etter tiltak 1 i `multi-org-eigarskap.md` (CODEOWNERS.md er oppretta)
 og `ny-org.md`-rettleiinga er skriven.
+
+---
+
+## Utført
+
+Utført 2026-06-10.
+
+**Tiltak 1 — `GOVERNANCE.md`:** Oppretta i repo-rota med alle spesifiserte seksjonar:
+roller (repo-administrator, katalogeigarleiing, bidragsytar), delt infrastruktur vs.
+domenemodeller, onboarding-krav, RFC-prosess (14 dagars diskusjonsperiode),
+versjonspolitikk for AP-NO-profilar og konflikthandtering.
+
+**Tiltak 2 — `CONTRIBUTING.md`:** Oppdatert med:
+- Ny seksjon «Kven kan bidra» (registrerte org-ar, individuelle bidragsytarar, fork-bidrag)
+- Ny seksjon «Eigarskap og kodegjennomgang» med lenkje til GOVERNANCE.md
+- «Ny domenemodell»-seksjon peikar no til `mkdocs/docs/ny-domenemodell.md` (var `specs/ny-domenemodell.md`)
+- Lenkje til `mkdocs/docs/ny-org.md` for nye org-ar
+- PR-seksjon oppdatert med krav om `make lint`, `make validate-instance` og `make mcp-validate POLICY=bronze` før PR
+
+Ingen avvik frå opphavleg plan.

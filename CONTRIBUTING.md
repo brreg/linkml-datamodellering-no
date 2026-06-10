@@ -1,43 +1,35 @@
 # Bidra til linkml-datamodellering-no
 
-## Føresetnader
+## Kven kan bidra
 
-- [Podman](https://podman.io/) (rootless) installert i WSL2
-- GNU Make
-- Git
+Repoet er ope, og alle kan bidra ved å sende PR frå ein fork. Det er to typar bidragsytarar:
 
-Ingen avhengigheiter skal installerast lokalt — alt køyrer som containere.
+- **Registrerte organisasjonar** — verksemder registrert i `CODEOWNERS.md` med
+  eigen modellkatalog. Sjå [GOVERNANCE.md](GOVERNANCE.md) for korleis ein org
+  vert registrert.
+- **Individuelle bidragsytarar** — alle som vil bidra med modellar, feilretting
+  eller verktøyutvikling, anten som del av ein registrert org eller på eiga hand.
 
-## Kjem i gang
+## Kom i gang
 
-```bash
-git clone git@github.com:brreg/linkml-datamodellering-no.git
-cd linkml-datamodellering-no
+Om du representerer ein ny organisasjon som ikkje er registrert i `CODEOWNERS.md` enno,
+sjå [Ny organisasjon](mkdocs/docs/ny-org.md) først.
 
-# Bygg container-images (éin gong)
-make linkml-build-docker
-make python-build-docker
-make mcp-val-build
-```
+Sjå [Ny domenemodell](mkdocs/docs/ny-domenemodell.md) for fullstendig rettleiing om
+føresetnader, oppsett, validering og steg-for-steg-instruksjonar for å leggje til ein modell.
 
-## Validering
 
-Valider eit skjema og tilhøyrande eksempel etter kvar endring:
 
-```bash
-make validate-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml INSTANCE=src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
-```
+## Eigarskap og kodegjennomgang
 
-Valider mot kvalitetsprofil (bronze = minimumskrav):
+Kvar domenemodell har ein eigar-org (sjå `CODEOWNERS.md`). GitHub requestar automatisk
+review frå rett team basert på `.github/CODEOWNERS`.
 
-```bash
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
-```
+For din PR å bli merge-klar:
+- Endringar i eigen org sine modellar: godkjenning frå éin person i same org-team
+- Endringar i felles infrastruktur: godkjenning frå repo-administrator
 
-## Ny domenemodell
-
-Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
+Sjå [GOVERNANCE.md](GOVERNANCE.md) for fullstendig forklaring av roller og myndigheit.
 
 ## Generer artefakter lokalt
 
@@ -49,7 +41,9 @@ make docs-serve        # start lokal dokumentasjonsportal på http://localhost:8
 ## Pull request
 
 1. Lag ein ny branch frå `main`
-2. Gjer endringar og valider lokalt (sjå over)
+2. Gjer endringar og valider lokalt:
+   - `make lint SCHEMA=...` og `make validate-instance SCHEMA=... INSTANCE=...`
+   - `make mcp-validate SCHEMA=... POLICY=bronze` (minimumskrav før PR)
 3. Send inn pull request mot `main` — CI køyrer validering automatisk
 
 Rapporter sikkerheitssårbarheiter via e-post (sjå [SECURITY.md](SECURITY.md)) — ikkje som public issue.
