@@ -1,5 +1,19 @@
 # Plan: Integrasjon mot Apicurio Registry
 
+## Avvist
+
+**Avvist 2026-06-10.** Denne planen er avvist fordi han bryt med eit grunnleggjande arkitekturprinsipp for dette repoet: **repoet pusher aldri artefaktar til eksterne kjelder.**
+
+Apicurio Registry-integrasjonen ville krevje at repoet sjølv pushar genererte artefaktar til ein ekstern schema-registry. Dette er problematisk av fleire grunnar:
+
+- **Spesialtilpassingar per målsystem** — kvar ekstern kjelde har sitt eige autentiseringsopplegg, API-konvensjonar og feilhåndteringsreglar som repoet må tilpassast til.
+- **Ekstern avhengigheit** — CI-pipeline-en vert avhengig av at den eksterne tenesta er oppe og tilgjengeleg. Nedetid hjå registryen feilar publisering av modellane.
+- **Ansvarsfelt** — dette repoet har ansvar for å *generere* og *gjere tilgjengeleg* artefaktar, ikkje for å *distribuere* dei til konsumentar sine system.
+
+**Rett tilnærming:** Konsumentar som ønsker å bruke artefaktane i Apicurio Registry hentar dei sjølve via `raw.githubusercontent.com` eller GitHub Releases og importerer til sin eigen registry. Sjå prinsipp i `CLAUDE.md` og `README.md`.
+
+---
+
 ## Bakgrunn
 
 Apicurio Registry er ein open-source schema- og API-registry som støttar
