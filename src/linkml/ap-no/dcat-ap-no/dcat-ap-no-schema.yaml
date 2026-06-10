@@ -8,7 +8,7 @@ description: >-
 version: "2.0"
 
 annotations:
-  utgiver: https://data.norge.no/organizations/974760673
+  utgiver: https://data.norge.no/organizations/991825827
   endringsdato: "2026-06-10"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed

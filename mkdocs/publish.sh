@@ -367,6 +367,7 @@ validation:
 nav:
   - Heim: index.md
   - Rettleiingar:
+      - Ny organisasjon: ny-org.md
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md

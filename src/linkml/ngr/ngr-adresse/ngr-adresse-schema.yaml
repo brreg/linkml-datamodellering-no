@@ -7,6 +7,12 @@ description: >-
   inndelingar og adressekomponentar.
   Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
 
+annotations:
+  utgiver: https://data.norge.no/organizations/971040238
+  endringsdato: "2026-06-10"
+  utgivelsesdato: "2023-01-01"
+  status: http://purl.org/adms/status/UnderDevelopment
+
 prefixes:
   linkml:  https://w3id.org/linkml/
   ngr:     https://data.norge.no/vocabulary/ngr-adresse#

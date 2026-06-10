@@ -156,7 +156,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
         schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples \
         check-published-uris check-prereqs \
-        update-modellkatalog \
+        update-modellkatalog new-org-catalog \
         gource-build gource-preview gource-video _gource-render
 
 all: test
@@ -817,6 +817,11 @@ new-model:
 	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-mod-build
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
+
+# Bruk: make new-org-catalog ORG=<alias>
+new-org-catalog:
+	@test -n "$(ORG)" || (echo "Bruk: make new-org-catalog ORG=<alias>"; exit 1)
+	bash src/assets/scripts/new-org-catalog.sh "$(ORG)"
 
 check-prereqs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
