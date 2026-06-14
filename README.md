@@ -1,10 +1,12 @@
 # linkml-datamodellering-no
 
-**NB dette er en Proof of Concept**
+**NB dette er ein Proof of Concept**
 
-Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](https://linkml.io/).
+Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles datakatalog. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller samt felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
-> LinkML er eit open kjeldekode-modelleringsspråk der du skriv skjema i YAML som skildrar datastrukturen din, og som du kan nytte til å generere skjema, data, diagram og dokumentasjon i andre format ([LinkML generators](https://linkml.io/linkml/generators/index.html)). Generatorane konverterer både til tradisjonelle format (JSON Schema, Python, Protobuf) og W3C-semantiske format (RDF/Turtle, OWL, SHACL, JSON-LD) utan behov for ekstra mapping.
+
+
+> [LinkML](https://linkml.io/) er eit open kjeldekode-modelleringsspråk der du skriv skjema i YAML som skildrar datastrukturen din, og som du kan nytte til å generere skjema, data, diagram og dokumentasjon i andre format ([LinkML generators](https://linkml.io/linkml/generators/index.html)). Generatorane konverterer både til tradisjonelle format (JSON Schema, Python, Protobuf) og W3C-semantiske format (RDF/Turtle, OWL, SHACL, JSON-LD) utan behov for ekstra mapping.
 
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
@@ -12,6 +14,8 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 * [mcp-linkml-modell-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-modell-utkast/README.md), [mcp-linkml-begrep-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) og [mcp-linkml-validator](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md) ([mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro)) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
 * LinkML-[generatorar](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md#genererte-artefakter) for å produsere artefakter i andre format frå LinkML-skjema.
 * Github Actions [pipelines](https://github.com/brreg/linkml-datamodellering-no/actions) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
+* Guide for å publisere begreper til [felles begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/)
+* Guide for å publisere informasjonsmodeller til [felles datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/)
 * Github Pages [dokumentasjonsportal](https://brreg.github.io/linkml-datamodellering-no/) med oversikt over alle LinkML-skjema og genererte artefakter.
 * Opplegg for å [bootstrappe](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) eit eksternt repo for lokal LinkML modellering.
 
