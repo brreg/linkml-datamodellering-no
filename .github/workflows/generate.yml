@@ -290,7 +290,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: mkdocs/.cache/
-          key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.linkml', 'mkdocs/mkdocs.yml', 'mkdocs/docs/**', 'src/assets/templates/**') }}
+          key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/templates/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'mkdocs/overrides/**') }}
           restore-keys: mkdocs-build-
 
       - name: Publiser og bygg dokumentasjonsportal
