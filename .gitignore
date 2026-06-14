@@ -1,6 +1,18 @@
 generated/
 config.mk
 mkdocs/site/
+
+# Genererte portalsider — alltid regenerert av publish.sh / CI
+mkdocs/docs/ap-no/
+mkdocs/docs/begrepskatalog/
+mkdocs/docs/fair/
+mkdocs/docs/fint/
+mkdocs/docs/modellkatalog/
+mkdocs/docs/ngr/
+mkdocs/docs/oreg/
+mkdocs/docs/samt/
+mkdocs/docs/index.md
+mkdocs/mkdocs.yml
 tests/testlogs/
 __pycache__/
 *.pyc

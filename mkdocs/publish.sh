@@ -214,6 +214,19 @@ for domain_dir in "$GEN"/*/; do
     rmdir "${DOCS}/${domain}" 2>/dev/null || true
 done
 
+# Slett mkdocs/docs/$domain/ for domene som ikkje lenger finst i generated/
+for docs_domain_dir in "$DOCS"/*/; do
+    [ -d "$docs_domain_dir" ] || continue
+    domain=$(basename "$docs_domain_dir")
+    case "$domain" in
+        stylesheets|javascripts) continue ;;
+    esac
+    if [ ! -d "$GEN/$domain" ]; then
+        echo "Ryddar forsvunne domene: $domain"
+        rm -rf "$docs_domain_dir"
+    fi
+done
+
 # ---------------------------------------------------------------------------
 # Steg 2: Generer innhald per domene og skjema (parallelt)
 # ---------------------------------------------------------------------------

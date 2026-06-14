@@ -91,7 +91,8 @@
       "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet\")",
       "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-modelldcat-ap-no\")",
       "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files --deleted)",
-      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no status --short)"
+      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no status --short)",
+      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files mkdocs/docs/)"
     ]
   },
   "enableAllProjectMcpServers": true,
