@@ -381,8 +381,9 @@ validation:
     omitted_files: ignore
 
 nav:
-  - Heim: index.md
   - Rettleiingar:
+      - index.md
+      - Bruk frå eksternt repo: ekstern-bruk.md
       - Bli modelleigar: ny-org.md
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
@@ -390,7 +391,6 @@ nav:
       - Valideringsreglar: valideringregler.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
-      - Bruk frå eksternt repo: ekstern-bruk.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do
