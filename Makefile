@@ -277,9 +277,9 @@ lint:
 	@echo "$(CLR_HDR)*** make lint$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema))$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@if [ -n "$(SCHEMA)" ]; then \
-		$(LINKML_RUN) linkml lint --validate "$(SCHEMA)"; \
+		$(LINKML_RUN) linkml lint "$(SCHEMA)"; \
 	else \
-		$(foreach s,$(SCHEMAS),$(LINKML_RUN) linkml lint --validate "$(s)" &&) true; \
+		$(foreach s,$(SCHEMAS),$(LINKML_RUN) linkml lint "$(s)" &&) true; \
 	fi
 
 # Bruk: make validate-instance SCHEMA=<sti-til-skjema> INSTANCE=<sti-til-datafil>
