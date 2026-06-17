@@ -54,20 +54,7 @@ Prinsipper for informasjonsmodeller: https://www.digdir.no/informasjonsforvaltni
 Felles modelleringsregler: https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029*
 
 
-Lage eit demo-repo som bootstrapper LinkML fra dette repoet og modellerer ein enkel modell som inkluderer dcat-ap-no.
-
-Presisere avgrensinger, prinsipper, funksjonalitet og navnekonvensjoner for dette repoet.
 
 
 
-● Bash(make lint SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml 2>&1)
-  ⎿  Error: Exit code 2
-     ************************************************************
-     *** make lint  SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
-     ************************************************************
-     DeprecationWarning: The option 'validate' is deprecated.
-     /usr/local/lib/python3.11/site-packages/linkml/linter/cli.py:101: DeprecationWarning: [lint-validate-flag] DEPRECATED
-     The --validate flag for linkml-lint is deprecated. Metamodel validation now always runs before linting.
-     Deprecated In: 1.11.0
-     Removed In: 1.13.0
-     Recommendation: Remove the --validate flag from your command. Metamodel validation is now automatic.
+

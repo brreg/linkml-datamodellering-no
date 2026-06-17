@@ -114,19 +114,31 @@ classes:
     see_also:
       - https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f
 
-  # Standard:
-  #   class_uri: dct:Standard
-  #   description: Ein standard som ein ressurs er i samsvar med.
-  #   slots:
-  #     - id
-  #     - tittel
-  #     - har_referanse
-  #     - versjonsnummer
-  #   slot_usage:
-  #     tittel:
-  #       required: true
-  #       in_subset:
-  #         - Obligatorisk
+  Standard:
+    in_subset:
+      - Metadata
+    class_uri: dct:Standard
+    description: Ein standard eller spesifikasjon ein ressurs er i samsvar med.
+    slots:
+      - id
+      - tittel
+      - har_referanse
+      - har_merknad
+      - versjon
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      har_referanse:
+        in_subset:
+          - Anbefalt
+      har_merknad:
+        in_subset:
+          - Valgfri
+      versjon:
+        in_subset:
+          - Valgfri
 
   RegulativRessurs:
     in_subset:
