@@ -46,26 +46,10 @@ classes:
 
   # ---- Hovudklassar --------------------------------------------------------
 
-  # Datasett:
-  #   class_uri: dcat:Dataset
-  #   description: >-
-  #     Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for
-  #     kvalitetsinformasjon.
-  #   slots:
-  #     - id
-  #     - er_i_samsvar_med
-  #     - har_kvalitetsmerknad
-  #     - har_kvalitetsmaaling
-  #   slot_usage:
-  #     er_i_samsvar_med:
-  #       in_subset:
-  #         - Anbefalt
-  #     har_kvalitetsmerknad:
-  #       in_subset:
-  #         - Anbefalt
-  #     har_kvalitetsmaaling:
-  #       in_subset:
-  #         - Anbefalt
+  # Datasett-klassen er definert i dcat-ap-no-schema.yaml (importert).
+  # har_kvalitetsmerknad, har_kvalitetsmaaling og i_samsvar_med er lagt
+  # til Datasett der, sidan dcat-ap-no vert importert av mange skjema
+  # som ikkje treng full DQV-funksjonalitet.
 
   Kvalitetsdimensjon:
     in_subset:
@@ -182,49 +166,38 @@ classes:
     slots:
       - id
       - er_kvalitetsmaaling_av
-      - har_verdi
+      - har_boolean_verdi
+      - har_numerisk_verdi
+      - har_tekst_verdi
       - har_merknad
     slot_usage:
       er_kvalitetsmaaling_av:
         required: true
         in_subset:
           - Obligatorisk
-      har_verdi:
+      har_boolean_verdi:
+        in_subset:
+          - Anbefalt
+      har_numerisk_verdi:
+        in_subset:
+          - Anbefalt
+      har_tekst_verdi:
         in_subset:
           - Anbefalt
       har_merknad:
         in_subset:
           - Valgfri
 
+  # Standard-klassen er definert i dcat-ap-no-schema.yaml (importert).
+  # Her vert berre det DQV-spesifikke slottet lagt til via class override.
   Standard:
-    in_subset:
-      - Metadata
-    class_uri: dct:Standard
     description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
     slots:
-      - id
-      - tittel
       - er_i_kvalitetsdimensjon
-      - har_referanse
-      - har_merknad
-      - versjon
     slot_usage:
-      tittel:
-        required: true
-        in_subset:
-          - Obligatorisk
       er_i_kvalitetsdimensjon:
         in_subset:
           - Anbefalt
-      har_referanse:
-        in_subset:
-          - Anbefalt
-      har_merknad:
-        in_subset:
-          - Valgfri
-      versjon:
-        in_subset:
-          - Valgfri
 
   Tekstdel:
     in_subset:
@@ -254,11 +227,7 @@ classes:
 
 slots:
 
-  # er_i_samsvar_med:
-  #   slot_uri: dct:conformsTo
-  #   range: Standard
-  #   multivalued: true
-  #   description: Standard eller spesifikasjon datasettet er i samsvar med.
+  # er_i_samsvar_med er definert i dcat-ap-no-schema.yaml (importert).
 
 
 
@@ -297,8 +266,8 @@ slots:
 
   er_motivert_av:
     slot_uri: oa:motivatedBy
-    range: uriorcurie
-    description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
+    range: DqvMotivasjon
+    description: Motivasjonen bak kvalitetsmerknaden.
 
   er_i_kvalitetsdimensjon:
     slot_uri: dqv:inDimension
@@ -311,28 +280,68 @@ slots:
   har_tekstdel:
     slot_uri: oa:hasBody
     range: Tekstdel
-    description: Tekstleg innhald i merknaden.
+    multivalued: true
+    description: Tekstleg innhald i merknaden (0..n).
 
   har_maal:
     slot_uri: oa:hasTarget
-    range: uri
-    description: Ressursen merknaden gjeld.
-    annotations:
-      gyldige_verdier: dcat:Resource
+    range: KatalogisertRessurs
+    description: Datasett, distribusjon eller datatjeneste merknaden gjeld.
 
   er_kvalitetsmaaling_av:
     slot_uri: dqv:isMeasurementOf
     range: Kvalitetsmaal
     description: Kvalitetsmålet denne målinga er ei måling av.
 
-  har_verdi:
+  har_boolean_verdi:
+    slot_uri: dqv:value
+    range: boolean
+    description: Målt verdi som sann/usann (xsd:boolean).
+
+  har_numerisk_verdi:
+    slot_uri: dqv:value
+    range: double
+    description: Målt verdi som desimaltal eller heiltal (xsd:double).
+
+  har_tekst_verdi:
     slot_uri: dqv:value
     range: string
-    description: >-
-      Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller
-      rdfs:Literal avhengig av kvalitetsmålet).
+    description: Målt verdi som fritekst (rdfs:Literal).
 
   har_verdi_tekstdel:
     slot_uri: rdfs:value
     range: string
     description: Tekstinnhaldet i tekstdelen.
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+enums:
+
+  DqvMotivasjon:
+    description: >-
+      Gyldige motivasjonsverdiar for kvalitetsmerknader per DQV-AP-NO og
+      dqvno-vokabularet.
+    permissible_values:
+      assessing:
+        meaning: oa:assessing
+        description: Allgemein vurdering av kvalitet.
+      classifying:
+        meaning: oa:classifying
+        description: Klassifisering av kvalitet.
+      availability:
+        meaning: dqvno:availability
+        description: Tilgjengelegheit.
+      completeness:
+        meaning: dqvno:completeness
+        description: Fullstendigheit.
+      currentness:
+        meaning: dqvno:currentness
+        description: Aktualitet.
+      validity:
+        meaning: dqvno:validity
+        description: Gyldighet.
+      accuracy:
+        meaning: dqvno:accuracy
+        description: Nøyaktigheit.
