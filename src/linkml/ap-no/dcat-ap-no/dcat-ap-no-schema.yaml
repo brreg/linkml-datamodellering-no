@@ -28,7 +28,7 @@ prefixes:
   spdx:    http://spdx.org/rdf/terms#
   cv:      http://data.europa.eu/m8g/
   odrs:    http://schema.theodi.org/odrs#
-  time:    http://www.w3.org/6006/time#
+  time:    http://www.w3.org/2006/time#
   xsd:     http://www.w3.org/2001/XMLSchema#
   rdfs:    http://www.w3.org/2000/01/rdf-schema#
   rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
@@ -76,6 +76,9 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
     see_also:
       - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 
@@ -252,6 +255,7 @@ classes:
       - tilgangstjeneste
       - tittel
       - utgivelsesdato
+      - romlig_opplosning
     slot_usage:
       tilgangs_url:
         required: true
@@ -313,6 +317,13 @@ classes:
       - utgivelsesdato
       - versjon
       - versjonsmerknad
+      - frekvens
+      - romlig_opplosning
+      - har_gebyr
+      - erstatter
+      - forrige_versjon
+      - har_versjon
+      - er_referert_av
       - har_kvalitetsmerknad
       - har_kvalitetsmaaling
     slot_usage:
@@ -669,6 +680,12 @@ slots:
     range: Duration
     description: Minste tidsoppløysing i datasettet.
 
+  romlig_opplosning:
+    slot_uri: dcat:spatialResolutionInMeters
+    range: float
+    multivalued: true
+    description: Minste romleg oppløysing i datasettet, oppgjeven i meter.
+
   # ---- URI-verdiar ---------------------------------------------------------
 
   endepunkts_url:
@@ -728,6 +745,12 @@ slots:
     range: uri
     multivalued: true
     description: Generisk relasjon til ein annan ressurs.
+
+  er_referert_av:
+    slot_uri: dct:isReferencedBy
+    range: uri
+    multivalued: true
+    description: Ressurs som refererer til dette datasettet.
 
   kilde_post:
     slot_uri: dct:source
@@ -1003,6 +1026,23 @@ slots:
     slot_uri: dcat:first
     range: Datasett
     description: Første datasett i ei datasettserie.
+
+  erstatter:
+    slot_uri: dct:replaces
+    range: Datasett
+    multivalued: true
+    description: Datasett dette datasettet erstattar.
+
+  forrige_versjon:
+    slot_uri: dcat:prev
+    range: Datasett
+    description: Tidlegare versjon av datasettet.
+
+  har_versjon:
+    slot_uri: dcat:hasVersion
+    range: Datasett
+    multivalued: true
+    description: Seinare versjon av datasettet.
 
   relatert_regulativ_ressurs:
     slot_uri: dct:relation

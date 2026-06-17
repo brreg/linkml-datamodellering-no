@@ -92,7 +92,13 @@
       "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-modelldcat-ap-no\")",
       "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files --deleted)",
       "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no status --short)",
-      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files mkdocs/docs/)"
+      "Bash(git -C /mnt/c/dev/github/linkml-datamodellering-no ls-files mkdocs/docs/)",
+      "WebFetch(domain:www.regjeringen.no)",
+      "WebFetch(domain:psi.norge.no)",
+      "WebFetch(domain:joinup.ec.europa.eu)",
+      "WebFetch(domain:interoperable-europe.ec.europa.eu)",
+      "WebFetch(domain:brreg.no)",
+      "WebFetch(domain:begrep.brreg.no)"
     ]
   },
   "enableAllProjectMcpServers": true,

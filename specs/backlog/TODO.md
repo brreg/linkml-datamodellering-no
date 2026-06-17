@@ -28,18 +28,46 @@ Tilgjengeliggjøring av åpne daga: https://data.norge.no/guide/veileder-apne-da
 
 Beskrivelse av kvalitet på datasett - kvantifiserbar kvalitet: https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet*
 
-Veileder for beskrivelse av informasjonsmodeller: https://data.norge.no/guide/veileder-modelldcat-ap-no
-Standard for beskrivelse av datasett, datatjenester og datakataloger: https://data.norge.no/specification/dcat-ap-no/
-Forvaltningsstandard for begrepsbeskrivelser: https://www.digdir.no/standarder/forvaltningsstandard-omgrepsbeskrivingar-skos-ap-no-begrep/1682
-Termlosen: standard for begrepsanalyse og terminologiarbeid: https://www.digdir.no/standarder/termlosen/1733
-Forvaltningsstandard for begrepsharmonisering og begrepsdifferensiering: https://data.norge.no/specification/forvaltningsstandard-begrepskoordinering
-Retningslinjer ved tilgjengeliggjøring av offentlige data: https://www.regjeringen.no/no/dokumenter/retningslinjer-ved-tilgjengeliggjoring-av-offentlige-data/id2536870/
-Spesifikasjon for beskrivelse av kvalitet på datasett: https://data.norge.no/specification/dqv-ap-no/
-Spesifikasjon for beskrivelse av informasjonsmodeller: https://data.norge.no/specification/modelldcat-ap-no/
-Los - Felles vokabular for klassifisering av offentlige tjenester og ressurser: https://www.digdir.no/informasjonsforvaltning/los-felles-vokabular-klassifisering-av-offentlige-tjenester-og-ressurser/2434
-Pekere til offentlige ressurser på nett: https://www.digdir.no/standarder/peikarar-til-offentlege-ressursar-pa-nett/1492
-Spesifikasjon for klassifikasjonsbeskrivelser: https://informasjonsforvaltning.github.io/xkos-ap-no/
-Prinsipper for informasjonsmodeller: https://www.digdir.no/informasjonsforvaltning/prinsipper-informasjonsmodeller/3030
-Felles modelleringsregler: https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029
+Veileder for beskrivelse av informasjonsmodeller: https://data.norge.no/guide/veileder-modelldcat-ap-no*
 
-Skriv specen til ./specs/backlog
+Standard for beskrivelse av datasett, datatjenester og datakataloger: https://data.norge.no/specification/dcat-ap-no/*
+
+Forvaltningsstandard for begrepsbeskrivelser: https://www.digdir.no/standarder/forvaltningsstandard-omgrepsbeskrivingar-skos-ap-no-begrep/1682*
+
+Termlosen: standard for begrepsanalyse og terminologiarbeid: https://www.digdir.no/standarder/termlosen/1733
+Forvaltningsstandard for begrepsharmonisering og begrepsdifferensiering: https://data.norge.no/specification/forvaltningsstandard-begrepskoordinering*
+
+Retningslinjer ved tilgjengeliggjøring av offentlige data: https://www.regjeringen.no/no/dokumenter/retningslinjer-ved-tilgjengeliggjoring-av-offentlige-data/id2536870/*
+
+Spesifikasjon for beskrivelse av kvalitet på datasett: https://data.norge.no/specification/dqv-ap-no/*
+
+Spesifikasjon for beskrivelse av informasjonsmodeller: https://data.norge.no/specification/modelldcat-ap-no/*
+
+Los - Felles vokabular for klassifisering av offentlige tjenester og ressurser: https://www.digdir.no/informasjonsforvaltning/los-felles-vokabular-klassifisering-av-offentlige-tjenester-og-ressurser/2434*
+
+Pekere til offentlige ressurser på nett: https://www.digdir.no/standarder/peikarar-til-offentlege-ressursar-pa-nett/1492*
+
+Spesifikasjon for klassifikasjonsbeskrivelser: https://informasjonsforvaltning.github.io/xkos-ap-no/*
+
+Prinsipper for informasjonsmodeller: https://www.digdir.no/informasjonsforvaltning/prinsipper-informasjonsmodeller/3030*
+
+Felles modelleringsregler: https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029*
+
+
+Lage eit demo-repo som bootstrapper LinkML fra dette repoet og modellerer ein enkel modell som inkluderer dcat-ap-no.
+
+Presisere avgrensinger, prinsipper, funksjonalitet og navnekonvensjoner for dette repoet.
+
+
+
+● Bash(make lint SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml 2>&1)
+  ⎿  Error: Exit code 2
+     ************************************************************
+     *** make lint  SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
+     ************************************************************
+     DeprecationWarning: The option 'validate' is deprecated.
+     /usr/local/lib/python3.11/site-packages/linkml/linter/cli.py:101: DeprecationWarning: [lint-validate-flag] DEPRECATED
+     The --validate flag for linkml-lint is deprecated. Metamodel validation now always runs before linting.
+     Deprecated In: 1.11.0
+     Removed In: 1.13.0
+     Recommendation: Remove the --validate flag from your command. Metamodel validation is now automatic.

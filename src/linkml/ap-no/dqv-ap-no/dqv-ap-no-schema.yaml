@@ -207,7 +207,7 @@ classes:
       - er_i_kvalitetsdimensjon
       - har_referanse
       - har_merknad
-      - versjonsnummer
+      - versjon
     slot_usage:
       tittel:
         required: true
@@ -222,7 +222,7 @@ classes:
       har_merknad:
         in_subset:
           - Valgfri
-      versjonsnummer:
+      versjon:
         in_subset:
           - Valgfri
 
