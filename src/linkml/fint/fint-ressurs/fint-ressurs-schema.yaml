@@ -7,6 +7,7 @@ description: >
   ressurs.datautstyr (digitale einingar og einingsgrupper) og
   ressurs.tilgang (identitetar og rettigheiter).
 version: "4.0.20"
+license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/985870714

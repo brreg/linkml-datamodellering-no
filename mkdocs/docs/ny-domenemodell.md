@@ -206,6 +206,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] id er ein HTTPS-URI
 [ ] title og description er sett på skjemanivå
 [ ] version er sett (t.d. "1.0.0")
+[ ] license er sett til https://data.norge.no/nlod/no/2.0
 [ ] default_prefix er ein absolutt HTTPS-URI med avsluttande /
 [ ] Importerer AP-NO-profil(ar) — ikkje common-ap-no direkte
 [ ] Klasse- og slotnamn er på norsk bokmål

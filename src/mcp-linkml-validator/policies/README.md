@@ -16,7 +16,7 @@ av kva policy, og kva som ikkje er automatisk evaluert.
 | 3 | **Navne- og skrivekonvensjoner** | PascalCase for klassar, snake_case/camelCase for eigenskapar | Bronze: `class_names_pascal_case`, `slot_names_snake_case` (warning) |
 | 4 | **Identifiserbarhet** | Persistente URI-ar for modell, element og eigenskapar | Bronze: `id`, `default_prefix` (HTTPS-URI) (error); `class_uri`, `slot_uri`, identifikator-slot (warning) |
 | 5 | **Visualisering** | Modell tilgjengeleg med god visuell representasjon | *Ikkje evaluert* — ER-diagram vert generert av `make erdiagram`, men ikkje validert |
-| 6 | **Modularitet** | Handterleg mengde modellelement per modul | *Ikkje evaluert* |
+| 6 | **Modularitet** | Handterleg mengde modellelement per modul | Bronze: `class_count_limit` — warning om skjemaet har fleire enn 50 klasser |
 | 7 | **Tilgjengeliggjøring** | Modell fritt tilgjengeleg på nett med open lisens | Bronze: `license` (warning) |
 | 8 | **Maskinprosserbarhet** | Modell tilgjengeleg i opne, maskinlesbare format | Bronze: `class_uri`, `slot_uri` (indirekte, via regel 4-sjekken) |
 | 9 | **Datering** | Modell er datert med publiserings-, endrings- og gyldigheitsdato | Bronze: `version` (warning); Silver: `annotations.endringsdato` (warning) |
@@ -52,7 +52,7 @@ Brukt for skjema der `publish_external: true` i manifest.
 
 | Nivå | Krav | Digdir-reglar (Bør tilfredsstille) |
 |---|---|---|
-| `bronze` | Grunnleggande metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 7, 8, 13 |
+| `bronze` | Grunnleggande metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 6, 7, 8, 13 |
 | `silver` | Bronze + AP-NO-konformitet og livssyklusmetadata | 1–4, 7–11, 13 |
 | `gold` | Silver + FAIR F1–R1.3: full semantisk interoperabilitet | 1–4, 7–11, 13 + FAIR |
 
@@ -73,6 +73,7 @@ Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `ex
 | `schema.description` til stades | warning | 1 — Forståelighet |
 | `schema.version` til stades | warning | 9 — Datering |
 | `schema.license` til stades | warning | 7 — Tilgjengeliggjøring |
+| Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | warning | 6 — Modularitet |
 | Alle klassenamn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner |
 | Alle slotnamn er snake_case | warning | 3 — Navne- og skrivekonvensjoner |
 | Alle klasser (unntatt `tree_root`) har `class_uri` | warning | 4 — Identifiserbarhet, 8 — Maskinprosserbarhet |

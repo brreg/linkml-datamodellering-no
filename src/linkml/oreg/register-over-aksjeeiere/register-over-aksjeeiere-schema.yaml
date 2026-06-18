@@ -1,14 +1,19 @@
-id: https://example.no/ontology/aksje-eierskap
+id: https://data.norge.no/oreg/register-over-aksjeeiere
 name: register-over-aksjeeiere
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 title: Aksje- og eigarskapsmodell
 description: >
   LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar.
   Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  status: http://purl.org/adms/status/Completed
+
 prefixes:
   linkml: https://w3id.org/linkml/
-  aksje: https://example.no/ontology/aksje#
+  aksje: https://data.norge.no/oreg/register-over-aksjeeiere/
   schema: http://schema.org/
 
 default_prefix: https://data.norge.no/oreg/register-over-aksjeeiere/

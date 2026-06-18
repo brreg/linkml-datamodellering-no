@@ -5,6 +5,7 @@ description: >
   Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt
   mellom alle FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
 version: "4.0.20"
+license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/985870714

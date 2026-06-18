@@ -1,6 +1,7 @@
 id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 title: Nasjonale grunndata – Eiendom
 description: >-
   Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast).

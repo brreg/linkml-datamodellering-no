@@ -104,6 +104,15 @@ checks:
       med URI i koblede data.
     check: all_classes_have_identifier
 
+  class_count_limit:
+    severity: warning
+    description: >
+      Skjema med fleire enn 50 klasser (unntatt tree_root) bør delast opp i
+      undermoduler for å halde modellen handterleg. Støttar Digdir-regel 6
+      (Modularitet) om handterleg mengd modellelement per modul.
+    check: class_count
+    max_classes: 50
+
   all_classes_have_concept_ref:
     severity: warning
     description: >
