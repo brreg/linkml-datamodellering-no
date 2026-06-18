@@ -2,10 +2,10 @@ publish_external: true
 
 generators:
   jsonld_context: true
-  shacl: false
+  shacl: true
   python: false
   json_schema: true
-  owl: false
+  owl: true
   rdf: true
   protobuf: false
   erdiagram: true

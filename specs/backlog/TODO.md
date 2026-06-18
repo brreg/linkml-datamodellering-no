@@ -55,6 +55,9 @@ Felles modelleringsregler: https://www.digdir.no/informasjonsforvaltning/felles-
 
 
 
+lage mermaid diagram som viser oversikt over alle dei vesentlige delane av dette repoet og korleis det er meint å fungere sammen med andre offentlige tjenester
 
 
+automatisk sette endringsdato ifbm at versjon settes av release-please workflow
 
+juster generering av plantuml og er diagram 

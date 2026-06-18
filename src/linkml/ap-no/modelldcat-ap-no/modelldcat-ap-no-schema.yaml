@@ -6,6 +6,7 @@ description: >-
   modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
 
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827

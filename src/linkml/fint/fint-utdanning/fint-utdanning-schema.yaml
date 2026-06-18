@@ -6,6 +6,7 @@ description: >
   elevforhold, undervisningsforhold, klasser, undervisningsgrupper, faggrupper,
   kontaktlærergrupper, utdanningsprogram, programområde, vurdering, lærling og OT.
 version: "4.0.20"
+license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/985870714

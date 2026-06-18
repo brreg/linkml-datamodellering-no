@@ -1,6 +1,8 @@
 id: https://data.norge.no/ap-no/xkos-ap-no
 name: xkos-ap-no
 title: XKOS-AP-NO
+version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 description: >-
   LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
   Basert på https://data.norge.no/specification/xkos-ap-no
@@ -16,6 +18,7 @@ prefixes:
   xkos:     http://rdf-vocabulary.ddialliance.org/xkos#
   uneskos:  http://purl.org/umu/uneskos#
   skos:     http://www.w3.org/2004/02/skos/core#
+  dcat:     http://www.w3.org/ns/dcat#
   dct:      http://purl.org/dc/terms/
   foaf:     http://xmlns.com/foaf/0.1/
   rdfs:     http://www.w3.org/2000/01/rdf-schema#
@@ -389,11 +392,11 @@ slots:
     description: Måleomgrep i ein kategorisamanlikning (xkos:targetConcept).
 
   tidsrom_start:
-    slot_uri: dct:startDate
+    slot_uri: dcat:startDate
     range: date
-    description: Startdato for tidsromet (dct:startDate).
+    description: Startdato for tidsromet (dcat:startDate).
 
   tidsrom_slutt:
-    slot_uri: dct:endDate
+    slot_uri: dcat:endDate
     range: date
-    description: Sluttdato for tidsromet (dct:endDate).
+    description: Sluttdato for tidsromet (dcat:endDate).

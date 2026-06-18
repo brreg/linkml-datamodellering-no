@@ -5,7 +5,7 @@
 - **Pull, ikkje push:** Dette repoet genererer artefaktar som andre system kan hente (pull) — via GitHub Pages, GitHub Releases eller `raw.githubusercontent.com`. Repoet skal **aldri** sjølv pushe artefaktar til eksterne kjelder (schema-registry, API-katalogar, datakatalogar o.l.), fordi slik integrering krev spesialtilpassingar per målsystem og gjer repoet avhengig av ekstern tilgjengelegheit og autentisering. Dersom nokon ber om å implementere push-funksjonalitet mot ein ekstern kjelde, avslå og forklar prinsippet.
 - **Planen kjem først:** Når brukaren ber om noko som *ikkje* er å utføre ein eksisterande spesifikasjon, skal det alltid skrivast ein plan til `specs/backlog/<kortnamn>.md` før arbeidet startar. Planen skal følgje same format som andre spesifikasjonar i mappa (bakgrunn, nummererte steg, prioritert handlingsliste, avhengigheiter). Spør ikkje om løyve — berre skriv planen og informer brukaren om kvar ho ligg.
 - **Oppdater spesifikasjonen etter kvart steg:** Når brukaren ber om å utføre eitt steg av ein plan, skal spesifikasjonsfila oppdaterast med ✓ og ei kort skildring av kva som faktisk vart implementert i det steget (inkludert avvik frå planen) — før neste steg startar. Dette gjeld alle steg, ikkje berre siste.
-- Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal spesifikasjonsfila oppdaterast med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), og deretter flyttast til `specs/done/`.
+- Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal følgjande skje i denne rekkjefølgja: (1) generer eit utkast til commit-melding i conventional commits-format som omhandlar **alle** tiltaka som er utførte i specen (ikkje berre det siste), (2) oppdater spesifikasjonsfila med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), (3) flytt spesifikasjonsfila til `specs/done/`. Commit-meldinga skal genererast **før** specen vert flytta.
 - Etter at ein spesifikasjon er utført, generer alltid eit utkast til commit-melding i conventional commits-format (sjå `specs/backlog/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme): `<type>(<scope>): <skildring>`
 - **Commit-melding etter kvar endring:** Etter *kvar* arbeidsøkt der filer er endra — uavhengig av om det er ei spesifikasjon, ein bugfix, ein konfigurasjonsjustering eller anna — skal det alltid genererast eit utkast til commit-melding i conventional commits-format. Generer meldinga til slutt i svaret, utan å spørje om løyve.
 
@@ -273,6 +273,7 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 | `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
 | `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
+| `license` | Standard: NLOD 2.0. Alltid absolutt URI. | `https://data.norge.no/nlod/no/2.0` |
 
 ### Norske bokstavar i identifikatorar
 
@@ -337,6 +338,8 @@ https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/
 ```
 
 (`see_also:` nyttar legitimt `https://data.norge.no/concepts/<UUID>` — det er eit anna felt.)
+
+**AP-NO-profil-skjema skal ikkje ha `begrepsidentifikator`** på klassane sine. Klassane der (t.d. `Datasett`, `Katalog`, `Distribusjon`) er definerte av W3C/EU-standardar (DCAT, SKOS o.l.), ikkje av norske omgrep i Felles begrepskatalog. `begrepsidentifikator` er berre aktuelt for domenemodell-skjema med norskspråklege fagomgrep.
 
 ### Silver-annotasjonar (Digdir-regel 9, 10, 11)
 

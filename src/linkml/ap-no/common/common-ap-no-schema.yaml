@@ -1,6 +1,8 @@
 id: https://data.norge.no/ap-no/common-ap-no
 name: common-ap-no
 title: Common AP-NO
+version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 description: >-
   Felles typar, subsets, klassar og slots som går igjen i alle norske
   W3C-applikasjonsprofiler (AP-NO). Importerast av dei einskilde profilane.

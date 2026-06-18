@@ -169,6 +169,34 @@ men dette er ikkje maskinelt deklarert i skjema-metadataen.
 
 **Prioritet:** Høg — enkelt å rette, og er einaste augneblinkelege bronze-warning.
 
+#### Lisensalternativ og dokumentasjonskonvensjon
+
+Tre lisensalternativ er relevante for offentlege informasjonsmodellar i Noreg:
+
+| Lisens | URI | Brukstilfelle |
+|---|---|---|
+| **NLOD 2.0** | `https://data.norge.no/nlod/no/2.0` | Standardlisens for norske forvaltningsorgan. Krev kjeldetilskrivning. Anbefalt av Digitaliseringsdirektoratet og lagt til grunn for andre data.norge.no-ressursar. |
+| **CC BY 4.0** | `https://creativecommons.org/licenses/by/4.0/` | Internasjonalt anerkjend open lisens, kompatibel med NLOD. Eigna der internasjonalt samarbeid eller EU-interoperabilitet er eit mål. |
+| **CC0 1.0** | `https://creativecommons.org/publicdomain/zero/1.0/` | Public domain-dediksjon utan vilkår. Eigna for basisvokabular og hjelpeskjema (t.d. `common-ap-no`) der terskelen for gjenbruk bør vere absolutt minimal. |
+| **MIT** | `https://opensource.org/licenses/MIT` | Kortfatta open kjeldekode-lisens med minimal kjeldetilskrivningskrav. Eigna for skjema som primært vert konsumert som kode (t.d. Python-genererte artefaktar), men er ikkje spesifikt tilpassa offentlege data eller RDF-vokabular. |
+| **Apache 2.0** | `https://www.apache.org/licenses/LICENSE-2.0` | Open kjeldekode-lisens med eksplisitt patentklausul. Eigna for skjema som distribuerast saman med programvare, men er som MIT ikkje spesifikt tilpassa offentlege data eller RDF-vokabular. |
+
+**Tilrådd val:** NLOD 2.0 for alle skjema i dette repoet. Dette samsvarar med
+Digitaliseringsdirektoratets standardvilkår for offentleg informasjon og er den
+naturlege lisensen for modellane som publiserast under `data.norge.no`-domenet.
+
+**Dokumentasjonskonvensjon** — `license:`-feltet plasserast etter `version:` i schema-seksjonen:
+
+```yaml
+name: dcat-ap-no
+id: https://data.norge.no/ap-no/dcat-ap-no
+version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
+```
+
+Dersom eit enkeltskjema av særlege grunnar nyttar ein annan lisens (t.d. CC0 for
+basisvokabular), skal dette dokumenterast med ein kommentar i sjølve schemafila.
+
 ---
 
 ### Regel 8 — Maskinprosserbarhet ✓ / ⚠️
@@ -389,16 +417,90 @@ ville gitt betre typesikkerheit. Bronze-policy fangar ikkje dette.
 
 | # | Tiltak | Regel | Fil(ar) | Avhengigheit |
 |---|---|---|---|---|
-| 1 | Legg til `license:` i alle 23 skjema | 7 | Alle `*-schema.yaml` | — |
-| 2 | Legg til `version:` i 4 skjema | 9 | common, xkos-ap-no, bvrinn, samt-bu | — |
-| 3 | Legg til `annotations.status` og `utgiver` i 3 skjema | 10, 11 | brreg-begrepskatalog, brreg-modellkatalog, register-over-aksjeeiere | — |
-| 4 | Fiks `example.no` schema-ID | 2, 4 | `register-over-aksjeeiere-schema.yaml` | — |
-| 5 | Aktiver SHACL/OWL for begrepskatalog og modellkatalog | 8 | `brreg-begrepskatalog/manifest.yaml`, `brreg-modellkatalog/manifest.yaml` | — |
-| 6 | Fiks `begrepsidentifikator` TODO-plasshalderar i bvrinn | 13 | `bvrinn-schema.yaml` | Brreg begrepskatalog-avklaring |
-| 7 | Legg til `begrepsidentifikator` på nøkkelklasser i AP-NO | 13 | Alle AP-NO `*-schema.yaml` | Felles begrepskatalog-URIar |
-| 8 | Utvid `brreg-modellkatalog` med alle skjema + relasjonar | 12 | `brreg-modellkatalog.yaml` | PO1, PO2, PO3 |
-| 9 | Fiks `dct:startDate` → `dcat:startDate` i xkos-ap-no | 15 | `xkos-ap-no-schema.yaml` | — |
-| 10 | Innfør klassetal-warning i MCP-validator | 6 | `bronze.yaml` | — |
+| 1 | ✓ Lagt til `license: https://data.norge.no/nlod/no/2.0` i alle 25 skjema (23 opphavlege + `referanse-schema.yaml` + `cpsv-ap-no-schema.yaml`). Plassert etter `version:` der det finst, etter `title:` i dei 4 skjema utan `version:`. | 7 | Alle `*-schema.yaml` | — |
+| 2 | ✓ Lagt til `version: "1.0.0"` i alle 4 skjema som mangla det (`common-ap-no`, `xkos-ap-no`, `bvrinn`, `samt-bu`). Plassert rett før `license:`. | 9 | common, xkos-ap-no, bvrinn, samt-bu | — |
+| 3 | ✓ Lagt til `annotations.utgiver` (Brreg: `974760673`) og `annotations.status: Completed` i alle 3 skjema (`brreg-begrepskatalog`, `brreg-modellkatalog`, `register-over-aksjeeiere`). | 10, 11 | brreg-begrepskatalog, brreg-modellkatalog, register-over-aksjeeiere | — |
+| 4 | ✓ Fiksa `id` frå `https://example.no/ontology/aksje-eierskap` til `https://data.norge.no/oreg/register-over-aksjeeiere`. Fiksa òg `aksje:`-prefikset frå `example.no/ontology/aksje#` til `https://data.norge.no/oreg/register-over-aksjeeiere/` (prefikset var definert men ikkje brukt i `class_uri`/`slot_uri`). | 2, 4 | `register-over-aksjeeiere-schema.yaml` | — |
+| 5 | ✓ Aktivert `shacl: true` og `owl: true` i begge manifest-filer. Roundtrip-test for begrepskatalog OK. | 8 | `brreg-begrepskatalog/manifest.yaml`, `brreg-modellkatalog/manifest.yaml` | — |
+| 6 | **Må utførast manuelt.** Fiks `begrepsidentifikator` TODO-plasshalderar i bvrinn: søk opp kvar kandidatklasse på `https://data.norge.no/concepts?q=<term>` og erstatt `TODO` med faktisk URI. Sjå kandidattabell i seksjonen «Begrepsidentifikator-kandidatar for bvrinn-skjema» nedanfor. | 13 | `bvrinn-schema.yaml` | Brreg begrepskatalog-avklaring |
+| 7 | ~~Legg til `begrepsidentifikator` på nøkkelklasser i AP-NO~~ — **Avvist.** AP-NO-klassane (`Datasett`, `Katalog`, `Distribusjon` o.l.) er definerte av W3C/EU-standardar, ikkje norske fagomgrep. `begrepsidentifikator` er berre aktuelt for domenemodell-skjema. Regelen er dokumentert i `CLAUDE.md`. | 13 | — | — |
+| 8 | ✓ Legg til `ngr-virksomhet` i `brreg-modellkatalog` — allereie til stades i katalogen. Katalogen inneheld `ngr-virksomhet` og `register-over-aksjeeiere`. `enhetsregisteret-bvrinn` er ikkje ein del av dette tiltaket. Modellar eigd av andre organisasjonar (Digdir, Kartverket, Novari o.l.) skal ikkje inngå. | 12 | `brreg-modellkatalog.yaml` | — |
+| 9 | ✓ Fiksa `dct:startDate` → `dcat:startDate` og `dct:endDate` → `dcat:endDate` i `tidsrom_start`/`tidsrom_slutt`. Lagt til `dcat:`-prefiks i skjemaet. Roundtrip OK. | 15 | `xkos-ap-no-schema.yaml` | — |
+| 10 | ✓ Innført `class_count_limit`-warning (>50 klasser) i `bronze.yaml` og `server.py`. Verifisert: `fint-utdanning` triggar (90 klasser inkl. importerte), `dcat-ap-no` er stille. README og Digdir-regel 6-status oppdatert. | 6 | `bronze.yaml`, `server.py`, `policies/README.md` | — |
+| 11 | ✓ Fastset lisenskonvensjon: NLOD 2.0 er vald som standardlisens. Lagt til i sjekklista i `mkdocs/docs/ny-domenemodell.md`. Sjå Regel 7 — Lisensalternativ og dokumentasjonskonvensjon for grunngjeving og alternativa (CC BY 4.0, CC0 1.0, MIT, Apache 2.0). | 7 | `mkdocs/docs/ny-domenemodell.md` | Tiltak 1 (kjem før) |
+
+---
+
+## Begrepsidentifikator-kandidatar for bvrinn-skjema
+
+Alle 38 klassar i `enhetsregisteret-bvrinn-schema.yaml` har `begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO`.
+Brreg sin lokale begrepskatalog i repoet (`brreg-begrepskatalog.yaml`) inneheld berre tre omgrep
+(`foretaksnavn`, `nestleder`, `aksjeklasser`) — ingen treff mot bvrinn-klassane.
+
+Søk-URL for Felles begrepskatalog: `https://data.norge.no/concepts?q=<term>`  
+Katalog-API: `https://concept-catalog.fellesdatakatalog.digdir.no`
+
+### Klassar med truleg kandidat i Felles begrepskatalog
+
+Desse klassane svarar til veletablerte nasjonale omgrep og bør ha treff:
+
+| Klasse | Søketerm | Sannsynleg eigar av omgrep |
+|---|---|---|
+| `Virksomhet` | virksomhet | Brønnøysundregistra / Digdir |
+| `VirksomhetsinformasjonHovedenhet` | hovedenhet, enhet | Brønnøysundregistra |
+| `VirksomhetsinformasjonUnderenhet` | underenhet | Brønnøysundregistra |
+| `Forretningsadresse` | forretningsadresse | Brønnøysundregistra |
+| `Postadresse` | postadresse | Brønnøysundregistra / Posten |
+| `Stedsadresse` | stedsadresse | Brønnøysundregistra |
+| `Beliggenhetsadresse` | beliggenhetsadresse | Brønnøysundregistra |
+| `Vegadresse` | vegadresse | Kartverket / SSB |
+| `Postboksadresse` | postboksadresse | Brønnøysundregistra |
+| `InternasjonalAdresse` | internasjonal adresse | Brønnøysundregistra |
+| `Adressenummer` | adressenummer | Kartverket |
+| `Matrikkelnummer` | matrikkelnummer | Kartverket |
+| `Kontaktopplysning` | kontaktopplysning, kontaktinformasjon | Brønnøysundregistra / Digdir |
+| `Telefonnummer` | telefonnummer | Digdir / Brønnøysundregistra |
+| `Mobilnummer` | mobilnummer | Digdir / Brønnøysundregistra |
+| `Rolle` | rolle | Brønnøysundregistra |
+| `Rolleinnehaver` | rolleinnehaver | Brønnøysundregistra |
+| `Rolletypegruppe` | rolletype | Brønnøysundregistra |
+| `Prokura` | prokura | Brønnøysundregistra / Lovdata |
+| `Prokurabestemmelse` | prokura | Brønnøysundregistra |
+| `Signaturrett` | signaturrett | Brønnøysundregistra / Lovdata |
+| `Signaturrettsbestemmelse` | signaturrett | Brønnøysundregistra |
+| `Person` | person | Folkeregisteret / Digdir |
+| `Aktivitet` | aktivitet, næringsaktivitet | Brønnøysundregistra / SSB |
+| `Omdanning` | omdanning | Brønnøysundregistra |
+| `Innsender` | innsender | Brønnøysundregistra |
+
+### Klassar utan truleg nasjonal kandidat
+
+Desse er interne tekniske eller BVINN-spesifikke klasser som truleg ikkje finst i Felles begrepskatalog:
+
+| Klasse | Merknad |
+|---|---|
+| `Innrapportering` | BVINN-spesifikk innsendingsprosess |
+| `Ansvarsandel` | Intern brøkrepresentasjon |
+| `Broek` | Teknisk hjelpestruktur |
+| `Fagsystemreferanse` | IT-systemreferanse |
+| `FagsystemId` | IT-systemreferanse |
+| `EierskifteAktivitet` | BVINN-spesifikk hendingstype |
+| `DelerEierskifte` | BVINN-spesifikk hendingstype |
+| `TypeAktivitet` | Intern kodeliste |
+| `Rollesett` | Intern grupperingsstruktur |
+| `SignaturberettigetEllerProkurist` | Intern kombinasjonsklasse |
+| `Foretaksinformasjon` | Intern aggregeringsklasse |
+| `Varslingsadresse` | Kan overlappe kontaktopplysning |
+| `Gebyransvarlig` | BVINN-spesifikk part |
+| `Signering` | Teknisk signeringsprosess |
+
+### Neste steg
+
+1. Søk opp kvar kandidatklasse i `https://data.norge.no/concepts?q=<søketerm>`
+2. Verifiser at funne omgrep er frå godkjend samling i Felles begrepskatalog
+3. Oppdater `begrepsidentifikator` i skjemaet med faktisk URI på forma:
+   `https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/<UUID>`
+4. For klasser utan nasjonal kandidat: vurder om Brreg bør opprette eigne omgrep i sin begrepskatalog
 
 ---
 

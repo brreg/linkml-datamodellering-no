@@ -1,6 +1,7 @@
 id: https://data.norge.no/ngr/ngr-person
 name: ngr-person
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 title: Nasjonale grunndata – Person
 description: >-
   Domenemodell for persondata basert på Nasjonale grunndata (utkast).

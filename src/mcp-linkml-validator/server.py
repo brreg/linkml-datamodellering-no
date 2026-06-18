@@ -399,6 +399,21 @@ def _check_merged_class_has_slot_with_uri(sv, schema, config, issues):
         ))
 
 
+def _check_class_count(sv, schema, config, issues):
+    max_classes = config.get("max_classes", 50)
+    non_root = [
+        cname for cname, cls in (schema.classes or {}).items()
+        if not cls.tree_root
+    ]
+    count = len(non_root)
+    if count > max_classes:
+        issues.append(issue(
+            config["severity"], "class_count_exceeds_limit", "schema",
+            f"Skjemaet har {count} klasser (maks anbefalt: {max_classes}). "
+            f"Vurder å dele opp i fleire skjema (Digdir-regel 6: Modularitet).",
+        ))
+
+
 def _check_merged_class_has_any_slot_with_uri(sv, schema, config, issues):
     cname = config["class"]
     slot_uris = config["slot_uris"]
@@ -434,6 +449,7 @@ _CHECK_HANDLERS = {
     "schema_imports":                     _check_schema_imports,
     "merged_class_has_slot_with_uri":     _check_merged_class_has_slot_with_uri,
     "merged_class_has_any_slot_with_uri": _check_merged_class_has_any_slot_with_uri,
+    "class_count":                        _check_class_count,
 }
 
 

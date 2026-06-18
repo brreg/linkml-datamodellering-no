@@ -13,6 +13,7 @@ description: >-
   in_subset og lenking framfor inlining.
 
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 
 # Importer alltid frå eit AP-NO-profil — ikkje linkml:types direkte.
 # AP-NO-profilane arvar sjølve frå common-ap-no (typar, subsets og gjenbrukbare slots).

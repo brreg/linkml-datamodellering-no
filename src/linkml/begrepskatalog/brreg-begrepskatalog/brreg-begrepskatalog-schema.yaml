@@ -6,6 +6,11 @@ description: >-
   Begreper modellert lokalt med midlertidige URI-ar, klare for
   validering og eksport til Felles Begrepskatalog.
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  status: http://purl.org/adms/status/Completed
 
 prefixes:
   linkml: https://w3id.org/linkml/
