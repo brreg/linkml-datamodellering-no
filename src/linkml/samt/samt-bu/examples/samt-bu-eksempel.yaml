@@ -8,18 +8,9 @@ dataset_metadata:
       - samt-bu-skole-data
     beskrivelse: 
       - demodatasett for å teste samt-bu-skole modellen
-    tema: 
-      - https://psi.norge.no/los/tema/skole
-      - https://psi.norge.no/los/tema/utdanning
-      - https://psi.norge.no/los/tema/elever
+    tema:
+      - https://psi.norge.no/los/tema/skole-og-utdanning
       - https://psi.norge.no/los/tema/grunnskole
-      - https://psi.norge.no/los/tema/opplaering
-    begrep:
-      - https://psi.norge.no/los/begrep/elev
-      - https://psi.norge.no/los/begrep/skole
-      - https://psi.norge.no/los/begrep/kommune
-      - https://psi.norge.no/los/begrep/grunnskole
-      - https://psi.norge.no/los/begrep/opplaering
     ble_generert_ved:
       - https://data.norge.no/vocabulary/provenance-activity-type#administrative-decision
       - https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-third-party

@@ -30,7 +30,7 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://brreg.no/kontakt/modellforvaltning
   tema:
-  - https://psi.norge.no/los/tema/naering-og-sysselsetting
+  - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   tittel:
@@ -43,7 +43,7 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://brreg.no/kontakt/modellforvaltning
   tema:
-  - https://psi.norge.no/los/tema/naering-og-sysselsetting
+  - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 aktoerer:
 - id: https://brreg.no/kontakt/modellforvaltning

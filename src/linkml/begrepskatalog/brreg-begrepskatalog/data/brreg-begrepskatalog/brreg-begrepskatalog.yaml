@@ -14,6 +14,7 @@ begrep:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.norge.no/organizations/974760673
     fagomrade:
+      - https://psi.norge.no/los/tema/naring
       - https://psi.norge.no/los/tema/naringsliv
     sja_ogsa_omgrep:
       - https://data.norge.no/concepts/68944a03-76d8-38f5-894e-88265d962b36
@@ -33,6 +34,7 @@ begrep:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.norge.no/organizations/974760673
     fagomrade:
+      - https://psi.norge.no/los/tema/naring
       - https://psi.norge.no/los/tema/naringsliv
 
   - id: https://begrep.brreg.no/aksjeklasser
@@ -45,6 +47,7 @@ begrep:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.norge.no/organizations/974760673
     fagomrade:
+      - https://psi.norge.no/los/tema/naring
       - https://psi.norge.no/los/tema/naringsliv
     merknad:
       - I utgangspunktet skal alle aksjer gi lik rett i selskapet, men vedtektene kan bestemme at aksjene skal deles inn i forskjellige aksjeklasser.

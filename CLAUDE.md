@@ -193,6 +193,16 @@ Containerklasse:
 ### Endringer i koderepoet
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
 
+### Los-tema i datasett og katalogar
+
+`dcat:theme` (`tema`-sloten) skal bruke Los som primærvokabular:
+- Hovudoversikt: https://psi.norge.no/los/ — alle tema: https://psi.norge.no/los/ontologi/tema.html — temastruktur: https://psi.norge.no/los/struktur.html — ord: https://psi.norge.no/los/ontologi/ord.html
+- Hovudtema: `https://psi.norge.no/los/tema/<namn>`
+- Undertema er lov å bruke i tillegg til hovudtemaet, ikkje i staden for det
+- Særnorske bokstavar translittererast i URI: æ → a (naring), ø → o, å → a
+- `/los/begrep/`-URI-ar finst ikkje — berre `/los/tema/`, `/los/ord/`, `/los/hendelse/`
+- `dct:subject` (`begrep`-slot) peikar til fagomgrep i begrepskatalog — ikkje til Los
+
 ### Ny profil eller domenemodell
 Sjå `mkdocs/docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 

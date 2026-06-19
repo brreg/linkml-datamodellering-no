@@ -205,7 +205,7 @@ Los 4 var planlagt Q1 2026. Repoet inneheld hardkoda Los 3-URI-ar i fleire dataf
 
 ## Tilrådde tiltak
 
-### LO1 — Fiks `naering-og-sysselsetting` → `naring` i `brreg-modellkatalog` ✱ Kritisk
+### LO1 — Fiks `naering-og-sysselsetting` → `naring` i `brreg-modellkatalog` ✱ Kritisk ✓
 
 ```yaml
 # Før
@@ -223,7 +223,7 @@ Gjeld:
 
 ---
 
-### LO2 — Fiks Los-URI-ar i `samt-bu-eksempel.yaml` ✱ Kritisk
+### LO2 — Fiks Los-URI-ar i `samt-bu-eksempel.yaml` ✱ Kritisk ✓
 
 Steg 1: Fjern alle `begrep`-verdiar med `psi.norge.no`-URI-ar. `dct:subject` skal peike til
 definerte fagomgrep i begrepskatalogen, ikkje til Los.
@@ -252,7 +252,7 @@ eller liknande, ikkje Los-URI-ar.
 
 ---
 
-### LO3 — Legg til Los-dokumentasjon på `tema`-sloten
+### LO3 — Legg til Los-dokumentasjon på `tema`-sloten ✓
 
 Legg til `description` og annotasjon i `dcat-ap-no-schema.yaml`:
 
@@ -277,7 +277,7 @@ URI-ar som er forventa (ikkje fritekst).
 
 ---
 
-### LO4 — Legg til Los-rettleiing i `CLAUDE.md`
+### LO4 — Legg til Los-rettleiing i `CLAUDE.md` ✓
 
 Legg til ein seksjon under `Modelleringsprinsipper` i `CLAUDE.md`:
 
@@ -285,7 +285,8 @@ Legg til ein seksjon under `Modelleringsprinsipper` i `CLAUDE.md`:
 ### Los-tema i datasett og katalogar
 
 `dcat:theme` (`tema`-sloten) skal bruke Los som primærvokabular:
-- Hovudtema: `https://psi.norge.no/los/tema/<namn>` (sjå 14 hovudtema i `specs/backlog/avvik-los.md`)
+- Hovudoversikt: https://psi.norge.no/los/ — alle tema: https://psi.norge.no/los/ontologi/tema.html — temastruktur: https://psi.norge.no/los/struktur.html — ord: https://psi.norge.no/los/ontologi/ord.html
+- Hovudtema: `https://psi.norge.no/los/tema/<namn>`
 - Undertema er lov å bruke i tillegg til hovudtemaet, ikkje i staden for det
 - Særnorske bokstavar translittererast i URI: æ → a (naring), ø → o, å → a
 - `/los/begrep/`-URI-ar finst ikkje — berre `/los/tema/`, `/los/ord/`, `/los/hendelse/`
@@ -296,7 +297,7 @@ Legg til ein seksjon under `Modelleringsprinsipper` i `CLAUDE.md`:
 
 ---
 
-### LO5 — Supplér `naringsliv` med `naring` i `brreg-begrepskatalog`
+### LO5 — Supplér `naringsliv` med `naring` i `brreg-begrepskatalog` ✓
 
 ```yaml
 fagomrade:
@@ -328,3 +329,15 @@ fagomrade:
 - LO3 (`range: uriorcurie`) kan bryte eksisterande validering dersom andre verdiar enn URI-ar er i bruk — verifiser med `make validate-instance` etter endringa
 - LO4 er dokumentasjon og har ingen tekniske avhengigheiter
 - LO5 er ei suppleringsendring og er ikkje tidssensitiv
+
+---
+
+## Utført
+
+Alle 5 tiltak utførte 2026-06-19.
+
+- **LO1**: Retta ugyldig `naering-og-sysselsetting` → `naring` i `brreg-modellkatalog.yaml` og eksempelfil (2 førekomstar).
+- **LO2**: Retta `samt-bu-eksempel.yaml` — erstatta 5 ugyldige `tema`-URI-ar med `skole-og-utdanning` + `grunnskole`, og fjerna heile `begrep`-seksjonen med `/los/begrep/`-URI-ar som ikkje finst i Los.
+- **LO3**: Endra `tema.range` frå `string` → `uriorcurie` i `dcat-ap-no-schema.yaml` og la til Los-dokumentasjon og `gyldige_verdier`-annotasjon på `tema`- og `temaer`-slotane.
+- **LO4**: La til seksjon «Los-tema i datasett og katalogar» under `Modelleringsprinsipper` i `CLAUDE.md` med lenker til hovudoversikt, temastruktur og ord.
+- **LO5**: Supplerte undertema `naringsliv` med hovudtema `naring` i `fagomrade` for alle 3 begrep i `brreg-begrepskatalog` datafil og eksempelfil (6 førekomstar).

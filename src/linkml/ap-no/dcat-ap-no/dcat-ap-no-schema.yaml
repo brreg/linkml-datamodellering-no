@@ -843,15 +843,23 @@ slots:
 
   tema:
     slot_uri: dcat:theme
-    range: string
+    range: uriorcurie
     multivalued: true
-    description: Tema frå eit kontrollert vokabular.
+    description: >-
+      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
+      (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
+      (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg.
+      EuroVoc kan brukast som sekundærvokabular.
+    annotations:
+      gyldige_verdier: https://psi.norge.no/los/
 
   temaer:
     slot_uri: dcat:themeTaxonomy
     range: Begrepssamling
     multivalued: true
-    description: Temavokabular som vert brukt i katalogen.
+    description: >-
+      Temavokabular som vert brukt i katalogen. Inkluder Los-referansen
+      (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt.
 
   begrep:
     slot_uri: dct:subject
