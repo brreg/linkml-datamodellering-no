@@ -108,24 +108,14 @@ BegrepContainer:
 ## 2 — Generer YAML-instansar
 
 Bruk `opprett_begrep`-verktøyet i `mcp-linkml-begrep-utkast` til å byggje
-YAML-blokker. Verktøyet kan køyrast av ein AI-assistent med MCP-støtte
-(t.d. Claude Code med MCP-konfigurasjon) eller manuelt via Makefile:
-
-```bash
-# List tilgjengelege profiler
-make mcp-begrep-list-profiles
-
-# List gyldige LOS-tema-URI-ar
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}
-{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"list_los_tema","arguments":{}}}' \
-  | make mcp-begrep-run
-```
+YAML-blokker.
 
 ### Eksempel — generer eitt begrep ihht skjema for begrepskatalog
 
-```bash
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}
-{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"opprett_begrep","arguments":{
+Legg argumenta i ei JSON-fil, t.d. `tmp/mitt-begrep.json`:
+
+```json
+{
   "profil": "default",
   "base_uri": "https://begrep.<org>.no",
   "slug": "mitt-begrep",
@@ -134,7 +124,11 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
   "kjelde_relasjon": "self-composed",
   "utgjevar_uri": "https://data.norge.no/organizations/<orgnr>",
   "fagomrade_uri": "https://psi.norge.no/los/tema/<slug>"
-}}}' | make mcp-begrep-run
+}
+```
+
+```bash
+make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
 ```
 
 Resultatet er YAML-blokker som kan limast inn i instansfila

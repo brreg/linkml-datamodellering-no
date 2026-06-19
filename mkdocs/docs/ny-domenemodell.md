@@ -132,9 +132,9 @@ TilskuddContainer:
 Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 # Silver-annotasjonar (utgiver, endringsdato, status) automatisk:
-make mcp-generate SCHEMA=tmp/modell.json PROFILE=silver
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json PROFILE=silver
 ```
 
 → genererer `tmp/modell-schema.yaml`. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
