@@ -3,7 +3,9 @@ name: modelldcat-katalog
 title: ModelDCAT-AP-NO – Katalogdel
 description: >-
   Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og
-  hjelpeklassar (Aktoer, Kontaktopplysning, Standard, o.a.).
+  modelldcat-spesifikke hjelpeklassar (Lisensdokument, Dokument).
+  Klassar som er felles med DCAT-AP-NO (Aktoer, Kontaktopplysning, Standard,
+  Tidsrom, KatalogisertRessurs) er arvde via import av dcat-ap-no-schema.
   Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel
 
 version: "1.0.0"
@@ -15,7 +17,6 @@ prefixes:
   dcat:          http://www.w3.org/ns/dcat#
   dct:           http://purl.org/dc/terms/
   foaf:          http://xmlns.com/foaf/0.1/
-  vcard:         http://www.w3.org/2006/vcard/ns#
   prof:          http://www.w3.org/ns/dx/prof/
 
 default_prefix: https://data.norge.no/ap-no/modelldcat-ap-no/katalog/
@@ -25,6 +26,7 @@ imports:
   - linkml:types
   - ../common/common-ap-no-schema
   - ./modelldcat-modell-schema
+  - ../dcat-ap-no/dcat-ap-no-schema
 
 # ---------------------------------------------------------------------------
 # Klasser — Katalogdel
@@ -32,68 +34,9 @@ imports:
 
 classes:
 
-  # ---- Hjelpeklassar for refererte vokabularressursar ----------------------
-
-  KatalogisertRessurs:
-    in_subset:
-      - Metadata
-    class_uri: dcat:Resource
-    description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
-    slots:
-      - id
-
-  Aktoer:
-    in_subset:
-      - Metadata
-    class_uri: foaf:Agent
-    description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
-    slots:
-      - id
-      - navn_aktoer
-      - identifikator_literal
-      - type_concept
-    slot_usage:
-      navn_aktoer:
-        required: true
-        in_subset:
-          - Obligatorisk
-
-  Kontaktopplysning:
-    in_subset:
-      - Metadata
-    class_uri: vcard:Kind
-    description: Kontaktinformasjon for ein aktør (vcard:Kind).
-    slots:
-      - id
-      - navn_vcard
-      - har_epost
-      - har_kontaktside
-    slot_usage:
-      navn_vcard:
-        required: true
-        in_subset:
-          - Obligatorisk
-      har_epost:
-        in_subset:
-          - Anbefalt
-      har_kontaktside:
-        in_subset:
-          - Valgfri
-
-  Standard:
-    in_subset:
-      - Metadata
-    class_uri: dct:Standard
-    description: Ein standard (dct:Standard).
-    slots:
-      - id
-      - tittel
-      - har_referanse
-      - versjonsnummer
-    slot_usage:
-      tittel:
-        in_subset:
-          - Obligatorisk
+  # ---- Modelldcat-spesifikke hjelpeklassar ---------------------------------
+  # Aktoer, Kontaktopplysning, Standard, Tidsrom og KatalogisertRessurs
+  # er arvde frå dcat-ap-no-schema (importert ovanfor).
 
   Lisensdokument:
     in_subset:
@@ -103,16 +46,6 @@ classes:
     slots:
       - id
       - type_concept
-
-  Tidsrom:
-    in_subset:
-      - Metadata
-    class_uri: dct:PeriodOfTime
-    description: Eit tidsintervall med start- og sluttdato.
-    slots:
-      - id
-      - startdato
-      - sluttdato
 
   Dokument:
     in_subset:
@@ -339,84 +272,25 @@ classes:
           - Valgfri
 
 # ---------------------------------------------------------------------------
-# Slots — Katalogdel
+# Slots — Katalogdel (modelldcat-spesifikke eller med avvikande range)
 # ---------------------------------------------------------------------------
 
 slots:
 
-  # ---- Aktoer --------------------------------------------------------------
-
-  navn_aktoer:
-    slot_uri: foaf:name
-    range: LangString
-    multivalued: true
-    description: Namn på aktøren (foaf:name).
-
-  # ---- Kontaktopplysning ---------------------------------------------------
-
-  navn_vcard:
-    slot_uri: vcard:fn
-    range: LangString
-    multivalued: true
-    description: Formatert namn (vcard:fn).
-
-  har_epost:
-    slot_uri: vcard:hasEmail
-    range: string
-    description: E-postadresse til kontaktpunktet (vcard:hasEmail).
-
-  har_kontaktside:
-    slot_uri: vcard:hasURL
-    range: string
-    description: Nettside for kontakt (vcard:hasURL).
-
-  # ---- Tidsrom -------------------------------------------------------------
-
-  startdato:
-    slot_uri: dcat:startDate
-    range: date
-    description: Startdato for tidsperioden (dcat:startDate).
-
-  sluttdato:
-    slot_uri: dcat:endDate
-    range: date
-    description: Sluttdato for tidsperioden (dcat:endDate).
-
-  # ---- Modellkatalog og Informasjonsmodell ----------------------------------
-
-  utgiver:
-    slot_uri: dct:publisher
-    range: Aktoer
-    description: Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher).
-
-  produsent:
-    slot_uri: dct:creator
-    range: Aktoer
-    description: Aktøren som primært har skapt ressursen (dct:creator).
-
-  kontaktpunkt:
-    slot_uri: dcat:contactPoint
-    range: Kontaktopplysning
-    multivalued: true
-    description: Kontaktinformasjon for ressursen (dcat:contactPoint).
-
+  # lisens: range er Lisensdokument (ikkje string som i dcat-ap-no)
   lisens:
     slot_uri: dct:license
     range: Lisensdokument
     description: Lisens for bruk av ressursen (dct:license).
 
+  # tema: range er Konsept (ikkje uriorcurie som i dcat-ap-no)
   tema:
     slot_uri: dcat:theme
     range: Konsept
     multivalued: true
     description: Tema frå eit kontrollert vokabular (dcat:theme).
 
-  temaer:
-    slot_uri: dcat:themeTaxonomy
-    range: Begrepssamling
-    multivalued: true
-    description: Temavokabular brukt i katalogen (dcat:themeTaxonomy).
-
+  # har_del: range er KatalogisertRessurs (ikkje Katalog som i dcat-ap-no)
   har_del:
     slot_uri: dct:hasPart
     range: KatalogisertRessurs
@@ -446,6 +320,7 @@ slots:
     multivalued: true
     description: Informasjonsmodell som erstattar denne (dct:isReplacedBy).
 
+  # erstatter: range er Informasjonsmodell (ikkje Datasett som i dcat-ap-no)
   erstatter:
     slot_uri: dct:replaces
     range: Informasjonsmodell

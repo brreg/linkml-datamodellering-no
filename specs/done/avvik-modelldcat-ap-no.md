@@ -577,7 +577,7 @@ Lint: berre forventa `dct` canonical-prefix-åtvaring (same som original). Insta
 | 8 | MC10: Split i `modelldcat-modell` og `modelldcat-katalog` | `modelldcat-ap-no/` | ✓ |
 | 9 | MC9: Harmoniser klassenamn, slotnamn og struktur | fleire filer | ✓ (delvis) |
 | 10 | MC11: Løys sirkulær import dcat-ap-no ↔ dqv-ap-no | `dqv-ap-no/`, `dcat-ap-no/` | ✓ |
-| 11 | MC8: Importer `dcat-ap-no` i `modelldcat-katalog`, fjern lokale duplikatklassar | `modelldcat-katalog-schema.yaml` | — |
+| 11 | MC8: Importer `dcat-ap-no` i `modelldcat-katalog`, fjern lokale duplikatklassar | `modelldcat-katalog-schema.yaml` | ✓ |
 
 ---
 
@@ -628,3 +628,24 @@ common-ap-no → dqv-core → dcat-ap-no → dqv-ap-no
 **Merk:** `modelldcat-ap-no-schema.yaml` importerer `common-ap-no-schema` allereie
 (via `imports: - ../common/common-ap-no-schema`), så `navn_vcard`, `har_epost`
 og `har_kontaktside` er tilgjengelege utan endringar i imports.
+
+---
+
+## Utført
+
+Utført 2026-06-19. MC8 er ikkje gjennomført og vert flytta til eige backlog-punkt.
+
+**Gjennomførte tiltak:**
+
+- **MC1** — `Aktoer.navn_aktoer` → `required: true` i `modelldcat-katalog-schema.yaml`
+- **MC2** — `Kontaktopplysning` utvida med `navn_vcard` (`vcard:fn`), `har_epost` (`vcard:hasEmail`), `har_kontaktside` (`vcard:hasURL`)
+- **MC3** — `Lokasjon`-klassen fjerna (var definert men aldri referert)
+- **MC4** — `Modellkatalog.har_del` endra frå feilaktig `required: true` til `in_subset: [Anbefalt]`
+- **MC5** — `Informasjonsmodell.type_concept` fått `gyldige_verdier`-annotasjon med ModelDCAT-AP-NO-vokabular-URI-ar
+- **MC6** — `brreg-modellkatalog.yaml`: silver-annotasjonar (`utgiver`, `endringsdato`, `status`, m.fl.) lagt til på alle `Informasjonsmodell`-instansar
+- **MC7** — `Modellkatalog`-instansen fått `tema`-verdi (Los)
+- **MC9** — Klassenamn og slotnamn harmonisert med `dcat-ap-no` der mogleg (`Aktoer` → `foaf:Agent`, `Tidsrom` → `dct:PeriodOfTime`, `Kontaktopplysning` → `vcard:Kind`). Delvis: `Standard`- og `Lisensdokument`-klassane er dupliserte — slåast saman i MC8.
+- **MC10** — `modelldcat-ap-no-schema.yaml` delt i `modelldcat-modell-schema.yaml` (27 Modellelement-klassar) og `modelldcat-katalog-schema.yaml` (Modellkatalog, Informasjonsmodell, hjelpeklassar). Originalen er pass-through for bakoverkompatibilitet.
+- **MC11** — Sirkulær import `dcat-ap-no` ↔ `dqv-ap-no` løyst med ny `dqv-core-schema.yaml` (bridge-fil). `har_maal.range` forblir `uriorcurie` pga. LinkML-avgrensing (`no_invalid_slot_usage`).
+
+- **MC8** — Import av `dcat-ap-no` i `modelldcat-katalog-schema.yaml`. Fjerna 5 duplikatklassar (`KatalogisertRessurs`, `Aktoer`, `Kontaktopplysning`, `Standard`, `Tidsrom`) og 10 duplikatslotar (`naam_aktoer`, `naam_vcard`, `har_epost`, `har_kontaktside`, `startdato`, `sluttdato`, `utgiver`, `produsent`, `kontaktpunkt`, `temaer`). Beheld lokal definisjon av 4 slots med avvikande range frå dcat-ap-no: `lisens` (Lisensdokument), `tema` (Konsept), `har_del` (KatalogisertRessurs), `erstatter` (Informasjonsmodell). `vcard:`-prefikset fjerna (ikkje lenger nødvendig). Lint: 0 nye problem. Instansvalidering: OK.

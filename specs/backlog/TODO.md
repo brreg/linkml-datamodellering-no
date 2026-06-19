@@ -65,3 +65,5 @@ automatisk sette endringsdato ifbm at versjon settes av release-please workflow
 juster generering av plantuml og er diagram 
 
 opprette slack kanal under digdir samarbeid?
+
+lage ein sturktur for å ta vare på output fra valideringer knytta til kvar modell
