@@ -1,3 +1,6 @@
+# version, endringsdato og utgivelsesdato vert automatisk oppdatert av CI.
+# Sjå CONTRIBUTING.md for detaljar om kva som er manuelt vs. automatisk.
+
 id: https://data.norge.no/fair/fair-metadata
 name: fair-metadata
 title: FAIR Metadata Overbygning

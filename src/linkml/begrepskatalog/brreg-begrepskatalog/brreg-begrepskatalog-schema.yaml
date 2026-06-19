@@ -1,3 +1,6 @@
+# version, endringsdato og utgivelsesdato vert automatisk oppdatert av CI.
+# Sjå CONTRIBUTING.md for detaljar om kva som er manuelt vs. automatisk.
+
 id: https://data.norge.no/begrepskatalog/brreg-begrepskatalog
 name: brreg-begrepskatalog
 title: Registerenheten i Brønnøysund – Begrepskatalog
@@ -10,6 +13,8 @@ license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "TODO"
+  utgivelsesdato: "TODO"
   status: http://purl.org/adms/status/Completed
 
 prefixes:

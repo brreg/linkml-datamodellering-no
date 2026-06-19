@@ -1,3 +1,6 @@
+# version, endringsdato og utgivelsesdato vert automatisk oppdatert av CI.
+# Sjå CONTRIBUTING.md for detaljar om kva som er manuelt vs. automatisk.
+
 id: https://data.norge.no/oreg/register-over-aksjeeiere
 name: register-over-aksjeeiere
 version: "1.0.0"
@@ -9,6 +12,8 @@ description: >
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "TODO"
+  utgivelsesdato: "TODO"
   status: http://purl.org/adms/status/Completed
 
 prefixes:
