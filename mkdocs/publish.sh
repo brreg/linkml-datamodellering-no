@@ -391,6 +391,7 @@ nav:
       - Valideringsreglar: valideringregler.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
+      - AP-NO arkitektur og avvik: ap-no-arkitektur.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do
