@@ -283,7 +283,7 @@ def convert(
     schema["title"] = schema_title or f"TODO: tittel for {schema_name}"
     schema["description"] = (
         json_schema.get("description")
-        or f"Generert frå JSON Schema '{schema_name}'."
+        or f"Generert modell for '{schema_name}'."
     )
     schema["version"] = "0.1.0"
     schema["license"] = "https://creativecommons.org/licenses/by/4.0/"

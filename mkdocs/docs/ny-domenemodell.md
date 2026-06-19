@@ -24,7 +24,109 @@ src/linkml/<domain>/<modell>/
 └── examples/
     └── <modell>-eksempel.yaml ← eksempelfil med minimal instans
 ```
-Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) utan manuell redigering. 
+
+
+
+
+For `make new-model NAME=tilskudd DOMAIN=eksempel` ser dei genererte filene slik ut:
+
+**`tilskudd-schema.yaml`**
+
+```yaml
+id: https://data.norge.no/eksempel/tilskudd
+name: tilskudd
+title: 'TODO: tittel for tilskudd'
+description: Generert modell for 'tilskudd'.
+version: 0.1.0
+license: https://creativecommons.org/licenses/by/4.0/
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  tilskudd: https://data.norge.no/eksempel/tilskudd/
+  dct:      http://purl.org/dc/terms/
+  dcat:     http://www.w3.org/ns/dcat#
+  foaf:     http://xmlns.com/foaf/0.1/
+  skos:     http://www.w3.org/2004/02/skos/core#
+  xsd:      http://www.w3.org/2001/XMLSchema#
+  rdf:      http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs:     http://www.w3.org/2000/01/rdf-schema#
+
+default_prefix: https://data.norge.no/eksempel/tilskudd/
+default_range: string
+
+imports:
+  - linkml:types
+
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+
+classes:
+  tilskudd:                        # ← stub — gi eit norsk PascalCase-namn
+    description: TODO: beskriv klassen
+    class_uri: tilskudd:tilskudd   # ← byt med faktisk vokabular-URI
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+      - id
+
+  TilskuddContainer:
+    description: TODO: beskriv containerklassen
+    tree_root: true
+    attributes:
+      tilskudder:
+        description: TODO: beskriv eigenskapen
+        range: tilskudd
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+slots:
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+
+# TODO: Legg til domene-spesifikke imports etter 'linkml:types', t.d.:
+#   - ../../ap-no/dcat-ap-no/dcat-ap-no-schema
+# TODO: Gi stub-klassen eit meiningsfult norsk namn (PascalCase).
+# TODO: Legg til slots og slot_usage for eigenskapane i modellen.
+```
+**Kva TODO-stubbane betyr**
+
+| Stubb | Kva som skal inn |
+|-------|-----------------|
+| `title: 'TODO: tittel for …'` | Norsk bokmål-tittel, t.d. `Tilskuddsregister` |
+| `class tilskudd` (ikkje PascalCase) | Gi klassen eit norsk PascalCase-namn, t.d. `Tilskudd` |
+| `class_uri: tilskudd:tilskudd` | Faktisk RDF-URI, t.d. `dcat:Dataset` eller eigen namespace |
+| `begrepsidentifikator: …/TODO` | URI frå [data.norge.no/concepts](https://data.norge.no/concepts) |
+| `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
+| `imports: [linkml:types]` | Legg til AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema` |
+| `license: creativecommons.org/…` | Endre til `https://data.norge.no/nlod/no/2.0` for offentlege data |
+
+`manifest.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](manifest-config.md) for feltliste.
+
+
+
+
+**`examples/tilskudd-eksempel.yaml`**
+
+```yaml
+# Eksempel for tilskudd
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+TilskuddContainer:
+  tilskudder:
+    - id: https://data.norge.no/eksempel/tilskudd/eksempel-1
+```
+
+
+
+---
 
 ### 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
