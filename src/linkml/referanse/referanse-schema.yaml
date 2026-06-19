@@ -2,6 +2,8 @@
 ## Annotert referanseskjema for nye utviklarar.
 ## Viser alle hovudmønster brukte i dette repoet.
 ## Ikkje ein del av produksjonsdomenet — generer ikkje artefakter for denne fila.
+## version, endringsdato og utgivelsesdato vert automatisk oppdatert av CI.
+## Sjå CONTRIBUTING.md for detaljar om kva som er manuelt vs. automatisk.
 ##
 
 id: https://example.org/linkml/referanse
@@ -14,6 +16,12 @@ description: >-
 
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: TODO
+  endringsdato: "TODO"
+  utgivelsesdato: "TODO"
+  status: http://purl.org/adms/status/UnderDevelopment
 
 # Importer alltid frå eit AP-NO-profil — ikkje linkml:types direkte.
 # AP-NO-profilane arvar sjølve frå common-ap-no (typar, subsets og gjenbrukbare slots).

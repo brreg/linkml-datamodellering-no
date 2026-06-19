@@ -1,3 +1,6 @@
+# version, endringsdato og utgivelsesdato vert automatisk oppdatert av CI.
+# Sjå CONTRIBUTING.md for detaljar om kva som er manuelt vs. automatisk.
+
 id: https://data.norge.no/ap-no/dcat-ap-no
 name: dcat-ap-no
 title: DCAT-AP-NO

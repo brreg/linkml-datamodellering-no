@@ -38,6 +38,19 @@ make <domain>          # t.d. make ngr, make ap-no, make fair
 make docs-serve        # start lokal dokumentasjonsportal på http://localhost:8000
 ```
 
+## Automatisk forvalta felt
+
+Tre felt i kvar skjema-YAML-fil vert oppdaterte automatisk av CI — **ikkje rediger desse manuelt**:
+
+| Felt | Forvaltingsmekanisme |
+|---|---|
+| `version` | release-please oppdaterer via JSONPath etter merge av release-PR |
+| `annotations.endringsdato` | `update-schema-dates.py` set til releasedato etter kvar release |
+| `annotations.utgivelsesdato` | `update-schema-dates.py` set til releasedato ved første release (éin gong) |
+
+Oppdateringa skjer automatisk etter at ein release-PR er merge-a til `main`.
+Du treng ikkje gjere noko — CI commit-ar endringane med meldinga `chore(*): oppdater datoannotasjonar etter release [skip ci]`.
+
 ## Commit-meldingar
 
 Repoet nyttar [Conventional Commits](https://www.conventionalcommits.org/)-formatet:
