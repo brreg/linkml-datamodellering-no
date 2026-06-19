@@ -67,6 +67,10 @@ lage ein sturktur for å ta vare på output fra valideringer knytta til kvar mod
 
 lag ein job som tester alle URL og URIer i repoet og logg html returkoden. 
 
+lag ein job som identifiserer alle klasser med liknande navn på tvers av modellar.
+
+lag ein job som identifiserar alle slots med liknande navn på tvers av modellar.
+
 
 
 

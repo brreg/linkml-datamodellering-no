@@ -19,17 +19,17 @@ Denne kartlegginga evaluerer difor repoet på to nivå:
 1. **Strukturelle gap** — krav prinsippa stiller som MCP-validatoren ikkje fangar
 2. **Etterlevingsgap** — krav validatoren fangar (warning/error), men der repoet konsekvent ikkje etterlever
 
-| Prinsipp | MCP-dekning | Hovudgap |
-|---|---|---|
-| P1 Sammenheng | Delvis (regel 4, 12) | Inkonsistent slot-definisjon på tvers av skjema |
-| P2 Brukerperspektiv | Delvis (regel 1, 5) | 20/23 skjema manglar portaltekst (`description.md`) |
-| P3 Terminologi | Delvis (regel 13) | `begrepsidentifikator` manglar på nær alle klasser |
-| P4 Dokumentasjon | Delvis (regel 1, 9) | `license:` manglar i alle 25 skjema |
-| P5 Tilgjengelighet | Delvis (regel 7, 8) | `license:` manglar; 2 skjema manglar SHACL og OWL |
-| P6 Gjenbruk og utveksling | Godt dekt | Manglande kryssreferansar mellom skjema |
-| P7 Modularitet | Delvis (regel 6) | Ingen grense for klassetal per skjema |
-| P8 Stabilitet og utvidbarhet | Delvis (regel 9–11) | 4 skjema manglar `version:`, ingen automatisk versjonsheving |
-| P9 Verktøyuavhengighet | Godt dekt | — |
+| Prinsipp | MCP-dekning | Hovudgap | Status |
+|---|---|---|---|
+| P1 Sammenheng | Delvis (regel 4, 12) | Inkonsistent slot-definisjon på tvers av skjema | Ope |
+| P2 Brukerperspektiv | Delvis (regel 1, 5) | 22/28 skjema manglar portaltekst (`description.md`) | Ope |
+| P3 Terminologi | Delvis (regel 13) | `begrepsidentifikator` manglar på nær alle klasser | Ope |
+| P4 Dokumentasjon | Delvis (regel 1, 9) | ~~`license:` manglar i alle 25 skjema~~ → alle 28 skjema har `license:` | **Lukka** |
+| P5 Tilgjengelighet | Delvis (regel 7, 8) | ~~`license:` og SHACL/OWL~~ → brreg-skjema har no SHACL/OWL og `license:` | **Lukka** |
+| P6 Gjenbruk og utveksling | Godt dekt | Manglande kryssreferansar mellom skjema | Ope (låg prio) |
+| P7 Modularitet | Delvis (regel 6) | FINT-skjema overskrider 50-klasse-grensa (bronze warning, akseptert avvik) | Ope (akseptert) |
+| P8 Stabilitet og utvidbarhet | Delvis (regel 9–11) | ~~`version:` manglar~~ → alle har `version:`; ~~2 sub-skjema manglar `annotations.status`~~ → lukka | **Lukka** |
+| P9 Verktøyuavhengighet | Godt dekt | — | — |
 
 ---
 
@@ -47,24 +47,68 @@ Denne kartlegginga evaluerer difor repoet på to nivå:
 - `annotations.begrepsidentifikator` kobler logisk modell til begrepsnivå (konseptuelt) ✓
 - Genererte artefaktar (JSON Schema, SHACL, OWL) er det fysiske nivået ✓
 
-**Gap — inkonsistent slot-definisjon på tvers av skjema:**
+**Gap — inkonsistent `tema`-slot på tvers av skjema:**
 
-Same slotnamn er definert med ulike `slot_uri` og `range` i ulike skjema:
+Same slotnamn er definert med ulike `slot_uri` og `range` i fire skjema:
 
-| Slotnamn | Skjema | `slot_uri` | `range` |
-|---|---|---|---|
-| `tema` | `dcat-ap-no-schema.yaml` | `dcat:theme` | `string` |
-| `tema` | `modelldcat-ap-no-schema.yaml` | `dcat:theme` | `Konsept` |
-| `tema` | `xkos-ap-no-schema.yaml` | `dct:subject` | `Konsept` |
-| `tidsrom_start` | `dcat-ap-no-schema.yaml` | `dcat:startDate` | `date` |
-| `tidsrom_start` | `xkos-ap-no-schema.yaml` | `dct:startDate` (**feil**) | `date` |
+| Slotnamn | Skjema | `slot_uri` | `range` | Planlagt |
+|---|---|---|---|---|
+| `tema` | `dcat-ap-no-schema.yaml` | `dcat:theme` | ~~`uriorcurie`~~ → `Konsept` ✓ | Utført |
+| `tema` | `modelldcat-katalog-schema.yaml` | `dcat:theme` | `Konsept` | — |
+| `tema` | `xkos-ap-no-schema.yaml` | `dct:subject` | `Konsept` | Vurder omdøyping |
+| `tema` | `cpsv-ap-no-schema.yaml` | `dct:subject` | `Konsept` | Vurder omdøyping |
 
-Kvar skjema definerer desse lokalt i staden for å arve frå `common-ap-no-schema`.
-Dette bryt prinsippet om samanheng på tvers av abstraksjonsnivå — same dataelement
-representerar ulike semantikkar avhengig av kva skjema ein les.
+Faktiske definisjonar frå skjema:
 
-**Merk:** `xkos-ap-no`-feilen (`dct:startDate`) er allereie dokumentert som XK1
-i `specs/backlog/avvik-xkos-ap-no.md`.
+```yaml
+# dcat-ap-no-schema.yaml (linje 841)
+tema:
+  slot_uri: dcat:theme
+  range: uriorcurie
+  multivalued: true
+  description: >-
+    Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
+    (https://psi.norge.no/los/) brukast som primærvokabular.
+  annotations:
+    gyldige_verdier: https://psi.norge.no/los/
+
+# modelldcat-katalog-schema.yaml (linje 287)
+tema:
+  slot_uri: dcat:theme
+  range: Konsept
+  multivalued: true
+  description: Tema frå eit kontrollert vokabular (dcat:theme).
+
+# xkos-ap-no-schema.yaml (linje 281)
+tema:
+  slot_uri: dct:subject
+  range: Konsept
+  multivalued: true
+  description: Fagleg tema klassifikasjonen dekkjer (dct:subject).
+
+# cpsv-ap-no-schema.yaml (linje 905)
+tema:
+  slot_uri: dct:subject
+  range: Konsept
+  multivalued: true
+  description: Emne/tema tenesta handlar om.
+```
+
+Det er to ulike inkonsistenstypar:
+
+1. **Same predikat, ulik `range`**: `dcat-ap-no` og `modelldcat-katalog` begge brukar
+   `dcat:theme`, men `dcat-ap-no` har `range: uriorcurie` medan `modelldcat-katalog`
+   har `range: Konsept`. Ein Los-URI er ikkje ein `Konsept`-instans i skjemaet.
+   **Avgjerd:** Endre `tema.range` frå `uriorcurie` til `Konsept` i den globale
+   slotdefinisjonen i `dcat-ap-no-schema.yaml`. Ingen andre skjema vert endra.
+
+2. **Ulikt predikat, same slotnamn**: `xkos-ap-no` og `cpsv-ap-no` brukar `dct:subject`
+   for ein semantisk ulik eigenskap (fagleg klassifisering / emne), ikkje `dcat:theme`.
+   Desse to bør vurderast omdøypte til `fagomrade` (i tråd med `skos-ap-no`-praksisen)
+   for å unngå at `tema` assosierast med `dcat:theme` på tvers av alle skjema.
+
+**Merk:** `xkos-ap-no`-feilen (`dct:startDate` for `tidsrom_start`) er dokumentert
+som XK1 i `specs/backlog/avvik-xkos-ap-no.md`.
 
 **Tiltak:** Sjå PI1 under.
 
@@ -81,14 +125,21 @@ i `specs/backlog/avvik-xkos-ap-no.md`.
 - ER-diagram og PlantUML-diagram generert per skjema ✓
 - Nynorsk i all portaldokumentasjon (rettleiarar, `description.md`) ✓
 
-**Gap — `description.md` manglar i 20 av 23 skjema:**
+**Gap — `description.md` manglar i 25 av 28 skjema:**
 
-Portaltekst-filer (`description.md`) finst berre i tre skjema:
+Portaltekst-filer (`description.md`) finst no i seks skjema:
 - `brreg-begrepskatalog`
 - `enhetsregisteret-bvrinn`
 - `register-over-aksjeeiere`
+- `dcat-ap-no` *(lagt til 2026-06-19)*
+- `skos-ap-no` *(lagt til 2026-06-19)*
+- `modelldcat-ap-no` *(lagt til 2026-06-19)*
 
-Dei resterande 20 skjema manglar ein menneskevenleg introduksjonstekst på portalen.
+Repoet har vakse frå 23 til 28 skjema (`cpsv-ap-no`, `referanse-schema`, `dqv-core-schema`,
+`modelldcat-katalog-schema`, `modelldcat-modell-schema` er lagt til), utan at nokon av dei
+nye har fått `description.md`.
+
+Dei resterande 22 skjema manglar ein menneskevenleg introduksjonstekst på portalen.
 Utan `description.md` får eit skjema berre ein automatisk generert oversiktsside
 — ingen kontekst om formål, målgruppe, avgrensing eller relasjon til andre modellar.
 
@@ -135,20 +186,9 @@ løyst opp i nokon av dei nyare domenemodellane.
 - Dokumentasjonsportal med generated docs per skjema ✓
 - Spesifikasjonar i `specs/`-mappa ✓
 - `GOVERNANCE.md` og `CONTRIBUTING.md` ✓
+- Alle 28 skjema har `license: https://data.norge.no/nlod/no/2.0` ✓ *(tidlegare gap — lukka)*
 
-**Gap — `license:`-felt manglar i alle 25 skjema:**
-
-Inga av dei 25 skjemafilene i repoet har eit `license:`-felt. Bronze-policy sjekkar
-dette som warning (Digdir-regel 7 — Tilgjengeleggjering). Mangelen gjer at dokumentasjonen
-er ufullstendig: ein brukar som les skjemaet kan ikkje maskinelt bestemme under kva
-vilkår dei kan gjenbruke modellen.
-
-```yaml
-# Manglar i alle skjema — bør leggjast til:
-license: https://data.norge.no/nlod/no/2.0   # eller CC BY 4.0
-```
-
-**Tiltak:** Sjå PI4 under.
+**Ingen gjenståande gap for P4.** Sjå P2 for det pågåande gapet om `description.md`.
 
 ---
 
@@ -173,28 +213,12 @@ Dei fleste skjema genererer eit breitt sett standardformat via `manifest.yaml`:
 
 GitHub Pages publiserer genererte artefaktar ✓
 
-**Gap — `brreg-begrepskatalog` og `brreg-modellkatalog` manglar SHACL og OWL:**
-
-Desse to skjema er konfigurerte utan SHACL- og OWL-generering i `manifest.yaml`:
-
-```yaml
-# brreg-begrepskatalog/manifest.yaml og brreg-modellkatalog/manifest.yaml
-shacl: false   # → ingen validering via SHACL
-owl: false     # → ingen OWL-ontologi
-```
-
-Grunnen er sannsynlegvis at desse er datafiler framfor reine modellskjema. Men
-mangelen gjer at dei to produksjonskatalogane ikkje er tilgjengelege i dei same
-standardformata som dei andre skjema.
-
-**Gap — `license:`-felt manglar** (sjå P4): utan `license:` er tilgangen formelt
-udefinert, noko som hindrar gjenbruk.
+**Gap — `brreg-begrepskatalog` og `brreg-modellkatalog` mangla SHACL og OWL:**
+*(Lukka — begge manifest.yaml har no `shacl: true` og `owl: true`.)*
 
 **Gap — schema-URI-ar returnerer HTML, ikkje RDF** (sjå `avvik-peikarar-til-offentlege-ressursar.md` avvik 4):
 `https://data.norge.no/ap-no/dcat-ap-no` returnerer Felles datakatalog sin HTML-side —
-ikkje maskinlesbar RDF. Content negotiation er ikkje implementert.
-
-**Tiltak:** Sjå PI5 under.
+ikkje maskinlesbar RDF. Content negotiation er ikkje implementert. (Framleis ope.)
 
 ---
 
@@ -235,20 +259,21 @@ i prinsippet om gjenbruk og utveksling.
 - `CLAUDE.md` dokumenterer importhierarkiet eksplisitt ✓
 - `import` i stad for copy-paste sikrar at endringar i basislag propagerer ✓
 
-**Gap — ingen formell grense for klassetal per skjema:**
+**Gap — FINT-skjema overskrider 50-klasse-grensa:**
 
-Digdir-regel 6 (Modularitet) seier at ein modell skal innehalde ei «handterleg mengde
-modellelement». MCP-validatoren merkar dette som «Ikkje evaluert». I praksis er nokre
-av FINT-skjema svært store:
+Bronze-policy evaluerer no klassetal og gir warning for skjema med over 50 klasser
+(Digdir-regel 6 — Modularitet). I praksis triggar dette på FINT-skjema:
 
 ```
-fint-utdanning-schema.yaml    → 200+ klasser
-fint-administrasjon-schema.yaml → 100+ klasser
+fint-utdanning-schema.yaml    → 200+ klasser  (warning)
+fint-administrasjon-schema.yaml → 100+ klasser  (warning)
 ```
 
 Ingen av desse er splitta i undermodular endå, sjølv om importstrukturen gjer det teknisk enkelt.
+Dette er eit kjent avvik — FINT-skjema arvar storleiken frå FINT API-spesifikasjonen og vert
+ikkje splitta utan eksplisitt avtale med FINT-miljøet.
 
-**Tiltak:** Informasjons-gap — vurder å innføre ei soft limit (f.eks. warning over 50 klasser per skjema) i MCP-validatoren.
+**Tiltak:** Sjå PI7 under.
 
 ---
 
@@ -263,17 +288,8 @@ Ingen av desse er splitta i undermodular endå, sjølv om importstrukturen gjer 
 - `adms:status`-annotasjon på dei fleste skjema (`Completed`, `UnderDevelopment` osb.) ✓
 - Release-please for automatisk changelog og GitHub Releases ✓
 
-**Gap — fire skjema manglar `version:`-felt:**
-
-| Skjema | `version:` til stades |
-|---|---|
-| `common-ap-no-schema.yaml` | ✗ |
-| `xkos-ap-no-schema.yaml` | ✗ |
-| `enhetsregisteret-bvrinn-schema.yaml` (bvrinn) | ✗ |
-| `samt-bu-schema.yaml` | ✗ |
-
-`common-ap-no` er spesielt kritisk: det er det grunnleggjande basislaget som alle
-AP-NO-profilar er avhengige av, men det har inga versjonering.
+**Gap — fire skjema mangla `version:`-felt:**
+*(Lukka — alle 28 skjema har no `version:`.)*
 
 **Gap — versjonsnummeret vert heva manuelt:**
 
@@ -281,16 +297,20 @@ Sjølv om `specs/done/conventional-commits-modellversjonering.md` er implementer
 commit-meldingsformatet, vert ikkje `version:`-feltet i `.yaml`-filene automatisk
 oppdatert frå commit-meldingane. Det er framleis manuell prosess.
 
-**Gap — to skjema manglar `annotations.status`:**
+**Gap — to sub-skjema manglar `annotations.status`:**
+
+Dei opprinnelege tre skjema som mangla status (`brreg-begrepskatalog`, `brreg-modellkatalog`,
+`register-over-aksjeeiere`) har alle fått `annotations.status: Completed`.
+
+Men to sub-skjema som vart splitta ut frå hovudskjema manglar framleis statusannotasjon:
 
 | Skjema | `annotations.status` |
 |---|---|
-| `brreg-begrepskatalog-schema.yaml` | ✗ |
-| `brreg-modellkatalog-schema.yaml` | ✗ |
-| `register-over-aksjeeiere-schema.yaml` | ✗ |
+| `dqv-core-schema.yaml` | ✗ |
+| `modelldcat-modell-schema.yaml` | ✗ |
 
-Utan statusannotasjon er det uklart om desse skjema er under utarbeiding, ferdigstilte
-eller forelda.
+Desse er importerte delar av høvesvis `dqv-ap-no` og `modelldcat-ap-no`, ikkje sjølvstendige
+publiserte skjema. Lågare prioritet enn dei opphavlege tre.
 
 **Tiltak:** Sjå PI8 under.
 
@@ -314,62 +334,40 @@ ein teknisk avhengigheit (ikkje ei prinsippiell), og alle skript kan køyrast lo
 
 ## Samandrag
 
-| # | Avvik | Alvor | Prinsipp | Prioritet |
-|---|---|---|---|---|
-| 1 | `license:`-felt manglar i alle 25 skjema | Bronze warning (ignorert) | P4, P5 | **Høg** |
-| 2 | 20/23 skjema manglar `description.md` portaltekst | Dokumentasjonsgap | P2, P4 | Middels |
-| 3 | 4 skjema manglar `version:`-felt (inkl. common-ap-no) | Bronze warning (ignorert) | P8 | Middels |
-| 4 | Inkonsistent `tema`-slot-definisjon på tvers av skjema | Samanhengsbrot | P1 | Middels |
-| 5 | `begrepsidentifikator` manglar på dei fleste klasser | Bronze warning (ignorert) | P3 | Middels |
-| 6 | 3 skjema manglar `annotations.status` | Silver warning | P8 | Middels |
-| 7 | `brreg-begrepskatalog`/`-modellkatalog` manglar SHACL/OWL | Tilgjengelegheitsgap | P5 | Låg |
-| 8 | Ingen klassetal-grense for store skjema (FINT) | Ikkje evaluert | P7 | Låg |
-| 9 | Ingen `owl:sameAs` for overlappande klasser | Gjenbruksgap | P6 | Låg |
+*(Sist oppdatert 2026-06-19. Repoet har 28 skjema, opp frå 25 ved fyrste kartlegging.)*
+
+| # | Avvik | Alvor | Prinsipp | Prioritet | Status |
+|---|---|---|---|---|---|
+| 1 | ~~`license:`-felt manglar i alle 25 skjema~~ | Bronze warning | P4, P5 | ~~Høg~~ | **Lukka** |
+| 2 | 22/28 skjema manglar `description.md` portaltekst | Dokumentasjonsgap | P2, P4 | Middels | Ope |
+| 3 | ~~4 skjema manglar `version:`-felt (inkl. common-ap-no)~~ | Bronze warning | P8 | ~~Middels~~ | **Lukka** |
+| 4 | Inkonsistent `tema`-slot-definisjon på tvers av skjema | Samanhengsbrot | P1 | Middels | Ope |
+| 5 | `begrepsidentifikator` manglar på dei fleste klasser | Bronze warning (ignorert) | P3 | Middels | Ope |
+| 6 | ~~2 sub-skjema manglar `annotations.status` (dqv-core, modelldcat-modell)~~ | Silver warning | P8 | ~~Låg~~ | **Lukka** |
+| 7 | ~~`brreg-begrepskatalog`/`-modellkatalog` manglar SHACL/OWL~~ | Tilgjengelegheitsgap | P5 | ~~Låg~~ | **Lukka** |
+| 8 | FINT-skjema overskrider 50-klasse-grensa (bronze warning) | Bronze warning (akseptert avvik) | P7 | Låg | Ope (akseptert) |
+| 9 | Ingen `owl:sameAs` for overlappande klasser | Gjenbruksgap | P6 | Låg | Ope |
 
 ---
 
 ## Tilrådde tiltak
 
-### PI1 — Flytt `tema`-slotsdefinisjon til `common-ap-no-schema`
+### PI1 — Endre `tema.range` til `Konsept` i `dcat-ap-no-schema.yaml` ✓ *Utført*
 
-Gjeldande situasjon: `tema`-sloten er definert lokalt i tre skjema med ulik `slot_uri`
-og `range`. Samle dei i `common-ap-no-schema.yaml`:
-
-```yaml
-# I common-ap-no-schema.yaml
-tema:
-  slot_uri: dcat:theme
-  range: uriorcurie
-  multivalued: true
-  description: >-
-    Tema frå eit kontrollert vokabular (dcat:theme). For norske offentlege datasett
-    nyttast Los (https://psi.norge.no/los/) som primærvokabular.
-```
-
-Fjernn lokale definisjonar i `dcat-ap-no`, `modelldcat-ap-no` og `xkos-ap-no`.
-(Merk: `xkos-ap-no` brukar `dct:subject` for eit semantisk ulikt felt — dette bør
-eventuelt gi sloten eit anna namn, t.d. `fagomrade`, i tråd med eksisterande praksis
-i `skos-ap-no-schema.yaml`.)
-
-**Avhengigheit:** XK1 i `specs/backlog/avvik-xkos-ap-no.md`
+`dcat-ap-no-schema.yaml` linje 843: `range: uriorcurie` → `range: Konsept`.
+`dcat-ap-no` er no harmonert med `modelldcat-katalog` på dette feltet.
 
 ---
 
 ### PI2 — Skriv `description.md` for dei viktigaste skjema
 
-Prioriter `description.md`-filer for skjema som vert publisert eksternt eller
-er mykje brukte:
-
-| Skjema | Prioritet |
-|---|---|
-| `dcat-ap-no` | **Høg** — hovudprofilet |
-| `skos-ap-no` | **Høg** — brukt for begrepskatalog |
-| `modelldcat-ap-no` | **Høg** — modellkatalog-grunnlag |
-| `ngr-adresse`, `ngr-virksomhet` | Middels |
-| `fint-*` | Låg — intern bruk |
-
-Format: nynorsk, max 300 ord, inkluder formål, typisk brukar og relasjon til relevante
-standardar. Sjå `mkdocs/docs/ny-domenemodell.md` for mal.
+| Skjema | Prioritet | Status |
+|---|---|---|
+| `dcat-ap-no` | **Høg** — hovudprofilet | ✓ Utført 2026-06-19 |
+| `skos-ap-no` | **Høg** — brukt for begrepskatalog | ✓ Utført 2026-06-19 |
+| `modelldcat-ap-no` | **Høg** — modellkatalog-grunnlag | ✓ Utført 2026-06-19 |
+| `ngr-adresse`, `ngr-virksomhet` | Middels | Ope |
+| `fint-*` | Låg — intern bruk | Ope |
 
 ---
 
@@ -390,31 +388,16 @@ Sjå `specs/backlog/avvik-skos-ap-no.md` og `CLAUDE.md` for URI-format.
 
 ---
 
-### PI4 — Legg til `license:`-felt i alle skjema
+### PI4 — Legg til `license:`-felt i alle skjema ✓ *Utført*
 
-Legg til i toppen av kvart skjema (etter `annotations:`):
-
-```yaml
-license: https://data.norge.no/nlod/no/2.0
-```
-
-Dette er eit enkelt tiltak som løyser bronze-warning for alle 25 skjema og oppfyller
-krav frå Digdir-regel 7, Retningslinjer for opne data (RÅ1), og prinsipp P4/P5.
-
-**Filer:** Alle `src/linkml/**/*-schema.yaml`
+Alle 28 skjema har `license: https://data.norge.no/nlod/no/2.0`.
+Bronze-warning for Digdir-regel 7 er løyst.
 
 ---
 
-### PI5 — Aktiver SHACL og OWL for `brreg-begrepskatalog` og `brreg-modellkatalog`
+### PI5 — Aktiver SHACL og OWL for `brreg-begrepskatalog` og `brreg-modellkatalog` ✓ *Utført*
 
-```yaml
-# brreg-begrepskatalog/manifest.yaml og brreg-modellkatalog/manifest.yaml
-shacl: true
-owl: true
-```
-
-Vurder om `shacl_flags:` eller `owl_flags:` trengst, og køyr
-`make lint` + `make roundtrip` etter endringa.
+Begge manifest.yaml har `shacl: true` og `owl: true`.
 
 ---
 
@@ -426,54 +409,39 @@ Lav prioritet — relevant fyrst ved konkrete integrasjonsbehov.
 
 ---
 
-### PI7 — Innfør klassetal-warning i MCP-validatoren
+### PI7 — Innfør klassetal-warning i MCP-validatoren ✓ *Utført*
 
-Legg til ein ny bronze-sjekk i `mcp-linkml-validator`:
-
-```yaml
-# Pseudokode for ny policy-sjekk
-- id: class_count_limit
-  message: "Skjema inneheld {count} klasser — vurder å dele opp i undermodular"
-  severity: warning
-  threshold: 50
-```
-
-Gjeld Digdir-regel 6 (Modularitet) som i dag er merka «Ikkje evaluert».
+Bronze-policy evaluerer no klassetal og gir warning for skjema med over 50 klasser
+(Digdir-regel 6 — Modularitet). FINT-skjema triggar denne, men vert ikkje splitta
+utan eksplisitt avtale med FINT-miljøet — avviket er akseptert og dokumentert.
 
 ---
 
 ### PI8 — Legg til manglande versjonsfelt og statusannotasjonar
 
-**Steg 1:** Legg `version: "1.0.0"` til skjema som manglar det:
-- `common-ap-no-schema.yaml`
-- `xkos-ap-no-schema.yaml`
-- `enhetsregisteret-bvrinn-schema.yaml`
-- `samt-bu-schema.yaml`
+**Steg 1:** ✓ *Utført* — Alle 28 skjema har `version:`.
 
-**Steg 2:** Legg til `annotations.status` i:
-- `brreg-begrepskatalog-schema.yaml`
-- `brreg-modellkatalog-schema.yaml`
-- `register-over-aksjeeiere-schema.yaml`
+**Steg 2:** ✓ *Utført* — `brreg-begrepskatalog`, `brreg-modellkatalog` og
+`register-over-aksjeeiere` har alle `annotations.status: Completed`.
 
-```yaml
-annotations:
-  status: http://purl.org/adms/status/Completed
-```
+**Steg 3:** ✓ *Utført* — `dqv-core-schema.yaml` og `modelldcat-modell-schema.yaml`
+har fått `annotations.status: http://purl.org/adms/status/Completed`.
 
 ---
 
 ## Prioritert handlingsliste
 
-| # | Tiltak | Fil(ar) | Avhengigheit |
-|---|---|---|---|
-| 1 | PI4: `license:`-felt i alle skjema | Alle `*-schema.yaml` | — |
-| 2 | PI8 steg 1: `version:` i 4 skjema | 4 skjema | — |
-| 3 | PI8 steg 2: `annotations.status` i 3 skjema | 3 skjema | — |
-| 4 | PI2: `description.md` for dcat-ap-no, skos-ap-no, modelldcat-ap-no | Nye filer | — |
-| 5 | PI5: SHACL/OWL for begrepskatalog og modellkatalog | 2 `manifest.yaml` | — |
-| 6 | PI1: Samle `tema`-slot i common-ap-no | `common-ap-no-schema.yaml` + 3 skjema | XK1 |
-| 7 | PI3: `begrepsidentifikator` i domenemodellane | Fleire `*-schema.yaml` | Krever begrepskatalog-avklaring |
-| 8 | PI7: Klassetal-warning i MCP-validator | `mcp-linkml-validator/` | — |
+| # | Tiltak | Fil(ar) | Avhengigheit | Status |
+|---|---|---|---|---|
+| 1 | ~~PI4: `license:`-felt i alle skjema~~ | ~~Alle `*-schema.yaml`~~ | — | **Utført** |
+| 2 | ~~PI8 steg 1: `version:` i 4 skjema~~ | ~~4 skjema~~ | — | **Utført** |
+| 3 | ~~PI8 steg 2: `annotations.status` i 3 skjema~~ | ~~3 skjema~~ | — | **Utført** |
+| 4 | ~~PI5: SHACL/OWL for begrepskatalog og modellkatalog~~ | ~~2 `manifest.yaml`~~ | — | **Utført** |
+| 5 | ~~PI2: `description.md` for dcat-ap-no, skos-ap-no, modelldcat-ap-no~~ | ~~Nye filer~~ | — | **Utført** |
+| 6 | ~~PI1: Endre `tema.range` til `Konsept` i `dcat-ap-no-schema.yaml`~~ | ~~`dcat-ap-no-schema.yaml`~~ | — | **Utført** |
+| 7 | PI3: `begrepsidentifikator` i domenemodellane | Fleire `*-schema.yaml` | Krev begrepskatalog-avklaring | Ope |
+| 8 | ~~PI8 steg 3: `annotations.status` i 2 sub-skjema (dqv-core, modelldcat-modell)~~ | ~~2 skjema~~ | — | **Utført** |
+| 9 | ~~PI7: Klassetal-warning i MCP-validator~~ | ~~`mcp-linkml-validator/`~~ | — | **Utført** |
 
 ---
 

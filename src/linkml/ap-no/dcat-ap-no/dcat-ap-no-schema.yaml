@@ -840,7 +840,7 @@ slots:
 
   tema:
     slot_uri: dcat:theme
-    range: uriorcurie
+    range: Konsept
     multivalued: true
     description: >-
       Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
