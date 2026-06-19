@@ -67,3 +67,11 @@ juster generering av plantuml og er diagram
 opprette slack kanal under digdir samarbeid?
 
 lage ein sturktur for å ta vare på output fra valideringer knytta til kvar modell
+
+lage ein struktur for å lagre, datere og versjonere datamodeller/begreper/kodeverk fra eksterne kilder for bruk i LinkML modellering
+
+
+i ny-domenemodell.md legg til eksempel på generert modellutkast på tilsvarande måte som i ny-begrepsmodell.md
+
+
+dokumenter ny begrepsutkast og publiseringsprofilane i COMMANDS.md
