@@ -127,7 +127,9 @@
       "Bash(curl -s 'https://concepts.fellesdatakatalog.digdir.no/concepts?publisher=974760673&size=100' -H 'Accept: application/json')",
       "Bash(curl -s -X POST https://sparql.fellesdatakatalog.digdir.no/api/sparql -H 'Content-Type: application/sparql-query' -H 'Accept: application/json' -d 'SELECT ?concept ?label ?def WHERE { ?concept a <http://www.w3.org/2004/02/skos/core#Concept> ; <http://www.w3.org/2004/02/skos/core#prefLabel> ?label ; <http://www.w3.org/2004/02/skos/core#definition> ?def . FILTER\\(lang\\(?label\\) = '\\\\''nb'\\\\''\\) } LIMIT 5')",
       "Bash(curl -s https://data.norge.no/concepts/f6639f5e-280e-4dbb-991e-3faca3bf622c -H 'Accept: text/turtle')",
-      "Bash(curl -s https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd -H 'Accept: text/turtle')"
+      "Bash(curl -s https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd -H 'Accept: text/turtle')",
+      "Bash(make new-begrep *)",
+      "Bash(make new-begrepskatalog *)"
     ]
   },
   "enableAllProjectMcpServers": true,

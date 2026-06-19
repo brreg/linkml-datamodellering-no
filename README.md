@@ -23,7 +23,7 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 
 ## Kom i gang
 
-**Føresetnader:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
+**Føresetnader:** linux eller windows med  WSL2, [Podman](https://podman.io/) (rootless) og GNU make.
 
 ```bash
 # Sjekk at alt er på plass
@@ -72,7 +72,7 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 ```bash
 # 1. Opprett ny begrepskatalog (skjema + filstruktur)
-make new-model NAME=katalognavn DOMAIN=begrepskatalog
+make new-begrepskatalog NAME=katalognavn
 ```
 ```bash
 # 2. Rediger datafila med reelle begrep

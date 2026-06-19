@@ -245,7 +245,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         gen-asyncapi domain-gen-asyncapi schema-gen-asyncapi \
         gen-openapi domain-gen-openapi schema-gen-openapi \
         check-published-uris check-prereqs \
-        update-modellkatalog new-org-catalog \
+        update-modellkatalog new-org-catalog new-begrepskatalog \
         gource-build gource-preview gource-video _gource-render
 
 all: test
@@ -961,6 +961,12 @@ new-model:
 new-org-catalog:
 	@test -n "$(ORG)" || (echo "Bruk: make new-org-catalog ORG=<alias>"; exit 1)
 	bash src/assets/scripts/new-org-catalog.sh "$(ORG)"
+
+# Bruk: make new-begrepskatalog NAME=<katalognavn>
+new-begrepskatalog:
+	@test -n "$(NAME)" || \
+	  (echo "Bruk: make new-begrepskatalog NAME=<katalognavn>"; exit 1)
+	bash src/assets/scripts/new-begrepskatalog.sh "$(NAME)"
 
 check-prereqs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
