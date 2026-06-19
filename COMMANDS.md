@@ -20,14 +20,16 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make mcp-mod-build` | Byggjer container-image for modell-utkast MCP-server. | Image `localhost/mcp-linkml-modell-utkast:latest` |
 | `make mcp-begrep-build` | Byggjer container-image for begrepsinstans-generator MCP-server. | Image `localhost/mcp-linkml-begrep-utkast:latest` |
 | `make mcp-val-build` | Byggjer container-image for validator MCP-server. | Image `localhost/mcp-linkml-validator:latest` |
+| `make avrotize-build-docker` | Byggjer container-image for XSD-generering via Avrotize. Nødvendig for `make gen-xsd`. | Image `localhost/avrotize-local:latest` |
+| `make asyncapi-build-docker` | Byggjer container-image for AsyncAPI CLI-validering. Nødvendig for `make gen-asyncapi`. | Image `localhost/asyncapi-cli-local:latest` |
 
 ## Ny modell
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-modell. Skjemaet passerer `POLICY=bronze` utan manuell redigering. | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
-
-Skjemaet passerer `POLICY=bronze` utan manuell redigering.
+| `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell. Skjemaet passerer `POLICY=bronze` utan manuell redigering. | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
+| `make new-org-catalog ORG=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
+| `make new-begrepskatalog NAME=<katalognavn>` | Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalognavn>/` |
 
 ## Validering
 
@@ -44,6 +46,7 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 | `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
+| `make check-published-uris` | Verifiserer at alle URI-ar i `published-uris.lock`-filer finst i tilhøyrande datafil. Køyr etter endringar i datafiler med `publish_external: true`. | OK/FEIL til stdout; avsluttar med kode 1 ved manglande URI |
 
 ### Validerings-Policyar
 
@@ -81,11 +84,23 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 | `make gen-owl` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
 | `make gen-rdf` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` |
 | `make gen-erdiagram` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
-| `make gen-docs` | HTML-klassereferanse | `generated/<domain>/<modell>/docs/` |
+| `make gen-docs` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` |
+| `make gen-proto` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
+| `make gen-plantuml` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
+| `make gen-xsd` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i manifest) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
+| `make gen-asyncapi` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
+| `make gen-openapi` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
 | `make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |
+| `make convert-data` | Konverter produksjonsdatafiler i `data/`-underkatalogar til RDF/Turtle (berre `publish_external: true`) | `generated/<domain>/<katalog>/<katalog>.ttl` |
 | `make clean` | Slett `generated/` | — |
 
 Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ingen Makefile-endringar nødvendig.
+
+### Vedlikehald
+
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make update-modellkatalog` | Oppdaterer `Informasjonsmodell`-innslag i modellkatalogen frå `annotations.*` i alle skjema. Køyr etter at eit skjema legg til eller endrar annotasjonar (`utgiver`, `endringsdato` o.a.). | `src/linkml/modellkatalog/brreg-modellkatalog/data/` |
 
 ## Dokumentasjonsportal
 
@@ -128,4 +143,13 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | `make mcp-val-test` | Køyrer alle policy-testar for validator MCP-serveren. | Testresultat til stdout; avsluttar med kode 1 ved feil |
 | `make mcp-val-run` | Startar validator MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
+## Gource-visualisering
+
+Krev `make gource-build` éin gong (eller etter endringar i Dockerfile). Output-filer hamnar i `tmp/`.
+
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make gource-build` | Byggjer container-image med Gource og ffmpeg. | Image `localhost/gource-local:latest` |
+| `make gource-preview` | Genererer ein 30fps-preview-video av heile git-historikken (rask, lågare kvalitet). | `tmp/gource-preview.mp4` |
+| `make gource-video` | Genererer ein 60fps fullkvalitetsvideo av heile git-historikken. | `tmp/gource.mp4` |
 
