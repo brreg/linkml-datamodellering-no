@@ -172,6 +172,17 @@ process_schema() {
             artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
         fi
 
+        # Valideringsresultat frå siste release
+        local validation_json="$REPO_ROOT/validation/${domain}/${schema}/latest.json"
+        if [ -f "$validation_json" ]; then
+            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
+        else
+            echo ""
+            echo "## Valideringsresultat"
+            echo ""
+            echo "*Valideringsresultat ikkje tilgjengeleg — ingen release enno.*"
+        fi
+
         if $has_artifact; then
             echo ""
             echo ""
