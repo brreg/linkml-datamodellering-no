@@ -44,7 +44,7 @@ make new-model NAME=modellnavn DOMAIN=domene
 
 # 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
-make mcp-generate SCHEMA=tmp/modellnavn.json
+make mcp-linkml-modell-utkast SCHEMA=tmp/modellnavn.json
 # → genererer tmp/modellnavn-schema.yaml. Flytt ho til src/linkml/domain/modellnavn/
 ```
 ```bash
@@ -73,6 +73,12 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 ```bash
 # 1. Opprett ny begrepskatalog (skjema + filstruktur)
 make new-begrepskatalog NAME=katalognavn
+```
+```bash
+# 1b. (om ønskjeleg) Generer utkast til begrep
+# Legg argumenta i tmp/mitt-begrep.json (sjå ny-begrepsmodell.md for format)
+make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
+# → lim YAML-output inn i examples/katalognavn-eksempel.yaml
 ```
 ```bash
 # 2. Rediger datafila med reelle begrep

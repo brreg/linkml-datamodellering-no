@@ -226,8 +226,8 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         linkml-build-docker python-build-docker avrotize-build-docker asyncapi-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
-        mcp-mod-build mcp-mod-run mcp-mod-smoke mcp-mod-test mcp-generate new-model \
-        mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles \
+        mcp-mod-build mcp-mod-run mcp-mod-smoke mcp-mod-test mcp-linkml-modell-utkast mcp-generate new-model \
+        mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles mcp-linkml-begrep-utkast \
         mcp-build mcp-run mcp-smoke mcp-test-policies \
         linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
@@ -896,9 +896,9 @@ linkml-gen-run: mcp-mod-run
 linkml-gen-smoke: mcp-mod-smoke
 linkml-gen-test-converter: mcp-mod-test
 
-# Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
-mcp-generate:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
+# Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
+mcp-linkml-modell-utkast:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
 	@python3 -c "\
 import json; \
 content = open('$(SCHEMA)').read(); \
@@ -919,7 +919,10 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
  for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
 "
 
-linkml-gen-generate: mcp-generate
+mcp-generate: mcp-linkml-modell-utkast
+	@echo "Åtvaring: 'make mcp-generate' er omdøypt til 'make mcp-linkml-modell-utkast'" >&2
+
+linkml-gen-generate: mcp-linkml-modell-utkast
 
 # ---------------------------------------------------------------------------
 # mcp-linkml-begrep-utkast
@@ -942,6 +945,17 @@ mcp-begrep-smoke: mcp-begrep-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
+
+# Bruk: make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
+mcp-linkml-begrep-utkast:
+	@test -n "$(INPUT)" || \
+	  (echo "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1)
+	@test -f "$(INPUT)" || \
+	  (echo "Feil: $(INPUT) finst ikkje"; exit 1)
+	@printf '%s\n%s\n' \
+	  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"make","version":"1"}}}' \
+	  "$$(python3 -c "import json; args=json.load(open('$(INPUT)')); print(json.dumps({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'opprett_begrep','arguments':args}}))")" \
+	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 # List profiler:
 #   make mcp-begrep-list-profiles
