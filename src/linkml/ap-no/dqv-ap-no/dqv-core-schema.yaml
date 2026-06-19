@@ -10,6 +10,9 @@ description: >-
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
 
+annotations:
+  status: http://purl.org/adms/status/Completed
+
 prefixes:
   linkml:  https://w3id.org/linkml/
   dqv:     http://www.w3.org/ns/dqv#
