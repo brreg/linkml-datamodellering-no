@@ -106,13 +106,13 @@ kvalitetsdimensjoner:
 
 organisasjoner:
   - id: samtbuskole:org-udir
-    navn_aktor: 
+    navn_aktoer: 
       - "Direktoratet for utdanning"
     type_concept: http://purl.org/adms/publishertype/NationalAuthority
 
 grupper:
   - id: samtbuskole:gruppe-skoleforvaltning
-    navn_aktor: 
+    navn_aktoer: 
       - "Nasjonal gruppe for skoleforvaltning"
     type_concept: https://example.org/actor-type/arbeidsgruppe
 

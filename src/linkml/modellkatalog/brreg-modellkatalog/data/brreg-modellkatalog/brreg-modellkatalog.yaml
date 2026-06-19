@@ -9,6 +9,9 @@ modellkataloger:
   utgiver: https://data.norge.no/organizations/974760673
   kontaktpunkt:
   - https://brreg.no/kontakt/modellforvaltning
+  tema:
+  - https://psi.norge.no/los/tema/naring
+  - https://psi.norge.no/los/tema/naringsliv
   har_del:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
@@ -32,6 +35,10 @@ informasjonsmodeller:
   tema:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: "2024-01-01"
+  endringsdato: "2026-06-19"
+  versjonsnummer: "1.0.0"
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   tittel:
   - Register over aksjeeigarar
@@ -45,6 +52,10 @@ informasjonsmodeller:
   tema:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: "2024-01-01"
+  endringsdato: "2026-06-19"
+  versjonsnummer: "1.0.0"
 aktoerer:
 - id: https://brreg.no/kontakt/modellforvaltning
   navn_aktoer:

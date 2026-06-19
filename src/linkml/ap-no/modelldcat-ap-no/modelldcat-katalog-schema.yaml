@@ -1,0 +1,482 @@
+id: https://data.norge.no/ap-no/modelldcat-ap-no/katalog
+name: modelldcat-katalog
+title: ModelDCAT-AP-NO – Katalogdel
+description: >-
+  Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og
+  hjelpeklassar (Aktoer, Kontaktopplysning, Standard, o.a.).
+  Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel
+
+version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
+
+prefixes:
+  linkml:        https://w3id.org/linkml/
+  modelldcatno:  https://data.norge.no/vocabulary/modelldcatno#
+  dcat:          http://www.w3.org/ns/dcat#
+  dct:           http://purl.org/dc/terms/
+  foaf:          http://xmlns.com/foaf/0.1/
+  vcard:         http://www.w3.org/2006/vcard/ns#
+  prof:          http://www.w3.org/ns/dx/prof/
+
+default_prefix: https://data.norge.no/ap-no/modelldcat-ap-no/katalog/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../common/common-ap-no-schema
+  - ./modelldcat-modell-schema
+
+# ---------------------------------------------------------------------------
+# Klasser — Katalogdel
+# ---------------------------------------------------------------------------
+
+classes:
+
+  # ---- Hjelpeklassar for refererte vokabularressursar ----------------------
+
+  KatalogisertRessurs:
+    in_subset:
+      - Metadata
+    class_uri: dcat:Resource
+    description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
+    slots:
+      - id
+
+  Aktoer:
+    in_subset:
+      - Metadata
+    class_uri: foaf:Agent
+    description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+    slots:
+      - id
+      - navn_aktoer
+      - identifikator_literal
+      - type_concept
+    slot_usage:
+      navn_aktoer:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Kontaktopplysning:
+    in_subset:
+      - Metadata
+    class_uri: vcard:Kind
+    description: Kontaktinformasjon for ein aktør (vcard:Kind).
+    slots:
+      - id
+      - navn_vcard
+      - har_epost
+      - har_kontaktside
+    slot_usage:
+      navn_vcard:
+        required: true
+        in_subset:
+          - Obligatorisk
+      har_epost:
+        in_subset:
+          - Anbefalt
+      har_kontaktside:
+        in_subset:
+          - Valgfri
+
+  Standard:
+    in_subset:
+      - Metadata
+    class_uri: dct:Standard
+    description: Ein standard (dct:Standard).
+    slots:
+      - id
+      - tittel
+      - har_referanse
+      - versjonsnummer
+    slot_usage:
+      tittel:
+        in_subset:
+          - Obligatorisk
+
+  Lisensdokument:
+    in_subset:
+      - Metadata
+    class_uri: dct:LicenseDocument
+    description: Eit lisensdokument (dct:LicenseDocument).
+    slots:
+      - id
+      - type_concept
+
+  Tidsrom:
+    in_subset:
+      - Metadata
+    class_uri: dct:PeriodOfTime
+    description: Eit tidsintervall med start- og sluttdato.
+    slots:
+      - id
+      - startdato
+      - sluttdato
+
+  Dokument:
+    in_subset:
+      - Metadata
+    class_uri: foaf:Document
+    description: Eit dokument (foaf:Document).
+    slots:
+      - id
+      - tittel
+      - spraak
+      - format
+
+  # ---- Modellkatalog --------------------------------------------------------
+
+  Modellkatalog:
+    in_subset:
+      - Metadata
+    class_uri: dcat:Catalog
+    description: >-
+      Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
+    slots:
+      - id
+      - tittel
+      - beskrivelse
+      - har_del
+      - identifikator_literal
+      - kontaktpunkt
+      - utgiver
+      - endringsdato
+      - heimeside
+      - lisens
+      - modell
+      - spraak
+      - tema
+      - temaer
+      - utgivelsesdato
+      - er_del_av
+    slot_usage:
+      tittel:
+        in_subset:
+          - Obligatorisk
+      beskrivelse:
+        in_subset:
+          - Obligatorisk
+      har_del:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kontaktpunkt:
+        required: true
+        in_subset:
+          - Obligatorisk
+      utgiver:
+        required: true
+        in_subset:
+          - Obligatorisk
+      endringsdato:
+        in_subset:
+          - Anbefalt
+      heimeside:
+        in_subset:
+          - Anbefalt
+      lisens:
+        in_subset:
+          - Anbefalt
+      modell:
+        in_subset:
+          - Anbefalt
+      spraak:
+        in_subset:
+          - Anbefalt
+      tema:
+        in_subset:
+          - Anbefalt
+      utgivelsesdato:
+        in_subset:
+          - Anbefalt
+      temaer:
+        in_subset:
+          - Valgfri
+      er_del_av:
+        range: Modellkatalog
+        in_subset:
+          - Valgfri
+
+  # ---- Informasjonsmodell --------------------------------------------------
+
+  Informasjonsmodell:
+    in_subset:
+      - Metadata
+    class_uri: modelldcatno:InformationModel
+    description: >-
+      Ein informasjonsmodell som er katalogisert i ein modellkatalog
+      (modelldcatno:InformationModel).
+    slots:
+      - id
+      - tittel
+      - utgiver
+      - begrep
+      - beskrivelse
+      - identifikator_literal
+      - informasjonsmodellidentifikator
+      - inneholder_modellelement
+      - kontaktpunkt
+      - lisens
+      - tema
+      - dekningsomraade
+      - endringsdato
+      - er_del_av
+      - er_profil_av
+      - er_erstattet_av
+      - erstatter
+      - har_del
+      - finnes_i_format
+      - gyldighetsperiode
+      - heimeside
+      - er_i_samsvar_med
+      - status
+      - nokkelord
+      - produsent
+      - spraak
+      - type_concept
+      - utgivelsesdato
+      - versjonsnummer
+      - versjonsmerknad
+    slot_usage:
+      tittel:
+        in_subset:
+          - Obligatorisk
+      utgiver:
+        required: true
+        in_subset:
+          - Obligatorisk
+      begrep:
+        in_subset:
+          - Anbefalt
+      beskrivelse:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      informasjonsmodellidentifikator:
+        in_subset:
+          - Anbefalt
+      inneholder_modellelement:
+        in_subset:
+          - Anbefalt
+      kontaktpunkt:
+        in_subset:
+          - Anbefalt
+      lisens:
+        in_subset:
+          - Anbefalt
+      tema:
+        in_subset:
+          - Anbefalt
+      dekningsomraade:
+        in_subset:
+          - Valgfri
+      endringsdato:
+        in_subset:
+          - Valgfri
+      er_del_av:
+        range: Informasjonsmodell
+        in_subset:
+          - Valgfri
+      er_profil_av:
+        in_subset:
+          - Valgfri
+      er_erstattet_av:
+        in_subset:
+          - Valgfri
+      erstatter:
+        in_subset:
+          - Valgfri
+      har_del:
+        range: Informasjonsmodell
+        in_subset:
+          - Valgfri
+      finnes_i_format:
+        in_subset:
+          - Valgfri
+      gyldighetsperiode:
+        in_subset:
+          - Valgfri
+      heimeside:
+        in_subset:
+          - Valgfri
+      er_i_samsvar_med:
+        in_subset:
+          - Valgfri
+      status:
+        in_subset:
+          - Valgfri
+      nokkelord:
+        in_subset:
+          - Valgfri
+      produsent:
+        in_subset:
+          - Valgfri
+      spraak:
+        in_subset:
+          - Valgfri
+      type_concept:
+        in_subset:
+          - Valgfri
+        annotations:
+          gyldige_verdier: >-
+            https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+            https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+            https://data.norge.no/vocabulary/modelldcatno#PhysicalDataModel
+      utgivelsesdato:
+        in_subset:
+          - Valgfri
+      versjonsnummer:
+        in_subset:
+          - Valgfri
+      versjonsmerknad:
+        in_subset:
+          - Valgfri
+
+# ---------------------------------------------------------------------------
+# Slots — Katalogdel
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # ---- Aktoer --------------------------------------------------------------
+
+  navn_aktoer:
+    slot_uri: foaf:name
+    range: LangString
+    multivalued: true
+    description: Namn på aktøren (foaf:name).
+
+  # ---- Kontaktopplysning ---------------------------------------------------
+
+  navn_vcard:
+    slot_uri: vcard:fn
+    range: LangString
+    multivalued: true
+    description: Formatert namn (vcard:fn).
+
+  har_epost:
+    slot_uri: vcard:hasEmail
+    range: string
+    description: E-postadresse til kontaktpunktet (vcard:hasEmail).
+
+  har_kontaktside:
+    slot_uri: vcard:hasURL
+    range: string
+    description: Nettside for kontakt (vcard:hasURL).
+
+  # ---- Tidsrom -------------------------------------------------------------
+
+  startdato:
+    slot_uri: dcat:startDate
+    range: date
+    description: Startdato for tidsperioden (dcat:startDate).
+
+  sluttdato:
+    slot_uri: dcat:endDate
+    range: date
+    description: Sluttdato for tidsperioden (dcat:endDate).
+
+  # ---- Modellkatalog og Informasjonsmodell ----------------------------------
+
+  utgiver:
+    slot_uri: dct:publisher
+    range: Aktoer
+    description: Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher).
+
+  produsent:
+    slot_uri: dct:creator
+    range: Aktoer
+    description: Aktøren som primært har skapt ressursen (dct:creator).
+
+  kontaktpunkt:
+    slot_uri: dcat:contactPoint
+    range: Kontaktopplysning
+    multivalued: true
+    description: Kontaktinformasjon for ressursen (dcat:contactPoint).
+
+  lisens:
+    slot_uri: dct:license
+    range: Lisensdokument
+    description: Lisens for bruk av ressursen (dct:license).
+
+  tema:
+    slot_uri: dcat:theme
+    range: Konsept
+    multivalued: true
+    description: Tema frå eit kontrollert vokabular (dcat:theme).
+
+  temaer:
+    slot_uri: dcat:themeTaxonomy
+    range: Begrepssamling
+    multivalued: true
+    description: Temavokabular brukt i katalogen (dcat:themeTaxonomy).
+
+  har_del:
+    slot_uri: dct:hasPart
+    range: KatalogisertRessurs
+    multivalued: true
+    description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
+
+  modell:
+    slot_uri: modelldcatno:model
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodellar i modellkatalogen (modelldcatno:model).
+
+  er_del_av:
+    slot_uri: dct:isPartOf
+    range: KatalogisertRessurs
+    description: Overordna ressurs denne er ein del av (dct:isPartOf).
+
+  er_profil_av:
+    slot_uri: prof:isProfileOf
+    range: Standard
+    multivalued: true
+    description: Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf).
+
+  er_erstattet_av:
+    slot_uri: dct:isReplacedBy
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodell som erstattar denne (dct:isReplacedBy).
+
+  erstatter:
+    slot_uri: dct:replaces
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodell som denne erstattar (dct:replaces).
+
+  finnes_i_format:
+    slot_uri: dct:hasFormat
+    range: Dokument
+    multivalued: true
+    description: Dokument som representerer ein annan form av modellen (dct:hasFormat).
+
+  gyldighetsperiode:
+    slot_uri: dct:temporal
+    range: Tidsrom
+    multivalued: true
+    description: Gyldighetsperioden ressursen gjelder for (dct:temporal).
+
+  er_i_samsvar_med:
+    slot_uri: dct:conformsTo
+    range: Standard
+    multivalued: true
+    description: Standard ressursen er i samsvar med (dct:conformsTo).
+
+  informasjonsmodellidentifikator:
+    slot_uri: modelldcatno:informationModelIdentifier
+    range: string
+    description: Identifikator for informasjonsmodellen i domenet (modelldcatno:informationModelIdentifier).
+
+  inneholder_modellelement:
+    slot_uri: modelldcatno:containsModelElement
+    range: Modellelement
+    multivalued: true
+    description: Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelElement).

@@ -38,12 +38,12 @@ classes:
         inlined: true
         inlined_as_list: true
       utgivere:
-        range: Aktor
+        range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true
       organisasjoner:
-        range: Aktor
+        range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -78,7 +78,7 @@ classes:
         inlined: true
         inlined_as_list: true
       grupper:
-        range: Aktor
+        range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true

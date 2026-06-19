@@ -40,7 +40,7 @@ default_range: string
 imports:
   - linkml:types
   - ../common/common-ap-no-schema
-  - ../dqv-ap-no/dqv-ap-no-schema
+  - ../dqv-ap-no/dqv-core-schema
 
 # ---------------------------------------------------------------------------
 # Klasser
@@ -62,18 +62,18 @@ classes:
     slots:
       - id
 
-  Aktor:
+  Aktoer:
     in_subset:
       - Metadata
     class_uri: foaf:Agent
     description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
     slots:
       - id
-      - navn_aktor
+      - navn_aktoer
       - identifikator_literal
       - type_concept
     slot_usage:
-      navn_aktor:
+      navn_aktoer:
         required: true
         in_subset:
           - Obligatorisk
@@ -649,7 +649,7 @@ slots:
     range: string
     description: Versjonsnummer.
 
-  navn_aktor:
+  navn_aktoer:
     slot_uri: foaf:name
     range: LangString
     multivalued: true
@@ -780,12 +780,6 @@ slots:
     range: NonNegativeInteger
     description: Filstørrelse i bytes.
 
-  har_kvalitetsmerknad:
-    slot_uri: dqv:hasQualityAnnotation
-    range: Kvalitetsmerknad
-    multivalued: true
-    description: Kvalitetsmerknad knytt til datasettet.
-
   # ---- ODRS-strenger -------------------------------------------------------
 
   anvendelsesretningslinjer:
@@ -827,12 +821,12 @@ slots:
 
   utgiver:
     slot_uri: dct:publisher
-    range: Aktor
+    range: Aktoer
     description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
 
   produsent:
     slot_uri: dct:creator
-    range: Aktor
+    range: Aktoer
     description: Aktøren som primært har skapt ressursen.
 
   kontaktpunkt:

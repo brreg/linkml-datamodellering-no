@@ -153,33 +153,52 @@ som skil mellom `LogiskDatamodell`, `Begreptsmodell`, `Fysiskdatamodell` osb.).
 
 ---
 
-### A6 — `Standard`-klassen i `modelldcat-ap-no` er uavhengig av `dqv-ap-no`
+### A6 — Import av `dcat-ap-no` i `modelldcat-ap-no` krev løysing av tre klassekollidjonar
 
-`modelldcat-ap-no-schema.yaml` definerer sin eigen `Standard`-klasse:
+`avvik-dqv-ap-no.md` er utført: `Standard` ligg no i `dcat-ap-no-schema.yaml`.
+`modelldcat-ap-no` definerer framleis sin eigen parallelle `Standard`-klasse utan å
+importere `dcat-ap-no`. Evaluering av moglege kollidjonar viser at A6 **ikkje kan
+gjennomførast direkte** — tre klassar kolliderer:
 
-```yaml
-Standard:
-  class_uri: dct:Standard
-  slots:
-    - id
-    - tittel
-    - har_referanse
-    - versjonsnummer
-```
+| Klasse | modelldcat-ap-no | dcat-ap-no | Konflikt |
+|---|---|---|---|
+| `KatalogisertRessurs` | ikkje abstract | `abstract: true` | Flagg-konflikt |
+| `Kontaktopplysning` | `vcard:Organization`, berre `id` | `vcard:Kind`, + `navn_vcard`, `har_epost`, `har_kontaktside` | **Alvorleg** — ulik `class_uri` og slots |
+| `Standard` | slots: `versjonsnummer` (manglar `har_merknad`) | slots: `versjon`, `har_merknad` | Ulike slotnamn — løysing: harmoniser til `har_tittel` (obl.), `har_referanse` (anb.), `har_versjonsnummer` (valg.) |
 
-`dqv-ap-no-schema.yaml` definerer òg ein `Standard`-klasse (med ekstra DQV-slot
-`er_i_kvalitetsdimensjon`). Desse er parallelle definisjonar utan kryssinmport.
+`Kontaktopplysning`-konflikten er den alvorlegaste: ulik `class_uri` (`vcard:Organization`
+vs `vcard:Kind`) vil gi ein hard feil i LinkML. `vcard:Kind` frå `dcat-ap-no` er meir korrekt
+(superklasse — dekkjer fleire kontakttypar).
 
-Sidan `modelldcat-ap-no` ikkje importerer `dqv-ap-no`, er det inga sirkulær
-avhengigheit her — men dei to `Standard`-klassane er ikkje same klasse i
-schema-grafen. Data som brukar `modelldcat-ap-no`-varianten vil ikkje automatisk
-arve DQV-eigenskapar.
+**Planlagde namneavhengigheiter som skapar nye konfliktar:**
 
-Når DQ1 i `specs/backlog/avvik-dqv-ap-no.md` er gjennomført (flytt `Standard`
-til `dcat-ap-no`), bør `modelldcat-ap-no` importere `dcat-ap-no` for å dele
-`Standard`-definisjonen.
+`Tidsperiode` i `modelldcat-ap-no` skal omdøypast til `Tidsrom`, og `Aktor` i `dcat-ap-no`
+skal omdøypast til `Aktoer`. Desse to renamingane er naudsynte for konsistent namngjeving,
+men skapar kvar si nye kollisjon ved import:
 
-**Status:** ℹ️ Arkitektur-observasjon — låg prioritet, avhengig av DQ1
+| Rename | Ny kollisjon | Løysing |
+|---|---|---|
+| `Tidsperiode` → `Tidsrom` (modelldcat) | Slot-gap — modelldcat-versjonen manglar `begynnelse` og `slutt` | Fjern lokal definisjon, bruk dcat-versjonen |
+| `Aktor` → `Aktoer` (dcat) | Slotnamn-konflikt — dcat brukar `navn_aktor`, modelldcat brukar `navn_aktoer` | Skriv om `navn_aktor` → `navn_aktoer` i `dcat-ap-no` |
+
+`navn_aktor` i `dcat-ap-no` skal skrivast om til `navn_aktoer` (same translitteringskonvensjon
+som i `modelldcat-ap-no`). Etter dette er begge klassar kompatible og den lokale
+`Aktoer`-definisjonen i `modelldcat-ap-no` kan fjernast.
+
+**Sirkulær importkjede:** `dcat-ap-no` importerer `dqv-ap-no`, og `dqv-ap-no` importerer
+`dcat-ap-no` — dei to importerer kvarandre. Sirkulær avhengigheit vart truleg innført av
+DQ1-fiksen og må løysast før A6 kan gjennomførast.
+
+**Samla føresetnader for MC8 (5 punkt):**
+1. Løys `Kontaktopplysning`: fjern lokal definisjon i `modelldcat-ap-no`, la `vcard:Kind`-varianten frå `dcat-ap-no` gjelde
+2. Løys `KatalogisertRessurs`: fjern lokal definisjon i `modelldcat-ap-no`, la `abstract: true`-varianten gjelde
+3. Løys `Standard`: harmoniser til éin felles definisjon med `har_tittel` (obligatorisk), `har_referanse` (anbefalt) og `har_versjonsnummer` (valgfri) — fjern `versjonsnummer`, `versjon` og `har_merknad` frå begge skjema
+4. Løys `Aktoer`: skriv om `navn_aktor` → `navn_aktoer` i `dcat-ap-no-schema.yaml`
+5. Løys sirkulær import mellom `dcat-ap-no` og `dqv-ap-no`
+
+`Tidsrom`-konflikten løyser seg sjølv ved punkt 1–5: fjern den lokale `Tidsperiode`/`Tidsrom`-definisjonen og bruk `dcat-ap-no`-varianten (som har fleire slots, ikkje færre).
+
+**Status:** 🚫 Blokkert — 5 føresetnader må løysast før import kan gjennomførast
 
 ---
 
@@ -223,7 +242,7 @@ alle FINT-modellane, `samt-bu` osb.
 Dette er allereie identifisert som tiltak **MD2** i
 `specs/backlog/avvik-veileder-modelldcat-ap-no.md`.
 
-**Status:** ⚠️ Data-gap — sjå MD2 i `avvik-veileder-modelldcat-ap-no.md`
+**Status:** 🚫 Skal ikkje utførast — handsamast i MD2 (`avvik-veileder-modelldcat-ap-no.md`)
 
 ---
 
@@ -242,6 +261,67 @@ EuroVoc-URI eller Los-URI bør nyttast.
 
 ---
 
+## Del C: Arkitekturvurdering — splitting av `modelldcat-ap-no-schema.yaml`
+
+ModelDCAT-AP-NO-spesifikasjonen er eksplisitt delt i to delar:
+- **Katalogdel** — `Modellkatalog` og `Informasjonsmodell` med tilhøyrande hjelpeklassar
+- **Modelldel** — `Modellelement` og alle subklassar (`Objekttype`, `Attributt`, `Assosiasjon` osb.)
+
+Spørsmålet er om `modelldcat-ap-no-schema.yaml` bør splittast tilsvarande.
+
+### Grenselinje i skjemaet
+
+Dei to delane er kopla via éin referanse:
+
+```
+Informasjonsmodell.inneholder_modellelement → Modellelement
+```
+
+`Modellelement`-hierarkiet (25+ klassar) brukar utelukkande `modelldcatno:`-namespace og
+har **ingen overlapp** med klassar i `dcat-ap-no` eller `common-ap-no`. Katalogdelen
+brukar `dcat:`- og `modelldcatno:`-namespace og har alle dei dokumenterte konfliktane
+med `dcat-ap-no` (MC9).
+
+### Importkjede etter splitting
+
+```
+common-ap-no
+     ↓
+dcat-ap-no          modelldcat-modell
+     ↓    ↘               ↓
+            modelldcat-katalog
+```
+
+`modelldcat-ap-no-modell` treng berre `linkml:types` og `common-ap-no`.
+`modelldcat-ap-no-katalog` importerer `dcat-ap-no` + `modelldcat-modell`.
+
+### Vurdering
+
+| Argument | For splitting | Mot splitting |
+|---|---|---|
+| Spesifikasjonsstruktur | Matchar spec sin eigen todeling ✓ | |
+| MC8/MC9 | Isolerer alle dcat-ap-no-konfliktar til katalogdelen ✓ | |
+| Gjenbruk | Modelldelen kan importerast uavhengig ✓ | |
+| Seam | Éin referanse (`inneholder_modellelement`) — reint skilje ✓ | |
+| Filtal | | To skjema + to manifest i staden for eitt |
+| Mønster | | Bryt «eitt skjema per standard»-mønsteret i repoet |
+
+### Nye konfliktar ved splitting
+
+Ingen. Modelldelen har null klassenamnoverlapp med `dcat-ap-no`. Splitten skapar
+inga nye konfliktar — han reduserer konfliktscopet ved å isolere katalogdelen.
+
+### Tilråding
+
+**Splitting anbefalt.** Seamen er reint definert, modelldelen er fri for
+AP-NO-konfliktar, og splitten løyser MC8/MC9 naturleg ved å avgrense `dcat-ap-no`-importen
+til katalogdelen åleine. Domenemodeller som berre treng modellelementtypar (ikkje
+katalogstrukturen) får òg ein lettare import.
+
+**Sjå MC10.**
+
+---
+
 ## Samandrag
 
 | # | Avvik | Type | Prioritet |
@@ -251,16 +331,16 @@ EuroVoc-URI eller Los-URI bør nyttast.
 | A3 | `Lokasjon`-klassen ubrukt — `dekningsomraade.range: Konsept` | Schema | Middels |
 | A4 | `Modellkatalog.har_del` feilaktig `required: true` | Schema | Middels |
 | A5 | `Informasjonsmodell.type_concept` manglar vokabular-annotasjon | Annotasjon | Låg |
-| A6 | `Standard`-klassen parallell med `dqv-ap-no` — bør samordnast | Arkitektur | Låg |
+| A6 | Import av `dcat-ap-no` krev løysing av 3 klassekollidjonar + sirkulær import | Arkitektur | 🚫 Blokkert |
 | B1 | Informasjonsmodell-instansar manglar `status`, datoar, versjon | Data | Middels |
-| B2 | Berre 2/21+ skjema i modellkatalogen | Data | Middels (MD2) |
+| B2 | Berre 2/21+ skjema i modellkatalogen | Data | 🚫 Ikkje her — sjå MD2 |
 | B3 | `Modellkatalog`-instansen manglar `tema` | Data | Låg |
 
 ---
 
 ## Tilrådde tiltak
 
-### MC1 — Legg til `required: true` på `Aktoer.navn_aktoer` (A1)
+### MC1 — Legg til `required: true` på `Aktoer.navn_aktoer` (A1) ✓
 
 ```yaml
 Aktoer:
@@ -275,7 +355,7 @@ Aktoer:
 
 ---
 
-### MC2 — Utvid `Kontaktopplysning` med vCard-eigenskapar (A2)
+### MC2 — Utvid `Kontaktopplysning` med vCard-eigenskapar (A2) ✓
 
 Juster `class_uri` til `vcard:Kind` (slik som i `dcat-ap-no`) og legg til
 `vcard:fn` (namn) som Obligatorisk:
@@ -307,7 +387,7 @@ Slots `navn_vcard`, `har_epost` og `har_kontaktside` er allereie definert i
 
 ---
 
-### MC3 — Kople `Lokasjon`-klassen til `dekningsomraade` eller slett henne (A3)
+### MC3 — Kople `Lokasjon`-klassen til `dekningsomraade` eller slett henne (A3) ✓
 
 *Alternativ A* — Endre `dekningsomraade` i `Informasjonsmodell.slot_usage` til
 `range: Lokasjon`:
@@ -329,7 +409,7 @@ Informasjonsmodell:
 
 ---
 
-### MC4 — Endre `Modellkatalog.har_del` til Anbefalt (A4)
+### MC4 — Endre `Modellkatalog.har_del` til Anbefalt (A4) ✓
 
 ```yaml
 Modellkatalog:
@@ -344,7 +424,7 @@ Modellkatalog:
 
 ---
 
-### MC5 — Legg til vokabular-annotasjon på `type_concept` (A5)
+### MC5 — Legg til vokabular-annotasjon på `type_concept` (A5) ✓
 
 ```yaml
 # I Informasjonsmodell.slot_usage:
@@ -362,7 +442,7 @@ type_concept:
 
 ---
 
-### MC6 — Legg til silver-felt i `brreg-modellkatalog.yaml` (B1)
+### MC6 — Legg til silver-felt i `brreg-modellkatalog.yaml` (B1) ✓
 
 Legg til `status`, `utgivelsesdato` og `endringsdato` på begge
 `Informasjonsmodell`-instansane:
@@ -371,7 +451,7 @@ Legg til `status`, `utgivelsesdato` og `endringsdato` på begge
 informasjonsmodeller:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   ...
-  status: http://purl.org/adms/status/Completed
+  status: http://purl.org/adms/status/UnderDevelopment
   utgivelsesdato: "2024-01-01"
   endringsdato: "2026-06-15"
   versjonsnummer: "1.0.0"
@@ -381,32 +461,160 @@ informasjonsmodeller:
 
 ---
 
-### MC7 — Legg til `tema` på `Modellkatalog`-instansen (B3)
+### MC7 — Legg til `tema` på `Modellkatalog`-instansen (B3) ✓
+
+Merk: den opphavlege spesifikasjonen brukte `naering-og-sysselsetting` som er ein ugyldig
+Los-URI (404, retta i LO1). Korrekte verdiar er hovudtema `naring` og undertema `naringsliv`,
+same mønster som i `brreg-begrepskatalog` (LO5).
 
 ```yaml
 modellkataloger:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
   ...
   tema:
-  - https://psi.norge.no/los/tema/naering-og-sysselsetting
+  - https://psi.norge.no/los/tema/naring
+  - https://psi.norge.no/los/tema/naringsliv
 ```
 
 **Filer:** `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`
 
 ---
 
+### MC9 — Dokumenter og løys namne- og definisjonskonfliktar mellom AP-NO-profilane ✓ (delvis)
+
+Kartlegginga av A6 avdekte at fleire hjelpeklassar er definert parallelt i
+`modelldcat-ap-no-schema.yaml` og `dcat-ap-no-schema.yaml` med inkonsistente namn,
+`class_uri`-val eller slots. Nedanfor er alle konfliktar og vedtekne val dokumenterte.
+
+#### Klassenamn-konfliktar (krev rename)
+
+| Klasse i modelldcat | Klasse i dcat | Vedteke val | Handling |
+|---|---|---|---|
+| `Tidsperiode` | `Tidsrom` | Bruk `Tidsrom` overalt | Rename i `modelldcat-ap-no` |
+| `Aktoer` | `Aktor` | Bruk `Aktoer` overalt | Rename i `dcat-ap-no` |
+
+#### Slotnamn-konfliktar (krev rename)
+
+| Slot i modelldcat | Slot i dcat | Vedteke val | Handling |
+|---|---|---|---|
+| `navn_aktoer` | `navn_aktor` | Bruk `navn_aktoer` overalt | Rename i `dcat-ap-no` |
+
+#### Klassestruktur-konfliktar (krev harmonisering)
+
+| Klasse | modelldcat-definisjon | dcat-definisjon | Vedteke val |
+|---|---|---|---|
+| `KatalogisertRessurs` | ikkje abstract | `abstract: true` | Fjern lokal def., bruk dcat (`abstract: true`) |
+| `Kontaktopplysning` | `vcard:Organization`, berre `id` | `vcard:Kind`, + `navn_vcard`, `har_epost`, `har_kontaktside` | Fjern lokal def., bruk dcat (`vcard:Kind`) |
+| `Standard` | slots: `versjonsnummer` | slots: `versjon`, `har_merknad` | Harmoniser begge til `har_tittel` (obl.), `har_referanse` (anb.), `har_versjonsnummer` (valg.) — fjern `versjonsnummer`, `versjon`, `har_merknad` |
+| `Tidsperiode`/`Tidsrom` | slots: `id, startdato, sluttdato` | slots: + `begynnelse`, `slutt` | Fjern lokal def., bruk dcat (dcat er eit supersett) |
+| `Aktoer`/`Aktor` | `navn_aktoer`, ingen `required: true` | `navn_aktor`, `required: true` | Etter rename: fjern lokal def., bruk dcat |
+
+#### Sirkulær importkjede
+
+`dcat-ap-no` importerer `dqv-ap-no` og `dqv-ap-no` importerer `dcat-ap-no` — sirkulær avhengigheit.
+
+**Vedteke val:** `dcat-ap-no` skal **ikkje** importere `dqv-ap-no`. Korrekt retning er
+einveg: `dqv-ap-no → dcat-ap-no` (dqv-ap-no utvidar `Standard` frå dcat med DQV-spesifikke
+slots). Fjern `- ../dqv-ap-no/dqv-ap-no-schema` frå `imports`-seksjonen i `dcat-ap-no-schema.yaml`.
+
+**Blokkert:** Forsøk på å fjerne importen viser at `dcat-ap-no` faktisk brukar klassen
+`Kvalitetsmerknad` og sloten `har_kvalitetsmaaling` frå `dqv-ap-no` (i `Datasett`-klassen,
+DCAT-AP-NO-eigenskapar for datakvalitet). Importen kan difor ikkje fjernast utan at desse
+eigenskapane vert flytta — anten til `common-ap-no` eller til ei eiga bru-schema. Dette krev
+ein eigen spesifikasjon.
+
+**Filer:**
+- `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`
+- `src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.yaml`
+
+**Avhengigheit:** MC9 er føresetnad for MC8.
+
+---
+
+### MC10 — Split `modelldcat-ap-no-schema.yaml` i katalog- og modelldel ✓
+
+✓ Utført 2026-06-19. Skjemaet er delt i to nye filer:
+
+```
+src/linkml/ap-no/modelldcat-ap-no/
+  modelldcat-modell-schema.yaml    ← Modellelement + alle subklassar + modellelement-slots
+  modelldcat-katalog-schema.yaml   ← Modellkatalog + Informasjonsmodell + hjelpeklassar + katalog-slots
+  modelldcat-ap-no-schema.yaml     ← pass-through (importerer katalog-schema)
+```
+
+**`modelldcat-modell-schema.yaml`** importerer:
+- `linkml:types`
+- `../common/common-ap-no-schema`
+(Definerer óg `begrep`-slot sidan det vert brukt av både Modellelement og katalogklassar via importkjeda.)
+
+**`modelldcat-katalog-schema.yaml`** importerer:
+- `linkml:types`
+- `../common/common-ap-no-schema`
+- `./modelldcat-modell-schema`
+(Importen av `../dcat-ap-no/dcat-ap-no-schema` er ikkje lagt til enno — det er MC8.)
+
+**`modelldcat-ap-no-schema.yaml`** er gjort om til pass-through som berre importerer `modelldcat-katalog-schema`.
+`brreg-modellkatalog-schema.yaml` er ikkje endra — det importerer framleis `modelldcat-ap-no-schema` via pass-through.
+
+Lint: berre forventa `dct` canonical-prefix-åtvaring (same som original). Instansvalidering av `brreg-modellkatalog-eksempel.yaml` er OK.
+
+**Filer:** `src/linkml/ap-no/modelldcat-ap-no/`
+**Avhengigheit:** Bør gjerast før MC9 og MC8 for å avgrense omfanget av harmoniseringa.
+
+---
+
 ## Prioritert handlingsliste
 
-| # | Tiltak | Fil | Avhengigheit |
+| # | Tiltak | Fil | Status |
 |---|---|---|---|
-| 1 | MC1: `required: true` på `Aktoer.navn_aktoer` | `modelldcat-ap-no-schema.yaml` | — |
-| 2 | MC2: Utvid `Kontaktopplysning` med vCard-slots | `modelldcat-ap-no-schema.yaml` | — |
-| 3 | MC4: `Modellkatalog.har_del` → Anbefalt | `modelldcat-ap-no-schema.yaml` | — |
-| 4 | MC6: Silver-felt på Informasjonsmodell-instansar | `brreg-modellkatalog.yaml` | — |
-| 5 | MC3: Fjern `Lokasjon`-klassen (Alternativ B) | `modelldcat-ap-no-schema.yaml` | — |
-| 6 | MC7: `tema` på Modellkatalog-instans | `brreg-modellkatalog.yaml` | — |
-| 7 | MC5: Vokabular-annotasjon på `type_concept` | `modelldcat-ap-no-schema.yaml` | — |
-| 8 | A6: Samordne `Standard` med `dcat-ap-no` | begge schema | DQ1 i `avvik-dqv-ap-no.md` |
+| 1 | MC1: `required: true` på `Aktoer.navn_aktoer` | `modelldcat-katalog-schema.yaml` | ✓ |
+| 2 | MC2: Utvid `Kontaktopplysning` med vCard-slots | `modelldcat-katalog-schema.yaml` | ✓ |
+| 3 | MC3: Fjern `Lokasjon`-klassen | `modelldcat-katalog-schema.yaml` | ✓ |
+| 4 | MC4: `Modellkatalog.har_del` → Anbefalt | `modelldcat-katalog-schema.yaml` | ✓ |
+| 5 | MC5: Vokabular-annotasjon på `type_concept` | `modelldcat-katalog-schema.yaml` | ✓ |
+| 6 | MC6: Silver-felt på Informasjonsmodell-instansar | `brreg-modellkatalog.yaml` | ✓ |
+| 7 | MC7: `tema` på Modellkatalog-instans | `brreg-modellkatalog.yaml` | ✓ |
+| 8 | MC10: Split i `modelldcat-modell` og `modelldcat-katalog` | `modelldcat-ap-no/` | ✓ |
+| 9 | MC9: Harmoniser klassenamn, slotnamn og struktur | fleire filer | ✓ (delvis) |
+| 10 | MC11: Løys sirkulær import dcat-ap-no ↔ dqv-ap-no | `dqv-ap-no/`, `dcat-ap-no/` | ✓ |
+| 11 | MC8: Importer `dcat-ap-no` i `modelldcat-katalog`, fjern lokale duplikatklassar | `modelldcat-katalog-schema.yaml` | — |
+
+---
+
+## MC11 — Løysing av sirkulær import dcat-ap-no ↔ dqv-ap-no ✓
+
+✓ Utført 2026-06-19.
+
+**Problem:** `dcat-ap-no` importerte `dqv-ap-no` (for å bruke `Kvalitetsmerknad` og `har_kvalitetsmaaling`/`har_kvalitetsmerknad` på `Datasett`). `dqv-ap-no` importerte `dcat-ap-no` (for `KatalogisertRessurs` og `Standard`). Sirkulær import.
+
+**Analyse av alternativer:**
+- *Alternativ A (klasse-override i dqv-ap-no)*: Fjerne dqv-import frå dcat-ap-no og leggje DQV-slots til `Datasett` via klasseoverride i dqv-ap-no. Fungerer IKKJE — LinkML sine klasseoverrides med `slots:` erstattar foreldrelistа i JSON-skjemavalidering, og alle baseklasseegenskapar vert usynlege for validatoren. Denne LinkML-avgrensinga er stadfesta og gjeld allereie `Standard`-overriden i dqv-ap-no (pre-eksisterande bug).
+- *Alternativ B (bridge-fil, valt)*: Trekk ut alle DQV-kjerneklassar til ei ny `dqv-core-schema.yaml` utan referansar til dcat-klasser. `dcat-ap-no` importerer `dqv-core`. `dqv-ap-no` importerer `dcat-ap-no` (som har dqv-core transitivt).
+
+**Implementert løysing — importkjede:**
+```
+common-ap-no → dqv-core → dcat-ap-no → dqv-ap-no
+```
+
+**Filer oppretta/endra:**
+
+`src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml` (ny):
+- Alle DQV-klasser (Kvalitetsdimensjon, Kvalitetsdeldimensjon, Kvalitetsmaal, Kvalitetsmerknad, Brukartilbakemelding, Kvalitetssertifikat, Kvalitetsmaaling, Tekstdel) og -slots
+- `har_maal.range: uriorcurie` (ikkje `KatalogisertRessurs`) — einaste avvik frå dqv-ap-no
+- `DqvMotivasjon`-enum
+- Importerer berre `common-ap-no`, ingen dcat-avhengigheit
+
+`src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`:
+- Importerer `../dqv-ap-no/dqv-core-schema` (i staden for `dqv-ap-no-schema`)
+- `Datasett` beheld `har_kvalitetsmerknad` og `har_kvalitetsmaaling` som før — ingen endring i slotlisteа
+
+`src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml`:
+- Alle DQV-klasser og -slots fjerna (flytta til dqv-core)
+- `DqvMotivasjon`-enum fjerna (flytta til dqv-core)
+- Beheld `Standard`-override med `er_i_kvalitetsdimensjon` (pre-eksisterande, uendra)
+- Importerer framleis `dcat-ap-no` (gjer dqv-core tilgjengeleg transitivt)
+
+**Kjend avgrensing:** `har_maal.range` er `uriorcurie` i dqv-core, ikkje `KatalogisertRessurs`. Å narrowe rangen i dqv-ap-no via slot_usage er ikkje mogleg utan `slots:` i overriden (lintarfeil `no_invalid_slot_usage`). Sidan instansdata alltid brukar URI-verdiar passerer validering for begge range-typane. `Standard`-override-buggen (pre-eksisterande) er uendra.
 
 ---
 
@@ -414,11 +622,8 @@ modellkataloger:
 
 - **MD2** (`avvik-veileder-modelldcat-ap-no.md`): Utvid modellkatalogen til å
   dekkje alle skjema i repoet — koordiner med MC6
-- **DQ1** (`avvik-dqv-ap-no.md`): Flytt `Standard`-klassen til `dcat-ap-no` —
-  etter det bør `modelldcat-ap-no` importere `dcat-ap-no` for samstemming (A6)
-- MC2 brukar slots frå `common-ap-no-schema.yaml` som ikkje er importert i
-  `modelldcat-ap-no-schema.yaml`; det kan krevje at importen vert lagt til
-  (eller at slotdefinisjoane vert dupliserte — unngå det siste)
+- **DQ1** (`avvik-dqv-ap-no.md`): ✓ Utført — `Standard`-klassen er flytta til `dcat-ap-no`.
+  `modelldcat-ap-no` må no importere `dcat-ap-no` for å dele klassedefinisjon (MC8)
 
 **Merk:** `modelldcat-ap-no-schema.yaml` importerer `common-ap-no-schema` allereie
 (via `imports: - ../common/common-ap-no-schema`), så `navn_vcard`, `har_epost`
