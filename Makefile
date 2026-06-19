@@ -246,6 +246,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         gen-openapi domain-gen-openapi schema-gen-openapi \
         check-published-uris check-prereqs \
         update-modellkatalog new-org-catalog new-begrepskatalog \
+        validate-capture \
         gource-build gource-preview gource-video _gource-render
 
 all: test
@@ -996,6 +997,19 @@ mcp-validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
+
+# Bruk: make validate-capture [SCHEMA=<sti>]
+# Utan SCHEMA: køyr for alle pakkar som er endra sidan HEAD~1 (release-modus).
+validate-capture:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make validate-capture$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
+	@if [ -n "$(SCHEMA)" ]; then \
+	    python3 src/assets/scripts/run-schema-validation.py --schema $(SCHEMA); \
+	else \
+	    python3 src/assets/scripts/run-schema-validation.py --config release-please-config.json; \
+	fi
 
 # ---------------------------------------------------------------------------
 # Gource – visualisering av git-historikk
