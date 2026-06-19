@@ -75,3 +75,14 @@ i ny-domenemodell.md legg til eksempel på generert modellutkast på tilsvarande
 
 
 dokumenter ny begrepsutkast og publiseringsprofilane i COMMANDS.md
+
+
+evaluer gap mot https://www.digdir.no/datadeling/nasjonale-grunndata/7575 skriv til ./specs
+
+evaluer gap mot https://www.digdir.no/datadeling/slik-kommer-du-i-gang-med-bruke-data-fra-andre/2255 skriv til ./specs
+
+evaluer gap mot https://www.digdir.no/datadeling/slik-blir-du-en-god-datatilbyder/2248 skriv til ./specs
+
+evaluer gap mot https://data.norge.no/nb/docs skriv til ./specs
+
+evaluer gap mot https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-eget-hus/2716 skriv til ./specs
