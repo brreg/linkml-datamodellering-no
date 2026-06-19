@@ -27,7 +27,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell. Skjemaet passerer `POLICY=bronze` utan manuell redigering. | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
+| `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
 | `make new-org-catalog ORG=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
 | `make new-begrepskatalog NAME=<katalognavn>` | Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalognavn>/` |
 
@@ -46,6 +46,8 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=felles-datakatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Datakatalog (modellkatalog). | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=felles-begrepskatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Begrepskatalog. | Pass/fail per policy-regel til stdout |
 | `make check-published-uris` | Verifiserer at alle URI-ar i `published-uris.lock`-filer finst i tilhøyrande datafil. Køyr etter endringar i datafiler med `publish_external: true`. | OK/FEIL til stdout; avsluttar med kode 1 ved manglande URI |
 
 ### Validerings-Policyar
@@ -57,6 +59,16 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `gold` | Silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.) |
 
 `mcp-validate` flattar automatisk ut relative importar med `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
+
+### Publiserings-Policyar
+
+Brukt for skjema der `publish_external: true` i `manifest.yaml`. Sjekkar at skjemaet
+er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
+
+| Policy | Beskriving |
+|---|---|
+| `felles-datakatalog` | Bronze + import av ModelDCAT-AP-NO, containerklasse med `Modellkatalog` og `Informasjonsmodell`, obligatoriske felt for desse klassane (tittel, beskrivelse, identifikator, utgjevar, kontaktpunkt) |
+| `felles-begrepskatalog` | Bronze + import av SKOS-AP-NO-Begrep, containerklasse med `Begrep`, obligatoriske felt for `Begrep` (anbefalt term, definisjon, identifikator, utgjevar, kontaktpunkt) og `Samling` |
 
 ## Generering av artefakter
 
@@ -113,7 +125,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 
 `make publish` køyrer `mkdocs/publish.sh` som kopier artefakter og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
 
-## mcp-linkml-modell-utkast
+## LinkML-modell utkast (mcp-linkml-modell-utkast)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
@@ -124,7 +136,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | `make mcp-linkml-modell-utkast SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same som over med eksplisitt format og profil. | `<same katalog>/<modell>-schema.yaml` |
 | `make mcp-mod-run` | Startar MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
-## mcp-linkml-begrep-utkast
+## LinkML-begrep utkast (mcp-linkml-begrep-utkast)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
@@ -134,7 +146,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | `make mcp-linkml-begrep-utkast INPUT=<sti>` | Genererer eit YAML-utkast til begrep frå ei JSON-fil med argument til `opprett_begrep`. | YAML-blokker til stdout |
 | `make mcp-begrep-run` | Startar MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
-## LinkML-validator mcp-server (mcp-linkml-validator)
+## LinkML-validator (mcp-linkml-validator)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
