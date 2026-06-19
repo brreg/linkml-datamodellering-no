@@ -7,6 +7,7 @@
 - **Oppdater spesifikasjonen etter kvart steg:** Når brukaren ber om å utføre eitt steg av ein plan, skal spesifikasjonsfila oppdaterast med ✓ og ei kort skildring av kva som faktisk vart implementert i det steget (inkludert avvik frå planen) — før neste steg startar. Dette gjeld alle steg, ikkje berre siste.
 - Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal følgjande skje **automatisk** i denne rekkjefølgja: (1) generer eit utkast til commit-melding i conventional commits-format som omhandlar **alle** tiltaka som er utførte i specen (ikkje berre det siste), (2) oppdater spesifikasjonsfila med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), (3) flytt spesifikasjonsfila til `specs/done/`. Commit-meldinga skal genererast **før** specen vert flytta. Spør ikkje om løyve — gjer dette automatisk.
 - **Commit-melding etter kvar endring:** Etter *kvar* arbeidsøkt der filer er endra — uavhengig av om det er ei spesifikasjon, ein bugfix, ein konfigurasjonsjustering eller anna — skal det alltid genererast eit utkast til commit-melding i conventional commits-format (sjå `specs/done/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme). Generer meldinga til slutt i svaret, utan å spørje om løyve.
+- **DRY — ikkje gjenta deg sjølv:** Kvar regel, klasse, slot og kommando skal ha éi kjelde. I LinkML-skjema: definer klasser/slots éin stad og importer. I CLAUDE.md: ikkje gjenta forklåringar som finst i `mkdocs/docs/` — legg til kryssreferanse i staden. Terskel: tre eller fleire identiske tilfelle. To like tilfelle krev ingen abstraksjon. `specs/done/` er unntatt — arkiverte spesifikasjonar skal stå urørte og treng ikkje konsoliderast. Omskriv aldri eksisterande kode eller konfigurasjon med DRY som einaste grunngjeving utan å spørje brukaren om løyve først.
 - **Kompakt commit-format:** Commit-meldingar skal skrivast på kompakt form — éi hovudlinje (`<type>(<scope>): <skildring>`) og éin kort bullet per tiltak i kroppen. Unngå lange forklarande avsnitt; bruk stikkord. Døme:
   ```
   fix(mcp-modell-utkast): rett fallback-description i converter.py
@@ -34,6 +35,8 @@ oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter
 
 fair-metadata         ← kan importeres av alle domenemodeller
 ```
+
+Importhierarkiet er repoets primære DRY-mekanisme for skjema: klasser og slots definerast éin stad og importerast nedover. MC8–MC11 (sjå `specs/done/avvik-modelldcat-ap-no.md`) er eit praktisk døme — duplikate klasser vart fjerna frå `modelldcat-katalog-schema.yaml` ved å importere `dcat-ap-no-schema` i staden.
 
 ## Valider arbeidet ditt
 
@@ -95,6 +98,8 @@ overskrivne ved neste publisering.
   rediger desse manuelt
 - Statisk innhald (`mkdocs/docs/` utanom genererte domene-katalogar) vert aldri
   sletta av `publish.sh`
+
+`mkdocs/docs/` er brukarvendt dokumentasjon og normativ kjelde for steg-for-steg-rettleiingar (t.d. `ny-domenemodell.md`). CLAUDE.md er normativ kjelde for modelleringsprinsipp og AI-instruksjonar — desse to skal ikkje duplisere kvarandre.
 
 ## Modelleringsprinsipper
 
@@ -379,3 +384,5 @@ ADMS Status-verdiar:
 | Trukket tilbake | `http://purl.org/adms/status/Withdrawn` |
 
 CI genererer `Informasjonsmodell`-instansar for modellkatalogen frå desse annotasjonane.
+
+Sjå `src/mcp-linkml-validator/policies/README.md` for komplett feltliste og gyldige verdiar.

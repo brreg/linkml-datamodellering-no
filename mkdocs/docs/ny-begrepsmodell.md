@@ -3,20 +3,6 @@
 Denne rettleiinga viser korleis du oppretter ein ny begrepskatalog i repoet —
 frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
 
-!!! note "Skil seg frå ny domenemodell"
-    Begrepskatalogar har ein eigen arbeidsflyt. `make new-model` gjeld **ikkje** her —
-    skjemaet er trivielt og vert skrive for hand. Bruk `mcp-linkml-begrep-utkast`
-    for å generere YAML-instansar, ikkje `mcp-linkml-modell-utkast`.
-
-    | | Ny begrepskatalog | Ny domenemodell |
-    |---|---|---|
-    | Scaffold | Manuelt (steg 1 - 3 under) | `make new-model` |
-    | Import | `skos-ap-no` | `dcat-ap-no` / `dqv-ap-no` |
-    | Generator | `mcp-linkml-begrep-utkast` | `mcp-linkml-modell-utkast` |
-    | RDF-eksport | `example_rdf: true` (krav) | Valfritt |
-
----
-
 ## 0 — Føresetnader (éin gong)
 
 ```bash
@@ -27,32 +13,47 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 
 ---
 
-## 1 — Opprett filstruktur
-
-```bash
-mkdir -p src/linkml/begrepskatalog/<katalognavn>/examples
-```
+## 1 — Scaffold
 
 **Namnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
 
----
+```bash
+make new-begrepskatalog NAME=<katalognavn>
+```
 
-## 2 — Skriv `<katalognavn>-schema.yaml`
+Dette oppretter:
 
-Skjemaet er minimalt — all semantikk kjem frå den importerte `skos-ap-no`.
-Kopier frå `src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml` og endre
-`id`, `name`, `title` og `default_prefix`:
+```
+src/linkml/begrepskatalog/<katalognavn>/
+├── <katalognavn>-schema.yaml  ← skjema med BegrepContainer og import av skos-ap-no
+├── manifest.yaml              ← publiserings- og generatorkonfig
+├── description.md             ← valfri skildring, injiserast i portalen
+└── examples/
+    └── <katalognavn>-eksempel.yaml  ← tom BegrepContainer-stub
+```
+
+Fyll deretter ut `title`, `description` og `utgiver` i skjemafila.
+
+For `make new-begrepskatalog NAME=test-begrep` ser dei genererte filene slik ut:
+
+**`test-begrep-schema.yaml`**
 
 ```yaml
-id: https://data.norge.no/begrepskatalog/<katalognavn>
-name: <katalognavn>
-title: <Organisasjon> – Begrepskatalog
-version: "1.0.0"
+id: https://data.norge.no/begrepskatalog/test-begrep
+name: test_begrep
+title: 'TODO: <Organisasjon> – Begrepskatalog'
+description: 'TODO: beskriv katalogen'
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: 'TODO: https://data.norge.no/organizations/<orgnr>'
+  status: http://purl.org/adms/status/UnderDevelopment
 
 prefixes:
   linkml: https://w3id.org/linkml/
 
-default_prefix: https://data.norge.no/begrepskatalog/<katalognavn>/
+default_prefix: https://data.norge.no/begrepskatalog/test-begrep/
 default_range: string
 
 imports:
@@ -60,6 +61,7 @@ imports:
   - ../../ap-no/skos-ap-no/skos-ap-no-schema
 
 classes:
+
   BegrepContainer:
     tree_root: true
     attributes:
@@ -68,46 +70,10 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      samlingar:
-        range: Samling
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      definisjoner:
-        range: Definisjon
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      generiske_relasjonar:
-        range: GeneriskRelasjon
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      partitive_relasjonar:
-        range: PartitivRelasjon
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      assosiative_relasjonar:
-        range: AssosiativRelasjon
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      organisasjonar:
-        range: Organisasjon
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      kontaktpunkt:
-        range: VCardKontakt
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
+      # ... (samlingar, definisjoner, relasjonar, organisasjonar, kontaktpunkt)
 ```
 
----
-
-## 3 — Skriv `manifest.yaml`
+**`manifest.yaml`**
 
 ```yaml
 publish_external: false
@@ -124,18 +90,22 @@ generators:
   erdiagram: true
   docs: true
   plantuml: false
-  example_rdf: true    # konverterer instansfila til RDF/Turtle
+  example_rdf: true
 ```
 
-`example_rdf: true` er obligatorisk — det er dette som produserer SKOS/Turtle for eksport.
+**`examples/test-begrep-eksempel.yaml`**
 
-`data_policy` peikar til publiseringspolicyen som `make domain-validate-data`
-nyttar for å validere filer under `data/`. Berre nødvendig viss katalogen
-skal publiserast til Felles Begrepskatalog.
+```yaml
+# Eksempel for test-begrep
+# Generer YAML-blokker med: make mcp-begrep-run (sjå steg 2)
+---
+BegrepContainer:
+  begrep: []
+```
 
 ---
 
-## 4 — Generer YAML-instansar
+## 2 — Generer YAML-instansar
 
 Bruk `opprett_begrep`-verktøyet i `mcp-linkml-begrep-utkast` til å byggje
 YAML-blokker. Verktøyet kan køyrast av ein AI-assistent med MCP-støtte
@@ -153,10 +123,9 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 
 ### Eksempel — generer eitt begrep ihht skjema for begrepskatalog
 
-Send dette til serveren (t.d. via AI-assistent eller skript):
-
-```json
-{
+```bash
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"opprett_begrep","arguments":{
   "profil": "default",
   "base_uri": "https://begrep.<org>.no",
   "slug": "mitt-begrep",
@@ -165,11 +134,37 @@ Send dette til serveren (t.d. via AI-assistent eller skript):
   "kjelde_relasjon": "self-composed",
   "utgjevar_uri": "https://data.norge.no/organizations/<orgnr>",
   "fagomrade_uri": "https://psi.norge.no/los/tema/<slug>"
-}
+}}}' | make mcp-begrep-run
 ```
 
-Resultatet er ein `BegrepContainer`-blokk som kan limast inn i instansfila
-(`src/linkml/begrepskatalog/<katalognavn>/examples/<katalognavn>-eksempel.yaml`) under dei tilsvarande listene.
+Resultatet er YAML-blokker som kan limast inn i instansfila
+(`src/linkml/begrepskatalog/<katalognavn>/examples/<katalognavn>-eksempel.yaml`):
+
+```yaml
+# Generert av mcp-linkml-begrep-utkast — legg til i instansfila di
+# Begrep: https://begrep.eksempel.no/mitt-begrep
+
+begrep:
+- id: https://begrep.eksempel.no/mitt-begrep
+  anbefalt_term:
+  - mitt begrep
+  har_definisjon:
+  - https://begrep.eksempel.no/def/mitt-begrep-nb
+  identifikator_literal: https://begrep.eksempel.no/mitt-begrep
+  kontaktpunkt_vcard:
+  - https://begrep.eksempel.no/kontakt/begrepsansvarleg
+  utgjevar: https://data.norge.no/organizations/<orgnr>
+  fagomrade:
+  - https://psi.norge.no/los/tema/<slug>
+definisjoner:
+- id: https://begrep.eksempel.no/def/mitt-begrep-nb
+  tekst: ein klar og presis formulering av kva omgrepet tyder
+  kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
+organisasjonar:
+- id: https://data.norge.no/organizations/<orgnr>
+kontaktpunkt:
+- id: https://begrep.eksempel.no/kontakt/begrepsansvarleg
+```
 
 ### Profil for eigen organisasjon
 
@@ -190,7 +185,7 @@ for kvart kall. Sjå `profiles/brreg.yaml` som døme.
 
 ---
 
-## 5 — Valider
+## 3 — Valider
 
 ```bash
 # Rask syntaksvalidering direkte mot skjema (via mcp-begrep-generator):
@@ -208,7 +203,7 @@ make mcp-validate \
 
 ---
 
-## 6 — Generer RDF/Turtle
+## 4 — Generer RDF/Turtle
 
 ```bash
 make domain-gen-examples DOMAIN=begrepskatalog
@@ -222,7 +217,7 @@ serialisert. For publisering til Felles Begrepskatalog — sjå
 
 ---
 
-## 7 — CI-pipeline
+## 5 — CI-pipeline
 
 Ingen endringar i workflowfiler nødvendig. `validate.yml` og `generate.yml` fangar
 automatisk opp nye skjema under `src/linkml/begrepskatalog/`. Pipelinen køyrer ved push til
@@ -230,7 +225,7 @@ automatisk opp nye skjema under `src/linkml/begrepskatalog/`. Pipelinen køyrer 
 
 ---
 
-## 8 — Datafil for publisering (valfritt)
+## 6 — Datafil for publisering (valfritt)
 
 Berre nødvendig for katalogar som skal publiserast til Felles Begrepskatalog.
 
