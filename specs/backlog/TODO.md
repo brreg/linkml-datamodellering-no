@@ -65,7 +65,7 @@ opprette slack kanal under digdir samarbeid?
 lage ein sturktur for å ta vare på output fra valideringer knytta til kvar modell
 
 
-
+lag ein job som tester alle URL og URIer i repoet og logg html returkoden. 
 
 
 

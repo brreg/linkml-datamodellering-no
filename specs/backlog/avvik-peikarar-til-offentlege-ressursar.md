@@ -26,24 +26,46 @@ offentlege datasett, omgrep og modell-ar — ikkje intern infrastruktur.
 
 ## Kartlegging av avvik
 
-### 1 — Schema-ID: `register-over-aksjeeiere-schema.yaml` brukar `example.no`
+### 1 — Schema-ID: `register-over-aksjeeiere-schema.yaml` brukar `example.no` — ✓ LØYST
 
 ```yaml
-# Noverande (feil)
+# Tidlegare (feil)
 id: https://example.no/ontology/aksje-eierskap
 
-# Korrekt
+# Noverande (korrekt)
 id: https://data.norge.no/oreg/register-over-aksjeeiere
 ```
 
-Skjemaet er eit produksjonsskjema under `oreg/`, men `id`-feltet brukar `example.no` —
-eit domene reservert for illustrasjons- og testformål (per RFC 2606/RFC 6761).
-`default_prefix` er korrekt (`https://data.norge.no/oreg/register-over-aksjeeiere/`),
-noko som gjev ein intern inkonsistens: klasse-URI-ar og slot-URI-ar vert genererte
-med riktig prefix, men schema-metadataen sjølv har feil identifikator.
-
 **Fil:** `src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml`  
-**Status:** ⚠️ Feil schema-ID — bør rettast
+**Status:** ✓ Løyst — schema-ID er endra til `https://data.norge.no/oreg/register-over-aksjeeiere`
+
+---
+
+### 1b — `finta:`-prefiks i `fint-common-schema.yaml` peikar til `example.no` — ✓ LØYST
+
+`fint-common-schema.yaml` definerer prefikset:
+
+```yaml
+# Tidlegare (feil)
+prefixes:
+  finta:  https://example.no/fint/
+
+# Noverande (korrekt)
+prefixes:
+  finta:  https://fint.example.org/
+```
+
+Prefikset er brukt som instans-ID-mønster i 6 eksempelfiler (alle FINT-domene). Sidan
+dei brukar CURIE-notasjon (`finta:person/ola-nordmann`), var det nok å endre prefiksdefinisjon
+i `fint-common-schema.yaml` — eksempelfilene treng inga eiga endring.
+
+Avviket var avgrensa til **eksempelfiler** (`examples/`), ikkje produksjonsdata.
+Ingen `class_uri:` eller `slot_uri:` i skjemadefinisjonane brukar `finta:`-prefikset.
+
+**Fil:**
+- `src/linkml/fint/fint-common/fint-common-schema.yaml` — prefiksdefinisjon endra
+
+**Status:** ✓ Løyst — `finta:` peikar no til RFC 2606-reservert `https://fint.example.org/`
 
 ---
 
@@ -58,21 +80,51 @@ https://begrep.brreg.no/aksjeklasser
 ```
 
 Testkall mot `https://begrep.brreg.no/foretaksnavn` returnerer `ECONNREFUSED`
-(servaren nektar tilkoplinga), som tyder på at domenet ikkje er i drift.
+(servaren nektar tilkoplinga). Domenet er lagt ned.
 
-Standarden krev at URI-ar til offentlege ressursar **skal** vere resolvable og
-returnere maskinlesbar respons. URI-ar som ikkje løyser opp, bryt
-EU ISA-regel 3 (vedtatt for bruk) og regel 6 (korrekt HTTP-statuskode).
+**Kjend kanonisk IRI i Felles Begrepskatalog:**
 
-Moglege årsaker:
-- `begrep.brreg.no` er eit gammalt domene som er lagt ned
-- Brreg har flytta begrepskatalogen til `concept-catalog.fellesdatakatalog.digdir.no`
+Brønnøysundregistrene publiserer omgrepa sine i Felles Begrepskatalog under
+`concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/`. Den
+kanoniske IRI-en for `foretaksnavn` er:
+
+```
+https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd
+```
+
+**Ope spørsmål — UUID-tildeling:**
+
+Det er uklart om UUID-en (`47534952-...`) er:
+
+- **A) Forhåndsbestemt av Brreg** — Brreg set `dct:identifier` med ein UUID i sitt
+  eige system, og Felles Begrepskatalog tek vare på den same UUID-en som del av IRI-en.
+  I så fall kan `id:` settast direkte i YAML-fila *før* høsting.
+- **B) Automatisk tildelt av Felles Begrepskatalog** — UUID vert tildelt ved første
+  høsting og er ikkje kjend på førehand. `id:` kan først settast *etter* at begrepet
+  er hosta og UUID-en er henta ut frå API-et.
+
+Dersom det er alternativ B gjeld følgjande for begrep som allereie er publiserte:
+UUID-en er kjend og kan slåast opp direkte. For begrep som ikkje er publiserte enno,
+vil `id:` måtte bruke ei midlertidig URI og oppdaterast etter første høsting.
+
+Begge `id:` og `identifikator_literal:`-feltet i datafila brukar i dag den nedlagde
+`begrep.brreg.no`-URI-en og må oppdaterast:
+
+```yaml
+# Noverande (feil)
+- id: https://begrep.brreg.no/foretaksnavn
+  identifikator_literal: "https://begrep.brreg.no/foretaksnavn"
+
+# Korrekt (for foretaksnavn)
+- id: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd
+  identifikator_literal: "https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd"
+```
 
 **Filer:**
 - `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`
 - `src/linkml/begrepskatalog/brreg-begrepskatalog/examples/brreg-begrepskatalog-eksempel.yaml`
 
-**Status:** ⚠️ Kritisk — instans-URI-ar løyser ikkje opp; treng avklaring med Brreg
+**Status:** ⚠️ Kritisk — instans-URI-ar løyser ikkje opp; UUID-spørsmål må avklarast
 
 ---
 
@@ -173,47 +225,68 @@ er i bruk i nyare dokument). Dette er eit framtidig oppfølgingspunkt, ikkje eit
 
 ## Samandrag
 
-| # | Avvik | Type | Prioritet |
-|---|---|---|---|
-| 1 | `register-over-aksjeeiere-schema.yaml` brukar `example.no` som schema-ID | Schema-ID | **Høg** |
-| 2 | `begrep.brreg.no`-URI-ar løyser ikkje opp (ECONNREFUSED) | Resolvabilitet | **Høg** |
-| 3 | `brreg.no/modellkatalogar/`-URI-ar løyser ikkje opp (timeout) | Resolvabilitet | Middels |
-| 4 | Schema-ID-ar returnerer HTML, ikkje RDF (content negotiation manglar) | Infrastruktur | Middels |
-| 5 | Ingen dokumentert URI-konstruksjonsregel | Dokumentasjon | Låg |
-| 6 | W3C-namespace på `http://` — korrekt no, overvak framtidig | Info | — |
+| # | Avvik | Type | Prioritet | Status |
+|---|---|---|---|---|
+| 1 | `register-over-aksjeeiere-schema.yaml` brukar `example.no` som schema-ID | Schema-ID | **Høg** | ✓ Løyst |
+| 1b | `finta:`-prefiks peikar til `example.no` — brukt i FINT-eksempelfiler | Eksempel-URI | Låg | ✓ Løyst |
+| 2 | `begrep.brreg.no`-URI-ar løyser ikkje opp (ECONNREFUSED) | Resolvabilitet | **Høg** | ⚠️ Ope |
+| 3 | `brreg.no/modellkatalogar/`-URI-ar løyser ikkje opp (timeout) | Resolvabilitet | Middels | ⚠️ Ope |
+| 4 | Schema-ID-ar returnerer HTML, ikkje RDF (content negotiation manglar) | Infrastruktur | Middels | ⚠️ Ope |
+| 5 | Ingen dokumentert URI-konstruksjonsregel | Dokumentasjon | Låg | ⚠️ Ope |
+| 6 | W3C-namespace på `http://` — korrekt no, overvak framtidig | Info | — | ✓ Korrekt |
 
 ---
 
 ## Tilrådde tiltak
 
-### PO1 — Fiks schema-ID i `register-over-aksjeeiere-schema.yaml` (Avvik 1)
+### PO1 — Fiks schema-ID i `register-over-aksjeeiere-schema.yaml` (Avvik 1) — ✓ UTFØRT
 
-```yaml
-# Endre
-id: https://example.no/ontology/aksje-eierskap
-# Til
-id: https://data.norge.no/oreg/register-over-aksjeeiere
-```
-
-Sjekk og oppdater alle referansar til `example.no`-URI-en i same fil.
-
-**Fil:** `src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml`
+`id` er endra til `https://data.norge.no/oreg/register-over-aksjeeiere`. Ingen vidare tiltak.
 
 ---
 
-### PO2 — Avklar status for `begrep.brreg.no` og oppdater URI-ar (Avvik 2)
+### PO1b — Oppdater `finta:`-prefiks og eksempel-URI-ar (Avvik 1b) — ✓ UTFØRT
 
-Kontakt Brreg for å avklare:
-- Er `begrep.brreg.no` ein aktiv teneste, eller er han lagt ned?
-- Kva er dei kanoniske URI-ane for Brreg sine omgrep i dag?
+`finta:`-prefikset i `fint-common-schema.yaml` er endra frå `https://example.no/fint/` til
+`https://fint.example.org/` (RFC 2606-reservert). Alle 6 FINT-eksempelfiler brukar
+CURIE-notasjon og treng inga separat endring — prefikset arvas frå skjemaet.
 
-Sannsynleg korrekt URI-mønster:
+---
+
+### PO2 — Oppdater URI-ar i `brreg-begrepskatalog` til Felles Begrepskatalog-URI-ar (Avvik 2)
+
+`begrep.brreg.no` er lagt ned. Brreg publiserer omgrepa sine i Felles Begrepskatalog
+med kanonisk IRI-mønster:
 ```
-https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/<UUID>
+https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/<UUID>
 ```
 
-Dersom `begrep.brreg.no` er lagt ned, oppdater alle `id:`-verdiar i
-`brreg-begrepskatalog.yaml` til dei nye, kanoniske URI-ane.
+**Steg 1 — Avklar UUID-tildeling (eksternt spørsmål):**
+
+Kontakt Brreg eller Digdir for å avklare om UUID-en er forhåndsbestemt
+(sett av Brreg ved oppretting i deira eige system) eller automatisk tildelt
+(sett av Felles Begrepskatalog ved høsting).
+
+- **Viss forhåndsbestemt (alternativ A):** `id:` kan settast i YAML-fila
+  direkte til `concept-catalog.fellesdatakatalog.digdir.no`-URI-en, og datafila
+  kan oppdaterast *før* neste høsting.
+- **Viss automatisk tildelt (alternativ B):** For begrep som allereie er
+  publiserte, hent UUID frå Felles Begrepskatalog API og oppdater datafila.
+  For nye begrep, bruk `brreg.no`-URI midlertidig og oppdater etter høsting.
+
+**Steg 2 — Oppdater kjende begrep:**
+
+Tabellen under viser begrep med kjende Felles Begrepskatalog-URI-ar.
+Oppdater både `id:` og `identifikator_literal:` i datafila:
+
+| Begrep | Ny `id:` |
+|---|---|
+| `foretaksnavn` | `https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd` |
+| `nestleder` | `https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/53125ffd-f655-460b-9d32-e231eb561699` |
+| `aksjeklasser` | `https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/0597aab6-14d3-4dbc-a0ac-f4c9658de17e` |
+
+Også `har_definisjon:`-, `kontaktpunkt_vcard:`- og
+`sja_ogsa_omgrep:`-referansar som peikar til `begrep.brreg.no` må gjennomgåast.
 
 **Filer:**
 - `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`
@@ -259,12 +332,13 @@ første publisering utan at det vert dokumentert.
 
 ## Prioritert handlingsliste
 
-| # | Tiltak | Fil(ar) | Avhengigheit |
-|---|---|---|---|
-| 1 | PO1: Fiks `example.no` schema-ID | `register-over-aksjeeiere-schema.yaml` | — |
-| 2 | PO2: Avklar `begrep.brreg.no` og oppdater URI-ar | `brreg-begrepskatalog.yaml`, eksempelfil | Ekstern (Brreg) |
-| 3 | PO3: Avklar `brreg.no/modellkatalogar/` | `brreg-modellkatalog.yaml`, eksempelfil | Ekstern (Brreg) |
-| 4 | PO4: URI-konstruksjonspolicy i `CLAUDE.md` | `CLAUDE.md` | — |
+| # | Tiltak | Fil(ar) | Avhengigheit | Status |
+|---|---|---|---|---|
+| 1 | PO1: Fiks `example.no` schema-ID | `register-over-aksjeeiere-schema.yaml` | — | ✓ Utført |
+| 2 | PO1b: Oppdater `finta:`-prefiks og eksempel-URI-ar | `fint-common-schema.yaml`, `fint-administrasjon-eksempel.yaml` | — | ✓ Utført |
+| 3 | PO2: Avklar `begrep.brreg.no` og oppdater URI-ar | `brreg-begrepskatalog.yaml`, eksempelfil | Ekstern (Brreg) | Ope |
+| 4 | PO3: Avklar `brreg.no/modellkatalogar/` | `brreg-modellkatalog.yaml`, eksempelfil | Ekstern (Brreg) | Ope |
+| 5 | PO4: URI-konstruksjonspolicy i `CLAUDE.md` | `CLAUDE.md` | — | Ope |
 
 ---
 
