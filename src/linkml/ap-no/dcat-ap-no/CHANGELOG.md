@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.1.0...dcat-ap-no-v2.1.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **ap-no,specs:** rett avvik mot Prinsipper for informasjonsmodellar ([f93510f](https://github.com/brreg/linkml-datamodellering-no/commit/f93510f32fd44ff09cd0567d6b744bc3e661eea5))
+* **dcat-ap-no:** tilrådde verdiar og subset-justeringar per retningslinjer for offentlege data ([2a0ad00](https://github.com/brreg/linkml-datamodellering-no/commit/2a0ad00d690b416083ca48cdcc7f63f387d26b05))
+
 ## [2.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.0.0...dcat-ap-no-v2.1.0) (2026-06-19)
 
 
