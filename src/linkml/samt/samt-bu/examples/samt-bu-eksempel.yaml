@@ -69,38 +69,40 @@ tidsromer:
 
 kvalitetsmerknader:
   - id: dqv:merknad-1
-    er_motivert_av: dqv:qualityAssessment
+    er_motivert_av: assessing
     er_i_kvalitetsdimensjon:
       - dqv:kvalitetsdim-completeness
-    har_tekstdel: dqv:tekstdel-2
+    har_tekstdel:
+      - dqv:tekstdel-2
 
 brukertilbakemeldinger:
   - id: dqv:brukerfeedback-1
-    er_motivert_av: dqv:qualityAssessment
+    er_motivert_av: assessing
     er_i_kvalitetsdimensjon:
       - dqv:kvalitetsdim-completeness
-    har_tekstdel: dqv:tekstdel-1
+    har_tekstdel:
+      - dqv:tekstdel-1
 
 kvalitetsmaalinger:
   - id: dqv:maaling-1
     er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1001
-    har_verdi: "true"
+    har_boolean_verdi: true
 
 standarder:
   - id: dqv:dcat-ap-no
-    tittel: 
+    tittel:
       - "DCAT-AP-NO"
-    er_i_kvalitetsdimensjon: 
-      - dqv:kvalitetsdim-completeness
-    har_referanse: 
+    har_referanse:
       - https://data.norge.no/specification/dcat-ap-no#
 
 kvalitetsdimensjoner:
   - id: dqv:kvalitetsdim-completeness
-    har_anbefalt_term: 
+    har_anbefalt_term:
       - completeness
-    har_definisjon: 
+    har_definisjon:
       - "https://data.norge.no/vocabulary/quality-dimension#completeness"
+    gjelder_standard:
+      - dqv:dcat-ap-no
 
 # --- Utgivere og kontaktpunkt ---
 

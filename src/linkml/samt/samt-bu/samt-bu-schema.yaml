@@ -40,113 +40,136 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kontaktpunkt som kan refereres til frå datasett.
       utgivere:
         range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Utgivarar (organisasjonar) som kan refereres til frå datasett.
       organisasjoner:
         range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Organisasjonar som kan refereres til frå andre klassar i datasamlinga.
       gjeldende_lovgivninger:
         range: RegulativRessurs
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Regulative ressursar (lovverk) som kan refereres til frå datasett.
       datasettdistribusjoner:
         range: Distribusjon
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Distribusjonar som kan refereres til frå datasett.
       dataset_metadata:
         range: Datasett
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Datasett med metadata om skoledata.
       kvalitetsmerknader:
         range: Kvalitetsmerknad
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kvalitetsmerknader knytt til datasett.
       brukertilbakemeldinger:
         range: Brukartilbakemelding
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Brukartilbakemeldingar om datakvalitet.
       kvalitetsmaalinger:
         range: Kvalitetsmaaling
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kvalitetsmålingar knytt til kvalitetsmål.
       grupper:
         range: Aktoer
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Grupper (aktørar) som kan refereres til frå andre klassar.
       standarder:
         range: Standard
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Standardar som datasett kan vere i samsvar med.
       kvalitetsdimensjoner:
         range: Kvalitetsdimensjon
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kvalitetsdimensjonar som kvalitetsmerknader og -målingar kan referere til.
       tidsromer:
         range: Tidsrom
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Tidsrom som datasett kan referere til.
       tekstdeler:
         range: Tekstdel
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Tekstdelar (fritekstinnhold) i kvalitetsmerknader.
 # data
       id:
+        description: URI-identifikator for denne datasamlinga.
       skoler:
         range: Skole
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Skolar i datasamlinga.
       kommuner:
         range: Kommune
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kommunar som kan vere skoleeigar.
       fylker:
         range: Fylke
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Fylker som kan vere skoleeigar.
       private_virksomheter:
         range: PrivatVirksomhet
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Private virksomheiter som kan vere skoleeigar.
       basisgrupper:
         range: Basisgruppe
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Basisgrupper (klasser/grupper) ved ein skole.
       elever:
         range: Elev
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Elevar i datasamlinga.
       rektorer:
         range: Rektor
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Rektorar i datasamlinga.
       kontaktlaerere:
         range: Kontaktlaerer
         multivalued: true
         inlined: true
         inlined_as_list: true
+        description: Kontaktlærarar i datasamlinga.
 
   Skole:
     class_uri: samtbuskole:Skole
