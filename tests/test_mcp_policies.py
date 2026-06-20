@@ -9,11 +9,12 @@ Krev linkml og linkml-runtime (tilgjengeleg i containeren):
 """
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-validator"))
-from server import validate_schema
+from server import validate_schema, _check_instance_slot_uri_pattern
 
 
 # ── Hjelpefunksjonar ─────────────────────────────────────────────────────────
@@ -719,6 +720,89 @@ slots:
     range: uriorcurie
 """
         self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_r12"))
+
+
+# ── Instans-sjekkar (instance_checks) ──────────────────────────────────────────
+
+class TestInstanceCheckWalk(unittest.TestCase):
+    """Regresjonstest for BUG-5 (specs/bugs/instance-check-walk-skips-lists.md):
+    walk() i _check_instance_slot_uri_pattern hoppa tidlegare over verdiar
+    nøsta inni lister av objekt (t.d. begrep: [...]) og fann derfor aldri feil
+    i praksis mot AP-NO-strukturerte instansar."""
+
+    _SCHEMA = """\
+id: https://example.org/schema
+name: TestSchema
+description: Testmodell
+prefixes:
+  dct: http://purl.org/dc/terms/
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Begrep:
+    description: Eit begrep
+    slots:
+      - id
+      - utgjevar
+slots:
+  id:
+    identifier: true
+    range: uriorcurie
+  utgjevar:
+    slot_uri: dct:publisher
+    range: uriorcurie
+"""
+
+    def _run_check(self, instance: dict, config: dict) -> list:
+        from linkml_runtime.utils.schemaview import SchemaView
+
+        issues = []
+        with tempfile.TemporaryDirectory() as tmp:
+            schema_path = Path(tmp) / "schema.yaml"
+            schema_path.write_text(self._SCHEMA, encoding="utf-8")
+            sv = SchemaView(str(schema_path))
+            _check_instance_slot_uri_pattern(sv, sv.schema, instance, config, issues)
+        return issues
+
+    def test_finner_ugyldig_verdi_nosta_i_liste(self):
+        instance = {
+            "begrep": [
+                {"id": "https://example.org/a", "utgjevar": "https://example.org/orgs/000"},
+                {"id": "https://example.org/b", "utgjevar": "https://example.org/orgs/974760673"},
+            ]
+        }
+        config = {
+            "severity": "error",
+            "slot_uri": "dct:publisher",
+            "pattern": r"^https://example\.org/orgs/\d+$",
+            "known_values": ["https://example.org/orgs/974760673"],
+        }
+        issues = self._run_check(instance, config)
+        self.assertTrue(
+            any(
+                i["code"] == "instance_slot_unknown_value"
+                and i["target"] == "instance:begrep[0].utgjevar"
+                for i in issues
+            ),
+            "Sjekken skal finne ugyldig utgjevar nøsta inni begrep-lista",
+        )
+        self.assertFalse(
+            any(i["target"] == "instance:begrep[1].utgjevar" for i in issues),
+            "Gyldig utgjevar-verdi skal ikkje gi varsel",
+        )
+
+    def test_finner_ugyldig_verdi_pa_toppnivaa(self):
+        instance = {"utgjevar": "https://example.org/orgs/000"}
+        config = {
+            "severity": "error",
+            "slot_uri": "dct:publisher",
+            "pattern": r"^https://example\.org/orgs/\d+$",
+            "known_values": ["https://example.org/orgs/974760673"],
+        }
+        issues = self._run_check(instance, config)
+        self.assertTrue(
+            any(i["code"] == "instance_slot_unknown_value" and i["target"] == "instance:utgjevar" for i in issues)
+        )
 
 
 if __name__ == "__main__":
