@@ -71,9 +71,11 @@ lag ein job som identifiserer alle klasser med liknande navn på tvers av modell
 
 lag ein job som identifiserar alle slots med liknande navn på tvers av modellar.
 
+lag ein job som sjekker om alle mermaid diagram faktisk rendrer
 
+alle linkml modellane er uoffisielle eksempelmodeller for å POCe modellering i LinkML. Evaluer om eg burde endra katalogstrukturen eller på ein anna måte dokumentert dette.
 
-
+verifiser at manifest.yaml filene har flag for alle tilgjengelige artifakttypar og at README.md dokumenter alle.
 
 
 evaluer gap mot https://www.digdir.no/datadeling/nasjonale-grunndata/7575 skriv til ./specs

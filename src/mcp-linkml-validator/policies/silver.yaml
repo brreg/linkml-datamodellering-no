@@ -161,6 +161,16 @@ checks:
     class: Distribusjon
     slot_uri: dcat:accessURL
 
+  distribusjon_lisens:
+    principle: Retningslinjer ved tilgjengeliggjøring av offentlige data
+    severity: warning
+    description: >
+      dcat:Distribution bør ha dct:license (lisens) for offentlege data.
+      Anbefalt, ikkje obligatorisk, i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Distribusjon
+    slot_uri: dct:license
+
   # ── Datatjeneste (dcat:DataService) ────────────────────────────────────────
 
   datatjeneste_endepunktsurl:

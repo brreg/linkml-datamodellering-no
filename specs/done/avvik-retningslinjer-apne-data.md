@@ -23,6 +23,20 @@ eit schema. Kartlegginga fokuserer difor på tre typar avvik:
 
 ---
 
+## Evaluering (2026-06-20)
+
+Kartlegginga vart kontrollert på nytt mot dagens
+`src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`:
+
+- **7 av 8 avvik er fortsatt gjeldande** — ingen endring sidan kartlegginga vart skrive.
+- **Avvik 2 (`frekvens`) er delvis løyst.** DA4 i `specs/done/avvik-dcat-ap-no.md`
+  la `frekvens` til i `slots:`-lista på `Datasett` (sjå linje 336 i schema), men
+  sette **ikkje** `in_subset: Anbefalt` i `slot_usage`. Slottet finst altså no,
+  men er klassifisert som Valgfri, ikkje Anbefalt som retningslinje 6 krev.
+  RÅ2 er dermed redusert til berre subset-justeringa — sjå oppdatert seksjon under.
+
+---
+
 ## Dei 15 retningslinjene — status per repoet
 
 | # | Retningslinje | Schema-støtte | Avvik |
@@ -69,18 +83,19 @@ https://creativecommons.org/licenses/by/4.0/
 
 ---
 
-### 2 — `frekvens` manglar på `Datasett`
+### 2 — `frekvens` er Valgfri på `Datasett`
 
 Retningslinje 6 krev at oppdateringsfrekvens er tydeleg oppgjeve.
 
-`frekvens` (`dct:accrualPeriodicity`) er berre modellert på `Datasettserie`,
-ikkje på `Datasett`. Dette er allereie identifisert som **DA4** i
-`specs/backlog/avvik-dcat-ap-no.md`.
+`frekvens` (`dct:accrualPeriodicity`) var opphavleg berre modellert på
+`Datasettserie`. **DA4** i `specs/done/avvik-dcat-ap-no.md` la sloten til i
+`slots:`-lista på `Datasett`, men ingen `in_subset`-klassifisering vart sett —
+sloten er dermed Valgfri i dag, ikkje Anbefalt.
 
-For å etterleve retningslinje 6 er `frekvens` på `Datasett` eit krav.
+For å etterleve retningslinje 6 bør `frekvens` på `Datasett` vere Anbefalt.
 
-**Status:** ⚠️ Manglande slot — høg prioritet  
-**Sjå:** DA4 i `specs/backlog/avvik-dcat-ap-no.md`
+**Status:** ⚠️ Subset-avvik (delvis løyst — slot finst, klassifisering manglar) — høg prioritet  
+**Sjå:** DA4 i `specs/done/avvik-dcat-ap-no.md`
 
 ---
 
@@ -201,7 +216,7 @@ application/ld+json   → JSON-LD
 | # | Avvik | Type | Prioritet |
 |---|---|---|---|
 | 1 | `lisens` Anbefalt (ikkje Obligatorisk) + ingen tilrådde verdiar | Subset + annotasjon | **Høg** |
-| 2 | `frekvens` manglar på `Datasett` | Manglande slot | **Høg** (DA4) |
+| 2 | `frekvens` er Valgfri på `Datasett` (slot finst, DA4 utført) | Subset | **Høg** |
 | 3 | `nedlastningslenke` er Valgfri | Subset | Middels |
 | 4 | `dokumentasjon` og `landingsside` er Valgfri på `Datasett` | Subset | Middels |
 | 5 | `identifikator_literal` er Valgfri på `Datasett` | Subset | Middels |
@@ -213,11 +228,11 @@ application/ld+json   → JSON-LD
 
 ## Tilrådde tiltak
 
-### RÅ1 — Merk `lisens` som Obligatorisk på `Distribusjon` og legg til tilrådde verdiar
+### RÅ1 — Legg til tilrådde verdiar for `lisens` (`slot_usage` endrast ikkje)
 
-Endre `Distribusjon.slot_usage.lisens` frå `Anbefalt` til `Obligatorisk`.
-
-Legg til annotasjon på `lisens`-sloten:
+`lisens` held seg `Anbefalt` på `Distribusjon`, `Katalog` og `Datatjeneste` —
+`slot_usage` skal **ikkje** endrast til `Obligatorisk`. Tiltaket er avgrensa til
+å dokumentere dei tilrådde verdiane via annotasjon på sloten:
 
 ```yaml
 lisens:
@@ -233,19 +248,26 @@ lisens:
       https://data.norge.no/nlod/no/2.0
 ```
 
-**Filer:** `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`
+**Valider mot sølv-policyen:** `src/mcp-linkml-validator/policies/silver.yaml` har i
+dag **ingen** sjekk for `dct:license` (kontrollert 2026-06-20 — ingen
+`class_has_slot_with_uri`-regel med `slot_uri: dct:license`, til forskjell frå
+t.d. `katalog_utgiver` og `datasett_tittel`). Sidan `lisens` framleis er
+`Anbefalt` (ikkje `Obligatorisk`), bør ein eventuell `distribusjon_lisens`-sjekk
+i sølv-policyen ha `severity: warning`, ikkje `error`. Avklar om policyen skal
+utvidast med denne sjekken før tiltaket merkast som utført.
+
+**Filer:** `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`,
+`src/mcp-linkml-validator/policies/silver.yaml` (vurder ny sjekk)
 
 ---
 
-### RÅ2 — Legg `frekvens` til `Datasett` (Avvik 2)
+### RÅ2 — Klassifiser `frekvens` som Anbefalt på `Datasett` (Avvik 2)
 
-Sjå tiltak DA4 i `specs/backlog/avvik-dcat-ap-no.md`.
+DA4 (`specs/done/avvik-dcat-ap-no.md`) har allereie lagt `frekvens` til i
+`slots:`-lista på `Datasett`. Det som står igjen er `slot_usage`-klassifiseringa:
 
 ```yaml
 Datasett:
-  slots:
-    - ...
-    - frekvens
   slot_usage:
     frekvens:
       in_subset:
@@ -308,8 +330,8 @@ tilgangsrettigheter:
 
 | # | Tiltak | Fil | Avhengigheit |
 |---|---|---|---|
-| 1 | RÅ2: `frekvens` på `Datasett` | `dcat-ap-no-schema.yaml` | DA4 i `avvik-dcat-ap-no.md` |
-| 2 | RÅ1: `lisens` Obligatorisk + tilrådde verdiar | `dcat-ap-no-schema.yaml` | — |
+| 1 | RÅ2: `frekvens` Anbefalt på `Datasett` | `dcat-ap-no-schema.yaml` | DA4 utført i `specs/done/avvik-dcat-ap-no.md` |
+| 2 | RÅ1: tilrådde verdiar for `lisens` (`slot_usage` uendra) | `dcat-ap-no-schema.yaml` | — |
 | 3 | RÅ4: `tilgangsrettigheter` annotasjon | `dcat-ap-no-schema.yaml` | — |
 | 4 | RÅ3: Subset-justering for 4 slot | `dcat-ap-no-schema.yaml` | — |
 
@@ -317,11 +339,13 @@ tilgangsrettigheter:
 
 ## Avhengigheiter
 
-- RÅ2 (frekvens) og DA4 (i `avvik-dcat-ap-no.md`) er same tiltak — bør koordinerast
+- RÅ2 (frekvens-klassifisering) er det som står igjen av DA4 (`specs/done/avvik-dcat-ap-no.md`),
+  som allereie la sloten til på `Datasett`
 - RÅ1, RÅ3 og RÅ4 er uavhengige av kvarandre
-- Subset-endringar (RÅ1 og RÅ3) kan bryte eksisterande datafiler som ikkje
-  inneheld dei nye `Obligatorisk`-felta — `brreg-begrepskatalog` og eventuelle
-  framtidige DCAT-implementasjonar bør gjennomgåast
+- Subset-endringar (berre RÅ3 — RÅ1 endrar ikkje `slot_usage`) kan bryte
+  eksisterande datafiler som ikkje inneheld dei nye `Anbefalt`-felta —
+  `brreg-begrepskatalog` og eventuelle framtidige DCAT-implementasjonar bør
+  gjennomgåast
 
 ## Merknader
 
@@ -330,3 +354,40 @@ Mange av krava (#7 synlegheit, #14 oppmuntring, #15 tilbakemeldingssystem) er
 prosess-krav som ikkje kan modellerast i eit LinkML-schema. `dcat-ap-no-schema.yaml`
 gjev allereie eit godt fundament — dei resterande gapa handlar primært om kor
 *sterkt* schema uttrykkjer at nøkkelkrav bør etterleiast.
+
+---
+
+## Utført (2026-06-20)
+
+Alle fire tiltaka (RÅ1–RÅ4) er implementerte i
+`src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`:
+
+- **RÅ1:** `lisens`-sloten har no `description` og
+  `annotations.gyldige_verdier` med CC BY 4.0 og NLOD 2.0. `slot_usage` er
+  **ikkje** endra — `lisens` er framleis `Anbefalt`, som planlagt.
+  I tillegg vart `distribusjon_lisens` lagt til som ny sjekk i
+  `src/mcp-linkml-validator/policies/silver.yaml` (`severity: warning`,
+  `class_has_slot_with_uri` på `Distribusjon`/`dct:license`) — dette var eit
+  avklaringspunkt i planen, brukaren valde å inkludere policy-sjekken.
+- **RÅ2:** `Datasett.slot_usage.frekvens` sett til `in_subset: Anbefalt`.
+- **RÅ3:** `Datasett.slot_usage` utvida med `dokumentasjon`, `landingsside`
+  og `identifikator_literal`, alle `in_subset: Anbefalt`.
+  `Distribusjon.slot_usage.nedlastningslenke` sett til `in_subset: Anbefalt`.
+- **RÅ4:** `tilgangsrettigheter`-sloten har no utvida `description` og
+  `annotations.gyldige_verdier` med dei tre EU Access Rights-URI-ane
+  (PUBLIC/RESTRICTED/NON_PUBLIC).
+
+**Avvik frå planen:** ingen, utover at RÅ1 sitt avklaringspunkt (policy-sjekk
+ja/nei) blei løyst ved å spørje brukaren direkte, som valde å inkludere sjekken.
+
+**Validering:** `make roundtrip` (JSON + TTL) OK. `make lint` viser same 6
+pre-eksisterande `canonical_prefixes`-advarslar som før endringa — ingen nye.
+`make mcp-validate POLICY=silver` viser ingen advarsel for `distribusjon_lisens`
+(`Distribusjon` har allereie `lisens`-sloten, så sjekken passerer).
+`make validate-instance` kan ikkje køyrast direkte mot dette schemaet
+(AP-NO-profilar har ingen `tree_root`, jf. CLAUDE.md — `linkml validate` finn
+flere potensielle target-klassar). Dette er ikkje knytt til endringane i denne
+specen.
+
+**Ikkje del av dette tiltaket:** Avvik 7 (ikkje-opna datasett-strukturgap) er
+eit strukturgap utan tilrådd tiltak i kartlegginga, og er ikkje adressert.

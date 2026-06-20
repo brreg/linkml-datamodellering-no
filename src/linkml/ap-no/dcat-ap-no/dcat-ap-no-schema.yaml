@@ -292,6 +292,9 @@ classes:
       tilgjengelighet:
         in_subset:
           - Anbefalt
+      nedlastningslenke:
+        in_subset:
+          - Anbefalt
 
   Datasett:
     in_subset:
@@ -391,6 +394,18 @@ classes:
         in_subset:
           - Anbefalt
       tilgangsrettigheter:
+        in_subset:
+          - Anbefalt
+      frekvens:
+        in_subset:
+          - Anbefalt
+      dokumentasjon:
+        in_subset:
+          - Anbefalt
+      landingsside:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
         in_subset:
           - Anbefalt
 
@@ -899,7 +914,14 @@ slots:
   lisens:
     slot_uri: dct:license
     range: string
-    description: Lisens for bruk av ressursen.
+    description: >-
+      Lisens for bruk av ressursen. For offentlege data skal CC BY 4.0
+      (https://creativecommons.org/licenses/by/4.0/) eller NLOD 2.0
+      (https://data.norge.no/nlod/no/2.0) nyttast per retningslinjene.
+    annotations:
+      gyldige_verdier: >-
+        https://creativecommons.org/licenses/by/4.0/
+        https://data.norge.no/nlod/no/2.0
 
   gjeldende_lovgivning:
     slot_uri: dcatap:applicableLegislation
@@ -916,8 +938,17 @@ slots:
   tilgangsrettigheter:
     slot_uri: dct:accessRights
     range: uri
-    description: Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet.
+    description: >-
+      Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang
+      eller ikke-allmenn tilgang til datasettet. Bruk EU Access
+      Rights-vokabularet: PUBLIC (ope, ingen registrering), RESTRICTED
+      (avgrensa), NON_PUBLIC (ikkje offentleg).
     multivalued: true
+    annotations:
+      gyldige_verdier: >-
+        http://publications.europa.eu/resource/authority/access-right/PUBLIC
+        http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+        http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
 
   rettigheter:
     slot_uri: dct:rights
