@@ -21,6 +21,9 @@ modellkataloger:
   spraak:
   - http://publications.europa.eu/resource/authority/language/NOB
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  har_kvalitetsmaaling:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/dqv/aktualitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/dqv/fullstendighet
 informasjonsmodeller:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   tittel:
@@ -63,3 +66,14 @@ aktoerer:
 - id: https://data.norge.no/organizations/974760673
   navn_aktoer:
   - Registerenheten i Brønnøysund
+kvalitetsmaalingar:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/dqv/fullstendighet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
+  har_numerisk_verdi: 0.0
+  har_merknad:
+  - 0 av 2 informasjonsmodellar (0.0 %) manglar verdi for lisens.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/dqv/aktualitet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001
+  har_tekst_verdi: P1D
+  har_merknad:
+  - Eldste endringsdato blant informasjonsmodellar er 1 dag(ar) gammal.

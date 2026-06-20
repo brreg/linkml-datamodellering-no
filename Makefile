@@ -245,7 +245,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         gen-asyncapi domain-gen-asyncapi schema-gen-asyncapi \
         gen-openapi domain-gen-openapi schema-gen-openapi \
         check-published-uris check-prereqs \
-        update-modellkatalog new-org-catalog new-begrepskatalog \
+        update-modellkatalog gen-dqv-measurements new-org-catalog new-begrepskatalog \
         validate-capture \
         gource-build gource-preview gource-video _gource-render
 
@@ -471,6 +471,14 @@ update-modellkatalog:
 	@echo "$(CLR_HDR)*** make update-modellkatalog$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	python3 src/assets/scripts/update-modellkatalog.py
+
+# Reknar ut DQV-kvalitetsmålingar (fullstendighet/aktualitet) for datafiler med
+# data_policy felles-begrepskatalog/felles-datakatalog og skriv dem attende.
+gen-dqv-measurements:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-dqv-measurements$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(PYTHON_RUN) python3 src/assets/scripts/gen-dqv-measurements.py
 
 # Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make <domain>-targets er køyrde fyrst.

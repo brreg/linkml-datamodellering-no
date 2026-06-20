@@ -83,6 +83,7 @@ classes:
       - temaer
       - utgivelsesdato
       - er_del_av
+      - har_kvalitetsmaaling
     slot_usage:
       tittel:
         in_subset:
@@ -92,6 +93,9 @@ classes:
           - Obligatorisk
       har_del:
         range: KatalogisertRessurs
+        in_subset:
+          - Anbefalt
+      har_kvalitetsmaaling:
         in_subset:
           - Anbefalt
       identifikator_literal:

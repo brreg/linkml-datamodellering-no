@@ -42,13 +42,13 @@ classes:
     slots:
       - id
       - har_anbefalt_term
-      - har_definisjon
+      - har_kvalitetsdefinisjon
       - gjelder_standard
     slot_usage:
       har_anbefalt_term:
         in_subset:
           - Anbefalt
-      har_definisjon:
+      har_kvalitetsdefinisjon:
         in_subset:
           - Anbefalt
       gjelder_standard:
@@ -71,7 +71,7 @@ classes:
       har_anbefalt_term:
         in_subset:
           - Anbefalt
-      har_definisjon:
+      har_kvalitetsdefinisjon:
         in_subset:
           - Anbefalt
 
@@ -85,7 +85,7 @@ classes:
       - er_i_kvalitetsdeldimensjon
       - har_forventet_datatype
       - har_anbefalt_term
-      - har_definisjon
+      - har_kvalitetsdefinisjon
     slot_usage:
       er_i_kvalitetsdeldimensjon:
         required: true
@@ -97,7 +97,7 @@ classes:
       har_anbefalt_term:
         in_subset:
           - Anbefalt
-      har_definisjon:
+      har_kvalitetsdefinisjon:
         in_subset:
           - Anbefalt
 
@@ -226,7 +226,7 @@ slots:
     multivalued: true
     description: Føretrekt term/namn for dimensjonen eller målet.
 
-  har_definisjon:
+  har_kvalitetsdefinisjon:
     slot_uri: skos:definition
     range: LangString
     multivalued: true

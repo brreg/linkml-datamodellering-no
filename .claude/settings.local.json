@@ -160,7 +160,9 @@
       "Bash(timeout 60 make schema-gen-json-schema SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
       "Bash(make modellkatalog *)",
       "Bash(make clean *)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(pip3 show *)",
+      "Bash(git checkout *)"
     ]
   },
   "enableAllProjectMcpServers": true,
