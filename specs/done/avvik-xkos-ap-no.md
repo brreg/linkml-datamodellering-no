@@ -542,3 +542,47 @@ forrige_kategori:
 - XK2 og XK7 påverkar eksempelfila — `xkos-ap-no-eksempel.yaml` bør oppdaterast med
   `notasjon`-verdiar (t.d. «A», «01» for NACE-seksjoner og -avdelingar)
 - XK3–XK6 er uavhengige av kvarandre og kan gjerast i ein commit
+
+---
+
+## Utført (2026-06-20)
+
+Alle sju tiltaka (XK1–XK7) i `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml`:
+
+- **XK1:** allereie retta før denne arbeidsøkta — `tidsrom_start`/`tidsrom_slutt`
+  brukte `dcat:startDate`/`dcat:endDate` og `dcat:`-prefiks fanst allereie i
+  schema. Ingen endring nødvendig, stadfesta ved gjennomlesing av fila.
+- **XK2:** `notasjon` (`skos:notation`) lagt til som ny slot, lagt til i
+  `Kategori.slots` og merka `Anbefalt` i `slot_usage`.
+- **XK3:** `antall_nivaa` i `Klassifikasjon.slot_usage` endra frå `Anbefalt`
+  til `Obligatorisk` med `required: true`.
+- **XK4:** `dekker`, `dekker_gjensidig_utelukkande`, `dekker_uttomande` lagt
+  til som nye slots, lagt til (`Anbefalt`) på både `Klassifikasjon` og
+  `Klassifikasjonsnivaa`.
+- **XK5:** `erstattar` (`xkos:supersedes`, `Anbefalt`) lagt til på
+  `Klassifikasjon`. `hovudinnhald`/`tilleggsinnhald` (`Anbefalt`) lagt til
+  på `Kategori`.
+- **XK6:** `beskrivelse`, `endringsdato`, `spraak`, `utgivelsesdato`
+  (alle `Anbefalt`, gjenbrukte frå `common-ap-no-schema`) lagt til på
+  `Klassifikasjonssamanlikning`.
+- **XK7:** `tillaten_term`, `definisjon`, `inklusjonsnotat`,
+  `eksklusjonsnotat`, `neste_kategori`, `forrige_kategori` lagt til som
+  `Valgfri` på `Kategori`.
+
+**Eksempelfil:** `xkos-ap-no-eksempel.yaml` oppdatert med `notasjon`-verdiar
+(«A», «B», «01», «05») på dei fire NACE-kategoriane, jf. avhengigheit nemnd
+over.
+
+**Avvik frå planen:** Avvik 3 (`forste_nivaa` Valgfri → Anbefalt), 6
+(`xkos:organizedBy`), 8 (`uneskos:contains`), 10 (`skos:topConceptOf`) og 13
+(dokumentasjon av designvalet `dct:temporal` vs. `schema:validFrom`) har
+ingen tilsvarande tiltak (XK1–XK7) i denne specen, og er derfor **ikkje**
+adresserte i denne arbeidsøkta. Dei står som ugjorde avvik dersom dei skal
+følgjast opp.
+
+**Validering:** `make lint` viser dei same 2 pre-eksisterande
+`canonical_prefixes`-advarslane som før endringa (uneskos/dct) — ingen nye.
+`make roundtrip` (JSON + TTL) OK, inkludert med oppdatert eksempelfil.
+`make mcp-validate POLICY=silver` viser ingen nye feil/advarslar utover dei
+som allereie fanst (manglande `begrepsidentifikator` på klassane og
+`no_container_class`, som er forventa for AP-NO-profilar utan `tree_root`).

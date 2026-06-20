@@ -36,6 +36,8 @@ kategoriar:
   - id: https://example.org/kategori/nace2-A
     anbefalt_term:
       - Jordbruk, skogbruk og fiske
+    notasjon:
+      - "A"
     er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
     tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-seksjonar
     underordna_kategori:
@@ -44,6 +46,8 @@ kategoriar:
   - id: https://example.org/kategori/nace2-B
     anbefalt_term:
       - Bergverksdrift og utvinning
+    notasjon:
+      - "B"
     er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
     tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-seksjonar
     underordna_kategori:
@@ -52,6 +56,8 @@ kategoriar:
   - id: https://example.org/kategori/nace2-01
     anbefalt_term:
       - Dyrking av vekstar, husdyrhald, jakt og tilhøyrande tenester
+    notasjon:
+      - "01"
     er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
     tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-avdelingar
     overordna_kategori:
@@ -60,6 +66,8 @@ kategoriar:
   - id: https://example.org/kategori/nace2-05
     anbefalt_term:
       - Bryting av steinkol
+    notasjon:
+      - "05"
     er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
     tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-avdelingar
     overordna_kategori:

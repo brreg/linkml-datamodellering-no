@@ -64,6 +64,10 @@ classes:
       - antall_nivaa
       - er_samanlikna_med
       - forste_nivaa
+      - dekker
+      - dekker_gjensidig_utelukkande
+      - dekker_uttomande
+      - erstattar
     slot_usage:
       identifikator_literal:
         in_subset:
@@ -103,13 +107,26 @@ classes:
           - Anbefalt
       antall_nivaa:
         in_subset:
-          - Anbefalt
+          - Obligatorisk
+        required: true
       er_samanlikna_med:
         in_subset:
           - Valgfri
       forste_nivaa:
         in_subset:
           - Valgfri
+      dekker:
+        in_subset:
+          - Anbefalt
+      dekker_gjensidig_utelukkande:
+        in_subset:
+          - Anbefalt
+      dekker_uttomande:
+        in_subset:
+          - Anbefalt
+      erstattar:
+        in_subset:
+          - Anbefalt
 
   # -------------------------------------------------------------------------
   # Klassifikasjonsnivå  (xkos:ClassificationLevel ⊆ skos:Collection)
@@ -125,6 +142,9 @@ classes:
       - nivaa_djupn
       - har_medlem
       - underordna_klassifikasjonsnivaa
+      - dekker
+      - dekker_gjensidig_utelukkande
+      - dekker_uttomande
     slot_usage:
       tittel:
         in_subset:
@@ -140,6 +160,15 @@ classes:
       underordna_klassifikasjonsnivaa:
         in_subset:
           - Valgfri
+      dekker:
+        in_subset:
+          - Anbefalt
+      dekker_gjensidig_utelukkande:
+        in_subset:
+          - Anbefalt
+      dekker_uttomande:
+        in_subset:
+          - Anbefalt
 
   # -------------------------------------------------------------------------
   # Kategori  (skos:Concept)
@@ -160,6 +189,15 @@ classes:
       - er_ekvivalent_med
       - er_eksklusivt_ekvivalent_med
       - er_ikkje_ekvivalent_med
+      - notasjon
+      - hovudinnhald
+      - tilleggsinnhald
+      - tillaten_term
+      - definisjon
+      - inklusjonsnotat
+      - eksklusjonsnotat
+      - neste_kategori
+      - forrige_kategori
     slot_usage:
       anbefalt_term:
         in_subset:
@@ -190,6 +228,33 @@ classes:
       er_ikkje_ekvivalent_med:
         in_subset:
           - Valgfri
+      notasjon:
+        in_subset:
+          - Anbefalt
+      hovudinnhald:
+        in_subset:
+          - Anbefalt
+      tilleggsinnhald:
+        in_subset:
+          - Anbefalt
+      tillaten_term:
+        in_subset:
+          - Valgfri
+      definisjon:
+        in_subset:
+          - Valgfri
+      inklusjonsnotat:
+        in_subset:
+          - Valgfri
+      eksklusjonsnotat:
+        in_subset:
+          - Valgfri
+      neste_kategori:
+        in_subset:
+          - Valgfri
+      forrige_kategori:
+        in_subset:
+          - Valgfri
 
   # -------------------------------------------------------------------------
   # Klassifikasjonssammenligning  (xkos:Correspondence)
@@ -203,7 +268,11 @@ classes:
       - id
       - identifikator_literal
       - tittel
+      - beskrivelse
       - utgjevar
+      - endringsdato
+      - spraak
+      - utgivelsesdato
       - samanliknar
       - bestar_av
     slot_usage:
@@ -227,6 +296,18 @@ classes:
         in_subset:
           - Obligatorisk
         required: true
+      beskrivelse:
+        in_subset:
+          - Anbefalt
+      endringsdato:
+        in_subset:
+          - Anbefalt
+      spraak:
+        in_subset:
+          - Anbefalt
+      utgivelsesdato:
+        in_subset:
+          - Anbefalt
 
   # -------------------------------------------------------------------------
   # Kategorisammenligning  (xkos:ConceptAssociation)
@@ -400,3 +481,81 @@ slots:
     slot_uri: dcat:endDate
     range: date
     description: Sluttdato for tidsromet (dcat:endDate).
+
+  notasjon:
+    slot_uri: skos:notation
+    range: string
+    multivalued: true
+    description: >-
+      Kode for kategorien i klassifikasjonen (skos:notation).
+      Til dømes «A», «01», «01.1» i NACE-kodeverk.
+
+  dekker:
+    slot_uri: xkos:covers
+    range: Konsept
+    multivalued: true
+    description: Fagleg domene klassifikasjonen/nivået dekkjer (xkos:covers).
+
+  dekker_gjensidig_utelukkande:
+    slot_uri: xkos:coversMutuallyExclusively
+    range: Konsept
+    multivalued: true
+    description: Domene dekkja gjensidig utelukkande (xkos:coversMutuallyExclusively).
+
+  dekker_uttomande:
+    slot_uri: xkos:coversExhaustively
+    range: Konsept
+    multivalued: true
+    description: Domene dekkja uttømmande (xkos:coversExhaustively).
+
+  erstattar:
+    slot_uri: xkos:supersedes
+    range: Klassifikasjon
+    multivalued: true
+    description: Eldre klassifikasjon som dette kodeverket erstattar (xkos:supersedes).
+
+  hovudinnhald:
+    slot_uri: xkos:coreContentNote
+    range: LangString
+    multivalued: true
+    description: Merknad om kva som typisk er inkludert i kategorien (xkos:coreContentNote).
+
+  tilleggsinnhald:
+    slot_uri: xkos:additionalContentNote
+    range: LangString
+    multivalued: true
+    description: Merknad om kva som unntaksvis er inkludert i kategorien (xkos:additionalContentNote).
+
+  tillaten_term:
+    slot_uri: skos:altLabel
+    range: LangString
+    multivalued: true
+    description: Tillate alternativtermar for kategorien (skos:altLabel).
+
+  definisjon:
+    slot_uri: skos:definition
+    range: LangString
+    multivalued: true
+    description: Definisjon av kategorien (skos:definition).
+
+  inklusjonsnotat:
+    slot_uri: xkos:inclusionNote
+    range: LangString
+    multivalued: true
+    description: Kva som eksplisitt er inkludert i kategorien (xkos:inclusionNote).
+
+  eksklusjonsnotat:
+    slot_uri: xkos:exclusionNote
+    range: LangString
+    multivalued: true
+    description: Kva som eksplisitt er ekskludert frå kategorien (xkos:exclusionNote).
+
+  neste_kategori:
+    slot_uri: xkos:next
+    range: Kategori
+    description: Neste kategori på same nivå i klassifikasjonen (xkos:next).
+
+  forrige_kategori:
+    slot_uri: xkos:previous
+    range: Kategori
+    description: Forrige kategori på same nivå i klassifikasjonen (xkos:previous).
