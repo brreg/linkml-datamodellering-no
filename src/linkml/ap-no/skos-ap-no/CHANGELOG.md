@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.0.2...skos-ap-no-v2.1.0) (2026-06-20)
+
+
+### Features
+
+* **skos-ap-no:** implementer TL1-TL3 frå avvik-termlosen.md, flytt spec til done ([07419b2](https://github.com/brreg/linkml-datamodellering-no/commit/07419b287f47d79bb6c99e87c69ddfebf24368e5))
+
+
+### Bug Fixes
+
+* **skos-ap-no:** juster subset og range-feil per SKOS-AP-NO-Begrep-standarden ([73751b5](https://github.com/brreg/linkml-datamodellering-no/commit/73751b5f102a7903d909541ba8b987ae89b8f129))
+
 ## [2.0.2](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.0.1...skos-ap-no-v2.0.2) (2026-06-20)
 
 
