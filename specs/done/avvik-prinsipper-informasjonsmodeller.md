@@ -470,3 +470,23 @@ på ein grunnleggjande måte.
 
 Gapa handlar primært om metadata-felt som er lette å fylle inn (P4/PI4) og
 dokumentasjon som krev meir arbeid å skrive (P2/PI2).
+
+---
+
+## Utført
+
+Kartlegging og tiltaksgjennomføring fullført 2026-06-19. Følgjande tiltak er utførte:
+
+- **PI1:** `dcat-ap-no-schema.yaml` — `tema.range` endra frå `uriorcurie` til `Konsept`
+- **PI2:** `description.md` oppretta for `dcat-ap-no`, `skos-ap-no` og `modelldcat-ap-no`
+- **PI4:** `license: https://data.norge.no/nlod/no/2.0` lagt til i alle 28 skjema
+- **PI5:** `shacl: true` og `owl: true` aktivert i `brreg-begrepskatalog` og `brreg-modellkatalog`
+- **PI7:** Bronze-policy for klassetal-warning (>50 klasser) implementert i MCP-validatoren
+- **PI8 steg 1:** `version: "1.0.0"` lagt til i alle skjema som mangla det
+- **PI8 steg 2:** `annotations.status` lagt til i `brreg-begrepskatalog`, `brreg-modellkatalog` og `register-over-aksjeeiere`
+- **PI8 steg 3:** `annotations.status` lagt til i `dqv-core-schema.yaml` og `modelldcat-modell-schema.yaml`
+
+Gjenståande opne punkt (ikkje utførte som del av denne spesifikasjonen):
+- **PI2 (delvis):** `description.md` for `ngr-*` og `fint-*` ikkje oppretta
+- **PI3:** `begrepsidentifikator` på klasser i domenemodellane — avventar begrepskatalog-avklaring
+- **Gap 4 (delvis):** `xkos-ap-no` og `cpsv-ap-no` sin bruk av `dct:subject` for `tema` — separat frå PI1, avventar XK1
