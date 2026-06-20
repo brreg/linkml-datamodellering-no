@@ -14,11 +14,26 @@ jobs:
     outputs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
+      # RELEASE_PLEASE_TOKEN (PAT frå ein admin-konto) brukast i staden for
+      # GITHUB_TOKEN av to grunnar: (1) PR-ar/push gjort med GITHUB_TOKEN
+      # utløyser ikkje andre workflows (GitHub sin loop-prevention), så
+      # validate.yml sin required status check ville aldri køyrt på
+      # release-PR-en; (2) admin-rollen står på bypass-lista for
+      # review-kravet på main, så auto-merge (under) kan faktisk fullføre.
       - uses: googleapis/release-please-action@v5
         id: release-please
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+
+      - name: Aktiver auto-merge på release-PR
+        if: ${{ steps.release-please.outputs.prs_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        run: |
+          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
+          gh pr merge "$PR_NUMBER" --auto --squash
 
   capture-validation:
     needs: release-please
@@ -27,11 +42,15 @@ jobs:
     permissions:
       contents: write
     steps:
+      # RELEASE_PLEASE_TOKEN brukast her av samme grunn som i release-please-
+      # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
+      # («Changes must be made through a pull request»), sidan github-actions[bot]
+      # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
       - uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 2
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
       - name: Hent mcp-validator-image frå GHCR
         run: |
@@ -61,11 +80,15 @@ jobs:
     permissions:
       contents: write
     steps:
+      # RELEASE_PLEASE_TOKEN brukast her av samme grunn som i release-please-
+      # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
+      # («Changes must be made through a pull request»), sidan github-actions[bot]
+      # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
       - uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 2
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
       - name: Oppdater datoannotasjonar
         run: |
