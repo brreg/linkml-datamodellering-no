@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.1.1...dqv-ap-no-v1.1.2) (2026-06-20)
+
+
+### Bug Fixes
+
+* løys valideringsfeil i samt-bu og rotårsak i dqv-ap-no (BUG-6) ([49a093a](https://github.com/brreg/linkml-datamodellering-no/commit/49a093a19d2799ecdf606e0379dc19bc8b154126))
+
 ## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.1.0...dqv-ap-no-v1.1.1) (2026-06-20)
 
 
