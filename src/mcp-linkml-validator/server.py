@@ -495,8 +495,50 @@ def _check_instance_slot_uri_pattern(sv, schema, instance, config, issues):
     walk(instance)
 
 
+def _check_instance_begrep_definisjon_language_coverage(sv, schema, instance, config, issues):
+    relasjon_slot_uri = config["relasjon_slot_uri"]
+    krev_spraak = config.get("krev_spraak", [])
+    suffix_pattern = re.compile(config.get("id_suffiks_pattern", r"-([a-z]{2})$"))
+
+    target_slots = {
+        name
+        for name, s in sv.all_slots().items()
+        if (s.slot_uri or "") == relasjon_slot_uri
+    }
+
+    def walk(obj, path=""):
+        if isinstance(obj, dict):
+            for key, val in obj.items():
+                new_path = f"{path}.{key}" if path else key
+                if key in target_slots and isinstance(val, list):
+                    langs_found = set()
+                    for v in val:
+                        if not isinstance(v, str):
+                            continue
+                        m = suffix_pattern.search(v)
+                        if m:
+                            langs_found.add(m.group(1))
+                    missing = [lang for lang in krev_spraak if lang not in langs_found]
+                    if missing:
+                        begrep_id = obj.get("id", "?")
+                        issues.append(issue(
+                            config["severity"],
+                            "instance_begrep_missing_language_definisjon",
+                            f"instance:{path}" if path else "instance",
+                            f"Begrep '{begrep_id}' manglar Definisjon med språk-suffiks for: "
+                            f"{', '.join(missing)} (tospråkskravet, basert på ID-suffikskonvensjonen)",
+                        ))
+                walk(val, new_path)
+        elif isinstance(obj, list):
+            for idx, item in enumerate(obj):
+                walk(item, f"{path}[{idx}]")
+
+    walk(instance)
+
+
 _INSTANCE_CHECK_HANDLERS = {
     "instance_slot_uri_pattern": _check_instance_slot_uri_pattern,
+    "instance_begrep_definisjon_language_coverage": _check_instance_begrep_definisjon_language_coverage,
 }
 
 
