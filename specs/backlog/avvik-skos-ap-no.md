@@ -319,3 +319,43 @@ Lag `src/linkml/ap-no/skos-ap-no/skos-ap-no-shapes.ttl` med desse reglane.
 - SK5 (SHACL) bør kome etter SK1–SK4 er på plass
 - Endringar i `skos-ap-no-schema.yaml` vil krevje ny validering og regenerering
   av alle skjema som importerer dette (`brreg-begrepskatalog-schema.yaml`)
+
+---
+
+## Utført (2026-06-20, delvis)
+
+**SK1–SK4 er implementerte** i `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`:
+
+- **SK1:** `har_generisk_omgrep`/`har_spesifikt_omgrep` (`GeneriskRelasjon`) og
+  `har_partitivt_omgrep`/`har_heilskapleg_omgrep` (`PartitivRelasjon`) endra frå
+  `in_subset: [Obligatorisk]` til `in_subset: [Anbefalt]`. Ingen `required: true`
+  fanst på desse i utgangspunktet (avvik frå det spesifikasjonen viste som
+  «noverande» kode — kontrollert direkte i schemaet).
+- **SK2:** `definisjon` og `har_definisjon` på `Begrep` endra frå
+  `in_subset: [Obligatorisk]` til `in_subset: [Anbefalt]`.
+- **SK3:** `kjelde_relasjon`, `malgruppe_def`, `euvoc_status` har no
+  `range: Konsept` (var `range: Begrep`).
+- **SK4:** `fagomrade` har no `range: Konsept` (var `range: Begrep`).
+
+**SK5 er IKKJE utført** — brukaren valde å hoppe over dette tiltaket. SK5 krev
+ein heilt ny mekanisme (hand-skriven SHACL-fil utanom den auto-genererte
+SHACL-en frå `make publish`); ingen tilsvarande artefakt finst andre stader i
+repoet. Tospråkskravet (Avvik 10) og språkkonsistenskravet (Avvik 11) står
+dermed framleis umodellerte. **Spesifikasjonen flyttast ikkje til `specs/done/`
+før SK5 er avklart og eventuelt utført** (jf. CLAUDE.md: berre flytt når alle
+tiltak er utførte).
+
+**Ikkje adressert (ingen tilsvarande tiltak i spesifikasjonen):** Avvik 8
+(`relasjontype` støttar ikkje `skos:Concept`-range) og Avvik 9 (`verdiomrade`
+støttar ikkje URI-range) hadde ingen `SK`-tiltak i «Tilrådde tiltak»-seksjonen,
+og er derfor ikkje rørte.
+
+**Validering:** `make lint` viser same 4 pre-eksisterande
+`canonical_prefixes`-advarslar som før endringa. `make roundtrip` (JSON + TTL)
+OK for `skos-ap-no-schema.yaml` og det avhengige
+`brreg-begrepskatalog-schema.yaml`. `make validate-instance` mot både
+`brreg-begrepskatalog-eksempel.yaml` og produksjonsdatafila
+`data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` gav «No issues found» —
+range-endringa frå `Begrep` til `Konsept` er trygg sidan eksisterande data
+allereie brukar eksterne vokabular-URI-ar (ikkje lokale `Begrep`-instansar)
+for `fagomrade` og `kjelde_relasjon`.
