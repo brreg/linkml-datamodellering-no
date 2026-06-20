@@ -114,25 +114,35 @@ til kvantifisert kvalitet. Repoet støttar ingen av desse heller.
 
 ## Tilrådde tiltak
 
-### KV1 — Ferdigstill `dqv-ap-no`-skjema (Avvik 2)
+### KV1 — Ferdigstill `dqv-ap-no`-skjema (Avvik 2) ✓
 
-Aktiver `Datasett`-klassen i `dqv-ap-no-schema.yaml` med minimum:
-- `dqv:hasQualityMeasurement` → `KvalitetsMaaling`
-- `KvalitetsMaaling`-klasse med `dqv:isMeasurementOf`, `dqv:value`, `rdfs:comment`
+**Utført:** Dette var allereie løyst i repoet (truleg som del av BUG-6-fiksen,
+commit `49a093a1`) — kartlegginga over var forelda i forhold til faktisk
+kodetilstand. `Datasett`-klassen i `dcat-ap-no-schema.yaml` har `har_kvalitetsmerknad`
+og `har_kvalitetsmaaling` (Anbefalt) som peikar til `Kvalitetsmerknad`/`Kvalitetsmaaling`,
+fullt definerte i `dqv-ap-no/dqv-core-schema.yaml` (importert transitivt via
+`dcat-ap-no-schema.yaml`). Ingen kodeendring nødvendig for dette tiltaket.
 
-Import-kjeda bør bli:
-```
-dcat-ap-no-schema.yaml  →  importerer dqv-ap-no-schema.yaml
-```
-eller som valgfritt import i `brreg-begrepskatalog-schema.yaml` og
-`brreg-modellkatalog-schema.yaml`.
-
-**Filer:** `src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml`,
-eventuelt `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`
+**Filer:** `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`,
+`src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml` (allerede ferdigstilte)
 
 ---
 
-### KV2 — Legg til DQV-støtte i begrepskatalog-skjema (Avvik 3)
+### KV2 — Legg til DQV-støtte i begrepskatalog-skjema (Avvik 3) ✓
+
+**Utført:** Lagt til `har_kvalitetsmaaling` (Anbefalt) på `Samling`-klassen i
+`skos-ap-no-schema.yaml` (importerer no `dqv-core-schema.yaml`) og på
+`Modellkatalog`-klassen i `modelldcat-katalog-schema.yaml` (hadde allereie
+`dqv-core` i import-kjeda transitivt via `dcat-ap-no-schema.yaml`). Lagt til
+`kvalitetsmaalingar`-attributt på `BegrepContainer` og `ModellkatalogContainer`
+slik at `Kvalitetsmaaling`-instansar kan listast i datafilene.
+
+**Avvik frå plan:** Eit namnekrasj dukka opp (slot-variant av BUG-7,
+sjå `specs/bugs/duplicate-slot-merge-konflikt.md`) — `dqv-core-schema.yaml`
+hadde sin eigen `har_definisjon`-slot (for å beskrive kvalitetsdimensjonar)
+som kollapsa med `skos-ap-no-schema.yaml` sin `har_definisjon` (for omgrep)
+når dei to skjemaa møttest i importgrafen. Løyst ved å gi den DQV-interne
+sloten eit eige namn: `har_kvalitetsdefinisjon`.
 
 Legg til valgfrie DQV-slots i `brreg-begrepskatalog-schema.yaml` (og tilsvarande
 skjema for andre katalogar):
@@ -160,32 +170,51 @@ katalog:
 
 ---
 
-### KV3 — Legg til DQV-målingar i eksisterande datafiler (Avvik 1)
+### KV4 — Automatisk kvalitetsmåling i CI (Avvik 1, 3) ✓
 
-Etter KV1 og KV2: legg til faktiske kvalitetsmålingar i `brreg-begrepskatalog`
-og `brreg-modellkatalog` datafiler med minimum:
+**Utført:** Implementert før KV3 (skriptet trengtes for å generere KV3 sine
+verdiar). `src/assets/scripts/gen-dqv-measurements.py` skannar alle
+`data/*/manifest.yaml` med `data_policy: felles-begrepskatalog` eller
+`felles-datakatalog`, reknar ut:
+- **Fullstendighet** (`qm-completeness-1004`): andel einingar som manglar
+  verdi for eit nøkkelfelt (`har_definisjon` for begrep, `lisens` for
+  informasjonsmodellar)
+- **Aktualitet** (`qm-currentness-1001`, berre felles-datakatalog): ISO 8601-
+  varighet (`PxD`) frå nyaste `endringsdato` blant modellane til i dag
 
-- **Fullstendighet/underdekning** (`qm-completeness-1004`): andel einingar med
-  manglande verdi for obligatorisk felt
-- **Aktualitet** (`qm-currentness-1001`): samla tidsdifferanse mellom hendinga og
-  oppdatering av katalogen
+og skriv resultatet attende til datafila med **målretta tekstinnsetting**
+(ikkje full YAML-omskriving), slik at handskrivne kommentarar og formatering
+i datafila er bevart. Målings-id-ane er stabile (`.../dqv/fullstendighet`,
+`.../dqv/aktualitet`), så gjentatte køyringar oppdaterer verdiane i staden
+for å hope opp duplikat. Lagt til `make gen-dqv-measurements`-target og
+kalla skriptet frå `update-dates`-jobben i `.github/workflows/release-please.yml`
+(same mønster og commit som `update-schema-dates.py`).
 
-Desse verdiane kan eventuelt genereras automatisk av ein CI-skript som
-analyserer datafila og reknar ut målinga.
+**Avvik frå plan:** Først skrive med full `yaml.safe_load` + `yaml.dump`
+roundtrip (som planlagt), men dette viska ut alle kommentarar og
+seksjonsskiljer i `brreg-begrepskatalog.yaml` (ikkje akseptabelt for ei
+gjentakande CI-handling). Omskrive til regex-basert tekstinnsetting (samme
+prinsipp som `update-schema-dates.py`) — løyser oppgava utan å innføre nye
+avhengigheiter (t.d. `ruamel.yaml`).
+
+**Filer:** `src/assets/scripts/gen-dqv-measurements.py`, `Makefile`,
+`.github/workflows/release-please.yml`
 
 ---
 
-### KV4 — Vurder automatisk kvalitetsmåling i CI (Avvik 1, 3)
+### KV3 — Legg til DQV-målingar i eksisterande datafiler (Avvik 1) ✓
 
-Legg til eit skript (`src/assets/scripts/gen-dqv-measurements.py`) som for kvar
-datafil med `data_policy: felles-begrepskatalog` eller `felles-datakatalog`:
+**Utført:** Køyrde `gen-dqv-measurements.py` mot dei to eksisterande
+datafilene. Faktiske resultat (basert på reell data per 2026-06-20):
 
-1. Les datafila og tel obligatoriske felt
-2. Reknar ut fullstendighetsgrad (andel einingar med manglande obligatoriske verdiar)
-3. Skriv `dqv:hasQualityMeasurement`-blokker attende til datafila eller til
-   ein generert sidefilledge RDF-fragment
+- `brreg-begrepskatalog.yaml`: 0 av 3 begrep (0,0 %) manglar `har_definisjon`
+  → `har_kvalitetsmaaling` lagt til på `samlingar[0]` (Samlinga «registerbegrep-2025»)
+- `brreg-modellkatalog.yaml`: 0 av 2 informasjonsmodellar (0,0 %) manglar
+  `lisens`; eldste `endringsdato` er 1 dag gammal (`P1D`) → `har_kvalitetsmaaling`
+  lagt til på `modellkataloger[0]`
 
-Dette gjer at kvalitetsmålingane alltid er oppdaterte og ikkje krev manuell vedlikehald.
+Validert med `make validate-instance` og `make mcp-validate POLICY=felles-begrepskatalog`/
+`felles-datakatalog` — `valid: true`, `errorCount: 0` for begge.
 
 ---
 
@@ -208,3 +237,41 @@ Dette gjer at kvalitetsmålingane alltid er oppdaterte og ikkje krev manuell ved
   `avvik-veileder-apne-data.md` om lisens bør òg vere på plass)
 - KV4 er eit mogleg seinare automatiseringstiltak og ikkje nødvendig for
   grunnleggjande DQV-støtte
+
+---
+
+## Utført
+
+Alle fire tiltak (KV1–KV4) er gjennomførte:
+
+- **KV1** var allereie løyst i repoet før denne specen blei utført (forelda
+  kartlegging) — ingen kodeendring.
+- **KV2**: `har_kvalitetsmaaling` lagt til på `Samling` (`skos-ap-no-schema.yaml`,
+  no med import av `dqv-core-schema.yaml`) og `Modellkatalog`
+  (`modelldcat-katalog-schema.yaml`). `kvalitetsmaalingar`-attributt lagt til
+  på `BegrepContainer` og `ModellkatalogContainer`. Eit namnekrasj
+  (`har_definisjon` i `dqv-core-schema.yaml` vs. `skos-ap-no-schema.yaml`,
+  slot-variant av BUG-7) blei løyst ved å gi DQV-sloten namnet
+  `har_kvalitetsdefinisjon`.
+- **KV4**: nytt skript `src/assets/scripts/gen-dqv-measurements.py` reknar ut
+  fullstendighet/aktualitet og skriv målingar attende til datafilene med
+  målretta tekstinnsetting (ikkje full YAML-omskriving, for å bevare
+  handskrivne kommentarar). Lagt til `make gen-dqv-measurements` og eit steg
+  i `update-dates`-jobben i `.github/workflows/release-please.yml`.
+- **KV3**: skriptet køyrt mot `brreg-begrepskatalog.yaml` og
+  `brreg-modellkatalog.yaml` — begge har no reelle `dqv:hasQualityMeasurement`-
+  referansar. Validert med `make validate-instance` og `make mcp-validate`
+  (felles-begrepskatalog/felles-datakatalog), `errorCount: 0` for begge.
+
+**Avvik frå opphavleg plan:**
+1. KV1 var allereie ferdig — kartlegginga i specen var forelda i forhold til
+   faktisk kodetilstand (truleg løyst i BUG-6-fiksen, commit `49a093a1`).
+2. KV4 blei implementert før KV3 (skriptet trengtes for å generere KV3 sine
+   verdiar), ikkje etter som tabellen i «Prioritert handlingsliste» antyda.
+3. `gen-dqv-measurements.py` brukar regex-basert tekstinnsetting i staden for
+   full YAML-dump, for å unngå å viske ut eksisterande kommentarar/formatering
+   i datafilene — og for å unngå ei ny avhengigheit (`ruamel.yaml`).
+4. Alle nye DQV-slots/attributtar er avgrensa til katalog-/samlingsnivå
+   (`Samling`, `Modellkatalog`) — ikkje på enkelt-`Begrep`/`Informasjonsmodell`,
+   sidan kvalitetsmåla i kartlegginga (avvik 1) er aggregerte katalogmål, ikkje
+   per-instans-mål.

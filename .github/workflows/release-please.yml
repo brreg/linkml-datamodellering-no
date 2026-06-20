@@ -95,13 +95,18 @@ jobs:
           python3 src/assets/scripts/update-schema-dates.py \
             --config release-please-config.json
 
-      - name: Commit og push oppdaterte datoar
+      - name: Oppdater DQV-kvalitetsmålingar
+        run: |
+          pip install --quiet pyyaml
+          python3 src/assets/scripts/gen-dqv-measurements.py
+
+      - name: Commit og push oppdaterte datoar og kvalitetsmålingar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
             git add src/linkml/
-            git commit -m "chore(*): oppdater datoannotasjonar etter release [skip ci]"
+            git commit -m "chore(*): oppdater datoannotasjonar og DQV-kvalitetsmålingar etter release [skip ci]"
             git push
           else
             echo "Ingen endringar å committe"

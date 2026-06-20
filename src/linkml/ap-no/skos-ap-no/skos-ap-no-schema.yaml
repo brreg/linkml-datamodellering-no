@@ -40,6 +40,7 @@ default_range: string
 imports:
   - linkml:types
   - ../common/common-ap-no-schema
+  - ../dqv-ap-no/dqv-core-schema
 
 # ---------------------------------------------------------------------------
 # Klasser
@@ -318,6 +319,7 @@ classes:
       - tittel
       - utgjevar
       - beskrivelse
+      - har_kvalitetsmaaling
     slot_usage:
       identifikator_literal:
         required: true
@@ -339,6 +341,9 @@ classes:
         in_subset:
           - Obligatorisk
       beskrivelse:
+        in_subset:
+          - Anbefalt
+      har_kvalitetsmaaling:
         in_subset:
           - Anbefalt
 

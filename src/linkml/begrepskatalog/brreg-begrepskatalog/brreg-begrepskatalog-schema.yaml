@@ -72,3 +72,8 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
+      kvalitetsmaalingar:
+        range: Kvalitetsmaaling
+        multivalued: true
+        inlined: true
+        inlined_as_list: true

@@ -23,14 +23,14 @@ kvalitetsdimensjonar:
   - id: https://data.norge.no/vocabulary/dqvno#completeness
     har_anbefalt_term:
       - Kompletheit
-    har_definisjon:
+    har_kvalitetsdefinisjon:
       - I kva grad datasettet dekker alle forventa objekt og eigenskapar.
 
 kvalitetsdeldimensjonar:
   - id: https://data.norge.no/vocabulary/dqvno#rateOfMissingValues
     har_anbefalt_term:
       - Andel manglande verdiar
-    har_definisjon:
+    har_kvalitetsdefinisjon:
       - Andelen manglande verdiar samanlikna med totalt forventa antal verdiar.
     er_deldimensjon_av: https://data.norge.no/vocabulary/dqvno#completeness
 
@@ -40,7 +40,7 @@ kvalitetsmaal:
     har_forventet_datatype: xsd:double
     har_anbefalt_term:
       - Dekningsprosent
-    har_definisjon:
+    har_kvalitetsdefinisjon:
       - Prosentandel av forventa objekt som faktisk er registrert i datasettet.
 
 kvalitetsmaalingar:

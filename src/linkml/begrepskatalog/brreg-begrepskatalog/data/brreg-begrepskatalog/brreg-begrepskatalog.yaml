@@ -102,3 +102,11 @@ samlingar:
       - https://begrep.brreg.no/foretaksnavn
       - https://begrep.brreg.no/nestleder
       - https://begrep.brreg.no/aksjeklasser
+    har_kvalitetsmaaling:
+      - https://begrep.brreg.no/samlingar/registerbegrep-2025/dqv/fullstendighet
+kvalitetsmaalingar:
+- id: https://begrep.brreg.no/samlingar/registerbegrep-2025/dqv/fullstendighet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
+  har_numerisk_verdi: 0.0
+  har_merknad:
+  - 0 av 3 begrep (0.0 %) manglar verdi for definisjon.
