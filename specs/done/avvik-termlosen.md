@@ -123,7 +123,16 @@ Schema har inga eigenskap for bilde/illustrasjon til eit `Begrep`. SKOS-standard
 har heller ikkje eit slikt predikat, men `foaf:depiction` eller `schema:image`
 kunne brukast.
 
-**Status:** ⚠️ Avvik — låg prioritet (ikkje krav i SKOS-AP-NO)
+Termlosen sitt krav handlar likevel om å *illustrere korleis omgrep heng saman*,
+ikkje primært om bilde/foto til eit enkelt omgrep. Dette dekkast av
+`linkml gen-doc`/`gen-erdiagram`, som genererer dokumentasjon med
+klassediagram (Mermaid/PlantUML) som viser relasjonane mellom klassene i
+skjemaet. Denne dokumentasjonen vert publisert til mkdocs-portalen via
+`make publish` (sjå `erdiagram`/`docs`-flagga i `manifest.yaml`).
+
+**Status:** ✓ Handtert — illustrasjon av klassesamanhengar dekkast av generert
+LinkML-dokumentasjon (`gen-doc`/`gen-erdiagram`). Bilde/foto til enkeltomgrep
+er framleis ikkje modellert, men er låg prioritet og ikkje eit SKOS-AP-NO-krav.
 
 ---
 
@@ -190,7 +199,7 @@ Fleire `skos:prefLabel` (eitt per språk) er gyldig per SKOS-spesifikasjonen.
 | 1 | Definisjonsmønster (innhald/omfang) ikkje skild | Avvik | Låg |
 | 2 | `AssosiativRelasjon.relasjontype` manglar Termlosen-typologi | Avvik | Middels |
 | 3 | `broadMatch`, `narrowMatch`, `relatedMatch` manglar | Avvik | Låg |
-| 4 | Illustrasjonar ikkje modellert | Avvik | Låg |
+| 4 | Illustrasjonar ikkje modellert | Handtert (gen-doc) | — |
 | 5 | `kjelde.range: uri` ekskluderer ikkje-URI-kjelder | Avvik | Middels |
 
 ---
@@ -207,6 +216,9 @@ Kandidat-URI: `https://data.norge.no/vocabulary/skosno/associative-relation-role
 
 **Filer:** `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`  
 **Avhengigheit:** SK3 i `avvik-skos-ap-no.md`
+
+**Status:** ✓ Utført — `relasjontype.range` endra frå `LangString` til `Konsept`,
+sjå `## Utført`-seksjonen under.
 
 ---
 
@@ -225,6 +237,8 @@ kjelde_tekst:
 Legg til i `Definisjon.slots` og `Definisjon.slot_usage` som Valgfri.
 
 **Filer:** `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`
+
+**Status:** ✓ Utført, sjå `## Utført`-seksjonen under.
 
 ---
 
@@ -254,6 +268,8 @@ Legg til i `Begrep.slots` og `Begrep.slot_usage` som `in_subset: [Valgfri]`.
 
 **Filer:** `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`
 
+**Status:** ✓ Utført, sjå `## Utført`-seksjonen under.
+
 ---
 
 ### TL4 — SHACL-regel for definisjonskvalitet (Avvik frå kap. 2)
@@ -262,16 +278,22 @@ Legg til ein SHACL-regel i `skos-ap-no-shapes.ttl` (ny fil per SK5 i
 `avvik-skos-ap-no.md`) som varslar dersom `skos:definition` byrjar med
 strenger som «som er», «betegnar», «benyttes til» eller «term som».
 
+**Status:** ✗ Utgår — vert ikkje utført. Sjå SK5 Forslag B i `avvik-skos-ap-no.md`,
+som av samme grunn er medvite utsett.
+
 ---
 
 ## Prioritert handlingsliste
+
+Alle tiltak i denne lista er utførte — sjå `## Utført`-seksjonen under.
 
 | # | Tiltak | Fil | Avhengigheit |
 |---|---|---|---|
 | 1 | TL2: Legg til `kjelde_tekst` (fritekst-kjelde) | `skos-ap-no-schema.yaml` | — |
 | 2 | TL3: Legg til `breitt_samsvar`, `smalt_samsvar`, `relatert_samsvar` | `skos-ap-no-schema.yaml` | — |
-| 3 | TL1: Kontrollert vokabular for assosiative relasjonskategoriar | nytt vokabular-YAML | SK3 frå `avvik-skos-ap-no.md` |
-| 4 | TL4: SHACL-regel for definisjonskvalitet | `skos-ap-no-shapes.ttl` | SK5 frå `avvik-skos-ap-no.md` |
+| 3 | TL1: `relasjontype.range` → `Konsept` | `skos-ap-no-schema.yaml` | — |
+
+TL4 er utgått (sjå status under TL4-avsnittet) og er fjerna frå handlingslista.
 
 ---
 
@@ -279,6 +301,42 @@ strenger som «som er», «betegnar», «benyttes til» eller «term som».
 
 - TL1 (relasjonskategoriar) er avhengig av SK3 i `avvik-skos-ap-no.md`
   (endre `relasjontype.range` frå `LangString` til `Konsept`)
-- TL4 er avhengig av at `skos-ap-no-shapes.ttl` vert oppretta (SK5)
 - TL2 og TL3 kan gjerast uavhengig av kvarandre og resten
 - Endringar i `skos-ap-no-schema.yaml` krev ny validering av `brreg-begrepskatalog`
+
+---
+
+## Utført (2026-06-20)
+
+**TL1–TL3 er implementerte og TL4 er medvite utsett** i
+`src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`. Gap 4 (illustrasjonar)
+er handtert av eksisterande `gen-doc`/`gen-erdiagram`-generering, sjå
+status under avvik 4 over.
+
+- **TL1:** `relasjontype.range` endra frå `LangString` til `Konsept`
+  (Avvik 2). SK3 i `avvik-skos-ap-no.md` hadde — i motsetnad til det opphavlege
+  merknaden her — *ikkje* dekt denne sloten (sjå "Ikkje adressert" i
+  `## Utført`-seksjonen i `specs/done/avvik-skos-ap-no.md`, Avvik 8). Avviket er
+  no retta direkte. Det kontrollerte vokabularet for dei 8 Termlosen-kategoriane
+  er **ikkje** publisert som data i dette repoet (jf. `kjelde_relasjon` og
+  `malgruppe_def`, som på same vis peikar til `Konsept` utan at vokabularet
+  hostas her) — kandidat-URI er dokumentert i slot-beskrivinga til seinare bruk.
+- **TL2:** Ny slot `kjelde_tekst` (`dct:bibliographicCitation`, `range: LangString`,
+  multivalued) lagt til i `Definisjon.slots`/`slot_usage` som `Valgfri` (Avvik 5).
+- **TL3:** Nye slots `breitt_samsvar` (`skos:broadMatch`), `smalt_samsvar`
+  (`skos:narrowMatch`) og `relatert_samsvar` (`skos:relatedMatch`) lagt til i
+  `Begrep.slots`/`slot_usage` som `Valgfri` (Avvik 3).
+- **TL4:** Utgår — sjå status under TL4-avsnittet, kryssreferanse til SK5
+  Forslag B i `avvik-skos-ap-no.md`.
+
+**Avvik frå planen:** TL1 sin opphavlege merknad om at SK3 var ein føresetnad
+var feil — SK3 dekte andre slots (`kjelde_relasjon`, `malgruppe_def`,
+`euvoc_status`), ikkje `relasjontype`. Endringa er likevel gjort direkte, sidan
+ingen eksisterande eksempel- eller produksjonsdata brukte `relasjontype`.
+
+**Validering:** `make lint` viser same 4 pre-eksisterande
+`canonical_prefixes`-advarslar som før endringa. `make roundtrip` (JSON + TTL)
+OK for `skos-ap-no-schema.yaml` og det avhengige
+`brreg-begrepskatalog-schema.yaml`. `make validate-instance` mot både
+`brreg-begrepskatalog-eksempel.yaml` og produksjonsdatafila
+`data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` gav «No issues found».
