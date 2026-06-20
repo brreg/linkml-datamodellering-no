@@ -123,4 +123,4 @@ Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-sc
 sjekkar som krev faktiske instansdata (gitt via `INSTANCE=` til
 `make mcp-validate`), t.d. `utgjevar_er_kjend_org` (kjende utgivar-URI-ar) og
 `begrep_har_definisjon_pa_nb_og_nn` (tospråkskravet — sjå
-`specs/backlog/avvik-skos-ap-no.md`, SK5 Forslag A).
+`specs/done/avvik-skos-ap-no.md`, SK5 Forslag A).

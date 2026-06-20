@@ -133,7 +133,8 @@
       "Bash(cp src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml /tmp/brreg-backup.yaml)",
       "Bash(sed -i 's#https://data.norge.no/organizations/974760673#https://data.norge.no/organizations/000000000#' src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml)",
       "Bash(make mcp-val-test *)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(git mv *)"
     ]
   },
   "enableAllProjectMcpServers": true,

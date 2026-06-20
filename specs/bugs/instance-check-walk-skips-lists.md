@@ -69,7 +69,7 @@ vil ha samme problem. Den nyare handleren
 `_check_instance_begrep_definisjon_language_coverage` (lagt til same dag, for
 `begrep_har_definisjon_pa_nb_og_nn`) er **ikkje** affisert — den har ein
 korrekt `walk()` som også rekurserer inn i lister (sjå
-`specs/backlog/avvik-skos-ap-no.md`, SK5 Forslag A).
+`specs/done/avvik-skos-ap-no.md`, SK5 Forslag A).
 
 ## Workaround
 
