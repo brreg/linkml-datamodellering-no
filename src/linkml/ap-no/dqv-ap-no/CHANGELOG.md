@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.1.0...dqv-ap-no-v1.1.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **ap-no,specs:** rett avvik mot Prinsipper for informasjonsmodellar ([f93510f](https://github.com/brreg/linkml-datamodellering-no/commit/f93510f32fd44ff09cd0567d6b744bc3e661eea5))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.0.0...dqv-ap-no-v1.1.0) (2026-06-19)
 
 
