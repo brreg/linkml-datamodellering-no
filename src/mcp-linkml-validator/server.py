@@ -465,32 +465,35 @@ def _check_instance_slot_uri_pattern(sv, schema, instance, config, issues):
     }
 
     def walk(obj, path=""):
-        if not isinstance(obj, dict):
-            return
-        for key, val in obj.items():
-            if key in target_slots:
-                values = val if isinstance(val, list) else [val]
-                for v in values:
-                    if not isinstance(v, str):
-                        continue
-                    loc = f"instance:{path}.{key}" if path else f"instance:{key}"
-                    if not pattern.match(v):
-                        issues.append(issue(
-                            config["severity"],
-                            "instance_slot_invalid_uri_pattern",
-                            loc,
-                            f"'{v}' passar ikkje mønsteret {config['pattern']} "
-                            f"for {slot_uri_target}",
-                        ))
-                    elif known_values and v not in known_values:
-                        issues.append(issue(
-                            config["severity"],
-                            "instance_slot_unknown_value",
-                            loc,
-                            f"'{v}' er ikkje i lista over kjente utgivarar: "
-                            f"{', '.join(known_values)}",
-                        ))
-            walk(val, f"{path}.{key}" if path else key)
+        if isinstance(obj, dict):
+            for key, val in obj.items():
+                new_path = f"{path}.{key}" if path else key
+                if key in target_slots:
+                    values = val if isinstance(val, list) else [val]
+                    for v in values:
+                        if not isinstance(v, str):
+                            continue
+                        loc = f"instance:{new_path}"
+                        if not pattern.match(v):
+                            issues.append(issue(
+                                config["severity"],
+                                "instance_slot_invalid_uri_pattern",
+                                loc,
+                                f"'{v}' passar ikkje mønsteret {config['pattern']} "
+                                f"for {slot_uri_target}",
+                            ))
+                        elif known_values and v not in known_values:
+                            issues.append(issue(
+                                config["severity"],
+                                "instance_slot_unknown_value",
+                                loc,
+                                f"'{v}' er ikkje i lista over kjente utgivarar: "
+                                f"{', '.join(known_values)}",
+                            ))
+                walk(val, new_path)
+        elif isinstance(obj, list):
+            for idx, item in enumerate(obj):
+                walk(item, f"{path}[{idx}]")
 
     walk(instance)
 
