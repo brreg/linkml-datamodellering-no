@@ -152,6 +152,7 @@ generators:
   docs: true
   plantuml: false
   example_rdf: false
+  openapi: true
 YAML
 
 # --- Katalogdatafil ---

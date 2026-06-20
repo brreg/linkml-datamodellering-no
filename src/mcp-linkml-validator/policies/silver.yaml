@@ -43,6 +43,17 @@ checks:
     check: schema_has_annotation
     annotation: endringsdato
 
+  schema_has_annotation_oppdateringsfrekvens:
+    severity: warning
+    description: >
+      schema.annotations.oppdateringsfrekvens bør vere til stades med ein URI frå
+      EU sin Frequency Named Authority List (publications.europa.eu). Svarar til
+      dct:accrualPeriodicity. Digdir-rettleiar for åpne data, punkt 6: Oppdaterte data —
+      verksemda skal vere tydeleg på oppdateringsfrekvens.
+    check: schema_has_annotation
+    annotation: oppdateringsfrekvens
+    value_pattern: "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$"
+
   schema_has_annotation_status:
     severity: warning
     description: >

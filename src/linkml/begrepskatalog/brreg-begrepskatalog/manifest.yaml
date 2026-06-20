@@ -14,5 +14,5 @@ generators:
   plantuml: false
   example_rdf: true
   xsd: false
-  openapi: false
+  openapi: true
   asyncapi: false

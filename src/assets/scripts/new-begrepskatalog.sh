@@ -116,6 +116,7 @@ generators:
   docs: true
   plantuml: false
   example_rdf: true
+  openapi: true
 EOF
 
 cat > "$EXAMPLE_FILE" << EOF

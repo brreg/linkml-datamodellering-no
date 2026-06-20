@@ -182,6 +182,8 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 
 > **Pull, ikkje push.** Dette repoet genererer og publiserer artefaktar til GitHub Pages og GitHub Releases. Andre system hentar artefaktane derifrå sjølve — repoet pusher aldri artefaktar til eksterne kjelder. Å pushe til ekstern schema-registry, datakatalog eller anna API krev spesialtilpassingar per målsystem og knyt repoet til ekstern tilgjengelegheit og autentisering, noko som er utanfor dette repoets ansvarsfelt.
 
+> **Versjonerte adressar.** GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein stabil, versjonert adresse til ein historisk versjon — t.d. for import frå eit eksternt repo (sjå [Bruk frå eksternt repo](#bruk-fr%C3%A5-eksternt-repo)) — bruk [GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases) eller ein tag-spesifikk `raw.githubusercontent.com`-URL (`.../<tag>/<sti>`). GitHub Releases er den kanoniske adressa for eldre versjonar av artefaktar.
+
 ## Katalogstruktur
 
 ```

@@ -94,6 +94,7 @@ Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `ex
 | `schema.annotations.utgiver` til stades — URI på forma `https://data.norge.no/organizations/<orgnr>` | warning | 10 — Ansvar |
 | `schema.annotations.endringsdato` til stades — ISO 8601-dato | warning | 9 — Datering |
 | `schema.annotations.status` til stades — ADMS Status-URI | warning | 11 — Modellstatus |
+| `schema.annotations.oppdateringsfrekvens` til stades — URI frå EU Frequency Named Authority List | warning | 9 — Datering |
 
 
 Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-schema.yaml`
