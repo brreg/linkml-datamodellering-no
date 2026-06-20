@@ -162,7 +162,10 @@
       "Bash(make clean *)",
       "Bash(echo \"exit: $?\")",
       "Bash(pip3 show *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(timeout 580 make validate)",
+      "Bash(tee /tmp/validate-output.txt)",
+      "Bash(echo \"EXIT=$?\")"
     ]
   },
   "enableAllProjectMcpServers": true,
