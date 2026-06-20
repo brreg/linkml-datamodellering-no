@@ -135,7 +135,21 @@
       "Bash(make mcp-val-test *)",
       "Bash(git stash *)",
       "Bash(git mv *)",
-      "Bash(grep *)"
+      "Bash(grep *)",
+      "Bash(curl -s --max-time 10 -o /tmp/linkml.json -w \"%{http_code}\\\\n\" \"https://pypi.org/pypi/linkml/json\")",
+      "Bash(curl -s --max-time 10 \"https://raw.githubusercontent.com/plantuml/plantuml/master/license.txt\")",
+      "Bash(curl -s --max-time 10 \"https://gitlab.com/graphviz/graphviz/-/raw/main/LICENSE\")",
+      "Bash(curl -s --max-time 10 \"https://changelogs.ubuntu.com/changelogs/pool/main/f/ffmpeg/ffmpeg_4.4.2-0ubuntu0.22.04.1/copyright\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/git/git\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/freedesktop/xorg-xserver\")",
+      "Bash(curl -s --max-time 10 \"https://changelogs.ubuntu.com/changelogs/pool/universe/f/ffmpeg/ffmpeg_4.4.2-0ubuntu0.22.04.1/copyright\")",
+      "Bash(curl -sL --max-time 10 \"https://raw.githubusercontent.com/git/git/master/COPYING\")",
+      "Bash(curl -sL --max-time 10 \"https://gitlab.freedesktop.org/xorg/xserver/-/raw/master/COPYING\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/aquasecurity/trivy\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/python/cpython\")",
+      "Bash(curl -s --max-time 10 \"https://api.github.com/repos/containers/podman\")",
+      "Bash(curl -sL --max-time 10 \"https://raw.githubusercontent.com/containers/podman/main/LICENSE\")",
+      "Bash(curl -s --max-time 10 \"https://pypi.org/pypi/avrotize/json\")"
     ]
   },
   "enableAllProjectMcpServers": true,
