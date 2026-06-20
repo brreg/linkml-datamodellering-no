@@ -445,7 +445,7 @@ dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
 
 ---
 
-## Utført (2026-06-20, delvis)
+## Utført (2026-06-20)
 
 **SK1–SK4 er implementerte** i `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`:
 
@@ -460,26 +460,41 @@ dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
   `range: Konsept` (var `range: Begrep`).
 - **SK4:** `fagomrade` har no `range: Konsept` (var `range: Begrep`).
 
-**SK5 er DELVIS utført (oppdatert 2026-06-20).** Den opphavlege
-SHACL-tilnærminga vart forlate — ingen mekanisme for hand-skrivne
-SHACL-tillegg finst i repoet, og brukaren valde å ikkje innføre ein slik
-mekanisme. SK5 vart i stedet revidert til `instance_checks` i
-`felles-begrepskatalog.yaml` (medaljong-policysystemet). **Forslag A er no
-implementert** — sjekken `begrep_har_definisjon_pa_nb_og_nn` validerer
-tospråkskravet (Avvik 10) for `har_definisjon`-varianten via
-ID-suffikskonvensjonen (sjå detaljar i seksjonen over). **Forslag B
-(full løysing for Avvik 10 på `anbefalt_term` + Avvik 11 språkkonsistens) er
-ikkje implementert** — krev språktagging av `LangString` på tvers av alle
-AP-NO-profilar og ein eigen spec (`spraaktagging-av-langstring.md`), per
-brukaren sitt valde scope for denne runda.
-**Spesifikasjonen flyttast ikkje til `specs/done/` før SK5 er fullstendig
-utført** (jf. CLAUDE.md: berre flytt når alle tiltak er utførte) — Avvik 11
-og delen av Avvik 10 som gjeld `anbefalt_term` står framleis open.
+**SK5 er revidert og delvis implementert.** Den opphavlege SHACL-tilnærminga
+vart forlate — ingen mekanisme for hand-skrivne SHACL-tillegg finst i repoet,
+og brukaren valde å ikkje innføre ein slik mekanisme. SK5 vart i stedet
+revidert til `instance_checks` i `felles-begrepskatalog.yaml`
+(medaljong-policysystemet):
+
+- **Forslag A er implementert:** sjekken `begrep_har_definisjon_pa_nb_og_nn`
+  (`check: instance_begrep_definisjon_language_coverage`, ny handler i
+  `src/mcp-linkml-validator/server.py`) validerer tospråkskravet (Avvik 10)
+  for `har_definisjon`-varianten via ID-suffikskonvensjonen. Verifisert mot
+  reell produksjonsdata: `warning` for `foretaksnavn`/`aksjeklasser` (manglar
+  `-nn`), ingen varsel for `nestleder` (har `-nb`, `-nn`, `-en`).
+- **Forslag B er ikkje implementert** og er **medvite ut av scope** for denne
+  spesifikasjonen. Full dekning av Avvik 10 (`anbefalt_term`) og Avvik 11
+  (språkkonsistens) krev språktagging av `LangString` på tvers av *alle*
+  AP-NO-profilar — eit skjemadesign-spørsmål som er for stort til å løyses
+  som eit underpunkt her. Det er overlate til ein eigen, ikkje-oppretta spec
+  (`specs/backlog/spraaktagging-av-langstring.md`) ved eit senere tilfelle.
+
+**Biprodukt: BUG-5 oppdaga og fiksa.** Under verifisering av Forslag A vart
+det avdekt at den eksisterande `_check_instance_slot_uri_pattern`
+(`utgjevar_er_kjend_org`-sjekken) sin `walk()`-funksjon ikkje rekursivt gjekk
+inn i lister av objekt, og dermed aldri faktisk validerte AP-NO-strukturerte
+instansar i praksis. Dette vart dokumentert og fiksa som eit eige tiltak —
+sjå `specs/bugs/instance-check-walk-skips-lists.md` (BUG-5, status `løyst`).
 
 **Ikkje adressert (ingen tilsvarande tiltak i spesifikasjonen):** Avvik 8
 (`relasjontype` støttar ikkje `skos:Concept`-range) og Avvik 9 (`verdiomrade`
 støttar ikkje URI-range) hadde ingen `SK`-tiltak i «Tilrådde tiltak»-seksjonen,
 og er derfor ikkje rørte.
+
+**Avvik frå planen:** SK5 sin opphavlege plan (hand-skriven SHACL) vart
+forlate til fordel for ein `instance_checks`-basert løysing i
+medaljong-policyen (sjå over). Full dekning av Avvik 10–11 er delt ut i eit
+mindre Forslag A (utført) og eit større Forslag B (deferert til eigen spec).
 
 **Validering:** `make lint` viser same 4 pre-eksisterande
 `canonical_prefixes`-advarslar som før endringa. `make roundtrip` (JSON + TTL)
@@ -489,4 +504,6 @@ OK for `skos-ap-no-schema.yaml` og det avhengige
 `data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` gav «No issues found» —
 range-endringa frå `Begrep` til `Konsept` er trygg sidan eksisterande data
 allereie brukar eksterne vokabular-URI-ar (ikkje lokale `Begrep`-instansar)
-for `fagomrade` og `kjelde_relasjon`.
+for `fagomrade` og `kjelde_relasjon`. `make mcp-val-test` viser dei same 12
+pre-eksisterande FAIR-relaterte testfeila som før (urelaterte til denne
+spesifikasjonen), pluss 2 nye, passerande regresjonstestar for BUG-5.

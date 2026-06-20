@@ -173,17 +173,14 @@ som igjen ville aktivere avgrensing 1.
 
 **Fil:** `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`  
 **Spesifikasjon:** <https://informasjonsforvaltning.github.io/skos-ap-no-begrep/>  
-**Kartlegging:** `specs/backlog/avvik-skos-ap-no.md`
+**Kartlegging:** `specs/done/avvik-skos-ap-no.md`
 
-**Kjente avvik (ikkje fiksa):**
-
-| Kode | Avvik | Prioritet |
-|------|-------|-----------|
-| SK1 | `GeneriskRelasjon` og `PartitivRelasjon`: begge retningsslots Obligatorisk — berre ein bør vere det | Høg |
-| SK2 | `definisjon` og `har_definisjon` begge Obligatorisk — berre ein bør vere Obligatorisk | Høg |
-| SK3 | Feil `range` på `kjelde_relasjon`, `malgruppe_def`, `euvoc_status` | Middels |
-| SK4 | Feil `range` på `fagomrade` (`dct:subject`) | Middels |
-| SK5 | Manglande SHACL-reglar for språkkrav (bokmål + nynorsk) | Låg |
+**Status:** SK1–SK4 er fiksa. SK5 (tospråkskrav/språkkonsistens) er delvis
+realisert som ein `instance_check` (`begrep_har_definisjon_pa_nb_og_nn`) i
+`felles-begrepskatalog`-policyen — dekker `har_definisjon`-varianten via
+ID-suffikskonvensjon. Full dekning av `anbefalt_term` og språkkonsistens krev
+språktagging av `LangString` på tvers av AP-NO-profilane og er utsett til ein
+eigen, ikkje-oppretta spec (`spraaktagging-av-langstring.md`).
 
 ---
 
@@ -292,7 +289,7 @@ Særnorske bokstavar translittererast i klassenamn, slotnamn og URI-lokaldel:
 
 - `specs/done/avvik-dcat-ap-no.md` — detaljert kartlegging DCAT-AP-NO
 - `specs/done/avvik-dqv-ap-no.md` — detaljert kartlegging DQV-AP-NO
-- `specs/backlog/avvik-skos-ap-no.md` — kartlegging SKOS-AP-NO (backlog)
-- `specs/backlog/avvik-xkos-ap-no.md` — kartlegging XKOS-AP-NO (backlog)
-- `specs/backlog/avvik-modelldcat-ap-no.md` — kartlegging ModelDCAT-AP-NO (backlog)
+- `specs/done/avvik-skos-ap-no.md` — kartlegging SKOS-AP-NO
+- `specs/done/avvik-xkos-ap-no.md` — kartlegging XKOS-AP-NO
+- `specs/done/avvik-modelldcat-ap-no.md` — kartlegging ModelDCAT-AP-NO
 - `specs/done/avvik-felles-modelleringsregler.md` — Digdir-modelleringsreglar
