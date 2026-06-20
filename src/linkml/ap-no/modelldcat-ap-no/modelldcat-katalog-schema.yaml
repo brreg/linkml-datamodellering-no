@@ -91,6 +91,7 @@ classes:
         in_subset:
           - Obligatorisk
       har_del:
+        range: KatalogisertRessurs
         in_subset:
           - Anbefalt
       identifikator_literal:
@@ -112,6 +113,7 @@ classes:
         in_subset:
           - Anbefalt
       lisens:
+        range: Lisensdokument
         in_subset:
           - Anbefalt
       modell:
@@ -201,6 +203,7 @@ classes:
         in_subset:
           - Anbefalt
       lisens:
+        range: Lisensdokument
         in_subset:
           - Anbefalt
       tema:
@@ -223,6 +226,7 @@ classes:
         in_subset:
           - Valgfri
       erstatter:
+        range: Informasjonsmodell
         in_subset:
           - Valgfri
       har_del:
@@ -277,26 +281,6 @@ classes:
 
 slots:
 
-  # lisens: range er Lisensdokument (ikkje string som i dcat-ap-no)
-  lisens:
-    slot_uri: dct:license
-    range: Lisensdokument
-    description: Lisens for bruk av ressursen (dct:license).
-
-  # tema: range er Konsept (ikkje uriorcurie som i dcat-ap-no)
-  tema:
-    slot_uri: dcat:theme
-    range: Konsept
-    multivalued: true
-    description: Tema frå eit kontrollert vokabular (dcat:theme).
-
-  # har_del: range er KatalogisertRessurs (ikkje Katalog som i dcat-ap-no)
-  har_del:
-    slot_uri: dct:hasPart
-    range: KatalogisertRessurs
-    multivalued: true
-    description: Del-ressurs inkludert i denne ressursen (dct:hasPart).
-
   modell:
     slot_uri: modelldcatno:model
     range: Informasjonsmodell
@@ -319,13 +303,6 @@ slots:
     range: Informasjonsmodell
     multivalued: true
     description: Informasjonsmodell som erstattar denne (dct:isReplacedBy).
-
-  # erstatter: range er Informasjonsmodell (ikkje Datasett som i dcat-ap-no)
-  erstatter:
-    slot_uri: dct:replaces
-    range: Informasjonsmodell
-    multivalued: true
-    description: Informasjonsmodell som denne erstattar (dct:replaces).
 
   finnes_i_format:
     slot_uri: dct:hasFormat

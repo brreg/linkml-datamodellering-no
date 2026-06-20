@@ -475,12 +475,6 @@ slots:
 
   # ---- Modellelement -------------------------------------------------------
 
-  begrep:
-    slot_uri: dct:subject
-    range: Konsept
-    multivalued: true
-    description: Fagomgrep ressursen handlar om (dct:subject).
-
   har_egenskap:
     slot_uri: modelldcatno:hasProperty
     range: Egenskap
