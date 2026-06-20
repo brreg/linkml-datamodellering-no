@@ -129,7 +129,11 @@
       "Bash(curl -s https://data.norge.no/concepts/f6639f5e-280e-4dbb-991e-3faca3bf622c -H 'Accept: text/turtle')",
       "Bash(curl -s https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/47534952-c9c5-4ef1-a76f-8a76c74f11cd -H 'Accept: text/turtle')",
       "Bash(make new-begrep *)",
-      "Bash(make new-begrepskatalog *)"
+      "Bash(make new-begrepskatalog *)",
+      "Bash(cp src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml /tmp/brreg-backup.yaml)",
+      "Bash(sed -i 's#https://data.norge.no/organizations/974760673#https://data.norge.no/organizations/000000000#' src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml)",
+      "Bash(make mcp-val-test *)",
+      "Bash(git stash *)"
     ]
   },
   "enableAllProjectMcpServers": true,

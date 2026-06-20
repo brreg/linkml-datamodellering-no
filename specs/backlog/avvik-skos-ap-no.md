@@ -286,16 +286,137 @@ fagomrade:
 
 ---
 
-### SK5 — Legg til SHACL-reglar for språkkrav (Avvik 10–11)
+### SK5 (revidert 2026-06-20) — Avvik 10–11 må realiserast som `instance_checks` i medaljong-policyen, ikkje SHACL
 
-Desse krava kan ikkje modellerast i LinkML og krev eigne SHACL-reglar:
+Den opphavlege SK5 (hand-skriven SHACL-fil) er forlate — repoet har ingen
+mekanisme for hand-skrivne SHACL-tillegg utanom den auto-genererte SHACL-en
+frå `make publish`, og brukaren har valt å ikkje innføre ein slik mekanisme
+(jf. forrige avklaringsrunde).
 
-1. **Tospråkskrav**: `skos:prefLabel` må ha minst éin verdi med `@nb` og minst
-   éin med `@nn`.
-2. **Språkkonsistens**: minst eitt par `(skos:prefLabel, skos:definition)` eller
-   `(skos:prefLabel, euvoc:xlDefinition)` må dele same språktag.
+Den korrekte staden å realisere Avvik 10–11 er i stedet
+**`src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml`**, som
+allereie har eit presedens for instans-validering via `instance_checks:`
+(sjå `utgjevar_er_kjend_org` — validerer `dct:publisher`-URI-format på faktiske
+`Begrep`-instansar). Dette er «medaljong»-policysystemet (bronze → silver →
+gold → felles-begrepskatalog) som validerer skjema- og datakvalitet med
+`make mcp-validate POLICY=<nivå>`. Dette er konsistent med korleis
+`src/mcp-linkml-validator/policies/README.md` skil mellom skjemakvalitet og
+datakvalitet — Avvik 10–11 er begge **datakvalitet** (krav til faktiske
+språktaggverdiar i instansar), ikkje skjemastruktur.
 
-Lag `src/linkml/ap-no/skos-ap-no/skos-ap-no-shapes.ttl` med desse reglane.
+#### Oppdaga avgrensing i datamodellen
+
+Før ein sjekk kan skrivast, vart følgende undersøkt i
+`src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:
+
+- `anbefalt_term` (`skos:prefLabel`) er lagra som ei **rein strengliste utan
+  språk-tag per verdi**: `["nestleder", "nestleiar", "deputy chair"]`. Det finst
+  ingen `@nb`/`@nn`-markering eller anna metadata som skiller dei frå
+  hverandre.
+- JSON-LD-konteksten (`brreg-begrepskatalog-context.jsonld`) markerer feltet
+  som `"@type": "rdf:langString"`, men har **ingen per-verdi
+  `@language`-mekanisme** — `LangString` er definert som `base: str` i
+  `common-ap-no-schema.yaml` (brukt av *alle* AP-NO-profilar, ikkje berre
+  SKOS-AP-NO).
+- Dette heng saman med `specs/bugs/langstring-rdflib-roundtrip.md` (BUG-1):
+  `rdf:langString`-verdiar rundtrippar ikkje korrekt via TTL i det heile, så
+  språk-informasjon er upålitelig i denne delen av pipelinen uavhengig av
+  Avvik 10–11.
+- **Derimot** er språk *inferarbart* for `Definisjon`-objekt (`har_definisjon`
+  → `euvoc:xlDefinition`), via den etablerte ID-suffiks-konvensjonen som
+  allereie er i bruk: `https://begrep.brreg.no/def/nestleder-nb`,
+  `...-nn`, `...-en`.
+
+**Konsekvens:** ein fullstendig maskinell sjekk av Avvik 10 (krav til
+`skos:prefLabel`) kan ikkje skrivast i dag, sidan datalaget ikkje uttrykker
+kva språk ein gitt `anbefalt_term`-streng har. Ein sjekk avgrensa til
+`har_definisjon`-varianten er derimot gjennomførbar utan skjemaendring.
+
+#### Forslag A — Avgrensa sjekk for Avvik 10, gjennomførbar no (ingen skjemaendring)
+
+Ny `instance_check` i `felles-begrepskatalog.yaml`, etter mønsteret til
+`utgjevar_er_kjend_org`:
+
+```yaml
+instance_checks:
+  begrep_har_definisjon_pa_nb_og_nn:
+    severity: warning
+    description: >
+      Begrep med har_definisjon bør ha minst éi Definisjon med id som endar
+      på «-nb» og minst éi som endar på «-nn» (tospråkskravet, Avvik 10 i
+      avvik-skos-ap-no.md). Sjekken er avgrensa til ID-suffiks-konvensjonen
+      sidan LangString ikkje bærer språk-tag per verdi (jf. BUG-1).
+    check: instance_begrep_definisjon_language_coverage
+    relasjon_slot_uri: euvoc:xlDefinition   # har_definisjon
+    krev_spraak: [nb, nn]
+    id_suffiks_pattern: "-([a-z]{2})$"
+```
+
+Tilhøyrande Python-handler i `server.py` (ny `_INSTANCE_CHECK_HANDLERS`-nøkkel
+`instance_begrep_definisjon_language_coverage`):
+1. Finn alle `Begrep`-instansar og deira `har_definisjon`-lister (URI-ar).
+2. For hvert `Begrep`, sjekk om minst eitt referert `Definisjon.id` endar på
+   `-nb` og minst eitt endar på `-nn` (mønster frå `id_suffiks_pattern`).
+3. Generer `warning` for `Begrep` som har `har_definisjon` men manglar éin av
+   dei to.
+4. `Begrep` utan `har_definisjon` (berre `definisjon`/fritekst) hoppast over —
+   sjå avgrensing under.
+
+**Avgrensing:** dekker berre `har_definisjon`-varianten. `Begrep` som berre
+brukar `definisjon` (fritekst, `skos:definition`) kan ikkje sjekkast, av same
+grunn som `anbefalt_term` — ingen språk-tag per strengverdi.
+
+**Status: Forslag A er IMPLEMENTERT (2026-06-20).** Sjekken
+`begrep_har_definisjon_pa_nb_og_nn` (`check: instance_begrep_definisjon_language_coverage`)
+er lagt til i `src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml`,
+med tilhøyrande handler i `src/mcp-linkml-validator/server.py`. Verifisert mot
+reell produksjonsdata (`data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`):
+gir `warning` for `foretaksnavn` og `aksjeklasser` (manglar `-nn`), ingen
+varsel for `nestleder` (har `-nb`, `-nn` og `-en`). `make mcp-val-test` viser
+same 12 pre-eksisterande testfeil som før endringa (ikkje relatert til denne
+sjekken — stadfesta ved `git stash`-sammenligning).
+
+**Oppdaga sideeffekt (ikkje fiksa, utanfor denne oppgåva):** under
+verifisering vart det avdekt at den eksisterande `_check_instance_slot_uri_pattern`
+(brukt av `utgjevar_er_kjend_org`) sin `walk()`-funksjon ikkje rekursivt går inn
+i lister av objekt (t.d. `begrep: [...]`), og dermed aldri når nøsta `utgjevar`-felt
+i praksis — stadfesta empirisk ved å sette inn ein ugyldig orgnr-verdi i
+produksjonsdata utan at sjekken slo ut. Den nye
+`instance_begrep_definisjon_language_coverage`-handleren bruker ein korrekt
+rekursiv `walk()` som også går inn i lister, og er ikkje påvirka. Den
+eksisterande latente feilen bør vurderast som eigen bugfix/spec ved eit senere
+tilfelle.
+
+#### Forslag B — Full løysing for Avvik 10–11 (krev skjemaendring, eigen spec)
+
+For å dekke Avvik 10 fullt ut (også for `anbefalt_term`/fritekst-`definisjon`)
+og Avvik 11 (språkkonsistens mellom `anbefalt_term` og definisjon), må
+`LangString`-verdiar bære ein språk-tag per element. Dette er eit
+skjemadesign-spørsmål som påverkar *alle* AP-NO-profilar som brukar
+`LangString` (ikkje berre SKOS-AP-NO), og bør derfor utformast som ein eigen
+spesifikasjon (t.d. `specs/backlog/spraaktagging-av-langstring.md`) med minst
+to alternativ å vurdere:
+
+1. **Strukturert verdi** — bytt multivalued `LangString`-slots til ei liste av
+   eit `SprakTaggetTekst`-objekt med `verdi` (string) og `spraak` (range
+   `Spraak`/`string`). Mest i tråd med repoets prinsipp om lenking/objekt
+   framfor strengkonvensjonar, men eit brot med dagens `LangString: base: str`
+   og krev migrering av alle eksisterande datafiler som brukar `LangString`.
+2. **Inline språkkode i strengen** — t.d. `"nestleder@nb"`, parsa av
+   validator/generatorar. Krev ingen skjemaendring, men er ein uvanleg,
+   skjult konvensjon som ikkje er synleg i `range`-typen og lett å bryte.
+
+Begge alternativ krev òg ei vurdering av om/korleis BUG-1
+(`rdflib_loader`-roundtrip) påverkar løysinga, sidan språk-taggen må overleve
+TTL-roundtrip for å vere nyttig i praksis.
+
+**Til Avvik 11 (språkkonsistens) spesifikt:** krev i tillegg Forslag A eller B
+for `Definisjon`/`har_definisjon`-sida er på plass — sjekken «minst eitt par
+(anbefalt_term, definisjon) deler språk» kan først skrivast når begge sider av
+paret har ein verifiserbar språk-tag.
+
+**Status:** Forslag A og B er **ikkje implementerte** — dette er eit
+dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
 
 ---
 
@@ -307,7 +428,7 @@ Lag `src/linkml/ap-no/skos-ap-no/skos-ap-no-shapes.ttl` med desse reglane.
 | 2 | SK4: Rett `range` på `fagomrade` | `skos-ap-no-schema.yaml` | — |
 | 3 | SK1: Fiks retningsslots i `GeneriskRelasjon` og `PartitivRelasjon` | `skos-ap-no-schema.yaml` | — |
 | 4 | SK2: Juster subset for `definisjon` / `har_definisjon` | `skos-ap-no-schema.yaml` | — |
-| 5 | SK5: SHACL-reglar for tospråkskrav og språkkonsistens | `skos-ap-no-shapes.ttl` (ny) | SK1–SK4 |
+| 5 | SK5 (revidert): `instance_checks` for tospråkskrav og språkkonsistens | `felles-begrepskatalog.yaml` + `server.py` | SK1–SK4, og for Forslag B: ny spec `spraaktagging-av-langstring.md` |
 
 ---
 
@@ -316,7 +437,9 @@ Lag `src/linkml/ap-no/skos-ap-no/skos-ap-no-shapes.ttl` med desse reglane.
 - SK3 og SK4 er reine range-endringar og kan gjerast uavhengig av kvarandre
 - SK1 og SK2 krev gjennomgang av eksisterande `brreg-begrepskatalog`-datafiler
   for å sikre at reelle instansar framleis validerer etter endringa
-- SK5 (SHACL) bør kome etter SK1–SK4 er på plass
+- SK5 (revidert) — Forslag A er uavhengig av SK1–SK4 og kan gjerast når som helst;
+  Forslag B krev ein separat spec sidan det påverkar `LangString` på tvers av
+  alle AP-NO-profilar
 - Endringar i `skos-ap-no-schema.yaml` vil krevje ny validering og regenerering
   av alle skjema som importerer dette (`brreg-begrepskatalog-schema.yaml`)
 
@@ -337,13 +460,21 @@ Lag `src/linkml/ap-no/skos-ap-no/skos-ap-no-shapes.ttl` med desse reglane.
   `range: Konsept` (var `range: Begrep`).
 - **SK4:** `fagomrade` har no `range: Konsept` (var `range: Begrep`).
 
-**SK5 er IKKJE utført** — brukaren valde å hoppe over dette tiltaket. SK5 krev
-ein heilt ny mekanisme (hand-skriven SHACL-fil utanom den auto-genererte
-SHACL-en frå `make publish`); ingen tilsvarande artefakt finst andre stader i
-repoet. Tospråkskravet (Avvik 10) og språkkonsistenskravet (Avvik 11) står
-dermed framleis umodellerte. **Spesifikasjonen flyttast ikkje til `specs/done/`
-før SK5 er avklart og eventuelt utført** (jf. CLAUDE.md: berre flytt når alle
-tiltak er utførte).
+**SK5 er DELVIS utført (oppdatert 2026-06-20).** Den opphavlege
+SHACL-tilnærminga vart forlate — ingen mekanisme for hand-skrivne
+SHACL-tillegg finst i repoet, og brukaren valde å ikkje innføre ein slik
+mekanisme. SK5 vart i stedet revidert til `instance_checks` i
+`felles-begrepskatalog.yaml` (medaljong-policysystemet). **Forslag A er no
+implementert** — sjekken `begrep_har_definisjon_pa_nb_og_nn` validerer
+tospråkskravet (Avvik 10) for `har_definisjon`-varianten via
+ID-suffikskonvensjonen (sjå detaljar i seksjonen over). **Forslag B
+(full løysing for Avvik 10 på `anbefalt_term` + Avvik 11 språkkonsistens) er
+ikkje implementert** — krev språktagging av `LangString` på tvers av alle
+AP-NO-profilar og ein eigen spec (`spraaktagging-av-langstring.md`), per
+brukaren sitt valde scope for denne runda.
+**Spesifikasjonen flyttast ikkje til `specs/done/` før SK5 er fullstendig
+utført** (jf. CLAUDE.md: berre flytt når alle tiltak er utførte) — Avvik 11
+og delen av Avvik 10 som gjeld `anbefalt_term` står framleis open.
 
 **Ikkje adressert (ingen tilsvarande tiltak i spesifikasjonen):** Avvik 8
 (`relasjontype` støttar ikkje `skos:Concept`-range) og Avvik 9 (`verdiomrade`

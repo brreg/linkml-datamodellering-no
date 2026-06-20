@@ -332,6 +332,22 @@ checks:
 
 instance_checks:
 
+  # ── Tospråkskrav (Avvik 10, avvik-skos-ap-no.md) ─────────────────────────────
+  # Avgrensa til har_definisjon-varianten via ID-suffikskonvensjonen, sidan
+  # LangString ikkje bærer språk-tag per verdi (jf. specs/bugs/langstring-rdflib-roundtrip.md).
+
+  begrep_har_definisjon_pa_nb_og_nn:
+    severity: warning
+    description: >
+      Begrep med har_definisjon bør ha minst éi Definisjon med id som endar
+      på «-nb» og minst éi som endar på «-nn» (tospråkskravet, Avvik 10 i
+      avvik-skos-ap-no.md). Sjekken er avgrensa til ID-suffiks-konvensjonen
+      sidan LangString ikkje bærer språk-tag per verdi.
+    check: instance_begrep_definisjon_language_coverage
+    relasjon_slot_uri: euvoc:xlDefinition
+    krev_spraak: [nb, nn]
+    id_suffiks_pattern: "-([a-z]{2})$"
+
   # ── Instans-validering av utgjevar-URI ────────────────────────────────────────
 
   utgjevar_er_kjend_org:
