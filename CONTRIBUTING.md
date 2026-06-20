@@ -89,6 +89,17 @@ chore(*): oppdater CI-konfigurasjon
 Bruk `*` for endringar som ikkje tilhøyrer éin bestemt modell. CI validerer
 commit-format automatisk via commitlint.
 
+## Nye verktøyavhengigheiter
+
+Legger du til eit nytt verktøy i `Dockerfile*`, `requirements*.txt` eller
+`.github/workflows/*.yml` — vurder om verktøyet endar opp bundla i eit
+containerbilete eller ein artefakt som publiseres (GHCR, GitHub Pages).
+I så fall: sjekk lisensen og legg verktøyet til i attributions-tabellen i
+[`mkdocs/docs/om.md`](mkdocs/docs/om.md) dersom lisensen krev det (typisk MIT,
+BSD, Apache-2.0, EPL). Sjå
+[`specs/done/verktoy-lisensoversikt.md`](specs/done/verktoy-lisensoversikt.md)
+for metode og eksisterande klassifisering.
+
 ## Pull request
 
 1. Lag ein ny branch frå `main`
