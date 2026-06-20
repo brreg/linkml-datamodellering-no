@@ -43,11 +43,15 @@ classes:
       - id
       - har_anbefalt_term
       - har_definisjon
+      - gjelder_standard
     slot_usage:
       har_anbefalt_term:
         in_subset:
           - Anbefalt
       har_definisjon:
+        in_subset:
+          - Anbefalt
+      gjelder_standard:
         in_subset:
           - Anbefalt
 
@@ -262,6 +266,17 @@ slots:
     slot_uri: oa:hasTarget
     range: uriorcurie
     description: Datasett, distribusjon eller datatjeneste merknaden gjeld.
+
+  # gjelder_standard brukar range: uriorcurie (ikkje Standard) av samme grunn
+  # som har_maal ovanfor: Standard er definert i dcat-ap-no-schema.yaml, som
+  # importerer dqv-core-schema.yaml — ein direkte klassereferanse her ville
+  # skapt sirkulær import. Sjå BUG-6 i specs/bugs/ for kvifor dette slottet
+  # ligg her (på Kvalitetsdimensjon) i staden for som eit slot på Standard.
+  gjelder_standard:
+    slot_uri: dqvno:appliesToStandard
+    range: uriorcurie
+    multivalued: true
+    description: Standard(ar) denne kvalitetsdimensjonen gjeld for.
 
   er_kvalitetsmaaling_av:
     slot_uri: dqv:isMeasurementOf

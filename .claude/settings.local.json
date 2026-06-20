@@ -149,7 +149,15 @@
       "Bash(curl -s --max-time 10 \"https://api.github.com/repos/python/cpython\")",
       "Bash(curl -s --max-time 10 \"https://api.github.com/repos/containers/podman\")",
       "Bash(curl -sL --max-time 10 \"https://raw.githubusercontent.com/containers/podman/main/LICENSE\")",
-      "Bash(curl -s --max-time 10 \"https://pypi.org/pypi/avrotize/json\")"
+      "Bash(curl -s --max-time 10 \"https://pypi.org/pypi/avrotize/json\")",
+      "Bash(timeout 120 make schema-gen-json-schema SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
+      "Bash(timeout 120 make schema-gen-owl SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(cp -r src/linkml/ap-no /tmp/license-test/ap-no)",
+      "Bash(cp -r src/linkml/samt /tmp/license-test/samt)",
+      "Bash(cp -r src/linkml/ap-no /tmp/license-test2)",
+      "Bash(cp -r src/linkml/ap-no /tmp/license-test2/ap-no)",
+      "Bash(timeout 60 make schema-gen-json-schema SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)"
     ]
   },
   "enableAllProjectMcpServers": true,

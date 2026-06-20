@@ -44,24 +44,14 @@ imports:
 #
 # dqv-ap-no bidreg med:
 #   1. Narrowing av har_maal.range frå uriorcurie til KatalogisertRessurs
-#   2. Standard-klasse override med er_i_kvalitetsdimensjon (DQV-spesifikt slot)
-
-# ---------------------------------------------------------------------------
-# Klasser
-# ---------------------------------------------------------------------------
-
-classes:
-
-  # Standard-klassen er definert i dcat-ap-no-schema.yaml (importert).
-  # Her vert berre det DQV-spesifikke slottet lagt til via class override.
-  Standard:
-    description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
-    slots:
-      - er_i_kvalitetsdimensjon
-    slot_usage:
-      er_i_kvalitetsdimensjon:
-        in_subset:
-          - Anbefalt
+#
+# Merk (BUG-6, sjå specs/bugs/dqv-standard-class-override.md): eit tidligare
+# forsøk på å «utvide» Standard-klassen (importert frå dcat-ap-no-schema.yaml)
+# med eit DQV-spesifikt slot via class override er fjerna herfrå. LinkML sin
+# merge-mekanisme støttar ikkje delvis utviding av ei importert klasse på
+# tvers av skjema — sjå BUG-6 for detaljar. Relasjonen mellom Kvalitetsdimensjon
+# og Standard er i staden modellert omvendt, som gjelder_standard på
+# Kvalitetsdimensjon i dqv-core-schema.yaml.
 
 # ---------------------------------------------------------------------------
 # Slots (berre DQV-AP-NO-spesifikke — ikkje i dqv-core)
