@@ -157,7 +157,10 @@
       "Bash(cp -r src/linkml/samt /tmp/license-test/samt)",
       "Bash(cp -r src/linkml/ap-no /tmp/license-test2)",
       "Bash(cp -r src/linkml/ap-no /tmp/license-test2/ap-no)",
-      "Bash(timeout 60 make schema-gen-json-schema SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)"
+      "Bash(timeout 60 make schema-gen-json-schema SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
+      "Bash(make modellkatalog *)",
+      "Bash(make clean *)",
+      "Bash(echo \"exit: $?\")"
     ]
   },
   "enableAllProjectMcpServers": true,
