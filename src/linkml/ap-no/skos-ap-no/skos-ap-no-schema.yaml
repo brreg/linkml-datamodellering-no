@@ -121,10 +121,10 @@ classes:
           - Obligatorisk
       definisjon:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       har_definisjon:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       ansvarleg_verksemd:
         in_subset:
           - Anbefalt
@@ -264,10 +264,10 @@ classes:
     slot_usage:
       har_generisk_omgrep:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       har_spesifikt_omgrep:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       beskrivelse:
         in_subset:
           - Anbefalt
@@ -283,10 +283,10 @@ classes:
     slot_usage:
       har_partitivt_omgrep:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       har_heilskapleg_omgrep:
         in_subset:
-          - Obligatorisk
+          - Anbefalt
       beskrivelse:
         in_subset:
           - Anbefalt
@@ -377,7 +377,7 @@ slots:
 
   fagomrade:
     slot_uri: dct:subject
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Fagområde omgrepet høyrer til (dct:subject).
 
@@ -497,7 +497,7 @@ slots:
 
   euvoc_status:
     slot_uri: euvoc:status
-    range: Begrep
+    range: Konsept
     description: Status for omgrepet frå eit kontrollert vokabular (euvoc:status).
 
   verdiomrade:
@@ -513,7 +513,7 @@ slots:
 
   kjelde_relasjon:
     slot_uri: skosno:relationshipWithSource
-    range: Begrep
+    range: Konsept
     description: Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource).
 
   kjelde:
@@ -524,7 +524,7 @@ slots:
 
   malgruppe_def:
     slot_uri: dct:audience
-    range: Begrep
+    range: Konsept
     description: Målgruppe definisjonen er retta mot (dct:audience).
 
   til_omgrep:
