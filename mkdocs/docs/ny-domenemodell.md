@@ -316,6 +316,21 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] Alle globale slots har slot_uri
 [ ] make mcp-validate POLICY=bronze gir 0 feil
 [ ] Om data_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
-    annotations.utgivelsesdato og annotations.status er fylt inn
+    annotations.utgivelsesdato, annotations.status og annotations.oppdateringsfrekvens
+    er fylt inn
 [ ] make test køyrer utan feil
 ```
+
+### Valfritt: engelsk skildring for internasjonalt synlege skjema
+
+Digdirs rettleiar for åpne data anbefaler engelske skildringar for data som skal vere
+synlege internasjonalt. Dette er **ikkje eit policy-krav**, men kan leggjast til som:
+
+```yaml
+annotations:
+  title_en: "TODO: English title"
+  description_en: "TODO: English description"
+```
+
+Omsetjinga krev fagkunnskap om innhaldet og er ei vurdering for codeowner av det
+einskilde skjemaet — ikkje noko som vert generert automatisk eller krevd av CI.

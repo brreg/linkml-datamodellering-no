@@ -73,6 +73,7 @@ annotations:
   endringsdato: "YYYY-MM-DD"
   utgivelsesdato: "YYYY-MM-DD"
   status: http://purl.org/adms/status/UnderDevelopment
+  oppdateringsfrekvens: http://publications.europa.eu/resource/authority/frequency/IRREG
 ```
 
 Sjå [Ny domenemodell](ny-domenemodell.md) for full rettleiing om korleis ein modellerer.
@@ -88,6 +89,14 @@ make update-modellkatalog
 Scriptet finn alle skjema med `annotations.utgiver` matchande org-URI, og
 oppretter nye stub-innslag i katalogdatafila for skjema som ikkje er registrerte enno.
 Stubs har `TODO`-verdiar for felt som `tema` og `lisens` — desse må fyllast inn manuelt.
+
+**Konvensjon:** Modellkatalogen skal liste **alle** skjema org-en forvaltar — også
+modellar som ikkje er ferdige enno. Sett `annotations.status` til
+`http://purl.org/adms/status/UnderDevelopment` for utkast. Modellkatalogen er den
+maskinlesbare oversikta rettleiaren *Veileder for tilgjengeliggjøring av åpne data*
+krev (jf. punkt 12 — «òg for data som ikkje er tilgjengelege enno»), så ufullstendige
+modellar skal vere synlege i katalogen med korrekt status, ikkje utelatne til dei er
+klare.
 
 For å køyre berre for éin org:
 ```bash

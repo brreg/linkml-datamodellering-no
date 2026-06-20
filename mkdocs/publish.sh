@@ -343,6 +343,9 @@ site_name:  Norske W3C-profiler og offentlige domenemodeller i LinkML-format
 site_description: Norske W3C-applikasjonsprofiler og offentlige domenemodeller i LinkML-format
 site_url: https://brreg.github.io/linkml-datamodellering-no
 docs_dir: docs
+copyright: >
+  Repoet er lisensiert under <a href="https://github.com/brreg/linkml-datamodellering-no/blob/main/LICENSE">MIT-lisens</a>.
+  Dei enkelte modellane har egne lisensar — sjå <code>license:</code>-feltet i det einskilde skjemaet.
 
 theme:
   name: material
@@ -394,6 +397,7 @@ validation:
 nav:
   - Rettleiingar:
       - index.md
+      - Om: om.md
       - Bruk frå eksternt repo: ekstern-bruk.md
       - Bli modelleigar: ny-org.md
       - Ny domenemodell: ny-domenemodell.md

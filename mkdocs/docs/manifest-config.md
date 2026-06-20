@@ -35,6 +35,7 @@ generators:
   docs: true
   plantuml: true
   example_rdf: true
+  openapi: true
 ```
 
 ### Datafil-manifest (manglar `generators:`-seksjon)
@@ -111,6 +112,7 @@ generators:
   docs: true
   plantuml: true
   example_rdf: true
+  openapi: true
 ```
 
 **FINT** (`rdf: false` pga. HTTP-feil ved JSON-LD-kontekstoppslag; SHACL- og OWL-flagg
@@ -135,6 +137,7 @@ generators:
   docs: true
   plantuml: true
   example_rdf: false
+  openapi: true
 ```
 
 **AP-NO / FAIR** (`example_rdf: false` — desse skjemaa har ingen `tree_root` og kan
@@ -158,6 +161,7 @@ generators:
   docs: true
   plantuml: true
   example_rdf: false
+  openapi: true
 ```
 
 ## Korleis det fungerer
