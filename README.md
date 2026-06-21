@@ -123,7 +123,7 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| fair | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | oreg | Offentlege register. |
@@ -138,7 +138,7 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
+| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | **FAIR**-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)

@@ -165,7 +165,13 @@
       "Bash(git checkout *)",
       "Bash(timeout 580 make validate)",
       "Bash(tee /tmp/validate-output.txt)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(make samt *)",
+      "Bash(tee /tmp/make-samt-output.log)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(xargs -I{} echo {})",
+      "Bash(git log *)"
     ]
   },
   "enableAllProjectMcpServers": true,
