@@ -9,9 +9,11 @@ ressurs for arbeid med informasjonsmodellering, i tråd med
 Det skal gjere det enklare for offentlege verksemder og næringsliv å modellere, validere og
 publisere begreps- og informasjonsmodellar etter norske og europeiske standardar
 (DCAT-AP-NO, SKOS-AP-NO m.fl.), og å dele felles verktøy og applikasjonsprofilar
-på tvers av organisasjonar.
+på tvers av organisasjonar. 
 
-Dette repoet fremmer samarbeid gjennom standardiserte formater, felles verktøy og en felles infrastruktur etter prinsippet "Lett å gjøre rett!"
+Dette repoet stimulerer samarbeid og deling gjennom standardiserte formater, felles verktøy og en felles infrastruktur etter prinsippet "Lett å gjere rett!"
+
+Ikkje minst legges det tilrete for å eksportere modeller og data på W3C-semantiske format som saman med bruk av offentlige ontologiar og felles begrep gjer at dataene blir innebygd lenkbare på tvers av datasett.
 
 ## Kontakt
 

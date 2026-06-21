@@ -22,6 +22,7 @@ fi
 
 # Les org-metadata frå CODEOWNERS.md-frontmatter
 ORG_META=$(python3 - "$ALIAS" "$CODEOWNERS" << 'PYEOF'
+import shlex
 import sys, yaml
 
 alias = sys.argv[1]
@@ -45,7 +46,7 @@ if alias not in orgs:
 org = orgs[alias]
 for k in ("name", "org_uri", "catalog_slug", "catalog_title", "contact_uri"):
     val = org.get(k, "TODO")
-    print(f"{k}={val}")
+    print(f"{k}={shlex.quote(str(val))}")
 PYEOF
 )
 
@@ -163,7 +164,7 @@ modellkataloger:
   tittel:
   - $catalog_title
   beskrivelse:
-  - TODO: legg til skildring av katalogen
+  - "TODO: legg til skildring av katalogen"
   identifikator_literal: $CATALOG_BASE_URI
   utgiver: $org_uri
   kontaktpunkt:
@@ -177,7 +178,7 @@ informasjonsmodeller: []
 aktoerer:
 - id: $contact_uri
   navn_aktoer:
-  - TODO: namn på kontaktpunktet
+  - "TODO: namn på kontaktpunktet"
 - id: $org_uri
   navn_aktoer:
   - $name

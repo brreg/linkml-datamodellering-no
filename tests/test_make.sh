@@ -381,7 +381,10 @@ test_roundtrip_ttl() {
     fi
     # BUG-1: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
     # Sjå specs/bugs/langstring-rdflib-roundtrip.md
-    if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" ]]; then
+    if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" || \
+          "$name" == "digdir-modellkatalog" || "$name" == "novari-modellkatalog" || \
+          "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
+          "$name" == "kartverket-modellkatalog" ]]; then
         echo "Hoppar over roundtrip-ttl for $name (BUG-1: linkml-runtime LangString-bug)"
         return 0
     fi

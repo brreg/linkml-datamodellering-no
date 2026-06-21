@@ -1,0 +1,43 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
+  tittel:
+  - KS Digital – Modellkatalog
+  beskrivelse:
+  - 'TODO: legg til skildring av katalogen'
+  identifikator_literal: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
+  utgiver: https://data.norge.no/organizations/971032146
+  kontaktpunkt:
+  - https://www.ks.no/fagomrader/digitalisering/
+  har_del:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu
+  modell:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu
+  tittel:
+  - SAMT – Barnehagar og skular
+  beskrivelse:
+  - Ontodia-vennlig LinkML-modell for skoler
+  utgiver: https://data.norge.no/organizations/971032146
+  identifikator_literal: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/
+  kontaktpunkt:
+  - https://www.ks.no/fagomrader/digitalisering/
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2026-06-10'
+  status: http://purl.org/adms/status/UnderDevelopment
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 1.0.2
+aktoerer:
+- id: https://www.ks.no/fagomrader/digitalisering/
+  navn_aktoer:
+  - 'TODO: namn på kontaktpunktet'
+- id: https://data.norge.no/organizations/971032146
+  navn_aktoer:
+  - KS Digital

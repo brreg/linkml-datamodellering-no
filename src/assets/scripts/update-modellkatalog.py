@@ -4,8 +4,8 @@ update-modellkatalog.py
 Les silver-annotasjonar frå alle skjema og oppdaterer Informasjonsmodell-innslag
 i per-org modellkatalogar. Eigarskapsregisteret vert lese frå CODEOWNERS.md.
 
-Oppdaterte felt (henta frå annotations.*):
-  utgiver, endringsdato, utgivelsesdato, status
+Oppdaterte felt (henta frå annotations.* og schema.version):
+  utgiver, endringsdato, utgivelsesdato, status, versjonsnummer
 
 Ikkje-oppdaterte felt (manuelt vedlikehaldne):
   tittel, beskrivelse, tema, lisens, kontaktpunkt, m.m.
@@ -24,6 +24,11 @@ import yaml
 CODEOWNERS_PATH = "CODEOWNERS.md"
 CATALOG_DATA_TEMPLATE = "src/linkml/modellkatalog/{slug}/data/{slug}/{slug}.yaml"
 PORTAL_BASE = "https://brreg.github.io/linkml-datamodellering-no"
+RELEASE_MANIFEST_PATH = ".release-please-manifest.json"
+
+# modellkatalog er outputdomenet (sjølvreferanse), begrepskatalog er SKOS-AP-NO
+# (ein annan artefakttype enn Informasjonsmodell), referanse er ikkje-produksjon.
+EXCLUDED_DOMAINS = {"referanse", "modellkatalog", "begrepskatalog"}
 
 ANNOTATION_FIELD_MAP = [
     ("utgiver",        "utgiver"),
@@ -47,8 +52,25 @@ def load_org_registry(codeowners_path=CODEOWNERS_PATH):
     return {org["org_uri"]: org for org in orgs}
 
 
-def load_annotated_schemas(root="src/linkml"):
-    """Load all schemas with annotations.utgiver."""
+def load_release_manifest(path=RELEASE_MANIFEST_PATH):
+    """Load .release-please-manifest.json. Returns dict keyed on package path."""
+    if not os.path.isfile(path):
+        return {}
+    import json
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def load_annotated_schemas(root="src/linkml", release_manifest=None):
+    """Load all schemas with annotations.utgiver.
+
+    versjonsnummer kjem frå .release-please-manifest.json (nøkkel: skjemaet sin
+    katalogsti), sidan schema.version vist seg å vere upålitelig — release-please
+    sin extra-files-mekanisme oppdaterer ikkje alltid version-feltet i YAML-fila
+    direkte. Fallback til schema.version berre for skjema som ikkje er
+    release-please-pakkar (t.d. common-ap-no, xkos-ap-no).
+    """
+    release_manifest = release_manifest or {}
     schemas = []
     for path in sorted(glob.glob(f"{root}/*/*/*.yaml")):
         if not path.endswith("-schema.yaml"):
@@ -57,11 +79,15 @@ def load_annotated_schemas(root="src/linkml"):
             data = yaml.safe_load(fh)
         if not data:
             continue
+        parts = path.split("/")
+        domain = parts[2] if len(parts) >= 3 else "unknown"
+        if domain in EXCLUDED_DOMAINS:
+            continue
         anns = data.get("annotations") or {}
         if not anns.get("utgiver"):
             continue
-        parts = path.split("/")
-        domain = parts[2] if len(parts) >= 3 else "unknown"
+        package_path = os.path.dirname(path)
+        version = release_manifest.get(package_path, data.get("version"))
         schemas.append({
             "path": path,
             "name": data.get("name"),
@@ -70,6 +96,7 @@ def load_annotated_schemas(root="src/linkml"):
             "schema_id": data.get("id"),
             "domain": domain,
             "annotations": anns,
+            "version": version,
         })
     return schemas
 
@@ -108,6 +135,10 @@ def update_entry(entry, schema):
         if val is not None and entry.get(entry_key) != val:
             entry[entry_key] = val
             changed = True
+    version = schema.get("version")
+    if version is not None and entry.get("versjonsnummer") != version:
+        entry["versjonsnummer"] = version
+        changed = True
     return changed
 
 
@@ -131,6 +162,8 @@ def make_stub(schema, org, catalog_base):
         val = schema["annotations"].get(ann_key)
         if val:
             stub[entry_key] = val
+    if schema.get("version") is not None:
+        stub["versjonsnummer"] = schema["version"]
     return stub
 
 
@@ -153,7 +186,7 @@ def process_org(org, schemas, dry_run):
         catalog_base = catalog["modellkataloger"][0].get("id", "").rstrip("/")
 
     updated_names = []
-    unmatched = []
+    added_names = []
 
     for schema in schemas:
         name = schema["name"]
@@ -163,22 +196,25 @@ def process_org(org, schemas, dry_run):
             if update_entry(entry_by_name[name], schema):
                 updated_names.append(name)
         else:
-            unmatched.append(schema)
+            stub = make_stub(schema, org, catalog_base)
+            entries.append(stub)
+            entry_by_name[name] = stub
+            added_names.append(name)
+            if catalog.get("modellkataloger"):
+                modellkatalog = catalog["modellkataloger"][0]
+                modellkatalog.setdefault("har_del", []).append(stub["id"])
+                modellkatalog.setdefault("modell", []).append(stub["id"])
 
     if updated_names:
         print(f"  Oppdaterte: {', '.join(updated_names)}")
-    if unmatched:
-        print(f"  Ikkje i katalogen (legg til manuelt om ønskjeleg):")
-        for s in unmatched:
-            stub = make_stub(s, org, catalog_base)
-            print(f"    {s['name']} ({s['path']})")
-            print(f"    Foreslått stub-ID: {stub['id']}")
-    if not updated_names and not unmatched:
+    if added_names:
+        print(f"  Lagt til som nye stubs (treng manuell utfylling av TODO-felt): {', '.join(added_names)}")
+    if not updated_names and not added_names:
         print("  Ingen endringar.")
 
     catalog["informasjonsmodeller"] = entries
 
-    if not dry_run and updated_names:
+    if not dry_run and (updated_names or added_names):
         with open(catalog_path, "w", encoding="utf-8") as fh:
             yaml.dump(
                 catalog,
@@ -188,7 +224,7 @@ def process_org(org, schemas, dry_run):
                 default_flow_style=False,
             )
         print(f"  Skreiv {catalog_path}")
-    elif dry_run and updated_names:
+    elif dry_run and (updated_names or added_names):
         print("  (--dry-run: ingen filer endra)")
 
 
@@ -208,7 +244,7 @@ def main(argv=None):
         print("FEIL: Ingen organisasjonar funne i CODEOWNERS.md-frontmatter.", file=sys.stderr)
         sys.exit(1)
 
-    schemas = load_annotated_schemas()
+    schemas = load_annotated_schemas(release_manifest=load_release_manifest())
     if not schemas:
         print("Ingen skjema med annotations.utgiver funne.")
         return
