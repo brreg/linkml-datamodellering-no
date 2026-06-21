@@ -49,6 +49,24 @@ informasjonsmodeller:
   endringsdato: '2026-06-10'
   versjonsnummer: 1.0.1
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  inneholder_modellelement:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Aktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Signaturrett
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Prokura
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Forretningsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Beliggenhetsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Person
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   tittel:
   - Register over aksjeeigarar
@@ -70,6 +88,25 @@ informasjonsmodeller:
   endringsdato: '2026-06-19'
   versjonsnummer: 1.0.1
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  inneholder_modellelement:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjekapital
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utdeling
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Tidspunkt
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeoverdragelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Vederlag
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Selskapshendelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltAksjekapital
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltOverkurs
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
   tittel:
   - FAIR Metadata Overbygning
@@ -85,13 +122,19 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://brreg.no/kontakt/modellforvaltning
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/digitalisering
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2024-01-01'
   status: http://purl.org/adms/status/Completed
   type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
   versjonsnummer: 1.0.1
+  inneholder_modellelement:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
   tittel:
   - Enhetsregisteret – BVINN
@@ -103,13 +146,53 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://brreg.no/kontakt/modellforvaltning
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/naringsliv
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2026-06-10'
   status: http://purl.org/adms/status/UnderDevelopment
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   versjonsnummer: 1.0.0
+  inneholder_modellelement:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signering
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig
 aktoerer:
 - id: https://brreg.no/kontakt/modellforvaltning
   navn_aktoer:
@@ -128,3 +211,3728 @@ kvalitetsmaalingar:
   har_tekst_verdi: P1D
   har_merknad:
   - Eldste endringsdato blant informasjonsmodellar er 1 dag(ar) gammal.
+objekttyper:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata
+  tittel:
+  - FAIRMetadata
+  beskrivelse:
+  - 'Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+
+    '
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/ressursIdentifikator
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/ressurstype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/beskrivelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/tilgangsmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/gjenbruksmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/proveniensmetadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/katalogregistrering
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata
+  tittel:
+  - Tilgangsmetadata
+  beskrivelse:
+  - Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2).
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsURL
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsprotokoll
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsrettar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/autentiseringPaakrevd
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/metadataPersistens
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata
+  tittel:
+  - Gjenbruksmetadata
+  beskrivelse:
+  - Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3).
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/lisens
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/bruksavgrensingar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/standardoverensstemming
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/vokabular
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata
+  tittel:
+  - Proveniensmetadata
+  beskrivelse:
+  - Metadata om opphav og endringshistorie (FAIR R1.2).
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/ansvarlegAktoer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/generertAvAktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/opprettingsdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/endringsdato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering
+  tittel:
+  - Katalogregistrering
+  beskrivelse:
+  - Dokumenterer registrering i søkbar katalog (FAIR F4).
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/registrertIKatalog
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/katalogOppfoeringURL
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/registreringsdato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet
+  tittel:
+  - Underenhet
+  beskrivelse:
+  - Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining
+    vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/oppstartsdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/eierskiftedatoer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/nedleggelsesdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_beliggenhetsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/organisasjonsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_tilstand
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/mottar_post_paa
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/er_klassifisert_som_organisasjonsform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_kontaktinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_varslingsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/er_klassifisert_i_naeringskode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/antall_ansatte
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet
+  tittel:
+  - Hovedenhet
+  beskrivelse:
+  - Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS,
+    ENK, BA). Kan ha undereiningar og rolleinnehavarar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/utoevar_aktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_i_sektorkode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_rolle_i_virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_bestemmelser_om_signaturrett
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_bestemmelser_om_prokura
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/stiftelsesdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_forretningsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/organisasjonsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_tilstand
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/mottar_post_paa
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_som_organisasjonsform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_kontaktinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_varslingsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_i_naeringskode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/antall_ansatte
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand
+  tittel:
+  - Tilstand
+  beskrivelse:
+  - Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldigheitsperiode
+    for historisk sporing.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/tilstandstype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/gyldig_fra
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/gyldig_til
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform
+  tittel:
+  - Organisasjonsform
+  beskrivelse:
+  - Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF). Kodeverk
+    forvalta av Enhetsregisteret.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform/organisasjonsform_kode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform/organisasjonsform_beskrivelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode
+  tittel:
+  - Naeringskode
+  beskrivelse:
+  - Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd
+    kan ha 1–3 næringskoder.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_kode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_beskrivelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/er_hovednaeringskode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode
+  tittel:
+  - Sektorkode
+  beskrivelse:
+  - Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d.
+    offentleg, privat).
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode/sektorkode_kode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode/sektorkode_beskrivelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon
+  tittel:
+  - Kontaktinformasjon
+  beskrivelse:
+  - Kontaktinformasjon for verksemda registrert i Enhetsregisteret.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/epostadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/telefonnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/mobiltelefonnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/nettside
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse
+  tittel:
+  - Varslingsadresse
+  beskrivelse:
+  - Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert brukt
+    for offisielle meldingar frå offentlege styresmakter.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse/varslingstype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse/varslingsverdi
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Aktivitet
+  tittel:
+  - Aktivitet
+  beskrivelse:
+  - Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen
+    eller føremålet til verksemda.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Aktivitet/aktivitet_beskrivelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet
+  tittel:
+  - RolleIVirksomhet
+  beskrivelse:
+  - Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle
+    kan ha éin eller fleire rolleinnehavarar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet/rollebetegnelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet/har_rolleinnehaver
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver
+  tittel:
+  - Rolleinnehaver
+  beskrivelse:
+  - Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret)
+    eller ei anna eining.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver/kan_vaere_av_type_person
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver/rolleinnehaver_navn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Signaturrett
+  tittel:
+  - Signaturrett
+  beskrivelse:
+  - Bestemmelse om kven som har rett til å signere på vegne av verksemda (t.d. "Styret
+    i fellesskap" eller "Dagleg leiar aleine").
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Signaturrett/signaturrett_bestemmelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Prokura
+  tittel:
+  - Prokura
+  beskrivelse:
+  - Prokura gjev ein person fullmakt til å handle på vegne av verksemda i næringssaker.
+    Verksemda kan ha fleire prokuraistar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Prokura/prokura_bestemmelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Postadresse
+  tittel:
+  - Postadresse
+  beskrivelse:
+  - Postadressa verksemda mottar post på.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Forretningsadresse
+  tittel:
+  - Forretningsadresse
+  beskrivelse:
+  - Forretningsadressa til hovudeininga – adressa der hovudkontoret held til.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Beliggenhetsadresse
+  tittel:
+  - Beliggenhetsadresse
+  beskrivelse:
+  - Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten vert
+    utøvd.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Person
+  tittel:
+  - Person
+  beskrivelse:
+  - Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret. Enhetsregisteret
+    nyttar kopi av data frå Folkeregisteret.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering
+  tittel:
+  - Innrapportering
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/versjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsendertjenste
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsendingstidspunkt
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/maalformForTilbakemelding
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/tjenestevariant
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/virksomhetsinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsender
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/fagsystemReferanse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/signering
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/gebyransvarlig
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/lenkeForEttersending
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet
+  tittel:
+  - VirksomhetsinformasjonHovedenhet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/organisasjonsform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/virksomhetstype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/organisasjonsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/maalform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/oppfyllerKravTilNaeringsvirksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/venterAAFaaAnsatte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/datoForAvtale
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/stiftelsesdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/vedtektsdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/formaal
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/harAnsvarsbegrensning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/ansvarsform
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/forretningsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/varslingsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/kontaktopplysning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/virksomhetsinformasjonUnderenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/aktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/omdanning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/rolletypegruppe
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/prokura
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/signaturrett
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/meldtOpploesning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/meldtOmgjoeringAvOpploesning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/foretaksinformasjon
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/eierskifte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/bekreftelseProtokollSletting
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/matrikkelnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/registrertITilknyttetRegister
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/bekreftelseProtokollOpploesningOgOmgjoering
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse
+  tittel:
+  - Forretningsadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/coNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/vNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/utgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/stedsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/vegadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
+  tittel:
+  - Stedsadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/stedsnavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/kommunenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
+  tittel:
+  - Vegadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/vegadresseId
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/adressenavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/bruksenhetsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/nummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/adressetilleggsnavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/kommunenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer
+  tittel:
+  - Adressenummer
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer/nummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer/bokstav
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse
+  tittel:
+  - Varslingsadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse/mobilnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse/e_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+  tittel:
+  - Mobilnummer
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer/internasjonaltPrefiks
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer/nasjonaltNummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse
+  tittel:
+  - Postadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/coNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/vNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/utgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/vegadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/postboksadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/internasjonalAdresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/stedsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse
+  tittel:
+  - Postboksadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postboksnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postboksanleggsnavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse
+  tittel:
+  - InternasjonalAdresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adressenavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adressenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/bygning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/etasjenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/boenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/postboks
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/postkode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/byEllerStedsnavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/region
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/distriktEllerBydel
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/friAdressetekst
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adresseidentifikator
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/landkode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning
+  tittel:
+  - Kontaktopplysning
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/mobilnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/e_postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/nettadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/mobilnummerUtgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/e_postadresseUtgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/nettadresseUtgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/telefonnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/telefonnummerUtgaar
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer
+  tittel:
+  - Telefonnummer
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer/internasjonaltPrefiks
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer/nasjonaltNummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet
+  tittel:
+  - VirksomhetsinformasjonUnderenhet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/oppstartsdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/organisasjonsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/nedleggelsesdato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/beliggenhetsadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/kontaktopplysning
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/aktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse
+  tittel:
+  - Beliggenhetsadresse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/coNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/vNavn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/vegadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/stedsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
+  tittel:
+  - Aktivitet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet/aktivitet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet/datoGyldigFra
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet
+  tittel:
+  - TypeAktivitet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/rekkefoelge
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/aktivitetskode
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/tekst
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning
+  tittel:
+  - Omdanning
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning/nyOrganisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe
+  tittel:
+  - Rolletypegruppe
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/rollegruppe
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/utgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/kjoennssammensetningAnsattvalgte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/kjoennssammensetningStyre
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/rolle
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/bekreftelseProtokoll
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle
+  tittel:
+  - Rolle
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/rolletype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/tildelerAvRolle
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/rolleinnehaver
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver
+  tittel:
+  - Rolleinnehaver
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/oenskerAAFratre
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/ansvarsandel
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/avdelingskontor
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/fratredenErVarslet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/valgtAv
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel
+  tittel:
+  - Ansvarsandel
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel/broek
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel/prosent
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek
+  tittel:
+  - Broek
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek/teller
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek/nevner
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+  tittel:
+  - Virksomhet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet/virksomhetsidentifikator
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet/navn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+  tittel:
+  - Person
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person/mappingId
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person/fulltNavn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura
+  tittel:
+  - Prokura
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/utgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/prokurabestemmelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/bekreftelseProtokoll
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse
+  tittel:
+  - Prokurabestemmelse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse/regel
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse/rollesett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett
+  tittel:
+  - Rollesett
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/rolletype
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/signaturberettigetEllerProkurist
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/minsteMengdeangivelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/minsteAntall
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist
+  tittel:
+  - SignaturberettigetEllerProkurist
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist/virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist/person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett
+  tittel:
+  - Signaturrett
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/utgaar
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/signaturrettsbestemmelsse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/bekreftelseProtokoll
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse
+  tittel:
+  - Signaturrettsbestemmelse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse/regel
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse/rollesett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon
+  tittel:
+  - Foretaksinformasjon
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon/oenskesRegistrertIForetaksregisteret
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon/oenskesSlettetIForetaksregisteret
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet
+  tittel:
+  - EierskifteAktivitet
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/typeEierskifte
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/organisasjonsnummerHovedenhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/gjelderHeleAktiviteten
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/eierskiftedato
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/hvilkeDeler
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte
+  tittel:
+  - DelerEierskifte
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte/beskrivelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte/underenhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer
+  tittel:
+  - Matrikkelnummer
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/kommunenummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/gaardsnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/bruksnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/festenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender
+  tittel:
+  - Innsender
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/person
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/e_postadresse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/mobilnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/test
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse
+  tittel:
+  - Fagsystemreferanse
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/fagsystemID
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/orgnrFagsystem
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/referanseFagsystem
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signering
+  tittel:
+  - Signering
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig
+  tittel:
+  - Gebyransvarlig
+  beskrivelse:
+  - 'TODO: beskriv klassen'
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/eksternFakturareferanse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/gebyransvarligType
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/virksomhet
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/person
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/mobilnummer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/e_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap
+  tittel:
+  - Aksjeselskap
+  beskrivelse:
+  - Selskap som utsteder aksjar og har aksjekapital.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/har_aksjekapital
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/utsteder_aksje
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjekapital
+  tittel:
+  - Aksjekapital
+  beskrivelse:
+  - Den registrerte aksjekapitalen i eit aksjeselskap.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjekapital/har_antall_aksjer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje
+  tittel:
+  - Aksje
+  beskrivelse:
+  - Ei enkelt aksje utstedt av eit aksjeselskap.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje/har_palydende_belop
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje/tilhorer_aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse
+  tittel:
+  - Aksjeklasse
+  beskrivelse:
+  - Klasse aksjar høyrer til, med eigne rettigheiter.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse/navn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet
+  tittel:
+  - Aksjeeierrettighet
+  beskrivelse:
+  - Rettigheiter knytt til aksjar, til dømes stemmerett.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet/beskrivelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet/gjelder_aksjer_i_aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier
+  tittel:
+  - Aksjeeier
+  beskrivelse:
+  - Person eller organisasjon som eig aksjar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier/navn
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier/har_eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon
+  tittel:
+  - Eierposisjon
+  beskrivelse:
+  - Eierens samla posisjon i eit selskap.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon/gjelder_aksjepost
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost
+  tittel:
+  - Aksjepost
+  beskrivelse:
+  - Samling aksjar eigd av ein aksjeeigar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost/har_antall_aksjer
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost/gjelder_aksjer_i_aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte
+  tittel:
+  - Utbytte
+  beskrivelse:
+  - Utbytte knytt til ein eigarposisjon.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/tidspunkt
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/har_utdeling
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/er_basert_paa_eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utdeling
+  tittel:
+  - Utdeling
+  beskrivelse:
+  - Konkret utdeling av verdiar til aksjeeigarar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utdeling/belop
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Tidspunkt
+  tittel:
+  - Tidspunkt
+  beskrivelse:
+  - Tidspunkt for ei hending.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Tidspunkt/dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon
+  tittel:
+  - Eierskapstransaksjon
+  beskrivelse:
+  - Transaksjon som påverkar eigarskap i selskapet.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/tidspunkt
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/kan_vaere_aksjeoverdragelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/kan_vaere_selskapshendelse
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/paavirker_eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeoverdragelse
+  tittel:
+  - Aksjeoverdragelse
+  beskrivelse:
+  - Overdraging av aksjar mellom partar.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeoverdragelse/kan_ha_vederlag
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Vederlag
+  tittel:
+  - Vederlag
+  beskrivelse:
+  - Vederlag knytt til ei aksjeoverdraging.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Vederlag/belop
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Selskapshendelse
+  tittel:
+  - Selskapshendelse
+  beskrivelse:
+  - Hending som påverkar selskapet sitt eigarskap eller kapital.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Selskapshendelse/kan_ha_aksjeinnskudd
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd
+  tittel:
+  - Aksjeinnskudd
+  beskrivelse:
+  - Innskot knytt til aksjar i samband med selskapshending.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd/gjelder_innbetalt_aksjekapital
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd/gjelder_innbetalt_overkurs
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltAksjekapital
+  tittel:
+  - InnbetaltAksjekapital
+  beskrivelse:
+  - Innbetalt aksjekapital.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltAksjekapital/belop
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltOverkurs
+  tittel:
+  - InnbetaltOverkurs
+  beskrivelse:
+  - Innbetalt overkurs utover pålydande.
+  har_egenskap:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltOverkurs/belop
+attributter:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/ressursIdentifikator
+  tittel:
+  - ressursIdentifikator
+  beskrivelse:
+  - 'Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID
+    (t.d. DOI, Handle, eller stabil URI).
+
+    '
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/ressurstype
+  tittel:
+  - ressurstype
+  beskrivelse:
+  - 'Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit
+    kontrollert vokabular (FAIR F2).
+
+    '
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/beskrivelse
+  tittel:
+  - beskrivelse
+  beskrivelse:
+  - URI til ressursen som denne metadata-posten beskriver (FAIR F3).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/tilgangsmetadata
+  tittel:
+  - tilgangsmetadata
+  beskrivelse:
+  - Metadata for tilgang og tilgjengelegheit (FAIR A1/A2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  inneholder_objekttype:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/gjenbruksmetadata
+  tittel:
+  - gjenbruksmetadata
+  beskrivelse:
+  - Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  inneholder_objekttype:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/proveniensmetadata
+  tittel:
+  - proveniensmetadata
+  beskrivelse:
+  - Metadata om opphav og endringshistorie (FAIR R1.2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  inneholder_objekttype:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata/katalogregistrering
+  tittel:
+  - katalogregistrering
+  beskrivelse:
+  - Dokumenterer registrering i søkbar katalog (FAIR F4).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  inneholder_objekttype:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsURL
+  tittel:
+  - tilgangsURL
+  beskrivelse:
+  - URL for maskinell tilgang til ressurs eller metadata (FAIR A1).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsprotokoll
+  tittel:
+  - tilgangsprotokoll
+  beskrivelse:
+  - Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/tilgangsrettar
+  tittel:
+  - tilgangsrettar
+  beskrivelse:
+  - 'Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka)
+    (FAIR A1.2).
+
+    '
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/autentiseringPaakrevd
+  tittel:
+  - autentiseringPaakrevd
+  beskrivelse:
+  - Om autentisering eller autorisasjon er nødvendig (FAIR A1.2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Tilgangsmetadata/metadataPersistens
+  tittel:
+  - metadataPersistens
+  beskrivelse:
+  - 'Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg
+    (FAIR A2).
+
+    '
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/lisens
+  tittel:
+  - lisens
+  beskrivelse:
+  - Brukslisens for ressursen som URI (FAIR R1.1).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/bruksavgrensingar
+  tittel:
+  - bruksavgrensingar
+  beskrivelse:
+  - Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/standardoverensstemming
+  tittel:
+  - standardoverensstemming
+  beskrivelse:
+  - 'Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115
+    (FAIR R1.3 / I3).
+
+    '
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Gjenbruksmetadata/vokabular
+  tittel:
+  - vokabular
+  beskrivelse:
+  - 'Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
+
+    '
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/ansvarlegAktoer
+  tittel:
+  - ansvarlegAktoer
+  beskrivelse:
+  - 'Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
+
+    '
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/generertAvAktivitet
+  tittel:
+  - generertAvAktivitet
+  beskrivelse:
+  - Aktivitet som har generert ressursen (FAIR R1.2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/opprettingsdato
+  tittel:
+  - opprettingsdato
+  beskrivelse:
+  - Dato ressursen blei oppretta (FAIR R1.2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Proveniensmetadata/endringsdato
+  tittel:
+  - endringsdato
+  beskrivelse:
+  - Sist endra dato (FAIR R1.2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/registrertIKatalog
+  tittel:
+  - registrertIKatalog
+  beskrivelse:
+  - URI til katalogen der metadata er registrert (FAIR F4).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/katalogOppfoeringURL
+  tittel:
+  - katalogOppfoeringURL
+  beskrivelse:
+  - Direkte URL til oppføringa i katalogen (FAIR F4).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering/registreringsdato
+  tittel:
+  - registreringsdato
+  beskrivelse:
+  - Dato for katalogregistrering (FAIR F4).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/oppstartsdato
+  tittel:
+  - oppstartsdato
+  beskrivelse:
+  - Datoen underleininga vart oppretta/starta.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/eierskiftedatoer
+  tittel:
+  - eierskiftedatoer
+  beskrivelse:
+  - Dato(ar) for eigarskifte i underleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/nedleggelsesdato
+  tittel:
+  - nedleggelsesdato
+  beskrivelse:
+  - Datoen underleininga vart lagt ned.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/organisasjonsnummer
+  tittel:
+  - organisasjonsnummer
+  beskrivelse:
+  - Niesifra organisasjonsnummer tildelt av Enhetsregisteret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Registrert namn på verksemda i Enhetsregisteret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/antall_ansatte
+  tittel:
+  - antall_ansatte
+  beskrivelse:
+  - Antal tilsette i verksemda (rapportert til a-ordninga).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/stiftelsesdato
+  tittel:
+  - stiftelsesdato
+  beskrivelse:
+  - Datoen hovudeininga vart stifta.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/organisasjonsnummer
+  tittel:
+  - organisasjonsnummer
+  beskrivelse:
+  - Niesifra organisasjonsnummer tildelt av Enhetsregisteret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Registrert namn på verksemda i Enhetsregisteret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/antall_ansatte
+  tittel:
+  - antall_ansatte
+  beskrivelse:
+  - Antal tilsette i verksemda (rapportert til a-ordninga).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/tilstandstype
+  tittel:
+  - tilstandstype
+  beskrivelse:
+  - Type tilstand (AKTIV, UNDER_KONKURS o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/gyldig_fra
+  tittel:
+  - gyldig_fra
+  beskrivelse:
+  - Datoen tilstanden vart gyldig frå.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand/gyldig_til
+  tittel:
+  - gyldig_til
+  beskrivelse:
+  - Datoen tilstanden vart gyldig til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform/organisasjonsform_kode
+  tittel:
+  - organisasjonsform_kode
+  beskrivelse:
+  - Kode for organisasjonsform (t.d. AS, ENK, BA, NUF).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform/organisasjonsform_beskrivelse
+  tittel:
+  - organisasjonsform_beskrivelse
+  beskrivelse:
+  - Tekstleg skildring av organisasjonsforma.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_kode
+  tittel:
+  - naeringskode_kode
+  beskrivelse:
+  - NACE-kode for næringsgruppering (t.d. 62.010).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_beskrivelse
+  tittel:
+  - naeringskode_beskrivelse
+  beskrivelse:
+  - Tekstleg skildring av næringskoden.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/er_hovednaeringskode
+  tittel:
+  - er_hovednaeringskode
+  beskrivelse:
+  - Om dette er hovudnæringskoden til verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode/sektorkode_kode
+  tittel:
+  - sektorkode_kode
+  beskrivelse:
+  - Institusjonell sektorkode (t.d. 1120 for statsforvaltinga).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode/sektorkode_beskrivelse
+  tittel:
+  - sektorkode_beskrivelse
+  beskrivelse:
+  - Tekstleg skildring av sektorkoden.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/epostadresse
+  tittel:
+  - epostadresse
+  beskrivelse:
+  - E-postadresse for verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/telefonnummer
+  tittel:
+  - telefonnummer
+  beskrivelse:
+  - Telefonnummer for verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/mobiltelefonnummer
+  tittel:
+  - mobiltelefonnummer
+  beskrivelse:
+  - Mobiltelefonnummer for verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon/nettside
+  tittel:
+  - nettside
+  beskrivelse:
+  - URL til nettsida til verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse/varslingstype
+  tittel:
+  - varslingstype
+  beskrivelse:
+  - Kanaltype for varsling (EPOST eller MOBILTELEFON).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse/varslingsverdi
+  tittel:
+  - varslingsverdi
+  beskrivelse:
+  - Verdien for varslingskanalen (e-postadresse eller mobilnummer).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Aktivitet/aktivitet_beskrivelse
+  tittel:
+  - aktivitet_beskrivelse
+  beskrivelse:
+  - Skildring av kva aktivitet verksemda utøver (formålsparagraf o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet/rollebetegnelse
+  tittel:
+  - rollebetegnelse
+  beskrivelse:
+  - Kva type rolle dette er (dagleg leiar, styreleiar o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver/rolleinnehaver_navn
+  tittel:
+  - rolleinnehaver_navn
+  beskrivelse:
+  - Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Signaturrett/signaturrett_bestemmelse
+  tittel:
+  - signaturrett_bestemmelse
+  beskrivelse:
+  - Tekstleg bestemmelse om signaturrett (t.d. 'Styret i fellesskap').
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Prokura/prokura_bestemmelse
+  tittel:
+  - prokura_bestemmelse
+  beskrivelse:
+  - Tekstleg bestemmelse om prokura og kven som er tildelt den.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/versjon
+  tittel:
+  - versjon
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Versjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsendertjenste
+  tittel:
+  - innsendertjenste
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/InnsendertjenesteType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsendingstidspunkt
+  tittel:
+  - innsendingstidspunkt
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/DatoKlokkeslett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/maalformForTilbakemelding
+  tittel:
+  - maalformForTilbakemelding
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/tjenestevariant
+  tittel:
+  - tjenestevariant
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tjenestevariant
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/lenkeForEttersending
+  tittel:
+  - lenkeForEttersending
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/URL
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/organisasjonsform
+  tittel:
+  - organisasjonsform
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/virksomhetstype
+  tittel:
+  - virksomhetstype
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetstype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/organisasjonsnummer
+  tittel:
+  - organisasjonsnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetsnavn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/maalform
+  tittel:
+  - maalform
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/oppfyllerKravTilNaeringsvirksomhet
+  tittel:
+  - oppfyllerKravTilNaeringsvirksomhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/venterAAFaaAnsatte
+  tittel:
+  - venterAAFaaAnsatte
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/datoForAvtale
+  tittel:
+  - datoForAvtale
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/stiftelsesdato
+  tittel:
+  - stiftelsesdato
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/vedtektsdato
+  tittel:
+  - vedtektsdato
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/formaal
+  tittel:
+  - formaal
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/harAnsvarsbegrensning
+  tittel:
+  - harAnsvarsbegrensning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/ansvarsform
+  tittel:
+  - ansvarsform
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Ansvarsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/meldtOpploesning
+  tittel:
+  - meldtOpploesning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/meldtOmgjoeringAvOpploesning
+  tittel:
+  - meldtOmgjoeringAvOpploesning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/bekreftelseProtokollSletting
+  tittel:
+  - bekreftelseProtokollSletting
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/registrertITilknyttetRegister
+  tittel:
+  - registrertITilknyttetRegister
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/TilknyttetRegistertype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/bekreftelseProtokollOpploesningOgOmgjoering
+  tittel:
+  - bekreftelseProtokollOpploesningOgOmgjoering
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/coNavn
+  tittel:
+  - coNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/vNavn
+  tittel:
+  - vNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/utgaar
+  tittel:
+  - utgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/stedsnavn
+  tittel:
+  - stedsnavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/kommunenummer
+  tittel:
+  - kommunenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse/postnummer
+  tittel:
+  - postnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/vegadresseId
+  tittel:
+  - vegadresseId
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/adressenavn
+  tittel:
+  - adressenavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/bruksenhetsnummer
+  tittel:
+  - bruksenhetsnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Bruksenhetsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/adressetilleggsnavn
+  tittel:
+  - adressetilleggsnavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/kommunenummer
+  tittel:
+  - kommunenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/postnummer
+  tittel:
+  - postnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer/bokstav
+  tittel:
+  - bokstav
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Husbokstav
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse/e_postadresse
+  tittel:
+  - e_postadresse
+  beskrivelse:
+  - The type of property E-postadresse (E-postadresse) has subclasses. Double-click
+    on this comment to see the class hierarchy.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/E_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer/internasjonaltPrefiks
+  tittel:
+  - internasjonaltPrefiks
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/InternasjonaltPrefiks
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer/nasjonaltNummer
+  tittel:
+  - nasjonaltNummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/NasjonaltNummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/coNavn
+  tittel:
+  - coNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/vNavn
+  tittel:
+  - vNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/utgaar
+  tittel:
+  - utgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postboksnummer
+  tittel:
+  - postboksnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postboksnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postboksanleggsnavn
+  tittel:
+  - postboksanleggsnavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/postnummer
+  tittel:
+  - postnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse/kommunenummer
+  tittel:
+  - kommunenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adressenavn
+  tittel:
+  - adressenavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adressenummer
+  tittel:
+  - adressenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/bygning
+  tittel:
+  - bygning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/etasjenummer
+  tittel:
+  - etasjenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/boenhet
+  tittel:
+  - boenhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/postboks
+  tittel:
+  - postboks
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/postkode
+  tittel:
+  - postkode
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/byEllerStedsnavn
+  tittel:
+  - byEllerStedsnavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/region
+  tittel:
+  - region
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/distriktEllerBydel
+  tittel:
+  - distriktEllerBydel
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/friAdressetekst
+  tittel:
+  - friAdressetekst
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/adresseidentifikator
+  tittel:
+  - adresseidentifikator
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse/landkode
+  tittel:
+  - landkode
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Landkode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/e_postadresse
+  tittel:
+  - e_postadresse
+  beskrivelse:
+  - The type of property E-postadresse (E-postadresse) has subclasses. Double-click
+    on this comment to see the class hierarchy.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/E_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/nettadresse
+  tittel:
+  - nettadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/URL
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/mobilnummerUtgaar
+  tittel:
+  - mobilnummerUtgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/e_postadresseUtgaar
+  tittel:
+  - e_postadresseUtgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/nettadresseUtgaar
+  tittel:
+  - nettadresseUtgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/telefonnummerUtgaar
+  tittel:
+  - telefonnummerUtgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer/internasjonaltPrefiks
+  tittel:
+  - internasjonaltPrefiks
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/InternasjonaltPrefiks
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer/nasjonaltNummer
+  tittel:
+  - nasjonaltNummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/NasjonaltNummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/oppstartsdato
+  tittel:
+  - oppstartsdato
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetsnavn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/organisasjonsnummer
+  tittel:
+  - organisasjonsnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/nedleggelsesdato
+  tittel:
+  - nedleggelsesdato
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/coNavn
+  tittel:
+  - coNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/vNavn
+  tittel:
+  - vNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet/datoGyldigFra
+  tittel:
+  - datoGyldigFra
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/rekkefoelge
+  tittel:
+  - rekkefoelge
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/aktivitetskode
+  tittel:
+  - aktivitetskode
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Aktivitetskode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet/tekst
+  tittel:
+  - tekst
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tekst1000
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning/nyOrganisasjonsform
+  tittel:
+  - nyOrganisasjonsform
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/rollegruppe
+  tittel:
+  - rollegruppe
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Rolletypegruppe_2
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/utgaar
+  tittel:
+  - utgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/kjoennssammensetningAnsattvalgte
+  tittel:
+  - kjoennssammensetningAnsattvalgte
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/kjoennssammensetningStyre
+  tittel:
+  - kjoennssammensetningStyre
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/bekreftelseProtokoll
+  tittel:
+  - bekreftelseProtokoll
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/rolletype
+  tittel:
+  - rolletype
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/tildelerAvRolle
+  tittel:
+  - tildelerAvRolle
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/PersonMappingId
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/oenskerAAFratre
+  tittel:
+  - oenskerAAFratre
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/avdelingskontor
+  tittel:
+  - avdelingskontor
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/fratredenErVarslet
+  tittel:
+  - fratredenErVarslet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/valgtAv
+  tittel:
+  - valgtAv
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/ValgtAv
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel/prosent
+  tittel:
+  - prosent
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/float
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek/teller
+  tittel:
+  - teller
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek/nevner
+  tittel:
+  - nevner
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet/virksomhetsidentifikator
+  tittel:
+  - virksomhetsidentifikator
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetsnavn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person/mappingId
+  tittel:
+  - mappingId
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/PersonMappingId
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person/fulltNavn
+  tittel:
+  - fulltNavn
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/utgaar
+  tittel:
+  - utgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/bekreftelseProtokoll
+  tittel:
+  - bekreftelseProtokoll
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse/regel
+  tittel:
+  - regel
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/SignaturrettEllerProkuraregel
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/rolletype
+  tittel:
+  - rolletype
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/minsteMengdeangivelse
+  tittel:
+  - minsteMengdeangivelse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Mengdeangivelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/minsteAntall
+  tittel:
+  - minsteAntall
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/utgaar
+  tittel:
+  - utgaar
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/bekreftelseProtokoll
+  tittel:
+  - bekreftelseProtokoll
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse/regel
+  tittel:
+  - regel
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/SignaturrettEllerProkuraregel
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon/oenskesRegistrertIForetaksregisteret
+  tittel:
+  - oenskesRegistrertIForetaksregisteret
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon/oenskesSlettetIForetaksregisteret
+  tittel:
+  - oenskesSlettetIForetaksregisteret
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/typeEierskifte
+  tittel:
+  - typeEierskifte
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/organisasjonsnummerHovedenhet
+  tittel:
+  - organisasjonsnummerHovedenhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/gjelderHeleAktiviteten
+  tittel:
+  - gjelderHeleAktiviteten
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/eierskiftedato
+  tittel:
+  - eierskiftedato
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte/beskrivelse
+  tittel:
+  - beskrivelse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte/underenhet
+  tittel:
+  - underenhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/kommunenummer
+  tittel:
+  - kommunenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/gaardsnummer
+  tittel:
+  - gaardsnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/bruksnummer
+  tittel:
+  - bruksnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer/festenummer
+  tittel:
+  - festenummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/e_postadresse
+  tittel:
+  - e_postadresse
+  beskrivelse:
+  - The type of property E-postadresse (E-postadresse) has subclasses. Double-click
+    on this comment to see the class hierarchy.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/E_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/test
+  tittel:
+  - test
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/fagsystemID
+  tittel:
+  - fagsystemID
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/FagsystemId
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/orgnrFagsystem
+  tittel:
+  - orgnrFagsystem
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse/referanseFagsystem
+  tittel:
+  - referanseFagsystem
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tekst50
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/eksternFakturareferanse
+  tittel:
+  - eksternFakturareferanse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/gebyransvarligType
+  tittel:
+  - gebyransvarligType
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/e_postadresse
+  tittel:
+  - e_postadresse
+  beskrivelse:
+  - The type of property E-postadresse (E-postadresse) has subclasses. Double-click
+    on this comment to see the class hierarchy.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/E_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på instansen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjekapital/har_antall_aksjer
+  tittel:
+  - har_antall_aksjer
+  beskrivelse:
+  - Tal aksjar.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje/har_palydende_belop
+  tittel:
+  - har_palydende_belop
+  beskrivelse:
+  - Pålydande verdi for aksja.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på instansen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet/beskrivelse
+  tittel:
+  - beskrivelse
+  beskrivelse:
+  - Tekstleg forklaring av instansen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på instansen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost/har_antall_aksjer
+  tittel:
+  - har_antall_aksjer
+  beskrivelse:
+  - Tal aksjar.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/tidspunkt
+  tittel:
+  - tidspunkt
+  beskrivelse:
+  - Tidspunkt for utbytte/eierskapstransaksjon.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utdeling/belop
+  tittel:
+  - belop
+  beskrivelse:
+  - Monetært beløp.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Tidspunkt/dato
+  tittel:
+  - dato
+  beskrivelse:
+  - Kalenderdato.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/tidspunkt
+  tittel:
+  - tidspunkt
+  beskrivelse:
+  - Tidspunkt for utbytte/eierskapstransaksjon.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Vederlag/belop
+  tittel:
+  - belop
+  beskrivelse:
+  - Monetært beløp.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd/gjelder_innbetalt_aksjekapital
+  tittel:
+  - gjelder_innbetalt_aksjekapital
+  beskrivelse:
+  - Innbetalt aksjekapital.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd/gjelder_innbetalt_overkurs
+  tittel:
+  - gjelder_innbetalt_overkurs
+  beskrivelse:
+  - Innbetalt overkurs.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltAksjekapital/belop
+  tittel:
+  - belop
+  beskrivelse:
+  - Monetært beløp.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/InnbetaltOverkurs/belop
+  tittel:
+  - belop
+  beskrivelse:
+  - Monetært beløp.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+assosiasjoner:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_beliggenhetsadresse
+  tittel:
+  - har_beliggenhetsadresse
+  beskrivelse:
+  - Beliggenheitsadressa til underleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Beliggenhetsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_tilstand
+  tittel:
+  - har_tilstand
+  beskrivelse:
+  - Registrert tilstand (status) for verksemda, inkl. historikk.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/mottar_post_paa
+  tittel:
+  - mottar_post_paa
+  beskrivelse:
+  - Postadressa verksemda mottar post på.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/er_klassifisert_som_organisasjonsform
+  tittel:
+  - er_klassifisert_som_organisasjonsform
+  beskrivelse:
+  - Organisasjonsform (juridisk form) for verksemda.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_kontaktinformasjon
+  tittel:
+  - har_kontaktinformasjon
+  beskrivelse:
+  - Kontaktinformasjon registrert på verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/har_varslingsadresse
+  tittel:
+  - har_varslingsadresse
+  beskrivelse:
+  - Offisiell varslingsadresse for offentlege meldingar.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Underenhet/er_klassifisert_i_naeringskode
+  tittel:
+  - er_klassifisert_i_naeringskode
+  beskrivelse:
+  - Næringskode(r) verksemda er klassifisert under (1–3).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/utoevar_aktivitet
+  tittel:
+  - utoevar_aktivitet
+  beskrivelse:
+  - Aktiviteten hovudeininga utøver.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Aktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_i_sektorkode
+  tittel:
+  - er_klassifisert_i_sektorkode
+  beskrivelse:
+  - Institusjonell sektorkode for hovudeininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Sektorkode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_rolle_i_virksomhet
+  tittel:
+  - har_rolle_i_virksomhet
+  beskrivelse:
+  - Roller registrert i hovudeininga (minimum 1).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_bestemmelser_om_signaturrett
+  tittel:
+  - har_bestemmelser_om_signaturrett
+  beskrivelse:
+  - Bestemmelse om signaturrett for hovudeininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Signaturrett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_bestemmelser_om_prokura
+  tittel:
+  - har_bestemmelser_om_prokura
+  beskrivelse:
+  - Prokurabestemmelse(r) for hovudeininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Prokura
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_forretningsadresse
+  tittel:
+  - har_forretningsadresse
+  beskrivelse:
+  - Forretningsadressa (hovudkontor) til hovudeininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Forretningsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_tilstand
+  tittel:
+  - har_tilstand
+  beskrivelse:
+  - Registrert tilstand (status) for verksemda, inkl. historikk.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Tilstand
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/mottar_post_paa
+  tittel:
+  - mottar_post_paa
+  beskrivelse:
+  - Postadressa verksemda mottar post på.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_som_organisasjonsform
+  tittel:
+  - er_klassifisert_som_organisasjonsform
+  beskrivelse:
+  - Organisasjonsform (juridisk form) for verksemda.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Organisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_kontaktinformasjon
+  tittel:
+  - har_kontaktinformasjon
+  beskrivelse:
+  - Kontaktinformasjon registrert på verksemda.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Kontaktinformasjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/har_varslingsadresse
+  tittel:
+  - har_varslingsadresse
+  beskrivelse:
+  - Offisiell varslingsadresse for offentlege meldingar.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Hovedenhet/er_klassifisert_i_naeringskode
+  tittel:
+  - er_klassifisert_i_naeringskode
+  beskrivelse:
+  - Næringskode(r) verksemda er klassifisert under (1–3).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleIVirksomhet/har_rolleinnehaver
+  tittel:
+  - har_rolleinnehaver
+  beskrivelse:
+  - Rolleinnehavar(ar) for denne rolla.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Rolleinnehaver/kan_vaere_av_type_person
+  tittel:
+  - kan_vaere_av_type_person
+  beskrivelse:
+  - Personen som er rolleinnehavar (frå Folkeregisteret).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/virksomhetsinformasjon
+  tittel:
+  - virksomhetsinformasjon
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/innsender
+  tittel:
+  - innsender
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/fagsystemReferanse
+  tittel:
+  - fagsystemReferanse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/signering
+  tittel:
+  - signering
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signering
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering/gebyransvarlig
+  tittel:
+  - gebyransvarlig
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/forretningsadresse
+  tittel:
+  - forretningsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/varslingsadresse
+  tittel:
+  - varslingsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/postadresse
+  tittel:
+  - postadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/kontaktopplysning
+  tittel:
+  - kontaktopplysning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/virksomhetsinformasjonUnderenhet
+  tittel:
+  - virksomhetsinformasjonUnderenhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/aktivitet
+  tittel:
+  - aktivitet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/omdanning
+  tittel:
+  - omdanning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/rolletypegruppe
+  tittel:
+  - rolletypegruppe
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/prokura
+  tittel:
+  - prokura
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/signaturrett
+  tittel:
+  - signaturrett
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/foretaksinformasjon
+  tittel:
+  - foretaksinformasjon
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/eierskifte
+  tittel:
+  - eierskifte
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet/matrikkelnummer
+  tittel:
+  - matrikkelnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/stedsadresse
+  tittel:
+  - stedsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse/vegadresse
+  tittel:
+  - vegadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse/nummer
+  tittel:
+  - nummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer/nummer
+  tittel:
+  - nummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse/mobilnummer
+  tittel:
+  - mobilnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/vegadresse
+  tittel:
+  - vegadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/postboksadresse
+  tittel:
+  - postboksadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/internasjonalAdresse
+  tittel:
+  - internasjonalAdresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse/stedsadresse
+  tittel:
+  - stedsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/mobilnummer
+  tittel:
+  - mobilnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning/telefonnummer
+  tittel:
+  - telefonnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/beliggenhetsadresse
+  tittel:
+  - beliggenhetsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/postadresse
+  tittel:
+  - postadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/kontaktopplysning
+  tittel:
+  - kontaktopplysning
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet/aktivitet
+  tittel:
+  - aktivitet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/vegadresse
+  tittel:
+  - vegadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse/stedsadresse
+  tittel:
+  - stedsadresse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet/aktivitet
+  tittel:
+  - aktivitet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe/rolle
+  tittel:
+  - rolle
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle/rolleinnehaver
+  tittel:
+  - rolleinnehaver
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/ansvarsandel
+  tittel:
+  - ansvarsandel
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/virksomhet
+  tittel:
+  - virksomhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver/person
+  tittel:
+  - person
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel/broek
+  tittel:
+  - broek
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura/prokurabestemmelse
+  tittel:
+  - prokurabestemmelse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse/rollesett
+  tittel:
+  - rollesett
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett/signaturberettigetEllerProkurist
+  tittel:
+  - signaturberettigetEllerProkurist
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist/virksomhet
+  tittel:
+  - virksomhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist/person
+  tittel:
+  - person
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett/signaturrettsbestemmelsse
+  tittel:
+  - signaturrettsbestemmelsse
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse/rollesett
+  tittel:
+  - rollesett
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet/hvilkeDeler
+  tittel:
+  - hvilkeDeler
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/virksomhet
+  tittel:
+  - virksomhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/person
+  tittel:
+  - person
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender/mobilnummer
+  tittel:
+  - mobilnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/virksomhet
+  tittel:
+  - virksomhet
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/person
+  tittel:
+  - person
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig/mobilnummer
+  tittel:
+  - mobilnummer
+  beskrivelse:
+  - 'TODO: beskriv eigenskapen'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/har_aksjekapital
+  tittel:
+  - har_aksjekapital
+  beskrivelse:
+  - Aksjekapital som høyrer til selskapet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjekapital
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap/utsteder_aksje
+  tittel:
+  - utsteder_aksje
+  beskrivelse:
+  - Aksje utstedt av selskapet
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksje/tilhorer_aksjeklasse
+  tittel:
+  - tilhorer_aksjeklasse
+  beskrivelse:
+  - Klassen aksja høyrer til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeierrettighet/gjelder_aksjer_i_aksjeklasse
+  tittel:
+  - gjelder_aksjer_i_aksjeklasse
+  beskrivelse:
+  - Rettigheiter knytt til aksjeklassen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeeier/har_eierposisjon
+  tittel:
+  - har_eierposisjon
+  beskrivelse:
+  - Eierposisjon aksjeeigaren har.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon/gjelder_aksjepost
+  tittel:
+  - gjelder_aksjepost
+  beskrivelse:
+  - Aksjepost som inngår i eigarposisjonen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjepost/gjelder_aksjer_i_aksjeklasse
+  tittel:
+  - gjelder_aksjer_i_aksjeklasse
+  beskrivelse:
+  - Rettigheiter knytt til aksjeklassen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeklasse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/har_utdeling
+  tittel:
+  - har_utdeling
+  beskrivelse:
+  - Utdeling knytt til utbyttet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utdeling
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Utbytte/er_basert_paa_eierposisjon
+  tittel:
+  - er_basert_paa_eierposisjon
+  beskrivelse:
+  - Utbytte knytt til eigarposisjonen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/kan_vaere_aksjeoverdragelse
+  tittel:
+  - kan_vaere_aksjeoverdragelse
+  beskrivelse:
+  - Aksjeoverdraging i transaksjonen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeoverdragelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/kan_vaere_selskapshendelse
+  tittel:
+  - kan_vaere_selskapshendelse
+  beskrivelse:
+  - Selskapshendelse i transaksjonen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Selskapshendelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierskapstransaksjon/paavirker_eierposisjon
+  tittel:
+  - paavirker_eierposisjon
+  beskrivelse:
+  - Eierskapstransaksjon knytt til eigarposisjonen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Eierposisjon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeoverdragelse/kan_ha_vederlag
+  tittel:
+  - kan_ha_vederlag
+  beskrivelse:
+  - Vederlag for aksjeoverdraging.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Vederlag
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Selskapshendelse/kan_ha_aksjeinnskudd
+  tittel:
+  - kan_ha_aksjeinnskudd
+  beskrivelse:
+  - Aksjeinnskot i selskapshending.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeinnskudd
+kodelister:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  tittel:
+  - TilstandType
+  beskrivelse:
+  - Status for ei verksemd registrert i Enhetsregisteret.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType
+  tittel:
+  - VarslingType
+  beskrivelse:
+  - Kanaltype for varsling til verksemda.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  tittel:
+  - RolleType
+  beskrivelse:
+  - Type rolle ein person eller eining kan ha i ei verksemd.
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform
+  tittel:
+  - Maalform
+  beskrivelse:
+  - 'TODO: beskriv enumet'
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  tittel:
+  - Rolletype
+  beskrivelse:
+  - 'TODO: beskriv enumet'
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte
+  tittel:
+  - TypeEierskifte
+  beskrivelse:
+  - 'TODO: beskriv enumet'
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType
+  tittel:
+  - GebyransvarligType
+  beskrivelse:
+  - 'TODO: beskriv enumet'
+kodeelementer:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/AKTIV
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: AKTIV
+  anbefalt_kodetekst:
+  - Aktiv og registrert eining
+  definisjon:
+  - Aktiv og registrert eining
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/UNDER_TVANGSAVVIKLING
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: UNDER_TVANGSAVVIKLING
+  anbefalt_kodetekst:
+  - Under tvangsavvikling
+  definisjon:
+  - Under tvangsavvikling
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/UNDER_KONKURS
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: UNDER_KONKURS
+  anbefalt_kodetekst:
+  - Under konkursbehandling
+  definisjon:
+  - Under konkursbehandling
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/AVVIKLET
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: AVVIKLET
+  anbefalt_kodetekst:
+  - Avvikla
+  definisjon:
+  - Avvikla
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/SLETTET
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: SLETTET
+  anbefalt_kodetekst:
+  - Sletta frå registeret
+  definisjon:
+  - Sletta frå registeret
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType/OPPLOeST
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/TilstandType
+  kode: OPPLØST
+  anbefalt_kodetekst:
+  - Oppløyst
+  definisjon:
+  - Oppløyst
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType/EPOST
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType
+  kode: EPOST
+  anbefalt_kodetekst:
+  - Varsling via e-post
+  definisjon:
+  - Varsling via e-post
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType/MOBILTELEFON
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/VarslingType
+  kode: MOBILTELEFON
+  anbefalt_kodetekst:
+  - Varsling via SMS til mobiltelefon
+  definisjon:
+  - Varsling via SMS til mobiltelefon
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/DAGLIG_LEDER
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: DAGLIG_LEDER
+  anbefalt_kodetekst:
+  - Dagleg leiar
+  definisjon:
+  - Dagleg leiar
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/STYRELEDER
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: STYRELEDER
+  anbefalt_kodetekst:
+  - Styreleiar
+  definisjon:
+  - Styreleiar
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/STYREMEDLEM
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: STYREMEDLEM
+  anbefalt_kodetekst:
+  - Styremedlem
+  definisjon:
+  - Styremedlem
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/VARAMEDLEM
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: VARAMEDLEM
+  anbefalt_kodetekst:
+  - Varamedlem til styret
+  definisjon:
+  - Varamedlem til styret
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/KONTAKTPERSON
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: KONTAKTPERSON
+  anbefalt_kodetekst:
+  - Kontaktperson
+  definisjon:
+  - Kontaktperson
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/KOMPLEMENTAR
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: KOMPLEMENTAR
+  anbefalt_kodetekst:
+  - Komplementar (i kommandittselskap)
+  definisjon:
+  - Komplementar (i kommandittselskap)
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/DELTAKER
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: DELTAKER
+  anbefalt_kodetekst:
+  - Deltakar (i ansvarleg selskap)
+  definisjon:
+  - Deltakar (i ansvarleg selskap)
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/BESTYRENDE_REDAKTOR
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: BESTYRENDE_REDAKTOR
+  anbefalt_kodetekst:
+  - Bestyrande redaktør
+  definisjon:
+  - Bestyrande redaktør
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/FORRETNINGSFORER
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: FORRETNINGSFORER
+  anbefalt_kodetekst:
+  - Forretningsførar
+  definisjon:
+  - Forretningsførar
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/REVISOR
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: REVISOR
+  anbefalt_kodetekst:
+  - Revisor
+  definisjon:
+  - Revisor
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/REGNSKAPSFORER
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: REGNSKAPSFORER
+  anbefalt_kodetekst:
+  - Rekneskapsførar
+  definisjon:
+  - Rekneskapsførar
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType/NORSK_REPRESENTANT
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/RolleType
+  kode: NORSK_REPRESENTANT
+  anbefalt_kodetekst:
+  - Norsk representant for utanlandsk eining
+  definisjon:
+  - Norsk representant for utanlandsk eining
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform/nob
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform
+  kode: nob
+  anbefalt_kodetekst:
+  - nob
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform/nno
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Maalform
+  kode: nno
+  anbefalt_kodetekst:
+  - nno
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.dagligLeder
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.dagligLeder
+  anbefalt_kodetekst:
+  - rolletype.dagligLeder
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.revisor
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.revisor
+  anbefalt_kodetekst:
+  - rolletype.revisor
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.prokurist
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.prokurist
+  anbefalt_kodetekst:
+  - rolletype.prokurist
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.signaturberettiget
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.signaturberettiget
+  anbefalt_kodetekst:
+  - rolletype.signaturberettiget
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.forretningsfoerer
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.forretningsfoerer
+  anbefalt_kodetekst:
+  - rolletype.forretningsfoerer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.regnskapsfoerer
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.regnskapsfoerer
+  anbefalt_kodetekst:
+  - rolletype.regnskapsfoerer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.innehaver
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.innehaver
+  anbefalt_kodetekst:
+  - rolletype.innehaver
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.bostyrer
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.bostyrer
+  anbefalt_kodetekst:
+  - rolletype.bostyrer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.kontaktperson
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.kontaktperson
+  anbefalt_kodetekst:
+  - rolletype.kontaktperson
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.styreleder
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.styreleder
+  anbefalt_kodetekst:
+  - rolletype.styreleder
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.nestleder
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.nestleder
+  anbefalt_kodetekst:
+  - rolletype.nestleder
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.styremedlem
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.styremedlem
+  anbefalt_kodetekst:
+  - rolletype.styremedlem
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.varamedlem
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.varamedlem
+  anbefalt_kodetekst:
+  - rolletype.varamedlem
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype/rolletype.observatoer
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletype
+  kode: rolletype.observatoer
+  anbefalt_kodetekst:
+  - rolletype.observatoer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte/overtakelse
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte
+  kode: overtakelse
+  anbefalt_kodetekst:
+  - overtakelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte/overdragelse
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeEierskifte
+  kode: overdragelse
+  anbefalt_kodetekst:
+  - overdragelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType/virksomhetenSelv
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType
+  kode: virksomhetenSelv
+  anbefalt_kodetekst:
+  - virksomhetenSelv
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType/person
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType
+  kode: person
+  anbefalt_kodetekst:
+  - person
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType/virksomhet
+  i_kodeliste:
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/GebyransvarligType
+  kode: virksomhet
+  anbefalt_kodetekst:
+  - virksomhet
+enkeltyper:
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/uriorcurie
+  tittel:
+  - uriorcurie
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/string
+  tittel:
+  - string
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/boolean
+  tittel:
+  - boolean
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/date
+  tittel:
+  - date
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/integer
+  tittel:
+  - integer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Versjonsnummer
+  tittel:
+  - Versjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/InnsendertjenesteType
+  tittel:
+  - InnsendertjenesteType
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/DatoKlokkeslett
+  tittel:
+  - DatoKlokkeslett
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tjenestevariant
+  tittel:
+  - Tjenestevariant
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/URL
+  tittel:
+  - URL
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsform
+  tittel:
+  - Organisasjonsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetstype
+  tittel:
+  - Virksomhetstype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Organisasjonsnummer
+  tittel:
+  - Organisasjonsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Virksomhetsnavn
+  tittel:
+  - Virksomhetsnavn
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Dato
+  tittel:
+  - Dato
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Ansvarsform
+  tittel:
+  - Ansvarsform
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/TilknyttetRegistertype
+  tittel:
+  - TilknyttetRegistertype
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Kommunenummer
+  tittel:
+  - Kommunenummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postnummer
+  tittel:
+  - Postnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Bruksenhetsnummer
+  tittel:
+  - Bruksenhetsnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Husbokstav
+  tittel:
+  - Husbokstav
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/E_postadresse
+  tittel:
+  - E_postadresse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/InternasjonaltPrefiks
+  tittel:
+  - InternasjonaltPrefiks
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/NasjonaltNummer
+  tittel:
+  - NasjonaltNummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Postboksnummer
+  tittel:
+  - Postboksnummer
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Landkode
+  tittel:
+  - Landkode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Aktivitetskode
+  tittel:
+  - Aktivitetskode
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tekst1000
+  tittel:
+  - Tekst1000
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Rolletypegruppe_2
+  tittel:
+  - Rolletypegruppe_2
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/PersonMappingId
+  tittel:
+  - PersonMappingId
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/ValgtAv
+  tittel:
+  - ValgtAv
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/float
+  tittel:
+  - float
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/SignaturrettEllerProkuraregel
+  tittel:
+  - SignaturrettEllerProkuraregel
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Mengdeangivelse
+  tittel:
+  - Mengdeangivelse
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/FagsystemId
+  tittel:
+  - FagsystemId
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/Tekst50
+  tittel:
+  - Tekst50
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/types/decimal
+  tittel:
+  - decimal

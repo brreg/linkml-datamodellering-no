@@ -172,7 +172,12 @@
       "Bash(echo \"exit:$?\")",
       "Bash(xargs -I{} echo {})",
       "Bash(git log *)",
-      "Bash(xargs ls)"
+      "Bash(xargs ls)",
+      "Bash(make gen-modelldcat-elements *)",
+      "Bash(git diff *)",
+      "Bash(make domain-gen-data *)",
+      "Bash(gh run *)",
+      "mcp__linkml-begrep-utkast__list_los_tema"
     ]
   },
   "enableAllProjectMcpServers": true,

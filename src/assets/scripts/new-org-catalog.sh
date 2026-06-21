@@ -120,8 +120,23 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      egenskaper:
-        range: Egenskap
+      kodeelementer:
+        range: Kodeelement
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      enkeltyper:
+        range: Enkeltype
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      attributter:
+        range: Attributt
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      assosiasjoner:
+        range: Assosiasjon
         multivalued: true
         inlined: true
         inlined_as_list: true

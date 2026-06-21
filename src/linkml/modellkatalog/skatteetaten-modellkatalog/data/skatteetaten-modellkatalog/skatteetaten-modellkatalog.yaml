@@ -29,13 +29,46 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://www.skatteetaten.no/kontakt/
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/offentlig-forvaltning
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2023-01-01'
   status: http://purl.org/adms/status/UnderDevelopment
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   versjonsnummer: 1.0.1
+  inneholder_modellelement:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedselsnummer
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/DNummer
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarBarn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonBarn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonEktefelle
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Adressebeskyttelse
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SpraakForElektroniskKommunikasjon
 aktoerer:
 - id: https://www.skatteetaten.no/kontakt/
   navn_aktoer:
@@ -43,3 +76,1543 @@ aktoerer:
 - id: https://data.norge.no/organizations/974761076
   navn_aktoer:
   - Skatteetaten
+objekttyper:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+  tittel:
+  - Person
+  beskrivelse:
+  - Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personnavn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_folkeregisteridentifikator
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personidentifikasjon
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_falsk_identitet
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_utenlandsk_identifikasjonsdokument
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_identitetsgrunnlag
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kjoenn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_sivilstand
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personstatus
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_statsborgerskap
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_lovlig_opphold
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foedsel
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foreldreansvar_forelder
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foreldreansvar_barn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_forelder
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_barn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_ektefelle
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_dodsfall
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kontaktinformasjon_doedsbo
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_innflytting_til_norge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_utflytting_fra_norge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_adressebeskyttelse
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_bosted_paa
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/mottar_post_paa
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/oppholder_seg_paa
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_verge
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_rettslig_handleevne
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_reservasjon_mot_kommunikasjon
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kontaktopplysninger
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_valgt_spraak
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn
+  tittel:
+  - Personnavn
+  beskrivelse:
+  - Offisielt registrert namn på ein person i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/fornavn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/mellomnavn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/etternavn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/forkortet_navn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedselsnummer
+  tittel:
+  - Foedselsnummer
+  beskrivelse:
+  - Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast opphald
+    i Noreg.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedselsnummer/identifikatornummer
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/DNummer
+  tittel:
+  - DNummer
+  beskrivelse:
+  - Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg
+    (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om
+    de har midlertidig eller ikkje har permanent opphald.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/DNummer/identifikatornummer
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon
+  tittel:
+  - Personidentifikasjon
+  beskrivelse:
+  - Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer,
+    utanlandsk skatteidentifikasjon eller social security number.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon/identifikasjonstype
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon/identifikatornummer
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet
+  tittel:
+  - FalskIdentitet
+  beskrivelse:
+  - Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den
+    rette identiteten om denne er kjent.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/er_falsk
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/rett_identitet_er_ukjent
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/rett_identitet
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument
+  tittel:
+  - Identifikasjonsdokument
+  beskrivelse:
+  - Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort
+    knytt til ein person.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/dokumenttype
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/dokumentnummer
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utstederland
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utstedtdato
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utloepsdato
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag
+  tittel:
+  - Identitetsgrunnlag
+  beskrivelse:
+  - Grunnlaget som er brukt for å fastsetje identiteten til ein person ved registrering
+    i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag/identitetsgrunnlag_status
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag/identitetsgrunnlag_kilde
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn
+  tittel:
+  - Kjoenn
+  beskrivelse:
+  - Kjønn registrert på ein person i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn/kjoenn_kode
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn/gyldig_fra_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand
+  tittel:
+  - Sivilstand
+  beskrivelse:
+  - Sivilstand registrert på ein person i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/sivilstand_type
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/relatert_ved_sivilstand
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus
+  tittel:
+  - Personstatus
+  beskrivelse:
+  - Status for ein person i Folkeregisteret (t.d. bosatt, utflyttet, død).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus/personstatus_type
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus/gyldig_fra_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap
+  tittel:
+  - Statsborgerskap
+  beskrivelse:
+  - Statsborgerskap registrert på ein person i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/landkode
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/gyldig_til_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold
+  tittel:
+  - Opphold
+  beskrivelse:
+  - Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/oppholds_type
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/gyldig_til_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel
+  tittel:
+  - Foedsel
+  beskrivelse:
+  - Fødselsinformasjon om ein person registrert i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedselsdato
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedested
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedselsaar
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall
+  tittel:
+  - Dodsfall
+  beskrivelse:
+  - Dødsfallsinformasjon om ein person registrert i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall/doedsdato
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall/doedssted
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo
+  tittel:
+  - KontaktinformasjonDoedsbo
+  beskrivelse:
+  - Kontaktinformasjon for eit dødsbu.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/navn
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/telefonnummer
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/epostadresse_verdi
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder
+  tittel:
+  - ForeldreansvarForelder
+  beskrivelse:
+  - Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret for
+    eit barn. Seier kven som er den ansvarlege forelderen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder/er_av_type_person
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder/ansvarsstatus
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarBarn
+  tittel:
+  - ForeldreansvarBarn
+  beskrivelse:
+  - Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein
+    person.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarBarn/er_av_type_person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder
+  tittel:
+  - FamilierelasjonForelder
+  beskrivelse:
+  - Familierelasjon der den relaterte personen er forelder.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder/er_av_type_person
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder/foreldrerelasjon_type
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonBarn
+  tittel:
+  - FamilierelasjonBarn
+  beskrivelse:
+  - Familierelasjon der den relaterte personen er barn.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonBarn/er_av_type_person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonEktefelle
+  tittel:
+  - FamilierelasjonEktefelle
+  beskrivelse:
+  - Familierelasjon der den relaterte personen er ektefelle eller registrert partnar.
+    Dette er strengt tatt same informasjon som sivilstand GIFT.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonEktefelle/er_av_type_person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge
+  tittel:
+  - InnflyttingTilNorge
+  beskrivelse:
+  - Registrering av innflytting til Noreg i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/fraflyttingsland
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/fraflyttingssted_i_utlandet
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/innflyttingsdato
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge
+  tittel:
+  - UtflyttingFraNorge
+  beskrivelse:
+  - Registrering av utflytting frå Noreg i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/tilflyttingsland
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/tilflyttingssted_i_utlandet
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/utflyttingsdato
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse
+  tittel:
+  - Bostedsadresse
+  beskrivelse:
+  - Adressa personen er registrert busett på i Folkeregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse/gyldig_til_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse
+  tittel:
+  - Postadresse
+  beskrivelse:
+  - Adressa der personen mottar post.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse/gyldig_til_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse
+  tittel:
+  - Oppholdsadresse
+  beskrivelse:
+  - Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse/gyldig_fra_og_med
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse/gyldig_til_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Adressebeskyttelse
+  tittel:
+  - Adressebeskyttelse
+  beskrivelse:
+  - Gradering av adressebeskyttelse for innflyttede personar til Noreg. Tidlegare
+    kalla kode 6 (strengt fortroleg) og kode 7 (fortroleg).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Adressebeskyttelse/adressebeskyttelse_gradering
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge
+  tittel:
+  - Verge
+  beskrivelse:
+  - Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene
+    til ein person. Er av type Person.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/er_av_type_person
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/vergetype
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/embete
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne
+  tittel:
+  - RettsligHandleevne
+  beskrivelse:
+  - Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål
+    eller fråtatt rettsleg handleevne.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne/rettslig_handleevne_type
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne/omfang
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett
+  tittel:
+  - ReservasjonMotKommunikasjonPaaNett
+  beskrivelse:
+  - Registrering av at ein person har reservert seg mot digital kommunikasjon frå
+    det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett/er_reservert
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett/gyldig_fra_og_med
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger
+  tittel:
+  - Kontaktopplysninger
+  beskrivelse:
+  - Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det
+    offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/epostadresse_verdi
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/mobiltelefonnummer
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/sist_oppdatert
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SpraakForElektroniskKommunikasjon
+  tittel:
+  - SpraakForElektroniskKommunikasjon
+  beskrivelse:
+  - Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt
+    av personen sjølv.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SpraakForElektroniskKommunikasjon/spraakkode
+attributter:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/fornavn
+  tittel:
+  - fornavn
+  beskrivelse:
+  - Fornamn(et/a) til personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/mellomnavn
+  tittel:
+  - mellomnavn
+  beskrivelse:
+  - Mellomnamn til personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/etternavn
+  tittel:
+  - etternavn
+  beskrivelse:
+  - Etternamn til personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/forkortet_navn
+  tittel:
+  - forkortet_navn
+  beskrivelse:
+  - Forkorta versjon av fullt namn.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedselsnummer/identifikatornummer
+  tittel:
+  - identifikatornummer
+  beskrivelse:
+  - Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/DNummer/identifikatornummer
+  tittel:
+  - identifikatornummer
+  beskrivelse:
+  - Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon/identifikasjonstype
+  tittel:
+  - identifikasjonstype
+  beskrivelse:
+  - Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon/identifikatornummer
+  tittel:
+  - identifikatornummer
+  beskrivelse:
+  - Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/er_falsk
+  tittel:
+  - er_falsk
+  beskrivelse:
+  - Om denne identiteten er registrert som falsk.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/boolean
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/rett_identitet_er_ukjent
+  tittel:
+  - rett_identitet_er_ukjent
+  beskrivelse:
+  - Om den rette identiteten er ukjent (når falsk identitet er registrert).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/boolean
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/dokumenttype
+  tittel:
+  - dokumenttype
+  beskrivelse:
+  - Type identifikasjonsdokument (pass, førekort, nasjonalt ID-kort o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/dokumentnummer
+  tittel:
+  - dokumentnummer
+  beskrivelse:
+  - Nummeret på identifikasjonsdokumentet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utstederland
+  tittel:
+  - utstederland
+  beskrivelse:
+  - ISO 3166-1 landkode for landet som utsteda dokumentet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utstedtdato
+  tittel:
+  - utstedtdato
+  beskrivelse:
+  - Datoen dokumentet vart utstedt.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument/utloepsdato
+  tittel:
+  - utloepsdato
+  beskrivelse:
+  - Datoen dokumentet går ut på dato.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag/identitetsgrunnlag_status
+  tittel:
+  - identitetsgrunnlag_status
+  beskrivelse:
+  - Status/type for identitetsgrunnlaget (t.d. FOLKEREGISTERET, PASS).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag/identitetsgrunnlag_kilde
+  tittel:
+  - identitetsgrunnlag_kilde
+  beskrivelse:
+  - Kjelde for identitetsgrunnlaget.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn/kjoenn_kode
+  tittel:
+  - kjoenn_kode
+  beskrivelse:
+  - Kjønnskode (MANN, KVINNE, UKJENT).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/sivilstand_type
+  tittel:
+  - sivilstand_type
+  beskrivelse:
+  - Sivilstandstype (UGIFT, GIFT, SKILT o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus/personstatus_type
+  tittel:
+  - personstatus_type
+  beskrivelse:
+  - Personstatustype (BOSATT, UTFLYTTET, DOED o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/landkode
+  tittel:
+  - landkode
+  beskrivelse:
+  - ISO 3166-1 alfa-2 landkode (t.d. NO for Noreg).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap/gyldig_til_og_med
+  tittel:
+  - gyldig_til_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig til og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/oppholds_type
+  tittel:
+  - oppholds_type
+  beskrivelse:
+  - Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold/gyldig_til_og_med
+  tittel:
+  - gyldig_til_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig til og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedselsdato
+  tittel:
+  - foedselsdato
+  beskrivelse:
+  - Fødselsdato (kan vere ukjent for eldre registreringar).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedested
+  tittel:
+  - foedested
+  beskrivelse:
+  - Fødested (kommune eller land).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel/foedselsaar
+  tittel:
+  - foedselsaar
+  beskrivelse:
+  - Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall/doedsdato
+  tittel:
+  - doedsdato
+  beskrivelse:
+  - Dato for dødsfallet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall/doedssted
+  tittel:
+  - doedssted
+  beskrivelse:
+  - Stad for dødsfallet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på person eller institusjon.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/telefonnummer
+  tittel:
+  - telefonnummer
+  beskrivelse:
+  - Telefonnummer.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo/epostadresse_verdi
+  tittel:
+  - epostadresse_verdi
+  beskrivelse:
+  - E-postadresse.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder/ansvarsstatus
+  tittel:
+  - ansvarsstatus
+  beskrivelse:
+  - Status for foreldreansvaret (t.d. FELLES, ALENE).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder/foreldrerelasjon_type
+  tittel:
+  - foreldrerelasjon_type
+  beskrivelse:
+  - Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/fraflyttingsland
+  tittel:
+  - fraflyttingsland
+  beskrivelse:
+  - ISO 3166-1 landkode for landet personen flytta frå.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/fraflyttingssted_i_utlandet
+  tittel:
+  - fraflyttingssted_i_utlandet
+  beskrivelse:
+  - Stad i utlandet personen flytta frå.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge/innflyttingsdato
+  tittel:
+  - innflyttingsdato
+  beskrivelse:
+  - Dato personen vart registrert innflytta til Noreg.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/tilflyttingsland
+  tittel:
+  - tilflyttingsland
+  beskrivelse:
+  - ISO 3166-1 landkode for landet personen flytta til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/tilflyttingssted_i_utlandet
+  tittel:
+  - tilflyttingssted_i_utlandet
+  beskrivelse:
+  - Stad i utlandet personen flytta til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge/utflyttingsdato
+  tittel:
+  - utflyttingsdato
+  beskrivelse:
+  - Dato personen vart registrert utflytta frå Noreg.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse/gyldig_til_og_med
+  tittel:
+  - gyldig_til_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig til og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse/gyldig_til_og_med
+  tittel:
+  - gyldig_til_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig til og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse/gyldig_til_og_med
+  tittel:
+  - gyldig_til_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig til og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Adressebeskyttelse/adressebeskyttelse_gradering
+  tittel:
+  - adressebeskyttelse_gradering
+  beskrivelse:
+  - Graderinga av adressebeskyttelsen (STRENGT_FORTROLIG, FORTROLIG o.l.).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/vergetype
+  tittel:
+  - vergetype
+  beskrivelse:
+  - Type vergemål (mindreårig, vaksen o.l.).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/embete
+  tittel:
+  - embete
+  beskrivelse:
+  - Statsforvaltarembetet som oppnemnde vergjet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne/rettslig_handleevne_type
+  tittel:
+  - rettslig_handleevne_type
+  beskrivelse:
+  - Type avgrensing i rettsleg handleevne.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne/omfang
+  tittel:
+  - omfang
+  beskrivelse:
+  - Omfanget av vergemålet eller avgrensinga i rettsleg handleevne.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett/er_reservert
+  tittel:
+  - er_reservert
+  beskrivelse:
+  - Om personen er reservert mot digital kommunikasjon frå det offentlege.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/boolean
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett/gyldig_fra_og_med
+  tittel:
+  - gyldig_fra_og_med
+  beskrivelse:
+  - Dato opplysinga er gyldig frå og med.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/epostadresse_verdi
+  tittel:
+  - epostadresse_verdi
+  beskrivelse:
+  - E-postadresse.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/mobiltelefonnummer
+  tittel:
+  - mobiltelefonnummer
+  beskrivelse:
+  - Mobiltelefonnummer registrert i KRR.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger/sist_oppdatert
+  tittel:
+  - sist_oppdatert
+  beskrivelse:
+  - Dato kontaktopplysningane sist vart oppdatert.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SpraakForElektroniskKommunikasjon/spraakkode
+  tittel:
+  - spraakkode
+  beskrivelse:
+  - BCP 47 språkkode for føretrekt kommunikasjonsspråk (t.d. nb, nn, en).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+assosiasjoner:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personnavn
+  tittel:
+  - har_personnavn
+  beskrivelse:
+  - Offisielt registrert namn på personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_folkeregisteridentifikator
+  tittel:
+  - har_folkeregisteridentifikator
+  beskrivelse:
+  - Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-person#Folkeregisteridentifikator
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personidentifikasjon
+  tittel:
+  - har_personidentifikasjon
+  beskrivelse:
+  - Utanlandsk eller alternativ identifikasjon av personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personidentifikasjon
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_falsk_identitet
+  tittel:
+  - har_falsk_identitet
+  beskrivelse:
+  - Registrering av at personen har opptrådt med falsk identitet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_utenlandsk_identifikasjonsdokument
+  tittel:
+  - har_utenlandsk_identifikasjonsdokument
+  beskrivelse:
+  - Utanlandske identifikasjonsdokument knytt til personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identifikasjonsdokument
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_identitetsgrunnlag
+  tittel:
+  - har_identitetsgrunnlag
+  beskrivelse:
+  - Grunnlaget for personens identitetsfastsetjing.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Identitetsgrunnlag
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kjoenn
+  tittel:
+  - har_kjoenn
+  beskrivelse:
+  - Kjønn registrert på personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kjoenn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_sivilstand
+  tittel:
+  - har_sivilstand
+  beskrivelse:
+  - Sivilstand registrert på personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_personstatus
+  tittel:
+  - har_personstatus
+  beskrivelse:
+  - Status for personen i Folkeregisteret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personstatus
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_statsborgerskap
+  tittel:
+  - har_statsborgerskap
+  beskrivelse:
+  - Statsborgerskap registrert på personen (minimum 1).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Statsborgerskap
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_lovlig_opphold
+  tittel:
+  - har_lovlig_opphold
+  beskrivelse:
+  - Lovleg opphaldsgrunnlag for utanlandske statsborgarar.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Opphold
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foedsel
+  tittel:
+  - har_foedsel
+  beskrivelse:
+  - Fødselsinformasjon om personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Foedsel
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foreldreansvar_forelder
+  tittel:
+  - har_foreldreansvar_forelder
+  beskrivelse:
+  - Personar med juridisk foreldreansvar for denne personen (maks 2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_foreldreansvar_barn
+  tittel:
+  - har_foreldreansvar_barn
+  beskrivelse:
+  - Barn som denne personen har juridisk foreldreansvar for.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarBarn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_forelder
+  tittel:
+  - har_familierelasjon_forelder
+  beskrivelse:
+  - Familierelasjonar der den relaterte personen er forelder (maks 2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_barn
+  tittel:
+  - har_familierelasjon_barn
+  beskrivelse:
+  - Familierelasjonar der den relaterte personen er barn.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonBarn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_familierelasjon_ektefelle
+  tittel:
+  - har_familierelasjon_ektefelle
+  beskrivelse:
+  - Familierelasjon til ektefelle eller registrert partnar.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonEktefelle
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_dodsfall
+  tittel:
+  - har_dodsfall
+  beskrivelse:
+  - Dødsfallsinformasjon om personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Dodsfall
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kontaktinformasjon_doedsbo
+  tittel:
+  - har_kontaktinformasjon_doedsbo
+  beskrivelse:
+  - Kontaktinformasjon for personens dødsbu.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KontaktinformasjonDoedsbo
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_innflytting_til_norge
+  tittel:
+  - har_innflytting_til_norge
+  beskrivelse:
+  - Siste innflyttingsregistrering til Noreg.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/InnflyttingTilNorge
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_utflytting_fra_norge
+  tittel:
+  - har_utflytting_fra_norge
+  beskrivelse:
+  - Siste utflyttingsregistrering frå Noreg.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/UtflyttingFraNorge
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_adressebeskyttelse
+  tittel:
+  - har_adressebeskyttelse
+  beskrivelse:
+  - Adressebeskyttelse registrert på personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Adressebeskyttelse
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_bosted_paa
+  tittel:
+  - har_bosted_paa
+  beskrivelse:
+  - Adressa personen er registrert busett på.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Bostedsadresse
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/mottar_post_paa
+  tittel:
+  - mottar_post_paa
+  beskrivelse:
+  - Adressa personen mottar post på.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Postadresse
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/oppholder_seg_paa
+  tittel:
+  - oppholder_seg_paa
+  beskrivelse:
+  - Adressa personen faktisk oppheld seg på.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Oppholdsadresse
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_verge
+  tittel:
+  - har_verge
+  beskrivelse:
+  - Verje(r) oppnemnd for personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_rettslig_handleevne
+  tittel:
+  - har_rettslig_handleevne
+  beskrivelse:
+  - Avgrensing i rettsleg handleevne registrert for personen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevne
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_reservasjon_mot_kommunikasjon
+  tittel:
+  - har_reservasjon_mot_kommunikasjon
+  beskrivelse:
+  - Reservasjon mot digital kommunikasjon frå det offentlege.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ReservasjonMotKommunikasjonPaaNett
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_kontaktopplysninger
+  tittel:
+  - har_kontaktopplysninger
+  beskrivelse:
+  - Kontaktopplysningar registrert i KRR.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Kontaktopplysninger
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person/har_valgt_spraak
+  tittel:
+  - har_valgt_spraak
+  beskrivelse:
+  - Føretrekt språk for elektronisk kommunikasjon valt av personen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SpraakForElektroniskKommunikasjon
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FalskIdentitet/rett_identitet
+  tittel:
+  - rett_identitet
+  beskrivelse:
+  - Den rette identiteten til ein person som har opptrådt med falsk identitet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Sivilstand/relatert_ved_sivilstand
+  tittel:
+  - relatert_ved_sivilstand
+  beskrivelse:
+  - Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER o.l.).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarForelder/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/ForeldreansvarBarn/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonForelder/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonBarn/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/FamilierelasjonEktefelle/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Verge/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som denne relasjonen peikar til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Person
+kodelister:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode
+  tittel:
+  - KjoennKode
+  beskrivelse:
+  - Kjønn registrert i Folkeregisteret.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  tittel:
+  - SivilstandType
+  beskrivelse:
+  - Sivilstandskode frå Folkeregisteret.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  tittel:
+  - PersonstatusType
+  beskrivelse:
+  - Personens status i Folkeregisteret.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode
+  tittel:
+  - OppholdstypeKode
+  beskrivelse:
+  - Type opphaldstillatelse registrert i Folkeregisteret.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+  tittel:
+  - AdressebeskyttelseGradering
+  beskrivelse:
+  - Gradering av adressebeskyttelse (tidlegare kode 6/7).
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  tittel:
+  - IdentifikasjonsdokumentType
+  beskrivelse:
+  - Type utanlandsk identifikasjonsdokument.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType
+  tittel:
+  - RettsligHandleevneType
+  beskrivelse:
+  - Type avgrensing av rettsleg handleevne.
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+  tittel:
+  - VergetypeKode
+  beskrivelse:
+  - Type vergemål.
+kodeelementer:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode/MANN
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode
+  kode: MANN
+  anbefalt_kodetekst:
+  - Mann
+  definisjon:
+  - Mann
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode/KVINNE
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode
+  kode: KVINNE
+  anbefalt_kodetekst:
+  - Kvinne
+  definisjon:
+  - Kvinne
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode/UKJENT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/KjoennKode
+  kode: UKJENT
+  anbefalt_kodetekst:
+  - Ukjent kjønn
+  definisjon:
+  - Ukjent kjønn
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/UOPPGITT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: UOPPGITT
+  anbefalt_kodetekst:
+  - Uoppgitt
+  definisjon:
+  - Uoppgitt
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/UGIFT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: UGIFT
+  anbefalt_kodetekst:
+  - Ugift
+  definisjon:
+  - Ugift
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/GIFT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: GIFT
+  anbefalt_kodetekst:
+  - Gift
+  definisjon:
+  - Gift
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/ENKE_ELLER_ENKEMANN
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: ENKE_ELLER_ENKEMANN
+  anbefalt_kodetekst:
+  - Enke eller enkemann
+  definisjon:
+  - Enke eller enkemann
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/SKILT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: SKILT
+  anbefalt_kodetekst:
+  - Skilt
+  definisjon:
+  - Skilt
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/SEPARERT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: SEPARERT
+  anbefalt_kodetekst:
+  - Separert
+  definisjon:
+  - Separert
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/REGISTRERT_PARTNER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: REGISTRERT_PARTNER
+  anbefalt_kodetekst:
+  - Registrert partner
+  definisjon:
+  - Registrert partner
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/SEPARERT_PARTNER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: SEPARERT_PARTNER
+  anbefalt_kodetekst:
+  - Separert partner
+  definisjon:
+  - Separert partner
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/SKILT_PARTNER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: SKILT_PARTNER
+  anbefalt_kodetekst:
+  - Skilt partner
+  definisjon:
+  - Skilt partner
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType/ETTERLATT_PARTNER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/SivilstandType
+  kode: ETTERLATT_PARTNER
+  anbefalt_kodetekst:
+  - Etterlatt partner
+  definisjon:
+  - Etterlatt partner
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/BOSATT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: BOSATT
+  anbefalt_kodetekst:
+  - Bosatt i Noreg
+  definisjon:
+  - Bosatt i Noreg
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/UTFLYTTET
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: UTFLYTTET
+  anbefalt_kodetekst:
+  - Utflytta frå Noreg
+  definisjon:
+  - Utflytta frå Noreg
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/DOED
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: DOED
+  anbefalt_kodetekst:
+  - Død
+  definisjon:
+  - Død
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/OPPHORT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: OPPHORT
+  anbefalt_kodetekst:
+  - Opphørt (fjerna frå registeret)
+  definisjon:
+  - Opphørt (fjerna frå registeret)
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/INAKTIV
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: INAKTIV
+  anbefalt_kodetekst:
+  - Inaktiv
+  definisjon:
+  - Inaktiv
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/MIDLERTIDIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: MIDLERTIDIG
+  anbefalt_kodetekst:
+  - Midlertidig registrert
+  definisjon:
+  - Midlertidig registrert
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType/FORSVUNNET
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/PersonstatusType
+  kode: FORSVUNNET
+  anbefalt_kodetekst:
+  - Forsvunnen
+  definisjon:
+  - Forsvunnen
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode/MIDLERTIDIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode
+  kode: MIDLERTIDIG
+  anbefalt_kodetekst:
+  - Mellombels opphaldsløyve
+  definisjon:
+  - Mellombels opphaldsløyve
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode/PERMANENT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode
+  kode: PERMANENT
+  anbefalt_kodetekst:
+  - Permanent opphaldsløyve
+  definisjon:
+  - Permanent opphaldsløyve
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode/OPPLYSNING_MANGLER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/OppholdstypeKode
+  kode: OPPLYSNING_MANGLER
+  anbefalt_kodetekst:
+  - Opplysning manglar
+  definisjon:
+  - Opplysning manglar
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering/STRENGT_FORTROLIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+  kode: STRENGT_FORTROLIG
+  anbefalt_kodetekst:
+  - Strengt fortroleg adresse (tidlegare kode 6)
+  definisjon:
+  - Strengt fortroleg adresse (tidlegare kode 6)
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering/FORTROLIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+  kode: FORTROLIG
+  anbefalt_kodetekst:
+  - Fortroleg adresse (tidlegare kode 7)
+  definisjon:
+  - Fortroleg adresse (tidlegare kode 7)
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering/STRENGT_FORTROLIG_UTLAND
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+  kode: STRENGT_FORTROLIG_UTLAND
+  anbefalt_kodetekst:
+  - Strengt fortroleg adresse i utlandet
+  definisjon:
+  - Strengt fortroleg adresse i utlandet
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering/UGRADERT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/AdressebeskyttelseGradering
+  kode: UGRADERT
+  anbefalt_kodetekst:
+  - Ikkje adressebeskyttelse
+  definisjon:
+  - Ikkje adressebeskyttelse
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType/PASS
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  kode: PASS
+  anbefalt_kodetekst:
+  - Pass
+  definisjon:
+  - Pass
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType/FOERERKORT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  kode: FOERERKORT
+  anbefalt_kodetekst:
+  - Førekort
+  definisjon:
+  - Førekort
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType/NASJONAL_ID_KORT
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  kode: NASJONAL_ID_KORT
+  anbefalt_kodetekst:
+  - Nasjonalt ID-kort
+  definisjon:
+  - Nasjonalt ID-kort
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType/OPPHOLDSTILLATELSE
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  kode: OPPHOLDSTILLATELSE
+  anbefalt_kodetekst:
+  - Opphaldsløyve
+  definisjon:
+  - Opphaldsløyve
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType/ANNET
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/IdentifikasjonsdokumentType
+  kode: ANNET
+  anbefalt_kodetekst:
+  - Anna dokument
+  definisjon:
+  - Anna dokument
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType/UNDER_VERGEMAAL
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType
+  kode: UNDER_VERGEMAAL
+  anbefalt_kodetekst:
+  - Under vergemål
+  definisjon:
+  - Under vergemål
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType/FRATATT_RETTSLIG_HANDLEEVNE_PERSONLIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType
+  kode: FRATATT_RETTSLIG_HANDLEEVNE_PERSONLIG
+  anbefalt_kodetekst:
+  - Fråtatt rettsleg handleevne i personlege tilhøve
+  definisjon:
+  - Fråtatt rettsleg handleevne i personlege tilhøve
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType/FRATATT_RETTSLIG_HANDLEEVNE_OKONOMISK
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/RettsligHandleevneType
+  kode: FRATATT_RETTSLIG_HANDLEEVNE_OKONOMISK
+  anbefalt_kodetekst:
+  - Fråtatt rettsleg handleevne i formueretslige tilhøve
+  definisjon:
+  - Fråtatt rettsleg handleevne i formueretslige tilhøve
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode/ENSLIG_MINDREAARIG_ASYLSOEKER
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+  kode: ENSLIG_MINDREAARIG_ASYLSOEKER
+  anbefalt_kodetekst:
+  - Einsleg mindreårig asylsøkjar
+  definisjon:
+  - Einsleg mindreårig asylsøkjar
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode/MINDREAARIG
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+  kode: MINDREAARIG
+  anbefalt_kodetekst:
+  - Mindreårig
+  definisjon:
+  - Mindreårig
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode/VOKSEN
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+  kode: VOKSEN
+  anbefalt_kodetekst:
+  - Vaksen
+  definisjon:
+  - Vaksen
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode/MIDLERTIDIG_FOR_VOKSEN
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/VergetypeKode
+  kode: MIDLERTIDIG_FOR_VOKSEN
+  anbefalt_kodetekst:
+  - Mellombels for vaksen
+  definisjon:
+  - Mellombels for vaksen
+enkeltyper:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/string
+  tittel:
+  - string
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/boolean
+  tittel:
+  - boolean
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/date
+  tittel:
+  - date
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/types/integer
+  tittel:
+  - integer
