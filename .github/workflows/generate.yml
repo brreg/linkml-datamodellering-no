@@ -1,5 +1,9 @@
 name: Generate and publish
 
+# Kjent, akseptert race condition mot release-please.yml sin update-dates-
+# jobb (kommentert der) — denne workflowen kan derfor køyre to gonger per
+# release (éin gong på data frå før update-dates, éin gong korrigert).
+
 on:
   workflow_dispatch:
   push:

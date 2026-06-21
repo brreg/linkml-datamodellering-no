@@ -31,13 +31,34 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://www.kartverket.no/om-kartverket/kontakt-oss/
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/geodata
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2023-01-01'
   status: http://purl.org/adms/status/UnderDevelopment
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   versjonsnummer: 1.0.1
+  inneholder_modellelement:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bygning
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhet
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
   tittel:
   - Nasjonale grunndata – Eiendom
@@ -51,13 +72,52 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://www.kartverket.no/om-kartverket/kontakt-oss/
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/eiendom
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2023-01-01'
   status: http://purl.org/adms/status/UnderDevelopment
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   versjonsnummer: 1.0.1
+  inneholder_modellelement:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/SamletFastEiendom
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommunenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Gaardsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Seksjonsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygningsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystHeftelse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/RettighetForAaBenytteEiendom
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslag
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/OffisiellAdresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Person
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Hovedenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
 aktoerer:
 - id: https://www.kartverket.no/om-kartverket/kontakt-oss/
   navn_aktoer:
@@ -65,3 +125,1794 @@ aktoerer:
 - id: https://data.norge.no/organizations/971040238
   navn_aktoer:
   - Kartverket
+objekttyper:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse
+  tittel:
+  - OffisiellAdresse
+  beskrivelse:
+  - Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn
+    + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/kommunenummer_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressenavn_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressekode_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/husnummer_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/bruksenhetsnummer_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/representasjonspunkt_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressetilleggsnavn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/matrikkelnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_bygning
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_bruksenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_annet_objekt
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/geografisk_omrade
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse
+  tittel:
+  - Postboksadresse
+  beskrivelse:
+  - Ei postboksadresse registrert i Postboksregisteret (Posten Norge).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/postboks_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/poststed_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/postboksanleggsnavn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn
+  tittel:
+  - Adressenavn
+  beskrivelse:
+  - Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av
+    kommunen og godkjent av Kartverket.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/adressenavn_tekst
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/adresseomrade_ref
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/har_adressekode
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade
+  tittel:
+  - Adresseomrade
+  beskrivelse:
+  - Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit
+    stadnamn.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
+  tittel:
+  - Adressekode
+  beskrivelse:
+  - Firesifra kommunal kode som identifiserer eit adressenavn.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode/kode
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode/adresseomrade_ref
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer
+  tittel:
+  - Husnummer
+  beskrivelse:
+  - Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12
+    eller 12B).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer/nummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer/bokstav
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer
+  tittel:
+  - Bruksenhetsnummer
+  beskrivelse:
+  - Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d.
+    H0201 = 2. etasje, eining 1.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/etasjeplan
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/etasjenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/nummerering_i_etasjen
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt
+  tittel:
+  - Representasjonspunkt
+  beskrivelse:
+  - Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinat_ost
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinat_nord
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinatsystem
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke
+  tittel:
+  - Fylke
+  beskrivelse:
+  - Eit norsk fylke.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/fylkesnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune
+  tittel:
+  - Kommune
+  beskrivelse:
+  - Ein norsk kommune.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/kommunenummer_kode
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed
+  tittel:
+  - Poststed
+  beskrivelse:
+  - Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/postnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets
+  tittel:
+  - Grunnkrets
+  beskrivelse:
+  - Ei grunnkrets – minste geografiske eining i statistisk inndeling.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/grunnkretsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted
+  tittel:
+  - Tettsted
+  beskrivelse:
+  - Eit tettbygd område definert av SSB.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/tettstedsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn
+  tittel:
+  - Kirkesokn
+  beskrivelse:
+  - Eit kyrkjesokn.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/kirkesoknnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets
+  tittel:
+  - Stemmekrets
+  beskrivelse:
+  - Ei stemmekrets brukt ved val.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/stemmekretsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets
+  tittel:
+  - KommunalKrets
+  beskrivelse:
+  - Ein kommunal krets (administrativ inndeling definert av kommunen).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/kretsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard
+  tittel:
+  - Svalbard
+  beskrivelse:
+  - Svalbard som særskild geografisk område.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks
+  tittel:
+  - Postboks
+  beskrivelse:
+  - Ei postboks registrert i Postboksregisteret.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks/postboksnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bygning
+  tittel:
+  - Bygning
+  beskrivelse:
+  - Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre
+    inngang(ar) til bygningen.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhet
+  tittel:
+  - Bruksenhet
+  beskrivelse:
+  - Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom
+  tittel:
+  - FastEiendom
+  beskrivelse:
+  - Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består
+    av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige
+    for å benytte eigedommen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/identifiseres_av
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_matrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_bygning
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_rettighet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/har_eierforhold
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/har_tinglyst_heftelse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/SamletFastEiendom
+  tittel:
+  - SamletFastEiendom
+  beskrivelse:
+  - Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt
+    i praksis i dag.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/SamletFastEiendom/bestar_av_fast_eiendom
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel
+  tittel:
+  - Borettslagsandel
+  beskrivelse:
+  - Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad
+    i burettslagsbygningen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/tilhoerer_borettslag
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/har_eierforhold
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/har_tinglyst_heftelse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom
+  tittel:
+  - Grunneiendom
+  beskrivelse:
+  - Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate
+    (eventuelt med undergrunn og luftrom) innanfor ein kommune.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/kan_vaere_pa
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn
+  tittel:
+  - Festegrunn
+  beskrivelse:
+  - Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til. Ein
+    festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen. Kan vere
+    eit bestemt areal eller eit punktfeste.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/kan_vaere_pa
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie
+  tittel:
+  - Jordsameie
+  beskrivelse:
+  - Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er ein type realsameige.
+    Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje er registrert
+    som eigen matrikkelenheit.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/kan_vaere_pa
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon
+  tittel:
+  - Eierseksjon
+  beskrivelse:
+  - Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett
+    til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige
+    med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom,
+    festegrunn eller anleggseigendom.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/kan_vaere_pa
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom
+  tittel:
+  - Anleggseiendom
+  beskrivelse:
+  - Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire grunneigedommar
+    eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar.
+    Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet
+  tittel:
+  - AnnenMatrikkelenhet
+  beskrivelse:
+  - Matrikkelenheit som ikkje fell inn under dei andre underklassane.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/identifiseres_med
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/ligger_innenfor_kommune
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/er_del_av_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/har_teig
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/har_anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+  tittel:
+  - Matrikkelnummer
+  beskrivelse:
+  - Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-,
+    bruks- og eventuelt feste- og seksjonsnummer.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_kommunenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_gaardsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_bruksnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_festenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_seksjonsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommunenummer
+  tittel:
+  - Kommunenummer
+  beskrivelse:
+  - Firesifra kommunenummer (t.d. 0301 for Oslo).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommunenummer/kommunenummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Gaardsnummer
+  tittel:
+  - Gaardsnummer
+  beskrivelse:
+  - Gårdsnummer innanfor kommunen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Gaardsnummer/gaardsnummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer
+  tittel:
+  - Bruksnummer
+  beskrivelse:
+  - Bruksnummer innanfor gardsnamnet.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer/bruksnummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer
+  tittel:
+  - Festenummer
+  beskrivelse:
+  - Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer/festenummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Seksjonsnummer
+  tittel:
+  - Seksjonsnummer
+  beskrivelse:
+  - Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Seksjonsnummer/seksjonsnummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning
+  tittel:
+  - Bygning
+  beskrivelse:
+  - Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire
+    ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd
+    i fleire databasar.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_bygningsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_representasjonspunkt
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/er_knyttet_til_matrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_ytre_inngang
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_bruksenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_etasje
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygningsnummer
+  tittel:
+  - Bygningsnummer
+  beskrivelse:
+  - Offisiell identifikator for ein bygning i Matrikkelen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygningsnummer/bygningsnummer_verdi
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt
+  tittel:
+  - Representasjonspunkt
+  beskrivelse:
+  - Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinat_ost
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinat_nord
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinatsystem
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang
+  tittel:
+  - YtreInngang
+  beskrivelse:
+  - Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen,
+    men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire
+    brukseiningar.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang/gjelder_bruksenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang/har_offisiell_adresse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet
+  tittel:
+  - Bruksenhet
+  beskrivelse:
+  - Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer,
+    ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/har_bruksenhetsnummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/er_tilknyttet_matrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/har_offisiell_adresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/ligger_i_etasje
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer
+  tittel:
+  - Bruksenhetsnummer
+  beskrivelse:
+  - Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje,
+    eining 1 (etasjeplan + etasjenummer + nummerering).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/etasjeplan
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/etasjenummer
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/nummerering_i_etasjen
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje
+  tittel:
+  - Etasje
+  beskrivelse:
+  - Ei etasje i ein bygning.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje/etasjenummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+  tittel:
+  - Teig
+  beskrivelse:
+  - Eit samanhengande areal med same type grenser. Mangler ofte vannareal som høyrer
+    til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+  tittel:
+  - Anleggsprojeksjonsflate
+  beskrivelse:
+  - Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må supplerast
+    på oppdrag.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold
+  tittel:
+  - TinglystEierforhold
+  beskrivelse:
+  - Eigarforhold registrert (tinglyst) i Grunnboka.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_matrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/kan_gjelde_borettslagsandel
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_eiendomsrett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_festerett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_framfesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold
+  tittel:
+  - IkkeTinglystEierforhold
+  beskrivelse:
+  - Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold
+    som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_matrikkelenhet
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/kan_gjelde_borettslagsandel
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_eiendomsrett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_festerett
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_framfesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett
+  tittel:
+  - HjemmelTilEiendomsrett
+  beskrivelse:
+  - Heimelsdokument for eigedomsrett (full eigarrett).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett/har_andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett
+  tittel:
+  - HjemmelTilFesterett
+  beskrivelse:
+  - Heimelsdokument for festerett (langvarig bruksrett til festegrunn).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett/har_andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett
+  tittel:
+  - HjemmelTilFramfesterett
+  beskrivelse:
+  - Heimelsdokument for framfesterett (vidarefestekontrakt).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett/har_andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel
+  tittel:
+  - Andel
+  beskrivelse:
+  - Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel har ein
+    eller fleire rettigheitshavarar.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel/har_rettighetshaver
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver
+  tittel:
+  - Rettighetshaver
+  beskrivelse:
+  - Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person eller ei
+    hovudeining (juridisk person).
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver/er_av_type_person
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver/er_av_type_hovedenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystHeftelse
+  tittel:
+  - TinglystHeftelse
+  beskrivelse:
+  - Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel. Nokre heftingar
+    har avgrensa geografisk utbreiing og manglar stadfestring.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/RettighetForAaBenytteEiendom
+  tittel:
+  - RettighetForAaBenytteEiendom
+  beskrivelse:
+  - Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte
+    som heftingar i Grunnboka på teneleg eigedom.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslag
+  tittel:
+  - Borettslag
+  beskrivelse:
+  - Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen.
+    Burettslagsandelar tilhøyrer eit burettslag.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslag/er_av_type_hovedenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/OffisiellAdresse
+  tittel:
+  - OffisiellAdresse
+  beskrivelse:
+  - Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast
+    av Matrikkelen via NGR-adresse.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Person
+  tittel:
+  - Person
+  beskrivelse:
+  - Ein fysisk person. Tilhøyrer Domene person.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Hovedenhet
+  tittel:
+  - Hovedenhet
+  beskrivelse:
+  - Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar.
+    Tilhøyrer Domene virksomhet.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+  tittel:
+  - Kommune
+  beskrivelse:
+  - Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast av Nasjonal
+    inndelingsbase.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune/kommunenummer_verdi
+attributter:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressetilleggsnavn
+  tittel:
+  - adressetilleggsnavn
+  beskrivelse:
+  - Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/matrikkelnummer
+  tittel:
+  - matrikkelnummer
+  beskrivelse:
+  - Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_annet_objekt
+  tittel:
+  - adresserer_annet_objekt
+  beskrivelse:
+  - Anna objekt (t.d. badeplass, monument) denne adressa er tildelt.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/uriorcurie
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/postboksanleggsnavn
+  tittel:
+  - postboksanleggsnavn
+  beskrivelse:
+  - Namn på postboksanlegget (t.d. bedriftsnamn, institusjon).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/adressenavn_tekst
+  tittel:
+  - adressenavn_tekst
+  beskrivelse:
+  - Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode/kode
+  tittel:
+  - kode
+  beskrivelse:
+  - Numerisk kode for adressekoden (kommunal firesifra kode).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer/nummer
+  tittel:
+  - nummer
+  beskrivelse:
+  - Husnummeret (heltalsverdi).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer/bokstav
+  tittel:
+  - bokstav
+  beskrivelse:
+  - Husbokstav (A–Å) som skil einingar med same husnummer.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/etasjeplan
+  tittel:
+  - etasjeplan
+  beskrivelse:
+  - Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/etasjenummer
+  tittel:
+  - etasjenummer
+  beskrivelse:
+  - Etasjenummer (t.d. 2 for 2. etasje).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer/nummerering_i_etasjen
+  tittel:
+  - nummerering_i_etasjen
+  beskrivelse:
+  - Løpenummer for brukseininga innanfor etasjen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinat_ost
+  tittel:
+  - koordinat_ost
+  beskrivelse:
+  - Austleg koordinat (X) i det angitte koordinatsystemet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/float
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinat_nord
+  tittel:
+  - koordinat_nord
+  beskrivelse:
+  - Nordleg koordinat (Y) i det angitte koordinatsystemet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/float
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt/koordinatsystem
+  tittel:
+  - koordinatsystem
+  beskrivelse:
+  - Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/fylkesnummer
+  tittel:
+  - fylkesnummer
+  beskrivelse:
+  - Tosifra fylkesnummer (t.d. 03 for Oslo).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/kommunenummer_kode
+  tittel:
+  - kommunenummer_kode
+  beskrivelse:
+  - Firesifra kommunenummer (t.d. 0301 for Oslo).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/postnummer
+  tittel:
+  - postnummer
+  beskrivelse:
+  - Firesifra postnummer (locn:postCode).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/grunnkretsnummer
+  tittel:
+  - grunnkretsnummer
+  beskrivelse:
+  - Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/tettstedsnummer
+  tittel:
+  - tettstedsnummer
+  beskrivelse:
+  - SSB-tettstedsnummer.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/kirkesoknnummer
+  tittel:
+  - kirkesoknnummer
+  beskrivelse:
+  - Kysokn-nummer frå Kyrkja.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/stemmekretsnummer
+  tittel:
+  - stemmekretsnummer
+  beskrivelse:
+  - Stemmekretsnummer.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/kretsnummer
+  tittel:
+  - kretsnummer
+  beskrivelse:
+  - Kommunalt kretsnummer.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/namn
+  tittel:
+  - namn
+  beskrivelse:
+  - Namn på det geografiske området eller adressekomponenten.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks/postboksnummer
+  tittel:
+  - postboksnummer
+  beskrivelse:
+  - Postboksnummer (heiltal).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommunenummer/kommunenummer_verdi
+  tittel:
+  - kommunenummer_verdi
+  beskrivelse:
+  - Firesifra kommunenummer (t.d. 0301 for Oslo).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Gaardsnummer/gaardsnummer_verdi
+  tittel:
+  - gaardsnummer_verdi
+  beskrivelse:
+  - Gårdsnummer innanfor kommunen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer/bruksnummer_verdi
+  tittel:
+  - bruksnummer_verdi
+  beskrivelse:
+  - Bruksnummer innanfor gardsnamnet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer/festenummer_verdi
+  tittel:
+  - festenummer_verdi
+  beskrivelse:
+  - Festenummer (0..1 – berre for festegrunn).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Seksjonsnummer/seksjonsnummer_verdi
+  tittel:
+  - seksjonsnummer_verdi
+  beskrivelse:
+  - Seksjonsnummer (0..1 – berre for eigarseksjonar).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygningsnummer/bygningsnummer_verdi
+  tittel:
+  - bygningsnummer_verdi
+  beskrivelse:
+  - Unikt bygningsnummer i Matrikkelen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinat_ost
+  tittel:
+  - koordinat_ost
+  beskrivelse:
+  - Austleg koordinat (X) i det angitte koordinatsystemet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/float
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinat_nord
+  tittel:
+  - koordinat_nord
+  beskrivelse:
+  - Nordleg koordinat (Y) i det angitte koordinatsystemet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/float
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt/koordinatsystem
+  tittel:
+  - koordinatsystem
+  beskrivelse:
+  - Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/etasjeplan
+  tittel:
+  - etasjeplan
+  beskrivelse:
+  - Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_verdi_fra:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/etasjenummer
+  tittel:
+  - etasjenummer
+  beskrivelse:
+  - Etasjenummer (t.d. 2 for 2. etasje).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer/nummerering_i_etasjen
+  tittel:
+  - nummerering_i_etasjen
+  beskrivelse:
+  - Løpenummer for brukseininga innanfor etasjen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje/etasjenummer
+  tittel:
+  - etasjenummer
+  beskrivelse:
+  - Etasjenummer (t.d. 2 for 2. etasje).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune/kommunenummer_verdi
+  tittel:
+  - kommunenummer_verdi
+  beskrivelse:
+  - Firesifra kommunenummer (t.d. 0301 for Oslo).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+assosiasjoner:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/kommunenummer_ref
+  tittel:
+  - kommunenummer_ref
+  beskrivelse:
+  - Kommunen denne adressa ligg i.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressenavn_ref
+  tittel:
+  - adressenavn_ref
+  beskrivelse:
+  - Adressenavn (vegnamn o.l.) for adressa.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adressekode_ref
+  tittel:
+  - adressekode_ref
+  beskrivelse:
+  - Kommunal adressekode for adressa.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/husnummer_ref
+  tittel:
+  - husnummer_ref
+  beskrivelse:
+  - Husnummer (nummer + bokstav) for adressa.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Husnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/bruksenhetsnummer_ref
+  tittel:
+  - bruksenhetsnummer_ref
+  beskrivelse:
+  - Bruksenhetsnummer for leilegheit eller lokale.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhetsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/representasjonspunkt_ref
+  tittel:
+  - representasjonspunkt_ref
+  beskrivelse:
+  - Geografisk punkt som representerer adressas posisjon.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Representasjonspunkt
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_bygning
+  tittel:
+  - adresserer_bygning
+  beskrivelse:
+  - 'Bygning denne adressa er tildelt (forvaltar: Matrikkelen).'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bygning
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/adresserer_bruksenhet
+  tittel:
+  - adresserer_bruksenhet
+  beskrivelse:
+  - 'Brukseining denne adressa er tildelt (forvaltar: Matrikkelen).'
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/OffisiellAdresse/geografisk_omrade
+  tittel:
+  - geografisk_omrade
+  beskrivelse:
+  - Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adressa ligg i.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/vocabulary/ngr-adresse#GeografiskOmrade
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/postboks_ref
+  tittel:
+  - postboks_ref
+  beskrivelse:
+  - Postboksen denne postboksadressa tilhøyrer.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboksadresse/poststed_ref
+  tittel:
+  - poststed_ref
+  beskrivelse:
+  - Poststedet (postnummer) denne adressa høyrer til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/adresseomrade_ref
+  tittel:
+  - adresseomrade_ref
+  beskrivelse:
+  - Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/har_adressekode
+  tittel:
+  - har_adressekode
+  beskrivelse:
+  - Adressekode tilknytt dette adressenamnet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode/adresseomrade_ref
+  tittel:
+  - adresseomrade_ref
+  beskrivelse:
+  - Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/identifiseres_av
+  tittel:
+  - identifiseres_av
+  beskrivelse:
+  - Matrikkeleininga som identifiserer denne faste eigedommen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_matrikkelenhet
+  tittel:
+  - bestar_av_matrikkelenhet
+  beskrivelse:
+  - Matrikkeleininga denne faste eigedommen fysisk består av.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_bygning
+  tittel:
+  - bestar_av_bygning
+  beskrivelse:
+  - Bygning(ar) som inngår i denne faste eigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/bestar_av_rettighet
+  tittel:
+  - bestar_av_rettighet
+  beskrivelse:
+  - Rettar som er nødvendige for å benytte eigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/RettighetForAaBenytteEiendom
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/har_eierforhold
+  tittel:
+  - har_eierforhold
+  beskrivelse:
+  - Eigarforhold knytt til eigedommen eller burettslagsandelen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom/har_tinglyst_heftelse
+  tittel:
+  - har_tinglyst_heftelse
+  beskrivelse:
+  - Tinglyste heftingar knytt til eigedommen eller burettslagsandelen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystHeftelse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/SamletFastEiendom/bestar_av_fast_eiendom
+  tittel:
+  - bestar_av_fast_eiendom
+  beskrivelse:
+  - Faste eigedommar som inngår i samlinga (minimum 2).
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/FastEiendom
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/tilhoerer_borettslag
+  tittel:
+  - tilhoerer_borettslag
+  beskrivelse:
+  - Burettslagsandelen tilhøyrer dette burettslaget.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslag
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/har_eierforhold
+  tittel:
+  - har_eierforhold
+  beskrivelse:
+  - Eigarforhold knytt til eigedommen eller burettslagsandelen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel/har_tinglyst_heftelse
+  tittel:
+  - har_tinglyst_heftelse
+  beskrivelse:
+  - Tinglyste heftingar knytt til eigedommen eller burettslagsandelen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystHeftelse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/kan_vaere_pa
+  tittel:
+  - kan_vaere_pa
+  beskrivelse:
+  - Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje
+    på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom,
+    festegrunn eller anleggseigendom.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Grunneiendom/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/kan_vaere_pa
+  tittel:
+  - kan_vaere_pa
+  beskrivelse:
+  - Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje
+    på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom,
+    festegrunn eller anleggseigendom.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festegrunn/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/kan_vaere_pa
+  tittel:
+  - kan_vaere_pa
+  beskrivelse:
+  - Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje
+    på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom,
+    festegrunn eller anleggseigendom.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Jordsameie/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/kan_vaere_pa
+  tittel:
+  - kan_vaere_pa
+  beskrivelse:
+  - Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje
+    på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom,
+    festegrunn eller anleggseigendom.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Eierseksjon/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggseiendom/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/identifiseres_med
+  tittel:
+  - identifiseres_med
+  beskrivelse:
+  - Matrikkelnummeret som identifiserer matrikkeleininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/ligger_innenfor_kommune
+  tittel:
+  - ligger_innenfor_kommune
+  beskrivelse:
+  - Kommunen matrikkeleininga ligg innanfor.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommune
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/er_del_av_teig
+  tittel:
+  - er_del_av_teig
+  beskrivelse:
+  - Teigen(e) matrikkeleininga er del av.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/har_teig
+  tittel:
+  - har_teig
+  beskrivelse:
+  - Teigen(e) som tilhøyrer matrikkeleininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Teig
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/AnnenMatrikkelenhet/har_anleggsprojeksjonsflate
+  tittel:
+  - har_anleggsprojeksjonsflate
+  beskrivelse:
+  - Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Anleggsprojeksjonsflate
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_kommunenummer
+  tittel:
+  - bestar_av_kommunenummer
+  beskrivelse:
+  - Kommunenummerdelen av matrikkelnummeret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Kommunenummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_gaardsnummer
+  tittel:
+  - bestar_av_gaardsnummer
+  beskrivelse:
+  - Gårdsnummerdelen av matrikkelnummeret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Gaardsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_bruksnummer
+  tittel:
+  - bestar_av_bruksnummer
+  beskrivelse:
+  - Bruksnummerdelen av matrikkelnummeret.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_festenummer
+  tittel:
+  - bestar_av_festenummer
+  beskrivelse:
+  - Festenummerdelen av matrikkelnummeret (berre for festegrunn).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Matrikkelnummer/bestar_av_seksjonsnummer
+  tittel:
+  - bestar_av_seksjonsnummer
+  beskrivelse:
+  - Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Seksjonsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_bygningsnummer
+  tittel:
+  - har_bygningsnummer
+  beskrivelse:
+  - Offisiell bygningsnummer for bygningen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygningsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_representasjonspunkt
+  tittel:
+  - har_representasjonspunkt
+  beskrivelse:
+  - Geografisk representasjonspunkt for bygningen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Representasjonspunkt
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/er_knyttet_til_matrikkelenhet
+  tittel:
+  - er_knyttet_til_matrikkelenhet
+  beskrivelse:
+  - Matrikkeleininga bygningen er knytt til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_ytre_inngang
+  tittel:
+  - har_ytre_inngang
+  beskrivelse:
+  - Ytre inngang(ar) til bygningen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_bruksenhet
+  tittel:
+  - har_bruksenhet
+  beskrivelse:
+  - Brukseining(ar) i bygningen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bygning/har_etasje
+  tittel:
+  - har_etasje
+  beskrivelse:
+  - Etasjar i bygningen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang/gjelder_bruksenhet
+  tittel:
+  - gjelder_bruksenhet
+  beskrivelse:
+  - Brukseiningane den ytre inngangen gir tilgang til.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/YtreInngang/har_offisiell_adresse
+  tittel:
+  - har_offisiell_adresse
+  beskrivelse:
+  - Offisiell adresse for den ytre inngangen eller brukseininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/OffisiellAdresse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/har_bruksenhetsnummer
+  tittel:
+  - har_bruksenhetsnummer
+  beskrivelse:
+  - Bruksenheitsnummeret for brukseininga.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhetsnummer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/er_tilknyttet_matrikkelenhet
+  tittel:
+  - er_tilknyttet_matrikkelenhet
+  beskrivelse:
+  - Matrikkeleininga brukseininga er knytt til.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/har_offisiell_adresse
+  tittel:
+  - har_offisiell_adresse
+  beskrivelse:
+  - Offisiell adresse for den ytre inngangen eller brukseininga.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/OffisiellAdresse
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksenhet/ligger_i_etasje
+  tittel:
+  - ligger_i_etasje
+  beskrivelse:
+  - Etasjen(e) brukseininga ligg i.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasje
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_matrikkelenhet
+  tittel:
+  - gjelder_matrikkelenhet
+  beskrivelse:
+  - Matrikkeleininga dette eigarforholdet gjeld.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/kan_gjelde_borettslagsandel
+  tittel:
+  - kan_gjelde_borettslagsandel
+  beskrivelse:
+  - Burettslagsandelen dette eigarforholdet eventuelt gjeld.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_eiendomsrett
+  tittel:
+  - gjelder_hjemmel_eiendomsrett
+  beskrivelse:
+  - Heimelsdokument for eigedomsrett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_festerett
+  tittel:
+  - gjelder_hjemmel_festerett
+  beskrivelse:
+  - Heimelsdokument for festerett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/TinglystEierforhold/gjelder_hjemmel_framfesterett
+  tittel:
+  - gjelder_hjemmel_framfesterett
+  beskrivelse:
+  - Heimelsdokument for framfesterett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_matrikkelenhet
+  tittel:
+  - gjelder_matrikkelenhet
+  beskrivelse:
+  - Matrikkeleininga dette eigarforholdet gjeld.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/kan_gjelde_borettslagsandel
+  tittel:
+  - kan_gjelde_borettslagsandel
+  beskrivelse:
+  - Burettslagsandelen dette eigarforholdet eventuelt gjeld.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslagsandel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_eiendomsrett
+  tittel:
+  - gjelder_hjemmel_eiendomsrett
+  beskrivelse:
+  - Heimelsdokument for eigedomsrett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_festerett
+  tittel:
+  - gjelder_hjemmel_festerett
+  beskrivelse:
+  - Heimelsdokument for festerett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/IkkeTinglystEierforhold/gjelder_hjemmel_framfesterett
+  tittel:
+  - gjelder_hjemmel_framfesterett
+  beskrivelse:
+  - Heimelsdokument for framfesterett knytt til dette eigarforholdet.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilEiendomsrett/har_andel
+  tittel:
+  - har_andel
+  beskrivelse:
+  - Andel(ar) i heimelsdokumentet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFesterett/har_andel
+  tittel:
+  - har_andel
+  beskrivelse:
+  - Andel(ar) i heimelsdokumentet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/HjemmelTilFramfesterett/har_andel
+  tittel:
+  - har_andel
+  beskrivelse:
+  - Andel(ar) i heimelsdokumentet.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Andel/har_rettighetshaver
+  tittel:
+  - har_rettighetshaver
+  beskrivelse:
+  - Rettigheitshavar(ar) for andelen.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '*'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver/er_av_type_person
+  tittel:
+  - er_av_type_person
+  beskrivelse:
+  - Personen som er rettigheitshavar (fysisk person).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Person
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Rettighetshaver/er_av_type_hovedenhet
+  tittel:
+  - er_av_type_hovedenhet
+  beskrivelse:
+  - Hovudeininga (juridisk person) som er rettigheitshavar.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Hovedenhet
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Borettslag/er_av_type_hovedenhet
+  tittel:
+  - er_av_type_hovedenhet
+  beskrivelse:
+  - Hovudeininga (juridisk person) som er rettigheitshavar.
+  nedre_multiplisitet: 1
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Hovedenhet
+kodelister:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  tittel:
+  - Etasjeplan
+  beskrivelse:
+  - Kode for kva del av bygningen eit bruksenhetsnummer refererer til.
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  tittel:
+  - Etasjeplan
+  beskrivelse:
+  - Kode for kva del av bygningen ei brukseining ligg i.
+kodeelementer:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan/H
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  kode: H
+  anbefalt_kodetekst:
+  - Høgde (over bakkenivå)
+  definisjon:
+  - Høgde (over bakkenivå)
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan/U
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  kode: U
+  anbefalt_kodetekst:
+  - Under bakkenivå
+  definisjon:
+  - Under bakkenivå
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan/K
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  kode: K
+  anbefalt_kodetekst:
+  - Kjellar
+  definisjon:
+  - Kjellar
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan/L
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  kode: L
+  anbefalt_kodetekst:
+  - Loft
+  definisjon:
+  - Loft
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan/M
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Etasjeplan
+  kode: M
+  anbefalt_kodetekst:
+  - Mesanin
+  definisjon:
+  - Mesanin
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan/H
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  kode: H
+  anbefalt_kodetekst:
+  - Høgde (over bakkenivå)
+  definisjon:
+  - Høgde (over bakkenivå)
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan/U
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  kode: U
+  anbefalt_kodetekst:
+  - Under bakkenivå
+  definisjon:
+  - Under bakkenivå
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan/K
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  kode: K
+  anbefalt_kodetekst:
+  - Kjellar
+  definisjon:
+  - Kjellar
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan/L
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  kode: L
+  anbefalt_kodetekst:
+  - Loft
+  definisjon:
+  - Loft
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan/M
+  i_kodeliste:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Etasjeplan
+  kode: M
+  anbefalt_kodetekst:
+  - Mesanin
+  definisjon:
+  - Mesanin
+enkeltyper:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
+  tittel:
+  - string
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/uriorcurie
+  tittel:
+  - uriorcurie
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/integer
+  tittel:
+  - integer
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/float
+  tittel:
+  - float

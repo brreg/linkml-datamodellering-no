@@ -245,7 +245,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         gen-asyncapi domain-gen-asyncapi schema-gen-asyncapi \
         gen-openapi domain-gen-openapi schema-gen-openapi \
         check-published-uris check-prereqs \
-        update-modellkatalog gen-dqv-measurements new-org-catalog new-begrepskatalog \
+        update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
         gource-build gource-preview gource-video _gource-render
 
@@ -479,6 +479,16 @@ gen-dqv-measurements:
 	@echo "$(CLR_HDR)*** make gen-dqv-measurements$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(PYTHON_RUN) python3 src/assets/scripts/gen-dqv-measurements.py
+
+# Genererer ModelDCAT-AP-NO-modellelement (Objekttype/Attributt/Assosiasjon/
+# Kodeliste/Kodeelement) frå LinkML-skjemastruktur og skriv dem inn i riktig
+# org sin modellkatalog-datafil. Krev SchemaView, derfor $(LINKML_RUN) (ikkje
+# $(PYTHON_RUN)). Bruk: make gen-modelldcat-elements [ORG=alias] [DRYRUN=1]
+gen-modelldcat-elements:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-modelldcat-elements$(if $(ORG),  ORG=$(ORG))$(if $(DRYRUN),  DRYRUN=$(DRYRUN))$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(LINKML_RUN) python3 src/assets/scripts/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
 
 # Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make <domain>-targets er køyrde fyrst.

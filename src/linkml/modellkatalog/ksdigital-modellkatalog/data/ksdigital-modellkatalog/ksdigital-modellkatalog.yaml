@@ -27,13 +27,22 @@ informasjonsmodeller:
   kontaktpunkt:
   - https://www.ks.no/fagomrader/digitalisering/
   tema:
-  - TODO
+  - https://psi.norge.no/los/tema/utdanning
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   endringsdato: '2026-06-10'
   utgivelsesdato: '2026-06-10'
   status: http://purl.org/adms/status/UnderDevelopment
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   versjonsnummer: 1.0.2
+  inneholder_modellelement:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer
 aktoerer:
 - id: https://www.ks.no/fagomrader/digitalisering/
   navn_aktoer:
@@ -41,3 +50,251 @@ aktoerer:
 - id: https://data.norge.no/organizations/971032146
   navn_aktoer:
   - KS Digital
+objekttyper:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole
+  tittel:
+  - Skole
+  beskrivelse:
+  - En skole er en privat eller offentlig institusjon eller et lærested hvor lærere
+    underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole/navn
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole/har_skoleeier
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune
+  tittel:
+  - Kommune
+  beskrivelse:
+  - En kommune er et geografisk avgrenset område som utgjør en egen politisk og administrativ
+    enhet innen en statsdannelse.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune/kommunenummer
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune/navn
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke
+  tittel:
+  - Fylke
+  beskrivelse:
+  - Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt geografisk
+    område, tilsvarende amt og len.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke/fylkesnummer
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke/navn
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet
+  tittel:
+  - PrivatVirksomhet
+  beskrivelse:
+  - Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon
+    som produserer varer eller tjenester.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet/organisasjonsnummer
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet/navn
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe
+  tittel:
+  - Basisgruppe
+  beskrivelse:
+  - Skoleklasse som hovedsaklig samler elever i ulike fag.
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/navn
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/trinniva
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/del_av_skole
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev
+  tittel:
+  - Elev
+  beskrivelse:
+  - En person som går på skole
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev/horer_til_basisgruppe
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev/navn
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor
+  tittel:
+  - Rektor
+  beskrivelse:
+  - Høgaste akademiske leder av en skole
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor/enhetsleder_for
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor/navn
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer
+  tittel:
+  - Kontaktlaerer
+  beskrivelse:
+  - En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane
+    i basisgruppa
+  har_egenskap:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/tilknyttet_basisgruppe
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/har_saerlig_ansvar_for
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/jobber_paa_skole
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/navn
+attributter:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune/kommunenummer
+  tittel:
+  - kommunenummer
+  beskrivelse:
+  - Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie områder.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kommune/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke/fylkesnummer
+  tittel:
+  - fylkesnummer
+  beskrivelse:
+  - Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territorier
+    (Svalbard og Jan Mayen).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Fylke/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet/organisasjonsnummer
+  tittel:
+  - organisasjonsnummer
+  beskrivelse:
+  - Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles av
+    Enhetsregisteret ved Brønnøysundregistrene for en organisasjon (foretak, idrettslag
+    og lignende).
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/PrivatVirksomhet/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/trinniva
+  tittel:
+  - trinniva
+  beskrivelse:
+  - Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/navn
+  tittel:
+  - navn
+  beskrivelse:
+  - Namn på ressursen.
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  har_enkel_type:
+  - https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+assosiasjoner:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole/har_skoleeier
+  tittel:
+  - har_skoleeier
+  beskrivelse:
+  - Skoleeier for skolen
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/samt/samt-bu/skole/Skoleeier
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe/del_av_skole
+  tittel:
+  - del_av_skole
+  beskrivelse:
+  - Skolen basisgruppa tilhører
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev/horer_til_basisgruppe
+  tittel:
+  - horer_til_basisgruppe
+  beskrivelse:
+  - Basisgruppe elev tilhører
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Rektor/enhetsleder_for
+  tittel:
+  - enhetsleder_for
+  beskrivelse:
+  - Enhet rektor er enhetsleder for
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/tilknyttet_basisgruppe
+  tittel:
+  - tilknyttet_basisgruppe
+  beskrivelse:
+  - Basisgruppe kontaktlærer er tilknyttet
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Basisgruppe
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/har_saerlig_ansvar_for
+  tittel:
+  - har_saerlig_ansvar_for
+  beskrivelse:
+  - Elev kontaktlæreren har særlig ansvar for
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Elev
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Kontaktlaerer/jobber_paa_skole
+  tittel:
+  - jobber_paa_skole
+  beskrivelse:
+  - Skolen kontaktlæreren jobber på
+  nedre_multiplisitet: 0
+  oevre_multiplisitet: '1'
+  refererer_til: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu/Skole
+kodelister: []
+kodeelementer: []
+enkeltyper:
+- id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/types/string
+  tittel:
+  - string

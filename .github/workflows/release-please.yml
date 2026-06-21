@@ -73,6 +73,24 @@ jobs:
             echo "Ingen endringar å committe"
           fi
 
+  # Kjent race condition mot generate.yml (vurdert 2026-06-21, medvite akseptert):
+  # denne jobben pushar ein commit under src/linkml/ via RELEASE_PLEASE_TOKEN
+  # (ein PAT, ikkje GITHUB_TOKEN — derfor utløyser pushen andre workflows).
+  # generate.yml triggas av push til main med path-filter src/linkml/**, og
+  # vil derfor allereie ha starta éin gong på release-PR-merge-pushen — FØR
+  # denne jobben sin eigen commit (med oppdaterte datoar/DQV/ModelDCAT-
+  # modellelement) eksisterer. Resultatet er at generate.yml typisk køyrer
+  # to gonger per release: éin gong på data frå før denne jobben, og éin gong
+  # til (utløyst av denne jobben sin push) med korrekt data — den andre
+  # køyringa overskriv GitHub Pages-publiseringa frå den første. Dette er
+  # ressurssløsing (dobbel CI-køyring), men sjølvhelande/eventually consistent
+  # — med eitt unntak: dersom den ANDRE (korrigerande) generate.yml-køyringa
+  # feilar (t.d. ein datafeil introdusert av eit av skripta under), blir
+  # portalen ståande på det eldre-men-gyldige innholdet frå første køyring
+  # utan synleg feilmelding. Ingen workaround er implementert — koplinga
+  # mellom dei to workflow-filene (t.d. via workflow_run) ville lagt unødig
+  # kompleksitet/skjørheit på generate.yml sin enkle "push til src/linkml/**"-
+  # trigger, som vanlege feature-PR-ar er avhengige av.
   update-dates:
     needs: release-please
     if: ${{ needs.release-please.outputs.releases_created == 'true' }}
@@ -100,13 +118,27 @@ jobs:
           pip install --quiet pyyaml
           python3 src/assets/scripts/gen-dqv-measurements.py
 
-      - name: Commit og push oppdaterte datoar og kvalitetsmålingar
+      - name: Hent linkml-local-image frå GHCR
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:latest
+          podman pull "$IMAGE"
+          podman tag "$IMAGE" localhost/linkml-local:latest
+
+      - name: Oppdater ModelDCAT-modellelement
+        run: |
+          podman run --rm \
+            -v "$PWD:/work" -w /work \
+            -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+            localhost/linkml-local:latest \
+            python3 src/assets/scripts/gen-modelldcat-elements.py
+
+      - name: Commit og push oppdaterte datoar, kvalitetsmålingar og modellelement
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
             git add src/linkml/
-            git commit -m "chore(*): oppdater datoannotasjonar og DQV-kvalitetsmålingar etter release [skip ci]"
+            git commit -m "chore(*): oppdater datoannotasjonar, DQV-kvalitetsmålingar og ModelDCAT-modellelement etter release [skip ci]"
             git push
           else
             echo "Ingen endringar å committe"
