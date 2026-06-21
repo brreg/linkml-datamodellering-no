@@ -171,7 +171,8 @@
       "Bash(echo \"EXIT CODE: $?\")",
       "Bash(echo \"exit:$?\")",
       "Bash(xargs -I{} echo {})",
-      "Bash(git log *)"
+      "Bash(git log *)",
+      "Bash(xargs ls)"
     ]
   },
   "enableAllProjectMcpServers": true,
