@@ -1,0 +1,17 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/eksempel
+  tittel:
+  - Novari IKS – Modellkatalog (FINT) (eksempel)
+  beskrivelse:
+  - Eksempel på ein modellkatalogpost.
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/eksempel
+  utgiver: https://data.norge.no/organizations/985870714
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  har_del: []
+  modell: []
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller: []
+aktoerer: []

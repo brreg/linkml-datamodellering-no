@@ -15,9 +15,13 @@ modellkataloger:
   har_del:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
   modell:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
+  - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
   spraak:
   - http://publications.europa.eu/resource/authority/language/NOB
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -30,6 +34,8 @@ informasjonsmodeller:
   - Nasjonale grunndata – Virksomhet
   beskrivelse:
   - Informasjonsmodell for verksemder, roller og organisasjonsstruktur.
+  relatert_begrep:
+  - https://begrep.brreg.no/foretaksnavn
   utgiver: https://data.norge.no/organizations/974760673
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/
@@ -39,14 +45,18 @@ informasjonsmodeller:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   status: http://purl.org/adms/status/UnderDevelopment
-  utgivelsesdato: "2024-01-01"
-  endringsdato: "2026-06-19"
-  versjonsnummer: "1.0.0"
+  utgivelsesdato: '2023-01-01'
+  endringsdato: '2026-06-10'
+  versjonsnummer: 1.0.1
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   tittel:
   - Register over aksjeeigarar
   beskrivelse:
   - Informasjonsmodell for aksjeeigarar, aksjekapital og eigarstruktur.
+  relatert_begrep:
+  - https://begrep.brreg.no/nestleder
+  - https://begrep.brreg.no/aksjeklasser
   utgiver: https://data.norge.no/organizations/974760673
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/
@@ -55,10 +65,51 @@ informasjonsmodeller:
   tema:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  status: http://purl.org/adms/status/Completed
+  utgivelsesdato: '2024-01-01'
+  endringsdato: '2026-06-19'
+  versjonsnummer: 1.0.1
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
+  tittel:
+  - FAIR Metadata Overbygning
+  beskrivelse:
+  - 'FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre
+    maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible,
+    Interoperable, Reusable).
+
+    '
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fair/fair-metadata/
+  kontaktpunkt:
+  - https://brreg.no/kontakt/modellforvaltning
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2024-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.1
+- id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
+  tittel:
+  - Enhetsregisteret – BVINN
+  beskrivelse:
+  - Generert frå JSON Schema 'generated'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinn/
+  kontaktpunkt:
+  - https://brreg.no/kontakt/modellforvaltning
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2026-06-10'
   status: http://purl.org/adms/status/UnderDevelopment
-  utgivelsesdato: "2024-01-01"
-  endringsdato: "2026-06-19"
-  versjonsnummer: "1.0.0"
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 1.0.0
 aktoerer:
 - id: https://brreg.no/kontakt/modellforvaltning
   navn_aktoer:

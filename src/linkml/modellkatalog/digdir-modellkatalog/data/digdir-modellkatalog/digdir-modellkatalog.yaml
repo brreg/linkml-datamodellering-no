@@ -1,0 +1,190 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog
+  tittel:
+  - Digitaliseringsdirektoratet – Modellkatalog
+  beskrivelse:
+  - 'TODO: legg til skildring av katalogen'
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog
+  utgiver: https://data.norge.no/organizations/991825827
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  har_del:
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/common-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/cpsv-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/dcat-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/dqv-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-katalog
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/skos-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no
+  modell:
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/common-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/cpsv-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/dcat-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/dqv-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-katalog
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/skos-ap-no
+  - https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller:
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/common-ap-no
+  tittel:
+  - Common AP-NO
+  beskrivelse:
+  - Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
+    (AP-NO). Importerast av dei einskilde profilane.
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/common-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/UnderDevelopment
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.0
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/cpsv-ap-no
+  tittel:
+  - CPSV-AP-NO
+  beskrivelse:
+  - Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert i
+    LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/cpsv-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/cpsv-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.1
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/dcat-ap-no
+  tittel:
+  - DCAT-AP-NO
+  beskrivelse:
+  - Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining.
+    Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/dcat-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/dcat-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 2.1.1
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/dqv-ap-no
+  tittel:
+  - DQV-AP-NO
+  beskrivelse:
+  - Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
+    med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/dqv-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.1.2
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-ap-no
+  tittel:
+  - ModelDCAT-AP-NO
+  beskrivelse:
+  - Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
+    modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.2
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-katalog
+  tittel:
+  - ModelDCAT-AP-NO – Katalogdel
+  beskrivelse:
+  - 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
+    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
+    import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-katalog
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-katalog/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.2
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/skos-ap-no
+  tittel:
+  - SKOS-AP-NO
+  beskrivelse:
+  - Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med lenking
+    framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/skos-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 2.1.0
+- id: https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no
+  tittel:
+  - XKOS-AP-NO
+  beskrivelse:
+  - LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
+    Basert på https://data.norge.no/specification/xkos-ap-no
+  utgiver: https://data.norge.no/organizations/991825827
+  identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ap-no/xkos-ap-no/
+  kontaktpunkt:
+  - https://www.digdir.no/om-oss/kontakt-oss/887
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#ConceptualDataModel
+  versjonsnummer: 1.0.0
+aktoerer:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_aktoer:
+  - 'TODO: namn på kontaktpunktet'
+- id: https://data.norge.no/organizations/991825827
+  navn_aktoer:
+  - Digitaliseringsdirektoratet

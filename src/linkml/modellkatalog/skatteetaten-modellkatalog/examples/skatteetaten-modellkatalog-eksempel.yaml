@@ -1,0 +1,17 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/eksempel
+  tittel:
+  - Skatteetaten – Modellkatalog (eksempel)
+  beskrivelse:
+  - Eksempel på ein modellkatalogpost.
+  identifikator_literal: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/eksempel
+  utgiver: https://data.norge.no/organizations/974761076
+  kontaktpunkt:
+  - https://www.skatteetaten.no/kontakt/
+  har_del: []
+  modell: []
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller: []
+aktoerer: []

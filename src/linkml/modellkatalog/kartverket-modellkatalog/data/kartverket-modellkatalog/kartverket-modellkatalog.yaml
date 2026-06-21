@@ -1,0 +1,67 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog
+  tittel:
+  - Kartverket – Modellkatalog
+  beskrivelse:
+  - 'TODO: legg til skildring av katalogen'
+  identifikator_literal: https://data.norge.no/modellkatalog/kartverket-modellkatalog
+  utgiver: https://data.norge.no/organizations/971040238
+  kontaktpunkt:
+  - https://www.kartverket.no/om-kartverket/kontakt-oss/
+  har_del:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
+  modell:
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse
+  tittel:
+  - Nasjonale grunndata – Adresse
+  beskrivelse:
+  - Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer
+    Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og
+    adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
+  utgiver: https://data.norge.no/organizations/971040238
+  identifikator_literal: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-adresse/
+  kontaktpunkt:
+  - https://www.kartverket.no/om-kartverket/kontakt-oss/
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/UnderDevelopment
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 1.0.1
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
+  tittel:
+  - Nasjonale grunndata – Eiendom
+  beskrivelse:
+  - Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer
+    Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta
+    klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+  utgiver: https://data.norge.no/organizations/971040238
+  identifikator_literal: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-eiendom/
+  kontaktpunkt:
+  - https://www.kartverket.no/om-kartverket/kontakt-oss/
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/UnderDevelopment
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 1.0.1
+aktoerer:
+- id: https://www.kartverket.no/om-kartverket/kontakt-oss/
+  navn_aktoer:
+  - 'TODO: namn på kontaktpunktet'
+- id: https://data.norge.no/organizations/971040238
+  navn_aktoer:
+  - Kartverket

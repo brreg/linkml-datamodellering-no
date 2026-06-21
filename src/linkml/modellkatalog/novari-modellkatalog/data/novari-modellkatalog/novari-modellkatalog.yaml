@@ -1,0 +1,187 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog
+  tittel:
+  - Novari IKS – Modellkatalog (FINT)
+  beskrivelse:
+  - 'TODO: legg til skildring av katalogen'
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog
+  utgiver: https://data.norge.no/organizations/985870714
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  har_del:
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-administrasjon
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-okonomi
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-personvern
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-utdanning
+  modell:
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-administrasjon
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-okonomi
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-personvern
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-utdanning
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller:
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-administrasjon
+  tittel:
+  - FINT Administrasjon
+  beskrivelse:
+  - 'FINT-domenemodell for administrasjon og HR. Dekkjer personalressursar, arbeidsforhold,
+    fullmakter og organisasjonsstruktur.
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-administrasjon
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-administrasjon/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv
+  tittel:
+  - FINT Arkiv
+  beskrivelse:
+  - 'FINT-domenemodell for arkiv basert på Noark 5-standarden. Dekkjer sakshandtering,
+    journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-arkiv/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common
+  tittel:
+  - FINT Felles typar
+  beskrivelse:
+  - 'Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt mellom alle
+    FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-common/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.22
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-okonomi
+  tittel:
+  - FINT Økonomi
+  beskrivelse:
+  - 'FINT-domenemodell for økonomi. Dekkjer tre sub-pakkar: okonomi.faktura (faktura,
+    fakturagrunnlag, fakturautsteder), okonomi.regnskap (transaksjonar, posteringar,
+    bilag, leverandørar) og okonomi.kodeverk (vare, merverdiavgift, valuta).
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-okonomi
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-okonomi/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-personvern
+  tittel:
+  - FINT Personvern
+  beskrivelse:
+  - 'FINT-domenemodell for personvern. Dekkjer behandling av personopplysningar, samtykke,
+    tenester og kodeverk for behandlingsgrunnlag og personopplysningstypar.
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-personvern
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-personvern/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs
+  tittel:
+  - FINT Ressurs
+  beskrivelse:
+  - 'FINT-domenemodell for ressursstyring. Dekkjer tre sub-pakkar: ressurs.eiendel
+    (applikasjonar og lisensressursar), ressurs.datautstyr (digitale einingar og einingsgrupper)
+    og ressurs.tilgang (identitetar og rettigheiter).
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-ressurs/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-utdanning
+  tittel:
+  - FINT Utdanning
+  beskrivelse:
+  - 'FINT-domenemodell for utdanning. Dekkjer elevar, skular, skoleressursar, elevforhold,
+    undervisningsforhold, klasser, undervisningsgrupper, faggrupper, kontaktlærergrupper,
+    utdanningsprogram, programområde, vurdering, lærling og OT.
+
+    '
+  utgiver: https://data.norge.no/organizations/985870714
+  identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-utdanning
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fint/fint-utdanning/
+  kontaktpunkt:
+  - https://novari.no/kontakt
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/Completed
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 4.0.21
+aktoerer:
+- id: https://novari.no/kontakt
+  navn_aktoer:
+  - 'TODO: namn på kontaktpunktet'
+- id: https://data.norge.no/organizations/985870714
+  navn_aktoer:
+  - Novari IKS

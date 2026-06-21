@@ -25,6 +25,22 @@ alle titlar, namn og andre språkmerkte strengar.
 |---|---|
 | `brreg-begrepskatalog` | `test_roundtrip_ttl` |
 | `brreg-modellkatalog` | `test_roundtrip_ttl` |
+| `digdir-modellkatalog` | `test_roundtrip_ttl` |
+| `novari-modellkatalog` | `test_roundtrip_ttl` |
+| `ksdigital-modellkatalog` | `test_roundtrip_ttl` |
+| `skatteetaten-modellkatalog` | `test_roundtrip_ttl` |
+| `kartverket-modellkatalog` | `test_roundtrip_ttl` |
+
+Dei 5 siste er per-org-modellkatalogar oppretta av `make new-org-catalog`
+(MD2, sjå `specs/backlog/avvik-veileder-modelldcat-ap-no.md`) — same
+skjemastruktur som `brreg-modellkatalog` (importerer `modelldcat-ap-no-schema`,
+som igjen dreg inn `Katalog` frå `dcat-ap-no-schema` med samme `class_uri:
+dcat:Catalog` som `Modellkatalog`). Symptomet i desse 5 er litt ulikt
+formulert (`Inconsistent URI to class map: ... -> Katalog, Modellkatalog`,
+deretter `Modellkatalog.__init__() got an unexpected keyword argument
+'tittel_literal'`), men rotårsaka er samme `rdflib_loader`-svakheit ved
+TTL→YAML-deserialisering av `LangString`-felt (`tittel`, `beskrivelse`) på
+ein klasse som deler RDF-type med ein annan klasse i importgrafen.
 
 Alle skjema som importerer `common-ap-no` eller `skos-ap-no` og brukar
 `LangString`-slots i data vil truleg ha same problem dersom dei roundtrippar TTL.
@@ -67,13 +83,17 @@ Berørte slots og klasser etter endringa:
 | `modelldcat-ap-no` | `Informasjonsmodell` | `tittel` |
 | `modelldcat-ap-no` | `Modellelement` | `tittel` |
 
-**2. Skip i `test_roundtrip_ttl`** for `brreg-begrepskatalog` og `brreg-modellkatalog`
-med kommentar som peikar til denne fila:
+**2. Skip i `test_roundtrip_ttl`** for `brreg-begrepskatalog`, `brreg-modellkatalog`
+og dei 5 per-org-modellkatalogane (digdir, novari, ksdigital, skatteetaten,
+kartverket) med kommentar som peikar til denne fila:
 
 ```bash
 # linkml-runtime-bug: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
 # Sjå specs/bugs/langstring-rdflib-roundtrip.md
-if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" ]]; then
+if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" || \
+      "$name" == "digdir-modellkatalog" || "$name" == "novari-modellkatalog" || \
+      "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
+      "$name" == "kartverket-modellkatalog" ]]; then
     echo "Hoppar over roundtrip-ttl for $name (BUG-1: linkml-runtime LangString-bug)"
     return 0
 fi

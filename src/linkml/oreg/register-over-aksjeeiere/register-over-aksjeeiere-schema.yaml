@@ -12,8 +12,8 @@ description: >
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "TODO"
-  utgivelsesdato: "TODO"
+  endringsdato: "2026-06-19"
+  utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/Completed
 
 prefixes:

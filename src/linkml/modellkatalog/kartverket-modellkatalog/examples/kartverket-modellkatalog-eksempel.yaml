@@ -1,0 +1,17 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/eksempel
+  tittel:
+  - Kartverket – Modellkatalog (eksempel)
+  beskrivelse:
+  - Eksempel på ein modellkatalogpost.
+  identifikator_literal: https://data.norge.no/modellkatalog/kartverket-modellkatalog/eksempel
+  utgiver: https://data.norge.no/organizations/971040238
+  kontaktpunkt:
+  - https://www.kartverket.no/om-kartverket/kontakt-oss/
+  har_del: []
+  modell: []
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller: []
+aktoerer: []

@@ -157,6 +157,8 @@ classes:
       - tittel
       - utgiver
       - begrep
+      - relatert_begrep
+      - tilgjengeliggjor_datasett
       - beskrivelse
       - identifikator_literal
       - informasjonsmodellidentifikator
@@ -194,6 +196,12 @@ classes:
       begrep:
         in_subset:
           - Anbefalt
+      relatert_begrep:
+        in_subset:
+          - Valgfri
+      tilgjengeliggjor_datasett:
+        in_subset:
+          - Valgfri
       beskrivelse:
         in_subset:
           - Anbefalt
@@ -339,3 +347,13 @@ slots:
     range: Modellelement
     multivalued: true
     description: Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelElement).
+
+  relatert_begrep:
+    slot_uri: dct:references
+    range: Konsept
+    multivalued: true
+    description: >-
+      Fagomgrep informasjonsmodellen refererer til (dct:references) — typisk
+      oppslag i Felles begrepskatalog. Skil seg frå `begrep` (dct:subject),
+      som uttrykker hovudtema, ved at `relatert_begrep` kan liste fleire
+      enkeltomgrep brukt i modellen.

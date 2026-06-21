@@ -1,0 +1,45 @@
+modellkataloger:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
+  tittel:
+  - Skatteetaten – Modellkatalog
+  beskrivelse:
+  - 'TODO: legg til skildring av katalogen'
+  identifikator_literal: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
+  utgiver: https://data.norge.no/organizations/974761076
+  kontaktpunkt:
+  - https://www.skatteetaten.no/kontakt/
+  har_del:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person
+  modell:
+  - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person
+  spraak:
+  - http://publications.europa.eu/resource/authority/language/NOB
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+informasjonsmodeller:
+- id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person
+  tittel:
+  - Nasjonale grunndata – Person
+  beskrivelse:
+  - Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer
+    Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar
+    frå Folkeregisteret og KRR. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+  utgiver: https://data.norge.no/organizations/974761076
+  identifikator_literal: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-person/
+  kontaktpunkt:
+  - https://www.skatteetaten.no/kontakt/
+  tema:
+  - TODO
+  lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  endringsdato: '2026-06-10'
+  utgivelsesdato: '2023-01-01'
+  status: http://purl.org/adms/status/UnderDevelopment
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  versjonsnummer: 1.0.1
+aktoerer:
+- id: https://www.skatteetaten.no/kontakt/
+  navn_aktoer:
+  - 'TODO: namn på kontaktpunktet'
+- id: https://data.norge.no/organizations/974761076
+  navn_aktoer:
+  - Skatteetaten

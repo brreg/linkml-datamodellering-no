@@ -89,3 +89,6 @@ evaluer gap mot https://data.norge.no/nb/docs skriv til ./specs
 evaluer gap mot https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-eget-hus/2716 skriv til ./specs
 
 lag plan for å oppdatere mkdocs/docs/ap-no-arkitektur.md eg ønsker å fjærne alle lukka avvik fra fila. Det er kun gjeldande avvik som er interessant å dokumentere skriv til ./specs
+
+
+vær veldig kritisk og gjer ein full gjennomgang av dette repoet for å avdekke om det er noko vi bør handtere før vi inviterer andre brukere inn.
