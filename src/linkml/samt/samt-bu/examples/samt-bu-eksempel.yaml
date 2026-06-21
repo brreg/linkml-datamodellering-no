@@ -99,7 +99,7 @@ kvalitetsdimensjoner:
   - id: dqv:kvalitetsdim-completeness
     har_anbefalt_term:
       - completeness
-    har_definisjon:
+    har_kvalitetsdefinisjon:
       - "https://data.norge.no/vocabulary/quality-dimension#completeness"
     gjelder_standard:
       - dqv:dcat-ap-no

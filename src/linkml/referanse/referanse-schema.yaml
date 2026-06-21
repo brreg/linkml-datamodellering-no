@@ -18,7 +18,7 @@ version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
-  utgiver: TODO
+  utgiver: https://data.norge.no/organizations/974760673
   endringsdato: "TODO"
   utgivelsesdato: "TODO"
   status: http://purl.org/adms/status/UnderDevelopment
