@@ -8,7 +8,7 @@ generators:
   python: true
   json_schema: true
   owl: true
-  owl_flags: ""
+  owl_flags: "--no-skip-vacuous-local-range-axioms --no-skip-vacuous-min-zero-cardinality-axioms --no-consolidate-cardinality-axioms"
   rdf: true
   protobuf: true
   erdiagram: true

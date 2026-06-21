@@ -5,10 +5,13 @@
 Dette repoet er utvikla av Brønnøysundregistrene med mål om å bli ein nasjonal
 ressurs for arbeid med informasjonsmodellering, i tråd med
 [Digdirs Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626).
+
 Det skal gjere det enklare for offentlege verksemder og næringsliv å modellere, validere og
 publisere begreps- og informasjonsmodellar etter norske og europeiske standardar
 (DCAT-AP-NO, SKOS-AP-NO m.fl.), og å dele felles verktøy og applikasjonsprofilar
 på tvers av organisasjonar.
+
+Dette repoet fremmer samarbeid gjennom standardiserte formater, felles verktøy og en felles infrastruktur etter prinsippet "Lett å gjøre rett!"
 
 ## Kontakt
 
@@ -18,10 +21,10 @@ på tvers av organisasjonar.
 
 - [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) —
   roller, myndigheit og korleis avgjerder vert tekne
-- [Opne eit GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) —
-  for feilrapportering, spørsmål eller forslag til nye modellar/funksjonalitet
 - [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md) —
   korleis du bidrar med modellar, feilretting eller verktøyutvikling
+- [Opne eit GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) —
+  for feilrapportering, spørsmål eller forslag til nye modellar/funksjonalitet
 - [SECURITY.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/SECURITY.md) —
   korleis du rapporterer sikkerheitssårbarheiter
 

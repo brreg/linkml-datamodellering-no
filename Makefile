@@ -8,7 +8,7 @@ AVROTIZE_DOCKERFILE	:= src/assets/containers/Dockerfile.avrotize
 AVROTIZE_RUN		:= podman run --rm -v "$(CURDIR):/work" $(AVROTIZE_IMAGE)
 ASYNCAPI_IMAGE		:= localhost/asyncapi-cli-local:latest
 ASYNCAPI_DOCKERFILE	:= src/assets/containers/Dockerfile.asyncapi-cli
-ASYNCAPI_RUN		:= podman run --rm -v "$(CURDIR):/work" $(ASYNCAPI_IMAGE)
+ASYNCAPI_RUN		:= podman run --rm -v "$(CURDIR):/work" -e SUPPRESS_NO_CONFIG_WARNING=true $(ASYNCAPI_IMAGE)
 GEN_DIR    			:= generated
 SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
@@ -172,7 +172,7 @@ define run_gen_asyncapi
 	echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
 	$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
 		/work/$$jsonschema /work/$$schema --out /work/$$out; \
-	podman run --rm -v "$(CURDIR):/work" $(ASYNCAPI_IMAGE) \
+	$(ASYNCAPI_RUN) \
 		validate /work/$$out; \
 done
 endef
