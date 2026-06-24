@@ -46,7 +46,7 @@ jobs:
       # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
       # («Changes must be made through a pull request»), sidan github-actions[bot]
       # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 2
@@ -102,7 +102,7 @@ jobs:
       # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
       # («Changes must be made through a pull request»), sidan github-actions[bot]
       # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 2

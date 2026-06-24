@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Sjekk ut kallande repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Les versjon frå linkml-datamodellering.yaml
         id: config
