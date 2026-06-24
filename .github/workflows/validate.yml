@@ -83,7 +83,7 @@ jobs:
           name: source
       - name: Cache mcp-linkml-validator image
         id: cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: mcp-linkml-validator.tar.zst
           key: mcp-linkml-validator-${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
@@ -132,7 +132,7 @@ jobs:
 
       - name: Cache validering (${{ matrix.domain }})
         id: cache-validated
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .validated-${{ matrix.domain }}
           key: validated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain), 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml') }}
