@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Sjekk ut kallande repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Les versjon frå linkml-datamodellering.yaml
         id: config
@@ -40,7 +40,7 @@ jobs:
           echo "version=${VERSION:-latest}" >> "$GITHUB_OUTPUT"
 
       - name: Hent validator-komponenter frå brreg/linkml-datamodellering-no
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: brreg/linkml-datamodellering-no
           ref: ${{ steps.config.outputs.version }}
