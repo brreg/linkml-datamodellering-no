@@ -33,7 +33,6 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 * Opplegg for å [bootstrappe](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) eit eksternt repo for lokal LinkML modellering.
 
 
-
 ## Kom i gang
 
 **Føresetnader:** linux eller windows med  WSL2, [Podman](https://podman.io/) (rootless) og GNU make.
@@ -250,3 +249,41 @@ linkml-datamodellering-no/
 │   └── bugs/                                      # Kjente bugs
 └── tmp/                                           # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```
+
+---
+
+## Kjende avgrensingar
+
+Repoet er i PoC-fase og har nokre kjende avgrensingar:
+
+### Validering og testing
+
+- **BUG-1**: `rdflib_loader` rekonstruerer ikkje `LangString`-verdiar korrekt frå TTL ved roundtrip-testing
+- MCP-validator kjører berre bronze/silver/gold-policy — ingen automatisk validering mot eksterne API-ar enno
+- Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
+
+### Generatorar
+
+- PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelsesproblem)
+- JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
+- AsyncAPI-generering er eksperimentell og ikkje aktivert by default
+
+### Publisering
+
+- Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
+- Ingen automatisk validering av at høstingsendepunkt faktisk er tilgjengelege frå data.norge.no
+- Tilbaketrekking av feil-publiserte data må handterast manuelt
+
+### Samhandling og CI/CD
+
+- GitHub-team-konfigurasjon føresett at alle medlemmar har write-tilgang til heile repoet (ikkje berre eigne modellar)
+- CI køyrer under repo-eigar sin GitHub-konto — alle organisasjonar må godta dette
+- `.github/CODEOWNERS`-fila må oppdaterast manuelt basert på `CODEOWNERS.md` (ingen automatisk synkronisering)
+
+ **Fullstendig scope-oversikt:** Sjå
+  [specs/done/oversikt-avgrensingar-prinsipp.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/oversikt-avgrensingar-prinsipp.md) for autoritativt
+  referansedokument.
+
+**Fullstendig bug-oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.

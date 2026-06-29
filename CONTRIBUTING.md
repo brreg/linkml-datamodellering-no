@@ -33,6 +33,11 @@ For din PR å bli merge-klar:
 
 Sjå [GOVERNANCE.md](GOVERNANCE.md) for fullstendig forklaring av roller og myndigheit.
 
+
+## Scope og prinsipp
+
+For fullstendig oversikt over kva repoet er (og ikkje er), modelleringsprinsipp og namnekonvensjonar, sjå [specs/done/oversikt-avgrensingar-prinsipp.md](specs/done/oversikt-avgrensingar-prinsipp.md).
+
 ## Modellkatalog
 
 Kvar org skal liste **alle** sine skjema i sin modellkatalog
@@ -132,12 +137,12 @@ Sjå [SECURITY.md](SECURITY.md) for fullstendig sikkerheitspolicy.
 
 ## Pull request
 
-1. Lag ein ny branch frå `main`
+1. Opprett ein ny branch frå `main`
 2. Gjer endringar og valider lokalt:
    - `make lint SCHEMA=...` og `make validate-instance SCHEMA=... INSTANCE=...`
    - `make mcp-validate SCHEMA=... POLICY=bronze` (minimumskrav før PR)
 3. **Verifiser at du ikkje har lagt inn personopplysningar eller sensitive data**
-4. Send inn pull request mot `main` — CI køyrer validering automatisk
+4. Opprett pull request mot `main` — CI køyrer validering automatisk
 
 Rapporter sikkerheitssårbarheiter i infrastruktur via e-post (sjå [SECURITY.md](SECURITY.md)) — ikkje som public issue.
 
