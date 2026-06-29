@@ -12,6 +12,8 @@ Repoet er ope, og alle kan bidra ved å sende PR frå ein fork. Det er to typar 
 
 ## Kom i gang
 
+**NB: Dette er ein Proof of Concept.** Repoet er under aktiv utvikling, og modellar, verktøy og dokumentasjon kan endre seg. Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvente i PoC-fasen.
+
 Om du representerer ein ny organisasjon som ikkje er registrert i `CODEOWNERS.md` enno,
 sjå [Bli modelleigar](mkdocs/docs/ny-org.md) først.
 
@@ -100,12 +102,110 @@ BSD, Apache-2.0, EPL). Sjå
 [`specs/done/verktoy-lisensoversikt.md`](specs/done/verktoy-lisensoversikt.md)
 for metode og eksisterande klassifisering.
 
+## Sikkerheit og personvern
+
+**VIKTIG:** Legg aldri inn sensitive data i modellar eller datafiler.
+
+### Kva du IKKJE skal legge inn
+
+- ❌ **Personopplysningar:** Namn, e-postadresser, telefonnummer, fødselsnummer, personnummer
+- ❌ **Konfidensielle data:** Interne forretningshemmelegheiter, ikkje-offentlege organisasjonsdata
+- ❌ **Testdata med verkelege verdiar:** Bruk syntetiske/fiktive verdiar i eksempelfiler
+- ❌ **Credentials:** Passord, API-nøklar, tokens (desse skal aldri vere i git)
+
+### Kva du KAN legge inn
+
+- ✅ **Offentlege organisasjons-URI-ar:** `https://data.norge.no/organizations/<orgnr>`
+- ✅ **Offentlege Los-tema:** `https://psi.norge.no/los/tema/naring`
+- ✅ **Syntetiske eksempeldata:** Fiktive namn som "Ola Nordmann", "Eksempel AS"
+- ✅ **Offentlege standardar og vokabularar:** DCAT, SKOS, FOAF, osv.
+
+### Dersom du oppdagar sensitive data
+
+1. **Ikkje commit eller push** dersom du oppdagar sensitive data lokalt — fjern dei først
+2. **Dersom allereie pusha:** Opne ein GitHub Issue med merkelappen `data-quality` og `urgent` — **ikkje inkluder dei sensitive dataa i issue-beskrivinga**
+3. **Kontakt katalogeigarleiinga** for den aktuelle organisasjonen (sjå `CODEOWNERS.md`)
+
+Sjå [SECURITY.md](SECURITY.md) for fullstendig sikkerheitspolicy.
+
+---
+
 ## Pull request
 
 1. Lag ein ny branch frå `main`
 2. Gjer endringar og valider lokalt:
    - `make lint SCHEMA=...` og `make validate-instance SCHEMA=... INSTANCE=...`
    - `make mcp-validate SCHEMA=... POLICY=bronze` (minimumskrav før PR)
-3. Send inn pull request mot `main` — CI køyrer validering automatisk
+3. **Verifiser at du ikkje har lagt inn personopplysningar eller sensitive data**
+4. Send inn pull request mot `main` — CI køyrer validering automatisk
 
-Rapporter sikkerheitssårbarheiter via e-post (sjå [SECURITY.md](SECURITY.md)) — ikkje som public issue.
+Rapporter sikkerheitssårbarheiter i infrastruktur via e-post (sjå [SECURITY.md](SECURITY.md)) — ikkje som public issue.
+
+---
+
+## Support og feilsøking
+
+### PoC-status: Ingen garantert support
+
+Dette repoet er ein **Proof of Concept** og har ingen garantert support-SLA:
+
+- ❌ Ingen garantert responstid på GitHub Issues
+- ❌ Ingen garantert feilretting innan bestemte tidsfrister
+- ❌ Ingen 24/7-support eller varslingssystem
+- ✅ Best-effort-support frå repo-administrator og bidragsytarar
+- ✅ Community-driven feilsøking via GitHub Issues og Discussions
+
+### Rapportering av feil
+
+| Type problem | Rapporteringsmåte | Ansvarleg |
+|---|---|---|
+| **Bug i felles infrastruktur** (CI/CD, Makefile, validator, generatorar) | GitHub Issue med merkelapp `bug` | Repo-administrator |
+| **Bug i domenemodell** (feil URI, ugyldig YAML, manglande metadata) | GitHub Issue med merkelapp `bug` + tag katalogeigarleiing | Katalogeigarleiing for org |
+| **Datakvalitet** (TODO-verdiar, mangelfull dokumentasjon) | GitHub Issue med merkelapp `data-quality` | Katalogeigarleiing for org |
+| **Sikkerheitssårbarheit** (infrastruktur, CI/CD) | **E-post til ave@brreg.no** (IKKJE public issue) | Repo-administrator |
+| **Personopplysningar i data** | GitHub Issue med merkelapp `data-quality` + `urgent` | Katalogeigarleiing for org |
+
+### Ansvarsfordeling
+
+**Repo-administrator sitt ansvar:**
+- Vedlikeheld felles infrastruktur (AP-NO-profilar, FAIR-metadata, CI/CD, validator, generatorar)
+- Triagerer og prioriterer issues som gjeld felles infrastruktur
+- Hjelper eksterne organisasjonar med onboarding og tekniske spørsmål
+
+**Katalogeigarleiing sitt ansvar:**
+- Vedlikeheld eigne domenemodeller og modellkatalog
+- Triagerer og løyser issues som gjeld eigne modellar
+- Svarar på spørsmål om eigne modellar frå andre brukarar
+
+**Bidragsytarar sitt ansvar:**
+- Rapporterer feil og forbetringsforslag via GitHub Issues
+- Sender PR-ar for feilrettingar og forbetringar
+- Hjelper andre brukarar i GitHub Discussions (dersom aktivert)
+
+### Kjende avgrensingar
+
+Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for fullstendig liste over kjende bugs og workarounds.
+
+Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp avgrensingar spesifikke for den arbeidsflyta.
+
+### Kva du kan forvente i PoC-fasen
+
+**Sannsynleg responstid frå repo-administrator:**
+- Kritiske sikkerheitssårbarheiter: 1 arbeidsdagdag
+- Blokkerar-bugs i felles infrastruktur: 3–5 arbeidsdagar
+- Feature-forespurnader: Best-effort, ingen garantert tidsramme
+- Spørsmål og diskusjonar: Best-effort, når kapasitet er tilgjengeleg
+
+**Kva du MÅ gjere sjølv:**
+- Feilsøke problemer i eigne domenemodeller
+- Validere data før publisering (`make mcp-validate`)
+- Teste genererte artefaktar lokalt før push
+- Lese dokumentasjon og eksisterande issues før du rapporterer nye problem
+
+### Få hjelp
+
+1. **Les dokumentasjonen først:** [brreg.github.io/linkml-datamodellering-no](https://brreg.github.io/linkml-datamodellering-no/)
+2. **Søk i eksisterande issues:** Nokon andre kan ha rapportert same problemet
+3. **Sjekk kjende avgrensingar:** [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md)
+4. **Opne ein ny issue:** Med merkelapp `bug`, `question` eller `data-quality`
+5. **Vær tolmodig:** Dette er ein PoC med avgrensa ressursar

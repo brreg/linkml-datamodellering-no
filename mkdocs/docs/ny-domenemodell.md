@@ -334,3 +334,30 @@ annotations:
 
 Omsetjinga krev fagkunnskap om innhaldet og er ei vurdering for codeowner av det
 einskilde skjemaet — ikkje noko som vert generert automatisk eller krevd av CI.
+
+---
+
+## Kjende avgrensingar
+
+Denne rettleiinga dekkjer grunnleggjande arbeidsflyt for domenemodellering i LinkML. 
+Følgjande avgrensingar gjeld i PoC-fasen:
+
+### Validering
+
+- **BUG-1**: `rdflib_loader` rekonstruerer ikkje `LangString`-verdiar korrekt frå TTL ved roundtrip-testing ([specs/bugs/langstring-rdflib-roundtrip.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/langstring-rdflib-roundtrip.md))
+- MCP-validator kjører berre bronze/silver/gold-policy — ingen automatisk validering mot eksterne API-ar enno
+
+### Generatorar
+
+- PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelse)
+- JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
+- AsyncAPI-generering er eksperimentell og ikkje aktivert by default
+
+### Publisering
+
+- Publisering til Felles Begrepskatalog er delvis implementert — sjå [publisering-begrep.md](publisering-begrep.md) for faktisk status
+- Modellkatalogar med `publish_external: true` vert ikkje automatisk registrerte i data.norge.no enno — høsting må koordinerast manuelt
+
+**Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.

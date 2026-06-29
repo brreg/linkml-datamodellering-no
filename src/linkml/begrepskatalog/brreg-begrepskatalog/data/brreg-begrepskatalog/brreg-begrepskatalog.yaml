@@ -97,7 +97,7 @@ samlingar:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.norge.no/organizations/974760673
     beskrivelse:
-      - Begreper knytt til Enhetsregisteret, Foretaksregisteret og registerforvaltning.
+      - 'PoC-testdata: Begreper knytt til Enhetsregisteret, Foretaksregisteret og registerforvaltning. Dette er testdata i PoC-fase med avgrensa kvalitetsgaranti.'
     medlem:
       - https://begrep.brreg.no/foretaksnavn
       - https://begrep.brreg.no/nestleder

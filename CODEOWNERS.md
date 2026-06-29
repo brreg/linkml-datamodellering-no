@@ -1,4 +1,4 @@
----
+```yaml
 organizations:
   - alias: brreg
     name: Brønnøysundregistra
@@ -64,7 +64,7 @@ organizations:
     path_patterns:
       - src/linkml/ngr/ngr-adresse/**
       - src/linkml/ngr/ngr-eiendom/**
----
+```
 
 # Modelleigarskapar (CODEOWNERS)
 
@@ -75,6 +75,23 @@ domenemodell i dette repoet. Det tener to føremål:
    `src/assets/scripts/update-modellkatalog.py` for å opprette og oppdatere per-org
    modellkatalogar.
 2. **Dokumentasjon** — forklarer eigarskapsmodellen og er utgangspunkt for `.github/CODEOWNERS`.
+
+---
+
+## PoC-status: midlertidig eigarskapskonfigurasjon
+
+**NB:** I PoC-fasen peikar alle `github_team`-felt til same brukar (`@AudunVindenesEggeBR`). 
+Dette er ein midlertidig konfigurasjon for testing og utvikling.
+
+**Før eksterne organisasjonar vert inviterte inn:**
+
+- Kvar organisasjon må opprette eige GitHub-team (eller utpeike minst éin GitHub-brukar med write-tilgang)
+- `github_team`-feltet i YAML-frontmatter må oppdaterast til å peike på organisasjonen sitt team
+- `.github/CODEOWNERS`-fila vert automatisk generert frå denne konfigurasjonen
+
+**Sjå òg:** [GOVERNANCE.md](GOVERNANCE.md) for fullstendig oversikt over roller og ansvar.
+
+---
 
 ## Korleis eigarskap fungerer
 

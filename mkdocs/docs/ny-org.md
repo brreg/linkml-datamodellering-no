@@ -175,3 +175,29 @@ imports:
 
 For å få write-tilgang til repoet, kontakt repo-administrator via GitHub Issues.
 Sjå `GOVERNANCE.md` for formelle krav og prosess.
+
+---
+
+## Kjende avgrensingar
+
+Denne rettleiinga dekkjer onboarding av nye organisasjonar i repoet. 
+Følgjande avgrensingar gjeld i PoC-fasen:
+
+### Organisasjonsstruktur
+
+- Alle organisasjonar må ha éin felles modellkatalog — støtte for fleire katalogar per org er ikkje implementert
+- GitHub-team-konfigurasjonen krev at alle medlemmar har write-tilgang til heile repoet (ikkje berre eigne modellar)
+
+### Automatisering
+
+- `make update-modellkatalog` genererer stubs for nye modellar, men fyll ikkje inn TODO-verdiar automatisk
+- `.github/CODEOWNERS`-fila må oppdaterast manuelt basert på `CODEOWNERS.md` — ingen automatisk synkronisering enno
+
+### Samhandling
+
+- Dersom to org-ar treng motstridige endringar i same AP-NO-profil må dette løysast gjennom RFC-prosess (sjå GOVERNANCE.md)
+- Konfliktløysingsmekanismar er ikkje fullt dokumenterte enno
+
+**Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
