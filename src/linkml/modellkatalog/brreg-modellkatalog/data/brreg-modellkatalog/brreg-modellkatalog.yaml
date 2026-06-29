@@ -3,8 +3,8 @@ modellkataloger:
   tittel:
   - Brønnøysundregistra – Modellkatalog
   beskrivelse:
-  - Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som
-    SHACL, JSON Schema, OWL og RDF/Turtle.
+  - 'PoC-testdata: Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som
+    SHACL, JSON Schema, OWL og RDF/Turtle. Dette er testdata i PoC-fase med avgrensa kvalitetsgaranti.'
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog
   utgiver: https://data.norge.no/organizations/974760673
   kontaktpunkt:

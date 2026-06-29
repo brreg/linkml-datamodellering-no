@@ -1,9 +1,12 @@
 # Publiser til Felles Begrepskatalog
 
 Denne rettleiinga viser korleis begrepsdefinisjonar i `src/linkml/begrepskatalog/<katalog>/data/` vert
-konvertert til SKOS/Turtle og automatisk publisert til
-[Felles Begrepskatalog](https://data.norge.no/concepts) via eit høstingsendepunkt
-på GitHub Pages.
+konvertert til SKOS/Turtle og **tilrettelagt for automatisk høsting** til
+[Felles Begrepskatalog](https://data.norge.no/concepts).
+
+Repoet publiserer SKOS/Turtle-filer til GitHub Pages som eit høstingsendepunkt. Felles Begrepskatalog
+kan konfigurere seg til å høste frå dette endepunktet, men **repoet pusher ikkje** direkte til
+data.norge.no — det følgjer "pull, ikkje push"-prinsippet.
 
 ---
 
@@ -26,6 +29,15 @@ Repoet skil mellom to typar YAML-filer:
 Eksempelfiler skal **aldri** sendast til Felles Begrepskatalog. Berre filer
 under `data/` vert konverterte og publiserte.
 
+## Slik fungerer det
+
+1. **Lokal redigering:** Du redigerer begrep i `data/<katalog>/<katalog>.yaml`
+2. **Generering:** `make convert-data` konverterer YAML til SKOS/Turtle
+3. **Publisering til GitHub Pages:** CI publiserer `.ttl`-filen til `https://brreg.github.io/linkml-datamodellering-no/...`
+4. **Høsting (ekstern prosess):** Felles Begrepskatalog kan konfigurere seg til å høste frå GitHub Pages-adressa
+
+**Status i PoC-fasen:** Steg 1-3 er implementerte. Steg 4 (faktisk høsting til Felles Begrepskatalog) må manuelt settas opp i Felles Begrepskatalog for kvar organisasjon som skal publisere sine begrepskataloger.
+
 ---
 
 ## Føresetnader
@@ -41,7 +53,9 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 
 Når du redigerer eksisterande begrep i `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:
 
-**1. Gjer endringa i datafila:**
+**1. Opprett ny git branch for  endringa**
+
+**2. Gjer endringa i datafila:**
 
 ```yaml
 # src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
@@ -52,7 +66,7 @@ begrep:
     ...
 ```
 
-**2. Valider skjema og datafil i eitt steg:**
+**3. Valider skjema og datafil i eitt steg:**
 
 ```bash
 make mcp-validate \
@@ -64,7 +78,7 @@ make mcp-validate \
 Alle feil (`severity: error`) må rettast. Åtvaringar (`warning`) bør rettast,
 men blokkerer ikkje publisering.
 
-**3. Push til `main`:**
+**4. Lag pullrequest til `main`:**
 
 CI-pipelinen køyrer same validering automatisk og publiserer ny `.ttl`-fil
 til GitHub Pages. Felles Begrepskatalog høstar oppdateringa ved neste syklus.
@@ -82,10 +96,12 @@ til GitHub Pages. Felles Begrepskatalog høstar oppdateringa ved neste syklus.
 
 ## Legg til eit nytt begrep
 
-**1. Vel ein stabil slug** — sluggen vert del av ein permanent URI.
+**1. Opprett ny git branch for  endringa**
+
+**2. Vel ein stabil slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**2. Legg til i `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:**
+**3. Legg til i `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:**
 
 ```yaml
 begrep:
@@ -107,7 +123,7 @@ definisjoner:
     kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
 ```
 
-**3. Valider:**
+**4. Valider:**
 
 ```bash
 make mcp-validate \
@@ -116,9 +132,9 @@ make mcp-validate \
   INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
 ```
 
-**4. Push til `main` og vent på publisering.**
+**5. Lag pullrequest til `main` og vent på publisering.**
 
-**5. Etter stadfesta publisering i Felles Begrepskatalog** — legg til URI-en i lock-fila:
+**6. Etter stadfesta publisering i Felles Begrepskatalog** — legg til URI-en i lock-fila:
 
 ```bash
 echo "https://begrep.brreg.no/<slug>" >> \
@@ -183,11 +199,11 @@ og legg til ny datakjelde:
 
 | Felt | Verdi |
 |---|---|
-| **Utgjevar** | Registerenheten i Brønnøysund (974760673) |
+| **Utgjevar** | Din organisasjon |
 | **Katalogtype** | Begreper |
 | **Datakildentype** | SKOS-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/din-org-begrepskatalog/din-org-begrepskatalog.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 **Steg 3** — Klikk **«Høst»** for umiddelbar høsting utan å vente på neste
@@ -280,6 +296,32 @@ lock-fila oppdatert. For å sjå resultatet lokalt:
 ```bash
 make publish && make docs-serve
 ```
+
+---
+
+## Kjende avgrensingar
+
+Denne rettleiinga dekkjer publisering av begrepskatalogar til Felles Begrepskatalog. 
+Følgjande avgrensingar gjeld i PoC-fasen:
+
+### Høsting
+
+- **Automatisk høsting frå Felles Begrepskatalog er ikkje aktivt enno** — repoet publiserer TTL-filer til GitHub Pages, men faktisk høsting må settast opp manuelt i Felles Begrepskatalog av den enkelte organisasjon som skal publisere sine begrepskataloger.
+- Ingen automatisk validering av at høstingsendepunktet faktisk er tilgjengeleg frå data.norge.no
+
+### URI-stabilitet
+
+- `published-uris.lock` sikrar stabile URI-ar, men mekanisme for å trekke tilbake feil-publiserte begrep er ikkje dokumentert
+- Endring av `id`-felt i eksisterande begrep vert ikkje automatisk oppdaga og varsla
+
+### Validering
+
+- `felles-begrepskatalog`-policy validerer metadata, men validerer ikkje at `anbefalt_term` er eit gyldigt norsk ord
+- Ingen automatisk sjekk for duplikate begrep på tvers av katalogar
+
+**Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
 
 ---
 

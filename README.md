@@ -1,6 +1,19 @@
 # linkml-datamodellering-no
 
-**NB dette er ein Proof of Concept**
+!!! warning "Proof of Concept"
+
+    Dette repoet er ein **Proof of Concept** for LinkML-basert datamodellering i norsk offentleg sektor.
+    
+    **Kva det betyr:**
+    
+    - Modellar og verktøy er under utvikling og kan endre seg
+    - Dokumentasjonen kan vere ufullstendig eller utdatert
+    - Nokre funksjonar er berre delvis implementerte
+    - Det finst kjende avgrensingar og bugs (sjå [kjende avgrensingar](https://github.com/brreg/linkml-datamodellering-no/tree/main/specs/bugs))
+    - Ingen garantert stabilitet eller support-SLA
+    
+    **For eksterne organisasjonar:** Før de tek i bruk repoet i produksjon — les [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) 
+    for forventningar til stabilitet og ansvar.
 
 Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
@@ -183,6 +196,25 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 > **Pull, ikkje push.** Dette repoet genererer og publiserer artefaktar til GitHub Pages og GitHub Releases. Andre system hentar artefaktane derifrå sjølve — repoet pusher aldri artefaktar til eksterne kjelder. Å pushe til ekstern schema-registry, datakatalog eller anna API krev spesialtilpassingar per målsystem og knyt repoet til ekstern tilgjengelegheit og autentisering, noko som er utanfor dette repoets ansvarsfelt.
 
 > **Versjonerte adressar.** GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein stabil, versjonert adresse til ein historisk versjon — t.d. for import frå eit eksternt repo (sjå [Bruk frå eksternt repo](#bruk-fr%C3%A5-eksternt-repo)) — bruk [GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases) eller ein tag-spesifikk `raw.githubusercontent.com`-URL (`.../<tag>/<sti>`). GitHub Releases er den kanoniske adressa for eldre versjonar av artefaktar.
+
+### Kva publiserast til eksterne system
+
+**GitHub Pages (automatisk):**
+- Alle genererte artefaktar (SHACL, JSON Schema, OWL, Turtle, dokumentasjon osv.)
+- Begrepskatalogar (`*.ttl` frå `src/linkml/begrepskatalog/*/data/`)
+- Modellkatalogar (`*.ttl` frå `src/linkml/modellkatalog/*/data/`)
+
+**Felles Begrepskatalog / Felles Datakatalog (manuell koordinering):**
+
+Datafiler og modellar merka med `publish_external: true` i `manifest.yaml` er tilrettelagt for høsting til Felles Begrepskatalog eller Felles Datakatalog. Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle-filer til GitHub Pages som høstingsendepunkt.
+
+**Kva må skje for at høsting skal fungere:**
+
+1. **Datafila må validere:** `make mcp-validate POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
+2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
+3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
+
+**PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](GOVERNANCE.md) for publiseringspolicy.
 
 ## Katalogstruktur
 

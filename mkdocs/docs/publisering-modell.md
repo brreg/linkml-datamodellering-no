@@ -1,9 +1,12 @@
 # Publiser til Felles Datakatalog
 
-Denne rettleiinga viser korleis informasjonsmodellar frå dette repoet vert
-skildra i ModelDCAT-AP-NO-format og publisert til
-[Felles Datakatalog](https://data.norge.no/models) via eit høstingsendepunkt
-på GitHub Pages.
+Denne rettleiinga viser korleis informasjonsmodellar frå dette repoet vert skildra i 
+ModelDCAT-AP-NO-format og **tilrettelagt for automatisk høsting** til 
+[Felles Datakatalog](https://data.norge.no) via GitHub Pages.
+
+Repoet genererer ModelDCAT-AP-NO-metadata og publiserer dette til GitHub Pages som eit høstingsendepunkt. 
+Felles Datakatalog kan konfigurere seg til å høste frå dette endepunktet, men **repoet pusher ikkje** 
+direkte til data.norge.no — det følgjer "pull, ikkje push"-prinsippet.
 
 ---
 
@@ -19,6 +22,17 @@ flowchart LR
 Katalogfila (`src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`) er eit register
 over dei publiserte informasjonsmodellane og vert konvertert til Turtle ved hjelp av
 `brreg-modellkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
+
+## Slik fungerer det
+
+1. **Modellering:** Du lagar eller oppdaterer LinkML-skjema i `src/linkml/<domain>/<modell>/`
+2. **Generering:** `make <domain>` genererer ModelDCAT-AP-NO-metadata frå skjema-annotasjonar
+3. **Publisering til GitHub Pages:** CI publiserer metadata til `https://brreg.github.io/linkml-datamodellering-no/...`
+4. **Høsting (ekstern prosess):** Felles Datakatalog kan konfigurere seg til å høste frå GitHub Pages-adressa
+
+**Status i PoC-fasen:** Steg 1-3 er implementerte. Steg 4 (faktisk høsting til Felles Datakatalog) 
+må koordinerast med Digitaliseringsdirektoratet for kvar organisasjon som skal publisere sine 
+informasjonsmodellar.
 
 ---
 
@@ -36,7 +50,9 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 Når du redigerer eksisterande oppføringer i
 `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:
 
-**1. Gjer endringa i katalogfila:**
+**1. Opprett ny git branch for  endringa**
+
+**2. Gjer endringa i katalogfila:**
 
 ```yaml
 informasjonsmodellar:
@@ -47,7 +63,7 @@ informasjonsmodellar:
     ...
 ```
 
-**2. Valider skjema og katalogfil:**
+**3. Valider skjema og katalogfil:**
 
 ```bash
 make mcp-validate \
@@ -56,7 +72,7 @@ make mcp-validate \
   INSTANCE=src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml
 ```
 
-**3. Push til `main`:**
+**4. Lag pullrequest til `main`:**
 
 CI-pipelinen køyrer same validering automatisk og publiserer ny `.ttl`-fil
 til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
@@ -74,10 +90,12 @@ til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
 
 ## Legg til ein ny informasjonsmodell
 
-**1. Vel ein stabil URI-slug** — sluggen vert del av ein permanent URI.
+**1. Opprett ny git branch for  endringa**
+
+**2. Vel ein stabil URI-slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**2. Legg til i `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:**
+**3. Legg til i `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:**
 
 ```yaml
 informasjonsmodellar:
@@ -98,11 +116,11 @@ informasjonsmodellar:
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 ```
 
-**3.** Legg til URI-en i `har_del:` og `modell:`-lista på `Modellkatalog`-oppføringa.
+**4.** Legg til URI-en i `har_del:` og `modell:`-lista på `Modellkatalog`-oppføringa.
 
-**4. Valider og push til `main`.**
+**5. Valider og lag pullrequest til `main`.**
 
-**5. Etter stadfesta publisering** — legg til URI-en i lock-fila:
+**6. Etter stadfesta publisering** — legg til URI-en i lock-fila:
 
 ```bash
 echo "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>" >> \

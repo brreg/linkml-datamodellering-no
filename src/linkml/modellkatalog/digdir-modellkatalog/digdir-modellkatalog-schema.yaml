@@ -6,6 +6,9 @@ description: >-
   Implementerer ModelDCAT-AP-NO direkte via import.
 version: "1.0.0"
 
+annotations:
+  status: http://purl.org/adms/status/UnderDevelopment
+
 prefixes:
   linkml:       https://w3id.org/linkml/
   modelldcatno: https://data.norge.no/vocabulary/modelldcatno#

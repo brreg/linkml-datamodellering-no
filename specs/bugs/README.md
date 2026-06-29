@@ -1,8 +1,43 @@
-# Kjente feil
+# Kjente feil og avgrensingar
 
-Oversikt over alle kjente feil i repoet. Kvar feil har éi eiga fil med fullstendig analyse.
+Oversikt over alle kjente feil og avgrensingar i repoet. Kvar feil har éi eiga fil med fullstendig analyse.
 
 Når du legg til ein skip-betingelse i `tests/test_make.sh`, skal det alltid finnast ei tilhøyrande fil her.
+
+## For eksterne brukarar
+
+Denne oversikta er skrive for tekniske brukarar og bidragsytarar. Dersom du berre brukar repoet for datamodellering, les:
+
+- [Kjende avgrensingar](../../mkdocs/docs/index.md#kjende-avgrensingar) (brukarvendt oversikt)
+- "Kjende avgrensingar"-seksjonane i kvar rettleiing (t.d. [ny-domenemodell.md](../../mkdocs/docs/ny-domenemodell.md#kjende-avgrensingar))
+
+## PoC-status
+
+Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
+
+### Validering og testing
+- **BUG-1, BUG-2, BUG-3**: Roundtrip-testing (YAML → TTL → YAML) fungerer ikkje for alle skjema pga. bugs i `linkml-runtime`
+- Ingen automatisk validering mot eksterne API-ar (t.d. at Los-tema faktisk eksisterer)
+- Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
+
+### Generatorar
+- PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelsesproblem)
+- JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
+- AsyncAPI-generering er eksperimentell og ikkje aktivert by default
+- **BUG-6, BUG-7**: Class/slot-override av importerte element krasjar eller korrumperer genererte artefaktar
+
+### Publisering
+- Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
+- Ingen automatisk validering av at høstingsendepunkt faktisk er tilgjengelege frå data.norge.no
+- Tilbaketrekking av feil-publiserte data må handterast manuelt
+- **BUG-8**: Polymorf `inlined_as_list` støttes ikkje fullt ut — påverkar framtidige ModelDCAT-AP-NO-utvidingar
+
+### Samhandling og CI/CD
+- GitHub-team-konfigurasjon føresett at alle medlemmar har write-tilgang til heile repoet (ikkje berre eigne modellar)
+- CI køyrer under repo-eigar sin GitHub-konto — alle organisasjonar må godta dette
+- `.github/CODEOWNERS`-fila må oppdaterast manuelt basert på `CODEOWNERS.md` (ingen automatisk synkronisering)
+
+Sjå [GOVERNANCE.md](../../GOVERNANCE.md) for kva stabilitet og support du kan forvente i PoC-fasen.
 
 ## Indeks
 
