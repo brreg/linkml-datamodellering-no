@@ -56,7 +56,7 @@ jobs:
 
       - name: Cache linkml-local image
         id: cache-linkml
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: linkml-local.tar.zst
           key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
@@ -83,7 +83,7 @@ jobs:
 
       - name: Cache python-pytest image
         id: cache-python
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: python-pytest.tar.zst
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
@@ -110,7 +110,7 @@ jobs:
 
       - name: Cache avrotize-local image
         id: cache-avrotize
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: avrotize-local.tar.zst
           key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
@@ -137,7 +137,7 @@ jobs:
 
       - name: Cache asyncapi-cli-local image
         id: cache-asyncapi
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: asyncapi-cli-local.tar.zst
           key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
@@ -181,35 +181,35 @@ jobs:
 
       - name: Cache genererte artefaktar (${{ matrix.domain }})
         id: cache-generated
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: generated/${{ matrix.domain }}/
           key: v3-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli', 'src/assets/templates/**', 'Makefile') }}
 
       - name: Gjenopprett linkml-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: linkml-local.tar.zst
           key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
 
       - name: Gjenopprett python-pytest frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: python-pytest.tar.zst
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
 
       - name: Gjenopprett avrotize-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: avrotize-local.tar.zst
           key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
 
       - name: Gjenopprett asyncapi-cli-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: asyncapi-cli-local.tar.zst
           key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
@@ -278,7 +278,7 @@ jobs:
 
       - name: Cache mkdocs-local image
         id: cache-mkdocs
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: mkdocs-local.tar.zst
           key: mkdocs-local-${{ hashFiles('mkdocs/Dockerfile.mkdocs') }}
@@ -291,7 +291,7 @@ jobs:
         run: podman load < <(zstd -d -c mkdocs-local.tar.zst)
 
       - name: Cache mkdocs-build-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: mkdocs/.cache/
           key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/templates/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'mkdocs/overrides/**') }}
