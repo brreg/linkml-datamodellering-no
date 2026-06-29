@@ -1,6 +1,8 @@
 # Arkitektur-oversikt
 
-Dette dokumentet viser arkitekturen for publiseringsflyt frå repoet til eksterne katalogar.
+!!! note "Beskrivelse"
+
+    Dette dokumentet viser arkitekturen for publiseringsflyt frå repoet til eksterne katalogar.
 
 ---
 

@@ -1,7 +1,9 @@
 # Rettleiing: ny begrepskatalog
 
-Denne rettleiinga viser korleis du oppretter ein ny begrepskatalog i repoet —
-frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
+!!! note "Beskrivelse"
+
+    Denne rettleiinga viser korleis du oppretter ein ny begrepskatalog i repoet —
+    frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
 
 ## 0 — Føresetnader (éin gong)
 

@@ -1,6 +1,8 @@
 # Monitorering av automasjon
 
-Denne sida forklarar korleis du kan monitorere at generering og publisering av artefaktar fungerer som forventa.
+!!! note "Beskrivelse"
+
+    Denne sida forklarar korleis du kan monitorere at generering og publisering av artefaktar fungerer som forventa.
 
 ---
 
