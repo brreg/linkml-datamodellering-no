@@ -1,9 +1,8 @@
 # AP-NO – Arkitektur, avvik og strukturelle val
 
-Dette dokumentet er den sentrale referansen for å forstå korleis AP-NO-skjemaa er
-bygde opp i dette repoet: kva val som er tekne, kvar vi medvite avvik frå
-spesifikasjonane, og kvifor. Det er skrive for å vere lett å lese både for
-menneske og for LLM-ar.
+!!! note "Beskrivelse"
+
+    Dette dokumentet er den sentrale referansen for å forstå korleis AP-NO-skjemaa er bygde opp i dette repoet: kva val som er tekne, kvar vi medvite avvik frå spesifikasjonane, og kvifor. Det er skrive for å vere lett å lese både for menneske og for LLM-ar.
 
 Detaljerte kartleggingsdokument per skjema ligg i `specs/done/` og `specs/backlog/`.
 

@@ -1,7 +1,8 @@
 # Bruk frå eksternt repo
 
-Denne rettleiinga viser korleis eit eksternt repo kan bruke AP-NO-profilene og
-verktøya i dette repoet — utan å kopiere filer eller leve inni monorepoet.
+!!! note "Beskrivelse"
+
+    Denne rettleiinga viser korleis eit eksternt repo kan bruke AP-NO-profilene og verktøya i dette repoet — utan å kopiere filer eller leve inni monorepoet.
 
 Alt du treng er **to filer** og eit enkelt bootstrap-steg.
 

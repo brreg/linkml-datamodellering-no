@@ -1,12 +1,10 @@
 # Publiser til Felles Begrepskatalog
 
-Denne rettleiinga viser korleis begrepsdefinisjonar i `src/linkml/begrepskatalog/<katalog>/data/` vert
-konvertert til SKOS/Turtle og **tilrettelagt for automatisk høsting** til
-[Felles Begrepskatalog](https://data.norge.no/concepts).
+!!! note "Beskrivelse"
 
-Repoet publiserer SKOS/Turtle-filer til GitHub Pages som eit høstingsendepunkt. Felles Begrepskatalog
-kan konfigurere seg til å høste frå dette endepunktet, men **repoet pusher ikkje** direkte til
-data.norge.no — det følgjer "pull, ikkje push"-prinsippet.
+    Denne rettleiinga viser korleis begrepsdefinisjonar i `src/linkml/begrepskatalog/<katalog>/data/` vert konvertert til SKOS/Turtle og **tilrettelagt for automatisk høsting** til [Felles Begrepskatalog](https://data.norge.no/concepts).
+
+Repoet publiserer SKOS/Turtle-filer til GitHub Pages som eit høstingsendepunkt. Felles Begrepskatalog kan konfigurere seg til å høste frå dette endepunktet, men **repoet pusher ikkje** direkte til data.norge.no — det følgjer "pull, ikkje push"-prinsippet.
 
 ---
 

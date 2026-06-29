@@ -1,15 +1,19 @@
 # Rettleiing: ny domenemodell
 
-## Arbeidsflyt
+!!! note "Beskrivelse"
 
-### 0 — Sjekk føresetnader og bygg images (éin gong)
+    Denne rettleiinga viser korleis du oppretter ein ny domenemodell i repoet —
+    frå filstruktur til RDF-eksport klar for Felles Datakatalog.
+
+
+## 0 — Sjekk føresetnader og bygg images (éin gong)
 
 ```bash
 make check-prereqs
 make linkml-build-docker && make python-build-docker && make mcp-val-build
 ```
 
-### 1a. — Scaffold
+## 1a. — Scaffold
 
 ```bash
 make new-model NAME=<modell> DOMAIN=<domain>
@@ -128,7 +132,7 @@ TilskuddContainer:
 
 ---
 
-### 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
+## 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
 
 ```bash
@@ -139,7 +143,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json PROFILE=silver
 
 → genererer `tmp/modell-schema.yaml`. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
-### 2 — Rediger skjemaet
+## 2 — Rediger skjemaet
 
 Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) for eksempel på gyldig skjema med forklaringer.
 
@@ -147,7 +151,7 @@ Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, sl
 
 
 
-### 3 — Valider undervegs
+## 3 — Valider undervegs
 
 For hurtig validering kan du linte skjemaet:
 `make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
@@ -167,7 +171,7 @@ make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLIC
 
 Sjå [Valideringsreglar](valideringregler.md) for fullstendig oversikt over kva som vert sjekka på kvart nivå.
 
-### 4 — Full testsuite
+## 4 — Full testsuite
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
 ```
 make test SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml

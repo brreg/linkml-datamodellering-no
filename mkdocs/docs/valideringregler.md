@@ -1,12 +1,8 @@
 # Valideringsreglar
 
-Validering av LinkML-skjema køyrer i tre steg, men **lint og instansvalidering køyrer berre éin gong — på bronsenivå**. Silver og gull arvar bronse og legg berre til fleire policy-sjekkar; dei køyrer ikkje lint eller instansvalidering på nytt.
+!!! note "Beskrivelse"
 
-| Steg | Bronze | Silver | Gold |
-|---|---|---|---|
-| Lint skjema (`linkml lint --validate`) | ✓ | — | — |
-| Valider instans mot skjema | ✓ | — | — |
-| Policy-sjekkar | bronse | bronse + sølv | bronse + sølv + gull |
+    Det er to sett med valideringspolicyer: Policyer for skjema og datasett (medaljongarkitektur), og policyer for publisering til eksterne tjenester (felles datakatalog og felles modellkatalog.)
 
 ## Bruk
 
@@ -29,6 +25,14 @@ make mcp-validate \
 ```
 
 ## Medaljongnivå for datasett
+
+Validering av LinkML-skjema køyrer i tre steg, men **lint og instansvalidering køyrer berre éin gong — på bronsenivå**. Silver og gull arvar bronse og legg berre til fleire policy-sjekkar; dei køyrer ikkje lint eller instansvalidering på nytt.
+
+| Steg | Bronze | Silver | Gold |
+|---|---|---|---|
+| Lint skjema (`linkml lint --validate`) | ✓ | — | — |
+| Valider instans mot skjema | ✓ | — | — |
+| Policy-sjekkar | bronse | bronse + sølv | bronse + sølv + gull |
 
 Kvart nivå arvar alle krav frå lågare nivå. Brot på eit nivå gir alltid `error` for det nivået — unntaket er åtvarslane på bronse som blir oppgradert til `error` på gull.
 

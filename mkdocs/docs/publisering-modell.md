@@ -1,8 +1,8 @@
 # Publiser til Felles Datakatalog
 
-Denne rettleiinga viser korleis informasjonsmodellar frå dette repoet vert skildra i 
-ModelDCAT-AP-NO-format og **tilrettelagt for automatisk høsting** til 
-[Felles Datakatalog](https://data.norge.no) via GitHub Pages.
+!!! note "Beskrivelse"
+
+    Denne rettleiinga viser korleis informasjonsmodellar frå dette repoet vert skildra i ModelDCAT-AP-NO-format og **tilrettelagt for automatisk høsting** til [Felles Datakatalog](https://data.norge.no) via GitHub Pages.
 
 Repoet genererer ModelDCAT-AP-NO-metadata og publiserer dette til GitHub Pages som eit høstingsendepunkt. 
 Felles Datakatalog kan konfigurere seg til å høste frå dette endepunktet, men **repoet pusher ikkje** 

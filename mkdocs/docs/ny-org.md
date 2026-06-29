@@ -1,7 +1,9 @@
 # Rettleiing: ny organisasjon
 
-Denne rettleiinga forklarer korleis ein ny organisasjon tek i bruk repoet for å
-publisere eigne informasjonsmodellar saman med Brønnøysundregistra og andre verksemder.
+!!! note "Beskrivelse"
+
+    Denne rettleiinga forklarer korleis ein ny organisasjon tek i bruk repoet for å
+    publisere eigne informasjonsmodellar saman med Brønnøysundregistra og andre verksemder.
 
 ## Føresetnader
 

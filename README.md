@@ -9,13 +9,15 @@
     - Modellar og verktøy er under utvikling og kan endre seg
     - Dokumentasjonen kan vere ufullstendig eller utdatert
     - Nokre funksjonar er berre delvis implementerte
-    - Det finst kjende avgrensingar og bugs (sjå [kjende avgrensingar](https://github.com/brreg/linkml-datamodellering-no/tree/main/specs/bugs))
+    - Det finst kjende avgrensingar og bugs (sjå [kjende avgrensingar](https://github.com/brreg/linkml-datamodellering-no/tree/main/specs/bugs/README.md))
     - Ingen garantert stabilitet eller support-SLA
     
     **For eksterne organisasjonar:** Før de tek i bruk repoet i produksjon — les [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) 
     for forventningar til stabilitet og ansvar.
 
-Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
+!!! note "Målsetting"
+
+    Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
 
 
