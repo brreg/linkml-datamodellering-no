@@ -1,6 +1,6 @@
 # Om dette repoet
 
-!!! note "Bakgrunn
+!!! note "Bakgrunn"
 
     Dette repoet er utvikla av Brønnøysundregistrene med mål om å bli ein nasjonal ressurs for arbeid med informasjonsmodellering, i tråd med
     [Digdirs Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626).
