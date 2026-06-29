@@ -398,18 +398,17 @@ nav:
   - Rettleiingar:
       - index.md
       - Om: om.md
-      - Arkitekturoversikt: arkitektur-oversikt.md
       - Bruk frå eksternt repo: ekstern-bruk.md
       - Bli modelleigar: ny-org.md
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
       - Valideringsreglar: valideringregler.md
+      - Arkitekturoversikt publisering: arkitektur-oversikt.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
       - AP-NO arkitektur og avvik: ap-no-arkitektur.md
-      - Publiseringsflyt: publiseringsflyt-oversikt.md
-      - Monitorering: monitorering.md
+      - Monitorering av automasjon: monitorering.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do
