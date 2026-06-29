@@ -32,10 +32,8 @@ Ikkje minst legges det tilrete for å eksportere modeller og data på W3C-semant
 
 ## Lisens
 
-Dette repoet er lisensiert under
-[MIT-lisens](https://github.com/brreg/linkml-datamodellering-no/blob/main/LICENSE).
-Dei enkelte modellane har egne lisensar for bruk — sjå `license:`-feltet i det
-einskilde skjemaet.
+Dette repoet er lisensiert under [MIT-lisens](https://github.com/brreg/linkml-datamodellering-no/blob/main/LICENSE).
+Dei enkelte modellane har egne lisensar for bruk — sjå `license`-feltet i det einskilde skjemaet.
 
 ## Attribusjoner
 
