@@ -31,6 +31,8 @@ checks:
       Alle klasser (unntatt tree_root) skal ha class_uri som mappar klassen til
       eit standard RDF-vokabular. Krev: ikkje berre anbefalt (bronze-nivå).
     check: all_classes_have_class_uri
+    digdir_rule: 4, 8
+    fair_principle: F3
 
   all_slots_have_slot_uri:
     severity: error
@@ -38,6 +40,8 @@ checks:
       Alle globale slots skal ha slot_uri som mappar eigenskapen til
       eit standard RDF-vokabular. Krev: ikkje berre anbefalt (bronze-nivå).
     check: all_slots_have_slot_uri
+    digdir_rule: 4, 8
+    fair_principle: I1
 
 # FAIR-sjekkar — alle brot gir feil (severity: error)
 # Kvar sjekk er ein dict med:
@@ -62,6 +66,8 @@ fair_checks:
       som gjer ressursen søkbar i katalogar.
     check: schema_field_present
     field: title
+    digdir_rule: 1, 2
+    fair_principle: F2
 
   f4_version:
     principle: F4
@@ -71,6 +77,8 @@ fair_checks:
       og sporbarheit av endringar over tid.
     check: schema_field_present
     field: version
+    digdir_rule: 9
+    fair_principle: F4
 
   # I — Interoperable
 
@@ -82,6 +90,8 @@ fair_checks:
       Standardvokabular sikrar interoperabilitet på tvers av system.
     check: schema_declares_standard_prefix
     standard_prefixes: [dct, dcat, skos, prov, rdf, rdfs, owl, foaf, xsd]
+    digdir_rule: 8
+    fair_principle: I2
 
   # R — Reusable
 
@@ -95,6 +105,8 @@ fair_checks:
     match_any_uri:
       - dct:license
       - http://purl.org/dc/terms/license
+    digdir_rule: 7
+    fair_principle: R1.1
 
   r12_provenance:
     principle: R1.2
@@ -114,3 +126,5 @@ fair_checks:
       - http://purl.org/dc/terms/creator
       - http://purl.org/dc/terms/publisher
       - http://purl.org/dc/terms/contributor
+    digdir_rule: 10
+    fair_principle: R1.2

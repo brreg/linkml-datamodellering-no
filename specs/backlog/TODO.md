@@ -94,3 +94,4 @@ lag plan for å oppdatere mkdocs/docs/ap-no-arkitektur.md eg ønsker å fjærne 
 vær veldig kritisk og gjer ein full gjennomgang av dette repoet for å avdekke om det er noko vi bør handtere før vi inviterer andre brukere inn. skriv til ./specs
 
 evaluer gap mot https://data.norge.no/nb/docs/sharing-data skriv til ./specs
+
