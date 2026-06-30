@@ -63,7 +63,13 @@ ikkje instansdata. Instansdata vert validert med `make validate-instance`.
 `felles-datakatalog` og `felles-begrepskatalog` er separate policyer for
 skjema som publiserer til eksterne katalogar (`publish_external: true`).
 
-Sjå `src/mcp-linkml-validator/policies/README.md` for fullstendig sjekkliste per nivå.
+Policy-hierarkiet realiserer både Digdir sine
+[Felles modelleringsregler for offentlig forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029)
+(regel 1–15) og [FAIR-prinsippa](https://www.go-fair.org/fair-principles/)
+(Findable, Accessible, Interoperable, Reusable).
+
+Sjå `src/mcp-linkml-validator/policies/README.md` for fullstendig sjekkliste,
+Digdir-regel-mapping og FAIR-prinsipp per nivå.
 
 ## Kjente feil
 

@@ -32,6 +32,8 @@ checks:
       schema.id skal vere ein HTTP(S)-URI — persistent og globalt unik identifikator.
       Gjer skjemaet adresserbart og søkbart i katalogtenester.
     check: schema_id_is_http_uri
+    digdir_rule: 4
+    fair_principle: F1
 
   schema_has_default_prefix:
     severity: error
@@ -40,6 +42,7 @@ checks:
       modellelement adresserast med persistente URI-ar (Digdir-regel 4: Identifiserbarhet).
     check: schema_field_present
     field: default_prefix
+    digdir_rule: 4
 
   default_prefix_is_https_uri:
     severity: error
@@ -48,6 +51,7 @@ checks:
       Sikrar at genererte element-URI-ar er globalt unike og persistente
       (Digdir-regel 4: Identifiserbarhet).
     check: default_prefix_is_https_uri
+    digdir_rule: 4
 
   schema_has_license:
     severity: warning
@@ -57,6 +61,8 @@ checks:
       modellen skal vere fritt tilgjengeleg.
     check: schema_field_present
     field: license
+    digdir_rule: 7
+    fair_principle: R1.1
 
   class_names_pascal_case:
     severity: warning
@@ -65,6 +71,7 @@ checks:
       Digdir-regel 3 (Navne- og skrivekonvensjoner) og gjer klasser
       skiljbare frå slot- og attributtnamn.
     check: class_names_pascal_case
+    digdir_rule: 3
 
   slot_names_snake_case:
     severity: warning
@@ -80,6 +87,7 @@ checks:
       - fint-personvern
       - fint-ressurs
       - fint-utdanning
+    digdir_rule: 3
 
   all_classes_have_class_uri:
     severity: warning
@@ -87,6 +95,8 @@ checks:
       Alle klasser (unntatt tree_root) bør ha class_uri som mappar klassen til
       eit standard RDF-vokabular. Gjer klassane formelt beskriven og søkbare via URI.
     check: all_classes_have_class_uri
+    digdir_rule: 4, 8
+    fair_principle: F3, I1
 
   all_slots_have_slot_uri:
     severity: warning
@@ -95,6 +105,8 @@ checks:
       eit standard RDF-vokabular (dct:, dcat:, foaf: o.l.).
       Sikrar formal semantisk interoperabilitet.
     check: all_slots_have_slot_uri
+    digdir_rule: 4, 8
+    fair_principle: I1
 
   all_classes_have_identifier:
     severity: warning
@@ -103,6 +115,8 @@ checks:
       med identifier: true (eigen eller arva). Sikrar at instansar kan adresserast
       med URI i koblede data.
     check: all_classes_have_identifier
+    digdir_rule: 4
+    fair_principle: F1
 
   class_count_limit:
     severity: warning
@@ -112,6 +126,7 @@ checks:
       (Modularitet) om handterleg mengd modellelement per modul.
     check: class_count
     max_classes: 50
+    digdir_rule: 6
 
   all_classes_have_concept_ref:
     severity: warning
@@ -122,3 +137,5 @@ checks:
       Sikrar omgrepsforankring og semantisk interoperabilitet.
     check: all_classes_have_concept_ref
     concept_catalog_uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections
+    digdir_rule: 13
+    fair_principle: A2
