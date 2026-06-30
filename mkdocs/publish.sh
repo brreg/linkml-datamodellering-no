@@ -75,9 +75,9 @@ generate_validation_docs() {
         cat <<'EOF'
 # Valideringsregler
 
-Denne sida er generert automatisk frå validator-dokumentasjonen i
-`src/mcp-linkml-validator/policies/`. Sjå [GitHub-repoet](https://github.com/brreg/linkml-datamodellering-no/tree/main/src/mcp-linkml-validator)
-for siste versjon.
+!!! note "Beskrivelse"
+
+     Denne sida er generert automatisk frå validator-dokumentasjonen i `src/mcp-linkml-validator/policies/`. Sjå [GitHub-repoet](https://github.com/brreg/linkml-datamodellering-no/tree/main/src/mcp-linkml-validator) for siste versjon.
 
 ---
 
