@@ -62,6 +62,35 @@ artifact_label() {
 ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
+# Generer valideringsregler.md frå policies/README.md
+# ---------------------------------------------------------------------------
+generate_validation_docs() {
+    local policies_readme="$REPO_ROOT/src/mcp-linkml-validator/policies/README.md"
+    local output="$DOCS/valideringsregler.md"
+    local github_base="https://github.com/brreg/linkml-datamodellering-no/blob/main"
+
+    echo "${CLR_STEP}→ Genererer valideringsregler.md frå policies/README.md${CLR_RST}"
+
+    {
+        cat <<'EOF'
+# Valideringsregler
+
+Denne sida er generert automatisk frå validator-dokumentasjonen i
+`src/mcp-linkml-validator/policies/`. Sjå [GitHub-repoet](https://github.com/brreg/linkml-datamodellering-no/tree/main/src/mcp-linkml-validator)
+for siste versjon.
+
+---
+
+EOF
+        cat "$policies_readme" | \
+            sed -E "s|\]\(([^)]+\.yaml)\)|]($github_base/src/mcp-linkml-validator/policies/\1)|g" | \
+            sed -E "s|specs/done/([^)]+)|$github_base/specs/done/\1|g"
+    } > "$output"
+
+    echo "${CLR_OK}✓ Genererte $output${CLR_RST}"
+}
+
+# ---------------------------------------------------------------------------
 # Per-skjema prosessering (køyrer parallelt)
 # ---------------------------------------------------------------------------
 process_schema() {
@@ -333,6 +362,12 @@ sed \
   "$REPO_ROOT/README.md" > "$DOCS/index.md"
 
 # ---------------------------------------------------------------------------
+# Steg 3: Generer valideringsregler.md
+# ---------------------------------------------------------------------------
+log_step "Steg 3: Generer valideringsregler.md"
+generate_validation_docs
+
+# ---------------------------------------------------------------------------
 # Steg 4: Generer mkdocs.yml
 # ---------------------------------------------------------------------------
 log_step "Steg 4: Generer mkdocs.yml"
@@ -403,7 +438,7 @@ nav:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
-      - Valideringsreglar: valideringregler.md
+      - Valideringsregler: valideringsregler.md
       - Arkitekturoversikt publisering: arkitektur-oversikt.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
