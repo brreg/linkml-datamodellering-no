@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.2...samt-bu-v1.0.3) (2026-07-01)
+
+
+### Bug Fixes
+
+* **samt-bu,asyncapi:** fjern overflødige åtvaringar frå make samt ([76132b4](https://github.com/brreg/linkml-datamodellering-no/commit/76132b434d7941102d9d88bf586ea3003391dc0c))
+* **samt-bu:** rett stale slotnamn på Kvalitetsdimensjon-instans i eksempel ([6e4d623](https://github.com/brreg/linkml-datamodellering-no/commit/6e4d623d1a5f91b472748d45942e8a4fb05ad53b))
+
 ## [1.0.2](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.1...samt-bu-v1.0.2) (2026-06-20)
 
 
