@@ -207,6 +207,8 @@ classes:
       - kommunenummer
     see_also:
       - https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/20b2e0f1-9fe1-11e5-a9f8-e4115b280940
 
   Fylke:
     class_uri: samtbuskole:Fylke
