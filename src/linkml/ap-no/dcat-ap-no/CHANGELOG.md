@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.1.1...dcat-ap-no-v2.1.2) (2026-07-01)
+
+
+### Bug Fixes
+
+* **ap-no,modellkatalog:** løys slot-merge-konflikt (duplikatslots) i modelldcat-ap-no-importkjeda ([81d4aa8](https://github.com/brreg/linkml-datamodellering-no/commit/81d4aa8af16ffe2920eb3dfec67cee8747ea9a97))
+
 ## [2.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.1.0...dcat-ap-no-v2.1.1) (2026-06-20)
 
 
