@@ -112,24 +112,41 @@ Tre testfiler ligg klare i `src/tmp/`:
    
    Konvensjonen er at bindestreker skal unngåast — bruk samansette ord eller understrek. `bvrinnfelles_lm_v1.schema.json` feila fordi originalen hadde `e-postadresse` som bryt denne konvensjonen.
 
-2. **Manglande klasser:** `virksomhetregisterinfoapi_lm_v1.schema.json` manglar `Virksomhetsrelasjon_2` (ikkje undersøkt kvifor).
+2. **Klassenamn med `_\d+`-suffiks:** `gen-json-schema` normaliserer klassenamn ved å fjerne underscore før talsuffiks (t.d. `Virksomhetsrelasjon_2` → `Virksomhetsrelasjon2`). Dette er no **handtert** i samanlikninga ved å normalisere klassenamn før samanlikning. Testen aksepterer no `Virksomhetsrelasjon_2` som ekvivalent til `Virksomhetsrelasjon2`.
+
+3. **Property-namn med bindestreker:** Bindestreker i property-namn (t.d. `e-postadresse`, `signaturrettsbestemmelser-`) vert normaliserte til underscore (`e_postadresse`, `signaturrettsbestemmelser_`) av `_sanitize_slot_name`. Dette er no **handtert** i samanlikninga ved å normalisere property-namn før samanlikning.
+
+4. **Slot-namne-konfliktar:** Når same slotnamn har ulike typar i fleire klasser, må konverteren velje éin definisjon. **Løyst** ved å prioritere:
+   - Multivalued (array) over single-value
+   - Primitive typar (`integer`, `string`, etc.) over klasse-referansar
+   
+   Døme: `Aktivitet.aktivitet` (array av `Aktivitetstype`) vann over `Virksomhet.aktivitet` (single `Aktivitet`), og `Aktivitetstype.kode` (`integer`) vann over `Organisasjonsforminfo.kode` (`$ref` til `Organisasjonsform`).
 
 **Resultat:**
 - ✅ `bvrstiftelsesdokument_lm_v0.schema.json` passerer
-- ❌ `bvrinnfelles_lm_v1.schema.json` feila (bindestrek-problem)
-- ❌ `virksomhetregisterinfoapi_lm_v1.schema.json` feila (manglar klasse)
+- ✅ `bvrinnfelles_lm_v1.schema.json` passerer
+- ✅ `virksomhetregisterinfoapi_lm_v1.schema.json` passerer
+
+**Implementerte løysingar:**
+- ✅ Normalisering av klassenamn (`_\d+` → `\d+`)
+- ✅ Normalisering av property-namn (bindestrek → underscore)
+- ✅ Slot-konfliktløysing med prioritering av multivalued og primitive typar
 
 **Neste steg (ikkje utført):**
-- [ ] Steg 5: Dokumenter testen i README (når avgrensingane er aksepterte)
-- [ ] Handter bindestreker i property-namn (enten i MCP-generatoren eller i samanlikninga)
-- [ ] Undersøk kvifor `Virksomhetsrelasjon_2` manglar
+- [ ] Steg 5: Dokumenter testen i README
 
 ---
 
 ## Konklusjon
 
-Implementasjonen er fullført med éin passerande test (`bvrstiftelsesdokument`) og to kjende avgreningar (bindestreker, manglande klasse). Testen validerer no semantisk likskap mellom JSON Schema → LinkML → JSON Schema-roundtrip ved å:
+Implementasjonen er **fullført og alle tre testane passerer**. Testen validerer semantisk likskap mellom JSON Schema → LinkML → JSON Schema-roundtrip ved å:
 - Ekskludere containerklassen (serialiseringsankerpunkt)
 - Fokusere på semantiske klasser i `$defs`/`definitions`
 - Akseptere kjende transformasjonar (typar inlined, `id`-felt, `null` i type-array)
 - Hoppe over `allOf`/`anyOf`/`oneOf`-konstruksjonar (ikkje fullt støtta)
+- Normalisere klassenamn (`_\d+` → `\d+`) og property-namn (bindestrek → underscore)
+
+**MCP-generator-forbetringar:**
+- Slot-konfliktløysing prioriterer no multivalued (arrays) over single-value
+- Slot-konfliktløysing prioriterer no primitive typar over klasse-referansar
+- Dette løyser sirkulær-referanse-problemet og integer/string-konflikten

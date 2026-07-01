@@ -329,11 +329,50 @@ def convert(
 
             if slot_name in global_slots:
                 existing_range = global_slots[slot_name].get("range", "string")
+                existing_multivalued = global_slots[slot_name].get("multivalued", False)
+                new_multivalued = attrs.get("multivalued", False)
+
+                # Sjekk om range er ein primitiv LinkML-type eller ein klasse-referanse
+                primitive_types = {"string", "integer", "float", "boolean", "uriorcurie", "date", "datetime"}
+                existing_is_primitive = existing_range in primitive_types
+                new_is_primitive = new_range in primitive_types
+
                 if existing_range != new_range:
-                    warnings.append(
-                        f"Slot '{slot_name}' har ulik type i fleire klasser "
-                        f"('{existing_range}' vs '{new_range}') — bruker '{existing_range}'"
-                    )
+                    # Velg den mest spesifikke/informative definisjonen:
+                    # 1. Prioriter multivalued (array) over single-value
+                    # 2. Prioriter primitive typar over klasse-referansar (meir spesifikt)
+                    should_replace = False
+                    reason = ""
+
+                    if new_multivalued and not existing_multivalued:
+                        should_replace = True
+                        reason = f"(multivalued)"
+                    elif new_is_primitive and not existing_is_primitive:
+                        should_replace = True
+                        reason = f"(primitiv type)"
+                    elif not new_is_primitive and existing_is_primitive:
+                        # Behold primitiv type
+                        should_replace = False
+
+                    if should_replace:
+                        warnings.append(
+                            f"Slot '{slot_name}' har ulik type i fleire klasser "
+                            f"('{existing_range}' vs '{new_range}' {reason}) — bruker '{new_range}' {reason}"
+                        )
+                        slot_entry: dict = {}
+                        slot_entry["description"] = prop_def.get("description") or "TODO: beskriv eigenskapen"
+                        slot_entry["slot_uri"] = f"{prefix_name}:{_transliterate(slot_name)}"
+                        if new_range:
+                            slot_entry["range"] = new_range
+                        if new_multivalued:
+                            slot_entry["multivalued"] = True
+                        global_slots[slot_name] = slot_entry
+                    else:
+                        # Behold eksisterande definisjon
+                        warnings.append(
+                            f"Slot '{slot_name}' har ulik type i fleire klasser "
+                            f"('{existing_range}' vs '{new_range}') — bruker '{existing_range}'"
+                        )
             else:
                 slot_entry: dict = {}
                 slot_entry["description"] = prop_def.get("description") or "TODO: beskriv eigenskapen"
