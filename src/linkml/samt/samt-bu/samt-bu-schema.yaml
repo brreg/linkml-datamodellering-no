@@ -279,7 +279,9 @@ classes:
       - jobber_paa_skole
     see_also:
       - https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762
-
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/b298ea76-e465-4cb5-b54a-176e59374d37
+      
 slots:
 
   # --- Identifikator og namn ---
