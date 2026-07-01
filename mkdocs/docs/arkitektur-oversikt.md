@@ -15,15 +15,16 @@ flowchart TB
     end
     
     subgraph "GitHub Repository"
-        B[Push til main] --> C[GitHub Actions<br/>generate.yml]
+        B[Pullrequest til main] --> C[GitHub Actions<br/>generate.yml]
         C --> D[Validering<br/>make mcp-validate]
         D --> E[Generering<br/>make convert-data]
         E --> F[Genererte artefaktar<br/>TTL / JSON Schema / OWL]
     end
     
     subgraph GitHub
-        F --> G[GitHub Pages<br/>brreg.github.io/linkml-datamodellering-no/]
         F --> H[GitHub Releases<br/>v1.0.0, v1.1.0, ...]
+        F --> G[GitHub Pages<br/>brreg.github.io/linkml-datamodellering-no/]
+        
     end
     
     subgraph "Eksterne katalogar (pull/høsting)"
@@ -32,7 +33,7 @@ flowchart TB
     end
     
     subgraph "Private system (pull/høsting)"
-        K[Private datakatalogar<br/>Intern wiki / Dataporten]
+        K[Private datakatalogar<br/>Intern wiki / Dataportal]
         L[API-register<br/>OpenAPI Registry]
         M[Dataplattformer<br/>Data Catalog / Data Mesh]
     end
@@ -61,6 +62,7 @@ flowchart TB
 ```
 
 **Nøkkel:**
+
 - **Solid pil (→):** Automatisk prosess, kontrollert av repoet
 - **Stipla pil (-.->):** Ekstern prosess, **ikkje** kontrollert av repoet
 - **Raud stipla ramme:** Eksterne offentlege katalogar (Digdir)
