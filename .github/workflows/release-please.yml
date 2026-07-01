@@ -29,9 +29,21 @@ jobs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
       - uses: actions/checkout@v7
-        if: github.event_name == 'pull_request'
         with:
           fetch-depth: 0
+
+      - name: Sjekk om siste commit skal trigge release-please
+        id: check_commit_type
+        if: github.event_name == 'push'
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          if echo "$COMMIT_MSG" | grep -qE '^(style|docs|chore|test|ci|build|perf|refactor)(\(.*\))?:'; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Siste commit er ikkje ein release-utløysande type — hoppar over"
+            exit 0
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+          echo "Siste commit kan trigge release — held fram"
 
       - name: Sjekk om dette er ein merga release-PR
         id: check_release_pr
@@ -56,9 +68,13 @@ jobs:
 
       # Køyrer release-please på push til main (opprettar/oppdaterer release-PR)
       # eller når release-PR vert merga (opprettar faktisk release med tags).
-      # Hoppar over dersom dette er ein PR som ikkje er ein release-PR.
+      # Hoppar over dersom dette er ein PR som ikkje er ein release-PR,
+      # eller ein push-commit som ikkje er release-utløysande (style/docs/chore/etc).
       - uses: googleapis/release-please-action@v5
-        if: github.event_name != 'pull_request' || steps.check_release_pr.outputs.skip != 'true'
+        if: |
+          (github.event_name == 'push' && steps.check_commit_type.outputs.skip != 'true') ||
+          (github.event_name == 'pull_request' && steps.check_release_pr.outputs.skip != 'true') ||
+          github.event_name == 'workflow_dispatch'
         id: release-please
         with:
           config-file: release-please-config.json
