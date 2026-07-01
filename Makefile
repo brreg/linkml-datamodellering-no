@@ -658,7 +658,10 @@ domain-validate-data:
 		fi; \
 		[ -n "$$policy" ] || policy=bronze; \
 		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
-		$(MAKE) --no-print-directory mcp-validate SCHEMA=$$schema POLICY=$$policy INSTANCE=$$datafile; \
+		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
+		echo "$$result"; \
+		python3 src/assets/scripts/save-validation-log.py \
+			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
 	done
 
 check-published-uris:
@@ -780,6 +783,8 @@ domain-validate-bronze:
 		echo "--- $$schema ---"; \
 		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
 		echo "$$result"; \
+		python3 src/assets/scripts/save-validation-log.py \
+			--schema "$$schema" --type bronze --result "$$result" 2>/dev/null || true; \
 		if ! SCHEMA="$$schema" python3 -c "import json,sys,os;d=json.loads(sys.stdin.read());s=os.environ.get('SCHEMA','');[print('::{} file={}::{}: {}'.format('error' if i.get('severity')=='error' else 'warning',s,i.get('target',''),i.get('message','').replace(chr(10),' '))) for i in d.get('issues',[])];sys.exit(0 if d.get('valid',True) else 1)" <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
@@ -800,12 +805,21 @@ domain-validate-examples:
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
 			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
 		echo "$$result"; \
+		has_error=false; \
 		if echo "$$result" | grep -q "\[ERROR\]"; then \
+			has_error=true; \
 			echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
 				echo "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
 			done; \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
+		if [ "$$has_error" = "true" ]; then \
+			result_json='{"valid":false,"error_count":1,"warning_count":0,"issues":[{"severity":"error","target":"examples","message":"Validation failed"}]}'; \
+		else \
+			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
+		fi; \
+		python3 src/assets/scripts/save-validation-log.py \
+			--schema "$$schema" --type examples --result "$$result_json" 2>/dev/null || true; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
 		| grep -v common | sort | xargs grep -l "tree_root: true"); \
 	exit $$FAILED
