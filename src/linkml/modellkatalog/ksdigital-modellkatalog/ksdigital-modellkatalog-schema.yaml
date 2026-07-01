@@ -1,6 +1,6 @@
 id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
 name: ksdigital-modellkatalog
-title: KS Digital – Modellkatalog
+title: KS Digital - Modellkatalog
 description: >-
   Modellkatalog for KS Digital sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.

@@ -1,5 +1,5 @@
 # Eksempel på NGR-adresse med ei offisiell adresse og ei postboksadresse.
-# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+# Modelleringsstil: lenking framfor inlining - referansar mellom objekt er URI-ar.
 
 offisielleAdresser:
   - id: https://example.org/adresse/offisiell/1

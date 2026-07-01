@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
   tittel:
-  - Skatteetaten – Modellkatalog
+  - Skatteetaten - Modellkatalog
   beskrivelse:
   - 'TODO: legg til skildring av katalogen'
   identifikator_literal: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
@@ -18,7 +18,7 @@ modellkataloger:
 informasjonsmodeller:
 - id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person
   tittel:
-  - Nasjonale grunndata – Person
+  - Nasjonale grunndata - Person
   beskrivelse:
   - Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer
     Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar

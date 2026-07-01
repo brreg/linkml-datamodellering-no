@@ -16,7 +16,7 @@ LinkML-skjema i repoet. Begge generatorane er allereie tilgjengelege i `linkml-l
 
 ---
 
-## Steg 1 – Ny `run_gen_plantuml`-makro i Makefile
+## Steg 1 - Ny `run_gen_plantuml`-makro i Makefile
 
 `gen-plantuml` med `--directory` brukar Kroki.io (HTTP GET) for å rendre SVG, og feiler med
 HTTP 414 for store skjema. Løysinga er å bruke stdout-modus (utan `--directory`) for å få rå
@@ -41,7 +41,7 @@ endef
 
 ---
 
-## Steg 2 – Topp-nivå-mål
+## Steg 2 - Topp-nivå-mål
 
 Legg til etter eksisterande `gen-*`-mål:
 
@@ -61,7 +61,7 @@ gen-plantuml:
 
 ---
 
-## Steg 3 – Domene-mål
+## Steg 3 - Domene-mål
 
 Legg til i blokken med `domain-gen-*`-mål (linje ~305):
 
@@ -75,9 +75,9 @@ domain-gen-plantuml:
 
 ---
 
-## Steg 4 – Integrasjon i domene-`define`-blokken
+## Steg 4 - Integrasjon i domene-`define`-blokken
 
-I den genererte `define`-blokken per domene (linje ~270–295) — legg til dei to nye
+I den genererte `define`-blokken per domene (linje ~270-295) — legg til dei to nye
 generatorane saman med dei eksisterande:
 
 ```makefile
@@ -87,7 +87,7 @@ generatorane saman med dei eksisterande:
 
 ---
 
-## Steg 5 – `.PHONY`
+## Steg 5 - `.PHONY`
 
 Legg til i `.PHONY`-lista:
 
@@ -98,7 +98,7 @@ domain-gen-proto domain-gen-plantuml \
 
 ---
 
-## Steg 6 – GitHub Actions
+## Steg 6 - GitHub Actions
 
 To nye composite actions, same mønster som `gen-json-schema`:
 
@@ -136,7 +136,7 @@ runs:
 
 ---
 
-## Steg 7 – `generate.yml`
+## Steg 7 - `generate.yml`
 
 Legg til to nye `uses:`-steg i kvar domain-jobb (ap-no, fair, fint, ngr, oreg, samt),
 same stad som dei eksisterande `gen-*`-stega:

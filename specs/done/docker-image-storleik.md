@@ -16,7 +16,7 @@ Repoet har fem Docker-images:
 
 ## Analyse per image
 
-### mcp-linkml-generator og mcp-linkml-validator (~800 MB–1 GB estimert)
+### mcp-linkml-generator og mcp-linkml-validator (~800 MB-1 GB estimert)
 
 Begge Dockerfiles følgjer same mønster:
 
@@ -53,7 +53,7 @@ CMD ["python", "server.py"]
 
 `build-essential` og `git` finst berre i builder-steget og følgjer ikkje med i det endelege imaget.
 
-**Estimert innsparing:** 250–300 MB per image.
+**Estimert innsparing:** 250-300 MB per image.
 
 ---
 
@@ -78,7 +78,7 @@ Typisk er berre `gen-python`, `gen-jsonld-context` og `gen-owl` i bruk — desse
 
 Ei slik reimplementering har høg effekt (~1 GB innsparing) men krev testing for å sikra at alle generatorar framleis fungerer.
 
-**Estimert innsparing:** 800 MB–1 GB (viss ein byter til python:3.11-slim-base).
+**Estimert innsparing:** 800 MB-1 GB (viss ein byter til python:3.11-slim-base).
 
 ---
 
@@ -100,7 +100,7 @@ RUN pip install --no-cache-dir pytest>=9.0.3 pyyaml>=6.0.3
 
 `python:3.13-alpine` er om lag 55 MB mot 130 MB for `python:3.11-slim`. Ei alternativ oppdatering til `python:3.13-slim` gjer liten skilnad på storleik, men held ein på kjend libc.
 
-**Estimert innsparing:** 80–100 MB.
+**Estimert innsparing:** 80-100 MB.
 
 ---
 
@@ -121,7 +121,7 @@ Upstream-imaget er allereie godt optimert, og dei to pluginane legg til lite. In
 |-------|-------------|--------|---------------------|
 | `mcp-linkml-generator` | `build-essential` + `git` i runtime | Fleirsstegsbygg | ~270 MB |
 | `mcp-linkml-validator` | `build-essential` + `git` i runtime | Fleirsstegsbygg | ~270 MB |
-| `linkml-local` | Tung upstream-base (Java, Node.js) | Bygg frå `python:3.11-slim` | ~800 MB–1 GB |
+| `linkml-local` | Tung upstream-base (Java, Node.js) | Bygg frå `python:3.11-slim` | ~800 MB-1 GB |
 | `python-pytest` | `python:3.11-slim` vs Alpine | Byt til `python:3.13-alpine` | ~90 MB |
 | `mkdocs-local` | Ingen vesentleg | — | — |
 

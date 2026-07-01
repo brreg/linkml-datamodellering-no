@@ -403,6 +403,6 @@ artefakten vert publisert.
   CI bør feile med ein forklarande feilmelding dersom lock-fila manglar.
 - `publish_external: true` for ein begrepsdatafil krev at dei publiserte konsepta
   passerer `felles-begrepskatalog`-policyen. CI bør køyre denne policyen automatisk.
-- Strukturendringa (steg 3–4) krev oppdatering av alle referansar i Makefile,
+- Strukturendringa (steg 3-4) krev oppdatering av alle referansar i Makefile,
   CI-workflow og `mkdocs/publish.sh`. Dette er den mest arbeidskrevjande delen
   av implementasjonen.

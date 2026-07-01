@@ -28,14 +28,14 @@ log_step() {
 
 domain_label() {
     case "$1" in
-        ap-no)   echo "AP-NO – Applikasjonsprofiler" ;;
-        begrepskatalog) echo "Begrepskatalog – Begrepskatalogmodellar" ;;
-        modellkatalog)   echo "Modellkatalog – Informasjonsmodellar" ;;
-        ngr)     echo "NGR – Nasjonale Grunndata" ;;
-        fint)    echo "FINT – Fylkeskommunale integrasjonar" ;;
-        samt)    echo "SAMT – Kommunale integrasjonar" ;;
-        fair)    echo "FAIR – Metadataoverbygning" ;;
-        oreg)    echo "OREG – Offentlege registre" ;;
+        ap-no)   echo "AP-NO - Applikasjonsprofiler" ;;
+        begrepskatalog) echo "Begrepskatalog - Begrepskatalogmodellar" ;;
+        modellkatalog)   echo "Modellkatalog - Informasjonsmodellar" ;;
+        ngr)     echo "NGR - Nasjonale Grunndata" ;;
+        fint)    echo "FINT - Fylkeskommunale integrasjonar" ;;
+        samt)    echo "SAMT - Kommunale integrasjonar" ;;
+        fair)    echo "FAIR - Metadataoverbygning" ;;
+        oreg)    echo "OREG - Offentlege registre" ;;
         *)     echo "$1" | awk '{print toupper($0)}' ;;
     esac
 }
@@ -343,9 +343,9 @@ for domain in "${ALL_DOMAINS[@]}"; do
                 published_col=""
                 [ -f "$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock" ] && \
                     published_col="[Felles Begrepskatalog](https://data.norge.no/concepts)"
-                echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} | ${published_col} |"
+                echo "| [${schema}](${schema}/index.md) | ${artifacts:--} | ${published_col} |"
             else
-                echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} |"
+                echo "| [${schema}](${schema}/index.md) | ${artifacts:--} |"
             fi
         done
     } > "$DOCS/$domain/index.md"

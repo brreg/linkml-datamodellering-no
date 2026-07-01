@@ -45,7 +45,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=felles-datakatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Datakatalog (modellkatalog). | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=felles-begrepskatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Begrepskatalog. | Pass/fail per policy-regel til stdout |
 | `make check-published-uris` | Verifiserer at alle URI-ar i `published-uris.lock`-filer finst i tilhøyrande datafil. Køyr etter endringar i datafiler med `publish_external: true`. | OK/FEIL til stdout; avsluttar med kode 1 ved manglande URI |
@@ -56,7 +56,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 |---|---|
 | `bronze` | Obligatoriske metadata (`id`, `name`), anbefalt `description`, alle klasser har identifikator og begrepsreferanse |
 | `silver` | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
-| `gold` | Silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.) |
+| `gold` | Silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.) |
 
 `mcp-validate` flattar automatisk ut relative importar med `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
 

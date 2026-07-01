@@ -44,7 +44,7 @@ fungerer.
 
 ### Funn
 
-`src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml` (linje 53–64) redeklarerer
+`src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml` (linje 53-64) redeklarerer
 klassa `Standard` — som er definert i `dcat-ap-no-schema.yaml` og importert
 transitivt — for å «leggje til» slottet `er_i_kvalitetsdimensjon`:
 
@@ -128,7 +128,7 @@ flyte oppover i dcat).
 
 ### Steg
 
-1. Fjern `Standard`-override-blokka frå `dqv-ap-no-schema.yaml` (linje 53–64)
+1. Fjern `Standard`-override-blokka frå `dqv-ap-no-schema.yaml` (linje 53-64)
 2. Avklar korrekt `slot_uri` for det nye `gjelder_standard`-slottet (sjekk om
    DQV/dqvno-vokabularet har ein eksisterande term — t.d. `dqv:inDimension`
    sin invers, eller bruk eit `dqvno:`-namnerom-spesifikt term dersom DQV ikkje
@@ -242,12 +242,12 @@ attributes:
 | 4 | SB2: Pakk `har_tekstdel` i liste på to stadar | `samt-bu-eksempel.yaml` | — |
 | 5 | SB3: Rett `har_verdi` → `har_boolean_verdi: true` | `samt-bu-eksempel.yaml` | — |
 | 6 | SB4: Legg til `description` på 23 containerattributtar | `samt-bu-schema.yaml` | — |
-| 7 | Verifiser: `make lint`, `make validate-instance`, `make roundtrip` for samt-bu — alle skal vere grøne | — | 1–6 |
+| 7 | Verifiser: `make lint`, `make validate-instance`, `make roundtrip` for samt-bu — alle skal vere grøne | — | 1-6 |
 | 8 | Verifiser: `make roundtrip SCHEMA=dqv-ap-no-schema.yaml` — stadfest at fiksen ikkje regredderer dqv-ap-no isolert | — | 1 |
 
 ## Avhengigheiter
 
-- Tiltak 3–6 (instansdata + lint) er heilt uavhengige av tiltak 1–2
+- Tiltak 3-6 (instansdata + lint) er heilt uavhengige av tiltak 1-2
   (skjemafiks) og kan utføras i hvilken som helst rekkjefølge, men `make
   validate-instance` for samt-bu vil **ikkje** bli fullstendig grøn før
   **begge** kategoriar er fiksa (skjemaet definerer kva som er «riktig»
@@ -266,7 +266,7 @@ Alle åtte tiltaka er gjennomførte:
   `Kvalitetsdimensjon` i `dqv-core-schema.yaml`. Dokumentert som BUG-6 i
   `specs/bugs/dqv-standard-class-override.md` og lagt til i
   `specs/bugs/README.md`-indeksen.
-- **SB1–SB3:** Tre instansdatafeil retta i `samt-bu-eksempel.yaml`
+- **SB1-SB3:** Tre instansdatafeil retta i `samt-bu-eksempel.yaml`
   (`er_motivert_av`, `har_tekstdel`-liste, `har_boolean_verdi`). I tillegg
   flytta `er_i_kvalitetsdimensjon`-verdien frå `standarder[0]` til den nye
   `kvalitetsdimensjoner[0].gjelder_standard` (konsekvens av SB0).

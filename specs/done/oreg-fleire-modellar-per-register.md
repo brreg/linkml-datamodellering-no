@@ -46,7 +46,7 @@ src/linkml/oreg/
 - Ingen strukturelle endringar i Makefile, `publish.sh` eller andre skript.
 - Konsistent med korleis NGR brukar prefiks (`ngr-adresse`, `ngr-eiendom`,
   `ngr-person`, `ngr-virksomhet`) for å gruppere modellar under eitt domene.
-- Portalen grupperer automatisk alle `oreg`-modellar under «OREG – Offentlege
+- Portalen grupperer automatisk alle `oreg`-modellar under «OREG - Offentlege
   registre» i navigasjonsmenyen; registertilhøyring kjem fram av modellnamnet.
 - Skalerer utan grense — ingen ny konfig ved kvart nytt register.
 
@@ -90,7 +90,7 @@ src/linkml/oreg/
   ei fast stiarstruktur.
 - Modellnamna misser registerprefiks — `generated/oreg/aksjeregisteret/eigarskap/`
   er mindre lesbart og skapar namnekollisjonsrisiko på tvers av register.
-- Høg kompleksitet for liten gevinst når ein startar med 2–5 modellar per register.
+- Høg kompleksitet for liten gevinst når ein startar med 2-5 modellar per register.
 
 ---
 

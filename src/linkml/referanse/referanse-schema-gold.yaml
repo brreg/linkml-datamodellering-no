@@ -17,7 +17,7 @@
 
 id: https://example.org/linkml/referanse-gold
 name: referanse-schema-gold
-title: Referanseskjema – gullnivå
+title: Referanseskjema - gullnivå
 description: >-
   Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss
   FAIR-metadata (title, version, prefiks, lisens, proveniens).

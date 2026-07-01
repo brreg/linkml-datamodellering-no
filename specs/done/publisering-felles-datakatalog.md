@@ -46,7 +46,7 @@ eksponerer `Modellkatalog`, `Informasjonsmodell` og aktuelle modellelementklassa
 ```yaml
 id: https://data.norge.no/linkml/brreg-modellkatalog
 name: brreg-modellkatalog
-title: Brønnøysundregistra – Modellkatalog
+title: Brønnøysundregistra - Modellkatalog
 description: >
   Modellkatalog for Brønnøysundregistra sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
@@ -103,7 +103,7 @@ på GitHub Pages. Utdrag:
 modellkatalogar:
   - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
     tittel:
-      - "@value": "Brønnøysundregistra – Modellkatalog"
+      - "@value": "Brønnøysundregistra - Modellkatalog"
         "@language": "nb"
     beskrivelse:
       - "@value": "Informasjonsmodellar frå Brønnøysundregistra i LinkML-format."
@@ -125,7 +125,7 @@ modellkatalogar:
 informasjonsmodellar:
   - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
-      - "@value": "Nasjonale grunndata – Adresse"
+      - "@value": "Nasjonale grunndata - Adresse"
         "@language": "nb"
     beskrivelse:
       - "@value": "Informasjonsmodell for offisielle adresser frå Matrikkelen."

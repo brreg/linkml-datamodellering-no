@@ -373,7 +373,7 @@ med T4 sitt mål. T9 er derfor avslutta og absorbert i T4.
 
 ## Utført (2026-06-20)
 
-Alle tiltak (T1–T9) er utførte, kartlagte eller medvite avgrensa i scope:
+Alle tiltak (T1-T9) er utførte, kartlagte eller medvite avgrensa i scope:
 
 - **T1 (lisens):** `copyright:`-felt lagt til i `mkdocs/publish.sh` (Steg 4, genererer
   `mkdocs.yml`) — viser MIT-lisens for repoet + peikar til `license:`-feltet per skjema.

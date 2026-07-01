@@ -196,7 +196,7 @@ DQ1-fiksen og må løysast før A6 kan gjennomførast.
 4. Løys `Aktoer`: skriv om `navn_aktor` → `navn_aktoer` i `dcat-ap-no-schema.yaml`
 5. Løys sirkulær import mellom `dcat-ap-no` og `dqv-ap-no`
 
-`Tidsrom`-konflikten løyser seg sjølv ved punkt 1–5: fjern den lokale `Tidsperiode`/`Tidsrom`-definisjonen og bruk `dcat-ap-no`-varianten (som har fleire slots, ikkje færre).
+`Tidsrom`-konflikten løyser seg sjølv ved punkt 1-5: fjern den lokale `Tidsperiode`/`Tidsrom`-definisjonen og bruk `dcat-ap-no`-varianten (som har fleire slots, ikkje færre).
 
 **Status:** 🚫 Blokkert — 5 føresetnader må løysast før import kan gjennomførast
 

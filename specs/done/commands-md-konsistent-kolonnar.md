@@ -66,7 +66,7 @@ Manglar `Output`-kolonna på alle rader. Legg til:
 | `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
 | `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1–R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
 
 ---
 

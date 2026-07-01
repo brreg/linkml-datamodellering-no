@@ -32,7 +32,7 @@ ein no-op for denne datastrukturen.
 ## Rot-årsak
 
 `_check_instance_slot_uri_pattern` i `src/mcp-linkml-validator/server.py`
-(linje 467–493) har:
+(linje 467-493) har:
 
 ```python
 def walk(obj, path=""):

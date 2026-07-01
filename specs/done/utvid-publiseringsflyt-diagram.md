@@ -196,13 +196,13 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 ## Steg
 
 ### 1. Oppdater Mermaid-diagram
-✓ Erstatt eksisterande diagram i `mkdocs/docs/arkitektur-oversikt.md` (linje 11–44)
+✓ Erstatt eksisterande diagram i `mkdocs/docs/arkitektur-oversikt.md` (linje 11-44)
 med det nye diagrammet som inkluderer to `subgraph`-boksar:
 - "Eksterne katalogar (pull/høsting)"
 - "Private system (pull/høsting)"
 
 ### 2. Oppdater nøkkel
-✓ Legg til lilla stipla ramme i nøkkelen (linje 46–49):
+✓ Legg til lilla stipla ramme i nøkkelen (linje 46-49):
 ```markdown
 **Nøkkel:**
 - **Solid pil (→):** Automatisk prosess, kontrollert av repoet
@@ -212,7 +212,7 @@ med det nye diagrammet som inkluderer to `subgraph`-boksar:
 ```
 
 ### 3. Oppdater "Pull, ikkje push"-tabell
-✓ Legg til rad i tabellen (linje 58–62):
+✓ Legg til rad i tabellen (linje 58-62):
 ```markdown
 | ✅ Artefaktane kan høstast av kven som helst | ❌ Krev ikkje autentisering for GitHub Pages (offentleg) |
 ```
@@ -233,7 +233,7 @@ Innhald:
   - Høstingsformat (`.ttl`, `.json`, `.yaml`, `.proto`)
 
 ### 5. Oppdater oppsummeringstabell
-✓ Oppdater tabellen i "Oppsummering"-seksjonen (linje 266–275) for å
+✓ Oppdater tabellen i "Oppsummering"-seksjonen (linje 266-275) for å
 inkludere private system:
 
 ```markdown

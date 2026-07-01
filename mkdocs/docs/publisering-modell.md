@@ -58,7 +58,7 @@ Når du redigerer eksisterande oppføringer i
 informasjonsmodellar:
   - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
-      - "@value": "Nasjonale grunndata – Adresse"
+      - "@value": "Nasjonale grunndata - Adresse"
         "@language": "nb"
     ...
 ```

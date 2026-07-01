@@ -1,6 +1,6 @@
 id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
 name: skatteetaten-modellkatalog
-title: Skatteetaten – Modellkatalog
+title: Skatteetaten - Modellkatalog
 description: >-
   Modellkatalog for Skatteetaten sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.

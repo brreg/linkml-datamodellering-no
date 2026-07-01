@@ -18,7 +18,7 @@ policyane — ho er ikkje aktuell for portalen.
 ### Tiltak 1 — Synk README.md med faktisk bronze-konfigurasjon
 
 `src/mcp-linkml-validator/README.md` speglar ikkje dei siste endringane i
-`bronze.yaml` (tiltak 1–7 i `bronze-policy-metadata-krav.md`).
+`bronze.yaml` (tiltak 1-7 i `bronze-policy-metadata-krav.md`).
 
 Desse avvika må rettast i README.md **før** kopiering:
 

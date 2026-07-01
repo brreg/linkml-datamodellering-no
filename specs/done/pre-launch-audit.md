@@ -283,7 +283,7 @@ organizations:
       name: Eksempelorganisasjonen
       org_uri: https://data.norge.no/organizations/<orgnr>
       catalog_slug: eksempelorg-modellkatalog
-      catalog_title: "Eksempelorganisasjonen – Modellkatalog"
+      catalog_title: "Eksempelorganisasjonen - Modellkatalog"
       contact_uri: https://eksempelorg.no/kontakt
       github_team: "@eksempelorg/linkml-forvaltning"  # eller "@enkeltbrukar"
       path_patterns:
@@ -495,20 +495,20 @@ Alle workflows (`generate.yml`, `release-please.yml`, osv.) føresett at det fin
 
 ### Må gjerast FØR invitasjon av eksterne organisasjonar
 
-1. **T1.1–T1.5** — Synleggjere PoC-status i all dokumentasjon
-2. **T2.1–T2.5** — Avklare og dokumentere publiseringsflyt til eksterne katalogar
-3. **T3.1–T3.3** — Fjerne eller fylle inn alle TODO-verdiar i produksjonsdata
-4. **T5.1–T5.3** — Legg til prosess for GitHub-team per organisasjon
-5. **T6.1–T6.3** — Dokumentere faktisk publiseringsflyt (ikkje berre teori)
-6. **T7.1–T7.3** — Utvide sikkerheitsdokumentasjon
-7. **T9.1–T9.3** — Legg til kjente avgrensingar og support-forventningar
+1. **T1.1-T1.5** — Synleggjere PoC-status i all dokumentasjon
+2. **T2.1-T2.5** — Avklare og dokumentere publiseringsflyt til eksterne katalogar
+3. **T3.1-T3.3** — Fjerne eller fylle inn alle TODO-verdiar i produksjonsdata
+4. **T5.1-T5.3** — Legg til prosess for GitHub-team per organisasjon
+5. **T6.1-T6.3** — Dokumentere faktisk publiseringsflyt (ikkje berre teori)
+6. **T7.1-T7.3** — Utvide sikkerheitsdokumentasjon
+7. **T9.1-T9.3** — Legg til kjente avgrensingar og support-forventningar
 
 ### Kan gjerast etter første eksterne organisasjon er inne
 
-8. **T4.1–T4.2** — Fikse `.gitignore`-regel for `./specs`
-9. **T8.1–T8.3** — Legg til monitorering og tilbaketrekkingsrutiner
-10. **T10.1–T10.3** — Utvide konfliktløysingsmekanismar
-11. **T11.1–T11.3** — Teste og dokumentere CI/CD-flyt med fleire organisasjonar
+8. **T4.1-T4.2** — Fikse `.gitignore`-regel for `./specs`
+9. **T8.1-T8.3** — Legg til monitorering og tilbaketrekkingsrutiner
+10. **T10.1-T10.3** — Utvide konfliktløysingsmekanismar
+11. **T11.1-T11.3** — Teste og dokumentere CI/CD-flyt med fleire organisasjonar
 
 ---
 
@@ -522,11 +522,11 @@ Dette repoet har eit solid teknisk fundament og god struktur, men det er **ikkje
 - **Sikkerheit og ansvar** — manglande prosedyrar for fleire organisasjonar
 
 **Anbefaling:**  
-Utfør alle "Må gjerast FØR"-tiltaka (T1–T7, T9) før eksterne organisasjonar får tilgang. Dette vil ta ~2–4 arbeidsdagar dersom utført sekvensielt. Mange av tiltaka kan gjerast parallelt.
+Utfør alle "Må gjerast FØR"-tiltaka (T1-T7, T9) før eksterne organisasjonar får tilgang. Dette vil ta ~2-4 arbeidsdagar dersom utført sekvensielt. Mange av tiltaka kan gjerast parallelt.
 
 **Forslag til neste steg:**  
 1. Verifiser om GitHub Pages faktisk publiserer til data.norge.no (T2.2, T6.2)
-2. Fjern eller fyll inn alle TODO-verdiar i produksjonsdata (T3.1–T3.2)
+2. Fjern eller fyll inn alle TODO-verdiar i produksjonsdata (T3.1-T3.2)
 3. Legg til PoC-disclaimer i `mkdocs/docs/index.md` (T1.1)
-4. Utvid `SECURITY.md` og `GOVERNANCE.md` (T7.1–T7.2)
-5. Legg til "Kjende avgrensingar"-seksjon i alle hovudrettleiingar (T9.1–T9.2)
+4. Utvid `SECURITY.md` og `GOVERNANCE.md` (T7.1-T7.2)
+5. Legg til "Kjende avgrensingar"-seksjon i alle hovudrettleiingar (T9.1-T9.2)

@@ -359,7 +359,7 @@ gjev allereie eit godt fundament — dei resterande gapa handlar primært om kor
 
 ## Utført (2026-06-20)
 
-Alle fire tiltaka (RÅ1–RÅ4) er implementerte i
+Alle fire tiltaka (RÅ1-RÅ4) er implementerte i
 `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`:
 
 - **RÅ1:** `lisens`-sloten har no `description` og

@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/novari-modellkatalog/eksempel
   tittel:
-  - Novari IKS – Modellkatalog (FINT) (eksempel)
+  - Novari IKS - Modellkatalog (FINT) (eksempel)
   beskrivelse:
   - Eksempel på ein modellkatalogpost.
   identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog/eksempel

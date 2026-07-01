@@ -253,7 +253,7 @@ automatisk.
 ```yaml
 # manifest.yaml utvidast:
 modelldcat:
-  tittel: "Nasjonale grunndata – Adresse"
+  tittel: "Nasjonale grunndata - Adresse"
   beskrivelse: "Informasjonsmodell for offisielle adresser frå Matrikkelen."
   tema:
     - https://psi.norge.no/los/tema/bolig-og-eiendom

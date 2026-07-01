@@ -37,7 +37,7 @@ oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter
 fair-metadata         ← kan importeres av alle domenemodeller
 ```
 
-Importhierarkiet er repoets primære DRY-mekanisme for skjema: klasser og slots definerast éin stad og importerast nedover. MC8–MC11 (sjå `specs/done/avvik-modelldcat-ap-no.md`) er eit praktisk døme — duplikate klasser vart fjerna frå `modelldcat-katalog-schema.yaml` ved å importere `dcat-ap-no-schema` i staden.
+Importhierarkiet er repoets primære DRY-mekanisme for skjema: klasser og slots definerast éin stad og importerast nedover. MC8-MC11 (sjå `specs/done/avvik-modelldcat-ap-no.md`) er eit praktisk døme — duplikate klasser vart fjerna frå `modelldcat-katalog-schema.yaml` ved å importere `dcat-ap-no-schema` i staden.
 
 ## Valider arbeidet ditt
 
@@ -65,7 +65,7 @@ skjema som publiserer til eksterne katalogar (`publish_external: true`).
 
 Policy-hierarkiet realiserer både Digdir sine
 [Felles modelleringsregler for offentlig forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029)
-(regel 1–15) og [FAIR-prinsippa](https://www.go-fair.org/fair-principles/)
+(regel 1-15) og [FAIR-prinsippa](https://www.go-fair.org/fair-principles/)
 (Findable, Accessible, Interoperable, Reusable).
 
 Sjå `src/mcp-linkml-validator/policies/README.md` for fullstendig sjekkliste,
@@ -226,6 +226,15 @@ Sjå `mkdocs/docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
 ## Namngjeving
 
+### Teiknsett
+
+- **ASCII hyphen (U+002d, "-")** skal brukast i all kjeldekode, YAML-filer,
+  shell-scripts og Markdown-dokumentasjon.
+- **Unicode en-dash (U+2013, "–")** skal **ikkje** brukast — det kan
+  forvekslast med ASCII hyphen og skape parsing-problem i YAML og andre format.
+- **Em-dash (U+2014, "—")** kan brukast i løpande prosa der typografisk
+  distinksjon er ønskt, men bør unngåast i teknisk dokumentasjon.
+
 ### Katalogstruktur
 
 ```
@@ -298,7 +307,7 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 |---|---|---|
 | `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse` |
 | `id` | Absolutt HTTPS-URL | `https://data.norge.no/ngr/ngr-adresse` |
-| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
+| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata - Adresse` |
 | `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
 | `license` | Standard: NLOD 2.0. Alltid absolutt URI. | `https://data.norge.no/nlod/no/2.0` |

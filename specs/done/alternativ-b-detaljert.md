@@ -1,6 +1,6 @@
-# Alternativ B – detaljert utbygging
+# Alternativ B - detaljert utbygging
 
-Utdjuping av «Alternativ B – Eige repo med URL-importer» frå [distribusjonsmodell.md](distribusjonsmodell.md).
+Utdjuping av «Alternativ B - Eige repo med URL-importer» frå [distribusjonsmodell.md](distribusjonsmodell.md).
 Målet er at ein ekstern utviklar kan leggje til LinkML-modellering i eit eksisterande repo og bruke
 AP-NO-profilene og verktøya herifrå utan å bu i dette monorepoet.
 
@@ -17,7 +17,7 @@ må kopiere eller lagre dei.
 
 ## Dei fem ulempene og forslag til løysing
 
-### Ulempe 1 – AP-NO-profilene har ikkje stabile, publiserte URL-ar
+### Ulempe 1 - AP-NO-profilene har ikkje stabile, publiserte URL-ar
 
 **Rot-årsak:** Importane brukar relative stiar (`../../ap-no/...`) som berre fungerer inne i dette repoet.
 
@@ -48,7 +48,7 @@ relativt til base-URL-en — det fungerer korrekt med GitHub Raw.
 
 ---
 
-### Ulempe 2 – Container-imagene må publiserast og vedlikehaldast
+### Ulempe 2 - Container-imagene må publiserast og vedlikehaldast
 
 **Rot-årsak:** `ensure-images`-jobben i `generate.yml` pushar allereie imagene til GHCR, men med
 content-hash-taggar. Desse er ikkje brukarvennlege frå eksterne repo.
@@ -69,7 +69,7 @@ ghcr.io/brreg/mcp-linkml-generator:v1.0.0
 
 ---
 
-### Ulempe 3 – Nettverkstilgang under generering
+### Ulempe 3 - Nettverkstilgang under generering
 
 **Ikkje eit reelt problem i dette oppsettet.**
 
@@ -87,7 +87,7 @@ podman run --rm -v "$(pwd):/work" -w /work \
 
 ---
 
-### Ulempe 4 – Risiko for versjonsdrift
+### Ulempe 4 - Risiko for versjonsdrift
 
 **Rot-årsak:** Ein domenemodell som vert sjeldan oppdatert kan sakke etter og importere ein
 AP-NO-versjon som er utdatert eller inkompatibel.
@@ -133,7 +133,7 @@ sjølv når dei vil oppgradere.
 
 ---
 
-### Ulempe 5 – Meir oppsett for ny utviklar
+### Ulempe 5 - Meir oppsett for ny utviklar
 
 **Rot-årsak:** Utviklaren jobbar i eit eksisterande repo. Komplekse workflow-filer eller
 Makefile-malar er vanskelege å leggje til utan å forstyrre eksisterande oppsett.

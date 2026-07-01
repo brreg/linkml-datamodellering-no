@@ -21,7 +21,7 @@ Container-imagene (`linkml-local`, `python-pytest`, `mcp-linkml-validator`, `mcp
 
 ## Alternativ
 
-### Alternativ A – Monorepo (status quo)
+### Alternativ A - Monorepo (status quo)
 
 Alle domenemodeller bur i dette repoet. Kvar ny modell kjem inn som ein PR mot `main`.
 
@@ -42,7 +42,7 @@ Alle domenemodeller bur i dette repoet. Kvar ny modell kjem inn som ein PR mot `
 
 ---
 
-### Alternativ B – Eige repo med URL-importer
+### Alternativ B - Eige repo med URL-importer
 
 LinkML støttar URL-baserte importer. AP-NO-profilene publiserast med stabile URL-ar (t.d. frå GitHub raw eller ein dedikert schema-server), og domenemodellen importerer dei direkte:
 
@@ -69,7 +69,7 @@ Container-imagene publiserast til eit registry (t.d. `ghcr.io/brreg/linkml-local
 
 ---
 
-### Alternativ C – Git submodule
+### Alternativ C - Git submodule
 
 Utviklaren oppretter sitt eige repo og legg dette repoet inn som ein git submodul under t.d. `vendor/linkml-datamodellering-no/`. Relative importer fungerer framleis fordi filstrukturen er bevart.
 
@@ -87,7 +87,7 @@ Utviklaren oppretter sitt eige repo og legg dette repoet inn som ein git submodu
 
 ---
 
-### Alternativ D – GitHub template-repo
+### Alternativ D - GitHub template-repo
 
 Dette repoet (eller ein destillert versjon) gjerast til eit GitHub template-repo. Ny utviklar klikkar «Use this template» og får sin eigen kopi med heile strukturen. AP-NO-profilene følgjer med som kopierte filer.
 

@@ -148,12 +148,12 @@ ved neste faktiske release.
 
 ## Avhengigheiter
 
-- **Blokkerande:** Eg kan ikkje utføre AM0–AM2 utan at brukar autentiserer
+- **Blokkerande:** Eg kan ikkje utføre AM0-AM2 utan at brukar autentiserer
   `gh` (`! gh auth login`) med ein konto som har admin-tilgang til repoet,
   sidan dette er GitHub-repoinnstillingar, ikkje filer i repoet
 - AM2 krev at «Allow auto-merge» er aktivert på repo-nivå (separat frå
   branch protection — sjekkast i AM0)
-- AM3 bør gjennomføras **etter** AM1–AM2 er faktisk verifisert i praksis,
+- AM3 bør gjennomføras **etter** AM1-AM2 er faktisk verifisert i praksis,
   ikkje før, slik at dokumentasjonen reflekterer faktisk oppsett
 - Eksplisitt brukarstadfesting krevst før AM1 utføres, sjølv om planen er
   skriven — dette er ei endring i repoet sin sikkerheitspostur, ikkje ein
@@ -161,7 +161,7 @@ ved neste faktiske release.
 
 ## Utført (2026-06-20)
 
-AM0–AM3 er gjennomførte. **AM4 (verifisering) er utsett** — krev ein faktisk
+AM0-AM3 er gjennomførte. **AM4 (verifisering) er utsett** — krev ein faktisk
 release-PR gjennom heile løpet, som berre skjer ved neste push til `main`
 med ein releasable conventional commit. Ingen syntetisk test vart utført,
 sidan det ville krevd å skape ein reell PR/tag.

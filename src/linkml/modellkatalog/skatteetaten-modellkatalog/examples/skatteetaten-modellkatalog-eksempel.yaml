@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/eksempel
   tittel:
-  - Skatteetaten – Modellkatalog (eksempel)
+  - Skatteetaten - Modellkatalog (eksempel)
   beskrivelse:
   - Eksempel på ein modellkatalogpost.
   identifikator_literal: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/eksempel

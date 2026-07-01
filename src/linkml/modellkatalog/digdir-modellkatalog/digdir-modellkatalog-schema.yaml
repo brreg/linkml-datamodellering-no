@@ -1,6 +1,6 @@
 id: https://data.norge.no/modellkatalog/digdir-modellkatalog
 name: digdir-modellkatalog
-title: Digitaliseringsdirektoratet – Modellkatalog
+title: Digitaliseringsdirektoratet - Modellkatalog
 description: >-
   Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.

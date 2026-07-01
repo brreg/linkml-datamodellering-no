@@ -175,7 +175,7 @@ Kan vurderast som SHACL-reglar for det siste punktet (regex på `skos:definition
 
 ### Terminologiprosjektprosess (kap. 5)
 
-- Arbeidsgruppe på 5–8 deltakarar + terminolog som konsulent
+- Arbeidsgruppe på 5-8 deltakarar + terminolog som konsulent
 - Prosjekt skal avgrensast til under 200 omgrep
 - Kjeldearbeid, strukturering og termval følgjer bestemte trinn
 
@@ -308,7 +308,7 @@ TL4 er utgått (sjå status under TL4-avsnittet) og er fjerna frå handlingslist
 
 ## Utført (2026-06-20)
 
-**TL1–TL3 er implementerte og TL4 er medvite utsett** i
+**TL1-TL3 er implementerte og TL4 er medvite utsett** i
 `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`. Gap 4 (illustrasjonar)
 er handtert av eksisterande `gen-doc`/`gen-erdiagram`-generering, sjå
 status under avvik 4 over.

@@ -1,4 +1,4 @@
-# Kartlegging: Avvik mot Los – Felles vokabular for klassifisering av offentlege tenester og ressursar
+# Kartlegging: Avvik mot Los - Felles vokabular for klassifisering av offentlege tenester og ressursar
 
 **Kjelde:** [digdir.no/los](https://www.digdir.no/informasjonsforvaltning/los-felles-vokabular-klassifisering-av-offentlige-tjenester-og-ressurser/2434)  
 **Kanonisk namespace:** `https://psi.norge.no/los/`  
@@ -103,7 +103,7 @@ tema:
 Hovudtemaet for utdanning er `skole-og-utdanning`. Av undertema er `grunnskole` verifisert gyldig; resten er ikkje gyldige Los-URI-ar.
 
 **Filer:**
-- `src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml` (linjene 11–22)
+- `src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml` (linjene 11-22)
 
 **Status:** ⚠️ Kritisk datafeil — fleire URI-ar returnerer 404
 
@@ -173,7 +173,7 @@ Tilsvarende manglar `temaer`-sloten (`dcat:themeTaxonomy`) ei rettleiing om at L
 - Kva nivå som skal brukast (hovudtema vs. undertema) og om begge nivå bør inngå
 - Korleis særnorske bokstavar translittererast i Los-URI-ar (æ → a, ø → o, å → a)
 
-Mangelen på rettleiing er ein sannsynleg årsak til avvika i pkt. 1–3 ovanfor.
+Mangelen på rettleiing er ein sannsynleg årsak til avvika i pkt. 1-3 ovanfor.
 
 **Status:** ℹ️ Dokumentasjonsgap — låg prioritet
 

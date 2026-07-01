@@ -1,5 +1,5 @@
 # Eksempel på DQV-AP-NO med kvalitetsdimensjon, mål, måling og merknad.
-# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+# Modelleringsstil: lenking framfor inlining - referansar mellom objekt er URI-ar.
 
 datasett:
   - id: https://example.org/datasett/aapen-adresseregister

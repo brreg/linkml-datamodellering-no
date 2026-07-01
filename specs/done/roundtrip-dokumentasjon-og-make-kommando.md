@@ -10,7 +10,7 @@ og køyrer som del av `make test`. Det er to ting som manglar:
    krevst for å aktivere dei. Status ligg implisitt i skip-lista i `test_make.sh`.
 
 2. **Isolert make-kommando** — `make test SCHEMA=...` køyrer alle 17 testar (~3 min).
-   Det finst ingen måte å køyre berre roundtrip-testane raskt (10–30 sek) under
+   Det finst ingen måte å køyre berre roundtrip-testane raskt (10-30 sek) under
    utvikling.
 
 ---
@@ -100,8 +100,8 @@ test-status. Krev endring i 12+ filer ved kvar statusoppdatering.
 ### Motivasjon
 
 Under utvikling er det typisk å ville verifisere at ein skjema-endring ikkje bryt
-roundtrip. `make test` tek 3–5 minutt per skjema (alle 17 testar, fleire podman-kall).
-Roundtrip-testane åleine tek 10–30 sekund.
+roundtrip. `make test` tek 3-5 minutt per skjema (alle 17 testar, fleire podman-kall).
+Roundtrip-testane åleine tek 10-30 sekund.
 
 Ein dedikert `make roundtrip SCHEMA=...` gjev rask feedback i same arbeidsflyt
 som `make lint` og `make validate-instance`.
@@ -206,7 +206,7 @@ Alle tiltak gjennomførte. Avvik frå opphavleg plan er dokumentert under.
 
 ### Kva som vart gjort
 
-**Tiltak 1–2:** `TEST_FILTER`-støtte lagt til i `_run_one` og `roundtrip`-target lagt til i `Makefile`. `make roundtrip` køyrer no berre dei to roundtrip-testane (~30 sek) framfor alle 17 (~3 min).
+**Tiltak 1-2:** `TEST_FILTER`-støtte lagt til i `_run_one` og `roundtrip`-target lagt til i `Makefile`. `make roundtrip` køyrer no berre dei to roundtrip-testane (~30 sek) framfor alle 17 (~3 min).
 
 **Tiltak 3:** Verifisert at `make roundtrip SCHEMA=...` berre viser `roundtrip-json` og `roundtrip-ttl` i output. `TEST_FILTER` er gjenbrukbar for andre prefiks (t.d. `TEST_FILTER=linkml-` for lint-testar).
 

@@ -19,14 +19,14 @@ korkje Digdir-reglar eller FAIR-prinsipp i metadatafelta sine.
 ## Mål
 
 1. Slå saman dei to README-filene til éi normativ kjelde
-2. Komplementere Digdir-regeltabellen med FAIR-prinsipp (F1–R1.3)
+2. Komplementere Digdir-regeltabellen med FAIR-prinsipp (F1-R1.3)
 3. Oppdatere nivåoversikta (bronse/silver/gold) til å referere til både Digdir-reglar og FAIR-prinsipp
 4. Leggje til Digdir-regel-ID og FAIR-ID i kvart `checks:`-element i policyfilene (`bronze.yaml`, `silver.yaml`, `gold.yaml`)
 
 ## Steg
 
 ### 1. Analyser eksisterande FAIR-mapping i gold.yaml
-✓ Les `policies/gold.yaml` for å sjå kva FAIR-prinsipp som er implementerte (F1–R1.3),
+✓ Les `policies/gold.yaml` for å sjå kva FAIR-prinsipp som er implementerte (F1-R1.3),
 og korleis `code`-felta mappast til F1, F2, I1, R1.1, R1.2 osv.
 
 Gjennomført:
@@ -47,8 +47,8 @@ Gjennomført:
 
 ### 2. Kartlegg fullstendig Digdir-til-FAIR-krysstabell
 ✓ Opprett éin tabell som viser:
-- Digdir-regel (1–15)
-- FAIR-prinsipp (Findable 1–4, Accessible 1–2, Interoperable 1–3, Reusable 1–1.3)
+- Digdir-regel (1-15)
+- FAIR-prinsipp (Findable 1-4, Accessible 1-2, Interoperable 1-3, Reusable 1-1.3)
 - Kva policy (bronze/silver/gold) som dekkjer kva
 
 Gjennomført:
@@ -135,7 +135,7 @@ Gjennomført:
 - Alle sjekkliste-tabellar har no Digdir-regel-kolonne og FAIR-kolonne
 - Bronse-sjekklista inkluderer alle 16 sjekkar frå `bronze.yaml` med Digdir- og FAIR-mapping
 - Silver-sjekklista inkluderer livssyklus-metadata, AP-NO-krav og containerklasse-krav med mapping
-- Gold-sjekklista inkluderer alle 8 FAIR-oppgraderingar med fullstendig F1–R1.3-forklaring
+- Gold-sjekklista inkluderer alle 8 FAIR-oppgraderingar med fullstendig F1-R1.3-forklaring
 - Publiseringspolicyane (felles-begrepskatalog, felles-datakatalog) er flytta inn
 - MCP-verktøy-seksjonen er flytta inn
 - Policyarv-diagrammet er flytta inn
@@ -188,7 +188,7 @@ Gjennomført:
 - Alle sjekkliste-tabellar har no Digdir-regel-kolonne og FAIR-kolonne
 - Bronse-sjekklista inkluderer alle 22 sjekkar frå `bronze.yaml` med Digdir- og FAIR-mapping
 - Silver-sjekklista inkluderer alle 14 sjekkar (livssyklus + AP-NO-krav) med mapping
-- Gold-sjekklista inkluderer alle 8 FAIR-oppgraderingar med fullstendig F1–R1.3-forklaring
+- Gold-sjekklista inkluderer alle 8 FAIR-oppgraderingar med fullstendig F1-R1.3-forklaring
 - Publiseringspolicyane (felles-begrepskatalog, felles-datakatalog) er flytta inn
 - MCP-verktøy-seksjonen er flytta inn
 - Policyarv-diagrammet er flytta inn
@@ -241,7 +241,7 @@ Gjennomført:
 - `bronze.yaml`: lagt til `digdir_rule` og `fair_principle` i alle 22 sjekkar
 - `silver.yaml`: lagt til `digdir_rule` i alle 14 sjekkar (10 livssyklus, 4 AP-NO)
 - `gold.yaml`: lagt til `digdir_rule` i alle 8 FAIR-oppgraderingar (4, 1/2, 4, 9, 4, 8, 8, 7, 10)
-- Alle eksisterande `fair_*`-kodar er mappte til F1–R1.3
+- Alle eksisterande `fair_*`-kodar er mappte til F1-R1.3
 - Metadata er no klar for framtidig semantisk søk og traceability
 
 Eksempel (bronze.yaml, sjekk 1):
@@ -262,7 +262,7 @@ Eksempel (bronze.yaml, sjekk 1):
 ### 6. Oppdater CLAUDE.md
 ✓ Legg til i seksjonen **Valider arbeidet ditt**:
 ```markdown
-Policy-hierarkiet realiserer både Digdir-reglar (1–15) og FAIR-prinsipp (F1–R1.3).
+Policy-hierarkiet realiserer både Digdir-reglar (1-15) og FAIR-prinsipp (F1-R1.3).
 Sjå `src/mcp-linkml-validator/policies/README.md` for fullstendig mapping.
 ```
 
@@ -291,7 +291,7 @@ Gjennomført:
 
 Alle tiltak er utførte. Gjennomførte endringar:
 
-1. **Krysstabell Digdir → FAIR**: oppretta i denne specen, seksjon 2 (steg 1–2)
+1. **Krysstabell Digdir → FAIR**: oppretta i denne specen, seksjon 2 (steg 1-2)
 2. **Ny policies/README.md**: konsolidert dokumentasjon med fullstendig Digdir- og FAIR-mapping i alle sjekkliste-tabellar
 3. **Forkorta rot-README.md**: redusert til introduksjon med peikar til `policies/README.md`
 4. **Policyfilene oppgradert**: `bronze.yaml`, `silver.yaml`, `gold.yaml` har no `digdir_rule`- og `fair_principle`-felt i alle `checks:`-oppføringar

@@ -52,7 +52,7 @@ Alle tiltak vart utført i éin sekvens.
   Reglar som ikkje er maskinelt evaluerbare (5, 6, 12, 14, 15) er markerte med
   «*Ikkje evaluert*» med forklaring.
 - Oppdatert **Nivå-tabellen** med ein eigen kolonne som viser kva Digdir-reglar
-  kvart nivå bør tilfredsstille (bronze: 1–4, 7, 8, 13; silver: 1–4, 7–11, 13).
+  kvart nivå bør tilfredsstille (bronze: 1-4, 7, 8, 13; silver: 1-4, 7-11, 13).
 - Oppdatert **bronze-sjekklista**: `Digdir-regel`-kolonnen viser no nummer + namn
   (t.d. «4 — Identifiserbarhet»).
 - Oppdatert **silver-sjekklista**: `Digdir-regel`-kolonnen viser no nummer + namn

@@ -105,7 +105,7 @@ Domeneindeks for begrep-seksjonen. Same format som `mkdocs/docs/samt/index.md`.
 **Innhald:**
 
 ```markdown
-# Begrep – Begrepskatalogmodellar
+# Begrep - Begrepskatalogmodellar
 
 Begrepskatalogar modellert i LinkML-format etter
 [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep).
@@ -114,7 +114,7 @@ Felles Begrepskatalog.
 
 | Modell | Beskriving | Tilgjengelege artefakter |
 |--------|-----------|--------------------------|
-| [brreg-begrep](brreg-begrep/index.md) | Registerenheten i Brønnøysund – Begrepskatalog | JSON-LD kontekst · JSON Schema · RDF/Turtle skjema · ER-diagram (Mermaid) · Eksempeldata (Turtle) |
+| [brreg-begrep](brreg-begrep/index.md) | Registerenheten i Brønnøysund - Begrepskatalog | JSON-LD kontekst · JSON Schema · RDF/Turtle skjema · ER-diagram (Mermaid) · Eksempeldata (Turtle) |
 ```
 
 Legg til ei kort note om at `begrep`-domenet skil seg frå andre domener:
@@ -165,7 +165,7 @@ Heile skjemaet (med placeholders):
 ```yaml
 id: https://data.norge.no/linkml/<katalognavn>
 name: <katalognavn>
-title: <Organisasjon> – Begrepskatalog
+title: <Organisasjon> - Begrepskatalog
 version: "1.0.0"
 
 prefixes:
@@ -335,7 +335,7 @@ nav:
 **b) Legg til `Begrep`-seksjon mellom `AP-NO` og `FAIR` (eller til slutt — vurder alfabetisk):**
 
 ```yaml
-  - 'Begrep – Begrepskatalogmodellar':
+  - 'Begrep - Begrepskatalogmodellar':
       - begrep/index.md
       - 'brreg-begrep': begrep/brreg-begrep/index.md
 ```
@@ -370,7 +370,7 @@ make linkml-build-docker && make python-build-docker \
 
 | Domene | Skjema | Beskrivelse | Dokumentasjon |
 |---|---|---|---|
-| begrep | brreg-begrep | Registerenheten i Brønnøysund – Begrepskatalog | |
+| begrep | brreg-begrep | Registerenheten i Brønnøysund - Begrepskatalog | |
 
 **d) Katalogstruktur** — legg til `mcp-linkml-begrep-generator` i trestrukturen:
 

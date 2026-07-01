@@ -1,5 +1,5 @@
 # Eksempel på XKOS-AP-NO med ein klassifikasjon, to klassifikasjonsnivå og fire kategoriar.
-# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+# Modelleringsstil: lenking framfor inlining - referansar mellom objekt er URI-ar.
 
 klassifikasjonar:
   - id: https://example.org/klassifikasjon/nace2

@@ -92,7 +92,7 @@ samlingar:
   - id: https://begrep.brreg.no/samlingar/registerbegrep-2025
     identifikator_literal: "https://begrep.brreg.no/samlingar/registerbegrep-2025"
     tittel:
-      - Registerenheten i Brønnøysund – begrepskatalog 2025
+      - Registerenheten i Brønnøysund - begrepskatalog 2025
     kontaktpunkt_vcard:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.norge.no/organizations/974760673

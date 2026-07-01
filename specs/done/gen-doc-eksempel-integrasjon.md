@@ -7,7 +7,7 @@ dokumentasjonsportalen — slik at utviklar kan sjå korleis ein gyldig instans 
 ut utan å søkje opp eksempelfila separat.
 
 LinkML `gen-doc` støttar dette via `--example-directory`-flagget, og
-Jinja2-malen `class.md.jinja2` har allereie støtte for det (linje 290–299):
+Jinja2-malen `class.md.jinja2` har allereie støtte for det (linje 290-299):
 
 ```jinja2
 {% if gen.example_object_blobs(element.name) -%}
@@ -205,7 +205,7 @@ for attr_name, class_name in attr_to_class.items():
 
 ### Steg 2 — Makefile: oppdater `run_gen_doc`
 
-Gjeldande makro (linje 68–83) utvidas med eit pre-steg:
+Gjeldande makro (linje 68-83) utvidas med eit pre-steg:
 
 ```makefile
 define run_gen_doc
@@ -349,7 +349,7 @@ eksempelfiler vil riktig nok utløyse regenerering.
 
 ## Referansar
 
-- `src/templates/docgen/class.md.jinja2` linje 290–299 — eksisterande støtte
+- `src/templates/docgen/class.md.jinja2` linje 290-299 — eksisterande støtte
 - LinkML gen-doc `--help` output:
   ```
   --example-directory TEXT  Folder in which example files are found.

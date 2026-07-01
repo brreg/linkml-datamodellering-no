@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
   tittel:
-  - Brønnøysundregistra – Modellkatalog
+  - Brønnøysundregistra - Modellkatalog
   beskrivelse:
   - 'PoC-testdata: Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som
     SHACL, JSON Schema, OWL og RDF/Turtle. Dette er testdata i PoC-fase med avgrensa kvalitetsgaranti.'
@@ -31,7 +31,7 @@ modellkataloger:
 informasjonsmodeller:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   tittel:
-  - Nasjonale grunndata – Virksomhet
+  - Nasjonale grunndata - Virksomhet
   beskrivelse:
   - Informasjonsmodell for verksemder, roller og organisasjonsstruktur.
   relatert_begrep:
@@ -137,7 +137,7 @@ informasjonsmodeller:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/Katalogregistrering
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
   tittel:
-  - Enhetsregisteret – BVINN
+  - Enhetsregisteret - BVINN
   beskrivelse:
   - Generert frå JSON Schema 'generated'.
   utgiver: https://data.norge.no/organizations/974760673
@@ -196,7 +196,7 @@ informasjonsmodeller:
 aktoerer:
 - id: https://brreg.no/kontakt/modellforvaltning
   navn_aktoer:
-  - Registerenheten i Brønnøysund – Modellforvaltning
+  - Registerenheten i Brønnøysund - Modellforvaltning
 - id: https://data.norge.no/organizations/974760673
   navn_aktoer:
   - Registerenheten i Brønnøysund
@@ -334,7 +334,7 @@ objekttyper:
   - Naeringskode
   beskrivelse:
   - Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd
-    kan ha 1–3 næringskoder.
+    kan ha 1-3 næringskoder.
   har_egenskap:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_kode
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode/naeringskode_beskrivelse
@@ -362,7 +362,7 @@ objekttyper:
   tittel:
   - Varslingsadresse
   beskrivelse:
-  - Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert brukt
+  - Offisiell varslingsadresse for verksemda - e-post eller mobilnummer som vert brukt
     for offisielle meldingar frå offentlege styresmakter.
   har_egenskap:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Varslingsadresse/varslingstype
@@ -418,12 +418,12 @@ objekttyper:
   tittel:
   - Forretningsadresse
   beskrivelse:
-  - Forretningsadressa til hovudeininga – adressa der hovudkontoret held til.
+  - Forretningsadressa til hovudeininga - adressa der hovudkontoret held til.
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Beliggenhetsadresse
   tittel:
   - Beliggenhetsadresse
   beskrivelse:
-  - Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten vert
+  - Beliggenheitsadressa til underleininga - den fysiske adressa der aktiviteten vert
     utøvd.
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Person
   tittel:
@@ -2825,7 +2825,7 @@ assosiasjoner:
   tittel:
   - er_klassifisert_i_naeringskode
   beskrivelse:
-  - Næringskode(r) verksemda er klassifisert under (1–3).
+  - Næringskode(r) verksemda er klassifisert under (1-3).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '*'
   refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode
@@ -2921,7 +2921,7 @@ assosiasjoner:
   tittel:
   - er_klassifisert_i_naeringskode
   beskrivelse:
-  - Næringskode(r) verksemda er klassifisert under (1–3).
+  - Næringskode(r) verksemda er klassifisert under (1-3).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '*'
   refererer_til: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Naeringskode

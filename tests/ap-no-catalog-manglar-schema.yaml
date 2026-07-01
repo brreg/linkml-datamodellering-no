@@ -1,6 +1,6 @@
 id: https://data.norge.no/test/ap-no-catalog-manglar
 name: ap-no-catalog-manglar
-title: Testskjema – domenemodell med mangelfull DCAT-AP-NO og DQV-AP-NO container
+title: Testskjema - domenemodell med mangelfull DCAT-AP-NO og DQV-AP-NO container
 description: >-
   Testskjema som skal FEILE ap-no-catalog-policyen. Containerklassen manglar
   desse klassane:

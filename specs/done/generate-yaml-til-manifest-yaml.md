@@ -35,11 +35,11 @@ CI skil desse to typane på om `generators:`-seksjonen er til stades.
 
 **Status:** Krev retting — kjøretidsfeil.
 
-Linje 74–77 opnar `generate.yaml` for å lese opt-out-flagget `docgen_examples: false`.
+Linje 74-77 opnar `generate.yaml` for å lese opt-out-flagget `docgen_examples: false`.
 Fila heiter no `manifest.yaml`, så opt-out-funksjonen er brot:
 
 ```python
-# Feil (linje 74–77):
+# Feil (linje 74-77):
 generate_yaml = schema_path.parent / "generate.yaml"
 if generate_yaml.exists():
     ...
@@ -93,7 +93,7 @@ Sida er fullt ut skriven for `generate.yaml` og manglar:
 | Linje | Innhald | Rett |
 |---|---|---|
 | 110 | `## 3 — Skriv \`generate.yaml\`` | `manifest.yaml` |
-| 112–126 | YAML-eksempel manglar `publish_external: false` øvst | Legg til `publish_external: false` |
+| 112-126 | YAML-eksempel manglar `publish_external: false` øvst | Legg til `publish_external: false` |
 
 ---
 

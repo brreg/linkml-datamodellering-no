@@ -1,5 +1,5 @@
 # Eksempel på ein DCAT-AP-NO-katalog med eit datasett og tilhøyrande ressursar.
-# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+# Modelleringsstil: lenking framfor inlining - referansar mellom objekt er URI-ar.
 
 katalogar:
   - id: https://example.org/katalogar/eksempel-1

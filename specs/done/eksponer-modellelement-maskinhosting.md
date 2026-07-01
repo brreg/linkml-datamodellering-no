@@ -6,14 +6,14 @@
 at vi går for «alternativ 2» frå Veileder for ModellDCAT-AP-NO: heile modellen
 skal eksponeres med faktiske modellelement (`Objekttype`, `Attributt`,
 `Kodeliste` osb.), ikkje berre ein lenke til portalen
-(`informasjonsmodellidentifikator`). MD1–MD4 og MD6 frå den specen er no
+(`informasjonsmodellidentifikator`). MD1-MD4 og MD6 frå den specen er no
 fullførte — alle 23 skjema er registrerte i 6 per-org-modellkatalogar
 (`src/linkml/modellkatalog/<org>-modellkatalog/data/<org>-modellkatalog/<org>-modellkatalog.yaml`),
 men `inneholder_modellelement` står tomt for alle `Informasjonsmodell`-instansar.
 
 Dette er det største gjenstående gapet mot rettleiaren, og det einaste
 tiltaket som var uttrykkeleg utsett til ein eigen spec (jf. MD5 sin tekst:
-«Utsett gjennomføring til MD2–MD4 er på plass... Dette er ein eigen større
+«Utsett gjennomføring til MD2-MD4 er på plass... Dette er ein eigen større
 spec»).
 
 ### Kva finst allerede
@@ -117,7 +117,7 @@ krasje. Verifisert workaround (jf. BUG-8): gje konkrete subklassar eigne,
 ikkje-delte containerattributt (t.d. `attributter: range: Attributt`,
 `assosiasjoner: range: Assosiasjon` i staden for delt `egenskaper`).
 
-Steg 2–6 i denne planen må derfor revurderes før dei held fram — sjå oppdatert
+Steg 2-6 i denne planen må derfor revurderes før dei held fram — sjå oppdatert
 «Opne spørsmål»-seksjon. Originalt steg 1-forslag (sjå krysset-ut tekst i
 git-historikk) er bevart for kontekst.
 
@@ -315,7 +315,7 @@ nemne modellelement-oppdateringa.
   oppføringar som MD2 oppretta.
 - Uavhengig av MD6 (relasjon-slots for begrep/datasett) — ingen
   datadelt tilstand.
-- Steg 1 (proof-of-concept) var ein hard føresetnad for Steg 2–5: polymorf
+- Steg 1 (proof-of-concept) var ein hard føresetnad for Steg 2-5: polymorf
   inlining av `Egenskap`-subklassar krasja generatorane (BUG-8), og
   modelleringa er derfor revurdert — separate containerattributt
   (`attributter`, `assosiasjoner`) i staden for éin delt `egenskaper`-liste.

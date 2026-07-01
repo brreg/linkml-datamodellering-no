@@ -33,12 +33,12 @@ klasser:
 
 elevforhold:
   - id: finta:elevforhold/ef-elev-1-2024
-    beskrivelse: "Elevforhold for Ola Nordmann ved Bakkehaugen skole, 2024–2025"
+    beskrivelse: "Elevforhold for Ola Nordmann ved Bakkehaugen skole, 2024-2025"
     elev: finta:elev/elev-1
     skole: finta:skole/bakkehaugen-skole
 
   - id: finta:elevforhold/ef-elev-2-2024
-    beskrivelse: "Elevforhold ved Bakkehaugen skole, 2024–2025"
+    beskrivelse: "Elevforhold ved Bakkehaugen skole, 2024-2025"
     elev: finta:elev/elev-2
     skole: finta:skole/bakkehaugen-skole
 

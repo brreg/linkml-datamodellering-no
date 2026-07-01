@@ -18,7 +18,7 @@ Planen skil seksjonen i to klart åtskilde spor:
 ```
 ## Kom i gang
   Føresetnader
-  Steg 0–4 (generisk, orientert mot datamodellering)
+  Steg 0-4 (generisk, orientert mot datamodellering)
   Lenke til Ny domenemodell
 ```
 
@@ -33,11 +33,11 @@ Planen skil seksjonen i to klart åtskilde spor:
     make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build && make mcp-begrep-build
 
   ### Datamodellering
-    Steg 1–3 (utan container-bygg)
+    Steg 1-3 (utan container-bygg)
     Lenke til Ny domenemodell og Publiser til Felles Datakatalog
 
   ### Begrepsmodellering
-    Steg 1–4 (utan container-bygg)
+    Steg 1-4 (utan container-bygg)
     Lenke til Ny begrepskatalog og Publiser til Felles Begrepskatalog
 ```
 

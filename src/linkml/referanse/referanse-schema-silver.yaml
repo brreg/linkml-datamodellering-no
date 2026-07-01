@@ -6,7 +6,7 @@
 
 id: https://example.org/linkml/referanse-silver
 name: referanse-schema-silver
-title: Referanseskjema – sølvnivå
+title: Referanseskjema - sølvnivå
 description: >-
   Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss
   DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse.

@@ -34,7 +34,7 @@ mkdir -p "$EXAMPLES_DIR"
 cat > "$SCHEMA_FILE" << EOF
 id: $SCHEMA_ID
 name: $SCHEMA_NAME
-title: 'TODO: <Organisasjon> – Begrepskatalog'
+title: 'TODO: <Organisasjon> - Begrepskatalog'
 description: 'TODO: beskriv katalogen'
 version: "0.1.0"
 license: https://data.norge.no/nlod/no/2.0

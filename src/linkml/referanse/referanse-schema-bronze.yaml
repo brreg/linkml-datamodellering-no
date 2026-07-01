@@ -6,7 +6,7 @@
 
 id: https://example.org/linkml/referanse-bronze
 name: referanse-schema-bronze
-title: Referanseskjema – bronsjenivå
+title: Referanseskjema - bronsjenivå
 description: >-
   Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata
   (title, version), class_uri, identifier-slot, slot_uri og begrepsidentifikator

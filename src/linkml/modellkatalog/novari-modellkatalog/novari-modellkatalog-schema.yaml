@@ -1,6 +1,6 @@
 id: https://data.norge.no/modellkatalog/novari-modellkatalog
 name: novari-modellkatalog
-title: Novari IKS – Modellkatalog (FINT)
+title: Novari IKS - Modellkatalog (FINT)
 description: >-
   Modellkatalog for Novari IKS sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.

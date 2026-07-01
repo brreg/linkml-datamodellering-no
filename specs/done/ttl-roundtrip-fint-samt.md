@@ -87,7 +87,7 @@ Context-filene finst derimot på `data.norge.no` (HTTP 200).
 
 ## Implementasjon
 
-### Steg 1–2: fint-manifest
+### Steg 1-2: fint-manifest
 
 I kvart av dei 7 fint-manifesta (`fint-administrasjon`, `fint-arkiv`,
 `fint-common`, `fint-okonomi`, `fint-personvern`, `fint-ressurs`,
@@ -113,7 +113,7 @@ Dersom `gen-rdf` feiler på `id`-sloten i `fint-common`, legg til:
     description: URI-identifikator for ressursen.
 ```
 
-### Steg 3–4: samt-bu — class_uri
+### Steg 3-4: samt-bu — class_uri
 
 Legg til `class_uri` for alle domene-klasser i
 `src/linkml/samt/samt-bu/samt-bu-schema.yaml`:

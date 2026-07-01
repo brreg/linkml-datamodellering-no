@@ -274,13 +274,13 @@ spurt om, jf. planen sitt forbehold om brukaravtale for dette steget. Lagt til:
 CI-sjekk for å varsle ved nye uklassifiserte avhengigheiter (opphavleg nemnt
 som moglegheit i planen) er **ikkje** implementert — utsett til behovet faktisk
 melder seg, jf. plana sin eigen merknad om at dette skal vurderes etter at
-V1–V4 er på plass.
+V1-V4 er på plass.
 
 Legg ein kort kommentar i `CLAUDE.md` eller `CONTRIBUTING.md` (etter avtale
 med brukar) om at nye verktøy som tas inn i `Dockerfile*`/`requirements*.txt`/
 `.github/workflows/*.yml` skal vurderes mot attributions-blokka i `om.md`.
 Vurder om V1-skriptet (listeoversikt) bør køyres som ein CI-sjekk som varslar
-ved nye, uklassifiserte avhengigheiter — utsett til etter at V1–V4 er på plass
+ved nye, uklassifiserte avhengigheiter — utsett til etter at V1-V4 er på plass
 og brukar ser behovet.
 
 ---
@@ -307,7 +307,7 @@ og brukar ser behovet.
 
 ## Utført (2026-06-20)
 
-Alle fem tiltak (V1–V5) er gjennomførte i éin arbeidsøkt:
+Alle fem tiltak (V1-V5) er gjennomførte i éin arbeidsøkt:
 
 - **V1:** `src/assets/scripts/list-tool-licenses.py` skanner `Dockerfile*`,
   `requirements*.txt`, `Makefile` og `.github/workflows/*.yml` og finn 26

@@ -4,7 +4,7 @@ title: XKOS-AP-NO
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
 description: >-
-  LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
+  LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
   Basert på https://data.norge.no/specification/xkos-ap-no
 
 annotations:
@@ -45,7 +45,7 @@ classes:
   Klassifikasjon:
     class_uri: skos:ConceptScheme
     description: >-
-      Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å
+      Ei klassifikasjon - ein systematisk struktur av kategoriar brukt til å
       klassifisere data (skos:ConceptScheme).
     slots:
       - id

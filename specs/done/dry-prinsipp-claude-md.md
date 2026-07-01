@@ -319,10 +319,10 @@ Sjå [Bruk frå eksternt repo](https://brreg.github.io/linkml-datamodellering-no
 
 ## Utført
 
-DRY1–DRY4 utførte 2026-06-19. DRY5 forkasta etter evaluering.
+DRY1-DRY4 utførte 2026-06-19. DRY5 forkasta etter evaluering.
 
 - **DRY1:** Ny regel `**DRY — ikkje gjenta deg sjølv:**` lagt til under `## Førande prinsipper` i CLAUDE.md. Inkluderer terskel (3+ tilfelle), unntak for `specs/done/` og krav om brukarløyve før omskriving.
 - **DRY2:** Kryssreferanse til `src/mcp-linkml-validator/policies/README.md` lagt til etter silver-annotasjonstabellen i CLAUDE.md.
 - **DRY3:** Setning om ansvarsfordeling mellom CLAUDE.md (modelleringsprinsipp/AI-instruksjonar) og `mkdocs/docs/` (brukarvendt/steg-for-steg) lagt til under `## Dokumentasjonsportal`.
-- **DRY4:** Referanseeksempel (MC8–MC11, `specs/done/avvik-modelldcat-ap-no.md`) lagt til under `## LinkML Importhierarki`.
+- **DRY4:** Referanseeksempel (MC8-MC11, `specs/done/avvik-modelldcat-ap-no.md`) lagt til under `## LinkML Importhierarki`.
 - **DRY5:** Forkasta — README og portaldokument tener ulike formål; `ny-begrepsmodell.md` motseier README-kommandoane direkte.

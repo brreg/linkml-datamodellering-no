@@ -58,7 +58,7 @@ podman pull ghcr.io/…/linkml-local:$SHA   ← berre endra lag
 
 ### Estimert effekt
 
-- Eliminerer upload/download av 250–500 MB tar.gz per køyring
+- Eliminerer upload/download av 250-500 MB tar.gz per køyring
 - Lag-caching gjer at pull av `linkml-local` (som berre legg til `rdflib` oppå upstream) er marginalt etter første køyring
 - Reduserer load-time frå ~30s til ~5s per jobb
 
@@ -106,7 +106,7 @@ build-linkml:
 
 - Bygging av `linkml-local` (tyngst, basert på upstream `linkml/linkml`) hoppar over i ~80 % av køyringar (berre endra ved ny upstream eller rdflib-versjon)
 - Bygging av `python-pytest` hoppar over med mindre `requirements-python-test.txt` endrar seg
-- Sparer 2–5 minutt per køyring der Dockerfiles ikkje har endra seg
+- Sparer 2-5 minutt per køyring der Dockerfiles ikkje har endra seg
 
 ---
 
@@ -114,7 +114,7 @@ build-linkml:
 
 ### Prinsipp
 
-Viss ein ikkje vil bytte til GHCR no, er `zstd` 5–10× raskare enn `gzip` ved komprimering med liknande komprimeringsrate. Endrar berre to linjer per build-jobb og to linjer per load-action.
+Viss ein ikkje vil bytte til GHCR no, er `zstd` 5-10× raskare enn `gzip` ved komprimering med liknande komprimeringsrate. Endrar berre to linjer per build-jobb og to linjer per load-action.
 
 ### Endring
 
@@ -136,8 +136,8 @@ run: podman load < <(zstd -d -c linkml-local.tar.zst)
 
 ### Estimert effekt
 
-- Komprimering: 30–60 % raskare enn gzip
-- Dekomprimering: 3–5× raskare enn gzip
+- Komprimering: 30-60 % raskare enn gzip
+- Dekomprimering: 3-5× raskare enn gzip
 - Liten effekt på total workflow-tid samanlikna med Tiltak 1, men trivielt å implementere
 
 ---

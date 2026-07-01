@@ -184,8 +184,8 @@ Alternativt: berre manuelt `make apicurio-publish` for no.
 
 | # | Steg | Fil | Avhengigheit |
 |---|---|---|---|
-| 1 | Verifiser lokal instans | — | Svar på sp. 1–2 |
-| 2 | Skriv `publish-apicurio.py` | `src/assets/scripts/publish-apicurio.py` | Steg 1, svar på sp. 3–4 |
+| 1 | Verifiser lokal instans | — | Svar på sp. 1-2 |
+| 2 | Skriv `publish-apicurio.py` | `src/assets/scripts/publish-apicurio.py` | Steg 1, svar på sp. 3-4 |
 | 3 | Test manuelt | `samt-bu` mot lokal instans | Steg 2 |
 | 4 | Manifest-flagg | Alle relevante `manifest.yaml` | Steg 3 |
 | 5 | Makefile-mål | `Makefile` | Steg 2, 4 |
