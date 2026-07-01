@@ -180,7 +180,12 @@
       "mcp__linkml-begrep-utkast__list_los_tema",
       "Bash(make roundtrip-json-schema *)",
       "Bash(make mcp-linkml-modell-utkast *)",
-      "Bash(awk '{print $NF}')"
+      "Bash(awk '{print $NF}')",
+      "Bash(gh release *)",
+      "Bash(gh api *)",
+      "Bash(gh pr *)",
+      "Bash(git restore *)",
+      "Bash(gh repo *)"
     ]
   },
   "enableAllProjectMcpServers": true,
