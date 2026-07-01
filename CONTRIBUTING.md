@@ -66,6 +66,24 @@ Tre felt i kvar skjema-YAML-fil vert oppdaterte automatisk av CI — **ikkje red
 Oppdateringa skjer automatisk etter at ein release-PR er merge-a til `main`.
 Du treng ikkje gjere noko — CI commit-ar endringane med meldinga `chore(*): oppdater datoannotasjonar etter release [skip ci]`.
 
+## Korleis utløyse ein release
+
+**Manuell prosess** (krev repo-admin-tilgang):
+
+1. Gå til [Actions → Release Please](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml)
+2. Klikk **Run workflow**
+3. Velg release-type:
+   - `patch` — bugfix/refactor (0.0.X)
+   - `minor` — ny funksjonalitet (`feat`, 0.X.0)
+   - `major` — brotande endringar (`feat!`, `BREAKING CHANGE:`, X.0.0)
+4. Klikk **Run workflow** (grøn knapp)
+5. Workflow opprettar ein release-PR — vent på at `validate.yml` passerer
+6. Gjennomgå endringar i PR-en (versjonsbump, `CHANGELOG.md`)
+7. **Godkjenn og merge PR-en manuelt**
+8. Etter merge: `update-dates` og `capture-validation` jobbane køyrer automatisk og commit-ar oppdaterte datoar/DQV/ModelDCAT-element til `main`
+
+**Versjonering følgjer Conventional Commits:** Release-type-parameteren overrider automatisk semver-berekning frå commit-historikk. Vel `patch` for mindre endringar, `minor` for nye feature, `major` for brotande endringar.
+
 ## Commit-meldingar
 
 Repoet nyttar [Conventional Commits](https://www.conventionalcommits.org/)-formatet:

@@ -1,8 +1,16 @@
 name: Release Please
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Type release (patch/minor/major)'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   release-please:
@@ -14,26 +22,25 @@ jobs:
     outputs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
-      # RELEASE_PLEASE_TOKEN (PAT frå ein admin-konto) brukast i staden for
-      # GITHUB_TOKEN av to grunnar: (1) PR-ar/push gjort med GITHUB_TOKEN
-      # utløyser ikkje andre workflows (GitHub sin loop-prevention), så
-      # validate.yml sin required status check ville aldri køyrt på
-      # release-PR-en; (2) admin-rollen står på bypass-lista for
-      # review-kravet på main, så auto-merge (under) kan faktisk fullføre.
+      # Manuelt trigga workflow brukar GITHUB_TOKEN (treng ikkje PAT).
+      # Workflow må triggerast av ein admin via Actions → Release Please → Run workflow.
+      # Admin må godkjenne og merge release-PR manuelt etter at workflow har oppretta den.
       - uses: googleapis/release-please-action@v5
         id: release-please
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: ${{ github.event.inputs.release-type }}
 
-      - name: Aktiver auto-merge på release-PR
+      - name: Informer om release-PR
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
-          gh pr merge "$PR_NUMBER" --auto --squash
+          echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
+          echo "Gå til PR-en, verifiser endringar, og merge manuelt når validate.yml har passert."
 
   capture-validation:
     needs: release-please
@@ -42,15 +49,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      # RELEASE_PLEASE_TOKEN brukast her av samme grunn som i release-please-
-      # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
-      # («Changes must be made through a pull request»), sidan github-actions[bot]
-      # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
+      # Manuell workflow: push til main med GITHUB_TOKEN er tillate etter at
+      # release-PR er merga (commit skjer som del av release-prosessen).
+      # Dette steget køyrer KUN etter at ein release er faktisk publisert.
       - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 2
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Hent mcp-validator-image frå GHCR
         run: |
@@ -74,8 +80,7 @@ jobs:
           fi
 
   # Kjent race condition mot generate.yml (vurdert 2026-06-21, medvite akseptert):
-  # denne jobben pushar ein commit under src/linkml/ via RELEASE_PLEASE_TOKEN
-  # (ein PAT, ikkje GITHUB_TOKEN — derfor utløyser pushen andre workflows).
+  # denne jobben pushar ein commit under src/linkml/ via GITHUB_TOKEN.
   # generate.yml triggas av push til main med path-filter src/linkml/**, og
   # vil derfor allereie ha starta éin gong på release-PR-merge-pushen — FØR
   # denne jobben sin eigen commit (med oppdaterte datoar/DQV/ModelDCAT-
@@ -98,15 +103,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      # RELEASE_PLEASE_TOKEN brukast her av samme grunn som i release-please-
-      # jobben: push til main med GITHUB_TOKEN blokkeras av branch-ruleset-en
-      # («Changes must be made through a pull request»), sidan github-actions[bot]
-      # ikkje står på bypass-lista (sjå specs/done/auto-merge-release-pr.md).
+      # Manuell workflow: push til main med GITHUB_TOKEN er tillate etter at
+      # release-PR er merga (commit skjer som del av release-prosessen).
+      # Dette steget køyrer KUN etter at ein release er faktisk publisert.
       - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 2
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Oppdater datoannotasjonar
         run: |
