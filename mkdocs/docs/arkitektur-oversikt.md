@@ -1,4 +1,4 @@
-# Arkitektur-oversikt
+# Arkitektur-oversikt publisering
 
 !!! note "Beskrivelse"
 
@@ -27,9 +27,21 @@ flowchart TB
     end
     
     subgraph "Eksterne katalogar (pull/høsting)"
-        G -.->|HTTP GET<br/>Høsting konfigurert av org| I[Felles Begrepskatalog<br/>data.norge.no/concepts]
-        G -.->|HTTP GET<br/>Høsting konfigurert av org| J[Felles Datakatalog<br/>data.norge.no/models]
+        I[Felles Begrepskatalog<br/>data.norge.no/concepts]
+        J[Felles Datakatalog<br/>data.norge.no/models]
     end
+    
+    subgraph "Private system (pull/høsting)"
+        K[Private datakatalogar<br/>Intern wiki / Dataporten]
+        L[API-register<br/>OpenAPI Registry]
+        M[Dataplattformer<br/>Data Catalog / Data Mesh]
+    end
+    
+    G -.->|HTTP GET<br/>Høsting konfigurert av org| I
+    G -.->|HTTP GET<br/>Høsting konfigurert av org| J
+    G -.->|HTTP GET<br/>Høsting konfigurert av org| K
+    G -.->|HTTP GET<br/>Høsting konfigurert av org| L
+    G -.->|HTTP GET<br/>Høsting konfigurert av org| M
     
     A --> B
     
@@ -38,15 +50,21 @@ flowchart TB
     style H fill:#87CEEB
     style I fill:#FFE4B5
     style J fill:#FFE4B5
+    style K fill:#E6E6FA
+    style L fill:#E6E6FA
+    style M fill:#E6E6FA
     
     classDef external stroke:#FF6B6B,stroke-width:3px,stroke-dasharray: 5 5
+    classDef private stroke:#9370DB,stroke-width:3px,stroke-dasharray: 5 5
     class I,J external
+    class K,L,M private
 ```
 
 **Nøkkel:**
 - **Solid pil (→):** Automatisk prosess, kontrollert av repoet
 - **Stipla pil (-.->):** Ekstern prosess, **ikkje** kontrollert av repoet
-- **Raud stipla ramme:** Eksterne system utanfor repoets kontroll
+- **Raud stipla ramme:** Eksterne offentlege katalogar (Digdir)
+- **Lilla stipla ramme:** Private organisasjonsinterne system
 
 ---
 
@@ -60,12 +78,73 @@ Repoet følgjer "pull, ikkje push"-prinsippet:
 | ✅ Publiserer releases til GitHub | ❌ Har ikkje API-credentials for Felles Begrepskatalog |
 | ✅ Validerer data mot policies | ❌ Har ikkje API-credentials for Felles Datakatalog |
 | ✅ Genererer høstingsklare TTL-filer | ❌ Kontrollerer ikkje når høsting skjer |
+| ✅ Genererer JSON Schema / OWL / Python | ❌ Har ikkje API-credentials for private datakatalogar |
+| ✅ Artefaktane kan høstast av kven som helst | ❌ Krev ikkje autentisering for GitHub Pages (offentleg) |
 
 **Kvifor?**
 
 - **Enklare arkitektur:** Repoet treng ikkje credentials eller integrasjon mot eksterne API-ar
 - **Færre avhengigheiter:** Repoet fungerer sjølv om Felles Begrepskatalog/Datakatalog er nede
 - **Fleksibilitet:** Kvar organisasjon kan velje når/om dei vil høste data
+
+---
+
+## Private system som kan høste
+
+Artefaktane publiserte på GitHub Pages kan høstast av alle typar system,
+ikkje berre Felles Begrepskatalog og Felles Datakatalog.
+
+### Private datakatalogar
+
+Organisasjonsinterne datakatalogar kan høste LinkML-skjema og datafiler for:
+- Intern begrepskatalog (SKOS/Turtle)
+- Intern datamodell-register (JSON Schema / OWL)
+- Intern dokumentasjon (Markdown / HTML)
+
+**Eksempel:**
+- Dataporten (intern datakatalog)
+- Confluence (intern wiki med datakatalog-plugin)
+- Alation / Collibra (kommersielle datakatalog-løysingar)
+
+**Høstingsformat:**
+- `.ttl` (Turtle/RDF) for semantiske datakatalogar
+- `.json` (JSON Schema) for API-drivne datakatalogar
+- `.md` (Markdown) for dokumentasjonsportalar
+
+### API-register
+
+API-register kan høste OpenAPI/AsyncAPI-spesifikasjonar genererte frå LinkML-skjema:
+- OpenAPI 3.1 (REST API)
+- AsyncAPI 3.0 (event-driven API)
+- JSON Schema (datavalidering)
+
+**Eksempel:**
+- OpenAPI Registry (intern API-portal)
+- SwaggerHub (kommersielt API-register)
+- API-katalog i dataplattform (t.d. Apigee, Kong)
+
+**Høstingsformat:**
+- `openapi.yaml` (OpenAPI 3.1)
+- `asyncapi.yaml` (AsyncAPI 3.0)
+- `.json` (JSON Schema for request/response-validering)
+
+### Dataplattformer
+
+Data mesh / data lakehouse-plattformar kan høste metadata for:
+- Data lineage (kvar kom dataen frå, kvar gjekk ho)
+- Data schema (kva struktur har dataen)
+- Data quality (kva kvalitetskrav gjeld)
+
+**Eksempel:**
+- Google Cloud Data Catalog
+- AWS Glue Data Catalog
+- Databricks Unity Catalog
+- Snowflake Data Sharing
+
+**Høstingsformat:**
+- `.ttl` (RDF/OWL for semantisk metadata)
+- `.json` (JSON Schema for strukturell metadata)
+- `.proto` (Protobuf for schema-evolusjon)
 
 ---
 
@@ -269,10 +348,11 @@ data_policy: felles-begrepskatalog  # Valideringspolicy
 | 2. Pullrequest til `main` | Utviklar | Nei | Ja (GitHub) |
 | 3. CI genererer artefaktar | GitHub Actions | Ja | Ja (Actions-logg) |
 | 4. Publiser til GitHub Pages | GitHub Actions | Ja | Ja (sjekk URL) |
-| 5. Høsting frå Felles Begrepskatalog/Datakatalog | Org i den enkelte virksomhet | Nei (manuell setup) | Nei (ikkje tilgjengeleg for repoet) |
-| 6. Synleg på data.norge.no | Digitaliseringsdirektoratet | Ja (etter høsting) | Ja (manuell sjekk) |
+| 5a. Høsting frå Felles Begrepskatalog/Datakatalog | Org i den enkelte virksomhet | Nei (manuell setup) | Nei (ikkje tilgjengeleg for repoet) |
+| 5b. Høsting frå private system | Organisasjon | Nei (manuell setup) | Nei (ikkje tilgjengeleg for repoet) |
+| 6. Synleg på data.norge.no / internt system | Digitaliseringsdirektoratet / Organisasjon | Ja (etter høsting) | Ja (manuell sjekk) |
 
-**Konklusjon:** Repoet kontrollerer steg 1-4. Steg 5-6 er eksterne prosessar som må koordinerast med Digitaliseringsdirektoratet.
+**Konklusjon:** Repoet kontrollerer steg 1-4. Steg 5a/5b og 6 er eksterne prosessar som må koordinerast med Digitaliseringsdirektoratet eller eigen organisasjon.
 
 ---
 

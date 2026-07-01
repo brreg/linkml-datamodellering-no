@@ -5,7 +5,7 @@
     Dette repoet er utvikla av Brønnøysundregistrene med mål om å bli ein nasjonal ressurs for arbeid med informasjonsmodellering, i tråd med
     [Digdirs Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626).
 
-    Det skal gjere det enklare for offentlege verksemder og næringsliv å modellere, validere og publisere begreps- og informasjonsmodellar etter norske og europeiske standardar (DCAT-AP-NO, SKOS-AP-NO m.fl.), og å dele felles verktøy og applikasjonsprofilar på tvers av organisasjonar. 
+    Det skal gjere det enklare for offentlege verksemder og næringsliv å modellere, validere og publisere begreps- og informasjonsmodellar etter norske og europeiske standardar (DCAT-AP-NO, SKOS-AP-NO m.fl.), og å dele felles verktøy og modellar på tvers av organisasjonar. 
 
 Dette repoet stimulerer samarbeid og deling gjennom standardiserte formater, felles verktøy og en felles infrastruktur etter prinsippet "Lett å gjere rett!"
 
