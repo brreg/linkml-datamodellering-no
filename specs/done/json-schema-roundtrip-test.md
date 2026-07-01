@@ -104,8 +104,14 @@ Tre testfiler ligg klare i `src/tmp/`:
   - `null` i type-array for valfrie felt (korrekt JSON Schema-praksis)
   - Ekstra `id`-properties og `id` i `required` (LinkML identifier-mekanisme)
 
-**Kjende avgreningar (ikkje løyst):**
-1. **Bindestreker i property-namn:** LinkML støttar ikkje bindestreker i slotnamn — desse vert omskrivne til underscore (t.d. `e-postadresse` → `e_postadresse`). Dette gjer at `bvrinnfelles_lm_v1.schema.json` feila på `Kontaktopplysning.e-postadresse`.
+**Kjende avgreningar (delvis løyst):**
+1. **Bindestreker i property-namn:** LinkML støttar ikkje bindestreker i slotnamn (berre `a-z`, `0-9`, `_`) — desse vert omskrivne til underscore (t.d. `e-postadresse` → `e_postadresse`). Dette er no **dokumentert** i:
+   - CLAUDE.md (### Slotnamn): "Bindestreker er ikkje tillate — bruk samansette ord (t.d. `epost`, `epostadresse`) eller understrek"
+   - policies/README.md (bronze-sjekkliste): eksplisitt `a-z`, `0-9`, `_` — ikkje bindestreker
+   - policies/bronze.yaml (`slot_names_snake_case`): utvida beskrivelse med døme
+   
+   Konvensjonen er at bindestreker skal unngåast — bruk samansette ord eller understrek. `bvrinnfelles_lm_v1.schema.json` feila fordi originalen hadde `e-postadresse` som bryt denne konvensjonen.
+
 2. **Manglande klasser:** `virksomhetregisterinfoapi_lm_v1.schema.json` manglar `Virksomhetsrelasjon_2` (ikkje undersøkt kvifor).
 
 **Resultat:**

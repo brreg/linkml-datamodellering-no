@@ -76,12 +76,14 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 | `schema.license` til stades | warning | 7 — Tilgjengeleggjering | R1.1 |
 | Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | warning | 6 — Modularitet | — |
 | Alle klassenamn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner | — |
-| Alle slotnamn er snake_case | warning | 3 — Navne- og skrivekonvensjoner | — |
+| Alle slotnamn er snake_case (berre `a-z`, `0-9`, `_` — **ikkje bindestreker**) | warning | 3 — Navne- og skrivekonvensjoner | — |
 | Alle klasser (unntatt `tree_root`) har `class_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 |
 | Alle globale slots har `slot_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 |
 | Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 |
 | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 |
 
+> **`snake_case`-format:** Slotnamn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
+>
 > FINT-skjema er unntekne frå snake_case-sjekken — dei arvar camelCase frå FINT API-spesifikasjonen.
 
 ---
