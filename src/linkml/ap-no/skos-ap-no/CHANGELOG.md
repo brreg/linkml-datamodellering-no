@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.1.0...skos-ap-no-v2.2.0) (2026-07-01)
+
+
+### Features
+
+* **ap-no,begrepskatalog,modellkatalog:** legg til DQV-kvalitetsmålingar (kvantifiserbar kvalitet) ([6fb9bad](https://github.com/brreg/linkml-datamodellering-no/commit/6fb9badce3ca37ea38fb2a6a882cad466ba8eae8))
+
 ## [2.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.0.2...skos-ap-no-v2.1.0) (2026-06-20)
 
 

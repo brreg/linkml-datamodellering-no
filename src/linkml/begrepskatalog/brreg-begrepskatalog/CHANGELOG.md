@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.0.1...brreg-begrepskatalog-v1.1.0) (2026-07-01)
+
+
+### Features
+
+* **ap-no,begrepskatalog,modellkatalog:** legg til DQV-kvalitetsmålingar (kvantifiserbar kvalitet) ([6fb9bad](https://github.com/brreg/linkml-datamodellering-no/commit/6fb9badce3ca37ea38fb2a6a882cad466ba8eae8))
+
 ## [1.0.1](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.0.0...brreg-begrepskatalog-v1.0.1) (2026-06-19)
 
 

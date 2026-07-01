@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.1.2...dqv-ap-no-v1.2.0) (2026-07-01)
+
+
+### Features
+
+* **ap-no,begrepskatalog,modellkatalog:** legg til DQV-kvalitetsmålingar (kvantifiserbar kvalitet) ([6fb9bad](https://github.com/brreg/linkml-datamodellering-no/commit/6fb9badce3ca37ea38fb2a6a882cad466ba8eae8))
+
 ## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.1.1...dqv-ap-no-v1.1.2) (2026-06-20)
 
 
