@@ -25,6 +25,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
+      id-token: write
     outputs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
