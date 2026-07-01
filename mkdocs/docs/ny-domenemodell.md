@@ -141,7 +141,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json PROFILE=silver
 ```
 
-→ genererer `tmp/modell-schema.yaml`. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml`
+→ genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer.
 
 ## 2 — Rediger skjemaet
 

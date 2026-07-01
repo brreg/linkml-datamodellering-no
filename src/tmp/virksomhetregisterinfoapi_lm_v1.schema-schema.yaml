@@ -1861,7 +1861,7 @@ slots:
   kode:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: generated:kode
-    range: Organisasjonsform
+    range: integer
   kortnavn:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: generated:kortnavn

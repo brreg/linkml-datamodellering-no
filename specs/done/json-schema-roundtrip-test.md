@@ -132,8 +132,11 @@ Tre testfiler ligg klare i `src/tmp/`:
 - ✅ Normalisering av property-namn (bindestrek → underscore)
 - ✅ Slot-konfliktløysing med prioritering av multivalued og primitive typar
 
+**Steg 5: Integrasjon i `make mcp-linkml-modell-utkast`**
+✅ **Utført:** `make mcp-linkml-modell-utkast` køyrer no automatisk `make roundtrip-json-schema` etter generering av LinkML-skjema frå JSON Schema. Dersom roundtrip-testen feiler, avbryt med feilkode.
+
 **Neste steg (ikkje utført):**
-- [ ] Steg 5: Dokumenter testen i README
+- [ ] Dokumenter testen i `tests/README.md` (dersom denne fila vert laga)
 
 ---
 

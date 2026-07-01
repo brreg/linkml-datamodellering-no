@@ -862,7 +862,7 @@ slots:
   rolleinnehaver:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: generated:rolleinnehaver
-    range: Virksomhet
+    range: string
   organisasjonsnummer:
     description: 'Utledet fra enhetsidentifikator. Definisjon: nisifret nummer som
       entydig identifiserer enheter i Enhetsregisteret'
