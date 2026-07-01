@@ -831,22 +831,38 @@ def schemas_equivalent(original, generated):
     orig_class_names = set(orig_classes.keys())
     gen_class_names = set(gen_classes.keys())
 
+    # Bygg ein mapping frå normaliserte namn (utan _\d+) til faktiske namn
+    # gen-json-schema kan normalisere Foo_2 → Foo2
+    import re as _re
+    def normalize_class_name(name):
+        return _re.sub(r'_(\d+)$', r'\1', name)
+
+    gen_class_map = {normalize_class_name(name): name for name in gen_class_names}
+
     missing_classes = orig_class_names - gen_class_names
 
     # Filtrer ut klasser med allOf/anyOf/oneOf — desse er ikkje fullt støtta i konverteringa
     unsupported_classes = set()
+    normalized_missing = set()
+
     for class_name in missing_classes:
         class_def = orig_classes[class_name]
         if 'allOf' in class_def or 'anyOf' in class_def or 'oneOf' in class_def:
             unsupported_classes.add(class_name)
-
-    missing_classes = missing_classes - unsupported_classes
+        else:
+            # Sjekk om klassen finst med normalisert namn (t.d. Foo_2 → Foo2)
+            normalized = normalize_class_name(class_name)
+            if normalized in gen_class_map:
+                # OK — finst med normalisert namn
+                print(f"  Info: Klasse '{class_name}' finst som '{gen_class_map[normalized]}' (normalisert)")
+            else:
+                normalized_missing.add(class_name)
 
     if unsupported_classes:
         print(f"  Info: Klasser med allOf/anyOf/oneOf (ikkje fullt støtta, hoppar over): {unsupported_classes}")
 
-    if missing_classes:
-        return False, f"Manglar klasser: {missing_classes}"
+    if normalized_missing:
+        return False, f"Manglar klasser: {normalized_missing}"
 
     # Ekstra klasser er OK (LinkML kan generere hjelpeklasser)
     if gen_class_names - orig_class_names:
@@ -854,12 +870,19 @@ def schemas_equivalent(original, generated):
 
     # Samanlikn kvar felles klasse (ekskluder allOf/anyOf/oneOf-klasser)
     for class_name in orig_class_names:
-        # Hopp over klasser som vart filtrerte ut (allOf/anyOf/oneOf)
-        if class_name not in gen_classes:
+        # Hopp over klasser som vart filtrerte ut (allOf/anyOf/oneOf eller normaliserte)
+        if class_name in unsupported_classes:
+            continue
+
+        # Finn den genererte klassen (kan vere normalisert, t.d. Foo_2 → Foo2)
+        normalized = normalize_class_name(class_name)
+        gen_class_name = gen_class_map.get(normalized) or class_name
+
+        if gen_class_name not in gen_classes:
             continue
 
         orig_class = orig_classes[class_name]
-        gen_class = gen_classes[class_name]
+        gen_class = gen_classes[gen_class_name]
 
         # Samanlikn properties
         orig_props = orig_class.get('properties', {})
@@ -868,32 +891,64 @@ def schemas_equivalent(original, generated):
         orig_prop_names = set(orig_props.keys())
         gen_prop_names = set(gen_props.keys())
 
-        missing_props = orig_prop_names - gen_prop_names
-        extra_props = gen_prop_names - orig_prop_names
+        # Normaliser property-namn (bindestrek → underscore, same som _sanitize_slot_name)
+        def normalize_prop_name(name):
+            return name.replace('-', '_')
+
+        gen_prop_map = {normalize_prop_name(name): name for name in gen_prop_names}
+
+        missing_props = set()
+        normalized_props = set()
+
+        for prop_name in orig_prop_names:
+            normalized = normalize_prop_name(prop_name)
+            if prop_name not in gen_prop_names and normalized not in gen_prop_map:
+                missing_props.add(prop_name)
+            elif prop_name != normalized and normalized in gen_prop_map:
+                # Property finst med normalisert namn
+                normalized_props.add(prop_name)
+
+        if normalized_props:
+            normalized_str = ', '.join(f"'{p}' → '{normalize_prop_name(p)}'" for p in normalized_props)
+            print(f"  Info: Klasse '{class_name}': properties normaliserte ({normalized_str})")
 
         if missing_props:
             return False, f"Klasse '{class_name}': manglar properties {missing_props}"
 
+        extra_props = gen_prop_names - orig_prop_names - set(normalize_prop_name(p) for p in orig_prop_names)
         if extra_props:
             print(f"  Info: Klasse '{class_name}': ekstra properties (OK): {extra_props}")
 
         # Samanlikn felles properties i detalj
         for prop_name in orig_prop_names:
-            error = compare_property(orig_props[prop_name], gen_props[prop_name], prop_name)
+            # Finn den genererte property (kan vere normalisert)
+            normalized = normalize_prop_name(prop_name)
+            gen_prop_name = gen_prop_map.get(normalized) or prop_name
+
+            if gen_prop_name not in gen_props:
+                continue  # Allereie handtert i missing_props-sjekken
+
+            error = compare_property(orig_props[prop_name], gen_props[gen_prop_name], prop_name)
             if error:
                 return False, f"Klasse '{class_name}': {error}"
 
-        # Samanlikn required-felt
+        # Samanlikn required-felt (normaliser property-namn)
         orig_req = set(orig_class.get('required', []))
         gen_req = set(gen_class.get('required', []))
 
-        if orig_req != gen_req:
-            missing_req = orig_req - gen_req
-            extra_req = gen_req - orig_req
-            if missing_req:
-                return False, f"Klasse '{class_name}': manglar required-felt {missing_req}"
-            if extra_req:
-                print(f"  Info: Klasse '{class_name}': ekstra required-felt (OK): {extra_req}")
+        # Normaliser orig_req for samanlikning
+        orig_req_normalized = {normalize_prop_name(p) for p in orig_req}
+
+        missing_req = orig_req_normalized - gen_req
+        # Fjern 'id' frå ekstra required (LinkML legg til dette)
+        extra_req = (gen_req - orig_req_normalized) - {'id'}
+
+        if missing_req:
+            # Finn originale namn (før normalisering)
+            missing_orig = {p for p in orig_req if normalize_prop_name(p) in missing_req}
+            return False, f"Klasse '{class_name}': manglar required-felt {missing_orig}"
+        if extra_req:
+            print(f"  Info: Klasse '{class_name}': ekstra required-felt (OK): {extra_req}")
 
     return True, None
 

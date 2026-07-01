@@ -9,12 +9,12 @@
 - **Commit-melding etter kvar endring:** Etter *kvar* arbeidsøkt der filer er endra — uavhengig av om det er ei spesifikasjon, ein bugfix, ein konfigurasjonsjustering eller anna — skal det alltid genererast eit utkast til commit-melding i conventional commits-format (sjå `specs/done/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme). Generer meldinga til slutt i svaret, utan å spørje om løyve.
 - **DRY — ikkje gjenta deg sjølv:** Kvar regel, klasse, slot og kommando skal ha éi kjelde. I LinkML-skjema: definer klasser/slots éin stad og importer. I CLAUDE.md: ikkje gjenta forklåringar som finst i `mkdocs/docs/` — legg til kryssreferanse i staden. Terskel: tre eller fleire identiske tilfelle. To like tilfelle krev ingen abstraksjon. `specs/done/` er unntatt — arkiverte spesifikasjonar skal stå urørte og treng ikkje konsoliderast. Omskriv aldri eksisterande kode eller konfigurasjon med DRY som einaste grunngjeving utan å spørje brukaren om løyve først.
 - **Nye verktøyavhengigheiter:** Legg du til eit verktøy i `Dockerfile*`, `requirements*.txt` eller `.github/workflows/*.yml` som endar opp bundla i eit publisert containerbilete eller i den publiserte mkdocs-portalen, sjekk om lisensen krev attribution og oppdater attributions-tabellen i `mkdocs/docs/om.md`. Sjå `CONTRIBUTING.md` (seksjonen «Nye verktøyavhengigheiter») og `specs/done/verktoy-lisensoversikt.md` for metode.
-- **Kompakt commit-format:** Commit-meldingar skal skrivast på kompakt form — éi hovudlinje (`<type>(<scope>): <skildring>`) og éin kort bullet per tiltak i kroppen. Unngå lange forklarande avsnitt; bruk stikkord. Døme:
+- **Kompakt commit-format:** Commit-meldingar skal vere **så kompakte som mogleg** og følgje conventional commits-formalismen. Meldinga skal skrivast i **presens** og kun innehalde **kva som er endra** (ikkje kvifor eller bakgrunn — det finst i specen/koden). Format: éi hovudlinje (`<type>(<scope>): <skildring>`) og éin kort bullet per endra fil/komponent. Unngå lange forklarande avsnitt; bruk stikkord. Døme:
   ```
-  fix(mcp-modell-utkast): rett fallback-description i converter.py
-    - converter.py: "Generert frå JSON Schema '...'" → "Generert modell for '...'"
-    - ny-domenemodell.md: legg til eksempel på generert modellutkast (tilskudd)
-    - TODO.md: legg til nye backlog-punkt
+  fix(mcp-modell-utkast): prioriter multivalued og primitive typar i slot-konfliktar
+    - converter.py: prioriter multivalued over single-value, primitive over klasse-ref
+    - tests/test_make.sh: normaliser property-namn (bindestrek → underscore)
+    - specs/done/json-schema-roundtrip-test.md: alle tre testar passerer
   ```
 
 ## LinkML Importhierarki
