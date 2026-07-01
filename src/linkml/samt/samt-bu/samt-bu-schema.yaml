@@ -250,6 +250,8 @@ classes:
       - navn
     see_also:
       - https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/971527404/concepts/6c1197a7-5c17-48f6-b399-a031d66cd8da
 
   Elev:
     class_uri: samtbuskole:Elev
@@ -281,7 +283,7 @@ classes:
       - https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/b298ea76-e465-4cb5-b54a-176e59374d37
-      
+
 slots:
 
   # --- Identifikator og namn ---
