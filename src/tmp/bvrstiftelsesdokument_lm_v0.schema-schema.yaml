@@ -1,0 +1,988 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'generated:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://example.org/generated
+name: generated
+title: 'TODO: tittel for generated'
+description: Generert modell for 'generated'.
+version: 0.1.0
+license: https://creativecommons.org/licenses/by/4.0/
+prefixes:
+  linkml: https://w3id.org/linkml/
+  generated: https://example.org/generated/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://example.org/generated/
+default_range: string
+imports:
+- linkml:types
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+types:
+  Virksomhetsnavn:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  BeloepFriDesimal:
+    uri: xsd:float
+    base: float
+    description: 'TODO: beskriv typen'
+  Beloep:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^\d+\.\d{2}$
+  Tekst5000:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Adresselinje:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Postnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: '[0-9]{4}'
+  Landkode:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: '[A-Z]{2}'
+  Rolletype:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Organisasjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: '[2389][0-9]{8}'
+  Foedselsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: '[0-9]{11}'
+  Tekst100:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Tekst50:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  AntallAksjer:
+    uri: xsd:integer
+    base: int
+    description: 'TODO: beskriv typen'
+  Dato:
+    uri: xsd:date
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: \d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])
+enums:
+  AksjeklasseType:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      a: {}
+      b: {}
+      c: {}
+      d: {}
+      e: {}
+classes:
+  Stiftelsesdokument:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Stiftelsesdokument
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - foretaksnavn
+    - aksjekapital
+    - aksjensPaalydendeBeloep
+    - stiftelsesutgift
+    - revisor
+    - stifter
+    - styrerolle
+    - samletAksjeinnskudd
+    - overdragelseTilSelskap
+    - avtaleforpliktelseVedStiftelse
+    - saerskiltRettighetEllerFordel
+    - antallAksjerISelskapet
+    - unnlateRevisjon
+    slot_usage:
+      foretaksnavn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      aksjekapital:
+        required: true
+        in_subset:
+        - Obligatorisk
+      aksjensPaalydendeBeloep:
+        required: true
+        in_subset:
+        - Obligatorisk
+      stiftelsesutgift:
+        in_subset:
+        - Anbefalt
+      revisor:
+        in_subset:
+        - Anbefalt
+      stifter:
+        required: true
+        in_subset:
+        - Obligatorisk
+      styrerolle:
+        required: true
+        in_subset:
+        - Obligatorisk
+      samletAksjeinnskudd:
+        required: true
+        in_subset:
+        - Obligatorisk
+      overdragelseTilSelskap:
+        in_subset:
+        - Anbefalt
+      avtaleforpliktelseVedStiftelse:
+        in_subset:
+        - Anbefalt
+      saerskiltRettighetEllerFordel:
+        in_subset:
+        - Anbefalt
+      antallAksjerISelskapet:
+        required: true
+        in_subset:
+        - Obligatorisk
+      unnlateRevisjon:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Stiftelsesutgift:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Stiftelsesutgift
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - beloep
+    - beskrivelse
+    - mottaker
+    slot_usage:
+      beloep:
+        required: true
+        in_subset:
+        - Obligatorisk
+      beskrivelse:
+        required: true
+        in_subset:
+        - Obligatorisk
+      mottaker:
+        required: true
+        in_subset:
+        - Obligatorisk
+  AnnenAktoer:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:AnnenAktoer
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - navn
+    - adresse
+    slot_usage:
+      navn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      adresse:
+        required: true
+        in_subset:
+        - Obligatorisk
+  UstrukturertAdresse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:UstrukturertAdresse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - adresselinje1
+    - adresselinje2
+    - adresselinje3
+    - poststed
+    - land
+    slot_usage:
+      adresselinje1:
+        in_subset:
+        - Anbefalt
+      adresselinje2:
+        in_subset:
+        - Anbefalt
+      adresselinje3:
+        in_subset:
+        - Anbefalt
+      poststed:
+        required: true
+        in_subset:
+        - Obligatorisk
+      land:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Poststed:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Poststed
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - navn
+    - postnummer
+    slot_usage:
+      navn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      postnummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Revisor:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Revisor
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - rolletype
+    - rolleinnehaver
+    slot_usage:
+      rolletype:
+        required: true
+        in_subset:
+        - Obligatorisk
+      rolleinnehaver:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Virksomhet:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Virksomhet
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - navn
+    - organisasjonsnummer
+    - forretningsadresse
+    - postadresse
+    slot_usage:
+      navn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      organisasjonsnummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      forretningsadresse:
+        in_subset:
+        - Anbefalt
+      postadresse:
+        in_subset:
+        - Anbefalt
+  Stifter:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Stifter
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - rolleinnehaver
+    - fullmektig
+    - aksjetegning
+    - rolletype
+    slot_usage:
+      rolleinnehaver:
+        required: true
+        in_subset:
+        - Obligatorisk
+      fullmektig:
+        in_subset:
+        - Anbefalt
+      aksjetegning:
+        required: true
+        in_subset:
+        - Obligatorisk
+      rolletype:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Person:
+    description: 'Definisjon: menneske slik det opptrer i en sosial sammenheng.'
+    class_uri: generated:Person
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - foedselsEllerDNummer
+    - personnavn
+    - bostedsadresse
+    - annenAdresse
+    slot_usage:
+      foedselsEllerDNummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      personnavn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      bostedsadresse:
+        in_subset:
+        - Anbefalt
+      annenAdresse:
+        in_subset:
+        - Anbefalt
+  Personnavn:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Personnavn
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - fornavn
+    - mellomnavn
+    - etternavn
+    slot_usage:
+      fornavn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      mellomnavn:
+        in_subset:
+        - Anbefalt
+      etternavn:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Bostedsadresse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Bostedsadresse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+  AnnenAdresse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:AnnenAdresse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - coNavn
+    - stedsadresse
+    - utenlandskAdresse
+    - vegadresse
+    slot_usage:
+      coNavn:
+        in_subset:
+        - Anbefalt
+      stedsadresse:
+        in_subset:
+        - Anbefalt
+      utenlandskAdresse:
+        in_subset:
+        - Anbefalt
+      vegadresse:
+        in_subset:
+        - Anbefalt
+  GeografiskAdresse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:GeografiskAdresse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+  Vegadresse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Vegadresse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+  Aksjetegning:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Aksjetegning
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tegningslinje
+    slot_usage:
+      tegningslinje:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Tegningslinje:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Tegningslinje
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - aksjeinnskudd
+    - antallAksjer
+    - aksjeklasse
+    - annetInnskudd
+    slot_usage:
+      aksjeinnskudd:
+        required: true
+        in_subset:
+        - Obligatorisk
+      antallAksjer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      aksjeklasse:
+        in_subset:
+        - Anbefalt
+      annetInnskudd:
+        in_subset:
+        - Anbefalt
+  AnnetInnskuddEnnPenger:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:AnnetInnskuddEnnPenger
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - vilkaar
+    - antallAksjer
+    - akjserINorskeSelskap
+    - eiendel
+    slot_usage:
+      vilkaar:
+        required: true
+        in_subset:
+        - Obligatorisk
+      antallAksjer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      akjserINorskeSelskap:
+        in_subset:
+        - Anbefalt
+      eiendel:
+        in_subset:
+        - Anbefalt
+  AkjserINorskeSelskap:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:AkjserINorskeSelskap
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - selskap
+    - antall
+    slot_usage:
+      selskap:
+        required: true
+        in_subset:
+        - Obligatorisk
+      antall:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Styrerolle:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:Styrerolle
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - rolleinnehaver
+    - rolletype
+    slot_usage:
+      rolleinnehaver:
+        required: true
+        in_subset:
+        - Obligatorisk
+      rolletype:
+        required: true
+        in_subset:
+        - Obligatorisk
+  SamletAksjeinnskudd:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:SamletAksjeinnskudd
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - beloep
+    - innbetalingsfrist
+    slot_usage:
+      beloep:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innbetalingsfrist:
+        required: true
+        in_subset:
+        - Obligatorisk
+  OverdragelseTilSelskap:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:OverdragelseTilSelskap
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - vederlag
+    - vilkaar
+    - eiendel
+    - motpart
+    slot_usage:
+      vederlag:
+        required: true
+        in_subset:
+        - Obligatorisk
+      vilkaar:
+        required: true
+        in_subset:
+        - Obligatorisk
+      eiendel:
+        required: true
+        in_subset:
+        - Obligatorisk
+      motpart:
+        required: true
+        in_subset:
+        - Obligatorisk
+  AvtaleforpliktelseVedStiftelse:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:AvtaleforpliktelseVedStiftelse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - vilkaar
+    - motpart
+    slot_usage:
+      vilkaar:
+        required: true
+        in_subset:
+        - Obligatorisk
+      motpart:
+        required: true
+        in_subset:
+        - Obligatorisk
+  SaerskiltRettighetEllerFordel:
+    description: 'TODO: beskriv klassen'
+    class_uri: generated:SaerskiltRettighetEllerFordel
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - vilkaar
+    - motpart
+    slot_usage:
+      vilkaar:
+        required: true
+        in_subset:
+        - Obligatorisk
+      motpart:
+        required: true
+        in_subset:
+        - Obligatorisk
+  GeneratedContainer:
+    description: 'TODO: beskriv containerklassen'
+    tree_root: true
+    attributes:
+      stiftelsesdokumenter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Stiftelsesdokument
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      stiftelsesutgifter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Stiftelsesutgift
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      annenAktoerer:
+        description: 'TODO: beskriv eigenskapen'
+        range: AnnenAktoer
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      ustrukturertAdresseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: UstrukturertAdresse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      poststeder:
+        description: 'TODO: beskriv eigenskapen'
+        range: Poststed
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      revisorer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Revisor
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      virksomheter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Virksomhet
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      stifterer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Stifter
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      personer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Person
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      personnavner:
+        description: 'TODO: beskriv eigenskapen'
+        range: Personnavn
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      bostedsadresseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Bostedsadresse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      annenAdresseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: AnnenAdresse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      geografiskAdresseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: GeografiskAdresse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      vegadresseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Vegadresse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      aksjetegninger:
+        description: 'TODO: beskriv eigenskapen'
+        range: Aksjetegning
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      tegningslinjeer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Tegningslinje
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      annetInnskuddEnnPengerer:
+        description: 'TODO: beskriv eigenskapen'
+        range: AnnetInnskuddEnnPenger
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      akjserINorskeSelskaper:
+        description: 'TODO: beskriv eigenskapen'
+        range: AkjserINorskeSelskap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      styrerolleer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Styrerolle
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      samletAksjeinnskudder:
+        description: 'TODO: beskriv eigenskapen'
+        range: SamletAksjeinnskudd
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      overdragelseTilSelskaper:
+        description: 'TODO: beskriv eigenskapen'
+        range: OverdragelseTilSelskap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      avtaleforpliktelseVedStiftelseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: AvtaleforpliktelseVedStiftelse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      saerskiltRettighetEllerFordeler:
+        description: 'TODO: beskriv eigenskapen'
+        range: SaerskiltRettighetEllerFordel
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+  foretaksnavn:
+    description: Foretaksnavn kan hentes fra vedteker.
+    slot_uri: generated:foretaksnavn
+    range: Virksomhetsnavn
+  aksjekapital:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:aksjekapital
+    range: BeloepFriDesimal
+  aksjensPaalydendeBeloep:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:aksjensPaalydendeBeloep
+    range: BeloepFriDesimal
+  stiftelsesutgift:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:stiftelsesutgift
+    range: Stiftelsesutgift
+    multivalued: true
+  revisor:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:revisor
+    range: Revisor
+  stifter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:stifter
+    range: Stifter
+    multivalued: true
+  styrerolle:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:styrerolle
+    range: Styrerolle
+    multivalued: true
+  samletAksjeinnskudd:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:samletAksjeinnskudd
+    range: SamletAksjeinnskudd
+  overdragelseTilSelskap:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:overdragelseTilSelskap
+    range: OverdragelseTilSelskap
+    multivalued: true
+  avtaleforpliktelseVedStiftelse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:avtaleforpliktelseVedStiftelse
+    range: AvtaleforpliktelseVedStiftelse
+    multivalued: true
+  saerskiltRettighetEllerFordel:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:saerskiltRettighetEllerFordel
+    range: SaerskiltRettighetEllerFordel
+    multivalued: true
+  antallAksjerISelskapet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:antallAksjerISelskapet
+    range: AntallAksjer
+  unnlateRevisjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:unnlateRevisjon
+    range: boolean
+  beloep:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:beloep
+    range: Beloep
+  beskrivelse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:beskrivelse
+    range: Tekst5000
+  mottaker:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:mottaker
+    range: AnnenAktoer
+  navn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:navn
+    range: string
+  adresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:adresse
+    range: UstrukturertAdresse
+  adresselinje1:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:adresselinje1
+    range: Adresselinje
+  adresselinje2:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:adresselinje2
+    range: Adresselinje
+  adresselinje3:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:adresselinje3
+    range: Adresselinje
+  poststed:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:poststed
+    range: Poststed
+  land:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:land
+    range: Landkode
+  postnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:postnummer
+    range: Postnummer
+  rolletype:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:rolletype
+    range: Rolletype
+  rolleinnehaver:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:rolleinnehaver
+    range: Virksomhet
+  organisasjonsnummer:
+    description: 'Utledet fra enhetsidentifikator. Definisjon: nisifret nummer som
+      entydig identifiserer enheter i Enhetsregisteret'
+    slot_uri: generated:organisasjonsnummer
+    range: Organisasjonsnummer
+  forretningsadresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:forretningsadresse
+    range: UstrukturertAdresse
+  postadresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:postadresse
+    range: UstrukturertAdresse
+  fullmektig:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:fullmektig
+    range: Person
+    multivalued: true
+  aksjetegning:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:aksjetegning
+    range: Aksjetegning
+  foedselsEllerDNummer:
+    description: 'Utledet av personidentifikator. Definisjon: elleve-sifret identitetsnummer
+      for person'
+    slot_uri: generated:foedselsEllerDNummer
+    range: Foedselsnummer
+  personnavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:personnavn
+    range: Personnavn
+  bostedsadresse:
+    description: The type of property bostedsadresse (GeografiskAdresse) has subclasses.
+      Double-click on this comment to see the class hierarchy. Redifenert av attributtet
+      adresse i Aktør-klassen.
+    slot_uri: generated:bostedsadresse
+    range: Bostedsadresse
+  annenAdresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:annenAdresse
+    range: AnnenAdresse
+  fornavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:fornavn
+    range: string
+  mellomnavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:mellomnavn
+    range: string
+  etternavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:etternavn
+    range: string
+  coNavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:coNavn
+    range: Tekst100
+  stedsadresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:stedsadresse
+    range: Stedsadresse
+  utenlandskAdresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:utenlandskAdresse
+    range: InternasjonalAdresse
+  vegadresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:vegadresse
+    range: Vegadresse
+  tegningslinje:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:tegningslinje
+    range: Tegningslinje
+    multivalued: true
+  aksjeinnskudd:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:aksjeinnskudd
+    range: BeloepFriDesimal
+  antallAksjer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:antallAksjer
+    range: AntallAksjer
+  aksjeklasse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:aksjeklasse
+    range: AksjeklasseType
+  annetInnskudd:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:annetInnskudd
+    range: AnnetInnskuddEnnPenger
+  vilkaar:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:vilkaar
+    range: Tekst5000
+  akjserINorskeSelskap:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:akjserINorskeSelskap
+    range: AkjserINorskeSelskap
+    multivalued: true
+  eiendel:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:eiendel
+    range: Tekst5000
+  selskap:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:selskap
+    range: Virksomhet
+  antall:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:antall
+    range: AntallAksjer
+  innbetalingsfrist:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:innbetalingsfrist
+    range: Dato
+  vederlag:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:vederlag
+    range: Tekst5000
+  motpart:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: generated:motpart
+    range: AnnenAktoer

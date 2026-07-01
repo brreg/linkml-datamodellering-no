@@ -1,0 +1,1516 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "x-schema-id": "",
+  "x-major-version": "1",
+  "x-dct-modified": "2026-04-27T12:50:00+01:00",
+  "x-adms-status": "gjeldende",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "VirksomhetRegisterinfoAPI_lm_v1",
+  "required": [],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    }
+  },
+  "definitions": {
+    "Virksomhet": {
+      "title": "Virksomhet",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organisasjonsnummer",
+        "navn",
+        "organisasjonsform",
+        "virksomhetsstatus",
+        "foretaksstatus",
+        "forretningsadresse",
+        "prokura",
+        "gyldigFraOgMed"
+      ],
+      "properties": {
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "navn": {
+          "type": "string"
+        },
+        "maalform": {
+          "$ref": "#/definitions/Maalform"
+        },
+        "organisasjonsform": {
+          "$ref": "#/definitions/Organisasjonsforminfo"
+        },
+        "virksomhetsstatus": {
+          "$ref": "#/definitions/Virksomhetsstatus"
+        },
+        "tilstandsstatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TilstandsstatusinfoMedDato"
+          }
+        },
+        "foretaksstatus": {
+          "$ref": "#/definitions/Foretaksstatus"
+        },
+        "formaal": {
+          "type": "string"
+        },
+        "institusjonellSektorkode": {
+          "$ref": "#/definitions/InstitusjonellSektorkode"
+        },
+        "naeringskode": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Naeringskodeinfo"
+          }
+        },
+        "antallAnsatte": {
+          "$ref": "#/definitions/AntallAnsatte"
+        },
+        "registrertITilknyttetRegister": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TilknyttetRegisterinfo"
+          }
+        },
+        "registrertIAnnetRegister": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AnnetRegisterinfo"
+          }
+        },
+        "harAnsvarsbegrensning": {
+          "type": "boolean"
+        },
+        "ansvarsform": {
+          "$ref": "#/definitions/Ansvarsform"
+        },
+        "epostadresse": {
+          "$ref": "#/definitions/E-postadresse"
+        },
+        "nettside": {
+          "$ref": "#/definitions/URL"
+        },
+        "registrertIEnhetsregisteret": {
+          "$ref": "#/definitions/DatoKlokkeslett"
+        },
+        "registrertIForetaksregisteret": {
+          "$ref": "#/definitions/DatoKlokkeslett"
+        },
+        "forretningsadresse": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Adresse"
+            },
+            {
+              "$ref": "#/definitions/Postboksadresse"
+            },
+            {
+              "$ref": "#/definitions/Vegadresse"
+            },
+            {
+              "$ref": "#/definitions/Stedsadresse"
+            }
+          ]
+        },
+        "postadresse": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Adresse"
+            },
+            {
+              "$ref": "#/definitions/Postboksadresse"
+            },
+            {
+              "$ref": "#/definitions/Vegadresse"
+            },
+            {
+              "$ref": "#/definitions/Stedsadresse"
+            }
+          ]
+        },
+        "mobiltelefonnummer": {
+          "$ref": "#/definitions/Telefonnummer"
+        },
+        "telefonnummer": {
+          "$ref": "#/definitions/Telefonnummer"
+        },
+        "telefaksnummer": {
+          "$ref": "#/definitions/Telefonnummer"
+        },
+        "frivilligRegistreringIMerverdiavgiftsregisteret": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FrivilligRegistreringIMerverdiavgiftsregisteret"
+          }
+        },
+        "ustrukturertInnhold": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UstrukturertInnhold"
+          }
+        },
+        "paategninger": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Paategning"
+          }
+        },
+        "frivilligOrganisasjon": {
+          "$ref": "#/definitions/FrivilligOrganisasjon"
+        },
+        "relasjoner": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Virksomhetsrelasjon_2"
+          }
+        },
+        "registrertIFrivillighetsregisteret": {
+          "$ref": "#/definitions/Dato"
+        },
+        "sistInnsendteAArsoppgjoer": {
+          "$ref": "#/definitions/AArstall"
+        },
+        "stiftelsesdato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "nedleggelsesdato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "erUbemannet": {
+          "type": "boolean"
+        },
+        "eierskiftedato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "beliggenhetsadresse": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Adresse"
+            },
+            {
+              "$ref": "#/definitions/Postboksadresse"
+            },
+            {
+              "$ref": "#/definitions/Vegadresse"
+            },
+            {
+              "$ref": "#/definitions/Stedsadresse"
+            }
+          ]
+        },
+        "signaturrett": {
+          "$ref": "#/definitions/Signaturrett"
+        },
+        "prokura": {
+          "$ref": "#/definitions/Prokura"
+        },
+        "vedtekter": {
+          "$ref": "#/definitions/Vedtekter"
+        },
+        "avdelingsbetegnelse": {
+          "type": "string"
+        },
+        "matrikkelnummer": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Matrikkelnummer"
+          }
+        },
+        "overtakelserOgOverdragelser": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OvertakelseOgOverdragelse"
+          }
+        },
+        "gyldigFraOgMed": {
+          "$ref": "#/definitions/DatoKlokkeslett"
+        },
+        "gyldigTil": {
+          "$ref": "#/definitions/DatoKlokkeslett"
+        },
+        "aktivitet": {
+          "$ref": "#/definitions/Aktivitet"
+        },
+        "rolletypegrupper": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rolletypegruppe"
+          }
+        }
+      }
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "title": "Organisasjonsnummer"
+    },
+    "Maalform": {
+      "title": "Målform",
+      "type": "string",
+      "enum": [
+        "nob",
+        "nno"
+      ]
+    },
+    "Organisasjonsforminfo": {
+      "title": "Organisasjonsforminfo",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kode",
+        "navn",
+        "kortnavn"
+      ],
+      "properties": {
+        "kode": {
+          "$ref": "#/definitions/Organisasjonsform"
+        },
+        "navn": {
+          "type": "string"
+        },
+        "kortnavn": {
+          "type": "string"
+        }
+      }
+    },
+    "Organisasjonsform": {
+      "type": "string",
+      "title": "Organisasjonsform"
+    },
+    "Virksomhetsstatus": {
+      "type": "string",
+      "title": "Virksomhetsstatus"
+    },
+    "TilstandsstatusinfoMedDato": {
+      "title": "TilstandsstatusinfoMedDato",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tilstandsstatus",
+        "dato"
+      ],
+      "properties": {
+        "tilstandsstatus": {
+          "$ref": "#/definitions/Tilstandsstatus"
+        },
+        "dato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Tilstandsstatus": {
+      "type": "string",
+      "title": "Tilstandsstatus"
+    },
+    "Dato": {
+      "type": "string",
+      "format": "date",
+      "title": "Dato"
+    },
+    "Foretaksstatus": {
+      "type": "string",
+      "title": "Foretaksstatus"
+    },
+    "InstitusjonellSektorkode": {
+      "type": "string",
+      "title": "InstitusjonellSektorkode"
+    },
+    "Naeringskodeinfo": {
+      "title": "Næringskodeinfo",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kode",
+        "navn",
+        "rekkefoelge",
+        "naeringskodestandard"
+      ],
+      "properties": {
+        "kode": {
+          "$ref": "#/definitions/Naeringskode"
+        },
+        "navn": {
+          "type": "string"
+        },
+        "erHjelpeenhetskode": {
+          "type": "boolean"
+        },
+        "rekkefoelge": {
+          "type": "integer"
+        },
+        "datoGyldigFra": {
+          "$ref": "#/definitions/Dato"
+        },
+        "naeringskodestandard": {
+          "$ref": "#/definitions/Naeringskodestandard"
+        }
+      }
+    },
+    "Naeringskode": {
+      "type": "string",
+      "title": "Næringskode"
+    },
+    "Naeringskodestandard": {
+      "type": "string",
+      "title": "Næringskodestandard"
+    },
+    "AntallAnsatte": {
+      "title": "AntallAnsatte",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "antall",
+        "gjelderFra"
+      ],
+      "properties": {
+        "antall": {
+          "type": "integer"
+        },
+        "gjelderFra": {
+          "$ref": "#/definitions/Dato"
+        },
+        "harAnsatte": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TilknyttetRegisterinfo": {
+      "title": "TilknyttetRegisterinfo",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "register"
+      ],
+      "properties": {
+        "register": {
+          "$ref": "#/definitions/TilknyttetRegistertype"
+        },
+        "tilknyttetDato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "TilknyttetRegistertype": {
+      "type": "string",
+      "title": "TilknyttetRegistertype"
+    },
+    "AnnetRegisterinfo": {
+      "title": "AnnetRegisterinfo",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "register"
+      ],
+      "properties": {
+        "register": {
+          "$ref": "#/definitions/AnnetRegister"
+        },
+        "registrertDato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "AnnetRegister": {
+      "type": "string",
+      "title": "AnnetRegister"
+    },
+    "Ansvarsform": {
+      "type": "string",
+      "title": "Ansvarsform"
+    },
+    "E-postadresse": {
+      "type": "string",
+      "title": "E-postadresse"
+    },
+    "URL": {
+      "type": "string",
+      "format": "uri",
+      "title": "URL"
+    },
+    "DatoKlokkeslett": {
+      "type": "string",
+      "format": "date-time",
+      "title": "DatoKlokkeslett"
+    },
+    "Adresse": {
+      "title": "Adresse",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Definisjon: geografisk lokasjon stedfestet ved koordinater og/eller navn eller annet",
+      "required": [
+        "adressetype"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "ustrukturertAdresse"
+          ],
+          "properties": {
+            "ustrukturertAdresse": {
+              "$ref": "#/definitions/UstrukturertAdresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "internasjonalAdresse"
+          ],
+          "properties": {
+            "internasjonalAdresse": {
+              "$ref": "#/definitions/InternasjonalAdresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "postboksadresse"
+          ],
+          "properties": {
+            "postboksadresse": {
+              "$ref": "#/definitions/Postboksadresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "stedsadresse"
+          ],
+          "properties": {
+            "stedsadresse": {
+              "$ref": "#/definitions/Stedsadresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "vegadresse"
+          ],
+          "properties": {
+            "vegadresse": {
+              "$ref": "#/definitions/Vegadresse"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "coNavn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adressetype": {
+          "$ref": "#/definitions/Adressetype"
+        },
+        "bruksenhetsnummer": {
+          "type": "string"
+        },
+        "ustrukturertAdresse": {
+          "$ref": "#/definitions/UstrukturertAdresse"
+        },
+        "internasjonalAdresse": {
+          "$ref": "#/definitions/InternasjonalAdresse"
+        },
+        "postboksadresse": {
+          "$ref": "#/definitions/Postboksadresse"
+        },
+        "stedsadresse": {
+          "$ref": "#/definitions/Stedsadresse"
+        },
+        "vegadresse": {
+          "$ref": "#/definitions/Vegadresse"
+        }
+      }
+    },
+    "Adressetype": {
+      "type": "string",
+      "title": "Adressetype"
+    },
+    "UstrukturertAdresse": {
+      "title": "UstrukturertAdresse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "poststed"
+      ],
+      "properties": {
+        "adresselinje1": {
+          "type": "string"
+        },
+        "adresselinje2": {
+          "type": "string"
+        },
+        "poststed": {
+          "$ref": "#/definitions/Poststed"
+        },
+        "kommune": {
+          "$ref": "#/definitions/Kommune"
+        }
+      }
+    },
+    "Poststed": {
+      "title": "Poststed",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "navn": {
+          "type": "string"
+        },
+        "postnummer": {
+          "$ref": "#/definitions/Postnummer"
+        }
+      }
+    },
+    "Postnummer": {
+      "type": "string",
+      "title": "Postnummer"
+    },
+    "Kommune": {
+      "title": "Kommune",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kommunenummer": {
+          "$ref": "#/definitions/Kommunenummer"
+        },
+        "kommunenavn": {
+          "type": "string"
+        }
+      }
+    },
+    "Kommunenummer": {
+      "type": "string",
+      "title": "Kommunenummer"
+    },
+    "InternasjonalAdresse": {
+      "title": "InternasjonalAdresse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "landkode"
+      ],
+      "properties": {
+        "adressenavn": {
+          "type": "string"
+        },
+        "adressenummer": {
+          "type": "string"
+        },
+        "bygning": {
+          "type": "string"
+        },
+        "etasjenummer": {
+          "type": "string"
+        },
+        "boenhet": {
+          "type": "string"
+        },
+        "postboks": {
+          "type": "string"
+        },
+        "postkode": {
+          "type": "string"
+        },
+        "byEllerStedsnavn": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "distriktEllerBydel": {
+          "type": "string"
+        },
+        "landkode": {
+          "$ref": "#/definitions/Landkode"
+        },
+        "friAdressetekst": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adresseidentifikator": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Landkode": {
+      "type": "string",
+      "title": "Landkode"
+    },
+    "Postboksadresse": {
+      "title": "Postboksadresse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Adresse"
+        },
+        {
+          "type": "object",
+          "required": [
+            "poststed"
+          ],
+          "properties": {
+            "postboksnummer": {
+              "type": "string"
+            },
+            "postboksanleggsnavn": {
+              "type": "string"
+            },
+            "poststed": {
+              "$ref": "#/definitions/Poststed"
+            },
+            "kommune": {
+              "$ref": "#/definitions/Kommune"
+            }
+          }
+        }
+      ]
+    },
+    "Stedsadresse": {
+      "title": "Stedsadresse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Adresse"
+        },
+        {
+          "type": "object",
+          "required": [
+            "poststed"
+          ],
+          "properties": {
+            "stedsnavn": {
+              "type": "string"
+            },
+            "poststed": {
+              "$ref": "#/definitions/Poststed"
+            },
+            "kommune": {
+              "$ref": "#/definitions/Kommune"
+            }
+          }
+        }
+      ]
+    },
+    "Vegadresse": {
+      "title": "Vegadresse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Adresse"
+        },
+        {
+          "type": "object",
+          "required": [
+            "adressenavn",
+            "poststed"
+          ],
+          "properties": {
+            "vegadresseID": {
+              "type": "string",
+              "description": "Hvis vegadresseid er utfylt, så må også kommunenr. utfylt siden vegadresse kun er unik innenfor et kommunenr."
+            },
+            "adressenavn": {
+              "type": "string"
+            },
+            "kortAdressenavn": {
+              "type": "string"
+            },
+            "nummer": {
+              "$ref": "#/definitions/Adressenummer"
+            },
+            "poststed": {
+              "$ref": "#/definitions/Poststed"
+            },
+            "adressetilleggsnavn": {
+              "type": "string"
+            },
+            "kommune": {
+              "$ref": "#/definitions/Kommune"
+            }
+          }
+        }
+      ]
+    },
+    "Adressenummer": {
+      "title": "Adressenummer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nummer": {
+          "type": "string"
+        },
+        "bokstav": {
+          "type": "string"
+        }
+      }
+    },
+    "Telefonnummer": {
+      "title": "Telefonnummer",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nasjonaltNummer"
+      ],
+      "properties": {
+        "internasjonaltPrefiks": {
+          "type": "string"
+        },
+        "nasjonaltNummer": {
+          "type": "string"
+        }
+      }
+    },
+    "FrivilligRegistreringIMerverdiavgiftsregisteret": {
+      "title": "FrivilligRegistreringIMerverdiavgiftsregisteret",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "2-3 § 2-3. Frivillig registrering (1) Næringsdrivende og offentlig virksomhet som leier ut bygg eller anlegg, kan frivillig registreres i Merverdiavgiftsregisteret dersom bygget eller anlegget brukes i virksomhet som er registrert etter denne loven, av offentlig virksomhet der øverste myndighet er kommunestyre, fylkesting eller annet styre eller råd etter kommuneloven eller kommunal særlovgivning, av interkommunale og interfylkeskommunale sammenslutninger organisert etter kommuneloven eller kommunal særlovgivning. Beløpsgrensene i § 2-1 gjelder tilsvarende. (2) Bortforpaktere av landbrukseiendom på minst fem dekar og utleiere av jordbruksarealer uten bygninger, kan frivillig registreres. (3) Næringsdrivende og offentlig virksomhet som driver utleie som nevnt i første eller annet ledd og er registrert i Merverdiavgiftsregisteret, anses som frivillig registrerte dersom leieforholdet behandles som merverdiavgiftspliktig. (4) Foreninger som har til formål å bygge og vedlikeholde skogsvei, kan frivillig registreres. (5) Utbyggere som utenfor næring oppfører vann- og avløpsanlegg i privat regi, kan frivillig registreres. Det er et vilkår at anlegget etter ferdigstillelsen overtas av noen som er registrert etter § 2-1 for virksomhet i vann- eller avløpssektoren. (6) Næringsdrivende og offentlig virksomhet som mot vederlag stiller baneanlegg til disposisjon for virksomhet som er registrert etter denne loven, kan frivillig registreres. Beløpsgrensene i § 2-1 gjelder tilsvarende.",
+      "required": [
+        "kategori",
+        "rekkefoelge"
+      ],
+      "properties": {
+        "kategori": {
+          "$ref": "#/definitions/FrivilligRegistreringIMerverdiavgiftsregisteret_2"
+        },
+        "rekkefoelge": {
+          "type": "integer"
+        }
+      }
+    },
+    "FrivilligRegistreringIMerverdiavgiftsregisteret_2": {
+      "type": "string",
+      "title": "FrivilligRegistreringIMerverdiavgiftsregisteret"
+    },
+    "UstrukturertInnhold": {
+      "title": "UstrukturertInnhold",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identifikatorInformasjonstype"
+      ],
+      "properties": {
+        "identifikatorInformasjonstype": {
+          "$ref": "#/definitions/IdentifikatorInformasjonstype"
+        },
+        "fritekst": {
+          "type": "string"
+        }
+      }
+    },
+    "IdentifikatorInformasjonstype": {
+      "type": "string",
+      "title": "IdentifikatorInformasjonstype"
+    },
+    "Paategning": {
+      "title": "Påtegning",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identifikatorInformasjonstype",
+        "paategning"
+      ],
+      "properties": {
+        "identifikatorInformasjonstype": {
+          "$ref": "#/definitions/IdentifikatorInformasjonstype"
+        },
+        "paategning": {
+          "type": "string"
+        }
+      }
+    },
+    "FrivilligOrganisasjon": {
+      "title": "FrivilligOrganisasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frivilligOrganisasjonsstatus": {
+          "$ref": "#/definitions/FrivilligOrganisasjonsstatus"
+        },
+        "kontonummer": {
+          "$ref": "#/definitions/Kontonummer"
+        },
+        "foersteGangInnfoert": {
+          "$ref": "#/definitions/Dato"
+        },
+        "slettetDato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "icnpokategorier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IcnpoKategori"
+          },
+          "maxItems": 3
+        },
+        "vedtekter": {
+          "$ref": "#/definitions/VedtekterFrivilligOrganisasjon"
+        },
+        "grasrotandel": {
+          "$ref": "#/definitions/Grasrotandel"
+        },
+        "relasjoner": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Virksomhetsrelasjon"
+          }
+        },
+        "regnskapsrapportering": {
+          "$ref": "#/definitions/Regnskapsrapportering"
+        }
+      }
+    },
+    "FrivilligOrganisasjonsstatus": {
+      "type": "string",
+      "title": "FrivilligOrganisasjonsstatus"
+    },
+    "Kontonummer": {
+      "type": "string",
+      "title": "Kontonummer"
+    },
+    "IcnpoKategori": {
+      "title": "IcnpoKategori",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kategori",
+        "icnpoNummer",
+        "rekkefoelge"
+      ],
+      "properties": {
+        "kategori": {
+          "$ref": "#/definitions/ICNPOKategori"
+        },
+        "icnpoNummer": {
+          "$ref": "#/definitions/ICNPOKategorinummer"
+        },
+        "navn": {
+          "type": "string"
+        },
+        "rekkefoelge": {
+          "type": "integer"
+        }
+      }
+    },
+    "ICNPOKategori": {
+      "type": "string",
+      "title": "ICNPOKategori"
+    },
+    "ICNPOKategorinummer": {
+      "type": "string",
+      "title": "ICNPOKategorinummer"
+    },
+    "VedtekterFrivilligOrganisasjon": {
+      "title": "VedtekterFrivilligOrganisasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frivilligRegistrerteVedtekter": {
+          "type": "boolean"
+        },
+        "sistOppdaterteVedtekter": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Grasrotandel": {
+      "title": "Grasrotandel",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deltarI": {
+          "type": "boolean"
+        },
+        "utestengelsesperiode": {
+          "$ref": "#/definitions/Tidsperiode"
+        }
+      }
+    },
+    "Tidsperiode": {
+      "title": "Tidsperiode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fraDato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "tilDato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Virksomhetsrelasjon": {
+      "title": "Virksomhetsrelasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relasjonsrolleFra",
+        "relasjonsrolleTil",
+        "relasjonTil"
+      ],
+      "properties": {
+        "relasjonsrolleFra": {
+          "type": "string"
+        },
+        "relasjonsrolleTil": {
+          "type": "string"
+        },
+        "relasjonTil": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        }
+      }
+    },
+    "Regnskapsrapportering": {
+      "title": "Regnskapsrapportering",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "harPaatattSegRapporteringsplikt": {
+          "type": "boolean"
+        },
+        "avslutningsdatoForRegnskapsperiode": {
+          "$ref": "#/definitions/Dato"
+        },
+        "sistInnsendteAArsregnskap": {
+          "$ref": "#/definitions/SistInnsendteAArsregnskap"
+        }
+      }
+    },
+    "SistInnsendteAArsregnskap": {
+      "title": "SistInnsendteÅrsregnskap",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "regnskapsaar": {
+          "$ref": "#/definitions/AArstall"
+        },
+        "registreringsdato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "AArstall": {
+      "type": "string",
+      "pattern": "^\\d{4}$",
+      "title": "Årstall"
+    },
+    "Virksomhetsrelasjon_2": {
+      "title": "Virksomhetsrelasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relasjonsrolleFra",
+        "relasjonsrolleTil",
+        "relasjonTil"
+      ],
+      "properties": {
+        "relasjonsrolleFra": {
+          "$ref": "#/definitions/Virksomhetsrelasjonsrolle"
+        },
+        "relasjonsrolleTil": {
+          "$ref": "#/definitions/Virksomhetsrelasjonsrolle"
+        },
+        "relasjonTil": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        }
+      }
+    },
+    "Virksomhetsrelasjonsrolle": {
+      "type": "string",
+      "title": "Virksomhetsrelasjonsrolle"
+    },
+    "Signaturrett": {
+      "title": "Signaturrett",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signaturrettsbestemmelser-",
+        "harSignaturrettFritekst"
+      ],
+      "properties": {
+        "signaturrettsbestemmelser-": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Signaturrettsbestemmelse"
+          },
+          "minItems": 1
+        },
+        "harSignaturrettFritekst": {
+          "type": "boolean"
+        },
+        "signaturrettFritekstTopp": {
+          "type": "string"
+        },
+        "signaturrettFritekstBunn": {
+          "type": "string"
+        }
+      }
+    },
+    "Signaturrettsbestemmelse": {
+      "title": "Signaturrettsbestemmelse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "regel",
+        "rollesett"
+      ],
+      "properties": {
+        "regel": {
+          "$ref": "#/definitions/SignaturrettEllerProkuraregel"
+        },
+        "rollesett": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rollesett"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "SignaturrettEllerProkuraregel": {
+      "title": "SignaturrettEllerProkuraregel",
+      "type": "string",
+      "enum": [
+        "alene",
+        "iFellesskap"
+      ]
+    },
+    "Rollesett": {
+      "title": "Rollesett",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rolletyper"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "minsteAntall"
+          ],
+          "properties": {
+            "minsteAntall": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "required": [
+            "minsteMengdeangivelse"
+          ],
+          "properties": {
+            "minsteMengdeangivelse": {
+              "$ref": "#/definitions/Mengdeangivelse"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "rolletyper": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rolletype"
+          },
+          "minItems": 1
+        },
+        "roller": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rolle"
+          }
+        },
+        "minsteAntall": {
+          "type": "integer"
+        },
+        "minsteMengdeangivelse": {
+          "$ref": "#/definitions/Mengdeangivelse"
+        }
+      }
+    },
+    "Rolletype": {
+      "type": "string",
+      "title": "Rolletype"
+    },
+    "Rolle": {
+      "title": "Rolle",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Definisjon: person eller enhet vi samhandler med",
+      "required": [
+        "rolletype",
+        "rolleinnehavertype"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "virksomhet"
+          ],
+          "properties": {
+            "virksomhet": {
+              "$ref": "#/definitions/Virksomhetsreferanse"
+            }
+          }
+        },
+        {
+          "required": [
+            "person"
+          ],
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        },
+        {
+          "required": [
+            "annenAktoer"
+          ],
+          "properties": {
+            "annenAktoer": {
+              "$ref": "#/definitions/AnnenAktoer"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "rolletype": {
+          "$ref": "#/definitions/Rolletype"
+        },
+        "valgtAv": {
+          "$ref": "#/definitions/ValgtAv"
+        },
+        "rolleinnehavertype": {
+          "$ref": "#/definitions/Rolleinnehavertype"
+        },
+        "harBegrensningIRettsligHandleevne": {
+          "type": "boolean"
+        },
+        "harStadfestetFremtidsfullmakt": {
+          "type": "boolean"
+        },
+        "anmerkningPaaRolleinnehaver": {
+          "$ref": "#/definitions/AnmerkningPaaRolleinnehaver"
+        },
+        "avdelingskontor": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "rolleinnehaverFritekst": {
+          "type": "string"
+        },
+        "rekkefoelge": {
+          "type": "integer"
+        },
+        "ansvarsandel": {
+          "$ref": "#/definitions/Ansvarsandel"
+        },
+        "virksomhet": {
+          "$ref": "#/definitions/Virksomhetsreferanse"
+        },
+        "person": {
+          "$ref": "#/definitions/Person"
+        },
+        "annenAktoer": {
+          "$ref": "#/definitions/AnnenAktoer"
+        }
+      }
+    },
+    "ValgtAv": {
+      "type": "string",
+      "title": "ValgtAv"
+    },
+    "Rolleinnehavertype": {
+      "type": "string",
+      "title": "Rolleinnehavertype"
+    },
+    "AnmerkningPaaRolleinnehaver": {
+      "type": "string",
+      "title": "AnmerkningPåRolleinnehaver"
+    },
+    "Ansvarsandel": {
+      "title": "Ansvarsandel",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prosent": {
+          "$ref": "#/definitions/Desimal"
+        },
+        "broek": {
+          "$ref": "#/definitions/Broek"
+        }
+      }
+    },
+    "Desimal": {
+      "type": "number",
+      "title": "Desimal"
+    },
+    "Broek": {
+      "title": "Brøk",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "teller": {
+          "type": "integer"
+        },
+        "nevner": {
+          "type": "integer"
+        }
+      }
+    },
+    "Virksomhetsreferanse": {
+      "title": "Virksomhetsreferanse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organisasjonsnummer"
+      ],
+      "properties": {
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer",
+          "description": "Utledet fra enhetsidentifikator. Definisjon: nisifret nummer som entydig identifiserer enheter i Enhetsregisteret"
+        }
+      }
+    },
+    "Person": {
+      "title": "Person",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Definisjon: menneske slik det opptrer i en sosial sammenheng.",
+      "required": [
+        "navn"
+      ],
+      "properties": {
+        "foedselsEllerDNummer": {
+          "$ref": "#/definitions/Foedselsnummer"
+        },
+        "foedselsdato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "navn": {
+          "$ref": "#/definitions/Personnavn"
+        }
+      }
+    },
+    "Foedselsnummer": {
+      "type": "string",
+      "title": "Fødselsnummer"
+    },
+    "Personnavn": {
+      "title": "Personnavn",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fornavn",
+        "etternavn"
+      ],
+      "properties": {
+        "fornavn": {
+          "type": "string"
+        },
+        "mellomnavn": {
+          "type": "string"
+        },
+        "etternavn": {
+          "type": "string"
+        }
+      }
+    },
+    "AnnenAktoer": {
+      "title": "AnnenAktør",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "navn"
+      ],
+      "properties": {
+        "navn": {
+          "type": "string"
+        }
+      }
+    },
+    "Mengdeangivelse": {
+      "type": "string",
+      "title": "Mengdeangivelse"
+    },
+    "Prokura": {
+      "title": "Prokura",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prokurabestemmelser",
+        "harProkuraFritekst"
+      ],
+      "properties": {
+        "prokurabestemmelser": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Prokurabestemmelse"
+          },
+          "minItems": 1
+        },
+        "harProkuraFritekst": {
+          "type": "boolean"
+        },
+        "prokuraFritekstTopp": {
+          "type": "string"
+        },
+        "prokuraFritekstBunn": {
+          "type": "string"
+        }
+      }
+    },
+    "Prokurabestemmelse": {
+      "title": "Prokurabestemmelse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "regel",
+        "rollesett"
+      ],
+      "properties": {
+        "regel": {
+          "$ref": "#/definitions/SignaturrettEllerProkuraregel"
+        },
+        "rollesett": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rollesett"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "Vedtekter": {
+      "title": "Vedtekter",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vedtektsdato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "vedtektsfestetFormaal": {
+          "type": "string"
+        }
+      }
+    },
+    "Matrikkelnummer": {
+      "title": "Matrikkelnummer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kommunenummer": {
+          "$ref": "#/definitions/Kommunenummer"
+        },
+        "gaardsnummer": {
+          "type": "integer"
+        },
+        "bruksnummer": {
+          "type": "integer"
+        },
+        "festenummer": {
+          "type": "integer"
+        }
+      }
+    },
+    "OvertakelseOgOverdragelse": {
+      "title": "OvertakelseOgOverdragelse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tidligereEier",
+        "erHeleVirksomhetenOvertatt",
+        "eierskiftedato"
+      ],
+      "properties": {
+        "tidligereEier": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "erHeleVirksomhetenOvertatt": {
+          "type": "boolean"
+        },
+        "eierskiftedato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Aktivitet": {
+      "title": "Aktivitet",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aktivitet"
+      ],
+      "properties": {
+        "datoGyldigFra": {
+          "$ref": "#/definitions/Dato"
+        },
+        "aktivitet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Aktivitetstype"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "Aktivitetstype": {
+      "title": "Aktivitetstype",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rekkefoelge",
+        "tekst"
+      ],
+      "properties": {
+        "rekkefoelge": {
+          "type": "integer"
+        },
+        "kode": {
+          "type": "integer"
+        },
+        "tekst": {
+          "type": "string"
+        }
+      }
+    },
+    "Rolletypegruppe": {
+      "title": "Rolletypegruppe",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rolletypegruppe",
+        "harRolletypegruppeFritekst"
+      ],
+      "properties": {
+        "rolletypegruppe": {
+          "$ref": "#/definitions/Rolletypegruppe_2"
+        },
+        "harRolletypegruppeFritekst": {
+          "type": "boolean"
+        },
+        "rolletypegruppeFritekstTopp": {
+          "type": "string"
+        },
+        "rolletypegruppeFritekstBunn": {
+          "type": "string"
+        },
+        "roller": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rolle"
+          }
+        }
+      }
+    },
+    "Rolletypegruppe_2": {
+      "type": "string",
+      "title": "Rolletypegruppe"
+    }
+  }
+}

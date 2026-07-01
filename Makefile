@@ -266,6 +266,13 @@ roundtrip:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	TEST_FILTER=roundtrip bash tests/test_make.sh "$(SCHEMA)"
 
+# Bruk: make roundtrip-json-schema [JSONSCHEMA=<sti-til-json-schema>]
+roundtrip-json-schema:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make roundtrip-json-schema$(if $(JSONSCHEMA),  JSONSCHEMA=$(JSONSCHEMA),  (alle JSON Schema i src/tmp))$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	TEST_FILTER=roundtrip-json-schema bash tests/test_make.sh "$(JSONSCHEMA)"
+
 validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"

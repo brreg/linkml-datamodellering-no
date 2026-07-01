@@ -1,0 +1,745 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "x-schema-id": "http://schema.brreg.no/BVR/InnrapporteringStiftelsesdokument",
+  "x-major-version": "0",
+  "x-dct-modified": "",
+  "x-adms-status": "underUtvikling",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "BVRStiftelsesdokument_lm_v0",
+  "required": [
+    "stiftelsesdokument"
+  ],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    },
+    "stiftelsesdokument": {
+      "$ref": "#/definitions/Stiftelsesdokument"
+    }
+  },
+  "definitions": {
+    "Stiftelsesdokument": {
+      "title": "Stiftelsesdokument",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "foretaksnavn",
+        "aksjekapital",
+        "aksjensPaalydendeBeloep",
+        "stifter",
+        "styrerolle",
+        "samletAksjeinnskudd",
+        "antallAksjerISelskapet",
+        "unnlateRevisjon"
+      ],
+      "properties": {
+        "foretaksnavn": {
+          "$ref": "#/definitions/Virksomhetsnavn",
+          "description": "Foretaksnavn kan hentes fra vedteker."
+        },
+        "aksjekapital": {
+          "$ref": "#/definitions/BeloepFriDesimal"
+        },
+        "aksjensPaalydendeBeloep": {
+          "$ref": "#/definitions/BeloepFriDesimal"
+        },
+        "stiftelsesutgift": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Stiftelsesutgift"
+          }
+        },
+        "revisor": {
+          "$ref": "#/definitions/Revisor"
+        },
+        "stifter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Stifter"
+          },
+          "minItems": 1
+        },
+        "styrerolle": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Styrerolle"
+          },
+          "minItems": 1
+        },
+        "samletAksjeinnskudd": {
+          "$ref": "#/definitions/SamletAksjeinnskudd"
+        },
+        "overdragelseTilSelskap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OverdragelseTilSelskap"
+          }
+        },
+        "avtaleforpliktelseVedStiftelse": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AvtaleforpliktelseVedStiftelse"
+          }
+        },
+        "saerskiltRettighetEllerFordel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SaerskiltRettighetEllerFordel"
+          }
+        },
+        "antallAksjerISelskapet": {
+          "$ref": "#/definitions/AntallAksjer"
+        },
+        "unnlateRevisjon": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Virksomhetsnavn": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 175,
+      "title": "Virksomhetsnavn"
+    },
+    "BeloepFriDesimal": {
+      "type": "number",
+      "title": "BeløpFriDesimal"
+    },
+    "Stiftelsesutgift": {
+      "title": "Stiftelsesutgift",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "beloep",
+        "beskrivelse",
+        "mottaker"
+      ],
+      "properties": {
+        "beloep": {
+          "$ref": "#/definitions/Beloep"
+        },
+        "beskrivelse": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "mottaker": {
+          "$ref": "#/definitions/AnnenAktoer"
+        }
+      }
+    },
+    "Beloep": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d{2}$",
+      "title": "Beløp"
+    },
+    "Tekst5000": {
+      "type": "string",
+      "maxLength": 5000,
+      "title": "Tekst5000"
+    },
+    "AnnenAktoer": {
+      "title": "AnnenAktør",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "navn",
+        "adresse"
+      ],
+      "properties": {
+        "navn": {
+          "type": "string",
+          "maxLength": 600,
+          "minLength": 1
+        },
+        "adresse": {
+          "$ref": "#/definitions/UstrukturertAdresse"
+        }
+      }
+    },
+    "UstrukturertAdresse": {
+      "title": "UstrukturertAdresse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "poststed",
+        "land"
+      ],
+      "properties": {
+        "adresselinje1": {
+          "$ref": "#/definitions/Adresselinje"
+        },
+        "adresselinje2": {
+          "$ref": "#/definitions/Adresselinje"
+        },
+        "adresselinje3": {
+          "$ref": "#/definitions/Adresselinje"
+        },
+        "poststed": {
+          "$ref": "#/definitions/Poststed"
+        },
+        "land": {
+          "$ref": "#/definitions/Landkode"
+        }
+      }
+    },
+    "Adresselinje": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "title": "Adresselinje"
+    },
+    "Poststed": {
+      "title": "Poststed",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "navn",
+        "postnummer"
+      ],
+      "properties": {
+        "navn": {
+          "$ref": "#/definitions/Adresselinje"
+        },
+        "postnummer": {
+          "$ref": "#/definitions/Postnummer"
+        }
+      }
+    },
+    "Postnummer": {
+      "type": "string",
+      "pattern": "[0-9]{4}",
+      "title": "Postnummer"
+    },
+    "Landkode": {
+      "type": "string",
+      "pattern": "[A-Z]{2}",
+      "minLength": 2,
+      "maxLength": 2,
+      "title": "Landkode"
+    },
+    "Revisor": {
+      "title": "Revisor",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rolletype",
+        "rolleinnehaver"
+      ],
+      "properties": {
+        "rolletype": {
+          "$ref": "#/definitions/Rolletype"
+        },
+        "rolleinnehaver": {
+          "$ref": "#/definitions/Virksomhet"
+        }
+      }
+    },
+    "Rolletype": {
+      "type": "string",
+      "title": "Rolletype"
+    },
+    "Virksomhet": {
+      "title": "Virksomhet",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "navn",
+        "organisasjonsnummer"
+      ],
+      "properties": {
+        "navn": {
+          "$ref": "#/definitions/Virksomhetsnavn"
+        },
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer",
+          "description": "Utledet fra enhetsidentifikator. Definisjon: nisifret nummer som entydig identifiserer enheter i Enhetsregisteret"
+        },
+        "forretningsadresse": {
+          "$ref": "#/definitions/UstrukturertAdresse"
+        },
+        "postadresse": {
+          "$ref": "#/definitions/UstrukturertAdresse"
+        }
+      }
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "pattern": "[2389][0-9]{8}",
+      "title": "Organisasjonsnummer"
+    },
+    "Stifter": {
+      "title": "Stifter",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rolleinnehaver",
+        "aksjetegning",
+        "rolletype"
+      ],
+      "properties": {
+        "rolleinnehaver": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Virksomhet"
+            },
+            {
+              "$ref": "#/definitions/Person"
+            }
+          ]
+        },
+        "fullmektig": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Person"
+          }
+        },
+        "aksjetegning": {
+          "$ref": "#/definitions/Aksjetegning"
+        },
+        "rolletype": {
+          "$ref": "#/definitions/Rolletype"
+        }
+      }
+    },
+    "Person": {
+      "title": "Person",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Definisjon: menneske slik det opptrer i en sosial sammenheng.",
+      "required": [
+        "foedselsEllerDNummer",
+        "personnavn"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "bostedsadresse"
+          ],
+          "properties": {
+            "bostedsadresse": {
+              "$ref": "#/definitions/Bostedsadresse",
+              "description": "The type of property bostedsadresse (GeografiskAdresse) has subclasses. Double-click on this comment to see the class hierarchy. Redifenert av attributtet adresse i Aktør-klassen."
+            }
+          }
+        },
+        {
+          "required": [
+            "annenAdresse"
+          ],
+          "properties": {
+            "annenAdresse": {
+              "$ref": "#/definitions/AnnenAdresse"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "foedselsEllerDNummer": {
+          "$ref": "#/definitions/Foedselsnummer",
+          "description": "Utledet av personidentifikator. Definisjon: elleve-sifret identitetsnummer for person"
+        },
+        "personnavn": {
+          "$ref": "#/definitions/Personnavn"
+        },
+        "bostedsadresse": {
+          "$ref": "#/definitions/Bostedsadresse",
+          "description": "The type of property bostedsadresse (GeografiskAdresse) has subclasses. Double-click on this comment to see the class hierarchy. Redifenert av attributtet adresse i Aktør-klassen."
+        },
+        "annenAdresse": {
+          "$ref": "#/definitions/AnnenAdresse"
+        }
+      }
+    },
+    "Foedselsnummer": {
+      "type": "string",
+      "pattern": "[0-9]{11}",
+      "minLength": 11,
+      "maxLength": 11,
+      "title": "Fødselsnummer"
+    },
+    "Personnavn": {
+      "title": "Personnavn",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fornavn",
+        "etternavn"
+      ],
+      "properties": {
+        "fornavn": {
+          "type": "string"
+        },
+        "mellomnavn": {
+          "type": "string"
+        },
+        "etternavn": {
+          "type": "string"
+        }
+      }
+    },
+    "Bostedsadresse": {
+      "title": "Bostedsadresse",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "AnnenAdresse": {
+      "title": "AnnenAdresse",
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "stedsadresse"
+          ],
+          "properties": {
+            "stedsadresse": {
+              "$ref": "#/definitions/Stedsadresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "utenlandskAdresse"
+          ],
+          "properties": {
+            "utenlandskAdresse": {
+              "$ref": "#/definitions/InternasjonalAdresse"
+            }
+          }
+        },
+        {
+          "required": [
+            "vegadresse"
+          ],
+          "properties": {
+            "vegadresse": {
+              "$ref": "#/definitions/Vegadresse"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "coNavn": {
+          "$ref": "#/definitions/Tekst100"
+        },
+        "stedsadresse": {
+          "$ref": "#/definitions/Stedsadresse"
+        },
+        "utenlandskAdresse": {
+          "$ref": "#/definitions/InternasjonalAdresse"
+        },
+        "vegadresse": {
+          "$ref": "#/definitions/Vegadresse"
+        }
+      }
+    },
+    "Tekst100": {
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Tekst100"
+    },
+    "Stedsadresse": {
+      "title": "Stedsadresse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeografiskAdresse"
+        },
+        {
+          "type": "object",
+          "required": [
+            "stedsnavn",
+            "poststed"
+          ],
+          "properties": {
+            "stedsnavn": {
+              "$ref": "#/definitions/Tekst50"
+            },
+            "poststed": {
+              "$ref": "#/definitions/Poststed"
+            }
+          }
+        }
+      ]
+    },
+    "Tekst50": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "title": "Tekst50"
+    },
+    "GeografiskAdresse": {
+      "title": "GeografiskAdresse",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "InternasjonalAdresse": {
+      "title": "InternasjonalAdresse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeografiskAdresse"
+        },
+        {
+          "type": "object",
+          "required": [
+            "friAdressetekst1",
+            "landkode"
+          ],
+          "properties": {
+            "friAdressetekst1": {
+              "$ref": "#/definitions/Tekst100"
+            },
+            "friAdressetekst2": {
+              "$ref": "#/definitions/Tekst100"
+            },
+            "friAdressetekst3": {
+              "$ref": "#/definitions/Tekst100"
+            },
+            "landkode": {
+              "$ref": "#/definitions/Landkode"
+            }
+          }
+        }
+      ]
+    },
+    "Vegadresse": {
+      "title": "Vegadresse",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "Aksjetegning": {
+      "title": "Aksjetegning",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tegningslinje"
+      ],
+      "properties": {
+        "tegningslinje": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tegningslinje"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "Tegningslinje": {
+      "title": "Tegningslinje",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aksjeinnskudd",
+        "antallAksjer"
+      ],
+      "properties": {
+        "aksjeinnskudd": {
+          "$ref": "#/definitions/BeloepFriDesimal"
+        },
+        "antallAksjer": {
+          "$ref": "#/definitions/AntallAksjer"
+        },
+        "aksjeklasse": {
+          "$ref": "#/definitions/AksjeklasseType"
+        },
+        "annetInnskudd": {
+          "$ref": "#/definitions/AnnetInnskuddEnnPenger"
+        }
+      }
+    },
+    "AntallAksjer": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99999999999999,
+      "title": "AntallAksjer"
+    },
+    "AksjeklasseType": {
+      "title": "AksjeklasseType",
+      "type": "string",
+      "enum": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "AnnetInnskuddEnnPenger": {
+      "title": "AnnetInnskuddEnnPenger",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vilkaar",
+        "antallAksjer"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "akjserINorskeSelskap"
+          ],
+          "properties": {
+            "akjserINorskeSelskap": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AkjserINorskeSelskap"
+              },
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "eiendel"
+          ],
+          "properties": {
+            "eiendel": {
+              "$ref": "#/definitions/Tekst5000"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "vilkaar": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "antallAksjer": {
+          "$ref": "#/definitions/AntallAksjer"
+        },
+        "akjserINorskeSelskap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AkjserINorskeSelskap"
+          },
+          "minItems": 1
+        },
+        "eiendel": {
+          "$ref": "#/definitions/Tekst5000"
+        }
+      }
+    },
+    "AkjserINorskeSelskap": {
+      "title": "AkjserINorskeSelskap",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selskap",
+        "antall"
+      ],
+      "properties": {
+        "selskap": {
+          "$ref": "#/definitions/Virksomhet"
+        },
+        "antall": {
+          "$ref": "#/definitions/AntallAksjer"
+        }
+      }
+    },
+    "Styrerolle": {
+      "title": "Styrerolle",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rolleinnehaver",
+        "rolletype"
+      ],
+      "properties": {
+        "rolleinnehaver": {
+          "$ref": "#/definitions/Person"
+        },
+        "rolletype": {
+          "$ref": "#/definitions/Rolletype"
+        }
+      }
+    },
+    "SamletAksjeinnskudd": {
+      "title": "SamletAksjeinnskudd",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "beloep",
+        "innbetalingsfrist"
+      ],
+      "properties": {
+        "beloep": {
+          "$ref": "#/definitions/BeloepFriDesimal"
+        },
+        "innbetalingsfrist": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Dato": {
+      "type": "string",
+      "format": "date",
+      "pattern": "\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])",
+      "title": "Dato"
+    },
+    "OverdragelseTilSelskap": {
+      "title": "OverdragelseTilSelskap",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vederlag",
+        "vilkaar",
+        "eiendel",
+        "motpart"
+      ],
+      "properties": {
+        "vederlag": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "vilkaar": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "eiendel": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "motpart": {
+          "$ref": "#/definitions/AnnenAktoer"
+        }
+      }
+    },
+    "AvtaleforpliktelseVedStiftelse": {
+      "title": "AvtaleforpliktelseVedStiftelse",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vilkaar",
+        "motpart"
+      ],
+      "properties": {
+        "vilkaar": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "motpart": {
+          "$ref": "#/definitions/AnnenAktoer"
+        }
+      }
+    },
+    "SaerskiltRettighetEllerFordel": {
+      "title": "SærskiltRettighetEllerFordel",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vilkaar",
+        "motpart"
+      ],
+      "properties": {
+        "vilkaar": {
+          "$ref": "#/definitions/Tekst5000"
+        },
+        "motpart": {
+          "$ref": "#/definitions/AnnenAktoer"
+        }
+      }
+    }
+  }
+}

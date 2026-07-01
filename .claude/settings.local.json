@@ -177,7 +177,9 @@
       "Bash(git diff *)",
       "Bash(make domain-gen-data *)",
       "Bash(gh run *)",
-      "mcp__linkml-begrep-utkast__list_los_tema"
+      "mcp__linkml-begrep-utkast__list_los_tema",
+      "Bash(make roundtrip-json-schema *)",
+      "Bash(make mcp-linkml-modell-utkast *)"
     ]
   },
   "enableAllProjectMcpServers": true,

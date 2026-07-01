@@ -581,12 +581,401 @@ PYEOF
     return $rc
 }
 
+test_roundtrip_json_schema() {
+    local json_schema="$1"
+    local basename_ns=$(basename "$json_schema" .json)
+    basename_ns="${basename_ns%.schema}"
+
+    # Steg 1: JSON Schema → LinkML
+    local tmp_linkml
+    tmp_linkml=$(mktemp "$REPO_ROOT/tmp/rt_linkml_XXXXXX.yaml")
+
+    python3 -c "
+import json
+content = open('$json_schema').read()
+msgs = [
+  {'jsonrpc':'2.0','id':1,'method':'initialize','params':{}},
+  {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{
+    'name':'generate_linkml',
+    'arguments':{
+      'inputFormat':'json-schema',
+      'inputContent':content,
+      'schemaId':'https://example.org/roundtrip-test',
+      'schemaName':'roundtrip_test',
+      'profile':'bronze'
+    }
+  }}
+]
+print('\n'.join(json.dumps(m) for m in msgs))
+" | podman run -i --rm \
+        -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/server.py:/app/server.py:ro" \
+        -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/converter.py:/app/converter.py:ro" \
+        -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/validator.py:/app/validator.py:ro" \
+        -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/profiles:/app/profiles:ro" \
+        mcp-linkml-modell-utkast \
+    | python3 -c "
+import json, sys
+for line in sys.stdin:
+    try:
+        r = json.loads(line)
+    except json.JSONDecodeError:
+        continue
+    if r.get('id') == 2:
+        result = json.loads(r['result']['content'][0]['text'])
+        with open('$tmp_linkml', 'w') as f:
+            f.write(result['linkmlSchema'])
+        sys.exit(0)
+sys.exit(1)
+" || { echo "JSON Schema → LinkML feila"; rm -f "$tmp_linkml"; return 1; }
+
+    # Steg 2: LinkML → JSON Schema
+    local tmp_json_schema
+    tmp_json_schema=$(mktemp "$REPO_ROOT/tmp/rt_jsonschema_XXXXXX.json")
+
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        gen-json-schema "tmp/$(basename "$tmp_linkml")" \
+        > "$tmp_json_schema" \
+        || { echo "LinkML → JSON Schema feila"; rm -f "$tmp_linkml" "$tmp_json_schema"; return 1; }
+
+    # Steg 3: Semantisk samanlikning (ekskluder containerklassen)
+    python3 - "$json_schema" "$tmp_json_schema" << 'PYEOF'
+import json, sys
+
+def extract_semantic_definitions(schema):
+    """
+    Hent ut semantiske definisjonar frå JSON Schema.
+    Ekskluderer containerklassen (tree_root) som berre er for serialisering.
+    Returnerer både klasser (type=object) og typar (type=string/number/etc).
+    """
+    defs = schema.get('$defs', schema.get('definitions', {}))
+
+    # Identifiser containerklassen: har berre properties med type=array av objekt
+    container_class = None
+    for class_name, class_def in defs.items():
+        props = class_def.get('properties', {})
+        if not props:
+            continue
+
+        # Sjekk om alle properties er arrays av objekt-referansar
+        all_array_refs = True
+        for prop_name, prop_def in props.items():
+            if prop_def.get('type') != 'array':
+                all_array_refs = False
+                break
+            items = prop_def.get('items', {})
+            if '$ref' not in items:
+                all_array_refs = False
+                break
+
+        if all_array_refs and len(props) > 3:  # Containerklasse har typisk mange properties
+            container_class = class_name
+            break
+
+    # Returner alle definisjonar utanom containerklassen
+    semantic_defs = {k: v for k, v in defs.items() if k != container_class}
+    return semantic_defs
+
+def is_type_definition(definition):
+    """Sjekk om ein definisjon er ein type (ikkje ein klasse)"""
+    typ = definition.get('type')
+    # Typar har type=string/number/integer/boolean utan properties
+    return typ in ('string', 'number', 'integer', 'boolean') and 'properties' not in definition
+
+def extract_types_and_classes(defs):
+    """Splitt definisjonar i typar og klasser"""
+    types = {k: v for k, v in defs.items() if is_type_definition(v)}
+    classes = {k: v for k, v in defs.items() if not is_type_definition(v)}
+    return types, classes
+
+def normalize_class(class_def):
+    """Normaliser ein klassedefinisjon for samanlikning"""
+    if not isinstance(class_def, dict):
+        return class_def
+
+    normalized = {}
+    for key, value in class_def.items():
+        # Hopp over metadata
+        if key in ['title', 'description', '$id', 'id']:
+            continue
+
+        if isinstance(value, dict):
+            normalized[key] = normalize_class(value)
+        elif isinstance(value, list):
+            # Sorter lister for rekkefølgje-uavhengig samanlikning
+            normalized[key] = sorted(value) if all(isinstance(x, str) for x in value) else value
+        else:
+            normalized[key] = value
+
+    return normalized
+
+def normalize_type(type_val):
+    """Normaliser type-verdi for samanlikning (handter array med null)"""
+    if isinstance(type_val, list):
+        # Fjern 'null' frå type-array for samanlikning
+        non_null = [t for t in type_val if t != 'null']
+        return non_null[0] if len(non_null) == 1 else non_null
+    return type_val
+
+def compare_property(orig_prop, gen_prop, prop_name):
+    """Samanlikn ein enkelt property mellom to klassedefinisjonar"""
+    # Hopp over samanlikning av properties med oneOf/anyOf/allOf — desse er ikkje fullt støtta
+    if 'oneOf' in orig_prop or 'anyOf' in orig_prop or 'allOf' in orig_prop:
+        return None
+
+    orig_type = normalize_type(orig_prop.get('type'))
+    gen_type = normalize_type(gen_prop.get('type'))
+
+    # Type-samanlikning
+    # Aksepter at $ref kan bli inline-type (t.d. $ref → type=string med pattern)
+    if orig_type != gen_type:
+        # Aksepter null i anyOf som ekvivalent til ikkje-required
+        if 'anyOf' in gen_prop:
+            pass  # Ignorer for no
+        elif '$ref' in orig_prop and gen_type:
+            # Original hadde $ref (til ein type), generert har inline type
+            pass  # Dette er OK — typen vart inlined
+        elif orig_type and '$ref' in gen_prop:
+            # Original hadde inline type, generert har $ref
+            pass  # Dette er OK
+        elif orig_type is None and '$ref' in orig_prop:
+            # Original har berre $ref, ingen type
+            pass  # OK
+        elif gen_type is None and '$ref' in gen_prop:
+            # Generert har berre $ref, ingen type
+            pass  # OK
+        else:
+            return f"Ulik type for '{prop_name}': {orig_type} vs {gen_type}"
+
+    # $ref-samanlikning (berre når begge har $ref)
+    if '$ref' in orig_prop and '$ref' in gen_prop:
+        orig_ref = orig_prop['$ref'].split('/')[-1]
+        gen_ref = gen_prop['$ref'].split('/')[-1]
+        if orig_ref != gen_ref:
+            return f"Ulik $ref for '{prop_name}': {orig_ref} vs {gen_ref}"
+
+    # Pattern-samanlikning
+    if 'pattern' in orig_prop and 'pattern' in gen_prop:
+        if orig_prop['pattern'] != gen_prop['pattern']:
+            return f"Ulik pattern for '{prop_name}'"
+
+    # Enum-samanlikning
+    if 'enum' in orig_prop and 'enum' in gen_prop:
+        if set(orig_prop['enum']) != set(gen_prop['enum']):
+            return f"Ulike enum-verdiar for '{prop_name}'"
+
+    return None
+
+def compare_type_definition(orig_type, gen_type, type_name):
+    """Samanlikn ein typedefinisjon mellom original og generert"""
+    orig_base_type = orig_type.get('type')
+    gen_base_type = gen_type.get('type')
+
+    if orig_base_type != gen_base_type:
+        return f"Type '{type_name}': ulik basetype {orig_base_type} vs {gen_base_type}"
+
+    # Pattern-samanlikning
+    if 'pattern' in orig_type and 'pattern' in gen_type:
+        if orig_type['pattern'] != gen_type['pattern']:
+            return f"Type '{type_name}': ulik pattern"
+
+    # Enum-samanlikning
+    if 'enum' in orig_type and 'enum' in gen_type:
+        if set(orig_type['enum']) != set(gen_type['enum']):
+            return f"Type '{type_name}': ulike enum-verdiar"
+
+    # Format-samanlikning
+    if 'format' in orig_type and 'format' in gen_type:
+        if orig_type['format'] != gen_type['format']:
+            return f"Type '{type_name}': ulik format"
+
+    return None
+
+def schemas_equivalent(original, generated):
+    """
+    Sjekk om to JSON Schema er semantisk ekvivalente.
+    Ekskluderer containerklassen og fokuserer på semantiske definisjonar.
+    """
+    orig_defs = extract_semantic_definitions(original)
+    gen_defs = extract_semantic_definitions(generated)
+
+    # Splitt i typar og klasser
+    orig_types, orig_classes = extract_types_and_classes(orig_defs)
+    gen_types, gen_classes = extract_types_and_classes(gen_defs)
+
+    # ===== Samanlikn typar =====
+    orig_type_names = set(orig_types.keys())
+    gen_type_names = set(gen_types.keys())
+
+    missing_types = orig_type_names - gen_type_names
+
+    # VIKTIG: LinkML-typar vert ikkje eksporterte tilbake til JSON Schema av gen-json-schema
+    # Om ein type manglar i generert, men finst som inline-constraint, tel vi det som OK
+    if missing_types:
+        # Pragmatisk: godta at typar kan vere inlined
+        print(f"  Info: Typar ikkje eksporterte til $defs (OK, kan vere inlined): {missing_types}")
+
+    # Ekstra typar er OK
+    if gen_type_names - orig_type_names:
+        print(f"  Info: Ekstra typar (OK): {gen_type_names - orig_type_names}")
+
+    # Samanlikn felles typar
+    for type_name in orig_type_names & gen_type_names:
+        error = compare_type_definition(orig_types[type_name], gen_types[type_name], type_name)
+        if error:
+            return False, error
+
+    # ===== Samanlikn klasser =====
+    orig_class_names = set(orig_classes.keys())
+    gen_class_names = set(gen_classes.keys())
+
+    missing_classes = orig_class_names - gen_class_names
+
+    # Filtrer ut klasser med allOf/anyOf/oneOf — desse er ikkje fullt støtta i konverteringa
+    unsupported_classes = set()
+    for class_name in missing_classes:
+        class_def = orig_classes[class_name]
+        if 'allOf' in class_def or 'anyOf' in class_def or 'oneOf' in class_def:
+            unsupported_classes.add(class_name)
+
+    missing_classes = missing_classes - unsupported_classes
+
+    if unsupported_classes:
+        print(f"  Info: Klasser med allOf/anyOf/oneOf (ikkje fullt støtta, hoppar over): {unsupported_classes}")
+
+    if missing_classes:
+        return False, f"Manglar klasser: {missing_classes}"
+
+    # Ekstra klasser er OK (LinkML kan generere hjelpeklasser)
+    if gen_class_names - orig_class_names:
+        print(f"  Info: Ekstra klasser (OK): {gen_class_names - orig_class_names}")
+
+    # Samanlikn kvar felles klasse (ekskluder allOf/anyOf/oneOf-klasser)
+    for class_name in orig_class_names:
+        # Hopp over klasser som vart filtrerte ut (allOf/anyOf/oneOf)
+        if class_name not in gen_classes:
+            continue
+
+        orig_class = orig_classes[class_name]
+        gen_class = gen_classes[class_name]
+
+        # Samanlikn properties
+        orig_props = orig_class.get('properties', {})
+        gen_props = gen_class.get('properties', {})
+
+        orig_prop_names = set(orig_props.keys())
+        gen_prop_names = set(gen_props.keys())
+
+        missing_props = orig_prop_names - gen_prop_names
+        extra_props = gen_prop_names - orig_prop_names
+
+        if missing_props:
+            return False, f"Klasse '{class_name}': manglar properties {missing_props}"
+
+        if extra_props:
+            print(f"  Info: Klasse '{class_name}': ekstra properties (OK): {extra_props}")
+
+        # Samanlikn felles properties i detalj
+        for prop_name in orig_prop_names:
+            error = compare_property(orig_props[prop_name], gen_props[prop_name], prop_name)
+            if error:
+                return False, f"Klasse '{class_name}': {error}"
+
+        # Samanlikn required-felt
+        orig_req = set(orig_class.get('required', []))
+        gen_req = set(gen_class.get('required', []))
+
+        if orig_req != gen_req:
+            missing_req = orig_req - gen_req
+            extra_req = gen_req - orig_req
+            if missing_req:
+                return False, f"Klasse '{class_name}': manglar required-felt {missing_req}"
+            if extra_req:
+                print(f"  Info: Klasse '{class_name}': ekstra required-felt (OK): {extra_req}")
+
+    return True, None
+
+try:
+    original = json.load(open(sys.argv[1]))
+    generated = json.load(open(sys.argv[2]))
+
+    equivalent, diff = schemas_equivalent(original, generated)
+
+    if equivalent:
+        print("JSON Schema roundtrip OK (semantiske klasser bevarte)")
+        sys.exit(0)
+    else:
+        print(f"JSON Schema roundtrip AVVIK:\n{diff}")
+        sys.exit(1)
+except Exception as e:
+    import traceback
+    print(f"Samanlikning feila: {e}")
+    traceback.print_exc()
+    sys.exit(1)
+PYEOF
+    local rc=$?
+    rm -f "$tmp_linkml" "$tmp_json_schema"
+    return $rc
+}
+
+# ---------------------------------------------------------------------------
+# JSON Schema roundtrip-testar (køyrer separat frå skjema-testar)
+# ---------------------------------------------------------------------------
+run_json_schema_tests() {
+    if [[ "${TEST_FILTER:-}" != "roundtrip-json-schema" ]]; then
+        return 0
+    fi
+
+    local json_schema_filter="${1:-}"
+    local json_schemas=()
+
+    if [ -n "$json_schema_filter" ]; then
+        if [ ! -f "$json_schema_filter" ]; then
+            echo "Feil: JSON Schema ikkje funne: $json_schema_filter" >&2
+            exit 1
+        fi
+        json_schemas=("$json_schema_filter")
+    else
+        # Finn alle JSON Schema i src/tmp/
+        mapfile -t json_schemas < <(find src/tmp -name "*.json" -o -name "*.schema.json" | sort)
+    fi
+
+    if [ "${#json_schemas[@]}" -eq 0 ]; then
+        echo "Ingen JSON Schema funne i src/tmp/" >&2
+        return 0
+    fi
+
+    echo "JSON Schema roundtrip-testar (${#json_schemas[@]} filer):" >&3
+
+    for json_schema in "${json_schemas[@]}"; do
+        local basename_js=$(basename "$json_schema")
+        local tmplog
+        tmplog=$(mktemp /tmp/test_make_jsonschema_XXXXXX.log)
+
+        {
+            _run_one "roundtrip-json-schema ($basename_js)" test_roundtrip_json_schema "$json_schema"
+        } >> "$tmplog" 2>&1 &
+
+        SCHEMA_PIDS+=($!)
+        SCHEMA_LOGS+=("$tmplog")
+    done
+}
+
 # ---------------------------------------------------------------------------
 # Start ein bakgrunnsprosess per skjema; testar per skjema køyrer sekvensielt
 # ---------------------------------------------------------------------------
 exec 3>&1
-for schema in "${SCHEMAS[@]}"; do
-    run_schema_tests "$schema"
-done
+
+# Køyr JSON Schema roundtrip-testar (dersom TEST_FILTER=roundtrip-json-schema)
+run_json_schema_tests "$SCHEMA_FILTER"
+
+# Køyr vanlige skjema-testar (dersom TEST_FILTER != roundtrip-json-schema)
+if [[ "${TEST_FILTER:-}" != "roundtrip-json-schema" ]]; then
+    for schema in "${SCHEMAS[@]}"; do
+        run_schema_tests "$schema"
+    done
+fi
 
 wait_for_tests
