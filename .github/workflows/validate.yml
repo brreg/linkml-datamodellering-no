@@ -1,5 +1,14 @@
 name: Validate
 
+# Validerer alle skjema, eksempelfiler og datafiler mot bronze-policy og
+# publiseringspolicyer. Validation-loggar vert lagra til validation/logs/
+# og committed til main (berre på push, ikkje PR).
+#
+# Loggar vert lagra per versjon i validation/logs/<domain>/<model>/<version>/:
+# - bronze.json: skjema-validering mot bronze-policy
+# - examples.json: eksempelfil-validering
+# - data-<katalog>.json: datafil-validering mot publiseringspolicy
+
 on:
   workflow_dispatch:
   push:
@@ -167,3 +176,47 @@ jobs:
       - name: Merk validering som vellykka
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: touch .validated-${{ matrix.domain }}
+
+      - name: Last opp validation-loggar
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: validation-logs-${{ matrix.domain }}
+          path: validation/logs/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  commit-validation-logs:
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Last ned validation-loggar frå alle domene
+        uses: actions/download-artifact@v8
+        with:
+          pattern: validation-logs-*
+          path: validation/logs
+          merge-multiple: true
+
+      - name: Commit og push validation-loggar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -d "validation/logs" ] && [ -n "$(ls -A validation/logs 2>/dev/null)" ]; then
+            git add validation/logs/
+            if ! git diff --cached --quiet; then
+              git commit -m "chore(validering): oppdater validation-loggar [skip ci]"
+              git push
+            else
+              echo "Ingen nye validation-loggar å committe"
+            fi
+          else
+            echo "Ingen validation-loggar å committe"
+          fi

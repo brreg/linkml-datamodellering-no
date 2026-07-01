@@ -1,7 +1,22 @@
 name: Release Please
 
+# Automatisk release-flyt:
+# 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
+#    → release-please opprettar/oppdaterer release-PR automatisk
+# 2. Brukar mergar release-PR
+#    → release-please opprettar release med tags
+#    → capture-validation og update-dates køyrer automatisk
+#
+# Manuell trigger via workflow_dispatch er framleis tilgjengeleg for admin.
+
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/linkml/**/*-schema.yaml'
+  pull_request:
+    types: [closed]
 
 jobs:
   release-please:
@@ -13,11 +28,37 @@ jobs:
     outputs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
-      # Manuelt trigga workflow brukar GITHUB_TOKEN (treng ikkje PAT).
-      # Workflow må triggerast av ein admin via Actions → Release Please → Run workflow.
-      # Admin må godkjenne og merge release-PR manuelt etter at workflow har oppretta den.
-      # Versjonsbump vert automatisk bestemt frå Conventional Commits (feat/fix/BREAKING).
+      - uses: actions/checkout@v7
+        if: github.event_name == 'pull_request'
+        with:
+          fetch-depth: 0
+
+      - name: Sjekk om dette er ein merga release-PR
+        id: check_release_pr
+        if: github.event_name == 'pull_request'
+        run: |
+          if [ "${{ github.event.pull_request.merged }}" != "true" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "PR vart ikkje merga — hoppar over"
+            exit 0
+          fi
+          LABELS=$(gh pr view ${{ github.event.pull_request.number }} \
+                   --json labels --jq '.labels[].name')
+          if ! echo "$LABELS" | grep -q 'autorelease: pending'; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Dette er ikkje ein release-PR — hoppar over"
+            exit 0
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+          echo "Dette er ein merga release-PR — held fram med release-oppretting"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Køyrer release-please på push til main (opprettar/oppdaterer release-PR)
+      # eller når release-PR vert merga (opprettar faktisk release med tags).
+      # Hoppar over dersom dette er ein PR som ikkje er ein release-PR.
       - uses: googleapis/release-please-action@v5
+        if: github.event_name != 'pull_request' || steps.check_release_pr.outputs.skip != 'true'
         id: release-please
         with:
           config-file: release-please-config.json
@@ -31,7 +72,7 @@ jobs:
         run: |
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
           echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
-          echo "Gå til PR-en, verifiser endringar, og merge manuelt når validate.yml har passert."
+          echo "Gå til PR-en, verifiser endringar, og merge når du er klar."
 
   capture-validation:
     needs: release-please
