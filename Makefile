@@ -944,6 +944,12 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
  or print('Skriv til:', out) \
  for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
 "
+	@# Automatisk roundtrip-test for JSON Schema
+	@if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \
+		echo "$(CLR_STEP)→ Køyrer roundtrip-test for $(SCHEMA)$(CLR_RST)"; \
+		$(MAKE) roundtrip-json-schema JSONSCHEMA="$(SCHEMA)" || \
+		(echo "$(CLR_ERR)Roundtrip-test feila — sjå logg for detaljar$(CLR_RST)" && exit 1); \
+	fi
 
 mcp-generate: mcp-linkml-modell-utkast
 	@echo "Åtvaring: 'make mcp-generate' er omdøypt til 'make mcp-linkml-modell-utkast'" >&2
