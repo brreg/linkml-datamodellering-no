@@ -1,10 +1,10 @@
 {
   "src/linkml/ap-no/cpsv-ap-no": "1.0.1",
-  "src/linkml/ap-no/dcat-ap-no": "2.1.1",
-  "src/linkml/ap-no/dqv-ap-no": "1.1.2",
-  "src/linkml/ap-no/modelldcat-ap-no": "1.0.2",
-  "src/linkml/ap-no/skos-ap-no": "2.1.0",
-  "src/linkml/begrepskatalog/brreg-begrepskatalog": "1.0.1",
+  "src/linkml/ap-no/dcat-ap-no": "2.1.2",
+  "src/linkml/ap-no/dqv-ap-no": "1.2.0",
+  "src/linkml/ap-no/modelldcat-ap-no": "1.1.0",
+  "src/linkml/ap-no/skos-ap-no": "2.2.0",
+  "src/linkml/begrepskatalog/brreg-begrepskatalog": "1.1.0",
   "src/linkml/fair/fair-metadata": "1.0.1",
   "src/linkml/fint/fint-administrasjon": "4.0.21",
   "src/linkml/fint/fint-arkiv": "4.0.21",
@@ -13,12 +13,12 @@
   "src/linkml/fint/fint-personvern": "4.0.21",
   "src/linkml/fint/fint-ressurs": "4.0.21",
   "src/linkml/fint/fint-utdanning": "4.0.21",
-  "src/linkml/modellkatalog/brreg-modellkatalog": "1.0.1",
-  "src/linkml/referanse": "1.0.1",
+  "src/linkml/modellkatalog/brreg-modellkatalog": "1.1.0",
+  "src/linkml/referanse": "1.0.2",
   "src/linkml/ngr/ngr-adresse": "1.0.1",
   "src/linkml/ngr/ngr-eiendom": "1.0.1",
   "src/linkml/ngr/ngr-person": "1.0.1",
   "src/linkml/ngr/ngr-virksomhet": "1.0.1",
-  "src/linkml/oreg/register-over-aksjeeiere": "1.0.1",
-  "src/linkml/samt/samt-bu": "1.0.2"
+  "src/linkml/oreg/register-over-aksjeeiere": "1.1.0",
+  "src/linkml/samt/samt-bu": "1.0.3"
 }
