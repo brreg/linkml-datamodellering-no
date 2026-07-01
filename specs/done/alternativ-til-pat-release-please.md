@@ -94,7 +94,7 @@ Gjer release-prosessen manuell — ein workflow som kan triggerast via `workflow
 #### Steg:
 
 - ✅ **C1:** Endre `release-please.yml` til å vere `workflow_dispatch` i staden for `on: push`
-  - Lagt til `workflow_dispatch` med `release-type` input (patch/minor/major)
+  - Lagt til `workflow_dispatch` (utan inputs — versjonering følgjer Conventional Commits automatisk)
   - Fjerna `on: push: branches: [main]`
 
 - ✅ **C2:** Bruk standard `GITHUB_TOKEN` (treng ikkje PAT sidan workflow er godkjent manuelt)
@@ -103,9 +103,11 @@ Gjer release-prosessen manuell — ein workflow som kan triggerast via `workflow
   - Fjerna auto-merge-steg (admin mergar PR manuelt)
 
 - ✅ **C3:** Dokumenter i `CONTRIBUTING.md` korleis ein utløyser ein release:
-  - Lagt til "Korleis utløyse ein release"-seksjon med 8 steg
-  - Forklart release-type-val (patch/minor/major)
+  - Lagt til "Korleis utløyse ein release"-seksjon med 9 steg
+  - Forklart at versjonering følgjer Conventional Commits automatisk (fix/feat/BREAKING)
   - Dokumentert at admin må godkjenne og merge PR manuelt
+
+**Bugfix (2026-07-01):** Fjerna ugyldig `release-type` parameter frå `googleapis/release-please-action@v5` — versjonering vert automatisk bestemt frå Conventional Commits, ikkje som workflow-input.
 
 **Fordel:** Ingen PAT/App nødvendig, enklare oppsett
 
