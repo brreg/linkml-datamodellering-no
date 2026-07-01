@@ -333,6 +333,8 @@ classes:
 
 Hovudregel: **`snake_case`**, norsk bokmål (t.d. `kommunenummer_ref`, `adressenavn_tekst`).
 
+**Format:** `snake_case` tillét berre små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`). Dette vert håndheva av bronze-policy-sjekken `slot_names_snake_case`.
+
 **Unntak — FINT-skjema:** arvar namgjeving frå FINT API-spesifikasjonen og brukar `camelCase`
 (t.d. `kildesystemId`, `rolleNavn`). Dette er eit bevisst val, ikkje ein feil.
 

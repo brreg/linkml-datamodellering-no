@@ -76,8 +76,10 @@ checks:
   slot_names_snake_case:
     severity: warning
     description: >
-      Slotnamn skal bruke liten forbokstav og understrek (snake_case). Følgjer
-      Digdir-regel 3 (Navne- og skrivekonvensjoner).
+      Slotnamn skal bruke liten forbokstav og understrek (snake_case): berre a-z,
+      0-9 og _ er tillate. Bindestreker er ikkje tillate — bruk samansette ord
+      (t.d. epost, epostadresse) eller understrek. Følgjer Digdir-regel 3
+      (Navne- og skrivekonvensjoner).
     check: slot_names_snake_case
     exclude_schemas:
       - fint-administrasjon
