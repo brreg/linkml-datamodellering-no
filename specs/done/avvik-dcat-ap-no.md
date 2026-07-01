@@ -246,7 +246,7 @@ classes:
 
 ---
 
-### DA5 — Legg til manglande valfrie slots (Avvik 4–7) ✓
+### DA5 — Legg til manglande valfrie slots (Avvik 4-7) ✓
 
 Lågprioritetssteg. Modeller desse som nye slots og legg dei til relevante klasser:
 
@@ -278,7 +278,7 @@ av Felles datakatalog si innhausting. Oppdater `CLAUDE.md` med verifisert mønst
 | 2 | DA2: `Aktor.identifikator_literal` → Anbefalt | `dcat-ap-no-schema.yaml` | — |
 | 3 | DA3: `Standard.versjonsnummer` → `versjon` | `dqv-ap-no-schema.yaml` | — |
 | 4 | DA4: `frekvens` på `Datasett` | `dcat-ap-no-schema.yaml` | — |
-| 5 | DA5: Valfrie slots (spatialResolution, versjonslenkjer osb.) | `dcat-ap-no-schema.yaml` | DA1–DA4 |
+| 5 | DA5: Valfrie slots (spatialResolution, versjonslenkjer osb.) | `dcat-ap-no-schema.yaml` | DA1-DA4 |
 
 ---
 

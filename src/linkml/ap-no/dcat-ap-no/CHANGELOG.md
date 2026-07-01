@@ -26,5 +26,5 @@
 ### Bug Fixes
 
 * **dqv-ap-no:** løys strukturelle avvik mot DQV-AP-NO-spesifikasjonen ([1ad5d1c](https://github.com/brreg/linkml-datamodellering-no/commit/1ad5d1c59e9e593d03d2d7e1967acba24de64033))
-* **los:** rett alle Los-URI-avvik og legg til rettleiing (LO1–LO5) ([7673852](https://github.com/brreg/linkml-datamodellering-no/commit/7673852bf911b8b8d0935aae6a471e9d1e79c485))
+* **los:** rett alle Los-URI-avvik og legg til rettleiing (LO1-LO5) ([7673852](https://github.com/brreg/linkml-datamodellering-no/commit/7673852bf911b8b8d0935aae6a471e9d1e79c485))
 * **schemas,mcp-validator:** etterlevingsopprett mot Digdir felles modelleringsreglar (regel 6-11, 15) ([72aaaf2](https://github.com/brreg/linkml-datamodellering-no/commit/72aaaf2990834bf37a84cd514798141559e1ffef))

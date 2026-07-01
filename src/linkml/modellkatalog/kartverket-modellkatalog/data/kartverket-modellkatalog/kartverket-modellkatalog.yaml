@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog
   tittel:
-  - Kartverket – Modellkatalog
+  - Kartverket - Modellkatalog
   beskrivelse:
   - 'TODO: legg til skildring av katalogen'
   identifikator_literal: https://data.norge.no/modellkatalog/kartverket-modellkatalog
@@ -20,7 +20,7 @@ modellkataloger:
 informasjonsmodeller:
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse
   tittel:
-  - Nasjonale grunndata – Adresse
+  - Nasjonale grunndata - Adresse
   beskrivelse:
   - Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer
     Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og
@@ -61,7 +61,7 @@ informasjonsmodeller:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Bruksenhet
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom
   tittel:
-  - Nasjonale grunndata – Eiendom
+  - Nasjonale grunndata - Eiendom
   beskrivelse:
   - Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer
     Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta
@@ -236,7 +236,7 @@ objekttyper:
   tittel:
   - Grunnkrets
   beskrivelse:
-  - Ei grunnkrets – minste geografiske eining i statistisk inndeling.
+  - Ei grunnkrets - minste geografiske eining i statistisk inndeling.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/grunnkretsnummer
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/namn
@@ -389,7 +389,7 @@ objekttyper:
   tittel:
   - Anleggseiendom
   beskrivelse:
-  - Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire grunneigedommar
+  - Eit volum - ein bygning eller konstruksjon - oppretta frå ei eller fleire grunneigedommar
     eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar.
     Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn.
   har_egenskap:
@@ -719,7 +719,7 @@ attributter:
   tittel:
   - bokstav
   beskrivelse:
-  - Husbokstav (A–Å) som skil einingar med same husnummer.
+  - Husbokstav (A-Å) som skil einingar med same husnummer.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -971,7 +971,7 @@ attributter:
   tittel:
   - festenummer_verdi
   beskrivelse:
-  - Festenummer (0..1 – berre for festegrunn).
+  - Festenummer (0..1 - berre for festegrunn).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -980,7 +980,7 @@ attributter:
   tittel:
   - seksjonsnummer_verdi
   beskrivelse:
-  - Seksjonsnummer (0..1 – berre for eigarseksjonar).
+  - Seksjonsnummer (0..1 - berre for eigarseksjonar).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:

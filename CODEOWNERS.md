@@ -4,7 +4,7 @@ organizations:
     name: Brønnøysundregistra
     org_uri: https://data.norge.no/organizations/974760673
     catalog_slug: brreg-modellkatalog
-    catalog_title: "Brønnøysundregistra – Modellkatalog"
+    catalog_title: "Brønnøysundregistra - Modellkatalog"
     contact_uri: https://brreg.no/kontakt/modellforvaltning
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
@@ -16,7 +16,7 @@ organizations:
     name: Digitaliseringsdirektoratet
     org_uri: https://data.norge.no/organizations/991825827
     catalog_slug: digdir-modellkatalog
-    catalog_title: "Digitaliseringsdirektoratet – Modellkatalog"
+    catalog_title: "Digitaliseringsdirektoratet - Modellkatalog"
     contact_uri: https://www.digdir.no/om-oss/kontakt-oss/887
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
@@ -27,7 +27,7 @@ organizations:
     # Verifiser orgnr mot Brønnøysundregistrene: søk på "Novari IKS"
     org_uri: https://data.norge.no/organizations/985870714
     catalog_slug: novari-modellkatalog
-    catalog_title: "Novari IKS – Modellkatalog (FINT)"
+    catalog_title: "Novari IKS - Modellkatalog (FINT)"
     contact_uri: https://novari.no/kontakt
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
@@ -38,7 +38,7 @@ organizations:
     # KS Digital er ein del av KS (Kommunesektorens organisasjon). Orgnr for KS.
     org_uri: https://data.norge.no/organizations/971032146
     catalog_slug: ksdigital-modellkatalog
-    catalog_title: "KS Digital – Modellkatalog"
+    catalog_title: "KS Digital - Modellkatalog"
     contact_uri: https://www.ks.no/fagomrader/digitalisering/
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
@@ -48,7 +48,7 @@ organizations:
     name: Skatteetaten
     org_uri: https://data.norge.no/organizations/974761076
     catalog_slug: skatteetaten-modellkatalog
-    catalog_title: "Skatteetaten – Modellkatalog"
+    catalog_title: "Skatteetaten - Modellkatalog"
     contact_uri: https://www.skatteetaten.no/kontakt/
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
@@ -58,7 +58,7 @@ organizations:
     name: Kartverket
     org_uri: https://data.norge.no/organizations/971040238
     catalog_slug: kartverket-modellkatalog
-    catalog_title: "Kartverket – Modellkatalog"
+    catalog_title: "Kartverket - Modellkatalog"
     contact_uri: https://www.kartverket.no/om-kartverket/kontakt-oss/
     github_team: "@AudunVindenesEggeBR"
     path_patterns:

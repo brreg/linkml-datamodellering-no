@@ -6,9 +6,9 @@ Tre build-jobbar køyrer ved kvar push og PR — uansett om Dockerfile eller avh
 
 | Jobb | Image | Typisk byggtid | Endrar seg når |
 |------|-------|---------------|----------------|
-| `build-linkml` | `linkml-local` | ~4–5 min | `Dockerfile.linkml` endrar seg |
-| `build-python` | `python-pytest` | ~1–2 min | `Dockerfile.python` eller `requirements-python-test.txt` endrar seg |
-| `build-validator` | `mcp-linkml-validator` | ~2–3 min | `Dockerfile` eller `requirements.txt` endrar seg |
+| `build-linkml` | `linkml-local` | ~4-5 min | `Dockerfile.linkml` endrar seg |
+| `build-python` | `python-pytest` | ~1-2 min | `Dockerfile.python` eller `requirements-python-test.txt` endrar seg |
+| `build-validator` | `mcp-linkml-validator` | ~2-3 min | `Dockerfile` eller `requirements.txt` endrar seg |
 | `docs-build-docker` (i publish) | `mkdocs-local` | ~1 min | `Dockerfile.mkdocs` endrar seg |
 
 Desse Dockerfilane er svært stabile — dei fleste pushar rører ikkje avhengigheitene. Likevel byggast alle images på nytt kvar gong.
@@ -111,11 +111,11 @@ GitHub Actions-cache er avgrensa til **10 GB per repository**. Estimerte komprim
 
 | Image | Estimert storleik (zstd) |
 |-------|--------------------------|
-| `linkml-local` | ~250–350 MB |
-| `python-pytest` | ~40–60 MB |
-| `mcp-linkml-validator` | ~150–250 MB |
-| `mkdocs-local` | ~80–120 MB |
-| **Totalt** | **~520–780 MB** |
+| `linkml-local` | ~250-350 MB |
+| `python-pytest` | ~40-60 MB |
+| `mcp-linkml-validator` | ~150-250 MB |
+| `mkdocs-local` | ~80-120 MB |
+| **Totalt** | **~520-780 MB** |
 
 Godt innanfor 10 GB-grensa, sjølv med fleire nøklar frå ulike branches.
 

@@ -233,7 +233,7 @@ src/linkml/<domain>/<modell>/data/<datafil>/<datafil>.yaml
 |---|---|---|
 | `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse` |
 | `id` | Absolutt HTTPS-URL utan avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse` |
-| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
+| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata - Adresse` |
 | `default_prefix` | Same som `id` med avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
 

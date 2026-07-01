@@ -210,7 +210,7 @@ Betre ville vere `range: KatalogisertRessurs` (den abstrakte basisklassen i sche
 ### 6 — `Datasett`-klassen kommentert ut — `er_i_samsvar_med`-kommentar er forvirrande
 
 I `dqv-ap-no-schema.yaml` er `Datasett`-klassen og `er_i_samsvar_med`-sloten
-begge kommenterte ut (linje 49–68 og 257–261). Kommentarane antydar at desse
+begge kommenterte ut (linje 49-68 og 257-261). Kommentarane antydar at desse
 eigenskapane kjem frå `dcat-ap-no`.
 
 I praksis:

@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
   tittel:
-  - KS Digital – Modellkatalog
+  - KS Digital - Modellkatalog
   beskrivelse:
   - 'TODO: legg til skildring av katalogen'
   identifikator_literal: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
@@ -18,7 +18,7 @@ modellkataloger:
 informasjonsmodeller:
 - id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog/samt-bu
   tittel:
-  - SAMT – Barnehagar og skular
+  - SAMT - Barnehagar og skular
   beskrivelse:
   - Ontodia-vennlig LinkML-modell for skoler
   utgiver: https://data.norge.no/organizations/971032146

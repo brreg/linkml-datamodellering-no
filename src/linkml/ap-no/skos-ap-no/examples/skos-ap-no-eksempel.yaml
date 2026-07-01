@@ -1,5 +1,5 @@
 # Eksempel på SKOS-AP-NO med omgrep, definisjon, generisk relasjon og samling.
-# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+# Modelleringsstil: lenking framfor inlining - referansar mellom objekt er URI-ar.
 
 begrep:
   - id: https://example.org/omgrep/datasett

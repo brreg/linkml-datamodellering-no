@@ -72,10 +72,10 @@ Gource er CPU-bunde og single-threaded. Dei tre største lekkane:
 |---|---|---|---|
 | Oppløysing | `1920x1080` | `1280x720` | ~2,5× færre pikslar per bilete |
 | Bildefrekvens | `60` fps | `30` fps | 2× færre bilete totalt |
-| FFmpeg-preset | `fast` | `ultrafast` | 3–5× raskare koding, noko større fil |
+| FFmpeg-preset | `fast` | `ultrafast` | 3-5× raskare koding, noko større fil |
 | Bloom | `0.5` | `0` | Fjerner ekstra renderingspass |
 
-Kombinert gir preview-innstillingane om lag **8–10× raskare** rendering enn standardinnstillingane, på kostnad av oppløysing og mjukheit.
+Kombinert gir preview-innstillingane om lag **8-10× raskare** rendering enn standardinnstillingane, på kostnad av oppløysing og mjukheit.
 
 ---
 
@@ -146,7 +146,7 @@ _gource-render:
 | `--hide` | `mouse,progress` | Skjuler musepeikaren og framdriftsindikator. |
 | `--bloom-multiplier` | `0.5` | Lyseffekt rundt aktive noder. `0` = av, `2` = kraftig. |
 | `--background-colour` | `111111` | Bakgrunnsfarge (hex utan `#`). |
-| `--crf` (ffmpeg) | `22` | Kvalitet: 0 = tapsfri, 51 = lågast. 18–28 er praktisk område. |
+| `--crf` (ffmpeg) | `22` | Kvalitet: 0 = tapsfri, 51 = lågast. 18-28 er praktisk område. |
 | `-an` (ffmpeg) | — | Ingen lydspor. Gource produserer ikkje lyd; eksplisitt flagg unngår åtvaringar frå spelarar. |
 | `-movflags +faststart` (ffmpeg) | — | Flyttar MP4-metadata til starten av fila. Nødvendig for avspilling i nettlesar før heile fila er lasta ned. |
 | `--start-date` | — | Start frå ein gitt dato, t.d. `"2025-01-01"`. |

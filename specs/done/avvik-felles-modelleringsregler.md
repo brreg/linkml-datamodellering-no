@@ -514,7 +514,7 @@ alle 15 Digdir-reglane. Det systematiske gapet er at fleire warning-nivå-sjekka
 som *warnings*, men dei er aldri behandla.
 
 Ein enkel prioritering er å rette alle *warnings som ikkje krev ekstern koordinering*
-(tiltak 1–5 over) i éin commit, og behandle `begrepsidentifikator` (tiltak 6–7)
+(tiltak 1-5 over) i éin commit, og behandle `begrepsidentifikator` (tiltak 6-7)
 som eit eige prosjekt som krev begrepskatalog-avklaring med Brreg.
 
 ### Reglar 5, 14 og 15 er reelt oppfylte

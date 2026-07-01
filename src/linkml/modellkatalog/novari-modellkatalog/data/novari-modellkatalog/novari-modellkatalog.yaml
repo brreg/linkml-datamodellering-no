@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/novari-modellkatalog
   tittel:
-  - Novari IKS – Modellkatalog (FINT)
+  - Novari IKS - Modellkatalog (FINT)
   beskrivelse:
   - 'TODO: legg til skildring av katalogen'
   identifikator_literal: https://data.norge.no/modellkatalog/novari-modellkatalog

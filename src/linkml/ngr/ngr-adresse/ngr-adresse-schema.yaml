@@ -5,7 +5,7 @@ id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
-title: Nasjonale grunndata – Adresse
+title: Nasjonale grunndata - Adresse
 description: >-
   Domenemodell for norske adressar basert på Nasjonale grunndata (utkast).
   Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske
@@ -423,7 +423,7 @@ classes:
   Grunnkrets:
     is_a: GeografiskOmrade
     class_uri: ngr:Grunnkrets
-    description: Ei grunnkrets – minste geografiske eining i statistisk inndeling.
+    description: Ei grunnkrets - minste geografiske eining i statistisk inndeling.
     slots:
       - grunnkretsnummer
 
@@ -668,7 +668,7 @@ slots:
   bokstav:
     slot_uri: ngr:bokstav
     range: string
-    description: Husbokstav (A–Å) som skil einingar med same husnummer.
+    description: Husbokstav (A-Å) som skil einingar med same husnummer.
 
   # ---- Bruksenhetsnummer-komponentar -------------------------------------
 

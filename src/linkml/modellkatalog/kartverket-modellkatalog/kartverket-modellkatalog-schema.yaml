@@ -1,6 +1,6 @@
 id: https://data.norge.no/modellkatalog/kartverket-modellkatalog
 name: kartverket-modellkatalog
-title: Kartverket – Modellkatalog
+title: Kartverket - Modellkatalog
 description: >-
   Modellkatalog for Kartverket sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.

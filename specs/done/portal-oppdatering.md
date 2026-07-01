@@ -93,7 +93,7 @@ Dei fleste brukarar treng berre spor A. Spor B er for dei som vil forstå kva `m
 |---|---|
 | `bronze` | `id`, `name`, `description`; alle klasser har identifikator og begrepsreferanse |
 | `silver` | Bronze + importerer DCAT-AP-NO og DQV-AP-NO |
-| `gold` | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
+| `gold` | Silver + FAIR F1-R1.3: `class_uri`, lisens, proveniens m.m. |
 
 **Fjern heilt:**
 - "Steg 2 — Legg til i Makefile" (auto-oppdaging)

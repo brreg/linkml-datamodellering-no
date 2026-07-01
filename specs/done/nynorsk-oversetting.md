@@ -37,7 +37,7 @@ Målet er at alle README-filer og det eine mkdocs-dokumentet er konsekvent på n
 | `src/mcp-linkml-generator/README.md` | Fullstendig nynorsk |
 | `src/mcp-linkml-validator/README.md` | Fullstendig nynorsk |
 
-### Gruppe B — Korte filer, enkle å omsetje (5–10 min kvar)
+### Gruppe B — Korte filer, enkle å omsetje (5-10 min kvar)
 
 | Fil | Omfang | Bokmålsinnslag |
 |---|---|---|
@@ -48,7 +48,7 @@ Målet er at alle README-filer og det eine mkdocs-dokumentet er konsekvent på n
 | `tests/README.md` | 2 liner | «testkode» ok, «hjelpemidler» → «hjelpemiddel» |
 | `tmp/README.md` | 4 liner | «artefakter» → «artefakter», «flyttes» → «flytjast» |
 
-### Gruppe C — Store filer, hovudarbeid (30–60 min kvar)
+### Gruppe C — Store filer, hovudarbeid (30-60 min kvar)
 
 | Fil | Omfang | Status |
 |---|---|---|

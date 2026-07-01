@@ -126,12 +126,12 @@ generate-ap-no:
 
 ### Prinsipp
 
-`publish`-jobben bruker ~30–60 s på å laste mkdocs-imaget frå ein lokal `.tar.zst` cache. Same mønster som for dei andre imagene: push til GHCR og pull i publish.
+`publish`-jobben bruker ~30-60 s på å laste mkdocs-imaget frå ein lokal `.tar.zst` cache. Same mønster som for dei andre imagene: push til GHCR og pull i publish.
 
 I tillegg: `make docs-build` (mkdocs Material med mange plugin-behandla filer) er truleg den tyngste enkeltoperasjonen i publish (~50 s). Dette kan ikkje eliminerast, men kan reduserast ved å:
 
 1. Unngå å generere docs på nytt dersom ingen av `mkdocs/`, `src/templates/` eller genererte filer er endra (kombinert med tiltak 2)
-2. Bruke `mkdocs-build-cache-plugin` som allereie er installert i imaget — denne pluginen cacher uendra sider mellom køyringar. Med `actions/cache` på `mkdocs/.cache/` kan dette gje 30–50 % raskare `docs-build` ved delvise endringar.
+2. Bruke `mkdocs-build-cache-plugin` som allereie er installert i imaget — denne pluginen cacher uendra sider mellom køyringar. Med `actions/cache` på `mkdocs/.cache/` kan dette gje 30-50 % raskare `docs-build` ved delvise endringar.
 
 ```yaml
 - name: Cache mkdocs-build-cache
@@ -142,7 +142,7 @@ I tillegg: `make docs-build` (mkdocs Material med mange plugin-behandla filer) e
     restore-keys: mkdocs-build-
 ```
 
-**Estimert innsparing i publish: ~30–40 s.**
+**Estimert innsparing i publish: ~30-40 s.**
 
 ---
 
@@ -150,7 +150,7 @@ I tillegg: `make docs-build` (mkdocs Material med mange plugin-behandla filer) e
 
 ### Typisk push (eitt domene endra, t.d. ein schema-fix i `samt`)
 
-| Fase | I dag | Etter tiltak 1–4 |
+| Fase | I dag | Etter tiltak 1-4 |
 |------|-------|-------------------|
 | build-barrier | ~35 s | 0 s (eliminert) |
 | generate (5 uendra domener) | ~120 s × 5 parallelt | ~5 s (cache restore) |
@@ -166,7 +166,7 @@ I tillegg: `make docs-build` (mkdocs Material med mange plugin-behandla filer) e
 
 ### Alle domener endra samstundes (sjeldan)
 
-| I dag | Etter tiltak 1–4 |
+| I dag | Etter tiltak 1-4 |
 |-------|------------------|
 | ~285 s | ~200 s |
 
@@ -178,7 +178,7 @@ Kvar GitHub-hosted runner har uunngåeleg overhead:
 - ~20 s oppstart
 - ~10 s checkout
 
-`publish` er sekvensielt etter alle generate-jobbar og inneheld obligatorisk `mkdocs`-bygg (~30–50 s) + Pages-deploy (~20 s). Utan å eliminere sjølve publish-trinnet er 60 s ikkje oppnåeleg med GitHub-hosted runnerar.
+`publish` er sekvensielt etter alle generate-jobbar og inneheld obligatorisk `mkdocs`-bygg (~30-50 s) + Pages-deploy (~20 s). Utan å eliminere sjølve publish-trinnet er 60 s ikkje oppnåeleg med GitHub-hosted runnerar.
 
 **Einaste realistiske veg til 1 minutt:** sjølv-hosta runner (oppstart < 1 s) kombinert med alle tiltak over. Med sjølv-hosta runner fell runner-start + checkout frå ~30 s til ~3 s per jobb.
 
@@ -191,7 +191,7 @@ Kvar GitHub-hosted runner har uunngåeleg overhead:
 | 1 | `paths`-filter på workflow-nivå | Svært låg (5 linjer) | Eliminerer ~70 % av køyringar |
 | 2 | Per-domene cache av genererte artefakter | Medium | Typisk enkelt-domene-endring: frå 120 s → 5 s per uendra domene |
 | 3 | Slå saman build + generate (fjern build-barrier) | Medium | ~60 s frå kritisk veg |
-| 4 | mkdocs-build-cache i publish | Låg | ~30–40 s frå publish |
+| 4 | mkdocs-build-cache i publish | Låg | ~30-40 s frå publish |
 | 5 | Sjølv-hosta runner | Høg (infrastruktur) | -20 s per jobb (~120 s totalt) |
 
-Implementer tiltak 1–4 for å nå **~80 s** for den typiske push-en som berre endrar `main`-filer utan skjemaendringar, og **~2,5–3 min** for ein full re-generering. Tiltak 5 (sjølv-hosta runner) er det einaste som kan ta full re-generering under 1 minutt.
+Implementer tiltak 1-4 for å nå **~80 s** for den typiske push-en som berre endrar `main`-filer utan skjemaendringar, og **~2,5-3 min** for ein full re-generering. Tiltak 5 (sjølv-hosta runner) er det einaste som kan ta full re-generering under 1 minutt.

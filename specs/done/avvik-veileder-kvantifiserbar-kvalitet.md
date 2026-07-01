@@ -1,4 +1,4 @@
-# Kartlegging: Avvik mot Veileder for beskrivelse av kvalitet på datasett – kvantifiserbar kvalitet
+# Kartlegging: Avvik mot Veileder for beskrivelse av kvalitet på datasett - kvantifiserbar kvalitet
 
 **Kjelde:** [data.norge.no/guide/veileder-kvantifiserbar-kvalitet](https://data.norge.no/guide/veileder-kvantifiserbar-kvalitet)  
 **Utgitt av:** Digitaliseringsdirektoratet (Digdir), oppdatert 2024-12-04  
@@ -242,7 +242,7 @@ Validert med `make validate-instance` og `make mcp-validate POLICY=felles-begrep
 
 ## Utført
 
-Alle fire tiltak (KV1–KV4) er gjennomførte:
+Alle fire tiltak (KV1-KV4) er gjennomførte:
 
 - **KV1** var allereie løyst i repoet før denne specen blei utført (forelda
   kartlegging) — ingen kodeendring.

@@ -176,7 +176,7 @@ modellkatalogen. Skjema-YAML er sannkjelda — ingen duplikering.
 ```yaml
 id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
-title: Nasjonale grunndata – Adresse
+title: Nasjonale grunndata - Adresse
 version: "1.0.0"
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
@@ -416,7 +416,7 @@ speglar ny bronze- og silver-policy:
 |---|---|
 | `bronze` | `id`, `name`, `title` (error); `default_prefix` (https-URI, error); `description`, `version`, `license` (warning); PascalCase-klasser, snake_case-slots, `class_uri`, `slot_uri`, `begrepsidentifikator` (warning) |
 | `silver` | Bronze + `annotations.utgiver`, `annotations.endringsdato`, `annotations.status` (warning) |
-| `gold`   | Silver + FAIR F1–R1.3: full semantisk interoperabilitet |
+| `gold`   | Silver + FAIR F1-R1.3: full semantisk interoperabilitet |
 
 Sjå [policies/README.md](../../src/mcp-linkml-validator/policies/README.md) for fullstendig sjekkliste.
 ```
@@ -555,19 +555,19 @@ Instansane det genererer vert validerte mot `skos-ap-no-schema.yaml` via
 | 4 | Legg til `schema_has_license`-sjekk | — | Medium |
 | 5 | Implementer `class_names_pascal_case`-sjekk med unntaksliste | — | Medium |
 | 6 | Implementer `slot_names_snake_case`-sjekk med unntaksliste | Tiltak 5 | Medium |
-| 7 | Verifiser at alle eksisterande skjema passerer ny bronze (særleg `default_prefix`) | Tiltak 1–3 | Høg |
+| 7 | Verifiser at alle eksisterande skjema passerer ny bronze (særleg `default_prefix`) | Tiltak 1-3 | Høg |
 | 8 | Opprett `src/mcp-linkml-validator/policies/README.md` med skiljet dokumentert | — | Medium |
 | 9 | Legg til policy-hierarki-seksjon i `CLAUDE.md` | — | Lav |
 | 10 | Implementer `schema_has_annotation`-sjekk i MCP-validator | — | Medium |
 | 11 | Legg `schema_has_annotation_utgiver`, `schema_has_annotation_endringsdato`, `schema_has_annotation_status` til `silver.yaml` | Tiltak 10 | Medium |
-| 12 | Legg `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` til alle skjema med `data_policy: silver` eller høgare | Tiltak 10–11 | Medium |
+| 12 | Legg `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` til alle skjema med `data_policy: silver` eller høgare | Tiltak 10-11 | Medium |
 | 13 | ~~Oppdater CI til å generere `Informasjonsmodell`-instansar i modellkatalogen frå skjema-annotasjonar~~ ✅ | Tiltak 12 | Lav |
 | 14 | ~~**`mcp-linkml-modell-utkast`**: Fiks `default_prefix` til HTTPS-URL i `converter.py`~~ ✅ | — | Høg |
 | 15 | ~~**`mcp-linkml-modell-utkast`**: Legg alltid til `title`, `version`, `license` med TODO-stubs~~ ✅ | Tiltak 14 | Høg |
 | 16 | ~~**`mcp-linkml-modell-utkast`**: Gi `profiles/default.yaml` nytt namn til `profiles/bronze.yaml`; oppdater `server.py` og README med nytt standardprofilnamn~~ ✅ | — | Medium |
 | 17 | ~~**`mcp-linkml-modell-utkast`**: Opprett `profiles/silver.yaml` med `schema_annotations`; `extends: bronze`~~ ✅ | Tiltak 16 | Medium |
 | 18 | ~~**`mcp-linkml-modell-utkast`**: Les `schema_annotations` frå profil i `converter.py`~~ ✅ | Tiltak 17 | Medium |
-| 19 | ~~**`mcp-linkml-modell-utkast/README.md`**: Oppdater tabell og legg til silver-profil-seksjon~~ ✅ | Tiltak 15–17 | Medium |
+| 19 | ~~**`mcp-linkml-modell-utkast/README.md`**: Oppdater tabell og legg til silver-profil-seksjon~~ ✅ | Tiltak 15-17 | Medium |
 | 20 | ~~**`CLAUDE.md`**: Legg til silver-annotasjonar-seksjon etter `begrepsidentifikator`~~ ✅ (utført i tiltak 9) | — | Medium |
 | 21 | ~~**`ny-domenemodell.md`**: Oppdater policy-tabell; lenk til `policies/README.md`; legg til steg 6~~ ✅ | Tiltak 8, 20 | Medium |
-| 22 | ~~**Scaffold (`make new-model`)**: Sikre at generert skjema passerer ny bronze (har `title`, `version`, `default_prefix` som HTTPS-URL)~~ ✅ | Tiltak 1–3 | Høg |
+| 22 | ~~**Scaffold (`make new-model`)**: Sikre at generert skjema passerer ny bronze (har `title`, `version`, `default_prefix` som HTTPS-URL)~~ ✅ | Tiltak 1-3 | Høg |

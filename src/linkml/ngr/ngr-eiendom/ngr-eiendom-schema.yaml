@@ -5,7 +5,7 @@ id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
-title: Nasjonale grunndata – Eiendom
+title: Nasjonale grunndata - Eiendom
 description: >-
   Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast).
   Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold
@@ -172,7 +172,7 @@ classes:
         inlined_as_list: true
 
   # ---------------------------------------------------------------------------
-  # Hovudklassar – Domene eiendom
+  # Hovudklassar - Domene eiendom
   # ---------------------------------------------------------------------------
 
   FastEiendom:
@@ -345,7 +345,7 @@ classes:
     is_a: Matrikkelenhet
     class_uri: ngre:Anleggseiendom
     description: >-
-      Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire
+      Eit volum - ein bygning eller konstruksjon - oppretta frå ei eller fleire
       grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under
       andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs
       undergrunn eller sjøgrunn.
@@ -1075,12 +1075,12 @@ slots:
   festenummer_verdi:
     slot_uri: ngre:festenummer
     range: integer
-    description: Festenummer (0..1 – berre for festegrunn).
+    description: Festenummer (0..1 - berre for festegrunn).
 
   seksjonsnummer_verdi:
     slot_uri: ngre:seksjonsnummer
     range: integer
-    description: Seksjonsnummer (0..1 – berre for eigarseksjonar).
+    description: Seksjonsnummer (0..1 - berre for eigarseksjonar).
 
   bygningsnummer_verdi:
     slot_uri: ngre:bygningsnummer

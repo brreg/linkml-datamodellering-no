@@ -57,7 +57,7 @@ Desse er naturlege steg etter at skjemaet er ferdig — men i dag ligg dei mello
 ```
 # Rettleiing: ny domenemodell
 
-## Arbeidsflyt                        ← uendra, steg 0–4
+## Arbeidsflyt                        ← uendra, steg 0-4
    (steg 2 utvida med beslutningsregel for import og peikar til Referanseskjema)
 
 ## Referanseskjema                    ← flytt opp frå botnen
@@ -144,7 +144,7 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=go
 |---|---|
 | [`bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) | `id`, `name`, `description`; alle klasser har identifikator og begrepsreferanse til felles begrepskatalog |
 | [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#s%C3%B8lv) | Bronze + skjemaet inneheld obligatoriske klasser i DCAT-AP-NO og DQV-AP-NO |
-| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
+| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Silver + FAIR F1-R1.3: `class_uri`, lisens, proveniens m.m. |
 
 ### 4 — Full testsuite
 

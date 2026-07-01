@@ -4,8 +4,8 @@
 
 CLAUDE.md har i dag ein intern inkonsistens:
 
-- **«Slots, ikke attributes»-regelen** (linje 43–44) seier at alle eigenskapar skal modellerast som globale slots — *aldri* som `attributes:`.
-- **«Containerklasse»-seksjonen** (linje 86–90) brukar omgrepet «attributter» utan å presisere om det gjeld YAML-nøkkelen `attributes:` eller globale slots.
+- **«Slots, ikke attributes»-regelen** (linje 43-44) seier at alle eigenskapar skal modellerast som globale slots — *aldri* som `attributes:`.
+- **«Containerklasse»-seksjonen** (linje 86-90) brukar omgrepet «attributter» utan å presisere om det gjeld YAML-nøkkelen `attributes:` eller globale slots.
 
 I praksis er repoet delt i to:
 
@@ -20,7 +20,7 @@ Endringa klargjerer at containerklassen er eit *strukturelt/serialiseringsankerp
 
 ## Ny regel i CLAUDE.md
 
-### Erstatt seksjonen «Slots, ikke attributes» (linje 43–75) med:
+### Erstatt seksjonen «Slots, ikke attributes» (linje 43-75) med:
 
 ```markdown
 ### Slots, ikke attributes
@@ -74,7 +74,7 @@ slots:
     inlined_as_list: true
 ```
 
-### Oppdater «Containerklasse»-seksjonen (linje 86–94) med:
+### Oppdater «Containerklasse»-seksjonen (linje 86-94) med:
 
 ```markdown
 ### Containerklasse

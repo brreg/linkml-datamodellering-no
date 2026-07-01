@@ -3,7 +3,7 @@
 ## Bakgrunn
 
 `generate / modellkatalog`-jobben i `.github/workflows/generate.yml` har
-feila på `main` sidan commit `7ee7b0e0` (MD2–MD4/MD6-utrullinga), og
+feila på `main` sidan commit `7ee7b0e0` (MD2-MD4/MD6-utrullinga), og
 `publish`-jobben er dermed hoppa over sidan (dokumentasjonsportalen er ikkje
 republisert). Rot-årsak stadfesta via reproduksjon lokalt og i CI-logg
 (`gh api .../actions/jobs/<id>/logs`): `make domain-gen-data
@@ -113,7 +113,7 @@ Alle 3 tiltak fullførte og verifiserte lokalt (2026-06-21).
    regenerere `Kodeelement`-id-ane med fiksen.
 4. **Full verifisering etter fiksen:** `make domain-gen-data
    DOMAIN=modellkatalog` køyrer no feilfritt for alle 6 katalogar (genererte
-   `.ttl`-filer 272–12642 linjer, alle ikkje-tomme), `make mcp-validate
+   `.ttl`-filer 272-12642 linjer, alle ikkje-tomme), `make mcp-validate
    POLICY=felles-datakatalog` gjev `errorCount: 0` for alle 6, `make
    roundtrip` gjev `roundtrip-json`/`roundtrip-ttl` OK for alle 6.
 5. **Ikkje verifisert i denne sesjonen:** at `generate / modellkatalog`- og

@@ -256,7 +256,7 @@ https://github.com/brreg/linkml-datamodellering-no/releases.atom
 
 2. **Modellkatalogar:**
    - Gå til https://data.norge.no/models
-   - Søk på din modell (t.d. "Nasjonale grunndata – Virksomhet")
+   - Søk på din modell (t.d. "Nasjonale grunndata - Virksomhet")
    - Verifiser at den visast med rett metadata
 
 **Kontakt Digitaliseringsdirektoratet dersom:**

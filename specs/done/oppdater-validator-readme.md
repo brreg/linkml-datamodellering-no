@@ -124,4 +124,4 @@ og er meinte brukt i tillegg til (ikkje i staden for) medaljongnivåa.
 Éin fil: `src/mcp-linkml-validator/README.md`
 
 - Ingen nye filer
-- Eksisterande seksjonar 1–5 vert ikkje endra, berre utvidda
+- Eksisterande seksjonar 1-5 vert ikkje endra, berre utvidda

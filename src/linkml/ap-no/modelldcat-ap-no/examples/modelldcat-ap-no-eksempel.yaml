@@ -139,7 +139,7 @@ enkle_typar:
     tittel:
       - "EnkeltTeikn"
     beskrivelse:
-      - "Ein enkelt bokstav (A–Å)."
+      - "Ein enkelt bokstav (A-Å)."
     typedefinisjon_referanse: http://www.w3.org/2001/XMLSchema#string
     lengde: 1
     monster: "[A-ZÆØÅa-zæøå]"

@@ -216,7 +216,7 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 
 **Sannsynleg responstid frå repo-administrator:**
 - Kritiske sikkerheitssårbarheiter: 1 arbeidsdagdag
-- Blokkerar-bugs i felles infrastruktur: 3–5 arbeidsdagar
+- Blokkerar-bugs i felles infrastruktur: 3-5 arbeidsdagar
 - Feature-forespurnader: Best-effort, ingen garantert tidsramme
 - Spørsmål og diskusjonar: Best-effort, når kapasitet er tilgjengeleg
 

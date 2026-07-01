@@ -1,6 +1,6 @@
 id: https://data.norge.no/ap-no/dqv-core
 name: dqv-core
-title: DQV-AP-NO – Kjerneklassar (utan DCAT-avhengigheit)
+title: DQV-AP-NO - Kjerneklassar (utan DCAT-avhengigheit)
 description: >-
   DQV-kjerneklassar og -slots utan referanse til dcat-ap-no.
   Denne fila vert importert av dcat-ap-no for å gje tilgang til Kvalitetsmerknad

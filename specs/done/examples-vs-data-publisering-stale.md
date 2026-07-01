@@ -95,7 +95,7 @@ Korrekt domene er `begrepskatalog`, ikkje `begrep`:
 Output: `generated/begrepskatalog/<katalognavn>/<katalognavn>-eksempel.ttl`
 ```
 
-**Problem (linje 218–220):**
+**Problem (linje 218-220):**
 
 ```
 Denne Turtle-fila er SKOS-kompatibel og kan importerast til
@@ -124,15 +124,15 @@ sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md).
 | 2 | `src/linkml/modellkatalog/brreg-modellkatalog/manifest.yaml` | Fjern `data_policy: felles-datakatalog`; sett `example_rdf: false` | Høg |
 | 3 | `src/linkml/modellkatalog/brreg-modellkatalog/examples/brreg-modellkatalog-eksempel.yaml` | Erstatt med ein lett dev-fikstur (éin modell, `https://example.org/`-URI-ar) | Høg |
 | 4 | `mkdocs/docs/publisering-modell.md` | Oppdater flowchart, alle fem `examples/modell/...`-stiar → `data/...`-stiar; fjern `examples/modell/**` frå CI-tabell; bytt `domain-gen-rdf` → `domain-gen-data` | Høg |
-| 5 | `mkdocs/docs/ny-begrepsmodell.md` linje 217–220 | Rett outputsti (`begrep` → `begrepskatalog`); fjern påstand om publisering til Felles Begrepskatalog | Medium |
+| 5 | `mkdocs/docs/ny-begrepsmodell.md` linje 217-220 | Rett outputsti (`begrep` → `begrepskatalog`); fjern påstand om publisering til Felles Begrepskatalog | Medium |
 | 6 | `src/linkml/modellkatalog/brreg-modellkatalog/published-uris.lock` | Vurder om URI-ar treng oppdatering etter at datafila er flytta | Lav |
 
 ---
 
 ## Avhengigheiter
 
-- Tiltak 1–3 må gjerast saman og testast med `make convert-data` og `make domain-validate-data DOMAIN=modellkatalog`
-- Tiltak 4 kan gjerast etter at tiltak 1–3 er ferdig og CI-pipelinen er grøn
+- Tiltak 1-3 må gjerast saman og testast med `make convert-data` og `make domain-validate-data DOMAIN=modellkatalog`
+- Tiltak 4 kan gjerast etter at tiltak 1-3 er ferdig og CI-pipelinen er grøn
 - Tiltak 5 er uavhengig
 
 ## Relaterte spesifikasjonar

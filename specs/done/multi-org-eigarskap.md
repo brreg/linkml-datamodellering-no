@@ -41,7 +41,7 @@ organizations:
     name: Brønnøysundregistra
     org_uri: https://data.norge.no/organizations/974760673
     catalog_slug: brreg-modellkatalog
-    catalog_title: "Brønnøysundregistra – Modellkatalog"
+    catalog_title: "Brønnøysundregistra - Modellkatalog"
     contact_uri: https://brreg.no/kontakt/modellforvaltning
     github_team: "@brreg/modellforvaltning"
     path_patterns:
@@ -124,7 +124,7 @@ organizations:
     name: Brønnøysundregistra
     org_uri: https://data.norge.no/organizations/974760673
     catalog_slug: brreg-modellkatalog
-    catalog_title: "Brønnøysundregistra – Modellkatalog"
+    catalog_title: "Brønnøysundregistra - Modellkatalog"
     contact_uri: https://brreg.no/kontakt/modellforvaltning
     github_team: "@brreg/modellforvaltning"
     path_patterns:
@@ -263,13 +263,13 @@ Kan genererast automatisk frå `CODEOWNERS.md` av eit script, eller vedlikehalas
 - Tiltak 1 må gjerast først (CODEOWNERS.md er input til alt anna)
 - Tiltak 2 avheng av tiltak 1 (scriptet les frontmatter)
 - Tiltak 3 avheng av tiltak 1 (scaffold-scriptet les org-metadata)
-- Tiltak 4 kan gjerast parallelt med tiltak 2–3
+- Tiltak 4 kan gjerast parallelt med tiltak 2-3
 - Tiltak 5 kan gjerast sist (GitHub-funksjonalitet, ikkje blokkerer anna)
 
 ## Prioritet
 
 Høg — konseptuelt viktig for at repoet skal vere genuint flereigarleg.
-Tiltak 1–2–4 er kjernen; tiltak 3 og 5 er komfort/automatisering.
+Tiltak 1-2-4 er kjernen; tiltak 3 og 5 er komfort/automatisering.
 
 Anbefalt rekkjefølge:
 1. Tiltak 1 (CODEOWNERS.md) + tiltak 4 (ny-org.md) + tiltak 5 (governance-contributing-spec)

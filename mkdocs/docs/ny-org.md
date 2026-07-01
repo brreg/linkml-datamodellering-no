@@ -25,7 +25,7 @@ organizations:
     name: <Organisasjonsnamn>
     org_uri: https://data.norge.no/organizations/<9-sifra orgnr>
     catalog_slug: <alias>-modellkatalog     # mappenamn, t.d. digdir-modellkatalog
-    catalog_title: "<Org> – Modellkatalog"
+    catalog_title: "<Org> - Modellkatalog"
     contact_uri: https://<org-domene>/kontakt/modellforvaltning
     github_team: "@<github-org>/<team>"
     path_patterns:

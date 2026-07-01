@@ -52,7 +52,7 @@ tidsrom_slutt:
 Skjemaet i `dcat-ap-no-schema.yaml` brukar korrekt `dcat:startDate`/`dcat:endDate`.
 `xkos-ap-no-schema.yaml` er inkonsistent med dette og produserer feil URI-ar i RDF-output.
 
-**Fil:** `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml` (linjene 393–399)  
+**Fil:** `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml` (linjene 393-399)  
 **Status:** ⚠️ Bug — bør rettast umiddelbart
 
 ---
@@ -541,13 +541,13 @@ forrige_kategori:
   for å verifisere at `tidsrom_start`/`tidsrom_slutt` produserer korrekte DCAT-URI-ar i RDF
 - XK2 og XK7 påverkar eksempelfila — `xkos-ap-no-eksempel.yaml` bør oppdaterast med
   `notasjon`-verdiar (t.d. «A», «01» for NACE-seksjoner og -avdelingar)
-- XK3–XK6 er uavhengige av kvarandre og kan gjerast i ein commit
+- XK3-XK6 er uavhengige av kvarandre og kan gjerast i ein commit
 
 ---
 
 ## Utført (2026-06-20)
 
-Alle sju tiltaka (XK1–XK7) i `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml`:
+Alle sju tiltaka (XK1-XK7) i `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml`:
 
 - **XK1:** allereie retta før denne arbeidsøkta — `tidsrom_start`/`tidsrom_slutt`
   brukte `dcat:startDate`/`dcat:endDate` og `dcat:`-prefiks fanst allereie i
@@ -576,7 +576,7 @@ over.
 **Avvik frå planen:** Avvik 3 (`forste_nivaa` Valgfri → Anbefalt), 6
 (`xkos:organizedBy`), 8 (`uneskos:contains`), 10 (`skos:topConceptOf`) og 13
 (dokumentasjon av designvalet `dct:temporal` vs. `schema:validFrom`) har
-ingen tilsvarande tiltak (XK1–XK7) i denne specen, og er derfor **ikkje**
+ingen tilsvarande tiltak (XK1-XK7) i denne specen, og er derfor **ikkje**
 adresserte i denne arbeidsøkta. Dei står som ugjorde avvik dersom dei skal
 følgjast opp.
 

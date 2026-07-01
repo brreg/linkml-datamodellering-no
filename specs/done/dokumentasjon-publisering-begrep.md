@@ -112,7 +112,7 @@ brotne lenkjer). Skildring av depreceringsprosedyre via `er_erstatta_av`.
 
 ### Avsnitt 6 — Registrering av nytt høstingsendepunkt (éin gong)
 
-Komprimert versjon av steg 2–5 frå `specs/publisering-felles-begrepskatalog.md §Del 3`:
+Komprimert versjon av steg 2-5 frå `specs/publisering-felles-begrepskatalog.md §Del 3`:
 
 | Felt | Verdi |
 |---|---|
@@ -281,7 +281,7 @@ CLAUDE.md). Det gjeld eksisterende og nye filer.
 
 ## Referansar
 
-- `specs/publisering-felles-begrepskatalog.md` — teknisk spesifikasjon (Del 1–4)
+- `specs/publisering-felles-begrepskatalog.md` — teknisk spesifikasjon (Del 1-4)
 - `src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml` — policy-definisjon
 - `data/begrep/brreg-begrep.yaml` — produksjonsdatafil
 - `src/linkml/begrep/brreg-begrep/published-uris.lock` — URI-register

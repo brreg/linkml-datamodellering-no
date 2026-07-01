@@ -201,7 +201,7 @@ og `inlined_as_list: true` på `klassifikasjonssystem`-attributten — same
 antipattern som vart fiksa i `fint-administrasjon`, `fint-okonomi`,
 `fint-personvern` og `fint-utdanning`.
 
-I `fint-arkiv-schema.yaml` (linje ~672–778):
+I `fint-arkiv-schema.yaml` (linje ~672-778):
 
 ```yaml
 # Feil — containerattributt manglar multivalued/inlined_as_list
@@ -243,7 +243,7 @@ attributes:
 ### Fil som må endrast
 
 `src/linkml/fint/fint-arkiv/fint-arkiv-schema.yaml` — `ArkivContainer`-klassen
-(linje ~672–778).
+(linje ~672-778).
 
 ### Tiltak for å verifisere etter fiks
 

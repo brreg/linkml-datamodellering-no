@@ -1,4 +1,4 @@
-name: Reusable – LinkML validering
+name: Reusable - LinkML validering
 
 on:
   workflow_call:

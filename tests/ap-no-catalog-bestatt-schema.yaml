@@ -1,6 +1,6 @@
 id: https://data.norge.no/test/ap-no-catalog-bestatt
 name: ap-no-catalog-bestatt
-title: Testskjema – domenemodell med fullstendig DCAT-AP-NO og DQV-AP-NO container
+title: Testskjema - domenemodell med fullstendig DCAT-AP-NO og DQV-AP-NO container
 description: >-
   Testskjema som skal BESTÅ ap-no-catalog-policyen. Containerklassen
   inneheld alle obligatoriske og anbefalte klasser frå DCAT-AP-NO og DQV-AP-NO.

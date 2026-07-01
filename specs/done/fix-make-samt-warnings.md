@@ -110,7 +110,7 @@ tiltak — dei er allerede dokumenterte og akseptert i `specs/done/`.
 
 ## Utført
 
-Utført 2026-06-21. Tiltak 1–4 er fullførte; tiltak 5 var aldri del av planen
+Utført 2026-06-21. Tiltak 1-4 er fullførte; tiltak 5 var aldri del av planen
 sitt omfang (eksplisitt utsett til eige tiltak).
 
 **Kva som vart gjort:**

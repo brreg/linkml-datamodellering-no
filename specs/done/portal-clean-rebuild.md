@@ -126,7 +126,7 @@ Noverande cache-nøkkel inkluderer `mkdocs/docs/**`:
 key: mkdocs-build-${{ hashFiles('src/linkml/**', ..., 'mkdocs/docs/**', ...) }}
 ```
 
-Etter steg 1–2 er `mkdocs/docs/$domain/` ikkje lenger i git, så
+Etter steg 1-2 er `mkdocs/docs/$domain/` ikkje lenger i git, så
 `hashFiles('mkdocs/docs/**')` vil berre hashe statiske filer (stylesheets,
 javascripts, rettleiingssider). Nøkkelen bør oppdaterast til berre å inkludere
 det som faktisk styrer portalen sin utsjånad og innhald:
@@ -165,7 +165,7 @@ gamalt generert innhald er cachet.
 | 2 | `git rm --cached` for committa generert innhald | (git-operasjon) | Steg 1 |
 | 3 | Oppdater `publish.sh` steg 1 med stale-rydding | `mkdocs/publish.sh` | — |
 | 4 | Fjern/avgrens `mkdocs-build`-cache i CI | `.github/workflows/generate.yml` | — |
-| 5 | Commit + verifiser CI-køyring | — | Steg 1–4 |
+| 5 | Commit + verifiser CI-køyring | — | Steg 1-4 |
 
 ---
 
@@ -173,7 +173,7 @@ gamalt generert innhald er cachet.
 
 - Steg 2 krev at `.gitignore` (steg 1) er på plass fyrst — elles vil git
   umiddelbart registrere filene att som untracked
-- Steg 3 og 4 er uavhengige av kvarandre og kan utførast i same commit som steg 1–2
+- Steg 3 og 4 er uavhengige av kvarandre og kan utførast i same commit som steg 1-2
 - Etter steg 2 vil lokalt `mkdocs/docs/` mangle generert innhald inntil
   `make publish` vert køyrd — dette er tilsikta
 

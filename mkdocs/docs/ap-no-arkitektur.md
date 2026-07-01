@@ -1,4 +1,4 @@
-# AP-NO – Arkitektur, avvik og strukturelle val
+# AP-NO - Arkitektur, avvik og strukturelle val
 
 !!! note "Beskrivelse"
 
@@ -174,7 +174,7 @@ som igjen ville aktivere avgrensing 1.
 **Spesifikasjon:** <https://informasjonsforvaltning.github.io/skos-ap-no-begrep/>  
 **Kartlegging:** `specs/done/avvik-skos-ap-no.md`
 
-**Status:** SK1–SK4 er fiksa. SK5 (tospråkskrav/språkkonsistens) er delvis
+**Status:** SK1-SK4 er fiksa. SK5 (tospråkskrav/språkkonsistens) er delvis
 realisert som ein `instance_check` (`begrep_har_definisjon_pa_nb_og_nn`) i
 `felles-begrepskatalog`-policyen — dekker `har_definisjon`-varianten via
 ID-suffikskonvensjon. Full dekning av `anbefalt_term` og språkkonsistens krev

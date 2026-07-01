@@ -1,7 +1,7 @@
 modellkataloger:
   - id: https://example.org/modellkatalogar/eksempel-katalog
     tittel:
-      - "Eksempel – Modellkatalog"
+      - "Eksempel - Modellkatalog"
     beskrivelse:
       - "Ein enkel modellkatalog for testing av skjema."
     identifikator_literal: "https://example.org/modellkatalogar/eksempel-katalog"
@@ -34,7 +34,7 @@ informasjonsmodeller:
 aktoerer:
   - id: https://example.org/kontakt/modellforvaltning
     navn_aktoer:
-      - "Eksempelorganisasjon – Modellforvaltning"
+      - "Eksempelorganisasjon - Modellforvaltning"
 
   - id: https://data.norge.no/organizations/974760673
     navn_aktoer:

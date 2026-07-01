@@ -22,7 +22,7 @@ Verken `index.md` eller `ny-domenemodell.md` seier at images må byggast før ei
 
 ### 2 — Duplication viss Tiltak 1 implementerast naivt
 
-`ny-domenemodell.md` har allereie ein sekvensiell arbeidsflyt (steg 1–4) som dekkjer steg 3–7 i Tiltak 1. Å legge det same narrativet i `index.md` gir to nesten-identiske sider.
+`ny-domenemodell.md` har allereie ein sekvensiell arbeidsflyt (steg 1-4) som dekkjer steg 3-7 i Tiltak 1. Å legge det same narrativet i `index.md` gir to nesten-identiske sider.
 
 ### 3 — `index.md` gir feil inntrykk av inngangspunktet
 

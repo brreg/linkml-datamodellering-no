@@ -35,7 +35,7 @@ Eksempel:
 |---|---|---|
 | `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse`, `dcat-ap-no` |
 | `id` | Absolutt HTTPS-URL | `https://data.norge.no/linkml/ngr-adresse` |
-| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
+| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata - Adresse` |
 | `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/linkml/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
 
@@ -134,7 +134,7 @@ Ingen kjende avvik.
 
 ### 8. Prefiks
 
-**Regel:** Korte lowercase-alias (2–5 bokstavar) for eksterne vokabular.
+**Regel:** Korte lowercase-alias (2-5 bokstavar) for eksterne vokabular.
 Domene-spesifikke prefix navngjevast etter domenet.
 
 Standardiserte W3C-prefix (alltid same alias):
@@ -268,6 +268,6 @@ Ny domenemodell — namngjeving-checkliste
 
 ## Rekkjefølgje
 
-1. **Rett inkonsistens** (punkt 1–3 i tabellen over) — minimale filredigeringar
+1. **Rett inkonsistens** (punkt 1-3 i tabellen over) — minimale filredigeringar
 2. **Legg til «Namngjeving»-seksjonen i CLAUDE.md** — ny tekst og tabell
 3. **Utvid developer-onboarding.md** — legg til checkliste og utdjupande forklaring

@@ -8,7 +8,7 @@
 ## Bakgrunn
 
 `ny-begrepsmodell.md` seier eksplisitt at `make new-model` **ikkje** gjeld for
-begrepskatalogar — scaffolding er manuell (steg 1–3). Dette skapar friksjon:
+begrepskatalogar — scaffolding er manuell (steg 1-3). Dette skapar friksjon:
 
 - Brukaren må kopiere frå `brreg-begrepskatalog-schema.yaml` og redigere for hand
 - README-seksjonen «Begrepsmodellering» er feil (viser `make new-model`)
@@ -43,7 +43,7 @@ src/linkml/begrepskatalog/<NAME>/
 ```yaml
 id: https://data.norge.no/begrepskatalog/<NAME>
 name: <NAME_underscore>
-title: 'TODO: <Organisasjon> – Begrepskatalog'
+title: 'TODO: <Organisasjon> - Begrepskatalog'
 description: 'TODO: beskriv katalogen'
 version: "0.1.0"
 license: https://data.norge.no/nlod/no/2.0
@@ -168,9 +168,9 @@ Legg til `new-begrep` i `.PHONY`-lista.
 
 | | Ny begrepskatalog | Ny domenemodell |
 |---|---|---|
-| Scaffold | ~~Manuelt (steg 1–3 under)~~ → **`make new-begrep`** | `make new-model` |
+| Scaffold | ~~Manuelt (steg 1-3 under)~~ → **`make new-begrep`** | `make new-model` |
 
-**b)** Erstatt steg 1–3 (manuell opprettings av filstruktur, schema og manifest)
+**b)** Erstatt steg 1-3 (manuell opprettings av filstruktur, schema og manifest)
 med:
 
 ```bash
@@ -180,7 +180,7 @@ make new-begrep NAME=<katalognavn>
 og ei forklaring av kva filer som vert oppretta — tilsvarande slik steg 1a i
 `ny-domenemodell.md` viser filtre-strukturen.
 
-**c)** Behalda steg 4–8 urørte (YAML-generering, validering, RDF-eksport osb.).
+**c)** Behalda steg 4-8 urørte (YAML-generering, validering, RDF-eksport osb.).
 
 ### NB4 — Oppdater README.md
 
@@ -210,7 +210,7 @@ Alle steg gjennomførte 2026-06-19.
 
 - **NB1:** `src/assets/scripts/new-begrep.sh` oppretta — statisk bash-script utan MCP-kall; genererer schema, manifest, eksempelfil og description.md
 - **NB2:** `new-begrep`-target lagt til i Makefile og i `.PHONY`-lista
-- **NB3:** `ny-begrepsmodell.md` — steg 1–3 (manuell scaffold) erstatta med `make new-begrep`; samanlikingstabellen oppdatert; steg renummererte 0–6
+- **NB3:** `ny-begrepsmodell.md` — steg 1-3 (manuell scaffold) erstatta med `make new-begrep`; samanlikingstabellen oppdatert; steg renummererte 0-6
 - **NB4:** `README.md` — `make new-model NAME=katalognavn DOMAIN=begrepskatalog` → `make new-begrep NAME=katalognavn`
 
 ---

@@ -224,7 +224,7 @@ Det krev ein eigen SHACL-regel.
 
 ## Tilrådde tiltak
 
-### SK1 — Fiks retningsslots i `GeneriskRelasjon` og `PartitivRelasjon` (Avvik 1–2)
+### SK1 — Fiks retningsslots i `GeneriskRelasjon` og `PartitivRelasjon` (Avvik 1-2)
 
 Endre begge til `in_subset: [Anbefalt]` (ikkje `Obligatorisk`), og legg til
 SHACL-regel om at nøyaktig eitt av dei to er påkravd.
@@ -248,7 +248,7 @@ intensjon om at enkel fritekst er nok.
 
 ---
 
-### SK3 — Rett `range` på `kjelde_relasjon`, `malgruppe_def`, `euvoc_status` (Avvik 4–6)
+### SK3 — Rett `range` på `kjelde_relasjon`, `malgruppe_def`, `euvoc_status` (Avvik 4-6)
 
 Alle tre skal bruke `range: Konsept` (den generiske `skos:Concept`-hjelpeklassen
 frå `common-ap-no-schema`), ikkje `range: Begrep`:
@@ -286,14 +286,14 @@ fagomrade:
 
 ---
 
-### SK5 (revidert 2026-06-20) — Avvik 10–11 må realiserast som `instance_checks` i medaljong-policyen, ikkje SHACL
+### SK5 (revidert 2026-06-20) — Avvik 10-11 må realiserast som `instance_checks` i medaljong-policyen, ikkje SHACL
 
 Den opphavlege SK5 (hand-skriven SHACL-fil) er forlate — repoet har ingen
 mekanisme for hand-skrivne SHACL-tillegg utanom den auto-genererte SHACL-en
 frå `make publish`, og brukaren har valt å ikkje innføre ein slik mekanisme
 (jf. forrige avklaringsrunde).
 
-Den korrekte staden å realisere Avvik 10–11 er i stedet
+Den korrekte staden å realisere Avvik 10-11 er i stedet
 **`src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml`**, som
 allereie har eit presedens for instans-validering via `instance_checks:`
 (sjå `utgjevar_er_kjend_org` — validerer `dct:publisher`-URI-format på faktiske
@@ -301,7 +301,7 @@ allereie har eit presedens for instans-validering via `instance_checks:`
 gold → felles-begrepskatalog) som validerer skjema- og datakvalitet med
 `make mcp-validate POLICY=<nivå>`. Dette er konsistent med korleis
 `src/mcp-linkml-validator/policies/README.md` skil mellom skjemakvalitet og
-datakvalitet — Avvik 10–11 er begge **datakvalitet** (krav til faktiske
+datakvalitet — Avvik 10-11 er begge **datakvalitet** (krav til faktiske
 språktaggverdiar i instansar), ikkje skjemastruktur.
 
 #### Oppdaga avgrensing i datamodellen
@@ -321,7 +321,7 @@ Før ein sjekk kan skrivast, vart følgende undersøkt i
 - Dette heng saman med `specs/bugs/langstring-rdflib-roundtrip.md` (BUG-1):
   `rdf:langString`-verdiar rundtrippar ikkje korrekt via TTL i det heile, så
   språk-informasjon er upålitelig i denne delen av pipelinen uavhengig av
-  Avvik 10–11.
+  Avvik 10-11.
 - **Derimot** er språk *inferarbart* for `Definisjon`-objekt (`har_definisjon`
   → `euvoc:xlDefinition`), via den etablerte ID-suffiks-konvensjonen som
   allereie er i bruk: `https://begrep.brreg.no/def/nestleder-nb`,
@@ -387,7 +387,7 @@ rekursiv `walk()` som også går inn i lister, og er ikkje påvirka. Den
 eksisterande latente feilen bør vurderast som eigen bugfix/spec ved eit senere
 tilfelle.
 
-#### Forslag B — Full løysing for Avvik 10–11 (krev skjemaendring, eigen spec)
+#### Forslag B — Full løysing for Avvik 10-11 (krev skjemaendring, eigen spec)
 
 For å dekke Avvik 10 fullt ut (også for `anbefalt_term`/fritekst-`definisjon`)
 og Avvik 11 (språkkonsistens mellom `anbefalt_term` og definisjon), må
@@ -428,7 +428,7 @@ dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
 | 2 | SK4: Rett `range` på `fagomrade` | `skos-ap-no-schema.yaml` | — |
 | 3 | SK1: Fiks retningsslots i `GeneriskRelasjon` og `PartitivRelasjon` | `skos-ap-no-schema.yaml` | — |
 | 4 | SK2: Juster subset for `definisjon` / `har_definisjon` | `skos-ap-no-schema.yaml` | — |
-| 5 | SK5 (revidert): `instance_checks` for tospråkskrav og språkkonsistens | `felles-begrepskatalog.yaml` + `server.py` | SK1–SK4, og for Forslag B: ny spec `spraaktagging-av-langstring.md` |
+| 5 | SK5 (revidert): `instance_checks` for tospråkskrav og språkkonsistens | `felles-begrepskatalog.yaml` + `server.py` | SK1-SK4, og for Forslag B: ny spec `spraaktagging-av-langstring.md` |
 
 ---
 
@@ -437,7 +437,7 @@ dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
 - SK3 og SK4 er reine range-endringar og kan gjerast uavhengig av kvarandre
 - SK1 og SK2 krev gjennomgang av eksisterande `brreg-begrepskatalog`-datafiler
   for å sikre at reelle instansar framleis validerer etter endringa
-- SK5 (revidert) — Forslag A er uavhengig av SK1–SK4 og kan gjerast når som helst;
+- SK5 (revidert) — Forslag A er uavhengig av SK1-SK4 og kan gjerast når som helst;
   Forslag B krev ein separat spec sidan det påverkar `LangString` på tvers av
   alle AP-NO-profilar
 - Endringar i `skos-ap-no-schema.yaml` vil krevje ny validering og regenerering
@@ -447,7 +447,7 @@ dokumentert løysingsforslag for vidare avklaring, ikkje eit utført tiltak.
 
 ## Utført (2026-06-20)
 
-**SK1–SK4 er implementerte** i `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`:
+**SK1-SK4 er implementerte** i `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`:
 
 - **SK1:** `har_generisk_omgrep`/`har_spesifikt_omgrep` (`GeneriskRelasjon`) og
   `har_partitivt_omgrep`/`har_heilskapleg_omgrep` (`PartitivRelasjon`) endra frå
@@ -493,7 +493,7 @@ og er derfor ikkje rørte.
 
 **Avvik frå planen:** SK5 sin opphavlege plan (hand-skriven SHACL) vart
 forlate til fordel for ein `instance_checks`-basert løysing i
-medaljong-policyen (sjå over). Full dekning av Avvik 10–11 er delt ut i eit
+medaljong-policyen (sjå over). Full dekning av Avvik 10-11 er delt ut i eit
 mindre Forslag A (utført) og eit større Forslag B (deferert til eigen spec).
 
 **Validering:** `make lint` viser same 4 pre-eksisterande

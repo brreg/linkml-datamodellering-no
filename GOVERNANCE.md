@@ -137,7 +137,7 @@ organizations:
     name: Eksempelorganisasjonen
     org_uri: https://data.norge.no/organizations/<orgnr>
     catalog_slug: eksempelorg-modellkatalog
-    catalog_title: "Eksempelorganisasjonen – Modellkatalog"
+    catalog_title: "Eksempelorganisasjonen - Modellkatalog"
     contact_uri: https://eksempelorg.no/kontakt
     github_team: "@eksempelorg/linkml-forvaltning"  # eller "@enkeltbrukar"
     path_patterns:

@@ -149,7 +149,7 @@ Køyr eit skript som listar alle skjema i `src/linkml/` og sjekkar om tilsvarand
 ### 5.2 — Eksempel per manglande skjema
 For kvart skjema utan eksempel:
 - Bruk `mcp-linkml-generator` som utgangspunkt for å forstå strukturen
-- Skriv eit eksempel med minst 2–3 instansar og realistiske (ikkje berre `dummy`) verdiar
+- Skriv eit eksempel med minst 2-3 instansar og realistiske (ikkje berre `dummy`) verdiar
 - Verifiser med `validate_schema.bash`
 
 ### 5.3 — Eksempel som CI-testar

@@ -229,7 +229,7 @@ sequenceDiagram
     Pages-->>Dev: ✓ Synleg på GitHub Pages
 ```
 
-**Tidsbruk:** 3–5 minutt
+**Tidsbruk:** 3-5 minutt
 
 ### Steg 5-6: Ekstern prosess (manuell koordinering)
 
@@ -282,7 +282,7 @@ GitHub Actions (`generate.yml`):
 2. Genererer `.ttl`-fil: `make convert-data`
 3. Publiserer til GitHub Pages: `actions/deploy-pages@v1`
 
-**Tidsbruk:** ~3–5 minutt (avhengig av storleik på endringar)
+**Tidsbruk:** ~3-5 minutt (avhengig av storleik på endringar)
 
 ### 3. GitHub Pages er oppdatert
 
@@ -328,7 +328,7 @@ data_policy: felles-begrepskatalog  # Valideringspolicy
 **Løysing:**
 1. Sjekk at CI-jobben `generate` er grøn: https://github.com/brreg/linkml-datamodellering-no/actions
 2. Sjekk at `publish_external: true` i `manifest.yaml`
-3. Vent 3–5 minutt for at GitHub Pages skal oppdaterast
+3. Vent 3-5 minutt for at GitHub Pages skal oppdaterast
 4. Hard-refresh i nettlesaren (Ctrl+Shift+R)
 
 ### Problem: "GitHub Pages er oppdatert, men eg ser ikkje endringane på data.norge.no"

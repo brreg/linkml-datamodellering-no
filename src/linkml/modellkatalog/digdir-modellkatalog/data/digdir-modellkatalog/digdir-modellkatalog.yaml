@@ -1,7 +1,7 @@
 modellkataloger:
 - id: https://data.norge.no/modellkatalog/digdir-modellkatalog
   tittel:
-  - Digitaliseringsdirektoratet – Modellkatalog
+  - Digitaliseringsdirektoratet - Modellkatalog
   beskrivelse:
   - 'TODO: legg til skildring av katalogen'
   identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog
@@ -169,7 +169,7 @@ informasjonsmodeller:
   inneholder_modellelement: []
 - id: https://data.norge.no/modellkatalog/digdir-modellkatalog/modelldcat-katalog
   tittel:
-  - ModelDCAT-AP-NO – Katalogdel
+  - ModelDCAT-AP-NO - Katalogdel
   beskrivelse:
   - 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
     hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
@@ -222,7 +222,7 @@ informasjonsmodeller:
   tittel:
   - XKOS-AP-NO
   beskrivelse:
-  - LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
+  - LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
     Basert på https://data.norge.no/specification/xkos-ap-no
   utgiver: https://data.norge.no/organizations/991825827
   identifikator_literal: https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no
@@ -984,7 +984,7 @@ objekttyper:
   tittel:
   - Klassifikasjon
   beskrivelse:
-  - Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassifisere
+  - Ei klassifikasjon - ein systematisk struktur av kategoriar brukt til å klassifisere
     data (skos:ConceptScheme).
   har_egenskap:
   - https://data.norge.no/modellkatalog/digdir-modellkatalog/xkos-ap-no/Klassifikasjon/identifikator_literal

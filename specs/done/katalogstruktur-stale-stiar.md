@@ -30,7 +30,7 @@ Fleire filer dokumenterer framleis den gamle strukturen der `data/` og `examples
 
 `mkdocs/docs/index.md` vert generert frå `README.md` av `publish.sh` (steg 3). Begge filer har same feil.
 
-**Katalogstruktur-treeet** (README linje 183–184, index.md linje 147–148) viser:
+**Katalogstruktur-treeet** (README linje 183-184, index.md linje 147-148) viser:
 
 ```
 └── data/          # Produksjonsdata (berre for publiserte katalogar)
@@ -77,7 +77,7 @@ Rett linje:
 
 **Status:** Krev retting — brukarvendt.
 
-**Linje 33–35** (bash-blokk):
+**Linje 33-35** (bash-blokk):
 
 ```bash
 mkdir -p src/linkml/begrepskatalog/<katalognavn>

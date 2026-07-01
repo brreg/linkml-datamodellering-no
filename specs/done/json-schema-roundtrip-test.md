@@ -87,9 +87,9 @@ Tre testfiler ligg klare i `src/tmp/`:
 
 ## Utført
 
-✓ **Steg 1:** Lagt til `roundtrip-json-schema`-target i Makefile (linje 269–274)
+✓ **Steg 1:** Lagt til `roundtrip-json-schema`-target i Makefile (linje 269-274)
 
-✓ **Steg 2–4:** Implementert `test_roundtrip_json_schema()` i `tests/test_make.sh` (linje 584–753)
+✓ **Steg 2-4:** Implementert `test_roundtrip_json_schema()` i `tests/test_make.sh` (linje 584-753)
 - Steg 1: JSON Schema → LinkML via `mcp-linkml-modell-utkast`
 - Steg 2: LinkML → JSON Schema via `gen-json-schema`
 - Steg 3: Semantisk samanlikning med Python-script

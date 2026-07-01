@@ -90,7 +90,7 @@ av `utgiver` der var ei generell annotasjons-opprydding, ikkje ei
 føresetnad for at filen skal dukke opp i ein modellkatalog. Filen er òg
 uttrykkelig eit ikkje-produksjonsskjema («Ikkje ein del av produksjonsdomenet»).
 
-**Status:** ✓ MD2 fullført (steg 1–5, sjå MD2 under) — alle 6 organisasjonar
+**Status:** ✓ MD2 fullført (steg 1-5, sjå MD2 under) — alle 6 organisasjonar
 har no eigen modellkatalog med alle ~23 skjema registrerte. Gjenstår berre
 redaksjonelt innhald (`tema`, kontaktpunkt-namn, katalogskildring) som
 medvite er utelate frå autogenereringa — krev forretningskunnskap, ikkje
@@ -295,7 +295,7 @@ til eksterne URI-ar — same mønster som det eksisterande `begrep`-slottet
 
 **Forkasta** (sjå avvik 4 over): `data.norge.no/organizations/<orgnr>` er ein
 medviten, allerede dokumentert konvensjon delt med NGR/OREG under same
-`felles-datakatalog`-policy. Ingen endring. MD2–MD6 har **ingen avhengigheit**
+`felles-datakatalog`-policy. Ingen endring. MD2-MD6 har **ingen avhengigheit**
 til MD1 lenger (sjå oppdatert avhengigheitsliste under).
 
 ---
@@ -324,8 +324,8 @@ Avklart: bruk den eksisterande autogenererings-infrastrukturen
    `ksdigital`, `skatteetaten`, `kartverket`. **Avvik frå plan:** oppdaga og
    retta ein eksisterande bug i `new-org-catalog.sh` — `eval "$ORG_META"`
    brukte uquota `key=value`-linjer frå Python, som brakk for verdiar med
-   mellomrom (t.d. `catalog_title=Digitaliseringsdirektoratet – Modellkatalog`
-   feila med «–: command not found», `name=Novari IKS` feila med «IKS: command
+   mellomrom (t.d. `catalog_title=Digitaliseringsdirektoratet - Modellkatalog`
+   feila med «-: command not found», `name=Novari IKS` feila med «IKS: command
    not found»). Fiksa med `shlex.quote()` rundt Python-outputverdiane før
    `eval`. Alle 5 katalogar oppretta etter fiksen.
 4. ✓ Køyrt `make update-modellkatalog` for å fylle alle 6 katalogane frå
@@ -370,7 +370,7 @@ Avklart: bruk den eksisterande autogenererings-infrastrukturen
 ✓ **Utført:** `annotations.utgiver` sett på `modelldcat-katalog-schema.yaml`
 (digdir, `991825827`) og retta på `referanse-schema.yaml` (brreg, `974760673`,
 generell annotasjons-opprydding — filen blir ikkje skanna av scriptet uansett,
-sjå avvik 1). Alle steg 1–5 over er no utførte (sjå detaljar per steg over) —
+sjå avvik 1). Alle steg 1-5 over er no utførte (sjå detaljar per steg over) —
 MD2 er fullført, med unntak av medvite utelate redaksjonelle TODO-felt
 (tema, kontaktpunkt-namn, katalogskildring).
 
@@ -484,7 +484,7 @@ autoinnsetjing av stubs (sjå MD2 steg 2) — er fullført først, sidan
 `Informasjonsmodell`-oppslaget å skrive inn i for dei ~19 skjemaa som i dag
 ikkje er registrerte (avvik 1).
 
-**Anbefaling:** Utsett gjennomføring til MD2–MD4 er på plass (ulik
+**Anbefaling:** Utsett gjennomføring til MD2-MD4 er på plass (ulik
 avhengigheit, ikkje fordi retninga er uviss). Dette er ein eigen
 større spec.
 
@@ -547,7 +547,7 @@ validerer med `errorCount: 0` under `felles-datakatalog` etter endringa.
 | 2 | MD2: Rull ut per-org-modellkatalogar | `CODEOWNERS.md`, nye `<org>-modellkatalog/`-katalogar | — |
 | 3 | MD3: Legg til modelltype | `<org>-modellkatalog.yaml`-datafiler | MD2 |
 | 4 | MD4: Synkroniser versjon/status/dato | `brreg-modellkatalog.yaml` | — |
-| 5 | MD5: Eksponér modellelement | Nytt skript, alle `<org>-modellkatalog.yaml`-filer (sjå MD2) | MD2–MD4, MD2 steg 2 (autoinnsetjing) |
+| 5 | MD5: Eksponér modellelement | Nytt skript, alle `<org>-modellkatalog.yaml`-filer (sjå MD2) | MD2-MD4, MD2 steg 2 (autoinnsetjing) |
 | 6 | MD6: Legg til relasjon-slots for begrep/datasett | `modelldcat-katalog-schema.yaml`, `brreg-modellkatalog.yaml` | — (MD5 for Modellelement-nivå) |
 
 ---
@@ -608,4 +608,4 @@ eigen plan:
 **Avvik frå opphavleg plan:** BUG-1 (`specs/bugs/langstring-rdflib-roundtrip.md`)
 sitt omfang vart utvida til å inkludere dei 5 nye org-katalogane (samme
 rotårsak som `brreg-modellkatalog`). Sjå detaljerte avvik per tiltak i
-tekstene over (MD1–MD6).
+tekstene over (MD1-MD6).

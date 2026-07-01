@@ -22,7 +22,7 @@ slotet `har_definisjon` → `har_kvalitetsdefinisjon` på klassen
 (for å løyse ein slot-namnekollisjon med `har_definisjon` på `Begrep` —
 BUG-7-variant). Alle andre eksempelfiler som brukar `Kvalitetsdimensjon`
 (`dqv-ap-no-eksempel.yaml`) vart oppdatert i same commit, men
-`src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml` linje 99–105 vart
+`src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml` linje 99-105 vart
 ikkje retta:
 
 ```yaml

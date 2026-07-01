@@ -8,7 +8,7 @@ Sju filer og ein katalog er gjennomgåtte. To funn i scripts:
 
 ## Funn
 
-### 1. `migreringsscript/migrate-all-containers.sh` linje 66–72 — gamalt eksempel-stimønster
+### 1. `migreringsscript/migrate-all-containers.sh` linje 66-72 — gamalt eksempel-stimønster
 
 `find_example()`-funksjonen søkjer etter eksempelfiler med gamalt rot-nivå-mønster:
 
@@ -47,7 +47,7 @@ utkommentert kode) og er ikkje i aktiv bruk i Makefile eller CI.
 
 | # | Fil | Endring | Prioritet |
 |---|---|---|---|
-| 1 | `migreringsscript/migrate-all-containers.sh` linje 66–72 | Oppdater `find_example()` til `src/linkml/${domain}/${name}/examples/` | Lav |
+| 1 | `migreringsscript/migrate-all-containers.sh` linje 66-72 | Oppdater `find_example()` til `src/linkml/${domain}/${name}/examples/` | Lav |
 | 2 | `pr-linkml-interactive.bash` linje 2 | Byt `docker.io/linkml/linkml:latest` → `localhost/linkml-local:latest`, eller slett scriptet | Lav |
 
 ---

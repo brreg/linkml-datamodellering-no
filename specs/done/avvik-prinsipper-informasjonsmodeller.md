@@ -28,7 +28,7 @@ Denne kartlegginga evaluerer difor repoet på to nivå:
 | P5 Tilgjengelighet | Delvis (regel 7, 8) | ~~`license:` og SHACL/OWL~~ → brreg-skjema har no SHACL/OWL og `license:` | **Lukka** |
 | P6 Gjenbruk og utveksling | Godt dekt | Manglande kryssreferansar mellom skjema | Ope (låg prio) |
 | P7 Modularitet | Delvis (regel 6) | FINT-skjema overskrider 50-klasse-grensa (bronze warning, akseptert avvik) | Ope (akseptert) |
-| P8 Stabilitet og utvidbarhet | Delvis (regel 9–11) | ~~`version:` manglar~~ → alle har `version:`; ~~2 sub-skjema manglar `annotations.status`~~ → lukka | **Lukka** |
+| P8 Stabilitet og utvidbarhet | Delvis (regel 9-11) | ~~`version:` manglar~~ → alle har `version:`; ~~2 sub-skjema manglar `annotations.status`~~ → lukka | **Lukka** |
 | P9 Verktøyuavhengighet | Godt dekt | — | — |
 
 ---

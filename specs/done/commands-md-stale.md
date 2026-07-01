@@ -21,7 +21,7 @@ src/linkml/<domene>/<namn>/examples/<namn>-eksempel.yaml
 
 ### 2. Domenegenerering — manglar `begrepskatalog` og `modellkatalog`
 
-**Linje 60–65**, tabellen «Per domene (anbefalt)» listar berre:
+**Linje 60-65**, tabellen «Per domene (anbefalt)» listar berre:
 `ap-no`, `fair`, `fint`, `ngr`, `oreg`, `samt`.
 
 `begrepskatalog` og `modellkatalog` er aktive domene og støttar `make <domene>` på
@@ -31,7 +31,7 @@ lik linje med dei andre.
 
 ### 3. Container-image-tabell — manglar `mcp-begrep-build`
 
-**Linje 15–21**, image-tabellen listar `mcp-mod-build` og `mcp-val-build`, men ikkje:
+**Linje 15-21**, image-tabellen listar `mcp-mod-build` og `mcp-val-build`, men ikkje:
 
 | Kommando | Image | Bruk |
 |---|---|---|
@@ -43,7 +43,7 @@ Kommandoen finst i Makefile (linje 752) og er med i `make check-prereqs`-kjeden 
 
 ### 4. Manglande seksjon for `mcp-linkml-begrep-utkast`
 
-Det finst ein full seksjon for `mcp-linkml-modell-utkast` (linje 95–104), men ingen
+Det finst ein full seksjon for `mcp-linkml-modell-utkast` (linje 95-104), men ingen
 tilsvarende for `mcp-linkml-begrep-utkast`. Tilgjengelege kommandoar:
 
 | Kommando | Beskriving |
@@ -60,6 +60,6 @@ tilsvarende for `mcp-linkml-begrep-utkast`. Tilgjengelege kommandoar:
 | # | Linje | Endring | Prioritet |
 |---|---|---|---|
 | 1 | 27 | Rett `examples/<domene>/...` → `src/linkml/<domene>/<namn>/examples/...` | Høg |
-| 2 | 60–65 | Legg til `begrepskatalog` og `modellkatalog` i domenetabellen | Høg |
-| 3 | 15–21 | Legg til `mcp-begrep-build` i container-image-tabellen | Medium |
+| 2 | 60-65 | Legg til `begrepskatalog` og `modellkatalog` i domenetabellen | Høg |
+| 3 | 15-21 | Legg til `mcp-begrep-build` i container-image-tabellen | Medium |
 | 4 | etter linje 114 | Legg til seksjon for `mcp-linkml-begrep-utkast` | Medium |

@@ -87,7 +87,7 @@ fila og registrerer alle skjema i GCP Data Catalog.
     {
       "name": "samt-bu",
       "domain": "samt",
-      "title": "SAMT – Skular og barnehagar",
+      "title": "SAMT - Skular og barnehagar",
       "version": "1.0.0",
       "data_policy": "silver",
       "publisher": "https://data.norge.no/organizations/974760673",
@@ -185,9 +185,9 @@ konsumentens eige Terraform-oppsett.
 
 | # | Steg | Fil | Avhengigheit |
 |---|---|---|---|
-| 1 | Svar på opne spørsmål 1–5 | — | Brukarval |
+| 1 | Svar på opne spørsmål 1-5 | — | Brukarval |
 | 2 | Definer og generer `catalog.json` | `gen-catalog-manifest.py`, `generate.yml` | Svar på sp. 5 |
-| 3 | Skriv `register-gcp-catalog.py` | `src/assets/scripts/` | Steg 2, svar sp. 1–4 |
+| 3 | Skriv `register-gcp-catalog.py` | `src/assets/scripts/` | Steg 2, svar sp. 1-4 |
 | 4 | Test mot emulator | — | Steg 3 |
 | 5 | Portaldokumentasjon | `mkdocs/docs/gcp-data-catalog.md` | Steg 3 |
 | 6 | Terraform-modul (valfri) | `src/assets/terraform/` | Steg 3 |

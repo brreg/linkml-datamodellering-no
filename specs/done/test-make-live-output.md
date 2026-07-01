@@ -11,7 +11,7 @@ kva som køyrer, om prosessen heng, eller kor langt ein er komen.
 
 ## Rotårsak
 
-I `run_schema_tests()` (linje 99–118) vert heile testblokka køyrt som ein
+I `run_schema_tests()` (linje 99-118) vert heile testblokka køyrt som ein
 bakgrunnsprosess med all stdout og stderr omdirigert til ein tempfil:
 
 ```bash
@@ -161,5 +161,5 @@ START/RESULT-linjer vises, ikkje rå make-output.
 - [ ] Legg til `echo "→ Startar testar for $name ..."` øvst i
       `run_schema_tests()`, utanfor bakgrunnsboksen (~linje 97)
 - [ ] Oppdater `_run_one()` til å skrive START og RESULT til fd 3 (~linje 77)
-- [ ] Fjern per-test `printf`-linjene i `wait_for_tests()` (~linje 132–136)
+- [ ] Fjern per-test `printf`-linjene i `wait_for_tests()` (~linje 132-136)
 - [ ] Verifiser at parallellkøyring med fleire skjema gir lesbar output

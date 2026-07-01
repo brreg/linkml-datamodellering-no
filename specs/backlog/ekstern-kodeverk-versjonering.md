@@ -69,7 +69,7 @@ skal enum-typar ligge i eigne, valgfrie schemafiler — ikkje i kjerne-AP-NO-skj
 ### Primærverdien er dokumentasjon, ikkje runtime-validering
 
 Den vanlegaste feilen med Los-URI-ar er mangel på kunnskap om at Los *skal*
-brukast — ikkje skrivefeil i URI-ar. Den største nytten av EK1–EK3 er å vise
+brukast — ikkje skrivefeil i URI-ar. Den største nytten av EK1-EK3 er å vise
 gyldige verdiar i den genererte portalen, ikkje å stoppe instansvalidering.
 
 ---
@@ -102,7 +102,7 @@ generated/
 
 ```yaml
 name: los
-title: Los – Lenka offentlege servicekatalogar
+title: Los - Lenka offentlege servicekatalogar
 source_url: https://psi.norge.no/los/all.rdf
 downloaded: "2026-06-19"
 sha256: <sjekksum av los.ttl>
@@ -150,7 +150,7 @@ To ting må verifiserast før implementering startar:
 
 **a) Kva format er Los tilgjengeleg i?**
 Sjekk om Digdir tilbyr Turtle-nedlasting i tillegg til RDF/XML (`all.rdf`).
-Turtle er 3–4× meir kompakt og raskare å parse med rdflib. Viss ikkje Turtle
+Turtle er 3-4× meir kompakt og raskare å parse med rdflib. Viss ikkje Turtle
 er tilgjengeleg, konverter med rdflib etter nedlasting og lagre `.ttl`.
 
 **b) Støttar LinkML SHACL-generator `sh:in` frå enum?**
@@ -247,7 +247,7 @@ chore(external): oppdater Los-snapshot 2026-MM-DD
 | 3 | EK2: `extract.py` + `make gen-external-los` | `src/external/los/extract.py`, `Makefile` | EK1 |
 | 4 | EK3: `gen_enum.py` + `make gen-external-los-enum` | `src/external/los/gen_enum.py`, `Makefile` | EK2 |
 | 5 | EK4: Portaldokumentasjon med Los-tabell | `mkdocs/docs/ekstern-kodeverk.md`, `publish.sh` | EK2 |
-| 6 | EK5: Samla `update-external-los`-target | `Makefile` | EK1–EK4 |
+| 6 | EK5: Samla `update-external-los`-target | `Makefile` | EK1-EK4 |
 
 **Utsette steg (avheng av EK0b):**
 
@@ -263,7 +263,7 @@ chore(external): oppdater Los-snapshot 2026-MM-DD
 - rdflib er allereie i `linkml-local`-containeren
 - `src/external/` committast; `generated/external/` er i `.gitignore`
 - EK6 (SHACL) er berre aktuelt etter positiv EK0b-verifisering
-- Fleire vokabular (EU MDR, ADMS) følgjer same mønster etter EK1–EK5 er etablert
+- Fleire vokabular (EU MDR, ADMS) følgjer same mønster etter EK1-EK5 er etablert
 
 ## Framtidig utvidingar (ikkje del av denne planen)
 

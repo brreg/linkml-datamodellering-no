@@ -43,7 +43,7 @@ For `make new-begrepskatalog NAME=test-begrep` ser dei genererte filene slik ut:
 ```yaml
 id: https://data.norge.no/begrepskatalog/test-begrep
 name: test_begrep
-title: 'TODO: <Organisasjon> – Begrepskatalog'
+title: 'TODO: <Organisasjon> - Begrepskatalog'
 description: 'TODO: beskriv katalogen'
 version: "0.1.0"
 license: https://data.norge.no/nlod/no/2.0
@@ -254,7 +254,7 @@ sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md).
 
 ## Sjå òg
 
-- [Begrep – domeneindeks](begrep/index.md)
+- [Begrep - domeneindeks](begrep/index.md)
 - [Publiser til Felles Begrepskatalog](publisering-begrep.md) — pipeline og URI-stabilitet
 - [`specs/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/begrep-modellering.md) — fullstendig teknisk spesifikasjon
 - [`src/mcp-linkml-begrep-utkast/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) — dokumentasjon for MCP-serveren

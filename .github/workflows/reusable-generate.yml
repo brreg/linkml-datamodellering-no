@@ -1,4 +1,4 @@
-name: Reusable – LinkML generering
+name: Reusable - LinkML generering
 
 on:
   workflow_call:

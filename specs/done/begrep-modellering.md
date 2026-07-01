@@ -93,7 +93,7 @@ lister for alle objekttypar som kan opptre som sjølvstendige ressursar, inklude
 ```yaml
 id: https://data.norge.no/linkml/<katalognavn>
 name: <katalognavn>
-title: <Organisasjon> – Begrepskatalog
+title: <Organisasjon> - Begrepskatalog
 version: "1.0.0"
 
 prefixes:
@@ -297,7 +297,7 @@ samlingar:
   - id: https://begrep.brreg.no/samlingar/registerbegrep-2025
     identifikator_literal: "https://begrep.brreg.no/samlingar/registerbegrep-2025"
     tittel:
-      - Registerenheten i Brønnøysund – begrepskatalog 2025
+      - Registerenheten i Brønnøysund - begrepskatalog 2025
     kontaktpunkt_vcard:
       - https://begrep.brreg.no/kontakt/begrepsansvarleg
     utgjevar: https://data.brreg.no/enhetsregisteret/api/enheter/974760673

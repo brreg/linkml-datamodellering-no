@@ -28,7 +28,7 @@ applikasjonar:
 
 applikasjonsressursar:
   - id: finta:applikasjonsressurs/hr-portal-ansatt
-    navn: "HR-portal – ansatttilgang"
+    navn: "HR-portal - ansatttilgang"
     gyldighetsperiode:
       start: "2022-01-01T00:00:00Z"
     eier: finta:organisasjonselement/it-avdeling

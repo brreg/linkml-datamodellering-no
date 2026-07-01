@@ -3,7 +3,7 @@
 
 id: https://data.norge.no/modellkatalog/brreg-modellkatalog
 name: brreg-modellkatalog
-title: Brønnøysundregistra – Modellkatalog
+title: Brønnøysundregistra - Modellkatalog
 description: >-
   Modellkatalog for Brønnøysundregistra sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
