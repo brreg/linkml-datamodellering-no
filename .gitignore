@@ -1,7 +1,6 @@
 generated/
 config.mk
 mkdocs/site/
-validation/logs/
 
 # Genererte portalsider — alltid regenerert av publish.sh / CI
 mkdocs/docs/ap-no/
