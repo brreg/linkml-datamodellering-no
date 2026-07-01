@@ -2,15 +2,6 @@ name: Release Please
 
 on:
   workflow_dispatch:
-    inputs:
-      release-type:
-        description: 'Type release (patch/minor/major)'
-        required: true
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
 
 jobs:
   release-please:
@@ -25,13 +16,13 @@ jobs:
       # Manuelt trigga workflow brukar GITHUB_TOKEN (treng ikkje PAT).
       # Workflow må triggerast av ein admin via Actions → Release Please → Run workflow.
       # Admin må godkjenne og merge release-PR manuelt etter at workflow har oppretta den.
+      # Versjonsbump vert automatisk bestemt frå Conventional Commits (feat/fix/BREAKING).
       - uses: googleapis/release-please-action@v5
         id: release-please
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: ${{ github.event.inputs.release-type }}
 
       - name: Informer om release-PR
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}

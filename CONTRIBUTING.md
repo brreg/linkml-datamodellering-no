@@ -72,17 +72,18 @@ Du treng ikkje gjere noko — CI commit-ar endringane med meldinga `chore(*): op
 
 1. Gå til [Actions → Release Please](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml)
 2. Klikk **Run workflow**
-3. Velg release-type:
-   - `patch` — bugfix/refactor (0.0.X)
-   - `minor` — ny funksjonalitet (`feat`, 0.X.0)
-   - `major` — brotande endringar (`feat!`, `BREAKING CHANGE:`, X.0.0)
+3. Velg branch (normalt `main`)
 4. Klikk **Run workflow** (grøn knapp)
-5. Workflow opprettar ein release-PR — vent på at `validate.yml` passerer
-6. Gjennomgå endringar i PR-en (versjonsbump, `CHANGELOG.md`)
-7. **Godkjenn og merge PR-en manuelt**
-8. Etter merge: `update-dates` og `capture-validation` jobbane køyrer automatisk og commit-ar oppdaterte datoar/DQV/ModelDCAT-element til `main`
+5. Workflow opprettar ein release-PR basert på Conventional Commits sidan siste release
+6. Vent på at `validate.yml` passerer på PR-en
+7. Gjennomgå endringar i PR-en (versjonsbump, `CHANGELOG.md`)
+8. **Godkjenn og merge PR-en manuelt**
+9. Etter merge: `update-dates` og `capture-validation` jobbane køyrer automatisk og commit-ar oppdaterte datoar/DQV/ModelDCAT-element til `main`
 
-**Versjonering følgjer Conventional Commits:** Release-type-parameteren overrider automatisk semver-berekning frå commit-historikk. Vel `patch` for mindre endringar, `minor` for nye feature, `major` for brotande endringar.
+**Versjonering følgjer Conventional Commits automatisk:**
+- `fix:` → patch-bump (0.0.X)
+- `feat:` → minor-bump (0.X.0)
+- `feat!:` eller `BREAKING CHANGE:` → major-bump (X.0.0)
 
 ## Commit-meldingar
 
