@@ -59,26 +59,51 @@ Tre felt i kvar skjema-YAML-fil vert oppdaterte automatisk av CI — **ikkje red
 
 | Felt | Forvaltingsmekanisme |
 |---|---|
-| `version` | release-please oppdaterer via JSONPath etter merge av release-PR |
-| `annotations.endringsdato` | `update-schema-dates.py` set til releasedato etter kvar release |
-| `annotations.utgivelsesdato` | `update-schema-dates.py` set til releasedato ved første release (éin gong) |
+| `version` | release-please oppdaterer via JSONPath i release-PR |
+| `annotations.endringsdato` | må oppdaterast manuelt før release |
+| `annotations.utgivelsesdato` | må oppdaterast manuelt ved første release (éin gong) |
 
-Oppdateringa skjer automatisk etter at ein release-PR er merge-a til `main`.
-Du treng ikkje gjere noko — CI commit-ar endringane med meldinga `chore(*): oppdater datoannotasjonar etter release [skip ci]`.
+Oppdateringa av `version` skjer automatisk i release-PR. Datoannotasjonar må oppdaterast manuelt.
 
 ## Korleis utløyse ein release
 
-**Manuell prosess** (krev repo-admin-tilgang):
+Release-arbeidsflyten er todelt: **automatisk PR-oppretting** og **manuell release-publisering**.
+
+### Steg 1: Automatisk release-PR-oppretting
+
+Release-please opprettar automatisk ein release-PR når du pushar `feat:` eller `fix:`-commits til `main`:
+
+1. Push ein commit med `feat:` eller `fix:` til `main`
+2. `release-please.yml` workflow triggar automatisk
+3. Workflow opprettar/oppdaterer ein release-PR basert på Conventional Commits sidan siste release
+4. PR inneheld versjonsbump i `*-schema.yaml`, oppdatert `CHANGELOG.md` og oppdatert `.release-please-manifest.json`
+
+**Manuell trigger** (valfritt):
 
 1. Gå til [Actions → Release Please](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml)
-2. Klikk **Run workflow**
-3. Velg branch (normalt `main`)
-4. Klikk **Run workflow** (grøn knapp)
-5. Workflow opprettar ein release-PR basert på Conventional Commits sidan siste release
-6. Vent på at `validate.yml` passerer på PR-en
-7. Gjennomgå endringar i PR-en (versjonsbump, `CHANGELOG.md`)
-8. **Godkjenn og merge PR-en manuelt**
-9. Etter merge: `update-dates` og `capture-validation` jobbane køyrer automatisk og commit-ar oppdaterte datoar/DQV/ModelDCAT-element til `main`
+2. Klikk **Run workflow** → velg branch → **Run workflow**
+
+### Steg 2: Merge release-PR
+
+1. Gjennomgå endringar i release-PR-en
+2. Vent på at `validate.yml` passerer
+3. **Godkjenn og merge PR-en manuelt**
+
+### Steg 3: Manuell release-publisering
+
+Etter merge må du opprette GitHub Release manuelt (krev repo-admin-tilgang):
+
+```bash
+# Eksempel for samt-bu
+VERSION=$(jq -r '."src/linkml/samt/samt-bu"' .release-please-manifest.json)
+gh release create "samt-bu-v${VERSION}" \
+  --title "samt-bu ${VERSION}" \
+  --notes "Release ${VERSION} for samt-bu"
+```
+
+For fleire komponentar i same release-PR, køyr kommandoen for kvar komponent.
+
+Sjå [monitorering.md](mkdocs/docs/monitorering.md#release-arbeidsflyt) for flytdiagram og meir detaljar.
 
 **Versjonering følgjer Conventional Commits automatisk:**
 - `fix:` → patch-bump (0.0.X)
