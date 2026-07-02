@@ -250,3 +250,15 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 **Neste steg:** Neste gong nokon pushar `feat:` eller `fix:`-commit som endrar eit schema, vil release-please automatisk opprette ein ny release-PR.
 
 **Manuell prosedyre for release-oppretting etter PR-merge:** Sjå CONTRIBUTING.md (må dokumenterast).
+
+---
+
+## Post-rollback bugfix #5 (final)
+
+**Problem:** Release-please feila framleis med "There are untagged, merged release PRs outstanding" sjølv etter at alle tags var på plass. Problemet var at `skip-github-release: true` berre **slår av** release-oppretting, men release-please **sjekkar framleis** om tidlegare merga PR-ar med `autorelease: pending`-label har fått releases.
+
+**Løysing:** Fjerna `autorelease: pending`-labelen frå PR #24 via GitHub API (`gh api repos/:owner/:repo/issues/24/labels/autorelease:%20pending -X DELETE`). Dette får release-please til å ignorere PR #24.
+
+**Resultat:** Release-please fungerer no perfekt! PR #25 vart oppretta automatisk med `samt-bu` v1.0.4 innehaldande alle 5 `fix(samt-bu)`-commits.
+
+**Commit:** chore(ci): fjern autorelease-label frå PR #24 for å unngå "untagged PR" konflikt
