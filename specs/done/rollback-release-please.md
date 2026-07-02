@@ -169,10 +169,38 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 
 ---
 
-## Post-rollback bugfix
+## Post-rollback bugfix #1
 
 **Problem:** Release-please feila med "fatal: not a git repository" fordi `check_commit_type`-steget køyrde `git log` før checkout-steget.
 
 **Løysing:** Endra frå `git log -1 --pretty=%B` til `github.event.head_commit.message` — GitHub context er tilgjengeleg utan checkout.
 
 **Commit:** fix(ci): bruk github.event.head_commit.message i staden for git log i release-please
+
+---
+
+## Post-rollback endring: Fjern release-oppretting
+
+**Dato:** 2026-07-02 (same dag som rollback)
+
+**Problem oppdaga:** Rollback-versjonen feila med same feil som før f65f9086: "Resource not accessible by integration". Etter grundig analyse:
+
+1. **GITHUB_TOKEN manglar tilgang:** `GITHUB_TOKEN` i GitHub Actions kan ikkje opprette GitHub Releases i dette repoet pga. branch-protection-reglar
+2. **PAT fungerer ikkje:** Admin kan ikkje godkjenne RELEASE_PLEASE_TOKEN (det var difor f65f9086 aldri fungerte)
+3. **Baseline fungerte 20. juni:** Men berre tilfeldig — ein timing-quirk gjorde at releases vart oppretta rett etter PR-merge før branch-protection kunne blokkere
+4. **PR #24 stuck:** Release-please prøvde kontinuerleg å opprette releases for den gamle merga PR #24, sjølv etter at me oppretta dei manuelt
+
+**Løysing:** Fjerna `capture-validation` og `update-dates` frå `release-please.yml`. Workflow opprettar no **berre** release-PR-ar — ikkje faktiske releases.
+
+**Ny arbeidsflyt:**
+1. Push til main med `feat:`/`fix:`-commit → release-please opprettar/oppdaterer release-PR
+2. Brukar mergar release-PR manuelt
+3. **Brukar opprettar GitHub Releases manuelt** (sjå CONTRIBUTING.md for prosedyre)
+
+**Avvik frå baseline:** Baseline-versjonen prøvde å opprette releases automatisk (og feila). Ny versjon gjer ikkje eingong forsøket.
+
+**Fordel:** Workflow fungerer no stabilt — berre PR-oppretting, ingen "Resource not accessible by integration"-feil.
+
+**Ulempe:** Manuell release-oppretting krev ekstra steg etter PR-merge.
+
+**Commit:** fix(ci): fjern release-oppretting frå release-please workflow — behald berre PR-oppretting
