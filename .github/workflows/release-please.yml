@@ -1,11 +1,15 @@
 name: Release Please
 
-# Automatisk release-flyt:
-# 1. Push til main med semantisk commit (feat/fix) → release-please opprettar/oppdaterer release-PR
-# 2. Brukar mergar release-PR → release-please opprettar faktiske releases og tags
-# 3. capture-validation og update-dates køyrer automatisk etter release-oppretting
+# Automatisk release-PR-oppretting:
+# 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
+#    → release-please opprettar/oppdaterer release-PR automatisk
+# 2. Brukar mergar release-PR manuelt
+#    → brukar må opprette GitHub Releases manuelt (sjå CONTRIBUTING.md)
 #
-# Manuell trigger via workflow_dispatch er framleis tilgjengeleg for admin.
+# Manuell trigger via workflow_dispatch er tilgjengeleg for admin.
+#
+# Viktig: Denne workflow opprettar IKKJE faktiske releases — det må gjerast manuelt
+# fordi GITHUB_TOKEN manglar tilgang til å opprette releases via REST API i dette repoet.
 
 on:
   workflow_dispatch:
@@ -18,9 +22,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      issues: write
-    outputs:
-      releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
@@ -44,64 +45,12 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-  capture-validation:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: main
-          fetch-depth: 2
-
-      - name: Hent mcp-validator-image frå GHCR
+      - name: Informer om release-PR
+        if: ${{ steps.release-please.outputs.prs_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
-          podman pull "$IMAGE"
-          podman tag "$IMAGE" mcp-linkml-validator
-
-      - name: Fang valideringsresultat
-        run: python3 src/assets/scripts/run-schema-validation.py --config release-please-config.json
-
-      - name: Commit og push valideringsresultat
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet; then
-            git add validation/
-            git commit -m "chore(validering): oppdater validation-loggar etter release [skip ci]"
-            git push
-          else
-            echo "Ingen endringar å committe"
-          fi
-
-  update-dates:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: main
-          fetch-depth: 2
-
-      - name: Oppdater datoannotasjonar
-        run: |
-          python3 src/assets/scripts/update-schema-dates.py \
-            --config release-please-config.json
-
-      - name: Commit og push oppdaterte datoar
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet; then
-            git add src/linkml/
-            git commit -m "chore(*): oppdater datoannotasjonar etter release [skip ci]"
-            git push
-          else
-            echo "Ingen endringar å committe"
-          fi
+          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
+          echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
+          echo "Gå til PR-en, verifiser endringar, og merge når du er klar."
+          echo "::warning::Hugsk å opprette GitHub Releases manuelt etter merge (sjå CONTRIBUTING.md)"

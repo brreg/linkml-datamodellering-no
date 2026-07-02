@@ -186,7 +186,9 @@
       "Bash(gh pr *)",
       "Bash(git restore *)",
       "Bash(gh repo *)",
-      "Bash(yamllint *)"
+      "Bash(yamllint *)",
+      "Bash(gh workflow *)",
+      "Bash(xargs -I {} gh run view {} --log)"
     ]
   },
   "enableAllProjectMcpServers": true,
