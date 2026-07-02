@@ -224,3 +224,29 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 **Løysing:** Legg til `skip-github-release: true` i `release-please-action`-parametrar. Dette deaktiverer Release mode fullstendig, slik at action berre opprettar/oppdaterer PR-ar.
 
 **Commit:** fix(ci): legg til skip-github-release for å deaktivere automatisk release-oppretting
+
+---
+
+## Post-rollback bugfix #4
+
+**Problem:** Release-please seier "There are untagged, merged release PRs outstanding" fordi tags for PR #24-releases peika på feil commit (siste commit i staden for PR #24 merge-commit).
+
+**Løysing:** Flytta alle 9 tags (inkludert `fair-metadata-v1.0.1` som mangla) til PR #24 merge-commit (`664af344`) med `git tag -d` + `git tag -a` + `git push --force`.
+
+**Commit:** chore(git): flytt PR #24 release-tags til rett commit
+
+**Oppdatering:** Oppdaga at `dcat-ap-no-v2.1.2` mangla fullstendig — la til den også.
+
+---
+
+## Resultat
+
+**Dato:** 2026-07-02 (slutt)
+
+**Status:** ✅ Release-please fungerer no perfekt for PR-oppretting. Workflow køyrer utan feil.
+
+**Siste test:** Release-please køyrde vellykka utan å opprette ny PR (fordi det ikkje finst nye release-utløysande commits som påverkar schema-filer etter PR #24).
+
+**Neste steg:** Neste gong nokon pushar `feat:` eller `fix:`-commit som endrar eit schema, vil release-please automatisk opprette ein ny release-PR.
+
+**Manuell prosedyre for release-oppretting etter PR-merge:** Sjå CONTRIBUTING.md (må dokumenterast).
