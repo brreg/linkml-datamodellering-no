@@ -166,3 +166,13 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 1. Release-please opprettar faktiske releases og tags
 2. Capture-validation og update-dates køyrer etter release-oppretting
 3. Ingen "Resource not accessible by integration"-feil
+
+---
+
+## Post-rollback bugfix
+
+**Problem:** Release-please feila med "fatal: not a git repository" fordi `check_commit_type`-steget køyrde `git log` før checkout-steget.
+
+**Løysing:** Endra frå `git log -1 --pretty=%B` til `github.event.head_commit.message` — GitHub context er tilgjengeleg utan checkout.
+
+**Commit:** fix(ci): bruk github.event.head_commit.message i staden for git log i release-please

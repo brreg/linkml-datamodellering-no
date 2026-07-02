@@ -26,7 +26,7 @@ jobs:
         id: check_commit_type
         if: github.event_name == 'push'
         run: |
-          COMMIT_MSG=$(git log -1 --pretty=%B)
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
           if echo "$COMMIT_MSG" | grep -qE '^(style|docs|chore|test|ci|build|perf|refactor)(\(.*\))?:'; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "Siste commit er ikkje ein release-utløysande type — hoppar over"
