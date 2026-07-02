@@ -183,6 +183,8 @@ classes:
       - har_skoleeier
     see_also:
       - https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/017cdf77-afb1-44e3-8845-08fe570e251d
 
   # --- Abstrakt superklasse ---
   Skoleeier:
