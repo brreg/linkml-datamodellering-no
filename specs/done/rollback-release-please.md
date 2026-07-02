@@ -204,3 +204,13 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 **Ulempe:** Manuell release-oppretting krev ekstra steg etter PR-merge.
 
 **Commit:** fix(ci): fjern release-oppretting frå release-please workflow — behald berre PR-oppretting
+
+---
+
+## Post-rollback bugfix #2
+
+**Problem:** Release-please feila med "not: command not found" fordi commit-melding med fleire linjer vart behandla som bash-kommandoar.
+
+**Løysing:** Bruk heredoc og `head -n 1` for å berre sjekke første linje av commit-meldinga.
+
+**Commit:** fix(ci): handter fleirlinje-commit-meldingar i release-please check_commit_type
