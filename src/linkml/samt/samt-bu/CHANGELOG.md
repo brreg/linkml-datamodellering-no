@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.4](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.3...samt-bu-v1.0.4) (2026-07-02)
+
+
+### Bug Fixes
+
+* **samt-bu:** legg på begrepsidentifikator på person klassen ([efd8019](https://github.com/brreg/linkml-datamodellering-no/commit/efd80190a3fb0c84e5f07208d496d29e3a9ef5e3))
+* **samt-bu:** legg til begrepesidentifikator for Kontaktlaerer klassen ([3dab033](https://github.com/brreg/linkml-datamodellering-no/commit/3dab0335740d467e4fd7db52d993b2a544caf83f))
+* **samt-bu:** legg til begrepsidentifikator for skole klassen ([7e949f8](https://github.com/brreg/linkml-datamodellering-no/commit/7e949f89ae17acb089b7c21e8d3407b734405ba8))
+* **samt-bu:** legg til begrepsidentifikator for skoleeier ([68c79d4](https://github.com/brreg/linkml-datamodellering-no/commit/68c79d4389ad80b3d555ff2bdd41d82fe2ea8354))
+* **samt-bu:** legg til begrpsidentifikator for kommune klassen ([999e79a](https://github.com/brreg/linkml-datamodellering-no/commit/999e79a588d61f2cb46390c3342800c8674a96e5))
+
 ## [1.0.3](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.2...samt-bu-v1.0.3) (2026-07-01)
 
 
