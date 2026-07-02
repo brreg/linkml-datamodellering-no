@@ -23,8 +23,84 @@ https://github.com/brreg/linkml-datamodellering-no/actions
 |---|---|---|
 | `generate.yml` | [actions/workflows/generate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/generate.yml) | Validerer, genererer artefaktar og publiserer til GitHub Pages |
 | `validate.yml` | [actions/workflows/validate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/validate.yml) | Validerer skjema og datafiler ved PR |
-| `release-please.yml` | [actions/workflows/release-please.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml) | Opprettar release-PR og publiserer releases |
+| `release-please.yml` | [actions/workflows/release-please.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml) | Opprettar release-PR automatisk |
 | `release.yml` | [actions/workflows/release.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release.yml) | Byggjer og pushar container-images ved release |
+
+---
+
+## Release-arbeidsflyt
+
+Repoet brukar [release-please](https://github.com/googleapis/release-please) for å automatisere release-PR-oppretting basert på [Conventional Commits](https://www.conventionalcommits.org/). Arbeidsflyten er todelt: automatisk PR-oppretting og manuell release-publisering.
+
+### Flytdiagram
+
+```mermaid
+flowchart TD
+    Start([Push til main<br/>feat: eller fix:])
+    RPCheck{Commit-type<br/>release-utløysande?}
+    RPRun[release-please<br/>workflow køyrer]
+    RPOpen{Open release-PR<br/>finst?}
+    PRCreate[Opprettar ny<br/>release-PR]
+    PRUpdate[Oppdaterer<br/>eksisterande PR]
+    WaitMerge([Brukar mergar<br/>release-PR manuelt])
+    CreateRelease([Brukar opprettar<br/>GitHub Release manuelt])
+    Done([Ferdig])
+    
+    Start --> RPCheck
+    RPCheck -->|Ja| RPRun
+    RPCheck -->|Nei: style/docs/<br/>chore/test/ci/build/<br/>perf/refactor| Done
+    RPRun --> RPOpen
+    RPOpen -->|Nei| PRCreate
+    RPOpen -->|Ja| PRUpdate
+    PRCreate --> WaitMerge
+    PRUpdate --> WaitMerge
+    WaitMerge --> CreateRelease
+    CreateRelease --> Done
+    
+    classDef automatic fill:#e1f5e1,stroke:#4caf50,stroke-width:2px
+    classDef manual fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    classDef decision fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    
+    class RPRun,PRCreate,PRUpdate automatic
+    class WaitMerge,CreateRelease manual
+    class RPCheck,RPOpen decision
+```
+
+**Fargekodar:**
+
+- 🟢 **Grøn** — automatisk prosess (køyrer utan brukarinngripen)
+- 🟡 **Gul** — manuell prosess (krev brukarhandling)
+- 🔵 **Blå** — avgjerdspunkt (logikk i workflow)
+
+### Manuell release-publisering
+
+Etter at release-PR er merga, må brukar opprette GitHub Release manuelt. Dette er nødvendig fordi `GITHUB_TOKEN` i GitHub Actions manglar tilgang til å opprette releases i dette repoet.
+
+**Kommandoeksempel:**
+
+```bash
+# Hent versjon frå manifest
+VERSION=$(jq -r '."src/linkml/<domain>/<modell>"' .release-please-manifest.json)
+COMPONENT="<modell>"
+
+# Opprett release
+gh release create "${COMPONENT}-v${VERSION}" \
+  --title "${COMPONENT} ${VERSION}" \
+  --notes "Release ${VERSION} for ${COMPONENT}"
+```
+
+**Eksempel for samt-bu:**
+
+```bash
+VERSION=$(jq -r '."src/linkml/samt/samt-bu"' .release-please-manifest.json)
+gh release create "samt-bu-v${VERSION}" \
+  --title "samt-bu ${VERSION}" \
+  --notes "Release ${VERSION} for samt-bu"
+```
+
+Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md) for fullstendig prosedyre.
+
+---
 
 ### Kva viser loggane?
 
