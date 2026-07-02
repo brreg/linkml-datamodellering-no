@@ -76,7 +76,19 @@ flowchart TD
 
 Etter at release-PR er merga, må brukar opprette GitHub Release manuelt. Dette er nødvendig fordi `GITHUB_TOKEN` i GitHub Actions manglar tilgang til å opprette releases i dette repoet.
 
-**Kommandoeksempel:**
+**Alternativ 1: Via GitHub UI**
+
+1. Gå til [Releases](https://github.com/brreg/linkml-datamodellering-no/releases)
+2. Klikk **Draft a new release**
+3. Klikk **Choose a tag** → skriv inn tag-namn (t.d. `samt-bu-v1.0.4`) → klikk **Create new tag: samt-bu-v1.0.4 on publish**
+4. Fyll inn:
+   - **Release title:** `samt-bu 1.0.4`
+   - **Description:** Kopier frå `CHANGELOG.md` eller skriv manuelt
+5. Klikk **Publish release**
+
+**Tips:** Tag-namn og versjon finn du i release-PR-en (t.d. PR #25) eller i `.release-please-manifest.json`.
+
+**Alternativ 2: Via GitHub CLI**
 
 ```bash
 # Hent versjon frå manifest
