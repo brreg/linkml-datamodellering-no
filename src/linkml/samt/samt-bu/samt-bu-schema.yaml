@@ -196,6 +196,8 @@ classes:
       - navn
     see_also:
       - https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/097edf00-cee3-4696-b9f1-80c5e66c72b1
 
   Kommune:
     class_uri: samtbuskole:Kommune
