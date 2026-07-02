@@ -4,7 +4,7 @@ name: Release Please
 # 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
 #    → release-please opprettar/oppdaterer release-PR automatisk
 # 2. Brukar mergar release-PR
-#    → release-please opprettar release med tags
+#    → create-releases workflow opprettar faktiske releases og tags
 #    → capture-validation og update-dates køyrer automatisk
 #
 # Manuell trigger via workflow_dispatch er framleis tilgjengeleg for admin.
@@ -15,8 +15,6 @@ on:
     branches: [main]
     paths:
       - 'src/linkml/**/*-schema.yaml'
-  pull_request:
-    types: [closed]
 
 jobs:
   release-please:
@@ -24,8 +22,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    outputs:
-      releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -44,35 +40,12 @@ jobs:
           echo "skip=false" >> $GITHUB_OUTPUT
           echo "Siste commit kan trigge release — held fram"
 
-      - name: Sjekk om dette er ein merga release-PR
-        id: check_release_pr
-        if: github.event_name == 'pull_request'
-        run: |
-          if [ "${{ github.event.pull_request.merged }}" != "true" ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "PR vart ikkje merga — hoppar over"
-            exit 0
-          fi
-          LABELS=$(gh pr view ${{ github.event.pull_request.number }} \
-                   --json labels --jq '.labels[].name')
-          if ! echo "$LABELS" | grep -q 'autorelease: pending'; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "Dette er ikkje ein release-PR — hoppar over"
-            exit 0
-          fi
-          echo "skip=false" >> $GITHUB_OUTPUT
-          echo "Dette er ein merga release-PR — held fram med release-oppretting"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Køyrer release-please på push til main (opprettar/oppdaterer release-PR)
-      # eller når release-PR vert merga (opprettar faktisk release med tags).
-      # Hoppar over dersom dette er ein PR som ikkje er ein release-PR,
-      # eller ein push-commit som ikkje er release-utløysande (style/docs/chore/etc).
+      # Køyrer release-please på push til main (opprettar/oppdaterer release-PR).
+      # Hoppar over dersom dette er ein push-commit som ikkje er release-utløysande
+      # (style/docs/chore/etc).
       - uses: googleapis/release-please-action@v5
         if: |
           (github.event_name == 'push' && steps.check_commit_type.outputs.skip != 'true') ||
-          (github.event_name == 'pull_request' && steps.check_release_pr.outputs.skip != 'true') ||
           github.event_name == 'workflow_dispatch'
         id: release-please
         with:
