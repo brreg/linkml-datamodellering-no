@@ -214,3 +214,13 @@ Brukar må merge neste release-PR manuelt og verifisere at:
 **Løysing:** Bruk heredoc og `head -n 1` for å berre sjekke første linje av commit-meldinga.
 
 **Commit:** fix(ci): handter fleirlinje-commit-meldingar i release-please check_commit_type
+
+---
+
+## Post-rollback bugfix #3
+
+**Problem:** Release-please prøvde framleis å opprette releases for PR #24 sjølv etter at `capture-validation` og `update-dates` vart fjerna. `release-please-action` har to modusar (PR mode og Release mode), og Release mode triggar automatisk når han ser ein merga release-PR.
+
+**Løysing:** Legg til `skip-github-release: true` i `release-please-action`-parametrar. Dette deaktiverer Release mode fullstendig, slik at action berre opprettar/oppdaterer PR-ar.
+
+**Commit:** fix(ci): legg til skip-github-release for å deaktivere automatisk release-oppretting

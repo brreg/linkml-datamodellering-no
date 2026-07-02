@@ -188,7 +188,8 @@
       "Bash(gh repo *)",
       "Bash(yamllint *)",
       "Bash(gh workflow *)",
-      "Bash(xargs -I {} gh run view {} --log)"
+      "Bash(xargs -I {} gh run view {} --log)",
+      "Bash(curl -s https://raw.githubusercontent.com/googleapis/release-please-action/main/action.yml)"
     ]
   },
   "enableAllProjectMcpServers": true,
