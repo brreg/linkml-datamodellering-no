@@ -1,11 +1,9 @@
 name: Release Please
 
 # Automatisk release-flyt:
-# 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
-#    → release-please opprettar/oppdaterer release-PR automatisk
-# 2. Brukar mergar release-PR
-#    → create-releases workflow opprettar faktiske releases og tags
-#    → capture-validation og update-dates køyrer automatisk
+# 1. Push til main med semantisk commit (feat/fix) → release-please opprettar/oppdaterer release-PR
+# 2. Brukar mergar release-PR → release-please opprettar faktiske releases og tags
+# 3. capture-validation og update-dates køyrer automatisk etter release-oppretting
 #
 # Manuell trigger via workflow_dispatch er framleis tilgjengeleg for admin.
 
@@ -13,8 +11,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - 'src/linkml/**/*-schema.yaml'
 
 jobs:
   release-please:
@@ -22,11 +18,10 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
+    outputs:
+      releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
         if: github.event_name == 'push'
@@ -40,9 +35,6 @@ jobs:
           echo "skip=false" >> $GITHUB_OUTPUT
           echo "Siste commit kan trigge release — held fram"
 
-      # Køyrer release-please på push til main (opprettar/oppdaterer release-PR).
-      # Hoppar over dersom dette er ein push-commit som ikkje er release-utløysande
-      # (style/docs/chore/etc).
       - uses: googleapis/release-please-action@v5
         if: |
           (github.event_name == 'push' && steps.check_commit_type.outputs.skip != 'true') ||
@@ -51,13 +43,65 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Informer om release-PR
-        if: ${{ steps.release-please.outputs.prs_created == 'true' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  capture-validation:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - name: Hent mcp-validator-image frå GHCR
         run: |
-          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
-          echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
-          echo "Gå til PR-en, verifiser endringar, og merge når du er klar."
+          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
+          podman pull "$IMAGE"
+          podman tag "$IMAGE" mcp-linkml-validator
+
+      - name: Fang valideringsresultat
+        run: python3 src/assets/scripts/run-schema-validation.py --config release-please-config.json
+
+      - name: Commit og push valideringsresultat
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add validation/
+            git commit -m "chore(validering): oppdater validation-loggar etter release [skip ci]"
+            git push
+          else
+            echo "Ingen endringar å committe"
+          fi
+
+  update-dates:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - name: Oppdater datoannotasjonar
+        run: |
+          python3 src/assets/scripts/update-schema-dates.py \
+            --config release-please-config.json
+
+      - name: Commit og push oppdaterte datoar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add src/linkml/
+            git commit -m "chore(*): oppdater datoannotasjonar etter release [skip ci]"
+            git push
+          else
+            echo "Ingen endringar å committe"
+          fi

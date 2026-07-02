@@ -99,12 +99,10 @@ Endringar krev review og godkjenning frå **repo-administrator**.
 Breaking changes krev RFC-prosess (sjå nedanfor).
 
 **Unntak — release-PR:** PR-en som `release-please` opprettar automatisk
-(versjonsbump, changelog, dato-annotasjonar) er unnateke krav om
-review/godkjenning og auto-merges når statussjekken `validate` er grønn.
-Innholdet er avgrensa til det `release-please` genererer frå conventional
-commits — ikkje fritt redigerbart. Sjå `specs/done/auto-merge-release-pr.md`
-for korleis dette er sett opp (bypass-rolle i branch-ruleset + PAT i
-`release-please.yml`).
+(versjonsbump, changelog) krev **manuell merge** etter at statussjekken
+`validate` er grøn. Repo-administrator eller katalogeigarleiing kan merge
+release-PR-ar utan ekstra review, sidan innholdet er avgrensa til det
+`release-please` genererer frå conventional commits.
 
 **Domenemodeller** (alt under `src/linkml/<domain>/` som ikkje er AP-NO):
 Endringar krev review frå **katalogeigarleiinga for den aktuelle org-en** (via GitHub CODEOWNERS).

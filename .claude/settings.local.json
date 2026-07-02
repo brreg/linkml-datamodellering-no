@@ -185,7 +185,8 @@
       "Bash(gh api *)",
       "Bash(gh pr *)",
       "Bash(git restore *)",
-      "Bash(gh repo *)"
+      "Bash(gh repo *)",
+      "Bash(yamllint *)"
     ]
   },
   "enableAllProjectMcpServers": true,
