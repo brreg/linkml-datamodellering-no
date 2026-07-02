@@ -91,7 +91,17 @@ Release-please opprettar automatisk ein release-PR når du pushar `feat:` eller 
 
 ### Steg 3: Manuell release-publisering
 
-Etter merge må du opprette GitHub Release manuelt (krev repo-admin-tilgang):
+Etter merge må du opprette GitHub Release manuelt (krev repo-admin-tilgang).
+
+**Alternativ A: Via GitHub UI**
+
+1. Gå til [Releases](https://github.com/brreg/linkml-datamodellering-no/releases) → **Draft a new release**
+2. **Choose a tag:** Skriv tag-namn frå release-PR (t.d. `samt-bu-v1.0.4`) → **Create new tag on publish**
+3. **Release title:** `samt-bu 1.0.4` (komponent + versjon)
+4. **Description:** Kopier frå `CHANGELOG.md` eller skriv manuelt
+5. **Publish release**
+
+**Alternativ B: Via GitHub CLI**
 
 ```bash
 # Eksempel for samt-bu
@@ -101,7 +111,7 @@ gh release create "samt-bu-v${VERSION}" \
   --notes "Release ${VERSION} for samt-bu"
 ```
 
-For fleire komponentar i same release-PR, køyr kommandoen for kvar komponent.
+For fleire komponentar i same release-PR, opprett ein release per komponent.
 
 Sjå [monitorering.md](mkdocs/docs/monitorering.md#release-arbeidsflyt) for flytdiagram og meir detaljar.
 

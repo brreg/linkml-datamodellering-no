@@ -236,3 +236,17 @@ flowchart LR
 ```
 
 Vel basert på kva som kommuniserer best til målgruppa (utviklararar som skal bidra til repoet).
+
+---
+
+## Post-utføring oppdatering
+
+**Dato:** 2026-07-02 (same dag)
+
+**Forespurnad:** Brukar ba om å også beskrive korleis ein opprettar release via GitHub UI (ikkje berre CLI).
+
+**Endringar:**
+- mkdocs/docs/monitorering.md: la til "Alternativ 1: Via GitHub UI" med 5 steg-for-steg instruksjonar før CLI-seksjonen, omdøypte CLI-seksjonen til "Alternativ 2: Via GitHub CLI"
+- CONTRIBUTING.md: la til "Alternativ A: Via GitHub UI" med 5 steg før CLI-seksjonen, omdøypte CLI-seksjonen til "Alternativ B: Via GitHub CLI"
+
+**Resultat:** Dokumentasjonen dekkjer no både GitHub UI og CLI for manuell release-publisering.
