@@ -1,0 +1,51 @@
+name: Create Releases
+
+# Opprettar faktiske GitHub releases og tags når release-PR vert merga.
+# Dette køyrer separat frå release-please for å unngå API-tilgangsproblem.
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  create-releases:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Sjekk om dette er ein release-PR
+        id: check_release_pr
+        run: |
+          LABELS=$(gh pr view ${{ github.event.pull_request.number }} \
+                   --json labels --jq '.labels[].name')
+          if ! echo "$LABELS" | grep -q 'autorelease: pending'; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Dette er ikkje ein release-PR — hoppar over"
+            exit 0
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+          echo "Dette er ein merga release-PR — opprettar releases"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Køyr release-please i "release mode" — oppdaterer manifest og opprettar releases
+      - uses: googleapis/release-please-action@v5
+        if: steps.check_release_pr.outputs.skip != 'true'
+        id: release-please
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Informer om oppretta releases
+        if: steps.release-please.outputs.releases_created == 'true'
+        run: |
+          echo "::notice::Releases oppretta:"
+          echo '${{ steps.release-please.outputs.releases_created }}' | jq -r '.[] | "- \(.tag_name): \(.html_url)"'
