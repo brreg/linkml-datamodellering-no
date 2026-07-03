@@ -1,15 +1,12 @@
 name: Release Please
 
-# Automatisk release-PR-oppretting:
+# Automatisk release-PR-oppretting og GitHub Releases:
 # 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
 #    → release-please opprettar/oppdaterer release-PR automatisk
 # 2. Brukar mergar release-PR manuelt
-#    → brukar må opprette GitHub Releases manuelt (sjå CONTRIBUTING.md)
+#    → GitHub Releases vert oppretta automatisk med artefaktar (JSON Schema, SHACL, OWL, osv.)
 #
 # Manuell trigger via workflow_dispatch er tilgjengeleg for admin.
-#
-# Viktig: Denne workflow opprettar IKKJE faktiske releases — det må gjerast manuelt
-# fordi GITHUB_TOKEN manglar tilgang til å opprette releases via REST API i dette repoet.
 
 on:
   workflow_dispatch:
@@ -50,7 +47,6 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-          skip-github-release: true
 
       - name: Informer om release-PR
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
@@ -60,4 +56,58 @@ jobs:
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
           echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
           echo "Gå til PR-en, verifiser endringar, og merge når du er klar."
-          echo "::warning::Hugsk å opprette GitHub Releases manuelt etter merge (sjå CONTRIBUTING.md)"
+
+      - name: Checkout for artefakt-generering
+        if: ${{ steps.release-please.outputs.releases_created == 'true' }}
+        uses: actions/checkout@v7
+
+      - name: Generer artefaktar for releases
+        if: ${{ steps.release-please.outputs.releases_created == 'true' }}
+        run: |
+          # Installer podman (for containerbygging)
+          sudo apt-get update && sudo apt-get install -y podman
+
+          # Bygg nødvendige images
+          make build-docker-linkml
+          make build-docker-python
+          make build-docker-avrotize
+
+          # Generer artefaktar for kvar releaset pakke
+          echo '${{ steps.release-please.outputs.paths_released }}' | jq -r '.[]' | while read pkg_path; do
+            echo "Genererer artefaktar for $pkg_path"
+            schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" | head -1)
+            if [ -n "$schema" ]; then
+              make gen-jsonschema SCHEMA="$schema"
+              make gen-shacl SCHEMA="$schema"
+              make gen-owl SCHEMA="$schema"
+              make gen-jsonld SCHEMA="$schema"
+              make gen-erdiagram SCHEMA="$schema"
+            fi
+          done
+
+      - name: Last opp artefaktar til GitHub Releases
+        if: ${{ steps.release-please.outputs.releases_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Iterer gjennom alle releases som vart oppretta
+          echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r '.paths_released[]' | while read pkg_path; do
+            # Hent tag-namn frå release-please outputs
+            tag_name=$(echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r --arg path "$pkg_path" '.releases[$path].tag_name')
+
+            # Finn genererte artefaktar
+            domain=$(echo "$pkg_path" | cut -d/ -f3)
+            model=$(echo "$pkg_path" | cut -d/ -f4)
+
+            echo "Lastar opp artefaktar for $model (tag: $tag_name)"
+
+            # Last opp artefaktar (ignorer feil dersom filer ikkje finst)
+            gh release upload "$tag_name" \
+              "generated/$domain/$model/$model-schema.json" \
+              "generated/$domain/$model/$model-shapes.ttl" \
+              "generated/$domain/$model/$model-ontology.ttl" \
+              "generated/$domain/$model/$model-context.jsonld" \
+              "generated/$domain/$model/$model-erdiagram.md" \
+              "$pkg_path/$model-schema.yaml" \
+              --clobber || echo "::warning::Nokre artefaktar vart ikkje lasta opp for $model"
+          done
