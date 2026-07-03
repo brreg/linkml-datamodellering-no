@@ -240,7 +240,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs \
         build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
         mcp-validator-run mcp-validator-smoke mcp-validator-test mcp-validate \
-        mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast mcp-generate new-model \
+        mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast new-model \
         mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build docs-build-fast publish \
         check-published-uris check-prereqs \
@@ -808,11 +808,6 @@ mcp-validator-test: build-docker-mcp-validator
 		$(MCP_IMAGE) \
 		python3 /work/tests/test_mcp_policies.py -v
 
-mcp-build: build-docker-mcp-validator
-mcp-run: mcp-validator-run
-mcp-smoke: mcp-validator-smoke
-mcp-test-policies: mcp-validator-test
-
 # ---------------------------------------------------------------------------
 # mcp-linkml-modell-utkast
 # ---------------------------------------------------------------------------
@@ -879,9 +874,6 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
 		$(MAKE) roundtrip-json-schema JSONSCHEMA="$(SCHEMA)" || \
 		(echo "$(CLR_ERR)Roundtrip-test feila — sjå logg for detaljar$(CLR_RST)" && exit 1); \
 	fi
-
-mcp-generate: mcp-linkml-modell-utkast
-	@echo "Åtvaring: 'make mcp-generate' er omdøypt til 'make mcp-linkml-modell-utkast'" >&2
 
 linkml-gen-generate: mcp-linkml-modell-utkast
 
