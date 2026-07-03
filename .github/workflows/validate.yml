@@ -166,11 +166,11 @@ jobs:
 
       - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: make domain-validate-examples DOMAIN=${{ matrix.domain }}
+        run: make validate-examples DOMAIN=${{ matrix.domain }}
 
       - name: Valider datafiler mot publiseringspolicyer
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: make domain-validate-data DOMAIN=${{ matrix.domain }}
+        run: make validate-data DOMAIN=${{ matrix.domain }}
 
       - name: Sjekk at publiserte URI-ar ikkje er fjerna
         if: steps.cache-validated.outputs.cache-hit != 'true'

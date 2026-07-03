@@ -233,13 +233,13 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 .PHONY: all test roundtrip validate lint validate-instance clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
+        validate-bronze validate-data validate-examples \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs \
         build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
         mcp-validator-run mcp-validator-smoke mcp-validator-test mcp-validate \
         mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast mcp-generate new-model \
         mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build docs-build-fast publish \
-        domain-validate-bronze domain-validate-data domain-validate-examples \
         $(DOMAINS) \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
@@ -653,7 +653,8 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # ---------------------------------------------------------------------------
 
 
-domain-validate-bronze:
+validate-bronze:
+ifdef DOMAIN
 	@set +e; \
 	FAILED=0; \
 	while IFS= read -r schema; do \
@@ -667,8 +668,39 @@ domain-validate-bronze:
 		fi; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
 	exit $$FAILED
+else
+	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domain>" >&2
+	@exit 1
+endif
 
-domain-validate-examples:
+validate-data:
+ifdef DOMAIN
+	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
+		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
+		catalog=$$(basename "$$datadir"); \
+		datafile="$$datadir/$$catalog.yaml"; \
+		[ -f "$$datafile" ] || continue; \
+		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
+		manifest="$$datadir/manifest.yaml"; \
+		if [ -f "$$manifest" ]; then \
+			policy=$$(grep '^validation_policy:' "$$manifest" | awk '{print $$2}'); \
+		else \
+			policy=bronze; \
+		fi; \
+		[ -n "$$policy" ] || policy=bronze; \
+		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
+		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
+		echo "$$result"; \
+		python3 src/assets/scripts/save-validation-log.py \
+			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
+	done
+else
+	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>" >&2
+	@exit 1
+endif
+
+validate-examples:
+ifdef DOMAIN
 	@set +e; \
 	FAILED=0; \
 	while IFS= read -r schema; do \
@@ -700,6 +732,10 @@ domain-validate-examples:
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
 		| grep -v common | sort | xargs grep -l "tree_root: true"); \
 	exit $$FAILED
+else
+	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>" >&2
+	@exit 1
+endif
 
 # ---------------------------------------------------------------------------
 # Dokumentasjonsportal (MkDocs Material)
