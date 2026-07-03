@@ -25,8 +25,8 @@ def main() -> None:
     version = data.get("version", "")
     validated_at = data.get("validated_at", "")
 
-    # Støtt både validation_type (ny) og data_policy (gamal) for bakoverkompatibilitet
-    policy = data.get("validation_type") or data.get("data_policy", "bronze")
+    # Støtt både validation_policy (ny) og data_policy (gamal) for bakoverkompatibilitet
+    policy = data.get("validation_policy") or data.get("data_policy", "bronze")
 
     result = data.get("result", {})
     valid = result.get("valid", False)
@@ -37,6 +37,7 @@ def main() -> None:
 
     issues = result.get("issues", [])
     errors = [i for i in issues if i.get("severity") == "error"]
+    warnings = [i for i in issues if i.get("severity") == "warning"]
 
     status = "✅ Godkjent" if valid else "❌ Ikkje godkjent"
 
@@ -60,6 +61,25 @@ def main() -> None:
             "```",
         ]
         for issue in errors:
+            code = issue.get("code", "")
+            target = issue.get("target", "")
+            message = issue.get("message", "")
+            lines.append(f"{code}: {target} — {message}")
+        lines += [
+            "```",
+            "",
+            "</details>",
+        ]
+
+    if warnings:
+        lines += [
+            "",
+            "<details>",
+            f"<summary>Åtvaringar ({warning_count})</summary>",
+            "",
+            "```",
+        ]
+        for issue in warnings:
             code = issue.get("code", "")
             target = issue.get("target", "")
             message = issue.get("message", "")

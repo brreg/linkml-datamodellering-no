@@ -2,8 +2,8 @@
 """
 Køyrer mcp-validate for kvart releasja skjema og lagrar resultata som JSON.
 
-- Hentar policy frå manifest.yaml sitt data_policy-felt (fallback: bronze)
-- Lagrar validation/<domain>/<model>/<version>.json og latest.json
+- Hentar policy frå manifest.yaml sitt validation_policy-felt (fallback: bronze)
+- Lagrar src/linkml/<domain>/<model>/validation/<version>/<policy>.json
 
 Ingen eksterne avhengigheiter — berre Python stdlib.
 """
@@ -21,7 +21,7 @@ def get_policy(schema_path: Path) -> str:
     manifest = schema_path.parent / "manifest.yaml"
     if manifest.exists():
         content = manifest.read_text(encoding="utf-8")
-        m = re.search(r"^data_policy:\s*(\S+)", content, re.MULTILINE)
+        m = re.search(r"^validation_policy:\s*(\S+)", content, re.MULTILINE)
         return m.group(1) if m else "bronze"
     return "bronze"
 
@@ -86,26 +86,25 @@ def save_report(
         "domain": domain,
         "version": version,
         "validated_at": date.today().isoformat(),
-        "data_policy": policy,
+        "validation_policy": policy,
         "result": result,
     }
 
-    out_dir = Path("validation") / domain / model
-    versioned = out_dir / f"{version}.json"
-    latest = out_dir / "latest.json"
+    # Co-location: lagrar ved sidan av skjemafila
+    out_dir = Path("src/linkml") / domain / model / "validation" / version
+    policy_json = out_dir / f"{policy}.json"
 
     if dry_run:
-        print(f"  [dry-run] ville skrive {versioned} og {latest}")
+        print(f"  [dry-run] ville skrive {policy_json}")
         return
 
     out_dir.mkdir(parents=True, exist_ok=True)
     text = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
-    versioned.write_text(text, encoding="utf-8")
-    latest.write_text(text, encoding="utf-8")
+    policy_json.write_text(text, encoding="utf-8")
 
     status = "✅" if result.get("valid") else "❌"
     print(
-        f"  {status} {versioned} "
+        f"  {status} {policy_json} "
         f"({result.get('error_count', 0)} feil, {result.get('warning_count', 0)} åtv.)"
     )
 
