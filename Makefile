@@ -99,6 +99,9 @@ define run_gen_doc
     --diagram-type mermaid_class_diagram \
     --example-directory $(call schema_outdir,$(s))/docgen-examples \
     -d $(call schema_outdir,$(s))/docs $(s) && \
+  $(PYTHON_RUN) python3 src/assets/scripts/inject-validation-policy.py \
+    $(call schema_outdir,$(s))/docs/index.md \
+    src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/manifest.yaml && \
   sed -i '/Container/d' $(call schema_outdir,$(s))/docs/index.md; \
 )
 endef
