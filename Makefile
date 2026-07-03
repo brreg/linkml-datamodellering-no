@@ -14,6 +14,7 @@ SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
 MCP_IMAGE  			:= mcp-linkml-validator
 INSTANCE   			?=
+POLICY     			?=
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
 PLANTUML_IMAGE		:= docker.io/plantuml/plantuml:latest
 DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
@@ -1035,13 +1036,19 @@ check-prereqs:
 	@bash src/assets/scripts/check-prereqs.bash
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
+# POLICY vert auto-detektert frå manifest.yaml dersom ikkje oppgjeven
 mcp-validate:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
-	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
+	@DETECTED_POLICY=$$(python3 -c "import yaml, sys; \
+	  manifest_path = '$(dir $(SCHEMA))manifest.yaml'; \
+	  manifest = yaml.safe_load(open(manifest_path)) if __import__('os').path.isfile(manifest_path) else {}; \
+	  print(manifest.get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"); \
+	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
+	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
+	echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
+	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
+	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build; \
+	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)
 
 # Bruk: make validate-capture [SCHEMA=<sti>]
 # Utan SCHEMA: køyr for alle pakkar som er endra sidan HEAD~1 (release-modus).

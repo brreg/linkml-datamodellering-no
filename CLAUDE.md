@@ -50,9 +50,8 @@ make validate-instance SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml INSTAN
 make roundtrip SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
+# POLICY vert auto-detektert frå manifest.yaml — overstyr ved behov med POLICY=<bronze|silver|gold>
+make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
 ```
 
 ## Policy-hierarki
