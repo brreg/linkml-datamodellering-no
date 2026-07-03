@@ -19,7 +19,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      workflows: write
     steps:
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
