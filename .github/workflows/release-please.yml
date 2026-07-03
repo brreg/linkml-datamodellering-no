@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      releases: write
     steps:
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
