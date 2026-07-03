@@ -19,15 +19,7 @@
 | Utgjevar | [{{ schema.annotations.utgiver.value }}]({{ schema.annotations.utgiver.value }}) |
 {% endif -%}
 {% if schema.annotations and schema.annotations.status -%}
-{%- set status_map = {
-  'http://purl.org/adms/status/UnderDevelopment': 'Under utarbeidelse',
-  'http://purl.org/adms/status/Completed': 'Ferdigstilt',
-  'http://purl.org/adms/status/Deprecated': 'Foreldet',
-  'http://purl.org/adms/status/Withdrawn': 'Trukket tilbake'
-} -%}
-{%- set status_uri = schema.annotations.status.value -%}
-{%- set status_text = status_map.get(status_uri, status_uri) -%}
-| Status | {{ status_text }} |
+| Status | {{ schema.annotations.status.value }} |
 {% endif -%}
 {% if schema.annotations and schema.annotations.endringsdato -%}
 | Endringsdato | {{ schema.annotations.endringsdato.value }} |
@@ -36,7 +28,7 @@
 | Utgivelsesdato | {{ schema.annotations.utgivelsesdato.value }} |
 {% endif -%}
 {% if schema.imports -%}
-| Imports | {{ schema.imports|join(', ') }} |
+| Imports | {% for imp in schema.imports %}{{ imp }}{% if not loop.last %}<br>{% endif %}{% endfor %} |
 {% endif -%}
 
 {% if include_top_level_diagram %}
