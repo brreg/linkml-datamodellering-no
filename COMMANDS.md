@@ -158,7 +158,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | `make mcp-validator-test` | Køyrer alle policy-testar for validator MCP-serveren. | Testresultat til stdout; avsluttar med kode 1 ved feil |
 | `make mcp-validator-run` | Startar validator MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
-## Gource-visualisering
+## Påskeegg: Gource-visualisering
 
 Krev `make build-docker-gource` éin gong (eller etter endringar i Dockerfile). Output-filer hamnar i `tmp/`.
 
