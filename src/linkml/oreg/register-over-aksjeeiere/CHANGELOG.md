@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.1.0...register-over-aksjeeiere-v1.2.0) (2026-07-03)
+
+
+### Features
+
+* **validering:** komplett valideringssystem med auto-detect og visuell rapportering ([20caed0](https://github.com/brreg/linkml-datamodellering-no/commit/20caed0d1764e27864f377fcaea212506f3a6fab))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.0.1...register-over-aksjeeiere-v1.1.0) (2026-07-01)
 
 
