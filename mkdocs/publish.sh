@@ -240,15 +240,29 @@ process_schema() {
         done
 
         # PlantUML-diagram (ligg i diagrams/-underkatalog)
-        puml_svg="$out/diagrams/${schema}.svg"
-        puml_src="$out/diagrams/${schema}.puml"
-        if [ -f "$puml_svg" ] || [ -f "$puml_src" ]; then
+        # Prioriter filtrert versjon (kun domenemodell) over full versjon
+        puml_svg_filtered="$out/diagrams/${schema}-filtered.svg"
+        puml_src_filtered="$out/diagrams/${schema}-filtered.puml"
+        puml_svg_full="$out/diagrams/${schema}.svg"
+        puml_src_full="$out/diagrams/${schema}.puml"
+
+        if [ -f "$puml_svg_filtered" ] || [ -f "$puml_src_filtered" ] || [ -f "$puml_svg_full" ] || [ -f "$puml_src_full" ]; then
             has_artifact=true
             puml_links=""
-            [ -f "$puml_svg" ] && puml_links="[${schema}.svg](diagrams/${schema}.svg)"
-            if [ -f "$puml_src" ]; then
+            # Vis filtrert versjon først (hovuddiagram)
+            if [ -f "$puml_svg_filtered" ]; then
+                puml_links="[${schema}-filtered.svg](diagrams/${schema}-filtered.svg)"
+            elif [ -f "$puml_svg_full" ]; then
+                puml_links="[${schema}.svg](diagrams/${schema}.svg)"
+            fi
+            # Legg til puml-kjeldekode
+            if [ -f "$puml_src_filtered" ]; then
                 [ -n "$puml_links" ] && puml_links+=" · "
-                puml_links+="[${schema}.puml](diagrams/${schema}.puml)"
+                puml_links+="[${schema}-filtered.puml](diagrams/${schema}-filtered.puml)"
+            fi
+            if [ -f "$puml_src_full" ]; then
+                [ -n "$puml_links" ] && puml_links+=" · "
+                puml_links+="[${schema}.puml](diagrams/${schema}.puml) (full)"
             fi
             artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
         fi
@@ -376,7 +390,8 @@ for domain in "${ALL_DOMAINS[@]}"; do
                     artifacts+="$(artifact_label "$suffix")"
                 fi
             done
-            if [ -f "$GEN/$domain/$schema/diagrams/${schema}.svg" ] || [ -f "$GEN/$domain/$schema/diagrams/${schema}.puml" ]; then
+            if [ -f "$GEN/$domain/$schema/diagrams/${schema}-filtered.svg" ] || [ -f "$GEN/$domain/$schema/diagrams/${schema}-filtered.puml" ] || \
+               [ -f "$GEN/$domain/$schema/diagrams/${schema}.svg" ] || [ -f "$GEN/$domain/$schema/diagrams/${schema}.puml" ]; then
                 [ -n "$artifacts" ] && artifacts+=" · "
                 artifacts+="PlantUML-diagram"
             fi
