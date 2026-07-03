@@ -16,7 +16,7 @@ src/linkml/<domain>/<modell>/manifest.yaml
 
 ```yaml
 publish_external: false   # true for å utløyse publisering til ekstern katalog
-data_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
+validation_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
 
 generators:
   jsonld_context: true
@@ -45,7 +45,7 @@ src/linkml/<domain>/<modell>/data/<datafil-katalog>/manifest.yaml
 
 ```yaml
 publish_external: true
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog
 
 concepts:                   # valfri — utelat for å publisere heile datafila
   - https://begrep.brreg.no/foretaksnavn
@@ -61,7 +61,7 @@ CI skil dei to typane på om `generators:`-seksjonen er til stades.
 `true` utløyser publisering til ekstern katalog (Felles Datakatalog eller Felles
 Begrepskatalog) i CI. Standard: `false`.
 
-### `data_policy`
+### `validation_policy`
 
 Peikar til valideringspolicyen som `make domain-validate-data` nyttar for datafiler
 under `data/`. Gyldige verdiar:
@@ -93,7 +93,7 @@ I tillegg kjem to flagg-felt for generatorar som treng ekstra parametrar:
 
 ```yaml
 publish_external: false
-data_policy: silver
+validation_policy: silver
 
 generators:
   jsonld_context: true
@@ -118,7 +118,7 @@ FINT-stile CURIEs som ikkje er gyldige URI-ar):
 
 ```yaml
 publish_external: false
-data_policy: silver
+validation_policy: silver
 
 generators:
   jsonld_context: true
@@ -142,7 +142,7 @@ ikkje konverterast til RDF av `linkml-convert`):
 
 ```yaml
 publish_external: false
-data_policy: bronze
+validation_policy: bronze
 
 generators:
   jsonld_context: true

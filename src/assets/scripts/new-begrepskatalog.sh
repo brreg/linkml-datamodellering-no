@@ -102,7 +102,7 @@ EOF
 
 cat > "$MANIFEST_FILE" << 'EOF'
 publish_external: false
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog
 
 generators:
   jsonld_context: true

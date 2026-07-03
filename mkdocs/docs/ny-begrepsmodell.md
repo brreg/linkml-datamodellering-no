@@ -79,7 +79,7 @@ classes:
 
 ```yaml
 publish_external: false
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog
 
 generators:
   jsonld_context: true

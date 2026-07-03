@@ -193,7 +193,14 @@
       "Bash(git show-ref *)",
       "Bash(git tag *)",
       "Bash(git push *)",
-      "Bash(xargs -I {} gh api repos/:owner/:repo/commits/{}/check-runs --jq '.check_runs[] | .name')"
+      "Bash(xargs -I {} gh api repos/:owner/:repo/commits/{}/check-runs --jq '.check_runs[] | .name')",
+      "Bash(yq eval *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git rm *)",
+      "Bash(make -n log-mcp-validate SCHEMA=test POLICY=bronze)",
+      "Bash(make -n log-mcp-validate MANIFEST=src/linkml/samt/samt-bu/manifest.yaml)",
+      "Bash(git check-ignore *)"
     ]
   },
   "enableAllProjectMcpServers": true,

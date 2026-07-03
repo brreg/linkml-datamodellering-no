@@ -261,7 +261,7 @@ tests/
 
 ```yaml
 publish_external: false   # true for å publisere til ekstern katalog
-data_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
+validation_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
 
 generators:
   jsonld_context: true
@@ -283,7 +283,7 @@ generators:
 
 ```yaml
 publish_external: true
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog
 
 concepts:                   # valfri — utelat for å publisere heile datafila
   - https://begrep.brreg.no/foretaksnavn
@@ -382,7 +382,7 @@ https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/
 
 ### Silver-annotasjonar (Digdir-regel 9, 10, 11)
 
-Skjema med `data_policy: silver` eller høgare skal ha desse annotasjonane.
+Skjema med `validation_policy: silver` eller høgare skal ha desse annotasjonane.
 Nøkkelnamna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
 
 | Annotasjon | Svarar til | Verdiformat |

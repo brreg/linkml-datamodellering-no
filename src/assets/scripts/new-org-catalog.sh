@@ -202,7 +202,7 @@ YAML
 # --- Datafil-manifest ---
 cat > "$CATALOG_DIR/data/$catalog_slug/manifest.yaml" << 'YAML'
 publish_external: true
-data_policy: felles-datakatalog
+validation_policy: felles-datakatalog
 YAML
 
 # --- Eksempelfil ---

@@ -1,2 +1,2 @@
 publish_external: true
-data_policy: felles-datakatalog
+validation_policy: felles-datakatalog

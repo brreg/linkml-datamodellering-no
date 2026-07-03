@@ -1,21 +1,17 @@
 name: Validate
 
-# Validerer alle skjema, eksempelfiler og datafiler mot bronze-policy og
-# publiseringspolicyer. Validation-loggar vert lagra til validation/logs/
-# og committed til main (berre på push, ikkje PR).
+# Validerer alle skjema, eksempelfiler og datafiler mot validation_policy og
+# publiseringspolicyer. Validation-loggar vert lagra til src/linkml/*/validation/
+# og committed via PR (ikkje direkte til main).
 #
-# Loggar vert lagra per versjon i validation/logs/<domain>/<model>/<version>/:
-# - bronze.json: skjema-validering mot bronze-policy
-# - examples.json: eksempelfil-validering
-# - data-<katalog>.json: datafil-validering mot publiseringspolicy
+# Loggar vert lagra per versjon i src/linkml/<domain>/<model>/validation/<version>/:
+# - <policy>.json: skjema-validering mot validation_policy frå manifest.yaml
+# - instance-<namn>.json: eksempelfil-validering
 
 on:
+  schedule:
+    - cron: '0 2 * * *'  # Nattleg validering kl 02:00 UTC
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'src/linkml/**'
-      - 'src/mcp-linkml-validator/**'
   pull_request:
     paths:
       - 'src/linkml/**'
@@ -157,9 +153,16 @@ jobs:
           podman pull "$IMAGE"
           podman tag "$IMAGE" mcp-linkml-validator:latest
 
-      - name: Valider mot bronze-policy
+      - name: Valider skjema mot validation_policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: make domain-validate-bronze DOMAIN=${{ matrix.domain }}
+        run: |
+          # Valider alle skjema i dette domenet med validation_policy frå manifest.yaml
+          for manifest in $(find src/linkml/${{ matrix.domain }} -name manifest.yaml -type f); do
+            if grep -q "^generators:" "$manifest"; then
+              echo "Validerer skjema frå manifest: $manifest"
+              bash src/assets/scripts/run-validation.sh --manifest "$manifest" || true
+            fi
+          done
 
       - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'
@@ -182,41 +185,58 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: validation-logs-${{ matrix.domain }}
-          path: validation/logs/
+          path: src/linkml/${{ matrix.domain }}/**/validation/
           retention-days: 7
           if-no-files-found: ignore
 
-  commit-validation-logs:
+  create-pr-with-validation-logs:
     needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v7
-        with:
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Last ned validation-loggar frå alle domene
         uses: actions/download-artifact@v8
         with:
           pattern: validation-logs-*
-          path: validation/logs
+          path: src/linkml/
           merge-multiple: true
 
-      - name: Commit og push validation-loggar
+      - name: Filtrer ut uendra loggar
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -d "validation/logs" ] && [ -n "$(ls -A validation/logs 2>/dev/null)" ]; then
-            git add validation/logs/
-            if ! git diff --cached --quiet; then
-              git commit -m "chore(validering): oppdater validation-loggar [skip ci]"
-              git push
-            else
-              echo "Ingen nye validation-loggar å committe"
-            fi
+          # Python-script som samanliknar nye loggar med git HEAD
+          # Fjernar identiske loggar (ignorer validated_at-felt)
+          python3 src/assets/scripts/filter-unchanged-logs.py
+
+      - name: Sjekk om det finst endringar
+        id: check_changes
+        run: |
+          if git diff --quiet src/linkml/; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
           else
-            echo "Ingen validation-loggar å committe"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            # Tell kor mange modellar som er endra
+            changed_count=$(git diff --name-only src/linkml/ | grep 'validation/.*\.json$' | wc -l)
+            echo "changed_count=$changed_count" >> $GITHUB_OUTPUT
           fi
+
+      - name: Lag PR med valideringsloggar
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(validation): oppdater valideringsloggar (${{ steps.check_changes.outputs.changed_count }} modellar)"
+          branch: validation-logs-update
+          delete-branch: true
+          title: "chore(validation): oppdater valideringsloggar (${{ steps.check_changes.outputs.changed_count }} modellar)"
+          body: |
+            Automatisk oppdatering av valideringsloggar frå nattleg validering.
+
+            **Endra:** ${{ steps.check_changes.outputs.changed_count }} modell(ar)
+
+            Sjekk diff for å sjå nye violations eller forbettringar.
+          labels: automated, validation
