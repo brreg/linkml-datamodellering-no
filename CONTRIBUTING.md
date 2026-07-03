@@ -194,7 +194,7 @@ Sjå [SECURITY.md](SECURITY.md) for fullstendig sikkerheitspolicy.
 1. Opprett ein ny branch frå `main`
 2. Gjer endringar og valider lokalt:
    - `make lint SCHEMA=...` og `make validate-instance SCHEMA=... INSTANCE=...`
-   - `make mcp-validate SCHEMA=...` (brukar `validation_policy` frå manifest.yaml, eller overstyr med `POLICY=bronze`)
+   - `make mcp-linkml-validate SCHEMA=...` (brukar `validation_policy` frå manifest.yaml, eller overstyr med `POLICY=bronze`)
 3. **Verifiser at du ikkje har lagt inn personopplysningar eller sensitive data**
 4. Opprett pull request mot `main` — CI køyrer validering automatisk
 
@@ -257,7 +257,7 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 
 **Kva du MÅ gjere sjølv:**
 - Feilsøke problemer i eigne domenemodeller
-- Validere data før publisering (`make mcp-validate SCHEMA=...` — brukar automatisk `validation_policy` frå manifest.yaml)
+- Validere data før publisering (`make mcp-linkml-validate SCHEMA=...` — brukar automatisk `validation_policy` frå manifest.yaml)
 - Teste genererte artefaktar lokalt før push
 - Lese dokumentasjon og eksisterande issues før du rapporterer nye problem
 

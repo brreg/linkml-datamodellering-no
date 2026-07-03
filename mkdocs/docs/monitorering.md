@@ -120,7 +120,7 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
 
 1. **Validering:**
    - `make lint` — LinkML-schema lint
-   - `make mcp-validate` — Policy-validering (bronze/silver/gold/felles-begrepskatalog/felles-datakatalog)
+   - `make mcp-linkml-validate` — Policy-validering (bronze/silver/gold/felles-begrepskatalog/felles-datakatalog)
    - `make validate-instance` — Instansvalidering av eksempelfiler
 
 2. **Generering:**
@@ -134,7 +134,7 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
 **Eksempel på vellukka køyring:**
 ```
 ✓ lint (ngr-virksomhet)
-✓ mcp-validate POLICY=bronze
+✓ mcp-linkml-validate POLICY=bronze
 ✓ generate ngr
 ✓ publish
 ✓ Deploy to GitHub Pages
@@ -142,7 +142,7 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
 
 **Eksempel på feila køyring:**
 ```
-✗ mcp-validate POLICY=felles-begrepskatalog
+✗ mcp-linkml-validate POLICY=felles-begrepskatalog
   Error: Missing required field: dct:publisher
 ```
 

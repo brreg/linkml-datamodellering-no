@@ -188,7 +188,7 @@ for kvart kall. Sjå `profiles/brreg.yaml` som døme.
 # → bruk valider_begrep-verktøyet med yaml_innhald og skjema_sti
 
 # Full policy-validering — tilrådast før kvar commit:
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
   POLICY=bronze
 ```
@@ -241,7 +241,7 @@ EOF
 **3.** Valider datafila mot publiseringspolicyen:
 
 ```bash
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml

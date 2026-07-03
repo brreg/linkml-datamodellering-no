@@ -158,9 +158,9 @@ For hurtig validering kan du linte skjemaet:
 
 Lint + validering mot medaljong-profil:
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 | Policy | Sjekkar |
@@ -258,7 +258,7 @@ imports:
 Valider mot gold-policy (gold-policy validerer spesifikt FAIR konformitet):
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ---
@@ -318,7 +318,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] Klasse- og slotnamn er på norsk bokmål
 [ ] Alle klasser (unntatt tree_root) har class_uri
 [ ] Alle globale slots har slot_uri
-[ ] make mcp-validate POLICY=bronze gir 0 feil
+[ ] make mcp-linkml-validate POLICY=bronze gir 0 feil
 [ ] Om validation_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
     annotations.utgivelsesdato, annotations.status og annotations.oppdateringsfrekvens
     er fylt inn

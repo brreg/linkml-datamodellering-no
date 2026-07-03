@@ -16,7 +16,7 @@ flowchart TB
     
     subgraph "GitHub Repository"
         B[Pullrequest til main] --> C[GitHub Actions<br/>generate.yml]
-        C --> D[Validering<br/>make mcp-validate]
+        C --> D[Validering<br/>make mcp-linkml-validate]
         D --> E[Generering<br/>make convert-data]
         E --> F[Genererte artefaktar<br/>TTL / JSON Schema / OWL]
     end
@@ -223,7 +223,7 @@ sequenceDiagram
     
     Dev->>Git: git push
     Git->>CI: Trigger generate.yml
-    CI->>CI: make mcp-validate POLICY=felles-begrepskatalog
+    CI->>CI: make mcp-linkml-validate POLICY=felles-begrepskatalog
     CI->>CI: make convert-data (YAML → TTL)
     CI->>Pages: Deploy til brreg.github.io
     Pages-->>Dev: ✓ Synleg på GitHub Pages
@@ -278,7 +278,7 @@ git push -u origin feature/mi-endring
 ### 2. CI kjører validering og generering
 
 GitHub Actions (`generate.yml`):
-1. Validerer datafila: `make mcp-validate POLICY=felles-begrepskatalog`
+1. Validerer datafila: `make mcp-linkml-validate POLICY=felles-begrepskatalog`
 2. Genererer `.ttl`-fil: `make convert-data`
 3. Publiserer til GitHub Pages: `actions/deploy-pages@v1`
 
