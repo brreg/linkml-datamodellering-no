@@ -242,7 +242,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         mcp-validator-run mcp-validator-smoke mcp-validator-test mcp-validate \
         mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast new-model \
         mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
-		docs-serve docs-build docs-build-fast publish \
+		docs-serve docs-build publish \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
@@ -763,15 +763,6 @@ docs-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	$(DOCS_RUN) $(DOCS_IMAGE) build
-
-# Raskare bygg for iterativ utvikling: hoppar over sider utan endringar sidan sist bygg.
-# Bruk docs-build for reine produksjonsbyggjer.
-docs-build-fast:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make docs-build-fast$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
-	$(DOCS_RUN) $(DOCS_IMAGE) build --dirty
 
 # ---------------------------------------------------------------------------
 # MCP-validator
