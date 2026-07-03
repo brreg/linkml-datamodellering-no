@@ -116,11 +116,11 @@ Fjern duplikatar og konsolider:
 
 - [x] Opprett alias for alle endra targets med deprecation-warnings — 19 alias lagt til i eigen seksjon
 - [x] Oppdater indre avhengigheiter i Makefile — 4 referansar oppdaterte (new-model, mcp-validate, validate-capture, .PHONY)
-- [ ] Oppdater COMMANDS.md
-- [ ] Oppdater CLAUDE.md
-- [ ] Oppdater CONTRIBUTING.md
-- [ ] Test alle aliasa
-- [ ] Oppdater CI-workflows
+- [x] Oppdater COMMANDS.md — alle 19 referansar oppdaterte
+- [x] Oppdater CLAUDE.md — ingen endringar nødvendige (brukar allereie generell form)
+- [x] Oppdater CONTRIBUTING.md — ingen endringar nødvendige (brukar allereie generell form)
+- [x] Test alle aliasa — 4 representative aliases testa, alle fungerer med deprecation-warning
+- [x] Oppdater CI-workflows — 3 referansar i generate.yml og validate.yml oppdaterte
 
 ## Avhengigheiter
 
@@ -141,3 +141,35 @@ Fjern duplikatar og konsolider:
   ```
 - **Prioritet:** Start med dei mest brukte targets (`*-build-docker`, `mcp-validate`, `publish`)
 - **Fase ut gamle namn:** Etter to releases (eller 3 månader), fjern aliasa og oppdater dokumentasjonen
+
+## Utført
+
+Alle tiltak er implementerte:
+
+**Makefile-reorganisering:**
+- 9 container-bygging targets: `*-build-docker` → `build-docker-*`
+- 10 MCP-server targets: `mcp-<kortnamn>-*` → `mcp-<fullnamn>-*`
+- 19 deprecated aliases med `ÅTVARING`-melding lagt til på slutten av Makefile
+- 4 interne referansar oppdaterte (new-model, mcp-validate 2x, validate-capture)
+- `.PHONY`-linja oppdatert med nye namn
+
+**Dokumentasjon:**
+- COMMANDS.md: 19 referansar oppdaterte i 4 seksjoner
+- CLAUDE.md: ingen endringar nødvendige
+- CONTRIBUTING.md: ingen endringar nødvendige
+
+**CI/CD:**
+- generate.yml: 2 referansar oppdaterte (linkml-build-docker, docs-build-docker)
+- validate.yml: 1 referanse oppdatert (mcp-val-build)
+
+**Testing:**
+- 4 representative deprecated aliases testa og verifisert
+
+**Resultat:**
+Alle relaterte targets grupperer no alfabetisk i `make <TAB><TAB>`:
+- build-docker-asyncapi, build-docker-avrotize, build-docker-gource, ...
+- mcp-begrep-utkast-list-profiles, mcp-begrep-utkast-run, mcp-begrep-utkast-smoke
+- mcp-modell-utkast-run, mcp-modell-utkast-smoke, mcp-modell-utkast-test
+- mcp-validator-run, mcp-validator-smoke, mcp-validator-test
+
+Gamle namn fungerer med deprecation-warning i minst to release-syklusar.

@@ -69,7 +69,7 @@ jobs:
       - name: Bygg linkml-local image
         if: steps.cache-linkml.outputs.cache-hit != 'true'
         run: |
-          make linkml-build-docker
+          make build-docker-linkml
           podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
       - name: Last inn linkml-local frå cache
         if: steps.cache-linkml.outputs.cache-hit == 'true' && steps.ghcr-linkml.outputs.exists != 'true'
@@ -285,7 +285,7 @@ jobs:
       - name: Bygg mkdocs-local image
         if: steps.cache-mkdocs.outputs.cache-hit != 'true'
         run: |
-          make docs-build-docker
+          make build-docker-mkdocs
           podman save localhost/mkdocs-local:latest | zstd -T0 > mkdocs-local.tar.zst
       - name: Last inn mkdocs-local image
         run: podman load < <(zstd -d -c mkdocs-local.tar.zst)
