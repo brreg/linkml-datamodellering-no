@@ -110,9 +110,9 @@ Gamalt rotkatalogtilvisande mønster. Rett:
 
 ### 4. `mkdocs/docs/begrep/` og `mkdocs/docs/modell/`
 
-**Status:** Automatisk retta ved neste `make publish` — ingen kjeldekodeendring nødvendig.
+**Status:** Automatisk retta ved neste `make docs-publish` — ingen kjeldekodeendring nødvendig.
 
-Desse katalogane inneheld genererte artefakter frå dei gamle domenenamna (`begrep`, `modell`). `publish.sh` steg 1 slettar alle tidlegare genererte domenekatalogar frå `docs/` ved kvar køyring. Dei forsvinn så snart `make <domene> && make publish` køyrer.
+Desse katalogane inneheld genererte artefakter frå dei gamle domenenamna (`begrep`, `modell`). `publish.sh` steg 1 slettar alle tidlegare genererte domenekatalogar frå `docs/` ved kvar køyring. Dei forsvinn så snart `make <domene> && make docs-publish` køyrer.
 
 ---
 
@@ -140,6 +140,6 @@ Desse filene dokumenterer tilstanden *før* `data/` vart flytt inn i skjemakatal
 | 1 | `README.md` | Utvid `data/`-innslaget i katalogtreet med nested struktur + `published-uris.lock` | Høg |
 | 2 | `mkdocs/docs/ny-domenemodell.md` linje 12 |Rett `examples/oreg/...` → `src/linkml/oreg/.../examples/...` | Høg |
 | 3 | `mkdocs/docs/ny-begrepsmodell.md` linje 34, 171 | Fjern `# examples/begrep/ finst allereie`-kommentar; rett linje 171 | Høg |
-| 4 | `mkdocs/docs/index.md` | Generert frå README — rettast automatisk når README er oppdatert og `make publish` køyrer | Automatisk |
-| 5 | `mkdocs/docs/begrep/` + `mkdocs/docs/modell/` | Slettas automatisk ved neste `make publish` | Automatisk |
+| 4 | `mkdocs/docs/index.md` | Generert frå README — rettast automatisk når README er oppdatert og `make docs-publish` køyrer | Automatisk |
+| 5 | `mkdocs/docs/begrep/` + `mkdocs/docs/modell/` | Slettas automatisk ved neste `make docs-publish` | Automatisk |
 | 6 | `specs/`-filer | Historisk kontekst — ikkje kritisk | Lav |

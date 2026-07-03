@@ -188,7 +188,7 @@ make domain-validate-data DOMAIN=modellkatalog
 make check-published-uris
 
 # Konvertering og forhåndsvis:
-make modell && make publish && make docs-serve
+make modell && make docs-publish && make docs-serve
 ```
 
 ---
@@ -199,7 +199,7 @@ Når ei ny informasjonsmodell er publisert og URI-en er lagd inn i
 `published-uris.lock`, køyr:
 
 ```bash
-make publish
+make docs-publish
 ```
 
 `publish.sh` les lock-fila og legg automatisk til informasjonsboks og

@@ -3,7 +3,7 @@
 ## Symptom
 
 `src/linkml/begrepskatalog/brreg-begrepskatalog/description.md` vert ikkje
-inkludert i dokumentasjonsportalen etter at ein køyrer `make publish` lokalt.
+inkludert i dokumentasjonsportalen etter at ein køyrer `make docs-publish` lokalt.
 Heile `begrepskatalog`-seksjonen forsvinn frå portalen.
 
 ## Rotårsak
@@ -51,9 +51,9 @@ heile seksjonen — description.md vert aldri lesen.
 
 ## Kvifor opptrer det no
 
-Brukaren køyrde `make publish` lokalt etter å ha lagt til
+Brukaren køyrde `make docs-publish` lokalt etter å ha lagt til
 `src/linkml/oreg/register-over-aksjeeiere/description.md`. Dette var den første
-lokale `make publish`-køyringa etter at Problem 1 oppstod. CI-portalen viser
+lokale `make docs-publish`-køyringa etter at Problem 1 oppstod. CI-portalen viser
 ikkje feilen fordi CI alltid genererer alle domene frå scratch.
 
 ## Tiltak
@@ -67,7 +67,7 @@ katalogar:
 make begrepskatalog
 make modellkatalog
 rm -rf generated/begrep generated/modell
-make publish
+make docs-publish
 ```
 
 ### Tiltak 2 — Langtidsfiksing i publish.sh (krev endring)

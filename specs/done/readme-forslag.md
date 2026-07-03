@@ -46,7 +46,7 @@ make new-model NAME=mitt-register DOMAIN=oreg
 make mcp-validate SCHEMA=src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml POLICY=bronze
 
 # Generer alle artefakter for eit domene, publiser og start dev-server
-make oreg && make publish && make docs-serve   # → http://localhost:8000
+make oreg && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
 Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
@@ -89,7 +89,7 @@ AP-NO-profilane og FAIR-metadata er bibliotek utan eigen `tree_root` — dei er 
 Følgjande seksjonar er for detaljerte for ei oversikts-README og bør ligge i `docs/kommandoar.md`:
 
 - Alle make-targets (den lange tabellen med `gen-jsonld`, `gen-shacl` osv.)
-- `make publish`-internalar (6-punktslista om kva publish.sh gjer)
+- `make docs-publish`-internalar (6-punktslista om kva publish.sh gjer)
 - Rått `podman run`-eksempel for lint
 - MCP-validator-detaljar (smoke-test, flatten-and-validate, JSON-RPC-døme)
 - `mcp-linkml-generator`-kommandoar

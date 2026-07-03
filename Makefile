@@ -242,7 +242,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         mcp-linkml-validate-run mcp-linkml-validate-smoke mcp-linkml-validate-test mcp-linkml-validate \
         mcp-linkml-modell-utkast-run mcp-linkml-modell-utkast-smoke mcp-linkml-modell-utkast-test mcp-linkml-modell-utkast new-model \
         mcp-linkml-begrep-utkast-run mcp-linkml-begrep-utkast-smoke mcp-linkml-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
-		docs-serve docs-build publish \
+		docs-serve docs-build docs-publish \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
@@ -571,10 +571,10 @@ gen-modelldcat-elements:
 	$(LINKML_RUN) python3 src/assets/scripts/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
 
 # Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
-# Føresetnad: relevante make <domain>-targets er køyrde fyrst.
-publish:
+# Føresetnad: relevante make domain-<domain>-targets er køyrde fyrst.
+docs-publish:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make publish$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs-publish$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	bash mkdocs/publish.sh
 

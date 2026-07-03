@@ -11,7 +11,7 @@ aldri lagra — kvar CI-køyring startar blankt. To ting manglar:
    veit ikkje om modellen passerer bronze/silver/gold.
 
 Begge problema løysast med same mekanisme: lagra valideringsresultat som JSON
-i `validation/` i repoet (ein commit per release), og la `make publish` lese
+i `validation/` i repoet (ein commit per release), og la `make docs-publish` lese
 desse JSON-filene og generere ein Markdown-seksjon i kvar skjema sin `index.md`.
 
 ---
@@ -80,7 +80,7 @@ krav i éin køyring.
 
 ### Mkdocs-display
 
-`make publish` genererer ein `## Valideringsresultat`-seksjon i kvar skjema
+`make docs-publish` genererer ein `## Valideringsresultat`-seksjon i kvar skjema
 sin `index.md`:
 
 ```markdown

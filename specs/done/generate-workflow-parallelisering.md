@@ -300,7 +300,7 @@ jobs:
 
       - name: Publiser og bygg dokumentasjonsportal
         run: |
-          make publish
+          make docs-publish
           make docs-build
 
       - name: Konfigurer GitHub Pages

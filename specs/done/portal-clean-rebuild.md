@@ -175,7 +175,7 @@ gamalt generert innhald er cachet.
   umiddelbart registrere filene att som untracked
 - Steg 3 og 4 er uavhengige av kvarandre og kan utførast i same commit som steg 1-2
 - Etter steg 2 vil lokalt `mkdocs/docs/` mangle generert innhald inntil
-  `make publish` vert køyrd — dette er tilsikta
+  `make docs-publish` vert køyrd — dette er tilsikta
 
 ## Utført
 

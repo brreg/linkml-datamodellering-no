@@ -131,7 +131,7 @@ Opprett `.github/workflows/generate.yml`:
 
 ### 4.3 — Dokumentasjonspublisering
 Utvid `.github/workflows/generate.yml` med:
-- `make publish` (kopier genererte docs til `mkdocs/docs/`)
+- `make docs-publish` (kopier genererte docs til `mkdocs/docs/`)
 - `make docs-build`
 - Deploy til GitHub Pages med `actions/deploy-pages`
 

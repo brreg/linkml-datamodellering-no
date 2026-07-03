@@ -1,7 +1,7 @@
 # Oppdatering av dokumentasjonsportalen
 
 To statiske sider er utdaterte: `mkdocs/docs/index.md` og `mkdocs/docs/ny-domenemodell.md`.
-Begge er handskrivne og vert ikkje rørte av `make publish`.
+Begge er handskrivne og vert ikkje rørte av `make docs-publish`.
 
 ---
 
@@ -114,4 +114,4 @@ Dei fleste brukarar treng berre spor A. Spor B er for dei som vil forstå kva `m
 1. Oppdater `publish.sh` med `sed`-transformasjonen (éi linje)
 2. Omskriv `mkdocs/docs/ny-domenemodell.md`
 3. Slett den gamle statiske `mkdocs/docs/index.md` (publish.sh vil generere ny)
-4. Køyr `make publish && make docs-serve` og verifiser begge sidene
+4. Køyr `make docs-publish && make docs-serve` og verifiser begge sidene

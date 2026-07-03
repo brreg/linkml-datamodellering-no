@@ -290,7 +290,7 @@ fagomrade:
 
 Den opphavlege SK5 (hand-skriven SHACL-fil) er forlate — repoet har ingen
 mekanisme for hand-skrivne SHACL-tillegg utanom den auto-genererte SHACL-en
-frå `make publish`, og brukaren har valt å ikkje innføre ein slik mekanisme
+frå `make docs-publish`, og brukaren har valt å ikkje innføre ein slik mekanisme
 (jf. forrige avklaringsrunde).
 
 Den korrekte staden å realisere Avvik 10-11 er i stedet
