@@ -172,7 +172,7 @@ def process_org(org, schemas, dry_run):
     catalog_path, exists = find_catalog_data(org)
     if not exists:
         print(f"  ÅTVARSLE: Katalogdatafil ikkje funne: {catalog_path}")
-        print(f"  Køyr: make new-org-catalog ORG={org['alias']}  for å opprette katalogen.")
+        print(f"  Køyr: make new-modellkatalog NAME={org['alias']}  for å opprette katalogen.")
         return
 
     with open(catalog_path, encoding="utf-8") as fh:

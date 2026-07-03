@@ -40,7 +40,7 @@ PR-en og gir GitHub-teamet write-tilgang til repoet (sjå `GOVERNANCE.md`).
 Etter godkjent PR, opprett katalogstrukturen:
 
 ```bash
-make new-org-catalog ORG=<alias>
+make new-modellkatalog NAME=<alias>
 ```
 
 Dette oppretter:

@@ -222,7 +222,8 @@
       "Bash(make mcp-linkml-validate *)",
       "Bash(make -n all)",
       "Bash(make -n docs-publish)",
-      "Bash(gh issue *)"
+      "Bash(gh issue *)",
+      "Bash(make help *)"
     ]
   },
   "enableAllProjectMcpServers": true,
