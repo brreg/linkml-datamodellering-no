@@ -200,7 +200,8 @@
       "Bash(git rm *)",
       "Bash(make -n log-mcp-validate SCHEMA=test POLICY=bronze)",
       "Bash(make -n log-mcp-validate MANIFEST=src/linkml/samt/samt-bu/manifest.yaml)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(make validate-capture *)"
     ]
   },
   "enableAllProjectMcpServers": true,
