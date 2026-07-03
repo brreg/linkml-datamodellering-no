@@ -204,7 +204,8 @@
       "Bash(make validate-capture *)",
       "Bash(make -n build-docker-linkml)",
       "Bash(make -n gen-jsonld DOMAIN=samt)",
-      "Bash(make -n domain-gen-context DOMAIN=samt)"
+      "Bash(make -n domain-gen-context DOMAIN=samt)",
+      "Bash(make -n linkml-build-docker)"
     ]
   },
   "enableAllProjectMcpServers": true,
