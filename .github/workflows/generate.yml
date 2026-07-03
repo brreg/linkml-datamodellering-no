@@ -244,9 +244,8 @@ jobs:
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples data xsd openapi asyncapi; do
-            make domain-gen-$artifact DOMAIN=${{ matrix.domain }}
-          done
+          # Køyr domene-target som genererer alle hovudartefaktar
+          make domain-${{ matrix.domain }}
 
       - uses: actions/upload-artifact@v7
         with:
