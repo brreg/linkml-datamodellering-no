@@ -79,7 +79,7 @@ Desse kommandoane genererer spesifikke artefaktar for **eitt** skjema.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make all` | Default target — køyrer full testsuite | ... |
+| ~~`make all`~~ | Fjerna — var berre eit alias til `make test` | ... |
 | ~~`make domains`~~ | Fjerna — feila fordi domene-targets heiter `domain-<namn>`, ikkje `<namn>` | ... |
 | `make gen-config` | Generer konfigurasjonsfiler | ... |
 ...

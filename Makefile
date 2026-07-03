@@ -233,7 +233,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
-.PHONY: all test roundtrip validate lint validate-instance clean gen-config \
+.PHONY: test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-bronze validate-data validate-examples \
@@ -247,8 +247,6 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
         build-docker-gource gource-preview gource-video _gource-render
-
-all: test
 
 test:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
