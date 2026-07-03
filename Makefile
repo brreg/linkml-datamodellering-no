@@ -777,21 +777,21 @@ build-docker-mcp-validator:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(MCP_IMAGE) $(MCP_DIR)
 
-mcp-validator-run:
+mcp-linkml-validate-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-validator-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-validate-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(MCP_RUN) $(MCP_IMAGE)
 
-mcp-validator-smoke: build-docker-mcp-validator
+mcp-linkml-validate-smoke: build-docker-mcp-validator
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-validator-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-validate-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-mcp-validator-test: build-docker-mcp-validator
+mcp-linkml-validate-test: build-docker-mcp-validator
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-validator-test$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-validate-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR):/work:ro" \
@@ -808,21 +808,21 @@ build-docker-mcp-modell-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
 
-mcp-modell-utkast-run:
+mcp-linkml-modell-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-modell-utkast-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-modell-utkast-smoke: build-docker-mcp-modell-utkast
+mcp-linkml-modell-utkast-smoke: build-docker-mcp-modell-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-modell-utkast-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-modell-utkast-test: build-docker-mcp-modell-utkast
+mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-modell-utkast-test$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
@@ -870,15 +870,15 @@ build-docker-mcp-begrep-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
 
-mcp-begrep-utkast-run:
+mcp-linkml-begrep-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-begrep-utkast-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
-mcp-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
+mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-begrep-utkast-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
@@ -895,8 +895,8 @@ mcp-linkml-begrep-utkast:
 	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 # List profiler:
-#   make mcp-begrep-utkast-list-profiles
-mcp-begrep-utkast-list-profiles:
+#   make mcp-linkml-begrep-utkast-list-profiles
+mcp-linkml-begrep-utkast-list-profiles:
 	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-begrep-utkast
 	@echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_profiles","arguments":{}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
@@ -925,17 +925,17 @@ check-prereqs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@bash src/assets/scripts/check-prereqs.bash
 
-# Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
+# Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 # POLICY vert auto-detektert frå manifest.yaml dersom ikkje oppgjeven
-mcp-validate:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
+mcp-linkml-validate:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
 	@DETECTED_POLICY=$$(python3 -c "import yaml, sys; \
 	  manifest_path = '$(dir $(SCHEMA))manifest.yaml'; \
 	  manifest = yaml.safe_load(open(manifest_path)) if __import__('os').path.isfile(manifest_path) else {}; \
 	  print(manifest.get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
 	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
-	echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
+	echo "$(CLR_HDR)*** make mcp-linkml-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
 	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
 	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator; \
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)

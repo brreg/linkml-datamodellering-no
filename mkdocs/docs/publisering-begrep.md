@@ -67,7 +67,7 @@ begrep:
 **3. Valider skjema og datafil i eitt steg:**
 
 ```bash
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
@@ -124,7 +124,7 @@ definisjoner:
 **4. Valider:**
 
 ```bash
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
@@ -265,7 +265,7 @@ EOF
 **5.** Valider og push:
 
 ```bash
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml

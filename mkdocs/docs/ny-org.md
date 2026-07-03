@@ -109,13 +109,13 @@ python3 src/assets/scripts/update-modellkatalog.py --org <alias>
 
 Valider kvar enkelt domenemodell:
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
 ```
 
 Valider modellkatalogen mot publiseringspolicy:
 ```bash
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/modellkatalog/<alias>-modellkatalog/<alias>-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
   INSTANCE=src/linkml/modellkatalog/<alias>-modellkatalog/data/<alias>-modellkatalog/<alias>-modellkatalog.yaml

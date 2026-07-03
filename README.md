@@ -67,7 +67,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modellnavn.json
 ```
 ```bash
 # 3. Valider skjema
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml \
   POLICY=felles-datakatalog
 ```
@@ -100,7 +100,7 @@ make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
 ```
 ```bash
 # 3. Valider skjema og datafil
-make mcp-validate \
+make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/katalognavn/katalognavn-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/katalognavn/data/katalognavn/katalognavn.yaml
@@ -211,7 +211,7 @@ Datafiler og modellar merka med `publish_external: true` i `manifest.yaml` er ti
 
 **Kva må skje for at høsting skal fungere:**
 
-1. **Datafila må validere:** `make mcp-validate POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
+1. **Datafila må validere:** `make mcp-linkml-validate POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
 2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
 3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
 

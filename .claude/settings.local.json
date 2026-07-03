@@ -215,7 +215,11 @@
       "Bash(make gen-linkml *)",
       "Bash(make -n domain-samt)",
       "Bash(make -n build-docker-mcp-validator)",
-      "Bash(make linkml-gen-build *)"
+      "Bash(make linkml-gen-build *)",
+      "Bash(make mcp-linkml-validate-smoke *)",
+      "Bash(make mcp-linkml-modell-utkast-smoke *)",
+      "Bash(make mcp-linkml-begrep-utkast-smoke *)",
+      "Bash(make mcp-linkml-validate *)"
     ]
   },
   "enableAllProjectMcpServers": true,
