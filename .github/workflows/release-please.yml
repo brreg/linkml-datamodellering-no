@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      workflows: write
     steps:
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
@@ -45,6 +46,7 @@ jobs:
           github.event_name == 'workflow_dispatch'
         id: release-please
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 

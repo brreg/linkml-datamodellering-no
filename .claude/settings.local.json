@@ -221,7 +221,8 @@
       "Bash(make mcp-linkml-begrep-utkast-smoke *)",
       "Bash(make mcp-linkml-validate *)",
       "Bash(make -n all)",
-      "Bash(make -n docs-publish)"
+      "Bash(make -n docs-publish)",
+      "Bash(gh issue *)"
     ]
   },
   "enableAllProjectMcpServers": true,
