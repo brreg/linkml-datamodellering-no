@@ -108,6 +108,21 @@ overskrivne ved neste publisering.
 
 `mkdocs/docs/` er brukarvendt dokumentasjon og normativ kjelde for steg-for-steg-rettleiingar (t.d. `ny-domenemodell.md`). CLAUDE.md er normativ kjelde for modelleringsprinsipp og AI-instruksjonar — desse to skal ikkje duplisere kvarandre.
 
+### PlantUML-diagram
+
+`make gen-plantuml` genererer **to versjonar** av PlantUML-diagramma:
+
+- **`<modell>.puml/.svg`** — full versjon med alle klasser (inkl. importerte frå dcat-ap-no, dqv-ap-no osv.)
+- **`<modell>-filtered.puml/.svg`** — filtrert versjon med **kun lokale klasser** frå skjemaet
+
+Filtrering:
+- Beheld alle klasser definerte i det lokale skjemaet sitt `classes:`-blokk (inkl. abstrakte klasser)
+- Filtrer vekk `tree_root`-klassen (containerklassen)
+- Filtrer vekk importerte klasser (frå dcat-ap-no, dqv-ap-no osv.)
+- Behald relasjonar og arvestruktur mellom dei filtrerte klassane
+
+Dokumentasjonsportalen (`mkdocs/docs/`) viser den **filtrerte versjonen** som standard, med lenke til full versjon merka "(full)".
+
 ## Modelleringsprinsipper
 
 ### Skriftspråk

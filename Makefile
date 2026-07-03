@@ -109,9 +109,15 @@ define run_gen_plantuml
   mkdir -p $(call schema_outdir,$(s))/diagrams && \
   $(LINKML_RUN) gen-plantuml $(s) \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s)).puml && \
+  echo "$(CLR_STEP)→ filter-plantuml  $(s)$(CLR_RST)" && \
+  $(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s)).puml \
+    > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-filtered.puml && \
   podman run --rm \
     -v "$(CURDIR)/$(call schema_outdir,$(s))/diagrams:/data" \
-    $(PLANTUML_IMAGE) -tsvg /data/$(call schema_name,$(s)).puml; \
+    $(PLANTUML_IMAGE) -tsvg /data/$(call schema_name,$(s)).puml && \
+  podman run --rm \
+    -v "$(CURDIR)/$(call schema_outdir,$(s))/diagrams:/data" \
+    $(PLANTUML_IMAGE) -tsvg /data/$(call schema_name,$(s))-filtered.puml; \
 )
 endef
 
