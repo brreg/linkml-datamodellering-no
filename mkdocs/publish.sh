@@ -106,6 +106,12 @@ process_schema() {
     # Kopier artefaktfiler (berre filer, ikkje docs/-underkatalog)
     find "$schema_dir" -maxdepth 1 -type f -exec cp {} "$out/" \;
 
+    # Kopier CHANGELOG.md dersom den finst
+    changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
+    if [ -f "$changelog_src" ]; then
+        cp "$changelog_src" "$out/CHANGELOG.md"
+    fi
+
     # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
     if [ -d "$schema_dir/diagrams" ]; then
         mkdir -p "$out/diagrams"
@@ -165,6 +171,52 @@ process_schema() {
             cat "$schema_desc"
         fi
 
+        # Versjonslog (CHANGELOG.md i kollapsa details-blokk)
+        changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
+        if [ -f "$changelog_src" ]; then
+            echo ""
+            echo "## Versjonslog"
+            echo ""
+            echo "<details>"
+            echo "<summary>Vis full endringshistorikk</summary>"
+            echo ""
+            # Fjern hovudoverskrift "# Changelog" frå CHANGELOG.md dersom den finst
+            tail -n +1 "$changelog_src" | awk 'NR==1 && /^# Changelog/ { next } 1'
+            echo ""
+            echo "</details>"
+        fi
+
+        # Valideringsresultat frå siste versjon (co-location-struktur)
+        local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+        local policy="bronze"
+        if [ -f "$manifest" ]; then
+            # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
+            policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
+        fi
+
+        # Finn siste versjon programmatisk (semver-sortering)
+        local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+        local latest_version=""
+        if [ -d "$validation_dir" ]; then
+            # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
+            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
+        fi
+
+        # Finn validation-logg for siste versjon og denne policyen
+        local validation_json=""
+        if [ -n "$latest_version" ]; then
+            validation_json="$validation_dir/$latest_version/${policy}.json"
+        fi
+
+        if [ -f "$validation_json" ]; then
+            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
+        else
+            echo ""
+            echo "## Valideringsresultat"
+            echo ""
+            echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
+        fi
+
         # Inline klasseliste frå gen-doc direkte i index.md
         klasse_src=""
         [ -f "$out/klasser/index.md" ] && klasse_src="$out/klasser/index.md"
@@ -199,37 +251,6 @@ process_schema() {
                 puml_links+="[${schema}.puml](diagrams/${schema}.puml)"
             fi
             artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
-        fi
-
-        # Valideringsresultat frå siste versjon (co-location-struktur)
-        local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-        local policy="bronze"
-        if [ -f "$manifest" ]; then
-            # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
-            policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
-        fi
-
-        # Finn siste versjon programmatisk (semver-sortering)
-        local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-        local latest_version=""
-        if [ -d "$validation_dir" ]; then
-            # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
-            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
-        fi
-
-        # Finn validation-logg for siste versjon og denne policyen
-        local validation_json=""
-        if [ -n "$latest_version" ]; then
-            validation_json="$validation_dir/$latest_version/${policy}.json"
-        fi
-
-        if [ -f "$validation_json" ]; then
-            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
-        else
-            echo ""
-            echo "## Valideringsresultat"
-            echo ""
-            echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
         fi
 
         if $has_artifact; then

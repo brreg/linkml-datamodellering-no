@@ -165,8 +165,8 @@ Ingen — endringane er isolerte til Jinja-templaten.
 
 1. **Status-feltet** (`src/assets/templates/docgen/index.md.jinja2`):
    - Fjerna `status_map`-ordbok (linje 22–27)
-   - Endret frå `{{ status_text }}` til `{{ schema.annotations.status.value }}`
-   - **Resultat:** Status viser no URI direkte (t.d. `http://purl.org/adms/status/UnderDevelopment`)
+   - Endret frå `{{ status_text }}` til `[{{ schema.annotations.status.value }}]({{ schema.annotations.status.value }})`
+   - **Resultat:** Status viser no URI som **klikkbar lenke** (t.d. `[http://purl.org/adms/status/UnderDevelopment](http://...)`)
 
 2. **Validation policy** (`Makefile`):
    - Fjerna kall til `inject-validation-policy.py` frå `run_gen_doc` (linje 102–104)
@@ -177,8 +177,8 @@ Ingen — endringane er isolerte til Jinja-templaten.
    - **Resultat:** Kvar import vises på eiga linje i tabellcella
 
 **Testing:**
-- samt-bu: ✅ Status = URI, ✅ ingen Validation policy, ✅ Imports med linjeskift
-- referanse: ✅ Status = URI, ✅ ingen Validation policy, ✅ ingen Imports-rad (korrekt)
+- samt-bu: ✅ Status = klikkbar URI, ✅ ingen Validation policy, ✅ Imports med linjeskift
+- referanse: ✅ Status = klikkbar URI, ✅ ingen Validation policy, ✅ ingen Imports-rad (korrekt)
 
-**Neste steg:**
-Køyr `make docs-publish` for å oppdatere mkdocs-portalen med nye metadata-format.
+**Oppfølging:**
+Status-feltet vart oppdatert til å vere klikkbar lenke (same format som Utgjevar) etter tilbakemelding frå brukaren.
