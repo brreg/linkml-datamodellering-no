@@ -590,7 +590,7 @@ https://brreg.no/modellkatalogar/brreg-modellkatalog
 EOF
 ```
 
-Portalen oppdaterer seg automatisk neste gong `make publish` køyrer.
+Portalen oppdaterer seg automatisk neste gong `make docs-publish` køyrer.
 
 ### README-oppdatering
 

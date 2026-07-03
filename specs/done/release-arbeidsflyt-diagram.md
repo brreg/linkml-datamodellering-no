@@ -131,7 +131,7 @@ Sjå [CONTRIBUTING.md](../CONTRIBUTING.md) for fullstendig prosedyre.
 **Resultat:** Ingen referansar til gamal flyt funne. Oppdaterte workflow-tabelldeskripsjonen for release-please.yml til "Opprettar release-PR automatisk" (fjerna "og publiserer releases").
 
 ### RD5: Verifiser diagram-rendering
-- [✓] Bygg mkdocs lokalt: `make publish` (eller tilsvarande)
+- [✓] Bygg mkdocs lokalt: `make docs-publish` (eller tilsvarande)
 - [✓] Sjekk at mermaid-diagrammet rendrar korrekt i nettlesaren
 - [✓] Verifiser at fargekodar er synlege og intuitive
 - [✓] Test at diagram er lesbart på både stor og liten skjerm

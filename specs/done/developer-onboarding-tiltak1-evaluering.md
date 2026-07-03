@@ -60,7 +60,7 @@ make mcp-validate SCHEMA=src/linkml/oreg/mitt-register/mitt-register-schema.yaml
 ```
 ```bash
 # 4. Generer artefakter og sjå resultatet
-make oreg && make publish && make docs-serve
+make oreg && make docs-publish && make docs-serve
 ```
 
 For full rettleiing om modellering, validering og importar: [Ny domenemodell](ny-domenemodell.md).

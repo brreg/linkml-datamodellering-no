@@ -73,7 +73,7 @@ make mcp-validate \
   POLICY=felles-datakatalog
 
 # 4. Generer artefakter og publiser til dokumentasjonsportal
-make domene && make publish && make docs-serve   # → http://localhost:8000
+make domene && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
 Lenke til [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/)
@@ -95,7 +95,7 @@ make mcp-validate \
   INSTANCE=data/begrep/katalognavn.yaml
 
 # 4. Generer og publiser til dokumentasjonsportal
-make begrep && make publish && make docs-serve   # → http://localhost:8000
+make begrep && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
 Lenke til [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/)

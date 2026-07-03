@@ -97,7 +97,7 @@ Gjennomført:
 - Retta stavemåte: `valideringregler.md` → `valideringsregler.md` (for konsistens med filnamn)
 
 ### 5. Test generering
-✓ Køyr `make publish` og verifiser at:
+✓ Køyr `make docs-publish` og verifiser at:
 - `mkdocs/docs/valideringsregler.md` er generert
 - Fila inneheld innhald frå både README-filene
 - Relative lenkjer er konverterte til GitHub-lenkjer
@@ -126,7 +126,7 @@ Gjennomført:
 2. ✓ Skriv funksjon `generate_validation_docs` med lenkekonvertering
 3. ✓ Kall funksjonen i publish.sh (nytt Steg 3)
 4. ✓ Oppdater nav-menyen i mkdocs.yml-generatoren (valideringregler.md → valideringsregler.md)
-5. ✓ Test generering (`make publish`)
+5. ✓ Test generering (`make docs-publish`)
 6. ✓ Oppdater .gitignore
 
 ## Avhengigheiter

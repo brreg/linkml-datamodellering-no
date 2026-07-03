@@ -280,7 +280,7 @@ make mcp-linkml-validate \
 ## Dokumenter publiseringa i portalen
 
 Når begrepskatalogen er publisert og URI-ane er lagde inn i `published-uris.lock`,
-oppdaterer portalen seg automatisk neste gong `make publish` køyrer.
+oppdaterer portalen seg automatisk neste gong `make docs-publish` køyrer.
 
 `publish.sh` les `published-uris.lock` og legg automatisk til:
 
@@ -292,7 +292,7 @@ Det er ingen manuell dokumentasjonsoppdatering nødvendig — det held å halde
 lock-fila oppdatert. For å sjå resultatet lokalt:
 
 ```bash
-make publish && make docs-serve
+make docs-publish && make docs-serve
 ```
 
 ---

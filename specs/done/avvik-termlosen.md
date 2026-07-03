@@ -128,7 +128,7 @@ ikkje primært om bilde/foto til eit enkelt omgrep. Dette dekkast av
 `linkml gen-doc`/`gen-erdiagram`, som genererer dokumentasjon med
 klassediagram (Mermaid/PlantUML) som viser relasjonane mellom klassene i
 skjemaet. Denne dokumentasjonen vert publisert til mkdocs-portalen via
-`make publish` (sjå `erdiagram`/`docs`-flagga i `manifest.yaml`).
+`make docs-publish` (sjå `erdiagram`/`docs`-flagga i `manifest.yaml`).
 
 **Status:** ✓ Handtert — illustrasjon av klassesamanhengar dekkast av generert
 LinkML-dokumentasjon (`gen-doc`/`gen-erdiagram`). Bilde/foto til enkeltomgrep

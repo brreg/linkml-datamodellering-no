@@ -128,7 +128,7 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
    - `make convert-data` — Konverterer YAML til SKOS/Turtle og ModelDCAT-AP-NO
 
 3. **Publisering:**
-   - `make publish` — Regenererer mkdocs-portal
+   - `make docs-publish` — Regenererer mkdocs-portal
    - `actions/deploy-pages@v1` — Publiserer til GitHub Pages
 
 **Eksempel på vellukka køyring:**

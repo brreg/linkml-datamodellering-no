@@ -266,7 +266,7 @@ Oppdater lenker i desse filene:
 grep -r "publiseringsflyt-oversikt" mkdocs/docs/
 
 # Bygg og sjekk lokalt:
-make publish && make docs-serve
+make docs-publish && make docs-serve
 ```
 
 ---

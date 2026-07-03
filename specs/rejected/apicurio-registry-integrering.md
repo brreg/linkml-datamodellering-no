@@ -51,7 +51,7 @@ Relevante request-headers:
 | 2 | **Autentisering** | (a) API-nøkkel (header `Authorization: Bearer <token>`). (b) Basic auth. (c) Ingen (open dev-instans). |
 | 3 | **Artefakttypar** | (a) OpenAPI + AsyncAPI — berre dei formata konsumentane faktisk brukar. (b) OpenAPI + AsyncAPI + JSON Schema + XSD — alle genererte format. |
 | 4 | **Gruppestruktur** | (a) Éin gruppe per domene (t.d. `ngr`, `fint`, `samt`). (b) Éin gruppe per skjema (t.d. `ngr-adresse`). (c) Éin global gruppe `linkml-datamodellering-no`. |
-| 5 | **Trigger** | (a) Eige `make apicurio-publish`-mål — manuelt eller frå CI etter `make publish`. (b) Integrert direkte i `generate.yml` som eige jobb. |
+| 5 | **Trigger** | (a) Eige `make apicurio-publish`-mål — manuelt eller frå CI etter `make docs-publish`. (b) Integrert direkte i `generate.yml` som eige jobb. |
 
 ---
 

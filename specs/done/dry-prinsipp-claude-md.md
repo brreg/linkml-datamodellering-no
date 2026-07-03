@@ -208,7 +208,7 @@ make mcp-validate \
 ```
 ```bash
 # 4. Generer artefakter og publiser til dokumentasjonsportal
-make <domain> && make publish && make docs-serve   # → http://localhost:8000
+make <domain> && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
 Nye skjema under `src/linkml/<domain>/<modellnavn>/` vert oppdaga automatisk.
@@ -251,7 +251,7 @@ make mcp-validate \
 ```
 ```bash
 # 4. Generer og publiser til dokumentasjonsportal
-make begrepskatalog && make publish && make docs-serve   # → http://localhost:8000
+make begrepskatalog && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
 Sjå òg [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).

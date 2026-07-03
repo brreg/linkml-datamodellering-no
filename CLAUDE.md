@@ -94,7 +94,7 @@ Når ein ny bug vert oppdaga og workaround lagt inn, opprett ei ny fil i
 ## Dokumentasjonsportal (mkdocs)
 
 `mkdocs/mkdocs.yml` vert **automatisk regenerert** av `mkdocs/publish.sh` (Steg 4)
-kvar gong `make publish` køyrer. Endringar gjort direkte i `mkdocs.yml` vert
+kvar gong `make docs-publish` køyrer. Endringar gjort direkte i `mkdocs.yml` vert
 overskrivne ved neste publisering.
 
 **Sannkjelda for nav-menyen er `mkdocs/publish.sh`**, ikkje `mkdocs.yml`.

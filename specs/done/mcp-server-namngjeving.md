@@ -83,8 +83,8 @@ flowchart TD
 
     %% Sluttleveransar
     skjema  -->|"make &lt;domene&gt;"| art["Genererte artefakter\njsonschema · shacl · owl · …"]
-    art     -->|"make publish"| fdk["Felles Datakatalog"]
-    datafil -->|"make publish"| fbk["Felles Begrepskatalog"]
+    art     -->|"make docs-publish"| fdk["Felles Datakatalog"]
+    datafil -->|"make docs-publish"| fbk["Felles Begrepskatalog"]
 ```
 
 Støtteverktøya `list_profiles` og `list_los_tema` vert brukte interaktivt (av ein AI-assistent
