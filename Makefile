@@ -240,7 +240,6 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast mcp-generate new-model \
         mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build docs-build-fast publish \
-        $(DOMAINS) \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
@@ -602,10 +601,10 @@ gen-config: config.mk
 define domain_target
 _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 
-.PHONY: $(1)
-$(1):
+.PHONY: domain-$(1)
+domain-$(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make $(1)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make domain-$(1)$(CLR_RST)"
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
