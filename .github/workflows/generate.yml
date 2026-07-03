@@ -308,6 +308,7 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: mkdocs/site/
+          overwrite: true
 
       - name: Deploy til GitHub Pages
         id: deploy
