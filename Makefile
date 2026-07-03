@@ -233,15 +233,15 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
-.PHONY: all test roundtrip validate lint validate-instance clean domains gen-config \
+.PHONY: all test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-bronze validate-data validate-examples \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs \
         build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
-        mcp-validator-run mcp-validator-smoke mcp-validator-test mcp-validate \
-        mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast new-model \
-        mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
+        mcp-linkml-validate-run mcp-linkml-validate-smoke mcp-linkml-validate-test mcp-linkml-validate \
+        mcp-linkml-modell-utkast-run mcp-linkml-modell-utkast-smoke mcp-linkml-modell-utkast-test mcp-linkml-modell-utkast new-model \
+        mcp-linkml-begrep-utkast-run mcp-linkml-begrep-utkast-smoke mcp-linkml-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build publish \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
@@ -249,8 +249,6 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         build-docker-gource gource-preview gource-video _gource-render
 
 all: test
-
-domains: $(DOMAINS)
 
 test:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

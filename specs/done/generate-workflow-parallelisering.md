@@ -11,7 +11,7 @@
 ## Problem med dagens struktur
 
 ```
-build-linkml → build-python → make domains   ← sekvensiell, éin stor svart boks
+build-linkml → build-python → make domain-<namn>   ← sekvensiell for kvart domene
 ```
 
 - Image-bygginga er sekvensiell (unødvendig)

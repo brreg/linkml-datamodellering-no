@@ -219,7 +219,8 @@
       "Bash(make mcp-linkml-validate-smoke *)",
       "Bash(make mcp-linkml-modell-utkast-smoke *)",
       "Bash(make mcp-linkml-begrep-utkast-smoke *)",
-      "Bash(make mcp-linkml-validate *)"
+      "Bash(make mcp-linkml-validate *)",
+      "Bash(make -n all)"
     ]
   },
   "enableAllProjectMcpServers": true,
