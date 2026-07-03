@@ -241,13 +241,13 @@ For å bruke same mønster for ein annan begrepskatalog:
 
 **1.** Lag skjema etter `ny-begrepsmodell.md`.
 
-**2.** Set `data_policy` i `manifest.yaml`:
+**2.** Set `validation_policy` i `manifest.yaml`:
 
 ```yaml
 generators:
   ...
   example_rdf: true
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog
 ```
 
 **3.** Lag `src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml` med produksjonsdata.

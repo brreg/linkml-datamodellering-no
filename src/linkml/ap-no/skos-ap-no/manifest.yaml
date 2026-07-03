@@ -1,5 +1,5 @@
 publish_external: false
-data_policy: gold
+validation_policy: gold
 
 generators:
   jsonld_context: true

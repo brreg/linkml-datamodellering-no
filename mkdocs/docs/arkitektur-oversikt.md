@@ -309,7 +309,7 @@ Kvar datafil under `src/linkml/*/data/<katalog>/` har ein `manifest.yaml`:
 
 ```yaml
 publish_external: true  # Publiser til GitHub Pages?
-data_policy: felles-begrepskatalog  # Valideringspolicy
+validation_policy: felles-begrepskatalog  # Valideringspolicy
 ```
 
 **Effekt av `publish_external`:**

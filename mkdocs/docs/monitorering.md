@@ -22,7 +22,7 @@ https://github.com/brreg/linkml-datamodellering-no/actions
 | Workflow | URL | Kva det gjer |
 |---|---|---|
 | `generate.yml` | [actions/workflows/generate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/generate.yml) | Validerer, genererer artefaktar og publiserer til GitHub Pages |
-| `validate.yml` | [actions/workflows/validate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/validate.yml) | Validerer skjema og datafiler ved PR |
+| `validate.yml` | [actions/workflows/validate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/validate.yml) | Nattleg validering (02:00 UTC) som lagrar loggar til `src/linkml/*/validation/` og opprettar PR ved endringar |
 | `release-please.yml` | [actions/workflows/release-please.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml) | Opprettar release-PR automatisk |
 | `release.yml` | [actions/workflows/release.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release.yml) | Byggjer og pushar container-images ved release |
 
@@ -145,6 +145,41 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
 ✗ mcp-validate POLICY=felles-begrepskatalog
   Error: Missing required field: dct:publisher
 ```
+
+---
+
+**`validate.yml` (nattleg validering og logging):**
+
+1. **Validering per domene (parallell):**
+   - Validerer skjema mot `validation_policy` frå `manifest.yaml`
+   - Validerer eksempelfiler mot skjema
+   - Validerer datafiler mot publiseringspolicyer
+   - Sjekkar at publiserte URI-ar ikkje er fjerna
+
+2. **Logglagring:**
+   - Lagrar JSON-loggar til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`
+   - Filtrerer ut uendra loggar (ignorer `validated_at`-felt)
+
+3. **PR-oppretting (kun ved endringar):**
+   - Opprettar PR med tittel: `chore(validation): oppdater valideringsloggar (N modellar)`
+   - PR inneheld kun loggar med faktiske endringar (nye violations eller forbettringar)
+   - Labels: `automated`, `validation`
+
+**Eksempel på vellukka køyring:**
+```
+✓ validate / ap-no
+✓ validate / ngr
+✓ Filtrer ut uendra loggar
+  - 12 identiske (fjerna)
+  - 3 endra (behelde)
+  - 1 nye (behelde)
+✓ Lag PR med valideringsloggar (4 modellar)
+```
+
+**Når vert `validate.yml` køyrt?**
+- **Nattleg:** kl 02:00 UTC (skriv loggar + opprett PR)
+- **Manuelt:** `workflow_dispatch` (skriv loggar + opprett PR)
+- **PR-validering:** ved `pull_request` mot skjema eller validator-kode (berre validering, ingen logging)
 
 ### Kor lenge vert loggar lagra?
 

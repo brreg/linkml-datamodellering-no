@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Genererer ein ## Valideringsresultat-seksjon frå latest.json til stdout.
+Genererer ein ## Valideringsresultat-seksjon frå validation JSON til stdout.
 
-Bruk: python3 generate-validation-md.py <validation/domain/model/latest.json>
+Bruk: python3 generate-validation-md.py <src/linkml/domain/model/validation/version/policy.json>
 """
 
 import json
@@ -12,7 +12,7 @@ from pathlib import Path
 
 def main() -> None:
     if len(sys.argv) < 2:
-        print("Bruk: generate-validation-md.py <latest.json>", file=sys.stderr)
+        print("Bruk: generate-validation-md.py <validation-json>", file=sys.stderr)
         sys.exit(1)
 
     path = Path(sys.argv[1])
@@ -24,11 +24,17 @@ def main() -> None:
 
     version = data.get("version", "")
     validated_at = data.get("validated_at", "")
-    policy = data.get("data_policy", "bronze")
+
+    # Støtt både validation_type (ny) og data_policy (gamal) for bakoverkompatibilitet
+    policy = data.get("validation_type") or data.get("data_policy", "bronze")
+
     result = data.get("result", {})
     valid = result.get("valid", False)
-    error_count = result.get("error_count", 0)
-    warning_count = result.get("warning_count", 0)
+
+    # Støtt både errorCount (ny camelCase) og error_count (gamal snake_case)
+    error_count = result.get("errorCount") or result.get("error_count", 0)
+    warning_count = result.get("warningCount") or result.get("warning_count", 0)
+
     issues = result.get("issues", [])
     errors = [i for i in issues if i.get("severity") == "error"]
 

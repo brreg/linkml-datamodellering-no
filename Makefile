@@ -1056,6 +1056,25 @@ validate-capture:
 	    python3 src/assets/scripts/run-schema-validation.py --config release-please-config.json; \
 	fi
 
+# Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
+# Validerer og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/<policy>.json
+log-mcp-validate:
+	@if [ -n "$(MANIFEST)" ]; then \
+		bash src/assets/scripts/run-validation.sh --manifest $(MANIFEST); \
+	elif [ -n "$(SCHEMA)" ] && [ -n "$(POLICY)" ]; then \
+		bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --policy $(POLICY); \
+	else \
+		echo "Feil: Oppgi anten MANIFEST=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
+		exit 1; \
+	fi
+
+# Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>
+# Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<namn>.json
+log-validate-instance:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@test -n "$(INSTANCE)" || (echo "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)
+
 # ---------------------------------------------------------------------------
 # Gource – visualisering av git-historikk
 # ---------------------------------------------------------------------------

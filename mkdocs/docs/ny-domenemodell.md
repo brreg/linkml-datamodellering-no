@@ -319,7 +319,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] Alle klasser (unntatt tree_root) har class_uri
 [ ] Alle globale slots har slot_uri
 [ ] make mcp-validate POLICY=bronze gir 0 feil
-[ ] Om data_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
+[ ] Om validation_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
     annotations.utgivelsesdato, annotations.status og annotations.oppdateringsfrekvens
     er fylt inn
 [ ] make test køyrer utan feil

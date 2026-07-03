@@ -113,7 +113,7 @@ EOF
 MANIFEST_FILE="$SCHEMA_DIR/manifest.yaml"
 cat > "$MANIFEST_FILE" << 'EOF'
 publish_external: false
-data_policy: silver
+validation_policy: silver
 
 generators:
   jsonld_context: true

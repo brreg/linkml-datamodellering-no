@@ -1,4 +1,4 @@
 # Deaktivert til TODO-verdiar i brreg-begrepskatalog-schema.yaml er fylt inn
 # (endringsdato, utgivelsesdato) — sjå specs/backlog/pre-launch-audit.md T3.2
 publish_external: false
-data_policy: felles-begrepskatalog
+validation_policy: felles-begrepskatalog

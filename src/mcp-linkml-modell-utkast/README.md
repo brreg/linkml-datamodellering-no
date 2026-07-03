@@ -147,7 +147,7 @@ Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 3. **Fyll inn `title`** — erstatt TODO-stubben med ein meiningsfull tittel
 4. **Juster klassenamn** til norsk bokmål om nødvendig
 5. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.
-6. **Fyll inn silver-annotasjonar** om skjemaet har `data_policy: silver` eller høgare (berre silver-profil): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
+6. **Fyll inn silver-annotasjonar** om skjemaet har `validation_policy: silver` eller høgare (berre silver-profil): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
 7. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:
 
 ```bash
