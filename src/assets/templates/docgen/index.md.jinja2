@@ -2,9 +2,42 @@
 
 {% if schema.description %}{{ schema.description }}{% endif %}
 
-URI: {{ schema.id }}
+## Metadata
 
-Name: {{ schema.name }}
+| Felt | Verdi |
+| --- | --- |
+{% if schema.id -%}
+| Schema URI | [{{ schema.id }}]({{ schema.id }}) |
+{% endif -%}
+{% if schema.version -%}
+| Versjon | {{ schema.version }} |
+{% endif -%}
+{% if schema.license -%}
+| Lisens | [{{ schema.license }}]({{ schema.license }}) |
+{% endif -%}
+{% if schema.annotations and schema.annotations.utgiver -%}
+| Utgjevar | [{{ schema.annotations.utgiver.value }}]({{ schema.annotations.utgiver.value }}) |
+{% endif -%}
+{% if schema.annotations and schema.annotations.status -%}
+{%- set status_map = {
+  'http://purl.org/adms/status/UnderDevelopment': 'Under utarbeidelse',
+  'http://purl.org/adms/status/Completed': 'Ferdigstilt',
+  'http://purl.org/adms/status/Deprecated': 'Foreldet',
+  'http://purl.org/adms/status/Withdrawn': 'Trukket tilbake'
+} -%}
+{%- set status_uri = schema.annotations.status.value -%}
+{%- set status_text = status_map.get(status_uri, status_uri) -%}
+| Status | {{ status_text }} |
+{% endif -%}
+{% if schema.annotations and schema.annotations.endringsdato -%}
+| Endringsdato | {{ schema.annotations.endringsdato.value }} |
+{% endif -%}
+{% if schema.annotations and schema.annotations.utgivelsesdato -%}
+| Utgivelsesdato | {{ schema.annotations.utgivelsesdato.value }} |
+{% endif -%}
+{% if schema.imports -%}
+| Imports | {{ schema.imports|join(', ') }} |
+{% endif -%}
 
 {% if include_top_level_diagram %}
 
