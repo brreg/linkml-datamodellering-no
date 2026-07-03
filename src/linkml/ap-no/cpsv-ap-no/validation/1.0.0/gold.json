@@ -1,0 +1,164 @@
+{
+  "schema": "cpsv-ap-no",
+  "domain": "ap-no",
+  "version": "1.0.0",
+  "validated_at": "2026-07-03",
+  "validation_policy": "gold",
+  "result": {
+    "valid": false,
+    "error_count": 3,
+    "warning_count": 22,
+    "issues": [
+      {
+        "severity": "error",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:id",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:OffentligTjeneste",
+        "message": "Klasse 'OffentligTjeneste' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tjeneste",
+        "message": "Klasse 'Tjeneste' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Hendelse",
+        "message": "Klasse 'Hendelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Livshendelse",
+        "message": "Klasse 'Livshendelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Virksomhetshendelse",
+        "message": "Klasse 'Virksomhetshendelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aktor",
+        "message": "Klasse 'Aktor' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:OffentligOrganisasjon",
+        "message": "Klasse 'OffentligOrganisasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kontaktpunkt",
+        "message": "Klasse 'Kontaktpunkt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tjenestekanal",
+        "message": "Klasse 'Tjenestekanal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Dokumentasjonstype",
+        "message": "Klasse 'Dokumentasjonstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tjenesteresultattype",
+        "message": "Klasse 'Tjenesteresultattype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tjenesteresultattypeliste",
+        "message": "Klasse 'Tjenesteresultattypeliste' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Gebyr",
+        "message": "Klasse 'Gebyr' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Regel",
+        "message": "Klasse 'Regel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:RegulativRessurs",
+        "message": "Klasse 'RegulativRessurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Deltagelse",
+        "message": "Klasse 'Deltagelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Adresse",
+        "message": "Klasse 'Adresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Katalog",
+        "message": "Klasse 'Katalog' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Mediatype",
+        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Konsept",
+        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Begrepssamling",
+        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "target": "schema",
+        "message": "schema.annotations.oppdateringsfrekvens manglar"
+      },
+      {
+        "severity": "error",
+        "code": "class_missing_required_slot",
+        "target": "class:Katalog",
+        "message": "Klasse 'Katalog' manglar slot med dcat:contactPoint"
+      },
+      {
+        "severity": "error",
+        "code": "no_container_class",
+        "target": "schema",
+        "message": "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav"
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "xkos-ap-no",
+  "domain": "ap-no",
+  "version": "1.0.0",
+  "validated_at": "2026-07-03",
+  "validation_policy": "gold",
+  "result": {
+    "valid": false,
+    "error_count": 3,
+    "warning_count": 11,
+    "issues": [
+      {
+        "severity": "error",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:id",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Klassifikasjon",
+        "message": "Klasse 'Klassifikasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Klassifikasjonsnivaa",
+        "message": "Klasse 'Klassifikasjonsnivaa' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kategori",
+        "message": "Klasse 'Kategori' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Klassifikasjonssamanlikning",
+        "message": "Klasse 'Klassifikasjonssamanlikning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kategorisamanlikning",
+        "message": "Klasse 'Kategorisamanlikning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Organisasjon",
+        "message": "Klasse 'Organisasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tidsrom",
+        "message": "Klasse 'Tidsrom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Mediatype",
+        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Konsept",
+        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Begrepssamling",
+        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "target": "schema",
+        "message": "schema.annotations.oppdateringsfrekvens manglar"
+      },
+      {
+        "severity": "error",
+        "code": "no_container_class",
+        "target": "schema",
+        "message": "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav"
+      },
+      {
+        "severity": "error",
+        "code": "fair_r11",
+        "target": "schema",
+        "message": "FAIR R1.1: Ingen slot med dct:license funnen"
+      }
+    ]
+  }
+}

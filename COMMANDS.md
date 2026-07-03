@@ -43,11 +43,9 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make test` | Linter alle skjema og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Policy-validering på bronze-nivå: obligatoriske metadata, identifikatorar og begrepsreferansar. | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=silver` | Policy-validering på silver-nivå: bronze + krav om import av DCAT-AP-NO og DQV-AP-NO. | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Policy-validering på gold-nivå: silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.). | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=felles-datakatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Datakatalog (modellkatalog). | Pass/fail per policy-regel til stdout |
-| `make mcp-validate SCHEMA=<sti> POLICY=felles-begrepskatalog` | Publiseringskonformitet: skjemaet er i samsvar med krav for Felles Begrepskatalog. | Pass/fail per policy-regel til stdout |
+| `make mcp-validate SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå manifest.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
+| `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
+| `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
 | `make check-published-uris` | Verifiserer at alle URI-ar i `published-uris.lock`-filer finst i tilhøyrande datafil. Køyr etter endringar i datafiler med `publish_external: true`. | OK/FEIL til stdout; avsluttar med kode 1 ved manglande URI |
 
 ### Validerings-Policyar

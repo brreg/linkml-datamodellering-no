@@ -1,0 +1,122 @@
+{
+  "schema": "dqv-ap-no",
+  "domain": "ap-no",
+  "version": "1.0.0",
+  "validated_at": "2026-07-03",
+  "validation_policy": "gold",
+  "result": {
+    "valid": false,
+    "error_count": 4,
+    "warning_count": 14,
+    "issues": [
+      {
+        "severity": "error",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:id",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetsdimensjon",
+        "message": "Klasse 'Kvalitetsdimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetsdeldimensjon",
+        "message": "Klasse 'Kvalitetsdeldimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetsmaal",
+        "message": "Klasse 'Kvalitetsmaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetsmerknad",
+        "message": "Klasse 'Kvalitetsmerknad' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Brukartilbakemelding",
+        "message": "Klasse 'Brukartilbakemelding' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetssertifikat",
+        "message": "Klasse 'Kvalitetssertifikat' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kvalitetsmaaling",
+        "message": "Klasse 'Kvalitetsmaaling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tekstdel",
+        "message": "Klasse 'Tekstdel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Mediatype",
+        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Konsept",
+        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Begrepssamling",
+        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_utgiver",
+        "target": "schema",
+        "message": "schema.annotations.utgiver manglar"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_endringsdato",
+        "target": "schema",
+        "message": "schema.annotations.endringsdato manglar"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "target": "schema",
+        "message": "schema.annotations.oppdateringsfrekvens manglar"
+      },
+      {
+        "severity": "error",
+        "code": "no_container_class",
+        "target": "schema",
+        "message": "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav"
+      },
+      {
+        "severity": "error",
+        "code": "fair_r11",
+        "target": "schema",
+        "message": "FAIR R1.1: Ingen slot med dct:license funnen"
+      },
+      {
+        "severity": "error",
+        "code": "fair_r12",
+        "target": "schema",
+        "message": "FAIR R1.2: Ingen slot med dct:contributor / dct:creator / dct:publisher / prov:wasAttributedTo / prov:wasGeneratedBy funnen"
+      }
+    ]
+  }
+}
