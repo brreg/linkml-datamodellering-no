@@ -211,7 +211,9 @@
       "Bash(make -n validate-bronze DOMAIN=samt)",
       "Bash(make validate-bronze *)",
       "Bash(make -n ap-no)",
-      "Bash(make gen-docs *)"
+      "Bash(make gen-docs *)",
+      "Bash(make gen-linkml *)",
+      "Bash(make -n domain-samt)"
     ]
   },
   "enableAllProjectMcpServers": true,
