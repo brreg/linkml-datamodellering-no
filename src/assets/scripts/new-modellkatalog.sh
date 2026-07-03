@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Opprettar katalogstruktur for ein ny organisasjon.
+# Opprettar katalogstruktur for ein ny organisasjon sin modellkatalog.
 # Krev at organisasjonen er registrert i CODEOWNERS.md-frontmatter.
-# Bruk: bash src/assets/scripts/new-org-catalog.sh <alias>
+# Bruk: bash src/assets/scripts/new-modellkatalog.sh <alias>
 set -euo pipefail
 
 ALIAS="${1:-}"
 
 if [[ -z "$ALIAS" ]]; then
-    echo "Feil: ORG-alias er påkravd." >&2
-    echo "Bruk: make new-org-catalog ORG=<alias>" >&2
+    echo "Feil: NAME-alias er påkravd." >&2
+    echo "Bruk: make new-modellkatalog NAME=<alias>" >&2
     exit 1
 fi
 

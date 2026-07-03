@@ -244,7 +244,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         mcp-linkml-begrep-utkast-run mcp-linkml-begrep-utkast-smoke mcp-linkml-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build docs-publish \
         check-published-uris check-prereqs \
-        update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
+        update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-modellkatalog new-begrepskatalog \
         validate-capture \
         build-docker-gource gource-preview gource-video _gource-render
 
@@ -904,10 +904,10 @@ new-model:
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
 
-# Bruk: make new-org-catalog ORG=<alias>
-new-org-catalog:
-	@test -n "$(ORG)" || (echo "Bruk: make new-org-catalog ORG=<alias>"; exit 1)
-	bash src/assets/scripts/new-org-catalog.sh "$(ORG)"
+# Bruk: make new-modellkatalog NAME=<alias>
+new-modellkatalog:
+	@test -n "$(NAME)" || (echo "Bruk: make new-modellkatalog NAME=<alias>"; exit 1)
+	bash src/assets/scripts/new-modellkatalog.sh "$(NAME)"
 
 # Bruk: make new-begrepskatalog NAME=<katalognavn>
 new-begrepskatalog:

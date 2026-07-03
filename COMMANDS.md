@@ -28,7 +28,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make new-model NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
-| `make new-org-catalog ORG=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
+| `make new-modellkatalog NAME=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
 | `make new-begrepskatalog NAME=<katalognavn>` | Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalognavn>/` |
 
 ## Validering
