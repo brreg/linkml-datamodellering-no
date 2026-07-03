@@ -225,13 +225,14 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 
 .PHONY: all test roundtrip validate lint validate-instance clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
-        linkml-build-docker python-build-docker avrotize-build-docker asyncapi-build-docker \
-        mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
-        mcp-mod-build mcp-mod-run mcp-mod-smoke mcp-mod-test mcp-linkml-modell-utkast mcp-generate new-model \
-        mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles mcp-linkml-begrep-utkast \
+        build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs \
+        build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
+        mcp-validator-run mcp-validator-smoke mcp-validator-test mcp-validate \
+        mcp-modell-utkast-run mcp-modell-utkast-smoke mcp-modell-utkast-test mcp-linkml-modell-utkast mcp-generate new-model \
+        mcp-begrep-utkast-run mcp-begrep-utkast-smoke mcp-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
         mcp-build mcp-run mcp-smoke mcp-test-policies \
         linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
-		docs-build-docker docs-serve docs-build docs-build-fast publish \
+		docs-serve docs-build docs-build-fast publish \
         $(DOMAINS) \
         domain-gen-linkml domain-gen-context domain-gen-shapes domain-gen-python \
         domain-gen-json-schema domain-gen-owl domain-gen-rdf \
@@ -248,7 +249,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         check-published-uris check-prereqs \
         update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-org-catalog new-begrepskatalog \
         validate-capture \
-        gource-build gource-preview gource-video _gource-render
+        build-docker-gource gource-preview gource-video _gource-render
 
 all: test
 
@@ -354,27 +355,27 @@ gen-openapi:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_openapi,$(SCHEMAS))
 
-linkml-build-docker:
+build-docker-linkml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make linkml-build-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-linkml$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE)
 
-python-build-docker:
+build-docker-python:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make python-build-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-python$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
 
-avrotize-build-docker:
+build-docker-avrotize:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make avrotize-build-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-avrotize$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
 
-asyncapi-build-docker:
+build-docker-asyncapi:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make asyncapi-build-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-asyncapi$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
 
@@ -830,9 +831,9 @@ domain-validate-examples:
 # ---------------------------------------------------------------------------
 # Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
 # Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
-docs-build-docker:
+build-docker-mkdocs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make docs-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-mkdocs$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(DOCS_DOCKERFILE) -t $(DOCS_IMAGE)
 
@@ -866,27 +867,27 @@ MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
 
-mcp-val-build:
+build-docker-mcp-validator:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-val-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-mcp-validator$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(MCP_IMAGE) $(MCP_DIR)
 
-mcp-val-run:
+mcp-validator-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-val-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-validator-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(MCP_RUN) $(MCP_IMAGE)
 
-mcp-val-smoke: mcp-val-build
+mcp-validator-smoke: build-docker-mcp-validator
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-val-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-validator-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-mcp-val-test: mcp-val-build
+mcp-validator-test: build-docker-mcp-validator
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-val-test$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-validator-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR):/work:ro" \
@@ -894,35 +895,35 @@ mcp-val-test: mcp-val-build
 		$(MCP_IMAGE) \
 		python3 /work/tests/test_mcp_policies.py -v
 
-mcp-build: mcp-val-build
-mcp-run: mcp-val-run
-mcp-smoke: mcp-val-smoke
-mcp-test-policies: mcp-val-test
+mcp-build: build-docker-mcp-validator
+mcp-run: mcp-validator-run
+mcp-smoke: mcp-validator-smoke
+mcp-test-policies: mcp-validator-test
 
 # ---------------------------------------------------------------------------
 # mcp-linkml-modell-utkast
 # ---------------------------------------------------------------------------
-mcp-mod-build:
+build-docker-mcp-modell-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-mod-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-mcp-modell-utkast$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
 
-mcp-mod-run:
+mcp-modell-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-mod-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-modell-utkast-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-mod-smoke: mcp-mod-build
+mcp-modell-utkast-smoke: build-docker-mcp-modell-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-mod-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-modell-utkast-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-mod-test: mcp-mod-build
+mcp-modell-utkast-test: build-docker-mcp-modell-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-mod-test$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-modell-utkast-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
@@ -932,10 +933,10 @@ mcp-mod-test: mcp-mod-build
 		$(LINKML_MOD_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-linkml-gen-build: mcp-mod-build
-linkml-gen-run: mcp-mod-run
-linkml-gen-smoke: mcp-mod-smoke
-linkml-gen-test-converter: mcp-mod-test
+linkml-gen-build: build-docker-mcp-modell-utkast
+linkml-gen-run: mcp-modell-utkast-run
+linkml-gen-smoke: mcp-modell-utkast-smoke
+linkml-gen-test-converter: mcp-modell-utkast-test
 
 # Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
 mcp-linkml-modell-utkast:
@@ -974,21 +975,21 @@ linkml-gen-generate: mcp-linkml-modell-utkast
 # ---------------------------------------------------------------------------
 # mcp-linkml-begrep-utkast
 # ---------------------------------------------------------------------------
-mcp-begrep-build:
+build-docker-mcp-begrep-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-begrep-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-mcp-begrep-utkast$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
 
-mcp-begrep-run:
+mcp-begrep-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-begrep-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-begrep-utkast-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
-mcp-begrep-smoke: mcp-begrep-build
+mcp-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-begrep-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-begrep-utkast-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
@@ -1005,9 +1006,9 @@ mcp-linkml-begrep-utkast:
 	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 # List profiler:
-#   make mcp-begrep-list-profiles
-mcp-begrep-list-profiles:
-	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-begrep-build
+#   make mcp-begrep-utkast-list-profiles
+mcp-begrep-utkast-list-profiles:
+	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-begrep-utkast
 	@echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_profiles","arguments":{}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
@@ -1015,7 +1016,7 @@ mcp-begrep-list-profiles:
 new-model:
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
 	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
-	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-mod-build
+	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
 
 # Bruk: make new-org-catalog ORG=<alias>
@@ -1047,7 +1048,7 @@ mcp-validate:
 	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
 	echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
 	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
-	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build; \
+	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator; \
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)
 
 # Bruk: make validate-capture [SCHEMA=<sti>]
@@ -1056,7 +1057,7 @@ validate-capture:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make validate-capture$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
+	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
 	    python3 src/assets/scripts/run-schema-validation.py --schema $(SCHEMA); \
 	else \
@@ -1116,13 +1117,13 @@ podman run --rm \
     rm /out/gource.ppm"
 endef
 
-gource-build:
+build-docker-gource:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gource-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-docker-gource$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(GOURCE_DOCKERFILE) -t $(GOURCE_IMAGE)
 
-gource-preview: gource-build
+gource-preview: build-docker-gource
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gource-preview$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1134,7 +1135,7 @@ gource-preview: gource-build
 	  GOURCE_FFMPEG_PRESET="-preset ultrafast -crf 28"
 	@echo "Preview: tmp/gource-preview.mp4"
 
-gource-video: gource-build
+gource-video: build-docker-gource
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gource-video$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1148,3 +1149,81 @@ gource-video: gource-build
 
 _gource-render:
 	$(GOURCE_RUN)
+
+# ===========================================================================
+# Deprecated aliases (for bakoverkompatibilitet)
+# ===========================================================================
+
+# Container-bygging: *-build-docker → build-docker-*
+linkml-build-docker:
+	@echo "ÅTVARING: 'linkml-build-docker' er forelda, bruk 'build-docker-linkml'" >&2
+	@$(MAKE) --no-print-directory build-docker-linkml
+
+python-build-docker:
+	@echo "ÅTVARING: 'python-build-docker' er forelda, bruk 'build-docker-python'" >&2
+	@$(MAKE) --no-print-directory build-docker-python
+
+avrotize-build-docker:
+	@echo "ÅTVARING: 'avrotize-build-docker' er forelda, bruk 'build-docker-avrotize'" >&2
+	@$(MAKE) --no-print-directory build-docker-avrotize
+
+asyncapi-build-docker:
+	@echo "ÅTVARING: 'asyncapi-build-docker' er forelda, bruk 'build-docker-asyncapi'" >&2
+	@$(MAKE) --no-print-directory build-docker-asyncapi
+
+docs-build-docker:
+	@echo "ÅTVARING: 'docs-build-docker' er forelda, bruk 'build-docker-mkdocs'" >&2
+	@$(MAKE) --no-print-directory build-docker-mkdocs
+
+gource-build:
+	@echo "ÅTVARING: 'gource-build' er forelda, bruk 'build-docker-gource'" >&2
+	@$(MAKE) --no-print-directory build-docker-gource
+
+# MCP-servere: mcp-<kortnamn>-* → mcp-<fullnamn>-*
+mcp-val-build:
+	@echo "ÅTVARING: 'mcp-val-build' er forelda, bruk 'build-docker-mcp-validator'" >&2
+	@$(MAKE) --no-print-directory build-docker-mcp-validator
+
+mcp-val-run:
+	@echo "ÅTVARING: 'mcp-val-run' er forelda, bruk 'mcp-validator-run'" >&2
+	@$(MAKE) --no-print-directory mcp-validator-run
+
+mcp-val-smoke:
+	@echo "ÅTVARING: 'mcp-val-smoke' er forelda, bruk 'mcp-validator-smoke'" >&2
+	@$(MAKE) --no-print-directory mcp-validator-smoke
+
+mcp-val-test:
+	@echo "ÅTVARING: 'mcp-val-test' er forelda, bruk 'mcp-validator-test'" >&2
+	@$(MAKE) --no-print-directory mcp-validator-test
+
+mcp-mod-build:
+	@echo "ÅTVARING: 'mcp-mod-build' er forelda, bruk 'build-docker-mcp-modell-utkast'" >&2
+	@$(MAKE) --no-print-directory build-docker-mcp-modell-utkast
+
+mcp-mod-run:
+	@echo "ÅTVARING: 'mcp-mod-run' er forelda, bruk 'mcp-modell-utkast-run'" >&2
+	@$(MAKE) --no-print-directory mcp-modell-utkast-run
+
+mcp-mod-smoke:
+	@echo "ÅTVARING: 'mcp-mod-smoke' er forelda, bruk 'mcp-modell-utkast-smoke'" >&2
+	@$(MAKE) --no-print-directory mcp-modell-utkast-smoke
+
+mcp-mod-test:
+	@echo "ÅTVARING: 'mcp-mod-test' er forelda, bruk 'mcp-modell-utkast-test'" >&2
+	@$(MAKE) --no-print-directory mcp-modell-utkast-test
+
+mcp-begrep-build:
+	@echo "ÅTVARING: 'mcp-begrep-build' er forelda, bruk 'build-docker-mcp-begrep-utkast'" >&2
+	@$(MAKE) --no-print-directory build-docker-mcp-begrep-utkast
+
+mcp-begrep-run:
+	@echo "ÅTVARING: 'mcp-begrep-run' er forelda, bruk 'mcp-begrep-utkast-run'" >&2
+	@$(MAKE) --no-print-directory mcp-begrep-utkast-run
+
+mcp-begrep-smoke:
+	@echo "ÅTVARING: 'mcp-begrep-smoke' er forelda, bruk 'mcp-begrep-utkast-smoke'" >&2
+	@$(MAKE) --no-print-directory mcp-begrep-utkast-smoke
+
+mcp-begrep-list-profiles:
+	@echo "ÅTVARING: 'mcp-begrep-list-profiles' er forelda, bruk 'mcp-begrep-utkast-list-profiles'" >&2
+	@$(MAKE) --no-print-directory mcp-begrep-utkast-list-profiles
