@@ -1051,7 +1051,7 @@ mcp-validate:
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)
 
 # Bruk: make validate-capture [SCHEMA=<sti>]
-# Utan SCHEMA: køyr for alle pakkar som er endra sidan HEAD~1 (release-modus).
+# Utan SCHEMA: køyr for alle skjema.
 validate-capture:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make validate-capture$(CLR_RST)"
@@ -1060,7 +1060,9 @@ validate-capture:
 	@if [ -n "$(SCHEMA)" ]; then \
 	    python3 src/assets/scripts/run-schema-validation.py --schema $(SCHEMA); \
 	else \
-	    python3 src/assets/scripts/run-schema-validation.py --config release-please-config.json; \
+	    for schema in $(SCHEMAS); do \
+	        python3 src/assets/scripts/run-schema-validation.py --schema $$schema; \
+	    done \
 	fi
 
 # Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
