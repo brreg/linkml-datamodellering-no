@@ -841,11 +841,6 @@ mcp-modell-utkast-test: build-docker-mcp-modell-utkast
 		$(LINKML_MOD_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-linkml-gen-build: build-docker-mcp-modell-utkast
-linkml-gen-run: mcp-modell-utkast-run
-linkml-gen-smoke: mcp-modell-utkast-smoke
-linkml-gen-test-converter: mcp-modell-utkast-test
-
 # Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
 mcp-linkml-modell-utkast:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
@@ -874,8 +869,6 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
 		$(MAKE) roundtrip-json-schema JSONSCHEMA="$(SCHEMA)" || \
 		(echo "$(CLR_ERR)Roundtrip-test feila — sjå logg for detaljar$(CLR_RST)" && exit 1); \
 	fi
-
-linkml-gen-generate: mcp-linkml-modell-utkast
 
 # ---------------------------------------------------------------------------
 # mcp-linkml-begrep-utkast
