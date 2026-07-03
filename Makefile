@@ -54,6 +54,13 @@ DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
 # ---------------------------------------------------------------------------
 # Generator macros
 # ---------------------------------------------------------------------------
+
+# Helper: bestem kva skjema som skal prosesserast basert på DOMAIN eller SCHEMA
+# Returnerer liste av skjema-stiar
+define get_target_schemas
+$(if $(SCHEMA),$(SCHEMA),$(if $(DOMAIN),$(filter src/linkml/$(DOMAIN)/%,$(SCHEMAS)),$(SCHEMAS)))
+endef
+
 # $1=schemas  $2=generator  $3=output-file suffix (stdout is redirected)
 # @ suppresses make's own echo of the foreach line; each iteration instead
 # prints the coloured summary line, then the full podman command, then runs it.
@@ -303,57 +310,111 @@ validate-instance:
 
 gen-jsonld:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-jsonld SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-jsonld DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-jsonld$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(SCHEMAS),gen-jsonld-context,context.jsonld)
+	$(call run_gen,$(call get_target_schemas),gen-jsonld-context,context.jsonld)
 
 gen-shacl:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-shacl SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-shacl DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-shacl$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_shacl,$(SCHEMAS))
+	$(call run_gen_shacl,$(call get_target_schemas))
 
 gen-python:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-python SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-python DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-python$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(SCHEMAS),gen-python,model.py)
+	$(call run_gen,$(call get_target_schemas),gen-python,model.py)
 
 gen-jsonschema:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-jsonschema SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-jsonschema DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-jsonschema$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(SCHEMAS),gen-json-schema,schema.json)
+	$(call run_gen,$(call get_target_schemas),gen-json-schema,schema.json)
 
 gen-owl:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-owl SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-owl DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-owl$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_owl,$(SCHEMAS))
+	$(call run_gen_owl,$(call get_target_schemas))
 
 gen-rdf:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-rdf SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-rdf DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-rdf$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_rdf,$(SCHEMAS))
+	$(call run_gen_rdf,$(call get_target_schemas))
 
 gen-xsd:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-xsd SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-xsd DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-xsd$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_xsd,$(SCHEMAS))
+	$(call run_gen_xsd,$(call get_target_schemas))
 
 gen-asyncapi:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-asyncapi SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-asyncapi DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-asyncapi$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_asyncapi,$(SCHEMAS))
+	$(call run_gen_asyncapi,$(call get_target_schemas))
 
 gen-openapi:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-openapi SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-openapi DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-openapi$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_openapi,$(SCHEMAS))
+	$(call run_gen_openapi,$(call get_target_schemas))
 
 build-docker-linkml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -383,28 +444,52 @@ build-docker-asyncapi:
 
 gen-erdiagram:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-erdiagram SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-erdiagram DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-erdiagram$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_erdiagram,$(SCHEMAS))
+	$(call run_gen_erdiagram,$(call get_target_schemas))
 
 gen-docs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-docs SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-docs DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-docs$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_doc,$(SCHEMAS))
-	$(call run_gen_erdiagram,$(SCHEMAS))
+	$(call run_gen_doc,$(call get_target_schemas))
+	$(call run_gen_erdiagram,$(call get_target_schemas))
 
 gen-proto:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-proto SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-proto DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-proto$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(SCHEMAS),gen-proto,schema.proto)
+	$(call run_gen,$(call get_target_schemas),gen-proto,schema.proto)
 
 gen-plantuml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-plantuml SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-plantuml DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
 	@echo "$(CLR_HDR)*** make gen-plantuml$(CLR_RST)"
+endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_plantuml,$(SCHEMAS))
+	$(call run_gen_plantuml,$(call get_target_schemas))
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
@@ -579,204 +664,6 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # Eksempel: make domain-gen-shapes DOMAIN=oreg
 # ---------------------------------------------------------------------------
 
-domain-gen-linkml:
-	@$(foreach s,$(_schemas_$(DOMAIN)),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
-
-domain-gen-context:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-jsonld-context,context.jsonld)
-
-domain-gen-shapes:
-	$(call run_gen_shacl,$(_schemas_$(DOMAIN)))
-
-domain-gen-python:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-python,model.py)
-
-domain-gen-json-schema:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-json-schema,schema.json)
-
-domain-gen-owl:
-	$(call run_gen_owl,$(_schemas_$(DOMAIN)))
-
-domain-gen-rdf:
-	$(call run_gen_rdf,$(_schemas_$(DOMAIN)))
-
-domain-gen-examples:
-	@for example in $$(find $(SCHEMA_DIR)/$(DOMAIN) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
-		[ -f "$$example" ] || continue; \
-		name=$$(basename "$$example" .yaml); \
-		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
-		if [ -f $(SCHEMA_DIR)/$(DOMAIN)/$$profil/manifest.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(DOMAIN)/$$profil/manifest.yaml; then \
-			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
-			continue; \
-		fi; \
-		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$profil; \
-		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
-			schema=tests/fixtures/$$profil-fixture.yaml; \
-		else \
-			schema=$(SCHEMA_DIR)/$(DOMAIN)/$$profil/$$profil-schema.yaml; \
-		fi; \
-		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$example > $(GEN_DIR)/$(DOMAIN)/$$profil/$$name.ttl"; \
-		$(LINKML_RUN) linkml-convert \
-			--schema $$schema \
-			--output-format ttl \
-			--no-validate \
-			$$example > $(GEN_DIR)/$(DOMAIN)/$$profil/$$name.ttl; \
-	done
-
-domain-gen-data:
-	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
-		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
-		catalog=$$(basename "$$datadir"); \
-		manifest="$$datadir/manifest.yaml"; \
-		[ -f "$$manifest" ] || continue; \
-		publish_external=$$(grep '^publish_external:' "$$manifest" | awk '{print $$2}'); \
-		[ "$$publish_external" = "true" ] || continue; \
-		datafile="$$datadir/$$catalog.yaml"; \
-		[ -f "$$datafile" ] || continue; \
-		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
-		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$catalog; \
-		echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$datafile > $(GEN_DIR)/$(DOMAIN)/$$catalog/$$catalog.ttl"; \
-		$(LINKML_RUN) linkml-convert \
-			--schema $$schema \
-			--output-format ttl \
-			--no-validate \
-			$$datafile > $(GEN_DIR)/$(DOMAIN)/$$catalog/$$catalog.ttl; \
-	done
-
-domain-validate-data:
-	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
-		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
-		catalog=$$(basename "$$datadir"); \
-		datafile="$$datadir/$$catalog.yaml"; \
-		[ -f "$$datafile" ] || continue; \
-		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
-		manifest="$$datadir/manifest.yaml"; \
-		if [ -f "$$manifest" ]; then \
-			policy=$$(grep '^data_policy:' "$$manifest" | awk '{print $$2}'); \
-		else \
-			policy=bronze; \
-		fi; \
-		[ -n "$$policy" ] || policy=bronze; \
-		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
-		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
-		echo "$$result"; \
-		python3 src/assets/scripts/save-validation-log.py \
-			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
-	done
-
-check-published-uris:
-	@failed=0; \
-	for lock in $$(find $(SCHEMA_DIR) -name 'published-uris.lock' 2>/dev/null); do \
-		model_dir=$$(dirname "$$lock"); \
-		model=$$(basename "$$model_dir"); \
-		domain=$$(basename "$$(dirname "$$model_dir")"); \
-		data_dir=$(SCHEMA_DIR)/$$domain/$$model/data/$$model; \
-		data=$$data_dir/$$model.yaml; \
-		[ -f "$$data" ] || { echo "Ingen datafil $$data for $$lock — hoppar over"; continue; }; \
-		while IFS= read -r uri; do \
-			[ -z "$$uri" ] && continue; \
-			printf '%s' "$$uri" | grep -q '^#' && continue; \
-			if ! grep -qF "$$uri" "$$data"; then \
-				echo "FEIL: Publisert URI manglar frå datafila: $$uri" >&2; \
-				failed=1; \
-			fi; \
-		done < "$$lock"; \
-	done; \
-	exit $$failed
-
-domain-gen-doc:
-	$(call run_gen_doc,$(_schemas_$(DOMAIN)))
-
-domain-gen-erdiagram:
-	$(call run_gen_erdiagram,$(_schemas_$(DOMAIN)))
-
-domain-gen-proto:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-proto,schema.proto)
-
-domain-gen-plantuml:
-	$(call run_gen_plantuml,$(_schemas_$(DOMAIN)))
-
-domain-gen-xsd:
-	$(call run_gen_xsd,$(_schemas_$(DOMAIN)))
-
-domain-gen-asyncapi:
-	$(call run_gen_asyncapi,$(_schemas_$(DOMAIN)))
-
-domain-gen-openapi:
-	$(call run_gen_openapi,$(_schemas_$(DOMAIN)))
-
-# ---------------------------------------------------------------------------
-# Per-skjema-mål for CI — krev SCHEMA=<sti-til-skjema>
-# Eksempel: make schema-gen-shapes SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml
-# ---------------------------------------------------------------------------
-
-schema-gen-linkml:
-	@echo "$(CLR_STEP)→ gen-linkml  $(SCHEMA)$(CLR_RST)"
-	$(LINKML_RUN) gen-linkml $(SCHEMA) > /dev/null
-
-schema-gen-context:
-	$(call run_gen,$(SCHEMA),gen-jsonld-context,context.jsonld)
-
-schema-gen-shapes:
-	$(call run_gen_shacl,$(SCHEMA))
-
-schema-gen-python:
-	$(call run_gen,$(SCHEMA),gen-python,model.py)
-
-schema-gen-json-schema:
-	$(call run_gen,$(SCHEMA),gen-json-schema,schema.json)
-
-schema-gen-owl:
-	$(call run_gen_owl,$(SCHEMA))
-
-schema-gen-rdf:
-	$(call run_gen_rdf,$(SCHEMA))
-
-schema-gen-erdiagram:
-	$(call run_gen_erdiagram,$(SCHEMA))
-
-schema-gen-doc:
-	$(call run_gen_doc,$(SCHEMA))
-
-schema-gen-proto:
-	$(call run_gen,$(SCHEMA),gen-proto,schema.proto)
-
-schema-gen-plantuml:
-	$(call run_gen_plantuml,$(SCHEMA))
-
-schema-gen-xsd:
-	$(call run_gen_xsd,$(SCHEMA))
-
-schema-gen-asyncapi:
-	$(call run_gen_asyncapi,$(SCHEMA))
-
-schema-gen-openapi:
-	$(call run_gen_openapi,$(SCHEMA))
-
-schema-gen-examples:
-	@domain=$(call schema_domain,$(SCHEMA)); \
-	name=$(call schema_name,$(SCHEMA)); \
-	example=$(SCHEMA_DIR)/$$domain/$$name/examples/$$name-eksempel.yaml; \
-	[ -f "$$example" ] || { echo "Ingen eksempelfil: $$example (hoppar over)"; exit 0; }; \
-	manifest=$(dir $(SCHEMA))manifest.yaml; \
-	if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
-		echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; exit 0; \
-	fi; \
-	mkdir -p $(GEN_DIR)/$$domain/$$name; \
-	if [ -f tests/fixtures/$$name-fixture.yaml ]; then \
-		schema_arg=tests/fixtures/$$name-fixture.yaml; \
-	else \
-		schema_arg=$(SCHEMA); \
-	fi; \
-	echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-	$(LINKML_RUN) linkml-convert \
-		--schema $$schema_arg \
-		--output-format ttl \
-		--no-validate \
-		--output $(GEN_DIR)/$$domain/$$name/$$name-eksempel.ttl \
-		$$example
 
 domain-validate-bronze:
 	@set +e; \
@@ -1227,3 +1114,182 @@ mcp-begrep-smoke:
 mcp-begrep-list-profiles:
 	@echo "ÅTVARING: 'mcp-begrep-list-profiles' er forelda, bruk 'mcp-begrep-utkast-list-profiles'" >&2
 	@$(MAKE) --no-print-directory mcp-begrep-utkast-list-profiles
+
+# ===========================================================================
+# Deprecated aliases (domain-gen-* og schema-gen-*)
+# ===========================================================================
+
+# domain-gen-* → gen-* DOMAIN=...
+domain-gen-context:
+	@echo "ÅTVARING: 'domain-gen-context' er forelda, bruk 'gen-jsonld DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-jsonld DOMAIN=$(DOMAIN)
+
+domain-gen-shapes:
+	@echo "ÅTVARING: 'domain-gen-shapes' er forelda, bruk 'gen-shacl DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-shacl DOMAIN=$(DOMAIN)
+
+domain-gen-python:
+	@echo "ÅTVARING: 'domain-gen-python' er forelda, bruk 'gen-python DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-python DOMAIN=$(DOMAIN)
+
+domain-gen-json-schema:
+	@echo "ÅTVARING: 'domain-gen-json-schema' er forelda, bruk 'gen-jsonschema DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-jsonschema DOMAIN=$(DOMAIN)
+
+domain-gen-owl:
+	@echo "ÅTVARING: 'domain-gen-owl' er forelda, bruk 'gen-owl DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-owl DOMAIN=$(DOMAIN)
+
+domain-gen-rdf:
+	@echo "ÅTVARING: 'domain-gen-rdf' er forelda, bruk 'gen-rdf DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-rdf DOMAIN=$(DOMAIN)
+
+domain-gen-erdiagram:
+	@echo "ÅTVARING: 'domain-gen-erdiagram' er forelda, bruk 'gen-erdiagram DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-erdiagram DOMAIN=$(DOMAIN)
+
+domain-gen-doc:
+	@echo "ÅTVARING: 'domain-gen-doc' er forelda, bruk 'gen-docs DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-docs DOMAIN=$(DOMAIN)
+
+domain-gen-proto:
+	@echo "ÅTVARING: 'domain-gen-proto' er forelda, bruk 'gen-proto DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-proto DOMAIN=$(DOMAIN)
+
+domain-gen-plantuml:
+	@echo "ÅTVARING: 'domain-gen-plantuml' er forelda, bruk 'gen-plantuml DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-plantuml DOMAIN=$(DOMAIN)
+
+domain-gen-xsd:
+	@echo "ÅTVARING: 'domain-gen-xsd' er forelda, bruk 'gen-xsd DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-xsd DOMAIN=$(DOMAIN)
+
+domain-gen-asyncapi:
+	@echo "ÅTVARING: 'domain-gen-asyncapi' er forelda, bruk 'gen-asyncapi DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-asyncapi DOMAIN=$(DOMAIN)
+
+domain-gen-openapi:
+	@echo "ÅTVARING: 'domain-gen-openapi' er forelda, bruk 'gen-openapi DOMAIN=<domain>'" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-openapi DOMAIN=$(DOMAIN)
+
+# schema-gen-* → gen-* SCHEMA=...
+schema-gen-context:
+	@echo "ÅTVARING: 'schema-gen-context' er forelda, bruk 'gen-jsonld SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-jsonld SCHEMA=$(SCHEMA)
+
+schema-gen-shapes:
+	@echo "ÅTVARING: 'schema-gen-shapes' er forelda, bruk 'gen-shacl SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-shacl SCHEMA=$(SCHEMA)
+
+schema-gen-python:
+	@echo "ÅTVARING: 'schema-gen-python' er forelda, bruk 'gen-python SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-python SCHEMA=$(SCHEMA)
+
+schema-gen-json-schema:
+	@echo "ÅTVARING: 'schema-gen-json-schema' er forelda, bruk 'gen-jsonschema SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-jsonschema SCHEMA=$(SCHEMA)
+
+schema-gen-owl:
+	@echo "ÅTVARING: 'schema-gen-owl' er forelda, bruk 'gen-owl SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-owl SCHEMA=$(SCHEMA)
+
+schema-gen-rdf:
+	@echo "ÅTVARING: 'schema-gen-rdf' er forelda, bruk 'gen-rdf SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-rdf SCHEMA=$(SCHEMA)
+
+schema-gen-erdiagram:
+	@echo "ÅTVARING: 'schema-gen-erdiagram' er forelda, bruk 'gen-erdiagram SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-erdiagram SCHEMA=$(SCHEMA)
+
+schema-gen-doc:
+	@echo "ÅTVARING: 'schema-gen-doc' er forelda, bruk 'gen-docs SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-docs SCHEMA=$(SCHEMA)
+
+schema-gen-proto:
+	@echo "ÅTVARING: 'schema-gen-proto' er forelda, bruk 'gen-proto SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-proto SCHEMA=$(SCHEMA)
+
+schema-gen-plantuml:
+	@echo "ÅTVARING: 'schema-gen-plantuml' er forelda, bruk 'gen-plantuml SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-plantuml SCHEMA=$(SCHEMA)
+
+schema-gen-xsd:
+	@echo "ÅTVARING: 'schema-gen-xsd' er forelda, bruk 'gen-xsd SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-xsd SCHEMA=$(SCHEMA)
+
+schema-gen-asyncapi:
+	@echo "ÅTVARING: 'schema-gen-asyncapi' er forelda, bruk 'gen-asyncapi SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-asyncapi SCHEMA=$(SCHEMA)
+
+schema-gen-openapi:
+	@echo "ÅTVARING: 'schema-gen-openapi' er forelda, bruk 'gen-openapi SCHEMA=<sti>'" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@$(MAKE) --no-print-directory gen-openapi SCHEMA=$(SCHEMA)
+
+# Spesielle deprecated aliases (ingen tilsvarande gen-* target)
+domain-gen-linkml:
+	@echo "ÅTVARING: 'domain-gen-linkml' er intern funksjonalitet, bruk 'make <domain>' i staden" >&2
+	@test -n "$(DOMAIN)" || (echo "FEIL: DOMAIN er påkravd"; exit 1)
+	@$(foreach s,$(filter src/linkml/$(DOMAIN)/%,$(SCHEMAS)),echo "→ gen-linkml $(s)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+
+domain-gen-examples:
+	@echo "ÅTVARING: 'domain-gen-examples' er forelda, bruk 'convert-rdf' i staden" >&2
+	@echo "convert-rdf støttar ikkje DOMAIN-filtrering enno"
+
+domain-gen-data:
+	@echo "ÅTVARING: 'domain-gen-data' er forelda, bruk 'convert-data' i staden" >&2
+	@echo "convert-data støttar ikkje DOMAIN-filtrering enno"
+
+schema-gen-linkml:
+	@echo "ÅTVARING: 'schema-gen-linkml' er intern funksjonalitet, bruk 'make <domain>' i staden" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@echo "→ gen-linkml $(SCHEMA)" && $(LINKML_RUN) gen-linkml $(SCHEMA) > /dev/null
+
+schema-gen-examples:
+	@echo "ÅTVARING: 'schema-gen-examples' er forelda, bruk 'convert-rdf' i staden" >&2
+	@test -n "$(SCHEMA)" || (echo "FEIL: SCHEMA er påkravd"; exit 1)
+	@domain=$(call schema_domain,$(SCHEMA)); \
+	name=$(call schema_name,$(SCHEMA)); \
+	example=$(SCHEMA_DIR)/$$domain/$$name/examples/$$name-eksempel.yaml; \
+	[ -f "$$example" ] || { echo "Ingen eksempelfil: $$example"; exit 1; }; \
+	manifest=$(dir $(SCHEMA))manifest.yaml; \
+	if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
+		echo "Hoppar over (example_rdf: false)"; exit 0; \
+	fi; \
+	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	if [ -f tests/fixtures/$$name-fixture.yaml ]; then \
+		schema_arg=tests/fixtures/$$name-fixture.yaml; \
+	else \
+		schema_arg=$(SCHEMA); \
+	fi; \
+	$(LINKML_RUN) linkml-convert \
+		--schema $$schema_arg \
+		--output-format ttl \
+		--no-validate \
+		--output $(GEN_DIR)/$$domain/$$name/$$name-eksempel.ttl \
+		$$example

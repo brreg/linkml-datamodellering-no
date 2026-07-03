@@ -23,7 +23,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make build-docker-avrotize` | Byggjer container-image for XSD-generering via Avrotize. Nødvendig for `make gen-xsd`. | Image `localhost/avrotize-local:latest` |
 | `make build-docker-asyncapi` | Byggjer container-image for AsyncAPI CLI-validering. Nødvendig for `make gen-asyncapi`. | Image `localhost/asyncapi-cli-local:latest` |
 
-## Ny modell
+## Ny modell/begrepskatalog/modellkatalog
 
 | Kommando | Beskriving | Output |
 |---|---|---|
@@ -83,85 +83,33 @@ er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 | `make oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
 | `make samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
 
-### Enkeltartefakter (alle skjema)
+### Enkeltartefakter
+
+Alle `gen-*` targets støttar tre bruksmåtar:
+- **`make gen-<format>`** — generer for **alle** skjema
+- **`make gen-<format> DOMAIN=<domain>`** — generer for alle skjema i **eitt domene**
+- **`make gen-<format> SCHEMA=<sti>`** — generer for **eitt** spesifikt skjema
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make gen-jsonld` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
-| `make gen-shacl` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
-| `make gen-python` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` |
-| `make gen-jsonschema` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` |
-| `make gen-owl` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
-| `make gen-rdf` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` |
-| `make gen-erdiagram` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
-| `make gen-docs` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` |
-| `make gen-proto` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
-| `make gen-plantuml` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
-| `make gen-xsd` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i manifest) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
-| `make gen-asyncapi` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
-| `make gen-openapi` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
+| `make gen-jsonld [DOMAIN=...] [SCHEMA=...]` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
+| `make gen-shacl [DOMAIN=...] [SCHEMA=...]` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
+| `make gen-python [DOMAIN=...] [SCHEMA=...]` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` |
+| `make gen-jsonschema [DOMAIN=...] [SCHEMA=...]` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` |
+| `make gen-owl [DOMAIN=...] [SCHEMA=...]` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
+| `make gen-rdf [DOMAIN=...] [SCHEMA=...]` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` |
+| `make gen-erdiagram [DOMAIN=...] [SCHEMA=...]` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
+| `make gen-docs [DOMAIN=...] [SCHEMA=...]` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` |
+| `make gen-proto [DOMAIN=...] [SCHEMA=...]` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
+| `make gen-plantuml [DOMAIN=...] [SCHEMA=...]` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
+| `make gen-xsd [DOMAIN=...] [SCHEMA=...]` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i manifest) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
+| `make gen-asyncapi [DOMAIN=...] [SCHEMA=...]` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
+| `make gen-openapi [DOMAIN=...] [SCHEMA=...]` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
 | `make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |
 | `make convert-data` | Konverter produksjonsdatafiler i `data/`-underkatalogar til RDF/Turtle (berre `publish_external: true`) | `generated/<domain>/<katalog>/<katalog>.ttl` |
 | `make clean` | Slett `generated/` | — |
 
 Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ingen Makefile-endringar nødvendig.
-
-### Avansert: Generering per domene
-
-Desse kommandoane genererer spesifikke artefaktar for **alle** skjema i eit domene. Bruk `DOMAIN=<domain>` (t.d. `DOMAIN=fint`).
-
-| Kommando | Beskriving | Output |
-|---|---|---|
-| `make domain-gen-linkml DOMAIN=<domain>` | Generer LinkML-artefaktar for alle skjema i domenet | `generated/<domain>/*/` |
-| `make domain-gen-context DOMAIN=<domain>` | Generer JSON-LD context for alle skjema i domenet | `generated/<domain>/*/<modell>-context.jsonld` |
-| `make domain-gen-shapes DOMAIN=<domain>` | Generer SHACL shapes for alle skjema i domenet | `generated/<domain>/*/<modell>-shapes.ttl` |
-| `make domain-gen-python DOMAIN=<domain>` | Generer Python-dataklassar for alle skjema i domenet | `generated/<domain>/*/<modell>-model.py` |
-| `make domain-gen-json-schema DOMAIN=<domain>` | Generer JSON Schema for alle skjema i domenet | `generated/<domain>/*/<modell>-schema.json` |
-| `make domain-gen-owl DOMAIN=<domain>` | Generer OWL-ontologiar for alle skjema i domenet | `generated/<domain>/*/<modell>-ontology.ttl` |
-| `make domain-gen-rdf DOMAIN=<domain>` | Generer RDF/Turtle for alle skjema i domenet | `generated/<domain>/*/<modell>-schema.ttl` |
-| `make domain-gen-erdiagram DOMAIN=<domain>` | Generer Mermaid ER-diagram for alle skjema i domenet | `generated/<domain>/*/<modell>-erdiagram.md` |
-| `make domain-gen-doc DOMAIN=<domain>` | Generer HTML-dokumentasjon for alle skjema i domenet | `generated/<domain>/*/docs/` |
-| `make domain-gen-proto DOMAIN=<domain>` | Generer Protocol Buffers for alle skjema i domenet | `generated/<domain>/*/<modell>-schema.proto` |
-| `make domain-gen-plantuml DOMAIN=<domain>` | Generer PlantUML-diagram for alle skjema i domenet | `generated/<domain>/*/diagrams/<modell>.svg` |
-| `make domain-gen-xsd DOMAIN=<domain>` | Generer XSD for alle skjema i domenet (krev `xsd: true` i manifest) | `generated/<domain>/*/<modell>-schema.xsd` |
-| `make domain-gen-asyncapi DOMAIN=<domain>` | Generer AsyncAPI for alle skjema i domenet (krev `asyncapi: true` i manifest) | `generated/<domain>/*/<modell>-asyncapi.yaml` |
-| `make domain-gen-openapi DOMAIN=<domain>` | Generer OpenAPI for alle skjema i domenet (krev `openapi: true` i manifest) | `generated/<domain>/*/<modell>-openapi.yaml` |
-| `make domain-gen-examples DOMAIN=<domain>` | Konverter alle eksempelfiler til RDF/Turtle for domenet | `generated/<domain>/*/<modell>-eksempel.ttl` |
-| `make domain-gen-data DOMAIN=<domain>` | Konverter alle produksjonsdatafiler til RDF/Turtle for domenet | `generated/<domain>/*/<katalog>.ttl` |
-| `make domain-validate-bronze DOMAIN=<domain>` | Valider alle skjema i domenet mot bronze-policy | Testrapport til stdout |
-| `make domain-validate-examples DOMAIN=<domain>` | Valider alle eksempelfiler i domenet | Testrapport til stdout |
-| `make domain-validate-data DOMAIN=<domain>` | Valider alle produksjonsdatafiler i domenet | Testrapport til stdout |
-
-### Avansert: Generering per skjema
-
-Desse kommandoane genererer spesifikke artefaktar for **eitt** skjema. Bruk `SCHEMA=<sti>` (t.d. `SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml`).
-
-| Kommando | Beskriving | Output |
-|---|---|---|
-| `make schema-gen-linkml SCHEMA=<sti>` | Generer LinkML-artefaktar for eitt skjema | `generated/<domain>/<modell>/` |
-| `make schema-gen-context SCHEMA=<sti>` | Generer JSON-LD context for eitt skjema | `generated/<domain>/<modell>/<modell>-context.jsonld` |
-| `make schema-gen-shapes SCHEMA=<sti>` | Generer SHACL shapes for eitt skjema | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
-| `make schema-gen-python SCHEMA=<sti>` | Generer Python-dataklassar for eitt skjema | `generated/<domain>/<modell>/<modell>-model.py` |
-| `make schema-gen-json-schema SCHEMA=<sti>` | Generer JSON Schema for eitt skjema | `generated/<domain>/<modell>/<modell>-schema.json` |
-| `make schema-gen-owl SCHEMA=<sti>` | Generer OWL-ontologi for eitt skjema | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
-| `make schema-gen-rdf SCHEMA=<sti>` | Generer RDF/Turtle for eitt skjema | `generated/<domain>/<modell>/<modell>-schema.ttl` |
-| `make schema-gen-erdiagram SCHEMA=<sti>` | Generer Mermaid ER-diagram for eitt skjema | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
-| `make schema-gen-doc SCHEMA=<sti>` | Generer HTML-dokumentasjon for eitt skjema | `generated/<domain>/<modell>/docs/` |
-| `make schema-gen-proto SCHEMA=<sti>` | Generer Protocol Buffers for eitt skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
-| `make schema-gen-plantuml SCHEMA=<sti>` | Generer PlantUML-diagram for eitt skjema | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
-| `make schema-gen-xsd SCHEMA=<sti>` | Generer XSD for eitt skjema (krev `xsd: true` i manifest) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
-| `make schema-gen-asyncapi SCHEMA=<sti>` | Generer AsyncAPI for eitt skjema (krev `asyncapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
-| `make schema-gen-openapi SCHEMA=<sti>` | Generer OpenAPI for eitt skjema (krev `openapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
-| `make schema-gen-examples SCHEMA=<sti>` | Konverter eksempelfil til RDF/Turtle for eitt skjema | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |
-
-### Utility-targets
-
-| Kommando | Beskriving | Output |
-|---|---|---|
-| `make all` | Default target — køyrer full testsuite (`make test`) | Testrapport til stdout |
-| `make domains` | List alle domene i repoet | Liste til stdout |
-| `make gen-config` | Generer konfigurasjonsfiler for LinkML | Konfigurasjonsfiler |
-| `make roundtrip-json-schema` | Køyrer JSON Schema roundtrip-testar for alle skjema | Testrapport til stdout |
 
 ### Vedlikehald
 
