@@ -46,6 +46,9 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make mcp-validate SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå manifest.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
 | `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
 | `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
+| `make validate-bronze DOMAIN=<domain>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). Brukt i CI per domene. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
+| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå manifest.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
+| `make validate-examples DOMAIN=<domain>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
 | `make check-published-uris` | Verifiserer at alle URI-ar i `published-uris.lock`-filer finst i tilhøyrande datafil. Køyr etter endringar i datafiler med `publish_external: true`. | OK/FEIL til stdout; avsluttar med kode 1 ved manglande URI |
 
 ### Validerings-Policyar
@@ -74,14 +77,14 @@ er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler | `generated/ap-no/` |
-| `make begrepskatalog` | Valider + generer alle artefakter for begrepskatalogmodellane | `generated/begrepskatalog/` |
-| `make fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
-| `make fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |
-| `make modellkatalog` | Valider + generer alle artefakter for modellkatalogmodellane | `generated/modellkatalog/` |
-| `make ngr` | Valider + generer alle artefakter for NGR-modellane | `generated/ngr/` |
-| `make oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
-| `make samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
+| `make domain-ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler | `generated/ap-no/` |
+| `make domain-begrepskatalog` | Valider + generer alle artefakter for begrepskatalogmodellane | `generated/begrepskatalog/` |
+| `make domain-fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
+| `make domain-fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |
+| `make domain-modellkatalog` | Valider + generer alle artefakter for modellkatalogmodellane | `generated/modellkatalog/` |
+| `make domain-ngr` | Valider + generer alle artefakter for NGR-modellane | `generated/ngr/` |
+| `make domain-oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
+| `make domain-samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
 
 ### Enkeltartefakter
 

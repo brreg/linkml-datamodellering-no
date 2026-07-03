@@ -209,7 +209,8 @@
       "Bash(make -pn)",
       "Bash(compgen -A function -abck make)",
       "Bash(make -n validate-bronze DOMAIN=samt)",
-      "Bash(make validate-bronze *)"
+      "Bash(make validate-bronze *)",
+      "Bash(make -n ap-no)"
     ]
   },
   "enableAllProjectMcpServers": true,
