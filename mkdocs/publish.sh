@@ -143,10 +143,18 @@ process_schema() {
         echo "# $schema"
         echo ""
 
+        # Metadata-tabell frå gen-doc (ekstrahert frå docs/index.md)
+        gendoc_index="$schema_dir/docs/index.md"
+        if [ -f "$gendoc_index" ]; then
+            # Ekstraher frå "## Metadata" til neste "## "-seksjon (ikkje inkludert)
+            awk '/^## Metadata$/{ p=1 } p{ if(/^## / && !/^## Metadata$/){ exit } print }' "$gendoc_index"
+        fi
+
         # Publiseringsinfo: boks dersom skjema har eit publisert URI-register
         lock_file="$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock"
         if [ -f "$lock_file" ]; then
             ttl_url="https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema.ttl"
+            echo ""
             echo "!!! info \"Publisert til Felles Begrepskatalog\""
             echo "    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)"
             echo "    via høstingsendepunkt. Turtle-fila er tilgjengeleg på:"
@@ -158,63 +166,23 @@ process_schema() {
             echo ""
         fi
 
-        # Embed oversiktsdiagram frå gen-erdiagram (berre filtrert versjon — importerte klasser visast ikkje)
-        erdiagram_file="$out/${schema}-erdiagram.md"
-        if [ -f "$erdiagram_file" ] && grep -q '{' "$erdiagram_file" 2>/dev/null; then
-            awk 'NR==1 && /^# / { next } 1' "$erdiagram_file"
-        fi
+        # Embed PlantUML-diagram (filtrert versjon — kun lokale klasser)
+        plantuml_svg="diagrams/${schema}-filtered.svg"
+        plantuml_full="diagrams/${schema}.svg"
 
-        # Injiser valfri skjema-skildring (src/linkml/<domain>/<schema>/description.md)
-        schema_desc="$REPO_ROOT/src/linkml/$domain/$schema/description.md"
-        if [ -f "$schema_desc" ]; then
+        # Prioriter filtrert versjon
+        if [ -f "$out/$plantuml_svg" ]; then
             echo ""
-            cat "$schema_desc"
-        fi
-
-        # Versjonslog (CHANGELOG.md i kollapsa details-blokk)
-        changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
-        if [ -f "$changelog_src" ]; then
+            echo "## ER-diagram"
             echo ""
-            echo "## Versjonslog"
+            echo "![ER-diagram]($plantuml_svg)"
             echo ""
-            echo "<details markdown='1'>"
-            echo "<summary>Vis full endringshistorikk</summary>"
+            echo "*Diagrammet viser kun lokale klasser. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
+        elif [ -f "$out/$plantuml_full" ]; then
             echo ""
-            # Fjern hovudoverskrift "# Changelog" frå CHANGELOG.md dersom den finst
-            tail -n +1 "$changelog_src" | awk 'NR==1 && /^# Changelog/ { next } 1'
+            echo "## ER-diagram"
             echo ""
-            echo "</details>"
-        fi
-
-        # Valideringsresultat frå siste versjon (co-location-struktur)
-        local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-        local policy="bronze"
-        if [ -f "$manifest" ]; then
-            # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
-            policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
-        fi
-
-        # Finn siste versjon programmatisk (semver-sortering)
-        local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-        local latest_version=""
-        if [ -d "$validation_dir" ]; then
-            # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
-            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
-        fi
-
-        # Finn validation-logg for siste versjon og denne policyen
-        local validation_json=""
-        if [ -n "$latest_version" ]; then
-            validation_json="$validation_dir/$latest_version/${policy}.json"
-        fi
-
-        if [ -f "$validation_json" ]; then
-            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
-        else
-            echo ""
-            echo "## Valideringsresultat"
-            echo ""
-            echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
+            echo "![ER-diagram]($plantuml_full)"
         fi
 
         # Inline klasseliste frå gen-doc direkte i index.md
@@ -224,11 +192,12 @@ process_schema() {
 
         if [ -n "$klasse_src" ]; then
             echo ""
-            awk 'NR==1 && /^# / { next } 1' "$klasse_src" \
+            # Ekstraher frå "## Classes" til slutten (hoppar over Metadata og Schema Diagram)
+            awk '/^## Classes$/,0' "$klasse_src" \
                 | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
         fi
 
-        # Artefaktabell
+        # Artefaktabell (før valideringsresultat)
         has_artifact=false
         artifact_rows=""
         for suffix in $ARTIFACT_ORDER; do
@@ -275,6 +244,47 @@ process_schema() {
             echo "| Artefakt | Fil |"
             echo "|----------|-----|"
             printf '%s' "$artifact_rows"
+        fi
+
+        # Valideringsresultat frå siste versjon (co-location-struktur)
+        local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+        local policy="bronze"
+        if [ -f "$manifest" ]; then
+            # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
+            policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
+        fi
+
+        # Finn siste versjon programmatisk (semver-sortering)
+        local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+        local latest_version=""
+        if [ -d "$validation_dir" ]; then
+            # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
+            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
+        fi
+
+        # Finn validation-logg for siste versjon og denne policyen
+        local validation_json=""
+        if [ -n "$latest_version" ]; then
+            validation_json="$validation_dir/$latest_version/${policy}.json"
+        fi
+
+        if [ -f "$validation_json" ]; then
+            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
+        else
+            echo ""
+            echo "## Valideringsresultat"
+            echo ""
+            echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
+        fi
+
+        # Versjonslog (CHANGELOG.md som rein Markdown)
+        changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
+        if [ -f "$changelog_src" ]; then
+            echo ""
+            echo "## Versjonslog"
+            echo ""
+            # Fjern hovudoverskrift "# Changelog" frå CHANGELOG.md dersom den finst
+            tail -n +1 "$changelog_src" | awk 'NR==1 && /^# Changelog/ { next } 1'
         fi
     } > "$out/index.md"
 
