@@ -296,9 +296,12 @@ process_schema() {
             val_status_encoded="${val_status// /_}"
             val_status_encoded="${val_status_encoded//✓/%E2%9C%93}"
 
+            # URL-encode policy-namn (erstatt bindestrek med understrek)
+            policy_encoded="${policy//-/_}"
+
             echo "[![Versjon](https://img.shields.io/badge/versjon-${version}-blue)]()"
             echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
-            echo "[![Validering](https://img.shields.io/badge/${policy}-${val_status_encoded}-${val_color})]()"
+            echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
             if [ -n "$license" ]; then
                 echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
             fi
