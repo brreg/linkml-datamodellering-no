@@ -175,14 +175,16 @@ process_schema() {
             echo ""
             echo "## ER-diagram"
             echo ""
-            echo "![ER-diagram]($plantuml_svg)"
+            echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg){:target=\"_blank\"}"
             echo ""
-            echo "*Diagrammet viser kun lokale klasser. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
+            echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
         elif [ -f "$out/$plantuml_full" ]; then
             echo ""
             echo "## ER-diagram"
             echo ""
-            echo "![ER-diagram]($plantuml_full)"
+            echo "[![ER-diagram]($plantuml_full)]($plantuml_full){:target=\"_blank\"}"
+            echo ""
+            echo "*Klikk for å zoome.*"
         fi
 
         # Inline klasseliste frå gen-doc direkte i index.md
