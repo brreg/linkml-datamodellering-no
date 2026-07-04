@@ -254,7 +254,10 @@
       "Bash(make gen-jsonld *)",
       "Bash(make ap-no *)",
       "Bash(make cpsv-ap-no *)",
-      "Bash(make SCHEMA=src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml)"
+      "Bash(make SCHEMA=src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml)",
+      "Bash(make all *)",
+      "Bash(make domain-oreg *)",
+      "WebFetch(domain:img.shields.io)"
     ]
   },
   "enableAllProjectMcpServers": true,
