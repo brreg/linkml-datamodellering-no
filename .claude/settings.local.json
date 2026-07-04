@@ -232,7 +232,9 @@
       "Bash(make domain-modellkatalog *)",
       "Bash(tee /tmp/domain-modellkatalog-test.log)",
       "Bash(make config.mk)",
-      "Bash(make gen-shacl *)"
+      "Bash(make gen-shacl *)",
+      "Bash(/tmp/check-version-sync.sh)",
+      "Bash(/tmp/sync-all-versions.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,

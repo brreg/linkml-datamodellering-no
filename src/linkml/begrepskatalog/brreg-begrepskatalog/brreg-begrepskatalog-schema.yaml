@@ -8,12 +8,12 @@ description: >-
   Begrepskatalog for Registerenheten i Brønnøysund.
   Begreper modellert lokalt med midlertidige URI-ar, klare for
   validering og eksport til Felles Begrepskatalog.
-version: "1.0.0"
+version: "1.2.0"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "TODO"
+  endringsdato: "2026-07-04"
   utgivelsesdato: "TODO"
   status: http://purl.org/adms/status/Completed
 
