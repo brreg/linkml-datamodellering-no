@@ -101,12 +101,24 @@
 {% endif %}
 
 ## Slots
-
+{%- set ns_used_slots = namespace(names=[]) -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- set origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and origin == schema.id %}
+    {%- for slot_name in c.slots or [] %}
+      {%- if slot_name not in ns_used_slots.names %}
+        {%- set ns_used_slots.names = ns_used_slots.names + [slot_name] %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
+{%- endfor -%}
 {%- set ns_slots_verdiar = namespace(items=[]) -%}
 {%- set ns_slots_referansar = namespace(items=[]) -%}
 {%- set ns_slots_kodar = namespace(items=[]) -%}
-{%- for s in gen.all_slot_objects() %}
-  {%- if s.name not in ns_root.attr_names %}
+{%- for slot_name in ns_used_slots.names %}
+  {%- set s = schemaview.get_slot(slot_name) %}
+  {%- if s %}
     {%- if s.range and schemaview.get_enum(s.range) %}
       {%- set ns_slots_kodar.items = ns_slots_kodar.items + [s] -%}
     {%- elif s.range and schemaview.get_class(s.range) %}
@@ -120,37 +132,41 @@
 {%- if ns_slots_verdiar.items %}
 ### Verdiar
 
-| Slot | Description |
-| --- | --- |
+| Slot | Description | Defined in |
+| --- | --- | --- |
 {%- for s in ns_slots_verdiar.items|sort(attribute=sort_by) %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+  {%- set origin = s.from_schema if s.from_schema else schema.id %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
 {%- endfor %}
 {% endif -%}
 
 {%- if ns_slots_referansar.items %}
 ### Referansar
 
-| Slot | Description |
-| --- | --- |
+| Slot | Description | Defined in |
+| --- | --- | --- |
 {%- for s in ns_slots_referansar.items|sort(attribute=sort_by) %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+  {%- set origin = s.from_schema if s.from_schema else schema.id %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
 {%- endfor %}
 {% endif -%}
 
 {%- if ns_slots_kodar.items %}
 ### Kodar
 
-| Slot | Description |
-| --- | --- |
+| Slot | Description | Defined in |
+| --- | --- | --- |
 {%- for s in ns_slots_kodar.items|sort(attribute=sort_by) %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+  {%- set origin = s.from_schema if s.from_schema else schema.id %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
 {%- endfor %}
 {% endif %}
 
 ## Enumerations
 {%- set ns_used_enums = namespace(names=[]) -%}
-{%- for s in gen.all_slot_objects() %}
-  {%- if s.range and schemaview.get_enum(s.range) %}
+{%- for slot_name in ns_used_slots.names %}
+  {%- set s = schemaview.get_slot(slot_name) %}
+  {%- if s and s.range and schemaview.get_enum(s.range) %}
     {%- if s.range not in ns_used_enums.names %}
       {%- set ns_used_enums.names = ns_used_enums.names + [s.range] %}
     {%- endif %}
@@ -158,7 +174,8 @@
 {%- endfor -%}
 {%- for class_name in schemaview.all_classes() %}
   {%- set c = schemaview.get_class(class_name) %}
-  {%- if c and not c.tree_root %}
+  {%- set class_origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and class_origin == schema.id %}
     {%- for slot_name in c.slots or [] %}
       {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
       {%- if induced and induced.range and schemaview.get_enum(induced.range) %}
@@ -185,8 +202,9 @@
 
 ## Types
 {%- set ns_used_types = namespace(names=[]) -%}
-{%- for s in gen.all_slot_objects() %}
-  {%- if s.range and schemaview.get_type(s.range) %}
+{%- for slot_name in ns_used_slots.names %}
+  {%- set s = schemaview.get_slot(slot_name) %}
+  {%- if s and s.range and schemaview.get_type(s.range) %}
     {%- if s.range not in ns_used_types.names %}
       {%- set ns_used_types.names = ns_used_types.names + [s.range] %}
     {%- endif %}
@@ -194,7 +212,8 @@
 {%- endfor -%}
 {%- for class_name in schemaview.all_classes() %}
   {%- set c = schemaview.get_class(class_name) %}
-  {%- if c and not c.tree_root %}
+  {%- set class_origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and class_origin == schema.id %}
     {%- for slot_name in c.slots or [] %}
       {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
       {%- if induced and induced.range and schemaview.get_type(induced.range) %}
