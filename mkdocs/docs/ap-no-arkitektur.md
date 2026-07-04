@@ -12,22 +12,20 @@ Detaljerte kartleggingsdokument per skjema ligg i `specs/done/` og `specs/backlo
 
 ```
 linkml:types
-      │
-      ▼
-common-ap-no
- ┌────┴────────────────────────────────────────────────────────┐
- ▼                 ▼              ▼             ▼              ▼
-dqv-core       skos-ap-no   xkos-ap-no   cpsv-ap-no   modelldcat-modell
- │                                                            │
- ▼                                                            ▼
-dcat-ap-no                                           modelldcat-katalog
- │                                                            │
- ▼                                                            ▼
-dqv-ap-no                                          modelldcat-ap-no (pass-through)
+    └── common-ap-no
+        ├── dqv-core
+        │   └── dcat-ap-no
+        │       └── dqv-ap-no
+        ├── skos-ap-no
+        ├── xkos-ap-no
+        ├── cpsv-ap-no
+        └── modelldcat-modell
+            └── modelldcat-katalog
+                └── modelldcat-ap-no  (pass-through)
 ```
 
-Reglane:
-- `common-ap-no` er det einaste AP-NO-skjemaet utan AP-NO-overordna
+**Reglane:**
+- `common-ap-no` er det einaste AP-NO-skjemaet som importerer direkte frå `linkml:types`
 - `domenemodell`-skjema importerer AP-NO-profilene, **ikkje** `common-ap-no` direkte
 - `fint-common` og `oreg`-skjema følgjer sine eigne importkjeder (sjå CLAUDE.md)
 
@@ -92,17 +90,6 @@ Delt lag for alle AP-NO-profilene. Definerer:
 **Spesifikasjon:** <https://informasjonsforvaltning.github.io/dcat-ap-no/>  
 **Kartlegging:** `specs/done/avvik-dcat-ap-no.md`
 
-**Utførte rettingar:**
-
-| Kode | Avvik | Status |
-|------|-------|--------|
-| DA1 | `time:`-namespace var feil (`6006` → `2006`) | ✓ Fiksa |
-| DA2 | `frekvens` (`dct:accrualPeriodicity`) mangla på `Datasett` | ✓ Fiksa |
-| DA3 | `Standard.versjonsnummer` → `versjon` (`dcat:version`) | ✓ Fiksa |
-| DA4 | Manglande valfrie slots: `dcat:spatialResolutionInMeters`, versjonslenkjer, `dct:isReferencedBy` | ✓ Fiksa |
-| DA5 | `har_gebyr` (`cv:hasCost`) mangla på `Datasett` | ✓ Fiksa |
-| DA8 | `Aktor.identifikator_literal` ikkje merka som `Anbefalt` | ✓ Fiksa |
-
 **Opne punkt:**
 
 | Kode | Avvik | Merknad |
@@ -150,10 +137,6 @@ den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 
 | Kode | Avvik | Status |
 |------|-------|--------|
-| DQ1 | Sirkulær import `dcat-ap-no` ↔ `dqv-ap-no` — løyst med `dqv-core` | ✓ Fiksa |
-| DQ2 | `har_tekstdel` (`oa:hasBody`) mangla `multivalued: true` | ✓ Fiksa |
-| DQ3 | `har_verdi.range: string` — erstatta med tre typeseparerte slots | ✓ Fiksa |
-| DQ4 | `Motivasjon`-klasse ikkje modellert — `DqvMotivasjon`-enum lagt til | ✓ Fiksa |
 | DQ5 | `har_maal.range: uri` → `uriorcurie` (sjå note under) | ✓ Delvis fiksa |
 
 **Note DQ5:** Full narrowing til `KatalogisertRessurs` er blokkert av LinkML-avgrensing 2.
@@ -220,15 +203,6 @@ Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
 
 `begrep`-sloten (`dct:subject`) er definert i `modell`-skjemaet fordi `Modellelement`
 brukar det. `Informasjonsmodell` (i `katalog`-skjemaet) arvar det via import.
-
-**Gjennomførte rettingar (MC10 — del av splitting):**
-
-| Avvik | Løysing |
-|-------|---------|
-| A1: `Aktoer.navn_aktoer` mangla `required: true` | Fiksa i ny `modelldcat-katalog-schema.yaml` |
-| A2: `Kontaktopplysning` mangla vCard-eigenskapar | Fiksa: `navn_vcard`, `har_epost`, `har_kontaktside` lagt til |
-| A4: `Modellkatalog.har_del` feilaktig `required: true` | Fiksa: no berre `in_subset: [Anbefalt]` |
-| A5: `Informasjonsmodell.type_concept` mangla vokabularannotasjon | Fiksa: `gyldige_verdier`-annotasjon lagt til |
 
 **Kjente avvik (ikkje fiksa):**
 
