@@ -242,7 +242,13 @@
       "Bash(make -qp)",
       "Bash(/tmp/verify-commands.sh)",
       "Bash(/tmp/check-artifacts.sh)",
-      "Bash(/tmp/verify-artifacts.sh)"
+      "Bash(/tmp/verify-artifacts.sh)",
+      "Bash(make build-docker-gource *)",
+      "Bash(make build-docker-avrotize *)",
+      "Bash(curl -sL https://hub.docker.com/v2/repositories/asyncapi/cli/tags/latest)",
+      "Bash(podman rmi *)",
+      "Bash(make build-docker-asyncapi *)",
+      "Bash(podman history *)"
     ]
   },
   "enableAllProjectMcpServers": true,
