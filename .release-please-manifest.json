@@ -1,5 +1,5 @@
 {
-  "src/linkml/ap-no/cpsv-ap-no": "1.2.0",
+  "src/linkml/ap-no/cpsv-ap-no": "1.2.1",
   "src/linkml/ap-no/dcat-ap-no": "2.3.0",
   "src/linkml/ap-no/dqv-ap-no": "1.4.0",
   "src/linkml/ap-no/modelldcat-ap-no": "1.3.0",
@@ -19,6 +19,6 @@
   "src/linkml/ngr/ngr-eiendom": "1.2.0",
   "src/linkml/ngr/ngr-person": "1.2.0",
   "src/linkml/ngr/ngr-virksomhet": "1.2.0",
-  "src/linkml/oreg/register-over-aksjeeiere": "1.3.0",
+  "src/linkml/oreg/register-over-aksjeeiere": "1.3.1",
   "src/linkml/samt/samt-bu": "1.2.0"
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.3.0...register-over-aksjeeiere-v1.3.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* **mkdocs:** URL-encode policy-namn i valideringsbadge ([c783b94](https://github.com/brreg/linkml-datamodellering-no/commit/c783b94e695a4cd97f3df1ea6da9ea1d567512b1))
+
 ## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.2.2...register-over-aksjeeiere-v1.3.0) (2026-07-04)
 
 

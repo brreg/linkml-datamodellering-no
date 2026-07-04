@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.0...cpsv-ap-no-v1.2.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* **cpsv-ap-no:** fjern duplikat lisens-slot som kolliderer med common-ap-no ([52889d1](https://github.com/brreg/linkml-datamodellering-no/commit/52889d12d5646d6dc56703b015c7958e0603b0b4))
+
 ## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.1.2...cpsv-ap-no-v1.2.0) (2026-07-04)
 
 
