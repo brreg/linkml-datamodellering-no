@@ -106,25 +106,34 @@
 {% endfor %}
 
 ## Enumerations
-
-{%- set ns_used_enums = namespace(names=[]) %}
+{%- set ns_used_enums = namespace(names=[]) -%}
 {%- for s in gen.all_slot_objects() %}
   {%- if s.range and schemaview.get_enum(s.range) %}
     {%- if s.range not in ns_used_enums.names %}
       {%- set ns_used_enums.names = ns_used_enums.names + [s.range] %}
     {%- endif %}
   {%- endif %}
-{%- endfor %}
-
-{% if ns_used_enums.names %}
+{%- endfor -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- if c and not c.tree_root %}
+    {%- for slot_name in c.slots or [] %}
+      {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
+      {%- if induced and induced.range and schemaview.get_enum(induced.range) %}
+        {%- if induced.range not in ns_used_enums.names %}
+          {%- set ns_used_enums.names = ns_used_enums.names + [induced.range] %}
+        {%- endif %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
+{%- endfor -%}
+{%- if ns_used_enums.names %}
 | Enumeration | Description | Defined in |
 | --- | --- | --- |
-{% for enum_name in ns_used_enums.names|sort -%}
+{%- for enum_name in ns_used_enums.names|sort %}
   {%- set e = schemaview.get_enum(enum_name) %}
   {%- if e %}
-    {%- set from_schema = schemaview.in_schema(enum_name) %}
-    {%- set is_local = (from_schema == schema.name or from_schema == schema.id) %}
-    {%- set origin = "Local" if is_local else "Imported" %}
+    {%- set origin = e.from_schema if e.from_schema else schema.id %}
 | {{ gen.link(e, True) }} | {{ e.description|enshorten }} | {{ origin }} |
   {%- endif %}
 {%- endfor %}
@@ -133,25 +142,35 @@
 {% endif %}
 
 ## Types
-
-{%- set ns_used_types = namespace(names=[]) %}
+{%- set ns_used_types = namespace(names=[]) -%}
 {%- for s in gen.all_slot_objects() %}
   {%- if s.range and schemaview.get_type(s.range) %}
     {%- if s.range not in ns_used_types.names %}
       {%- set ns_used_types.names = ns_used_types.names + [s.range] %}
     {%- endif %}
   {%- endif %}
-{%- endfor %}
+{%- endfor -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- if c and not c.tree_root %}
+    {%- for slot_name in c.slots or [] %}
+      {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
+      {%- if induced and induced.range and schemaview.get_type(induced.range) %}
+        {%- if induced.range not in ns_used_types.names %}
+          {%- set ns_used_types.names = ns_used_types.names + [induced.range] %}
+        {%- endif %}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
+{%- endfor -%}
+{%- if ns_used_types.names %}
 
-{% if ns_used_types.names %}
 | Type | Description | Defined in |
 | --- | --- | --- |
-{% for type_name in ns_used_types.names|sort -%}
+{%- for type_name in ns_used_types.names|sort %}
   {%- set t = schemaview.get_type(type_name) %}
   {%- if t %}
-    {%- set from_schema = schemaview.in_schema(type_name) %}
-    {%- set is_local = (from_schema == schema.name or from_schema == schema.id) %}
-    {%- set origin = "Local" if is_local else "Imported" %}
+    {%- set origin = t.from_schema if t.from_schema else schema.id %}
 | {{ gen.link(t, True) }} | {{ t.description|enshorten }} | {{ origin }} |
   {%- endif %}
 {%- endfor %}
