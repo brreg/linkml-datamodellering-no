@@ -99,11 +99,50 @@
 
 ## Slots
 
+{%- set ns_slots_verdiar = namespace(items=[]) -%}
+{%- set ns_slots_referansar = namespace(items=[]) -%}
+{%- set ns_slots_kodar = namespace(items=[]) -%}
+{%- for s in gen.all_slot_objects() %}
+  {%- if s.name not in ns_root.attr_names %}
+    {%- if s.range and schemaview.get_enum(s.range) %}
+      {%- set ns_slots_kodar.items = ns_slots_kodar.items + [s] -%}
+    {%- elif s.range and schemaview.get_class(s.range) %}
+      {%- set ns_slots_referansar.items = ns_slots_referansar.items + [s] -%}
+    {%- else %}
+      {%- set ns_slots_verdiar.items = ns_slots_verdiar.items + [s] -%}
+    {%- endif %}
+  {%- endif %}
+{%- endfor -%}
+
+{%- if ns_slots_verdiar.items %}
+### Verdiar
+
 | Slot | Description |
 | --- | --- |
-{% for s in gen.all_slot_objects()|sort(attribute=sort_by) if s.name not in ns_root.attr_names -%}
+{%- for s in ns_slots_verdiar.items|sort(attribute=sort_by) %}
 | {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
-{% endfor %}
+{%- endfor %}
+{% endif -%}
+
+{%- if ns_slots_referansar.items %}
+### Referansar
+
+| Slot | Description |
+| --- | --- |
+{%- for s in ns_slots_referansar.items|sort(attribute=sort_by) %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+{%- endfor %}
+{% endif -%}
+
+{%- if ns_slots_kodar.items %}
+### Kodar
+
+| Slot | Description |
+| --- | --- |
+{%- for s in ns_slots_kodar.items|sort(attribute=sort_by) %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+{%- endfor %}
+{% endif %}
 
 ## Enumerations
 {%- set ns_used_enums = namespace(names=[]) -%}
