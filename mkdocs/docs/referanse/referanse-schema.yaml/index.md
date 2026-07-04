@@ -1,6 +1,11 @@
 # referanse-schema.yaml
 
-## Metadata
+[![Versjon](https://img.shields.io/badge/versjon-1.0.0-blue)]()
+[![Status](https://img.shields.io/badge/status-UnderDevelopment |-blue)]()
+[![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
+[![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
+
+## Modellmetadata
 
 | Felt | Verdi |
 | --- | --- |
@@ -80,3 +85,8 @@
 ## Valideringsresultat
 
 *Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
+
+## Kontakt
+
+**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)
+

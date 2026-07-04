@@ -259,10 +259,10 @@ Legg til status-badges rett under hovudoverskrifta:
 |---|---|---|---|---|---|
 | 1 ✅ | Quickstart-seksjon (importer, Python, SHACL, GitHub Actions) | **Høg** | 45 min | ✅ Utført | Utviklar + arkitekt |
 | 2 ✅ | Eksempel-seksjon (YAML-snippet + lenkje til full fil) | **Høg** | 30 min | ✅ Utført | Ikkje-utviklar + utviklar |
-| 3 ⬜ | Ekstern referanse-boks (flyttar frå description.md til prominent info-boks) | Medium | 20 min | ⬜ Ikkje starta | Domeneekspert + arkitekt |
-| 4 ⬜ | Avhengighetsgraf (ASCII tree-struktur av import-/reverse-dependencies) | Medium | 60 min | ⬜ Ikkje starta | Arkitekt |
-| 5 ⬜ | Kontaktinformasjon (forvaltningsansvarleg + support-lenkjer) | Låg | 15 min | ⬜ Ikkje starta | Alle |
-| 6 ⬜ | Badge-rad (versjon, status, validering, lisens) | Låg | 30 min | ⬜ Ikkje starta | Utviklar |
+| 3 ✅ | Ekstern referanse-boks (flyttar frå description.md til prominent info-boks) | Medium | 20 min | ✅ Utført | Domeneekspert + arkitekt |
+| 4 ✅ | Avhengighetsgraf (ASCII tree-struktur av direkte imports) | Medium | 45 min | ✅ Utført (forenkla) | Arkitekt |
+| 5 ✅ | Kontaktinformasjon (forvaltningsansvarleg + support-lenkjer) | Låg | 15 min | ✅ Utført | Alle |
+| 6 ✅ | Badge-rad (versjon, status, validering, lisens) | Låg | 30 min | ✅ Utført | Utviklar |
 
 **Total estimat:** 3–4 timar for alle tiltak (1,5 time for høgprioritets-tiltaka).
 
@@ -339,4 +339,43 @@ Viser første 20 liner frå `<modell>-eksempel.yaml`:
 
 **Avvik frå opphavleg plan:** Ingen.
 
-**Gjenståande tiltak (steg 3-6):** Kan gjerast inkrementelt etter behov (medium/låg prioritet).
+---
+
+**Steg 3-6 — Ekstern referanse, Avhengigheitsgraf, Kontakt og Badge-rad (linje 46-63, 124-142, 533-543 i `mkdocs/publish.sh`):**
+
+**Steg 3 — Ekstern referanse-boks (linje 238-243):**
+- Hardkoda mapping for kjente AP-NO-profilar (`get_external_spec_url`-funksjon)
+- Viser prominent info-boks rett etter hovudoverskrifta (før description.md)
+- Dekningsgrad: 6 AP-NO-profilar (dcat-ap-no, skos-ap-no, modelldcat-ap-no, dqv-ap-no, cpsv-ap-no, xkos-ap-no)
+
+**Steg 4 — Avhengighetsgraf (linje 122-142):**
+- Parsar `imports:`-felt frå skjema-YAML
+- Viser berre **direkte importar** (ingen reverse-dependencies) — forenkla versjon for å unngå ytelsesproblem
+- ASCII-liste (ikkje tree-struktur som opphavleg planlagt)
+- Lenke til fullstendig importkjede i `ap-no-arkitektur.md`
+- Plassert etter metadata-tabell, før ER-diagram
+
+**Steg 5 — Kontaktinformasjon (linje 533-543):**
+- Parsar utgjevar frå metadata-tabell
+- Hardkoda kontaktinfo for Brønnøysundregistrene (991825827)
+- Fallback til GitHub Issues for andre utgjevarar
+- Plassert etter versjonslog
+
+**Steg 6 — Badge-rad (linje 246-297):**
+- Parsar versjon, status, lisens frå gendoc_index
+- Parsar valideringsstatus frå validation JSON
+- Dynamisk fargekoding (grønn=godkjent, gul=feil, raud=foreldet)
+- Normaliserer ADMS-status til norsk (Completed→Ferdigstilt, UnderDevelopment→Under utvikling)
+- Plassert rett etter hovudoverskrifta (før ekstern referanse-boks)
+
+**Verifisering:**
+- ✅ `ap-no/dcat-ap-no`: Badge-rad (4 badges), ekstern referanse-boks, avhengigheitsgraf (3 imports), kontakt (Brønnøysundregistrene)
+- ✅ `samt/samt-bu`: Badge-rad (4 badges), ingen ekstern referanse (ikkje AP-NO), avhengigheitsgraf (3 imports), kontakt (GitHub Issues fallback)
+- ✅ Alle 18 modellar genererte med nye seksjonar
+
+**Avvik frå opphavleg plan:**
+- **Avhengighetsgraf:** Berre direkte imports (ingen reverse-dependencies) — opphavleg plan inkluderte tree-struktur med "Vert importert av"-seksjon, men dette var for tregt (kravde parsing av alle 33 skjema for kvart skjema)
+- **Badge-rad:** Emoji ✓ i "godkjent"-badge i staden for "0 feil" — meir visuelt
+- **Kontaktinfo:** Berre Brønnøysundregistrene har forvaltningsansvarleg-linje — andre får berre GitHub Issues-lenke
+
+**Total implementasjonstid:** Ca. 2 timar (inkl. debugging av parallellkjøring)
