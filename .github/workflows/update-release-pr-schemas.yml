@@ -11,7 +11,7 @@ on:
 jobs:
   update-schemas:
     # Køyr berre for release-please PR-ar (sjekk tittel-mønster)
-    if: startsWith(github.event.pull_request.title, 'chore(main): release')
+    if: "startsWith(github.event.pull_request.title, 'chore(main): release')"
     runs-on: ubuntu-22.04
     permissions:
       contents: write
