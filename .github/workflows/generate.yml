@@ -250,7 +250,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: generated-${{ matrix.domain }}
-          path: generated/
+          path: generated/${{ matrix.domain }}/
           retention-days: 1
 
   publish:
@@ -272,8 +272,16 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           pattern: generated-*
-          path: generated/
-          merge-multiple: true
+          path: generated-merged/
+
+      - name: Slå saman domene-artefaktar til generated/
+        run: |
+          mkdir -p generated/
+          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg samt; do
+            if [ -d "generated-merged/generated-$domain" ]; then
+              mv "generated-merged/generated-$domain" "generated/$domain"
+            fi
+          done
 
       - name: Cache mkdocs-local image
         id: cache-mkdocs
