@@ -46,55 +46,58 @@
 {% endif %}
 
 ## Classes
+{%- set subsets_ordered = ['Obligatorisk', 'Anbefalt', 'Valgfri'] -%}
+{%- set ns_root = namespace(attr_names=[]) -%}
+{%- for c in gen.all_class_objects() -%}
+{%- if c.tree_root -%}
+{%- for attr_name in c.attributes -%}
+{%- set ns_root.attr_names = ns_root.attr_names + [attr_name] -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if gen.hierarchical_class_view -%}
 
-{% set subsets_ordered = ['Obligatorisk', 'Anbefalt', 'Valgfri'] %}
-
-{# Samle attributtnamn frå containerklassen (tree_root) for å ekskludera dei frå slot-tabellen #}
-{%- set ns_root = namespace(attr_names=[]) %}
-{%- for c in gen.all_class_objects() %}
-  {%- if c.tree_root %}
-    {%- for attr_name in c.attributes %}
-      {%- set ns_root.attr_names = ns_root.attr_names + [attr_name] %}
-    {%- endfor %}
-  {%- endif %}
-{%- endfor %}
-
-{% if gen.hierarchical_class_view -%}
 | Class | Description |
 | --- | --- |
-{% for u, v in gen.class_hierarchy_as_tuples() -%}
+{%- for u, v in gen.class_hierarchy_as_tuples() %}
 | {{ "&nbsp;"|safe*u*8 }}{{ gen.link(schemaview.get_class(v), True) }} | {{ schemaview.get_class(v).description|enshorten }} |
-{% endfor %}
-{% else -%}
-{% for subset_name in subsets_ordered + ['Andre'] %}
-{%- set ns = namespace(classes=[]) %}
-{%- for c in gen.all_class_objects()|sort(attribute=sort_by) %}
-  {%- if not c.tree_root %}
-  {%- set ns2 = namespace(dominant='Andre') %}
-  {%- for sn in subsets_ordered %}
-    {%- if ns2.dominant == 'Andre' %}
-      {%- for su in (c.slot_usage or {}).values() %}
-        {%- if sn in (su.in_subset or []) %}
-          {%- set ns2.dominant = sn %}
-        {%- endif %}
-      {%- endfor %}
-    {%- endif %}
-  {%- endfor %}
-  {%- if ns2.dominant == subset_name %}
-    {%- set ns.classes = ns.classes + [c] %}
-  {%- endif %}
-  {%- endif %}
 {%- endfor %}
-{% if ns.classes %}
+{%- else -%}
+{%- for subset_name in subsets_ordered + ['Andre'] -%}
+{%- set ns = namespace(classes=[]) -%}
+{%- for c in gen.all_class_objects()|sort(attribute=sort_by) -%}
+{%- if not c.tree_root -%}
+{%- set ns2 = namespace(dominant='Andre') -%}
+{%- for sn in subsets_ordered -%}
+{%- if ns2.dominant == 'Andre' and sn in (c.in_subset or []) -%}
+{%- set ns2.dominant = sn -%}
+{%- endif -%}
+{%- endfor -%}
+{%- for sn in subsets_ordered -%}
+{%- if ns2.dominant == 'Andre' -%}
+{%- for su in (c.slot_usage or {}).values() -%}
+{%- if sn in (su.in_subset or []) -%}
+{%- set ns2.dominant = sn -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if ns2.dominant == subset_name -%}
+{%- set ns.classes = ns.classes + [c] -%}
+{%- endif -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if ns.classes %}
+
 ### {{ subset_name }}
 
 | Class | Description |
 | --- | --- |
-{% for c in ns.classes -%}
+{%- for c in ns.classes %}
 | {{ gen.link(c, True) }} | {{ c.description|enshorten }} |
-{% endfor %}
-{% endif %}
-{% endfor %}
+{%- endfor %}
+{% endif -%}
+{%- endfor %}
 {% endif %}
 
 ## Slots
