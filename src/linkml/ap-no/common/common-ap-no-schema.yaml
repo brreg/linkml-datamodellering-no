@@ -89,7 +89,14 @@ subsets:
 
 classes:
 
-
+  Lisensdokument:
+    in_subset:
+      - Metadata
+    class_uri: dct:LicenseDocument
+    description: Eit lisensdokument (dct:LicenseDocument).
+    slots:
+      - id
+      - type_concept
 
   Mediatype:
     class_uri: dct:MediaTypeOrExtent
@@ -221,3 +228,11 @@ slots:
     range: LangString
     multivalued: true
     description: Merknad om endringar i denne versjonen (adms:versionNotes).
+
+  lisens:
+    slot_uri: dct:license
+    range: Lisensdokument
+    description: >-
+      Lisens for bruk av ressursen (dct:license). For offentlege data skal CC BY 4.0
+      (https://creativecommons.org/licenses/by/4.0/) eller NLOD 2.0
+      (https://data.norge.no/nlod/no/2.0) nyttast per retningslinjene.

@@ -227,7 +227,12 @@
       "Bash(make gen-plantuml *)",
       "Bash(./mkdocs/publish.sh)",
       "Bash(awk *)",
-      "Bash(make gen-doc *)"
+      "Bash(make gen-doc *)",
+      "Bash(make gen-owl *)",
+      "Bash(make domain-modellkatalog *)",
+      "Bash(tee /tmp/domain-modellkatalog-test.log)",
+      "Bash(make config.mk)",
+      "Bash(make gen-shacl *)"
     ]
   },
   "enableAllProjectMcpServers": true,

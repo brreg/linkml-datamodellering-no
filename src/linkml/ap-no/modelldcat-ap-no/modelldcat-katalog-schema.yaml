@@ -38,17 +38,8 @@ imports:
 classes:
 
   # ---- Modelldcat-spesifikke hjelpeklassar ---------------------------------
-  # Aktoer, Kontaktopplysning, Standard, Tidsrom og KatalogisertRessurs
-  # er arvde frå dcat-ap-no-schema (importert ovanfor).
-
-  Lisensdokument:
-    in_subset:
-      - Metadata
-    class_uri: dct:LicenseDocument
-    description: Eit lisensdokument (dct:LicenseDocument).
-    slots:
-      - id
-      - type_concept
+  # Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs og
+  # Lisensdokument er arvde frå common-ap-no-schema eller dcat-ap-no-schema.
 
   Dokument:
     in_subset:
@@ -120,7 +111,6 @@ classes:
         in_subset:
           - Anbefalt
       lisens:
-        range: Lisensdokument
         in_subset:
           - Anbefalt
       modell:
@@ -218,7 +208,6 @@ classes:
         in_subset:
           - Anbefalt
       lisens:
-        range: Lisensdokument
         in_subset:
           - Anbefalt
       tema:

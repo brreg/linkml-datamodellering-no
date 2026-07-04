@@ -8,7 +8,6 @@ generators:
   python: true
   json_schema: true
   owl: true
-  owl_flags: "--log_level ERROR"
   rdf: true
   protobuf: true
   erdiagram: true

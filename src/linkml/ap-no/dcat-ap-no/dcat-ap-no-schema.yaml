@@ -911,18 +911,6 @@ slots:
     range: string
     description: Rolle ein aktør eller ressurs har i ein relasjon.
 
-  lisens:
-    slot_uri: dct:license
-    range: string
-    description: >-
-      Lisens for bruk av ressursen. For offentlege data skal CC BY 4.0
-      (https://creativecommons.org/licenses/by/4.0/) eller NLOD 2.0
-      (https://data.norge.no/nlod/no/2.0) nyttast per retningslinjene.
-    annotations:
-      gyldige_verdier: >-
-        https://creativecommons.org/licenses/by/4.0/
-        https://data.norge.no/nlod/no/2.0
-
   gjeldende_lovgivning:
     slot_uri: dcatap:applicableLegislation
     range: RegulativRessurs
