@@ -240,6 +240,8 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
+PARALLEL ?= 8
+
 .PHONY: test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
@@ -943,19 +945,17 @@ mcp-linkml-validate:
 	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator; \
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)
 
-# Bruk: make validate-capture [SCHEMA=<sti>]
-# Utan SCHEMA: køyr for alle skjema.
+# Bruk: make validate-capture [SCHEMA=<sti>] [PARALLEL=8]
+# Utan SCHEMA: køyr for alle skjema med parallellisering.
 validate-capture:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make validate-capture$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make validate-capture$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema, $(PARALLEL) workers))$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
 	    python3 src/assets/scripts/run-schema-validation.py --schema $(SCHEMA); \
 	else \
-	    for schema in $(SCHEMAS); do \
-	        python3 src/assets/scripts/run-schema-validation.py --schema $$schema; \
-	    done \
+	    python3 src/assets/scripts/run-schema-validation.py --parallel $(PARALLEL); \
 	fi
 
 # Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>

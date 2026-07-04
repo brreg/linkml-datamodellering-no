@@ -13,6 +13,7 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from datetime import date
 from pathlib import Path
 
@@ -129,7 +130,8 @@ def find_released_packages(config: dict) -> list[str]:
     return [p for p in new if old.get(p) != new[p] and p in config.get("packages", {})]
 
 
-def process_schema(schema_path: Path, dry_run: bool) -> None:
+def process_schema(schema_path: Path, dry_run: bool) -> dict:
+    """Prosesser eitt skjema og returner resultat."""
     domain, model = get_domain_model(schema_path)
     version = get_version(schema_path)
     policy = get_policy(schema_path)
@@ -138,6 +140,89 @@ def process_schema(schema_path: Path, dry_run: bool) -> None:
     result = run_validation(schema_path, policy, dry_run)
     if result is not None or dry_run:
         save_report(domain, model, version, policy, result or {}, dry_run)
+
+    return {
+        "schema": str(schema_path),
+        "valid": result.get("valid", False) if result else False,
+        "error_count": result.get("error_count", 0) if result else 0,
+        "warning_count": result.get("warning_count", 0) if result else 0,
+    }
+
+
+def process_schemas_parallel(schemas: list[Path], dry_run: bool, max_workers: int) -> None:
+    """Prosesser fleire skjema parallelt ved å køyre separate Python-prosessar."""
+    print(f"\nKøyrer validering av {len(schemas)} skjema med {max_workers} workers...")
+
+    # Skriv skjemaliste til midlertidig fil
+    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.txt') as f:
+        schema_list_file = f.name
+        for schema in schemas:
+            f.write(f"{schema}\n")
+
+    try:
+        # Køyr xargs for å parallellisere (fungerer både på Linux og WSL)
+        # -P N: køyr N jobbar parallelt
+        # -I {}: erstatt {} med input-linja
+        script_path = Path(__file__).resolve()
+        cmd = [
+            "xargs",
+            "-P", str(max_workers),
+            "-I", "{}",
+            "python3", str(script_path),
+            "--schema", "{}"
+        ]
+        if dry_run:
+            cmd.append("--dry-run")
+
+        with open(schema_list_file, 'r') as input_file:
+            result = subprocess.run(
+                cmd,
+                stdin=input_file,
+                capture_output=False,  # La output gå direkte til terminalen
+                text=True,
+            )
+
+        if result.returncode != 0:
+            print(f"\n⚠️  Nokre valideringar feila (exit code: {result.returncode})", file=sys.stderr)
+
+        # Samla statistikk frå genererte JSON-filer
+        results = []
+        for schema in schemas:
+            domain, model = get_domain_model(schema)
+            version = get_version(schema)
+            policy = get_policy(schema)
+            policy_json = Path("src/linkml") / domain / model / "validation" / version / f"{policy}.json"
+
+            if policy_json.exists():
+                try:
+                    data = json.loads(policy_json.read_text())
+                    result_data = data.get("result", {})
+                    results.append({
+                        "schema": str(schema),
+                        "valid": result_data.get("valid", False),
+                        "error_count": result_data.get("error_count", 0),
+                        "warning_count": result_data.get("warning_count", 0),
+                    })
+                except Exception as e:
+                    print(f"  ÅTVARING: kunne ikkje lese {policy_json}: {e}", file=sys.stderr)
+
+        # Vis samla statistikk
+        if results:
+            total = len(results)
+            valid = sum(1 for r in results if r["valid"])
+            total_errors = sum(r["error_count"] for r in results)
+            total_warnings = sum(r["warning_count"] for r in results)
+
+            print(f"\n{'='*60}")
+            print(f"Totalt: {total} skjema validerte")
+            print(f"  ✅ Gyldige: {valid}")
+            print(f"  ❌ Ugyldige: {total - valid}")
+            print(f"  🐛 Totalt feil: {total_errors}")
+            print(f"  ⚠️  Totalt åtvaringar: {total_warnings}")
+            print(f"{'='*60}")
+    finally:
+        # Rydd opp midlertidig fil
+        Path(schema_list_file).unlink(missing_ok=True)
 
 
 def main() -> None:
@@ -150,6 +235,12 @@ def main() -> None:
     parser.add_argument(
         "--schema",
         help="Sti til enkelt skjemafil (køyr berre for denne)",
+    )
+    parser.add_argument(
+        "--parallel",
+        type=int,
+        default=1,
+        help="Tal på parallelle workers (default: 1 for sekvensiell køyring)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Vis kva som ville skjedd utan å skrive")
     args = parser.parse_args()
@@ -175,6 +266,7 @@ def main() -> None:
         return
 
     print(f"Releasja pakkar: {released}")
+    schemas = []
     for pkg_path in released:
         pkg_config = config.get("packages", {}).get(pkg_path, {})
         extra_files = pkg_config.get("extra-files", [])
@@ -187,7 +279,17 @@ def main() -> None:
         if not schema_path.exists():
             print(f"  ÅTVARING: {schema_path} finst ikkje", file=sys.stderr)
             continue
-        process_schema(schema_path, args.dry_run)
+        schemas.append(schema_path)
+
+    if not schemas:
+        print("Ingen skjema å validere.")
+        return
+
+    if args.parallel > 1:
+        process_schemas_parallel(schemas, args.dry_run, args.parallel)
+    else:
+        for schema_path in schemas:
+            process_schema(schema_path, args.dry_run)
 
 
 if __name__ == "__main__":

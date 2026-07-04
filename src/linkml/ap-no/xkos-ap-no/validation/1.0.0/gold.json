@@ -2,12 +2,12 @@
   "schema": "xkos-ap-no",
   "domain": "ap-no",
   "version": "1.0.0",
-  "validated_at": "2026-07-03",
+  "validated_at": "2026-07-04",
   "validation_policy": "gold",
   "result": {
     "valid": false,
-    "error_count": 3,
-    "warning_count": 11,
+    "error_count": 2,
+    "warning_count": 12,
     "issues": [
       {
         "severity": "error",
@@ -60,6 +60,12 @@
       {
         "severity": "warning",
         "code": "all_classes_have_concept_ref",
+        "target": "class:Lisensdokument",
+        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
         "target": "class:Mediatype",
         "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
       },
@@ -86,12 +92,6 @@
         "code": "no_container_class",
         "target": "schema",
         "message": "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav"
-      },
-      {
-        "severity": "error",
-        "code": "fair_r11",
-        "target": "schema",
-        "message": "FAIR R1.1: Ingen slot med dct:license funnen"
       }
     ]
   }

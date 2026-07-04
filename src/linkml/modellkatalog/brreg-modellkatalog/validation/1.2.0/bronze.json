@@ -1,25 +1,19 @@
 {
-  "schema": "skatteetaten-modellkatalog",
+  "schema": "brreg-modellkatalog",
   "domain": "modellkatalog",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "validated_at": "2026-07-04",
   "validation_policy": "bronze",
   "result": {
     "valid": true,
     "error_count": 0,
-    "warning_count": 63,
+    "warning_count": 62,
     "issues": [
       {
         "severity": "warning",
         "code": "missing_recommended_metadata",
         "target": "class:ModellkatalogContainer",
         "message": "Manglar anbefalt metadata: description"
-      },
-      {
-        "severity": "warning",
-        "code": "schema_field_present",
-        "target": "schema",
-        "message": "schema.license manglar"
       },
       {
         "severity": "warning",
