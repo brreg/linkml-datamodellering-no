@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.1.0...samt-bu-v1.2.0) (2026-07-04)
+
+
+### Features
+
+* **validate-capture:** parallelliser validering av alle skjema ([6267587](https://github.com/brreg/linkml-datamodellering-no/commit/6267587223de8b03fe459c0d6458c492aa5dd279))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.6...samt-bu-v1.1.0) (2026-07-04)
 
 

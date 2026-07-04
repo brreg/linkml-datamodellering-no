@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.3.2...dqv-ap-no-v1.4.0) (2026-07-04)
+
+
+### Features
+
+* **validate-capture:** parallelliser validering av alle skjema ([6267587](https://github.com/brreg/linkml-datamodellering-no/commit/6267587223de8b03fe459c0d6458c492aa5dd279))
+
 ## [1.3.2](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.3.1...dqv-ap-no-v1.3.2) (2026-07-04)
 
 
