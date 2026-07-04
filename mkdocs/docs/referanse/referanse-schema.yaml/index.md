@@ -1,25 +1,5 @@
 # referanse-schema.yaml
 
-```mermaid
-erDiagram
-Ressurs {
-    uriorcurie id  
-    LangString beskrivelse  
-    LangString tittel  
-    uriorcurie utgjevar  
-}
-
-
-
-```
-
-## Valideringsresultat
-
-*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
-
-
-Annotert referanseskjema som viser alle hovudmønster: containerklasse, globale slots, import frå AP-NO-profil, class_uri/slot_uri, LangString, in_subset og lenking framfor inlining.
-
 ## Metadata
 
 | Felt | Verdi |
@@ -32,6 +12,7 @@ Annotert referanseskjema som viser alle hovudmønster: containerklasse, globale 
 | Endringsdato | TODO |
 | Utgivelsesdato | TODO |
 | Imports | linkml:types<br>../ap-no/dcat-ap-no/dcat-ap-no-schema |
+
 
 
 ## Classes
@@ -95,3 +76,7 @@ Annotert referanseskjema som viser alle hovudmønster: containerklasse, globale 
 | Artefakt | Fil |
 |----------|-----|
 | ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
+
+## Valideringsresultat
+
+*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*

@@ -1,11 +1,16 @@
 # {% if schema.title %}{{ schema.title }}{% else %}{{ schema.name }}{% endif %}
 
-{% if schema.description %}{{ schema.description }}{% endif %}
-
 ## Metadata
 
 | Felt | Verdi |
 | --- | --- |
+| Name | `{{ schema.name }}` |
+{% if schema.title -%}
+| Title | {{ schema.title }} |
+{% endif -%}
+{% if schema.description -%}
+| Description | {{ schema.description }} |
+{% endif -%}
 {% if schema.id -%}
 | Schema URI | [{{ schema.id }}]({{ schema.id }}) |
 {% endif -%}

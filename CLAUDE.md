@@ -2,6 +2,7 @@
 
 ## Førende prinsipper
 - Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
+- **Bruk Makefile-targets:** Køyr **alltid** LinkML-verktøy via `make`-kommandoane dokumenterte i `COMMANDS.md` (t.d. `make gen-doc`, `make gen-plantuml`, `make lint`). **Aldri** køyr podman/linkml-kommandoar direkte — Makefile sikrar korrekte flagg, container-image, volum-mount og versjonskonsekvens. Manuell køyring kan gi feil artefaktar (t.d. manglande `--no-hierarchical-class-view` i gen-doc). Einaste unntak er når du feilsøkjer eller utviklar nye Makefile-targets.
 - **Aldri commit eller push:** LLM skal **aldri** kjøre `git commit`, `git push` eller foreslå at brukaren gjer det. Brukaren kontrollerer all versjonskontroll sjølv. Generer commit-meldingar som utkast (sjå under), men lat brukaren utføre commit-kommandoen.
 - **Pull, ikkje push:** Dette repoet genererer artefaktar som andre system kan hente (pull) — via GitHub Pages, GitHub Releases eller `raw.githubusercontent.com`. Repoet skal **aldri** sjølv pushe artefaktar til eksterne kjelder (schema-registry, API-katalogar, datakatalogar o.l.), fordi slik integrering krev spesialtilpassingar per målsystem og gjer repoet avhengig av ekstern tilgjengelegheit og autentisering. Dersom nokon ber om å implementere push-funksjonalitet mot ein ekstern kjelde, avslå og forklar prinsippet.
 - **Planen kjem først:** Når brukaren ber om noko som *ikkje* er å utføre ein eksisterande spesifikasjon, skal det alltid skrivast ein plan til `specs/backlog/<kortnamn>.md` før arbeidet startar. Planen skal følgje same format som andre spesifikasjonar i mappa (bakgrunn, nummererte steg, prioritert handlingsliste, avhengigheiter). Spør ikkje om løyve — berre skriv planen og informer brukaren om kvar ho ligg.
@@ -107,6 +108,53 @@ overskrivne ved neste publisering.
   sletta av `publish.sh`
 
 `mkdocs/docs/` er brukarvendt dokumentasjon og normativ kjelde for steg-for-steg-rettleiingar (t.d. `ny-domenemodell.md`). CLAUDE.md er normativ kjelde for modelleringsprinsipp og AI-instruksjonar — desse to skal ikkje duplisere kvarandre.
+
+### Korleis `publish.sh` fungerer
+
+`mkdocs/publish.sh` transformerer LinkML-genererte artefaktar frå `generated/` til ein
+publiserbar MkDocs-portal i `mkdocs/docs/`. Scriptet køyrer i fire hovudsteg:
+
+**Steg 1: Rens tidlegare genererte domene-katalogar**
+- Slettar `mkdocs/docs/<domain>/` for kvar `generated/<domain>/` som finst
+- Fjernar `mkdocs/docs/<domain>/` for domene som ikkje lenger finst i `generated/`
+- Beheld statisk innhald (`mkdocs/docs/*.md`, `stylesheets/`, `javascripts/`)
+
+**Steg 2: Generer innhald per domene og skjema (parallelt)**
+
+For kvart skjema i `generated/<domain>/<schema>/`:
+
+1. Kopier artefaktfiler (`*.ttl`, `*.json`, `*.yaml` osv.) frå `generated/<domain>/<schema>/` til `mkdocs/docs/<domain>/<schema>/`
+2. Kopier `CHANGELOG.md` frå `src/linkml/<domain>/<schema>/` dersom den finst
+3. Kopier PlantUML-diagram frå `generated/<domain>/<schema>/diagrams/` til `mkdocs/docs/<domain>/<schema>/diagrams/`
+4. Kopier gen-doc Markdown-filer frå `generated/<domain>/<schema>/docs/` til `mkdocs/docs/<domain>/<schema>/klasser/`
+5. Generer `mkdocs/docs/<domain>/<schema>/index.md` med følgjande seksjons-rekkjefølgje:
+   - Hovudoverskrift (`# <schema>`)
+   - **Metadata-tabell** (`## Metadata` frå gen-doc — name, title, description, versjon, lisens, utgjevar, status osv.)
+   - Publiseringsinfo (boks dersom `published-uris.lock` finst)
+   - **ER-diagram** (`## ER-diagram` med PlantUML SVG — zoombart, lenke til full versjon)
+   - Klasseliste (`## Classes`, `## Slots`, `## Enumerations`, `## Types` frå gen-doc)
+   - Artefaktabell (`## Generated artifacts` med lenkjer til `.ttl`, `.json`, `.puml` osv.)
+   - **Valideringsresultat** (`## Valideringsresultat` frå `validation/<versjon>/<policy>.json`)
+   - **Versjonslog** (`## Versjonslog` frå `CHANGELOG.md`)
+
+Alle skjema-jobbar køyrer parallelt for å redusere byggtid.
+
+**Steg 3: Generer `valideringsregler.md` og hovud-`index.md`**
+- `valideringsregler.md` genereres frå `src/mcp-linkml-validator/policies/README.md` med GitHub-lenkjer
+- Hovud-`index.md` genereres frå `README.md` (med filtrering av intern-referansar)
+
+**Steg 4: Generer `mkdocs.yml`**
+- Statisk konfigurasjon (theme, plugins, markdown_extensions) frå heredoc-blokk
+- Dynamisk nav-meny: `- Rettleiingar:` (statisk) + domene-seksjonar (generert frå `generated/`-struktur)
+
+**Viktige detaljar:**
+
+- **Metadata-tabell** vert generert av Jinja-templaten `src/assets/templates/docgen/index.md.jinja2` og inneheld name, title, description, versjon, lisens, utgjevar, status m.m.
+- **ER-diagram** brukar PlantUML SVG (ikkje Mermaid) — zoombart i nettleser, med lenke til full versjon som viser importerte klasser
+- **Valideringsresultat** vert generert av `src/assets/scripts/generate-validation-md.py` frå `validation/<versjon>/<policy>.json` med rein Markdown (nummererte lister, ikkje `<details>`-blokkar)
+- **Versjonslog** vert kopiert direkte frå `CHANGELOG.md` som rein Markdown (ikkje kollapsa)
+- **Lowercase-transformasjon** av klassefiler skjer for å unngå konflikt på case-insensitive filsystem (Windows/macOS)
+- **Filtrert PlantUML-diagram** vert prioritert over full versjon i ER-diagram-seksjonen
 
 ### PlantUML-diagram
 
