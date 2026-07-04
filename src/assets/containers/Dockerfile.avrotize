@@ -1,3 +1,14 @@
-FROM python:3.12-slim
-RUN pip install --no-cache-dir avrotize
+FROM python:3.12-alpine AS builder
+
+# Installer byggjeavhengigheiter og avrotize i éin RUN-kommando
+RUN apk add --no-cache --virtual .build-deps \
+    gcc musl-dev libffi-dev g++ \
+    && pip install --no-cache-dir --prefix=/install avrotize \
+    && apk del .build-deps
+
+FROM python:3.12-alpine
+
+# Kopier berre runtime-avhengigheiter
+COPY --from=builder /install /usr/local
+
 ENTRYPOINT ["avrotize"]
