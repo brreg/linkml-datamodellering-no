@@ -107,19 +107,57 @@
 
 ## Enumerations
 
-| Enumeration | Description |
-| --- | --- |
-{% for e in gen.all_enum_objects()|sort(attribute=sort_by) -%}
-| {{ gen.link(e, True) }} | {{ e.description|enshorten }} |
-{% endfor %}
+{%- set ns_used_enums = namespace(names=[]) %}
+{%- for s in gen.all_slot_objects() %}
+  {%- if s.range and schemaview.get_enum(s.range) %}
+    {%- if s.range not in ns_used_enums.names %}
+      {%- set ns_used_enums.names = ns_used_enums.names + [s.range] %}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+{% if ns_used_enums.names %}
+| Enumeration | Description | Defined in |
+| --- | --- | --- |
+{% for enum_name in ns_used_enums.names|sort -%}
+  {%- set e = schemaview.get_enum(enum_name) %}
+  {%- if e %}
+    {%- set from_schema = schemaview.in_schema(enum_name) %}
+    {%- set is_local = (from_schema == schema.name or from_schema == schema.id) %}
+    {%- set origin = "Local" if is_local else "Imported" %}
+| {{ gen.link(e, True) }} | {{ e.description|enshorten }} | {{ origin }} |
+  {%- endif %}
+{%- endfor %}
+{% else %}
+*Ingen enumerations brukt i denne modellen.*
+{% endif %}
 
 ## Types
 
-| Type | Description |
-| --- | --- |
-{% for t in gen.all_type_objects()|sort(attribute=sort_by) -%}
-| {{ gen.link(t, True) }} | {{ t.description|enshorten }} |
-{% endfor %}
+{%- set ns_used_types = namespace(names=[]) %}
+{%- for s in gen.all_slot_objects() %}
+  {%- if s.range and schemaview.get_type(s.range) %}
+    {%- if s.range not in ns_used_types.names %}
+      {%- set ns_used_types.names = ns_used_types.names + [s.range] %}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+{% if ns_used_types.names %}
+| Type | Description | Defined in |
+| --- | --- | --- |
+{% for type_name in ns_used_types.names|sort -%}
+  {%- set t = schemaview.get_type(type_name) %}
+  {%- if t %}
+    {%- set from_schema = schemaview.in_schema(type_name) %}
+    {%- set is_local = (from_schema == schema.name or from_schema == schema.id) %}
+    {%- set origin = "Local" if is_local else "Imported" %}
+| {{ gen.link(t, True) }} | {{ t.description|enshorten }} | {{ origin }} |
+  {%- endif %}
+{%- endfor %}
+{% else %}
+*Ingen typar brukt i denne modellen.*
+{% endif %}
 
 ## Subsets
 
