@@ -172,6 +172,8 @@ classes:
         description: Kontaktlærarar i datasamlinga.
 
   Skole:
+    in_subset:
+      - Obligatorisk
     class_uri: samtbuskole:Skole
     description: En skole er en privat eller offentlig institusjon eller et lærested hvor lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
     exact_mappings:
@@ -188,6 +190,8 @@ classes:
 
   # --- Abstrakt superklasse ---
   Skoleeier:
+    in_subset:
+      - Obligatorisk
     class_uri: samtbuskole:Skoleeier
     abstract: true
     exact_mappings:
@@ -234,6 +238,8 @@ classes:
       - organisasjonsnummer
 
   Basisgruppe:
+    in_subset:
+      - Anbefalt
     class_uri: samtbuskole:Basisgruppe
     description: Skoleklasse som hovedsaklig samler elever i ulike fag.
     close_mappings:
@@ -260,6 +266,8 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/971527404/concepts/6c1197a7-5c17-48f6-b399-a031d66cd8da
 
   Elev:
+    in_subset:
+      - Valgfri
     class_uri: samtbuskole:Elev
     description: En person som går på skole
     close_mappings:
@@ -269,6 +277,8 @@ classes:
       - horer_til_basisgruppe
 
   Rektor:
+    in_subset:
+      - Obligatorisk
     class_uri: samtbuskole:Rektor
     description: Høgaste akademiske leder av en skole
     is_a: Person
@@ -276,7 +286,8 @@ classes:
       - enhetsleder_for
 
   Kontaktlaerer:
-    class_uri: samtbuskole:Kontaktlaerer
+    in_subset:
+      - Anbefalt
     description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane i basisgruppa
     close_mappings:
       - schema:Teacher

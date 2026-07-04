@@ -234,7 +234,8 @@
       "Bash(make config.mk)",
       "Bash(make gen-shacl *)",
       "Bash(/tmp/check-version-sync.sh)",
-      "Bash(/tmp/sync-all-versions.sh)"
+      "Bash(/tmp/sync-all-versions.sh)",
+      "Bash(make domain-samt *)"
     ]
   },
   "enableAllProjectMcpServers": true,
