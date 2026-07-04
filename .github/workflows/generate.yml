@@ -58,7 +58,9 @@ jobs:
           - name: python-pytest
             dockerfile: src/assets/containers/Dockerfile.python
             make_target: build-docker-python
-            hash_files: src/assets/containers/Dockerfile.python, src/assets/containers/requirements-python-test.txt
+            hash_files: |
+              src/assets/containers/Dockerfile.python
+              src/assets/containers/requirements-python-test.txt
           - name: avrotize-local
             dockerfile: src/assets/containers/Dockerfile.avrotize
             make_target: build-docker-avrotize
