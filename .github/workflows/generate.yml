@@ -318,6 +318,30 @@ jobs:
           path: mkdocs/site/
           overwrite: true
 
-      - name: Deploy til GitHub Pages
+      - name: Deploy til GitHub Pages (forsøk 1)
+        id: deploy-attempt-1
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Vent før retry (dersom forsøk 1 feila)
+        if: steps.deploy-attempt-1.outcome == 'failure'
+        run: |
+          echo "::warning::GitHub Pages deployment feila — ventar 30 sekund før retry..."
+          sleep 30
+
+      - name: Deploy til GitHub Pages (forsøk 2)
+        id: deploy-attempt-2
+        if: steps.deploy-attempt-1.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Vent før siste retry (dersom forsøk 2 feila)
+        if: steps.deploy-attempt-1.outcome == 'failure' && steps.deploy-attempt-2.outcome == 'failure'
+        run: |
+          echo "::warning::GitHub Pages deployment feila igjen — ventar 60 sekund før siste forsøk..."
+          sleep 60
+
+      - name: Deploy til GitHub Pages (forsøk 3 — siste)
         id: deploy
+        if: steps.deploy-attempt-1.outcome == 'failure' && steps.deploy-attempt-2.outcome == 'failure'
         uses: actions/deploy-pages@v5
