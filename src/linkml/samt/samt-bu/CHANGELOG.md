@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.6...samt-bu-v1.1.0) (2026-07-04)
+
+
+### Features
+
+* **docgen:** vis alle brukte typar/enums inkl. importerte i index.md ([9d8b13e](https://github.com/brreg/linkml-datamodellering-no/commit/9d8b13e6eb8befd9d3e89b7d7aca9a2b9af06089))
+
+
+### Bug Fixes
+
+* **release:** synk schema-versjon med release-nummer automatisk ([6dbb358](https://github.com/brreg/linkml-datamodellering-no/commit/6dbb358b6929bfbd73ef9c5fde8f1a0c24cb56e2))
+
 ## [1.0.6](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.0.5...samt-bu-v1.0.6) (2026-07-04)
 
 
