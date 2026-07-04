@@ -1088,7 +1088,3 @@ slots:
     range: Konsept
     description: Kor ofte katalogen vert oppdatert.
 
-  lisens:
-    slot_uri: dct:license
-    range: uri
-    description: Lisens for katalogen.

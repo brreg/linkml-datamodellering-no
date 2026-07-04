@@ -79,12 +79,12 @@
       "Bash(make roundtrip *)",
       "WebFetch(domain:www.digdir.no)",
       "Bash(make mcp-mod-test *)",
-      "Bash(make build-docker-avrotize *)",
+      "Bash(make avrotize-build-docker *)",
       "Bash(xmllint --noout /mnt/c/dev/github/linkml-datamodellering-no/generated/samt/samt-bu/samt-bu.xsd)",
       "Bash(make schema-gen-xsd *)",
       "Bash(podman search *)",
       "Bash(wait)",
-      "Bash(make build-docker-asyncapi *)",
+      "Bash(make asyncapi-build-docker *)",
       "Bash(make schema-gen-openapi *)",
       "Bash(curl -s \"https://registry.hub.docker.com/v2/repositories/apicurio/apicurio-registry/tags?page_size=5\")",
       "Bash(curl -s -L -A \"Mozilla/5.0\" -H \"Accept: text/html,application/xhtml+xml\" \"https://data.norge.no/guide/veileder-apne-data\")",
@@ -250,7 +250,11 @@
       "Bash(make build-docker-asyncapi *)",
       "Bash(podman history *)",
       "Bash(time make docs-publish)",
-      "Bash(make docs-publish *)"
+      "Bash(make docs-publish *)",
+      "Bash(make gen-jsonld *)",
+      "Bash(make ap-no *)",
+      "Bash(make cpsv-ap-no *)",
+      "Bash(make SCHEMA=src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml)"
     ]
   },
   "enableAllProjectMcpServers": true,
