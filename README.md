@@ -238,18 +238,22 @@ linkml-datamodellering-no/
 │   │
 │   ├── mcp-linkml-validator/                      # MCP-server: policy-basert LinkML validering
 │   ├── mcp-linkml-modell-utkast/                  # MCP-server: generering av LinkML modell-utkast
-│   └── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
+│   ├── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
+│   └── tmp/                                       # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 │
 ├── bootstrap.sh                                   # Bootstrap-script for eksterne repo
 ├── tests/                                         # Testar og fixtures
 ├── generated/                                     # Genererte artefakter (ikkje sjekka inn i git)
 ├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
 │   └── docs/                                      # Den publiserte dokumentasjonsportalen
-├── specs/
-│   ├── backlog/                                   # Planer for endringar og nye features
-│   ├── done/                                      # Utførte planer
-│   └── bugs/                                      # Kjente bugs
-└── tmp/                                           # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
+│       └── <domain>/
+│          └── <modell>/
+│               └── index.md                       # Hoveddokumentasjon for kvar datamodell (generert av publish.sh)
+└── specs/
+    ├── backlog/                                   # Planer for endringar og nye features
+    ├── done/                                      # Utførte planer
+    └── bugs/                                      # Kjente bugs
+
 ```
 
 ---

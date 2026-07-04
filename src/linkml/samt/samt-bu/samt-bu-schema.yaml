@@ -4,13 +4,13 @@
 id: https://data.norge.no/samt/samt-bu
 name: samt-bu
 title: SAMT - Barnehagar og skular
-version: "1.0.0"
+version: "1.0.5"
 license: https://data.norge.no/nlod/no/2.0
 description: Ontodia-vennlig LinkML-modell for skoler
 
 annotations:
   utgiver: https://data.norge.no/organizations/971032146
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-07-03"
   utgivelsesdato: "2026-06-10"
   status: http://purl.org/adms/status/UnderDevelopment
 

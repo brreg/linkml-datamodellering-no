@@ -14,12 +14,12 @@ description: >-
   globale slots, import frå AP-NO-profil, class_uri/slot_uri, LangString,
   in_subset og lenking framfor inlining.
 
-version: "1.0.0"
+version: "1.0.2"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "TODO"
+  endringsdato: "2026-07-04"
   utgivelsesdato: "TODO"
   status: http://purl.org/adms/status/UnderDevelopment
 

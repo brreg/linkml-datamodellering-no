@@ -8,12 +8,12 @@ description: >-
   Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
   modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
 
-version: "1.0.0"
+version: "1.2.0"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-07-04"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 

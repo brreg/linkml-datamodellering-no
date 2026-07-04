@@ -8,12 +8,12 @@ description: >
   FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar
   for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med
   FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
-version: "1.0.0"
+version: "1.1.0"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-07-04"
   utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/Completed
 

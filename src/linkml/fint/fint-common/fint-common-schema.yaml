@@ -7,12 +7,12 @@ title: FINT Felles typar
 description: >
   Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt
   mellom alle FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
-version: "4.0.20"
+version: "4.0.22"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-07-04"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 
