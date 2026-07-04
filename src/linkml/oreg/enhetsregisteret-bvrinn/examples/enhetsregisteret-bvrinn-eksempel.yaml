@@ -1,0 +1,80 @@
+innrapporteringer:
+  - id: https://example.org/innrapportering/1
+    versjon: "1.0.0"
+    innsendertjenste: stiftelse
+    innsendingstidspunkt: "2026-07-04T10:30:00"
+    maalformForTilbakemelding: nob
+    tjenestevariant: test
+    virksomhetsinformasjon: https://example.org/virksomhetsinformasjon/1
+    innsender: https://example.org/innsender/1
+
+virksomhetsinformasjonHovedenheter:
+  - id: https://example.org/virksomhetsinformasjon/1
+    organisasjonsform: AS
+    navn: Eksempel AS
+    maalform: nob
+    stiftelsesdato: "2026-01-01"
+    forretningsadresse: https://example.org/forretningsadresse/1
+    postadresse: https://example.org/postadresse/1
+    rolletypegruppe:
+      - https://example.org/rolletypegruppe/1
+
+forretningsadresseer:
+  - id: https://example.org/forretningsadresse/1
+    vegadresse: https://example.org/vegadresse/1
+
+postadresseer:
+  - id: https://example.org/postadresse/1
+    vegadresse: https://example.org/vegadresse/2
+
+vegadresseer:
+  - id: https://example.org/vegadresse/1
+    adressenavn: Eksempelgata
+    nummer: https://example.org/adressenummer/1
+    kommunenummer: "0301"
+    postnummer: "0010"
+  - id: https://example.org/vegadresse/2
+    adressenavn: Postboks
+    nummer: https://example.org/adressenummer/2
+    kommunenummer: "0301"
+    postnummer: "0010"
+
+adressenummerer:
+  - id: https://example.org/adressenummer/1
+    nummer: "42"
+  - id: https://example.org/adressenummer/2
+    nummer: "123"
+
+rolletypegruppeer:
+  - id: https://example.org/rolletypegruppe/1
+    rollegruppe: styre
+    rolle:
+      - https://example.org/rolle/1
+
+rolleer:
+  - id: https://example.org/rolle/1
+    rolletype: rolletype.styreleder
+    rolleinnehaver: https://example.org/rolleinnehaver/1
+
+rolleinnehaverer:
+  - id: https://example.org/rolleinnehaver/1
+    person: https://example.org/person/1
+
+personer:
+  - id: https://example.org/person/1
+    mappingId: person-1
+    fulltNavn: Kari Nordmann
+  - id: https://example.org/person/2
+    mappingId: person-2
+    fulltNavn: Ola Nordmann
+
+innsenderer:
+  - id: https://example.org/innsender/1
+    test: "true"
+    person: https://example.org/person/2
+    e_postadresse: ola.nordmann@example.org
+    mobilnummer: https://example.org/mobilnummer/1
+
+mobilnummerer:
+  - id: https://example.org/mobilnummer/1
+    nasjonaltNummer: "98765432"
