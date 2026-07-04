@@ -263,7 +263,6 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: mkdocs/site/
-          overwrite: true
 
       - name: Deploy til GitHub Pages (forsøk 1)
         id: deploy-attempt-1
