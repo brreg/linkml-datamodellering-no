@@ -1,0 +1,21 @@
+name: Auto-approve release-please PRs
+
+# Godkjenner automatisk release-please sine PRs, slik at dei kan mergast
+# automatisk når alle checks passerer (via auto-merge).
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-22.04
+    if: github.actor == 'github-actions[bot]' && startsWith(github.head_ref, 'release-please--branches--')
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Godkjenn release-PR
+        run: gh pr review ${{ github.event.pull_request.number }} --approve --body "Auto-approved by CI"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
