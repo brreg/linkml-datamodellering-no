@@ -189,14 +189,18 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 | Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
 | Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
 | JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
+| XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
+| AsyncAPI-spec | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` |
+| OpenAPI-spec | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` |
 | ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
 | Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
+| DQV-målingar | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
+| ModelDCAT-element | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
 
-> **Pull, ikkje push.** Dette repoet genererer og publiserer artefaktar til GitHub Pages og GitHub Releases. Andre system hentar artefaktane derifrå sjølve — repoet pusher aldri artefaktar til eksterne kjelder. Å pushe til ekstern schema-registry, datakatalog eller anna API krev spesialtilpassingar per målsystem og knyt repoet til ekstern tilgjengelegheit og autentisering, noko som er utanfor dette repoets ansvarsfelt.
 
-> **Versjonerte adressar.** GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein stabil, versjonert adresse til ein historisk versjon — t.d. for import frå eit eksternt repo (sjå [Bruk frå eksternt repo](#bruk-fr%C3%A5-eksternt-repo)) — bruk [GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases) eller ein tag-spesifikk `raw.githubusercontent.com`-URL (`.../<tag>/<sti>`). GitHub Releases er den kanoniske adressa for eldre versjonar av artefaktar.
+> **Versjonerte adresser.** GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein stabil, versjonert adresse til ein historisk versjon — t.d. for import frå eit eksternt repo (sjå [Bruk frå eksternt repo](#bruk-fr%C3%A5-eksternt-repo)) — bruk [GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases) eller ein tag-spesifikk `raw.githubusercontent.com`-URL (`.../<tag>/<sti>`). GitHub Releases er den kanoniske adressa for eldre versjonar av artefaktar.
 
 ### Kva publiserast til eksterne system
 
@@ -272,7 +276,7 @@ Repoet er i PoC-fase og har nokre kjende avgrensingar:
 
 - PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelsesproblem)
 - JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
-- AsyncAPI-generering er eksperimentell og ikkje aktivert by default
+- AsyncAPI/OpenAPI/XSD-generering er valfri og må aktiverast eksplisitt via `manifest.yaml`
 
 ### Publisering
 

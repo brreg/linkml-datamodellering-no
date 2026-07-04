@@ -237,7 +237,12 @@
       "Bash(/tmp/sync-all-versions.sh)",
       "Bash(make domain-samt *)",
       "Bash(make domain-ap-no *)",
-      "Bash(make artefacts *)"
+      "Bash(make artefacts *)",
+      "Bash(/tmp/compare-targets.sh)",
+      "Bash(make -qp)",
+      "Bash(/tmp/verify-commands.sh)",
+      "Bash(/tmp/check-artifacts.sh)",
+      "Bash(/tmp/verify-artifacts.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,
