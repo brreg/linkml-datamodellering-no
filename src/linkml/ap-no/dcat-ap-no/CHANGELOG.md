@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.2.2...dcat-ap-no-v2.3.0) (2026-07-04)
+
+
+### Features
+
+* **validate-capture:** parallelliser validering av alle skjema ([6267587](https://github.com/brreg/linkml-datamodellering-no/commit/6267587223de8b03fe459c0d6458c492aa5dd279))
+
 ## [2.2.2](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.2.1...dcat-ap-no-v2.2.2) (2026-07-04)
 
 
