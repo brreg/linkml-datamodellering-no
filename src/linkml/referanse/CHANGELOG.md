@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/brreg/linkml-datamodellering-no/compare/referanse-v1.0.2...referanse-v1.0.3) (2026-07-04)
+
+
+### Bug Fixes
+
+* **release:** synk schema-versjon med release-nummer automatisk ([6dbb358](https://github.com/brreg/linkml-datamodellering-no/commit/6dbb358b6929bfbd73ef9c5fde8f1a0c24cb56e2))
+
 ## [1.0.2](https://github.com/brreg/linkml-datamodellering-no/compare/referanse-v1.0.1...referanse-v1.0.2) (2026-07-01)
 
 
