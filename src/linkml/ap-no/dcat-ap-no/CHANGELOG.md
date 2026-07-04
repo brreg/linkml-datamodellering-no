@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.2.0...dcat-ap-no-v2.2.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* **ap-no:** fjern tvetydig type for lisens og hardkod generator-flagg ([c6514ca](https://github.com/brreg/linkml-datamodellering-no/commit/c6514ca76cfaa3c85753a3515b9481f726997a8f))
+
 ## [2.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.1.2...dcat-ap-no-v2.2.0) (2026-07-03)
 
 
