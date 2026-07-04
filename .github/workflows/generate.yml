@@ -42,124 +42,69 @@ jobs:
           retention-days: 1
 
   ensure-images:
+    name: "build-image / ${{ matrix.image.name }}"
     needs: [checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        image:
+          - name: linkml-local
+            dockerfile: src/assets/containers/Dockerfile.linkml
+            make_target: build-docker-linkml
+            hash_files: src/assets/containers/Dockerfile.linkml
+          - name: python-pytest
+            dockerfile: src/assets/containers/Dockerfile.python
+            make_target: build-docker-python
+            hash_files: src/assets/containers/Dockerfile.python, src/assets/containers/requirements-python-test.txt
+          - name: avrotize-local
+            dockerfile: src/assets/containers/Dockerfile.avrotize
+            make_target: build-docker-avrotize
+            hash_files: src/assets/containers/Dockerfile.avrotize
+          - name: asyncapi-cli-local
+            dockerfile: src/assets/containers/Dockerfile.asyncapi-cli
+            make_target: build-docker-asyncapi
+            hash_files: src/assets/containers/Dockerfile.asyncapi-cli
+      fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
         with:
           name: source
+
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Cache linkml-local image
-        id: cache-linkml
+      - name: Cache ${{ matrix.image.name }} image
+        id: cache-image
         uses: actions/cache@v6
         with:
-          path: linkml-local.tar.zst
-          key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-      - name: Sjekk om linkml-local finst i GHCR
-        id: ghcr-linkml
-        if: steps.cache-linkml.outputs.cache-hit == 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
-      - name: Bygg linkml-local image
-        if: steps.cache-linkml.outputs.cache-hit != 'true'
-        run: |
-          make build-docker-linkml
-          podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
-      - name: Last inn linkml-local frå cache
-        if: steps.cache-linkml.outputs.cache-hit == 'true' && steps.ghcr-linkml.outputs.exists != 'true'
-        run: podman load < <(zstd -d -c linkml-local.tar.zst)
-      - name: Push linkml-local til GHCR
-        if: steps.ghcr-linkml.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          podman tag localhost/linkml-local:latest "$IMAGE"
-          podman push "$IMAGE"
+          path: ${{ matrix.image.name }}.tar.zst
+          key: ${{ matrix.image.name }}-${{ hashFiles(matrix.image.hash_files) }}
 
-      - name: Cache python-pytest image
-        id: cache-python
-        uses: actions/cache@v6
-        with:
-          path: python-pytest.tar.zst
-          key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
-      - name: Sjekk om python-pytest finst i GHCR
-        id: ghcr-python
-        if: steps.cache-python.outputs.cache-hit == 'true'
+      - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
+        id: ghcr-check
+        if: steps.cache-image.outputs.cache-hit == 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
           podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
-      - name: Bygg python-pytest image
-        if: steps.cache-python.outputs.cache-hit != 'true'
-        run: |
-          make python-build-docker
-          podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
-      - name: Last inn python-pytest frå cache
-        if: steps.cache-python.outputs.cache-hit == 'true' && steps.ghcr-python.outputs.exists != 'true'
-        run: podman load < <(zstd -d -c python-pytest.tar.zst)
-      - name: Push python-pytest til GHCR
-        if: steps.ghcr-python.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
-          podman tag localhost/python-pytest:latest "$IMAGE"
-          podman push "$IMAGE"
 
-      - name: Cache avrotize-local image
-        id: cache-avrotize
-        uses: actions/cache@v6
-        with:
-          path: avrotize-local.tar.zst
-          key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
-      - name: Sjekk om avrotize-local finst i GHCR
-        id: ghcr-avrotize
-        if: steps.cache-avrotize.outputs.cache-hit == 'true'
+      - name: Bygg ${{ matrix.image.name }} image
+        if: steps.cache-image.outputs.cache-hit != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
-          podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
-      - name: Bygg avrotize-local image
-        if: steps.cache-avrotize.outputs.cache-hit != 'true'
-        run: |
-          make avrotize-build-docker
-          podman save localhost/avrotize-local:latest | zstd -T0 > avrotize-local.tar.zst
-      - name: Last inn avrotize-local frå cache
-        if: steps.cache-avrotize.outputs.cache-hit == 'true' && steps.ghcr-avrotize.outputs.exists != 'true'
-        run: podman load < <(zstd -d -c avrotize-local.tar.zst)
-      - name: Push avrotize-local til GHCR
-        if: steps.ghcr-avrotize.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
-          podman tag localhost/avrotize-local:latest "$IMAGE"
-          podman push "$IMAGE"
+          make ${{ matrix.image.make_target }}
+          podman save localhost/${{ matrix.image.name }}:latest | zstd -T0 > ${{ matrix.image.name }}.tar.zst
 
-      - name: Cache asyncapi-cli-local image
-        id: cache-asyncapi
-        uses: actions/cache@v6
-        with:
-          path: asyncapi-cli-local.tar.zst
-          key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
-      - name: Sjekk om asyncapi-cli-local finst i GHCR
-        id: ghcr-asyncapi
-        if: steps.cache-asyncapi.outputs.cache-hit == 'true'
+      - name: Last inn ${{ matrix.image.name }} frå cache
+        if: steps.cache-image.outputs.cache-hit == 'true' && steps.ghcr-check.outputs.exists != 'true'
+        run: podman load < <(zstd -d -c ${{ matrix.image.name }}.tar.zst)
+
+      - name: Push ${{ matrix.image.name }} til GHCR
+        if: steps.ghcr-check.outputs.exists != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
-          podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
-      - name: Bygg asyncapi-cli-local image
-        if: steps.cache-asyncapi.outputs.cache-hit != 'true'
-        run: |
-          make asyncapi-build-docker
-          podman save localhost/asyncapi-cli-local:latest | zstd -T0 > asyncapi-cli-local.tar.zst
-      - name: Last inn asyncapi-cli-local frå cache
-        if: steps.cache-asyncapi.outputs.cache-hit == 'true' && steps.ghcr-asyncapi.outputs.exists != 'true'
-        run: podman load < <(zstd -d -c asyncapi-cli-local.tar.zst)
-      - name: Push asyncapi-cli-local til GHCR
-        if: steps.ghcr-asyncapi.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
-          podman tag localhost/asyncapi-cli-local:latest "$IMAGE"
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
+          podman tag localhost/${{ matrix.image.name }}:latest "$IMAGE"
           podman push "$IMAGE"
 
   generate:
