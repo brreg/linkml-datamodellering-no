@@ -355,10 +355,13 @@ Viser første 20 liner frå `<modell>-eksempel.yaml`:
 - Lenke til fullstendig importkjede i `ap-no-arkitektur.md`
 - Plassert etter metadata-tabell, før ER-diagram
 
-**Steg 5 — Kontaktinformasjon (linje 533-543):**
-- Parsar utgjevar frå metadata-tabell
-- Hardkoda kontaktinfo for Brønnøysundregistrene (991825827)
-- Fallback til GitHub Issues for andre utgjevarar
+**Steg 5 — Kontaktinformasjon (linje 45-107):**
+- `get_contact_info()` tek imot schema-path (t.d. `src/linkml/samt/samt-bu`)
+- Parsar YAML-frontmatter frå `CODEOWNERS.md` (Python inline-script)
+- Matcher schema-path mot `path_patterns` for kvar org (glob → regex)
+- Ekstraher `name`, `org_uri`, `contact_uri` frå matchande org
+- Generer Kontakt-seksjonen med organisasjonsinfo + GitHub Issues
+- Fallback til GitHub Issues dersom ingen match funne
 - Plassert etter versjonslog
 
 **Steg 6 — Badge-rad (linje 246-297):**
@@ -376,6 +379,6 @@ Viser første 20 liner frå `<modell>-eksempel.yaml`:
 **Avvik frå opphavleg plan:**
 - **Avhengighetsgraf:** Berre direkte imports (ingen reverse-dependencies) — opphavleg plan inkluderte tree-struktur med "Vert importert av"-seksjon, men dette var for tregt (kravde parsing av alle 33 skjema for kvart skjema)
 - **Badge-rad:** Emoji ✓ i "godkjent"-badge i staden for "0 feil" — meir visuelt
-- **Kontaktinfo:** Berre Brønnøysundregistrene har forvaltningsansvarleg-linje — andre får berre GitHub Issues-lenke
+- **Kontaktinfo:** Opphavleg plan hardkoda berre Brønnøysundregistrene (991825827) — ny implementering parsar `CODEOWNERS.md` YAML-frontmatter for å finne korrekt eigar-org basert på schema-path
 
 **Total implementasjonstid:** Ca. 2 timar (inkl. debugging av parallellkjøring)

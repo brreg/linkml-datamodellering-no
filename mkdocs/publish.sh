@@ -43,16 +43,67 @@ get_external_spec_url() {
 
 # Hent kontaktinfo basert på utgjevar-organisasjon
 get_contact_info() {
-    utgiver="$1"
-    case "$utgiver" in
-        *991825827*)  # Brønnøysundregistrene
-            echo "**Forvaltningsansvarleg:** [Brønnøysundregistrene](https://data.norge.no/organizations/991825827)"
-            echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
-            ;;
-        *)  # Fallback
-            echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
-            ;;
-    esac
+    schema_path="$1"
+
+    # Les CODEOWNERS.md for å finne eigar-org basert på path pattern
+    codeowners_file="$REPO_ROOT/CODEOWNERS.md"
+    if [ ! -f "$codeowners_file" ]; then
+        echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
+        return
+    fi
+
+    # Ekstraher YAML-frontmatter frå CODEOWNERS.md
+    # Parse YAML og match path mot path_patterns for kvar org
+    org_data=$(python3 - "$schema_path" <<'PYEOF'
+import sys
+import re
+import yaml
+
+schema_path = sys.argv[1]
+
+with open("/mnt/c/dev/github/linkml-datamodellering-no/CODEOWNERS.md", "r") as f:
+    content = f.read()
+
+# Ekstraher YAML-frontmatter (mellom første ``` og neste ```)
+match = re.search(r'^```yaml\n(.*?)\n```', content, re.MULTILINE | re.DOTALL)
+if not match:
+    sys.exit(1)
+
+yaml_content = match.group(1)
+data = yaml.safe_load(yaml_content)
+
+# Match schema_path mot path_patterns for kvar org
+for org in data.get('organizations', []):
+    for pattern in org.get('path_patterns', []):
+        # Konverter glob-pattern til regex (enkel variant — berre ** og *)
+        regex_pattern = pattern.replace('**', '.*').replace('*', '[^/]*')
+        if re.search(regex_pattern, schema_path):
+            # Fann match — print org-data som YAML
+            print(f"name: {org['name']}")
+            print(f"org_uri: {org['org_uri']}")
+            print(f"contact_uri: {org.get('contact_uri', '')}")
+            sys.exit(0)
+
+# Ingen match funne
+sys.exit(1)
+PYEOF
+)
+
+    if [ $? -eq 0 ] && [ -n "$org_data" ]; then
+        # Ekstraher felt frå org_data
+        name=$(echo "$org_data" | grep '^name:' | sed 's/^name: //')
+        org_uri=$(echo "$org_data" | grep '^org_uri:' | sed 's/^org_uri: //')
+        contact_uri=$(echo "$org_data" | grep '^contact_uri:' | sed 's/^contact_uri: //')
+
+        echo "**Forvaltningsansvarleg:** [$name]($org_uri)"
+        if [ -n "$contact_uri" ]; then
+            echo "**Kontakt:** [$name - Kontakt]($contact_uri)"
+        fi
+        echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
+    else
+        # Fallback — ingen match funne
+        echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
+    fi
 }
 
 domain_label() {
@@ -308,27 +359,10 @@ process_schema() {
             # Domenemodell Quickstart
             echo "## Kom i gang"
             echo ""
-            echo "### Last ned eksempelfil"
-            echo ""
-            echo "- [YAML](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$domain/$schema/examples/$schema-eksempel.yaml)"
-            echo ""
             echo "### Valider eiga datafil"
             echo ""
             echo "\`\`\`bash"
             echo "linkml-validate -s $schema-schema.yaml mine-data.yaml"
-            echo "\`\`\`"
-            echo ""
-            echo "### GitHub Actions-validering"
-            echo ""
-            echo "\`\`\`yaml"
-            echo "steps:"
-            echo "  - uses: actions/checkout@v4"
-            echo "  - name: Installer pyshacl"
-            echo "    run: pip install pyshacl"
-            echo "  - name: Valider data mot $schema-shapes"
-            echo "    run: |"
-            echo "      curl -O https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema-shapes.ttl"
-            echo "      pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
             echo "\`\`\`"
             echo ""
             echo ""
@@ -336,7 +370,7 @@ process_schema() {
 
         # Eksempel-seksjon (begge typar)
         if [ -f "$example_file" ]; then
-            echo "## Eksempel"
+            echo "## Eksempeldatafil"
             echo ""
             echo "### YAML"
             echo ""
@@ -393,14 +427,14 @@ process_schema() {
             echo ""
             echo "## ER-diagram"
             echo ""
-            echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg){:target=\"_blank\"}"
+            echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg)"
             echo ""
             echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
         elif [ -f "$out/$plantuml_full" ]; then
             echo ""
             echo "## ER-diagram"
             echo ""
-            echo "[![ER-diagram]($plantuml_full)]($plantuml_full){:target=\"_blank\"}"
+            echo "[![ER-diagram]($plantuml_full)]($plantuml_full)"
             echo ""
             echo "*Klikk for å zoome.*"
         fi
@@ -513,15 +547,10 @@ process_schema() {
 
         # Steg 5: Kontaktinformasjon
         # Hent utgjevar frå metadata (gendoc_index er allereie lest)
-        utgiver=""
-        if [ -f "$gendoc_index" ]; then
-            utgiver=$(grep "^| Utgjevar" "$gendoc_index" | sed 's/.*organizations\/\([0-9]*\).*/\1/')
-        fi
-
         echo ""
         echo "## Kontakt"
         echo ""
-        get_contact_info "$utgiver"
+        get_contact_info "src/linkml/${domain}/${schema}"
         echo ""
     ) > "$out/index.md"
 
