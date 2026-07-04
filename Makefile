@@ -121,14 +121,18 @@ define run_gen_plantuml
 )
 endef
 
-# Per-schema SHACL generator: looks up SHACL_FLAGS_<schema_key> per schema.
+# Per-schema SHACL generator with default flags.
+# Schemas can override via SHACL_FLAGS_<schema_key> in config.mk.
+SHACL_DEFAULT_FLAGS :=
 define run_gen_shacl
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-shacl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-shacl $(SHACL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-shacl $(SHACL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl;)
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-shacl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl;)
 endef
 
-# Per-schema OWL generator: looks up OWL_FLAGS_<schema_key> per schema.
+# Per-schema OWL generator with default flags to suppress deprecation warnings.
+# Schemas can override via OWL_FLAGS_<schema_key> in config.mk (e.g. samt-bu).
+OWL_DEFAULT_FLAGS := --skip-vacuous-local-range-axioms --skip-vacuous-min-zero-cardinality-axioms --consolidate-cardinality-axioms
 define run_gen_owl
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-owl $(OWL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(OWL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
 endef
 
 # Per-schema RDF generator: skips schemas with GEN_RDF_SKIP_<schema_key> := true.

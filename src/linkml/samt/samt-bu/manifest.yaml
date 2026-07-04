@@ -4,11 +4,9 @@ validation_policy: silver
 generators:
   jsonld_context: true
   shacl: true
-  shacl_flags: ""
   python: true
   json_schema: true
   owl: true
-  owl_flags: "--no-skip-vacuous-local-range-axioms --no-skip-vacuous-min-zero-cardinality-axioms --no-consolidate-cardinality-axioms"
   rdf: true
   protobuf: true
   erdiagram: true

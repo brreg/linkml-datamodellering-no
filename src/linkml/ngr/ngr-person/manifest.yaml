@@ -4,11 +4,9 @@ validation_policy: felles-datakatalog
 generators:
   jsonld_context: true
   shacl: true
-  shacl_flags: ""
   python: true
   json_schema: true
   owl: true
-  owl_flags: ""
   rdf: true
   protobuf: true
   erdiagram: true
