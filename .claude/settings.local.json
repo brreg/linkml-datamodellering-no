@@ -226,7 +226,8 @@
       "Bash(make help *)",
       "Bash(make gen-plantuml *)",
       "Bash(./mkdocs/publish.sh)",
-      "Bash(awk *)"
+      "Bash(awk *)",
+      "Bash(make gen-doc *)"
     ]
   },
   "enableAllProjectMcpServers": true,
