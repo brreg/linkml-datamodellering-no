@@ -26,6 +26,35 @@ log_step() {
 # Hjelpefunksjonar
 # ---------------------------------------------------------------------------
 
+# Mapping for eksterne referanse-URL-ar (AP-NO-profilar)
+get_external_spec_url() {
+    local schema="$1"
+    case "$schema" in
+        dcat-ap-no)      echo "https://informasjonsforvaltning.github.io/dcat-ap-no/" ;;
+        skos-ap-no)      echo "https://informasjonsforvaltning.github.io/skos-ap-no-begrep/" ;;
+        modelldcat-ap-no|modelldcat-modell|modelldcat-katalog)
+                         echo "https://data.norge.no/specification/modelldcat-ap-no" ;;
+        dqv-ap-no|dqv-core) echo "https://informasjonsforvaltning.github.io/dqv-ap-no/" ;;
+        cpsv-ap-no)      echo "https://informasjonsforvaltning.github.io/cpsv-ap-no/" ;;
+        xkos-ap-no)      echo "https://data.norge.no/specification/xkos-ap-no" ;;
+        *)               echo "" ;;
+    esac
+}
+
+# Hent kontaktinfo basert på utgjevar-organisasjon
+get_contact_info() {
+    utgiver="$1"
+    case "$utgiver" in
+        *991825827*)  # Brønnøysundregistrene
+            echo "**Forvaltningsansvarleg:** [Brønnøysundregistrene](https://data.norge.no/organizations/991825827)"
+            echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
+            ;;
+        *)  # Fallback
+            echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
+            ;;
+    esac
+}
+
 domain_label() {
     case "$1" in
         ap-no)   echo "AP-NO - Applikasjonsprofiler" ;;
@@ -90,6 +119,34 @@ EOF
     echo "${CLR_OK}✓ Genererte $output${CLR_RST}"
 }
 
+# Bygg avhengighetsgraf for eit skjema (forenkla versjon utan reverse-dependencies)
+build_dependency_graph() {
+    local domain="$1"
+    local schema="$2"
+    local schema_path="$REPO_ROOT/src/linkml/$domain/$schema/${schema}-schema.yaml"
+
+    # Parse direkte importar frå dette skjemaet
+    local imports=""
+    if [ -f "$schema_path" ]; then
+        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^  - " | sed 's/^  - //' | sed 's/-schema$//' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
+    fi
+
+    # Output (berre direkte importar — reverse-deps er for treg)
+    if [ -n "$imports" ]; then
+        echo "## Avhengigheiter"
+        echo ""
+        echo "### Importerer"
+        echo ""
+        echo "\`\`\`"
+        echo "$imports"
+        echo "\`\`\`"
+        echo ""
+        echo "*Sjå [AP-NO Arkitektur](../../ap-no-arkitektur.md#importkjede) for fullstendig importkjede.*"
+        echo ""
+        echo ""
+    fi
+}
+
 # ---------------------------------------------------------------------------
 # Per-skjema prosessering (køyrer parallelt)
 # ---------------------------------------------------------------------------
@@ -139,9 +196,71 @@ process_schema() {
     # ----------------------------------------------------------------
     # Generer schema/index.md
     # ----------------------------------------------------------------
-    {
+    (
+        set +e  # Tillat feil i heredoc for å unngå at variabelsubstitusjon feilar
         echo "# $schema"
         echo ""
+
+        # Steg 6: Badge-rad (parse metadata frå gendoc_index)
+        gendoc_index="$schema_dir/docs/index.md"
+        if [ -f "$gendoc_index" ]; then
+            version=$(grep "^| Versjon" "$gendoc_index" | sed 's/.*| \([^ ]*\) |/\1/' | head -1)
+            status=$(grep "^| Status" "$gendoc_index" | sed 's|.*status/\([^)]*\).*|\1|' | head -1)
+            license=$(grep "^| Lisens" "$gendoc_index" | sed 's|.*/nlod/no/\([0-9.]*\).*|\1|' | head -1)
+
+            # Valideringsstatus (les frå validation_json)
+            manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+            policy="bronze"
+            if [ -f "$manifest" ]; then
+                policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
+            fi
+            validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
+            validation_json="$validation_dir/$latest_version/${policy}.json"
+            val_status="ukjent"
+            val_color="lightgrey"
+            if [ -f "$validation_json" ]; then
+                errors=$(python3 -c "import json; d=json.load(open('$validation_json')); print(d.get('result', {}).get('error_count', 0))" 2>/dev/null || echo "0")
+                [ -z "$errors" ] && errors="0"
+                if [ "$errors" -eq 0 ]; then
+                    val_status="✓_godkjent"
+                    val_color="green"
+                else
+                    val_status="${errors}_feil"
+                    val_color="yellow"
+                fi
+            fi
+
+            # Normaliser status-namn
+            status_label="$status"
+            status_color="blue"
+            case "$status" in
+                Completed) status_label="Ferdigstilt"; status_color="green" ;;
+                UnderDevelopment) status_label="Under_utvikling"; status_color="orange" ;;
+                Deprecated) status_label="Foreldet"; status_color="red" ;;
+                Withdrawn) status_label="Trukket_tilbake"; status_color="red" ;;
+            esac
+
+            # URL-encode val_status for shields.io (erstatt mellomrom og spesialteikn)
+            val_status_encoded="${val_status// /_}"
+            val_status_encoded="${val_status_encoded//✓/%E2%9C%93}"
+
+            echo "[![Versjon](https://img.shields.io/badge/versjon-${version}-blue)]()"
+            echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
+            echo "[![Validering](https://img.shields.io/badge/${policy}-${val_status_encoded}-${val_color})]()"
+            if [ -n "$license" ]; then
+                echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
+            fi
+            echo ""
+        fi
+
+        # Steg 3: Ekstern referanse-boks (for AP-NO-profilar)
+        external_spec=$(get_external_spec_url "$schema")
+        if [ -n "$external_spec" ]; then
+            echo "!!! info \"Offisiell referanse\""
+            echo "    📘 [$schema-spesifikasjonen]($external_spec) frå Digitaliseringsdirektoratet"
+            echo ""
+        fi
 
         # Injiser description.md dersom det finst (brukarorientert introduksjon)
         description_file="$REPO_ROOT/src/linkml/$domain/$schema/description.md"
@@ -202,10 +321,14 @@ process_schema() {
             echo "### GitHub Actions-validering"
             echo ""
             echo "\`\`\`yaml"
-            echo "- name: Valider $schema-data"
-            echo "  run: |"
-            echo "    curl -O https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema-shapes.ttl"
-            echo "    pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
+            echo "steps:"
+            echo "  - uses: actions/checkout@v4"
+            echo "  - name: Installer pyshacl"
+            echo "    run: pip install pyshacl"
+            echo "  - name: Valider data mot $schema-shapes"
+            echo "    run: |"
+            echo "      curl -O https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema-shapes.ttl"
+            echo "      pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
             echo "\`\`\`"
             echo ""
             echo ""
@@ -238,7 +361,8 @@ process_schema() {
         gendoc_index="$schema_dir/docs/index.md"
         if [ -f "$gendoc_index" ]; then
             # Ekstraher frå "## Metadata" til neste "## "-seksjon (ikkje inkludert)
-            awk '/^## Metadata$/{ p=1 } p{ if(/^## / && !/^## Metadata$/){ exit } print }' "$gendoc_index"
+            # Endre overskrift til "Modellmetadata" for klarheit
+            awk '/^## Metadata$/{ p=1; print "## Modellmetadata"; next } p{ if(/^## / && !/^## Metadata$/){ exit } print }' "$gendoc_index"
         fi
 
         # Publiseringsinfo: boks dersom skjema har eit publisert URI-register
@@ -256,6 +380,9 @@ process_schema() {
             echo "    om arbeidsflyt, URI-stabilitet og oppsett for nye katalogar."
             echo ""
         fi
+
+        # Steg 4: Avhengighetsgraf
+        build_dependency_graph "$domain" "$schema"
 
         # Embed PlantUML-diagram (filtrert versjon — kun lokale klasser)
         plantuml_svg="diagrams/${schema}-filtered.svg"
@@ -340,23 +467,23 @@ process_schema() {
         fi
 
         # Valideringsresultat frå siste versjon (co-location-struktur)
-        local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-        local policy="bronze"
+        manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+        policy="bronze"
         if [ -f "$manifest" ]; then
             # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
             policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
         fi
 
         # Finn siste versjon programmatisk (semver-sortering)
-        local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-        local latest_version=""
+        validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+        latest_version=""
         if [ -d "$validation_dir" ]; then
             # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
             latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
         fi
 
         # Finn validation-logg for siste versjon og denne policyen
-        local validation_json=""
+        validation_json=""
         if [ -n "$latest_version" ]; then
             validation_json="$validation_dir/$latest_version/${policy}.json"
         fi
@@ -376,10 +503,27 @@ process_schema() {
             echo ""
             echo "## Versjonslog"
             echo ""
-            # Fjern hovudoverskrift "# Changelog" frå CHANGELOG.md dersom den finst
-            tail -n +1 "$changelog_src" | awk 'NR==1 && /^# Changelog/ { next } 1'
+            # Fjern hovudoverskrift "# Changelog" og auk nivået på alle andre overskrifter med éin #
+            tail -n +1 "$changelog_src" | awk '
+                NR==1 && /^# Changelog/ { next }
+                /^##/ { print "#" $0; next }
+                { print }
+            '
         fi
-    } > "$out/index.md"
+
+        # Steg 5: Kontaktinformasjon
+        # Hent utgjevar frå metadata (gendoc_index er allereie lest)
+        utgiver=""
+        if [ -f "$gendoc_index" ]; then
+            utgiver=$(grep "^| Utgjevar" "$gendoc_index" | sed 's/.*organizations\/\([0-9]*\).*/\1/')
+        fi
+
+        echo ""
+        echo "## Kontakt"
+        echo ""
+        get_contact_info "$utgiver"
+        echo ""
+    ) > "$out/index.md"
 
     local elapsed_ms=$(( $(date +%s%3N) - t0 ))
     printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)\n" \
