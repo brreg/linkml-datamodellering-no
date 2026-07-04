@@ -24,7 +24,7 @@ Dette oppretter:
 src/linkml/<domain>/<modell>/
 ├── <modell>-schema.yaml       ← hovudskjema med stub-klasse og containerklasse
 ├── manifest.yaml              ← publiserings- og generatorkonfig
-├── description.md             ← valfri beskrivelse av modellen, injiserast i portal-index etter ER-diagrammet
+├── description.md             ← valfri beskrivelse av modellen (10–20 liner), injiserast i portal-index før metadata-tabellen
 └── examples/
     └── <modell>-eksempel.yaml ← eksempelfil med minimal instans
 ```

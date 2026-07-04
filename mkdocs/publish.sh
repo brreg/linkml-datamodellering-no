@@ -143,6 +143,14 @@ process_schema() {
         echo "# $schema"
         echo ""
 
+        # Injiser description.md dersom det finst (brukarorientert introduksjon)
+        description_file="$REPO_ROOT/src/linkml/$domain/$schema/description.md"
+        if [ -f "$description_file" ]; then
+            cat "$description_file"
+            echo ""
+            echo ""
+        fi
+
         # Metadata-tabell frå gen-doc (ekstrahert frå docs/index.md)
         gendoc_index="$schema_dir/docs/index.md"
         if [ -f "$gendoc_index" ]; then
@@ -506,7 +514,7 @@ nav:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
-      - Valideringsregler: valideringsregler.md
+      - Valideringsreglar: valideringsregler.md
       - Arkitekturoversikt publisering: arkitektur-oversikt.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
