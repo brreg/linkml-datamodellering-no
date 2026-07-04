@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.2.2...register-over-aksjeeiere-v1.3.0) (2026-07-04)
+
+
+### Features
+
+* **validate-capture:** parallelliser validering av alle skjema ([6267587](https://github.com/brreg/linkml-datamodellering-no/commit/6267587223de8b03fe459c0d6458c492aa5dd279))
+
 ## [1.2.2](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.2.1...register-over-aksjeeiere-v1.2.2) (2026-07-04)
 
 
