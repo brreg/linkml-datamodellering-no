@@ -236,7 +236,8 @@
       "Bash(/tmp/check-version-sync.sh)",
       "Bash(/tmp/sync-all-versions.sh)",
       "Bash(make domain-samt *)",
-      "Bash(make domain-ap-no *)"
+      "Bash(make domain-ap-no *)",
+      "Bash(make artefacts *)"
     ]
   },
   "enableAllProjectMcpServers": true,
