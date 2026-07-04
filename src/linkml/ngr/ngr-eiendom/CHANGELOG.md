@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.1.2...ngr-eiendom-v1.2.0) (2026-07-04)
+
+
+### Features
+
+* **validate-capture:** parallelliser validering av alle skjema ([6267587](https://github.com/brreg/linkml-datamodellering-no/commit/6267587223de8b03fe459c0d6458c492aa5dd279))
+
 ## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.1.1...ngr-eiendom-v1.1.2) (2026-07-04)
 
 
