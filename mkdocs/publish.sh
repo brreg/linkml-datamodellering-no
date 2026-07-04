@@ -177,7 +177,7 @@ process_schema() {
             echo ""
             echo "## Versjonslog"
             echo ""
-            echo "<details>"
+            echo "<details markdown='1'>"
             echo "<summary>Vis full endringshistorikk</summary>"
             echo ""
             # Fjern hovudoverskrift "# Changelog" frå CHANGELOG.md dersom den finst

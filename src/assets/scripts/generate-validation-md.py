@@ -55,38 +55,36 @@ def main() -> None:
     if errors:
         lines += [
             "",
-            "<details>",
+            "<details markdown='1'>",
             f"<summary>Feil ({error_count})</summary>",
             "",
-            "```",
         ]
-        for issue in errors:
+        for idx, issue in enumerate(errors, start=1):
             code = issue.get("code", "")
             target = issue.get("target", "")
             message = issue.get("message", "")
-            lines.append(f"{code}: {target} — {message}")
+            lines.append(f"{idx}. **`{code}`** — `{target}`")
+            lines.append(f"   {message}")
+            lines.append("")
         lines += [
-            "```",
-            "",
             "</details>",
         ]
 
     if warnings:
         lines += [
             "",
-            "<details>",
+            "<details markdown='1'>",
             f"<summary>Åtvaringar ({warning_count})</summary>",
             "",
-            "```",
         ]
-        for issue in warnings:
+        for idx, issue in enumerate(warnings, start=1):
             code = issue.get("code", "")
             target = issue.get("target", "")
             message = issue.get("message", "")
-            lines.append(f"{code}: {target} — {message}")
+            lines.append(f"{idx}. **`{code}`** — `{target}`")
+            lines.append(f"   {message}")
+            lines.append("")
         lines += [
-            "```",
-            "",
             "</details>",
         ]
 
