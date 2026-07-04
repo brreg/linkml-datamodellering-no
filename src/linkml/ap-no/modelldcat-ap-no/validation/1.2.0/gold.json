@@ -1,28 +1,16 @@
 {
-  "schema": "skatteetaten-modellkatalog",
-  "domain": "modellkatalog",
-  "version": "1.0.0",
+  "schema": "modelldcat-ap-no",
+  "domain": "ap-no",
+  "version": "1.2.0",
   "validated_at": "2026-07-04",
-  "validation_policy": "bronze",
+  "validation_policy": "gold",
   "result": {
-    "valid": true,
-    "error_count": 0,
-    "warning_count": 63,
+    "valid": false,
+    "error_count": 2,
+    "warning_count": 61,
     "issues": [
       {
-        "severity": "warning",
-        "code": "missing_recommended_metadata",
-        "target": "class:ModellkatalogContainer",
-        "message": "Manglar anbefalt metadata: description"
-      },
-      {
-        "severity": "warning",
-        "code": "schema_field_present",
-        "target": "schema",
-        "message": "schema.license manglar"
-      },
-      {
-        "severity": "warning",
+        "severity": "error",
         "code": "all_slots_have_slot_uri",
         "target": "slot:id",
         "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
@@ -386,6 +374,18 @@
         "code": "all_classes_have_concept_ref",
         "target": "class:Informasjonsmodell",
         "message": "Klasse 'Informasjonsmodell' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "target": "schema",
+        "message": "schema.annotations.oppdateringsfrekvens manglar"
+      },
+      {
+        "severity": "error",
+        "code": "no_container_class",
+        "target": "schema",
+        "message": "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav"
       }
     ]
   }

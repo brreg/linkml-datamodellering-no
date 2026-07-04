@@ -2,7 +2,7 @@
   "schema": "novari-modellkatalog",
   "domain": "modellkatalog",
   "version": "1.0.0",
-  "validated_at": "2026-07-03",
+  "validated_at": "2026-07-04",
   "validation_policy": "bronze",
   "result": {
     "valid": true,
@@ -32,6 +32,12 @@
         "code": "class_count_exceeds_limit",
         "target": "schema",
         "message": "Skjemaet har 59 klasser (maks anbefalt: 50). Vurder å dele opp i fleire skjema (Digdir-regel 6: Modularitet)."
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Lisensdokument",
+        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
       },
       {
         "severity": "warning",
@@ -362,12 +368,6 @@
         "code": "all_classes_have_concept_ref",
         "target": "class:Tekstdel",
         "message": "Klasse 'Tekstdel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Lisensdokument",
-        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
       },
       {
         "severity": "warning",

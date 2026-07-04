@@ -2,7 +2,7 @@
   "schema": "enhetsregisteret-bvrinn",
   "domain": "oreg",
   "version": "1.0.0",
-  "validated_at": "2026-07-03",
+  "validated_at": "2026-07-04",
   "validation_policy": "silver",
   "result": {
     "valid": false,
