@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.24](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.0.23...fint-common-v4.0.24) (2026-07-04)
+
+
+### Bug Fixes
+
+* **release:** synk schema-versjon med release-nummer automatisk ([6dbb358](https://github.com/brreg/linkml-datamodellering-no/commit/6dbb358b6929bfbd73ef9c5fde8f1a0c24cb56e2))
+
 ## [4.0.23](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.0.22...fint-common-v4.0.23) (2026-07-04)
 
 
