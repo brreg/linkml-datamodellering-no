@@ -53,3 +53,14 @@ Alle tiltak er implementerte:
 3. **Historisk sync**: Oppdaterte alle 21 skjema manuelt til å matche `.release-please-manifest.json` (dei var alle ute av sync sidan `extra-files` aldri fungerte). Brukte Python-script som bevarer YAML-formatering.
 
 **Neste release** vil automatisk få korrekt schema-versjon.
+
+---
+
+**Tilleggsarbeid: Auto-merge av release-PRs**
+
+Oppdaga at release-please-PRs kravde manuell godkjenning før merge (branch protection rule: `required_approving_review_count: 1`). Implementerte auto-approval og auto-merge:
+
+- `.github/workflows/auto-approve-release-please.yml`: Ny workflow som automatisk godkjenner release-please-PRs når dei vert oppretta
+- `.github/workflows/release-please.yml`: Aktiverer auto-merge på nyskapte release-PRs med `gh pr merge --auto --squash`
+
+**Resultat**: Release-PRs vert no automatisk godkjent og merga når alle checks passerer (Trivy, Validate, CodeQL).

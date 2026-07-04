@@ -3,7 +3,8 @@ name: Release Please
 # Automatisk release-PR-oppretting og GitHub Releases:
 # 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
 #    → release-please opprettar/oppdaterer release-PR automatisk
-# 2. Brukar mergar release-PR manuelt
+# 2. auto-approve-release-please.yml godkjenner PR-en automatisk
+# 3. PR vert merga automatisk når alle checks passerer (auto-merge)
 #    → GitHub Releases vert oppretta automatisk med artefaktar (JSON Schema, SHACL, OWL, osv.)
 #
 # Manuell trigger via workflow_dispatch er tilgjengeleg for admin.
@@ -49,14 +50,17 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: Informer om release-PR
+      - name: Informer om release-PR og aktiver auto-merge
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
           echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
-          echo "Gå til PR-en, verifiser endringar, og merge når du er klar."
+
+          # Aktiver auto-merge (vert merga når alle checks passerer og PR er godkjent)
+          gh pr merge "$PR_NUMBER" --auto --squash
+          echo "Auto-merge aktivert — PR vert merga automatisk når alle checks passerer."
 
       - name: Checkout for artefakt-generering
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}
