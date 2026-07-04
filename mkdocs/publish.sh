@@ -151,6 +151,89 @@ process_schema() {
             echo ""
         fi
 
+        # Quickstart-seksjon (AP-NO vs domenemodell)
+        example_file="$REPO_ROOT/src/linkml/$domain/$schema/examples/${schema}-eksempel.yaml"
+        if [ "$domain" = "ap-no" ]; then
+            # AP-NO Quickstart
+            echo "## Kom i gang"
+            echo ""
+            echo "### Importer i LinkML-skjema"
+            echo ""
+            echo "\`\`\`yaml"
+            echo "imports:"
+            echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/$schema/$schema-schema"
+            echo "\`\`\`"
+            echo ""
+            echo "### Python-bruk"
+            echo ""
+            echo "\`\`\`bash"
+            echo "pip install linkml-runtime pyyaml"
+            echo "\`\`\`"
+            echo ""
+            echo "\`\`\`python"
+            echo "from linkml_runtime.loaders import yaml_loader"
+            echo "from ${schema//-/_}_model import Katalog"
+            echo ""
+            echo "katalog = yaml_loader.load('eksempel.yaml', target_class=Katalog)"
+            echo "print(katalog.tittel)"
+            echo "\`\`\`"
+            echo ""
+            echo "### Valider data mot SHACL"
+            echo ""
+            echo "\`\`\`bash"
+            echo "pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
+            echo "\`\`\`"
+            echo ""
+            echo ""
+        elif [ -f "$example_file" ]; then
+            # Domenemodell Quickstart
+            echo "## Kom i gang"
+            echo ""
+            echo "### Last ned eksempelfil"
+            echo ""
+            echo "- [YAML](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$domain/$schema/examples/$schema-eksempel.yaml)"
+            echo ""
+            echo "### Valider eiga datafil"
+            echo ""
+            echo "\`\`\`bash"
+            echo "linkml-validate -s $schema-schema.yaml mine-data.yaml"
+            echo "\`\`\`"
+            echo ""
+            echo "### GitHub Actions-validering"
+            echo ""
+            echo "\`\`\`yaml"
+            echo "- name: Valider $schema-data"
+            echo "  run: |"
+            echo "    curl -O https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema-shapes.ttl"
+            echo "    pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
+            echo "\`\`\`"
+            echo ""
+            echo ""
+        fi
+
+        # Eksempel-seksjon (begge typar)
+        if [ -f "$example_file" ]; then
+            echo "## Eksempel"
+            echo ""
+            echo "### YAML"
+            echo ""
+            echo "\`\`\`yaml"
+            # Ekstraher første 20 liner (eller til første tom linje etter header)
+            head -20 "$example_file" | awk '
+                NR == 1 && /^#/ { in_header = 1 }
+                in_header && /^$/ { in_header = 0; next }
+                !in_header { print }
+                NR > 20 { exit }
+            '
+            echo "\`\`\`"
+            echo ""
+            echo "[📄 Full eksempelfil (YAML)](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$domain/$schema/examples/$schema-eksempel.yaml)"
+            echo ""
+            echo "*Detaljerte eksempel per klasse finst på kvar klasseside, t.d. [Classes](#classes).*"
+            echo ""
+            echo ""
+        fi
+
         # Metadata-tabell frå gen-doc (ekstrahert frå docs/index.md)
         gendoc_index="$schema_dir/docs/index.md"
         if [ -f "$gendoc_index" ]; then
