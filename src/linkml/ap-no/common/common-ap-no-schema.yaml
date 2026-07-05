@@ -39,11 +39,6 @@ imports:
 
 types:
 
-  Spraak:
-    uri: dct:language
-    base: str
-    description: Språk
-  
   LangString:
     uri: rdf:langString
     base: str
@@ -101,29 +96,83 @@ enums:
         description: European Union Public Licence 1.2
         meaning: http://publications.europa.eu/resource/authority/licence/EUPL_1_2
 
-  EUDistributionStatus:
+  EUFileType:
     description: >-
-      EU Dataset/Distribution status-vokabularet frå Publications Office.
-      Kjelde: http://publications.europa.eu/resource/authority/dataset-status/
+      EU File type-vokabularet frå Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/file-type/
+    permissible_values:
+      RDF_TURTLE:
+        description: RDF Turtle
+        meaning: http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE
+      RDF_XML:
+        description: RDF XML
+        meaning: http://publications.europa.eu/resource/authority/file-type/RDF_XML
+      JSON_LD:
+        description: JSON-LD
+        meaning: http://publications.europa.eu/resource/authority/file-type/JSON_LD
+      JSON:
+        description: JSON
+        meaning: http://publications.europa.eu/resource/authority/file-type/JSON
+      XML:
+        description: XML
+        meaning: http://publications.europa.eu/resource/authority/file-type/XML
+      HTML:
+        description: HTML
+        meaning: http://publications.europa.eu/resource/authority/file-type/HTML
+      PDF:
+        description: PDF
+        meaning: http://publications.europa.eu/resource/authority/file-type/PDF
+      CSV:
+        description: CSV
+        meaning: http://publications.europa.eu/resource/authority/file-type/CSV
+      YAML:
+        description: YAML
+        meaning: http://publications.europa.eu/resource/authority/file-type/YAML
+
+  EULanguage:
+    description: >-
+      EU Language-vokabularet frå Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/language/
+    permissible_values:
+      NOB:
+        description: Norsk bokmål
+        meaning: http://publications.europa.eu/resource/authority/language/NOB
+      NNO:
+        description: Nynorsk
+        meaning: http://publications.europa.eu/resource/authority/language/NNO
+      NOR:
+        description: Norsk (uspesifisert)
+        meaning: http://publications.europa.eu/resource/authority/language/NOR
+      SME:
+        description: Nordsamisk
+        meaning: http://publications.europa.eu/resource/authority/language/SME
+      SMA:
+        description: Sørsamisk
+        meaning: http://publications.europa.eu/resource/authority/language/SMA
+      SMJ:
+        description: Lulesamisk
+        meaning: http://publications.europa.eu/resource/authority/language/SMJ
+      ENG:
+        description: Engelsk
+        meaning: http://publications.europa.eu/resource/authority/language/ENG
+
+  ADMSStatus:
+    description: >-
+      ADMS Status-vokabularet.
+      Kjelde: http://purl.org/adms/status/
     permissible_values:
       COMPLETED:
         description: Ferdigstilt (Completed)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/COMPLETED
+        meaning: http://purl.org/adms/status/Completed
       DEPRECATED:
         description: Foreldet (Deprecated)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/DEPRECATED
-      DEVELOP:
+        meaning: http://purl.org/adms/status/Deprecated
+      UNDER_DEVELOPMENT:
         description: Under utvikling (Under development)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/DEVELOP
+        meaning: http://purl.org/adms/status/UnderDevelopment
       WITHDRAWN:
         description: Trukket tilbake (Withdrawn)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/WITHDRAWN
-      DISCONT:
-        description: Nedlagt (Discontinued)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/DISCONT
-      OP_DATPRO:
-        description: I produksjon (Operational data processing)
-        meaning: http://publications.europa.eu/resource/authority/dataset-status/OP_DATPRO
+        meaning: http://purl.org/adms/status/Withdrawn
 
 # ---------------------------------------------------------------------------
 # Subsets
@@ -157,6 +206,12 @@ classes:
     slots:
       - id
       - type_concept
+    slot_usage:
+      type_concept:
+        description: >-
+          Type lisens frå ADMS licence type-vokabularet (dct:type).
+        annotations:
+          gyldige_verdier: http://purl.org/adms/licencetype/
 
   Mediatype:
     class_uri: dct:MediaTypeOrExtent
@@ -223,14 +278,26 @@ slots:
 
   spraak:
     slot_uri: dct:language
-    range: Spraak
+    range: Konsept
     multivalued: true
-    description: Språk brukt i ressursen (dct:language).
+    description: >-
+      Språk brukt i ressursen (dct:language). Verdien SKAL veljast frå EUs
+      kontrollerte vokabular Language
+      (http://publications.europa.eu/resource/authority/language/).
+      Sjå enumerasjonen EULanguage for norske språk.
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/language/
 
   format:
     slot_uri: dct:format
-    range: string
-    description: Filformat eller medietype (dct:format).
+    range: Konsept
+    description: >-
+      Filformat eller medietype (dct:format). Verdien SKAL veljast frå EUs
+      kontrollerte vokabular File type
+      (http://publications.europa.eu/resource/authority/file-type/).
+      Sjå enumerasjonen EUFileType for dei mest brukte formata.
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/file-type/
 
   har_referanse:
     slot_uri: rdfs:seeAlso
@@ -266,11 +333,10 @@ slots:
     range: Konsept
     description: >-
       Status for ressursen frå eit kontrollert vokabular (adms:status). Verdien SKAL
-      veljast frå EUs kontrollerte vokabular Distribution status
-      (http://publications.europa.eu/resource/authority/dataset-status/).
-      Sjå enumerasjonen EUDistributionStatus for tilgjengelege statusar.
+      veljast frå ADMS Status-vokabularet (http://purl.org/adms/status/).
+      Sjå enumerasjonen ADMSStatus for tilgjengelege statusar.
     annotations:
-      gyldige_verdier: http://publications.europa.eu/resource/authority/dataset-status/
+      gyldige_verdier: http://purl.org/adms/status/
 
   valuta:
     slot_uri: cv:currency
