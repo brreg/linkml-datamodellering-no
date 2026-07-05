@@ -15,7 +15,7 @@ MCP_DIR    			:= src/mcp-linkml-validator
 MCP_IMAGE  			:= mcp-linkml-validator
 INSTANCE   			?=
 POLICY     			?=
-PARALLEL   			?= 8
+PARALLEL   			?= 16
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
 PLANTUML_IMAGE		:= docker.io/plantuml/plantuml:latest
 DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
@@ -91,6 +91,230 @@ else \
 			$$((elapsed_ms % 1000 / 100)); \
 		exit $$rc'; \
 fi
+endef
+
+# Parallell versjon av merge-imports (gen-linkml)
+define run_gen_linkml_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(foreach s,$(1),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		t0=$$(date +%s%3N); \
+		$(LINKML_RUN) gen-linkml "$$s" > /dev/null 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ merge-imports  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-owl
+define run_gen_owl_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir"; \
+		$(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl" 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ gen-owl  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-rdf
+define run_gen_rdf_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(call run_gen_rdf,$(1)) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir"; \
+		$(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl" 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ gen-rdf  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-doc
+define run_gen_doc_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(call run_gen_doc,$(1)) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir/docgen-examples" "$$outdir/docs"; \
+		$(PYTHON_RUN) python3 src/assets/scripts/gen-docgen-examples.py \
+			"$$s" \
+			"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
+			"$$outdir/docgen-examples" > /dev/null 2>&1; \
+		$(LINKML_RUN) gen-doc \
+			--template-directory src/assets/templates/docgen \
+			--no-mergeimports \
+			--no-render-imports \
+			--no-hierarchical-class-view \
+			--diagram-type mermaid_class_diagram \
+			--example-directory "$$outdir/docgen-examples" \
+			-d "$$outdir/docs" "$$s" > /dev/null 2>&1; \
+		sed -i "/Container/d" "$$outdir/docs/index.md"; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ gen-docgen-examples + gen-doc  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-erdiagram
+define run_gen_erdiagram_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(call run_gen_erdiagram,$(1)) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir"; \
+		$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" 2>&1 \
+			| awk -f src/assets/scripts/filter_container.awk \
+			> "$$outdir/$$name-erdiagram-unfiltered.md"; \
+		$(PYTHON_RUN) python -u src/assets/scripts/filter_erdiagram.py \
+			"$$s" \
+			"$$outdir/$$name-erdiagram-unfiltered.md" \
+			> "$$outdir/$$name-erdiagram.md" 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ gen-erdiagram  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-plantuml
+define run_gen_plantuml_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(call run_gen_plantuml,$(1)) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir/diagrams"; \
+		$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" 2>&1; \
+		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
+			"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
+			> "$$outdir/diagrams/$$name-filtered.puml" 2>&1; \
+		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
+			"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
+			> "$$outdir/diagrams/$$name.puml" 2>&1; \
+		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml 2>&1; \
+		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ gen-plantuml  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
+endef
+
+# Parallell versjon av gen-openapi
+define run_gen_openapi_parallel
+printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+	s="{}"; \
+	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+	domain=$$(echo "$$s" | cut -d/ -f3); \
+	manifest=$$(dirname "$$s")/manifest.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
+		exit 0; \
+	fi; \
+	outdir=$(GEN_DIR)/$$domain/$$name; \
+	jsonschema="$$outdir/$$name-schema.json"; \
+	if [ ! -f "$$jsonschema" ]; then \
+		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name" >&2; \
+		exit 0; \
+	fi; \
+	out="$$outdir/$$name-openapi.yaml"; \
+	t0=$$(date +%s%3N); \
+	mkdir -p "$$outdir"; \
+	$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
+	$(PYTHON_RUN) openapi-spec-validator /work/$$out > /dev/null 2>&1; \
+	rc=$$?; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	printf "$(CLR_STEP)→ gen-openapi  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		"$$domain" "$$name" \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)); \
+	exit $$rc'
+endef
+
+# Parallell versjon av gen-asyncapi
+define run_gen_asyncapi_parallel
+printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+	s="{}"; \
+	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+	domain=$$(echo "$$s" | cut -d/ -f3); \
+	manifest=$$(dirname "$$s")/manifest.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
+		exit 0; \
+	fi; \
+	outdir=$(GEN_DIR)/$$domain/$$name; \
+	jsonschema="$$outdir/$$name-schema.json"; \
+	if [ ! -f "$$jsonschema" ]; then \
+		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name" >&2; \
+		exit 0; \
+	fi; \
+	out="$$outdir/$$name-asyncapi.yaml"; \
+	t0=$$(date +%s%3N); \
+	mkdir -p "$$outdir"; \
+	$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
+	$(ASYNCAPI_RUN) validate /work/$$out > /dev/null 2>&1; \
+	rc=$$?; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	printf "$(CLR_STEP)→ gen-asyncapi  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		"$$domain" "$$name" \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)); \
+	exit $$rc'
 endef
 
 # gen-erdiagram: pipe through awk to strip Container classes (entity block + relationships)
@@ -642,13 +866,13 @@ domain-$(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make domain-$(1)$(if $(filter-out 1,$(PARALLEL)), (PARALLEL=$(PARALLEL)),)$(CLR_RST)"
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ merge-imports  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
+	$$(call run_gen_linkml_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-shacl,shapes.ttl)
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-python,model.py)
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-json-schema,schema.json)
-	$$(call run_gen_owl,$$(_schemas_$(1)))
-	$$(call run_gen_rdf,$$(_schemas_$(1)))
+	$$(call run_gen_owl_parallel,$$(_schemas_$(1)))
+	$$(call run_gen_rdf_parallel,$$(_schemas_$(1)))
 	@for example in $$(find $(SCHEMA_DIR)/$(1) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \
@@ -671,13 +895,57 @@ domain-$(1):
 			--no-validate \
 			$$$$example > $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl; \
 	done
-	$$(call run_gen_doc,$$(_schemas_$(1)))
-	$$(call run_gen_erdiagram,$$(_schemas_$(1)))
+	$$(call run_gen_doc_parallel,$$(_schemas_$(1)))
+	$$(call run_gen_erdiagram_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-proto,schema.proto)
-	$$(call run_gen_plantuml,$$(_schemas_$(1)))
+	$$(call run_gen_plantuml_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_xsd,$$(_schemas_$(1)))
-	$$(call run_gen_openapi,$$(_schemas_$(1)))
-	$$(call run_gen_asyncapi,$$(_schemas_$(1)))
+	@if [ "$$(PARALLEL)" = "1" ]; then \
+		for schema in $$(_schemas_$(1)); do \
+			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
+			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
+			manifest=$$$$(dirname "$$$$schema")/manifest.yaml; \
+			if [ ! -f "$$$$manifest" ] || ! grep -q "^  openapi: true" "$$$$manifest"; then \
+				continue; \
+			fi; \
+			jsonschema=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-schema.json; \
+			if [ ! -f "$$$$jsonschema" ]; then \
+				echo "ÅTVARING: $$$$jsonschema finst ikkje — hoppar over gen-openapi for $$$$name" >&2; \
+				continue; \
+			fi; \
+			out=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-openapi.yaml; \
+			mkdir -p $(GEN_DIR)/$$$$domain/$$$$name; \
+			echo "$(CLR_STEP)→ gen-openapi  $$$$schema$(CLR_RST)"; \
+			$$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
+			$$(PYTHON_RUN) openapi-spec-validator /work/$$$$out; \
+		done; \
+	else \
+		$$(call run_gen_openapi_parallel,$$(_schemas_$(1))); \
+	fi
+	@if [ "$$(PARALLEL)" = "1" ]; then \
+		for schema in $$(_schemas_$(1)); do \
+			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
+			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
+			manifest=$$$$(dirname "$$$$schema")/manifest.yaml; \
+			if [ ! -f "$$$$manifest" ] || ! grep -q "^  asyncapi: true" "$$$$manifest"; then \
+				continue; \
+			fi; \
+			jsonschema=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-schema.json; \
+			if [ ! -f "$$$$jsonschema" ]; then \
+				echo "ÅTVARING: $$$$jsonschema finst ikkje — hoppar over gen-asyncapi for $$$$name" >&2; \
+				continue; \
+			fi; \
+			out=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-asyncapi.yaml; \
+			mkdir -p $(GEN_DIR)/$$$$domain/$$$$name; \
+			echo "$(CLR_STEP)→ gen-asyncapi  $$$$schema$(CLR_RST)"; \
+			$$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
+			$$(ASYNCAPI_RUN) validate /work/$$$$out; \
+		done; \
+	else \
+		$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1))); \
+	fi
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
