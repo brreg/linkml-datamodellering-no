@@ -263,7 +263,8 @@
       "Bash(make oreg/enhetsregisteret-bvrinn)",
       "Bash(make validate *)",
       "WebFetch(domain:publications.europa.eu)",
-      "Bash(make gen-all *)"
+      "Bash(make gen-all *)",
+      "Bash(make gen-jsonschema *)"
     ]
   },
   "enableAllProjectMcpServers": true,
