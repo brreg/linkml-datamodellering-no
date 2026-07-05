@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.1...cpsv-ap-no-v1.2.2) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ap-no:** løys URI-konflikt i xkos-ap-no og endre merge-imports-namn ([55f73ab](https://github.com/brreg/linkml-datamodellering-no/commit/55f73ab0d0203e510c9b3d2c9a2ca33b5d7ef633))
+
 ## [1.2.1](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.0...cpsv-ap-no-v1.2.1) (2026-07-04)
 
 
