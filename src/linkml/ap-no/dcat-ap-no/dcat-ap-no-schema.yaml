@@ -84,6 +84,11 @@ classes:
       identifikator_literal:
         in_subset:
           - Anbefalt
+      type_concept:
+        description: >-
+          Type aktør frå ADMS publisher type-vokabularet (dct:type).
+        annotations:
+          gyldige_verdier: http://purl.org/adms/publishertype/
     see_also:
       - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 

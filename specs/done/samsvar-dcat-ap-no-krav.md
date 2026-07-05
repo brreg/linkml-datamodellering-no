@@ -486,6 +486,20 @@ Desse tiltaka er **ikkje påkravde** for samsvar — skjemaet er allereie i sams
 
 ---
 
+## Utført
+
+Alle tre prioriterte tiltak er gjennomførte:
+
+1. **✓ EU Licence-enumerasjon** — Laga `EULicence` i `common-ap-no-schema.yaml` med 8 lisenstypar (CC0, CC_BY_4_0, NLOD_2_0, CC_BYSA_4_0, MIT, APACHE_2_0, GPL_3_0, EUPL_1_2). Oppdatert `lisens`-slot med eksplisitt referanse til EU Licence-vokabularet (`http://publications.europa.eu/resource/authority/licence/`).
+
+2. **✓ policy-range til uri** — Endra `policy`-sloten frå `range: string` til `range: uri` i `dcat-ap-no-schema.yaml`, sidan ODRL-policies er URI-referansar.
+
+3. **✓ dcatno-prefix** — Lagt til `dcatno: https://data.norge.no/vocabulary/dcatno#` i `prefixes` i `dcat-ap-no-schema.yaml` som spesifisert i Vedlegg A.
+
+**Konklusjon:** `dcat-ap-no-schema.yaml` er no i full samsvar med § 1.5, § 4.3 og Vedlegg A. EU-vokabular er dokumenterte og tilgjengelege som enumerasjonar for enklare bruk.
+
+---
+
 # Evaluering av samsvar med DCAT-AP-NO Vedlegg A — Navnerom
 
 ## Bakgrunn
