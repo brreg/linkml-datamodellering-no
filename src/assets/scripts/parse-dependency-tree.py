@@ -113,17 +113,16 @@ def parse_tree_lines(lines: List[str]) -> Dict[str, List[str]]:
 
 def normalize_schema_name(name: str) -> str:
     """
-    Normalize schema name from imports to match hierarchy.
+    Normalize schema name from imports.
 
     Examples:
-        "ap-no/dcat-ap-no/dcat-ap-no" -> "dcat-ap-no"
+        "ap-no/dcat-ap-no/dcat-ap-no-schema" -> "dcat-ap-no-schema"
         "linkml:types" -> "linkml:types"
-        "../fint-common/fint-common-schema" -> "fint-common"
+        "../fint-common/fint-common-schema" -> "fint-common-schema"
     """
     # Remove path components
     name = name.split('/')[-1]
-    # Remove -schema suffix
-    name = name.replace('-schema', '')
+    # Keep -schema suffix
     return name
 
 
@@ -131,6 +130,7 @@ def build_subtree(
     schema: str,
     tree: Dict[str, List[str]],
     visited: Set[str],
+    direct_imports: Set[str],
     indent: int = 0
 ) -> List[str]:
     """
@@ -140,6 +140,7 @@ def build_subtree(
         schema: Root schema name
         tree: Full hierarchy tree
         visited: Set of already visited schemas (to avoid cycles)
+        direct_imports: Set of direct imports from the schema
         indent: Current indentation level
 
     Returns:
@@ -151,18 +152,25 @@ def build_subtree(
     visited.add(schema)
     lines = []
 
+    # Add comment for direct/transitiv import
+    comment = ""
+    if schema in direct_imports:
+        comment = "  # direkte import"
+    elif indent > 0:
+        comment = "  # transitiv import"
+
     # Add current schema
     if indent == 0:
-        lines.append(schema)
+        lines.append(schema + comment)
     else:
         prefix = '    ' * (indent - 1) + '└── '
-        lines.append(prefix + schema)
+        lines.append(prefix + schema + comment)
 
     # Add children
     children = tree.get(schema, [])
     for i, child in enumerate(children):
         is_last = (i == len(children) - 1)
-        child_lines = build_subtree(child, tree, visited, indent + 1)
+        child_lines = build_subtree(child, tree, visited, direct_imports, indent + 1)
 
         # Adjust prefix for non-last children
         if not is_last and child_lines:
@@ -272,13 +280,14 @@ def filter_tree_to_targets(
     return filtered
 
 
-def build_dependency_tree(schema_name: str, imports: List[str]) -> str:
+def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: Set[str]) -> str:
     """
     Build complete dependency tree for a schema.
 
     Args:
         schema_name: Name of the schema
         imports: List of imported schemas
+        direct_imports: Set of direct imports (normalized schema names)
 
     Returns:
         ASCII tree as string
@@ -345,7 +354,7 @@ def build_dependency_tree(schema_name: str, imports: List[str]) -> str:
     visited = set()
 
     for root in sorted(roots):
-        root_lines = build_subtree(root, filtered_tree, visited)
+        root_lines = build_subtree(root, filtered_tree, visited, direct_imports)
         all_lines.extend(root_lines)
 
     return '\n'.join(all_lines) if all_lines else '\n'.join(imports)
@@ -353,13 +362,18 @@ def build_dependency_tree(schema_name: str, imports: List[str]) -> str:
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: parse-dependency-tree.py <schema_name> <imports_list>", file=sys.stderr)
+        print("Usage: parse-dependency-tree.py <schema_name> <imports_list> [direct_imports]", file=sys.stderr)
         sys.exit(1)
 
     schema_name = sys.argv[1]
     imports = sys.argv[2].split()
 
-    tree = build_dependency_tree(schema_name, imports)
+    # Parse direct imports (normalized schema names)
+    direct_imports = set()
+    if len(sys.argv) > 3 and sys.argv[3]:
+        direct_imports = set(sys.argv[3].split())
+
+    tree = build_dependency_tree(schema_name, imports, direct_imports)
     print(tree)
 
 

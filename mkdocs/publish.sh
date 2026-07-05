@@ -190,8 +190,12 @@ build_dependency_graph() {
 
     # Parse direkte importar frå dette skjemaet
     local imports=""
+    local direct_imports_normalized=""
     if [ -f "$schema_path" ]; then
-        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^[ ]*- " | sed 's/^[ ]*- //' | sed 's/-schema$//' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
+        # Behald -schema-suffiks (ikkje strip det)
+        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^[ ]*- " | sed 's/^[ ]*- //' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
+        # Normaliser til skjemanamn (basename) for direkte-import-matching
+        direct_imports_normalized=$(echo "$imports" | tr ' ' '\n' | xargs -I {} basename {} | tr '\n' ' ')
     fi
 
     # Output (hierarkisk tre med transitive avhengigheiter)
@@ -206,7 +210,8 @@ build_dependency_graph() {
         echo ""
         echo "\`\`\`"
         # Kall Python-script for å bygge hierarkisk tre
-        python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports"
+        # Send normaliserte direkte importar som tredje argument
+        python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports" "$direct_imports_normalized"
         echo "\`\`\`"
         echo ""
         echo "!!! note \"Leseretning\""
