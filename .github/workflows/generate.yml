@@ -179,13 +179,14 @@ jobs:
             fi
           }
           load_image linkml-local.tar.zst localhost/linkml-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}"
+            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" &
           load_image python-pytest.tar.zst localhost/python-pytest:latest \
-            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
+            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" &
           load_image avrotize-local.tar.zst localhost/avrotize-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}"
+            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" &
           load_image asyncapi-cli-local.tar.zst localhost/asyncapi-cli-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}"
+            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" &
+          wait
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
