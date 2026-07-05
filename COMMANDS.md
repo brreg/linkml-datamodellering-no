@@ -79,12 +79,19 @@ er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 
 Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
 1. **Validering**: `merge-imports` mergar imports og validerer skjemaet (output vert kasta)
-2. **Artefaktgenerering**: JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
+2. **Artefaktgenerering** (parallelt): JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
 3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
+
+**Parallellisering**: Alle `domain-*` targets støttar `PARALLEL` parameter (default: 8 jobbar).
+- `make domain-ap-no` — køyrer med 8 parallelle jobbar (default)
+- `make domain-ap-no PARALLEL=16` — køyrer med 16 parallelle jobbar
+- `make domain-ap-no PARALLEL=1` — køyrer sekvensielt (debugging)
+
+Parallell køyring viser timer per jobb: `→ gen-jsonld-context ap-no/dcat-ap-no (5.1s)`
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make domain-ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler | `generated/ap-no/` |
+| `make domain-ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler (parallelt) | `generated/ap-no/` |
 | `make domain-begrepskatalog` | Valider + generer alle artefakter for begrepskatalogmodellane | `generated/begrepskatalog/` |
 | `make domain-fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
 | `make domain-fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |

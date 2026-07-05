@@ -15,6 +15,7 @@ MCP_DIR    			:= src/mcp-linkml-validator
 MCP_IMAGE  			:= mcp-linkml-validator
 INSTANCE   			?=
 POLICY     			?=
+PARALLEL   			?= 8
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
 PLANTUML_IMAGE		:= docker.io/plantuml/plantuml:latest
 DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
@@ -66,6 +67,30 @@ endef
 # prints the coloured summary line, then the full podman command, then runs it.
 define run_gen
 @$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
+endef
+
+# Parallell versjon av run_gen med timer
+# $1=schemas  $2=generator  $3=output-file suffix
+define run_gen_parallel
+@if [ "$(PARALLEL)" = "1" ]; then \
+	$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);) \
+else \
+	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir" && \
+		$(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)" 2>&1; \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
+fi
 endef
 
 # gen-erdiagram: pipe through awk to strip Container classes (entity block + relationships)
@@ -615,13 +640,13 @@ _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 .PHONY: domain-$(1)
 domain-$(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make domain-$(1)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make domain-$(1)$(if $(filter-out 1,$(PARALLEL)), (PARALLEL=$(PARALLEL)),)$(CLR_RST)"
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ merge-imports  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
-	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
-	$$(call run_gen_shacl,$$(_schemas_$(1)))
-	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)
-	$$(call run_gen,$$(_schemas_$(1)),gen-json-schema,schema.json)
+	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
+	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-shacl,shapes.ttl)
+	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-python,model.py)
+	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-json-schema,schema.json)
 	$$(call run_gen_owl,$$(_schemas_$(1)))
 	$$(call run_gen_rdf,$$(_schemas_$(1)))
 	@for example in $$(find $(SCHEMA_DIR)/$(1) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
@@ -648,7 +673,7 @@ domain-$(1):
 	done
 	$$(call run_gen_doc,$$(_schemas_$(1)))
 	$$(call run_gen_erdiagram,$$(_schemas_$(1)))
-	$$(call run_gen,$$(_schemas_$(1)),gen-proto,schema.proto)
+	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-proto,schema.proto)
 	$$(call run_gen_plantuml,$$(_schemas_$(1)))
 	$$(call run_gen_xsd,$$(_schemas_$(1)))
 	$$(call run_gen_openapi,$$(_schemas_$(1)))
