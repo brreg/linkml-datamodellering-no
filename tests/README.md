@@ -9,7 +9,7 @@ Kvar skjema-køyring utfører 17 testar parallelt (generatorar, lint, roundtrip)
 
 | Test | Kva det sjekkar |
 |---|---|
-| `validate` | `gen-linkml` kan lese og validere skjemaet |
+| `validate` | LinkML kan merge imports og validere skjemaet |
 | `gen-jsonld` | JSON-LD-kontekst vert generert |
 | `gen-python` | Python-klasser vert generert |
 | `gen-jsonschema` | JSON Schema vert generert |
