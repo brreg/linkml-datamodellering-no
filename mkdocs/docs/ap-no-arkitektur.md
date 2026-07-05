@@ -10,24 +10,7 @@ Detaljerte kartleggingsdokument per skjema ligg i `specs/done/` og `specs/backlo
 
 ## Importkjede
 
-```
-linkml:types
-    └── common-ap-no
-        ├── dqv-core
-        │   └── dcat-ap-no
-        │       └── dqv-ap-no
-        ├── skos-ap-no
-        ├── xkos-ap-no
-        ├── cpsv-ap-no
-        └── modelldcat-modell
-            └── modelldcat-katalog
-                └── modelldcat-ap-no  (pass-through)
-```
-
-**Reglane:**
-- `common-ap-no` er det einaste AP-NO-skjemaet som importerer direkte frå `linkml:types`
-- `domenemodell`-skjema importerer AP-NO-profilene, **ikkje** `common-ap-no` direkte
-- `fint-common` og `oreg`-skjema følgjer sine eigne importkjeder (sjå CLAUDE.md)
+Sjå [Importhierarki](importhierarki.md#ap-no-hierarki) for fullstendig oversikt over AP-NO-importkjeda og korleis den forheld seg til FINT, oreg og andre domene.
 
 ---
 

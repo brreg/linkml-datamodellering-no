@@ -170,29 +170,43 @@ EOF
     echo "${CLR_OK}✓ Genererte $output${CLR_RST}"
 }
 
-# Bygg avhengighetsgraf for eit skjema (forenkla versjon utan reverse-dependencies)
+# Bygg avhengighetsgraf for eit skjema
 build_dependency_graph() {
     local domain="$1"
     local schema="$2"
+
+    # Finn schema-fil (handter både ${schema}-schema.yaml og ${schema}-*-schema.yaml)
     local schema_path="$REPO_ROOT/src/linkml/$domain/$schema/${schema}-schema.yaml"
+    if [ ! -f "$schema_path" ]; then
+        # Fallback: finn *-schema.yaml i katalogen (t.d. common/common-ap-no-schema.yaml)
+        schema_path=$(find "$REPO_ROOT/src/linkml/$domain/$schema" -maxdepth 1 -name "*-schema.yaml" | head -1)
+    fi
 
     # Parse direkte importar frå dette skjemaet
     local imports=""
     if [ -f "$schema_path" ]; then
-        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^  - " | sed 's/^  - //' | sed 's/-schema$//' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
+        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^[ ]*- " | sed 's/^[ ]*- //' | sed 's/-schema$//' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
     fi
 
-    # Output (berre direkte importar — reverse-deps er for treg)
+    # Output (hierarkisk tre med transitive avhengigheiter)
     if [ -n "$imports" ]; then
         echo "## Avhengigheiter"
         echo ""
         echo "### Importerer"
         echo ""
+        echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
+        echo ""
         echo "\`\`\`"
-        echo "$imports"
+        # Kall Python-script for å bygge hierarkisk tre
+        python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports"
         echo "\`\`\`"
         echo ""
-        echo "*Sjå [AP-NO Arkitektur](../../ap-no-arkitektur.md#importkjede) for fullstendig importkjede.*"
+        echo "!!! note \"Leseretning\""
+        echo "    Diagrammet ovanfor viser avhengigheiter **frå høgre til venstre**. Dette skjemaet"
+        echo "    importerer dei skjemaa som står lengst til høgre, som igjen automatisk inkluderer"
+        echo "    alle sine avhengigheiter lengre til venstre i treet."
+        echo ""
+        echo "*Sjå [Importhierarki](../../importhierarki.md) for fullstendig importkjede.*"
         echo ""
         echo ""
     fi
@@ -774,6 +788,7 @@ nav:
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Modellmanifest: manifest-config.md
       - Valideringsreglar: valideringsregler.md
+      - Importhierarki: importhierarki.md
       - Arkitekturoversikt publisering: arkitektur-oversikt.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
