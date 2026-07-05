@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.3.0...dcat-ap-no-v2.4.0) (2026-07-05)
+
+
+### Features
+
+* **ap-no:** implementer kontrollerte vokabular frå ModelDCAT-AP-NO kap. 9 ([d49a703](https://github.com/brreg/linkml-datamodellering-no/commit/d49a703659763dfb340d20a263654fc50b904897))
+* **dcat-ap-no:** legg til EU-vokabular-enumerasjonar og rett multiplisitetsavvik ([f84493e](https://github.com/brreg/linkml-datamodellering-no/commit/f84493e44a565dd8452737893a7ef40f242ded34))
+
 ## [2.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.2.2...dcat-ap-no-v2.3.0) (2026-07-04)
 
 
