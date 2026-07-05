@@ -257,7 +257,11 @@
       "Bash(make SCHEMA=src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml)",
       "Bash(make all *)",
       "Bash(make domain-oreg *)",
-      "WebFetch(domain:img.shields.io)"
+      "WebFetch(domain:img.shields.io)",
+      "Bash(make build-linkml *)",
+      "Bash(make build-docker-linkml *)",
+      "Bash(make oreg/enhetsregisteret-bvrinn)",
+      "Bash(make validate *)"
     ]
   },
   "enableAllProjectMcpServers": true,

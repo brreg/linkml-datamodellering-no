@@ -12,9 +12,15 @@ RUN pip install --no-cache-dir --prefix=/install \
 FROM python:3.11-slim
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends graphviz \
+    && apt-get install -y --no-install-recommends graphviz patch \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /install /usr/local
+
+# Patch LinkML docgen for lengre description i tabellar
+COPY src/assets/containers/patches/docgen-max-chars.patch /tmp/
+RUN patch /usr/local/lib/python3.11/site-packages/linkml/generators/docgen.py \
+    < /tmp/docgen-max-chars.patch \
+    && rm /tmp/docgen-max-chars.patch
 
 WORKDIR /work

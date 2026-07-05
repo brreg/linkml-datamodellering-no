@@ -1,0 +1,11 @@
+--- a/linkml/generators/docgen.py
++++ b/linkml/generators/docgen.py
+@@ -48,7 +48,7 @@
+ # In future this may become a Union statement, but for now we only have dialects for markdown
+ DIALECT = MarkdownDialect
+
+-MAX_CHARS_IN_TABLE = 80
++MAX_CHARS_IN_TABLE = 200
+ MAX_RANK = 1000
+
+ SCHEMA_SUBFOLDER = "schemas"
