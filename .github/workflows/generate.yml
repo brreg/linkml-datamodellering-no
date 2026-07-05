@@ -90,7 +90,7 @@ jobs:
         if: steps.cache-image.outputs.cache-hit == 'true'
         run: |
           IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
-          podman pull "$IMAGE" 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
+          skopeo inspect --format='exists' docker://"$IMAGE" >/dev/null 2>&1 && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
 
       - name: Bygg ${{ matrix.image.name }} image
         if: steps.cache-image.outputs.cache-hit != 'true'
