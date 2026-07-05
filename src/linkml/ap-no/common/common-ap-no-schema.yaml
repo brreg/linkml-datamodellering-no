@@ -66,6 +66,66 @@ types:
     description: Gregorisk årstal (xsd:gYear), t.d. 2024.
 
 # ---------------------------------------------------------------------------
+# Enumerasjonar
+# ---------------------------------------------------------------------------
+
+enums:
+
+  EULicence:
+    description: >-
+      EU Licence-vokabularet frå Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/licence/
+    permissible_values:
+      CC0:
+        description: Creative Commons Zero 1.0 Universal
+        meaning: http://publications.europa.eu/resource/authority/licence/CC0
+      CC_BY_4_0:
+        description: Creative Commons Attribution 4.0 International
+        meaning: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+      NLOD_2_0:
+        description: Norwegian Licence for Open Government Data 2.0
+        meaning: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+      CC_BYSA_4_0:
+        description: Creative Commons Attribution-ShareAlike 4.0 International
+        meaning: http://publications.europa.eu/resource/authority/licence/CC_BYSA_4_0
+      MIT:
+        description: MIT License
+        meaning: http://publications.europa.eu/resource/authority/licence/MIT
+      APACHE_2_0:
+        description: Apache License 2.0
+        meaning: http://publications.europa.eu/resource/authority/licence/APACHE_2_0
+      GPL_3_0:
+        description: GNU General Public License 3.0
+        meaning: http://publications.europa.eu/resource/authority/licence/GPL_3_0
+      EUPL_1_2:
+        description: European Union Public Licence 1.2
+        meaning: http://publications.europa.eu/resource/authority/licence/EUPL_1_2
+
+  EUDistributionStatus:
+    description: >-
+      EU Dataset/Distribution status-vokabularet frå Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/dataset-status/
+    permissible_values:
+      COMPLETED:
+        description: Ferdigstilt (Completed)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/COMPLETED
+      DEPRECATED:
+        description: Foreldet (Deprecated)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/DEPRECATED
+      DEVELOP:
+        description: Under utvikling (Under development)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/DEVELOP
+      WITHDRAWN:
+        description: Trukket tilbake (Withdrawn)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/WITHDRAWN
+      DISCONT:
+        description: Nedlagt (Discontinued)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/DISCONT
+      OP_DATPRO:
+        description: I produksjon (Operational data processing)
+        meaning: http://publications.europa.eu/resource/authority/dataset-status/OP_DATPRO
+
+# ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
 
@@ -204,7 +264,13 @@ slots:
   status:
     slot_uri: adms:status
     range: Konsept
-    description: Status for ressursen frå eit kontrollert vokabular (adms:status).
+    description: >-
+      Status for ressursen frå eit kontrollert vokabular (adms:status). Verdien SKAL
+      veljast frå EUs kontrollerte vokabular Distribution status
+      (http://publications.europa.eu/resource/authority/dataset-status/).
+      Sjå enumerasjonen EUDistributionStatus for tilgjengelege statusar.
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/dataset-status/
 
   valuta:
     slot_uri: cv:currency
@@ -233,6 +299,9 @@ slots:
     slot_uri: dct:license
     range: Lisensdokument
     description: >-
-      Lisens for bruk av ressursen (dct:license). For offentlege data skal CC BY 4.0
-      (https://creativecommons.org/licenses/by/4.0/) eller NLOD 2.0
-      (https://data.norge.no/nlod/no/2.0) nyttast per retningslinjene.
+      Lisens for bruk av ressursen (dct:license). Verdien SKAL veljast frå EUs
+      kontrollerte vokabular Licence (http://publications.europa.eu/resource/authority/licence/).
+      For norske offentlege data er CC BY 4.0 eller NLOD 2.0 anbefalt per retningslinjene.
+      Sjå enumerasjonen EULicence for dei mest brukte lisensane.
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/licence/
