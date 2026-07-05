@@ -39,6 +39,7 @@ jobs:
             .github/
             Makefile
             README.md
+            CODEOWNERS.md
           retention-days: 1
 
   ensure-images:
