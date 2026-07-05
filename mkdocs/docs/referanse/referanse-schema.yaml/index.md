@@ -1,9 +1,13 @@
 # referanse-schema.yaml
 
+---
+
 [![Versjon](https://img.shields.io/badge/versjon-1.0.0-blue)]()
 [![Status](https://img.shields.io/badge/status-UnderDevelopment |-blue)]()
 [![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
 [![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
+
+---
 
 ## Modellmetadata
 
@@ -18,6 +22,8 @@
 | Utgivelsesdato | TODO |
 | Imports | linkml:types<br>../ap-no/dcat-ap-no/dcat-ap-no-schema |
 
+
+---
 
 ## Avhengigheiter
 
@@ -39,6 +45,7 @@ linkml:types
 *Sjå [Importhierarki](../../importhierarki.md) for fullstendig importkjede.*
 
 
+---
 
 ## Classes
 
@@ -94,17 +101,19 @@ linkml:types
 | [Metadata](klasser/metadata.md) | Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet |
 | [Obligatorisk](klasser/obligatorisk.md) |  |
 | [Valgfri](klasser/valgfri.md) |  |
-
+---
 
 ## Generated artifacts
 
 | Artefakt | Fil |
 |----------|-----|
 | ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
+---
 
 ## Valideringsresultat
 
 *Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
+---
 
 ## Kontakt
 

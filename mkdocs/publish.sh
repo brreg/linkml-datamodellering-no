@@ -190,6 +190,8 @@ build_dependency_graph() {
 
     # Output (hierarkisk tre med transitive avhengigheiter)
     if [ -n "$imports" ]; then
+        echo "---"
+        echo ""
         echo "## Avhengigheiter"
         echo ""
         echo "### Importerer"
@@ -325,6 +327,8 @@ process_schema() {
         # Steg 3: Ekstern referanse-boks (for AP-NO-profilar)
         external_spec=$(get_external_spec_url "$schema")
         if [ -n "$external_spec" ]; then
+            echo "---"
+            echo ""
             echo "!!! info \"Offisiell referanse\""
             echo "    📘 [$schema-spesifikasjonen]($external_spec) frå Digitaliseringsdirektoratet"
             echo ""
@@ -387,6 +391,8 @@ process_schema() {
 
         # Eksempel-seksjon (begge typar)
         if [ -f "$example_file" ]; then
+            echo "---"
+            echo ""
             echo "## Eksempeldatafil"
             echo ""
             echo "### YAML"
@@ -411,6 +417,8 @@ process_schema() {
         # Metadata-tabell frå gen-doc (ekstrahert frå docs/index.md)
         gendoc_index="$schema_dir/docs/index.md"
         if [ -f "$gendoc_index" ]; then
+            echo "---"
+            echo ""
             # Ekstraher frå "## Metadata" til neste "## "-seksjon (ikkje inkludert)
             # Endre overskrift til "Modellmetadata" for klarheit
             awk '/^## Metadata$/{ p=1; print "## Modellmetadata"; next } p{ if(/^## / && !/^## Metadata$/){ exit } print }' "$gendoc_index"
@@ -420,6 +428,8 @@ process_schema() {
         lock_file="$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock"
         if [ -f "$lock_file" ]; then
             ttl_url="https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema.ttl"
+            echo ""
+            echo "---"
             echo ""
             echo "!!! info \"Publisert til Felles Begrepskatalog\""
             echo "    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)"
@@ -441,6 +451,7 @@ process_schema() {
 
         # Prioriter filtrert versjon
         if [ -f "$out/$plantuml_svg" ]; then
+            echo "---"
             echo ""
             echo "## ER-diagram"
             echo ""
@@ -448,6 +459,7 @@ process_schema() {
             echo ""
             echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
         elif [ -f "$out/$plantuml_full" ]; then
+            echo "---"
             echo ""
             echo "## ER-diagram"
             echo ""
@@ -462,6 +474,7 @@ process_schema() {
         [ -z "$klasse_src" ] && [ -f "$out/klasser/${schema}.md" ] && klasse_src="$out/klasser/${schema}.md"
 
         if [ -n "$klasse_src" ]; then
+            echo "---"
             echo ""
             # Ekstraher frå "## Classes" til slutten (hoppar over Metadata og Schema Diagram)
             awk '/^## Classes$/,0' "$klasse_src" \
@@ -508,7 +521,7 @@ process_schema() {
         fi
 
         if $has_artifact; then
-            echo ""
+            echo "---"
             echo ""
             echo "## Generated artifacts"
             echo ""
@@ -540,8 +553,11 @@ process_schema() {
         fi
 
         if [ -f "$validation_json" ]; then
+            echo "---"
+            echo ""
             python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
         else
+            echo "---"
             echo ""
             echo "## Valideringsresultat"
             echo ""
@@ -551,6 +567,7 @@ process_schema() {
         # Versjonslog (CHANGELOG.md som rein Markdown)
         changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
         if [ -f "$changelog_src" ]; then
+            echo "---"
             echo ""
             echo "## Versjonslog"
             echo ""
@@ -564,6 +581,7 @@ process_schema() {
 
         # Steg 5: Kontaktinformasjon
         # Hent utgjevar frå metadata (gendoc_index er allereie lest)
+        echo "---"
         echo ""
         echo "## Kontakt"
         echo ""
