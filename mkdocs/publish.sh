@@ -76,7 +76,10 @@ data = yaml.safe_load(yaml_content)
 for org in data.get('organizations', []):
     for pattern in org.get('path_patterns', []):
         # Konverter glob-pattern til regex (enkel variant — berre ** og *)
-        regex_pattern = pattern.replace('**', '.*').replace('*', '[^/]*')
+        # Bruk placeholder for å unngå at * i .* vert erstatta
+        regex_pattern = pattern.replace('**', '__DOUBLESTAR__').replace('*', '[^/]*').replace('__DOUBLESTAR__', '.*')
+        # Gjer /** valfri for å matche både "path" og "path/noko"
+        regex_pattern = re.sub(r'/\.\*$', r'(/.*)?', regex_pattern)
         if re.search(regex_pattern, schema_path):
             # Fann match — print org-data som YAML
             print(f"name: {org['name']}")
@@ -96,8 +99,10 @@ PYEOF
         contact_uri=$(echo "$org_data" | grep '^contact_uri:' | sed 's/^contact_uri: //')
 
         echo "**Forvaltningsansvarleg:** [$name]($org_uri)"
+        echo ""
         if [ -n "$contact_uri" ]; then
             echo "**Kontakt:** [$name - Kontakt]($contact_uri)"
+            echo ""
         fi
         echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
     else
@@ -194,7 +199,7 @@ build_dependency_graph() {
         echo ""
         echo "## Avhengigheiter"
         echo ""
-        echo "### Importerer"
+        echo "### Imports"
         echo ""
         echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
         echo ""
@@ -458,6 +463,7 @@ process_schema() {
             echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg)"
             echo ""
             echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
+            echo ""
         elif [ -f "$out/$plantuml_full" ]; then
             echo "---"
             echo ""
@@ -466,6 +472,7 @@ process_schema() {
             echo "[![ER-diagram]($plantuml_full)]($plantuml_full)"
             echo ""
             echo "*Klikk for å zoome.*"
+            echo ""
         fi
 
         # Inline klasseliste frå gen-doc direkte i index.md
@@ -807,6 +814,7 @@ nav:
       - Modellmanifest: manifest-config.md
       - Valideringsreglar: valideringsregler.md
       - Importhierarki: importhierarki.md
+      - index.md-struktur: index-md-struktur.md
       - Arkitekturoversikt publisering: arkitektur-oversikt.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md

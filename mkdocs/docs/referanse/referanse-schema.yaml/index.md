@@ -1,7 +1,5 @@
 # referanse-schema.yaml
 
----
-
 [![Versjon](https://img.shields.io/badge/versjon-1.0.0-blue)]()
 [![Status](https://img.shields.io/badge/status-UnderDevelopment |-blue)]()
 [![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
@@ -27,7 +25,7 @@
 
 ## Avhengigheiter
 
-### Importerer
+### Imports
 
 Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 
