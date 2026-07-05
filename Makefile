@@ -284,7 +284,7 @@ validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 
 # Bruk: make lint [SCHEMA=<sti-til-skjema>]
 lint:
@@ -617,7 +617,7 @@ domain-$(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make domain-$(1)$(CLR_RST)"
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
+	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ merge-imports  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
 	$$(call run_gen_shacl,$$(_schemas_$(1)))
 	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)

@@ -1008,7 +1008,7 @@ slots:
 
   godtek_spraak:
     slot_uri: cccevno:acceptableLanguage
-    range: Spraak
+    range: Konsept
     multivalued: true
     description: Språk dokumentasjonstypen er akseptert i.
 
@@ -1029,7 +1029,7 @@ slots:
 
   mogleg_spraak:
     slot_uri: cpsvno:possibleLanguage
-    range: Spraak
+    range: Konsept
     multivalued: true
     description: Mogleg språk for tenesteresultatet.
 

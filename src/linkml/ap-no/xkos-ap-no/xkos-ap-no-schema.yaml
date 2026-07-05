@@ -54,7 +54,7 @@ classes:
       - tittel
       - beskrivelse
       - utgjevar
-      - tema
+      - begrep
       - nokkelord
       - spraak
       - versjonsnummer
@@ -82,7 +82,7 @@ classes:
         in_subset:
           - Obligatorisk
         required: true
-      tema:
+      begrep:
         in_subset:
           - Anbefalt
       nokkelord:
@@ -232,6 +232,10 @@ classes:
       notasjon:
         in_subset:
           - Anbefalt
+        multivalued: true
+        description: >-
+          Kode for kategorien i klassifikasjonen (skos:notation).
+          Til dømes «A», «01», «01.1» i NACE-kodeverk.
       hovudinnhald:
         in_subset:
           - Anbefalt
@@ -335,15 +339,7 @@ classes:
   # Støtteklassar
   # -------------------------------------------------------------------------
 
-  # Aktoer (foaf:Agent) er importert frå dcat-ap-no-schema.yaml
-
-  Tidsrom:
-    class_uri: dct:PeriodOfTime
-    description: Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime).
-    slots:
-      - id
-      - tidsrom_start
-      - tidsrom_slutt
+  # Aktoer (foaf:Agent) og Tidsrom (dct:PeriodOfTime) er importert frå dcat-ap-no-schema.yaml
 
 # ---------------------------------------------------------------------------
 # Slots
@@ -355,12 +351,6 @@ slots:
     slot_uri: dct:publisher
     range: Aktoer
     description: Aktør som er ansvarleg utgjevar (dct:publisher).
-
-  tema:
-    slot_uri: dct:subject
-    range: Konsept
-    multivalued: true
-    description: Fagleg tema klassifikasjonen dekkjer (dct:subject).
 
   antall_nivaa:
     slot_uri: xkos:numberOfLevels
@@ -468,24 +458,6 @@ slots:
     slot_uri: xkos:targetConcept
     range: Kategori
     description: Måleomgrep i ein kategorisamanlikning (xkos:targetConcept).
-
-  tidsrom_start:
-    slot_uri: dcat:startDate
-    range: date
-    description: Startdato for tidsromet (dcat:startDate).
-
-  tidsrom_slutt:
-    slot_uri: dcat:endDate
-    range: date
-    description: Sluttdato for tidsromet (dcat:endDate).
-
-  notasjon:
-    slot_uri: skos:notation
-    range: string
-    multivalued: true
-    description: >-
-      Kode for kategorien i klassifikasjonen (skos:notation).
-      Til dømes «A», «01», «01.1» i NACE-kodeverk.
 
   dekker:
     slot_uri: xkos:covers

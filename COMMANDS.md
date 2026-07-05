@@ -61,7 +61,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `silver` | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
 | `gold` | Silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.) |
 
-`mcp-validate` flattar automatisk ut relative importar med `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
+`mcp-validate` flattar automatisk ut relative importar med LinkML sitt `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
 
 ### Publiserings-Policyar
 
@@ -76,6 +76,11 @@ er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 ## Generering av artefakter
 
 ### Per domene (anbefalt)
+
+Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
+1. **Validering**: `merge-imports` mergar imports og validerer skjemaet (output vert kasta)
+2. **Artefaktgenerering**: JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
+3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
