@@ -418,7 +418,7 @@ build-docker-linkml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-linkml$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE)
+	podman build -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE) .
 
 build-docker-python:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
