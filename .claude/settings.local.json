@@ -261,7 +261,8 @@
       "Bash(make build-linkml *)",
       "Bash(make build-docker-linkml *)",
       "Bash(make oreg/enhetsregisteret-bvrinn)",
-      "Bash(make validate *)"
+      "Bash(make validate *)",
+      "WebFetch(domain:publications.europa.eu)"
     ]
   },
   "enableAllProjectMcpServers": true,

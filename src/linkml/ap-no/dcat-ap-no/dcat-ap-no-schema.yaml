@@ -20,6 +20,7 @@ annotations:
 prefixes:
   linkml:  https://w3id.org/linkml/
   dcat:    http://www.w3.org/ns/dcat#
+  dcatno:  https://data.norge.no/vocabulary/dcatno#
   dct:     http://purl.org/dc/terms/
   foaf:    http://xmlns.com/foaf/0.1/
   skos:    http://www.w3.org/2004/02/skos/core#
@@ -722,7 +723,6 @@ slots:
   endepunkts_url:
     slot_uri: dcat:endpointURL
     range: uri
-    multivalued: true
     description: URL til datatjenestens endepunkt.
 
   endepunktsbeskrivelse:
@@ -956,7 +956,7 @@ slots:
 
   policy:
     slot_uri: odrl:hasPolicy
-    range: string
+    range: uri
     description: ODRL-policy som regulerer bruk av ressursen.
     annotations:
       gyldige_verdier: odrl:Policy
