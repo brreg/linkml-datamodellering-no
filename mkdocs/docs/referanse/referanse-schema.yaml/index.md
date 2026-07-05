@@ -99,6 +99,7 @@ linkml:types
 | [Metadata](klasser/metadata.md) | Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet |
 | [Obligatorisk](klasser/obligatorisk.md) |  |
 | [Valgfri](klasser/valgfri.md) |  |
+
 ---
 
 ## Generated artifacts
@@ -106,11 +107,13 @@ linkml:types
 | Artefakt | Fil |
 |----------|-----|
 | ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
+
 ---
 
 ## Valideringsresultat
 
 *Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
+
 ---
 
 ## Kontakt

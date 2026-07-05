@@ -54,14 +54,15 @@ get_contact_info() {
 
     # Ekstraher YAML-frontmatter frå CODEOWNERS.md
     # Parse YAML og match path mot path_patterns for kvar org
-    org_data=$(python3 - "$schema_path" <<'PYEOF'
+    org_data=$(python3 - "$schema_path" "$codeowners_file" <<'PYEOF'
 import sys
 import re
 import yaml
 
 schema_path = sys.argv[1]
+codeowners_file = sys.argv[2]
 
-with open("/mnt/c/dev/github/linkml-datamodellering-no/CODEOWNERS.md", "r") as f:
+with open(codeowners_file, "r") as f:
     content = f.read()
 
 # Ekstraher YAML-frontmatter (mellom første ``` og neste ```)
@@ -528,6 +529,7 @@ process_schema() {
         fi
 
         if $has_artifact; then
+            echo ""
             echo "---"
             echo ""
             echo "## Generated artifacts"
@@ -560,10 +562,12 @@ process_schema() {
         fi
 
         if [ -f "$validation_json" ]; then
+            echo ""
             echo "---"
             echo ""
             python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
         else
+            echo ""
             echo "---"
             echo ""
             echo "## Valideringsresultat"
@@ -574,6 +578,7 @@ process_schema() {
         # Versjonslog (CHANGELOG.md som rein Markdown)
         changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
         if [ -f "$changelog_src" ]; then
+            echo ""
             echo "---"
             echo ""
             echo "## Versjonslog"
@@ -584,10 +589,12 @@ process_schema() {
                 /^##/ { print "#" $0; next }
                 { print }
             '
+            echo ""
         fi
 
         # Steg 5: Kontaktinformasjon
         # Hent utgjevar frå metadata (gendoc_index er allereie lest)
+        echo ""
         echo "---"
         echo ""
         echo "## Kontakt"
