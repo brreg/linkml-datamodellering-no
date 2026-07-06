@@ -16,6 +16,6 @@ generate_external_reference() {
     echo "---"
     echo ""
     echo "!!! info \"Offisiell referanse\""
-    echo "    📘 [$schema-spesifikasjonen]($external_spec) frå Digitaliseringsdirektoratet"
+    echo "    📘 [$schema]($external_spec)"
     echo ""
 }
