@@ -70,6 +70,10 @@ jobs:
             dockerfile: src/assets/containers/Dockerfile.asyncapi-cli
             make_target: build-docker-asyncapi
             hash_files: src/assets/containers/Dockerfile.asyncapi-cli
+          - name: plantuml-upstream
+            dockerfile: ""
+            make_target: pull-plantuml-upstream
+            hash_files: "2026-07-06"
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -162,6 +166,13 @@ jobs:
           path: asyncapi-cli-local.tar.zst
           key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
 
+      - name: Gjenopprett plantuml-upstream frå cache
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: actions/cache/restore@v6
+        with:
+          path: plantuml-upstream.tar.zst
+          key: plantuml-upstream-2026-07-06
+
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -171,12 +182,17 @@ jobs:
         run: |
           load_image() {
             local tar="$1" local_tag="$2" ghcr_tag="$3"
+            local start=$(date +%s%3N)
             if [ -f "$tar" ]; then
               podman load < <(zstd -d -c "$tar")
+              local elapsed=$(( $(date +%s%3N) - start ))
+              printf "✓ Lasta %s frå cache (%d.%ds)\n" "$tar" $((elapsed / 1000)) $((elapsed % 1000 / 100))
             else
               echo "Cache miss for $tar — hentar frå GHCR: $ghcr_tag"
               podman pull "$ghcr_tag"
               podman tag "$ghcr_tag" "$local_tag"
+              local elapsed=$(( $(date +%s%3N) - start ))
+              printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
             fi
           }
           load_image linkml-local.tar.zst localhost/linkml-local:latest \
@@ -187,6 +203,8 @@ jobs:
             "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" &
           load_image asyncapi-cli-local.tar.zst localhost/asyncapi-cli-local:latest \
             "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" &
+          load_image plantuml-upstream.tar.zst localhost/plantuml-upstream:latest \
+            "ghcr.io/${{ github.repository_owner }}/plantuml-upstream:2026-07-06" &
           wait
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
