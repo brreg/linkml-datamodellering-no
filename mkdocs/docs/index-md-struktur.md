@@ -2,7 +2,7 @@
 
 !!! note "Beskrivelse"
 
-    Denne sida dokumenterer korleis Modell-dokumentasjon `index.md`-fila for kvar modell blir bygd opp og generert av `mkdocs/publish.sh` (t.d. `mkdocs/docs/samt/samt-bu/index.md` som publiseres som **SAMT - Kommunale integrasjonar/samt-bu** i navigasjonsmenyen til venstre i denne portalen) .
+    Denne sida dokumenterer korleis Modell-dokumentasjon `index.md`-fila for kvar modell blir bygd opp og generert av `mkdocs/publish.sh` (t.d. `mkdocs/docs/samt/samt-bu/index.md` som publiseres som [SAMT - Kommunale integrasjonar/samt-bu](https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/) i navigasjonsmenyen til venstre i denne portalen).
 
 ## Oversikt
 
@@ -16,27 +16,27 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 
 ## Seksjonsrekkjefølgje og kjelder
 
-| # | Seksjon | Innhald | Kjelde |
-|---|---|---|---|
-| 1 | **Hovudoverskrift** | `# <schema>` | Skjemanamn frå katalognamn |
-| 2 | **Badge-rad** | Versjon, status, validering, lisens | Parsa frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) og `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (valideringsresultat) |
-| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `manifest.yaml` (`external_spec_url`-feltet, valfritt) |
-| 4 | **description.md** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) |
-| 5 | **Kom i gang** | Quickstart-guide med valideringskommando | `src/linkml/<domain>/quickstart.md` (valfri, med `{{SCHEMA}}`- og `{{SCHEMA_UNDERSCORE}}`-substitusjon). Fallback til hardkoda logikk dersom fila manglar. |
-| 6 | **Eksempeldatafil** (valgfri) | YAML-eksempel (første 20 linjer) + lenke til full fil | Ekstraher frå `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` (linjer 392-415) |
-| 7 | **Modellmetadata** | Tabell med name, title, description, versjon, lisens, utgjevar, status, endringsdato, utgivelsesdato | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Metadata` (linjer 417-425) |
-| 8 | **Publiseringsinfo** (valgfri) | Infoboks dersom skjema er publisert til Felles Begrepskatalog | Syner dersom `src/linkml/<domain>/<schema>/published-uris.lock` finst (linjer 428-443) |
-| 9 | **Avhengigheiter** | Hierarkisk avhengigheitstre (direkte og transitive importar) | Generert av `mkdocs/publish.sh:build_dependency_graph()` (linjer 173-215) → kallar `src/assets/scripts/parse-dependency-tree.py` |
-| 10 | **ER-diagram** | PlantUML SVG-diagram (filtrert versjon → kun lokale klasser) + lenke til full versjon | Kopiert frå `generated/<domain>/<schema>/diagrams/<schema>-filtered.svg` (linjer 448-469) |
-| 11 | **Classes** | Klasseliste per subset (Obligatorisk, Anbefalt, Valgfri, Andre) | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Classes` og nedover (linjer 471-482) |
-| 12 | **Slots** | Slotliste (Verdiar, Referansar, Kodar) | Del av same ekstraksjon som Classes (gen-doc) |
-| 13 | **Enumerations** | Enumerationsliste | Del av same ekstraksjon som Classes (gen-doc) |
-| 14 | **Types** | Typeliste (inkl. importerte typar) med "Defined in"-kolonne | Del av same ekstraksjon som Classes (gen-doc) |
-| 15 | **Subsets** | Subsetliste | Del av same ekstraksjon som Classes (gen-doc) |
-| 16 | **Generated artifacts** | Tabell med lenkjer til genererte artefaktar (SHACL, JSON-LD, JSON Schema, OWL, RDF, Python, Protobuf, PlantUML osv.) | Generert dynamisk frå `mkdocs/docs/<domain>/<schema>/` og `diagrams/`-underkatalog (linjer 484-531) |
-| 17 | **Valideringsresultat** | Valideringsstatus, feiltal, åtvaringtal + detaljert feil-/åtvaringsliste | Generert av `src/assets/scripts/generate-validation-md.py` frå `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (linjer 533-565) |
-| 18 | **Versjonslog** | CHANGELOG-innhald som rein Markdown | Kopiert frå `src/linkml/<domain>/<schema>/CHANGELOG.md` (linjer 567-580) — hovudoverskrift fjerna, alle andre auka med éin `#` |
-| 19 | **Kontakt** | Kontaktinformasjon (forvaltningsansvarleg, support) | Generert av `mkdocs/publish.sh:get_contact_info()` frå `CODEOWNERS.md` (linjer 45-113). Matchdar schema-path mot `path_patterns` per organisasjon. |
+| # | Seksjon | Innhald | Kjelde | Script/funksjon |
+|---|---|---|---|---|
+| 1 | **Hovudoverskrift** | `# <schema>` | Skjemanamn frå katalognamn | `lib/sections/header.sh:generate_header()` |
+| 2 | **Badge-rad** | Versjon, status, validering, lisens | Parsa frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) og `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (valideringsresultat) | `lib/sections/badges.sh:generate_badges()` |
+| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `manifest.yaml` (`external_spec_url`-feltet, valfritt) | `lib/sections/external_reference.sh:generate_external_reference()` |
+| 4 | **description.md** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) | `lib/sections/description.sh:generate_description()` |
+| 5 | **Kom i gang** | Quickstart-guide med valideringskommando | `src/linkml/<domain>/quickstart.md` (valfri, med `{{SCHEMA}}`- og `{{SCHEMA_UNDERSCORE}}`-substitusjon). Fallback til hardkoda logikk dersom fila manglar. | `lib/sections/quickstart.sh:generate_quickstart()` |
+| 6 | **Eksempeldatafil** (valgfri) | YAML-eksempel (første 20 linjer) + lenke til full fil | Ekstraher frå `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` | `lib/sections/example.sh:generate_example()` |
+| 7 | **Modellmetadata** | Tabell med name, title, description, versjon, lisens, utgjevar, status, endringsdato, utgivelsesdato | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Metadata` | `lib/sections/metadata.sh:generate_metadata()` |
+| 8 | **Publiseringsinfo** (valgfri) | Infoboks dersom skjema er publisert til Felles Begrepskatalog | Syner dersom `src/linkml/<domain>/<schema>/published-uris.lock` finst | `lib/sections/publishing_info.sh:generate_publishing_info()` |
+| 9 | **Avhengigheiter** | Hierarkisk avhengigheitstre (direkte og transitive importar) | Generert frå `imports:`-seksjonen i skjemaet → kallar `src/assets/scripts/parse-dependency-tree.py` | `lib/sections/dependencies.sh:generate_dependencies()` |
+| 10 | **ER-diagram** | PlantUML SVG-diagram (filtrert versjon → kun lokale klasser) + lenke til full versjon | Kopiert frå `generated/<domain>/<schema>/diagrams/<schema>-filtered.svg` | `lib/sections/er_diagram.sh:generate_er_diagram()` |
+| 11 | **Classes** | Klasseliste per subset (Obligatorisk, Anbefalt, Valgfri, Andre) | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Classes` og nedover | `lib/sections/classes.sh:generate_classes_section()` |
+| 12 | **Slots** | Slotliste (Verdiar, Referansar, Kodar) | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
+| 13 | **Enumerations** | Enumerationsliste | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
+| 14 | **Types** | Typeliste (inkl. importerte typar) med "Defined in"-kolonne | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
+| 15 | **Subsets** | Subsetliste | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
+| 16 | **Generated artifacts** | Tabell med lenkjer til genererte artefaktar (SHACL, JSON-LD, JSON Schema, OWL, RDF, Python, Protobuf, PlantUML osv.) | Generert dynamisk frå `mkdocs/docs/<domain>/<schema>/` og `diagrams/`-underkatalog | `lib/sections/artifacts.sh:generate_artifacts_table()` |
+| 17 | **Valideringsresultat** | Valideringsstatus, feiltal, åtvaringtal + detaljert feil-/åtvaringsliste | Generert av `src/assets/scripts/generate-validation-md.py` frå `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` | `lib/sections/validation.sh:generate_validation_results()` → `generate-validation-md.py` |
+| 18 | **Versjonslog** | CHANGELOG-innhald som rein Markdown | Kopiert frå `src/linkml/<domain>/<schema>/CHANGELOG.md` — hovudoverskrift fjerna, alle andre auka med éin `#` | `lib/sections/changelog.sh:generate_changelog()` |
+| 19 | **Kontakt** | Kontaktinformasjon (forvaltningsansvarleg, support) | Generert frå `CODEOWNERS.md`. Matchdar schema-path mot `path_patterns` per organisasjon. | `lib/sections/contact.sh:generate_contact_info()` |
 
 ## Detaljert kjeldekartlegging
 
@@ -179,7 +179,12 @@ mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, i
 
 ## Relaterte filer
 
-- **`mkdocs/publish.sh`** — hovudscript som byggjer `index.md`
+- **`mkdocs/publish.sh`** — hovudscript (orkestrering av steg 1-4)
+- **`mkdocs/lib/copy_artifacts.sh`** — kopier genererte artefakter til `mkdocs/docs/`
+- **`mkdocs/lib/generate_index.sh`** — orkestrer generering av `index.md` per skjema
+- **`mkdocs/lib/sections/*.sh`** — 15 modular som genererer kvar sin seksjon i `index.md`
+- **`mkdocs/lib/utils/formatters.sh`** — hjelpefunksjonar for formatering (`artifact_label`, `domain_label`)
+- **`mkdocs/lib/utils/metadata_parsers.sh`** — hjelpefunksjonar for parsing av manifest, versjon, validering
 - **`src/assets/scripts/parse-dependency-tree.py`** — byggjer avhengigheitstre
 - **`src/assets/scripts/generate-validation-md.py`** — formaterer valideringsresultat til Markdown
 - **`src/assets/scripts/filter_plantuml.py`** — filterer PlantUML-diagram til kun lokale klasser
