@@ -268,7 +268,8 @@
       "Bash(tee /tmp/domain-ap-no-parallel8.log)",
       "Bash(time make domain-ngr PARALLEL=8)",
       "Bash(tee /tmp/domain-ngr-parallel8.log)",
-      "Bash(pkill *)"
+      "Bash(pkill *)",
+      "Bash(git remote *)"
     ]
   },
   "enableAllProjectMcpServers": true,

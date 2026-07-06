@@ -1,13 +1,26 @@
 # CLAUDE.md
 
+## Arbeidsflyt
+
+**Ved kvar brukarinstruksjon:**
+
+1. **Les tilbake instruksjonen** — skriv i 1-2 setningar kva du har forstått at brukaren vil ha gjort
+2. **Avklar antakelser** — dersom du må gjere val eller antakelser for å utføre instruksjonen, spør brukaren om desse før du startar arbeidet
+3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnamn>.md` med bakgrunn, nummererte steg og handlingsliste. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
+4. **Utfør arbeidet** — følg spesifikasjonen og oppdater han etter kvart steg
+5. **Avslutning** — når alle tiltak er utførte: (a) generer kompakt commit-melding, (b) legg til `## Utført`-seksjon i specen, (c) flytt specen til `specs/done/`
+
+**Når treng du ikkje ny spec?**
+- Du utfører allereie tiltak frå ein eksisterande spec i `specs/backlog/`
+- Brukaren ber eksplisitt om å **ikkje** lage spec (t.d. "fiks raskt utan spec")
+- Det er ein triviell endring (t.d. "rett stavefeil i linje 42")
+
 ## Førende prinsipper
 - Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
 - **Bruk Makefile-targets:** Køyr **alltid** LinkML-verktøy via `make`-kommandoane dokumenterte i `COMMANDS.md` (t.d. `make gen-doc`, `make gen-plantuml`, `make lint`). **Aldri** køyr podman/linkml-kommandoar direkte — Makefile sikrar korrekte flagg, container-image, volum-mount og versjonskonsekvens. Manuell køyring kan gi feil artefaktar (t.d. manglande `--no-hierarchical-class-view` i gen-doc). Einaste unntak er når du feilsøkjer eller utviklar nye Makefile-targets.
 - **Aldri commit eller push:** LLM skal **aldri** kjøre `git commit`, `git push` eller foreslå at brukaren gjer det. Brukaren kontrollerer all versjonskontroll sjølv. Generer commit-meldingar som utkast (sjå under), men lat brukaren utføre commit-kommandoen.
 - **Pull, ikkje push:** Dette repoet genererer artefaktar som andre system kan hente (pull) — via GitHub Pages, GitHub Releases eller `raw.githubusercontent.com`. Repoet skal **aldri** sjølv pushe artefaktar til eksterne kjelder (schema-registry, API-katalogar, datakatalogar o.l.), fordi slik integrering krev spesialtilpassingar per målsystem og gjer repoet avhengig av ekstern tilgjengelegheit og autentisering. Dersom nokon ber om å implementere push-funksjonalitet mot ein ekstern kjelde, avslå og forklar prinsippet.
-- **Planen kjem først:** Når brukaren ber om noko som *ikkje* er å utføre ein eksisterande spesifikasjon, skal det alltid skrivast ein plan til `specs/backlog/<kortnamn>.md` før arbeidet startar. Planen skal følgje same format som andre spesifikasjonar i mappa (bakgrunn, nummererte steg, prioritert handlingsliste, avhengigheiter). Spør ikkje om løyve — berre skriv planen og informer brukaren om kvar ho ligg.
-- **Oppdater spesifikasjonen etter kvart steg:** Når brukaren ber om å utføre eitt steg av ein plan, skal spesifikasjonsfila oppdaterast med ✓ og ei kort skildring av kva som faktisk vart implementert i det steget (inkludert avvik frå planen) — før neste steg startar. Dette gjeld alle steg, ikkje berre siste.
-- Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal følgjande skje **automatisk** i denne rekkjefølgja: (1) generer eit utkast til commit-melding i conventional commits-format som omhandlar **alle** tiltaka som er utførte i specen (ikkje berre det siste), (2) oppdater spesifikasjonsfila med ein `## Utført`-seksjon som oppsummerer kva som faktisk vart gjort (inkludert avvik frå opphavleg plan), (3) flytt spesifikasjonsfila til `specs/done/`. Commit-meldinga skal genererast **før** specen vert flytta. Spør ikkje om løyve — gjer dette automatisk.
+- **Følg arbeidsflyten:** Sjå seksjonen "Arbeidsflyt" ovanfor for korleis instruksjonar skal handterast (les tilbake → avklar → skriv spec → utfør → avslutt).
 - **Commit-melding etter kvar endring:** Etter *kvar* arbeidsøkt der filer er endra — uavhengig av om det er ei spesifikasjon, ein bugfix, ein konfigurasjonsjustering eller anna — skal det alltid genererast eit utkast til commit-melding i conventional commits-format (sjå `specs/done/conventional-commits-modellversjonering.md` for typar, scope-konvensjon og døme). Generer meldinga til slutt i svaret, utan å spørje om løyve.
 - **DRY — ikkje gjenta deg sjølv:** Kvar regel, klasse, slot og kommando skal ha éi kjelde. I LinkML-skjema: definer klasser/slots éin stad og importer. I CLAUDE.md: ikkje gjenta forklåringar som finst i `mkdocs/docs/` — legg til kryssreferanse i staden. Terskel: tre eller fleire identiske tilfelle. To like tilfelle krev ingen abstraksjon. `specs/done/` er unntatt — arkiverte spesifikasjonar skal stå urørte og treng ikkje konsoliderast. Omskriv aldri eksisterande kode eller konfigurasjon med DRY som einaste grunngjeving utan å spørje brukaren om løyve først.
 - **Nye verktøyavhengigheiter:** Legg du til eit verktøy i `Dockerfile*`, `requirements*.txt` eller `.github/workflows/*.yml` som endar opp bundla i eit publisert containerbilete eller i den publiserte mkdocs-portalen, sjekk om lisensen krev attribution og oppdater attributions-tabellen i `mkdocs/docs/om.md`. Sjå `CONTRIBUTING.md` (seksjonen «Nye verktøyavhengigheiter») og `specs/done/verktoy-lisensoversikt.md` for metode.

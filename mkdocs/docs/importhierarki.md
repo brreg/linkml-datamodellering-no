@@ -31,7 +31,7 @@ linkml:types
     └── common-ap-no-schema
         ├── dqv-core-schema
         │   └── dcat-ap-no-schema  ← importerer dqv-core-schema
-        ├── dqv-ap-no-schema  ← importerer dcat-ap-no-schema (sirkulær via dqv-core-schema)
+        │       └── dqv-ap-no-schema  ← importerer dcat-ap-no-schema
         ├── skos-ap-no-schema
         ├── xkos-ap-no-schema
         ├── cpsv-ap-no-schema
@@ -43,10 +43,25 @@ linkml:types
 **Reglane:**
 - `common-ap-no-schema` er det einaste AP-NO-skjemaet som importerer direkte frå `linkml:types`
 - Domenemodell-skjema importerer AP-NO-profilene, **ikkje** `common-ap-no-schema` direkte
-- `dqv-core-schema` er eit bridge-skjema for å bryte sirkulær import mellom `dcat-ap-no-schema` og `dqv-ap-no-schema`
+- `dqv-core-schema` definerer felles DQV-klasser (`Kvalitetsmerknad`, `Kvalitetsmaaling` osv.)
+- `dcat-ap-no-schema` importerer `dqv-core-schema` for å legge DQV-slots på `Datasett`
+- `dqv-ap-no-schema` importerer `dcat-ap-no-schema` for å få full tilgang til DCAT-AP-NO med DQV-støtte
 
 **Sjå òg:**
 - [AP-NO Arkitektur](ap-no-arkitektur.md) — arkitektoniske val og avvik i AP-NO-profilane
+
+---
+
+## FAIR-metadata
+
+FAIR-metadata kan importerast av alle domenemodeller for å legge til FAIR-prinsipp-støtte.
+
+```
+linkml:types
+    └── fair-metadata-schema
+```
+
+FAIR-skjemaet er standalone og kan kombinerast med både AP-NO, FINT og oreg-skjema.
 
 ---
 
@@ -72,22 +87,6 @@ linkml:types
 
 ---
 
-## Offentlege register (oreg)
-
-Skjema for offentlege register (Enhetsregisteret, aksjeeierregister m.m.).
-
-```
-linkml:types
-    └── enhetsregisteret-bvrinn-schema
-    └── register-over-aksjeeiere-schema
-```
-
-**Reglane:**
-- Oreg-skjema importerer berre `linkml:types` (ingen felles base-skjema)
-- Kan importere AP-NO-profil(er) etter behov (t.d. `dcat-ap-no-schema` for metadata)
-
----
-
 ## Domenemodell-skjema
 
 Domenemodell-skjema (t.d. SAMT, NGR) importerer AP-NO-profilene.
@@ -97,27 +96,38 @@ Domenemodell-skjema (t.d. SAMT, NGR) importerer AP-NO-profilene.
 ```
 linkml:types
     └── common-ap-no-schema
-        ├── dqv-core-schema
-        │   └── dcat-ap-no-schema
-        │       ├── dqv-ap-no-schema
-        │       └── samt-bu-schema  ← domenemodell
-        └── dcat-ap-no-schema
+        └── dqv-core-schema
+            └── dcat-ap-no-schema
+                └── dqv-ap-no-schema
+                    └── samt-bu-schema  ← domenemodell
 ```
 
-`samt-bu-schema` importerer `dcat-ap-no-schema` og `dqv-ap-no-schema`, som igjen gir transitive avhengigheiter til `common-ap-no-schema` og `linkml:types`.
+`samt-bu-schema` importerer `dqv-ap-no-schema`, som igjen gir transitive avhengigheiter til `dcat-ap-no-schema`, `dqv-core-schema`, `common-ap-no-schema` og `linkml:types`.
 
 ---
 
-## FAIR-metadata
+## Import på tvers av domenemodeller
 
-FAIR-metadata kan importerast av alle domenemodeller for å legge til FAIR-prinsipp-støtte.
+**Import mellom domenemodeller er tillate**, men krev varsomheit:
 
+⚠️ **Alltid lås til ein konkret versjon** når du importerer ein domenemodell frå ein annan domenemodell. Dette er naudsynt fordi domenemodeller kan endre seg på måtar som bryt bakoverkompatibilitet (klasser/slots vert endra eller fjerna).
+
+**Eksempel — korrekt versjonslåsing:**
+
+```yaml
+imports:
+  - linkml:types
+  - ../../ap-no/dcat-ap-no/dcat-ap-no-schema  # AP-NO-profil (stabil, relativ sti)
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.1.0/src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml  # domenemodell (versjonslåst via git tag)
 ```
-linkml:types
-    └── fair-metadata-schema
-```
 
-FAIR-skjemaet er standalone og kan kombinerast med både AP-NO, FINT og oreg-skjema.
+**Kvifor versjonslåse?**
+- **AP-NO/FINT/FAIR-skjema** følgjer standardar og endrar seg sjeldan — treng ikkje versjonslåsing
+- **Domenemodeller** (SAMT, NGR, oreg osv.) kan endre seg aktivt — versjonslåsing hindrar uventa brot
+
+**Alternativ til import:**
+- Dersom du berre treng ein eller to klasser, vurder å **kopiere klassedefinisjonane** i staden for å importere heile skjemaet
+- Dette reduserer avhengigheiter og gir meir kontroll, men bryt DRY-prinsippet. Bruk med varsomhet!
 
 ---
 
