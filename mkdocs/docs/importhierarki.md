@@ -6,7 +6,7 @@
 
 ## Korleis lese diagramma
 
-**Viktig:** Diagramma må lesast **frå høgre til venstre**.
+**Viktig:** Importhierarki må lesast **frå høgre til venstre**.
 
 Når du importerer eit skjema vil det automatisk inkludere alle avhengigheiter det har til venstre for seg i treet.
 
@@ -32,10 +32,10 @@ Norske applikasjonsprofil (AP-NO) for offentleg sektor.
 linkml:types
     └── common-ap-no-schema
         ├── dqv-core-schema
-        │   └── dcat-ap-no-schema  ← importerer dqv-core-schema
-        │       └── dqv-ap-no-schema  ← importerer dcat-ap-no-schema
-        ├── skos-ap-no-schema
-        ├── xkos-ap-no-schema
+        │   ├── dcat-ap-no-schema
+        │   │   ├── dqv-ap-no-schema
+        │   │   └── xkos-ap-no-schema
+        │   └── skos-ap-no-schema
         ├── cpsv-ap-no-schema
         └── modelldcat-modell-schema
             └── modelldcat-katalog-schema
@@ -47,7 +47,8 @@ linkml:types
 - Domenemodell-skjema importerer AP-NO-profilene, **ikkje** `common-ap-no-schema` direkte
 - `dqv-core-schema` definerer felles DQV-klasser (`Kvalitetsmerknad`, `Kvalitetsmaaling` osv.)
 - `dcat-ap-no-schema` importerer `dqv-core-schema` for å legge DQV-slots på `Datasett`
-- `dqv-ap-no-schema` importerer `dcat-ap-no-schema` for å få full tilgang til DCAT-AP-NO med DQV-støtte
+- `skos-ap-no-schema` importerer `dqv-core-schema` for DQV-støtte på SKOS-klasser
+- `dqv-ap-no-schema` og `xkos-ap-no-schema` importerer `dcat-ap-no-schema` (og får dermed også `dqv-core-schema`)
 
 **Sjå òg:**
 - [AP-NO Arkitektur](ap-no-arkitektur.md) — arkitektoniske val og avvik i AP-NO-profilane

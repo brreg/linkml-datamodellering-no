@@ -823,7 +823,7 @@ nav:
       - Bruk frå eksternt repo: ekstern-bruk.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
-      - Arkitekturoversikt publisering: arkitektur-oversikt.md
+      - Publiseringsflyt: arkitektur-oversikt.md
       - Struktur for modell-dokumentasjon: index-md-struktur.md
       - Monitorering av automasjon: monitorering.md
       - Om: om.md

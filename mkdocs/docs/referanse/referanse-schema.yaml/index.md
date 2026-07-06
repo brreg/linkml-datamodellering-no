@@ -32,7 +32,8 @@ Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 ```
 linkml:types  # direkte import
 └── common-ap-no-schema  # transitiv import
-    └── dcat-ap-no-schema  # direkte import
+    └── dqv-core-schema  # transitiv import
+        └── dcat-ap-no-schema  # direkte import
 ```
 
 !!! note "Leseretning"

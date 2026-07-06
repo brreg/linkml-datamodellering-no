@@ -15,8 +15,10 @@ src/linkml/<domain>/<modell>/manifest.yaml
 ```
 
 ```yaml
-publish_external: false   # true for å utløyse publisering til ekstern katalog
+publish_external: false          # true for å utløyse publisering til ekstern katalog
 validation_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
+external_spec_url: https://informasjonsforvaltning.github.io/cpsv-ap-no/  # lenke til offisiell spesifikasjon
+
 
 generators:
   jsonld_context: true
