@@ -31,6 +31,7 @@
 
 
 
+
 ### Obligatorisk
 
 | Class | Description |
@@ -47,7 +48,10 @@
 
 
 
+
+
 ## Slots
+
 
 | Slot | Description |
 | --- | --- |
@@ -57,19 +61,28 @@
 | [utgjevar](klasser/utgjevar.md) | Organisasjon ansvarleg for ressursen (referert med URI) |
 
 
+
+
 ## Enumerations
+
 
 | Enumeration | Description |
 | --- | --- |
 
 
+
+
 ## Types
+
 
 | Type | Description |
 | --- | --- |
 
 
+
+
 ## Subsets
+
 
 | Subset | Description |
 | --- | --- |
