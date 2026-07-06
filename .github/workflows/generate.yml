@@ -70,10 +70,10 @@ jobs:
             dockerfile: src/assets/containers/Dockerfile.asyncapi-cli
             make_target: build-docker-asyncapi
             hash_files: src/assets/containers/Dockerfile.asyncapi-cli
-          - name: plantuml-upstream
-            dockerfile: ""
-            make_target: pull-plantuml-upstream
-            hash_files: "2026-07-06"
+          - name: plantuml
+            dockerfile: src/assets/containers/Dockerfile.plantuml
+            make_target: build-docker-plantuml
+            hash_files: src/assets/containers/Dockerfile.plantuml
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -166,12 +166,12 @@ jobs:
           path: asyncapi-cli-local.tar.zst
           key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
 
-      - name: Gjenopprett plantuml-upstream frå cache
+      - name: Gjenopprett plantuml frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
         uses: actions/cache/restore@v6
         with:
-          path: plantuml-upstream.tar.zst
-          key: plantuml-upstream-2026-07-06
+          path: plantuml.tar.zst
+          key: plantuml-${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}
 
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -203,8 +203,8 @@ jobs:
             "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" &
           load_image asyncapi-cli-local.tar.zst localhost/asyncapi-cli-local:latest \
             "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" &
-          load_image plantuml-upstream.tar.zst localhost/plantuml-upstream:latest \
-            "ghcr.io/${{ github.repository_owner }}/plantuml-upstream:2026-07-06" &
+          load_image plantuml.tar.zst localhost/plantuml:latest \
+            "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" &
           wait
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}

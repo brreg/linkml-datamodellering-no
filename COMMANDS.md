@@ -22,6 +22,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make build-docker-mcp-validator` | Byggjer container-image for validator MCP-server. | Image `localhost/mcp-linkml-validator:latest` |
 | `make build-docker-avrotize` | Byggjer container-image for XSD-generering via Avrotize. Nødvendig for `make gen-xsd`. | Image `localhost/avrotize-local:latest` |
 | `make build-docker-asyncapi` | Byggjer container-image for AsyncAPI CLI-validering. Nødvendig for `make gen-asyncapi`. | Image `localhost/asyncapi-cli-local:latest` |
+| `make build-docker-plantuml` | Byggjer container-image for PlantUML-diagram. Nødvendig for `make gen-plantuml`. | Image `localhost/plantuml:latest` |
 
 ## Ny modell/begrepskatalog/modellkatalog
 
