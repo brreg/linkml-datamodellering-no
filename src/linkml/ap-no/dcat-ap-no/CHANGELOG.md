@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.4.0...dcat-ap-no-v2.5.0) (2026-07-06)
+
+
+### Features
+
+* **mkdocs:** konfigurerbare seksjons-kjelder i index.md ([94c2efb](https://github.com/brreg/linkml-datamodellering-no/commit/94c2efb8c90571a03efa5108a869e5204544bcbf))
+
 ## [2.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.3.0...dcat-ap-no-v2.4.0) (2026-07-05)
 
 
