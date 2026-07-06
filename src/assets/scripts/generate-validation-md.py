@@ -41,11 +41,26 @@ def main() -> None:
 
     status = "✅ Godkjent" if valid else "❌ Ikkje godkjent"
 
+    # Generer lenke til valideringspolicy
+    # Bronze/silver/gold: anchor er "{policy}-sjekkliste"
+    # felles-begrepskatalog: anchor er "felles-begrepskatalog-felles-begrepskatalog"
+    # felles-datakatalog: anchor er "felles-datakatalog-felles-datakatalog"
+    if policy in ("bronze", "silver", "gold"):
+        anchor = f"{policy}-sjekkliste"
+    elif policy == "felles-begrepskatalog":
+        anchor = "felles-begrepskatalog-felles-begrepskatalog"
+    elif policy == "felles-datakatalog":
+        anchor = "felles-datakatalog-felles-datakatalog"
+    else:
+        # Fallback — bruk policy som anchor
+        anchor = policy
+    policy_link = f"[policy: {policy}](/valideringsregler/#{anchor})"
+
     lines = [
         "",
         "## Valideringsresultat",
         "",
-        f"*Siste validering: {validated_at} — v{version} — policy: {policy}*",
+        f"*Siste validering: {validated_at} — v{version} — {policy_link}*",
         "",
         "| Status | Feil | Åtvaringar |",
         "|---|---|---|",
