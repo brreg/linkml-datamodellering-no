@@ -226,13 +226,13 @@
 {%- endfor -%}
 {%- if ns_used_types.names %}
 
-| Type | Description | Defined in |
-| --- | --- | --- |
+| Type | LinkML-alias | Description | Defined in |
+| --- | --- | --- | --- |
 {%- for type_name in ns_used_types.names|sort %}
   {%- set t = schemaview.get_type(type_name) %}
   {%- if t %}
     {%- set origin = t.from_schema if t.from_schema else schema.id %}
-| {{ gen.link(t, True) }} | {{ t.description|enshorten }} | {{ origin }} |
+| {{ gen.link(t, True) }} | `{{ type_name }}` | {{ t.description|enshorten }} | {{ origin }} |
   {%- endif %}
 {%- endfor %}
 {% else %}
