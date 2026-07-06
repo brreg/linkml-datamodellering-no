@@ -5,9 +5,17 @@ set -euo pipefail
 generate_changelog() {
     local domain="$1"
     local schema="$2"
-    local changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
 
-    [ ! -f "$changelog_src" ] && return 0
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    local schema_file
+    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    local src_dir=""
+    [ -n "$schema_file" ] && src_dir=$(dirname "$schema_file")
+
+    local changelog_src=""
+    [ -n "$src_dir" ] && [ -f "$src_dir/CHANGELOG.md" ] && changelog_src="$src_dir/CHANGELOG.md"
+
+    [ -z "$changelog_src" ] && return 0
 
     echo ""
     echo "---"

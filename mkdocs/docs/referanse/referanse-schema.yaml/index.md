@@ -23,29 +23,6 @@
 
 ---
 
-## Avhengigheiter
-
-### Imports
-
-Dette skjemaet importerer følgjande skjema (direkte og transitivt):
-
-```
-linkml:types  # direkte import
-└── common-ap-no-schema  # transitiv import
-    └── dqv-core-schema  # transitiv import
-        └── dcat-ap-no-schema  # direkte import
-```
-
-!!! note "Leseretning"
-    Diagrammet ovanfor viser avhengigheiter **frå høgre til venstre**. Dette skjemaet
-    importerer dei skjemaa som står lengst til høgre, som igjen automatisk inkluderer
-    alle sine avhengigheiter lengre til venstre i treet.
-
-*Sjå [Importhierarki](../../importhierarki.md) for fullstendig importkjede.*
-
-
----
-
 ## Classes
 
 

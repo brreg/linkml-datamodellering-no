@@ -36,14 +36,15 @@ CLR_RST    			:= $(shell printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Schema discovery – no manual lists needed.
-# Leaf schemas follow the pattern: src/linkml/<domain>/<name>/<name>-schema.yaml
+# Leaf schemas follow the pattern: src/linkml/<domain>/<dir>/<name>-schema.yaml
+# Where <name> may differ from <dir> (e.g., dqv-core-schema.yaml in dqv-ap-no/).
 # Schemas with 'common' in the path are shared dependencies, not standalone.
 # ---------------------------------------------------------------------------
 SCHEMAS := $(shell find $(SCHEMA_DIR) -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
     | grep -v common | sort)
 
 schema_domain = $(word 3,$(subst /, ,$(1)))
-schema_name   = $(word 4,$(subst /, ,$(1)))
+schema_name   = $(basename $(basename $(notdir $(1))))
 schema_outdir = $(GEN_DIR)/$(call schema_domain,$(1))/$(call schema_name,$(1))
 schema_key    = $(subst -,_,$(call schema_domain,$(1)))_$(subst -,_,$(call schema_name,$(1)))
 

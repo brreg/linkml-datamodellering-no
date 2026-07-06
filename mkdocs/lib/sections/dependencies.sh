@@ -6,12 +6,11 @@ generate_dependencies() {
     local domain="$1"
     local schema="$2"
 
-    # Finn schema-fil (handter både ${schema}-schema.yaml og ${schema}-*-schema.yaml)
-    local schema_path="$REPO_ROOT/src/linkml/$domain/$schema/${schema}-schema.yaml"
-    if [ ! -f "$schema_path" ]; then
-        # Fallback: finn *-schema.yaml i katalogen (t.d. common/common-ap-no-schema.yaml)
-        schema_path=$(find "$REPO_ROOT/src/linkml/$domain/$schema" -maxdepth 1 -name "*-schema.yaml" | head -1)
-    fi
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    local schema_file
+    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    local schema_path=""
+    [ -n "$schema_file" ] && schema_path="$schema_file"
 
     # Parse direkte importar frå dette skjemaet
     local imports=""

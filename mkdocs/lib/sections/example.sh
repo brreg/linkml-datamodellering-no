@@ -5,9 +5,20 @@ set -euo pipefail
 generate_example() {
     local domain="$1"
     local schema="$2"
-    local example_file="$REPO_ROOT/src/linkml/$domain/$schema/examples/${schema}-eksempel.yaml"
+
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    local schema_file
+    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    local src_dir=""
+    [ -n "$schema_file" ] && src_dir=$(dirname "$schema_file")
+
+    local example_file=""
+    [ -n "$src_dir" ] && example_file="$src_dir/examples/${schema}-eksempel.yaml"
 
     [ ! -f "$example_file" ] && return 0
+
+    # Rekonstruer relative sti frå src/linkml/ for GitHub-lenke
+    local relative_path="${src_dir#$REPO_ROOT/src/linkml/}"
 
     echo "---"
     echo ""
@@ -25,7 +36,7 @@ generate_example() {
     '
     echo "\`\`\`"
     echo ""
-    echo "[📄 Full eksempelfil (YAML)](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$domain/$schema/examples/$schema-eksempel.yaml)"
+    echo "[📄 Full eksempelfil (YAML)](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$relative_path/examples/$schema-eksempel.yaml)"
     echo ""
     echo "*Detaljerte eksempel per klasse finst på kvar klasseside, t.d. [Classes](#classes).*"
     echo ""
