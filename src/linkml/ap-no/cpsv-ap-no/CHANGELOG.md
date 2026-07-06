@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.2...cpsv-ap-no-v1.3.0) (2026-07-06)
+
+
+### Features
+
+* **mkdocs:** konfigurerbare seksjons-kjelder i index.md ([94c2efb](https://github.com/brreg/linkml-datamodellering-no/commit/94c2efb8c90571a03efa5108a869e5204544bcbf))
+
 ## [1.2.2](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.1...cpsv-ap-no-v1.2.2) (2026-07-05)
 
 
