@@ -21,6 +21,10 @@ generate_schema_index() {
     [ -f "$out/klasser/index.md" ] && klasse_src="$out/klasser/index.md"
     [ -z "$klasse_src" ] && [ -f "$out/klasser/${schema}.md" ] && klasse_src="$out/klasser/${schema}.md"
 
+    # Sett miljøvariablar for seksjonsfunksjonar
+    export CURRENT_DOMAIN="$domain"
+    export CURRENT_SCHEMA="$schema"
+
     {
         generate_header "$schema"
         generate_badges "$domain" "$schema" "$gendoc_index"
@@ -38,4 +42,8 @@ generate_schema_index() {
         generate_changelog "$domain" "$schema"
         generate_contact_info "$domain" "$schema"
     } > "$out/index.md"
+
+    # Rydd opp miljøvariablar
+    unset CURRENT_DOMAIN
+    unset CURRENT_SCHEMA
 }

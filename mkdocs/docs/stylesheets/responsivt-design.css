@@ -17,7 +17,7 @@
     margin-top: 2rem;
   }
 
-  .md-sidebar--primary .md-sidebar__scrollwrap {
+  .md-sidebar--primary .md-sidebar--secondary .md-sidebar__scrollwrap {
     padding-top: 2rem;
 }
 

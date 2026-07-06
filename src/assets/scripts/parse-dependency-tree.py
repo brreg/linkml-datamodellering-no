@@ -3,14 +3,18 @@
 Parse dependency tree from importhierarki.md and build hierarchical tree for a schema.
 
 Usage:
-    python3 parse-dependency-tree.py <schema_name> <imports_list>
+    python3 parse-dependency-tree.py [--format tree|flat] <schema_name> <imports_list> [direct_imports]
 
 Arguments:
+    --format: Output format (default: tree)
+        tree: ASCII tree showing transitive dependencies
+        flat: Flat list of all imported schemas (one per line)
     schema_name: Name of the schema (e.g., "samt-bu", "dcat-ap-no")
     imports_list: Space-separated list of imports (e.g., "linkml:types ap-no/dcat-ap-no/dcat-ap-no")
+    direct_imports: Space-separated list of direct imports (normalized schema names)
 
 Output:
-    ASCII tree showing transitive dependencies from left to right
+    ASCII tree or flat list showing transitive dependencies
 """
 
 import sys
@@ -303,6 +307,40 @@ def filter_tree_to_targets(
     return filtered
 
 
+def collect_all_transitive_imports(
+    targets: Set[str],
+    tree: Dict[str, List[str]]
+) -> Set[str]:
+    """
+    Collect all transitive imports (including targets themselves + their ancestors).
+
+    Args:
+        targets: Set of target schema names (what the schema imports directly)
+        tree: Full hierarchy tree (parent -> [children])
+
+    Returns:
+        Set of all schemas (targets + their ancestors in the import chain)
+    """
+    result = set()
+
+    def collect_ancestors(schema: str, visited: Set[str]):
+        """Recursively collect schema and all its ancestors (parents)."""
+        if schema in visited:
+            return
+        visited.add(schema)
+        result.add(schema)
+
+        # Find parents in tree (schemas that have this schema as a child)
+        for parent, children in tree.items():
+            if schema in children:
+                collect_ancestors(parent, visited)
+
+    for target in targets:
+        collect_ancestors(target, set())
+
+    return result
+
+
 def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: Set[str]) -> str:
     """
     Build complete dependency tree for a schema.
@@ -384,20 +422,84 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
 
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: parse-dependency-tree.py <schema_name> <imports_list> [direct_imports]", file=sys.stderr)
+    # Parse arguments
+    args = sys.argv[1:]
+    output_format = "tree"
+
+    if args and args[0] == "--format":
+        if len(args) < 2:
+            print("Usage: parse-dependency-tree.py [--format tree|flat] <schema_name> <imports_list> [direct_imports]", file=sys.stderr)
+            sys.exit(1)
+        output_format = args[1]
+        args = args[2:]
+
+    if len(args) < 2:
+        print("Usage: parse-dependency-tree.py [--format tree|flat] <schema_name> <imports_list> [direct_imports]", file=sys.stderr)
         sys.exit(1)
 
-    schema_name = sys.argv[1]
-    imports = sys.argv[2].split()
+    schema_name = args[0]
+    imports = args[1].split()
 
     # Parse direct imports (normalized schema names)
     direct_imports = set()
-    if len(sys.argv) > 3 and sys.argv[3]:
-        direct_imports = set(sys.argv[3].split())
+    if len(args) > 2 and args[2]:
+        direct_imports = set(args[2].split())
 
-    tree = build_dependency_tree(schema_name, imports, direct_imports)
-    print(tree)
+    if output_format == "flat":
+        # Return flat list of all imported schemas (excluding linkml:types)
+        # Read importhierarki.md
+        repo_root = Path(__file__).resolve().parents[3]
+        hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'importhierarki.md'
+
+        if not hierarchy_file.exists():
+            # Fallback: return normalized imports
+            normalized = [normalize_schema_name(imp) for imp in imports if not imp.startswith('linkml:')]
+            print('\n'.join(sorted(normalized)))
+            return
+
+        with open(hierarchy_file, 'r', encoding='utf-8') as f:
+            md_content = f.read()
+
+        # Parse all hierarchies
+        hierarchies = parse_hierarchy_blocks(md_content)
+
+        if not hierarchies:
+            # Fallback
+            normalized = [normalize_schema_name(imp) for imp in imports]
+            print('\n'.join(sorted(normalized)))
+            return
+
+        # Find relevant hierarchies
+        relevant_trees = find_relevant_imports(imports, hierarchies)
+
+        if not relevant_trees:
+            # Fallback
+            normalized = [normalize_schema_name(imp) for imp in imports]
+            print('\n'.join(sorted(normalized)))
+            return
+
+        # Merge all relevant trees
+        merged_tree = {}
+        for tree in relevant_trees.values():
+            for parent, children in tree.items():
+                if parent not in merged_tree:
+                    merged_tree[parent] = []
+                for child in children:
+                    if child not in merged_tree[parent]:
+                        merged_tree[parent].append(child)
+
+        # Collect all transitive imports
+        normalized_imports = [normalize_schema_name(imp) for imp in imports]
+        target_schemas = set(normalized_imports)
+        all_imports = collect_all_transitive_imports(target_schemas, merged_tree)
+
+        # Sort (keep linkml:types)
+        filtered = sorted(all_imports)
+        print('\n'.join(filtered))
+    else:
+        # Default: tree format
+        tree = build_dependency_tree(schema_name, imports, direct_imports)
+        print(tree)
 
 
 if __name__ == '__main__':

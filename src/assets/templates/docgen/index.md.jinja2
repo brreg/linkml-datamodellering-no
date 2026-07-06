@@ -226,14 +226,31 @@
 {%- endfor -%}
 {%- if ns_used_types.names %}
 
-| Type | LinkML-alias | Description | Defined in |
+| Type | URI | Description | Defined in |
 | --- | --- | --- | --- |
-{%- for type_name in ns_used_types.names|sort %}
-  {%- set t = schemaview.get_type(type_name) %}
-  {%- if t %}
-    {%- set origin = t.from_schema if t.from_schema else schema.id %}
-| {{ gen.link(t, True) }} | `{{ type_name }}` | {{ t.description|enshorten }} | {{ origin }} |
-  {%- endif %}
+{%- for type_name in ns_used_types.names|sort -%}
+  {%- set t = schemaview.get_type(type_name) -%}
+  {%- if t -%}
+    {%- set origin = t.from_schema if t.from_schema else schema.id -%}
+    {%- if t.uri and t.uri.startswith('xsd:') -%}
+      {%- set local_name = t.uri[4:] -%}
+      {%- set uri_text = t.uri -%}
+      {%- set uri_link = 'https://www.w3.org/TR/xmlschema11-2/#' + local_name -%}
+    {%- elif t.uri -%}
+      {%- set uri_text = t.uri -%}
+      {%- set uri_link = t.uri -%}
+    {%- else -%}
+      {%- set uri_text = type_name -%}
+      {%- set uri_link = '#' -%}
+    {%- endif -%}
+    {%- set defined_in_text = origin -%}
+    {%- set defined_in_link = origin -%}
+    {%- if 'linkml/types' in origin or origin == 'https://w3id.org/linkml/types' -%}
+      {%- set defined_in_text = 'linkml:types' -%}
+      {%- set defined_in_link = 'https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml' -%}
+    {%- endif %}
+| {{ type_name }} | [{{ uri_text }}]({{ uri_link }}) | {{ t.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) |
+  {%- endif -%}
 {%- endfor %}
 {% else %}
 *Ingen typar brukt i denne modellen.*
