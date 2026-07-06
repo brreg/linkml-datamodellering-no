@@ -1,5 +1,6 @@
 publish_external: false
 validation_policy: silver
+external_spec_url: https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/
 
 generators:
   jsonld_context: true

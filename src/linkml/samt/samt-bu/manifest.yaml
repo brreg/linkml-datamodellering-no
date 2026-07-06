@@ -1,5 +1,6 @@
 publish_external: false
 validation_policy: silver
+external_spec_url: https://docs.samt-bu.no/om/
 
 generators:
   jsonld_context: true

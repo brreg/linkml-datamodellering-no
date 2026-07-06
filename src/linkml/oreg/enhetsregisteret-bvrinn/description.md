@@ -1,1 +1,1 @@
-Dette er ein POC på å modellere enhetsregisteret-bvrinn modellen i LinkML.
+> Dette er ein POC på å modellere enhetsregisteret-bvrinn modellen i LinkML.

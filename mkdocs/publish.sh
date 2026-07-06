@@ -23,10 +23,23 @@ log_step() {
 }
 
 # ---------------------------------------------------------------------------
-# Hjelpefunksjonar
+# Source lib-filer (refactored modulær struktur)
+# ---------------------------------------------------------------------------
+LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/lib" && pwd)"
+source "$LIB_DIR/copy_artifacts.sh"
+source "$LIB_DIR/generate_index.sh"
+source "$LIB_DIR/utils/formatters.sh"
+source "$LIB_DIR/utils/metadata_parsers.sh"
+
+# Rekkjefølgje på artefakter i tabellen (brukt både i artifacts.sh og domain/index.md-generering)
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
+
+# ---------------------------------------------------------------------------
+# Hjelpefunksjonar (legacy — flytta til lib/)
 # ---------------------------------------------------------------------------
 
-# Hent kontaktinfo basert på utgjevar-organisasjon
+# DEPRECATED: get_contact_info() er flytta til lib/sections/contact.sh
+# Behald stub for bakoverkompatibilitet med eksisterande kode
 get_contact_info() {
     schema_path="$1"
 
@@ -97,40 +110,8 @@ PYEOF
     fi
 }
 
-domain_label() {
-    case "$1" in
-        ap-no)   echo "AP-NO - Applikasjonsprofiler" ;;
-        begrepskatalog) echo "Begrepskatalog - Begrepskatalogmodellar" ;;
-        modellkatalog)   echo "Modellkatalog - Informasjonsmodellar" ;;
-        ngr)     echo "NGR - Nasjonale Grunndata" ;;
-        fint)    echo "FINT - Fylkeskommunale integrasjonar" ;;
-        samt)    echo "SAMT - Kommunale integrasjonar" ;;
-        fair)    echo "FAIR - Metadataoverbygning" ;;
-        oreg)    echo "OREG - Offentlege registre" ;;
-        *)     echo "$1" | awk '{print toupper($0)}' ;;
-    esac
-}
-
-artifact_label() {
-    case "$1" in
-        shapes.ttl)     echo "SHACL shapes" ;;
-        ontology.ttl)   echo "OWL ontologi" ;;
-        schema.ttl)     echo "RDF/Turtle skjema" ;;
-        context.jsonld) echo "JSON-LD kontekst" ;;
-        schema.json)    echo "JSON Schema" ;;
-        schema.xsd)     echo "XML Schema (XSD)" ;;
-        openapi.yaml)   echo "OpenAPI 3.1" ;;
-        asyncapi.yaml)  echo "AsyncAPI 3.0" ;;
-        model.py)       echo "Python-klasser" ;;
-        schema.proto)   echo "Protobuf-skjema" ;;
-        erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
-        eksempel.ttl)   echo "Eksempeldata (Turtle)" ;;
-        *)              echo "$1" ;;
-    esac
-}
-
-# Rekkjefølgje på artefakter i tabellen
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
+# DEPRECATED: domain_label() og artifact_label() er flytta til lib/utils/formatters.sh
+# DEPRECATED: ARTIFACT_ORDER er flytta til lib/sections/artifacts.sh
 
 # ---------------------------------------------------------------------------
 # Generer valideringsregler.md frå policies/README.md
@@ -161,57 +142,10 @@ EOF
     echo "${CLR_OK}✓ Genererte $output${CLR_RST}"
 }
 
-# Bygg avhengighetsgraf for eit skjema
-build_dependency_graph() {
-    local domain="$1"
-    local schema="$2"
-
-    # Finn schema-fil (handter både ${schema}-schema.yaml og ${schema}-*-schema.yaml)
-    local schema_path="$REPO_ROOT/src/linkml/$domain/$schema/${schema}-schema.yaml"
-    if [ ! -f "$schema_path" ]; then
-        # Fallback: finn *-schema.yaml i katalogen (t.d. common/common-ap-no-schema.yaml)
-        schema_path=$(find "$REPO_ROOT/src/linkml/$domain/$schema" -maxdepth 1 -name "*-schema.yaml" | head -1)
-    fi
-
-    # Parse direkte importar frå dette skjemaet
-    local imports=""
-    local direct_imports_normalized=""
-    if [ -f "$schema_path" ]; then
-        # Behald -schema-suffiks (ikkje strip det)
-        imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^[ ]*- " | sed 's/^[ ]*- //' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
-        # Normaliser til skjemanamn (basename) for direkte-import-matching
-        direct_imports_normalized=$(echo "$imports" | tr ' ' '\n' | xargs -I {} basename {} | tr '\n' ' ')
-    fi
-
-    # Output (hierarkisk tre med transitive avhengigheiter)
-    if [ -n "$imports" ]; then
-        echo "---"
-        echo ""
-        echo "## Avhengigheiter"
-        echo ""
-        echo "### Imports"
-        echo ""
-        echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
-        echo ""
-        echo "\`\`\`"
-        # Kall Python-script for å bygge hierarkisk tre
-        # Send normaliserte direkte importar som tredje argument
-        python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports" "$direct_imports_normalized"
-        echo "\`\`\`"
-        echo ""
-        echo "!!! note \"Leseretning\""
-        echo "    Diagrammet ovanfor viser avhengigheiter **frå høgre til venstre**. Dette skjemaet"
-        echo "    importerer dei skjemaa som står lengst til høgre, som igjen automatisk inkluderer"
-        echo "    alle sine avhengigheiter lengre til venstre i treet."
-        echo ""
-        echo "*Sjå [Importhierarki](../../importhierarki.md) for fullstendig importkjede.*"
-        echo ""
-        echo ""
-    fi
-}
+# DEPRECATED: build_dependency_graph() er flytta til lib/sections/dependencies.sh
 
 # ---------------------------------------------------------------------------
-# Per-skjema prosessering (køyrer parallelt)
+# Per-skjema prosessering (køyrer parallelt) — REFACTORED
 # ---------------------------------------------------------------------------
 process_schema() {
     local domain="$1"
@@ -221,387 +155,11 @@ process_schema() {
     local t0
     t0=$(date +%s%3N)
 
-    mkdir -p "$out/klasser"
+    # Steg 2a: Kopier artefakter
+    copy_schema_artifacts "$domain" "$schema" "$schema_dir" "$out"
 
-    # Kopier artefaktfiler (berre filer, ikkje docs/-underkatalog)
-    find "$schema_dir" -maxdepth 1 -type f -exec cp {} "$out/" \;
-
-    # Kopier CHANGELOG.md dersom den finst
-    changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
-    if [ -f "$changelog_src" ]; then
-        cp "$changelog_src" "$out/CHANGELOG.md"
-    fi
-
-    # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
-    if [ -d "$schema_dir/diagrams" ]; then
-        mkdir -p "$out/diagrams"
-        find "$schema_dir/diagrams" -type f -exec cp {} "$out/diagrams/" \;
-    fi
-
-    # Kopier gen-doc markdown-filer til klasser/-underkatalog
-    if [ -d "$schema_dir/docs" ]; then
-        find "$schema_dir/docs" -name "*.md" -exec cp {} "$out/klasser/" \;
-        # Rename alle .md-filer til lowercase (via .tmp for case-insensitive filsystem)
-        for f in "$out/klasser/"*.md; do
-            [ -f "$f" ] || continue
-            base=$(basename "$f")
-            lower=$(echo "$base" | tr '[:upper:]' '[:lower:]')
-            if [ "$base" != "$lower" ]; then
-                mv "$f" "$out/klasser/${lower}.tmp"
-                mv "$out/klasser/${lower}.tmp" "$out/klasser/$lower"
-            fi
-        done
-        # Oppdater alle interne .md-lenkjer til lowercase
-        find "$out/klasser" -maxdepth 1 -name "*.md" \
-            -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} \;
-    fi
-
-    # ----------------------------------------------------------------
-    # Generer schema/index.md
-    # ----------------------------------------------------------------
-    (
-        set +e  # Tillat feil i heredoc for å unngå at variabelsubstitusjon feilar
-        echo "# $schema"
-        echo ""
-
-        # Steg 6: Badge-rad (parse metadata frå gendoc_index)
-        gendoc_index="$schema_dir/docs/index.md"
-        if [ -f "$gendoc_index" ]; then
-            version=$(grep "^| Versjon" "$gendoc_index" | sed 's/.*| \([^ ]*\) |/\1/' | head -1)
-            status=$(grep "^| Status" "$gendoc_index" | sed 's|.*status/\([^)]*\).*|\1|' | head -1)
-            license=$(grep "^| Lisens" "$gendoc_index" | sed 's|.*/nlod/no/\([0-9.]*\).*|\1|' | head -1)
-
-            # Valideringsstatus (les frå validation_json)
-            manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-            policy="bronze"
-            if [ -f "$manifest" ]; then
-                policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
-            fi
-            validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
-            validation_json="$validation_dir/$latest_version/${policy}.json"
-            val_status="ukjent"
-            val_color="lightgrey"
-            if [ -f "$validation_json" ]; then
-                errors=$(python3 -c "import json; d=json.load(open('$validation_json')); print(d.get('result', {}).get('error_count', 0))" 2>/dev/null || echo "0")
-                [ -z "$errors" ] && errors="0"
-                if [ "$errors" -eq 0 ]; then
-                    val_status="✓_godkjent"
-                    val_color="green"
-                else
-                    val_status="${errors}_feil"
-                    val_color="yellow"
-                fi
-            fi
-
-            # Normaliser status-namn
-            status_label="$status"
-            status_color="blue"
-            case "$status" in
-                Completed) status_label="Ferdigstilt"; status_color="green" ;;
-                UnderDevelopment) status_label="Under_utvikling"; status_color="orange" ;;
-                Deprecated) status_label="Foreldet"; status_color="red" ;;
-                Withdrawn) status_label="Trukket_tilbake"; status_color="red" ;;
-            esac
-
-            # URL-encode val_status for shields.io (erstatt mellomrom og spesialteikn)
-            val_status_encoded="${val_status// /_}"
-            val_status_encoded="${val_status_encoded//✓/%E2%9C%93}"
-
-            # URL-encode policy-namn (erstatt bindestrek med understrek)
-            policy_encoded="${policy//-/_}"
-
-            echo "[![Versjon](https://img.shields.io/badge/versjon-${version}-blue)]()"
-            echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
-            echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
-            if [ -n "$license" ]; then
-                echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
-            fi
-            echo ""
-        fi
-
-        # Steg 3: Ekstern referanse-boks (les frå manifest.yaml)
-        manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-        external_spec=""
-        if [ -f "$manifest" ]; then
-            external_spec=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_url', ''))" 2>/dev/null || echo "")
-        fi
-        if [ -n "$external_spec" ]; then
-            echo "---"
-            echo ""
-            echo "!!! info \"Offisiell referanse\""
-            echo "    📘 [$schema-spesifikasjonen]($external_spec) frå Digitaliseringsdirektoratet"
-            echo ""
-        fi
-
-        # Injiser description.md dersom det finst (brukarorientert introduksjon)
-        description_file="$REPO_ROOT/src/linkml/$domain/$schema/description.md"
-        if [ -f "$description_file" ]; then
-            cat "$description_file"
-            echo ""
-            echo ""
-        fi
-
-        # Quickstart-seksjon (les frå quickstart.md eller fallback)
-        quickstart_file="$REPO_ROOT/src/linkml/$domain/quickstart.md"
-        example_file="$REPO_ROOT/src/linkml/$domain/$schema/examples/${schema}-eksempel.yaml"
-        if [ -f "$quickstart_file" ]; then
-            # Les og inject quickstart.md med variabel-substitusjon
-            sed "s/{{SCHEMA}}/$schema/g; s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g" "$quickstart_file"
-            echo ""
-            echo ""
-        elif [ "$domain" = "ap-no" ]; then
-            # Fallback: AP-NO Quickstart (hardkoda)
-            echo "## Kom i gang"
-            echo ""
-            echo "### Importer i LinkML-skjema"
-            echo ""
-            echo "\`\`\`yaml"
-            echo "imports:"
-            echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/$schema/$schema-schema"
-            echo "\`\`\`"
-            echo ""
-            echo "### Python-bruk"
-            echo ""
-            echo "\`\`\`bash"
-            echo "pip install linkml-runtime pyyaml"
-            echo "\`\`\`"
-            echo ""
-            echo "\`\`\`python"
-            echo "from linkml_runtime.loaders import yaml_loader"
-            echo "from ${schema//-/_}_model import Katalog"
-            echo ""
-            echo "katalog = yaml_loader.load('eksempel.yaml', target_class=Katalog)"
-            echo "print(katalog.tittel)"
-            echo "\`\`\`"
-            echo ""
-            echo "### Valider data mot SHACL"
-            echo ""
-            echo "\`\`\`bash"
-            echo "pyshacl --shacl $schema-shapes.ttl --data-format turtle mine-data.ttl"
-            echo "\`\`\`"
-            echo ""
-            echo ""
-        elif [ -f "$example_file" ]; then
-            # Fallback: Domenemodell Quickstart (hardkoda)
-            echo "## Kom i gang"
-            echo ""
-            echo "### Valider eiga datafil"
-            echo ""
-            echo "\`\`\`bash"
-            echo "linkml-validate -s $schema-schema.yaml mine-data.yaml"
-            echo "\`\`\`"
-            echo ""
-            echo ""
-        fi
-
-        # Eksempel-seksjon (begge typar)
-        if [ -f "$example_file" ]; then
-            echo "---"
-            echo ""
-            echo "## Eksempeldatafil"
-            echo ""
-            echo "### YAML"
-            echo ""
-            echo "\`\`\`yaml"
-            # Ekstraher første 20 liner (eller til første tom linje etter header)
-            head -20 "$example_file" | awk '
-                NR == 1 && /^#/ { in_header = 1 }
-                in_header && /^$/ { in_header = 0; next }
-                !in_header { print }
-                NR > 20 { exit }
-            '
-            echo "\`\`\`"
-            echo ""
-            echo "[📄 Full eksempelfil (YAML)](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/$domain/$schema/examples/$schema-eksempel.yaml)"
-            echo ""
-            echo "*Detaljerte eksempel per klasse finst på kvar klasseside, t.d. [Classes](#classes).*"
-            echo ""
-            echo ""
-        fi
-
-        # Metadata-tabell frå gen-doc (ekstrahert frå docs/index.md)
-        gendoc_index="$schema_dir/docs/index.md"
-        if [ -f "$gendoc_index" ]; then
-            echo "---"
-            echo ""
-            # Ekstraher frå "## Metadata" til neste "## "-seksjon (ikkje inkludert)
-            # Endre overskrift til "Modellmetadata" for klarheit
-            awk '/^## Metadata$/{ p=1; print "## Modellmetadata"; next } p{ if(/^## / && !/^## Metadata$/){ exit } print }' "$gendoc_index"
-        fi
-
-        # Publiseringsinfo: boks dersom skjema har eit publisert URI-register
-        lock_file="$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock"
-        if [ -f "$lock_file" ]; then
-            ttl_url="https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema.ttl"
-            echo ""
-            echo "---"
-            echo ""
-            echo "!!! info \"Publisert til Felles Begrepskatalog\""
-            echo "    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)"
-            echo "    via høstingsendepunkt. Turtle-fila er tilgjengeleg på:"
-            echo ""
-            echo "    \`${ttl_url}\`"
-            echo ""
-            echo "    Sjå [Publiser til Felles Begrepskatalog](../../publisering-begrep.md) for rettleiing"
-            echo "    om arbeidsflyt, URI-stabilitet og oppsett for nye katalogar."
-            echo ""
-        fi
-
-        # Steg 4: Avhengighetsgraf
-        build_dependency_graph "$domain" "$schema"
-
-        # Embed PlantUML-diagram (filtrert versjon — kun lokale klasser)
-        plantuml_svg="diagrams/${schema}-filtered.svg"
-        plantuml_full="diagrams/${schema}.svg"
-
-        # Prioriter filtrert versjon
-        if [ -f "$out/$plantuml_svg" ]; then
-            echo "---"
-            echo ""
-            echo "## ER-diagram"
-            echo ""
-            echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg)"
-            echo ""
-            echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
-            echo ""
-        elif [ -f "$out/$plantuml_full" ]; then
-            echo "---"
-            echo ""
-            echo "## ER-diagram"
-            echo ""
-            echo "[![ER-diagram]($plantuml_full)]($plantuml_full)"
-            echo ""
-            echo "*Klikk for å zoome.*"
-            echo ""
-        fi
-
-        # Inline klasseliste frå gen-doc direkte i index.md
-        klasse_src=""
-        [ -f "$out/klasser/index.md" ] && klasse_src="$out/klasser/index.md"
-        [ -z "$klasse_src" ] && [ -f "$out/klasser/${schema}.md" ] && klasse_src="$out/klasser/${schema}.md"
-
-        if [ -n "$klasse_src" ]; then
-            echo "---"
-            echo ""
-            # Ekstraher frå "## Classes" til slutten (hoppar over Metadata og Schema Diagram)
-            awk '/^## Classes$/,0' "$klasse_src" \
-                | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
-        fi
-
-        # Artefaktabell (før valideringsresultat)
-        has_artifact=false
-        artifact_rows=""
-        for suffix in $ARTIFACT_ORDER; do
-            f="$out/${schema}-${suffix}"
-            if [ -f "$f" ]; then
-                has_artifact=true
-                artifact_rows+="| $(artifact_label "$suffix") | [${schema}-${suffix}](${schema}-${suffix}) |"$'\n'
-            fi
-        done
-
-        # PlantUML-diagram (ligg i diagrams/-underkatalog)
-        # Prioriter filtrert versjon (kun domenemodell) over full versjon
-        puml_svg_filtered="$out/diagrams/${schema}-filtered.svg"
-        puml_src_filtered="$out/diagrams/${schema}-filtered.puml"
-        puml_svg_full="$out/diagrams/${schema}.svg"
-        puml_src_full="$out/diagrams/${schema}.puml"
-
-        if [ -f "$puml_svg_filtered" ] || [ -f "$puml_src_filtered" ] || [ -f "$puml_svg_full" ] || [ -f "$puml_src_full" ]; then
-            has_artifact=true
-            puml_links=""
-            # Vis filtrert versjon først (hovuddiagram)
-            if [ -f "$puml_svg_filtered" ]; then
-                puml_links="[${schema}-filtered.svg](diagrams/${schema}-filtered.svg)"
-            elif [ -f "$puml_svg_full" ]; then
-                puml_links="[${schema}.svg](diagrams/${schema}.svg)"
-            fi
-            # Legg til puml-kjeldekode
-            if [ -f "$puml_src_filtered" ]; then
-                [ -n "$puml_links" ] && puml_links+=" · "
-                puml_links+="[${schema}-filtered.puml](diagrams/${schema}-filtered.puml)"
-            fi
-            if [ -f "$puml_src_full" ]; then
-                [ -n "$puml_links" ] && puml_links+=" · "
-                puml_links+="[${schema}.puml](diagrams/${schema}.puml) (full)"
-            fi
-            artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
-        fi
-
-        if $has_artifact; then
-            echo ""
-            echo "---"
-            echo ""
-            echo "## Generated artifacts"
-            echo ""
-            echo "| Artefakt | Fil |"
-            echo "|----------|-----|"
-            printf '%s' "$artifact_rows"
-        fi
-
-        # Valideringsresultat frå siste versjon (co-location-struktur)
-        manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
-        policy="bronze"
-        if [ -f "$manifest" ]; then
-            # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
-            policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze")
-        fi
-
-        # Finn siste versjon programmatisk (semver-sortering)
-        validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-        latest_version=""
-        if [ -d "$validation_dir" ]; then
-            # Sorter versjonar semantisk (semver: 1.10.0 > 1.2.0)
-            latest_version=$(ls -v "$validation_dir" 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -n1)
-        fi
-
-        # Finn validation-logg for siste versjon og denne policyen
-        validation_json=""
-        if [ -n "$latest_version" ]; then
-            validation_json="$validation_dir/$latest_version/${policy}.json"
-        fi
-
-        if [ -f "$validation_json" ]; then
-            echo ""
-            echo "---"
-            echo ""
-            python3 "$REPO_ROOT/src/assets/scripts/generate-validation-md.py" "$validation_json"
-        else
-            echo ""
-            echo "---"
-            echo ""
-            echo "## Valideringsresultat"
-            echo ""
-            echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
-        fi
-
-        # Versjonslog (CHANGELOG.md som rein Markdown)
-        changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
-        if [ -f "$changelog_src" ]; then
-            echo ""
-            echo "---"
-            echo ""
-            echo "## Versjonslog"
-            echo ""
-            # Fjern hovudoverskrift "# Changelog" og auk nivået på alle andre overskrifter med éin #
-            tail -n +1 "$changelog_src" | awk '
-                NR==1 && /^# Changelog/ { next }
-                /^##/ { print "#" $0; next }
-                { print }
-            '
-            echo ""
-        fi
-
-        # Steg 5: Kontaktinformasjon
-        # Hent utgjevar frå metadata (gendoc_index er allereie lest)
-        echo ""
-        echo "---"
-        echo ""
-        echo "## Kontakt"
-        echo ""
-        get_contact_info "src/linkml/${domain}/${schema}"
-        echo ""
-    ) > "$out/index.md"
+    # Steg 2b: Generer index.md
+    generate_schema_index "$domain" "$schema" "$schema_dir" "$out"
 
     local elapsed_ms=$(( $(date +%s%3N) - t0 ))
     printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)\n" \

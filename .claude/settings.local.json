@@ -269,7 +269,8 @@
       "Bash(time make domain-ngr PARALLEL=8)",
       "Bash(tee /tmp/domain-ngr-parallel8.log)",
       "Bash(pkill *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(mkdocs/publish.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,

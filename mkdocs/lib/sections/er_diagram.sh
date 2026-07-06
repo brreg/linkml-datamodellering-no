@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Generer ER-diagram-seksjon (seksjon 10 i index.md)
+set -euo pipefail
+
+generate_er_diagram() {
+    local schema="$1"
+    local out="$2"
+
+    # Embed PlantUML-diagram (filtrert versjon — kun lokale klasser)
+    local plantuml_svg="diagrams/${schema}-filtered.svg"
+    local plantuml_full="diagrams/${schema}.svg"
+
+    # Prioriter filtrert versjon
+    if [ -f "$out/$plantuml_svg" ]; then
+        echo "---"
+        echo ""
+        echo "## ER-diagram"
+        echo ""
+        echo "[![ER-diagram]($plantuml_svg)]($plantuml_svg)"
+        echo ""
+        echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
+        echo ""
+    elif [ -f "$out/$plantuml_full" ]; then
+        echo "---"
+        echo ""
+        echo "## ER-diagram"
+        echo ""
+        echo "[![ER-diagram]($plantuml_full)]($plantuml_full)"
+        echo ""
+        echo "*Klikk for å zoome.*"
+        echo ""
+    fi
+}

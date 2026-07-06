@@ -2,7 +2,7 @@
 
 !!! note "Beskrivelse"
 
-        Dette dokumentet viser det komplette importhierarkiet for alle skjema i repoet.
+    Dette dokumentet viser det komplette importhierarkiet for alle skjema i repoet.
 
 ## Korleis lese diagramma
 
