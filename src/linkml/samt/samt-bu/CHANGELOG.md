@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.2.0...samt-bu-v1.3.0) (2026-07-06)
+
+
+### Features
+
+* **mkdocs:** konfigurerbare seksjons-kjelder i index.md ([94c2efb](https://github.com/brreg/linkml-datamodellering-no/commit/94c2efb8c90571a03efa5108a869e5204544bcbf))
+
 ## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.1.0...samt-bu-v1.2.0) (2026-07-04)
 
 
