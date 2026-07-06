@@ -56,6 +56,19 @@ CI skil dei to typane på om `generators:`-seksjonen er til stades.
 
 ## Felta i skjema-manifest
 
+### `external_spec_url` (valfritt)
+
+URL til offisiell spesifikasjon hos standardiseringsorganisasjon (t.d. Digdir). 
+Dersom sett, vis ein infoboks i `index.md` med lenke til den eksterne spesifikasjonen.
+
+**Brukstilfelle:** AP-NO-profilar som er baserte på Digdir-standardar (DCAT-AP-NO, 
+SKOS-AP-NO osv.). Domenemodell-skjema har vanlegvis ikkje dette feltet.
+
+**Eksempel:**
+```yaml
+external_spec_url: https://informasjonsforvaltning.github.io/dcat-ap-no/
+```
+
 ### `publish_external`
 
 `true` utløyser publisering til ekstern katalog (Felles Datakatalog eller Felles

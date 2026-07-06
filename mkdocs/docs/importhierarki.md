@@ -1,6 +1,8 @@
 # Importhierarki
 
-Dette dokumentet viser det komplette importhierarkiet for alle skjema i repoet.
+!!! note "Beskrivelse"
+
+        Dette dokumentet viser det komplette importhierarkiet for alle skjema i repoet.
 
 ## Korleis lese diagramma
 

@@ -1,5 +1,6 @@
 publish_external: false
 validation_policy: gold
+external_spec_url: https://informasjonsforvaltning.github.io/dqv-ap-no/
 
 generators:
   jsonld_context: true
