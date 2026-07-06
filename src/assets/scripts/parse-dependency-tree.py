@@ -78,14 +78,11 @@ def parse_tree_lines(lines: List[str]) -> Dict[str, List[str]]:
         }
     """
     tree = {}
-    stack = []  # (indent_level, schema_name)
+    stack = []  # (tree_depth, schema_name)
 
     for line in lines:
         if not line.strip():
             continue
-
-        # Calculate indent level (count leading spaces/tree chars)
-        indent = len(line) - len(line.lstrip())
 
         # Extract schema name (remove tree characters)
         schema = re.sub(r'^[\s│└├─]+', '', line).strip()
@@ -95,8 +92,34 @@ def parse_tree_lines(lines: List[str]) -> Dict[str, List[str]]:
         # Remove comments (anything after ←)
         schema = schema.split('←')[0].strip()
 
-        # Find parent at lower indent level
-        while stack and stack[-1][0] >= indent:
+        # Calculate tree depth by counting 4-char blocks in prefix
+        # Prefix includes leading whitespace + tree chars (│└├─)
+        prefix_len = len(line) - len(line.lstrip())
+        rest = line.lstrip()
+        tree_chars = 0
+        for ch in rest:
+            if ch in '│└├─ ':
+                tree_chars += 1
+            else:
+                break
+
+        full_prefix = line[:prefix_len + tree_chars]
+
+        # Count depth in increments of 4 chars
+        # Pattern: "    " = depth 1, "│   " = depth 1 (continuation)
+        depth = 0
+        i = 0
+        while i + 4 <= len(full_prefix):
+            chunk = full_prefix[i:i+4]
+            # Check if this is a 4-char depth marker
+            if chunk == '    ' or chunk[0] in '│└├':
+                depth += 1
+                i += 4
+            else:
+                i += 1
+
+        # Find parent at lower depth level
+        while stack and stack[-1][0] >= depth:
             stack.pop()
 
         if stack:
@@ -106,7 +129,7 @@ def parse_tree_lines(lines: List[str]) -> Dict[str, List[str]]:
             if schema not in tree[parent]:
                 tree[parent].append(schema)
 
-        stack.append((indent, schema))
+        stack.append((depth, schema))
 
     return tree
 

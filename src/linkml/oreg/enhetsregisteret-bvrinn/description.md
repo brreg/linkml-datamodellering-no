@@ -1,2 +1,1 @@
-<!-- Valfri skildring av bvrinn. Vert vist i portalen mellom ER-diagrammet og klasselista. -->
-<!-- Fyll ut eller slett denne fila. -->
+Dette er ein POC på å modellere enhetsregisteret-bvrinn modellen i LinkML.

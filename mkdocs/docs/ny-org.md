@@ -1,4 +1,4 @@
-# Rettleiing: ny organisasjon
+# Rettleiing: ny modelleigar
 
 !!! note "Beskrivelse"
 
