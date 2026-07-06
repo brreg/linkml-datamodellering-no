@@ -1,6 +1,6 @@
 # Struktur for `index.md` per modell
 
-Denne sida dokumenterer korleis `index.md`-fila for kvar modell (t.d. `mkdocs/docs/samt/samt-bu/index.md`) blir bygd opp og generert av `mkdocs/publish.sh`.
+Denne sida dokumenterer korleis Modell-dokumentasjon `index.md`-fila for kvar modell blir bygd opp og generert av `mkdocs/publish.sh` (t.d. `mkdocs/docs/samt/samt-bu/index.md` som publiseres som **SAMT - Kommunale integrasjonar/samt-bu** i navigasjonsmenyen til venstre i denne portalen) .
 
 ## Oversikt
 
