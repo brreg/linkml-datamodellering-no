@@ -272,7 +272,8 @@
       "Bash(git remote *)",
       "Bash(mkdocs/publish.sh)",
       "Bash(make docs *)",
-      "Bash(make -n domain-ap-no)"
+      "Bash(make -n domain-ap-no)",
+      "Bash(skopeo inspect *)"
     ]
   },
   "enableAllProjectMcpServers": true,
