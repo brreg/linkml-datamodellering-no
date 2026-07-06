@@ -17,7 +17,7 @@ INSTANCE   			?=
 POLICY     			?=
 PARALLEL   			?= 16
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
-PLANTUML_IMAGE		:= docker.io/plantuml/plantuml:latest
+PLANTUML_IMAGE		:= localhost/plantuml-upstream:latest
 DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
 DOCS_RUN   			:= podman run --rm \
 	-v "$(CURDIR)/mkdocs/docs:/docs/docs" \
@@ -498,7 +498,7 @@ PARALLEL ?= 8
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-bronze validate-data validate-examples \
-        build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs \
+        build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs pull-plantuml-upstream \
         build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
         mcp-linkml-validate-run mcp-linkml-validate-smoke mcp-linkml-validate-test mcp-linkml-validate \
         mcp-linkml-modell-utkast-run mcp-linkml-modell-utkast-smoke mcp-linkml-modell-utkast-test mcp-linkml-modell-utkast new-model \
@@ -686,6 +686,13 @@ build-docker-asyncapi:
 	@echo "$(CLR_HDR)*** make build-docker-asyncapi$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
+
+pull-plantuml-upstream:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make pull-plantuml-upstream$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman pull docker.io/plantuml/plantuml:latest
+	podman tag docker.io/plantuml/plantuml:latest localhost/plantuml-upstream:latest
 
 
 
