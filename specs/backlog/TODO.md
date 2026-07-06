@@ -95,3 +95,4 @@ vær veldig kritisk og gjer ein full gjennomgang av dette repoet for å avdekke 
 
 evaluer gap mot https://data.norge.no/nb/docs/sharing-data skriv til ./specs
 
+ein del gjentakelser i Makefile. Lag plan for å redusere duplikat kode ifølge DRY prinsippet samtidig som vi beheld best mulig lesbarhet

@@ -26,21 +26,6 @@ log_step() {
 # Hjelpefunksjonar
 # ---------------------------------------------------------------------------
 
-# Mapping for eksterne referanse-URL-ar (AP-NO-profilar)
-get_external_spec_url() {
-    local schema="$1"
-    case "$schema" in
-        dcat-ap-no)      echo "https://informasjonsforvaltning.github.io/dcat-ap-no/" ;;
-        skos-ap-no)      echo "https://informasjonsforvaltning.github.io/skos-ap-no-begrep/" ;;
-        modelldcat-ap-no|modelldcat-modell|modelldcat-katalog)
-                         echo "https://data.norge.no/specification/modelldcat-ap-no" ;;
-        dqv-ap-no|dqv-core) echo "https://informasjonsforvaltning.github.io/dqv-ap-no/" ;;
-        cpsv-ap-no)      echo "https://informasjonsforvaltning.github.io/cpsv-ap-no/" ;;
-        xkos-ap-no)      echo "https://data.norge.no/specification/xkos-ap-no" ;;
-        *)               echo "" ;;
-    esac
-}
-
 # Hent kontaktinfo basert på utgjevar-organisasjon
 get_contact_info() {
     schema_path="$1"
@@ -335,8 +320,12 @@ process_schema() {
             echo ""
         fi
 
-        # Steg 3: Ekstern referanse-boks (for AP-NO-profilar)
-        external_spec=$(get_external_spec_url "$schema")
+        # Steg 3: Ekstern referanse-boks (les frå manifest.yaml)
+        manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+        external_spec=""
+        if [ -f "$manifest" ]; then
+            external_spec=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_url', ''))" 2>/dev/null || echo "")
+        fi
         if [ -n "$external_spec" ]; then
             echo "---"
             echo ""
@@ -353,10 +342,16 @@ process_schema() {
             echo ""
         fi
 
-        # Quickstart-seksjon (AP-NO vs domenemodell)
+        # Quickstart-seksjon (les frå quickstart.md eller fallback)
+        quickstart_file="$REPO_ROOT/src/linkml/$domain/quickstart.md"
         example_file="$REPO_ROOT/src/linkml/$domain/$schema/examples/${schema}-eksempel.yaml"
-        if [ "$domain" = "ap-no" ]; then
-            # AP-NO Quickstart
+        if [ -f "$quickstart_file" ]; then
+            # Les og inject quickstart.md med variabel-substitusjon
+            sed "s/{{SCHEMA}}/$schema/g; s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g" "$quickstart_file"
+            echo ""
+            echo ""
+        elif [ "$domain" = "ap-no" ]; then
+            # Fallback: AP-NO Quickstart (hardkoda)
             echo "## Kom i gang"
             echo ""
             echo "### Importer i LinkML-skjema"
@@ -388,7 +383,7 @@ process_schema() {
             echo ""
             echo ""
         elif [ -f "$example_file" ]; then
-            # Domenemodell Quickstart
+            # Fallback: Domenemodell Quickstart (hardkoda)
             echo "## Kom i gang"
             echo ""
             echo "### Valider eiga datafil"

@@ -1,5 +1,6 @@
 publish_external: false
 validation_policy: gold
+external_spec_url: https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
 
 generators:
   jsonld_context: true

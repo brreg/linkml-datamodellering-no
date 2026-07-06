@@ -1,6 +1,8 @@
 # Struktur for `index.md` per modell
 
-Denne sida dokumenterer korleis Modell-dokumentasjon `index.md`-fila for kvar modell blir bygd opp og generert av `mkdocs/publish.sh` (t.d. `mkdocs/docs/samt/samt-bu/index.md` som publiseres som **SAMT - Kommunale integrasjonar/samt-bu** i navigasjonsmenyen til venstre i denne portalen) .
+!!! note "Beskrivelse"
+
+    Denne sida dokumenterer korleis Modell-dokumentasjon `index.md`-fila for kvar modell blir bygd opp og generert av `mkdocs/publish.sh` (t.d. `mkdocs/docs/samt/samt-bu/index.md` som publiseres som **SAMT - Kommunale integrasjonar/samt-bu** i navigasjonsmenyen til venstre i denne portalen) .
 
 ## Oversikt
 
@@ -18,9 +20,9 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 |---|---|---|---|
 | 1 | **Hovudoverskrift** | `# <schema>` | Skjemanamn frå katalognamn |
 | 2 | **Badge-rad** | Versjon, status, validering, lisens | Parsa frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) og `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (valideringsresultat) |
-| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `mkdocs/publish.sh:get_external_spec_url()` (kun for AP-NO-profilar) |
+| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `manifest.yaml` (`external_spec_url`-feltet, valfritt) |
 | 4 | **description.md** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) |
-| 5 | **Kom i gang** | Quickstart-guide med valideringskommando | Generert dynamisk av `mkdocs/publish.sh:process_schema()` (linjer 345-390). Skiljer mellom AP-NO og domenemodell. |
+| 5 | **Kom i gang** | Quickstart-guide med valideringskommando | `src/linkml/<domain>/quickstart.md` (valfri, med `{{SCHEMA}}`- og `{{SCHEMA_UNDERSCORE}}`-substitusjon). Fallback til hardkoda logikk dersom fila manglar. |
 | 6 | **Eksempeldatafil** (valgfri) | YAML-eksempel (første 20 linjer) + lenke til full fil | Ekstraher frå `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` (linjer 392-415) |
 | 7 | **Modellmetadata** | Tabell med name, title, description, versjon, lisens, utgjevar, status, endringsdato, utgivelsesdato | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Metadata` (linjer 417-425) |
 | 8 | **Publiseringsinfo** (valgfri) | Infoboks dersom skjema er publisert til Felles Begrepskatalog | Syner dersom `src/linkml/<domain>/<schema>/published-uris.lock` finst (linjer 428-443) |
@@ -34,7 +36,7 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 | 16 | **Generated artifacts** | Tabell med lenkjer til genererte artefaktar (SHACL, JSON-LD, JSON Schema, OWL, RDF, Python, Protobuf, PlantUML osv.) | Generert dynamisk frå `mkdocs/docs/<domain>/<schema>/` og `diagrams/`-underkatalog (linjer 484-531) |
 | 17 | **Valideringsresultat** | Valideringsstatus, feiltal, åtvaringtal + detaljert feil-/åtvaringsliste | Generert av `src/assets/scripts/generate-validation-md.py` frå `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (linjer 533-565) |
 | 18 | **Versjonslog** | CHANGELOG-innhald som rein Markdown | Kopiert frå `src/linkml/<domain>/<schema>/CHANGELOG.md` (linjer 567-580) — hovudoverskrift fjerna, alle andre auka med éin `#` |
-| 19 | **Kontakt** | Kontaktinformasjon (forvaltningsansvarleg, support) | Generert av `mkdocs/publish.sh:get_contact_info()` (linjer 584-589) |
+| 19 | **Kontakt** | Kontaktinformasjon (forvaltningsansvarleg, support) | Generert av `mkdocs/publish.sh:get_contact_info()` frå `CODEOWNERS.md` (linjer 45-113). Matchdar schema-path mot `path_patterns` per organisasjon. |
 
 ## Detaljert kjeldekartlegging
 
@@ -147,8 +149,9 @@ For å endre innhaldet i ein modell sin `index.md`:
 |---|---|
 | Hovudtittel | Ikkje redigerbar — auto-generert frå skjemanamn |
 | Badge-verdiar | Endre versjon/status/lisens i `src/linkml/<domain>/<schema>/<schema>-schema.yaml` (gen-doc parsar dette) |
+| Offisiell referanse | Legg til `external_spec_url` i `src/linkml/<domain>/<schema>/manifest.yaml` |
 | Introduksjonstekst | Opprett/rediger `src/linkml/<domain>/<schema>/description.md` |
-| Quickstart-kommando | Rediger `mkdocs/publish.sh:process_schema()` (linjer 345-390) |
+| Quickstart-kommando | Rediger `src/linkml/<domain>/quickstart.md` (eller opprett fil dersom den manglar) |
 | Eksempeldatafil | Rediger `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` |
 | Metadata-tabell | Endre metadata i `src/linkml/<domain>/<schema>/<schema>-schema.yaml` (gen-doc genererer tabellen) |
 | Avhengigheiter | Endre `imports:`-seksjonen i `<schema>-schema.yaml` |

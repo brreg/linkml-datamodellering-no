@@ -1,0 +1,1 @@
+> Dette er en tidlig, foreløpig overordnet forretningsobjektmodell over domenet SAMT-bu (barn og unge). Modellen er brukt som eit eksempel på korleis ein kan samarbeide om modellering av offentlige registre på tvers av offentlige virksomheter, og skape ekstraverdi av modelleringsaktiviteten ved automatisk generering av artefakter og dokumentasjon.
