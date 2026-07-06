@@ -13,9 +13,17 @@ copy_schema_artifacts() {
     # Kopier artefaktfiler (berre filer, ikkje docs/-underkatalog)
     find "$schema_dir" -maxdepth 1 -type f -exec cp {} "$out/" \;
 
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    # Søk etter <schema>-schema.yaml i src/linkml/<domain>/*/
+    local schema_file
+    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    local src_dir=""
+    [ -n "$schema_file" ] && src_dir=$(dirname "$schema_file")
+
     # Kopier CHANGELOG.md dersom den finst
-    local changelog_src="$REPO_ROOT/src/linkml/$domain/$schema/CHANGELOG.md"
-    [ -f "$changelog_src" ] && cp "$changelog_src" "$out/CHANGELOG.md"
+    if [ -n "$src_dir" ] && [ -f "$src_dir/CHANGELOG.md" ]; then
+        cp "$src_dir/CHANGELOG.md" "$out/CHANGELOG.md"
+    fi
 
     # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
     if [ -d "$schema_dir/diagrams" ]; then

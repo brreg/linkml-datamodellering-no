@@ -6,7 +6,15 @@ generate_quickstart() {
     local domain="$1"
     local schema="$2"
     local quickstart_file="$REPO_ROOT/src/linkml/$domain/quickstart.md"
-    local example_file="$REPO_ROOT/src/linkml/$domain/$schema/examples/${schema}-eksempel.yaml"
+
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    local schema_file
+    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    local src_dir=""
+    [ -n "$schema_file" ] && src_dir=$(dirname "$schema_file")
+
+    local example_file=""
+    [ -n "$src_dir" ] && example_file="$src_dir/examples/${schema}-eksempel.yaml"
 
     if [ -f "$quickstart_file" ]; then
         # Les og inject quickstart.md med variabel-substitusjon
