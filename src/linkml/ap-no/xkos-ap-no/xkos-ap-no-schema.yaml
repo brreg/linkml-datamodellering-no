@@ -69,6 +69,7 @@ classes:
       - dekker_gjensidig_utelukkande
       - dekker_uttomande
       - erstattar
+      - inneheld_kategori
     slot_usage:
       identifikator_literal:
         in_subset:
@@ -115,7 +116,7 @@ classes:
           - Valgfri
       forste_nivaa:
         in_subset:
-          - Valgfri
+          - Anbefalt
       dekker:
         in_subset:
           - Anbefalt
@@ -126,6 +127,9 @@ classes:
         in_subset:
           - Anbefalt
       erstattar:
+        in_subset:
+          - Anbefalt
+      inneheld_kategori:
         in_subset:
           - Anbefalt
 
@@ -146,6 +150,7 @@ classes:
       - dekker
       - dekker_gjensidig_utelukkande
       - dekker_uttomande
+      - organisert_etter
     slot_usage:
       tittel:
         in_subset:
@@ -168,6 +173,9 @@ classes:
         in_subset:
           - Anbefalt
       dekker_uttomande:
+        in_subset:
+          - Anbefalt
+      organisert_etter:
         in_subset:
           - Anbefalt
 
@@ -199,6 +207,7 @@ classes:
       - eksklusjonsnotat
       - neste_kategori
       - forrige_kategori
+      - er_forste_kategori_i
     slot_usage:
       anbefalt_term:
         in_subset:
@@ -260,6 +269,9 @@ classes:
       forrige_kategori:
         in_subset:
           - Valgfri
+      er_forste_kategori_i:
+        in_subset:
+          - Anbefalt
 
   # -------------------------------------------------------------------------
   # Klassifikasjonssammenligning  (xkos:Correspondence)
@@ -482,6 +494,31 @@ slots:
     range: Klassifikasjon
     multivalued: true
     description: Eldre klassifikasjon som dette kodeverket erstattar (xkos:supersedes).
+
+  organisert_etter:
+    slot_uri: xkos:organizedBy
+    range: Konsept
+    description: >-
+      Prinsippet klassifikasjonsnivået er organisert etter (xkos:organizedBy).
+      Til dømes kan eit nivå vere organisert etter geografisk plassering,
+      næringsverksemd eller administrativ inndeling.
+
+  inneheld_kategori:
+    slot_uri: uneskos:contains
+    range: Kategori
+    multivalued: true
+    description: >-
+      Kategoriar klassifikasjonen inneheld (uneskos:contains).
+      Dette er ein snarveg framfor å bruke xkos:levels + skos:member
+      for å liste alle kategoriar direkte.
+
+  er_forste_kategori_i:
+    slot_uri: skos:topConceptOf
+    range: Klassifikasjon
+    multivalued: true
+    description: >-
+      Klassifikasjon(ar) som kategorien er toppnivåkategori i (skos:topConceptOf).
+      Markerer at kategorien ikkje har nokon overordna kategori i klassifikasjonen.
 
   hovudinnhald:
     slot_uri: xkos:coreContentNote
