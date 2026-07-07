@@ -1,6 +1,7 @@
 publish_external: false
 validation_policy: silver
-
+external_spec_url: https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.30
+external_spec_label: FINT Informasjonsmodell - Ressurs
 generators:
   jsonld_context: true
   shacl: true

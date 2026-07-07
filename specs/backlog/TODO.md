@@ -98,3 +98,5 @@ evaluer gap mot https://data.norge.no/nb/docs/sharing-data skriv til ./specs
 ein del gjentakelser i Makefile. Lag plan for å redusere duplikat kode ifølge DRY prinsippet samtidig som vi beheld best mulig lesbarhet
 
 evaluer om vi burde hatt ein ny docker container for hjelpeverktøy som yq og jq og andre nyttige bibliotek som vi mangler i dei eksisterande containerimmagene
+
+Modellere FINT Felles (mangler i dag)
