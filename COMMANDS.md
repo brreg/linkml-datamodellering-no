@@ -110,7 +110,7 @@ Alle `gen-*` targets støttar tre bruksmåtar:
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make gen-jsonld [DOMAIN=...] [SCHEMA=...]` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
+| `make gen-jsonld-context [DOMAIN=...] [SCHEMA=...]` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
 | `make gen-shacl [DOMAIN=...] [SCHEMA=...]` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
 | `make gen-python [DOMAIN=...] [SCHEMA=...]` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` |
 | `make gen-jsonschema [DOMAIN=...] [SCHEMA=...]` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` |

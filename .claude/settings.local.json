@@ -274,7 +274,11 @@
       "Bash(make docs *)",
       "Bash(make -n domain-ap-no)",
       "Bash(skopeo inspect *)",
-      "Bash(yq --version)"
+      "Bash(yq --version)",
+      "Bash(make -n domain-fint)",
+      "Bash(rm -f generated/fint/*/fint-*-context.jsonld)",
+      "Bash(PARALLEL=6 timeout 60 make gen-jsonld-context DOMAIN=fint)",
+      "Bash(make gen-jsonld-context *)"
     ]
   },
   "enableAllProjectMcpServers": true,
