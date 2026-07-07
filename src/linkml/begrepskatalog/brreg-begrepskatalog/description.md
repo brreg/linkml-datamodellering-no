@@ -1,1 +1,11 @@
-> Denne begrepskatalogen implementerer [SKOS-AP-NO-Begrep](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) direkte og definerer ingen eigne klasser. Alle domeneklassar (`Begrep`, `Samling`, `Definisjon` o.fl.) er henta frå skos-ap-no via import — sjå [SKOS-AP-NO-Begrep-dokumentasjonen](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) for full klassedokumentasjon.
+Begrepskatalog for Brønnøysundregistrene sine omgrep, basert på SKOS-AP-NO.
+
+Katalogen inneheld omgrepsdefininingar frå Brønnøysundregistrene, publiserte til [Felles begrepskatalog](https://data.norge.no/concepts).
+
+**Typisk brukar:** Brønnøysundregistrene sine fagpersonar og eksterne brukarar som søkjer etter omgrepsdefininingar frå BRREG.
+
+**Nøkkelklasser:** `BegrepskatalogContainer` (containerklasse) — alle andre klasser (`Begrep`, `Definisjon`, `BegrepSamling` m.fl.) er importerte frå `skos-ap-no`.
+
+**Relasjon til andre modellar i dette repoet:**
+- Importerer `skos-ap-no` for alle SKOS-AP-NO-Begrep-klasser
+- Ingen eigne klasser — katalogen inneheld berre containerklasse og dataapointer til omgrep

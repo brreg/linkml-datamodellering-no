@@ -1,15 +1,12 @@
-DCAT-AP-NO er den norske applikasjonsprofilen av [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/), tilpassa norsk offentleg sektor og modellert i LinkML.
+FAIR Metadata Overbygning er ein metadata-modell som utfyllar norske applikasjonsprofilar (DCAT-AP-NO, SKOS-AP-NO m.fl.) for å sikre maskin-aksjonerbar FAIR-konformitet.
 
-Profilen definerer korleis datasett, datatenester, distribusjonar og katalogar skal beskrivas med metadata — etter krava i [DCAT-AP-NO-spesifikasjonen](https://informasjonsforvaltning.github.io/dcat-ap-no/) frå Digitaliseringsdirektoratet.
+Modellen definerer tilleggseigenskapar for å oppfylle [FAIR-prinsippa](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) for forskingsdata og offentlege datasett.
 
-**Typisk brukar:** Offentlege verksemder som skal publisere datasettbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DCAT-AP-NO-kompatible system.
+**Typisk brukar:** Forskingsinstitusjoner og offentlege verksemder som skal publisere FAIR-konforme datasett, og utviklare som implementerer FAIR-støtte.
 
-**Nøkkelklasser:** `Datasett`, `Katalog`, `Distribusjon`, `Datateneste`, `Agent`, `PeriodOfTime`.
+**Nøkkelklasser:** `FAIRMetadata`, `Tilgjengelegheitsgaranti`, `Provenance`, `Lisens`, `Vokabular`.
 
 **Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- `dqv-ap-no` importerer `dcat-ap-no` for å leggje til datakvalitetsannotasjonar
-- `modelldcat-ap-no` byggjer på same mønster for beskriving av informasjonsmodellar
-- Domenemodellane (`ngr-*`, `oreg-*`, `samt-bu`) importerer `dcat-ap-no` for katalogstøtte
-
-**Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dcat-ap-no.md` for dokumenterte avvik og grunngjevingar.
+- Kan importerast av alle domenemodeller som treng FAIR-støtte
+- Uavhengig av AP-NO-profilar — fungerer som ein overlay/mixin
+- Organisert etter FAIR-prinsipp i subsets (`Findable`, `Accessible`, `Interoperable`, `Reusable`)

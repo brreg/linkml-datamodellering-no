@@ -1,6 +1,7 @@
 publish_external: false
 validation_policy: silver
-
+external_spec_url: https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.30
+external_spec_label: FINT Informasjonsmodell - Administrasjon
 generators:
   jsonld_context: true
   shacl: true
