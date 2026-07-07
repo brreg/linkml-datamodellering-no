@@ -70,20 +70,15 @@ Delt lag for alle AP-NO-profilene. Definerer:
 ### `dcat-ap-no` — Datasett og distribusjon
 
 **Fil:** `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`  
-**Spesifikasjon:** <https://informasjonsforvaltning.github.io/dcat-ap-no/>  
-**Kartlegging:** `specs/done/avvik-dcat-ap-no.md`
-
-**Opne punkt:**
-
-| Kode | Avvik | Merknad |
-|------|-------|---------|
-| DA6 | Utgjevar-URI-mønster (`data.norge.no` vs. spesifikasjon) | Avklart — ingen endring nødvendig |
+**Spesifikasjon:** <https://informasjonsforvaltning.github.io/dcat-ap-no/>
 
 **Arkitektoniske val:**
 - `Standard`-klassen er definert her (ikkje i `dqv-ap-no`) for å unngå sirkulær import
 - `har_kvalitetsmerknad` og `har_kvalitetsmaaling` er lagt direkte på `Datasett`
   her (får DQV-slots via import av `dqv-core`)
 - Importerer `dqv-core-schema` (ikkje `dqv-ap-no-schema`) for å bryte sirkulær import
+
+**Kjente avvik:** Ingen.
 
 ---
 
@@ -113,59 +108,41 @@ den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 ### `dqv-ap-no` — Datakvalitet
 
 **Fil:** `src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml`  
-**Spesifikasjon:** <https://informasjonsforvaltning.github.io/dqv-ap-no/>  
-**Kartlegging:** `specs/done/avvik-dqv-ap-no.md`
+**Spesifikasjon:** <https://informasjonsforvaltning.github.io/dqv-ap-no/>
 
-**Utførte rettingar:**
+**Kjent avvik:**
 
-| Kode | Avvik | Status |
-|------|-------|--------|
-| DQ5 | `har_maal.range: uri` → `uriorcurie` (sjå note under) | ✓ Delvis fiksa |
+| Kode | Avvik | Årsak |
+|------|-------|-------|
+| DQ5 | `har_maal.range: uriorcurie` (spec: `dcat:Resource`) | Bridge-arkitektur + LinkML-avgrensing 2 |
 
-**Note DQ5:** Full narrowing til `KatalogisertRessurs` er blokkert av LinkML-avgrensing 2.
-`uriorcurie` er næraste mogleg range i `dqv-core`. `dqv-ap-no` kan ikkje re-narrowe
-via `slot_usage:` utan at `Kvalitetsmerknad` redeklarerer `slots: [har_maal]`,
-som igjen ville aktivere avgrensing 1.
-
-**Att i `dqv-ap-no`-skjemaet:**
-- `Standard`-klasse override med `er_i_kvalitetsdimensjon` (DQV-spesifikt slot).
-  Merk: dette er ein class override med `slots:` — dei avleia slots frå `dcat-ap-no`
-  er pre-eksisterande i JSON-schema-validering (kjend avgrensing, uendra frå start).
+**Forklaring DQ5:** `dqv-core` kan ikkje referere til `KatalogisertRessurs` (finst i `dcat-ap-no` som importerer `dqv-core`). `dqv-ap-no` kan ikkje narrowe rangen via `slot_usage` utan å redeklarere `slots: [har_maal]`, som ville aktivere avgrensing 1. Praktisk validering fungerer då instansdata brukar URI-verdiar.
 
 ---
 
 ### `skos-ap-no` — Omgrep og begrepskatalog
 
 **Fil:** `src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml`  
-**Spesifikasjon:** <https://informasjonsforvaltning.github.io/skos-ap-no-begrep/>  
-**Kartlegging:** `specs/done/avvik-skos-ap-no.md`
+**Spesifikasjon:** <https://informasjonsforvaltning.github.io/skos-ap-no-begrep/>
 
-**Status:** SK1-SK4 er fiksa. SK5 (tospråkskrav/språkkonsistens) er delvis
-realisert som ein `instance_check` (`begrep_har_definisjon_pa_nb_og_nn`) i
-`felles-begrepskatalog`-policyen — dekker `har_definisjon`-varianten via
-ID-suffikskonvensjon. Full dekning av `anbefalt_term` og språkkonsistens krev
-språktagging av `LangString` på tvers av AP-NO-profilane og er utsett til ein
-eigen, ikkje-oppretta spec (`spraaktagging-av-langstring.md`).
+**Kjent avvik:**
+
+| Kode | Avvik | Status |
+|------|-------|--------|
+| SK5 | Tospråkskrav (nb+nn) på `anbefalt_term` ikkje håndheva | Delvis løyst — `felles-begrepskatalog`-policy sjekkar `har_definisjon` |
+
+**Forklaring SK5:** Full språktagging av `LangString` krev ein større refaktorering på tvers av AP-NO-profilane. Delvis realisert via `instance_check` i `felles-begrepskatalog`-policy.
 
 ---
 
 ### `xkos-ap-no` — Klassifikasjonar
 
 **Fil:** `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml`  
-**Spesifikasjon:** <https://data.norge.no/specification/xkos-ap-no>  
-**Kartlegging:** `specs/backlog/avvik-xkos-ap-no.md`
+**Spesifikasjon:** <https://data.norge.no/specification/xkos-ap-no>
 
-**Kjente avvik (ikkje fiksa):**
+**Designval:** XKOS-AP-NO brukar `dct:temporal` (Tidsrom-mellomklasse) i staden for direkte `schema:validFrom`/`schema:validThrough` — for å harmonisere med DCAT-AP-NO-mønsteret.
 
-| Kode | Avvik | Prioritet |
-|------|-------|-----------|
-| XK1 | `tidsrom_start`/`tidsrom_slutt` brukar feil slot-URI (`schema:` i staden for `dcat:`) | Kritisk |
-| XK2 | `notasjon` (`skos:notation`) manglar på `Kategori` | Middels |
-| XK3 | `antall_nivaa` burde vere Obligatorisk (er Anbefalt) | Middels |
-| XK4 | Dekkingseigeanskapar (`xkos:covers*`) manglar | Middels |
-| XK5 | `xkos:supersedes` og innhaldsmerknadar manglar | Middels |
-| XK6 | Anbefalt eigenskapar manglar på `Klassifikasjonssamanlikning` | Låg |
-| XK7 | Valgfrie notasjons- og merknadsslotar manglar på `Kategori` | Låg |
+**Kjente avvik:** Ingen.
 
 ---
 
@@ -174,33 +151,18 @@ eigen, ikkje-oppretta spec (`spraaktagging-av-langstring.md`).
 **Hovudfil (pass-through):** `src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.yaml`  
 **Modell-del:** `src/linkml/ap-no/modelldcat-ap-no/modelldcat-modell-schema.yaml`  
 **Katalog-del:** `src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml`  
-**Spesifikasjon:** <https://data.norge.no/specification/modelldcat-ap-no>  
-**Kartlegging:** `specs/backlog/avvik-modelldcat-ap-no.md`
+**Spesifikasjon:** <https://data.norge.no/specification/modelldcat-ap-no>
 
-**Arkitektoniske val (MC10):**
+**Arkitektonisk val:**
 
 Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
 - `modelldcat-modell-schema` — alle Modellelement-klassane (27 klassar)
-- `modelldcat-katalog-schema` — Modellkatalog, Informasjonsmodell og hjelpeklassar
+- `modelldcat-katalog-schema` — Modellkatalog, Informasjonsmodell, Dokument
 - `modelldcat-ap-no-schema` — pass-through for bakoverkompatibilitet
 
-`begrep`-sloten (`dct:subject`) er definert i `modell`-skjemaet fordi `Modellelement`
-brukar det. `Informasjonsmodell` (i `katalog`-skjemaet) arvar det via import.
+`modelldcat-katalog` importerer `dcat-ap-no` og gjenbrukar hjelpeklassar (`Aktoer`, `Kontaktopplysning`, `Standard`, `Tidsrom`).
 
-**Kjente avvik (ikkje fiksa):**
-
-| Kode | Avvik | Prioritet |
-|------|-------|-----------|
-| A3 | `Lokasjon`-klassen er definert men ikkje brukt som `range` | Middels |
-| A6/MC8 | Import av `dcat-ap-no` ikkje gjennomført — blokkert av 5 klassekollidjonar | Høg (blokkert) |
-
-**Blokkert: MC8 — Import av `dcat-ap-no` i `modelldcat-katalog`**
-
-`modelldcat-katalog` definerer eigne hjelpeklassar (`Aktoer`, `Kontaktopplysning`,
-`Standard`, `Tidsrom`, `Lisensdokument`) som kolliderer med tilsvarande klassar i
-`dcat-ap-no`. Import kan ikkje gjennomførast før desse kollisjonane er løyste
-(merge, rename, eller dedikert bridge-schema). Sjå `specs/backlog/avvik-modelldcat-ap-no.md`
-§A6 for fullstendig oversikt.
+**Kjente avvik:** Ingen.
 
 ---
 
@@ -209,8 +171,7 @@ brukar det. `Informasjonsmodell` (i `katalog`-skjemaet) arvar det via import.
 **Fil:** `src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml`  
 **Spesifikasjon:** <https://informasjonsforvaltning.github.io/cpsv-ap-no/>
 
-Ingen avvikskartlegging er gjennomført. Skjemaet importerer `common-ap-no` og
-definerer klassane `Teneste`, `Hendelse` m.fl. per spesifikasjonen.
+**Kjente avvik:** Ingen avvikskartlegging er gjennomført.
 
 ---
 

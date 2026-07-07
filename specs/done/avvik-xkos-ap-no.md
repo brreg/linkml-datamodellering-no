@@ -580,6 +580,11 @@ ingen tilsvarande tiltak (XK1-XK7) i denne specen, og er derfor **ikkje**
 adresserte i denne arbeidsøkta. Dei står som ugjorde avvik dersom dei skal
 følgjast opp.
 
+**Oppdatering 2026-07-07:** Avvik 3, 6, 8 og 10 vart adresserte i
+`specs/done/xkos-ap-no-resterande-avvik.md` (XK8-XK11). Avvik 13 (designval
+`dct:temporal` vs. `schema:validFrom`) står som dokumentert avvik — ikkje
+prioritert for utbetring.
+
 **Validering:** `make lint` viser dei same 2 pre-eksisterande
 `canonical_prefixes`-advarslane som før endringa (uneskos/dct) — ingen nye.
 `make roundtrip` (JSON + TTL) OK, inkludert med oppdatert eksempelfil.

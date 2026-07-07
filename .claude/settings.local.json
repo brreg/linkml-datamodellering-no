@@ -278,7 +278,8 @@
       "Bash(make -n domain-fint)",
       "Bash(rm -f generated/fint/*/fint-*-context.jsonld)",
       "Bash(PARALLEL=6 timeout 60 make gen-jsonld-context DOMAIN=fint)",
-      "Bash(make gen-jsonld-context *)"
+      "Bash(make gen-jsonld-context *)",
+      "Bash(curl -sL \"https://data.norge.no/specification/modelldcat-ap-no\" -H \"Accept: text/html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
