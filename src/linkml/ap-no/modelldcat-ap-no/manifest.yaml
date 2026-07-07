@@ -1,6 +1,9 @@
 publish_external: false
 validation_policy: gold
 external_spec_url: https://data.norge.no/specification/modelldcat-ap-no
+submodels:
+  - modelldcat-modell
+  - modelldcat-katalog
 
 generators:
   jsonld_context: true
