@@ -33,8 +33,10 @@ generate_schema_index() {
         generate_quickstart "$domain" "$schema"
         generate_example "$domain" "$schema"
         generate_metadata "$gendoc_index"
+        generate_submodel_box
         generate_publishing_info "$domain" "$schema"
         generate_dependencies "$domain" "$schema"
+        generate_submodels_section
         generate_er_diagram "$schema" "$out"
         generate_classes_section "$klasse_src"
         generate_artifacts_table "$out" "$schema"

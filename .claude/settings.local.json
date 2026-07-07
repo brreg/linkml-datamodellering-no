@@ -273,7 +273,8 @@
       "Bash(mkdocs/publish.sh)",
       "Bash(make docs *)",
       "Bash(make -n domain-ap-no)",
-      "Bash(skopeo inspect *)"
+      "Bash(skopeo inspect *)",
+      "Bash(yq --version)"
     ]
   },
   "enableAllProjectMcpServers": true,

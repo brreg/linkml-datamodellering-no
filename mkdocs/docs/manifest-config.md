@@ -58,6 +58,33 @@ CI skil dei to typane på om `generators:`-seksjonen er til stades.
 
 ## Felta i skjema-manifest
 
+### `submodels` (valfritt)
+
+Liste over delmodellar som høyrer til denne hovudmodellen. Delmodellane må ligge i same 
+katalog som hovudmodellen sitt skjema (t.d. `src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml`).
+
+Dokumentasjonsportalen (`make docs-publish`) vil:
+- Vise delmodellane som innrykka undermenypunkt under hovudmodellen i nav-menyen
+- Legg til "Delmodellar"-seksjon på hovudmodellen sin `index.md`
+- Legg til "Delmodell av"-boks på kvar delmodell sin `index.md`
+
+**Brukstilfelle:** Modellar som er splitta i fleire skjema for å handtere sirkulær import
+(t.d. `dqv-core` importert av `dcat-ap-no`, `dqv-ap-no` importerer `dcat-ap-no`) eller
+for å separere logiske komponentar (t.d. `modelldcat-modell` og `modelldcat-katalog`).
+
+**Eksempel:**
+```yaml
+submodels:
+  - dqv-core
+```
+
+**Eksempel (fleire delmodellar):**
+```yaml
+submodels:
+  - modelldcat-modell
+  - modelldcat-katalog
+```
+
 ### `external_spec_url` (valfritt)
 
 URL til offisiell spesifikasjon hos standardiseringsorganisasjon (t.d. Digdir). 

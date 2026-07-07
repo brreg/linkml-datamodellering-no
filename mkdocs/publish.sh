@@ -158,8 +158,30 @@ process_schema() {
     # Steg 2a: Kopier artefakter
     copy_schema_artifacts "$domain" "$schema" "$schema_dir" "$out"
 
-    # Steg 2b: Generer index.md
+    # Steg 2b: Deserialisér delmodell-map frå miljøvariablar og generer index.md
+    local parent_model=""
+    local submodels=""
+
+    for entry in $SCHEMA_PARENT_MODEL_SERIALIZED; do
+        key="${entry%%=*}"
+        val="${entry#*=}"
+        [ "$key" = "$schema" ] && parent_model="$val" && break
+    done
+
+    for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
+        key="${entry%%=*}"
+        val="${entry#*=}"
+        if [ "$key" = "$schema" ]; then
+            # val er komma-separert — konverter til mellomrom-separert for SUBMODELS
+            submodels="${val//,/ }"
+            break
+        fi
+    done
+
+    export PARENT_MODEL="$parent_model"
+    export SUBMODELS="$submodels"
     generate_schema_index "$domain" "$schema" "$schema_dir" "$out"
+    unset PARENT_MODEL SUBMODELS
 
     local elapsed_ms=$(( $(date +%s%3N) - t0 ))
     printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)\n" \
@@ -206,6 +228,60 @@ for docs_domain_dir in "$DOCS"/*/; do
 done
 
 # ---------------------------------------------------------------------------
+# Steg 1.5: Bygg delmodell-map frå manifest-filer
+# ---------------------------------------------------------------------------
+# Bruk assosiative arrays som må eksporterast manuelt til subshells
+declare -A SCHEMA_PARENT_MODEL_TMP=()
+declare -A SCHEMA_SUBMODELS_TMP=()
+
+for manifest_file in $(find "$REPO_ROOT/src/linkml" -name manifest.yaml); do
+    # Ekstraher domene og katalog frå manifest-stien
+    # manifest_file = /path/src/linkml/<domain>/<schema>/manifest.yaml
+    schema_dir=$(dirname "$manifest_file")
+    schema=$(basename "$schema_dir")
+    domain=$(basename "$(dirname "$schema_dir")")
+
+    # Les submodels-lista frå manifest (bruk komma som skiljetegn for å unngå konflikt med mellomrom i serialisering)
+    submodels=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$manifest_file')); print(','.join(d.get('submodels', [])))" 2>/dev/null || echo "")
+
+    if [ -n "$submodels" ]; then
+        SCHEMA_SUBMODELS_TMP["$schema"]="$submodels"
+
+        # Bygg parent-map for kvar delmodell (submodels er komma-separert)
+        IFS=',' read -ra sub_array <<< "$submodels"
+        for sub in "${sub_array[@]}"; do
+            SCHEMA_PARENT_MODEL_TMP["$sub"]="$schema"
+        done
+    fi
+done
+
+# Serialiser map til miljøvariablar for eksport til subshells
+export SCHEMA_PARENT_MODEL_SERIALIZED=""
+for key in "${!SCHEMA_PARENT_MODEL_TMP[@]}"; do
+    SCHEMA_PARENT_MODEL_SERIALIZED+="$key=${SCHEMA_PARENT_MODEL_TMP[$key]} "
+done
+
+export SCHEMA_SUBMODELS_SERIALIZED=""
+for key in "${!SCHEMA_SUBMODELS_TMP[@]}"; do
+    SCHEMA_SUBMODELS_SERIALIZED+="$key=${SCHEMA_SUBMODELS_TMP[$key]} "
+done
+
+# Bygg lokale map for bruk i hovudshell (nav-generering)
+declare -A SCHEMA_PARENT_MODEL=()
+declare -A SCHEMA_SUBMODELS=()
+for entry in $SCHEMA_PARENT_MODEL_SERIALIZED; do
+    key="${entry%%=*}"
+    val="${entry#*=}"
+    SCHEMA_PARENT_MODEL["$key"]="$val"
+done
+for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
+    key="${entry%%=*}"
+    val="${entry#*=}"
+    # Behald komma-separering i SCHEMA_SUBMODELS-map
+    SCHEMA_SUBMODELS["$key"]="$val"
+done
+
+# ---------------------------------------------------------------------------
 # Steg 2: Generer innhald per domene og skjema (parallelt)
 # ---------------------------------------------------------------------------
 log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
@@ -213,12 +289,24 @@ log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
-# Samle domene/skjema-struktur sekvensielt (rask); hopp over tomme domene-katalogar
+# Samle domene/skjema-struktur sekvensielt (rask); hopp over tomme domene-katalogar og dublett-schema-katalogar
 for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
     domain=$(basename "$domain_dir")
     schemas=()
     for schema_dir in $(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | sort); do
-        schemas+=("$(basename "$schema_dir")")
+        schema=$(basename "$schema_dir")
+
+        # Hopp over *-schema-katalogar dersom tilsvarande katalog utan -schema finst
+        # (indikerer dublett: både data og schema generert frå same kjeldekatalog)
+        if [[ "$schema" == *-schema ]]; then
+            base_schema="${schema%-schema}"
+            if [ -d "$domain_dir/$base_schema" ]; then
+                echo "Hoppar over $domain/$schema (dublett — $base_schema finst allereie)"
+                continue
+            fi
+        fi
+
+        schemas+=("$schema")
     done
     [ "${#schemas[@]}" -eq 0 ] && continue
     ALL_DOMAINS+=("$domain")
@@ -394,7 +482,19 @@ STATIC
 
         schemas_str="${DOMAIN_SCHEMA_LIST[$domain]:-}"
         for schema in $schemas_str; do
+            # Hopp over delmodellar — dei vert lagt til under hovudmodellen
+            [ -n "${SCHEMA_PARENT_MODEL[$schema]:-}" ] && continue
+
             echo "      - '${schema}': ${domain}/${schema}/index.md"
+
+            # Legg til delmodellar innrykka under hovudmodell (submodels er komma-separert)
+            submodels="${SCHEMA_SUBMODELS[$schema]:-}"
+            if [ -n "$submodels" ]; then
+                IFS=',' read -ra sub_array <<< "$submodels"
+                for sub in "${sub_array[@]}"; do
+                    echo "          - '${sub}': ${domain}/${sub}/index.md"
+                done
+            fi
         done
     done
 } > "$MKDOCS_YML"
