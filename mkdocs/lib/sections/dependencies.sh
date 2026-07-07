@@ -43,7 +43,7 @@ generate_dependencies() {
         echo "    importerer dei skjemaa som står lengst til høgre, som igjen automatisk inkluderer"
         echo "    alle sine avhengigheiter lengre til venstre i treet."
         echo ""
-        echo "*Sjå [Importhierarki](../../importhierarki.md) for fullstendig importkjede.*"
+        echo "*Sjå [Importhierarki](../../importhierarki.md) for oversikt over heile repoet sitt importhierarki.*"
         echo ""
         echo ""
     fi
