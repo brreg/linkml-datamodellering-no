@@ -25,11 +25,20 @@ generate_schema_index() {
     export CURRENT_DOMAIN="$domain"
     export CURRENT_SCHEMA="$schema"
 
+    # Sjekk om dette er ein delmodell
+    local is_submodel=false
+    [ -n "${PARENT_MODEL:-}" ] && is_submodel=true
+
     {
         generate_header "$schema"
         generate_badges "$domain" "$schema" "$gendoc_index"
-        generate_external_reference "$domain" "$schema"
-        generate_description "$domain" "$schema"
+
+        # Hopp over external_reference og description for delmodellar
+        if ! $is_submodel; then
+            generate_external_reference "$domain" "$schema"
+            generate_description "$domain" "$schema"
+        fi
+
         generate_quickstart "$domain" "$schema"
         generate_example "$domain" "$schema"
         generate_metadata "$gendoc_index"
