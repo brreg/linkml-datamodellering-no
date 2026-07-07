@@ -43,7 +43,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../common/common-ap-no-schema
+  - ../common-ap-no/common-ap-no-schema
   - ../dqv-ap-no/dqv-core-schema
 
 # ---------------------------------------------------------------------------

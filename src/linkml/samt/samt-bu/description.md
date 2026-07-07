@@ -1,11 +1,11 @@
-LinkML-modell av SAMT-bu (Samarbeid om Modernisering av Tenesteforvalting — Barn og unge), tidleg forretningsobjektmodell for tverrgåande samarbeid i utdanningssektoren.
+LinkML-modell av SAMT-bu (Samarbeid om Modernisering av Tenesteforvalting — Barn og unge), tidleg forretningsobjektmodell for tverrgåande samarbeid i kommunesektoren.
 
-Modellen definerer `Elev`, `Skole`, `Foresatt`, `Sak` og andre eigenskapar for barn og unge-relaterte tenester på tvers av offentlege verksemder.
+Modellen definerer `Elev`, `Skole`, `Foresatt`, `Sak` og andre eigenskapar for barn og unge-relaterte tenester på tvers av kommunesektoren.
 
-**Typisk brukar:** Offentlege verksemder som samarbeider om modernisering av tenester for barn og unge, og utviklare som implementerer tverrgåande integrasjonar.
+**Typisk brukar:** Kommunale og offentlege verksemder som samarbeider om modernisering av tenester for barn og unge, og utviklare som implementerer tverrgåande integrasjonar.
 
-**Nøkkelklasser:** `Elev`, `Skole`, `Foresatt`, `Sak`, `Vedtak`, `Tjeneste`.
+**Nøkkelklasser:** `Elev`, `Skole`, `Foresatt`, `Tjeneste`.
 
 **Relasjon til andre modellar i dette repoet:**
-- Importerer `linkml:types` direkte — ingen AP-NO-profiler
+- Importerer `linkml:types` og `dqv-ap-no-schema` direkte
 - Eksempel på tverrgåande samarbeid om domenemodellering

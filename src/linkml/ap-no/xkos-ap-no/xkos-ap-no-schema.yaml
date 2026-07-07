@@ -30,7 +30,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../common/common-ap-no-schema
+  - ../common-ap-no/common-ap-no-schema
   - ../dcat-ap-no/dcat-ap-no-schema
 
 # ---------------------------------------------------------------------------
