@@ -1,6 +1,7 @@
 publish_external: false
 validation_policy: gold
 external_spec_url: https://data.norge.no/specification/modelldcat-ap-no
+external_spec_label: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
 submodels:
   - modelldcat-modell
   - modelldcat-katalog

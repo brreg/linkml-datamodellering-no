@@ -98,6 +98,20 @@ SKOS-AP-NO osv.). Domenemodell-skjema har vanlegvis ikkje dette feltet.
 external_spec_url: https://informasjonsforvaltning.github.io/dcat-ap-no/
 ```
 
+### `external_spec_label` (valfritt)
+
+Lenke-tekst for den offisielle spesifikasjonen. Dersom utelatt, vert skjemanamnet brukt.
+
+**Brukstilfelle:** Gje ein deskriptiv tittel til lenka i "Offisiell referanse"-boksen
+i staden for det korte skjemanamnet (t.d. "Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)"
+i staden for "cpsv-ap-no").
+
+**Eksempel:**
+```yaml
+external_spec_url: https://informasjonsforvaltning.github.io/cpsv-ap-no/
+external_spec_label: "Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)"
+```
+
 ### `publish_external`
 
 `true` utløyser publisering til ekstern katalog (Felles Datakatalog eller Felles

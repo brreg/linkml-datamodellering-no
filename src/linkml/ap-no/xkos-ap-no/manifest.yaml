@@ -1,7 +1,7 @@
 publish_external: false
 validation_policy: gold
 external_spec_url: https://data.norge.no/specification/xkos-ap-no
-
+external_spec_label: Spesifikasjon for klassifikasjonsbeskrivelser (XKOS-AP-NO)
 generators:
   jsonld_context: true
   shacl: true

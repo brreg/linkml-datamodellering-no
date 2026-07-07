@@ -1,5 +1,7 @@
 publish_external: false
 validation_policy: gold
+external_spec_url: https://www.go-fair.org/fair-principles/
+external_spec_label: "FAIR Principles"
 
 generators:
   jsonld_context: true
