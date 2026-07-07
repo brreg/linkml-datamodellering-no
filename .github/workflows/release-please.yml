@@ -91,7 +91,7 @@ jobs:
               make gen-jsonschema SCHEMA="$schema"
               make gen-shacl SCHEMA="$schema"
               make gen-owl SCHEMA="$schema"
-              make gen-jsonld SCHEMA="$schema"
+              make gen-jsonld-context SCHEMA="$schema"
               make gen-erdiagram SCHEMA="$schema"
             fi
           done

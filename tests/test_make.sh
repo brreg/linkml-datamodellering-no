@@ -202,7 +202,7 @@ test_validate() {
 
 test_gen_jsonld() {
     local schema="$1" outfile="$2"
-    make gen-jsonld SCHEMAS="$schema" || return 1
+    make gen-jsonld-context SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_json_valid "$outfile" || return 1
     assert_json_has_key "$outfile" "@context" || return 1

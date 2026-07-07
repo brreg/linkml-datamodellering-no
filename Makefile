@@ -83,7 +83,7 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir" && \
-		$(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)" 2>&1; \
+		$(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)"; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -104,7 +104,7 @@ else \
 		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 		domain=$$(echo "$$s" | cut -d/ -f3); \
 		t0=$$(date +%s%3N); \
-		$(LINKML_RUN) gen-linkml "$$s" > /dev/null 2>&1; \
+		$(LINKML_RUN) gen-linkml "$$s" > /dev/null; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ merge-imports  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -127,7 +127,7 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl" 2>&1; \
+		$(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl"; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ gen-owl  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -150,7 +150,7 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl" 2>&1; \
+		$(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl"; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ gen-rdf  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -208,13 +208,13 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" 2>&1 \
+		$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 			| awk -f src/assets/scripts/filter_container.awk \
 			> "$$outdir/$$name-erdiagram-unfiltered.md"; \
 		$(PYTHON_RUN) python -u src/assets/scripts/filter_erdiagram.py \
 			"$$s" \
 			"$$outdir/$$name-erdiagram-unfiltered.md" \
-			> "$$outdir/$$name-erdiagram.md" 2>&1; \
+			> "$$outdir/$$name-erdiagram.md"; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ gen-erdiagram  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -237,15 +237,15 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir/diagrams"; \
-		$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" 2>&1; \
+		$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml"; \
 		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
 			"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
-			> "$$outdir/diagrams/$$name-filtered.puml" 2>&1; \
+			> "$$outdir/diagrams/$$name-filtered.puml"; \
 		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
 			"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
-			> "$$outdir/diagrams/$$name.puml" 2>&1; \
-		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml 2>&1; \
-		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml 2>&1; \
+			> "$$outdir/diagrams/$$name.puml"; \
+		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null; \
+		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null; \
 		rc=$$?; \
 		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ gen-plantuml  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -556,14 +556,14 @@ validate-instance:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_RUN) linkml validate --schema "$(SCHEMA)" "$(INSTANCE)"
 
-gen-jsonld:
+gen-jsonld-context:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-jsonld SCHEMA=$(SCHEMA)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-jsonld-context SCHEMA=$(SCHEMA)$(CLR_RST)"
 else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-jsonld DOMAIN=$(DOMAIN)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-jsonld-context DOMAIN=$(DOMAIN)$(CLR_RST)"
 else
-	@echo "$(CLR_HDR)*** make gen-jsonld$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-jsonld-context$(CLR_RST)"
 endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(call get_target_schemas),gen-jsonld-context,context.jsonld)
