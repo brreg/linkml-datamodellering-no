@@ -1,7 +1,7 @@
 publish_external: false
 validation_policy: gold
 external_spec_url: https://informasjonsforvaltning.github.io/dcat-ap-no/
-
+external_spec_label: "Standard for beskrivelse av datasett, datatjenester og datakataloger (DCAT-AP-NO)"
 generators:
   jsonld_context: true
   shacl: true

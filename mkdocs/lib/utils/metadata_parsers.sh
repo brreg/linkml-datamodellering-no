@@ -20,6 +20,12 @@ get_external_spec_url() {
     python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_url', ''))" 2>/dev/null || echo ""
 }
 
+get_external_spec_label() {
+    local manifest="$1"
+    [ ! -f "$manifest" ] && return
+    python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_label', ''))" 2>/dev/null || echo ""
+}
+
 get_validation_json_path() {
     local domain="$1"
     local schema="$2"

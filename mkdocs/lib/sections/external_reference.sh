@@ -13,9 +13,12 @@ generate_external_reference() {
 
     [ -z "$external_spec" ] && return 0
 
+    local label=$(get_external_spec_label "$manifest")
+    [ -z "$label" ] && label="$schema"  # Fallback til skjemanamn
+
     echo "---"
     echo ""
     echo "!!! info \"Offisiell referanse\""
-    echo "    📘 [$schema]($external_spec)"
+    echo "    📘 [$label]($external_spec)"
     echo ""
 }

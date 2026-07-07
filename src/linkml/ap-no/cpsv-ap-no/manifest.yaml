@@ -1,6 +1,7 @@
 publish_external: false
 validation_policy: gold
 external_spec_url: https://informasjonsforvaltning.github.io/cpsv-ap-no/
+external_spec_label: "Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)"
 
 generators:
   jsonld_context: true
