@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.5.0...dqv-ap-no-v1.6.0) (2026-07-07)
+
+
+### Features
+
+* **mkdocs:** dokumenter delmodell-hierarki og fjern dublett-schema-sider ([5c86549](https://github.com/brreg/linkml-datamodellering-no/commit/5c865492633796b95007b9d1c81e223e183e4a58))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.4.0...dqv-ap-no-v1.5.0) (2026-07-06)
 
 
