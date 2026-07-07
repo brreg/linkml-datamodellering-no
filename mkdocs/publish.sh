@@ -301,7 +301,6 @@ for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
         if [[ "$schema" == *-schema ]]; then
             base_schema="${schema%-schema}"
             if [ -d "$domain_dir/$base_schema" ]; then
-                echo "Hoppar over $domain/$schema (dublett — $base_schema finst allereie)"
                 continue
             fi
         fi

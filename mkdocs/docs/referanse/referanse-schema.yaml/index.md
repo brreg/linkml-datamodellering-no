@@ -5,6 +5,7 @@
 [![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
 [![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
 
+
 ---
 
 ## Modellmetadata

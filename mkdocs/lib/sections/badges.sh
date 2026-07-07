@@ -57,4 +57,5 @@ generate_badges() {
     echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
     [ -n "$license" ] && echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
     echo ""
+    echo ""
 }

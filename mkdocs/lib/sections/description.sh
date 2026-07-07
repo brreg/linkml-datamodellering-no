@@ -20,4 +20,6 @@ generate_description() {
     cat "$description_file"
     echo ""
     echo ""
+    echo "---"
+    echo ""
 }
