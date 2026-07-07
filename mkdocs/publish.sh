@@ -492,7 +492,7 @@ STATIC
             if [ -n "$submodels" ]; then
                 IFS=',' read -ra sub_array <<< "$submodels"
                 for sub in "${sub_array[@]}"; do
-                    echo "          - '${sub}': ${domain}/${sub}/index.md"
+                    echo "      - '${sub}': ${domain}/${sub}/index.md"
                 done
             fi
         done
