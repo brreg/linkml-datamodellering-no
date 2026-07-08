@@ -1265,11 +1265,35 @@ finnes_i_format:
     - `make validate-informasjonsmodell` — fungerer med build.yaml
     - Alle script finn korrekt konfigurasjonsfil
 
+### Inkluder metadata i mkdocs-publikasjon (2026-07-08)
+
+14. ✅ **mkdocs/lib/copy_artifacts.sh** — kopierer `metadata/modelldcat.yaml`
+    - Sjekkar om `src_dir/metadata/modelldcat.yaml` finst
+    - Kopierer til `mkdocs/docs/<domain>/<schema>/metadata/`
+
+15. ✅ **mkdocs/lib/sections/artifacts.sh** — legg til i artefakt-tabell
+    - Sjekkar om `out/metadata/modelldcat.yaml` finst
+    - Legg til rad: `| ModelDCAT-metadata | [metadata/modelldcat.yaml](metadata/modelldcat.yaml) |`
+
+16. ✅ **Verifisert i mkdocs-publikasjon**
+    - `mkdocs/docs/ap-no/dqv-ap-no/metadata/modelldcat.yaml` kopiert
+    - Artefakt-tabell inkluderer ModelDCAT-metadata som siste rad
+    - Lenke til `metadata/modelldcat.yaml` fungerer i mkdocs
+
 ### Gjenståande (ikkje MVP-scope)
 
 - Full LinkML-validering av `metadata/modelldcat.yaml` mot `modelldcat-katalog-schema.yaml` (krev lokal schema-oppløysing)
-- Inkluder `metadata/modelldcat.yaml` i mkdocs-publikasjon (valfri)
 - Generer separate `Kontaktopplysning`- og `Standard`-instansar (for inline-objekt-støtte)
+
+### Fullført implementering
+
+Alle primære tiltak er no fullførte:
+
+1. ✅ `make gen-informasjonsmodell-instance SCHEMA=<path>` — genererer `metadata/modelldcat.yaml`
+2. ✅ `make gen-modellkatalog-instance` — genererer `generated/modellkatalog.yaml`
+3. ✅ `make validate-informasjonsmodell SCHEMA=<path>` — validerer YAML-syntaks og obligatoriske felt
+4. ✅ Migrasjon `manifest.yaml` → `build.yaml` (36 filer + alle referansar i kodebasen)
+5. ✅ Inkludering av `metadata/modelldcat.yaml` i mkdocs-publikasjon (artefakt-tabell)
 
 ### Commit-melding
 

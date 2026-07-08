@@ -50,6 +50,13 @@ generate_artifacts_table() {
         artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
     fi
 
+    # ModelDCAT-metadata (metadata/modelldcat.yaml)
+    local modelldcat_yaml="$out/metadata/modelldcat.yaml"
+    if [ -f "$modelldcat_yaml" ]; then
+        has_artifact=true
+        artifact_rows+="| ModelDCAT-metadata | [metadata/modelldcat.yaml](metadata/modelldcat.yaml) |"$'\n'
+    fi
+
     if $has_artifact; then
         echo ""
         echo "---"
