@@ -1335,6 +1335,13 @@ finnes_i_format:
     - Fjerna [Gammal]/[Ny]-merking
     - Presisert at det genererer per-org katalogfiler for Felles datakatalog
 
+22. ✅ **validate-modellkatalog-instance**
+    - Makefile: validate-modellkatalog-instance ORG=<org-slug> (ny target)
+    - Validerer src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml mot <org>-schema.yaml
+    - Convenience wrapper for validate-instance (konsistent med validate-informasjonsmodell-instance)
+    - COMMANDS.md: dokumentert begge validerings-targets som convenience wrappers
+    - Test: make validate-modellkatalog-instance ORG=digdir-modellkatalog ✓
+
 ### Fullført implementering
 
 Alle primære tiltak er no fullførte:
