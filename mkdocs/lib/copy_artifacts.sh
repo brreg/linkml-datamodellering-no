@@ -25,6 +25,12 @@ copy_schema_artifacts() {
         cp "$src_dir/CHANGELOG.md" "$out/CHANGELOG.md"
     fi
 
+    # Kopier metadata/modelldcat.yaml dersom den finst
+    if [ -n "$src_dir" ] && [ -f "$src_dir/metadata/modelldcat.yaml" ]; then
+        mkdir -p "$out/metadata"
+        cp "$src_dir/metadata/modelldcat.yaml" "$out/metadata/modelldcat.yaml"
+    fi
+
     # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
     if [ -d "$schema_dir/diagrams" ]; then
         mkdir -p "$out/diagrams"
