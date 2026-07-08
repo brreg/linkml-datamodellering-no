@@ -596,7 +596,7 @@ src/linkml/<domain>/<modell>/
 make gen-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
 
 # Steg 2: Valider Informasjonsmodell-instans mot modelldcat-katalog-schema.yaml
-make validate-informasjonsmodell SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
+make validate-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
 
 # Steg 3: Generer Modellkatalog-instans (samlar alle Informasjonsmodell-instansar)
 make gen-modellkatalog-instance
@@ -782,7 +782,7 @@ def generate_modellkatalog():
 
 **Kommando:**
 ```bash
-make validate-informasjonsmodell SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
+make validate-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
 # Les build.yaml for å finne validation_policy
 # Validerer metadata/modelldcat.yaml mot modelldcat-katalog-schema.yaml (Informasjonsmodell-klassen) med gitt policy
 ```
@@ -1018,7 +1018,7 @@ make gen-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no
 # Skriv: metadata/modelldcat.yaml (ein Informasjonsmodell-instans)
 
 # Steg 2: Valider Informasjonsmodell-instans mot modelldcat-katalog-schema.yaml
-make validate-informasjonsmodell SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
+make validate-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
 
 # Steg 3: Generer Modellkatalog-instans (samlar alle Informasjonsmodell-instansar)
 make gen-modellkatalog-instance  # → generated/modellkatalog.yaml
@@ -1228,7 +1228,7 @@ finnes_i_format:
    - Genererer ein `Modellkatalog`-instans med metadata om modellkatalogen
    - Output: `generated/modellkatalog.yaml` (1 informasjonsmodell i testoutput)
 
-10. ✅ **`make validate-informasjonsmodell SCHEMA=<path>`** — validerer `metadata/modelldcat.yaml`
+10. ✅ **`make validate-informasjonsmodell-instance SCHEMA=<path>`** — validerer `metadata/modelldcat.yaml`
     - YAML-syntaksvalidering
     - Sjekkar obligatoriske felt (id, tittel, beskrivelse, versjonsnummer, lisens, utgiver)
     - Obs: Full LinkML-validering krev lokal schema-oppløysing (ikkje implementert i MVP)
@@ -1308,11 +1308,32 @@ finnes_i_format:
     - Makefile validate-informasjonsmodell: køyrer i LinkML-container
       • `$(LINKML_RUN) python3 /work/src/assets/scripts/validate-modelldcat.py`
       • Full schema-oppløysing via linkml_runtime
-    - Test: `make validate-informasjonsmodell SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml` ✓
+    - Test: `make validate-informasjonsmodell-instance SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml` ✓
 
 19. ✅ **Oppdatert modellkatalog**
     - generated/modellkatalog.yaml inneheld inline-instansar
     - Alle Informasjonsmodell-instansar med komplette Kontaktopplysning og Standard
+
+### Per-org modellkatalog-generering (2026-07-08)
+
+20. ✅ **generate-modellkatalog.py omskrive for per-org katalogfiler**
+    - Erstatter `update-modellkatalog.py` (deprecated)
+    - Les alle `metadata/modelldcat.yaml`-filer
+    - Grupper Informasjonsmodell-instansar etter `utgiver` (frå CODEOWNERS.md)
+    - Generer éi katalogfil per organisasjon: `src/linkml/modellkatalog/<catalog_slug>/data/<catalog_slug>/<catalog_slug>.yaml`
+    - Konverterer URI-ar:
+      • Standard: `https://data.norge.no/ap-no/dqv-ap-no`
+      • Org-spesifikk: `https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/dqv-ap-no`
+    - Konverterer format:
+      • LangString `{nb, nn}` → liste `[string]` (brukar nb-verdi)
+      • Inline Kontaktopplysning → URI-liste
+      • Legg til `identifikator_literal`, `informasjonsmodellidentifikator`, `type_concept`
+    - Genererer Modellkatalog-metadata per org (tittel, beskrivelse, har_del, modell)
+
+21. ✅ **COMMANDS.md oppdatert**
+    - `gen-modellkatalog-instance` dokumentert som erstatning for `update-modellkatalog`
+    - Fjerna [Gammal]/[Ny]-merking
+    - Presisert at det genererer per-org katalogfiler for Felles datakatalog
 
 ### Fullført implementering
 
@@ -1320,7 +1341,7 @@ Alle primære tiltak er no fullførte:
 
 1. ✅ `make gen-informasjonsmodell-instance SCHEMA=<path>` — genererer `metadata/modelldcat.yaml`
 2. ✅ `make gen-modellkatalog-instance` — genererer `generated/modellkatalog.yaml`
-3. ✅ `make validate-informasjonsmodell SCHEMA=<path>` — validerer YAML-syntaks og obligatoriske felt
+3. ✅ `make validate-informasjonsmodell-instance SCHEMA=<path>` — validerer YAML-syntaks og obligatoriske felt
 4. ✅ Migrasjon `manifest.yaml` → `build.yaml` (36 filer + alle referansar i kodebasen)
 5. ✅ Inkludering av `metadata/modelldcat.yaml` i mkdocs-publikasjon (artefakt-tabell)
 

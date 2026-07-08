@@ -1364,12 +1364,12 @@ gen-modellkatalog-instance:
 	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
 	python3 src/assets/scripts/generate-modellkatalog.py
 
-.PHONY: validate-informasjonsmodell
+.PHONY: validate-informasjonsmodell-instance
 
-validate-informasjonsmodell:
+validate-informasjonsmodell-instance:
 	@if [ -z "$(SCHEMA)" ]; then \
 		echo "Error: SCHEMA parameter required"; \
-		echo "Usage: make validate-informasjonsmodell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
+		echo "Usage: make validate-informasjonsmodell-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
 		exit 1; \
 	fi
 	@echo "$(CLR_HDR)Validerer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
