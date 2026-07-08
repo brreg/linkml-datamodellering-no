@@ -1280,10 +1280,39 @@ finnes_i_format:
     - Artefakt-tabell inkluderer ModelDCAT-metadata som siste rad
     - Lenke til `metadata/modelldcat.yaml` fungerer i mkdocs
 
-### Gjenståande (ikkje MVP-scope)
+### Inline-instansar og full validering (2026-07-08)
 
-- Full LinkML-validering av `metadata/modelldcat.yaml` mot `modelldcat-katalog-schema.yaml` (krev lokal schema-oppløysing)
-- Generer separate `Kontaktopplysning`- og `Standard`-instansar (for inline-objekt-støtte)
+17. ✅ **Inline Kontaktopplysning- og Standard-instansar**
+    - src/assets/scripts/generate-informasjonsmodell.py: oppdatert for inline-objekt
+      • `generate_kontaktopplysning()` — genererer Kontaktopplysning med id, navn_vcard, har_kontaktside
+      • `generate_standard()` — genererer Standard med id, tittel, har_referanse
+      • `kontaktpunkt` og `er_i_samsvar_med` inneheld no inline-instansar i staden for berre URI-ar
+    - Struktur i modelldcat.yaml:
+      ```yaml
+      kontaktpunkt:
+        - id: https://www.digdir.no/om-oss/kontakt-oss/887
+          navn_vcard: {nb: Digitaliseringsdirektoratet, nn: Digitaliseringsdirektoratet}
+          har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+      er_i_samsvar_med:
+        - id: https://informasjonsforvaltning.github.io/dqv-ap-no/
+          tittel: {nb: DQV-AP-NO (...), nn: DQV-AP-NO (...)}
+          har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
+      ```
+
+18. ✅ **Full LinkML-validering**
+    - src/assets/scripts/validate-modelldcat.py: ny Python-validator
+      • Lastar skjema med SchemaView
+      • Validerer YAML-struktur og obligatoriske felt
+      • Sjekkar LangString-format (nb/nn)
+      • Validerer inline-instansar (Kontaktopplysning, Standard)
+    - Makefile validate-informasjonsmodell: køyrer i LinkML-container
+      • `$(LINKML_RUN) python3 /work/src/assets/scripts/validate-modelldcat.py`
+      • Full schema-oppløysing via linkml_runtime
+    - Test: `make validate-informasjonsmodell SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml` ✓
+
+19. ✅ **Oppdatert modellkatalog**
+    - generated/modellkatalog.yaml inneheld inline-instansar
+    - Alle Informasjonsmodell-instansar med komplette Kontaktopplysning og Standard
 
 ### Fullført implementering
 

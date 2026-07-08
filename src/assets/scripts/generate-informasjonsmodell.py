@@ -10,7 +10,7 @@ Les 6 kjelder:
 5. Genererte artefaktar (finnes_i_format)
 6. annotations.er_profil_av (MVP workaround for DX-PROF)
 
-Skriv: metadata/modelldcat.yaml (ein Informasjonsmodell-instans)
+Skriv: metadata/modelldcat.yaml (samla datafil med Informasjonsmodell + Kontaktopplysning + Standard)
 """
 
 import sys
@@ -37,13 +37,13 @@ def write_yaml(file_path: Path, data: Dict):
         yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
 
-def parse_codeowners(schema_path: Path) -> Optional[str]:
+def parse_codeowners(schema_path: Path) -> Optional[Dict]:
     """
-    Parse CODEOWNERS.md YAML-frontmatter og finn kontaktpunkt-URI for skjemaet.
+    Parse CODEOWNERS.md YAML-frontmatter og finn kontaktpunkt-data for skjemaet.
 
     Matcher schema_path mot organizations[].path_patterns.
 
-    Returnerer: contact_uri (str) eller None
+    Returnerer: Dict med contact_uri og name, eller None
     """
     # Finn repo-root frå current working directory
     repo_root = Path.cwd()
@@ -76,7 +76,10 @@ def parse_codeowners(schema_path: Path) -> Optional[str]:
             # Enkel glob-match (kan utvidast til meir robust matching)
             pattern_prefix = pattern.replace('/**', '')
             if schema_rel_path.startswith(pattern_prefix):
-                return org.get('contact_uri')
+                return {
+                    'contact_uri': org.get('contact_uri'),
+                    'name': org.get('name')
+                }
 
     print(f"Warning: Ingen organisasjon i CODEOWNERS.md matcher {schema_rel_path}", file=sys.stderr)
     return None
@@ -230,32 +233,62 @@ def get_github_raw_base_url() -> str:
     return "https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/"
 
 
-def generate_informasjonsmodell(schema_path: Path) -> Dict:
-    """Generer Informasjonsmodell-instans frå alle kjelder."""
+def generate_kontaktopplysning(kontaktpunkt_data: Dict) -> Dict:
+    """
+    Generer Kontaktopplysning-instans frå CODEOWNERS-data.
+
+    Returnerer ein dict med id, navn_vcard og har_kontaktside.
+    """
+    contact_uri = kontaktpunkt_data.get('contact_uri')
+    name = kontaktpunkt_data.get('name')
+
+    return {
+        'id': contact_uri,
+        'navn_vcard': generate_langstring(name),
+        'har_kontaktside': contact_uri
+    }
+
+
+def generate_standard(external_spec_url: str, external_spec_label: str) -> Dict:
+    """
+    Generer Standard-instans frå build.yaml external_spec_*.
+
+    Returnerer ein dict med id, tittel og har_referanse.
+    """
+    return {
+        'id': external_spec_url,
+        'tittel': generate_langstring(external_spec_label),
+        'har_referanse': external_spec_url
+    }
+
+
+def generate_modelldcat_data(schema_path: Path) -> Dict:
+    """
+    Generer samla ModelDCAT-datafil med Informasjonsmodell, Kontaktopplysning og Standard.
+
+    Returnerer: Dict med containerklasse og alle instansar inline.
+    """
 
     # 1. Les schema.yaml
     schema = load_yaml(schema_path)
 
-    # 2. Les build.yaml (tidlegare build.yaml)
+    # 2. Les build.yaml
     build_path = schema_path.parent / 'build.yaml'
-    if not build_path.exists():
-        build_path = schema_path.parent / 'build.yaml'  # Fallback for MVP
-
     build_config = load_yaml(build_path) if build_path.exists() else {}
 
-    # 3. Parse CODEOWNERS.md (kontaktpunkt-URI)
-    kontaktpunkt_uri = parse_codeowners(schema_path)
+    # 3. Parse CODEOWNERS.md (kontaktpunkt-data)
+    kontaktpunkt_data = parse_codeowners(schema_path)
 
     # 4. Ekstraher lokale klasser
     inneholder_modellelement = extract_local_classes(schema)
 
-    # 5. Finn genererte artefaktar (LinkML-schema + genererte filer)
+    # 5. Finn genererte artefaktar
     finnes_i_format = discover_artifacts(schema_path)
 
     # 6. Bygg Informasjonsmodell-instans
     annotations = schema.get('annotations', {})
 
-    modelldcat = {
+    informasjonsmodell = {
         # Frå schema.yaml toppnivå
         'id': schema.get('id'),
         'tittel': generate_langstring(
@@ -278,50 +311,53 @@ def generate_informasjonsmodell(schema_path: Path) -> Dict:
 
     # Valgfrie felt frå annotations
     if 'tema' in annotations:
-        modelldcat['tema'] = annotations['tema']
+        informasjonsmodell['tema'] = annotations['tema']
 
     if 'dekningsomraade' in annotations:
-        modelldcat['dekningsomraade'] = annotations['dekningsomraade']
+        informasjonsmodell['dekningsomraade'] = annotations['dekningsomraade']
 
     if 'nokkelord' in annotations:
-        modelldcat['nokkelord'] = annotations['nokkelord']
+        informasjonsmodell['nokkelord'] = annotations['nokkelord']
 
     if 'er_profil_av' in annotations:
-        modelldcat['er_profil_av'] = annotations['er_profil_av']
+        informasjonsmodell['er_profil_av'] = annotations['er_profil_av']
 
-    # Frå build.yaml og mkdocs-URL
     # heimeside → vår mkdocs-dokumentasjon
-    modelldcat['heimeside'] = generate_mkdocs_url(schema_path)
+    informasjonsmodell['heimeside'] = generate_mkdocs_url(schema_path)
 
-    # er_i_samsvar_med → offisiell spesifikasjon (URI-referanse til Standard)
-    # Obs: For MVP bruker vi berre URI — ikkje inline Standard-instans
+    # er_i_samsvar_med → referanse til Standard-instans (inline)
+    standard_instans = None
     if 'external_spec_url' in build_config:
-        modelldcat['er_i_samsvar_med'] = [build_config['external_spec_url']]
+        external_spec_label = build_config.get('external_spec_label', schema.get('title', ''))
+        standard_instans = generate_standard(build_config['external_spec_url'], external_spec_label)
+        informasjonsmodell['er_i_samsvar_med'] = [standard_instans]
 
     # har_del → submodellar
     if 'submodels' in build_config:
-        # Resolver submodel URIs (enkel versjon - kan utvidast)
         default_prefix = schema.get('default_prefix', schema.get('id', ''))
         if not default_prefix.endswith('/'):
             default_prefix += '/'
-        modelldcat['har_del'] = [default_prefix + sm for sm in build_config['submodels']]
+        informasjonsmodell['har_del'] = [default_prefix + sm for sm in build_config['submodels']]
 
-    # Frå CODEOWNERS.md (multivalued: true, range: Kontaktopplysning → URI-referanse)
-    if kontaktpunkt_uri:
-        modelldcat['kontaktpunkt'] = [kontaktpunkt_uri]
+    # kontaktpunkt → referanse til Kontaktopplysning-instans (inline)
+    kontaktopplysning_instans = None
+    if kontaktpunkt_data:
+        kontaktopplysning_instans = generate_kontaktopplysning(kontaktpunkt_data)
+        informasjonsmodell['kontaktpunkt'] = [kontaktopplysning_instans]
 
     # Frå lokale klasser
     if inneholder_modellelement:
-        modelldcat['inneholder_modellelement'] = inneholder_modellelement
+        informasjonsmodell['inneholder_modellelement'] = inneholder_modellelement
 
     # Frå genererte artefaktar
     if finnes_i_format:
-        modelldcat['finnes_i_format'] = finnes_i_format
+        informasjonsmodell['finnes_i_format'] = finnes_i_format
 
     # Fjern None-verdiar
-    modelldcat = {k: v for k, v in modelldcat.items() if v is not None}
+    informasjonsmodell = {k: v for k, v in informasjonsmodell.items() if v is not None}
 
-    return modelldcat
+    # Returner berre Informasjonsmodell-instans (med inline Kontaktopplysning og Standard)
+    return informasjonsmodell
 
 
 def main():
@@ -338,11 +374,11 @@ def main():
     print(f"Genererer Informasjonsmodell-instans for {schema_path}")
 
     # Generer
-    modelldcat = generate_informasjonsmodell(schema_path)
+    modelldcat_data = generate_modelldcat_data(schema_path)
 
     # Skriv til metadata/modelldcat.yaml
     output_path = schema_path.parent / 'metadata' / 'modelldcat.yaml'
-    write_yaml(output_path, modelldcat)
+    write_yaml(output_path, modelldcat_data)
 
     print(f"✓ Generert: {output_path}")
 

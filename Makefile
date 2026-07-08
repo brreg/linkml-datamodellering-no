@@ -1380,10 +1380,8 @@ validate-informasjonsmodell:
 		echo "Køyr først: make gen-informasjonsmodell-instance SCHEMA=$(SCHEMA)"; \
 		exit 1; \
 	fi; \
-	echo "$(CLR_STEP)Validerer YAML-syntaks og struktur$(CLR_RST)"; \
-	python3 -c "import yaml; yaml.safe_load(open('$$MODELLDCAT_YAML'))" && \
-	echo "$(CLR_STEP)✓ YAML-syntaks OK$(CLR_RST)" && \
-	echo "$(CLR_STEP)Sjekkar obligatoriske felt$(CLR_RST)" && \
-	python3 -c "import yaml; data=yaml.safe_load(open('$$MODELLDCAT_YAML')); required=['id','tittel','beskrivelse','versjonsnummer','lisens','utgiver']; missing=[f for f in required if f not in data]; exit(1) if missing else print('$(CLR_STEP)✓ Alle obligatoriske felt til stades$(CLR_RST)')" || \
-	(echo "$(CLR_STEP)✗ Manglande obligatoriske felt$(CLR_RST)" && exit 1)
+	echo "$(CLR_STEP)Køyrer full LinkML-validering$(CLR_RST)"; \
+	$(LINKML_RUN) python3 /work/src/assets/scripts/validate-modelldcat.py \
+		"$$MODELLDCAT_YAML" \
+		/work/src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml
 
