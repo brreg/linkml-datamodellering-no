@@ -1385,3 +1385,27 @@ validate-informasjonsmodell-instance:
 		"$$MODELLDCAT_YAML" \
 		/work/src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml
 
+.PHONY: validate-modellkatalog-instance
+
+validate-modellkatalog-instance:
+	@if [ -z "$(ORG)" ]; then \
+		echo "Error: ORG parameter required"; \
+		echo "Usage: make validate-modellkatalog-instance ORG=<org-slug>"; \
+		echo "Eksempel: make validate-modellkatalog-instance ORG=digdir-modellkatalog"; \
+		exit 1; \
+	fi
+	@echo "$(CLR_HDR)Validerer Modellkatalog-instans for $(ORG)$(CLR_RST)"
+	@ORG_SCHEMA="src/linkml/modellkatalog/$(ORG)/$(ORG)-schema.yaml"; \
+	ORG_DATA="src/linkml/modellkatalog/$(ORG)/data/$(ORG)/$(ORG).yaml"; \
+	if [ ! -f "$$ORG_SCHEMA" ]; then \
+		echo "Error: $$ORG_SCHEMA eksisterer ikkje"; \
+		exit 1; \
+	fi; \
+	if [ ! -f "$$ORG_DATA" ]; then \
+		echo "Error: $$ORG_DATA eksisterer ikkje"; \
+		echo "Køyr først: make gen-modellkatalog-instance"; \
+		exit 1; \
+	fi; \
+	echo "$(CLR_STEP)Validerer $$ORG_DATA mot $$ORG_SCHEMA$(CLR_RST)"; \
+	$(LINKML_RUN) linkml validate --schema "$$ORG_SCHEMA" "$$ORG_DATA"
+
