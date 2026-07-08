@@ -137,6 +137,9 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make update-modellkatalog` | Oppdaterer `Informasjonsmodell`-innslag i modellkatalogen frå `annotations.*` i alle skjema. Køyr etter at eit skjema legg til eller endrar annotasjonar (`utgiver`, `endringsdato` o.a.). | `src/linkml/modellkatalog/brreg-modellkatalog/data/` |
+| `make gen-informasjonsmodell-instance SCHEMA=<sti>` | Genererer ModelDCAT-metadata-fil (`metadata/modelldcat.yaml`) for eit enkelt skjema. Samlar data frå 6 kjelder: schema.yaml (toppnivå + annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar, er_profil_av. Genererer inline Kontaktopplysning og Standard-instansar. | `src/linkml/<domain>/<modell>/metadata/modelldcat.yaml` |
+| `make validate-informasjonsmodell SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
+| `make gen-modellkatalog-instance` | Genererer aggregert modellkatalog frå alle `metadata/modelldcat.yaml`-filer i repoet. Samlar alle Informasjonsmodell-instansar til éin Modellkatalog-instans. | `generated/modellkatalog.yaml` |
 
 ## Dokumentasjonsportal
 
