@@ -100,3 +100,5 @@ ein del gjentakelser i Makefile. Lag plan for å redusere duplikat kode ifølge 
 evaluer om vi burde hatt ein ny docker container for hjelpeverktøy som yq og jq og andre nyttige bibliotek som vi mangler i dei eksisterande containerimmagene
 
 Modellere FINT Felles (mangler i dag)
+
+passe på at vi har nn og nb for alle langstring felt i skos-ap-no-sceham og begreps-datafiler
