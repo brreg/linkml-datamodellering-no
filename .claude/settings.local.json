@@ -286,7 +286,8 @@
       "Bash(make validate-informasjonsmodell *)",
       "Bash(make build-linkml-image *)",
       "Bash(sed -i 's/manifest-config\\\\.md/build-config.md/g' mkdocs/docs/*.md)",
-      "Bash(sed -i 's|manifest-config/|build-config/|g' mkdocs/docs/*.md)"
+      "Bash(sed -i 's|manifest-config/|build-config/|g' mkdocs/docs/*.md)",
+      "Bash(make validate-informasjonsmodell-instance *)"
     ]
   },
   "enableAllProjectMcpServers": true,
