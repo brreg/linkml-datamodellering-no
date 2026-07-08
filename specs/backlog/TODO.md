@@ -102,3 +102,6 @@ evaluer om vi burde hatt ein ny docker container for hjelpeverktøy som yq og jq
 Modellere FINT Felles (mangler i dag)
 
 passe på at vi har nn og nb for alle langstring felt i skos-ap-no-sceham og begreps-datafiler
+
+
+egen dokumentasjon som dokumenterer korleis metadata/modelldcat.yaml blir generert med kva som er kilde til kvart informasjonselement.
