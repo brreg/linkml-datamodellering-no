@@ -241,7 +241,7 @@ For å bruke same mønster for ein annan begrepskatalog:
 
 **1.** Lag skjema etter `ny-begrepsmodell.md`.
 
-**2.** Set `validation_policy` i `manifest.yaml`:
+**2.** Set `validation_policy` i `build.yaml`:
 
 ```yaml
 generators:

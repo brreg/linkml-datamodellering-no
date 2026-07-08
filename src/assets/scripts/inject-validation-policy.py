@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Injiser validation_policy frå manifest.yaml i Metadata-tabellen i index.md.
+Injiser validation_policy frå build.yaml i Metadata-tabellen i index.md.
 
 Usage:
-    inject-validation-policy.py <index.md> <manifest.yaml>
+    inject-validation-policy.py <index.md> <build.yaml>
 """
 import sys
 from pathlib import Path
@@ -11,13 +11,13 @@ import yaml
 
 def main():
     if len(sys.argv) != 3:
-        print(f"Usage: {sys.argv[0]} <index.md> <manifest.yaml>", file=sys.stderr)
+        print(f"Usage: {sys.argv[0]} <index.md> <build.yaml>", file=sys.stderr)
         sys.exit(1)
 
     index_path = Path(sys.argv[1])
     manifest_path = Path(sys.argv[2])
 
-    # Les manifest.yaml
+    # Les build.yaml
     if not manifest_path.exists():
         # Ingen manifest, bruk bronze som default
         policy = "bronze"

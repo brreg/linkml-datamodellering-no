@@ -47,13 +47,13 @@ Dette oppretter:
 ```
 src/linkml/modellkatalog/<alias>-modellkatalog/
 ├── <alias>-modellkatalog-schema.yaml    ← LinkML-skjema for katalogen
-├── manifest.yaml                         ← publish_external: true
+├── build.yaml                         ← publish_external: true
 ├── examples/
 │   └── <alias>-modellkatalog-eksempel.yaml
 └── data/
     └── <alias>-modellkatalog/
         ├── <alias>-modellkatalog.yaml    ← katalogdatafil (med TODO-verdiar)
-        └── manifest.yaml
+        └── build.yaml
 ```
 
 Fyll inn `TODO`-verdiane i datafila manuelt:

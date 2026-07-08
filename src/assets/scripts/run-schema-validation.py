@@ -2,7 +2,7 @@
 """
 Køyrer mcp-validate for kvart releasja skjema og lagrar resultata som JSON.
 
-- Hentar policy frå manifest.yaml sitt validation_policy-felt (fallback: bronze)
+- Hentar policy frå build.yaml sitt validation_policy-felt (fallback: bronze)
 - Lagrar src/linkml/<domain>/<model>/validation/<version>/<policy>.json
 
 Ingen eksterne avhengigheiter — berre Python stdlib.
@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 def get_policy(schema_path: Path) -> str:
-    manifest = schema_path.parent / "manifest.yaml"
+    manifest = schema_path.parent / "build.yaml"
     if manifest.exists():
         content = manifest.read_text(encoding="utf-8")
         m = re.search(r"^validation_policy:\s*(\S+)", content, re.MULTILINE)

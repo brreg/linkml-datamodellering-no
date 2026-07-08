@@ -28,7 +28,7 @@ Dette oppretter:
 ```
 src/linkml/begrepskatalog/<katalognavn>/
 ├── <katalognavn>-schema.yaml  ← skjema med BegrepContainer og import av skos-ap-no
-├── manifest.yaml              ← publiserings- og generatorkonfig
+├── build.yaml              ← publiserings- og generatorkonfig
 ├── description.md             ← valfri skildring, injiserast i portalen
 └── examples/
     └── <katalognavn>-eksempel.yaml  ← tom BegrepContainer-stub
@@ -75,7 +75,7 @@ classes:
       # ... (samlingar, definisjoner, relasjonar, organisasjonar, kontaktpunkt)
 ```
 
-**`manifest.yaml`**
+**`build.yaml`**
 
 ```yaml
 publish_external: false

@@ -151,7 +151,7 @@ Sjå [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/m
 **`validate.yml` (nattleg validering og logging):**
 
 1. **Validering per domene (parallell):**
-   - Validerer skjema mot `validation_policy` frå `manifest.yaml`
+   - Validerer skjema mot `validation_policy` frå `build.yaml`
    - Validerer eksempelfiler mot skjema
    - Validerer datafiler mot publiseringspolicyer
    - Sjekkar at publiserte URI-ar ikkje er fjerna

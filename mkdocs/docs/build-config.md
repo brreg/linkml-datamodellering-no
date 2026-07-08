@@ -1,8 +1,8 @@
-# Modellmanifest (manifest.yaml)
+# Modellmanifest (build.yaml)
 
-!!!note "Kva er `manifest.yaml`?"
+!!!note "Kva er `build.yaml`?"
 
-    Kvar modell under `src/linkml/<domain>/<modell>/` har ei `manifest.yaml` som styrer kva artefaktar som vert genererte, kva flagg som vert brukte, og om modellen skal publiserast til ein ekstern katalog. `make new-model` oppretter fila automatisk med standardkonfigen.
+    Kvar modell under `src/linkml/<domain>/<modell>/` har ei `build.yaml` som styrer kva artefaktar som vert genererte, kva flagg som vert brukte, og om modellen skal publiserast til ein ekstern katalog. `make new-model` oppretter fila automatisk med standardkonfigen.
 
 ## To typar manifest
 
@@ -11,7 +11,7 @@
 Ligg ved sida av skjemafila:
 
 ```
-src/linkml/<domain>/<modell>/manifest.yaml
+src/linkml/<domain>/<modell>/build.yaml
 ```
 
 ```yaml
@@ -42,7 +42,7 @@ generators:
 Ligg inne i `data/<datafil-katalog>/`:
 
 ```
-src/linkml/<domain>/<modell>/data/<datafil-katalog>/manifest.yaml
+src/linkml/<domain>/<modell>/data/<datafil-katalog>/build.yaml
 ```
 
 ```yaml
@@ -132,7 +132,7 @@ under `data/`. Gyldige verdiar:
 
 ### Generatorflag
 
-Dei boolske felta svarar 1:1 til `manifest.yaml flag`-kolonnen i
+Dei boolske felta svarar 1:1 til `build.yaml flag`-kolonnen i
 [tabellen over genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#genererte-artefakter)
 i README. Alle har standardverdi `true`.
 
@@ -219,9 +219,9 @@ generators:
 
 ## Korleis det fungerer
 
-`gen-config.sh` les alle skjema-`manifest.yaml`-filer og skriv `config.mk` — eit
+`gen-config.sh` les alle skjema-`build.yaml`-filer og skriv `config.mk` — eit
 Makefile-fragment med per-modell-variablar som Makefile-en inkluderer automatisk.
-`config.mk` vert automatisk regenerert når ei `manifest.yaml`-fil endrar seg. Du
+`config.mk` vert automatisk regenerert når ei `build.yaml`-fil endrar seg. Du
 kan òg regenerere manuelt:
 
 ```bash
@@ -232,6 +232,6 @@ make config.mk
 
 ## Nye modellar
 
-`make new-model NAME=... DOMAIN=...` oppretter ei standard `manifest.yaml` saman med
+`make new-model NAME=... DOMAIN=...` oppretter ei standard `build.yaml` saman med
 skjemafila. Juster henne etterpå viss domenet krev det — til dømes for FINT-modellar
 der `rdf` og `example_rdf` skal vera `false`.

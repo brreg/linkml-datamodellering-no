@@ -305,7 +305,7 @@ Begrepet visast på [data.norge.no/concepts](https://data.norge.no/concepts) ett
 
 ## Manifest-konfigurasjon
 
-Kvar datafil under `src/linkml/*/data/<katalog>/` har ein `manifest.yaml`:
+Kvar datafil under `src/linkml/*/data/<katalog>/` har ein `build.yaml`:
 
 ```yaml
 publish_external: true  # Publiser til GitHub Pages?
@@ -327,7 +327,7 @@ validation_policy: felles-begrepskatalog  # Valideringspolicy
 
 **Løysing:**
 1. Sjekk at CI-jobben `generate` er grøn: https://github.com/brreg/linkml-datamodellering-no/actions
-2. Sjekk at `publish_external: true` i `manifest.yaml`
+2. Sjekk at `publish_external: true` i `build.yaml`
 3. Vent 3-5 minutt for at GitHub Pages skal oppdaterast
 4. Hard-refresh i nettlesaren (Ctrl+Shift+R)
 

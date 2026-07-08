@@ -260,7 +260,7 @@ printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 	s="{}"; \
 	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 	domain=$$(echo "$$s" | cut -d/ -f3); \
-	manifest=$$(dirname "$$s")/manifest.yaml; \
+	manifest=$$(dirname "$$s")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
 		exit 0; \
 	fi; \
@@ -291,7 +291,7 @@ printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 	s="{}"; \
 	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 	domain=$$(echo "$$s" | cut -d/ -f3); \
-	manifest=$$(dirname "$$s")/manifest.yaml; \
+	manifest=$$(dirname "$$s")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
 		exit 0; \
 	fi; \
@@ -392,13 +392,13 @@ define run_gen_rdf
 endef
 
 # Per-schema XSD generator via avrotize: JSON Schema → (fix dates) → XSD.
-# Hoppar over skjema der manifest.yaml ikkje har "xsd: true".
+# Hoppar over skjema der build.yaml ikkje har "xsd: true".
 # Avheng av at gen-jsonschema er køyrt først.
 define run_gen_xsd
 @for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
-	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	manifest=$$(dirname "$$schema")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  xsd: true" "$$manifest"; then \
 		continue; \
 	fi; \
@@ -421,13 +421,13 @@ done
 endef
 
 # Per-schema AsyncAPI 3.0 generator: JSON Schema → AsyncAPI YAML → validate.
-# Hoppar over skjema der manifest.yaml ikkje har "asyncapi: true".
+# Hoppar over skjema der build.yaml ikkje har "asyncapi: true".
 # Avheng av at gen-jsonschema er køyrt først.
 define run_gen_asyncapi
 @for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
-	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	manifest=$$(dirname "$$schema")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
 		continue; \
 	fi; \
@@ -447,13 +447,13 @@ done
 endef
 
 # Per-schema OpenAPI 3.1 generator: JSON Schema → OpenAPI YAML → validate.
-# Hoppar over skjema der manifest.yaml ikkje har "openapi: true".
+# Hoppar over skjema der build.yaml ikkje har "openapi: true".
 # Avheng av at gen-jsonschema er køyrt først.
 define run_gen_openapi
 @for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
-	manifest=$$(dirname "$$schema")/manifest.yaml; \
+	manifest=$$(dirname "$$schema")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
 		continue; \
 	fi; \
@@ -754,7 +754,7 @@ convert-rdf:
 		name=$$(basename "$$example" .yaml); \
 		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
 		domain=$$(echo "$$example" | awk -F/ '{print $$3}'); \
-		manifest=$(SCHEMA_DIR)/$$domain/$$profil/manifest.yaml; \
+		manifest=$(SCHEMA_DIR)/$$domain/$$profil/build.yaml; \
 		if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
 			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
 			continue; \
@@ -786,7 +786,7 @@ convert-data:
 		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
-		manifest="$$datadir/manifest.yaml"; \
+		manifest="$$datadir/build.yaml"; \
 		[ -f "$$manifest" ] || continue; \
 		publish_external=$$(grep '^publish_external:' "$$manifest" | awk '{print $$2}'); \
 		[ "$$publish_external" = "true" ] || continue; \
@@ -845,9 +845,9 @@ docs-publish:
 	bash mkdocs/publish.sh
 
 # ---------------------------------------------------------------------------
-# Per-model generator configuration — regenerated when any manifest.yaml changes.
+# Per-model generator configuration — regenerated when any build.yaml changes.
 # ---------------------------------------------------------------------------
-config.mk: $(shell find src/linkml -name 'manifest.yaml')
+config.mk: $(shell find src/linkml -name 'build.yaml')
 	bash src/assets/scripts/gen-config.sh > config.mk
 
 gen-config: config.mk
@@ -882,7 +882,7 @@ domain-$(1):
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \
 		profil=$$$$(echo "$$$$name" | sed 's/-eksempel$$$$//'); \
-		if [ -f $(SCHEMA_DIR)/$(1)/$$$$profil/manifest.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(1)/$$$$profil/manifest.yaml; then \
+		if [ -f $(SCHEMA_DIR)/$(1)/$$$$profil/build.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(1)/$$$$profil/build.yaml; then \
 			echo "Hoppar over linkml-convert for $$$$example (example_rdf: false)"; \
 			continue; \
 		fi; \
@@ -909,7 +909,7 @@ domain-$(1):
 		for schema in $$(_schemas_$(1)); do \
 			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
 			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
-			manifest=$$$$(dirname "$$$$schema")/manifest.yaml; \
+			manifest=$$$$(dirname "$$$$schema")/build.yaml; \
 			if [ ! -f "$$$$manifest" ] || ! grep -q "^  openapi: true" "$$$$manifest"; then \
 				continue; \
 			fi; \
@@ -932,7 +932,7 @@ domain-$(1):
 		for schema in $$(_schemas_$(1)); do \
 			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
 			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
-			manifest=$$$$(dirname "$$$$schema")/manifest.yaml; \
+			manifest=$$$$(dirname "$$$$schema")/build.yaml; \
 			if [ ! -f "$$$$manifest" ] || ! grep -q "^  asyncapi: true" "$$$$manifest"; then \
 				continue; \
 			fi; \
@@ -989,7 +989,7 @@ ifdef DOMAIN
 		datafile="$$datadir/$$catalog.yaml"; \
 		[ -f "$$datafile" ] || continue; \
 		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
-		manifest="$$datadir/manifest.yaml"; \
+		manifest="$$datadir/build.yaml"; \
 		if [ -f "$$manifest" ]; then \
 			policy=$$(grep '^validation_policy:' "$$manifest" | awk '{print $$2}'); \
 		else \
@@ -1232,11 +1232,11 @@ check-prereqs:
 	@bash src/assets/scripts/check-prereqs.bash
 
 # Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
-# POLICY vert auto-detektert frå manifest.yaml dersom ikkje oppgjeven
+# POLICY vert auto-detektert frå build.yaml dersom ikkje oppgjeven
 mcp-linkml-validate:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
 	@DETECTED_POLICY=$$(python3 -c "import yaml, sys; \
-	  manifest_path = '$(dir $(SCHEMA))manifest.yaml'; \
+	  manifest_path = '$(dir $(SCHEMA))build.yaml'; \
 	  manifest = yaml.safe_load(open(manifest_path)) if __import__('os').path.isfile(manifest_path) else {}; \
 	  print(manifest.get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
@@ -1357,4 +1357,33 @@ gen-informasjonsmodell-instance:
 	fi
 	@echo "$(CLR_HDR)Genererer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
 	python3 src/assets/scripts/generate-informasjonsmodell.py $(SCHEMA)
+
+.PHONY: gen-modellkatalog-instance
+
+gen-modellkatalog-instance:
+	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
+	python3 src/assets/scripts/generate-modellkatalog.py
+
+.PHONY: validate-informasjonsmodell
+
+validate-informasjonsmodell:
+	@if [ -z "$(SCHEMA)" ]; then \
+		echo "Error: SCHEMA parameter required"; \
+		echo "Usage: make validate-informasjonsmodell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
+		exit 1; \
+	fi
+	@echo "$(CLR_HDR)Validerer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
+	@SCHEMA_DIR=$$(dirname "$(SCHEMA)"); \
+	MODELLDCAT_YAML="$$SCHEMA_DIR/metadata/modelldcat.yaml"; \
+	if [ ! -f "$$MODELLDCAT_YAML" ]; then \
+		echo "Error: $$MODELLDCAT_YAML eksisterer ikkje"; \
+		echo "Køyr først: make gen-informasjonsmodell-instance SCHEMA=$(SCHEMA)"; \
+		exit 1; \
+	fi; \
+	echo "$(CLR_STEP)Validerer YAML-syntaks og struktur$(CLR_RST)"; \
+	python3 -c "import yaml; yaml.safe_load(open('$$MODELLDCAT_YAML'))" && \
+	echo "$(CLR_STEP)✓ YAML-syntaks OK$(CLR_RST)" && \
+	echo "$(CLR_STEP)Sjekkar obligatoriske felt$(CLR_RST)" && \
+	python3 -c "import yaml; data=yaml.safe_load(open('$$MODELLDCAT_YAML')); required=['id','tittel','beskrivelse','versjonsnummer','lisens','utgiver']; missing=[f for f in required if f not in data]; exit(1) if missing else print('$(CLR_STEP)✓ Alle obligatoriske felt til stades$(CLR_RST)')" || \
+	(echo "$(CLR_STEP)✗ Manglande obligatoriske felt$(CLR_RST)" && exit 1)
 

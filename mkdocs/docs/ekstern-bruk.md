@@ -106,9 +106,9 @@ jobs:
           name: ${{ needs.generate.outputs.artifact-name }}
 ```
 
-Workflowen les `manifest.yaml` frå skjemakatalogen og køyrer dei generatorane som er aktiverte
+Workflowen les `build.yaml` frå skjemakatalogen og køyrer dei generatorane som er aktiverte
 (`jsonld_context`, `json_schema`, `python`, `shacl`, `owl`, `rdf`, `protobuf`, `example_rdf`).
-Sjå [Generatorkonfigurasjon](manifest-config.md) for detaljar.
+Sjå [Generatorkonfigurasjon](build-config.md) for detaljar.
 
 ---
 

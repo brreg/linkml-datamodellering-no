@@ -234,9 +234,9 @@ done
 declare -A SCHEMA_PARENT_MODEL_TMP=()
 declare -A SCHEMA_SUBMODELS_TMP=()
 
-for manifest_file in $(find "$REPO_ROOT/src/linkml" -name manifest.yaml); do
+for manifest_file in $(find "$REPO_ROOT/src/linkml" -name build.yaml); do
     # Ekstraher domene og katalog frå manifest-stien
-    # manifest_file = /path/src/linkml/<domain>/<schema>/manifest.yaml
+    # manifest_file = /path/src/linkml/<domain>/<schema>/build.yaml
     schema_dir=$(dirname "$manifest_file")
     schema=$(basename "$schema_dir")
     domain=$(basename "$(dirname "$schema_dir")")

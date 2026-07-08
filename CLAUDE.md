@@ -65,7 +65,7 @@ make validate-instance SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml INSTAN
 make roundtrip SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
-# POLICY vert auto-detektert frå manifest.yaml — overstyr ved behov med POLICY=<bronze|silver|gold>
+# POLICY vert auto-detektert frå build.yaml — overstyr ved behov med POLICY=<bronze|silver|gold>
 make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
 ```
 
@@ -320,14 +320,14 @@ src/linkml/
   <domain>/
     <modell>/
       <modell>-schema.yaml
-      manifest.yaml             ← publiserings- og generatorkonfig
+      build.yaml             ← publiserings- og generatorkonfig
       description.md            ← valfri portaltekst (Markdown, bokmål)
       examples/
         <modell>-eksempel.yaml
       data/                     ← berre for skjema med produksjonsdata
         <katalog>/
           <katalog>.yaml
-          manifest.yaml         ← datafil-manifest
+          build.yaml         ← datafil-manifest
 
 generated/                      ← byggoutput, ikkje kjeldekode
 tests/
@@ -335,7 +335,7 @@ tests/
 
 ### Manifestformat
 
-`manifest.yaml` per skjema (har `generators:`-seksjon):
+`build.yaml` per skjema (har `generators:`-seksjon):
 
 ```yaml
 publish_external: false   # true for å publisere til ekstern katalog
@@ -357,7 +357,7 @@ generators:
   example_rdf: true
 ```
 
-`manifest.yaml` per datafil (manglar `generators:`):
+`build.yaml` per datafil (manglar `generators:`):
 
 ```yaml
 publish_external: true
@@ -368,7 +368,7 @@ concepts:                   # valfri — utelat for å publisere heile datafila
   - https://begrep.brreg.no/nestleder
 ```
 
-CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar utan `manifest.yaml` vert validerte automatisk med `bronze`-policy.
+CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar utan `build.yaml` vert validerte automatisk med `bronze`-policy.
 
 ### Fil- og mappenamn
 

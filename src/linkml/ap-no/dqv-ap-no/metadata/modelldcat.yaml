@@ -18,15 +18,11 @@ utgivelsesdato: '2023-01-01'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
 er_i_samsvar_med:
-- tittel:
-    nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
-    nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
-  har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
+- https://informasjonsforvaltning.github.io/dqv-ap-no/
 har_del:
 - https://data.norge.no/ap-no/dqv-ap-no/dqv-core
 kontaktpunkt:
-  har_referanse: https://www.digdir.no/om-oss/kontakt-oss/887
-  har_organisasjonsnamn: Digitaliseringsdirektoratet
+- https://www.digdir.no/om-oss/kontakt-oss/887
 finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-context.jsonld
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-ontology.ttl

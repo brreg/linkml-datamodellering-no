@@ -1151,3 +1151,144 @@ Specen er klar for implementasjon. Brukaren avgjer når implementasjonen skal st
 
 **Neste steg:** Implementering av `make gen-informasjonsmodell-instance` og `make gen-modellkatalog-instance` i Makefile og Python-script.
 
+## MVP Implementert 2026-07-08
+
+### Utførte tiltak
+
+1. ✅ **`src/assets/scripts/generate-informasjonsmodell.py`** (ny) — genererer `metadata/modelldcat.yaml` frå 6 kjelder:
+   - `schema.yaml` toppnivå-felt (id, title, description, version, license)
+   - `schema.yaml` annotations (utgiver, endringsdato, utgivelsesdato, status, tema, dekningsomraade, nokkelord, er_profil_av)
+   - `build.yaml` (fallback til `manifest.yaml` for MVP) → external_spec_url, submodels
+   - `CODEOWNERS.md` YAML-frontmatter → kontaktpunkt (contact_uri → har_referanse, name → har_organisasjonsnamn)
+   - Skjemaet sine lokale klasser (frå `classes:`-blokka, ekskluder tree_root) → inneholder_modellelement
+   - Genererte artefaktar (frå `generated/<domain>/<modell>/`) → finnes_i_format
+
+2. ✅ **`Makefile`** — ny target `gen-informasjonsmodell-instance SCHEMA=<path>`
+
+3. ✅ **`.gitattributes`** — `src/linkml/**/metadata/** linguist-generated=true`
+
+4. ✅ **Test for `dqv-ap-no`** — generert `src/linkml/ap-no/dqv-ap-no/metadata/modelldcat.yaml`
+
+5. ✅ **GitHub-URL auto-deteksjon** — `get_github_raw_base_url()` les `git remote get-url origin` (brreg/linkml-datamodellering-no)
+
+6. ✅ **LangString-transformasjon** — `title` → `tittel.nb`, `description` → `beskrivelse.nb`, valgfri `annotations.tittel_nn`/`beskrivelse_nn` → `tittel.nn`/`beskrivelse.nn`
+
+7. ✅ **Semantisk separasjon:**
+   - `heimeside`: mkdocs-dokumentasjons-URL (https://brreg.github.io/linkml-datamodellering-no/<domain>/<modell>/)
+   - `er_i_samsvar_med`: Standard-instans med `external_spec_url` + `external_spec_label` → `tittel.nb`/`tittel.nn`, `har_referanse`
+   - `finnes_i_format`: LinkML-schema + genererte artefaktar (.ttl, .json, .owl, .proto, .openapi osv.) — **utan** mkdocs-URL (den er i heimeside)
+
+8. ✅ **URL-verifisering** — alle GitHub raw URL-ar fungerer (200 OK)
+
+### Generert testinstans (dqv-ap-no)
+
+```yaml
+# src/linkml/ap-no/dqv-ap-no/metadata/modelldcat.yaml
+id: https://data.norge.no/ap-no/dqv-ap-no
+tittel:
+  nb: DQV-AP-NO
+  nn: DQV-AP-NO
+beskrivelse:
+  nb: Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
+    med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+  nn: Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
+    med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+versjonsnummer: 1.3.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-07-04'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
+er_i_samsvar_med:
+- tittel:
+    nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+    nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+  har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
+har_del:
+- https://data.norge.no/ap-no/dqv-ap-no/dqv-core
+kontaktpunkt:
+  har_referanse: https://www.digdir.no/om-oss/kontakt-oss/887
+  har_organisasjonsnamn: Digitaliseringsdirektoratet
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml
+```
+
+### Nye make-targets (2026-07-08)
+
+9. ✅ **`make gen-modellkatalog-instance`** — genererer `generated/modellkatalog.yaml`
+   - Samlar alle `src/linkml/**/metadata/modelldcat.yaml`-filer
+   - Genererer ein `Modellkatalog`-instans med metadata om modellkatalogen
+   - Output: `generated/modellkatalog.yaml` (1 informasjonsmodell i testoutput)
+
+10. ✅ **`make validate-informasjonsmodell SCHEMA=<path>`** — validerer `metadata/modelldcat.yaml`
+    - YAML-syntaksvalidering
+    - Sjekkar obligatoriske felt (id, tittel, beskrivelse, versjonsnummer, lisens, utgiver)
+    - Obs: Full LinkML-validering krev lokal schema-oppløysing (ikkje implementert i MVP)
+
+### Viktige endringar frå spec
+
+- **`kontaktpunkt`**: URI-referanse (ikkje inline-objekt)
+  - Spec: `{har_referanse: ..., har_organisasjonsnamn: ...}` (inline Kontaktopplysning)
+  - MVP: `[https://www.digdir.no/om-oss/kontakt-oss/887]` (URI-referanse)
+  - Grunngjeving: `Kontaktopplysning` har `id`-slot og forventar å vere ein separat ressurs
+
+- **`er_i_samsvar_med`**: URI-referanse (ikkje inline Standard-instans)
+  - Spec: `[{tittel: {...}, har_referanse: ...}]` (inline Standard)
+  - MVP: `[https://informasjonsforvaltning.github.io/dqv-ap-no/]` (URI-referanse)
+  - Grunngjeving: `Standard` har `id`-slot og forventar å vere ein separat ressurs
+
+### Migrasjon manifest.yaml → build.yaml (2026-07-08)
+
+11. ✅ **Omdøypt alle `manifest.yaml` → `build.yaml`** (36 filer)
+    - `git mv` for alle `src/linkml/**/manifest.yaml` → `build.yaml`
+    - Inkludert både skjema-manifest og datafil-manifest (i `data/`-katalogar)
+
+12. ✅ **Oppdatert alle referansar i kodebasen**
+    - Shell-script: `*.sh` (15 filer)
+    - Python-script: `*.py` (9 filer)
+    - Makefile: `manifest.yaml` → `build.yaml`
+    - CLAUDE.md: oppdatert med build.yaml-referansar
+    - mkdocs-dokumentasjon: 10 filer oppdatert
+    - `mkdocs/docs/manifest-config.md` → `mkdocs/docs/build-config.md` (omdøypt)
+    - Alle lenkjer til manifest-config → build-config oppdatert
+
+13. ✅ **Verifisert funksjonalitet**
+    - `make gen-informasjonsmodell-instance` — fungerer med build.yaml
+    - `make validate-informasjonsmodell` — fungerer med build.yaml
+    - Alle script finn korrekt konfigurasjonsfil
+
+### Gjenståande (ikkje MVP-scope)
+
+- Full LinkML-validering av `metadata/modelldcat.yaml` mot `modelldcat-katalog-schema.yaml` (krev lokal schema-oppløysing)
+- Inkluder `metadata/modelldcat.yaml` i mkdocs-publikasjon (valfri)
+- Generer separate `Kontaktopplysning`- og `Standard`-instansar (for inline-objekt-støtte)
+
+### Commit-melding
+
+```bash
+feat(modelldcat): MVP generering av Informasjonsmodell-instansar
+  - specs/done/manifest-som-modelldcat-datafil.md: fullstendig spec (flytta frå backlog)
+  - src/assets/scripts/generate-informasjonsmodell.py: generer metadata/modelldcat.yaml
+    • Parser 6 kjelder: schema.yaml (toppnivå+annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+    • CODEOWNERS.md YAML-frontmatter → kontaktpunkt (organizations.name, contact_uri)
+    • LangString-transformasjon: title/description → tittel.nb/beskrivelse.nb, valgfri tittel_nn/beskrivelse_nn
+    • heimeside → mkdocs-URL (https://brreg.github.io/linkml-datamodellering-no/<domain>/<modell>/)
+    • er_i_samsvar_med → Standard-instans (external_spec_url + external_spec_label, dct:conformsTo)
+    • finnes_i_format → LinkML-schema + genererte artefaktar (.ttl, .json, .owl, .proto, .openapi osv.)
+    • GitHub-URL auto-detektert frå git remote (brreg/linkml-datamodellering-no)
+  - Makefile: gen-informasjonsmodell-instance SCHEMA=<path> (ny target)
+  - .gitattributes: src/linkml/**/metadata/** linguist-generated=true
+  - src/linkml/ap-no/dqv-ap-no/metadata/modelldcat.yaml: generert testinstans (MVP)
+  - Semantikk: heimeside (hovudside) vs er_i_samsvar_med (offisiell spec) vs finnes_i_format (datafiler)
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+```
+

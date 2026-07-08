@@ -29,7 +29,7 @@ get_external_spec_label() {
 get_validation_json_path() {
     local domain="$1"
     local schema="$2"
-    local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+    local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
     local policy=$(get_validation_policy "$manifest")
     local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
     local latest_version=$(get_latest_validation_version "$validation_dir")
