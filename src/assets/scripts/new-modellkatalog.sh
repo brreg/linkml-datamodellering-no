@@ -153,7 +153,7 @@ classes:
 YAML
 
 # --- Manifest (skjema) ---
-cat > "$CATALOG_DIR/manifest.yaml" << 'YAML'
+cat > "$CATALOG_DIR/build.yaml" << 'YAML'
 publish_external: true
 
 generators:
@@ -200,7 +200,7 @@ aktoerer:
 YAML
 
 # --- Datafil-manifest ---
-cat > "$CATALOG_DIR/data/$catalog_slug/manifest.yaml" << 'YAML'
+cat > "$CATALOG_DIR/data/$catalog_slug/build.yaml" << 'YAML'
 publish_external: true
 validation_policy: felles-datakatalog
 YAML
@@ -229,9 +229,9 @@ YAML
 echo ""
 echo "Oppretta:"
 echo "  $CATALOG_DIR/$catalog_slug-schema.yaml"
-echo "  $CATALOG_DIR/manifest.yaml"
+echo "  $CATALOG_DIR/build.yaml"
 echo "  $CATALOG_DIR/data/$catalog_slug/$catalog_slug.yaml"
-echo "  $CATALOG_DIR/data/$catalog_slug/manifest.yaml"
+echo "  $CATALOG_DIR/data/$catalog_slug/build.yaml"
 echo "  $CATALOG_DIR/examples/$catalog_slug-eksempel.yaml"
 echo ""
 echo "Neste steg:"

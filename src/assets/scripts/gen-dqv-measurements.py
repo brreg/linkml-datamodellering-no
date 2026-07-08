@@ -49,8 +49,8 @@ PROFILES = {
 
 
 def find_data_manifests(root="src/linkml"):
-    """Finn alle datafil-manifest (manifest.yaml med data_policy, utan generators:)."""
-    for path in sorted(glob.glob(f"{root}/*/*/data/*/manifest.yaml")):
+    """Finn alle datafil-manifest (build.yaml med data_policy, utan generators:)."""
+    for path in sorted(glob.glob(f"{root}/*/*/data/*/build.yaml")):
         yield Path(path)
 
 

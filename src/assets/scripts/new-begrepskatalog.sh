@@ -16,7 +16,7 @@ SCHEMA_DIR="$REPO_ROOT/src/linkml/begrepskatalog/$NAME"
 EXAMPLES_DIR="$SCHEMA_DIR/examples"
 SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"
 EXAMPLE_FILE="$EXAMPLES_DIR/$NAME-eksempel.yaml"
-MANIFEST_FILE="$SCHEMA_DIR/manifest.yaml"
+MANIFEST_FILE="$SCHEMA_DIR/build.yaml"
 DESCRIPTION_FILE="$SCHEMA_DIR/description.md"
 
 if [[ -d "$SCHEMA_DIR" ]]; then

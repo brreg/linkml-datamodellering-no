@@ -110,7 +110,7 @@ $CONTAINER_CLASS:
     - id: $SCHEMA_ID/eksempel-1
 EOF
 
-MANIFEST_FILE="$SCHEMA_DIR/manifest.yaml"
+MANIFEST_FILE="$SCHEMA_DIR/build.yaml"
 cat > "$MANIFEST_FILE" << 'EOF'
 publish_external: false
 validation_policy: silver

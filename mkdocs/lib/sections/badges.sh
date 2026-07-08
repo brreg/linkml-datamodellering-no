@@ -19,7 +19,7 @@ generate_badges() {
 
     # Valideringsstatus
     local validation_json=$(get_validation_json_path "$domain" "$schema")
-    local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/manifest.yaml"
+    local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
     local policy=$(get_validation_policy "$manifest")
     local val_status="ukjent"
     local val_color="lightgrey"

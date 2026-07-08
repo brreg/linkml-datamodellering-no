@@ -37,11 +37,13 @@ def write_yaml(file_path: Path, data: Dict):
         yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
 
-def parse_codeowners(schema_path: Path) -> Optional[Dict]:
+def parse_codeowners(schema_path: Path) -> Optional[str]:
     """
-    Parse CODEOWNERS.md YAML-frontmatter og finn kontaktpunkt for skjemaet.
+    Parse CODEOWNERS.md YAML-frontmatter og finn kontaktpunkt-URI for skjemaet.
 
     Matcher schema_path mot organizations[].path_patterns.
+
+    Returnerer: contact_uri (str) eller None
     """
     # Finn repo-root frå current working directory
     repo_root = Path.cwd()
@@ -74,10 +76,7 @@ def parse_codeowners(schema_path: Path) -> Optional[Dict]:
             # Enkel glob-match (kan utvidast til meir robust matching)
             pattern_prefix = pattern.replace('/**', '')
             if schema_rel_path.startswith(pattern_prefix):
-                return {
-                    'har_referanse': org.get('contact_uri'),
-                    'har_organisasjonsnamn': org.get('name')
-                }
+                return org.get('contact_uri')
 
     print(f"Warning: Ingen organisasjon i CODEOWNERS.md matcher {schema_rel_path}", file=sys.stderr)
     return None
@@ -237,15 +236,15 @@ def generate_informasjonsmodell(schema_path: Path) -> Dict:
     # 1. Les schema.yaml
     schema = load_yaml(schema_path)
 
-    # 2. Les build.yaml (tidlegare manifest.yaml)
+    # 2. Les build.yaml (tidlegare build.yaml)
     build_path = schema_path.parent / 'build.yaml'
     if not build_path.exists():
-        build_path = schema_path.parent / 'manifest.yaml'  # Fallback for MVP
+        build_path = schema_path.parent / 'build.yaml'  # Fallback for MVP
 
     build_config = load_yaml(build_path) if build_path.exists() else {}
 
-    # 3. Parse CODEOWNERS.md
-    kontaktpunkt = parse_codeowners(schema_path)
+    # 3. Parse CODEOWNERS.md (kontaktpunkt-URI)
+    kontaktpunkt_uri = parse_codeowners(schema_path)
 
     # 4. Ekstraher lokale klasser
     inneholder_modellelement = extract_local_classes(schema)
@@ -294,13 +293,10 @@ def generate_informasjonsmodell(schema_path: Path) -> Dict:
     # heimeside → vår mkdocs-dokumentasjon
     modelldcat['heimeside'] = generate_mkdocs_url(schema_path)
 
-    # er_i_samsvar_med → offisiell spesifikasjon (Standard-instans)
+    # er_i_samsvar_med → offisiell spesifikasjon (URI-referanse til Standard)
+    # Obs: For MVP bruker vi berre URI — ikkje inline Standard-instans
     if 'external_spec_url' in build_config:
-        standard_tittel = build_config.get('external_spec_label', schema.get('title', ''))
-        modelldcat['er_i_samsvar_med'] = [{
-            'tittel': generate_langstring(standard_tittel),
-            'har_referanse': build_config['external_spec_url']
-        }]
+        modelldcat['er_i_samsvar_med'] = [build_config['external_spec_url']]
 
     # har_del → submodellar
     if 'submodels' in build_config:
@@ -310,9 +306,9 @@ def generate_informasjonsmodell(schema_path: Path) -> Dict:
             default_prefix += '/'
         modelldcat['har_del'] = [default_prefix + sm for sm in build_config['submodels']]
 
-    # Frå CODEOWNERS.md
-    if kontaktpunkt:
-        modelldcat['kontaktpunkt'] = kontaktpunkt
+    # Frå CODEOWNERS.md (multivalued: true, range: Kontaktopplysning → URI-referanse)
+    if kontaktpunkt_uri:
+        modelldcat['kontaktpunkt'] = [kontaktpunkt_uri]
 
     # Frå lokale klasser
     if inneholder_modellelement:

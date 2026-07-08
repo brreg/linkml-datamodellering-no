@@ -281,7 +281,12 @@
       "Bash(make gen-jsonld-context *)",
       "Bash(curl -sL \"https://data.norge.no/specification/modelldcat-ap-no\" -H \"Accept: text/html\")",
       "Bash(make gen-informasjonsmodell-instance *)",
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(make gen-modellkatalog-instance *)",
+      "Bash(make validate-informasjonsmodell *)",
+      "Bash(make build-linkml-image *)",
+      "Bash(sed -i 's/manifest-config\\\\.md/build-config.md/g' mkdocs/docs/*.md)",
+      "Bash(sed -i 's|manifest-config/|build-config/|g' mkdocs/docs/*.md)"
     ]
   },
   "enableAllProjectMcpServers": true,

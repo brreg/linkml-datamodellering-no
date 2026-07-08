@@ -20,7 +20,7 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 |---|---|---|---|---|
 | 1 | **Hovudoverskrift** | `# <schema>` | Skjemanamn frå katalognamn | `lib/sections/header.sh:generate_header()` |
 | 2 | **Badge-rad** | Versjon, status, validering, lisens | Parsa frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) og `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (valideringsresultat) | `lib/sections/badges.sh:generate_badges()` |
-| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `manifest.yaml` (`external_spec_url`-feltet, valfritt) | `lib/sections/external_reference.sh:generate_external_reference()` |
+| 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `build.yaml` (`external_spec_url`-feltet, valfritt) | `lib/sections/external_reference.sh:generate_external_reference()` |
 | 4 | **description.md** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) | `lib/sections/description.sh:generate_description()` |
 | 5 | **Kom i gang** | Quickstart-guide med valideringskommando | `src/linkml/<domain>/quickstart.md` (valfri, med `{{SCHEMA}}`- og `{{SCHEMA_UNDERSCORE}}`-substitusjon). Fallback til hardkoda logikk dersom fila manglar. | `lib/sections/quickstart.sh:generate_quickstart()` |
 | 6 | **Eksempeldatafil** (valgfri) | YAML-eksempel (første 20 linjer) + lenke til full fil | Ekstraher frå `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` | `lib/sections/example.sh:generate_example()` |
@@ -83,7 +83,7 @@ Valideringsresultata blir genererte av `src/assets/scripts/generate-validation-m
 
 1. **Les JSON-fil:**
    - `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json`
-   - Policy-verdi henta frå `manifest.yaml` (`validation_policy`-feltet, default: `bronze`)
+   - Policy-verdi henta frå `build.yaml` (`validation_policy`-feltet, default: `bronze`)
 
 2. **Finn siste versjon:**
    - `ls -v src/linkml/<domain>/<schema>/validation/` → grep versjonsnummer (semver) → tail -n1
@@ -149,7 +149,7 @@ For å endre innhaldet i ein modell sin `index.md`:
 |---|---|
 | Hovudtittel | Ikkje redigerbar — auto-generert frå skjemanamn |
 | Badge-verdiar | Endre versjon/status/lisens i `src/linkml/<domain>/<schema>/<schema>-schema.yaml` (gen-doc parsar dette) |
-| Offisiell referanse | Legg til `external_spec_url` i `src/linkml/<domain>/<schema>/manifest.yaml` |
+| Offisiell referanse | Legg til `external_spec_url` i `src/linkml/<domain>/<schema>/build.yaml` |
 | Introduksjonstekst | Opprett/rediger `src/linkml/<domain>/<schema>/description.md` |
 | Quickstart-kommando | Rediger `src/linkml/<domain>/quickstart.md` (eller opprett fil dersom den manglar) |
 | Eksempeldatafil | Rediger `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` |
@@ -167,7 +167,7 @@ For å endre innhaldet i ein modell sin `index.md`:
 
 ```
 src/linkml/<domain>/<schema>/<schema>-schema.yaml   ← SANNKJELDE for metadata, klasser, slots
-src/linkml/<domain>/<schema>/manifest.yaml          ← SANNKJELDE for generators + validation_policy
+src/linkml/<domain>/<schema>/build.yaml          ← SANNKJELDE for generators + validation_policy
 src/linkml/<domain>/<schema>/description.md         ← SANNKJELDE for introduksjonstekst
 src/linkml/<domain>/<schema>/examples/              ← SANNKJELDE for eksempel
 src/linkml/<domain>/<schema>/CHANGELOG.md           ← SANNKJELDE for versjonslog

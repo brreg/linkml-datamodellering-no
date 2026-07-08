@@ -8,7 +8,7 @@
 #
 # Eksempel:
 #   run-validation.sh --schema src/linkml/samt/samt-bu/samt-bu-schema.yaml --policy silver
-#   run-validation.sh --manifest src/linkml/samt/samt-bu/manifest.yaml
+#   run-validation.sh --manifest src/linkml/samt/samt-bu/build.yaml
 
 set -euo pipefail
 
@@ -46,14 +46,14 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# Manifest-modus: les policy og schema frå manifest.yaml
+# Manifest-modus: les policy og schema frå build.yaml
 if [ -n "$MANIFEST" ]; then
   if [ ! -f "$MANIFEST" ]; then
-    echo "Feil: manifest.yaml finst ikkje: $MANIFEST" >&2
+    echo "Feil: build.yaml finst ikkje: $MANIFEST" >&2
     exit 1
   fi
 
-  # Les validation_policy frå manifest.yaml (bruk Python i staden for yq)
+  # Les validation_policy frå build.yaml (bruk Python i staden for yq)
   POLICY=$(python3 -c "import yaml; print(yaml.safe_load(open('$MANIFEST')).get('validation_policy', ''))" 2>/dev/null || echo "")
 
   # Valider at policy er sett
@@ -62,7 +62,7 @@ if [ -n "$MANIFEST" ]; then
     exit 1
   fi
 
-  # Finn schema-sti frå manifest (same katalog som manifest.yaml)
+  # Finn schema-sti frå manifest (same katalog som build.yaml)
   schema_dir=$(dirname "$MANIFEST")
   SCHEMA=$(find "$schema_dir" -maxdepth 1 -name "*-schema.yaml" | head -n1)
 
@@ -79,7 +79,7 @@ if [ -z "$SCHEMA" ]; then
 fi
 
 if [ -z "$POLICY" ]; then
-  echo "Feil: --policy må oppgjevast (eller vere sett i manifest.yaml)" >&2
+  echo "Feil: --policy må oppgjevast (eller vere sett i build.yaml)" >&2
   exit 1
 fi
 

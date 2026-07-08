@@ -23,7 +23,7 @@ Dette oppretter:
 ```
 src/linkml/<domain>/<modell>/
 ├── <modell>-schema.yaml       ← hovudskjema med stub-klasse og containerklasse
-├── manifest.yaml              ← publiserings- og generatorkonfig
+├── build.yaml              ← publiserings- og generatorkonfig
 ├── description.md             ← valfri beskrivelse av modellen (10–20 liner), injiserast i portal-index før metadata-tabellen
 └── examples/
     └── <modell>-eksempel.yaml ← eksempelfil med minimal instans
@@ -112,7 +112,7 @@ slots:
 | `imports: [linkml:types]` | Legg til AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema` |
 | `license: creativecommons.org/…` | Endre til `https://data.norge.no/nlod/no/2.0` for offentlege data |
 
-`manifest.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](manifest-config.md) for feltliste.
+`build.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](build-config.md) for feltliste.
 
 
 
@@ -271,17 +271,17 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ## Tilpass manifest for generering og publisering
 
-Kvar modell har ei `manifest.yaml` ved sida av skjemafila som styrer kva artefaktar
+Kvar modell har ei `build.yaml` ved sida av skjemafila som styrer kva artefaktar
 som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
 generatorar på, ingen ekstra flagg.
 
-For å slå av ein generator eller leggje til flagg, rediger `manifest.yaml` og køyr:
+For å slå av ein generator eller leggje til flagg, rediger `build.yaml` og køyr:
 
 ```bash
-make config.mk   # regenerer Makefile-konfig frå alle manifest.yaml-filer
+make config.mk   # regenerer Makefile-konfig frå alle build.yaml-filer
 ```
 
-Sjå [Modellmanifest](manifest-config.md) for feltliste og eksempel per
+Sjå [Modellmanifest](build-config.md) for feltliste og eksempel per
 domenetype (standard, FINT, AP-NO/FAIR).
 
 ---
