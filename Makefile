@@ -1343,3 +1343,18 @@ gource-video: build-docker-gource
 _gource-render:
 	$(GOURCE_RUN)
 
+# ===========================================================================
+# ModelDCAT-AP-NO Informasjonsmodell-generering (MVP)
+# ===========================================================================
+
+.PHONY: gen-informasjonsmodell-instance
+
+gen-informasjonsmodell-instance:
+	@if [ -z "$(SCHEMA)" ]; then \
+		echo "Error: SCHEMA parameter required"; \
+		echo "Usage: make gen-informasjonsmodell-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
+		exit 1; \
+	fi
+	@echo "$(CLR_HDR)Genererer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
+	python3 src/assets/scripts/generate-informasjonsmodell.py $(SCHEMA)
+
