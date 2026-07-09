@@ -3,53 +3,38 @@
 
 id: https://data.norge.no/ngr/ngr-virksomhet
 name: ngr-virksomhet
-version: "1.1.0"
+version: "1.3.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Nasjonale grunndata - Virksomhet
 description: >-
-  Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast).
-  Modellerer Virksomhet med Underenhet og Hovudeining, roller, adresser
-  og klassifikasjonar frå Enhetsregisteret.
-  Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
-
+  Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast). Modellerer Virksomhet med Underenhet og Hovudeining, roller, adresser og klassifikasjonar frå Enhetsregisteret. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
-
 prefixes:
-  linkml:  https://w3id.org/linkml/
-  ngrv:    https://data.norge.no/vocabulary/ngr-virksomhet#
-  xsd:     http://www.w3.org/2001/XMLSchema#
-
+  linkml: https://w3id.org/linkml/
+  ngrv: https://data.norge.no/vocabulary/ngr-virksomhet#
+  xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-virksomhet/
 default_range: string
-
 imports:
   - linkml:types
-
 # ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
-
 subsets:
-
   Obligatorisk:
     description: Obligatoriske eigenskapar i domenemodellen.
-
   Anbefalt:
     description: Anbefalte eigenskapar i domenemodellen.
-
   Valgfri:
     description: Valfrie eigenskapar i domenemodellen.
-
 # ---------------------------------------------------------------------------
 # Enums
 # ---------------------------------------------------------------------------
-
 enums:
-
   TilstandType:
     description: Status for ei verksemd registrert i Enhetsregisteret.
     permissible_values:
@@ -65,7 +50,6 @@ enums:
         description: Sletta frå registeret
       OPPLØST:
         description: Oppløyst
-
   VarslingType:
     description: Kanaltype for varsling til verksemda.
     permissible_values:
@@ -73,7 +57,6 @@ enums:
         description: Varsling via e-post
       MOBILTELEFON:
         description: Varsling via SMS til mobiltelefon
-
   RolleType:
     description: Type rolle ein person eller eining kan ha i ei verksemd.
     permissible_values:
@@ -101,18 +84,14 @@ enums:
         description: Rekneskapsførar
       NORSK_REPRESENTANT:
         description: Norsk representant for utanlandsk eining
-
 # ---------------------------------------------------------------------------
 # Containerklasse (tree_root)
 # ---------------------------------------------------------------------------
-
 classes:
-
   VirksomhetContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle
-      instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
     attributes:
       underenheter:
         range: Underenhet
@@ -178,17 +157,14 @@ classes:
         range: Beliggenhetsadresse
         multivalued: true
         inlined_as_list: true
-
   # ---------------------------------------------------------------------------
   # Virksomhet og undertypar
   # ---------------------------------------------------------------------------
-
   Virksomhet:
     abstract: true
     class_uri: ngrv:Virksomhet
     description: >-
-      Abstrakt overklasse for alle einingar registrert i Enhetsregisteret.
-      Ei verksemd er alltid anten ei underleining eller ei hovudeining.
+      Abstrakt overklasse for alle einingar registrert i Enhetsregisteret. Ei verksemd er alltid anten ei underleining eller ei hovudeining.
     slots:
       - id
       - organisasjonsnummer
@@ -234,14 +210,11 @@ classes:
       antall_ansatte:
         in_subset:
           - Valgfri
-
   Underenhet:
     is_a: Virksomhet
     class_uri: ngrv:Underenhet
     description: >-
-      Ei underleining er ein geografisk lokasjon der aktiviteten til ei
-      hovudeining vert utøvd. Knyt seg til ei hovudeining via
-      organisasjonsnummeret.
+      Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
     slots:
       - oppstartsdato
       - eierskiftedatoer
@@ -262,13 +235,11 @@ classes:
       nedleggelsesdato:
         in_subset:
           - Valgfri
-
   Hovedenhet:
     is_a: Virksomhet
     class_uri: ngrv:Hovedenhet
     description: >-
-      Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret
-      (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
+      Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
     slots:
       - utoevar_aktivitet
       - er_klassifisert_i_sektorkode
@@ -302,16 +273,13 @@ classes:
       har_forretningsadresse:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Klassifikasjon og status
   # ---------------------------------------------------------------------------
-
   Tilstand:
     class_uri: ngrv:Tilstand
     description: >-
-      Registrert tilstand (status) for ei verksemd i Enhetsregisteret,
-      med gyldigheitsperiode for historisk sporing.
+      Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldigheitsperiode for historisk sporing.
     slots:
       - id
       - tilstandstype
@@ -329,12 +297,10 @@ classes:
       gyldig_til:
         in_subset:
           - Valgfri
-
   Organisasjonsform:
     class_uri: ngrv:Organisasjonsform
     description: >-
-      Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF).
-      Kodeverk forvalta av Enhetsregisteret.
+      Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF). Kodeverk forvalta av Enhetsregisteret.
     slots:
       - id
       - organisasjonsform_kode
@@ -347,12 +313,10 @@ classes:
       organisasjonsform_beskrivelse:
         in_subset:
           - Anbefalt
-
   Naeringskode:
     class_uri: ngrv:Naeringskode
     description: >-
-      Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE).
-      Ei verksemd kan ha 1-3 næringskoder.
+      Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd kan ha 1-3 næringskoder.
     slots:
       - id
       - naeringskode_kode
@@ -369,12 +333,10 @@ classes:
       er_hovednaeringskode:
         in_subset:
           - Anbefalt
-
   Sektorkode:
     class_uri: ngrv:Sektorkode
     description: >-
-      Institusjonell sektorkode som klassifiserer kva sektor verksemda
-      tilhøyrer (t.d. offentleg, privat).
+      Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d. offentleg, privat).
     slots:
       - id
       - sektorkode_kode
@@ -387,11 +349,9 @@ classes:
       sektorkode_beskrivelse:
         in_subset:
           - Anbefalt
-
   # ---------------------------------------------------------------------------
   # Kontakt
   # ---------------------------------------------------------------------------
-
   Kontaktinformasjon:
     class_uri: ngrv:Kontaktinformasjon
     description: Kontaktinformasjon for verksemda registrert i Enhetsregisteret.
@@ -414,12 +374,10 @@ classes:
       nettside:
         in_subset:
           - Valgfri
-
   Varslingsadresse:
     class_uri: ngrv:Varslingsadresse
     description: >-
-      Offisiell varslingsadresse for verksemda - e-post eller mobilnummer
-      som vert brukt for offisielle meldingar frå offentlege styresmakter.
+      Offisiell varslingsadresse for verksemda - e-post eller mobilnummer som vert brukt for offisielle meldingar frå offentlege styresmakter.
     slots:
       - id
       - varslingstype
@@ -433,16 +391,13 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Aktivitet og roller
   # ---------------------------------------------------------------------------
-
   Aktivitet:
     class_uri: ngrv:Aktivitet
     description: >-
-      Skildring av kva aktivitet ei hovudeining utøver. Svarer til
-      formålsparagrafen eller føremålet til verksemda.
+      Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen eller føremålet til verksemda.
     slots:
       - id
       - aktivitet_beskrivelse
@@ -451,12 +406,10 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   RolleIVirksomhet:
     class_uri: ngrv:RolleIVirksomhet
     description: >-
-      Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar).
-      Kvar rolle kan ha éin eller fleire rolleinnehavarar.
+      Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle kan ha éin eller fleire rolleinnehavarar.
     slots:
       - id
       - rollebetegnelse
@@ -469,12 +422,10 @@ classes:
       har_rolleinnehaver:
         in_subset:
           - Anbefalt
-
   Rolleinnehaver:
     class_uri: ngrv:Rolleinnehaver
     description: >-
-      Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person
-      (frå Folkeregisteret) eller ei anna eining.
+      Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret) eller ei anna eining.
     slots:
       - id
       - kan_vaere_av_type_person
@@ -486,12 +437,10 @@ classes:
       rolleinnehaver_navn:
         in_subset:
           - Valgfri
-
   Signaturrett:
     class_uri: ngrv:Signaturrett
     description: >-
-      Bestemmelse om kven som har rett til å signere på vegne av verksemda
-      (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").
+      Bestemmelse om kven som har rett til å signere på vegne av verksemda (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").
     slots:
       - id
       - signaturrett_bestemmelse
@@ -500,12 +449,10 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Prokura:
     class_uri: ngrv:Prokura
     description: >-
-      Prokura gjev ein person fullmakt til å handle på vegne av verksemda
-      i næringssaker. Verksemda kan ha fleire prokuraistar.
+      Prokura gjev ein person fullmakt til å handle på vegne av verksemda i næringssaker. Verksemda kan ha fleire prokuraistar.
     slots:
       - id
       - prokura_bestemmelse
@@ -514,293 +461,228 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Adresser
   # ---------------------------------------------------------------------------
-
   GeografiskAdresse:
     abstract: true
     class_uri: ngrv:GeografiskAdresse
     description: >-
-      Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse
-      og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som
-      kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister.
+      Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister.
     slots:
       - id
-
   Postadresse:
     is_a: GeografiskAdresse
     class_uri: ngrv:Postadresse
     description: Postadressa verksemda mottar post på.
-
   Forretningsadresse:
     is_a: GeografiskAdresse
     class_uri: ngrv:Forretningsadresse
     description: >-
       Forretningsadressa til hovudeininga - adressa der hovudkontoret held til.
-
   Beliggenhetsadresse:
     is_a: GeografiskAdresse
     class_uri: ngrv:Beliggenhetsadresse
     description: >-
-      Beliggenheitsadressa til underleininga - den fysiske adressa der
-      aktiviteten vert utøvd.
-
+      Beliggenheitsadressa til underleininga - den fysiske adressa der aktiviteten vert utøvd.
   # ---------------------------------------------------------------------------
   # Stub-klasse for anna domene
   # ---------------------------------------------------------------------------
-
   Person:
     class_uri: ngrv:Person
     description: >-
-      Ein fysisk person. Tilhøyrer Domene person og forvaltast av
-      Folkeregisteret. Enhetsregisteret nyttar kopi av data frå
-      Folkeregisteret.
+      Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret. Enhetsregisteret nyttar kopi av data frå Folkeregisteret.
     slots:
       - id
-
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   id:
     identifier: true
     range: uriorcurie
     description: URI-identifikator for ressursen.
-
   # ---- Felles Virksomhet-slot -----------------------------------------------
-
   organisasjonsnummer:
     slot_uri: ngrv:organisasjonsnummer
     range: string
     description: Niesifra organisasjonsnummer tildelt av Enhetsregisteret.
-
   navn:
     slot_uri: ngrv:navn
     range: string
     description: Registrert namn på verksemda i Enhetsregisteret.
-
   antall_ansatte:
     slot_uri: ngrv:antallAnsatte
     range: integer
     description: Antal tilsette i verksemda (rapportert til a-ordninga).
-
   # ---- Virksomhet-relasjonar ------------------------------------------------
-
   har_tilstand:
     slot_uri: ngrv:harTilstand
     range: Tilstand
     multivalued: true
     description: Registrert tilstand (status) for verksemda, inkl. historikk.
-
   mottar_post_paa:
     slot_uri: ngrv:mottarPostPaa
     range: Postadresse
     description: Postadressa verksemda mottar post på.
-
   er_klassifisert_som_organisasjonsform:
     slot_uri: ngrv:erKlassifisertSomOrganisasjonsform
     range: Organisasjonsform
     description: Organisasjonsform (juridisk form) for verksemda.
-
   har_kontaktinformasjon:
     slot_uri: ngrv:harKontaktinformasjon
     range: Kontaktinformasjon
     description: Kontaktinformasjon registrert på verksemda.
-
   har_varslingsadresse:
     slot_uri: ngrv:harVarslingsadresse
     range: Varslingsadresse
     description: Offisiell varslingsadresse for offentlege meldingar.
-
   er_klassifisert_i_naeringskode:
     slot_uri: ngrv:erKlassifisertINaeringskode
     range: Naeringskode
     multivalued: true
     description: Næringskode(r) verksemda er klassifisert under (1-3).
-
   # ---- Underenhet-slot og -relasjonar ---------------------------------------
-
   oppstartsdato:
     slot_uri: ngrv:oppstartsdato
     range: date
     description: Datoen underleininga vart oppretta/starta.
-
   eierskiftedatoer:
     slot_uri: ngrv:eierskiftedato
     range: date
     multivalued: true
     description: Dato(ar) for eigarskifte i underleininga.
-
   nedleggelsesdato:
     slot_uri: ngrv:nedleggelsesdato
     range: date
     description: Datoen underleininga vart lagt ned.
-
   har_beliggenhetsadresse:
     slot_uri: ngrv:harBeliggenhetsadresse
     range: Beliggenhetsadresse
     description: Beliggenheitsadressa til underleininga.
-
   # ---- Hovedenhet-relasjonar ------------------------------------------------
-
   utoevar_aktivitet:
     slot_uri: ngrv:utoevarAktivitet
     range: Aktivitet
     description: Aktiviteten hovudeininga utøver.
-
   er_klassifisert_i_sektorkode:
     slot_uri: ngrv:erKlassifisertISektorkode
     range: Sektorkode
     description: Institusjonell sektorkode for hovudeininga.
-
   har_rolle_i_virksomhet:
     slot_uri: ngrv:harRolleIVirksomhet
     range: RolleIVirksomhet
     multivalued: true
     description: Roller registrert i hovudeininga (minimum 1).
-
   har_bestemmelser_om_signaturrett:
     slot_uri: ngrv:harBestemmelserOmSignaturrett
     range: Signaturrett
     description: Bestemmelse om signaturrett for hovudeininga.
-
   har_bestemmelser_om_prokura:
     slot_uri: ngrv:harBestemmelserOmProkura
     range: Prokura
     multivalued: true
     description: Prokurabestemmelse(r) for hovudeininga.
-
   stiftelsesdato:
     slot_uri: ngrv:stiftelsesdato
     range: date
     description: Datoen hovudeininga vart stifta.
-
   har_forretningsadresse:
     slot_uri: ngrv:harForretningsadresse
     range: Forretningsadresse
     description: Forretningsadressa (hovudkontor) til hovudeininga.
-
   # ---- RolleIVirksomhet-relasjonar -----------------------------------------
-
   rollebetegnelse:
     slot_uri: ngrv:rollebetegnelse
     range: RolleType
     description: Kva type rolle dette er (dagleg leiar, styreleiar o.l.).
-
   har_rolleinnehaver:
     slot_uri: ngrv:harRolleinnehaver
     range: Rolleinnehaver
     multivalued: true
     description: Rolleinnehavar(ar) for denne rolla.
-
   # ---- Rolleinnehaver-relasjonar -------------------------------------------
-
   kan_vaere_av_type_person:
     slot_uri: ngrv:kanVaereAvTypePerson
     range: Person
     description: Personen som er rolleinnehavar (frå Folkeregisteret).
-
   rolleinnehaver_navn:
     slot_uri: ngrv:rolleinnehaverNavn
     range: string
     description: Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
-
   # ---- Verdislots (dataeigenskapar) ----------------------------------------
-
   tilstandstype:
     slot_uri: ngrv:tilstandstype
     range: TilstandType
     description: Type tilstand (AKTIV, UNDER_KONKURS o.l.).
-
   gyldig_fra:
     slot_uri: ngrv:gyldigFra
     range: date
     description: Datoen tilstanden vart gyldig frå.
-
   gyldig_til:
     slot_uri: ngrv:gyldigTil
     range: date
     description: Datoen tilstanden vart gyldig til.
-
   organisasjonsform_kode:
     slot_uri: ngrv:organisasjonsformKode
     range: string
     description: Kode for organisasjonsform (t.d. AS, ENK, BA, NUF).
-
   organisasjonsform_beskrivelse:
     slot_uri: ngrv:organisasjonsformBeskrivelse
     range: string
     description: Tekstleg skildring av organisasjonsforma.
-
   naeringskode_kode:
     slot_uri: ngrv:naeringskodeKode
     range: string
     description: "NACE-kode for næringsgruppering (t.d. 62.010)."
-
   naeringskode_beskrivelse:
     slot_uri: ngrv:naeringskodeBeskrivelse
     range: string
     description: Tekstleg skildring av næringskoden.
-
   er_hovednaeringskode:
     slot_uri: ngrv:erHovednaeringskode
     range: boolean
     description: Om dette er hovudnæringskoden til verksemda.
-
   sektorkode_kode:
     slot_uri: ngrv:sektorkodeKode
     range: string
     description: "Institusjonell sektorkode (t.d. 1120 for statsforvaltinga)."
-
   sektorkode_beskrivelse:
     slot_uri: ngrv:sektorkodeBeskrivelse
     range: string
     description: Tekstleg skildring av sektorkoden.
-
   epostadresse:
     slot_uri: ngrv:epostadresse
     range: string
     description: E-postadresse for verksemda.
-
   telefonnummer:
     slot_uri: ngrv:telefonnummer
     range: string
     description: Telefonnummer for verksemda.
-
   mobiltelefonnummer:
     slot_uri: ngrv:mobiltelefonnummer
     range: string
     description: Mobiltelefonnummer for verksemda.
-
   nettside:
     slot_uri: ngrv:nettside
     range: string
     description: URL til nettsida til verksemda.
-
   varslingstype:
     slot_uri: ngrv:varslingstype
     range: VarslingType
     description: Kanaltype for varsling (EPOST eller MOBILTELEFON).
-
   varslingsverdi:
     slot_uri: ngrv:varslingsverdi
     range: string
     description: Verdien for varslingskanalen (e-postadresse eller mobilnummer).
-
   aktivitet_beskrivelse:
     slot_uri: ngrv:aktivitetBeskrivelse
     range: string
     description: Skildring av kva aktivitet verksemda utøver (formålsparagraf o.l.).
-
   signaturrett_bestemmelse:
     slot_uri: ngrv:signaturrettBestemmelse
     range: string
     description: "Tekstleg bestemmelse om signaturrett (t.d. 'Styret i fellesskap')."
-
   prokura_bestemmelse:
     slot_uri: ngrv:prokurabEstemmelse
     range: string
