@@ -83,29 +83,15 @@ jobs:
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Cache ${{ matrix.image.name }} image
-        id: cache-image
-        uses: actions/cache@v6
-        with:
-          path: ${{ matrix.image.name }}.tar.zst
-          key: ${{ matrix.image.name }}-${{ hashFiles(matrix.image.hash_files) }}
-
       - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
         id: ghcr-check
-        if: steps.cache-image.outputs.cache-hit == 'true'
         run: |
           IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
           skopeo inspect --format='exists' docker://"$IMAGE" >/dev/null 2>&1 && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
 
       - name: Bygg ${{ matrix.image.name }} image
-        if: steps.cache-image.outputs.cache-hit != 'true'
-        run: |
-          make ${{ matrix.image.make_target }}
-          podman save localhost/${{ matrix.image.name }}:latest | zstd -T0 > ${{ matrix.image.name }}.tar.zst
-
-      - name: Last inn ${{ matrix.image.name }} frå cache
-        if: steps.cache-image.outputs.cache-hit == 'true' && steps.ghcr-check.outputs.exists != 'true'
-        run: podman load < <(zstd -d -c ${{ matrix.image.name }}.tar.zst)
+        if: steps.ghcr-check.outputs.exists != 'true'
+        run: make ${{ matrix.image.make_target }}
 
       - name: Push ${{ matrix.image.name }} til GHCR
         if: steps.ghcr-check.outputs.exists != 'true'
@@ -138,72 +124,30 @@ jobs:
           path: generated/${{ matrix.domain }}/
           key: v3-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli', 'src/assets/templates/**', 'Makefile') }}
 
-      - name: Gjenopprett linkml-local frå cache
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v6
-        with:
-          path: linkml-local.tar.zst
-          key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-
-      - name: Gjenopprett python-pytest frå cache
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v6
-        with:
-          path: python-pytest.tar.zst
-          key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
-
-      - name: Gjenopprett avrotize-local frå cache
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v6
-        with:
-          path: avrotize-local.tar.zst
-          key: avrotize-local-${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}
-
-      - name: Gjenopprett asyncapi-cli-local frå cache
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v6
-        with:
-          path: asyncapi-cli-local.tar.zst
-          key: asyncapi-cli-local-${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}
-
-      - name: Gjenopprett plantuml frå cache
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: actions/cache/restore@v6
-        with:
-          path: plantuml.tar.zst
-          key: plantuml-${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}
-
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Last images inn i podman (cache eller GHCR)
+      - name: Last images inn i podman frå GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
-          load_image() {
-            local tar="$1" local_tag="$2" ghcr_tag="$3"
+          pull_image() {
+            local local_tag="$1" ghcr_tag="$2"
             local start=$(date +%s%3N)
-            if [ -f "$tar" ]; then
-              podman load < <(zstd -d -c "$tar")
-              local elapsed=$(( $(date +%s%3N) - start ))
-              printf "✓ Lasta %s frå cache (%d.%ds)\n" "$tar" $((elapsed / 1000)) $((elapsed % 1000 / 100))
-            else
-              echo "Cache miss for $tar — hentar frå GHCR: $ghcr_tag"
-              podman pull "$ghcr_tag"
-              podman tag "$ghcr_tag" "$local_tag"
-              local elapsed=$(( $(date +%s%3N) - start ))
-              printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
-            fi
+            podman pull "$ghcr_tag"
+            podman tag "$ghcr_tag" "$local_tag"
+            local elapsed=$(( $(date +%s%3N) - start ))
+            printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
           }
-          load_image linkml-local.tar.zst localhost/linkml-local:latest \
+          pull_image localhost/linkml-local:latest \
             "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" &
-          load_image python-pytest.tar.zst localhost/python-pytest:latest \
+          pull_image localhost/python-pytest:latest \
             "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" &
-          load_image avrotize-local.tar.zst localhost/avrotize-local:latest \
+          pull_image localhost/avrotize-local:latest \
             "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" &
-          load_image asyncapi-cli-local.tar.zst localhost/asyncapi-cli-local:latest \
+          pull_image localhost/asyncapi-cli-local:latest \
             "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" &
-          load_image plantuml.tar.zst localhost/plantuml:latest \
+          pull_image localhost/plantuml:latest \
             "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" &
           wait
 
