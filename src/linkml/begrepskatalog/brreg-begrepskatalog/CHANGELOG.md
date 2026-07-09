@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.3.0...brreg-begrepskatalog-v1.4.0) (2026-07-09)
+
+
+### Features
+
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([97dacce](https://github.com/brreg/linkml-datamodellering-no/commit/97dacce159f02236196c9daa686e375e503f15ef))
+
 ## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.2.1...brreg-begrepskatalog-v1.3.0) (2026-07-04)
 
 

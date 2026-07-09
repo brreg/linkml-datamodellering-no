@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/referanse-v1.0.3...referanse-v1.1.0) (2026-07-09)
+
+
+### Features
+
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([97dacce](https://github.com/brreg/linkml-datamodellering-no/commit/97dacce159f02236196c9daa686e375e503f15ef))
+
 ## [1.0.3](https://github.com/brreg/linkml-datamodellering-no/compare/referanse-v1.0.2...referanse-v1.0.3) (2026-07-04)
 
 

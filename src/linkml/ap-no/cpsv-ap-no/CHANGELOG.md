@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.3.0...cpsv-ap-no-v1.4.0) (2026-07-09)
+
+
+### Features
+
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([35da103](https://github.com/brreg/linkml-datamodellering-no/commit/35da103f75e856685bf01e255b732241792964fa))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse ([a41c35a](https://github.com/brreg/linkml-datamodellering-no/commit/a41c35a660445f0180b3cdc17175386b1bd730a9))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([97dacce](https://github.com/brreg/linkml-datamodellering-no/commit/97dacce159f02236196c9daa686e375e503f15ef))
+
 ## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.2.2...cpsv-ap-no-v1.3.0) (2026-07-06)
 
 
