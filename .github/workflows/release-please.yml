@@ -53,14 +53,14 @@ jobs:
           github.event_name == 'workflow_dispatch'
         id: release-please
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
       - name: Oppdater schema-versjonar i release-PR
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
         run: |
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
           BRANCH=$(gh pr view "$PR_NUMBER" --json headRefName -q .headRefName)
@@ -121,7 +121,7 @@ jobs:
       - name: Informer om release-PR og aktiver auto-merge
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
         run: |
           PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
           echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
@@ -161,7 +161,7 @@ jobs:
       - name: Last opp artefaktar til GitHub Releases
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
         run: |
           # Iterer gjennom alle releases som vart oppretta
           echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r '.paths_released[]' | while read pkg_path; do
