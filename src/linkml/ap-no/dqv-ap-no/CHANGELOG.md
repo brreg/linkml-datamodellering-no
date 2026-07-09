@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.7.0...dqv-ap-no-v1.8.0) (2026-07-09)
+
+
+### Features
+
+* **modellmanifest:** autogenerer &lt;modell&gt;-manifest.yaml i make domain-* ([321b8a8](https://github.com/brreg/linkml-datamodellering-no/commit/321b8a8ea36b37531bc9512f5c90407a92389b8f))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.6.0...dqv-ap-no-v1.7.0) (2026-07-09)
 
 
