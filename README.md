@@ -9,11 +9,10 @@
     - Modellar og verktøy er under utvikling og kan endre seg
     - Dokumentasjonen kan vere ufullstendig eller utdatert
     - Nokre funksjonar er berre delvis implementerte
-    - Det finst kjende avgrensingar og bugs (sjå [kjende avgrensingar](https://github.com/brreg/linkml-datamodellering-no/tree/main/specs/bugs/README.md))
+    - Det finst [kjende avgrensingar og bugs](#kjende-avgrensingar)
     - Ingen garantert stabilitet eller support-SLA
     
-    **For eksterne organisasjonar:** Før de tek i bruk repoet i produksjon — les [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) 
-    for forventningar til stabilitet og ansvar.
+    **For eksterne organisasjonar:** Les [GOVERNANCE.md](#for-bidragsytarar) for forventningar til stabilitet og ansvar.
 
 !!! note "Målsetting"
 
@@ -133,8 +132,22 @@ imports:
 
 Validering og generering skjer via reusable GitHub Actions-workflows i dette repoet — ingen lokal installasjon er nødvendig. Sjå [Bruk frå eksternt repo](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) for full rettleiing.
 
+---
+
+## Kjende avgrensingar
+
+Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for fullstendig oversikt:
+
+- **[SCOPE.md](SCOPE.md)** — kva repoet er, kva det ikkje er, og kva som høyrer heime her
+- **[BUGS.md](BUGS.md)** — komplett liste over kjende bugs og workarounds
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
+
+---
+
 ## Domener
 
+<!-- BEGIN AUTO-GENERATED: DOMAIN TABLE -->
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
 | fair | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
@@ -145,36 +158,58 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 | samt | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
 | begrepskatalog | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | modellkatalog | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
+| referanse | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
+<!-- END AUTO-GENERATED: DOMAIN TABLE -->
 
 ## Skjema
 
 Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
+<!-- BEGIN AUTO-GENERATED: SCHEMA TABLE -->
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
 | fair | [fair-metadata](src/linkml/fair/fair-metadata/) | **FAIR**-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
-| ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
+| ap-no | [common-ap-no](src/linkml/ap-no/common-ap-no/) | Felles slot-definisjonar for alle AP-NO-profilar | 
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
 | ap-no | [dqv-ap-no](src/linkml/ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)
 | ap-no | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
 | ap-no | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | [xkos-ap-no](src/linkml/ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
-| fint | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT |
-| fint | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
-| fint | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
-| fint | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
-| fint | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
-| fint | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
-| fint | [fint-utdanning](src/linkml/fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
 | ngr | [ngr-adresse](src/linkml/ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
 | ngr | [ngr-eiendom](src/linkml/ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
 | ngr | [ngr-person](src/linkml/ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
 | ngr | [ngr-virksomhet](src/linkml/ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
-| oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar |
+| oreg | [enhetsregisteret-bvrinn](src/linkml/oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
+| oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
+| fint | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
+| fint | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
+| fint | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT | 
+| fint | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
+| fint | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
+| fint | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
+| fint | [fint-utdanning](src/linkml/fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
 | samt | [samt-bu](src/linkml/samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
+| begrepskatalog | [brreg-begrepskatalog](src/linkml/begrepskatalog/brreg-begrepskatalog/) | Begrepskatalog for Brønnøysundregistrene | 
+| referanse | [referanse](src/linkml/referanse/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
+<!-- END AUTO-GENERATED: SCHEMA TABLE -->
 
 **AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodeller.
+
+## Genererte modellkatalogar
+
+Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO.
+
+<!-- BEGIN AUTO-GENERATED: MODELLKATALOG TABLE -->
+| Modellkatalog | Organisasjon | Skildring |
+|---|---|---|
+| [brreg-modellkatalog](src/linkml/modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar |
+| [digdir-modellkatalog](src/linkml/modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar |
+| [kartverket-modellkatalog](src/linkml/modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar |
+| [ksdigital-modellkatalog](src/linkml/modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar |
+| [novari-modellkatalog](src/linkml/modellkatalog/novari-modellkatalog/) | Novari | Modellkatalog for Novari sine informasjonsmodellar |
+| [skatteetaten-modellkatalog](src/linkml/modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar |
+<!-- END AUTO-GENERATED: MODELLKATALOG TABLE -->
 
 ## Genererte artefakter
 
@@ -199,27 +234,7 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 | DQV-målingar | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
 | ModelDCAT-element | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
 
-
-> **Versjonerte adresser.** GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein stabil, versjonert adresse til ein historisk versjon — t.d. for import frå eit eksternt repo (sjå [Bruk frå eksternt repo](#bruk-fr%C3%A5-eksternt-repo)) — bruk [GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases) eller ein tag-spesifikk `raw.githubusercontent.com`-URL (`.../<tag>/<sti>`). GitHub Releases er den kanoniske adressa for eldre versjonar av artefaktar.
-
-### Kva publiserast til eksterne system
-
-**GitHub Pages (automatisk):**
-- Alle genererte artefaktar (SHACL, JSON Schema, OWL, Turtle, dokumentasjon osv.)
-- Begrepskatalogar (`*.ttl` frå `src/linkml/begrepskatalog/*/data/`)
-- Modellkatalogar (`*.ttl` frå `src/linkml/modellkatalog/*/data/`)
-
-**Felles Begrepskatalog / Felles Datakatalog (manuell koordinering):**
-
-Datafiler og modellar merka med `publish_external: true` i `manifest.yaml` er tilrettelagt for høsting til Felles Begrepskatalog eller Felles Datakatalog. Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle-filer til GitHub Pages som høstingsendepunkt.
-
-**Kva må skje for at høsting skal fungere:**
-
-1. **Datafila må validere:** `make mcp-linkml-validate POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
-2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
-3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
-
-**PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](GOVERNANCE.md) for publiseringspolicy.
+**Publisering til eksterne system:** Sjå [Publiseringsflyt](https://brreg.github.io/linkml-datamodellering-no/publisering-oversikt/#kva-publiserast-til-eksterne-system) for oversikt over GitHub Pages-publisering og høsting til Felles Begrepskatalog/Datakatalog.
 
 ## Katalogstruktur
 
@@ -262,38 +277,11 @@ linkml-datamodellering-no/
 
 ---
 
-## Kjende avgrensingar
+## For bidragsytarar
 
-Repoet er i PoC-fase og har nokre kjende avgrensingar:
+Dersom du skal bidra til repoet, les desse dokumenta:
 
-### Validering og testing
-
-- **BUG-1**: `rdflib_loader` rekonstruerer ikkje `LangString`-verdiar korrekt frå TTL ved roundtrip-testing
-- MCP-validator kjører berre bronze/silver/gold-policy — ingen automatisk validering mot eksterne API-ar enno
-- Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
-
-### Generatorar
-
-- PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelsesproblem)
-- JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
-- AsyncAPI/OpenAPI/XSD-generering er valfri og må aktiverast eksplisitt via `manifest.yaml`
-
-### Publisering
-
-- Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
-- Ingen automatisk validering av at høstingsendepunkt faktisk er tilgjengelege frå data.norge.no
-- Tilbaketrekking av feil-publiserte data må handterast manuelt
-
-### Samhandling og CI/CD
-
-- GitHub-team-konfigurasjon føresett at alle medlemmar har write-tilgang til heile repoet (ikkje berre eigne modellar)
-- CI køyrer under repo-eigar sin GitHub-konto — alle organisasjonar må godta dette
-- `.github/CODEOWNERS`-fila må oppdaterast manuelt basert på `CODEOWNERS.md` (ingen automatisk synkronisering)
-
- **Fullstendig scope-oversikt:** Sjå
-  [specs/done/oversikt-avgrensingar-prinsipp.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/oversikt-avgrensingar-prinsipp.md) for autoritativt
-  referansedokument.
-
-**Fullstendig bug-oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
-
-**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
+- **[PRINCIPLES.md](PRINCIPLES.md)** — designprinsipp for modellering
+- **[CONVENTIONS.md](CONVENTIONS.md)** — namnekonvensjonar, manifestformat og commit-meldingar
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — korleis bidra (PR-prosess, kodegjennomgang)
+- **[GOVERNANCE.md](GOVERNANCE.md)** — roller, eigarskap og RFC-prosess

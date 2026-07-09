@@ -393,5 +393,5 @@ https://github.com/brreg/linkml-datamodellering-no/releases.atom
 
 - [Publiser til Felles Begrepskatalog](publisering-begrep.md) — rettleiing for begrepskatalogar
 - [Publiser til Felles Datakatalog](publisering-modell.md) — rettleiing for modellkatalogar
-- [Arkitektur-oversikt](arkitektur-oversikt.md) — publiseringsflyt frå repo til eksterne katalogar
+- [Publiseringsoversikt](publisering-oversikt.md) — publiseringsflyt frå repo til eksterne katalogar
 - [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) — publiseringspolicy

@@ -1,4 +1,4 @@
-# Arkitektur-oversikt publisering
+# Publiseringsflyt
 
 !!! note "Beskrivelse"
 
@@ -88,6 +88,42 @@ Repoet følgjer "pull, ikkje push"-prinsippet:
 - **Enklare arkitektur:** Repoet treng ikkje credentials eller integrasjon mot eksterne API-ar
 - **Færre avhengigheiter:** Repoet fungerer sjølv om Felles Begrepskatalog/Datakatalog er nede
 - **Fleksibilitet:** Kvar organisasjon kan velje når/om dei vil høste data
+
+---
+
+## Kva publiserast til eksterne system
+
+### GitHub Pages (automatisk)
+
+Alle genererte artefaktar vert automatisk publisert til GitHub Pages ved push til `main`:
+
+- **Genererte skjema-artefaktar:** SHACL, JSON Schema, OWL, Turtle, Python, Protobuf, OpenAPI, AsyncAPI, PlantUML-diagram, HTML-dokumentasjon
+- **Begrepskatalogar:** `.ttl`-filer frå `src/linkml/begrepskatalog/*/data/` (konvertert frå YAML)
+- **Modellkatalogar:** `.ttl`-filer frå `src/linkml/modellkatalog/*/data/` (konvertert frå YAML)
+- **MkDocs-dokumentasjonsportal:** Menneskelesbar dokumentasjon med ER-diagram og artefakt-nedlastingar
+
+**URL:** `https://brreg.github.io/linkml-datamodellering-no/`
+
+**Versjonering:** Peikar alltid til siste versjon på `main`. For versjonsstabile adresser, sjå [Bruk frå eksternt repo](ekstern-bruk.md#versjonerte-artefaktar).
+
+### Felles Begrepskatalog / Felles Datakatalog (manuell koordinering)
+
+Datafiler og modellar merka med `publish_external: true` i `build.yaml` er tilrettelagt for høsting til [Felles Begrepskatalog](https://data.norge.no/concepts) eller [Felles Datakatalog](https://data.norge.no/models).
+
+Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle-filer til GitHub Pages som høstingsendepunkt.
+
+**Kva må skje for at høsting skal fungere:**
+
+1. **Datafila må validere:** `make mcp-validate SCHEMA=<skjema> POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
+2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
+3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
+
+**PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](../GOVERNANCE.md) for publiseringspolicy.
+
+**Detaljerte rettleiingar:**
+
+- [Publiser begrep til Felles Begrepskatalog](publisering-begrep.md) — steg-for-steg for begrepskatalogar
+- [Publiser modellar til Felles Datakatalog](publisering-modell.md) — steg-for-steg for informasjonsmodellar
 
 ---
 
