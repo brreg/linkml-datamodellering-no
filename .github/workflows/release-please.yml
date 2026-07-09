@@ -3,8 +3,9 @@ name: Release Please
 # Automatisk release-PR-oppretting og GitHub Releases:
 # 1. Push til main med semantisk commit (feat/fix) som endrar *-schema.yaml
 #    → release-please opprettar/oppdaterer release-PR automatisk
-# 2. auto-approve-release-please.yml godkjenner PR-en automatisk
-# 3. PR vert merga automatisk når alle checks passerer (auto-merge)
+# 2. Denne workflowen oppdaterer version, endringsdato og utgivelsesdato i *-schema.yaml
+# 3. auto-approve-release-please.yml godkjenner PR-en automatisk
+# 4. PR vert merga automatisk når alle checks passerer (auto-merge)
 #    → GitHub Releases vert oppretta automatisk med artefaktar (JSON Schema, SHACL, OWL, osv.)
 #
 # Manuell trigger via workflow_dispatch er tilgjengeleg for admin.
@@ -55,6 +56,67 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+      - name: Oppdater schema-versjonar i release-PR
+        if: ${{ steps.release-please.outputs.prs_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
+          BRANCH=$(gh pr view "$PR_NUMBER" --json headRefName -q .headRefName)
+
+          echo "Sjekkar ut PR-branch: $BRANCH"
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+
+          # Installer yq
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+          # Hent dagens dato i ISO 8601-format
+          TODAY=$(date -u +%Y-%m-%d)
+
+          # Les alle pakke-paths frå .release-please-manifest.json
+          jq -r 'keys[]' .release-please-manifest.json | while read pkg_path; do
+            # Hent versjon frå manifest
+            version=$(jq -r --arg path "$pkg_path" '.[$path]' .release-please-manifest.json)
+
+            # Finn schema-fila i pakken
+            schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" 2>/dev/null | head -1)
+
+            if [ -n "$schema" ] && [ -f "$schema" ]; then
+              # Les noverande versjon frå schema
+              current_version=$(yq eval '.version' "$schema" 2>/dev/null || echo "")
+
+              # Oppdater berre dersom versjon har endra seg
+              if [ "$current_version" != "\"$version\"" ] && [ "$current_version" != "$version" ]; then
+                echo "Oppdaterer $schema frå $current_version til $version"
+
+                # Oppdater version, endringsdato og utgivelsesdato
+                yq eval -i ".version = \"$version\"" "$schema"
+                yq eval -i ".annotations.endringsdato = \"$TODAY\"" "$schema"
+
+                # Sett utgivelsesdato kun dersom den ikkje allereie er sett
+                current_issued=$(yq eval '.annotations.utgivelsesdato' "$schema" 2>/dev/null || echo "null")
+                if [ "$current_issued" = "null" ] || ! echo "$current_issued" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+                  yq eval -i ".annotations.utgivelsesdato = \"$TODAY\"" "$schema"
+                fi
+              fi
+            fi
+          done
+
+          # Commit og push endringane til PR-branchen
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: oppdater schema-versjonar og datofelt [skip ci]"
+            git push origin "$BRANCH"
+            echo "Schema-filer oppdaterte og pusha til PR-branchen"
+          else
+            echo "Ingen endringar i schema-filer — hoppar over commit"
+          fi
 
       - name: Informer om release-PR og aktiver auto-merge
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
