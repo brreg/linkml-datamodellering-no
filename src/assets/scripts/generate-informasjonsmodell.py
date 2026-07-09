@@ -215,14 +215,15 @@ def get_github_raw_base_url() -> str:
         remote_url = result.stdout.strip()
 
         # Parse owner/repo frå git@github.com:owner/repo.git eller https://github.com/owner/repo.git
-        if 'github.com' in remote_url:
-            if remote_url.startswith('git@'):
-                # git@github.com:owner/repo.git
-                parts = remote_url.split(':')[1].replace('.git', '').split('/')
-            else:
-                # https://github.com/owner/repo.git
-                parts = remote_url.replace('https://github.com/', '').replace('.git', '').split('/')
-
+        if remote_url.startswith('git@github.com:'):
+            # git@github.com:owner/repo.git
+            parts = remote_url.split(':')[1].replace('.git', '').split('/')
+            owner = parts[0]
+            repo = parts[1]
+            return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
+        elif remote_url.startswith('https://github.com/'):
+            # https://github.com/owner/repo.git
+            parts = remote_url.replace('https://github.com/', '').replace('.git', '').split('/')
             owner = parts[0]
             repo = parts[1]
             return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
