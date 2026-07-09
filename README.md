@@ -12,7 +12,7 @@
     - Det finst [kjende avgrensingar og bugs](#kjende-avgrensingar)
     - Ingen garantert stabilitet eller support-SLA
     
-    **For eksterne organisasjonar:** Les [GOVERNANCE.md](#for-bidragsytarar) for forventningar til stabilitet og ansvar.
+    **For eksterne organisasjonar:** Les [for bidragsytarar](#for-bidragsytarar) for forventningar til stabilitet og ansvar.
 
 !!! note "Målsetting"
 
@@ -200,6 +200,8 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO.
 
+Modellkatalogar ligg under `src/linkml/modellkatalog/`
+
 <!-- BEGIN AUTO-GENERATED: MODELLKATALOG TABLE -->
 | Modellkatalog | Organisasjon | Skildring |
 |---|---|---|
@@ -213,7 +215,7 @@ Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per
 
 ## Genererte artefakter
 
-Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/manifest-config/) for detaljar.
+Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|

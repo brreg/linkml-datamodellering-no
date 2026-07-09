@@ -1,0 +1,42 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/dqv-ap-no
+tittel:
+  nb: DQV-AP-NO
+  nn: DQV-AP-NO
+beskrivelse:
+  nb: Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
+    med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+  nn: Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
+    med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+versjonsnummer: 1.3.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-07-04'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
+er_i_samsvar_med:
+- id: https://informasjonsforvaltning.github.io/dqv-ap-no/
+  tittel:
+    nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+    nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+  har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
+har_del:
+- https://data.norge.no/ap-no/dqv-ap-no/dqv-core
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml

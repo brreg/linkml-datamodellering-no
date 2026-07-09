@@ -1,0 +1,38 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/common-ap-no
+tittel:
+  nb: Common AP-NO
+  nn: Common AP-NO
+beskrivelse:
+  nb: Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
+    (AP-NO). Importerast av dei einskilde profilane.
+  nn: Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
+    (AP-NO). Importerast av dei einskilde profilane.
+versjonsnummer: 1.0.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-06-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://purl.org/dc/terms/LicenseDocument
+- http://purl.org/dc/terms/MediaTypeOrExtent
+- http://www.w3.org/2004/02/skos/core#Concept
+- http://www.w3.org/2004/02/skos/core#ConceptScheme
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/common-ap-no/common-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml

@@ -1,0 +1,68 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/modelldcat-ap-no/modell
+tittel:
+  nb: ModelDCAT-AP-NO - Modelldel
+  nn: ModelDCAT-AP-NO - Modelldel
+beskrivelse:
+  nb: 'Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste,
+    Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel'
+  nn: 'Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste,
+    Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel'
+versjonsnummer: 1.0.0
+lisens: https://data.norge.no/nlod/no/2.0
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/
+er_i_samsvar_med:
+- id: https://data.norge.no/specification/modelldcat-ap-no
+  tittel:
+    nb: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
+    nn: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
+  har_referanse: https://data.norge.no/specification/modelldcat-ap-no
+har_del:
+- https://data.norge.no/ap-no/modelldcat-ap-no/modell/modelldcat-modell
+- https://data.norge.no/ap-no/modelldcat-ap-no/modell/modelldcat-katalog
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- https://data.norge.no/vocabulary/modelldcatno#ModelElement
+- https://data.norge.no/vocabulary/modelldcatno#ObjectType
+- https://data.norge.no/vocabulary/modelldcatno#RootObjectType
+- https://data.norge.no/vocabulary/modelldcatno#DataType
+- https://data.norge.no/vocabulary/modelldcatno#SimpleType
+- https://data.norge.no/vocabulary/modelldcatno#CodeList
+- https://data.norge.no/vocabulary/modelldcatno#Module
+- https://data.norge.no/vocabulary/modelldcatno#Property
+- https://data.norge.no/vocabulary/modelldcatno#Attribute
+- https://data.norge.no/vocabulary/modelldcatno#Association
+- https://data.norge.no/vocabulary/modelldcatno#Role
+- https://data.norge.no/vocabulary/modelldcatno#Specialization
+- https://data.norge.no/vocabulary/modelldcatno#Composition
+- https://data.norge.no/vocabulary/modelldcatno#Realization
+- https://data.norge.no/vocabulary/modelldcatno#Abstraction
+- https://data.norge.no/vocabulary/modelldcatno#Dependency
+- https://data.norge.no/vocabulary/modelldcatno#Collection
+- https://data.norge.no/vocabulary/modelldcatno#Choice
+- https://data.norge.no/vocabulary/modelldcatno#AllOf
+- https://data.norge.no/vocabulary/modelldcatno#AnyOf
+- https://data.norge.no/vocabulary/modelldcatno#Note
+- https://data.norge.no/vocabulary/modelldcatno#ConstraintRule
+- https://data.norge.no/vocabulary/modelldcatno#And
+- https://data.norge.no/vocabulary/modelldcatno#Or
+- https://data.norge.no/vocabulary/modelldcatno#Xor
+- https://data.norge.no/vocabulary/modelldcatno#Not
+- https://data.norge.no/vocabulary/modelldcatno#CodeElement
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/modelldcat-ap-no/modelldcat-modell-schema.yaml

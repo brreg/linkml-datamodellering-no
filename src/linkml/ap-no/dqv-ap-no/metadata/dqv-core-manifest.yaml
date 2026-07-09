@@ -1,0 +1,52 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/dqv-core
+tittel:
+  nb: DQV-AP-NO - Kjerneklassar (utan DCAT-avhengigheit)
+  nn: DQV-AP-NO - Kjerneklassar (utan DCAT-avhengigheit)
+beskrivelse:
+  nb: DQV-kjerneklassar og -slots utan referanse til dcat-ap-no. Denne fila vert importert
+    av dcat-ap-no for å gje tilgang til Kvalitetsmerknad og Kvalitetsmaaling på Datasett,
+    utan å skape sirkulær import. dqv-ap-no importerer dcat-ap-no og narrowar har_maal.range
+    via slot_usage.
+  nn: DQV-kjerneklassar og -slots utan referanse til dcat-ap-no. Denne fila vert importert
+    av dcat-ap-no for å gje tilgang til Kvalitetsmerknad og Kvalitetsmaaling på Datasett,
+    utan å skape sirkulær import. dqv-ap-no importerer dcat-ap-no og narrowar har_maal.range
+    via slot_usage.
+versjonsnummer: 1.0.0
+lisens: https://data.norge.no/nlod/no/2.0
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
+er_i_samsvar_med:
+- id: https://informasjonsforvaltning.github.io/dqv-ap-no/
+  tittel:
+    nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+    nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
+  har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
+har_del:
+- https://data.norge.no/ap-no/dqv-core/dqv-core
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://www.w3.org/ns/dqv#Dimension
+- https://data.norge.no/vocabulary/dqvno#SubDimension
+- http://www.w3.org/ns/dqv#Metric
+- http://www.w3.org/ns/dqv#QualityAnnotation
+- http://www.w3.org/ns/dqv#UserQualityFeedback
+- http://www.w3.org/ns/dqv#QualityCertificate
+- http://www.w3.org/ns/dqv#QualityMeasurement
+- http://www.w3.org/ns/oa#TextualBody
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml

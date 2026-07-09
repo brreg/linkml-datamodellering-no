@@ -1,0 +1,46 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/xkos-ap-no
+tittel:
+  nb: XKOS-AP-NO
+  nn: XKOS-AP-NO
+beskrivelse:
+  nb: LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
+    Basert på https://data.norge.no/specification/xkos-ap-no
+  nn: LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
+    Basert på https://data.norge.no/specification/xkos-ap-no
+versjonsnummer: 1.0.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-06-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/xkos-ap-no/
+er_i_samsvar_med:
+- id: https://data.norge.no/specification/xkos-ap-no
+  tittel:
+    nb: Spesifikasjon for klassifikasjonsbeskrivelser (XKOS-AP-NO)
+    nn: Spesifikasjon for klassifikasjonsbeskrivelser (XKOS-AP-NO)
+  har_referanse: https://data.norge.no/specification/xkos-ap-no
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://www.w3.org/2004/02/skos/core#ConceptScheme
+- http://rdf-vocabulary.ddialliance.org/xkos#ClassificationLevel
+- http://www.w3.org/2004/02/skos/core#Concept
+- http://rdf-vocabulary.ddialliance.org/xkos#Correspondence
+- http://rdf-vocabulary.ddialliance.org/xkos#ConceptAssociation
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/xkos-ap-no/xkos-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml

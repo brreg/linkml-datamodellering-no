@@ -47,6 +47,7 @@ generate_schema_index() {
         generate_dependencies "$domain" "$schema"
         generate_submodels_section
         generate_er_diagram "$schema" "$out"
+        generate_datamodell "$domain" "$schema"
         generate_classes_section "$klasse_src"
         generate_artifacts_table "$out" "$schema"
         generate_validation_results "$domain" "$schema"

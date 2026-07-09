@@ -1,0 +1,48 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/modelldcat-ap-no/katalog
+tittel:
+  nb: ModelDCAT-AP-NO - Katalogdel
+  nn: ModelDCAT-AP-NO - Katalogdel
+beskrivelse:
+  nb: 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
+    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
+    import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
+  nn: 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
+    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
+    import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
+versjonsnummer: 1.0.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/
+er_i_samsvar_med:
+- id: https://data.norge.no/specification/modelldcat-ap-no
+  tittel:
+    nb: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
+    nn: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
+  har_referanse: https://data.norge.no/specification/modelldcat-ap-no
+har_del:
+- https://data.norge.no/ap-no/modelldcat-ap-no/katalog/modelldcat-modell
+- https://data.norge.no/ap-no/modelldcat-ap-no/katalog/modelldcat-katalog
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://xmlns.com/foaf/0.1/Document
+- http://www.w3.org/ns/dcat#Catalog
+- https://data.norge.no/vocabulary/modelldcatno#InformationModel
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/modelldcat-ap-no/modelldcat-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml

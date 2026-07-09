@@ -1,0 +1,59 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/cpsv-ap-no
+tittel:
+  nb: CPSV-AP-NO
+  nn: CPSV-AP-NO
+beskrivelse:
+  nb: Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert
+    i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/
+  nn: Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert
+    i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/
+versjonsnummer: 1.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-07-04'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/cpsv-ap-no/
+er_i_samsvar_med:
+- id: https://informasjonsforvaltning.github.io/cpsv-ap-no/
+  tittel:
+    nb: Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)
+    nn: Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)
+  har_referanse: https://informasjonsforvaltning.github.io/cpsv-ap-no/
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://purl.org/vocab/cpsv#PublicService
+- https://data.norge.no/vocabulary/cpsvno#Service
+- http://data.europa.eu/m8g/Event
+- http://data.europa.eu/m8g/LifeEvent
+- http://data.europa.eu/m8g/BusinessEvent
+- http://xmlns.com/foaf/0.1/Agent
+- http://data.europa.eu/m8g/PublicOrganisation
+- http://data.europa.eu/m8g/ContactPoint
+- http://data.europa.eu/m8g/Channel
+- http://data.europa.eu/m8g/EvidenceType
+- https://data.norge.no/vocabulary/cpsvno#OutputType
+- https://data.norge.no/vocabulary/cpsvno#OutputTypeList
+- http://data.europa.eu/m8g/Cost
+- http://purl.org/vocab/cpsv#Rule
+- http://data.europa.eu/eli/ontology#LegalResource
+- http://data.europa.eu/m8g/Participation
+- http://www.w3.org/ns/locn#Address
+- http://www.w3.org/ns/dcat#Catalog
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/cpsv-ap-no/cpsv-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml
