@@ -63,6 +63,26 @@ imports:
 
 ---
 
+## Versjonerte artefaktar
+
+GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein **stabil, versjonert adresse** til ein historisk versjon — t.d. for import frå eit eksternt repo — bruk:
+
+- **[GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases)** (anbefalt) — kanonisk adresse for eldre versjonar
+- **`raw.githubusercontent.com`-URL med tag** — `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/<tag>/<sti>`
+
+Døme på import med versjonert URL:
+
+```yaml
+imports:
+  - linkml:types
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+```
+
+!!! tip "Anbefaling"
+    Bruk alltid ein **konkret versjon-tag** (`v1.0.0`, `v2.0.0`) i imports — aldri `main` eller `latest` — for å unngå overraskande endringer når dette repoet vert oppdatert.
+
+---
+
 ## GitHub Actions: reusable workflows
 
 ### Validering

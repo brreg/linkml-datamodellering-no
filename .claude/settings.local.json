@@ -297,7 +297,8 @@
       "Bash(head -43 CLAUDE.md)",
       "Bash(cat /tmp/claude_importhierarki.txt)",
       "Bash(echo \"\")",
-      "Bash(tail -n +65 CLAUDE.md)"
+      "Bash(tail -n +65 CLAUDE.md)",
+      "Bash(./scripts/generate-readme-tables.sh *)"
     ]
   },
   "enableAllProjectMcpServers": true,

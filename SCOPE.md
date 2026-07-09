@@ -157,4 +157,4 @@ ER-diagram og HTML-dokumentasjon. Vert automatisk oppdatert ved push til `main`.
 - [PRINCIPLES.md](PRINCIPLES.md) — designprinsipp for modellering
 - [CONVENTIONS.md](CONVENTIONS.md) — namnekonvensjonar og manifestformat
 - [GOVERNANCE.md](GOVERNANCE.md) — roller, eigarskap og bidragsprosess
-- [specs/bugs/README.md](specs/bugs/README.md) — kjende bugs og workarounds
+- [BUGS.md](BUGS.md) — kjende bugs og workarounds

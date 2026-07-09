@@ -373,14 +373,14 @@ test_roundtrip_ttl() {
         return 0
     fi
     # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
-    # Sjå specs/bugs/inlined-as-list-rdflib-roundtrip.md
+    # Sjå bugs/inlined-as-list-rdflib-roundtrip.md
     if [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || \
           "$name" == "ngr-virksomhet" ]]; then
         echo "Hoppar over roundtrip-ttl for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
         return 0
     fi
     # BUG-1: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
-    # Sjå specs/bugs/langstring-rdflib-roundtrip.md
+    # Sjå bugs/langstring-rdflib-roundtrip.md
     if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" || \
           "$name" == "digdir-modellkatalog" || "$name" == "novari-modellkatalog" || \
           "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
@@ -477,7 +477,7 @@ test_convert_rdf() {
         return 0
     fi
     # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
-    # Sjå specs/bugs/inlined-as-list-rdflib-roundtrip.md
+    # Sjå bugs/inlined-as-list-rdflib-roundtrip.md
     local name
     name=$(schema_name "$schema")
     if [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || "$name" == "ngr-virksomhet" ]]; then
