@@ -5,39 +5,31 @@ id: https://data.norge.no/ap-no/dqv-ap-no
 name: dqv-ap-no
 title: DQV-AP-NO
 description: >-
-  Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML
-  med lenking framfor inlining.
-  Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
-
-version: "1.3.0"
+  Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+version: "1.8.0"
 license: https://data.norge.no/nlod/no/2.0
-
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
-
 prefixes:
-  linkml:  https://w3id.org/linkml/
-  dcat:    http://www.w3.org/ns/dcat#
-  dct:     http://purl.org/dc/terms/
-  dqv:     http://www.w3.org/ns/dqv#
-  dqvno:   https://data.norge.no/vocabulary/dqvno#
-  oa:      http://www.w3.org/ns/oa#
-  skos:    http://www.w3.org/2004/02/skos/core#
-  rdfs:    http://www.w3.org/2000/01/rdf-schema#
-  xsd:     http://www.w3.org/2001/XMLSchema#
-  rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
-
+  linkml: https://w3id.org/linkml/
+  dcat: http://www.w3.org/ns/dcat#
+  dct: http://purl.org/dc/terms/
+  dqv: http://www.w3.org/ns/dqv#
+  dqvno: https://data.norge.no/vocabulary/dqvno#
+  oa: http://www.w3.org/ns/oa#
+  skos: http://www.w3.org/2004/02/skos/core#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
 default_prefix: https://data.norge.no/ap-no/dqv-ap-no/
 default_range: string
-
 imports:
   - linkml:types
   - ../common-ap-no/common-ap-no-schema
   - ../dcat-ap-no/dcat-ap-no-schema
-
 # Alle DQV-kjerneklassar (Kvalitetsmerknad, Kvalitetsmaaling, Tekstdel m.fl.)
 # og -slots (har_kvalitetsmerknad, har_kvalitetsmaaling, o.a.) er definerte i
 # dqv-core-schema.yaml, som vert importert transitivt via dcat-ap-no-schema.
@@ -56,7 +48,5 @@ imports:
 # ---------------------------------------------------------------------------
 # Slots (berre DQV-AP-NO-spesifikke — ikkje i dqv-core)
 # ---------------------------------------------------------------------------
-
 slots:
-
-  # er_i_samsvar_med er definert i dcat-ap-no-schema.yaml (importert).
+# er_i_samsvar_med er definert i dcat-ap-no-schema.yaml (importert).

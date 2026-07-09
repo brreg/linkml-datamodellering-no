@@ -5,30 +5,22 @@ id: https://data.norge.no/begrepskatalog/brreg-begrepskatalog
 name: brreg-begrepskatalog
 title: Registerenheten i Brønnøysund - Begrepskatalog
 description: >-
-  Begrepskatalog for Registerenheten i Brønnøysund.
-  Begreper modellert lokalt med midlertidige URI-ar, klare for
-  validering og eksport til Felles Begrepskatalog.
-version: "1.2.0"
+  Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog.
+version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
-
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-04"
-  utgivelsesdato: "TODO"
+  endringsdato: "2026-07-09"
+  utgivelsesdato: "2026-07-09"
   status: http://purl.org/adms/status/Completed
-
 prefixes:
   linkml: https://w3id.org/linkml/
-
 default_prefix: https://data.norge.no/begrepskatalog/brreg-begrepskatalog/
 default_range: string
-
 imports:
   - linkml:types
   - ../../ap-no/skos-ap-no/skos-ap-no-schema
-
 classes:
-
   BegrepContainer:
     tree_root: true
     attributes:

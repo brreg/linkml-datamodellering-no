@@ -3,53 +3,38 @@
 
 id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
-version: "1.1.0"
+version: "1.3.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Nasjonale grunndata - Eiendom
 description: >-
-  Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast).
-  Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold
-  og tilknytta klasser.
-  Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
-
+  Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
 annotations:
   utgiver: https://data.norge.no/organizations/971040238
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
-
 prefixes:
-  linkml:  https://w3id.org/linkml/
-  ngre:    https://data.norge.no/vocabulary/ngr-eiendom#
-  xsd:     http://www.w3.org/2001/XMLSchema#
-
+  linkml: https://w3id.org/linkml/
+  ngre: https://data.norge.no/vocabulary/ngr-eiendom#
+  xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-eiendom/
 default_range: string
-
 imports:
   - linkml:types
-
 # ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
-
 subsets:
-
   Obligatorisk:
     description: Obligatoriske eigenskapar i domenemodellen.
-
   Anbefalt:
     description: Anbefalte eigenskapar i domenemodellen.
-
   Valgfri:
     description: Valfrie eigenskapar i domenemodellen.
-
 # ---------------------------------------------------------------------------
 # Enum
 # ---------------------------------------------------------------------------
-
 enums:
-
   Etasjeplan:
     description: Kode for kva del av bygningen ei brukseining ligg i.
     permissible_values:
@@ -63,18 +48,14 @@ enums:
         description: Loft
       M:
         description: Mesanin
-
 # ---------------------------------------------------------------------------
 # Containerklasse (tree_root)
 # ---------------------------------------------------------------------------
-
 classes:
-
   EiendomContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare
-      klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
     attributes:
       fasteEiendommer:
         range: FastEiendom
@@ -132,7 +113,6 @@ classes:
         range: Etasje
         multivalued: true
         inlined_as_list: true
-
       tinglystEierforhold:
         range: TinglystEierforhold
         multivalued: true
@@ -161,7 +141,6 @@ classes:
         range: Rettighetshaver
         multivalued: true
         inlined_as_list: true
-
       borettslag:
         range: Borettslag
         multivalued: true
@@ -170,17 +149,13 @@ classes:
         range: Representasjonspunkt
         multivalued: true
         inlined_as_list: true
-
   # ---------------------------------------------------------------------------
   # Hovudklassar - Domene eiendom
   # ---------------------------------------------------------------------------
-
   FastEiendom:
     class_uri: ngre:FastEiendom
     description: >-
-      Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av
-      og består av éi matrikkelenheit, og kan innehalde bygningar og rettar
-      som er nødvendige for å benytte eigedommen.
+      Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige for å benytte eigedommen.
     slots:
       - id
       - identifiseres_av
@@ -210,12 +185,10 @@ classes:
       har_tinglyst_heftelse:
         in_subset:
           - Valgfri
-
   SamletFastEiendom:
     class_uri: ngre:SamletFastEiendom
     description: >-
-      Samling av to eller fleire faste eigedommar som er organiserte saman.
-      Lite brukt i praksis i dag.
+      Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt i praksis i dag.
     slots:
       - id
       - bestar_av_fast_eiendom
@@ -225,12 +198,10 @@ classes:
         minimum_cardinality: 2
         in_subset:
           - Obligatorisk
-
   Borettslagsandel:
     class_uri: ngre:Borettslagsandel
     description: >-
-      Ein andel i eit burettslag som gir eksklusiv bruksrett til ein
-      bestemt bustad i burettslagsbygningen.
+      Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad i burettslagsbygningen.
     slots:
       - id
       - tilhoerer_borettslag
@@ -247,18 +218,14 @@ classes:
       har_tinglyst_heftelse:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Matrikkelenhet og undertypar
   # ---------------------------------------------------------------------------
-
   Matrikkelenhet:
     abstract: true
     class_uri: ngre:Matrikkelenhet
     description: >-
-      Abstrakt overklasse for alle typar matrikkeleiningar registrert i
-      Matrikkelen. Ei matrikkelenheit er den grunnleggjande eininga for
-      registrering av fast eigedom i Noreg.
+      Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen. Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom i Noreg.
     slots:
       - id
       - identifiseres_med
@@ -284,86 +251,66 @@ classes:
       har_anleggsprojeksjonsflate:
         in_subset:
           - Valgfri
-
   Grunneiendom:
     is_a: Matrikkelenhet
     class_uri: ngre:Grunneiendom
     description: >-
-      Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller
-      vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.
+      Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.
     slots:
       - kan_vaere_pa
     slot_usage:
       kan_vaere_pa:
         in_subset:
           - Valgfri
-
   Festegrunn:
     is_a: Matrikkelenhet
     class_uri: ngre:Festegrunn
     description: >-
-      Ein del av ei grunneigendom eller eit jordsameige som nokon har festa
-      til. Ein festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen.
-      Kan vere eit bestemt areal eller eit punktfeste.
+      Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til. Ein festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen. Kan vere eit bestemt areal eller eit punktfeste.
     slots:
       - kan_vaere_pa
     slot_usage:
       kan_vaere_pa:
         in_subset:
           - Valgfri
-
   Jordsameie:
     is_a: Matrikkelenhet
     class_uri: ngre:Jordsameie
     description: >-
-      Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er ein
-      type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige
-      som ikkje er registrert som eigen matrikkelenheit.
+      Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er ein type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje er registrert som eigen matrikkelenheit.
     slots:
       - kan_vaere_pa
     slot_usage:
       kan_vaere_pa:
         in_subset:
           - Valgfri
-
   Eierseksjon:
     is_a: Matrikkelenhet
     class_uri: ngre:Eierseksjon
     description: >-
-      Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har
-      einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen
-      er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert
-      kan vere grunneigendom, festegrunn eller anleggseigendom.
+      Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom.
     slots:
       - kan_vaere_pa
     slot_usage:
       kan_vaere_pa:
         in_subset:
           - Anbefalt
-
   Anleggseiendom:
     is_a: Matrikkelenhet
     class_uri: ngre:Anleggseiendom
     description: >-
-      Eit volum - ein bygning eller konstruksjon - oppretta frå ei eller fleire
-      grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under
-      andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs
-      undergrunn eller sjøgrunn.
-
+      Eit volum - ein bygning eller konstruksjon - oppretta frå ei eller fleire grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn.
   AnnenMatrikkelenhet:
     is_a: Matrikkelenhet
     class_uri: ngre:AnnenMatrikkelenhet
     description: Matrikkelenheit som ikkje fell inn under dei andre underklassane.
-
   # ---------------------------------------------------------------------------
   # Matrikkelnummer og komponentar
   # ---------------------------------------------------------------------------
-
   Matrikkelnummer:
     class_uri: ngre:Matrikkelnummer
     description: >-
-      Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer,
-      gards-, bruks- og eventuelt feste- og seksjonsnummer.
+      Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-, bruks- og eventuelt feste- og seksjonsnummer.
     slots:
       - id
       - bestar_av_kommunenummer
@@ -390,7 +337,6 @@ classes:
       bestar_av_seksjonsnummer:
         in_subset:
           - Valgfri
-
   Kommunenummer:
     class_uri: ngre:Kommunenummer
     description: Firesifra kommunenummer (t.d. 0301 for Oslo).
@@ -402,7 +348,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Gaardsnummer:
     class_uri: ngre:Gaardsnummer
     description: Gårdsnummer innanfor kommunen.
@@ -414,7 +359,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Bruksnummer:
     class_uri: ngre:Bruksnummer
     description: Bruksnummer innanfor gardsnamnet.
@@ -426,7 +370,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Festenummer:
     class_uri: ngre:Festenummer
     description: Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).
@@ -438,7 +381,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Seksjonsnummer:
     class_uri: ngre:Seksjonsnummer
     description: Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).
@@ -450,17 +392,13 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Bygning og tilknytta klasser
   # ---------------------------------------------------------------------------
-
   Bygning:
     class_uri: ngre:Bygning
     description: >-
-      Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit
-      og kan ha fleire ytre innganger, brukseiningar og etasjar.
-      Bygningsinformasjon er i dag spreidd i fleire databasar.
+      Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd i fleire databasar.
     slots:
       - id
       - har_bygningsnummer
@@ -491,7 +429,6 @@ classes:
       har_etasje:
         in_subset:
           - Valgfri
-
   Bygningsnummer:
     class_uri: ngre:Bygningsnummer
     description: Offisiell identifikator for ein bygning i Matrikkelen.
@@ -503,7 +440,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Representasjonspunkt:
     class_uri: ngre:Representasjonspunkt
     description: Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen.
@@ -524,13 +460,10 @@ classes:
       koordinatsystem:
         in_subset:
           - Anbefalt
-
   YtreInngang:
     class_uri: ngre:YtreInngang
     description: >-
-      Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen,
-      men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire
-      brukseiningar.
+      Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen, men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar.
     slots:
       - id
       - gjelder_bruksenhet
@@ -544,13 +477,10 @@ classes:
       har_offisiell_adresse:
         in_subset:
           - Anbefalt
-
   Bruksenhet:
     class_uri: ngre:Bruksenhet
     description: >-
-      Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning.
-      Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere
-      knytt til ei matrikkelenheit.
+      Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.
     slots:
       - id
       - har_bruksenhetsnummer
@@ -573,12 +503,10 @@ classes:
       har_offisiell_adresse:
         in_subset:
           - Valgfri
-
   Bruksenhetsnummer:
     class_uri: ngre:Bruksenhetsnummer
     description: >-
-      Identifikator for ei brukseining innanfor ein bygning,
-      t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering).
+      Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering).
     slots:
       - id
       - etasjeplan
@@ -597,7 +525,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Etasje:
     class_uri: ngre:Etasje
     description: Ei etasje i ein bygning.
@@ -609,34 +536,26 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Teig:
     class_uri: ngre:Teig
     description: >-
-      Eit samanhengande areal med same type grenser. Mangler ofte vannareal
-      som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
+      Eit samanhengande areal med same type grenser. Mangler ofte vannareal som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
     slots:
       - id
-
   Anleggsprojeksjonsflate:
     class_uri: ngre:Anleggsprojeksjonsflate
     description: >-
-      Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet
-      og må supplerast på oppdrag.
+      Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må supplerast på oppdrag.
     slots:
       - id
-
   # ---------------------------------------------------------------------------
   # Eierforhold
   # ---------------------------------------------------------------------------
-
   Eierforhold:
     abstract: true
     class_uri: ngre:Eierforhold
     description: >-
-      Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold
-      gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel.
-      Inneheld heimelsdokument som fastset kven som er eigar og på kva vilkår.
+      Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld heimelsdokument som fastset kven som er eigar og på kva vilkår.
     slots:
       - id
       - gjelder_matrikkelenhet
@@ -661,30 +580,23 @@ classes:
       gjelder_hjemmel_framfesterett:
         in_subset:
           - Valgfri
-
   TinglystEierforhold:
     is_a: Eierforhold
     class_uri: ngre:TinglystEierforhold
     description: Eigarforhold registrert (tinglyst) i Grunnboka.
-
   IkkeTinglystEierforhold:
     is_a: Eierforhold
     class_uri: ngre:IkkeTinglystEierforhold
     description: >-
-      Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold
-      som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar.
-
+      Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar.
   # ---------------------------------------------------------------------------
   # Hjemmel og andel
   # ---------------------------------------------------------------------------
-
   Hjemmel:
     abstract: true
     class_uri: ngre:Hjemmel
     description: >-
-      Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset
-      kven som har rett til eigedommen og i kva form, og består av ein
-      eller fleire andeler med kvar sin rettigheitshavar.
+      Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kven som har rett til eigedommen og i kva form, og består av ein eller fleire andeler med kvar sin rettigheitshavar.
     slots:
       - id
       - har_andel
@@ -694,27 +606,22 @@ classes:
         minimum_cardinality: 1
         in_subset:
           - Obligatorisk
-
   HjemmelTilEiendomsrett:
     is_a: Hjemmel
     class_uri: ngre:HjemmelTilEiendomsrett
     description: Heimelsdokument for eigedomsrett (full eigarrett).
-
   HjemmelTilFesterett:
     is_a: Hjemmel
     class_uri: ngre:HjemmelTilFesterett
     description: Heimelsdokument for festerett (langvarig bruksrett til festegrunn).
-
   HjemmelTilFramfesterett:
     is_a: Hjemmel
     class_uri: ngre:HjemmelTilFramfesterett
     description: Heimelsdokument for framfesterett (vidarefestekontrakt).
-
   Andel:
     class_uri: ngre:Andel
     description: >-
-      Ein eigarandel i eit heimelsdokument (også kalt eierandel).
-      Kvar andel har ein eller fleire rettigheitshavarar.
+      Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel har ein eller fleire rettigheitshavarar.
     slots:
       - id
       - har_rettighetshaver
@@ -724,12 +631,10 @@ classes:
         minimum_cardinality: 1
         in_subset:
           - Obligatorisk
-
   Rettighetshaver:
     class_uri: ngre:Rettighetshaver
     description: >-
-      Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person
-      eller ei hovudeining (juridisk person).
+      Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person eller ei hovudeining (juridisk person).
     slots:
       - id
       - er_av_type_person
@@ -741,32 +646,25 @@ classes:
       er_av_type_hovedenhet:
         in_subset:
           - Valgfri
-
   TinglystHeftelse:
     class_uri: ngre:TinglystHeftelse
     description: >-
-      Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel.
-      Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.
+      Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel. Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.
     slots:
       - id
-
   RettighetForAaBenytteEiendom:
     class_uri: ngre:RettighetForAaBenytteEiendom
     description: >-
-      Rettar og avtalar som er nødvendige for å kunne benytte eigedommen.
-      Desse er registrerte som heftingar i Grunnboka på teneleg eigedom.
+      Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte som heftingar i Grunnboka på teneleg eigedom.
     slots:
       - id
-
   # ---------------------------------------------------------------------------
   # Borettslag
   # ---------------------------------------------------------------------------
-
   Borettslag:
     class_uri: ngre:Borettslag
     description: >-
-      Eit burettslag er ein type hovudeining (juridisk person) som eig
-      burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag.
+      Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag.
     slots:
       - id
       - er_av_type_hovedenhet
@@ -775,38 +673,30 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Stub-klasser for andre domener
   # ---------------------------------------------------------------------------
-
   OffisiellAdresse:
     class_uri: ngre:OffisiellAdresse
     description: >-
-      Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse
-      og forvaltast av Matrikkelen via NGR-adresse.
+      Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast av Matrikkelen via NGR-adresse.
     slots:
       - id
-
   Person:
     class_uri: ngre:Person
     description: Ein fysisk person. Tilhøyrer Domene person.
     slots:
       - id
-
   Hovedenhet:
     class_uri: ngre:Hovedenhet
     description: >-
-      Ei hovudeining i Einingsregisteret. Juridisk person som kan ha
-      undereiningar. Tilhøyrer Domene virksomhet.
+      Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar. Tilhøyrer Domene virksomhet.
     slots:
       - id
-
   Kommune:
     class_uri: ngre:Kommune
     description: >-
-      Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og
-      forvaltast av Nasjonal inndelingsbase.
+      Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast av Nasjonal inndelingsbase.
     slots:
       - id
       - kommunenummer_verdi
@@ -815,303 +705,238 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   id:
     identifier: true
     range: uriorcurie
     description: URI-identifikator for ressursen.
-
   # ---- FastEiendom-relasjonar ------------------------------------------------
-
   identifiseres_av:
     slot_uri: ngre:identifiseresAv
     range: Matrikkelenhet
     description: Matrikkeleininga som identifiserer denne faste eigedommen.
-
   bestar_av_matrikkelenhet:
     slot_uri: ngre:bestarAvMatrikkelenhet
     range: Matrikkelenhet
     description: Matrikkeleininga denne faste eigedommen fysisk består av.
-
   bestar_av_bygning:
     slot_uri: ngre:bestarAvBygning
     range: Bygning
     multivalued: true
     description: Bygning(ar) som inngår i denne faste eigedommen.
-
   bestar_av_rettighet:
     slot_uri: ngre:bestarAvRettighet
     range: RettighetForAaBenytteEiendom
     multivalued: true
     description: Rettar som er nødvendige for å benytte eigedommen.
-
   bestar_av_fast_eiendom:
     slot_uri: ngre:bestarAvFastEiendom
     range: FastEiendom
     multivalued: true
     description: Faste eigedommar som inngår i samlinga (minimum 2).
-
   har_eierforhold:
     slot_uri: ngre:harEierforhold
     range: Eierforhold
     multivalued: true
     description: Eigarforhold knytt til eigedommen eller burettslagsandelen.
-
   har_tinglyst_heftelse:
     slot_uri: ngre:harTinglystHeftelse
     range: TinglystHeftelse
     multivalued: true
     description: Tinglyste heftingar knytt til eigedommen eller burettslagsandelen.
-
   tilhoerer_borettslag:
     slot_uri: ngre:tilhoererBorettslag
     range: Borettslag
     description: Burettslagsandelen tilhøyrer dette burettslaget.
-
   # ---- Matrikkelenhet-relasjonar --------------------------------------------
-
   identifiseres_med:
     slot_uri: ngre:identifiseresMed
     range: Matrikkelnummer
     description: Matrikkelnummeret som identifiserer matrikkeleininga.
-
   ligger_innenfor_kommune:
     slot_uri: ngre:liggerInnenforKommune
     range: Kommune
     description: Kommunen matrikkeleininga ligg innanfor.
-
   er_del_av_teig:
     slot_uri: ngre:erDelAvTeig
     range: Teig
     multivalued: true
     description: Teigen(e) matrikkeleininga er del av.
-
   har_teig:
     slot_uri: ngre:harTeig
     range: Teig
     multivalued: true
     description: Teigen(e) som tilhøyrer matrikkeleininga.
-
   har_anleggsprojeksjonsflate:
     slot_uri: ngre:harAnleggsprojeksjonsflate
     range: Anleggsprojeksjonsflate
     description: Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.
-
   kan_vaere_pa:
     slot_uri: ngre:kanVaerePa
     range: Matrikkelenhet
     description: >-
-      Matrikkeleininga denne eininga ligg på eller er knytt til.
-      Festegrunn kan liggje på grunneigendom eller jordsameige;
-      eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom.
-
+      Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom.
   # ---- Matrikkelnummer-komponentar ------------------------------------------
-
   bestar_av_kommunenummer:
     slot_uri: ngre:bestarAvKommunenummer
     range: Kommunenummer
     description: Kommunenummerdelen av matrikkelnummeret.
-
   bestar_av_gaardsnummer:
     slot_uri: ngre:bestarAvGaardsnummer
     range: Gaardsnummer
     description: Gårdsnummerdelen av matrikkelnummeret.
-
   bestar_av_bruksnummer:
     slot_uri: ngre:bestarAvBruksnummer
     range: Bruksnummer
     description: Bruksnummerdelen av matrikkelnummeret.
-
   bestar_av_festenummer:
     slot_uri: ngre:bestarAvFestenummer
     range: Festenummer
     description: Festenummerdelen av matrikkelnummeret (berre for festegrunn).
-
   bestar_av_seksjonsnummer:
     slot_uri: ngre:bestarAvSeksjonsnummer
     range: Seksjonsnummer
     description: Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar).
-
   # ---- Bygning-relasjonar ---------------------------------------------------
-
   har_bygningsnummer:
     slot_uri: ngre:harBygningsnummer
     range: Bygningsnummer
     description: Offisiell bygningsnummer for bygningen.
-
   har_representasjonspunkt:
     slot_uri: ngre:harRepresentasjonspunkt
     range: Representasjonspunkt
     description: Geografisk representasjonspunkt for bygningen.
-
   er_knyttet_til_matrikkelenhet:
     slot_uri: ngre:erKnyttetTilMatrikkelenhet
     range: Matrikkelenhet
     description: Matrikkeleininga bygningen er knytt til.
-
   har_ytre_inngang:
     slot_uri: ngre:harYtreInngang
     range: YtreInngang
     multivalued: true
     description: Ytre inngang(ar) til bygningen.
-
   har_bruksenhet:
     slot_uri: ngre:harBruksenhet
     range: Bruksenhet
     multivalued: true
     description: Brukseining(ar) i bygningen.
-
   har_etasje:
     slot_uri: ngre:harEtasje
     range: Etasje
     multivalued: true
     description: Etasjar i bygningen.
-
   # ---- YtreInngang-relasjonar -----------------------------------------------
-
   gjelder_bruksenhet:
     slot_uri: ngre:gjelderBruksenhet
     range: Bruksenhet
     multivalued: true
     description: Brukseiningane den ytre inngangen gir tilgang til.
-
   har_offisiell_adresse:
     slot_uri: ngre:harOffisiellAdresse
     range: OffisiellAdresse
     description: Offisiell adresse for den ytre inngangen eller brukseininga.
-
   # ---- Bruksenhet-relasjonar ------------------------------------------------
-
   har_bruksenhetsnummer:
     slot_uri: ngre:harBruksenhetsnummer
     range: Bruksenhetsnummer
     description: Bruksenheitsnummeret for brukseininga.
-
   er_tilknyttet_matrikkelenhet:
     slot_uri: ngre:erTilknyttetMatrikkelenhet
     range: Matrikkelenhet
     description: Matrikkeleininga brukseininga er knytt til.
-
   ligger_i_etasje:
     slot_uri: ngre:liggerIEtasje
     range: Etasje
     multivalued: true
     description: Etasjen(e) brukseininga ligg i.
-
   # ---- Eierforhold-relasjonar -----------------------------------------------
-
   gjelder_matrikkelenhet:
     slot_uri: ngre:gjelderMatrikkelenhet
     range: Matrikkelenhet
     description: Matrikkeleininga dette eigarforholdet gjeld.
-
   kan_gjelde_borettslagsandel:
     slot_uri: ngre:kanGjeldeBorettslagsandel
     range: Borettslagsandel
     description: Burettslagsandelen dette eigarforholdet eventuelt gjeld.
-
   gjelder_hjemmel_eiendomsrett:
     slot_uri: ngre:gjelderHjemmelEiendomsrett
     range: HjemmelTilEiendomsrett
     description: Heimelsdokument for eigedomsrett knytt til dette eigarforholdet.
-
   gjelder_hjemmel_festerett:
     slot_uri: ngre:gjelderHjemmelFesterett
     range: HjemmelTilFesterett
     description: Heimelsdokument for festerett knytt til dette eigarforholdet.
-
   gjelder_hjemmel_framfesterett:
     slot_uri: ngre:gjelderHjemmelFramfesterett
     range: HjemmelTilFramfesterett
     description: Heimelsdokument for framfesterett knytt til dette eigarforholdet.
-
   # ---- Hjemmel / Andel-relasjonar ------------------------------------------
-
   har_andel:
     slot_uri: ngre:harAndel
     range: Andel
     multivalued: true
     description: Andel(ar) i heimelsdokumentet.
-
   har_rettighetshaver:
     slot_uri: ngre:harRettighetshaver
     range: Rettighetshaver
     multivalued: true
     description: Rettigheitshavar(ar) for andelen.
-
   er_av_type_person:
     slot_uri: ngre:erAvTypePerson
     range: Person
     description: Personen som er rettigheitshavar (fysisk person).
-
   er_av_type_hovedenhet:
     slot_uri: ngre:erAvTypeHovedenhet
     range: Hovedenhet
     description: Hovudeininga (juridisk person) som er rettigheitshavar.
-
   # ---- Verdislots (dataeigenskapar) ----------------------------------------
-
   kommunenummer_verdi:
     slot_uri: ngre:kommunenummer
     range: string
     description: Firesifra kommunenummer (t.d. 0301 for Oslo).
-
   gaardsnummer_verdi:
     slot_uri: ngre:gaardsnummer
     range: integer
     description: Gårdsnummer innanfor kommunen.
-
   bruksnummer_verdi:
     slot_uri: ngre:bruksnummer
     range: integer
     description: Bruksnummer innanfor gardsnamnet.
-
   festenummer_verdi:
     slot_uri: ngre:festenummer
     range: integer
     description: Festenummer (0..1 - berre for festegrunn).
-
   seksjonsnummer_verdi:
     slot_uri: ngre:seksjonsnummer
     range: integer
     description: Seksjonsnummer (0..1 - berre for eigarseksjonar).
-
   bygningsnummer_verdi:
     slot_uri: ngre:bygningsnummer
     range: integer
     description: Unikt bygningsnummer i Matrikkelen.
-
   koordinat_ost:
     slot_uri: ngre:koordinatOst
     range: float
     description: Austleg koordinat (X) i det angitte koordinatsystemet.
-
   koordinat_nord:
     slot_uri: ngre:koordinatNord
     range: float
     description: Nordleg koordinat (Y) i det angitte koordinatsystemet.
-
   koordinatsystem:
     slot_uri: ngre:koordinatsystem
     range: string
     description: "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)."
-
   etasjeplan:
     slot_uri: ngre:etasjeplan
     range: Etasjeplan
     description: Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M).
-
   etasjenummer:
     slot_uri: ngre:etasjenummer
     range: integer
     description: Etasjenummer (t.d. 2 for 2. etasje).
-
   nummerering_i_etasjen:
     slot_uri: ngre:nummereringIEtasjen
     range: integer

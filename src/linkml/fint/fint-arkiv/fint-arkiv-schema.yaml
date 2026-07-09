@@ -5,233 +5,188 @@ id: https://data.norge.no/fint/fint-arkiv
 name: fint-arkiv
 title: FINT Arkiv
 description: >
-  FINT-domenemodell for arkiv basert på Noark 5-standarden. Dekkjer sakshandtering,
-  journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
-version: "4.1.0"
-license: https://data.norge.no/nlod/no/2.0
+  FINT-domenemodell for arkiv basert på Noark 5-standarden. Dekkjer sakshandtering, journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
 
+version: "4.3.0"
+license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
-
 default_prefix: https://data.norge.no/fint/fint-arkiv/
 default_range: string
-
 imports:
   - linkml:types
   - ../fint-common/fint-common-schema
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  fint:   https://schema.fintlabs.no/
-  ark:    https://schema.fintlabs.no/arkiv/
-
+  fint: https://schema.fintlabs.no/
+  ark: https://schema.fintlabs.no/arkiv/
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   # --- ArkivContainer-lister ------------------------------------------------
 
   # --- Felles ark-slots (delt mellom fleire klasser) ------------------------
-
   tittel:
     slot_uri: ark:tittel
     range: string
     description: Tittel eller namn på arkivenheten.
-
   avsluttetDato:
     slot_uri: ark:avsluttetDato
     range: datetime
     description: Dato og klokkeslett når arkivenheten vart avslutta/lukka.
-
   opprettetDato:
     slot_uri: ark:opprettetDato
     range: datetime
     description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
-
   offentligTittel:
     slot_uri: ark:offentligTittel
     range: string
     description: Offentleg tittel der skjerma ord er fjerna.
-
   klasse:
     slot_uri: ark:klasse
     range: Klasse
     description: Klassifisering av arkivenhet.
-
   part:
     slot_uri: ark:part
     range: Part
     multivalued: true
     inlined_as_list: true
     description: Partar til arkivenhet.
-
   merknad:
     slot_uri: ark:merknad
     range: Merknad
     multivalued: true
     inlined_as_list: true
     description: Merknader knytt til arkivenhet.
-
   skjerming:
     slot_uri: ark:skjerming
     range: Skjerming
     inlined: true
     description: Skjerming av arkivenhet.
-
   arkivdel:
     slot_uri: ark:arkivdel
     range: Arkivdel
     description: Arkivdel arkivenheten tilhøyrer.
-
   opprettetAv:
     slot_uri: ark:opprettetAv
     range: Arkivressurs
     description: Person som oppretta/registrerte arkivenheten.
-
   avsluttetAv:
     slot_uri: ark:avsluttetAv
     range: Arkivressurs
     description: Person som avslutta/lukka arkivenheten.
-
   noekkelord:
     slot_uri: ark:noekkelord
     range: string
     multivalued: true
     description: Nøkkelord som skildrar innhaldet (Mappe).
-
   mappeId:
     slot_uri: ark:mappeId
     range: Identifikator
     inlined: true
     description: Eintydig identifikasjon av mappa innanfor arkivet.
-
   tilgangsgruppe:
     slot_uri: ark:tilgangsgruppe
     range: Tilgangsgruppe
     description: Tilgangsgruppe som har tilgang til arkivenheten.
-
   administrativEnhet:
     slot_uri: ark:administrativEnhet
     range: AdministrativEnhet
     description: Administrativ eining som har ansvar for saksbehandlinga.
-
   journalenhet:
     slot_uri: ark:journalenhet
     range: AdministrativEnhet
     description: Eining med arkivmessig ansvar.
-
   arkivressurs:
     slot_uri: ark:arkivressurs
     range: Arkivressurs
     multivalued: true
     description: Arkivressursar.
-
   tilgangsrestriksjon:
     slot_uri: ark:tilgangsrestriksjon
     range: Tilgangsrestriksjon
     description: Tilgangsrestriksjon.
-
   forfatter:
     slot_uri: ark:forfatter
     range: string
     multivalued: true
     description: Namn på person eller organisasjon som skapte dokumentet.
-
   # --- Saksmappe ------------------------------------------------------------
-
   journalpost:
     slot_uri: ark:journalpost
     range: Journalpost
     multivalued: true
     description: Journalpostar knytt til saksmappa.
-
   saksaar:
     slot_uri: ark:saksaar
     range: string
     description: Inngår i M003 mappeID — viser året saksmappa vart oppretta.
-
   saksdato:
     slot_uri: ark:saksdato
     range: datetime
     description: Datoen saka er oppretta.
-
   sakssekvensnummer:
     slot_uri: ark:sakssekvensnummer
     range: string
     description: Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta.
-
   utlaantDato:
     slot_uri: ark:utlaantDato
     range: datetime
     description: Dato ein fysisk saksmappe eller journalpost vart utlånt.
-
   saksmappetype:
     slot_uri: ark:saksmappetype
     range: Saksmappetype
     description: Type saksmappe.
-
   saksstatus:
     slot_uri: ark:saksstatus
     range: Saksstatus
     description: Status til saksmappa.
-
   saksansvarlig:
     slot_uri: ark:saksansvarlig
     range: Arkivressurs
     description: Person som er saksansvarleg.
-
   # --- Registrering ---------------------------------------------------------
-
   arkivertDato:
     slot_uri: ark:arkivertDato
     range: datetime
     description: Dato og klokkeslett alle dokument knytt til registreringa vart arkivert.
-
   dokumentbeskrivelse:
     slot_uri: ark:dokumentbeskrivelse
     range: Dokumentbeskrivelse
     multivalued: true
     description: Dokumentbeskrivelsar til ei registrering.
-
   korrespondansepart:
     slot_uri: ark:korrespondansepart
     range: Korrespondansepart
     multivalued: true
     inlined_as_list: true
     description: Mottakar eller sendar av arkivdokument.
-
   nokkelord:
     slot_uri: ark:nokkelord
     range: string
     multivalued: true
     description: Nøkkelord som skildrar innhaldet (Registrering).
-
   referanseArkivDel:
     slot_uri: ark:referanseArkivDel
     range: string
     multivalued: true
     description: Referanse til arkivdelen denne arkivenheten er tilknytt.
-
   registreringsId:
     slot_uri: ark:registreringsId
     range: string
     description: Inngår i M004 journalpostID.
-
   saksbehandler:
     slot_uri: ark:saksbehandler
     range: Arkivressurs
     description: Person som er saksbehandlar.
-
   arkivertAv:
     slot_uri: ark:arkivertAv
     range: Arkivressurs
     description: Person som arkiverte arkivenheten.
-
   # --- AdministrativEnhet / Personalmappe -----------------------------------
 
   # navn: string — brukt av AdministrativEnhet og alle kodeverk-klassar
@@ -246,407 +201,320 @@ slots:
     range: Personnavn
     inlined: true
     description: Namn på person (Personnavn-objekt).
-
   organisasjonselement:
     slot_uri: ark:organisasjonselement
     range: uriorcurie
     description: Referanse til Organisasjonselement i Administrasjon-domenet.
-
   # --- Arkivressurs ---------------------------------------------------------
-
   kildesystemId:
     slot_uri: ark:kildesystemId
     range: Identifikator
     inlined: true
     description: Kildesystemets identifikator for arkivressursen.
-
   personalressurs:
     slot_uri: ark:personalressurs
     range: uriorcurie
     description: Referanse til Personalressurs i Administrasjon-domenet.
-
   autorisasjon:
     slot_uri: ark:autorisasjon
     range: Autorisasjon
     multivalued: true
     description: Autorisasjonar gjevne til arkivressursen.
-
   tilgang:
     slot_uri: ark:tilgang
     range: Tilgang
     multivalued: true
     description: Tilgangar gjevne til arkivressursen.
-
   # --- Autorisasjon ---------------------------------------------------------
-
   administrativenhet:
     slot_uri: ark:administrativenhet
     range: AdministrativEnhet
     multivalued: true
     description: Administrative einingar autorisasjonen er gyldig for.
-
   # --- Klassifikasjonssystem ------------------------------------------------
-
   klassifikasjonssystem:
     slot_uri: ark:klassifikasjonssystem
     range: Klassifikasjonssystem
     description: Klassifikasjonssystem.
-
   klassifikasjonstype:
     slot_uri: ark:klassifikasjonstype
     range: Klassifikasjonstype
     description: Type klassifikasjonssystem.
-
   avsluttetAvNavn:
     slot_uri: ark:avsluttetAvNavn
     range: string
     description: Namn på person som avslutta/lukka arkivenheten.
-
   opprettetAvNavn:
     slot_uri: ark:opprettetAvNavn
     range: string
     description: Namn på person som oppretta/registrerte arkivenheten.
-
   # --- Tilgang --------------------------------------------------------------
-
   rolle:
     slot_uri: ark:rolle
     range: Rolle
     description: Rolle tilknytt tilgangen.
-
   # --- Dokumentfil ----------------------------------------------------------
-
   data:
     slot_uri: ark:data
     range: string
     description: Dokumentfilens data, koda som Base64.
-
   filnavn:
     slot_uri: ark:filnavn
     range: string
     description: Dokumentfilens namn.
-
   format:
     slot_uri: ark:format
     range: string
     description: Format på dokumentfil, som IANA Media Type.
-
   # --- Journalpost ----------------------------------------------------------
-
   antallVedlegg:
     slot_uri: ark:antallVedlegg
     range: integer
     description: Antal fysiske vedlegg til eit fysisk hoveddokument.
-
   avskrivning:
     slot_uri: ark:avskrivning
     range: Avskrivning
     inlined: true
     description: Avskriving av journalposten.
-
   dokumentetsDato:
     slot_uri: ark:dokumentetsDato
     range: datetime
     description: Dato påført sjølve dokumentet.
-
   forfallsDato:
     slot_uri: ark:forfallsDato
     range: datetime
     description: Frist for å svare på eit inngåande dokument.
-
   journalAr:
     slot_uri: ark:journalAr
     range: string
     description: Året journalposten vart oppretta.
-
   journalDato:
     slot_uri: ark:journalDato
     range: datetime
     description: Datoen journalposten er oppretta/arkivert.
-
   journalPostnummer:
     slot_uri: ark:journalPostnummer
     range: integer
     description: Rekkjefølgja journalpostane vart oppretta innanfor saksmappa.
-
   journalSekvensnummer:
     slot_uri: ark:journalSekvensnummer
     range: integer
     description: Rekkjefølgja journalposten vart oppretta under året.
-
   mottattDato:
     slot_uri: ark:mottattDato
     range: datetime
     description: Dato eit eksternt dokument vart motteke.
-
   offentlighetsvurdertDato:
     slot_uri: ark:offentlighetsvurdertDato
     range: datetime
     description: Datoen offentlegheitsvurdering vart gjennomført.
-
   sendtDato:
     slot_uri: ark:sendtDato
     range: datetime
     description: Dato eit internt produsert dokument vart sendt/ekspedert.
-
   journalposttype:
     slot_uri: ark:journalposttype
     range: JournalpostType
     description: Namn på type journalpost.
-
   journalstatus:
     slot_uri: ark:journalstatus
     range: JournalStatus
     description: Status til journalposten.
-
   # --- Dokumentbeskrivelse --------------------------------------------------
-
   dokumentnummer:
     slot_uri: ark:dokumentnummer
     range: integer
     description: Identifikasjon av dokumenta innanfor ei registrering.
-
   dokumentobjekt:
     slot_uri: ark:dokumentobjekt
     range: Dokumentobjekt
     multivalued: true
     inlined_as_list: true
     description: Dokumentobjekt tilhøyrande dokumentbeskrivelsa.
-
   referanseArkivdel:
     slot_uri: ark:referanseArkivdel
     range: string
     multivalued: true
     description: Referanse til arkivdelen denne arkivenheten er tilknytt.
-
   tilknyttetDato:
     slot_uri: ark:tilknyttetDato
     range: datetime
     description: Datoen eit dokument vart knytt til ei registrering.
-
   dokumentstatus:
     slot_uri: ark:dokumentstatus
     range: DokumentStatus
     description: Status til dokumentet.
-
   dokumentType:
     slot_uri: ark:dokumentType
     range: DokumentType
     description: Namn på type dokument.
-
   tilknyttetRegistreringSom:
     slot_uri: ark:tilknyttetRegistreringSom
     range: TilknyttetRegistreringSom
     multivalued: true
     description: Rolle dokumentet har i høve registreringa.
-
   tilknyttetAv:
     slot_uri: ark:tilknyttetAv
     range: Arkivressurs
     description: Person som knytte dokumentet til registreringa.
-
   # --- Dokumentobjekt -------------------------------------------------------
-
   filstorrelse:
     slot_uri: ark:filstorrelse
     range: string
     description: Storleiken på fila i antal bytes.
-
   formatDetaljer:
     slot_uri: ark:formatDetaljer
     range: string
     description: Nærare spesifikasjon av dokumentets format.
-
   sjekksum:
     slot_uri: ark:sjekksum
     range: string
     description: Verdi som gir integritetssikring til dokumentets innhald.
-
   sjekksumAlgoritme:
     slot_uri: ark:sjekksumAlgoritme
     range: string
     description: Algoritme nytta for å berekne sjekksummen.
-
   versjonsnummer:
     slot_uri: ark:versjonsnummer
     range: integer
     description: Identifikasjon av versjonar innanfor same dokument.
-
   filformat:
     slot_uri: ark:filformat
     range: Format
     description: Dokumentets format.
-
   variantFormat:
     slot_uri: ark:variantFormat
     range: Variantformat
     description: Kva variant dokumentet førekjem i.
-
   referanseDokumentfil:
     slot_uri: ark:referanseDokumentfil
     range: Dokumentfil
     description: Referanse til fila som inneheld det elektroniske dokumentet.
-
   # --- Klasse ---------------------------------------------------------------
-
   klasseId:
     slot_uri: ark:klasseId
     range: string
     description: Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet.
-
   rekkefoelge:
     slot_uri: ark:rekkefolge
     range: integer
     description: Rekkjefølgje for klassifiseringar.
-
   # --- Korrespondansepart / Part --------------------------------------------
-
   foedselsnummer:
     slot_uri: ark:foedselsnummer
     range: string
     description: Fødselsnummer.
-
   # Brukt i Korrespondansepart og Part: ark:kontaktperson (string).
   # Ulikt frå fint-common sin 'kontaktperson' (fint:kontaktpersonFor, range Person).
   kontaktperson_str:
     slot_uri: ark:kontaktperson
     range: string
     description: Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart.
-
   korrespondansepartNavn:
     slot_uri: ark:korrespondansepartNavn
     range: string
     description: Namn på person eller organisasjon som er avsender eller mottakar.
-
   # ark:organisasjonsnummer (string) — ulikt frå fint-common sin (fint:organisasjonsnummer, Identifikator).
   orgnummer:
     slot_uri: ark:organisasjonsnummer
     range: string
     description: Organisasjonsnummer.
-
   korrespondanseparttype:
     slot_uri: ark:korrespondanseparttype
     range: KorrespondansepartType
     description: Type korrespondansepart.
-
   partNavn:
     slot_uri: ark:partNavn
     range: string
     description: Namn på verksemd eller person som er part.
-
   partRolle:
     slot_uri: ark:partRolle
     range: PartRolle
     description: Rolla til parten.
-
   # --- Merknad --------------------------------------------------------------
-
   merknadsdato:
     slot_uri: ark:merknadsdato
     range: datetime
     description: Dato og klokkeslett merknaden vart registrert.
-
   merknadstekst:
     slot_uri: ark:merknadstekst
     range: string
     description: Merknad frå saksbehandlar, leiar eller arkivpersonale.
-
   merknadstype:
     slot_uri: ark:merknadstype
     range: Merknadstype
     description: Type merknad.
-
   merknadRegistrertAv:
     slot_uri: ark:merknadRegistrertAv
     range: Arkivressurs
     description: Person som registrerte merknaden.
-
   # --- Skjerming ------------------------------------------------------------
-
   skjermingshjemmel:
     slot_uri: ark:skjermingshjemmel
     range: Skjermingshjemmel
     description: Skjermingsheimelen.
-
   # --- Avskrivning ----------------------------------------------------------
-
   avskrevetAv:
     slot_uri: ark:avskrevetAv
     range: string
     description: Person som avskriva journalposten.
-
   avskrivningsdato:
     slot_uri: ark:avskrivningsdato
     range: datetime
     description: Dato og klokkeslett for avskrivinga.
-
   avskrivningsmate:
     slot_uri: ark:avskrivningsmate
     range: string
     description: Korleis journalposten er avskriven.
-
   # --- Personalmappe --------------------------------------------------------
 
   # person:
   #   slot_uri: ark:person
   #   range: uriorcurie
   #   description: Referanse til Person i Administrasjon-domenet.
-
   leder:
     slot_uri: ark:leder
     range: uriorcurie
     description: Referanse til Personalressurs som er arbeidstakarens leiar.
-
   arbeidssted:
     slot_uri: ark:arbeidssted
     range: uriorcurie
     description: Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad.
-
   # --- Kulturminnevern / Samferdsel -----------------------------------------
-
   kulturminneId:
     slot_uri: ark:kulturminneId
     range: string
     description: Kulturminnets ID i Askeladden.
-
   matrikkelnummer:
     slot_uri: ark:matrikkelnummer
     range: Matrikkelnummer
     inlined: true
     description: Kulturminnets/bygningens identifikator i Matrikkelen.
-
   soeknadsnummer:
     slot_uri: ark:soeknadsnummer
     range: Identifikator
     inlined: true
     description: Søknadsnummer frå Digisak.
-
   tiltak:
     slot_uri: ark:tiltak
     range: string
     description: Skildrar kva tiltak som skal utførast på eigedommen.
-
   fartoyNavn:
     slot_uri: ark:fartoyNavn
     range: string
     description: Fartøyets namn.
-
   kallesignal:
     slot_uri: ark:kallesignal
     range: string
     description: Fartøyets kallesignal.
-
   bygningsnavn:
     slot_uri: ark:bygningsnavn
     range: string
     description: Bygningens namn.
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
-
 classes:
-
   ArkivContainer:
     tree_root: true
     description: Rotcontainer for FINT Arkiv-instansar.
@@ -784,9 +652,7 @@ classes:
         range: Variantformat
         multivalued: true
         inlined_as_list: true
-
   # --- arkiv.noark: abstrakte basisklassar ------------------------------------
-
   Mappe:
     abstract: true
     description: Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer saman.
@@ -853,7 +719,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Saksmappe:
     abstract: true
     is_a: Mappe
@@ -908,7 +773,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Registrering:
     abstract: true
     description: Abstrakt basisklasse — arkivets primære byggeklossar.
@@ -1004,9 +868,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # --- arkiv.noark: Hauptklassar --------------------------------------------
-
   AdministrativEnhet:
     description: Administrativ eining med ansvar for saksbehandling.
     class_uri: ark:AdministrativEnhet
@@ -1026,7 +888,6 @@ classes:
       organisasjonselement:
         in_subset:
           - Valgfri
-
   Arkivdel:
     description: Ein vilkårleg definert del av eit arkiv.
     class_uri: ark:Arkivdel
@@ -1043,7 +904,6 @@ classes:
         multivalued: true
         in_subset:
           - Valgfri
-
   Arkivressurs:
     description: Ansatt med rolle og rettar innanfor arkiv.
     class_uri: ark:Arkivressurs
@@ -1067,7 +927,6 @@ classes:
       tilgang:
         in_subset:
           - Valgfri
-
   Autorisasjon:
     description: Siling av kva ein innlogga brukar får lov til å gjere i løysinga.
     class_uri: ark:Autorisasjon
@@ -1088,7 +947,6 @@ classes:
       arkivressurs:
         in_subset:
           - Valgfri
-
   Dokumentfil:
     description: Sjølve dokumentfila med data og metadata.
     class_uri: ark:Dokumentfil
@@ -1109,7 +967,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Journalpost:
     is_a: Registrering
     description: Ein journalpost (inn- eller utgåande dokument, notat o.l.) i ei saksmappe.
@@ -1174,7 +1031,6 @@ classes:
       journalenhet:
         in_subset:
           - Valgfri
-
   Klassifikasjonssystem:
     description: Overordna struktur for mappene i ein eller fleire arkivdelar.
     class_uri: ark:Klassifikasjonssystem
@@ -1225,7 +1081,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Tilgang:
     description: Styring av kven som har tilgang til kva opplysningar.
     class_uri: ark:Tilgang
@@ -1254,16 +1109,12 @@ classes:
       arkivressurs:
         in_subset:
           - Valgfri
-
   # --- arkiv.noark: konkrete saksmappetypar ----------------------------------
-
   Sak:
     is_a: Saksmappe
     description: Generisk saksmappe (konkret Sak i Noark).
     class_uri: ark:Sak
-
   # --- arkiv.personal --------------------------------------------------------
-
   Personalmappe:
     is_a: Saksmappe
     description: Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.
@@ -1295,9 +1146,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # --- arkiv.kulturminnevern -------------------------------------------------
-
   DispensasjonAutomatiskFredaKulturminne:
     is_a: Saksmappe
     description: Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.
@@ -1323,7 +1172,6 @@ classes:
       tiltak:
         in_subset:
           - Valgfri
-
   TilskuddFartoy:
     is_a: Saksmappe
     description: Sak om søknad om tilskudd til freda fartøy.
@@ -1350,7 +1198,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   TilskuddFredaBygningPrivatEie:
     is_a: Saksmappe
     description: Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).
@@ -1374,9 +1221,7 @@ classes:
       soeknadsnummer:
         in_subset:
           - Valgfri
-
   # --- arkiv.samferdsel ------------------------------------------------------
-
   SoeknadDrosjeloeyve:
     is_a: Saksmappe
     description: Sak om søknad om løyve til å køyre drosje.
@@ -1393,9 +1238,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # --- arkiv.noark: Komplekse datatypar (ingen id) --------------------------
-
   Avskrivning:
     description: Avskriving av ein journalpost (markering som ferdigbehandla).
     class_uri: ark:Avskrivning
@@ -1416,7 +1259,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Dokumentbeskrivelse:
     description: Skildring av eit dokument tilknytt ein journalpost.
     class_uri: ark:Dokumentbeskrivelse
@@ -1489,7 +1331,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Dokumentobjekt:
     description: Referanse til éin og berre éin dokumentfil.
     class_uri: ark:Dokumentobjekt
@@ -1533,7 +1374,6 @@ classes:
       referanseDokumentfil:
         in_subset:
           - Valgfri
-
   Klasse:
     description: Ein klasse i eit klassifikasjonssystem.
     class_uri: ark:Klasse
@@ -1562,7 +1402,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Korrespondansepart:
     description: Verksemd eller person som arkivskapar mottek eller sender arkivdokument til.
     class_uri: ark:Korrespondansepart
@@ -1601,7 +1440,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Merknad:
     description: Merknad knytt til mappe, registrering eller dokumentbeskrivelse.
     class_uri: ark:Merknad
@@ -1627,7 +1465,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Part:
     description: Part til Mappe, Registrering eller Dokumentbeskrivelse.
     class_uri: ark:Part
@@ -1662,7 +1499,6 @@ classes:
       partRolle:
         in_subset:
           - Valgfri
-
   Skjerming:
     description: Skjerming av mappe, registrering eller dokument etter offentleglova.
     class_uri: ark:Skjerming
@@ -1678,9 +1514,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # --- arkiv.kodeverk -------------------------------------------------------
-
   DokumentStatus:
     description: Status til eit dokument.
     class_uri: ark:DokumentStatus
@@ -1705,7 +1539,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   DokumentType:
     description: Type dokument.
     class_uri: ark:DokumentType
@@ -1730,7 +1563,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Format:
     description: Dokumentets filformat.
     class_uri: ark:Format
@@ -1755,7 +1587,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   JournalpostType:
     description: Namn på type journalpost.
     class_uri: ark:JournalpostType
@@ -1780,7 +1611,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   JournalStatus:
     description: Status til journalposten.
     class_uri: ark:JournalStatus
@@ -1805,7 +1635,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Klassifikasjonstype:
     description: Type klassifikasjonssystem.
     class_uri: ark:Klassifikasjonstype
@@ -1830,7 +1659,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   KorrespondansepartType:
     description: Type korrespondansepart.
     class_uri: ark:KorrespondansepartType
@@ -1855,7 +1683,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Merknadstype:
     description: Namn på type merknad.
     class_uri: ark:Merknadstype
@@ -1880,7 +1707,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   PartRolle:
     description: Rolla til ein part.
     class_uri: ark:PartRolle
@@ -1905,7 +1731,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Rolle:
     description: Rolla til ein arkivressurs.
     class_uri: ark:Rolle
@@ -1930,7 +1755,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Saksmappetype:
     description: Type saksmappe — differensierer innhald og behandlingsrutine.
     class_uri: ark:Saksmappetype
@@ -1955,7 +1779,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Saksstatus:
     description: Status til saksmappa.
     class_uri: ark:Saksstatus
@@ -1980,7 +1803,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Skjermingshjemmel:
     description: Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen.
     class_uri: ark:Skjermingshjemmel
@@ -2005,7 +1827,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Tilgangsgruppe:
     description: Tilgangsgruppe for intern skjerming av innhald.
     class_uri: ark:Tilgangsgruppe
@@ -2030,7 +1851,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Tilgangsrestriksjon:
     description: Angiving av at dokumenta ikkje er offentleg tilgjengelege.
     class_uri: ark:Tilgangsrestriksjon
@@ -2055,7 +1875,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   TilknyttetRegistreringSom:
     description: Kva rolle dokumentet har i høve registreringa (t.d. Hoveddokument, Vedlegg).
     class_uri: ark:TilknyttetRegistreringSom
@@ -2080,7 +1899,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Variantformat:
     description: Angiving av kva variant eit dokument førekjem i.
     class_uri: ark:Variantformat
