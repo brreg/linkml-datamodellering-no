@@ -288,7 +288,16 @@
       "Bash(sed -i 's/manifest-config\\\\.md/build-config.md/g' mkdocs/docs/*.md)",
       "Bash(sed -i 's|manifest-config/|build-config/|g' mkdocs/docs/*.md)",
       "Bash(make validate-informasjonsmodell-instance *)",
-      "Bash(make validate-modellkatalog-instance *)"
+      "Bash(make validate-modellkatalog-instance *)",
+      "Bash(cat)",
+      "Bash(head -26 PRINCIPLES.md)",
+      "Bash(cat /tmp/principles_section3.txt)",
+      "Bash(tail -n +52 PRINCIPLES.md)",
+      "Bash(mv /tmp/principles_new.md PRINCIPLES.md)",
+      "Bash(head -43 CLAUDE.md)",
+      "Bash(cat /tmp/claude_importhierarki.txt)",
+      "Bash(echo \"\")",
+      "Bash(tail -n +65 CLAUDE.md)"
     ]
   },
   "enableAllProjectMcpServers": true,

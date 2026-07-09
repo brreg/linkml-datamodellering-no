@@ -1,5 +1,14 @@
 # CLAUDE.md
 
+## Referansedokument
+
+Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CLAUDE.md:
+
+- **[SCOPE.md](SCOPE.md)** — kva repoet er, kva det ikkje er, kva som høyrer heime her, funksjonalitet
+- **[PRINCIPLES.md](PRINCIPLES.md)** — dei 6 grunnleggjande designprinsippa (pull vs push, containerisering, import-hierarki, lenking, slots vs attributes, skriftspråk)
+- **[CONVENTIONS.md](CONVENTIONS.md)** — namnekonvensjonar, manifestformat, commit-meldingar
+- **[GOVERNANCE.md](GOVERNANCE.md)** — roller, eigarskap, RFC-prosess, versjonspolitikk
+
 ## Arbeidsflyt
 
 **Ved kvar brukarinstruksjon:**
@@ -34,25 +43,16 @@
 
 ## LinkML Importhierarki
 
-```
-linkml:types
-    ↓
-common-ap-no          ← bare AP-NO-profilene importerer denne direkte
-    ↓
-dcat-ap-no / dqv-ap-no / skos-ap-no / …
-    ↓
-domenemodeller        ← importerer AP-NO-profilene, ikke common-ap-no direkte
+Sjå [PRINCIPLES.md § 3](PRINCIPLES.md#3-modularitet-via-import-hierarki) og [mkdocs/docs/importhierarki.md](mkdocs/docs/importhierarki.md) for fullstendig importhierarki, konkrete YAML-eksempel, reglar og versjonslåsing-rettleiing.
 
-fint-common           ← bare FINT-domenemodellene importerer denne
-    ↓
-fint-administrasjon / fint-arkiv / …
-
-oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter behov)
-
-fair-metadata         ← kan importeres av alle domenemodeller
-```
+**Hovudpunkt:**
+- `common-ap-no-schema` importerer `linkml:types` — berre AP-NO-profilene importerer denne direkte
+- Domenemodeller importerer AP-NO-profilene (t.d. `dcat-ap-no-schema`), ikkje `common-ap-no-schema`
+- `fint-common-schema` er felles for alle FINT-modellar
+- `fair-metadata-schema` kan kombinerast med både AP-NO, FINT og oreg-skjema
 
 Importhierarkiet er repoets primære DRY-mekanisme for skjema: klasser og slots definerast éin stad og importerast nedover. MC8-MC11 (sjå `specs/done/avvik-modelldcat-ap-no.md`) er eit praktisk døme — duplikate klasser vart fjerna frå `modelldcat-katalog-schema.yaml` ved å importere `dcat-ap-no-schema` i staden.
+
 
 ## Valider arbeidet ditt
 

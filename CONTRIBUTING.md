@@ -36,7 +36,10 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for fullstendig forklaring av roller og mynd
 
 ## Scope og prinsipp
 
-For fullstendig oversikt over kva repoet er (og ikkje er), modelleringsprinsipp og namnekonvensjonar, sjå [specs/done/oversikt-avgrensingar-prinsipp.md](specs/done/oversikt-avgrensingar-prinsipp.md).
+For fullstendig oversikt, sjå:
+- [SCOPE.md](SCOPE.md) — kva repoet er (og ikkje er), funksjonalitet
+- [PRINCIPLES.md](PRINCIPLES.md) — designprinsipp for modellering
+- [CONVENTIONS.md](CONVENTIONS.md) — namnekonvensjonar og manifestformat
 
 ## Modellkatalog
 
