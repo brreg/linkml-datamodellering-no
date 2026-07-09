@@ -470,6 +470,7 @@ nav:
       - Publiser til Felles Datakatalog: publisering-modell.md
       - Publiseringsflyt: arkitektur-oversikt.md
       - Struktur for modell-dokumentasjon: index-md-struktur.md
+      - Modellmanifest-generering: modellmanifest-generering.md
       - Monitorering av automasjon: monitorering.md
       - Om: om.md
 STATIC
