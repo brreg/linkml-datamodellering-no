@@ -377,8 +377,9 @@ def main():
     # Generer
     modelldcat_data = generate_modelldcat_data(schema_path)
 
-    # Skriv til metadata/modelldcat.yaml
-    output_path = schema_path.parent / 'metadata' / 'modelldcat.yaml'
+    # Skriv til metadata/<modell>-manifest.yaml
+    modell_name = schema_path.stem.replace('-schema', '')  # "dcat-ap-no-schema" → "dcat-ap-no"
+    output_path = schema_path.parent / 'metadata' / f'{modell_name}-manifest.yaml'
     write_yaml(output_path, modelldcat_data)
 
     print(f"✓ Generert: {output_path}")

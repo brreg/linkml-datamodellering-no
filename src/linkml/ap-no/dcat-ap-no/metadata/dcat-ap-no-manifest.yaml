@@ -1,0 +1,58 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/dcat-ap-no
+tittel:
+  nb: DCAT-AP-NO
+  nn: DCAT-AP-NO
+beskrivelse:
+  nb: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
+    inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
+  nn: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
+    inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
+versjonsnummer: 2.2.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-07-04'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dcat-ap-no/
+er_i_samsvar_med:
+- id: https://informasjonsforvaltning.github.io/dcat-ap-no/
+  tittel:
+    nb: Standard for beskrivelse av datasett, datatjenester og datakataloger (DCAT-AP-NO)
+    nn: Standard for beskrivelse av datasett, datatjenester og datakataloger (DCAT-AP-NO)
+  har_referanse: https://informasjonsforvaltning.github.io/dcat-ap-no/
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://www.w3.org/ns/dcat#Resource
+- http://xmlns.com/foaf/0.1/Agent
+- http://www.w3.org/2006/vcard/ns#Kind
+- http://purl.org/dc/terms/PeriodOfTime
+- http://purl.org/dc/terms/Standard
+- http://data.europa.eu/eli/ontology#LegalResource
+- http://www.w3.org/ns/adms#Identifier
+- http://purl.org/dc/terms/RightsStatement
+- http://spdx.org/rdf/terms#Checksum
+- http://data.europa.eu/m8g/Cost
+- http://www.w3.org/ns/dcat#Relationship
+- http://www.w3.org/ns/dcat#Distribution
+- http://www.w3.org/ns/dcat#Dataset
+- http://www.w3.org/ns/dcat#DatasetSeries
+- http://www.w3.org/ns/dcat#DataService
+- http://www.w3.org/ns/dcat#CatalogRecord
+- http://www.w3.org/ns/dcat#Catalog
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dcat-ap-no/dcat-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml

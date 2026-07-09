@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genererer per-org Modellkatalog-instansar frå alle metadata/modelldcat.yaml-filer.
+Genererer per-org Modellkatalog-instansar frå alle metadata/*-manifest.yaml-filer.
 
 Les alle Informasjonsmodell-instansar, grupper dei etter utgiver (frå CODEOWNERS.md),
 og generer éi katalogfil per organisasjon i src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml.
@@ -27,7 +27,7 @@ def write_yaml(file_path: Path, data: Dict):
     with open(file_path, 'w', encoding='utf-8') as f:
         # Legg til header-kommentar
         f.write("# Generert av CI frå generate-modellkatalog.py — ikkje rediger manuelt\n")
-        f.write("# Samlar alle Informasjonsmodell-instansar per organisasjon frå metadata/modelldcat.yaml\n\n")
+        f.write("# Samlar alle Informasjonsmodell-instansar per organisasjon frå metadata/*-manifest.yaml\n\n")
         yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
 
@@ -86,7 +86,7 @@ def load_codeowners() -> Dict:
 
 def discover_modelldcat_files() -> List[Path]:
     """
-    Finn alle metadata/modelldcat.yaml-filer i src/linkml/**/metadata/.
+    Finn alle metadata/*-manifest.yaml-filer i src/linkml/**/metadata/.
 
     Returnerer sortert liste (alfabetisk etter domain/modell-path).
     """
@@ -97,8 +97,8 @@ def discover_modelldcat_files() -> List[Path]:
         print(f"Warning: src/linkml/ katalog ikkje funne på {src_linkml}", file=sys.stderr)
         return []
 
-    # Finn alle metadata/modelldcat.yaml-filer
-    modelldcat_files = sorted(src_linkml.glob('**/metadata/modelldcat.yaml'))
+    # Finn alle metadata/*-manifest.yaml-filer
+    modelldcat_files = sorted(src_linkml.glob('**/metadata/*-manifest.yaml'))
 
     return modelldcat_files
 
@@ -257,7 +257,7 @@ def main():
         print("Warning: Ingen Informasjonsmodell-instansar funne", file=sys.stderr)
         sys.exit(0)
 
-    print(f"✓ Fann {len(modelldcat_files)} metadata/modelldcat.yaml-filer")
+    print(f"✓ Fann {len(modelldcat_files)} metadata/*-manifest.yaml-filer")
 
     # 3. Last alle Informasjonsmodell-instansar og grupper etter utgiver
     org_models = {org_uri: [] for org_uri in org_registry}

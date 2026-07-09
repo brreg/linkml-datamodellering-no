@@ -954,6 +954,21 @@ domain-$(1):
 	else \
 		$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1))); \
 	fi
+	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** Genererer Informasjonsmodell-instansar for domain-$(1)$(CLR_RST)"
+	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
+	@if [ "$$(PARALLEL)" = "1" ]; then \
+		for schema in $$(_schemas_$(1)); do \
+			echo "$(CLR_STEP)→ gen-informasjonsmodell-instance  $$$$schema$(CLR_RST)"; \
+			$$(MAKE) gen-informasjonsmodell-instance SCHEMA=$$$$schema || echo "Warning: Failed to generate Informasjonsmodell for $$$$schema"; \
+		done; \
+	else \
+		printf '%s\n' $$(_schemas_$(1)) | xargs -P $$(PARALLEL) -I {} bash -c ' \
+			schema="{}"; \
+			echo "$(CLR_STEP)→ gen-informasjonsmodell-instance  $$$$schema$(CLR_RST)"; \
+			$$(MAKE) gen-informasjonsmodell-instance SCHEMA=$$$$schema || echo "Warning: Failed to generate Informasjonsmodell for $$$$schema"; \
+		'; \
+	fi
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))

@@ -1,0 +1,49 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ap-no/skos-ap-no
+tittel:
+  nb: SKOS-AP-NO
+  nn: SKOS-AP-NO
+beskrivelse:
+  nb: Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med
+    lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+  nn: Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med
+    lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+versjonsnummer: 2.3.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-07-04'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/
+er_i_samsvar_med:
+- id: https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+  tittel:
+    nb: Forvaltningsstandard for begrepsbeskrivelser (SKOS-AP-NO-Begrep)
+    nn: Forvaltningsstandard for begrepsbeskrivelser (SKOS-AP-NO-Begrep)
+  har_referanse: https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+inneholder_modellelement:
+- http://www.w3.org/ns/org#Organization
+- http://www.w3.org/2006/vcard/ns#Kind
+- http://www.w3.org/2004/02/skos/core#Concept
+- http://publications.europa.eu/ontology/euvoc#XlNote
+- https://data.norge.no/vocabulary/skosno#AssociativeConceptRelation
+- https://data.norge.no/vocabulary/skosno#GenericConceptRelation
+- https://data.norge.no/vocabulary/skosno#PartitiveConceptRelation
+- http://www.w3.org/2004/02/skos/core#Collection
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/skos-ap-no/skos-ap-no-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/skos-ap-no/skos-ap-no-schema.yaml
