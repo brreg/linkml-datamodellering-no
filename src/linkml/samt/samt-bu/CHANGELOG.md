@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.3.0...samt-bu-v1.4.0) (2026-07-09)
+
+
+### Features
+
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([35da103](https://github.com/brreg/linkml-datamodellering-no/commit/35da103f75e856685bf01e255b732241792964fa))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([97dacce](https://github.com/brreg/linkml-datamodellering-no/commit/97dacce159f02236196c9daa686e375e503f15ef))
+
+
+### Bug Fixes
+
+* **mkdocs:** flytt horisontal linje frå badges til etter description og fjern støymeldingar ([f5969b3](https://github.com/brreg/linkml-datamodellering-no/commit/f5969b325255479a2059c2679975c9177cb3de9e))
+
 ## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.2.0...samt-bu-v1.3.0) (2026-07-06)
 
 

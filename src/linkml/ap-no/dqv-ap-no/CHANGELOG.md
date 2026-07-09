@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.6.0...dqv-ap-no-v1.7.0) (2026-07-09)
+
+
+### Features
+
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([35da103](https://github.com/brreg/linkml-datamodellering-no/commit/35da103f75e856685bf01e255b732241792964fa))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse ([a41c35a](https://github.com/brreg/linkml-datamodellering-no/commit/a41c35a660445f0180b3cdc17175386b1bd730a9))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([97dacce](https://github.com/brreg/linkml-datamodellering-no/commit/97dacce159f02236196c9daa686e375e503f15ef))
+* **modelldcat:** inline-instansar og full LinkML-validering ([70dc840](https://github.com/brreg/linkml-datamodellering-no/commit/70dc840bb89b86abf57bdf86b93d0cf2cf62c1a7))
+* **modelldcat:** MVP generering av Informasjonsmodell-instansar ([f9bd633](https://github.com/brreg/linkml-datamodellering-no/commit/f9bd63356440e1cee93b0c3c81fd9a43ad88ab2d))
+
 ## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.5.0...dqv-ap-no-v1.6.0) (2026-07-07)
 
 
