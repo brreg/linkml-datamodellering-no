@@ -81,13 +81,18 @@ Dersom data med `publish_external: true` må trekkjast tilbake:
 
 ---
 
-## Roller
+## Roller og eigarskap
 
 | Rolle | Ansvar | Kven |
 |---|---|---|
-| **Repo-administrator** | Godkjenner onboarding av nye org-ar, vedlikeheld felles infrastruktur (FAIR, referanse, tooling, CI), kan merge til `main` | GitHub-team hos repo-host |
-| **Katalogeigarleiing** | Eig og godkjenner endringar i eigen org sine domenemodeller og modellkatalog | Utpeikt person per org, registrert i `CODEOWNERS.md` |
+| **Repo-administrator** | Godkjenner onboarding av nye org-ar, vedlikeheld felles infrastruktur (AP-NO-profilene, common-ap-no, fair-metadata, referanse, tooling, CI/CD), kan merge til `main` | GitHub-team hos repo-host |
+| **Katalogeigarleiing** | Eig og godkjenner endringar i eigen org sine domenemodeller, begrepskatalog og modellkatalog | Utpeikt person per org, registrert i `CODEOWNERS.md` |
+| **Domenemodell-eigar** | Eig og vedlikeheld spesifikke domenemodeller under `src/linkml/<domain>/` | Kvar domenemodell har ein eigar-org i `CODEOWNERS.md` |
 | **Bidragsytar** | Sender PR-ar, skriv modellar, rapporterer feil | Alle med write-tilgang |
+
+Kvar domenemodell har ein eigar-org i `CODEOWNERS.md`. Brotande endringar
+i delte skjema (`ap-no/`, `common-ap-no`, `fair-metadata`) krev RFC-prosess: GitHub Issue,
+14-dagars diskusjonsfrist, konsensus.
 
 ---
 
