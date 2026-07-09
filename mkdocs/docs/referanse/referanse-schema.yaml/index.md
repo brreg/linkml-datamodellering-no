@@ -22,6 +22,11 @@
 | Imports | linkml:types<br>../ap-no/dcat-ap-no/dcat-ap-no-schema |
 
 
+
+## Datamodell
+
+Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](../../../src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml)
+
 ---
 
 ## Classes
@@ -98,7 +103,7 @@
 
 | Artefakt | Fil |
 |----------|-----|
-| ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
+| ER-diagram (Mermaid) | [`referanse-schema.yaml-erdiagram.md`](referanse-schema.yaml-erdiagram.md) |
 
 ---
 
