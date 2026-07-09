@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.5.0...modelldcat-ap-no-v1.6.0) (2026-07-09)
+
+
+### Features
+
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([35da103](https://github.com/brreg/linkml-datamodellering-no/commit/35da103f75e856685bf01e255b732241792964fa))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse ([a41c35a](https://github.com/brreg/linkml-datamodellering-no/commit/a41c35a660445f0180b3cdc17175386b1bd730a9))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.4.0...modelldcat-ap-no-v1.5.0) (2026-07-07)
 
 
