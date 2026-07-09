@@ -132,7 +132,7 @@ ngr-virksomhet, register-over-aksjeeiere, samt-bu
 - [x] Test scriptet mot `test_README.md` — ✅ fungerer
 - [x] Skjema-tabell: gruppere skjema etter domene i same rekkefølgje som domene-tabellen
 - [x] Skjema-tabell: filtrer vekk underskjema (t.d. modelldcat-katalog, modelldcat-modell) — berre hovudskjema
-- [ ] Integrer scriptet i `make docs-publish` (køyr før mkdocs-publisering)
+- [x] Integrer scriptet i `make docs-publish` (køyr før mkdocs-publisering) — ✅ **UTFØRT**: Makefile oppdatert, scriptet køyrer automatisk før mkdocs/publish.sh
 
 ### 5 (opprinnelig beskrivelse). Vurder automatisering
 **Problem:** README.md vert lett utdatert når nye skjema vert lagt til.
@@ -237,3 +237,29 @@ ngr-virksomhet, register-over-aksjeeiere, samt-bu
 - [x] Oppdater alle referansar i README.md og test_README.md
 
 **Grunngiving:** Filnamnet `publisering-oversikt.md` er meir presis — dokumentet handlar om publiseringsflyt, høsting og artefaktar, ikkje generell systemarkitektur.
+
+---
+
+## Utført
+
+Alle tiltak 1-10 er gjennomførte, inkludert Makefile-integrasjon.
+
+**Resultat:**
+
+- ✅ README.md oppdatert med nye skjema (brreg-begrepskatalog, enhetsregisteret-bvrinn, referanse)
+- ✅ README.md oppdatert med nye domene (modellkatalog, referanse)
+- ✅ Ny seksjon "Genererte modellkatalogar" med tabell over 6 modellkatalogar
+- ✅ Dokumentasjonsstruktur omorganisert: SCOPE.md, PRINCIPLES.md, CONVENTIONS.md opprett på root
+- ✅ Automatisert generering av domene-, skjema- og modellkatalog-tabellar med `scripts/generate-readme-tables.sh`
+- ✅ Makefile-integrasjon: `make docs-publish` køyrer no generate-readme-tables.sh automatisk før mkdocs-publisering
+- ✅ Bugs-dokumentasjon flytta frå specs/bugs/ til root (BUGS.md, bugs/)
+- ✅ README.md kompakt: lenkjer til autoritative dokument i staden for å duplisere innhald
+  - "Kjende avgrensingar" og "Designprinsipp og konvensjonar" flytta tidlegare i README.md
+  - "Versjonerte adresser" flytta til mkdocs/docs/ekstern-bruk.md
+  - "Kva publiserast til eksterne system" flytta til mkdocs/docs/publisering-oversikt.md (tidlegare arkitektur-oversikt.md)
+- ✅ Eliminert duplisering:
+  - PoC-warning brukar anchor-lenkjer i staden for direkte fillenker
+  - Publiseringsseksjon fjerna frå mkdocs/docs/index.md (lenker til publisering-oversikt.md)
+- ✅ Omdøypt mkdocs/docs/arkitektur-oversikt.md → publisering-oversikt.md for å spegle faktisk innhald
+
+**Dato gjennomført:** 2026-07-09
