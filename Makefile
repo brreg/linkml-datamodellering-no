@@ -843,7 +843,7 @@ docs-publish:
 	@echo "$(CLR_HDR)*** make docs-publish$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_INFO)Oppdaterer README.md-tabellar...$(CLR_RST)"
-	bash scripts/generate-readme-tables.sh README.md
+	bash src/assets/scripts/generate-readme-tables.sh README.md
 	@echo "$(CLR_INFO)Publiserer mkdocs-portal...$(CLR_RST)"
 	bash mkdocs/publish.sh
 
