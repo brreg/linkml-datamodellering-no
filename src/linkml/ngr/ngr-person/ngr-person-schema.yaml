@@ -3,53 +3,38 @@
 
 id: https://data.norge.no/ngr/ngr-person
 name: ngr-person
-version: "1.1.0"
+version: "1.3.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Nasjonale grunndata - Person
 description: >-
-  Domenemodell for persondata basert på Nasjonale grunndata (utkast).
-  Modellerer Person med identifikasjon, familierelasjonar, adresser,
-  eigarrettar og kontaktopplysningar frå Folkeregisteret og KRR.
-  Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
-
+  Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar frå Folkeregisteret og KRR. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
 annotations:
   utgiver: https://data.norge.no/organizations/974761076
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
-
 prefixes:
-  linkml:  https://w3id.org/linkml/
-  ngrp:    https://data.norge.no/vocabulary/ngr-person#
-  xsd:     http://www.w3.org/2001/XMLSchema#
-
+  linkml: https://w3id.org/linkml/
+  ngrp: https://data.norge.no/vocabulary/ngr-person#
+  xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-person/
 default_range: string
-
 imports:
   - linkml:types
-
 # ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
-
 subsets:
-
   Obligatorisk:
     description: Obligatoriske eigenskapar i domenemodellen.
-
   Anbefalt:
     description: Anbefalte eigenskapar i domenemodellen.
-
   Valgfri:
     description: Valfrie eigenskapar i domenemodellen.
-
 # ---------------------------------------------------------------------------
 # Enums
 # ---------------------------------------------------------------------------
-
 enums:
-
   KjoennKode:
     description: Kjønn registrert i Folkeregisteret.
     permissible_values:
@@ -59,7 +44,6 @@ enums:
         description: Kvinne
       UKJENT:
         description: Ukjent kjønn
-
   SivilstandType:
     description: Sivilstandskode frå Folkeregisteret.
     permissible_values:
@@ -83,7 +67,6 @@ enums:
         description: Skilt partner
       ETTERLATT_PARTNER:
         description: Etterlatt partner
-
   PersonstatusType:
     description: Personens status i Folkeregisteret.
     permissible_values:
@@ -101,7 +84,6 @@ enums:
         description: Midlertidig registrert
       FORSVUNNET:
         description: Forsvunnen
-
   OppholdstypeKode:
     description: Type opphaldstillatelse registrert i Folkeregisteret.
     permissible_values:
@@ -111,7 +93,6 @@ enums:
         description: Permanent opphaldsløyve
       OPPLYSNING_MANGLER:
         description: Opplysning manglar
-
   AdressebeskyttelseGradering:
     description: Gradering av adressebeskyttelse (tidlegare kode 6/7).
     permissible_values:
@@ -123,7 +104,6 @@ enums:
         description: Strengt fortroleg adresse i utlandet
       UGRADERT:
         description: Ikkje adressebeskyttelse
-
   IdentifikasjonsdokumentType:
     description: Type utanlandsk identifikasjonsdokument.
     permissible_values:
@@ -137,7 +117,6 @@ enums:
         description: Opphaldsløyve
       ANNET:
         description: Anna dokument
-
   RettsligHandleevneType:
     description: Type avgrensing av rettsleg handleevne.
     permissible_values:
@@ -147,7 +126,6 @@ enums:
         description: Fråtatt rettsleg handleevne i personlege tilhøve
       FRATATT_RETTSLIG_HANDLEEVNE_OKONOMISK:
         description: Fråtatt rettsleg handleevne i formueretslige tilhøve
-
   VergetypeKode:
     description: Type vergemål.
     permissible_values:
@@ -159,18 +137,14 @@ enums:
         description: Vaksen
       MIDLERTIDIG_FOR_VOKSEN:
         description: Mellombels for vaksen
-
 # ---------------------------------------------------------------------------
 # Containerklasse (tree_root)
 # ---------------------------------------------------------------------------
-
 classes:
-
   PersonContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare
-      klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
     attributes:
       personar:
         range: Person
@@ -300,16 +274,13 @@ classes:
         range: SpraakForElektroniskKommunikasjon
         multivalued: true
         inlined_as_list: true
-
   # ---------------------------------------------------------------------------
   # Hovudklasse
   # ---------------------------------------------------------------------------
-
   Person:
     class_uri: ngrp:Person
     description: >-
-      Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i
-      domene person.
+      Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person.
     slots:
       - id
       - har_personnavn
@@ -442,11 +413,9 @@ classes:
       har_kontaktopplysninger:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Identifikasjon
   # ---------------------------------------------------------------------------
-
   Personnavn:
     class_uri: ngrp:Personnavn
     description: Offisielt registrert namn på ein person i Folkeregisteret.
@@ -471,49 +440,38 @@ classes:
       forkortet_navn:
         in_subset:
           - Valgfri
-
   Folkeregisteridentifikator:
     abstract: true
     class_uri: ngrp:Folkeregisteridentifikator
     description: >-
-      Abstrakt overklasse for unik identifikator i Folkeregisteret.
-      Konkrete underklassar er Fødselsnummer og D-nummer.
+      Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er Fødselsnummer og D-nummer.
     slots:
       - id
       - identifikatornummer
-
   Foedselsnummer:
     is_a: Folkeregisteridentifikator
     class_uri: ngrp:Foedselsnummer
     description: >-
-      Elleve-sifra fødselsnummer tildelt norske statsborgarar og
-      personar med fast opphald i Noreg.
+      Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast opphald i Noreg.
     slot_usage:
       identifikatornummer:
         required: true
         in_subset:
           - Obligatorisk
-
   DNummer:
     is_a: Folkeregisteridentifikator
     class_uri: ngrp:DNummer
     description: >-
-      Elleve-sifra D-nummer tildelt utanlandske personar med mellombels
-      opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller
-      permanent opphald). Brukes om de har midlertidig eller ikkje har
-      permanent opphald.
+      Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om de har midlertidig eller ikkje har permanent opphald.
     slot_usage:
       identifikatornummer:
         required: true
         in_subset:
           - Obligatorisk
-
   Personidentifikasjon:
     class_uri: ngrp:Personidentifikasjon
     description: >-
-      Utanlandsk eller alternativ identifikasjon av ein person,
-      t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller
-      social security number.
+      Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller social security number.
     slots:
       - id
       - identifikasjonstype
@@ -527,12 +485,10 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   FalskIdentitet:
     class_uri: ngrp:FalskIdentitet
     description: >-
-      Registrering av at ein person har opptrådt med falsk identitet.
-      Kan peke på den rette identiteten om denne er kjent.
+      Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den rette identiteten om denne er kjent.
     slots:
       - id
       - er_falsk
@@ -549,12 +505,10 @@ classes:
       rett_identitet:
         in_subset:
           - Valgfri
-
   Identifikasjonsdokument:
     class_uri: ngrp:Identifikasjonsdokument
     description: >-
-      Utanlandsk identifikasjonsdokument som pass, førekort eller
-      nasjonalt ID-kort knytt til ein person.
+      Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort knytt til ein person.
     slots:
       - id
       - dokumenttype
@@ -580,12 +534,10 @@ classes:
       utloepsdato:
         in_subset:
           - Valgfri
-
   Identitetsgrunnlag:
     class_uri: ngrp:Identitetsgrunnlag
     description: >-
-      Grunnlaget som er brukt for å fastsetje identiteten til ein person
-      ved registrering i Folkeregisteret.
+      Grunnlaget som er brukt for å fastsetje identiteten til ein person ved registrering i Folkeregisteret.
     slots:
       - id
       - identitetsgrunnlag_status
@@ -598,11 +550,9 @@ classes:
       identitetsgrunnlag_kilde:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Status og statsborgerskap
   # ---------------------------------------------------------------------------
-
   Kjoenn:
     class_uri: ngrp:Kjoenn
     description: Kjønn registrert på ein person i Folkeregisteret.
@@ -618,7 +568,6 @@ classes:
       gyldig_fra_og_med:
         in_subset:
           - Anbefalt
-
   Sivilstand:
     class_uri: ngrp:Sivilstand
     description: Sivilstand registrert på ein person i Folkeregisteret.
@@ -638,7 +587,6 @@ classes:
       relatert_ved_sivilstand:
         in_subset:
           - Valgfri
-
   Personstatus:
     class_uri: ngrp:Personstatus
     description: Status for ein person i Folkeregisteret (t.d. bosatt, utflyttet, død).
@@ -654,7 +602,6 @@ classes:
       gyldig_fra_og_med:
         in_subset:
           - Anbefalt
-
   Statsborgerskap:
     class_uri: ngrp:Statsborgerskap
     description: Statsborgerskap registrert på ein person i Folkeregisteret.
@@ -674,12 +621,10 @@ classes:
       gyldig_til_og_med:
         in_subset:
           - Valgfri
-
   Opphold:
     class_uri: ngrp:Opphold
     description: >-
-      Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert
-      i Folkeregisteret.
+      Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregisteret.
     slots:
       - id
       - oppholds_type
@@ -697,11 +642,9 @@ classes:
       gyldig_til_og_med:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Fødsel og død
   # ---------------------------------------------------------------------------
-
   Foedsel:
     class_uri: ngrp:Foedsel
     description: Fødselsinformasjon om ein person registrert i Folkeregisteret.
@@ -721,7 +664,6 @@ classes:
       foedested:
         in_subset:
           - Valgfri
-
   Dodsfall:
     class_uri: ngrp:Dodsfall
     description: Dødsfallsinformasjon om ein person registrert i Folkeregisteret.
@@ -737,7 +679,6 @@ classes:
       doedssted:
         in_subset:
           - Valgfri
-
   KontaktinformasjonDoedsbo:
     class_uri: ngrp:KontaktinformasjonDoedsbo
     description: Kontaktinformasjon for eit dødsbu.
@@ -757,16 +698,13 @@ classes:
       epostadresse_verdi:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Familierelasjonar og foreldreansvar
   # ---------------------------------------------------------------------------
-
   ForeldreansvarForelder:
     class_uri: ngrp:ForeldreansvarForelder
     description: >-
-      Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret
-      for eit barn. Seier kven som er den ansvarlege forelderen.
+      Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret for eit barn. Seier kven som er den ansvarlege forelderen.
     slots:
       - id
       - er_av_type_person
@@ -779,12 +717,10 @@ classes:
       ansvarsstatus:
         in_subset:
           - Valgfri
-
   ForeldreansvarBarn:
     class_uri: ngrp:ForeldreansvarBarn
     description: >-
-      Relasjonsklasse som registrerer at eit barn er under foreldreansvaret
-      til ein person.
+      Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person.
     slots:
       - id
       - er_av_type_person
@@ -793,7 +729,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   FamilierelasjonForelder:
     class_uri: ngrp:FamilierelasjonForelder
     description: Familierelasjon der den relaterte personen er forelder.
@@ -809,7 +744,6 @@ classes:
       foreldrerelasjon_type:
         in_subset:
           - Anbefalt
-
   FamilierelasjonBarn:
     class_uri: ngrp:FamilierelasjonBarn
     description: Familierelasjon der den relaterte personen er barn.
@@ -821,12 +755,10 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   FamilierelasjonEktefelle:
     class_uri: ngrp:FamilierelasjonEktefelle
     description: >-
-      Familierelasjon der den relaterte personen er ektefelle eller registrert
-      partnar. Dette er strengt tatt same informasjon som sivilstand GIFT.
+      Familierelasjon der den relaterte personen er ektefelle eller registrert partnar. Dette er strengt tatt same informasjon som sivilstand GIFT.
     slots:
       - id
       - er_av_type_person
@@ -835,11 +767,9 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Inn- og utflytting
   # ---------------------------------------------------------------------------
-
   InnflyttingTilNorge:
     class_uri: ngrp:InnflyttingTilNorge
     description: Registrering av innflytting til Noreg i Folkeregisteret.
@@ -859,7 +789,6 @@ classes:
       fraflyttingssted_i_utlandet:
         in_subset:
           - Valgfri
-
   UtflyttingFraNorge:
     class_uri: ngrp:UtflyttingFraNorge
     description: Registrering av utflytting frå Noreg i Folkeregisteret.
@@ -879,21 +808,16 @@ classes:
       tilflyttingssted_i_utlandet:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Adresser
   # ---------------------------------------------------------------------------
-
   GeografiskAdresse:
     abstract: true
     class_uri: ngrp:GeografiskAdresse
     description: >-
-      Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse
-      og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse,
-      Postadresse og Oppholdsadresse.
+      Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.
     slots:
       - id
-
   Bostedsadresse:
     is_a: GeografiskAdresse
     class_uri: ngrp:Bostedsadresse
@@ -909,7 +833,6 @@ classes:
       gyldig_til_og_med:
         in_subset:
           - Valgfri
-
   Postadresse:
     is_a: GeografiskAdresse
     class_uri: ngrp:Postadresse
@@ -924,7 +847,6 @@ classes:
       gyldig_til_og_med:
         in_subset:
           - Valgfri
-
   Oppholdsadresse:
     is_a: GeografiskAdresse
     class_uri: ngrp:Oppholdsadresse
@@ -939,12 +861,10 @@ classes:
       gyldig_til_og_med:
         in_subset:
           - Valgfri
-
   Adressebeskyttelse:
     class_uri: ngrp:Adressebeskyttelse
     description: >-
-      Gradering av adressebeskyttelse for innflyttede personar til Noreg.
-      Tidlegare kalla kode 6 (strengt fortroleg) og kode 7 (fortroleg).
+      Gradering av adressebeskyttelse for innflyttede personar til Noreg. Tidlegare kalla kode 6 (strengt fortroleg) og kode 7 (fortroleg).
     slots:
       - id
       - adressebeskyttelse_gradering
@@ -953,16 +873,13 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # ---------------------------------------------------------------------------
   # Verge og rettsleg handleevne
   # ---------------------------------------------------------------------------
-
   Verge:
     class_uri: ngrp:Verge
     description: >-
-      Ein verje (anten person eller institusjon) som er oppnemnd for å
-      ivareta interessene til ein person. Er av type Person.
+      Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene til ein person. Er av type Person.
     slots:
       - id
       - er_av_type_person
@@ -979,12 +896,10 @@ classes:
       embete:
         in_subset:
           - Valgfri
-
   RettsligHandleevne:
     class_uri: ngrp:RettsligHandleevne
     description: >-
-      Registrering av avgrensing i rettsleg handleevne for ein person,
-      t.d. under vergemål eller fråtatt rettsleg handleevne.
+      Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål eller fråtatt rettsleg handleevne.
     slots:
       - id
       - rettslig_handleevne_type
@@ -997,16 +912,13 @@ classes:
       omfang:
         in_subset:
           - Valgfri
-
   # ---------------------------------------------------------------------------
   # Kontakt og kommunikasjon (forvaltast av KRR)
   # ---------------------------------------------------------------------------
-
   ReservasjonMotKommunikasjonPaaNett:
     class_uri: ngrp:ReservasjonMotKommunikasjonPaaNett
     description: >-
-      Registrering av at ein person har reservert seg mot digital kommunikasjon
-      frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+      Registrering av at ein person har reservert seg mot digital kommunikasjon frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
     slots:
       - id
       - er_reservert
@@ -1019,12 +931,10 @@ classes:
       gyldig_fra_og_med:
         in_subset:
           - Anbefalt
-
   Kontaktopplysninger:
     class_uri: ngrp:Kontaktopplysninger
     description: >-
-      Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon
-      med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+      Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
     slots:
       - id
       - epostadresse_verdi
@@ -1040,12 +950,10 @@ classes:
       sist_oppdatert:
         in_subset:
           - Valgfri
-
   SpraakForElektroniskKommunikasjon:
     class_uri: ngrp:SpraakForElektroniskKommunikasjon
     description: >-
-      Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter,
-      valt av personen sjølv.
+      Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt av personen sjølv.
     slots:
       - id
       - spraakkode
@@ -1054,427 +962,341 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   id:
     identifier: true
     range: uriorcurie
     description: URI-identifikator for ressursen.
-
   # ---- Person-relasjonar ----------------------------------------------------
-
   har_personnavn:
     slot_uri: ngrp:harPersonnavn
     range: Personnavn
     description: Offisielt registrert namn på personen.
-
   har_folkeregisteridentifikator:
     slot_uri: ngrp:harFolkeregisteridentifikator
     range: Folkeregisteridentifikator
     description: Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer).
-
   har_personidentifikasjon:
     slot_uri: ngrp:harPersonidentifikasjon
     range: Personidentifikasjon
     multivalued: true
     description: Utanlandsk eller alternativ identifikasjon av personen.
-
   har_falsk_identitet:
     slot_uri: ngrp:harFalskIdentitet
     range: FalskIdentitet
     description: Registrering av at personen har opptrådt med falsk identitet.
-
   har_utenlandsk_identifikasjonsdokument:
     slot_uri: ngrp:harUtenlandskIdentifikasjonsdokument
     range: Identifikasjonsdokument
     multivalued: true
     description: Utanlandske identifikasjonsdokument knytt til personen.
-
   har_identitetsgrunnlag:
     slot_uri: ngrp:harIdentitetsgrunnlag
     range: Identitetsgrunnlag
     description: Grunnlaget for personens identitetsfastsetjing.
-
   har_kjoenn:
     slot_uri: ngrp:harKjoenn
     range: Kjoenn
     description: Kjønn registrert på personen.
-
   har_sivilstand:
     slot_uri: ngrp:harSivilstand
     range: Sivilstand
     description: Sivilstand registrert på personen.
-
   har_personstatus:
     slot_uri: ngrp:harPersonstatus
     range: Personstatus
     description: Status for personen i Folkeregisteret.
-
   har_statsborgerskap:
     slot_uri: ngrp:harStatsborgerskap
     range: Statsborgerskap
     multivalued: true
     description: Statsborgerskap registrert på personen (minimum 1).
-
   har_lovlig_opphold:
     slot_uri: ngrp:harLovligOpphold
     range: Opphold
     description: Lovleg opphaldsgrunnlag for utanlandske statsborgarar.
-
   har_foedsel:
     slot_uri: ngrp:harFoedsel
     range: Foedsel
     description: Fødselsinformasjon om personen.
-
   har_foreldreansvar_forelder:
     slot_uri: ngrp:harForeldreansvarForelder
     range: ForeldreansvarForelder
     multivalued: true
     description: Personar med juridisk foreldreansvar for denne personen (maks 2).
-
   har_foreldreansvar_barn:
     slot_uri: ngrp:harForeldreansvarBarn
     range: ForeldreansvarBarn
     multivalued: true
     description: Barn som denne personen har juridisk foreldreansvar for.
-
   har_familierelasjon_forelder:
     slot_uri: ngrp:harFamilierelasjonForelder
     range: FamilierelasjonForelder
     multivalued: true
     description: Familierelasjonar der den relaterte personen er forelder (maks 2).
-
   har_familierelasjon_barn:
     slot_uri: ngrp:harFamilierelasjonBarn
     range: FamilierelasjonBarn
     multivalued: true
     description: Familierelasjonar der den relaterte personen er barn.
-
   har_familierelasjon_ektefelle:
     slot_uri: ngrp:harFamilierelasjonEktefelle
     range: FamilierelasjonEktefelle
     description: Familierelasjon til ektefelle eller registrert partnar.
-
   har_dodsfall:
     slot_uri: ngrp:harDodsfall
     range: Dodsfall
     description: Dødsfallsinformasjon om personen.
-
   har_kontaktinformasjon_doedsbo:
     slot_uri: ngrp:harKontaktinformasjonDoedsbo
     range: KontaktinformasjonDoedsbo
     description: Kontaktinformasjon for personens dødsbu.
-
   har_innflytting_til_norge:
     slot_uri: ngrp:harInnflyttingTilNorge
     range: InnflyttingTilNorge
     description: Siste innflyttingsregistrering til Noreg.
-
   har_utflytting_fra_norge:
     slot_uri: ngrp:harUtflyttingFraNorge
     range: UtflyttingFraNorge
     description: Siste utflyttingsregistrering frå Noreg.
-
   har_adressebeskyttelse:
     slot_uri: ngrp:harAdressebeskyttelse
     range: Adressebeskyttelse
     description: Adressebeskyttelse registrert på personen.
-
   har_bosted_paa:
     slot_uri: ngrp:harBostedPaa
     range: Bostedsadresse
     description: Adressa personen er registrert busett på.
-
   mottar_post_paa:
     slot_uri: ngrp:mottarPostPaa
     range: Postadresse
     description: Adressa personen mottar post på.
-
   oppholder_seg_paa:
     slot_uri: ngrp:oppholderSegPaa
     range: Oppholdsadresse
     description: Adressa personen faktisk oppheld seg på.
-
   har_verge:
     slot_uri: ngrp:harVerge
     range: Verge
     multivalued: true
     description: Verje(r) oppnemnd for personen.
-
   har_rettslig_handleevne:
     slot_uri: ngrp:harRettsligHandleevne
     range: RettsligHandleevne
     description: Avgrensing i rettsleg handleevne registrert for personen.
-
   har_reservasjon_mot_kommunikasjon:
     slot_uri: ngrp:harReservasjonMotKommunikasjon
     range: ReservasjonMotKommunikasjonPaaNett
     description: Reservasjon mot digital kommunikasjon frå det offentlege.
-
   har_kontaktopplysninger:
     slot_uri: ngrp:harKontaktopplysninger
     range: Kontaktopplysninger
     description: Kontaktopplysningar registrert i KRR.
-
   har_valgt_spraak:
     slot_uri: ngrp:harValgtSpraak
     range: SpraakForElektroniskKommunikasjon
     description: Føretrekt språk for elektronisk kommunikasjon valt av personen.
-
   # ---- Relasjonar i underklassar --------------------------------------------
-
   er_av_type_person:
     slot_uri: ngrp:erAvTypePerson
     range: Person
     description: Personen som denne relasjonen peikar til.
-
   relatert_ved_sivilstand:
     slot_uri: ngrp:relatertVedSivilstand
     range: Person
     description: Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER o.l.).
-
   rett_identitet:
     slot_uri: ngrp:rettIdentitet
     range: Person
     description: Den rette identiteten til ein person som har opptrådt med falsk identitet.
-
   # ---- Verdislots (dataeigenskapar) ----------------------------------------
-
   fornavn:
     slot_uri: ngrp:fornavn
     range: string
     description: Fornamn(et/a) til personen.
-
   mellomnavn:
     slot_uri: ngrp:mellomnavn
     range: string
     description: Mellomnamn til personen.
-
   etternavn:
     slot_uri: ngrp:etternavn
     range: string
     description: Etternamn til personen.
-
   forkortet_navn:
     slot_uri: ngrp:forkortetNavn
     range: string
     description: Forkorta versjon av fullt namn.
-
   identifikatornummer:
     slot_uri: ngrp:identifikatornummer
     range: string
     description: Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer).
-
   identifikasjonstype:
     slot_uri: ngrp:identifikasjonstype
     range: string
     description: Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification).
-
   dokumenttype:
     slot_uri: ngrp:dokumenttype
     range: IdentifikasjonsdokumentType
     description: Type identifikasjonsdokument (pass, førekort, nasjonalt ID-kort o.l.).
-
   dokumentnummer:
     slot_uri: ngrp:dokumentnummer
     range: string
     description: Nummeret på identifikasjonsdokumentet.
-
   utstederland:
     slot_uri: ngrp:utstederland
     range: string
     description: ISO 3166-1 landkode for landet som utsteda dokumentet.
-
   utstedtdato:
     slot_uri: ngrp:utstedtdato
     range: date
     description: Datoen dokumentet vart utstedt.
-
   utloepsdato:
     slot_uri: ngrp:utloepsdato
     range: date
     description: Datoen dokumentet går ut på dato.
-
   identitetsgrunnlag_status:
     slot_uri: ngrp:identitetsgrunnlagStatus
     range: string
     description: Status/type for identitetsgrunnlaget (t.d. FOLKEREGISTERET, PASS).
-
   identitetsgrunnlag_kilde:
     slot_uri: ngrp:identitetsgrunnlagKilde
     range: string
     description: Kjelde for identitetsgrunnlaget.
-
   kjoenn_kode:
     slot_uri: ngrp:kjoennKode
     range: KjoennKode
     description: Kjønnskode (MANN, KVINNE, UKJENT).
-
   sivilstand_type:
     slot_uri: ngrp:sivilstandType
     range: SivilstandType
     description: Sivilstandstype (UGIFT, GIFT, SKILT o.l.).
-
   personstatus_type:
     slot_uri: ngrp:personstatusType
     range: PersonstatusType
     description: Personstatustype (BOSATT, UTFLYTTET, DOED o.l.).
-
   landkode:
     slot_uri: ngrp:landkode
     range: string
     description: ISO 3166-1 alfa-2 landkode (t.d. NO for Noreg).
-
   oppholds_type:
     slot_uri: ngrp:oppholdType
     range: OppholdstypeKode
     description: Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER).
-
   foedselsdato:
     slot_uri: ngrp:foedselsdato
     range: date
     description: Fødselsdato (kan vere ukjent for eldre registreringar).
-
   foedselsaar:
     slot_uri: ngrp:foedselsaar
     range: integer
     description: Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar).
-
   foedested:
     slot_uri: ngrp:foedested
     range: string
     description: Fødested (kommune eller land).
-
   doedsdato:
     slot_uri: ngrp:doedsdato
     range: date
     description: Dato for dødsfallet.
-
   doedssted:
     slot_uri: ngrp:doedssted
     range: string
     description: Stad for dødsfallet.
-
   navn:
     slot_uri: ngrp:namn
     range: string
     description: Namn på person eller institusjon.
-
   telefonnummer:
     slot_uri: ngrp:telefonnummer
     range: string
     description: Telefonnummer.
-
   epostadresse_verdi:
     slot_uri: ngrp:epostadresse
     range: string
     description: E-postadresse.
-
   mobiltelefonnummer:
     slot_uri: ngrp:mobiltelefonnummer
     range: string
     description: Mobiltelefonnummer registrert i KRR.
-
   sist_oppdatert:
     slot_uri: ngrp:sistOppdatert
     range: date
     description: Dato kontaktopplysningane sist vart oppdatert.
-
   fraflyttingsland:
     slot_uri: ngrp:fraflyttingsland
     range: string
     description: ISO 3166-1 landkode for landet personen flytta frå.
-
   fraflyttingssted_i_utlandet:
     slot_uri: ngrp:fraflyttingsstedIUtlandet
     range: string
     description: Stad i utlandet personen flytta frå.
-
   innflyttingsdato:
     slot_uri: ngrp:innflyttingsdato
     range: date
     description: Dato personen vart registrert innflytta til Noreg.
-
   tilflyttingsland:
     slot_uri: ngrp:tilflyttingsland
     range: string
     description: ISO 3166-1 landkode for landet personen flytta til.
-
   tilflyttingssted_i_utlandet:
     slot_uri: ngrp:tilflyttingsstedIUtlandet
     range: string
     description: Stad i utlandet personen flytta til.
-
   utflyttingsdato:
     slot_uri: ngrp:utflyttingsdato
     range: date
     description: Dato personen vart registrert utflytta frå Noreg.
-
   adressebeskyttelse_gradering:
     slot_uri: ngrp:adressebeskyttelseGradering
     range: AdressebeskyttelseGradering
     description: Graderinga av adressebeskyttelsen (STRENGT_FORTROLIG, FORTROLIG o.l.).
-
   vergetype:
     slot_uri: ngrp:vergetype
     range: VergetypeKode
     description: Type vergemål (mindreårig, vaksen o.l.).
-
   embete:
     slot_uri: ngrp:embete
     range: string
     description: Statsforvaltarembetet som oppnemnde vergjet.
-
   ansvarsstatus:
     slot_uri: ngrp:ansvarsstatus
     range: string
     description: Status for foreldreansvaret (t.d. FELLES, ALENE).
-
   foreldrerelasjon_type:
     slot_uri: ngrp:foreldrerelasjonType
     range: string
     description: Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.).
-
   rettslig_handleevne_type:
     slot_uri: ngrp:rettsligHandleevneType
     range: RettsligHandleevneType
     description: Type avgrensing i rettsleg handleevne.
-
   omfang:
     slot_uri: ngrp:omfang
     range: string
     description: Omfanget av vergemålet eller avgrensinga i rettsleg handleevne.
-
   er_reservert:
     slot_uri: ngrp:erReservert
     range: boolean
     description: Om personen er reservert mot digital kommunikasjon frå det offentlege.
-
   er_falsk:
     slot_uri: ngrp:erFalsk
     range: boolean
     description: Om denne identiteten er registrert som falsk.
-
   rett_identitet_er_ukjent:
     slot_uri: ngrp:rettIdentitetErUkjent
     range: boolean
     description: Om den rette identiteten er ukjent (når falsk identitet er registrert).
-
   spraakkode:
     slot_uri: ngrp:spraakkode
     range: string
     description: "BCP 47 språkkode for føretrekt kommunikasjonsspråk (t.d. nb, nn, en)."
-
   gyldig_fra_og_med:
     slot_uri: ngrp:gyldigFraOgMed
     range: date
     description: Dato opplysinga er gyldig frå og med.
-
   gyldig_til_og_med:
     slot_uri: ngrp:gyldigTilOgMed
     range: date

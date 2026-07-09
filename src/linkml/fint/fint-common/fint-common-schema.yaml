@@ -5,32 +5,26 @@ id: https://data.norge.no/fint/fint-common
 name: fint-common
 title: FINT Felles typar
 description: >
-  Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt
-  mellom alle FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
-version: "4.0.22"
-license: https://data.norge.no/nlod/no/2.0
+  Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt mellom alle FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
 
+version: "4.1.0"
+license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
-
 default_prefix: https://schema.fintlabs.no/
 default_range: string
-
 imports:
   - linkml:types
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  fint:   https://schema.fintlabs.no/
-  finta:  https://fint.example.org/
-
+  fint: https://schema.fintlabs.no/
+  finta: https://fint.example.org/
 # ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
-
 subsets:
   Obligatorisk:
     description: Obligatorisk eigensskap.
@@ -38,364 +32,284 @@ subsets:
     description: Anbefalt eigensskap.
   Valgfri:
     description: Valfri eigensskap.
-
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   id:
     identifier: true
     range: uriorcurie
     description: URI-identifikator for ressursen.
-
   # --- Felles gyldigheit og identifikasjon -----------------------------------
-
   gyldighetsperiode:
     slot_uri: fint:gyldighetsperiode
     range: Periode
     inlined: true
     description: Periode ressursen er gyldig for.
-
   # --- Aktoer ----------------------------------------------------------------
-
   kontaktinformasjon:
     slot_uri: fint:kontaktinformasjon
     range: Kontaktinformasjon
     inlined: true
     description: Den føretrekte måten å kome i kontakt med ein aktør.
-
   postadresse:
     slot_uri: fint:postadresse
     range: Adresse
     inlined: true
     description: Informasjon om postadresse til ein aktør.
-
   # --- Enhet -----------------------------------------------------------------
-
   forretningsadresse:
     slot_uri: fint:forretningsadresse
     range: Adresse
     inlined: true
     description: Besøksadresse til ein organisasjonseining.
-
   organisasjonsnavn:
     slot_uri: fint:organisasjonsnavn
     range: string
     description: Namn på eining registrert i Einingsregisteret.
-
   organisasjonsnummer:
     slot_uri: fint:organisasjonsnummer
     range: Identifikator
     inlined: true
     description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
-
   # --- Begrep ----------------------------------------------------------------
-
   kode:
     slot_uri: fint:kode
     range: string
     description: Verdi som identifiserer omgrepet.
-
   navn:
     slot_uri: fint:navn
     range: string
     description: Hovudnamn for ressursen.
-
   passiv:
     slot_uri: fint:passiv
     range: boolean
     description: Angir at koden er passiv og ikkje kan veljast.
-
   # --- Identifikator ---------------------------------------------------------
-
   identifikatorverdi:
     slot_uri: fint:identifikatorverdi
     range: string
     description: Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt identifikator.
-
   # --- Periode ---------------------------------------------------------------
-
   beskrivelse:
     slot_uri: fint:beskrivelse
     range: string
     description: Beskriven namn eller omtale.
-
   start:
     slot_uri: fint:start
     range: datetime
     description: Frå tidspunkt.
-
   slutt:
     slot_uri: fint:slutt
     range: datetime
     description: Til tidspunkt.
-
   # --- Personnavn ------------------------------------------------------------
-
   fornavn:
     slot_uri: fint:fornavn
     range: string
     description: Fornamn til personen.
-
   mellomnavn:
     slot_uri: fint:mellomnavn
     range: string
     description: Mellomnamn.
-
   etternavn:
     slot_uri: fint:etternavn
     range: string
     description: Etternamn til personen.
-
   # --- Kontaktinformasjon-feltar ---------------------------------------------
-
   epostadresse:
     slot_uri: fint:epostadresse
     range: string
     description: Namngitt elektronisk adresse for mottak av e-post.
-
   mobiltelefonnummer:
     slot_uri: fint:mobiltelefonnummer
     range: string
     description: Mobiltelefonnummer.
-
   nettsted:
     slot_uri: fint:nettsted
     range: string
     description: Adresse til eit nettstad.
-
   sip:
     slot_uri: fint:sip
     range: string
     description: SIP-protokoll for VoIP (IP-telefoni).
-
   telefonnummer:
     slot_uri: fint:telefonnummer
     range: string
     description: Telefonnummer.
-
   # --- Adresse ---------------------------------------------------------------
-
   adresselinje:
     slot_uri: fint:adresselinje
     range: string
     multivalued: true
     inlined_as_list: true
     description: Adresseinformasjon.
-
   postnummer:
     slot_uri: fint:postnummer
     range: string
     description: Postnummer.
-
   poststed:
     slot_uri: fint:poststed
     range: string
     description: Poststad.
-
   land:
     slot_uri: fint:land
     range: Landkode
     description: Land der adressa befinn seg.
-
   # --- Matrikkelnummer -------------------------------------------------------
-
   adresse:
     slot_uri: fint:adresse
     range: Adresse
     inlined: true
     description: Adresse til matrikkeleining.
-
   bruksnummer:
     slot_uri: fint:bruksnummer
     range: string
     description: Fortløpande nummerering av bruk under gårdsnummer.
-
   festenummer:
     slot_uri: fint:festenummer
     range: string
     description: Fortløpande nummerering av festar under gårdsnummer/bruksnummer.
-
   gaardsnummer:
     slot_uri: fint:gaardsnummer
     range: string
     description: Nummerering av gårdseiging i matrikkelen, unik innanfor kommune.
-
   seksjonsnummer:
     slot_uri: fint:seksjonsnummer
     range: string
     description: Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer.
-
   kommunenummer:
     slot_uri: fint:kommunenummer
     range: Kommune
     description: Nummerering av kommunen i høve til SSB si offisielle liste.
-
   # --- Kodeverk-hierarki og kommune/fylke ------------------------------------
-
   fylke:
     slot_uri: fint:fylke
     range: Fylke
     description: Fylke.
-
   kommune:
     slot_uri: fint:kommune
     range: Kommune
     description: Kommune.
-
   kjonn:
     slot_uri: fint:kjonn
     range: Kjonn
     description: Kjønn.
-
   # --- Valuta ----------------------------------------------------------------
-
   bokstavkode:
     slot_uri: fint:bokstavkode
     range: Identifikator
     inlined: true
     description: Bokstavkode for aktuell valuta.
-
   valuta_navn:
     slot_uri: fint:valutaNavn
     range: string
     description: Namn på valuta.
-
   nummerkode:
     slot_uri: fint:nummerkode
     range: Identifikator
     inlined: true
     description: Nummerkode for aktuell valuta.
-
   # --- Person ----------------------------------------------------------------
-
   bilde:
     slot_uri: fint:bilde
     range: string
     description: HTTP(S)-lenkje til eit bilete av personen.
-
   bostedsadresse:
     slot_uri: fint:bostedsadresse
     range: Adresse
     inlined: true
     description: Folkeregistrert adresse til personen.
-
   fodselsdato:
     slot_uri: fint:fodselsdato
     range: date
     description: Dato for fødsel.
-
   fodselsnummer:
     slot_uri: fint:fodselsnummer
     range: Identifikator
     inlined: true
     description: Fødselsnummer eller ein av dei fiktive variantane.
-
   person_navn:
     slot_uri: fint:personNavn
     range: Personnavn
     inlined: true
     description: Namn på personen.
-
   parorende:
     slot_uri: fint:parorende
     range: Kontaktperson
     multivalued: true
     description: Pårørande kontaktperson til personen.
-
   statsborgerskap:
     slot_uri: fint:statsborgerskap
     range: Landkode
     multivalued: true
     description: Alle statsborgarskap personen har.
-
   foreldreansvar:
     slot_uri: fint:foreldreansvar
     range: Person
     multivalued: true
     description: Personar denne personen har foreldreansvar for.
-
   foreldre:
     slot_uri: fint:foreldre
     range: Person
     multivalued: true
     description: Den/dei som har foreldreansvar til personen.
-
   maalform:
     slot_uri: fint:maalform
     range: Spraak
     description: Målform personen føretrekkjer.
-
   morsmaal:
     slot_uri: fint:morsmaal
     range: Spraak
     description: Morsmål til personen.
-
   laerling:
     slot_uri: fint:laerling
     range: uriorcurie
     multivalued: true
     description: Referanse til Laerling (Utdanning).
-
   elev:
     slot_uri: fint:elev
     range: Elev
     description: Referanse til Elev (Utdanning).
-
   elevnummer:
     slot_uri: fint:elevnummer
     range: Identifikator
     inlined: true
     description: Skulens interne elevnummer.
-
   person:
     slot_uri: fint:person
     range: Person
     description: Referanse til Person i Administrasjon-domenet.
-
   otungdom:
     slot_uri: fint:otungdom
     range: uriorcurie
     description: Referanse til OtUngdom (Utdanning).
-
   # --- Kontaktperson ---------------------------------------------------------
-
   kontaktperson_navn:
     slot_uri: fint:kontaktpersonNavn
     range: Personnavn
     inlined: true
     description: Namn på kontaktpersonen.
-
   type:
     slot_uri: fint:type
     range: string
     description: Beskriv kva slags type.
-
   kontaktperson:
     slot_uri: fint:kontaktpersonFor
     range: Person
     multivalued: true
     description: Personar kontaktpersonen er pårørande for.
-
   # --- Virksomhet ------------------------------------------------------------
-
   virksomhetsId:
     slot_uri: fint:virksomhetsId
     range: Identifikator
     inlined: true
     description: Intern unik identifikator i økonomisystemet.
-
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
-
 classes:
-
   # --- Abstrakte basisklassar ------------------------------------------------
-
   Aktoer:
     description: Abstrakt base for person eller eining vi samhandlar med.
     class_uri: fint:Aktoer
@@ -410,7 +324,6 @@ classes:
       postadresse:
         in_subset:
           - Valgfri
-
   Begrep:
     description: Abstrakt fellesbase for alle FINT-kodeverk.
     class_uri: fint:Begrep
@@ -436,7 +349,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Elev:
     description: Ein elev registrert i skulesystemet.
     class_uri: fint:Elev
@@ -451,7 +363,6 @@ classes:
       person:
         in_subset:
           - Obligatorisk
-
   Enhet:
     is_a: Aktoer
     description: Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.
@@ -471,9 +382,7 @@ classes:
       organisasjonsnummer:
         in_subset:
           - Valgfri
-
   # --- Kompleks datatypar ----------------------------------------------------
-
   Identifikator:
     description: Unik identifikasjon til eit objekt.
     class_uri: fint:Identifikator
@@ -483,7 +392,6 @@ classes:
     slot_usage:
       identifikatorverdi:
         required: true
-
   Periode:
     description: Tidsperiode med obligatorisk start og valfri slutt.
     class_uri: fint:Periode
@@ -494,7 +402,6 @@ classes:
     slot_usage:
       start:
         required: true
-
   Personnavn:
     description: Namn på ein person.
     class_uri: fint:Personnavn
@@ -507,7 +414,6 @@ classes:
         required: true
       etternavn:
         required: true
-
   Kontaktinformasjon:
     description: Informasjon som kan brukast for å oppnå kontakt.
     class_uri: fint:Kontaktinformasjon
@@ -517,7 +423,6 @@ classes:
       - nettsted
       - sip
       - telefonnummer
-
   Adresse:
     description: Fysisk adresse eller postadresse.
     class_uri: fint:Adresse
@@ -526,7 +431,6 @@ classes:
       - postnummer
       - poststed
       - land
-
   Matrikkelnummer:
     description: Eintydleg identifisering av matrikkeleining innanfor kommune.
     class_uri: fint:Matrikkelnummer
@@ -537,19 +441,15 @@ classes:
       - gaardsnummer
       - seksjonsnummer
       - kommunenummer
-
   # --- Kodeverk --------------------------------------------------------------
-
   Landkode:
     is_a: Begrep
     description: Landskode i ISO 3166-1 alpha-2 format.
     class_uri: fint:Landkode
-
   Kjonn:
     is_a: Begrep
     description: Verdiar for kjønn basert på ISO/IEC 5218.
     class_uri: fint:Kjonn
-
   Fylke:
     is_a: Begrep
     description: Liste over Norges fylker.
@@ -561,7 +461,6 @@ classes:
         multivalued: true
         in_subset:
           - Valgfri
-
   Kommune:
     is_a: Begrep
     description: Liste over Norges kommunar.
@@ -573,12 +472,10 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Spraak:
     is_a: Begrep
     description: Verdiar for språk (2 bokstavar).
     class_uri: fint:Spraak
-
   Valuta:
     description: Valutakodar for offisielle valutaer.
     class_uri: fint:Valuta
@@ -600,9 +497,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # --- Hovudklassar ----------------------------------------------------------
-
   Person:
     is_a: Aktoer
     description: Fysiske private personar.
@@ -683,7 +578,6 @@ classes:
       otungdom:
         in_subset:
           - Valgfri
-
   Kontaktperson:
     description: Kontaktperson (pårørande) til ein person.
     class_uri: fint:Kontaktperson
@@ -707,7 +601,6 @@ classes:
       kontaktperson:
         in_subset:
           - Valgfri
-
   Virksomhet:
     is_a: Enhet
     description: Ein juridisk organisasjon som produserer varer eller tenester.

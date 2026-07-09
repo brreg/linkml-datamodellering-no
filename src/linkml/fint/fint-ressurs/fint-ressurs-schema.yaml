@@ -5,37 +5,28 @@ id: https://data.norge.no/fint/fint-ressurs
 name: fint-ressurs
 title: FINT Ressurs
 description: >
-  FINT-domenemodell for ressursstyring. Dekkjer tre sub-pakkar:
-  ressurs.eiendel (applikasjonar og lisensressursar),
-  ressurs.datautstyr (digitale einingar og einingsgrupper) og
-  ressurs.tilgang (identitetar og rettigheiter).
-version: "4.1.0"
-license: https://data.norge.no/nlod/no/2.0
+  FINT-domenemodell for ressursstyring. Dekkjer tre sub-pakkar: ressurs.eiendel (applikasjonar og lisensressursar), ressurs.datautstyr (digitale einingar og einingsgrupper) og ressurs.tilgang (identitetar og rettigheiter).
 
+version: "4.3.0"
+license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
-
 default_prefix: https://data.norge.no/fint/fint-ressurs/
 default_range: string
-
 imports:
   - linkml:types
   - ../fint-common/fint-common-schema
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  fint:   https://schema.fintlabs.no/
-  res:    https://schema.fintlabs.no/ressurs/
-
+  fint: https://schema.fintlabs.no/
+  res: https://schema.fintlabs.no/ressurs/
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   # --- RessursContainer-lister ----------------------------------------------
 
   # --- Felles res-slots (delt mellom fleire klasser) ------------------------
@@ -44,172 +35,137 @@ slots:
   #   slot_uri: res:navn
   #   range: string
   #   description: Namn på ressursen eller kodeverk-elementet.
-
   plattform:
     slot_uri: res:plattform
     range: Plattform
     description: Plattforma ressursen er knytt til.
-
   enhetstype:
     slot_uri: res:enhetstype
     range: Enhetstype
     description: Type digital eining.
-
   enhetsgruppemedlemskap:
     slot_uri: res:enhetsgruppemedlemskap
     range: Enhetsgruppemedlemskap
     multivalued: true
     description: Einingsgruppemelemskap.
-
   personalressurs:
     slot_uri: res:personalressurs
     range: uriorcurie
     description: Referanse til Personalressurs (Administrasjon).
-
   eier:
     slot_uri: res:eier
     range: uriorcurie
     description: Referanse til Organisasjonselement som har eigarskap.
-
   lisensantall:
     slot_uri: res:lisensantall
     range: integer
     description: Totalt tal på lisensar.
-
   # --- ressurs.eiendel ------------------------------------------------------
-
   applikasjonsressurs:
     slot_uri: res:applikasjonsressurs
     range: Applikasjonsressurs
     multivalued: true
     description: Ulike ressursar (lisensar) knytt til ein applikasjon.
-
   applikasjonskategori:
     slot_uri: res:applikasjonskategori
     range: Applikasjonskategori
     multivalued: true
     description: Kategoriar av applikasjonar.
-
   applikasjon:
     slot_uri: res:applikasjon
     range: Applikasjon
     description: Applikasjonen ressursen (lisensen) er knytt til.
-
   brukertype:
     slot_uri: res:brukertype
     range: Brukertype
     multivalued: true
     description: For kva brukertypar lisensen er gyldig.
-
   handhevingstype:
     slot_uri: res:handhevingstype
     range: Handhevingstype
     description: Korleis lisensmodellen skal handhevast.
-
   lisensmodell:
     slot_uri: res:lisensmodell
     range: Lisensmodell
     description: Lisensmodellen applikasjonsressursen har.
-
   ressurstilgjengelighet:
     slot_uri: res:ressurstilgjengelighet
     range: Applikasjonsressurstilgjengelighet
     multivalued: true
     description: Angir kva organisasjonseining og kor mange ressursar som skal tilordnast.
-
   enhetskostnad:
     slot_uri: res:enhetskostnad
     range: integer
     description: Kostnad per ressurs.
-
   kreverGodkjenning:
     slot_uri: res:kreverGodkjenning
     range: boolean
     description: True dersom tildeling av ressursen krev godkjenning.
-
   konsument:
     slot_uri: res:konsument
     range: uriorcurie
     description: Referanse til Organisasjonselement som har tilgang til ressursen.
-
   ressursRef:
     slot_uri: res:ressursRef
     range: Applikasjonsressurs
     description: Ressursen organisasjonselementet har tilgang til.
-
   # --- ressurs.datautstyr ---------------------------------------------------
-
   serienummer:
     slot_uri: res:serienummer
     range: string
     description: Unikt serienummer frå einingsprodusentens.
-
   dataobjektId:
     slot_uri: res:dataobjektId
     range: Identifikator
     inlined: true
     description: Einingsens ID i datakatalogen.
-
   flerbrukerenhet:
     slot_uri: res:flerbrukerenhet
     range: boolean
     description: Kvifor eininga er ein- eller flerbrukarenheit.
-
   privateid:
     slot_uri: res:privateid
     range: boolean
     description: Angir om eininga er eigd av organisasjonen eller privatperson.
-
   administrator:
     slot_uri: res:administrator
     range: uriorcurie
     description: Referanse til Organisasjonselement som administrerer eininga.
-
   status:
     slot_uri: res:status
     range: Status
     description: Status på eininga i fagsystemet.
-
   produsent:
     slot_uri: res:produsent
     range: Produsent
     description: Namn på produsenten av eininga.
-
   organisasjonsenhet:
     slot_uri: res:organisasjonsenhet
     range: uriorcurie
     description: Referanse til Organisasjonselement grupperinga er tilknytt.
-
   digitalEnhet:
     slot_uri: res:digitalEnhet
     range: DigitalEnhet
     description: Den digitale eininga dette medlemskapet tilhøyrer.
-
   enhetsgruppe:
     slot_uri: res:enhetsgruppe
     range: Enhetsgruppe
     description: Einingsgruppen dette medlemskapet tilhøyrer.
-
   # --- ressurs.tilgang ------------------------------------------------------
-
   rettighet:
     slot_uri: res:rettighet
     range: Rettighet
     multivalued: true
     description: Rettigheiter knytt til identiteten.
-
   identitet:
     slot_uri: res:identitet
     range: Identitet
     multivalued: true
     description: Identitetar knytt til rettigheta.
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
-
 classes:
-
   RessursContainer:
     tree_root: true
     description: Rotcontainer for FINT Ressurs-instansar.
@@ -282,11 +238,9 @@ classes:
         range: Status
         multivalued: true
         inlined_as_list: true
-
   # =========================================================================
   # ressurs.eiendel
   # =========================================================================
-
   Applikasjon:
     description: Ein applikasjon med tilhøyrande ressursar.
     class_uri: res:Applikasjon
@@ -320,7 +274,6 @@ classes:
       applikasjonskategori:
         in_subset:
           - Valgfri
-
   Applikasjonsressurs:
     description: Informasjon om kor ein applikasjon kan nyttast (lisensressurs).
     class_uri: res:Applikasjonsressurs
@@ -380,7 +333,6 @@ classes:
       ressurstilgjengelighet:
         in_subset:
           - Valgfri
-
   Applikasjonsressurstilgjengelighet:
     description: Kva organisasjonselements brukarar som har tilgang til ein ressurs.
     class_uri: res:Applikasjonsressurstilgjengelighet
@@ -406,11 +358,9 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # =========================================================================
   # ressurs.datautstyr
   # =========================================================================
-
   DigitalEnhet:
     description: Ei digital eining som t.d. PC, nettbrett eller mobil.
     class_uri: res:DigitalEnhet
@@ -477,7 +427,6 @@ classes:
       enhetsgruppemedlemskap:
         in_subset:
           - Valgfri
-
   Enhetsgruppe:
     description: Ei gruppering av einsarta digitale einingar.
     class_uri: res:Enhetsgruppe
@@ -508,7 +457,6 @@ classes:
       enhetsgruppemedlemskap:
         in_subset:
           - Valgfri
-
   Enhetsgruppemedlemskap:
     description: Medlemskap mellom ei digital eining og ei einingsgruppe.
     class_uri: res:Enhetsgruppemedlemskap
@@ -525,11 +473,9 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   # =========================================================================
   # ressurs.tilgang
   # =========================================================================
-
   Identitet:
     description: Identitet som identifiserer innehavaren av rettigheiter i organisasjonen.
     class_uri: res:Identitet
@@ -544,7 +490,6 @@ classes:
       rettighet:
         in_subset:
           - Valgfri
-
   Rettighet:
     description: Ei namngitt rettighet.
     class_uri: res:Rettighet
@@ -578,11 +523,9 @@ classes:
       identitet:
         in_subset:
           - Valgfri
-
   # =========================================================================
   # ressurs.kodeverk
   # =========================================================================
-
   Applikasjonskategori:
     description: Kategori av applikasjonar.
     class_uri: res:Applikasjonskategori
@@ -603,7 +546,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Brukertype:
     description: Dei ulike brukartypane som kan nytte lisensen.
     class_uri: res:Brukertype
@@ -624,7 +566,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Enhetstype:
     description: Type digital eining.
     class_uri: res:Enhetstype
@@ -645,7 +586,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Handhevingstype:
     description: Korleis ulike lisensmodellar kan handhevast.
     class_uri: res:Handhevingstype
@@ -666,7 +606,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Lisensmodell:
     description: Lisensmodellar som kan knytast til ein lisens.
     class_uri: res:Lisensmodell
@@ -687,7 +626,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Plattform:
     description: Plattforma tenesta kan leverast på.
     class_uri: res:Plattform
@@ -708,7 +646,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Produsent:
     description: Produsent av ei digital eining.
     class_uri: res:Produsent
@@ -729,7 +666,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Status:
     description: Status på ei digital eining i fagsystemet.
     class_uri: res:Status
