@@ -122,6 +122,7 @@ jobs:
   validate:
     name: "validate / ${{ matrix.domain }}"
     needs: build-validator
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-22.04
     permissions:
       contents: read
