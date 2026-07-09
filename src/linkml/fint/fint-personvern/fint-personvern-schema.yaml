@@ -5,35 +5,28 @@ id: https://data.norge.no/fint/fint-personvern
 name: fint-personvern
 title: FINT Personvern
 description: >
-  FINT-domenemodell for personvern. Dekkjer behandling av personopplysningar,
-  samtykke, tenester og kodeverk for behandlingsgrunnlag og personopplysningstypar.
-version: "4.1.0"
-license: https://data.norge.no/nlod/no/2.0
+  FINT-domenemodell for personvern. Dekkjer behandling av personopplysningar, samtykke, tenester og kodeverk for behandlingsgrunnlag og personopplysningstypar.
 
+version: "4.3.0"
+license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
-
 default_prefix: https://data.norge.no/fint/fint-personvern/
 default_range: string
-
 imports:
   - linkml:types
   - ../fint-common/fint-common-schema
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  fint:   https://schema.fintlabs.no/
-  pvn:    https://schema.fintlabs.no/personvern/
-
+  fint: https://schema.fintlabs.no/
+  pvn: https://schema.fintlabs.no/personvern/
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   # --- PersonvernContainer-lister -------------------------------------------
 
   # --- Felles pvn-slots (delt mellom fleire klasser) ------------------------
@@ -43,76 +36,60 @@ slots:
     slot_uri: pvn:behandlingsgrunnlag
     range: Behandlingsgrunnlag
     description: Rettsleg grunnlag for behandling av personopplysning.
-
   # behandling: brukt i Samtykke (req, singular) og Tjeneste (multi, optional)
   behandling:
     slot_uri: pvn:behandling
     range: Behandling
     description: Behandlingsaktivitet.
-
   slettet:
     slot_uri: pvn:slettet
     range: datetime
     description: Tidspunkt ressursen er sletta.
-
   # --- Behandling -----------------------------------------------------------
-
   aktiv:
     slot_uri: pvn:aktiv
     range: boolean
     description: Status på behandling.
-
   formal:
     slot_uri: pvn:formal
     range: string
     description: Grunngjeving for behandling av personopplysning.
-
   personopplysning:
     slot_uri: pvn:personopplysning
     range: Personopplysning
     description: Opplysning eller vurdering som kan knytast til ein enkeltperson.
-
   samtykke:
     slot_uri: pvn:samtykke
     range: Samtykke
     multivalued: true
     description: Samtykker tilknytt ei behandling.
-
   tjeneste:
     slot_uri: pvn:tjeneste
     range: Tjeneste
     description: Tenesta som behandlinga tilhøyrer.
-
   # --- Samtykke -------------------------------------------------------------
-
   opprettet:
     slot_uri: pvn:opprettet
     range: datetime
     description: Dato då samtykket vart oppretta.
-
   # person:
   #   slot_uri: pvn:person
   #   range: uriorcurie
   #   description: Referanse til Person (Administrasjon).
-
   organisasjonselement:
     slot_uri: pvn:organisasjonselement
     range: uriorcurie
     description: Referanse til Organisasjonselement (Administrasjon).
-
-  # --- Tjeneste / kodeverk --------------------------------------------------
-
-  # navn:
-  #   slot_uri: pvn:navn
-  #   range: string
-  #   description: Namn på ressursen.
+    # --- Tjeneste / kodeverk --------------------------------------------------
+# navn:
+#   slot_uri: pvn:navn
+#   range: string
+#   description: Namn på ressursen.
 
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
-
 classes:
-
   PersonvernContainer:
     tree_root: true
     description: Rotcontainer for FINT Personvern-instansar.
@@ -137,9 +114,7 @@ classes:
         range: Personopplysning
         multivalued: true
         inlined_as_list: true
-
   # --- personvern.samtykke --------------------------------------------------
-
   Behandling:
     description: All bruk av personopplysningar (behandlingsaktivitet).
     class_uri: pvn:Behandling
@@ -179,7 +154,6 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-
   Samtykke:
     description: Tillating til behandling av personopplysning.
     class_uri: pvn:Samtykke
@@ -210,7 +184,6 @@ classes:
       organisasjonselement:
         in_subset:
           - Valgfri
-
   Tjeneste:
     description: Teneste eller system som behandlar personopplysningar.
     class_uri: pvn:Tjeneste
@@ -231,9 +204,7 @@ classes:
         multivalued: true
         in_subset:
           - Valgfri
-
   # --- personvern.kodeverk --------------------------------------------------
-
   Behandlingsgrunnlag:
     description: Rettsleg grunnlag for behandling av personopplysningar.
     class_uri: pvn:Behandlingsgrunnlag
@@ -258,7 +229,6 @@ classes:
       passiv:
         in_subset:
           - Valgfri
-
   Personopplysning:
     description: Opplysningar og vurderingar som kan knytast til enkeltpersonar.
     class_uri: pvn:Personopplysning

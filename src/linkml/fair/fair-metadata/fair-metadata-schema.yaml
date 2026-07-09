@@ -5,31 +5,25 @@ id: https://data.norge.no/fair/fair-metadata
 name: fair-metadata
 title: FAIR Metadata Overbygning
 description: >
-  FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar
-  for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med
-  FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
-version: "1.1.0"
-license: https://data.norge.no/nlod/no/2.0
+  FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
 
+version: "1.3.0"
+license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/Completed
-
 default_prefix: https://data.norge.no/fair/
 default_range: string
-
 imports:
   - linkml:types
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  fair:   https://data.norge.no/fair/
-  dct:    http://purl.org/dc/terms/
-  dcat:   http://www.w3.org/ns/dcat#
-  prov:   http://www.w3.org/ns/prov#
-
+  fair: https://data.norge.no/fair/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  prov: http://www.w3.org/ns/prov#
 subsets:
   Findable:
     description: Eigenskapar knytt til FAIR F-prinsippa (Findable).
@@ -39,17 +33,14 @@ subsets:
     description: Eigenskapar knytt til FAIR I-prinsippa (Interoperable).
   Reusable:
     description: Eigenskapar knytt til FAIR R-prinsippa (Reusable).
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
-
 classes:
-
   FAIRMetadata:
     description: >
-      Maskin-aksjonerbar metadata som beskriver ein digital ressurs
-      i tråd med FAIR-prinsippa.
+      Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+
     class_uri: fair:FAIRMetadata
     slots:
       - id
@@ -84,7 +75,6 @@ classes:
       katalogregistrering:
         in_subset:
           - Findable
-
   Tilgangsmetadata:
     description: Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2).
     class_uri: fair:Tilgangsmetadata
@@ -110,7 +100,6 @@ classes:
       metadataPersistens:
         in_subset:
           - Accessible
-
   Gjenbruksmetadata:
     description: Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3).
     class_uri: fair:Gjenbruksmetadata
@@ -132,7 +121,6 @@ classes:
       vokabular:
         in_subset:
           - Interoperable
-
   Proveniensmetadata:
     description: Metadata om opphav og endringshistorie (FAIR R1.2).
     class_uri: fair:Proveniensmetadata
@@ -154,7 +142,6 @@ classes:
       endringsdato:
         in_subset:
           - Reusable
-
   Katalogregistrering:
     description: Dokumenterer registrering i søkbar katalog (FAIR F4).
     class_uri: fair:Katalogregistrering
@@ -172,149 +159,123 @@ classes:
       registreringsdato:
         in_subset:
           - Findable
-
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
-
 slots:
-
   id:
     identifier: true
     slot_uri: dct:identifier
     range: uriorcurie
     description: Persistent URI-identifikator for metadata-posten (FAIR F1).
-
   ressursIdentifikator:
     slot_uri: dct:identifier
     range: uriorcurie
     description: >
-      Global og persistent identifikator for ressursen (FAIR F1).
-      Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
+      Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
 
   ressurstype:
     slot_uri: dct:type
     range: uriorcurie
     description: >
-      Type digital ressurs, t.d. dcat:Dataset, dcat:DataService
-      eller ein URI frå eit kontrollert vokabular (FAIR F2).
+      Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2).
 
   beskrivelse:
     slot_uri: dct:subject
     range: uriorcurie
     description: URI til ressursen som denne metadata-posten beskriver (FAIR F3).
-
   tilgangsmetadata:
     slot_uri: fair:tilgangsmetadata
     range: Tilgangsmetadata
     inlined: true
     description: Metadata for tilgang og tilgjengelegheit (FAIR A1/A2).
-
   gjenbruksmetadata:
     slot_uri: fair:gjenbruksmetadata
     range: Gjenbruksmetadata
     inlined: true
     description: Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3).
-
   proveniensmetadata:
     slot_uri: fair:proveniensmetadata
     range: Proveniensmetadata
     inlined: true
     description: Metadata om opphav og endringshistorie (FAIR R1.2).
-
   katalogregistrering:
     slot_uri: fair:katalogregistrering
     range: Katalogregistrering
     inlined: true
     description: Dokumenterer registrering i søkbar katalog (FAIR F4).
-
   tilgangsURL:
     slot_uri: dcat:accessURL
     range: uriorcurie
     description: URL for maskinell tilgang til ressurs eller metadata (FAIR A1).
-
   tilgangsprotokoll:
     slot_uri: fair:tilgangsprotokoll
     range: string
     description: Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1).
-
   tilgangsrettar:
     slot_uri: dct:accessRights
     range: uriorcurie
     description: >
-      Tilgangsnivå som URI, t.d. frå EU Publications Office
-      (offentleg, avgrensa, lukka) (FAIR A1.2).
+      Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).
 
   autentiseringPaakrevd:
     slot_uri: fair:autentiseringPaakrevd
     range: boolean
     description: Om autentisering eller autorisasjon er nødvendig (FAIR A1.2).
-
   metadataPersistens:
     slot_uri: fair:metadataPersistens
     range: boolean
     description: >
-      Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger
-      er tilgjengeleg (FAIR A2).
+      Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg (FAIR A2).
 
   lisens:
     slot_uri: dct:license
     range: uriorcurie
     description: Brukslisens for ressursen som URI (FAIR R1.1).
-
   bruksavgrensingar:
     slot_uri: dct:rights
     range: string
     description: Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1).
-
   standardoverensstemming:
     slot_uri: dct:conformsTo
     range: uriorcurie
     multivalued: true
     description: >
-      Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO
-      eller ISO 19115 (FAIR R1.3 / I3).
+      Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).
 
   vokabular:
     slot_uri: fair:vokabular
     range: uriorcurie
     multivalued: true
     description: >
-      Kontrollerte vokabular eller ontologiar som ressursen brukar
-      (FAIR I2).
+      Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
 
   ansvarlegAktoer:
     slot_uri: prov:wasAttributedTo
     range: uriorcurie
     description: >
-      Organisasjon eller aktør som er ansvarleg for ressursen,
-      som URI (FAIR R1.2).
+      Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
 
   generertAvAktivitet:
     slot_uri: prov:wasGeneratedBy
     range: uriorcurie
     description: Aktivitet som har generert ressursen (FAIR R1.2).
-
   opprettingsdato:
     slot_uri: dct:created
     range: date
     description: Dato ressursen blei oppretta (FAIR R1.2).
-
   endringsdato:
     slot_uri: dct:modified
     range: date
     description: Sist endra dato (FAIR R1.2).
-
   registrertIKatalog:
     slot_uri: fair:registrertIKatalog
     range: uriorcurie
     description: URI til katalogen der metadata er registrert (FAIR F4).
-
   katalogOppfoeringURL:
     slot_uri: fair:katalogOppfoeringURL
     range: uriorcurie
     description: Direkte URL til oppføringa i katalogen (FAIR F4).
-
   registreringsdato:
     slot_uri: fair:registreringsdato
     range: date

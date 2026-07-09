@@ -3,40 +3,33 @@
 
 id: https://data.norge.no/oreg/register-over-aksjeeiere
 name: register-over-aksjeeiere
-version: "1.2.0"
+version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Aksje- og eigarskapsmodell
 description: >
-  LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar.
-  Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
+  LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-04"
+  endringsdato: "2026-07-09"
   utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
-
 prefixes:
   linkml: https://w3id.org/linkml/
   aksje: https://data.norge.no/oreg/register-over-aksjeeiere/
   schema: http://schema.org/
-
 default_prefix: https://data.norge.no/oreg/register-over-aksjeeiere/
 default_range: string
-
 imports:
   - linkml:types
-
 #################################
 # AksjeeierContainer
 #################################
-
 classes:
-
   AksjeeierContainer:
     description: >
-      Containerklasse for alle forretningsobjekt i modellen.
-      Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
+      Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
+
     tree_root: true
     class_uri: schema:Thing
     attributes:
@@ -125,11 +118,9 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-
-#################################
-# Kjerneklasser
-#################################
-
+        #################################
+        # Kjerneklasser
+        #################################
   Aksjeselskap:
     description: Selskap som utsteder aksjar og har aksjekapital.
     slots:
@@ -137,69 +128,56 @@ classes:
       - navn
       - har_aksjekapital
       - utsteder_aksje
-
   Aksjekapital:
     description: Den registrerte aksjekapitalen i eit aksjeselskap.
     slots:
       - identifikator
       - har_antall_aksjer
-
   # AntallAksjer:
   #   description: Talet på aksjar knytt til ein aksjekapital eller aksjepost.
   #   slots:
   #     - antall
-
   Aksje:
     description: Ei enkelt aksje utstedt av eit aksjeselskap.
     slots:
       - identifikator
       - har_palydende_belop
       - tilhorer_aksjeklasse
-
   # PalydendeBelop:
   #   description: Pålydande verdi for ei aksje.
   #   slots:
   #     - belop
-
   Aksjeklasse:
     description: Klasse aksjar høyrer til, med eigne rettigheiter.
     slots:
       - identifikator
       - navn
-
-
   Aksjeeierrettighet:
     description: Rettigheiter knytt til aksjar, til dømes stemmerett.
     slots:
       - identifikator
       - beskrivelse
       - gjelder_aksjer_i_aksjeklasse
-
   Aksjeeier:
     description: Person eller organisasjon som eig aksjar.
     slots:
       - identifikator
       - navn
       - har_eierposisjon
-
   Eierposisjon:
     description: Eierens samla posisjon i eit selskap.
     slots:
       - identifikator
       - gjelder_aksjepost
-
   Aksjepost:
     description: Samling aksjar eigd av ein aksjeeigar.
     slots:
       - identifikator
       - har_antall_aksjer
       - gjelder_aksjer_i_aksjeklasse
-
-
-#################################
-# Økonomi og utdeling
-#################################
-
+      #################################
+      # Økonomi og utdeling
+      #################################
   Utbytte:
     description: Utbytte knytt til ein eigarposisjon.
     slots:
@@ -207,22 +185,18 @@ classes:
       - tidspunkt
       - har_utdeling
       - er_basert_paa_eierposisjon
-
   Utdeling:
     description: Konkret utdeling av verdiar til aksjeeigarar.
     slots:
       - identifikator
       - belop
-
   Tidspunkt:
     description: Tidspunkt for ei hending.
     slots:
       - dato
-
-#################################
-# Transaksjonar og hendingar
-#################################
-
+      #################################
+      # Transaksjonar og hendingar
+      #################################
   Eierskapstransaksjon:
     description: Transaksjon som påverkar eigarskap i selskapet.
     slots:
@@ -231,169 +205,135 @@ classes:
       - kan_vaere_aksjeoverdragelse
       - kan_vaere_selskapshendelse
       - paavirker_eierposisjon
-
-
   Aksjeoverdragelse:
     description: Overdraging av aksjar mellom partar.
     slots:
       - identifikator
       - kan_ha_vederlag
-
   Vederlag:
     description: Vederlag knytt til ei aksjeoverdraging.
     slots:
       - identifikator
       - belop
-
   Selskapshendelse:
     description: Hending som påverkar selskapet sitt eigarskap eller kapital.
     slots:
       - identifikator
       - kan_ha_aksjeinnskudd
-
   Aksjeinnskudd:
     description: Innskot knytt til aksjar i samband med selskapshending.
     slots:
       - identifikator
       - gjelder_innbetalt_aksjekapital
       - gjelder_innbetalt_overkurs
-
   InnbetaltAksjekapital:
     description: Innbetalt aksjekapital.
     slots:
       - belop
-
   InnbetaltOverkurs:
     description: Innbetalt overkurs utover pålydande.
     slots:
       - belop
-
 #################################
 # Slots
 #################################
-
 slots:
-
   identifikator:
     description: Global identifikator for instansen.
     identifier: true
     range: uriorcurie
-
   navn:
     description: Namn på instansen.
     range: string
     inlined: true
-
   beskrivelse:
     description: Tekstleg forklaring av instansen.
     range: string
     inlined: true
-
   antall:
     description: Numerisk verdi.
     range: integer
     inlined: true
-
   belop:
     description: Monetært beløp.
     range: decimal
     inlined: true
-
   dato:
     description: Kalenderdato.
     range: date
     inlined: true
-
   har_aksjekapital:
     description: Aksjekapital som høyrer til selskapet.
     domain: Aksjeselskap
     range: Aksjekapital
-
   har_antall_aksjer:
     description: Tal aksjar.
     range: integer
     inlined: true
-
   utsteder_aksje:
     description: Aksje utstedt av selskapet
     domain: Aksjeselskap
     range: Aksje
-
   har_palydende_belop:
     description: Pålydande verdi for aksja.
     domain: Aksje
     range: decimal
     inlined: true
-
   tilhorer_aksjeklasse:
     description: Klassen aksja høyrer til.
     domain: Aksje
     range: Aksjeklasse
-
   gjelder_aksjer_i_aksjeklasse:
     description: Rettigheiter knytt til aksjeklassen.
     range: Aksjeklasse
-
   har_eierposisjon:
     description: Eierposisjon aksjeeigaren har.
     domain: Aksjeeier
     range: Eierposisjon
-
   gjelder_aksjepost:
     description: Aksjepost som inngår i eigarposisjonen.
     domain: Eierposisjon
     range: Aksjepost
-
   er_basert_paa_eierposisjon:
     description: Utbytte knytt til eigarposisjonen.
     domain: Utbytte
     range: Eierposisjon
-
   paavirker_eierposisjon:
     description: Eierskapstransaksjon knytt til eigarposisjonen.
     domain: Eierskapstransaksjon
     range: Eierposisjon
-
   har_utdeling:
     description: Utdeling knytt til utbyttet.
     domain: Utbytte
     range: Utdeling
-
   tidspunkt:
     description: Tidspunkt for utbytte/eierskapstransaksjon.
     range: date
     inlined: true
-
   kan_vaere_aksjeoverdragelse:
     description: Aksjeoverdraging i transaksjonen.
     domain: Eierskapstransaksjon
     range: Aksjeoverdragelse
-
   kan_vaere_selskapshendelse:
     description: Selskapshendelse i transaksjonen.
     domain: Eierskapstransaksjon
     range: Selskapshendelse
-
   kan_ha_vederlag:
     description: Vederlag for aksjeoverdraging.
     domain: Aksjeoverdragelse
     range: Vederlag
-
   kan_ha_aksjeinnskudd:
     description: Aksjeinnskot i selskapshending.
     domain: Selskapshendelse
     range: Aksjeinnskudd
-
   gjelder_innbetalt_aksjekapital:
     description: Innbetalt aksjekapital.
     domain: Aksjeinnskudd
     range: decimal
-
   gjelder_innbetalt_overkurs:
     description: Innbetalt overkurs.
     domain: Aksjeinnskudd
     range: decimal
-
 #################################
 # Container-slots (flertall)
 #################################
