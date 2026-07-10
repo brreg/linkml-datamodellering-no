@@ -19,27 +19,27 @@ Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema 
 
 ## Metadata-felt og kjelder
 
-| ModelDCAT-felt | Kjelde | Felt i kjelde | Merknad |
+| ModelDCAT-felt | Innhald | Kjelde | Felt i kjelde |
 |---|---|---|---|
-| `id` | `<modell>-schema.yaml` | `id` | URI til modellen |
-| `tittel` (nb/nn) | `<modell>-schema.yaml` | `title` → `tittel.nb`, `annotations.tittel_nn` → `tittel.nn` | LangString-transformasjon |
-| `beskrivelse` (nb/nn) | `<modell>-schema.yaml` | `description` → `beskrivelse.nb`, `annotations.beskrivelse_nn` → `beskrivelse.nn` | LangString-transformasjon |
-| `versjonsnummer` | `<modell>-schema.yaml` | `version` | Semantisk versjonering |
-| `lisens` | `<modell>-schema.yaml` | `license` | Absolutt URI (t.d. NLOD 2.0) |
-| `utgiver` | `<modell>-schema.yaml` | `annotations.utgiver` | Organisasjons-URI (data.norge.no) |
-| `endringsdato` | `<modell>-schema.yaml` | `annotations.endringsdato` | ISO 8601-dato |
-| `utgivelsesdato` | `<modell>-schema.yaml` | `annotations.utgivelsesdato` | ISO 8601-dato |
-| `status` | `<modell>-schema.yaml` | `annotations.status` | ADMS Status-URI |
-| `tema` | `<modell>-schema.yaml` | `annotations.tema` | Liste av Los-tema-URI-ar (valgfri) |
-| `dekningsomraade` | `<modell>-schema.yaml` | `annotations.dekningsomraade` | Geografisk URI (valgfri) |
-| `nokkelord` | `<modell>-schema.yaml` | `annotations.nokkelord` | LangString-liste (valgfri) |
-| `heimeside` | (generert) | mkdocs-URL | `https://brreg.github.io/linkml-datamodellering-no/<domain>/<modell>/` |
-| `er_i_samsvar_med` | `build.yaml` | `external_spec_url` + `external_spec_label` | Standard-instans (inline) |
-| `har_del` | `build.yaml` | `submodels` | Liste av submodell-URI-ar |
-| `kontaktpunkt` | `CODEOWNERS.md` | `organizations[].contact_uri` + `organizations[].name` | Kontaktopplysning-instans (inline) |
-| `er_profil_av` | `<modell>-schema.yaml` | `annotations.er_profil_av` | MVP workaround (valgfri) |
-| `inneholder_modellelement` | `<modell>-schema.yaml` | Lokale klasser frå `classes:` | Liste av class_uri (ekskl. tree_root) |
-| `finnes_i_format` | (generert) | Genererte artefaktar i `generated/<domain>/<modell>/` | GitHub raw URL-ar til `.ttl`, `.json`, `.owl`, `.yaml` osv. |
+| `id` | URI til modellen | `<modell>-schema.yaml` | `id` |
+| `tittel` (nb/nn) | LangString-transformasjon | `<modell>-schema.yaml` | `title` → `tittel.nb`, `annotations.tittel_nn` → `tittel.nn` |
+| `beskrivelse` (nb/nn) | LangString-transformasjon | `<modell>-schema.yaml` | `description` → `beskrivelse.nb`, `annotations.beskrivelse_nn` → `beskrivelse.nn` |
+| `versjonsnummer` | Semantisk versjonering | `<modell>-schema.yaml` | `version` |
+| `lisens` | Absolutt URI (t.d. NLOD 2.0) | `<modell>-schema.yaml` | `license` |
+| `utgiver` | Organisasjons-URI (data.norge.no) | `<modell>-schema.yaml` | `annotations.utgiver` |
+| `endringsdato` | ISO 8601-dato | `<modell>-schema.yaml` | `annotations.endringsdato` |
+| `utgivelsesdato` | ISO 8601-dato | `<modell>-schema.yaml` | `annotations.utgivelsesdato` |
+| `status` | ADMS Status-URI | `<modell>-schema.yaml` | `annotations.status` |
+| `tema` | Liste av Los-tema-URI-ar (valgfri) | `<modell>-schema.yaml` | `annotations.tema` |
+| `dekningsomraade` | Geografisk URI (valgfri) | `<modell>-schema.yaml` | `annotations.dekningsomraade` |
+| `nokkelord` | LangString-liste (valgfri) | `<modell>-schema.yaml` | `annotations.nokkelord` |
+| `heimeside` | `https://brreg.github.io/linkml-datamodellering-no/<domain>/<modell>/` | (generert) | mkdocs-URL |
+| `er_i_samsvar_med` | Standard-instans (inline) | `build.yaml` | `external_spec_url` + `external_spec_label` |
+| `har_del` | Liste av submodell-URI-ar | `build.yaml` | `submodels` |
+| `kontaktpunkt` | Kontaktopplysning-instans (inline) | `CODEOWNERS.md` | `organizations[].contact_uri` + `organizations[].name` |
+| `er_profil_av` | MVP workaround (valgfri) | `<modell>-schema.yaml` | `annotations.er_profil_av` |
+| `inneholder_modellelement` | Liste av class_uri (ekskl. tree_root) | `<modell>-schema.yaml` | Lokale klasser frå `classes:` |
+| `finnes_i_format` | GitHub raw URL-ar til `.ttl`, `.json`, `.owl`, `.yaml` osv. | (generert) | Genererte artefaktar i `generated/<domain>/<modell>/` |
 
 ## Genereringsprosess
 
