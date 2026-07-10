@@ -22,14 +22,15 @@ generate_contact_info() {
     fi
 
     # Ekstraher YAML-frontmatter frå CODEOWNERS.md
-    # Parse YAML og match path mot path_patterns for kvar org
-    local org_data=$(python3 - "$schema_path" "$codeowners_file" <<'PYEOF'
+    # Parse YAML og match path mot path_patterns eller catalog_slug for kvar org
+    local org_data=$(python3 - "$schema_path" "$schema" "$codeowners_file" <<'PYEOF'
 import sys
 import re
 import yaml
 
 schema_path = sys.argv[1]
-codeowners_file = sys.argv[2]
+schema = sys.argv[2]
+codeowners_file = sys.argv[3]
 
 with open(codeowners_file, "r") as f:
     content = f.read()
@@ -42,8 +43,17 @@ if not match:
 yaml_content = match.group(1)
 data = yaml.safe_load(yaml_content)
 
-# Match schema_path mot path_patterns for kvar org
+# Match schema_path mot path_patterns eller catalog_slug for kvar org
 for org in data.get('organizations', []):
+    # Prøv først å matche catalog_slug (for modellkatalogar)
+    if org.get('catalog_slug', '') == schema:
+        # Fann match på catalog_slug — print org-data som YAML
+        print(f"name: {org['name']}")
+        print(f"org_uri: {org['org_uri']}")
+        print(f"contact_uri: {org.get('contact_uri', '')}")
+        sys.exit(0)
+
+    # Dersom ikkje match på catalog_slug, prøv path_patterns
     for pattern in org.get('path_patterns', []):
         # Konverter glob-pattern til regex (enkel variant — berre ** og *)
         # Bruk placeholder for å unngå at * i .* vert erstatta
