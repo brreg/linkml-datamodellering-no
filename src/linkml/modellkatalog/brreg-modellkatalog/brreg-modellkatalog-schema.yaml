@@ -6,11 +6,11 @@ name: brreg-modellkatalog
 title: Brønnøysundregistra - Modellkatalog
 description: >-
   Modellkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO direkte via import.
-version: "1.4.0"
+version: "1.5.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-09"
+  endringsdato: "2026-07-10"
   utgivelsesdato: "2026-07-09"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
