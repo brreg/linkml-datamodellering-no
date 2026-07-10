@@ -17,6 +17,8 @@ generate_description() {
 
     [ -z "$description_file" ] && return 0
 
+    echo "## Om denne modellen"
+    echo ""
     cat "$description_file"
     echo ""
     echo ""
