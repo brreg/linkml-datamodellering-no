@@ -1,0 +1,49 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/samt/samt-bu
+tittel:
+  nb: SAMT - Barnehagar og skular
+  nn: SAMT - Barnehagar og skular
+beskrivelse:
+  nb: Ontodia-vennlig LinkML-modell for skoler
+  nn: Ontodia-vennlig LinkML-modell for skoler
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/971032146
+endringsdato: '2026-07-09'
+utgivelsesdato: '2026-06-10'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/
+er_i_samsvar_med:
+- id: https://docs.samt-bu.no/om/
+  tittel:
+    nb: SAMT - Barnehagar og skular
+    nn: SAMT - Barnehagar og skular
+  har_referanse: https://docs.samt-bu.no/om/
+kontaktpunkt:
+- id: https://www.ks.no/fagomrader/digitalisering/
+  navn_vcard:
+    nb: KS Digital
+    nn: KS Digital
+  har_kontaktside: https://www.ks.no/fagomrader/digitalisering/
+inneholder_modellelement:
+- https://data.norge.no/samt/samt-bu/skole/Skole
+- https://data.norge.no/samt/samt-bu/skole/Skoleeier
+- https://data.norge.no/samt/samt-bu/skole/Kommune
+- https://data.norge.no/samt/samt-bu/skole/Fylke
+- https://data.norge.no/samt/samt-bu/skole/PrivatVirksomhet
+- https://data.norge.no/samt/samt-bu/skole/Basisgruppe
+- https://data.norge.no/samt/samt-bu/skole/Person
+- https://data.norge.no/samt/samt-bu/skole/Elev
+- https://data.norge.no/samt/samt-bu/skole/Rektor
+- https://data.norge.no/samt/samt-bu/Kontaktlaerer
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/samt/samt-bu/samt-bu-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/samt/samt-bu/samt-bu-schema.yaml

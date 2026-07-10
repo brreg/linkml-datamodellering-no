@@ -411,12 +411,17 @@ define run_gen_xsd
 	xsd=$(GEN_DIR)/$$domain/$$name/$$name-schema.xsd; \
 	namespace=$$(grep '^id:' "$$schema" | head -1 | awk '{print $$2}'); \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
-	echo "$(CLR_STEP)→ gen-xsd  $$schema$(CLR_RST)"; \
-	$(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc; \
-	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd; \
+	t0=$$(date +%s%3N); \
+	$(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc >/dev/null 2>&1; \
+	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd >/dev/null 2>&1; \
 	rm -f "$$avsc"; \
 	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
-		/work/src/assets/scripts/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema; \
+		/work/src/assets/scripts/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema >/dev/null 2>&1; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	printf "$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		"$$domain" "$$name" \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)); \
 done
 endef
 
@@ -954,21 +959,7 @@ domain-$(1):
 	else \
 		$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1))); \
 	fi
-	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** Genererer Informasjonsmodell-instansar for domain-$(1)$(CLR_RST)"
-	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@if [ "$$(PARALLEL)" = "1" ]; then \
-		for schema in $$(_schemas_$(1)); do \
-			echo "$(CLR_STEP)→ gen-informasjonsmodell-instance  $$$$schema$(CLR_RST)"; \
-			$$(MAKE) gen-informasjonsmodell-instance SCHEMA=$$$$schema || echo "Warning: Failed to generate Informasjonsmodell for $$$$schema"; \
-		done; \
-	else \
-		printf '%s\n' $$(_schemas_$(1)) | xargs -P $$(PARALLEL) -I {} bash -c ' \
-			schema="{}"; \
-			echo "$(CLR_STEP)→ gen-informasjonsmodell-instance  $$$$schema$(CLR_RST)"; \
-			$$(MAKE) gen-informasjonsmodell-instance SCHEMA=$$$$schema || echo "Warning: Failed to generate Informasjonsmodell for $$$$schema"; \
-		'; \
-	fi
+	$$(call run_gen_informasjonsmodell_instance,$$(_schemas_$(1)))
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
@@ -1365,16 +1356,39 @@ _gource-render:
 # ModelDCAT-AP-NO Informasjonsmodell-generering (MVP)
 # ===========================================================================
 
+# Per-schema Informasjonsmodell-instans generator.
+# $1=schemas
+define run_gen_informasjonsmodell_instance
+@for schema in $(1); do \
+	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+	t0=$$(date +%s%3N); \
+	python3 src/assets/scripts/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
+	rc=$$?; \
+	elapsed_ms=$$(($$(date +%s%3N) - t0)); \
+	printf "$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		"$$domain" "$$name" \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)); \
+	if [ $$rc -ne 0 ]; then \
+		echo "Warning: Failed to generate Informasjonsmodell for $$schema"; \
+	fi; \
+done
+endef
+
 .PHONY: gen-informasjonsmodell-instance
 
 gen-informasjonsmodell-instance:
-	@if [ -z "$(SCHEMA)" ]; then \
-		echo "Error: SCHEMA parameter required"; \
-		echo "Usage: make gen-informasjonsmodell-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
-		exit 1; \
-	fi
-	@echo "$(CLR_HDR)Genererer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
-	python3 src/assets/scripts/generate-informasjonsmodell.py $(SCHEMA)
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+ifdef SCHEMA
+	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance SCHEMA=$(SCHEMA)$(CLR_RST)"
+else ifdef DOMAIN
+	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance DOMAIN=$(DOMAIN)$(CLR_RST)"
+else
+	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance$(CLR_RST)"
+endif
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call run_gen_informasjonsmodell_instance,$(call get_target_schemas))
 
 .PHONY: gen-modellkatalog-instance
 
