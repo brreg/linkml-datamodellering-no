@@ -98,20 +98,19 @@ URI: {{ gen.uri_link(element) }}
 | Children Are Mutually Disjoint | Yes |
 {%- endif %}
 
-{% endif %}
+{% endif -%}
 ## Eigenskapar
+{% set subsets = ['Obligatorisk', 'Anbefalt', 'Valgfri'] -%}
+{% set direct_slots = gen.get_direct_slots(element) -%}
 
-{% set subsets = ['Obligatorisk', 'Anbefalt', 'Valgfri'] %}
-{% set direct_slots = gen.get_direct_slots(element) %}
-
-{% for subset_name in subsets %}
-{% set ns = namespace(slots=[]) %}
-{% for slot in direct_slots %}
-  {% set su = element.slot_usage.get(slot.name) %}
-  {% if su and subset_name in (su.in_subset or []) %}
-    {% set ns.slots = ns.slots + [slot] %}
-  {% endif %}
-{% endfor %}
+{% for subset_name in subsets -%}
+{% set ns = namespace(slots=[]) -%}
+{% for slot in direct_slots -%}
+  {% set su = element.slot_usage.get(slot.name) -%}
+  {% if su and subset_name in (su.in_subset or []) -%}
+    {% set ns.slots = ns.slots + [slot] -%}
+  {% endif -%}
+{% endfor -%}
 {% if ns.slots %}
 ### {{ subset_name }}
 
@@ -119,23 +118,23 @@ URI: {{ gen.uri_link(element) }}
 | --- | --- | --- |
 {% for slot in ns.slots -%}
 | {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ slot.description|enshorten }} |
-{% endfor %}
-{% endif %}
-{% endfor %}
+{% endfor -%}
+{% endif -%}
+{% endfor -%}
 
-{% set ns = namespace(usortert=[]) %}
-{% for slot in direct_slots %}
-  {% set su = element.slot_usage.get(slot.name) %}
-  {% set ns2 = namespace(in_any_subset=false) %}
-  {% if su %}
-    {% for sn in subsets %}
-      {% if sn in (su.in_subset or []) %}{% set ns2.in_any_subset = true %}{% endif %}
-    {% endfor %}
-  {% endif %}
-  {% if not ns2.in_any_subset %}
-    {% set ns.usortert = ns.usortert + [slot] %}
-  {% endif %}
-{% endfor %}
+{% set ns = namespace(usortert=[]) -%}
+{% for slot in direct_slots -%}
+  {% set su = element.slot_usage.get(slot.name) -%}
+  {% set ns2 = namespace(in_any_subset=false) -%}
+  {% if su -%}
+    {% for sn in subsets -%}
+      {% if sn in (su.in_subset or []) %}{% set ns2.in_any_subset = true %}{% endif -%}
+    {% endfor -%}
+  {% endif -%}
+  {% if not ns2.in_any_subset -%}
+    {% set ns.usortert = ns.usortert + [slot] -%}
+  {% endif -%}
+{% endfor -%}
 {% if ns.usortert %}
 ### Andre
 
@@ -144,17 +143,17 @@ URI: {{ gen.uri_link(element) }}
 {% for slot in ns.usortert -%}
 | {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ slot.description|enshorten }} |
 {% endfor %}
-{% endif %}
+{% endif -%}
 
 {% if gen.get_indirect_slots(element)|length > 0 %}
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- |
-{%- for slot in gen.get_indirect_slots(element) -%}
+{% for slot in gen.get_indirect_slots(element) -%}
 | {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ compute_range(slot) }} | {{ slot.description|enshorten }} | {{ gen.links(gen.get_slot_inherited_from(element.name, slot.name))|join(', ') }} |
 {% endfor -%}
-{% endif %}
+{% endif -%}
 
 {%- if element.unique_keys %}
 ## Unique Keys
