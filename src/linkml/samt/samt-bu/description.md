@@ -5,7 +5,3 @@ Modellen definerer `Elev`, `Skole`, `Skoleeier`, `Basisgruppe` og andre eigenska
 **Typisk brukar:** Kommunale og offentlege verksemder som samarbeider om modernisering av tenester for barn og unge, og utviklare som implementerer tverrgåande integrasjonar.
 
 **Nøkkelklasser:** `Elev`, `Skole`, `Skoleeier`, `Basisgruppe`.
-
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `linkml:types` og `dqv-ap-no-schema` direkte
-- Eksempel på tverrgåande samarbeid om domenemodellering

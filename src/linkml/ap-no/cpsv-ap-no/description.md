@@ -5,7 +5,3 @@ Profilen definerer korleis offentlege tenester, hendelser, regelkrav og bevis sk
 **Typisk brukar:** Offentlege verksemder som skal publisere teneste- og hendelsesbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer CPSV-AP-NO-kompatible system.
 
 **Nøkkelklasser:** `Tjeneste`, `Hendelse`, `Regelkrav`, `Bevis`, `Kontaktpunkt`, `Kriterie`, `Kostnad`, `Agent`.
-
-**Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- Ingen andre modellar importerer `cpsv-ap-no` enno

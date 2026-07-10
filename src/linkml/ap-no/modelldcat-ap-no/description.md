@@ -11,9 +11,4 @@ Profilen definerer korleis informasjonsmodellar og modellelement skal beskrivas 
 - `modelldcat-katalog-schema.yaml` — `Informasjonsmodell` og `Katalog`-klassane
 - `modelldcat-modell-schema.yaml` — alle modellelement-klassane (`Objekttype`, `Egenskap` o.fl.)
 
-**Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- `brreg-modellkatalog` er eit konkret døme på ein modellkatalog som brukar dette skjemaet
-- CI genererer `Informasjonsmodell`-instansar for alle skjema i repoet og publiserer desse til modellkatalogen
-
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-modelldcat-ap-no.md` for dokumenterte avvik og grunngjevingar.

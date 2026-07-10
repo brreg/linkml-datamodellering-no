@@ -7,7 +7,3 @@ Skjemaet definerer felles typar, enum-ar og prefiks som vert gjenbrukt på tvers
 **Nøkkeltypar:** `LangString` (rdf:langString), `DateOrDateTimeOrYear` (dato med ulik presisjon), `XHTML` (XHTML-formatert tekst).
 
 **Nøkkelenum:** `AdmsStatus` (ADMS status-URI-ar), `PublisherType` (utgjevartype), `DcatMediaType` (IANA mediatypar).
-
-**Relasjon til andre modellar i dette repoet:**
-- Alle AP-NO-profilar importerer `common-ap-no` direkte
-- Domenemodellane (`ngr-*`, `oreg-*`, `samt-bu`) importerer AP-NO-profilar, ikkje `common-ap-no` direkte

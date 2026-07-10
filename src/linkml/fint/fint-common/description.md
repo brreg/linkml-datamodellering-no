@@ -5,7 +5,3 @@ Modellen definerer felles datatypar, basisklassar, kodeverk og hovudklassar som 
 **Typisk brukar:** Utviklare som arbeider med FINT-domenemodellane — skjemaet vert ikkje brukt direkte, berre importert.
 
 **Nøkkelklasser:** `Identifikator`, `Periode`, `Adresse`, `Kontaktinformasjon`, `Basisklasse`.
-
-**Relasjon til andre modellar i dette repoet:**
-- Alle FINT-domenemodellane (`fint-administrasjon`, `fint-utdanning`, `fint-arkiv` m.fl.) importerer `fint-common`
-- FINT-modellane importerer ikkje AP-NO-profiler — dei følgjer FINT sin eigen namgjevingskonvensjon (camelCase)

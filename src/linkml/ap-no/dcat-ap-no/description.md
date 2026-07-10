@@ -6,10 +6,4 @@ Profilen definerer korleis datasett, datatenester, distribusjonar og katalogar s
 
 **Nøkkelklasser:** `Datasett`, `Katalog`, `Distribusjon`, `Datateneste`, `Agent`, `PeriodOfTime`.
 
-**Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- `dqv-ap-no` importerer `dcat-ap-no` for å leggje til datakvalitetsannotasjonar
-- `modelldcat-ap-no` byggjer på same mønster for beskriving av informasjonsmodellar
-- Domenemodellane (`ngr-*`, `oreg-*`, `samt-bu`) importerer `dcat-ap-no` for katalogstøtte
-
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dcat-ap-no.md` for dokumenterte avvik og grunngjevingar.

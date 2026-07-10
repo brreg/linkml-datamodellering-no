@@ -6,9 +6,4 @@ Profilen definerer korleis omgrep, omgrepssystem og definisjonar skal beskrivas 
 
 **Nøkkelklasser:** `Begrep`, `Definisjon`, `BegrepSamling`, `AssosiativRelasjon`, `GenericRelasjon`, `PartitivRelasjon`.
 
-**Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- `brreg-begrepskatalog` er eit konkret døme på ein omgrepskatalog som importerer dette skjemaet direkte utan eigne klasser
-- `xkos-ap-no` er eit tilgrensande skjema for klassifikasjonar (ikkje omgrep)
-
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-skos-ap-no.md` for dokumenterte avvik og grunngjevingar.

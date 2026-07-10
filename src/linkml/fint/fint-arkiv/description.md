@@ -5,7 +5,3 @@ Modellen definerer `Saksmappe`, `Journalpost`, `Dokumentbeskrivelse`, `Arkivdel`
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Arkiv-API for sakshandsaming og arkiv.
 
 **Nøkkelklasser:** `Saksmappe`, `Journalpost`, `Dokumentbeskrivelse`, `Dokumentobjekt`, `Arkivdel`, `Klassifikasjonssystem`.
-
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `fint-common` for felles typar og basisklassar
-- Ingen AP-NO-profiler importerte — FINT-modellane er uavhengige av AP-NO

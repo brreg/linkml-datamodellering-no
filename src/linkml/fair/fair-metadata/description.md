@@ -5,8 +5,3 @@ Modellen definerer tilleggseigenskapar for å oppfylle [FAIR-prinsippa](https://
 **Typisk brukar:** Forskingsinstitusjoner og offentlege verksemder som skal publisere FAIR-konforme datasett, og utviklare som implementerer FAIR-støtte.
 
 **Nøkkelklasser:** `FAIRMetadata`, `Tilgjengelegheitsgaranti`, `Provenance`, `Lisens`, `Vokabular`.
-
-**Relasjon til andre modellar i dette repoet:**
-- Kan importerast av alle domenemodeller som treng FAIR-støtte
-- Uavhengig av AP-NO-profilar — fungerer som ein overlay/mixin
-- Organisert etter FAIR-prinsipp i subsets (`Findable`, `Accessible`, `Interoperable`, `Reusable`)
