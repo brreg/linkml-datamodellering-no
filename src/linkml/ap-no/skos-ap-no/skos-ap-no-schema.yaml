@@ -6,11 +6,11 @@ name: skos-ap-no
 title: SKOS-AP-NO
 description: >-
   Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
-version: "2.8.0"
+version: "2.9.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-09"
+  endringsdato: "2026-07-10"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:
