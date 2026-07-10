@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.4.0...samt-bu-v1.5.0) (2026-07-10)
+
+
+### Features
+
+* **makefile:** legg til timing og stille logging for gen-xsd og gen-informasjonsmodell-instance ([4791036](https://github.com/brreg/linkml-datamodellering-no/commit/4791036318f9a52355a4e69dba8b9aac3734ebc4))
+
 ## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.3.0...samt-bu-v1.4.0) (2026-07-09)
 
 
