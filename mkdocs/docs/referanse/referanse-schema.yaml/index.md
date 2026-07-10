@@ -25,7 +25,7 @@
 
 ## Datamodell
 
-Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](../../../src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml)
+Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml)
 
 ---
 

@@ -468,7 +468,7 @@ nav:
       - Bruk frå eksternt repo: ekstern-bruk.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
-      - Publiseringsflyt: arkitektur-oversikt.md
+      - Publiseringsflyt: publisering-oversikt.md
       - Struktur for modell-dokumentasjon: index-md-struktur.md
       - Modellmanifest-generering: modellmanifest-generering.md
       - Monitorering av automasjon: monitorering.md
