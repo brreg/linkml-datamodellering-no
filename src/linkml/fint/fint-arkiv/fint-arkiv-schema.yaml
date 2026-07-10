@@ -7,11 +7,11 @@ title: FINT Arkiv
 description: >
   FINT-domenemodell for arkiv basert på Noark 5-standarden. Dekkjer sakshandtering, journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
 
-version: "4.3.0"
+version: "4.4.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
-  endringsdato: "2026-07-09"
+  endringsdato: "2026-07-10"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 default_prefix: https://data.norge.no/fint/fint-arkiv/

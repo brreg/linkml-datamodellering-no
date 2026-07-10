@@ -3,7 +3,7 @@
 
 id: https://data.norge.no/oreg/register-over-aksjeeiere
 name: register-over-aksjeeiere
-version: "1.4.0"
+version: "1.5.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Aksje- og eigarskapsmodell
 description: >
@@ -11,7 +11,7 @@ description: >
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-09"
+  endringsdato: "2026-07-10"
   utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
