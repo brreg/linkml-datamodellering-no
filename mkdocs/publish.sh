@@ -461,7 +461,7 @@ nav:
       - Bli modelleigar: ny-org.md
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
-      - Modellmanifest: manifest-config.md
+      - Byggmanifest: build-config.md
       - Importhierarki: importhierarki.md
       - Valideringsreglar: valideringsregler.md
       - AP-NO arkitektur og avvik: ap-no-arkitektur.md
@@ -469,10 +469,10 @@ nav:
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
       - Publiseringsflyt: publisering-oversikt.md
-      - Struktur for modell-dokumentasjon: index-md-struktur.md
-      - Modellmanifest-generering: modellmanifest-generering.md
+      - Generering av modell-dokumentasjon: index-md-struktur.md
+      - Generering av modellmanifest: modellmanifest-generering.md
       - Monitorering av automasjon: monitorering.md
-      - Om: om.md
+      - Om dette repoet: om.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do
