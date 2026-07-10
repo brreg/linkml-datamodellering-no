@@ -43,7 +43,6 @@ generate_schema_index() {
         generate_example "$domain" "$schema"
         generate_metadata "$gendoc_index"
         generate_submodel_box
-        generate_publishing_info "$domain" "$schema"
         generate_dependencies "$domain" "$schema"
         generate_submodels_section
         generate_er_diagram "$schema" "$out"
