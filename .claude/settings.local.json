@@ -299,7 +299,9 @@
       "Bash(echo \"\")",
       "Bash(tail -n +65 CLAUDE.md)",
       "Bash(./scripts/generate-readme-tables.sh *)",
-      "Bash(git ls-tree *)"
+      "Bash(git ls-tree *)",
+      "Bash(make build-mkdocs *)",
+      "Bash(make build-docker-mkdocs *)"
     ]
   },
   "enableAllProjectMcpServers": true,

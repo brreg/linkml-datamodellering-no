@@ -59,7 +59,9 @@ Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `ex
 
 ---
 
-## Bronze-sjekkliste
+## Kvalitetspolicyer
+
+### bronze
 
 Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrekt og har nødvendig metadata.
 
@@ -88,7 +90,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 
 ---
 
-## Silver-sjekkliste (i tillegg til bronze)
+### silver
 
 Arvar bronse. Legg til livssyklusmetadata og krav frå DCAT-AP-NO og DQV-AP-NO for domenemodeller i norsk offentleg sektor.
 
@@ -128,9 +130,9 @@ Alle brot gir `error`.
 
 ---
 
-## Gold-sjekkliste (i tillegg til silver og bronze)
+### gold
 
-Arvar sølv og bronse. Implementerer FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable). Alle brot gir `error` — også dei som er åtvarslane på bronse.
+Arvar sølv og bronse. Implementerer gap til FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable). Alle brot gir `error` — også dei som er åtvarslane på bronse.
 
 | Sjekk | Alvor | Digdir-regel | FAIR | Skildring |
 |---|---|---|---|---|
@@ -153,7 +155,7 @@ som har ein tilhøyrande datafil.
 
 ---
 
-### Felles Begrepskatalog (`felles-begrepskatalog`)
+### felles-begrepskatalog
 
 For begrepskatalogskjema som publiserer til [data.norge.no/concepts](https://data.norge.no/concepts)
 via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/) for full rettleiing.
@@ -201,7 +203,7 @@ via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.g
 
 ---
 
-### Felles Datakatalog (`felles-datakatalog`)
+### felles-datakatalog
 
 For modellkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
 via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/) for full rettleiing.
