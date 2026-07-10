@@ -54,37 +54,20 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make log-mcp-validate SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout |
 | `make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Instansvalidering med full JSON-logg. Nyttig for debugging av valideringsfeil. | JSON-logg til stdout |
 
-### Validerings-Policyar
-
-| Policy | Beskriving |
-|---|---|
-| `bronze` | Obligatoriske metadata (`id`, `name`), anbefalt `description`, alle klasser har identifikator og begrepsreferanse |
-| `silver` | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
-| `gold` | Silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.) |
-
-`mcp-validate` flattar automatisk ut relative importar med LinkML sitt `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
-
-### Publiserings-Policyar
-
-Brukt for skjema der `publish_external: true` i `manifest.yaml`. Sjekkar at skjemaet
-er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
-
-| Policy | Beskriving |
-|---|---|
-| `felles-datakatalog` | Bronze + import av ModelDCAT-AP-NO, containerklasse med `Modellkatalog` og `Informasjonsmodell`, obligatoriske felt for desse klassane (tittel, beskrivelse, identifikator, utgjevar, kontaktpunkt) |
-| `felles-begrepskatalog` | Bronze + import av SKOS-AP-NO-Begrep, containerklasse med `Begrep`, obligatoriske felt for `Begrep` (anbefalt term, definisjon, identifikator, utgjevar, kontaktpunkt) og `Samling` |
 
 ## Generering av artefakter
 
 ### Per domene (anbefalt)
 
 Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
+
 1. **Validering**: `merge-imports` mergar imports og validerer skjemaet (output vert kasta)
 2. **Artefaktgenerering** (parallelt): JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
 3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
 4. **Modellmanifest** (parallelt): Genererer Informasjonsmodell-instans ihht ModelDCAT-AP-NO til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`
 
 **Parallellisering**: Alle `domain-*` targets støttar `PARALLEL` parameter (default: 8 jobbar).
+
 - `make domain-ap-no` — køyrer med 8 parallelle jobbar (default)
 - `make domain-ap-no PARALLEL=16` — køyrer med 16 parallelle jobbar
 - `make domain-ap-no PARALLEL=1` — køyrer sekvensielt (debugging)
@@ -105,6 +88,7 @@ Parallell køyring viser timer per jobb: `→ gen-jsonld-context ap-no/dcat-ap-n
 ### Enkeltartefakter
 
 Alle `gen-*` targets støttar tre bruksmåtar:
+
 - **`make gen-<format>`** — generer for **alle** skjema
 - **`make gen-<format> DOMAIN=<domain>`** — generer for alle skjema i **eitt domene**
 - **`make gen-<format> SCHEMA=<sti>`** — generer for **eitt** spesifikt skjema

@@ -51,7 +51,7 @@ Brukt for skjema der `publish_external: true` i manifest.
 
 | Nivå | Krav | Digdir-reglar | FAIR-prinsipp |
 |---|---|---|---|
-| `bronze` | Grunnleggande metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 6, 7, 8, 13 | F1, F2, F3 (warning), I1 (warning), R1.1 (warning), A2 (warning) |
+| `bronze` | Grunnleggande LinkML metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 6, 7, 8, 13 | F1, F2, F3 (warning), I1 (warning), R1.1 (warning), A2 (warning) |
 | `silver` | Bronze + AP-NO-konformitet og livssyklusmetadata | 1-4, 7-11, 13 | Bronze + R1.2, R1.3 |
 | `gold` | Silver + FAIR F1-R1.3: full semantisk interoperabilitet | 1-4, 7-11, 13 | F1-F4, I1-I2, R1.1-R1.3, A2 (alle error) |
 

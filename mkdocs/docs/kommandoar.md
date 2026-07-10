@@ -79,12 +79,14 @@ er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 ### Per domene (anbefalt)
 
 Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
+
 1. **Validering**: `merge-imports` mergar imports og validerer skjemaet (output vert kasta)
 2. **Artefaktgenerering** (parallelt): JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
 3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
 4. **Modellmanifest** (parallelt): Genererer Informasjonsmodell-instans ihht ModelDCAT-AP-NO til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`
 
 **Parallellisering**: Alle `domain-*` targets støttar `PARALLEL` parameter (default: 8 jobbar).
+
 - `make domain-ap-no` — køyrer med 8 parallelle jobbar (default)
 - `make domain-ap-no PARALLEL=16` — køyrer med 16 parallelle jobbar
 - `make domain-ap-no PARALLEL=1` — køyrer sekvensielt (debugging)
