@@ -289,3 +289,4 @@ Dersom du skal bidra til repoet, les desse dokumenta:
 - **[CONVENTIONS.md](CONVENTIONS.md)** — namnekonvensjonar, manifestformat og commit-meldingar
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** — korleis bidra (PR-prosess, kodegjennomgang)
 - **[GOVERNANCE.md](GOVERNANCE.md)** — roller, eigarskap og RFC-prosess
+- **[README-tabellgenerering](https://brreg.github.io/linkml-datamodellering-no/readme-tabellgenerering/)** — korleis README-tabellane vert genererte
