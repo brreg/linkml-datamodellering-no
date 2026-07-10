@@ -384,7 +384,6 @@ log_step "Steg 3: Generer index.md frå README.md"
 
 sed \
   -e '/Sjå.*CLAUDE\.md.*COMMANDS\.md/d' \
-  -e 's/\[\([^]]*\)\](src\/[^)]*)/\1/g' \
   "$REPO_ROOT/README.md" > "$DOCS/index.md"
 
 # ---------------------------------------------------------------------------

@@ -16,7 +16,7 @@
 
 !!! note "Målsetting"
 
-    Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
+    Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog i henhold til nasjonale veiledere og standarder. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
 
 
@@ -150,15 +150,15 @@ Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for 
 <!-- BEGIN AUTO-GENERATED: DOMAIN TABLE -->
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| fair | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
-| ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
-| oreg | Offentlege register. |
-| fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
-| samt | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
-| begrepskatalog | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
-| modellkatalog | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
-| referanse | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
+| [fair](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| [ap-no](ap-no/) | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| [referanse](referanse/) | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
+| [ngr](ngr/) | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
+| [oreg](oreg/) | Offentlege register. |
+| [fint](fint/) | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
+| [samt](samt/) | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
+| [begrepskatalog](begrepskatalog/) | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| [modellkatalog](modellkatalog/) | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 <!-- END AUTO-GENERATED: DOMAIN TABLE -->
 
 ## Skjema
@@ -168,30 +168,30 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 <!-- BEGIN AUTO-GENERATED: SCHEMA TABLE -->
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | **FAIR**-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
-| ap-no | [common-ap-no](src/linkml/ap-no/common-ap-no/) | Felles slot-definisjonar for alle AP-NO-profilar | 
-| ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
-| ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
-| ap-no | [dqv-ap-no](src/linkml/ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)
-| ap-no | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
-| ap-no | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
-| ap-no | [xkos-ap-no](src/linkml/ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
-| ngr | [ngr-adresse](src/linkml/ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
-| ngr | [ngr-eiendom](src/linkml/ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
-| ngr | [ngr-person](src/linkml/ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
-| ngr | [ngr-virksomhet](src/linkml/ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
-| oreg | [enhetsregisteret-bvrinn](src/linkml/oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
-| oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
-| fint | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
-| fint | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
-| fint | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT | 
-| fint | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
-| fint | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
-| fint | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
-| fint | [fint-utdanning](src/linkml/fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
-| samt | [samt-bu](src/linkml/samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
-| begrepskatalog | [brreg-begrepskatalog](src/linkml/begrepskatalog/brreg-begrepskatalog/) | Begrepskatalog for Brønnøysundregistrene | 
-| referanse | [referanse](src/linkml/referanse/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
+| [fair](fair/) | [fair-metadata](fair/fair-metadata/) | **FAIR**-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
+| [ap-no](ap-no/) | [common-ap-no](ap-no/common-ap-no/) | Felles slot-definisjonar for alle AP-NO-profilar | 
+| [ap-no](ap-no/) | [cpsv-ap-no](ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
+| [ap-no](ap-no/) | [dcat-ap-no](ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
+| [ap-no](ap-no/) | [dqv-ap-no](ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)
+| [ap-no](ap-no/) | [modelldcat-ap-no](ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
+| [ap-no](ap-no/) | [skos-ap-no](ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| [ap-no](ap-no/) | [xkos-ap-no](ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
+| [referanse](referanse/) | [referanse](referanse/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
+| [ngr](ngr/) | [ngr-adresse](ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
+| [ngr](ngr/) | [ngr-eiendom](ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
+| [ngr](ngr/) | [ngr-person](ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
+| [ngr](ngr/) | [ngr-virksomhet](ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
+| [oreg](oreg/) | [enhetsregisteret-bvrinn](oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
+| [oreg](oreg/) | [register-over-aksjeeiere](oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
+| [fint](fint/) | [fint-administrasjon](fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
+| [fint](fint/) | [fint-arkiv](fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
+| [fint](fint/) | [fint-common](fint/fint-common/) | Felles klassar for FINT | 
+| [fint](fint/) | [fint-okonomi](fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
+| [fint](fint/) | [fint-personvern](fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
+| [fint](fint/) | [fint-ressurs](fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
+| [fint](fint/) | [fint-utdanning](fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
+| [samt](samt/) | [samt-bu](samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
+| [begrepskatalog](begrepskatalog/) | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Begrepskatalog for Brønnøysundregistrene | 
 <!-- END AUTO-GENERATED: SCHEMA TABLE -->
 
 **AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodeller.
@@ -203,40 +203,41 @@ Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per
 Modellkatalogar ligg under `src/linkml/modellkatalog/`
 
 <!-- BEGIN AUTO-GENERATED: MODELLKATALOG TABLE -->
-| Modellkatalog | Organisasjon | Skildring |
-|---|---|---|
-| [brreg-modellkatalog](src/linkml/modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar |
-| [digdir-modellkatalog](src/linkml/modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar |
-| [kartverket-modellkatalog](src/linkml/modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar |
-| [ksdigital-modellkatalog](src/linkml/modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar |
-| [novari-modellkatalog](src/linkml/modellkatalog/novari-modellkatalog/) | Novari | Modellkatalog for Novari sine informasjonsmodellar |
-| [skatteetaten-modellkatalog](src/linkml/modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar |
+| Modellkatalog | Organisasjon | Skildring | Generator |
+|---|---|---|---|
+| [brreg-modellkatalog](modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [digdir-modellkatalog](modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [kartverket-modellkatalog](modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [ksdigital-modellkatalog](modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [novari-modellkatalog](modellkatalog/novari-modellkatalog/) | Novari | Modellkatalog for Novari sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [skatteetaten-modellkatalog](modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
 <!-- END AUTO-GENERATED: MODELLKATALOG TABLE -->
 
 ## Genererte artefakter
 
 Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
-| Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
-|---|---|---|---|---|
-| Modellmetadata ihht ModellDCAT-AP-NO | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — |
-| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
-| SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
-| OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
-| RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
-| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
-| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
-| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
-| XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
-| Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
-| AsyncAPI-spec | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` |
-| OpenAPI-spec | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` |
-| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
-| Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
-| DQV-målingar | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
-| ModelDCAT-element | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
-
+<!-- BEGIN AUTO-GENERATED: ARTIFACTS TABLE -->
+| Artefakt | Generator | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
+|---|---|---|---|---|---|
+| Modellmetadata ihht ModellDCAT-AP-NO | [`gen-informasjonsmodell-instance`](COMMANDS.md#vedlikehald) | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — |
+| JSON-LD kontekst | [`gen-jsonld-context`](COMMANDS.md#enkeltartefakter) | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
+| SHACL shapes | [`gen-shacl`](COMMANDS.md#enkeltartefakter) | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
+| OWL ontologi | [`gen-owl`](COMMANDS.md#enkeltartefakter) | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
+| RDF/Turtle skjema | [`gen-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
+| Eksempel-RDF | [`convert-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
+| Python-klassar | [`gen-python`](COMMANDS.md#enkeltartefakter) | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
+| JSON Schema | [`gen-jsonschema`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
+| XSD-skjema | [`gen-xsd`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
+| Protobuf-skjema | [`gen-proto`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
+| AsyncAPI-spec | [`gen-asyncapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` |
+| OpenAPI-spec | [`gen-openapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` |
+| ER-diagram | [`gen-erdiagram`](COMMANDS.md#enkeltartefakter) | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
+| Klasse-diagram | [`gen-plantuml`](COMMANDS.md#enkeltartefakter) | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
+| HTML-dokumentasjon | [`gen-docs`](COMMANDS.md#enkeltartefakter) | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
+| DQV-målingar | [`gen-dqv-measurements`](COMMANDS.md#enkeltartefakter) | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
+| ModelDCAT-element | [`gen-modelldcat-elements`](COMMANDS.md#enkeltartefakter) | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
+<!-- END AUTO-GENERATED: ARTIFACTS TABLE -->
 **Publisering til eksterne system:** Sjå [Publiseringsflyt](https://brreg.github.io/linkml-datamodellering-no/publisering-oversikt/#kva-publiserast-til-eksterne-system) for oversikt over GitHub Pages-publisering og høsting til Felles Begrepskatalog/Datakatalog.
 
 ## Katalogstruktur

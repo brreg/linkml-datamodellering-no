@@ -23,16 +23,17 @@ generate_domain_table() {
   echo "|---|---|---|"
 
   # Hardkoda domene-skildringar (manuelt kurert)
+  # Domenenamn lenker til <domain>/ for GitHub Pages-kompatibilitet
   cat <<'EOF'
-| fair | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
-| ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
-| oreg | Offentlege register. |
-| fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
-| samt | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
-| begrepskatalog | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
-| modellkatalog | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
-| referanse | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
+| [fair](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| [ap-no](ap-no/) | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| [referanse](referanse/) | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
+| [ngr](ngr/) | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
+| [oreg](oreg/) | Offentlege register. |
+| [fint](fint/) | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
+| [samt](samt/) | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
+| [begrepskatalog](begrepskatalog/) | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| [modellkatalog](modellkatalog/) | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 EOF
 }
 
@@ -92,7 +93,7 @@ generate_schema_table() {
   )
 
   # Domene-rekkefølgje (same som i domene-tabellen)
-  DOMAIN_ORDER=("fair" "ap-no" "ngr" "oreg" "fint" "samt" "begrepskatalog" "referanse")
+  DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt" "begrepskatalog")
 
   # Bygg assosiativ array: domain -> liste av skjema-filer
   declare -A DOMAIN_SCHEMAS
@@ -138,15 +139,45 @@ generate_schema_table() {
       # Hent dokumentasjonslenkje
       doc_link="${DOC_LINKS[$schema_name]:-}"
 
-      echo "| $domain | [$schema_name]($schema_dir/) | $description | $doc_link"
+      # Konverter src/linkml/<domain>/<modell>/ til <domain>/<modell>/ for GitHub Pages
+      ghpages_schema_link="${schema_dir#src/linkml/}"
+
+      echo "| [$domain]($domain/) | [$schema_name]($ghpages_schema_link/) | $description | $doc_link"
     done <<< "${DOMAIN_SCHEMAS[$domain]}"
   done
 }
 
+# --- Funksjon: Generer artefakt-tabell ---
+generate_artifacts_table() {
+  echo "| Artefakt | Generator | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |"
+  echo "|---|---|---|---|---|---|"
+
+  # Hardkoda artefakt-skildringar (manuelt kurert)
+  cat <<'EOF'
+| Modellmetadata ihht ModellDCAT-AP-NO | [`gen-informasjonsmodell-instance`](COMMANDS.md#vedlikehald) | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — |
+| JSON-LD kontekst | [`gen-jsonld-context`](COMMANDS.md#enkeltartefakter) | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
+| SHACL shapes | [`gen-shacl`](COMMANDS.md#enkeltartefakter) | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
+| OWL ontologi | [`gen-owl`](COMMANDS.md#enkeltartefakter) | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
+| RDF/Turtle skjema | [`gen-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
+| Eksempel-RDF | [`convert-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
+| Python-klassar | [`gen-python`](COMMANDS.md#enkeltartefakter) | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
+| JSON Schema | [`gen-jsonschema`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
+| XSD-skjema | [`gen-xsd`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
+| Protobuf-skjema | [`gen-proto`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
+| AsyncAPI-spec | [`gen-asyncapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` |
+| OpenAPI-spec | [`gen-openapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` |
+| ER-diagram | [`gen-erdiagram`](COMMANDS.md#enkeltartefakter) | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
+| Klasse-diagram | [`gen-plantuml`](COMMANDS.md#enkeltartefakter) | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
+| HTML-dokumentasjon | [`gen-docs`](COMMANDS.md#enkeltartefakter) | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
+| DQV-målingar | [`gen-dqv-measurements`](COMMANDS.md#enkeltartefakter) | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
+| ModelDCAT-element | [`gen-modelldcat-elements`](COMMANDS.md#enkeltartefakter) | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
+EOF
+}
+
 # --- Funksjon: Generer modellkatalog-tabell ---
 generate_modellkatalog_table() {
-  echo "| Modellkatalog | Organisasjon | Skildring |"
-  echo "|---|---|---|"
+  echo "| Modellkatalog | Organisasjon | Skildring | Generator |"
+  echo "|---|---|---|---|"
 
   # Hardkoda organisasjonsnamn og skildringar
   declare -A ORGS=(
@@ -165,7 +196,10 @@ generate_modellkatalog_table() {
 
     org="${ORGS[$schema_name]:-Ukjend}"
 
-    echo "| [$schema_name]($schema_dir/) | $org | Modellkatalog for $org sine informasjonsmodellar |"
+    # Konverter src/linkml/modellkatalog/<katalog>/ til modellkatalog/<katalog>/ for GitHub Pages
+    ghpages_link="${schema_dir#src/linkml/}"
+
+    echo "| [$schema_name]($ghpages_link/) | $org | Modellkatalog for $org sine informasjonsmodellar | [\`gen-modellkatalog-instance\`](COMMANDS.md#vedlikehald) |"
   done < <(find src/linkml/modellkatalog -name "*-schema.yaml" -type f | sort)
 }
 
@@ -173,6 +207,7 @@ generate_modellkatalog_table() {
 
 IN_DOMAIN_TABLE=false
 IN_SCHEMA_TABLE=false
+IN_ARTIFACTS_TABLE=false
 IN_MODELLKATALOG_TABLE=false
 
 while IFS= read -r line; do
@@ -201,6 +236,20 @@ while IFS= read -r line; do
     echo "$line" >> "$TEMP_README"
     continue
   elif $IN_SCHEMA_TABLE; then
+    continue  # Hopp over eksisterande innhald
+  fi
+
+  # Artefakt-tabell
+  if [[ "$line" == "<!-- BEGIN AUTO-GENERATED: ARTIFACTS TABLE -->" ]]; then
+    IN_ARTIFACTS_TABLE=true
+    echo "$line" >> "$TEMP_README"
+    generate_artifacts_table >> "$TEMP_README"
+    continue
+  elif [[ "$line" == "<!-- END AUTO-GENERATED: ARTIFACTS TABLE -->" ]]; then
+    IN_ARTIFACTS_TABLE=false
+    echo "$line" >> "$TEMP_README"
+    continue
+  elif $IN_ARTIFACTS_TABLE; then
     continue  # Hopp over eksisterande innhald
   fi
 
