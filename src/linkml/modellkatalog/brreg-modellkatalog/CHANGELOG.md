@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.4.0...brreg-modellkatalog-v1.5.0) (2026-07-10)
+
+
+### Features
+
+* **ap-no,begrepskatalog,modellkatalog:** legg til DQV-kvalitetsmålingar (kvantifiserbar kvalitet) ([9009b1e](https://github.com/brreg/linkml-datamodellering-no/commit/9009b1e63660f55fce18c1a9bf4dda0757a27d5e))
+* **ci:** legg til XSD-generering via avrotize-pipeline ([22b585b](https://github.com/brreg/linkml-datamodellering-no/commit/22b585b91e357a8280ad2c9c914407e8a0b1057a))
+* legg til OpenAPI 3.1 og AsyncAPI 3.0-generering ([7be7ef8](https://github.com/brreg/linkml-datamodellering-no/commit/7be7ef8ad6e4cda9fb2a08bbc336e1c782d5d794))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([20d8bf8](https://github.com/brreg/linkml-datamodellering-no/commit/20d8bf8c0e3d5ed31c608ece6bf5d64d7802b9af))
+* **modellkatalog:** generer ModelDCAT-AP-NO-modellelement og fyll inn ([5936f55](https://github.com/brreg/linkml-datamodellering-no/commit/5936f55aa7627712c729d11c45155dec6cf4c0bb))
+* **modellkatalog:** rull ut per-org-modellkatalogar og fyll metadata (MD2-MD4, MD6) ([48019b0](https://github.com/brreg/linkml-datamodellering-no/commit/48019b0822cd1a50a60d41fdb070071a3db2eadf))
+* **validate-capture:** parallelliser validering av alle skjema ([7d9a0a2](https://github.com/brreg/linkml-datamodellering-no/commit/7d9a0a28797a918d887b6ff22303ac6d56204655))
+* **validering:** komplett valideringssystem med auto-detect og visuell rapportering ([f0607bc](https://github.com/brreg/linkml-datamodellering-no/commit/f0607bc510640fa8c85b989b995e0162385eb06e))
+
+
+### Bug Fixes
+
+* **los:** rett alle Los-URI-avvik og legg til rettleiing (LO1–LO5) ([05df4cc](https://github.com/brreg/linkml-datamodellering-no/commit/05df4ccd0f7b1565bd34b5fe039e238d3427bb63))
+* **release:** synk schema-versjon med release-nummer automatisk ([1d20298](https://github.com/brreg/linkml-datamodellering-no/commit/1d20298b932da0e876795152aab61baf99611daf))
+* **schemas,mcp-validator:** etterlevingsopprett mot Digdir felles modelleringsreglar (regel 6-11, 15) ([93a25e7](https://github.com/brreg/linkml-datamodellering-no/commit/93a25e79c2eacdfa5d7548d176370200efc79279))
+
 ## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.3.0...brreg-modellkatalog-v1.4.0) (2026-07-09)
 
 
