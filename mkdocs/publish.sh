@@ -461,6 +461,7 @@ nav:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Byggmanifest: build-config.md
+      - Kommandooversikt: kommandoar.md
       - Importhierarki: importhierarki.md
       - Valideringsreglar: valideringsregler.md
       - AP-NO arkitektur og avvik: ap-no-arkitektur.md

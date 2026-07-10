@@ -111,3 +111,6 @@ dokumentere tydelig make targets som er wrappere rundt andre make targets
 fjærne fra index.md:
 Relasjon til andre modellar i dette repoet: - Importerer linkml:types og dqv-ap-no-schema direkte - Eksempel på tverrgåande samarbeid om domenemodellering
 Dette er redundant fordi vi viser fullstendig avhengighetstre litt lenger nede.
+
+
+enumeration for status og lisens?
