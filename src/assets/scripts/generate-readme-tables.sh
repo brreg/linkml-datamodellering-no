@@ -176,8 +176,8 @@ EOF
 
 # --- Funksjon: Generer modellkatalog-tabell ---
 generate_modellkatalog_table() {
-  echo "| Modellkatalog | Organisasjon | Skildring | Generator |"
-  echo "|---|---|---|---|"
+  echo "| Domene | Modellkatalog | Organisasjon | Skildring | Generator |"
+  echo "|---|---|---|---|---|"
 
   # Hardkoda organisasjonsnamn og skildringar
   declare -A ORGS=(
@@ -199,7 +199,7 @@ generate_modellkatalog_table() {
     # Konverter src/linkml/modellkatalog/<katalog>/ til modellkatalog/<katalog>/ for GitHub Pages
     ghpages_link="${schema_dir#src/linkml/}"
 
-    echo "| [$schema_name]($ghpages_link/) | $org | Modellkatalog for $org sine informasjonsmodellar | [\`gen-modellkatalog-instance\`](COMMANDS.md#vedlikehald) |"
+    echo "| modellkatalog | [$schema_name]($ghpages_link/) | $org | Modellkatalog for $org sine informasjonsmodellar | [\`gen-modellkatalog-instance\`](COMMANDS.md#vedlikehald) |"
   done < <(find src/linkml/modellkatalog -name "*-schema.yaml" -type f | sort)
 }
 
