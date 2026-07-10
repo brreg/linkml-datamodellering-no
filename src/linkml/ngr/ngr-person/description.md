@@ -6,6 +6,3 @@ Modellen definerer `Person`, `Navn`, `Identifikator` og tilhøyrande eigenskapar
 
 **Nøkkelklasser:** `Person`, `Navn`, `Identifikator`, `Foedselsdato`, `Kjoenn`, `Sivilstand`.
 
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `linkml:types` direkte — ingen AP-NO-profiler
-- Ingen andre modellar importerer `ngr-person` enno

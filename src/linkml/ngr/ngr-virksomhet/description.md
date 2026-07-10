@@ -6,6 +6,3 @@ Modellen definerer `Virksomhet` med `Underenhet` og `Hovudeining`, roller, adres
 
 **Nøkkelklasser:** `Virksomhet`, `Underenhet`, `Hovudeining`, `Naeringskode`, `Organisasjonsform`, `Adresse`.
 
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `linkml:types` direkte — ingen AP-NO-profiler
-- `oreg/enhetsregisteret-bvrinn` er ein relatert, meir detaljert modell av same domene

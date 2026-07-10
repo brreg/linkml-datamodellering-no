@@ -5,7 +5,3 @@ Modellen definerer `Ressurs`, `Lisens`, `Tilgangsstyring` og andre ressursforval
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Ressurs-API for tilgangsstyring og ressursforvaltning.
 
 **Nøkkelklasser:** `Ressurs`, `Lisens`, `Tilgangsstyring`, `Applikasjon`, `Bruksrett`.
-
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `fint-common` for felles typar og basisklassar
-- Ingen AP-NO-profiler importerte — FINT-modellane er uavhengige av AP-NO

@@ -6,6 +6,3 @@ Skjemaet demonstrerer containerklasse, globale slots, import frå AP-NO-profil, 
 
 **Nøkkelklasser:** `ReferanseContainer` (containerklasse), `Eksempelressurs`, `Eksempelkatalog`.
 
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `dcat-ap-no` for å demonstrere AP-NO-import-mønster
-- Ikkje ein del av produksjonsdomenet — berre til læring og testing

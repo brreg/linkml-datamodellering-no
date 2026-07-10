@@ -6,6 +6,3 @@ Katalogen inneheld metadata om KS Digital sine LinkML-modellar, publiserte til [
 
 **Nøkkelklasser:** `ModellkatalogContainer` (containerklasse) — alle andre klasser (`Informasjonsmodell`, `Objekttype`, `Egenskap` m.fl.) er importerte frå `modelldcat-ap-no`.
 
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `modelldcat-ap-no` for alle ModelDCAT-AP-NO-klasser
-- CI genererer `Informasjonsmodell`-instansar for alle KS Digital-skjema og legg dei til i denne katalogen

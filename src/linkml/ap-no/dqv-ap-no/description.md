@@ -10,9 +10,4 @@ Profilen definerer korleis datakvalitet skal beskrivas med metadata — kvalitet
 - `dqv-ap-no-schema.yaml` — hovudskjema, narrowar `har_maal.range` til `KatalogisertRessurs`
 - `dqv-core-schema.yaml` — delmodell med kjerneklassar utan DCAT-avhengigheit
 
-**Relasjon til andre modellar i dette repoet:**
-- `common-ap-no` er basislaget — felles typar og prefiks vert importerte derifrå
-- `dcat-ap-no` importerer `dqv-core` for å legge til kvalitetsannotasjonar på `Datasett`
-- `dqv-ap-no` importerer `dcat-ap-no` for å narrowe `har_maal.range`
-
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dqv-ap-no.md` for dokumenterte avvik og grunngjevingar.

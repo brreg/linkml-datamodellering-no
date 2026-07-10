@@ -1,4 +1,4 @@
-# Modellmanifest (build.yaml)
+# Byggmanifest (build.yaml)
 
 !!!note "Kva er `build.yaml`?"
 

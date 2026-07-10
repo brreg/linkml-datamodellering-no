@@ -6,6 +6,3 @@ Modellen definerer `Enhet`, `Underenhet`, `Hovudeining`, `Organisasjonsform`, `N
 
 **Nøkkelklasser:** `Enhet`, `Underenhet`, `Hovudeining`, `Organisasjonsform`, `Naeringskode`, `Adresse`.
 
-**Relasjon til andre modellar i dette repoet:**
-- Importerer `linkml:types` direkte — ingen AP-NO-profiler
-- `ngr-virksomhet` er ein relatert, meir generisk modell basert på Nasjonale grunndata
