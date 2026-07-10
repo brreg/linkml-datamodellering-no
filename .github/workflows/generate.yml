@@ -14,6 +14,8 @@ on:
       - 'src/assets/containers/Dockerfile.python'
       - 'src/assets/containers/Dockerfile.avrotize'
       - 'src/assets/containers/Dockerfile.asyncapi-cli'
+      - 'src/assets/containers/Dockerfile.mkdocs'
+      - 'src/assets/containers/Dockerfile.plantuml'
       - 'src/assets/containers/requirements-python-test.txt'
       - 'src/assets/templates/**'
       - 'mkdocs/**'
@@ -74,6 +76,10 @@ jobs:
             dockerfile: src/assets/containers/Dockerfile.plantuml
             make_target: build-docker-plantuml
             hash_files: src/assets/containers/Dockerfile.plantuml
+          - name: mkdocs-local
+            dockerfile: src/assets/containers/Dockerfile.mkdocs
+            make_target: build-docker-mkdocs
+            hash_files: src/assets/containers/Dockerfile.mkdocs
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -194,25 +200,20 @@ jobs:
             fi
           done
 
-      - name: Cache mkdocs-local image
-        id: cache-mkdocs
-        uses: actions/cache@v6
-        with:
-          path: mkdocs-local.tar.zst
-          key: mkdocs-local-${{ hashFiles('mkdocs/Dockerfile.mkdocs') }}
-      - name: Bygg mkdocs-local image
-        if: steps.cache-mkdocs.outputs.cache-hit != 'true'
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Last mkdocs-local image frå GHCR
         run: |
-          make build-docker-mkdocs
-          podman save localhost/mkdocs-local:latest | zstd -T0 > mkdocs-local.tar.zst
-      - name: Last inn mkdocs-local image
-        run: podman load < <(zstd -d -c mkdocs-local.tar.zst)
+          GHCR_TAG="ghcr.io/${{ github.repository_owner }}/mkdocs-local:${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}"
+          podman pull "$GHCR_TAG"
+          podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
 
       - name: Cache mkdocs-build-cache
         uses: actions/cache@v6
         with:
           path: mkdocs/.cache/
-          key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/templates/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'mkdocs/overrides/**') }}
+          key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.mkdocs', 'src/assets/templates/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'mkdocs/overrides/**') }}
           restore-keys: mkdocs-build-
 
       - name: Publiser og bygg dokumentasjonsportal

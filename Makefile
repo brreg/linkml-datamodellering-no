@@ -18,7 +18,7 @@ POLICY     			?=
 PARALLEL   			?= 16
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
 PLANTUML_IMAGE		:= localhost/plantuml:latest
-DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
+DOCS_DOCKERFILE 	:= src/assets/containers/Dockerfile.mkdocs
 DOCS_RUN   			:= podman run --rm \
 	-v "$(CURDIR)/mkdocs/docs:/docs/docs" \
   	-v "$(CURDIR)/mkdocs/mkdocs.yml:/docs/mkdocs.yml" \
