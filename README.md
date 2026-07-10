@@ -138,8 +138,8 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for fullstendig oversikt:
 
-- **[SCOPE.md](SCOPE.md)** — kva repoet er, kva det ikkje er, og kva som høyrer heime her
-- **[BUGS.md](BUGS.md)** — komplett liste over kjende bugs og workarounds
+- **[SCOPE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/SCOPE.md)** — kva repoet er, kva det ikkje er, og kva som høyrer heime her
+- **[BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md)** — komplett liste over kjende bugs og workarounds
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
 
@@ -285,8 +285,8 @@ linkml-datamodellering-no/
 
 Dersom du skal bidra til repoet, les desse dokumenta:
 
-- **[PRINCIPLES.md](PRINCIPLES.md)** — designprinsipp for modellering
-- **[CONVENTIONS.md](CONVENTIONS.md)** — namnekonvensjonar, manifestformat og commit-meldingar
-- **[GOVERNANCE.md](GOVERNANCE.md)** — roller, eigarskap og RFC-prosess
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — korleis bidra (PR-prosess, kodegjennomgang)
+- **[PRINCIPLES.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/PRINCIPLES.md)** — designprinsipp for modellering
+- **[CONVENTIONS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONVENTIONS.md)** — namnekonvensjonar, manifestformat og commit-meldingar
+- **[GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md)** — roller, eigarskap og RFC-prosess
+- **[CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md)** — korleis bidra (PR-prosess, kodegjennomgang)
 - **[README-tabellgenerering](https://brreg.github.io/linkml-datamodellering-no/readme-tabellgenerering/)** — korleis README-tabellane vert genererte
