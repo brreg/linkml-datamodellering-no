@@ -10,7 +10,9 @@ on:
 jobs:
   auto-approve:
     runs-on: ubuntu-22.04
-    if: github.actor == 'github-actions[bot]' && startsWith(github.head_ref, 'release-please--branches--')
+    if: |
+      (github.actor == 'github-actions[bot]' || github.actor == 'AudunVindenesEggeBR') &&
+      startsWith(github.head_ref, 'release-please--branches--')
     permissions:
       pull-requests: write
     steps:
