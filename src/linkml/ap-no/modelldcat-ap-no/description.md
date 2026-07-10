@@ -1,6 +1,6 @@
 ModelDCAT-AP-NO er den norske applikasjonsprofilen for beskriving av informasjonsmodellar i DCAT-format, modellert i LinkML.
 
-Profilen definerer korleis informasjonsmodellar og modellelement skal beskrivas med metadata — etter krava i [ModelDCAT-AP-NO-spesifikasjonen](https://data.norge.no/specification/modelldcat-ap-no) frå Digitaliseringsdirektoratet.
+Profilen dekkjer metadata for informasjonsmodellar og modellelement — tilpassa krava i [ModelDCAT-AP-NO-spesifikasjonen](https://data.norge.no/specification/modelldcat-ap-no) frå Digitaliseringsdirektoratet.
 
 **Typisk brukar:** Offentlege verksemder som skal publisere informasjonsmodellar til [Felles modellkatalog](https://data.norge.no/informationmodels), og utviklare som implementerer ModelDCAT-AP-NO-kompatible system.
 

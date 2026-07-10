@@ -1,6 +1,6 @@
 common-ap-no er basislaget for alle norske applikasjonsprofiler (AP-NO) i dette repoet, modellert i LinkML.
 
-Skjemaet definerer felles typar, enum-ar og prefiks som vert gjenbrukt på tvers av DCAT-AP-NO, SKOS-AP-NO, ModelDCAT-AP-NO, CPSV-AP-NO og XKOS-AP-NO.
+Skjemaet dekkjer felles konsept for alle norske applikasjonsprofiler, inkludert datatypar (`LangString`, `DateOrDateTimeOrYear`), enum-ar (`AdmsStatus`, `PublisherType`) og prefiks som vert gjenbrukt på tvers av DCAT-AP-NO, SKOS-AP-NO, ModelDCAT-AP-NO, CPSV-AP-NO og XKOS-AP-NO.
 
 **Typisk brukar:** Utviklare som arbeidar med AP-NO-profilane — skjemaet vert ikkje brukt direkte, berre importert.
 

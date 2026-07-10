@@ -1,6 +1,6 @@
 DQV-AP-NO er den norske applikasjonsprofilen av [DQV](https://www.w3.org/TR/vocab-dqv/) (Data Quality Vocabulary), tilpassa norsk offentleg sektor og modellert i LinkML.
 
-Profilen definerer korleis datakvalitet skal beskrivas med metadata — kvalitetsmerknadar, kvalitetsmålingar, kvalitetsdimensjonar og kvalitetsmål — etter krava i [DQV-AP-NO-spesifikasjonen](https://informasjonsforvaltning.github.io/dqv-ap-no/) frå Digitaliseringsdirektoratet.
+Profilen dekkjer metadata for datakvalitet, inkludert kvalitetsmerknadar, kvalitetsmålingar, kvalitetsdimensjonar og kvalitetsmål — tilpassa krava i [DQV-AP-NO-spesifikasjonen](https://informasjonsforvaltning.github.io/dqv-ap-no/) frå Digitaliseringsdirektoratet.
 
 **Typisk brukar:** Offentlege verksemder som skal annotere datasett med datakvalitetsinformasjon i [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DQV-AP-NO-kompatible system.
 

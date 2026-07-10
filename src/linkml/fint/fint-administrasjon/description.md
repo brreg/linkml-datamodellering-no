@@ -1,6 +1,6 @@
 LinkML-modell av FINT Administrasjon-API, konvertert frå FINT sin Java-baserte modell.
 
-Modellen definerer `Personalressurs`, `Arbeidsforhold`, `Fullmakt`, `Organisasjonselement` og andre HR-relaterte klasser for integrasjon med FINT Administrasjon-tenester.
+Modellen dekkjer HR-data og organisasjonsstruktur for kommunar og fylkeskommunar, inkludert personalressursar, arbeidsforhold, lønn og fullmakter.
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Administrasjon-API for personaldata og organisasjonsstruktur.
 
