@@ -1,6 +1,6 @@
 LinkML-modell av FINT Ressurs-API, konvertert frå FINT sin Java-baserte modell.
 
-Modellen definerer `Ressurs`, `Lisens`, `Tilgangsstyring` og andre ressursforvaltningsklasser for integrasjon med FINT Ressurs-tenester.
+Modellen dekkjer ressursforvaltning og tilgangsstyring, inkludert lisensadministrasjon, applikasjonskatalogar og bruksrettar.
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Ressurs-API for tilgangsstyring og ressursforvaltning.
 

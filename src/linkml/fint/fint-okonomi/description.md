@@ -1,6 +1,6 @@
 LinkML-modell av FINT Økonomi-API, konvertert frå FINT sin Java-baserte modell.
 
-Modellen definerer `Faktura`, `Ordre`, `Oppdrag`, `Kontering` og andre økonomimodul-klasser for integrasjon med FINT Økonomi-tenester.
+Modellen dekkjer økonomisystem for kommunar og fylkeskommunar, inkludert fakturahandsaming, innkjøp, kontering og leverandør-/kundeforhold.
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Økonomi-API for fakturahandsaming, innkjøp og regnskap.
 

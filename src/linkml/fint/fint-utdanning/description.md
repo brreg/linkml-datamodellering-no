@@ -1,6 +1,6 @@
 LinkML-modell av FINT Utdanning-API, konvertert frå FINT sin Java-baserte modell.
 
-Modellen definerer `Elev`, `Skole`, `Basisgruppe`, `Undervisningsforhold` og andre utdanningsrelaterte klasser for integrasjon med FINT Utdanning-tenester.
+Modellen dekkjer utdanningssektoren for kommunar og fylkeskommunar, inkludert elevdata, skuleinformasjon, undervisningsorganisering, vurdering og fråvær.
 
 **Typisk brukar:** Kommunar, fylkeskommunar og skolar som brukar FINT Utdanning-API for elevdata og organisering av undervisning.
 
