@@ -33,6 +33,7 @@ generate_er_diagram() {
             echo "*Diagrammet viser kun lokale klasser. Klikk for å zoome. [Vis fullstendig diagram med importerte klasser]($plantuml_full).*"
         fi
         echo ""
+        echo "---"
     elif [ -f "$out/$plantuml_full" ]; then
         echo "---"
         echo ""
@@ -42,5 +43,6 @@ generate_er_diagram() {
         echo ""
         echo "*Klikk for å zoome.*"
         echo ""
+        echo "---"
     fi
 }
