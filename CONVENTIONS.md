@@ -202,6 +202,71 @@ concepts:                   # valfri — utelat for å publisere heile datafila
 CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar 
 utan `build.yaml` vert validerte automatisk med `bronze`-policy.
 
+### Per begrepssamling (har `aggregation:`-seksjon)
+
+`build.yaml` per begrepssamling:
+
+```yaml
+publish_external: false         # berre begrepskatalogen publiserer
+validation_policy: bronze       # bronze / silver / gold
+
+# Metadata for aggregering til begrepskatalog
+aggregation:
+  organization: "974760673"     # organisasjonsnummer (tilsv. Brønnøysundregistra)
+  catalog_name: brreg-begrepskatalog
+
+generators:
+  jsonld_context: true
+  shacl: true
+  # osv.
+```
+
+**Filstruktur for begrepssamlingar:**
+
+```
+src/linkml/
+  <domain>/
+    begrepssamling-<namn>/
+      build.yaml                    ← manifestfil med aggregation-metadata
+      begrep/                       ← éin YAML-fil per begrep (frittstående)
+        <begrep-id>.yaml
+        <begrep-id>.yaml
+```
+
+**Eksempel:**
+
+```
+src/linkml/
+  oreg/
+    begrepssamling-foretaksregisteret/
+      build.yaml
+      begrep/
+        foretaksnavn.yaml
+        nestleder.yaml
+```
+
+Begrep-YAML-filer inneheld éin `Begrep`-instans frå `skos-ap-no-schema`:
+
+```yaml
+# foretaksnavn.yaml
+id: https://begrep.brreg.no/foretaksnavn
+anbefalt_term:
+  - foretaksnavn
+har_definisjon:
+  - https://begrep.brreg.no/def/foretaksnavn-nb
+identifikator_literal: "https://begrep.brreg.no/foretaksnavn"
+kontaktpunkt_vcard:
+  - https://begrep.brreg.no/kontakt/begrepsansvarleg
+utgjevar: https://data.norge.no/organizations/974760673
+fagomrade:
+  - https://psi.norge.no/los/tema/naring
+```
+
+**Automatisk aggregering:**
+
+CI-scriptet `collect-concepts.sh` samlar alle begrep frå alle begrepssamlingane til ein 
+organisasjon og genererer ein begrepskatalog under `src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/`.
+
 ---
 
 ## Silver-annotasjonar (Digdir-regel 9, 10, 11)

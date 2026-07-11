@@ -964,6 +964,94 @@ endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 
+# Override domain-begrepskatalog to run collect-concepts first
+.PHONY: domain-begrepskatalog
+domain-begrepskatalog: collect-concepts
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make domain-begrepskatalog$(if $(filter-out 1,$(PARALLEL)), (PARALLEL=$(PARALLEL)),)$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call run_gen_linkml_parallel,$(_schemas_begrepskatalog))
+	$(call run_gen_parallel,$(_schemas_begrepskatalog),gen-jsonld-context,context.jsonld)
+	$(call run_gen_parallel,$(_schemas_begrepskatalog),gen-shacl,shapes.ttl)
+	$(call run_gen_parallel,$(_schemas_begrepskatalog),gen-python,model.py)
+	$(call run_gen_parallel,$(_schemas_begrepskatalog),gen-json-schema,schema.json)
+	$(call run_gen_owl_parallel,$(_schemas_begrepskatalog))
+	$(call run_gen_rdf_parallel,$(_schemas_begrepskatalog))
+	@for example in $(shell find $(SCHEMA_DIR)/begrepskatalog -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
+		[ -f "$$example" ] || continue; \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		if [ -f $(SCHEMA_DIR)/begrepskatalog/$$profil/build.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/begrepskatalog/$$profil/build.yaml; then \
+			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
+			continue; \
+		fi; \
+		mkdir -p $(GEN_DIR)/begrepskatalog/$$profil; \
+		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
+			schema=tests/fixtures/$$profil-fixture.yaml; \
+		else \
+			schema=$(SCHEMA_DIR)/begrepskatalog/$$profil/$$profil-schema.yaml; \
+		fi; \
+		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$example > $(GEN_DIR)/begrepskatalog/$$profil/$$name.ttl"; \
+		$(LINKML_RUN) linkml-convert \
+			--schema $$schema \
+			--output-format ttl \
+			--no-validate \
+			$$example > $(GEN_DIR)/begrepskatalog/$$profil/$$name.ttl; \
+	done
+	$(call run_gen_doc_parallel,$(_schemas_begrepskatalog))
+	$(call run_gen_erdiagram_parallel,$(_schemas_begrepskatalog))
+	$(call run_gen_parallel,$(_schemas_begrepskatalog),gen-proto,schema.proto)
+	$(call run_gen_plantuml_parallel,$(_schemas_begrepskatalog))
+	$(call run_gen_xsd,$(_schemas_begrepskatalog))
+	@if [ "$(PARALLEL)" = "1" ]; then \
+		for schema in $(_schemas_begrepskatalog); do \
+			domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+			name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+			manifest=$$(dirname "$$schema")/build.yaml; \
+			if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
+				continue; \
+			fi; \
+			jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
+			if [ ! -f "$$jsonschema" ]; then \
+				echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name" >&2; \
+				continue; \
+			fi; \
+			out=$(GEN_DIR)/$$domain/$$name/$$name-openapi.yaml; \
+			mkdir -p $(GEN_DIR)/$$domain/$$name; \
+			echo "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
+			$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+				/work/$$jsonschema /work/$$schema --out /work/$$out; \
+			$(PYTHON_RUN) openapi-spec-validator /work/$$out; \
+		done; \
+	else \
+		$(call run_gen_openapi_parallel,$(_schemas_begrepskatalog)); \
+	fi
+	@if [ "$(PARALLEL)" = "1" ]; then \
+		for schema in $(_schemas_begrepskatalog); do \
+			domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
+			name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
+			manifest=$$(dirname "$$schema")/build.yaml; \
+			if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
+				continue; \
+			fi; \
+			jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
+			if [ ! -f "$$jsonschema" ]; then \
+				echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name" >&2; \
+				continue; \
+			fi; \
+			out=$(GEN_DIR)/$$domain/$$name/$$name-asyncapi.yaml; \
+			mkdir -p $(GEN_DIR)/$$domain/$$name; \
+			echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
+			$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+				/work/$$jsonschema /work/$$schema --out /work/$$out; \
+			$(ASYNCAPI_RUN) validate /work/$$out; \
+		done; \
+	else \
+		$(call run_gen_asyncapi_parallel,$(_schemas_begrepskatalog)); \
+	fi
+	$(call run_gen_informasjonsmodell_instance,$(_schemas_begrepskatalog))
+
 # ---------------------------------------------------------------------------
 # Per-artifakt-mål for CI – krev DOMAIN=<domenenamn>
 # Eksempel: make domain-gen-shapes DOMAIN=oreg
@@ -1228,8 +1316,17 @@ new-modellkatalog:
 	@test -n "$(NAME)" || (echo "Bruk: make new-modellkatalog NAME=<alias>"; exit 1)
 	bash src/assets/scripts/new-modellkatalog.sh "$(NAME)"
 
-# Bruk: make new-begrepskatalog NAME=<katalognavn>
+# Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>
+new-begrepssamling:
+	@test -n "$(DOMAIN)" || \
+	  (echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1)
+	@test -n "$(NAME)" || \
+	  (echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1)
+	bash src/assets/scripts/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
+
+# Deprecated: bruk new-begrepssamling i staden
 new-begrepskatalog:
+	@echo "Åtvaring: 'make new-begrepskatalog' er deprecated. Bruk 'make new-begrepssamling' i staden." >&2
 	@test -n "$(NAME)" || \
 	  (echo "Bruk: make new-begrepskatalog NAME=<katalognavn>"; exit 1)
 	bash src/assets/scripts/new-begrepskatalog.sh "$(NAME)"
@@ -1395,6 +1492,12 @@ endif
 gen-modellkatalog-instance:
 	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
 	python3 src/assets/scripts/generate-modellkatalog.py
+
+.PHONY: collect-concepts
+
+collect-concepts:
+	@echo "$(CLR_HDR)Samlar begrep frå begrepssamlingar til begrepskatalogar$(CLR_RST)"
+	python3 src/assets/scripts/collect-concepts.py
 
 .PHONY: validate-informasjonsmodell-instance
 

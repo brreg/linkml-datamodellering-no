@@ -1,0 +1,15 @@
+id: https://begrep.brreg.no/foretaksnavn
+anbefalt_term:
+- foretaksnavn
+har_definisjon:
+- https://begrep.brreg.no/def/foretaksnavn-nb
+identifikator_literal: https://begrep.brreg.no/foretaksnavn
+kontaktpunkt_vcard:
+- https://begrep.brreg.no/kontakt/begrepsansvarleg
+utgjevar: https://data.norge.no/organizations/974760673
+fagomrade:
+- https://psi.norge.no/los/tema/naring
+- https://psi.norge.no/los/tema/naringsliv
+sja_ogsa_omgrep:
+- https://data.norge.no/concepts/68944a03-76d8-38f5-894e-88265d962b36
+- https://data.norge.no/concepts/e9074b72-758d-3500-bf6e-253a920a6900

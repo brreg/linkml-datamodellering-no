@@ -1,0 +1,20 @@
+publish_external: false
+validation_policy: bronze
+
+# Metadata for aggregering til begrepskatalog
+aggregation:
+  organization: "974760673"  # Brønnøysundregistra
+  catalog_name: brreg-begrepskatalog
+
+generators:
+  jsonld_context: false
+  shacl: false
+  python: false
+  json_schema: false
+  owl: false
+  rdf: false
+  protobuf: false
+  erdiagram: false
+  docs: false
+  plantuml: false
+  example_rdf: false

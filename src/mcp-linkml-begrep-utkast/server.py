@@ -267,6 +267,92 @@ TOOL_LIST_LOS_TEMA = {
     },
 }
 
+TOOL_SKRIV_BEGREP_FIL = {
+    "name": "skriv_begrep_fil",
+    "description": (
+        "Genererer begreps-YAML og skriv direkte til begrepssamling-struktur. "
+        "Skriv til src/linkml/<domain>/begrepssamling-<namn>/begrep/<slug>.yaml. "
+        "Returnerer filsti."
+    ),
+    "inputSchema": {
+        "type": "object",
+        "required": ["domain", "begrepssamling", "slug", "anbefalt_term_nb", "definisjon_nb", "fagomrade_uri"],
+        "properties": {
+            "domain": {
+                "type": "string",
+                "description": "Domene, t.d. 'oreg'",
+            },
+            "begrepssamling": {
+                "type": "string",
+                "description": "Begrepssamling-namn, t.d. 'begrepssamling-foretaksregisteret'",
+            },
+            # Same parametrar som opprett_begrep
+            "profil": {
+                "type": "string",
+                "description": "Profilnamn (standard: 'default').",
+                "default": "default",
+            },
+            "base_uri": {
+                "type": "string",
+                "description": "Base-URI for organisasjonen. Kan setjast av profilen.",
+                "default": "",
+            },
+            "slug": {
+                "type": "string",
+                "description": "Kort identifikator for begrepet, t.d. 'foretaksnavn'.",
+            },
+            "anbefalt_term_nb": {
+                "type": "string",
+                "description": "Anbefalt term på bokmål.",
+            },
+            "anbefalt_term_nn": {
+                "type": "string",
+                "description": "Anbefalt term på nynorsk (valfri).",
+                "default": "",
+            },
+            "anbefalt_term_en": {
+                "type": "string",
+                "description": "Anbefalt term på engelsk (valfri).",
+                "default": "",
+            },
+            "definisjon_nb": {
+                "type": "string",
+                "description": "Definisjonstekst på bokmål.",
+            },
+            "definisjon_nn": {
+                "type": "string",
+                "description": "Definisjonstekst på nynorsk (valfri).",
+                "default": "",
+            },
+            "definisjon_en": {
+                "type": "string",
+                "description": "Definisjonstekst på engelsk (valfri).",
+                "default": "",
+            },
+            "kjelde_relasjon": {
+                "type": "string",
+                "description": "Kjeldetype. Kan setjast av profilen.",
+                "enum": ["direct-from-source", "self-composed", "derived-from-source"],
+                "default": "",
+            },
+            "utgjevar_uri": {
+                "type": "string",
+                "description": "URI til utgjevande organisasjon. Kan setjast av profilen.",
+                "default": "",
+            },
+            "fagomrade_uri": {
+                "type": "string",
+                "description": "URI til LOS-tema (hent frå list_los_tema).",
+            },
+            "kontaktpunkt_uri": {
+                "type": "string",
+                "description": "URI til kontaktpunkt. Kan setjast av profilen.",
+                "default": "",
+            },
+        },
+    },
+}
+
 
 # ---------------------------------------------------------------------------
 # Meldingshandtering
@@ -297,6 +383,7 @@ def handle(msg: dict) -> dict | None:
             "result": {
                 "tools": [
                     TOOL_OPPRETT_BEGREP,
+                    TOOL_SKRIV_BEGREP_FIL,
                     TOOL_VALIDER_BEGREP,
                     TOOL_LIST_PROFILES,
                     TOOL_LIST_LOS_TEMA,
@@ -324,6 +411,9 @@ def handle(msg: dict) -> dict | None:
 
         if tool_name == "opprett_begrep":
             return _handle_opprett_begrep(msg_id, arguments)
+
+        if tool_name == "skriv_begrep_fil":
+            return _handle_skriv_begrep_fil(msg_id, arguments)
 
         if tool_name == "valider_begrep":
             return _handle_valider_begrep(msg_id, arguments)
@@ -429,6 +519,100 @@ def _handle_opprett_begrep(msg_id, arguments: dict) -> dict:
         "id": msg_id,
         "result": {
             "content": [{"type": "text", "text": yaml_str}]
+        },
+    }
+
+
+def _handle_skriv_begrep_fil(msg_id, arguments: dict) -> dict:
+    from generator import load_profile, skriv_begrep_til_fil
+
+    domain = arguments.get("domain", "")
+    begrepssamling = arguments.get("begrepssamling", "")
+    slug = arguments.get("slug", "")
+
+    if not domain:
+        return _param_error(msg_id, "domain")
+    if not begrepssamling:
+        return _param_error(msg_id, "begrepssamling")
+    if not slug:
+        return _param_error(msg_id, "slug")
+
+    profil_name = arguments.get("profil") or "default"
+
+    try:
+        profile = load_profile(profil_name)
+    except FileNotFoundError:
+        return {
+            "jsonrpc": "2.0",
+            "id": msg_id,
+            "error": {"code": -32602, "message": f"Ukjend profil: '{profil_name}'"},
+        }
+
+    term_nb       = arguments.get("anbefalt_term_nb", "")
+    def_nb        = arguments.get("definisjon_nb", "")
+    fagomrade_uri = arguments.get("fagomrade_uri", "")
+
+    if not term_nb:
+        return _param_error(msg_id, "anbefalt_term_nb")
+    if not def_nb:
+        return _param_error(msg_id, "definisjon_nb")
+    if not fagomrade_uri:
+        return _param_error(msg_id, "fagomrade_uri")
+
+    # Bygg output-sti
+    output_path = Path("/repo") / "src/linkml" / domain / begrepssamling / "begrep" / f"{slug}.yaml"
+
+    try:
+        result_path = skriv_begrep_til_fil(
+            output_path=output_path,
+            profile=profile,
+            slug=slug,
+            anbefalt_term_nb=term_nb,
+            definisjon_nb=def_nb,
+            fagomrade_uri=fagomrade_uri,
+            base_uri=arguments.get("base_uri", ""),
+            kjelde_relasjon=arguments.get("kjelde_relasjon", ""),
+            utgjevar_uri=arguments.get("utgjevar_uri", ""),
+            anbefalt_term_nn=arguments.get("anbefalt_term_nn", ""),
+            anbefalt_term_en=arguments.get("anbefalt_term_en", ""),
+            definisjon_nn=arguments.get("definisjon_nn", ""),
+            definisjon_en=arguments.get("definisjon_en", ""),
+            kontaktpunkt_uri=arguments.get("kontaktpunkt_uri", ""),
+            merknad_nb=arguments.get("merknad_nb") or [],
+            merknad_nn=arguments.get("merknad_nn") or [],
+            merknad_en=arguments.get("merknad_en") or [],
+            tillate_term_nb=arguments.get("tillate_term_nb") or [],
+            tillate_term_nn=arguments.get("tillate_term_nn") or [],
+            tillate_term_en=arguments.get("tillate_term_en") or [],
+            eksempel_nb=arguments.get("eksempel_nb") or [],
+            eksempel_nn=arguments.get("eksempel_nn") or [],
+            eksempel_en=arguments.get("eksempel_en") or [],
+            forkasta_term_nb=arguments.get("forkasta_term_nb") or [],
+            forkasta_term_nn=arguments.get("forkasta_term_nn") or [],
+            forkasta_term_en=arguments.get("forkasta_term_en") or [],
+            verdiomrade_nb=arguments.get("verdiomrade_nb") or [],
+            verdiomrade_nn=arguments.get("verdiomrade_nn") or [],
+            verdiomrade_en=arguments.get("verdiomrade_en") or [],
+            kjelde_tekst_nb=arguments.get("kjelde_tekst_nb") or [],
+            kjelde_tekst_nn=arguments.get("kjelde_tekst_nn") or [],
+            kjelde_tekst_en=arguments.get("kjelde_tekst_en") or [],
+            sja_ogsa_omgrep=arguments.get("sja_ogsa_omgrep") or [],
+        )
+    except ValueError as exc:
+        return {
+            "jsonrpc": "2.0",
+            "id": msg_id,
+            "error": {"code": -32602, "message": str(exc)},
+        }
+
+    # Returner relativ filsti (frå /repo-rota)
+    relative_path = result_path.relative_to("/repo")
+
+    return {
+        "jsonrpc": "2.0",
+        "id": msg_id,
+        "result": {
+            "content": [{"type": "text", "text": f"✓ Skrev begrep til: {relative_path}"}]
         },
     }
 

@@ -10,10 +10,10 @@ beskrivelse:
     modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
   nn: Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
     modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
-versjonsnummer: 1.2.0
+versjonsnummer: 1.10.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
-endringsdato: '2026-07-04'
+endringsdato: '2026-07-10'
 utgivelsesdato: '2023-01-01'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/

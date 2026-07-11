@@ -70,7 +70,7 @@ def _build_langstring_array(nb_texts: list, nn_texts: list, en_texts: list, inte
         return result
 
 
-def opprett_begrep(
+def _generate_begrep_dict(
     profile: dict,
     slug: str,
     anbefalt_term_nb: str,
@@ -104,8 +104,13 @@ def opprett_begrep(
     kjelde_tekst_nn: list | None = None,
     kjelde_tekst_en: list | None = None,
     sja_ogsa_omgrep: list | None = None,
-) -> str:
-    """Returnerer ein YAML-streng med BegrepContainer-innhald for eitt begrep."""
+) -> tuple[dict, list, str, str, str]:
+    """
+    Genererer begreps-dict, definisjoner, URI-ar og metadata.
+
+    Returns:
+        (begrep_dict, definisjoner, begrep_uri, kontaktpunkt_uri, utgjevar_uri)
+    """
     sja_ogsa_omgrep = sja_ogsa_omgrep or []
 
     base_uri = _resolve(base_uri, "base_uri", profile, "base_uri")
@@ -214,6 +219,80 @@ def opprett_begrep(
                 )
             definisjoner.append(def_obj)
 
+    return begrep_dict, definisjoner, begrep_uri, kontaktpunkt_uri, utgjevar_uri
+
+
+def opprett_begrep(
+    profile: dict,
+    slug: str,
+    anbefalt_term_nb: str,
+    definisjon_nb: str,
+    fagomrade_uri: str,
+    *,
+    base_uri: str = "",
+    kjelde_relasjon: str = "",
+    utgjevar_uri: str = "",
+    anbefalt_term_nn: str = "",
+    anbefalt_term_en: str = "",
+    definisjon_nn: str = "",
+    definisjon_en: str = "",
+    kontaktpunkt_uri: str = "",
+    merknad_nb: list | None = None,
+    merknad_nn: list | None = None,
+    merknad_en: list | None = None,
+    tillate_term_nb: list | None = None,
+    tillate_term_nn: list | None = None,
+    tillate_term_en: list | None = None,
+    eksempel_nb: list | None = None,
+    eksempel_nn: list | None = None,
+    eksempel_en: list | None = None,
+    forkasta_term_nb: list | None = None,
+    forkasta_term_nn: list | None = None,
+    forkasta_term_en: list | None = None,
+    verdiomrade_nb: list | None = None,
+    verdiomrade_nn: list | None = None,
+    verdiomrade_en: list | None = None,
+    kjelde_tekst_nb: list | None = None,
+    kjelde_tekst_nn: list | None = None,
+    kjelde_tekst_en: list | None = None,
+    sja_ogsa_omgrep: list | None = None,
+) -> str:
+    """Returnerer ein YAML-streng med BegrepContainer-innhald for eitt begrep."""
+    begrep_dict, definisjoner, begrep_uri, kontaktpunkt_uri, utgjevar_uri = _generate_begrep_dict(
+        profile=profile,
+        slug=slug,
+        anbefalt_term_nb=anbefalt_term_nb,
+        definisjon_nb=definisjon_nb,
+        fagomrade_uri=fagomrade_uri,
+        base_uri=base_uri,
+        kjelde_relasjon=kjelde_relasjon,
+        utgjevar_uri=utgjevar_uri,
+        anbefalt_term_nn=anbefalt_term_nn,
+        anbefalt_term_en=anbefalt_term_en,
+        definisjon_nn=definisjon_nn,
+        definisjon_en=definisjon_en,
+        kontaktpunkt_uri=kontaktpunkt_uri,
+        merknad_nb=merknad_nb,
+        merknad_nn=merknad_nn,
+        merknad_en=merknad_en,
+        tillate_term_nb=tillate_term_nb,
+        tillate_term_nn=tillate_term_nn,
+        tillate_term_en=tillate_term_en,
+        eksempel_nb=eksempel_nb,
+        eksempel_nn=eksempel_nn,
+        eksempel_en=eksempel_en,
+        forkasta_term_nb=forkasta_term_nb,
+        forkasta_term_nn=forkasta_term_nn,
+        forkasta_term_en=forkasta_term_en,
+        verdiomrade_nb=verdiomrade_nb,
+        verdiomrade_nn=verdiomrade_nn,
+        verdiomrade_en=verdiomrade_en,
+        kjelde_tekst_nb=kjelde_tekst_nb,
+        kjelde_tekst_nn=kjelde_tekst_nn,
+        kjelde_tekst_en=kjelde_tekst_en,
+        sja_ogsa_omgrep=sja_ogsa_omgrep,
+    )
+
     container: dict = {
         "begrep": [begrep_dict],
         "definisjoner": definisjoner,
@@ -237,3 +316,101 @@ def opprett_begrep(
         )
 
     return yaml_str
+
+
+def skriv_begrep_til_fil(
+    output_path: Path,
+    profile: dict,
+    slug: str,
+    anbefalt_term_nb: str,
+    definisjon_nb: str,
+    fagomrade_uri: str,
+    *,
+    base_uri: str = "",
+    kjelde_relasjon: str = "",
+    utgjevar_uri: str = "",
+    anbefalt_term_nn: str = "",
+    anbefalt_term_en: str = "",
+    definisjon_nn: str = "",
+    definisjon_en: str = "",
+    kontaktpunkt_uri: str = "",
+    merknad_nb: list | None = None,
+    merknad_nn: list | None = None,
+    merknad_en: list | None = None,
+    tillate_term_nb: list | None = None,
+    tillate_term_nn: list | None = None,
+    tillate_term_en: list | None = None,
+    eksempel_nb: list | None = None,
+    eksempel_nn: list | None = None,
+    eksempel_en: list | None = None,
+    forkasta_term_nb: list | None = None,
+    forkasta_term_nn: list | None = None,
+    forkasta_term_en: list | None = None,
+    verdiomrade_nb: list | None = None,
+    verdiomrade_nn: list | None = None,
+    verdiomrade_en: list | None = None,
+    kjelde_tekst_nb: list | None = None,
+    kjelde_tekst_nn: list | None = None,
+    kjelde_tekst_en: list | None = None,
+    sja_ogsa_omgrep: list | None = None,
+) -> Path:
+    """
+    Genererer og skriv begreps-YAML til fil (berre begreps-objektet, ikkje BegrepContainer).
+
+    Returns:
+        Path til den skrivne fila
+    """
+    begrep_dict, _, _, _, _ = _generate_begrep_dict(
+        profile=profile,
+        slug=slug,
+        anbefalt_term_nb=anbefalt_term_nb,
+        definisjon_nb=definisjon_nb,
+        fagomrade_uri=fagomrade_uri,
+        base_uri=base_uri,
+        kjelde_relasjon=kjelde_relasjon,
+        utgjevar_uri=utgjevar_uri,
+        anbefalt_term_nn=anbefalt_term_nn,
+        anbefalt_term_en=anbefalt_term_en,
+        definisjon_nn=definisjon_nn,
+        definisjon_en=definisjon_en,
+        kontaktpunkt_uri=kontaktpunkt_uri,
+        merknad_nb=merknad_nb,
+        merknad_nn=merknad_nn,
+        merknad_en=merknad_en,
+        tillate_term_nb=tillate_term_nb,
+        tillate_term_nn=tillate_term_nn,
+        tillate_term_en=tillate_term_en,
+        eksempel_nb=eksempel_nb,
+        eksempel_nn=eksempel_nn,
+        eksempel_en=eksempel_en,
+        forkasta_term_nb=forkasta_term_nb,
+        forkasta_term_nn=forkasta_term_nn,
+        forkasta_term_en=forkasta_term_en,
+        verdiomrade_nb=verdiomrade_nb,
+        verdiomrade_nn=verdiomrade_nn,
+        verdiomrade_en=verdiomrade_en,
+        kjelde_tekst_nb=kjelde_tekst_nb,
+        kjelde_tekst_nn=kjelde_tekst_nn,
+        kjelde_tekst_en=kjelde_tekst_en,
+        sja_ogsa_omgrep=sja_ogsa_omgrep,
+    )
+
+    # Skriv berre begreps-objektet til fil
+    yaml_str = yaml.dump(
+        begrep_dict,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+    )
+
+    # Legg til header-kommentar
+    yaml_str = f"# Generert av mcp-linkml-begrep-utkast\n" + yaml_str
+
+    # Opprett mappe dersom den ikkje finst
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Skriv til fil
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(yaml_str)
+
+    return output_path

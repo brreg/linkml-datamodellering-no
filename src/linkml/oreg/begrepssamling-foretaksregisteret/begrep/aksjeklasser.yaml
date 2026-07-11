@@ -1,0 +1,17 @@
+id: https://begrep.brreg.no/aksjeklasser
+anbefalt_term:
+- aksjeklasser
+har_definisjon:
+- https://begrep.brreg.no/def/aksjeklasser-nb
+identifikator_literal: https://begrep.brreg.no/aksjeklasser
+kontaktpunkt_vcard:
+- https://begrep.brreg.no/kontakt/begrepsansvarleg
+utgjevar: https://data.norge.no/organizations/974760673
+fagomrade:
+- https://psi.norge.no/los/tema/naring
+- https://psi.norge.no/los/tema/naringsliv
+merknad:
+- I utgangspunktet skal alle aksjer gi lik rett i selskapet, men vedtektene kan bestemme
+  at aksjene skal deles inn i forskjellige aksjeklasser.
+eksempel:
+- A-aksjer, b-aksjer, preferanseaksjer

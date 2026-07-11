@@ -307,7 +307,10 @@
       "Bash(make build-docker-mcp-begrep-utkast *)",
       "Bash(make mcp-linkml-validate-build *)",
       "Bash(make generate-single *)",
-      "Bash(make -n)"
+      "Bash(make -n)",
+      "Bash(make collect-concepts *)",
+      "Bash(make domain-begrepskatalog *)",
+      "Bash(make new-begrepssamling *)"
     ]
   },
   "enableAllProjectMcpServers": true,

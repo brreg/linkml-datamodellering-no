@@ -1,0 +1,16 @@
+id: https://begrep.brreg.no/nestleder
+anbefalt_term:
+- nestleder
+- nestleiar
+- deputy chair
+har_definisjon:
+- https://begrep.brreg.no/def/nestleder-nb
+- https://begrep.brreg.no/def/nestleder-nn
+- https://begrep.brreg.no/def/nestleder-en
+identifikator_literal: https://begrep.brreg.no/nestleder
+kontaktpunkt_vcard:
+- https://begrep.brreg.no/kontakt/begrepsansvarleg
+utgjevar: https://data.norge.no/organizations/974760673
+fagomrade:
+- https://psi.norge.no/los/tema/naring
+- https://psi.norge.no/los/tema/naringsliv

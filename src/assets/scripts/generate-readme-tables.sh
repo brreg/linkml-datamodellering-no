@@ -66,7 +66,6 @@ generate_schema_table() {
     ["enhetsregisteret-bvrinn"]="Berettigede, verger, rettighetshavere i næring (BVRiNN)"
     ["register-over-aksjeeiere"]="Aksjeeigarar og eigedelar"
     ["samt-bu"]="Skular og barnehagar"
-    ["brreg-begrepskatalog"]="Begrepskatalog for Brønnøysundregistrene"
     ["referanse"]="Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur"
   )
 
@@ -93,7 +92,7 @@ generate_schema_table() {
   )
 
   # Domene-rekkefølgje (same som i domene-tabellen)
-  DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt" "begrepskatalog")
+  DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt")
 
   # Bygg assosiativ array: domain -> liste av skjema-filer
   declare -A DOMAIN_SCHEMAS
@@ -101,8 +100,9 @@ generate_schema_table() {
   while IFS= read -r schema_file; do
     domain=$(echo "$schema_file" | cut -d'/' -f3)
 
-    # Hopp over modellkatalog (handterast separat)
+    # Hopp over modellkatalog og begrepskatalog (handterast separat)
     [[ "$domain" == "modellkatalog" ]] && continue
+    [[ "$domain" == "begrepskatalog" ]] && continue
 
     schema_dir=$(dirname "$schema_file")
     schema_name=$(basename "$schema_dir")
@@ -174,6 +174,30 @@ generate_artifacts_table() {
 EOF
 }
 
+# --- Funksjon: Generer begrepskatalog-tabell ---
+generate_begrepskatalog_table() {
+  echo "| Domene | Begrepskatalog | Organisasjon | Skildring | Generator |"
+  echo "|---|---|---|---|---|"
+
+  # Hardkoda organisasjonsnamn og skildringar
+  declare -A ORGS=(
+    ["brreg-begrepskatalog"]="Brønnøysundregistra"
+  )
+
+  # Finn alle begrepskatalogar
+  while IFS= read -r schema_file; do
+    schema_dir=$(dirname "$schema_file")
+    schema_name=$(basename "$schema_dir")
+
+    org="${ORGS[$schema_name]:-Ukjend}"
+
+    # Konverter src/linkml/begrepskatalog/<katalog>/ til begrepskatalog/<katalog>/ for GitHub Pages
+    ghpages_link="${schema_dir#src/linkml/}"
+
+    echo "| begrepskatalog | [$schema_name]($ghpages_link/) | $org | Begrepskatalog for $org sine begrep | [\`collect-concepts\`](COMMANDS.md#vedlikehald) |"
+  done < <(find src/linkml/begrepskatalog -name "*-schema.yaml" -type f | sort)
+}
+
 # --- Funksjon: Generer modellkatalog-tabell ---
 generate_modellkatalog_table() {
   echo "| Domene | Modellkatalog | Organisasjon | Skildring | Generator |"
@@ -208,6 +232,7 @@ generate_modellkatalog_table() {
 IN_DOMAIN_TABLE=false
 IN_SCHEMA_TABLE=false
 IN_ARTIFACTS_TABLE=false
+IN_BEGREPSKATALOG_TABLE=false
 IN_MODELLKATALOG_TABLE=false
 
 while IFS= read -r line; do
@@ -250,6 +275,20 @@ while IFS= read -r line; do
     echo "$line" >> "$TEMP_README"
     continue
   elif $IN_ARTIFACTS_TABLE; then
+    continue  # Hopp over eksisterande innhald
+  fi
+
+  # Begrepskatalog-tabell
+  if [[ "$line" == "<!-- BEGIN AUTO-GENERATED: BEGREPSKATALOG TABLE -->" ]]; then
+    IN_BEGREPSKATALOG_TABLE=true
+    echo "$line" >> "$TEMP_README"
+    generate_begrepskatalog_table >> "$TEMP_README"
+    continue
+  elif [[ "$line" == "<!-- END AUTO-GENERATED: BEGREPSKATALOG TABLE -->" ]]; then
+    IN_BEGREPSKATALOG_TABLE=false
+    echo "$line" >> "$TEMP_README"
+    continue
+  elif $IN_BEGREPSKATALOG_TABLE; then
     continue  # Hopp over eksisterande innhald
   fi
 

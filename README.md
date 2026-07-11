@@ -81,32 +81,73 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 ### Begrepsmodellering
 
-> Bytt ut **`katalognavn`** med ditt aktuelle navn.
+Begrep vert organiserte i **begrepssamlingar** (éin fil per begrep) som automatisk aggregerast til ein **begrepskatalog** per organisasjon.
+
+> Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
 
 ```bash
-# 1. Opprett ny begrepskatalog (skjema + filstruktur)
-make new-begrepskatalog NAME=katalognavn
+# 1. Opprett ny begrepssamling (filstruktur for begrep)
+make new-begrepssamling DOMAIN=domene NAME=begrepssamling-namn
+# Døme: make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret
 ```
+
+Scriptet opprettar:
+- `src/linkml/domene/begrepssamling-namn/begrep/` — mappe for begrepsfiler
+- `src/linkml/domene/begrepssamling-namn/build.yaml` — manifest med aggregation-metadata
+
 ```bash
-# 1b. (om ønskjeleg) Generer utkast til begrep
-# Legg argumenta i tmp/mitt-begrep.json (sjå ny-begrepsmodell.md for format)
-make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
-# → lim YAML-output inn i examples/katalognavn-eksempel.yaml
+# 2. Fyll ut aggregation-metadata i build.yaml
+#    → src/linkml/domene/begrepssamling-namn/build.yaml
+#    Sett: aggregation.organization (organisasjonsnummer)
+#          aggregation.catalog_name (t.d. "brreg-begrepskatalog")
 ```
+
 ```bash
-# 2. Rediger datafila med reelle begrep
-#    → src/linkml/begrepskatalog/katalognavn/data/katalognavn/katalognavn.yaml
+# 3a. Generer begrep med mcp-linkml-begrep-utkast (anbefalt)
+make mcp-begrep-run
+# Bruk verktøyet 'skriv_begrep_fil' med:
+#   - domain: domene
+#   - begrepssamling: begrepssamling-namn
+#   - slug: begrep-identifikator (t.d. "foretaksnavn")
+#   - profil: "brreg" (eller "default")
+# → skriv til src/linkml/domene/begrepssamling-namn/begrep/<slug>.yaml
+
+# 3b. Eller skriv begrep manuelt:
+#    → src/linkml/domene/begrepssamling-namn/begrep/mitt-begrep.yaml
 ```
+
 ```bash
-# 3. Valider skjema og datafil
+# 4. Køyr collect-concepts for å aggregere til begrepskatalog
+make collect-concepts
+# → genererer src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
+```
+
+```bash
+# 5. Valider begrepskatalogen
 make mcp-linkml-validate \
-  SCHEMA=src/linkml/begrepskatalog/katalognavn/katalognavn-schema.yaml \
-  POLICY=felles-begrepskatalog \
-  INSTANCE=src/linkml/begrepskatalog/katalognavn/data/katalognavn/katalognavn.yaml
+  SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
+  POLICY=felles-begrepskatalog
 ```
+
 ```bash
-# 4. Generer og publiser til dokumentasjonsportal
+# 6. Generer artefaktar og publiser til dokumentasjonsportal
 make begrepskatalog && make docs-publish && make docs-serve   # → http://localhost:8000
+```
+
+**Filstruktur:**
+```
+src/linkml/
+  oreg/
+    begrepssamling-foretaksregisteret/
+      build.yaml                    ← aggregation-metadata
+      begrep/
+        foretaksnavn.yaml          ← éin fil per begrep
+        nestleder.yaml
+  begrepskatalog/                   ← automatisk generert
+    brreg-begrepskatalog/
+      data/
+        brreg-begrepskatalog/
+          brreg-begrepskatalog.yaml ← aggregert frå alle brreg-begrepssamlingar
 ```
 
 For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).
@@ -191,10 +232,21 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 | [fint](fint/) | [fint-ressurs](fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
 | [fint](fint/) | [fint-utdanning](fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
 | [samt](samt/) | [samt-bu](samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
-| [begrepskatalog](begrepskatalog/) | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Begrepskatalog for Brønnøysundregistrene | 
 <!-- END AUTO-GENERATED: SCHEMA TABLE -->
 
 **AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodeller.
+
+## Genererte begrepskatalogar
+
+Begrepskatalogar er automatisk genererte oversikter over begrep per organisasjon, basert på SKOS-AP-NO.
+
+Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
+
+<!-- BEGIN AUTO-GENERATED: BEGREPSKATALOG TABLE -->
+| Domene | Begrepskatalog | Organisasjon | Skildring | Generator |
+|---|---|---|---|---|
+| begrepskatalog | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Brønnøysundregistra | Begrepskatalog for Brønnøysundregistra sine begrep | [`collect-concepts`](COMMANDS.md#vedlikehald) |
+<!-- END AUTO-GENERATED: BEGREPSKATALOG TABLE -->
 
 ## Genererte modellkatalogar
 
