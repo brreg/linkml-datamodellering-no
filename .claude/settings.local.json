@@ -305,7 +305,9 @@
       "Bash(./src/assets/scripts/generate-readme-tables.sh *)",
       "Bash(make exec *)",
       "Bash(make build-docker-mcp-begrep-utkast *)",
-      "Bash(make mcp-linkml-validate-build *)"
+      "Bash(make mcp-linkml-validate-build *)",
+      "Bash(make generate-single *)",
+      "Bash(make -n)"
     ]
   },
   "enableAllProjectMcpServers": true,

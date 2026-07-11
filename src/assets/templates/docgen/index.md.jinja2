@@ -259,6 +259,19 @@
         {%- endfor %}
       {%- endif %}
     {%- endfor %}
+    {# Sjekk om enum er brukt i ein lokal klasse (via induced_slot) #}
+    {%- for class_name in schemaview.all_classes() %}
+      {%- set c = schemaview.get_class(class_name) %}
+      {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+      {%- if c and not c.tree_root and c_origin == schema.id %}
+        {%- for slot_name in c.slots or [] %}
+          {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
+          {%- if induced and induced.range == enum_name %}
+            {%- set is_used.value = true -%}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+    {%- endfor %}
     {%- if is_used.value -%}
       {%- set usage_badge = "✅ Used" -%}
     {%- else -%}
@@ -333,6 +346,19 @@
       {%- set s = schemaview.get_slot(slot_name) %}
       {%- if s and s.range == type_name %}
         {%- set is_used.value = true -%}
+      {%- endif %}
+    {%- endfor %}
+    {# Sjekk om typen er brukt i ein lokal klasse (via induced_slot) #}
+    {%- for class_name in schemaview.all_classes() %}
+      {%- set c = schemaview.get_class(class_name) %}
+      {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+      {%- if c and not c.tree_root and c_origin == schema.id %}
+        {%- for slot_name in c.slots or [] %}
+          {%- set induced = schemaview.induced_slot(slot_name, class_name) %}
+          {%- if induced and induced.range == type_name %}
+            {%- set is_used.value = true -%}
+          {%- endif %}
+        {%- endfor %}
       {%- endif %}
     {%- endfor %}
     {%- if is_used.value -%}
