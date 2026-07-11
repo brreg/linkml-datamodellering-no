@@ -992,4 +992,10 @@ slots:
   oppdateringsfrekvens:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
-    description: Kor ofte katalogen vert oppdatert.
+    description: >-
+      Kor ofte katalogen vert oppdatert. Verdien SKAL veljast frå EUs
+      kontrollerte vokabular Frequency
+      (http://publications.europa.eu/resource/authority/frequency/).
+      Sjå enumerasjonen DCTFrequency i common-ap-no for tilgjengelege verdiar.
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/

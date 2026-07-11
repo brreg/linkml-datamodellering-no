@@ -75,8 +75,7 @@ classes:
       type_concept:
         description: >-
           Type aktør frå ADMS publisher type-vokabularet (dct:type).
-        annotations:
-          gyldige_verdier: http://purl.org/adms/publishertype/
+          Bruk enumerasjonen ADMSPublisherType definert i common-ap-no.
     see_also:
       - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
   Kontaktopplysning:
@@ -792,7 +791,7 @@ slots:
     range: Konsept
     multivalued: true
     description: >-
-      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular.
+      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum - bruk MCP-server `mcp__linkml-begrep-utkast__list_los_tema` for å søkje i Los-hierarkiet.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
   temaer:
@@ -820,10 +819,14 @@ slots:
     description: Pakkeformat brukt i distribusjonen.
   frekvens:
     slot_uri: dct:accrualPeriodicity
-    range: string
-    description: Oppdateringsfrekvens for datasettet.
+    range: Konsept
+    description: >-
+      Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs
+      kontrollerte vokabular Frequency
+      (http://publications.europa.eu/resource/authority/frequency/).
+      Sjå enumerasjonen DCTFrequency i common-ap-no for tilgjengelege verdiar.
     annotations:
-      gyldige_verdier: dct:Frequency
+      gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
   tilgjengelighet:
     slot_uri: dcatap:availability
     range: string
@@ -844,13 +847,12 @@ slots:
     description: Tidsperiode ressursen dekkar.
   tilgangsrettigheter:
     slot_uri: dct:accessRights
-    range: uri
+    range: Konsept
     description: >-
-      Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet. Bruk EU Access Rights-vokabularet: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa), NON_PUBLIC (ikkje offentleg).
+      Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right (http://publications.europa.eu/resource/authority/access-right/). Sjå enumerasjonen EUAccessRight i common-ap-no for tilgjengelege verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa), NON_PUBLIC (ikkje offentleg).
     multivalued: true
     annotations:
-      gyldige_verdier: >-
-        http://publications.europa.eu/resource/authority/access-right/PUBLIC http://publications.europa.eu/resource/authority/access-right/RESTRICTED http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+      gyldige_verdier: http://publications.europa.eu/resource/authority/access-right/
   rettigheter:
     slot_uri: dct:rights
     range: Rettighetserklaring

@@ -174,6 +174,132 @@ enums:
         description: Trukket tilbake (Withdrawn)
         meaning: http://purl.org/adms/status/Withdrawn
 
+  EUAccessRight:
+    description: >-
+      EU Access Right-vokabularet frå Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/access-right/
+    permissible_values:
+      PUBLIC:
+        description: Offentleg tilgjengeleg - ingen tilgangsrestriksjonar
+        meaning: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+      RESTRICTED:
+        description: Avgrensa tilgang - krev særskilde vilkår eller godkjenning
+        meaning: http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+      NON_PUBLIC:
+        description: Ikkje offentleg - konfidensielt eller lukka
+        meaning: http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+
+  ADMSPublisherType:
+    description: >-
+      ADMS Publisher Type-vokabularet.
+      Kjelde: http://purl.org/adms/publishertype/
+    permissible_values:
+      NATIONAL_AUTHORITY:
+        description: Nasjonal styremakt
+        meaning: http://purl.org/adms/publishertype/NationalAuthority
+      REGIONAL_AUTHORITY:
+        description: Regional styremakt
+        meaning: http://purl.org/adms/publishertype/RegionalAuthority
+      LOCAL_AUTHORITY:
+        description: Lokal styremakt
+        meaning: http://purl.org/adms/publishertype/LocalAuthority
+      SUPRANATIONAL_AUTHORITY:
+        description: Overnasjonal styremakt
+        meaning: http://purl.org/adms/publishertype/SupraNationalAuthority
+      ACADEMIA_SCIENTIFIC_ORGANISATION:
+        description: Akademisk/vitskapeleg organisasjon
+        meaning: http://purl.org/adms/publishertype/Academia-ScientificOrganisation
+      PRIVATE_INDIVIDUAL:
+        description: Privatperson
+        meaning: http://purl.org/adms/publishertype/PrivateIndividual(s)
+      INDUSTRY_CONSORTIUM:
+        description: Industrikonsortium
+        meaning: http://purl.org/adms/publishertype/IndustryConsortium
+      NON_GOVERNMENTAL_ORGANISATION:
+        description: Ikkje-offentleg organisasjon
+        meaning: http://purl.org/adms/publishertype/NonGovernmentalOrganisation
+      NON_PROFIT_ORGANISATION:
+        description: Ideell organisasjon
+        meaning: http://purl.org/adms/publishertype/NonProfitOrganisation
+      COMPANY:
+        description: Selskap
+        meaning: http://purl.org/adms/publishertype/Company
+      STANDARDISATION_BODY:
+        description: Standardiseringsorgan
+        meaning: http://purl.org/adms/publishertype/StandardisationBody
+
+  DCTFrequency:
+    description: >-
+      Dublin Core Frequency-vokabularet frå EU Publications Office.
+      Kjelde: http://publications.europa.eu/resource/authority/frequency/
+    permissible_values:
+      CONTINUOUS:
+        description: Kontinuerleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/CONTINUOUS
+      DAILY:
+        description: Dagleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/DAILY
+      DAILY_2:
+        description: To gonger dagleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/DAILY_2
+      BIWEEKLY:
+        description: Annakvar veke
+        meaning: http://publications.europa.eu/resource/authority/frequency/BIWEEKLY
+      WEEKLY:
+        description: Vekentleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/WEEKLY
+      WEEKLY_2:
+        description: To gonger per veke
+        meaning: http://publications.europa.eu/resource/authority/frequency/WEEKLY_2
+      WEEKLY_3:
+        description: Tre gonger per veke
+        meaning: http://publications.europa.eu/resource/authority/frequency/WEEKLY_3
+      BIMONTHLY:
+        description: Annakvar månad
+        meaning: http://publications.europa.eu/resource/authority/frequency/BIMONTHLY
+      MONTHLY:
+        description: Månadleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/MONTHLY
+      MONTHLY_2:
+        description: To gonger per månad
+        meaning: http://publications.europa.eu/resource/authority/frequency/MONTHLY_2
+      MONTHLY_3:
+        description: Tre gonger per månad
+        meaning: http://publications.europa.eu/resource/authority/frequency/MONTHLY_3
+      QUARTERLY:
+        description: Kvartalsvis
+        meaning: http://publications.europa.eu/resource/authority/frequency/QUARTERLY
+      ANNUAL:
+        description: Årleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/ANNUAL
+      ANNUAL_2:
+        description: To gonger årleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/ANNUAL_2
+      ANNUAL_3:
+        description: Tre gonger årleg
+        meaning: http://publications.europa.eu/resource/authority/frequency/ANNUAL_3
+      BIENNIAL:
+        description: Annakvar år
+        meaning: http://publications.europa.eu/resource/authority/frequency/BIENNIAL
+      TRIENNIAL:
+        description: Kvart tredje år
+        meaning: http://publications.europa.eu/resource/authority/frequency/TRIENNIAL
+      IRREG:
+        description: Uregelmessig
+        meaning: http://publications.europa.eu/resource/authority/frequency/IRREG
+      UNKNOWN:
+        description: Ukjend
+        meaning: http://publications.europa.eu/resource/authority/frequency/UNKNOWN
+      UPDATE_CONT:
+        description: Kontinuerleg oppdatert
+        meaning: http://publications.europa.eu/resource/authority/frequency/UPDATE_CONT
+      NEVER:
+        description: Aldri
+        meaning: http://publications.europa.eu/resource/authority/frequency/NEVER
+      OTHER:
+        description: Anna
+        meaning: http://publications.europa.eu/resource/authority/frequency/OTHER
+
 # ---------------------------------------------------------------------------
 # Subsets
 # ---------------------------------------------------------------------------
