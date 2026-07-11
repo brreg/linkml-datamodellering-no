@@ -194,6 +194,7 @@ process_schema() {
 # Steg 1: Rens tidlegare genererte domene-katalogar frå docs/
 # ---------------------------------------------------------------------------
 log_step "Steg 1: Rens tidlegare genererte domene-katalogar frå docs/"
+t1=$(date +%s%3N)
 
 if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
     echo "Ingen genererte artefakter funne i $GEN. Køyr make <domain> fyrst." >&2
@@ -226,6 +227,11 @@ for docs_domain_dir in "$DOCS"/*/; do
         rm -rf "$docs_domain_dir"
     fi
 done
+
+elapsed1_ms=$(( $(date +%s%3N) - t1 ))
+printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)\n" \
+    $((elapsed1_ms / 1000)) \
+    $((elapsed1_ms % 1000 / 100))
 
 # ---------------------------------------------------------------------------
 # Steg 1.5: Bygg delmodell-map frå manifest-filer
@@ -285,6 +291,7 @@ done
 # Steg 2: Generer innhald per domene og skjema (parallelt)
 # ---------------------------------------------------------------------------
 log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
+t2=$(date +%s%3N)
 
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
@@ -377,10 +384,16 @@ for domain in "${ALL_DOMAINS[@]}"; do
     } > "$DOCS/$domain/index.md"
 done
 
+elapsed2_ms=$(( $(date +%s%3N) - t2 ))
+printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)\n" \
+    $((elapsed2_ms / 1000)) \
+    $((elapsed2_ms % 1000 / 100))
+
 # ---------------------------------------------------------------------------
 # Steg 3: Generer index.md frå README.md
 # ---------------------------------------------------------------------------
 log_step "Steg 3: Generer index.md frå README.md"
+t3=$(date +%s%3N)
 
 sed \
   -e '/Sjå.*CLAUDE\.md.*COMMANDS\.md/d' \
@@ -392,10 +405,16 @@ sed \
 log_step "Steg 3: Generer valideringsregler.md"
 generate_validation_docs
 
+elapsed3_ms=$(( $(date +%s%3N) - t3 ))
+printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)\n" \
+    $((elapsed3_ms / 1000)) \
+    $((elapsed3_ms % 1000 / 100))
+
 # ---------------------------------------------------------------------------
 # Steg 4: Generer mkdocs.yml
 # ---------------------------------------------------------------------------
 log_step "Steg 4: Generer mkdocs.yml"
+t4=$(date +%s%3N)
 
 {
 cat << 'STATIC'
@@ -498,6 +517,11 @@ STATIC
         done
     done
 } > "$MKDOCS_YML"
+
+elapsed4_ms=$(( $(date +%s%3N) - t4 ))
+printf "${CLR_OK}✓ Steg 4 ferdig${CLR_RST} (%d.%ds)\n" \
+    $((elapsed4_ms / 1000)) \
+    $((elapsed4_ms % 1000 / 100))
 
 echo ""
 echo "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
