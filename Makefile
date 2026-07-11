@@ -964,9 +964,9 @@ endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 
-# Override domain-begrepskatalog to run collect-concepts first
+# Override domain-begrepskatalog to run gen-begrepskatalog-instance first
 .PHONY: domain-begrepskatalog
-domain-begrepskatalog: collect-concepts
+domain-begrepskatalog: gen-begrepskatalog-instance
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make domain-begrepskatalog$(if $(filter-out 1,$(PARALLEL)), (PARALLEL=$(PARALLEL)),)$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1493,9 +1493,9 @@ gen-modellkatalog-instance:
 	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
 	python3 src/assets/scripts/generate-modellkatalog.py
 
-.PHONY: collect-concepts
+.PHONY: gen-begrepskatalog-instance
 
-collect-concepts:
+gen-begrepskatalog-instance:
 	@echo "$(CLR_HDR)Samlar begrep frå begrepssamlingar til begrepskatalogar$(CLR_RST)"
 	python3 src/assets/scripts/collect-concepts.py
 

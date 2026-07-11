@@ -310,7 +310,9 @@
       "Bash(make -n)",
       "Bash(make collect-concepts *)",
       "Bash(make domain-begrepskatalog *)",
-      "Bash(make new-begrepssamling *)"
+      "Bash(make new-begrepssamling *)",
+      "Bash(make gen-readme-tables *)",
+      "Bash(make gen-begrepskatalog-instance *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -117,8 +117,8 @@ make mcp-begrep-run
 ```
 
 ```bash
-# 4. Køyr collect-concepts for å aggregere til begrepskatalog
-make collect-concepts
+# 4. Køyr gen-begrepskatalog-instance for å aggregere til begrepskatalog
+make gen-begrepskatalog-instance
 # → genererer src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
 ```
 
@@ -175,7 +175,7 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 ---
 
-## Kjende avgrensingar
+## Avgrensingar
 
 Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for fullstendig oversikt:
 
@@ -245,7 +245,7 @@ Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 <!-- BEGIN AUTO-GENERATED: BEGREPSKATALOG TABLE -->
 | Domene | Begrepskatalog | Organisasjon | Skildring | Generator |
 |---|---|---|---|---|
-| begrepskatalog | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Brønnøysundregistra | Begrepskatalog for Brønnøysundregistra sine begrep | [`collect-concepts`](COMMANDS.md#vedlikehald) |
+| [begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/) | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Brønnøysundregistra | Begrepskatalog for Brønnøysundregistra sine begrep | [`gen-begrepskatalog-instance`](COMMANDS.md#vedlikehald) |
 <!-- END AUTO-GENERATED: BEGREPSKATALOG TABLE -->
 
 ## Genererte modellkatalogar
@@ -257,12 +257,12 @@ Modellkatalogar ligg under `src/linkml/modellkatalog/`
 <!-- BEGIN AUTO-GENERATED: MODELLKATALOG TABLE -->
 | Domene | Modellkatalog | Organisasjon | Skildring | Generator |
 |---|---|---|---|---|
-| modellkatalog | [brreg-modellkatalog](modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
-| modellkatalog | [digdir-modellkatalog](modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
-| modellkatalog | [kartverket-modellkatalog](modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
-| modellkatalog | [ksdigital-modellkatalog](modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
-| modellkatalog | [novari-modellkatalog](modellkatalog/novari-modellkatalog/) | Novari | Modellkatalog for Novari sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
-| modellkatalog | [skatteetaten-modellkatalog](modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [brreg-modellkatalog](modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [digdir-modellkatalog](modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [kartverket-modellkatalog](modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [ksdigital-modellkatalog](modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [novari-modellkatalog](modellkatalog/novari-modellkatalog/) | Novari | Modellkatalog for Novari sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [skatteetaten-modellkatalog](modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar | [`gen-modellkatalog-instance`](COMMANDS.md#vedlikehald) |
 <!-- END AUTO-GENERATED: MODELLKATALOG TABLE -->
 
 ## Genererte artefakter
@@ -270,25 +270,25 @@ Modellkatalogar ligg under `src/linkml/modellkatalog/`
 Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
 <!-- BEGIN AUTO-GENERATED: ARTIFACTS TABLE -->
-| Artefakt | Generator | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
+| Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag | Generator |
 |---|---|---|---|---|---|
-| Modellmetadata ihht ModellDCAT-AP-NO | [`gen-informasjonsmodell-instance`](COMMANDS.md#vedlikehald) | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — |
-| JSON-LD kontekst | [`gen-jsonld-context`](COMMANDS.md#enkeltartefakter) | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
-| SHACL shapes | [`gen-shacl`](COMMANDS.md#enkeltartefakter) | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
-| OWL ontologi | [`gen-owl`](COMMANDS.md#enkeltartefakter) | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
-| RDF/Turtle skjema | [`gen-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
-| Eksempel-RDF | [`convert-rdf`](COMMANDS.md#enkeltartefakter) | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
-| Python-klassar | [`gen-python`](COMMANDS.md#enkeltartefakter) | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
-| JSON Schema | [`gen-jsonschema`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
-| XSD-skjema | [`gen-xsd`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
-| Protobuf-skjema | [`gen-proto`](COMMANDS.md#enkeltartefakter) | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
-| AsyncAPI-spec | [`gen-asyncapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` |
-| OpenAPI-spec | [`gen-openapi`](COMMANDS.md#enkeltartefakter) | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` |
-| ER-diagram | [`gen-erdiagram`](COMMANDS.md#enkeltartefakter) | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
-| Klasse-diagram | [`gen-plantuml`](COMMANDS.md#enkeltartefakter) | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
-| HTML-dokumentasjon | [`gen-docs`](COMMANDS.md#enkeltartefakter) | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
-| DQV-målingar | [`gen-dqv-measurements`](COMMANDS.md#enkeltartefakter) | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — |
-| ModelDCAT-element | [`gen-modelldcat-elements`](COMMANDS.md#enkeltartefakter) | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — |
+| Modellmetadata ihht ModellDCAT-AP-NO | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — | [`gen-informasjonsmodell-instance`](COMMANDS.md#vedlikehald) |
+| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` | [`gen-jsonld-context`](COMMANDS.md#enkeltartefakter) |
+| SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` | [`gen-shacl`](COMMANDS.md#enkeltartefakter) |
+| OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` | [`gen-owl`](COMMANDS.md#enkeltartefakter) |
+| RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` | [`gen-rdf`](COMMANDS.md#enkeltartefakter) |
+| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` | [`convert-rdf`](COMMANDS.md#enkeltartefakter) |
+| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` | [`gen-python`](COMMANDS.md#enkeltartefakter) |
+| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` | [`gen-jsonschema`](COMMANDS.md#enkeltartefakter) |
+| XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` | [`gen-xsd`](COMMANDS.md#enkeltartefakter) |
+| Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` | [`gen-proto`](COMMANDS.md#enkeltartefakter) |
+| AsyncAPI-spec | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` | [`gen-asyncapi`](COMMANDS.md#enkeltartefakter) |
+| OpenAPI-spec | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` | [`gen-openapi`](COMMANDS.md#enkeltartefakter) |
+| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` | [`gen-erdiagram`](COMMANDS.md#enkeltartefakter) |
+| Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` | [`gen-plantuml`](COMMANDS.md#enkeltartefakter) |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` | [`gen-docs`](COMMANDS.md#enkeltartefakter) |
+| DQV-målingar | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — | [`gen-dqv-measurements`](COMMANDS.md#enkeltartefakter) |
+| ModelDCAT-element | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — | [`gen-modelldcat-elements`](COMMANDS.md#enkeltartefakter) |
 <!-- END AUTO-GENERATED: ARTIFACTS TABLE -->
 **Publisering til eksterne system:** Sjå [Publiseringsflyt](https://brreg.github.io/linkml-datamodellering-no/publisering-oversikt/#kva-publiserast-til-eksterne-system) for oversikt over GitHub Pages-publisering og høsting til Felles Begrepskatalog/Datakatalog.
 
