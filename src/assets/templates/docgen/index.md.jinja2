@@ -328,16 +328,11 @@
       {%- set defined_in_link = 'https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml' -%}
     {%- endif %}
     {%- set is_used = namespace(value=false) -%}
+    {# Sjekk om typen er brukt i ein lokal slot (definert i schema.slots) #}
     {%- for slot_name in (schema.slots or {}).keys() %}
       {%- set s = schemaview.get_slot(slot_name) %}
       {%- if s and s.range == type_name %}
-        {%- for class_name in schemaview.all_classes() %}
-          {%- set c = schemaview.get_class(class_name) %}
-          {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
-          {%- if c and not c.tree_root and c_origin == schema.id and slot_name in (c.slots or []) %}
-            {%- set is_used.value = true -%}
-          {%- endif %}
-        {%- endfor %}
+        {%- set is_used.value = true -%}
       {%- endif %}
     {%- endfor %}
     {%- if is_used.value -%}
