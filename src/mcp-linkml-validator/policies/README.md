@@ -83,10 +83,13 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 | Alle globale slots har `slot_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 |
 | Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 |
 | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 |
+| Slots med kontrollerte vokabular har korrekte annotations | warning | 8 — Maskinprosserbarheit | I1 |
 
 > **`snake_case`-format:** Slotnamn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
 >
 > FINT-skjema er unntekne frå snake_case-sjekken — dei arvar camelCase frå FINT API-spesifikasjonen.
+
+> **Kontrollerte vokabular:** Slots med `annotations.gyldige_verdier` skal ha `annotations.vokabular_krav` (`skal`|`bør`|`kan`) og `description` skal innehalde matchande SKAL/BØR/BØR-formulering. Sikrar konsistent og maskinlesbar dokumentasjon av vokabularkrav. Sjå [CONVENTIONS.md § Kontrollerte vokabular](../../CONVENTIONS.md#kontrollerte-vokabular--annotation-konvensjon).
 
 ---
 
@@ -127,6 +130,17 @@ Alle brot gir `error`.
 |---|---|---|---|
 | Containerklassen (`tree_root`) har attributt med range `Katalog`, `Datasett`, `Kvalitetsmaal`, `Kvalitetsmaaling` | error | — | — |
 | Containerklassen har attributt med range `Distribusjon`, `Datatjeneste`, `Kvalitetsdimensjon`, `Kvalitetsmerknad` | warning | — | — |
+
+### Instansvalidering (silver)
+
+Silver-policy har instanssjekkar som krev faktiske instansdata (gitt via `INSTANCE=` til `make mcp-validate`):
+
+| Sjekk | Alvor | Kode | Skildring |
+|---|---|---|---|
+| Instansverdiar for slots med `vokabular_pattern` matcher regex-mønsteret | error/warning/info | `instance_slot_invalid_vocabulary_pattern` | Alvorlegheit avheng av `vokabular_krav`: **error** for `skal`, **warning** for `bør`, **info** for `kan` |
+| Instansverdiar er frå korrekt vokabular-domene (`gyldige_verdier`) | error/warning | `instance_slot_invalid_vocabulary_domain` | Sjekkar at URI-ar startar med `gyldige_verdier`-domenet |
+
+**Døme:** Dersom `spraak`-slot har `vokabular_krav: skal` og `vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$"`, så vil verdien `"http://example.com/NOB"` gje **error** (feil domene) og `"http://publications.europa.eu/resource/authority/language/NORSK"` gje **error** (feil pattern — skal vere 3-bokstavskode).
 
 ---
 
