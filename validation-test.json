@@ -1,0 +1,74 @@
+{
+  "domain": "ap-no",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Lisensdokument"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Mediatype"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Konsept"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Begrepssamling"
+      },
+      {
+        "code": "slot_invalid_vokabular_krav",
+        "message": "Slot 'spraak' har ugyldig vokabular_krav='Annotation({'tag': 'vokabular_krav', 'value': 'skal'})' (gyldige: skal, bør, kan)",
+        "severity": "warning",
+        "target": "slot:spraak"
+      },
+      {
+        "code": "slot_invalid_vokabular_krav",
+        "message": "Slot 'format' har ugyldig vokabular_krav='Annotation({'tag': 'vokabular_krav', 'value': 'skal'})' (gyldige: skal, bør, kan)",
+        "severity": "warning",
+        "target": "slot:format"
+      },
+      {
+        "code": "slot_invalid_vokabular_krav",
+        "message": "Slot 'dekningsomraade' har ugyldig vokabular_krav='Annotation({'tag': 'vokabular_krav', 'value': 'bør'})' (gyldige: skal, bør, kan)",
+        "severity": "warning",
+        "target": "slot:dekningsomraade"
+      },
+      {
+        "code": "slot_invalid_vokabular_krav",
+        "message": "Slot 'status' har ugyldig vokabular_krav='Annotation({'tag': 'vokabular_krav', 'value': 'skal'})' (gyldige: skal, bør, kan)",
+        "severity": "warning",
+        "target": "slot:status"
+      },
+      {
+        "code": "slot_invalid_vokabular_krav",
+        "message": "Slot 'lisens' har ugyldig vokabular_krav='Annotation({'tag': 'vokabular_krav', 'value': 'skal'})' (gyldige: skal, bør, kan)",
+        "severity": "warning",
+        "target": "slot:lisens"
+      }
+    ],
+    "valid": true,
+    "warningCount": 10
+  },
+  "schema": "common-ap-no",
+  "validated_at": "2026-07-11T18:08:22.089085+00:00",
+  "validation_type": "bronze",
+  "version": "1.0.0"
+}

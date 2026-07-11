@@ -141,3 +141,12 @@ checks:
     concept_catalog_uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections
     digdir_rule: 13
     fair_principle: A2
+
+  controlled_vocabulary_annotations:
+    severity: warning
+    description: >
+      Slots som refererer til kontrollerte vokabular (annotations.gyldige_verdier)
+      skal ha annotations.vokabular_krav (skal|bør|kan), og description skal innehalde
+      SKAL/BØR/KAN-formulering som matcher vokabular_krav. Sikrar konsistent og
+      maskinlesbar dokumentasjon av vokabularkrav.
+    check: controlled_vocabulary_annotations

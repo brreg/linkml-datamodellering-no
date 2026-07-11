@@ -431,6 +431,61 @@ def _check_merged_class_has_any_slot_with_uri(sv, schema, config, issues):
         ))
 
 
+def _check_controlled_vocabulary_annotations(sv, schema, config, issues):
+    """
+    Sjekk at slots med kontrollerte vokabular har korrekte annotations.
+
+    Bronze-nivå: Sjekk at slots med gyldige_verdier har vokabular_krav,
+    og at SKAL/BØR/KAN i description matcher vokabular_krav.
+    """
+    def get_annotation_value(annot, key):
+        """Hent verdien frå ein Annotation-objekt eller dict."""
+        raw = annot.get(key)
+        if not raw:
+            return None
+        return str(raw.value if hasattr(raw, "value") else raw)
+
+    for slot_name, slot in sv.all_slots().items():
+        annot = slot.annotations or {}
+        gyldige_verdier = get_annotation_value(annot, "gyldige_verdier")
+
+        if not gyldige_verdier:
+            continue
+
+        # Sjekk at vokabular_krav finst
+        vokabular_krav = get_annotation_value(annot, "vokabular_krav")
+        if not vokabular_krav:
+            issues.append(issue(
+                config["severity"], "slot_missing_vokabular_krav", f"slot:{slot_name}",
+                f"Slot '{slot_name}' har annotations.gyldige_verdier men manglar "
+                f"annotations.vokabular_krav (skal|bør|kan)",
+            ))
+            continue
+
+        # Sjekk at vokabular_krav har gyldig verdi
+        if vokabular_krav not in ("skal", "bør", "kan"):
+            issues.append(issue(
+                config["severity"], "slot_invalid_vokabular_krav", f"slot:{slot_name}",
+                f"Slot '{slot_name}' har ugyldig vokabular_krav='{vokabular_krav}' "
+                f"(gyldige: skal, bør, kan)",
+            ))
+            continue
+
+        # Sjekk at description matcher vokabular_krav
+        desc = slot.description or ""
+        skal_match = "SKAL" if vokabular_krav == "skal" else None
+        bor_match = "BØR" if vokabular_krav == "bør" else None
+        kan_match = "KAN" if vokabular_krav == "kan" else None
+
+        expected = skal_match or bor_match or kan_match
+        if expected and expected not in desc:
+            issues.append(issue(
+                config["severity"], "slot_description_mismatch", f"slot:{slot_name}",
+                f"Slot '{slot_name}' har vokabular_krav='{vokabular_krav}' men "
+                f"description inneheld ikkje '{expected}'",
+            ))
+
+
 _CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
@@ -450,6 +505,7 @@ _CHECK_HANDLERS = {
     "merged_class_has_slot_with_uri":     _check_merged_class_has_slot_with_uri,
     "merged_class_has_any_slot_with_uri": _check_merged_class_has_any_slot_with_uri,
     "class_count":                        _check_class_count,
+    "controlled_vocabulary_annotations":  _check_controlled_vocabulary_annotations,
 }
 
 
@@ -539,9 +595,94 @@ def _check_instance_begrep_definisjon_language_coverage(sv, schema, instance, co
     walk(instance)
 
 
+def _check_instance_controlled_vocabulary_pattern(sv, schema, instance, config, issues):
+    """
+    Validerer at instansverdiar for slots med vokabular_pattern matcher regex-mønsteret.
+
+    Silver-nivå: Åtvaring dersom verdiar ikkje matcher pattern.
+    Gold-nivå: Feil dersom verdiar ikkje matcher pattern.
+    """
+    def get_annotation_value(annot, key):
+        """Hent verdien frå ein Annotation-objekt eller dict."""
+        raw = annot.get(key)
+        if not raw:
+            return None
+        return str(raw.value if hasattr(raw, "value") else raw)
+
+    def walk(obj, path=""):
+        if isinstance(obj, dict):
+            for key, val in obj.items():
+                new_path = f"{path}.{key}" if path else key
+                slot = sv.all_slots().get(key)
+                if not slot:
+                    walk(val, new_path)
+                    continue
+
+                annot = slot.annotations or {}
+                vokabular_pattern = get_annotation_value(annot, "vokabular_pattern")
+                vokabular_krav = get_annotation_value(annot, "vokabular_krav")
+                gyldige_verdier = get_annotation_value(annot, "gyldige_verdier")
+
+                if not vokabular_pattern:
+                    walk(val, new_path)
+                    continue
+
+                pattern = re.compile(vokabular_pattern)
+                values = val if isinstance(val, list) else [val]
+
+                for v in values:
+                    if not isinstance(v, str):
+                        continue
+
+                    loc = f"instance:{new_path}"
+
+                    # Sjekk pattern
+                    if not pattern.match(v):
+                        # Alvorlegheit avheng av vokabular_krav
+                        severity = config["severity"]
+                        if vokabular_krav == "skal":
+                            severity = "error"
+                        elif vokabular_krav == "bør":
+                            severity = "warning"
+                        else:  # kan
+                            severity = "info"
+
+                        issues.append(issue(
+                            severity,
+                            "instance_slot_invalid_vocabulary_pattern",
+                            loc,
+                            f"'{v}' passar ikkje vokabular_pattern {vokabular_pattern} "
+                            f"for slot '{key}' (vokabular_krav: {vokabular_krav})",
+                        ))
+
+                    # Sjekk domene (gyldige_verdier)
+                    if gyldige_verdier and not v.startswith(gyldige_verdier):
+                        severity = config["severity"]
+                        if vokabular_krav == "skal":
+                            severity = "error"
+                        elif vokabular_krav == "bør":
+                            severity = "warning"
+
+                        issues.append(issue(
+                            severity,
+                            "instance_slot_invalid_vocabulary_domain",
+                            loc,
+                            f"'{v}' er ikkje frå vokabular-domenet {gyldige_verdier} "
+                            f"for slot '{key}' (vokabular_krav: {vokabular_krav})",
+                        ))
+
+                walk(val, new_path)
+        elif isinstance(obj, list):
+            for idx, item in enumerate(obj):
+                walk(item, f"{path}[{idx}]")
+
+    walk(instance)
+
+
 _INSTANCE_CHECK_HANDLERS = {
     "instance_slot_uri_pattern": _check_instance_slot_uri_pattern,
     "instance_begrep_definisjon_language_coverage": _check_instance_begrep_definisjon_language_coverage,
+    "instance_controlled_vocabulary_pattern": _check_instance_controlled_vocabulary_pattern,
 }
 
 

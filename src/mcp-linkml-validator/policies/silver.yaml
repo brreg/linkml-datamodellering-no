@@ -320,3 +320,16 @@ checks:
     description: Containerklassen bør ha eit attributt med range Kvalitetsmerknad (dqv:QualityAnnotation). Anbefalt i DQV-AP-NO.
     check: container_has_class
     class: Kvalitetsmerknad
+
+# ── Instansvalidering ───────────────────────────────────────────────────────
+
+instance_checks:
+
+  instance_controlled_vocabulary_pattern:
+    severity: warning
+    description: >
+      Instansverdiar for slots med vokabular_pattern skal matche regex-mønsteret.
+      Alvorlegheit avheng av vokabular_krav: error for 'skal', warning for 'bør',
+      info for 'kan'. Validerer òg at verdiar er frå korrekt vokabular-domene
+      (gyldige_verdier).
+    check: instance_controlled_vocabulary_pattern

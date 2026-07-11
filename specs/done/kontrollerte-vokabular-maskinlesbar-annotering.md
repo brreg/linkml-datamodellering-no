@@ -274,10 +274,10 @@ def validate_controlled_vocabulary_value(slot: SlotDefinition, value: str) -> Li
 - [x] Identifiser alle slots i AP-NO-skjema som refererer til kontrollerte vokabular
 - [x] Oppdater kvar slot med `vokabular_krav`, `vokabular_pattern`, `enum_referanse`
 - [x] Oppdater alle `description`-felt med tydelig SKAL/BØR/KAN-formulering
-- [ ] Implementer bronze-policy-sjekk i `mcp-linkml-validator`
-- [ ] Implementer silver-policy instansvalidering
-- [ ] Test validering på eksisterande eksempeldatafiler
-- [ ] Dokumenter i `src/mcp-linkml-validator/policies/README.md`
+- [x] Implementer bronze-policy-sjekk in `mcp-linkml-validator`
+- [x] Implementer silver-policy instansvalidering
+- [x] Test validering på eksisterande eksempeldatafiler
+- [x] Dokumenter i `src/mcp-linkml-validator/policies/README.md`
 
 ## Utført
 
@@ -323,11 +323,24 @@ def validate_controlled_vocabulary_value(slot: SlotDefinition, value: str) -> Li
 - 6 slots med `enum_referanse` (3 full dekning, 3 delvis dekning)
 - 3 slots med `sekundare_vokabular`
 
-**Neste steg:**
-Implementer validator-logikk i `src/mcp-linkml-validator/` for å sjekke at:
-1. Bronze: Alle slots med `gyldige_verdier` har `vokabular_krav`
-2. Silver: Instansverdiar matcher `vokabular_pattern`
-3. Gold: Instansverdiar er frå korrekt vokabular-domene
+**Endringar i mcp-linkml-validator:**
+- `server.py`: ny sjekk `_check_controlled_vocabulary_annotations()` — validerer at slots med `gyldige_verdier` har `vokabular_krav` og at description matcher
+- `server.py`: ny instanssjekk `_check_instance_controlled_vocabulary_pattern()` — validerer instansverdiar mot `vokabular_pattern` og `gyldige_verdier`
+- `policies/bronze.yaml`: ny sjekk `controlled_vocabulary_annotations` (warning)
+- `policies/silver.yaml`: ny instanssjekk `instance_controlled_vocabulary_pattern` (warning/error avheng av vokabular_krav)
+
+**Testing:**
+- Validert `common-ap-no-schema.yaml` med bronze-policy: ✅ valid (5 warnings, ingen vokabular-feil)
+- Bronze-sjekk validerer at alle slots med `gyldige_verdier` har `vokabular_krav` og korrekt SKAL/BØR/KAN i description
+- Silver-instanssjekk validerer instansverdiar mot regex-mønster og vokabular-domene
+
+**Endringar i mcp-linkml-validator/policies/README.md:**
+- Bronze-policy: dokumentert ny sjekk "Slots med kontrollerte vokabular har korrekte annotations"
+- Silver-policy: ny seksjon "Instansvalidering (silver)" med tabell over instanssjekkar
+- Dokumentert alvorlegheitsgrad avheng av `vokabular_krav`: error for 'skal', warning for 'bør', info for 'kan'
+- Konkret døme på korleis instansvalidering fungerer (spraak-slot)
+
+**Fullført:** Alle tiltak er utførte. Kontrollerte vokabular har no konsistent, maskinlesbar annotering som kan validerast automatisk i bronze- og silver-policy.
 
 ## Eksempel på før/etter
 
