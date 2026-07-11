@@ -303,7 +303,8 @@
       "Bash(make build-mkdocs *)",
       "Bash(make build-docker-mkdocs *)",
       "Bash(./src/assets/scripts/generate-readme-tables.sh *)",
-      "Bash(make exec *)"
+      "Bash(make exec *)",
+      "Bash(make build-docker-mcp-begrep-utkast *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -67,13 +67,29 @@ make mcp-begrep-run
 | `base_uri` | string | Base-URI for organisasjonen, t.d. `https://begrep.brreg.no` |
 | `kjelde_relasjon` | enum | `direct-from-source` / `self-composed` / `derived-from-source` |
 | `utgjevar_uri` | string | URI til utgjevande organisasjon |
-| `anbefalt_term_nn` | string | Term på nynorsk |
+| `anbefalt_term_nn` | string | Term på nynorsk (fallback: nb-tekst) |
 | `anbefalt_term_en` | string | Term på engelsk |
 | `definisjon_nn` | string | Definisjon på nynorsk (fallback: nb-tekst) |
 | `definisjon_en` | string | Definisjon på engelsk (fallback: nb-tekst) |
 | `kontaktpunkt_uri` | string | URI til kontaktpunkt-objekt |
-| `merknad` | string[] | Merknadstekstar |
-| `eksempel` | string[] | Eksempelstrengjer |
+| `merknad_nb` | string[] | Merknadstekstar på bokmål |
+| `merknad_nn` | string[] | Merknadstekstar på nynorsk (fallback: nb) |
+| `merknad_en` | string[] | Merknadstekstar på engelsk |
+| `tillate_term_nb` | string[] | Tillaten alternativ term på bokmål |
+| `tillate_term_nn` | string[] | Tillaten alternativ term på nynorsk (fallback: nb) |
+| `tillate_term_en` | string[] | Tillaten alternativ term på engelsk |
+| `eksempel_nb` | string[] | Eksempelstrengjer på bokmål |
+| `eksempel_nn` | string[] | Eksempelstrengjer på nynorsk (fallback: nb) |
+| `eksempel_en` | string[] | Eksempelstrengjer på engelsk |
+| `forkasta_term_nb` | string[] | Forkasta term på bokmål |
+| `forkasta_term_nn` | string[] | Forkasta term på nynorsk (fallback: nb) |
+| `forkasta_term_en` | string[] | Forkasta term på engelsk |
+| `verdiomrade_nb` | string[] | Verdiområde på bokmål |
+| `verdiomrade_nn` | string[] | Verdiområde på nynorsk (fallback: nb) |
+| `verdiomrade_en` | string[] | Verdiområde på engelsk |
+| `kjelde_tekst_nb` | string[] | Bibliografisk kjelde på bokmål |
+| `kjelde_tekst_nn` | string[] | Bibliografisk kjelde på nynorsk (fallback: nb) |
+| `kjelde_tekst_en` | string[] | Bibliografisk kjelde på engelsk |
 | `sja_ogsa_omgrep` | string[] | URI-ar til relaterte begreper |
 
 ### `valider_begrep` — parametrar
@@ -86,6 +102,24 @@ make mcp-begrep-run
 Returnerer `{ gyldig, feiltal, åtvaringtal, hendingar }` med same format som
 `mcp-linkml-validator`.
 
+## LangString-generering
+
+Alle `LangString`-slots (som `anbefalt_term`, `merknad`, `tillate_term`, `eksempel`,
+`forkasta_term`, `verdiomrade`, `kjelde_tekst`) vert genererte med **både bokmål (`nb`)
+og nynorsk (`nn`)** i YAML-output. Dersom du ikkje har oppgjeve nynorsk-tekst (t.d.
+`merknad_nn`), vert bokmål-teksten brukt som fallback for nynorsk-versjonen.
+
+Engelsk (`en`) vert berre inkludert dersom du oppgjev engelsk tekst eksplisitt.
+
+**Døme:** Dersom du oppgjev `merknad_nb: ["Merknad på bokmål"]` utan `merknad_nn`,
+vert `merknad`-feltet generert slik:
+
+```yaml
+merknad:
+  - nb: "Merknad på bokmål"
+    nn: "Merknad på bokmål"
+```
+
 ## Generert YAML-struktur
 
 `opprett_begrep` produserer ein fullstendig `BegrepContainer`-blokk:
@@ -97,8 +131,8 @@ Returnerer `{ gyldig, feiltal, åtvaringtal, hendingar }` med same format som
 begrep:
   - id: https://begrep.brreg.no/foretaksnavn
     anbefalt_term:
-      - foretaksnavn
-      - føretaksnamn
+      - nb: foretaksnavn
+        nn: føretaksnamn
     har_definisjon:
       - https://begrep.brreg.no/def/foretaksnavn-nb
       - https://begrep.brreg.no/def/foretaksnavn-nn
@@ -162,8 +196,10 @@ Det genererte YAML-innhaldet er eit utkast. Sjekk og fyll inn:
    begrepssamling er aktuelt.
 3. **`sja_ogsa_omgrep`-referansar** — kan peike til `data.norge.no/concepts/<uuid>`
    for relaterte begreper i Felles Begrepskatalog.
-4. **Fleirspråklege definisjonar** — om `definisjon_nn` er utelaten, vert nb-teksten
-   brukt som fallback. Erstatt med korrekt nn-tekst ved behov.
+4. **Fleirspråklege tekstar** — alle LangString-slots (`anbefalt_term`, `merknad`,
+   `tillate_term`, `eksempel` osv.) vert genererte med både `nb` og `nn`. Dersom du
+   ikkje har oppgjeve nynorsk-tekst, vert bokmål-teksten brukt som fallback. Erstatt
+   med korrekt nynorsk-tekst ved behov.
 
 ## Avgrensingar
 

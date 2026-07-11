@@ -32,6 +32,21 @@ def _resolve(explicit: str, profile_key: str, profile: dict, required_name: str)
     raise ValueError(f"Påkravd parameter '{required_name}' manglar og er ikkje satt i profilen.")
 
 
+def _build_langstring_array(nb_texts: list, nn_texts: list, en_texts: list) -> list:
+    """
+    Genererer LangString-objekt for kvar tekst i nb-lista, med nn-fallback
+    dersom nn_texts manglar eller er kortare enn nb_texts.
+    """
+    result = []
+    for i, nb_text in enumerate(nb_texts):
+        nn_text = nn_texts[i] if i < len(nn_texts) and nn_texts[i] else nb_text
+        lang_obj = {"nb": nb_text, "nn": nn_text}
+        if i < len(en_texts) and en_texts[i]:
+            lang_obj["en"] = en_texts[i]
+        result.append(lang_obj)
+    return result
+
+
 def opprett_begrep(
     profile: dict,
     slug: str,
@@ -47,13 +62,27 @@ def opprett_begrep(
     definisjon_nn: str = "",
     definisjon_en: str = "",
     kontaktpunkt_uri: str = "",
-    merknad: list | None = None,
-    eksempel: list | None = None,
+    merknad_nb: list | None = None,
+    merknad_nn: list | None = None,
+    merknad_en: list | None = None,
+    tillate_term_nb: list | None = None,
+    tillate_term_nn: list | None = None,
+    tillate_term_en: list | None = None,
+    eksempel_nb: list | None = None,
+    eksempel_nn: list | None = None,
+    eksempel_en: list | None = None,
+    forkasta_term_nb: list | None = None,
+    forkasta_term_nn: list | None = None,
+    forkasta_term_en: list | None = None,
+    verdiomrade_nb: list | None = None,
+    verdiomrade_nn: list | None = None,
+    verdiomrade_en: list | None = None,
+    kjelde_tekst_nb: list | None = None,
+    kjelde_tekst_nn: list | None = None,
+    kjelde_tekst_en: list | None = None,
     sja_ogsa_omgrep: list | None = None,
 ) -> str:
     """Returnerer ein YAML-streng med BegrepContainer-innhald for eitt begrep."""
-    merknad = merknad or []
-    eksempel = eksempel or []
     sja_ogsa_omgrep = sja_ogsa_omgrep or []
 
     base_uri = _resolve(base_uri, "base_uri", profile, "base_uri")
@@ -81,8 +110,9 @@ def opprett_begrep(
     langs_with_terms = []
     if anbefalt_term_nb:
         langs_with_terms.append(("nb", anbefalt_term_nb, definisjon_nb))
-    if anbefalt_term_nn:
-        langs_with_terms.append(("nn", anbefalt_term_nn, definisjon_nn or definisjon_nb))
+    # Alltid inkluder nn-versjon, med fallback til nb dersom anbefalt_term_nn manglar
+    if anbefalt_term_nb:
+        langs_with_terms.append(("nn", anbefalt_term_nn or anbefalt_term_nb, definisjon_nn or definisjon_nb))
     if anbefalt_term_en:
         langs_with_terms.append(("en", anbefalt_term_en, definisjon_en or definisjon_nb))
 
@@ -91,19 +121,63 @@ def opprett_begrep(
         for lang, _, _ in langs_with_terms
     ]
 
+    # Bygg anbefalt_term som LangString-array med nb + nn (alltid) og eventuelt en
+    anbefalt_term_langstrings = []
+    if anbefalt_term_nb:
+        term_obj = {
+            "nb": anbefalt_term_nb,
+            "nn": anbefalt_term_nn or anbefalt_term_nb
+        }
+        if anbefalt_term_en:
+            term_obj["en"] = anbefalt_term_en
+        anbefalt_term_langstrings.append(term_obj)
+
     begrep_dict: dict = {
         "id": begrep_uri,
-        "anbefalt_term": [term for _, term, _ in langs_with_terms],
+        "anbefalt_term": anbefalt_term_langstrings,
         "har_definisjon": def_uris,
         "identifikator_literal": begrep_uri,
         "kontaktpunkt_vcard": [kontaktpunkt_uri],
         "utgjevar": utgjevar_uri,
         "fagomrade": [fagomrade_uri],
     }
-    if merknad:
-        begrep_dict["merknad"] = merknad
-    if eksempel:
-        begrep_dict["eksempel"] = eksempel
+
+    # LangString-array-slots
+    if merknad_nb:
+        begrep_dict["merknad"] = _build_langstring_array(
+            merknad_nb or [],
+            merknad_nn or [],
+            merknad_en or []
+        )
+
+    if tillate_term_nb:
+        begrep_dict["tillate_term"] = _build_langstring_array(
+            tillate_term_nb or [],
+            tillate_term_nn or [],
+            tillate_term_en or []
+        )
+
+    if eksempel_nb:
+        begrep_dict["eksempel"] = _build_langstring_array(
+            eksempel_nb or [],
+            eksempel_nn or [],
+            eksempel_en or []
+        )
+
+    if forkasta_term_nb:
+        begrep_dict["forkasta_term"] = _build_langstring_array(
+            forkasta_term_nb or [],
+            forkasta_term_nn or [],
+            forkasta_term_en or []
+        )
+
+    if verdiomrade_nb:
+        begrep_dict["verdiomrade"] = _build_langstring_array(
+            verdiomrade_nb or [],
+            verdiomrade_nn or [],
+            verdiomrade_en or []
+        )
+
     if sja_ogsa_omgrep:
         begrep_dict["sja_ogsa_omgrep"] = sja_ogsa_omgrep
 
@@ -111,11 +185,19 @@ def opprett_begrep(
     for lang, _, tekst in langs_with_terms:
         if tekst:
             def_uri = definisjon_pattern.format(base_uri=base_uri, slug=slug, lang=lang)
-            definisjoner.append({
+            def_obj = {
                 "id": def_uri,
                 "tekst": tekst,
                 "kjelde_relasjon": kjelde_uri,
-            })
+            }
+            # Legg til kjelde_tekst dersom oppgjeve
+            if kjelde_tekst_nb:
+                def_obj["kjelde_tekst"] = _build_langstring_array(
+                    kjelde_tekst_nb or [],
+                    kjelde_tekst_nn or [],
+                    kjelde_tekst_en or []
+                )
+            definisjoner.append(def_obj)
 
     container: dict = {
         "begrep": [begrep_dict],
