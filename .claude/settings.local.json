@@ -302,7 +302,8 @@
       "Bash(git ls-tree *)",
       "Bash(make build-mkdocs *)",
       "Bash(make build-docker-mkdocs *)",
-      "Bash(./src/assets/scripts/generate-readme-tables.sh *)"
+      "Bash(./src/assets/scripts/generate-readme-tables.sh *)",
+      "Bash(make exec *)"
     ]
   },
   "enableAllProjectMcpServers": true,

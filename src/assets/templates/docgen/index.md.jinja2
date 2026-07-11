@@ -102,6 +102,7 @@
 
 ## Slots
 {%- set ns_used_slots = namespace(names=[]) -%}
+{# Samle alle slots brukt i klasser #}
 {%- for class_name in schemaview.all_classes() %}
   {%- set c = schemaview.get_class(class_name) %}
   {%- set origin = c.from_schema if c.from_schema else schema.id %}
@@ -111,6 +112,12 @@
         {%- set ns_used_slots.names = ns_used_slots.names + [slot_name] %}
       {%- endif %}
     {%- endfor %}
+  {%- endif %}
+{%- endfor -%}
+{# OR-LOGIKK: Legg til alle lokalt DEFINERTE slots (frå slots:-seksjonen) #}
+{%- for slot_name in (schema.slots or {}).keys() %}
+  {%- if slot_name not in ns_used_slots.names %}
+    {%- set ns_used_slots.names = ns_used_slots.names + [slot_name] %}
   {%- endif %}
 {%- endfor -%}
 {%- set ns_slots_verdiar = namespace(items=[]) -%}
@@ -132,38 +139,78 @@
 {%- if ns_slots_verdiar.items %}
 ### Verdiar
 
-| Slot | Description | Defined in |
-| --- | --- | --- |
+| Slot | Description | Defined in | Usage |
+| --- | --- | --- | --- |
 {%- for s in ns_slots_verdiar.items|sort(attribute=sort_by) %}
   {%- set origin = s.from_schema if s.from_schema else schema.id %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
+  {%- set is_used = namespace(value=false) -%}
+  {%- for class_name in schemaview.all_classes() %}
+    {%- set c = schemaview.get_class(class_name) %}
+    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+      {%- set is_used.value = true -%}
+    {%- endif %}
+  {%- endfor %}
+  {%- if is_used.value -%}
+    {%- set usage_badge = "✅ Used" -%}
+  {%- else -%}
+    {%- set usage_badge = "⚠️ Defined" -%}
+  {%- endif %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
 {%- endfor %}
 {% endif -%}
 
 {%- if ns_slots_referansar.items %}
 ### Referansar
 
-| Slot | Description | Defined in |
-| --- | --- | --- |
+| Slot | Description | Defined in | Usage |
+| --- | --- | --- | --- |
 {%- for s in ns_slots_referansar.items|sort(attribute=sort_by) %}
   {%- set origin = s.from_schema if s.from_schema else schema.id %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
+  {%- set is_used = namespace(value=false) -%}
+  {%- for class_name in schemaview.all_classes() %}
+    {%- set c = schemaview.get_class(class_name) %}
+    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+      {%- set is_used.value = true -%}
+    {%- endif %}
+  {%- endfor %}
+  {%- if is_used.value -%}
+    {%- set usage_badge = "✅ Used" -%}
+  {%- else -%}
+    {%- set usage_badge = "⚠️ Defined" -%}
+  {%- endif %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
 {%- endfor %}
 {% endif -%}
 
 {%- if ns_slots_kodar.items %}
 ### Kodar
 
-| Slot | Description | Defined in |
-| --- | --- | --- |
+| Slot | Description | Defined in | Usage |
+| --- | --- | --- | --- |
 {%- for s in ns_slots_kodar.items|sort(attribute=sort_by) %}
   {%- set origin = s.from_schema if s.from_schema else schema.id %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} |
+  {%- set is_used = namespace(value=false) -%}
+  {%- for class_name in schemaview.all_classes() %}
+    {%- set c = schemaview.get_class(class_name) %}
+    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+      {%- set is_used.value = true -%}
+    {%- endif %}
+  {%- endfor %}
+  {%- if is_used.value -%}
+    {%- set usage_badge = "✅ Used" -%}
+  {%- else -%}
+    {%- set usage_badge = "⚠️ Defined" -%}
+  {%- endif %}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
 {%- endfor %}
 {% endif %}
 
 ## Enumerations
 {%- set ns_used_enums = namespace(names=[]) -%}
+{# Samle alle enums brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
   {%- set s = schemaview.get_slot(slot_name) %}
   {%- if s and s.range and schemaview.get_enum(s.range) %}
@@ -186,14 +233,38 @@
     {%- endfor %}
   {%- endif %}
 {%- endfor -%}
+{# OR-LOGIKK: Legg til alle lokalt DEFINERTE enums (frå enums:-seksjonen) #}
+{%- for enum_name in (schema.enums or {}).keys() %}
+  {%- if enum_name not in ns_used_enums.names %}
+    {%- set ns_used_enums.names = ns_used_enums.names + [enum_name] %}
+  {%- endif %}
+{%- endfor -%}
 {%- if ns_used_enums.names %}
-| Enumeration | Description | Defined in |
-| --- | --- | --- |
+| Enumeration | Description | Defined in | Usage |
+| --- | --- | --- | --- |
 {%- for enum_name in ns_used_enums.names|sort %}
   {%- set e = schemaview.get_enum(enum_name) %}
   {%- if e %}
     {%- set origin = e.from_schema if e.from_schema else schema.id %}
-| {{ gen.link(e, True) }} | {{ e.description|enshorten }} | {{ origin }} |
+    {%- set is_used = namespace(value=false) -%}
+    {%- for slot_name in (schema.slots or {}).keys() %}
+      {%- set s = schemaview.get_slot(slot_name) %}
+      {%- if s and s.range == enum_name %}
+        {%- for class_name in schemaview.all_classes() %}
+          {%- set c = schemaview.get_class(class_name) %}
+          {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+          {%- if c and not c.tree_root and c_origin == schema.id and slot_name in (c.slots or []) %}
+            {%- set is_used.value = true -%}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+    {%- endfor %}
+    {%- if is_used.value -%}
+      {%- set usage_badge = "✅ Used" -%}
+    {%- else -%}
+      {%- set usage_badge = "⚠️ Defined" -%}
+    {%- endif %}
+| {{ gen.link(e, True) }} | {{ e.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
   {%- endif %}
 {%- endfor %}
 {% else %}
@@ -202,6 +273,7 @@
 
 ## Types
 {%- set ns_used_types = namespace(names=[]) -%}
+{# Samle alle typar brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
   {%- set s = schemaview.get_slot(slot_name) %}
   {%- if s and s.range and schemaview.get_type(s.range) %}
@@ -224,10 +296,16 @@
     {%- endfor %}
   {%- endif %}
 {%- endfor -%}
+{# OR-LOGIKK: Legg til alle lokalt DEFINERTE typar (frå types:-seksjonen) #}
+{%- for type_name in (schema.types or {}).keys() %}
+  {%- if type_name not in ns_used_types.names %}
+    {%- set ns_used_types.names = ns_used_types.names + [type_name] %}
+  {%- endif %}
+{%- endfor -%}
 {%- if ns_used_types.names %}
 
-| Type | URI | Description | Defined in |
-| --- | --- | --- | --- |
+| Type | URI | Description | Defined in | Usage |
+| --- | --- | --- | --- | --- |
 {%- for type_name in ns_used_types.names|sort -%}
   {%- set t = schemaview.get_type(type_name) -%}
   {%- if t -%}
@@ -249,7 +327,25 @@
       {%- set defined_in_text = 'linkml:types' -%}
       {%- set defined_in_link = 'https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml' -%}
     {%- endif %}
-| {{ type_name }} | [{{ uri_text }}]({{ uri_link }}) | {{ t.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) |
+    {%- set is_used = namespace(value=false) -%}
+    {%- for slot_name in (schema.slots or {}).keys() %}
+      {%- set s = schemaview.get_slot(slot_name) %}
+      {%- if s and s.range == type_name %}
+        {%- for class_name in schemaview.all_classes() %}
+          {%- set c = schemaview.get_class(class_name) %}
+          {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+          {%- if c and not c.tree_root and c_origin == schema.id and slot_name in (c.slots or []) %}
+            {%- set is_used.value = true -%}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+    {%- endfor %}
+    {%- if is_used.value -%}
+      {%- set usage_badge = "✅ Used" -%}
+    {%- else -%}
+      {%- set usage_badge = "⚠️ Defined" -%}
+    {%- endif %}
+| {{ type_name }} | [{{ uri_text }}]({{ uri_link }}) | {{ t.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
   {%- endif -%}
 {%- endfor %}
 {% else %}
