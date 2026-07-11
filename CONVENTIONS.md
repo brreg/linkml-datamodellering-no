@@ -229,6 +229,83 @@ CI genererer `Informasjonsmodell`-instansar for modellkatalogen frå desse annot
 
 ---
 
+## Kontrollerte vokabular — annotation-konvensjon
+
+Slots som krev bruk av kontrollerte vokabular skal ha følgjande annotations:
+
+| Annotation | Type | Krav | Forklaring |
+|---|---|---|---|
+| `gyldige_verdier` | `uri` | Obligatorisk | URI til det primære kontrollerte vokabularet |
+| `vokabular_krav` | `skal` \| `bør` \| `kan` | Obligatorisk | Om bruk av vokabularet er obligatorisk, anbefalt eller valfri |
+| `vokabular_pattern` | `regex` | Valfri | Regex-mønster for å validere URI-format av instansverdiar |
+| `enum_referanse` | `EnumName` | Valfri | Namn på enum i same/importert skjema som dekkjer (delar av) vokabularet |
+| `enum_dekning` | `full` \| `delvis` | Valfri | Om `enum_referanse` dekkjer heile vokabularet eller berre vanlegaste verdiar |
+| `sekundare_vokabular` | `uri` | Valfri | URI til sekundært/alternativt vokabular som kan brukast |
+| `sekundare_vokabular_krav` | `skal` \| `bør` \| `kan` | Valfri | Krav for sekundært vokabular |
+
+**Prinsipp:**
+- `range` vert **ikkje** endra — behald `range: Konsept`, `range: uri`, osv.
+- `description` skal innehalde tydelig SKAL/BØR/KAN-formulering
+- Annotations er maskinlesbare slik at `mcp-linkml-validator` kan validere at instansar brukar korrekte vokabular
+
+**Eksempel (obligatorisk vokabular med enum):**
+```yaml
+tilgangsrettigheter:
+  slot_uri: dct:accessRights
+  range: Konsept
+  multivalued: true
+  description: >-
+    Tilgangsrettar til ressursen. Verdien SKAL veljast frå EUs kontrollerte
+    vokabular Access Right. Gyldige verdiar: PUBLIC (ope, ingen registrering),
+    RESTRICTED (avgrensa tilgang), NON_PUBLIC (ikkje offentleg).
+  annotations:
+    gyldige_verdier: http://publications.europa.eu/resource/authority/access-right/
+    vokabular_krav: skal
+    vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/access-right/(PUBLIC|RESTRICTED|NON_PUBLIC)$"
+    enum_referanse: EUAccessRight
+    enum_dekning: full
+```
+
+**Eksempel (anbefalt vokabular):**
+```yaml
+frekvens:
+  slot_uri: dct:accrualPeriodicity
+  range: Konsept
+  description: >-
+    Oppdateringsfrekvens for ressursen. Verdien BØR veljast frå EUs kontrollerte
+    vokabular Frequency. Sjå enumerasjonen DCTFrequency i common-ap-no.
+  annotations:
+    gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
+    vokabular_krav: bør
+    enum_referanse: DCTFrequency
+    enum_dekning: full
+```
+
+**Eksempel (primært + sekundært vokabular):**
+```yaml
+tema:
+  slot_uri: dcat:theme
+  range: Konsept
+  multivalued: true
+  description: >-
+    Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
+    brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>)
+    og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular.
+  annotations:
+    gyldige_verdier: https://psi.norge.no/los/
+    vokabular_krav: skal
+    vokabular_pattern: "^https://psi\\.norge\\.no/los/(tema|ord|hendelse)/[a-z-]+(/[a-z-]+)*$"
+    sekundare_vokabular: http://publications.europa.eu/resource/authority/eurovoc/
+    sekundare_vokabular_krav: kan
+```
+
+**Validator-støtte:**
+- **Bronze-policy:** Sjekkar at alle slots med `gyldige_verdier` har `vokabular_krav` og at SKAL/BØR/KAN i description matcher `vokabular_krav`
+- **Silver-policy:** Validerer instansverdiar mot `vokabular_pattern` (dersom angitt)
+- **Gold-policy:** Krev at alle instansverdiar validerer mot `vokabular_pattern` og er frå korrekt domene
+
+---
+
 ## Sjå også
 
 - [SCOPE.md](SCOPE.md) — kva repoet er, kva det ikkje er, og kva som høyrer heime her

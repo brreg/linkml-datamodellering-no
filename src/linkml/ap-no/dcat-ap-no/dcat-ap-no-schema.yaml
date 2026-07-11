@@ -74,8 +74,14 @@ classes:
           - Anbefalt
       type_concept:
         description: >-
-          Type aktør frå ADMS publisher type-vokabularet (dct:type).
-          Bruk enumerasjonen ADMSPublisherType definert i common-ap-no.
+          Type aktør frå ADMS publisher type-vokabularet. Verdien BØR veljast frå
+          http://purl.org/adms/publishertype/ (t.d. NationalAuthority, LocalAuthority, Company).
+          Sjå enumerasjonen ADMSPublisherType i common-ap-no.
+        annotations:
+          gyldige_verdier: http://purl.org/adms/publishertype/
+          vokabular_krav: bør
+          enum_referanse: ADMSPublisherType
+          enum_dekning: full
     see_also:
       - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
   Kontaktopplysning:
@@ -791,20 +797,42 @@ slots:
     range: Konsept
     multivalued: true
     description: >-
-      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum - bruk MCP-server `mcp__linkml-begrep-utkast__list_los_tema` for å søkje i Los-hierarkiet.
+      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
+      (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
+      (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg.
+      EuroVoc kan brukast som sekundærvokabular.
+      Los har ~200 hovudtema og er for omfattande til å modellerast som enum.
+      Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
+      vokabular_krav: skal
+      vokabular_pattern: "^https://psi\\.norge\\.no/los/(tema|ord|hendelse)/[a-z0-9-]+(/[a-z0-9-]+)*$"
+      sekundare_vokabular: http://publications.europa.eu/resource/authority/eurovoc/
+      sekundare_vokabular_krav: kan
   temaer:
     slot_uri: dcat:themeTaxonomy
     range: Begrepssamling
     multivalued: true
     description: >-
-      Temavokabular som vert brukt i katalogen. Inkluder Los-referansen (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt.
+      Temavokabular som vert brukt i katalogen. Verdien SKAL inkludere Los-referansen
+      (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt.
+      Andre temavokabular (t.d. EuroVoc) kan òg inkluderast.
+    annotations:
+      gyldige_verdier: https://psi.norge.no/los/
+      vokabular_krav: skal
+      sekundare_vokabular: http://publications.europa.eu/resource/authority/eurovoc/
+      sekundare_vokabular_krav: kan
   begrep:
     slot_uri: dct:subject
     range: Konsept
     multivalued: true
-    description: Fagomgrep som datasettet handlar om.
+    description: >-
+      Fagomgrep som datasettet handlar om. Verdien BØR peike til omgrep i ein begrepskatalog,
+      t.d. Felles begrepskatalog (https://concept-catalog.fellesdatakatalog.digdir.no/)
+      eller organisasjonens eigen begrepskatalog.
+    annotations:
+      gyldige_verdier: https://concept-catalog.fellesdatakatalog.digdir.no/
+      vokabular_krav: bør
   medietype:
     slot_uri: dcat:mediaType
     range: Mediatype
@@ -821,16 +849,28 @@ slots:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
     description: >-
-      Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs
-      kontrollerte vokabular Frequency
+      Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency
       (http://publications.europa.eu/resource/authority/frequency/).
-      Sjå enumerasjonen DCTFrequency i common-ap-no for tilgjengelege verdiar.
+      Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar
+      (DAILY, WEEKLY, MONTHLY, ANNUAL, CONTINUOUS, osv.).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/frequency/[A-Z_0-9]+$"
+      enum_referanse: DCTFrequency
+      enum_dekning: full
   tilgjengelighet:
     slot_uri: dcatap:availability
-    range: string
-    description: Planlagt tilgjengelegheit for ressursen.
+    range: Konsept
+    description: >-
+      Planlagt tilgjengelegheit for ressursen. Verdien BØR veljast frå EUs kontrollerte vokabular
+      Planned availability (http://publications.europa.eu/resource/authority/planned-availability/).
+      Gyldige verdiar: AVAILABLE (tilgjengeleg), EXPERIMENTAL (eksperimentell), STABLE (stabil),
+      TEMPORARY (mellombels).
+    annotations:
+      gyldige_verdier: http://publications.europa.eu/resource/authority/planned-availability/
+      vokabular_krav: bør
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/planned-availability/[A-Z_]+$"
   har_rolle:
     slot_uri: dcat:hadRole
     range: string
@@ -849,10 +889,17 @@ slots:
     slot_uri: dct:accessRights
     range: Konsept
     description: >-
-      Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right (http://publications.europa.eu/resource/authority/access-right/). Sjå enumerasjonen EUAccessRight i common-ap-no for tilgjengelege verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa), NON_PUBLIC (ikkje offentleg).
+      Tilgangsrettar til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right
+      (http://publications.europa.eu/resource/authority/access-right/).
+      Gyldige verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa tilgang), NON_PUBLIC (ikkje offentleg).
+      Sjå enumerasjonen EUAccessRight i common-ap-no.
     multivalued: true
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/access-right/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/access-right/(PUBLIC|RESTRICTED|NON_PUBLIC)$"
+      enum_referanse: EUAccessRight
+      enum_dekning: full
   rettigheter:
     slot_uri: dct:rights
     range: Rettighetserklaring

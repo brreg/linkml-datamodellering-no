@@ -993,9 +993,12 @@ slots:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
     description: >-
-      Kor ofte katalogen vert oppdatert. Verdien SKAL veljast frå EUs
-      kontrollerte vokabular Frequency
+      Kor ofte katalogen vert oppdatert. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency
       (http://publications.europa.eu/resource/authority/frequency/).
-      Sjå enumerasjonen DCTFrequency i common-ap-no for tilgjengelege verdiar.
+      Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar.
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/frequency/[A-Z_0-9]+$"
+      enum_referanse: DCTFrequency
+      enum_dekning: full

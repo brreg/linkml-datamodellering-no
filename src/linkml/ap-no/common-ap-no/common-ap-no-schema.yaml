@@ -335,9 +335,11 @@ classes:
     slot_usage:
       type_concept:
         description: >-
-          Type lisens frå ADMS licence type-vokabularet (dct:type).
+          Type lisens frå ADMS licence type-vokabularet. Verdien KAN veljast frå
+          http://purl.org/adms/licencetype/ (t.d. PublicDomain, Attribution).
         annotations:
           gyldige_verdier: http://purl.org/adms/licencetype/
+          vokabular_krav: kan
 
   Mediatype:
     class_uri: dct:MediaTypeOrExtent
@@ -407,23 +409,31 @@ slots:
     range: Konsept
     multivalued: true
     description: >-
-      Språk brukt i ressursen (dct:language). Verdien SKAL veljast frå EUs
-      kontrollerte vokabular Language
+      Språk brukt i ressursen. Verdien SKAL veljast frå EUs kontrollerte vokabular Language
       (http://publications.europa.eu/resource/authority/language/).
-      Sjå enumerasjonen EULanguage for norske språk.
+      Enumerasjonen EULanguage i common-ap-no dekkjer norske språk (bokmål, nynorsk, samiske språk).
+      For andre språk, bruk URI frå EU Language-vokabularet (t.d. ENG for engelsk, SWE for svensk).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/language/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$"
+      enum_referanse: EULanguage
+      enum_dekning: delvis
 
   format:
     slot_uri: dct:format
     range: Konsept
     description: >-
-      Filformat eller medietype (dct:format). Verdien SKAL veljast frå EUs
-      kontrollerte vokabular File type
+      Filformat eller medietype. Verdien SKAL veljast frå EUs kontrollerte vokabular File type
       (http://publications.europa.eu/resource/authority/file-type/).
-      Sjå enumerasjonen EUFileType for dei mest brukte formata.
+      Enumerasjonen EUFileType i common-ap-no dekkjer dei mest brukte formata (RDF, JSON, CSV, PDF, osv.).
+      For andre format, bruk URI frå EU File Type-vokabularet.
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/file-type/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/file-type/[A-Z_]+$"
+      enum_referanse: EUFileType
+      enum_dekning: delvis
 
   har_referanse:
     slot_uri: rdfs:seeAlso
@@ -452,17 +462,32 @@ slots:
     slot_uri: dct:spatial
     range: Konsept
     multivalued: true
-    description: Geografisk dekningsområde (dct:spatial).
+    description: >-
+      Geografisk dekningsområde. Verdien BØR veljast frå Geonames (http://sws.geonames.org/)
+      eller EUs kontrollerte vokabular Continent, Country, Place
+      (http://publications.europa.eu/resource/authority/continent/,
+      http://publications.europa.eu/resource/authority/country/,
+      http://publications.europa.eu/resource/authority/place/).
+    annotations:
+      gyldige_verdier: http://sws.geonames.org/
+      vokabular_krav: bør
+      sekundare_vokabular: http://publications.europa.eu/resource/authority/country/
+      sekundare_vokabular_krav: kan
 
   status:
     slot_uri: adms:status
     range: Konsept
     description: >-
-      Status for ressursen frå eit kontrollert vokabular (adms:status). Verdien SKAL
-      veljast frå ADMS Status-vokabularet (http://purl.org/adms/status/).
-      Sjå enumerasjonen ADMSStatus for tilgjengelege statusar.
+      Status for ressursen. Verdien SKAL veljast frå ADMS Status-vokabularet
+      (http://purl.org/adms/status/). Gyldige verdiar: Completed (ferdigstilt),
+      Deprecated (foreldet), UnderDevelopment (under utvikling), Withdrawn (trukket tilbake).
+      Sjå enumerasjonen ADMSStatus i common-ap-no.
     annotations:
       gyldige_verdier: http://purl.org/adms/status/
+      vokabular_krav: skal
+      vokabular_pattern: "^http://purl\\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$"
+      enum_referanse: ADMSStatus
+      enum_dekning: full
 
   valuta:
     slot_uri: cv:currency
@@ -491,9 +516,12 @@ slots:
     slot_uri: dct:license
     range: Lisensdokument
     description: >-
-      Lisens for bruk av ressursen (dct:license). Verdien SKAL veljast frå EUs
-      kontrollerte vokabular Licence (http://publications.europa.eu/resource/authority/licence/).
+      Lisens for bruk av ressursen. Verdien SKAL veljast frå EUs kontrollerte vokabular Licence
+      (http://publications.europa.eu/resource/authority/licence/).
       For norske offentlege data er CC BY 4.0 eller NLOD 2.0 anbefalt per retningslinjene.
-      Sjå enumerasjonen EULicence for dei mest brukte lisensane.
+      Enumerasjonen EULicence i common-ap-no dekkjer dei mest brukte open source/open data-lisensane.
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/licence/
+      vokabular_krav: skal
+      enum_referanse: EULicence
+      enum_dekning: delvis
