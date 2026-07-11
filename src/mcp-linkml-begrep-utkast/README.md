@@ -111,14 +111,20 @@ og nynorsk (`nn`)** i YAML-output. Dersom du ikkje har oppgjeve nynorsk-tekst (t
 
 Engelsk (`en`) vert berre inkludert dersom du oppgjev engelsk tekst eksplisitt.
 
+**YAML-format:** LangString-verdiar i LinkML YAML er **enkle strenger** (ikkje objekt
+med språkkodar). Språket vert avleda ved RDF-serialisering basert på kva
+definisjonsobjekt som finst (`-nb`, `-nn`, `-en`).
+
 **Døme:** Dersom du oppgjev `merknad_nb: ["Merknad på bokmål"]` utan `merknad_nn`,
 vert `merknad`-feltet generert slik:
 
 ```yaml
 merknad:
-  - nb: "Merknad på bokmål"
-    nn: "Merknad på bokmål"
+  - "Merknad på bokmål"
+  - "Merknad på bokmål"
 ```
+
+Første streng mappar til `nb` (via `def/<slug>-nb`), andre til `nn` (via `def/<slug>-nn`).
 
 ## Generert YAML-struktur
 
@@ -131,8 +137,8 @@ merknad:
 begrep:
   - id: https://begrep.brreg.no/foretaksnavn
     anbefalt_term:
-      - nb: foretaksnavn
-        nn: føretaksnamn
+      - foretaksnavn
+      - føretaksnamn
     har_definisjon:
       - https://begrep.brreg.no/def/foretaksnavn-nb
       - https://begrep.brreg.no/def/foretaksnavn-nn

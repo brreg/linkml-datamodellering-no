@@ -32,19 +32,42 @@ def _resolve(explicit: str, profile_key: str, profile: dict, required_name: str)
     raise ValueError(f"Påkravd parameter '{required_name}' manglar og er ikkje satt i profilen.")
 
 
-def _build_langstring_array(nb_texts: list, nn_texts: list, en_texts: list) -> list:
+def _build_langstring_array(nb_texts: list, nn_texts: list, en_texts: list, interleaved: bool = False) -> list:
     """
-    Genererer LangString-objekt for kvar tekst i nb-lista, med nn-fallback
-    dersom nn_texts manglar eller er kortare enn nb_texts.
+    Genererer LangString-streng-array i YAML-format.
+    For multivalued LangString-slots i LinkML: ei liste av strenger der språk
+    ikkje er eksplisitt tagga (språk avleiast ved RDF-serialisering).
+
+    Args:
+        nb_texts: liste av tekstar på bokmål
+        nn_texts: liste av tekstar på nynorsk (fallback til nb dersom tom)
+        en_texts: liste av tekstar på engelsk
+        interleaved: dersom True, vekselinterleave språk per element (nb1, nn1, nb2, nn2, ...)
+                     dersom False, flat liste (nb1, nb2, ..., nn1, nn2, ...)
+
+    Returns:
+        liste av strenger (LangString-YAML-format)
     """
-    result = []
-    for i, nb_text in enumerate(nb_texts):
-        nn_text = nn_texts[i] if i < len(nn_texts) and nn_texts[i] else nb_text
-        lang_obj = {"nb": nb_text, "nn": nn_text}
-        if i < len(en_texts) and en_texts[i]:
-            lang_obj["en"] = en_texts[i]
-        result.append(lang_obj)
-    return result
+    if not interleaved:
+        # Flat liste: alle nb først, så nn, så en
+        result = []
+        result.extend(nb_texts)
+        for i in range(len(nb_texts)):
+            nn_text = nn_texts[i] if i < len(nn_texts) and nn_texts[i] else nb_texts[i]
+            result.append(nn_text)
+        if en_texts:
+            result.extend(en_texts)
+        return result
+    else:
+        # Interleaved: nb1, nn1, en1, nb2, nn2, en2, ...
+        result = []
+        for i in range(len(nb_texts)):
+            result.append(nb_texts[i])
+            nn_text = nn_texts[i] if i < len(nn_texts) and nn_texts[i] else nb_texts[i]
+            result.append(nn_text)
+            if i < len(en_texts) and en_texts[i]:
+                result.append(en_texts[i])
+        return result
 
 
 def opprett_begrep(
@@ -121,20 +144,12 @@ def opprett_begrep(
         for lang, _, _ in langs_with_terms
     ]
 
-    # Bygg anbefalt_term som LangString-array med nb + nn (alltid) og eventuelt en
-    anbefalt_term_langstrings = []
-    if anbefalt_term_nb:
-        term_obj = {
-            "nb": anbefalt_term_nb,
-            "nn": anbefalt_term_nn or anbefalt_term_nb
-        }
-        if anbefalt_term_en:
-            term_obj["en"] = anbefalt_term_en
-        anbefalt_term_langstrings.append(term_obj)
+    # Bygg anbefalt_term som streng-array (nb, nn, eventuelt en)
+    anbefalt_term_list = [term for _, term, _ in langs_with_terms]
 
     begrep_dict: dict = {
         "id": begrep_uri,
-        "anbefalt_term": anbefalt_term_langstrings,
+        "anbefalt_term": anbefalt_term_list,
         "har_definisjon": def_uris,
         "identifikator_literal": begrep_uri,
         "kontaktpunkt_vcard": [kontaktpunkt_uri],

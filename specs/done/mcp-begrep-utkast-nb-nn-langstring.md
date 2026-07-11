@@ -375,33 +375,41 @@ Alle LangString-slots i `mcp-linkml-begrep-utkast` genererer no både norsk bokm
 og norsk nynorsk (`nn`) automatisk, med bokmål som fallback for nynorsk dersom ikkje
 oppgjeve. Engelsk (`en`) inkluderast berre når eksplisitt oppgjeve.
 
-**Endringar:**
+**Endringar (revidert til streng-array-format):**
 
 1. **`generator.py`**:
-   - Ny hjelpefunksjon `_build_langstring_array()` for å generere LangString-objekt
-     med `nb`/`nn`-fallback
+   - Ny hjelpefunksjon `_build_langstring_array()` for å generere LangString-streng-array
+     (ikkje objekt) med `nb`/`nn`-fallback i flat eller interleaved rekkjefølgje
    - Oppdaterte parametrar: `merknad_nb/nn/en`, `tillate_term_nb/nn/en`,
      `eksempel_nb/nn/en`, `forkasta_term_nb/nn/en`, `verdiomrade_nb/nn/en`,
      `kjelde_tekst_nb/nn/en`
-   - `anbefalt_term` genereres no som LangString-objekt (tidlegare: streng-array)
+   - `anbefalt_term` genereres som streng-array (`["nb-term", "nn-term", ...]`)
    - Alle LangString-array-slots brukar `_build_langstring_array()` for konsistent
-     nb+nn-generering
+     nb+nn-generering (flat liste: alle nb først, så nn, så en)
 
 2. **`server.py`**:
    - Oppdatert `TOOL_OPPRETT_BEGREP` inputSchema med alle nye språkdelte parametrar
    - `_handle_opprett_begrep()` sender alle nye parametrar til `opprett_begrep()`
 
 3. **`README.md`**:
-   - Ny «LangString-generering»-seksjon som forklarar nb+nn-fallback-logikken
+   - Ny «LangString-generering»-seksjon som forklarar nb+nn-fallback-logikken og
+     LinkML sitt YAML-format (strenger, ikkje objekt)
    - Oppdatert parametertabell med alle språkdelte parametrar
-   - Oppdatert eksempel-YAML for å vise LangString-objektstruktur
+   - Oppdatert eksempel-YAML for å vise streng-array-format
    - Oppdatert «NB! Etter generering»-seksjon
+
+4. **`brreg-begrepskatalog-eksempel.yaml`**:
+   - Oppdatert `foretaksnavn`, `nestleder`, `aksjeklasser` med både nb og nn for
+     `anbefalt_term`, `merknad`, `eksempel`
+   - Lagt til manglande definisjonsobjekt (`foretaksnavn-nn`, `aksjeklasser-nn`)
+   - Oppdatert `samlingar` med nb og nn for `tittel` og `beskrivelse`
+   - Validerer OK med `make validate-instance`
 
 **Testresultat:**
 
 Lokal test med `generator.py` direkte viser korrekt generering:
-- `anbefalt_term`: `{nb: "testbegrep", nn: "testbegrep"}` (fallback)
-- `merknad`: `{nb: "...", nn: "..."}` (fallback)
-- `tillate_term`: `{nb: "alternativ term", nn: "alternativ omgrep"}` (begge oppgjeve)
-- `eksempel`: to element med nb+nn-fallback
-- `forkasta_term`, `verdiomrade`, `kjelde_tekst`: fungerer som forventa
+- `anbefalt_term`: `["testbegrep", "testomgrep"]` (nb, nn)
+- `merknad`: `["Merknad 1", "Merknad 2", "Merknad 1 nn", "Merknad 2 nn"]` (flat liste)
+- `tillate_term`: `["alternativ term", "alternativ omgrep"]`
+- `eksempel`: flat liste med nb-verdiar først, så nn-verdiar
+- LinkML-validering passerer utan feil
