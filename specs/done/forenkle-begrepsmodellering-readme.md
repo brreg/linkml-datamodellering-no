@@ -46,51 +46,63 @@ Samanlikn strukturen:
 - Lenke til full rettleiing (linje 92)
 
 **Begrepsmodellering (verbose):**
-- Introduksjonslinje med forklaring (linje 96)
-- Variabelplassholdarlinje (linje 98)
-- Kodeblokk med steg 1 (linje 100-104)
-- Forklarande tekstblokk (linje 106-108) **← SKAL FJERNAST**
-- Kodeblokk med steg 2 (linje 110-115) **← SKAL FORENKLAST**
-- Kodeblokk med steg 3 (linje 117-129) **← SKAL FORENKLAST**
-- Kodeblokk med steg 4-6 (linje 131-147)
-- Filstruktur-eksempel (linje 149-163) **← SKAL FJERNAST**
-- Lenke til full rettleiing (linje 165)
+- Overskrift (linje 97)
+- Introduksjonslinje (linje 99) **← SKAL FJERNAST**
+- Variabelplassholdarlinje (linje 101)
+- Kodeblokk med steg 1 (linje 103-107)
+- Forklarande tekstblokk (linje 109-111) **← SKAL FJERNAST**
+- Kodeblokk med steg 2 (linje 113-118) **← SKAL ERSTATTAST MED 1b (mcp-begrep-utkast)**
+- Kodeblokk med steg 3a (linje 120-129) **← SKAL FORENKLAST TIL STEG 2**
+- Kodeblokk med steg 3b (linje 131-132) **← SKAL SLÅAST SAMAN I STEG 2**
+- Kodeblokk med steg 4-6 (linje 134-150) **← BLIR STEG 3-5a**
+- Filstruktur-eksempel (linje 153-167) **← SKAL FJERNAST**
+- Lenke til full rettleiing (linje 169)
 
 ### 2. Skriv ny kompakt versjon av Begrepsmodellering-seksjonen
 
 Lag ein ny versjon som følgjer same mønster som Datamodellering-seksjonen:
 
-```markdown
+**Mønster:**
+- Éi kodeblokk per steg (1/1b, 2, 3, 4, 5/5a)
+- Kommentarar med `→` for output inni kodeblokka
+- Steg 1b og 5 er valgfrie (markert med "om ønskjeleg")
+- Éin linje om automatisk oppdaging etter siste kodeblokk
+- Sluttlenke til full rettleiing
+
+**Ny versjon:**
+
+
 ### Begrepsmodellering
 
 > Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
 
 ```bash
-# 1. Opprett ny begrepssamling (filstruktur for begrep)
+# 1a. Opprett ny begrepssamling (filstruktur for begrep)
 make new-begrepssamling DOMAIN=domene NAME=begrepssamling-namn
-# → oppretter begrep/-mappe og build.yaml med aggregation-metadata
+
+# 1b. (om ønskjeleg) Generer begrepsutkast frå eksisterande tekst
+make mcp-linkml-begrep-utkast INPUT=<sti-til-tekstfil>
+# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling-namn/begrep/begrepnavn.yaml
 ```
 ```bash
-# 2. Rediger build.yaml etter behov
-#    → src/linkml/domene/begrepssamling-namn/build.yaml
-#    Sett aggregation.organization og aggregation.catalog_name
-```
-```bash
-# 3. Skriv begrep (manuelt eller med mcp-linkml-begrep-utkast)
+# 2. Rediger begrep etter behov
 #    → src/linkml/domene/begrepssamling-namn/begrep/<begrep-slug>.yaml
 ```
 ```bash
-# 4. Aggreger til begrepskatalog
+# 3. Aggreger til begrepskatalog
 make gen-begrepskatalog-instance
 ```
 ```bash
-# 5. Valider begrepskatalog
+# 4. Valider begrepskatalog
 make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog
 ```
 ```bash
-# 6. Generer artefakter og publiser til dokumentasjonsportal
+# 5a. (om ønskjeleg) angi kva artefakter som skal genereres fra begrepskatalogen i build.yaml
+#    → src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/build.yaml
+
+# 5b. Generer artefakter og publiser til dokumentasjonsportal
 make begrepskatalog && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
@@ -101,16 +113,24 @@ For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-dat
 
 ### 3. Erstatt eksisterande Begrepsmodellering-seksjon i README.md
 
-Erstatt linje 94-165 i `README.md` med den nye kompakte versjonen frå steg 2.
+Erstatt linje 97-169 i `README.md` med den nye kompakte versjonen frå steg 2.
 
-Bevar:
-- Introduksjonslinjer (linje 96, 98)
-- Lenke til full rettleiing (linje 165)
+**Behald:**
+- `### Begrepsmodellering` (linje 97)
+- `> Bytt ut **\`domene\`**, **\`begrepssamling-namn\`** og **\`organisasjon\`** med dine aktuelle namn.` (linje 101)
+- Sluttlenke til full rettleiing (linje 169)
 
-Fjern:
-- Forklarande tekstblokkar mellom kodeblokkar
-- Filstruktur-eksempel (linje 149-163)
-- Detaljerte kommentarar i kodeblokkar
+**Fjern:**
+- Introduksjonslinje "Begrep vert organiserte i..." (linje 99)
+- Alle forklarande tekstblokkar mellom kodeblokkar (linje 109-111, 113-118, 120-129, 131-132)
+- Filstruktur-eksempel (linje 153-167)
+- Detaljerte kommentarar i kodeblokkar (t.d. "Døme: make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret")
+
+**Endre:**
+- Steg 2 (build.yaml for begrepssamling) → Steg 1b (mcp-begrep-utkast)
+- Steg 3a/3b → Steg 2 (skriv begrep)
+- Steg 4-6 → Steg 3-5 (aggreger, valider, publiser)
+- Legg til nytt steg 5 (rediger build.yaml for begrepskatalog)
 
 ### 4. Verifiser at fullstendig dokumentasjon finst på portalen
 
@@ -138,18 +158,34 @@ Verifiser at lenkjene til dokumentasjonsportalen er korrekte:
 
 ## Handlingsliste
 
-- [ ] Steg 1: Analyser forskjellen mellom Datamodellering og Begrepsmodellering
-- [ ] Steg 2: Skriv ny kompakt versjon av Begrepsmodellering-seksjonen
-- [ ] Steg 3: Erstatt eksisterande Begrepsmodellering-seksjon i README.md (linje 94-165)
-- [ ] Steg 4: Verifiser at fullstendig dokumentasjon finst i `ny-begrepsmodell.md`
-- [ ] Steg 5: Oppdater CLAUDE.md dersom nødvendig (sjekk referansar)
-- [ ] Steg 6: Test at lenkjene til dokumentasjonsportalen fungerer
+- [x] Steg 1: Analyser forskjellen mellom Datamodellering og Begrepsmodellering
+- [x] Steg 2: Skriv ny kompakt versjon av Begrepsmodellering-seksjonen
+- [x] Steg 3: Erstatt eksisterande Begrepsmodellering-seksjon i README.md (linje 97-169)
+- [x] Steg 4: Verifiser at fullstendig dokumentasjon finst i `ny-begrepsmodell.md`
+- [x] Steg 5: Oppdater CLAUDE.md dersom nødvendig (sjekk referansar)
+- [x] Steg 6: Test at lenkjene til dokumentasjonsportalen fungerer
 
-## Forventet resultat
+## Utført
 
-Begrepsmodellering-seksjonen skal vere like kompakt som Datamodellering-seksjonen:
-- ~25 linjer totalt (frå ~72 linjer)
-- Hovudfokus på kommandoane (6 nummererte steg)
+Alle steg er utførte. Begrepsmodellering-seksjonen er no forenkla til same kompaktheitsnivå som Datamodellering-seksjonen.
+
+**Resultat:**
+- Redusert frå ~72 linjer til ~30 linjer (58% reduksjon)
+- Hovudfokus på kommandoane (5 hovudsteg: 1a/1b, 2, 3, 4, 5a/5b)
 - Minimale kommentarar i kodeblokkar
 - Éin avsluttande linje om automatisk oppdaging
 - Lenke til full rettleiing på dokumentasjonsportalen
+
+**Struktur:**
+1a. Opprett begrepssamling
+1b. (Valfri) Generer begrepsutkast med mcp-linkml-begrep-utkast
+2. Rediger begrep
+3. Aggreger til begrepskatalog
+4. Valider begrepskatalog
+5a. (Valfri) Rediger build.yaml for begrepskatalog
+5b. Generer artefakter og publiser
+
+**Verifisert:**
+- `mkdocs/docs/ny-begrepsmodell.md` inneheld fullstendig dokumentasjon (filstruktur-eksempel, build.yaml-forklaring, mcp-begrep-utkast-døme)
+- CLAUDE.md refererer ikkje til filstruktur-eksempel i README.md
+- Lenkjene til dokumentasjonsportalen er korrekte

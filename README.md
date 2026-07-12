@@ -70,7 +70,7 @@ make new-model NAME=modellnavn DOMAIN=domene
 # 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
 make mcp-linkml-modell-utkast SCHEMA=tmp/modellnavn.json
-# → genererer tmp/modellnavn-schema.yaml. Flytt ho til src/linkml/domain/modellnavn/
+# → genererer tmp/modellnavn-schema.yaml. Kopier til src/linkml/domain/modellnavn/
 ```
 ```bash
 # 2. Rediger modellfila etter behov
@@ -83,7 +83,10 @@ make mcp-linkml-validate \
   POLICY=felles-datakatalog
 ```
 ```bash
-# 4. Generer artefakter og publiser til dokumentasjonsportal
+# 4. (om ønskjeleg) angi kva artefakter som skal genereres og publiseres i build.yaml
+# → src/linkml/domain/modellnavn/build.yaml
+
+# 4b. Generer artefakter og publiser til dokumentasjonsportal
 make <domain> && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
@@ -93,74 +96,39 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 ### Begrepsmodellering
 
-Begrep vert organiserte i **begrepssamlingar** (éi fil per begrep) som automatisk aggregerast til ein **begrepskatalog** per organisasjon.
-
 > Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
 
 ```bash
-# 1. Opprett ny begrepssamling (filstruktur for begrep)
+# 1a. Opprett ny begrepssamling (filstruktur for begrep)
 make new-begrepssamling DOMAIN=domene NAME=begrepssamling-namn
-# Døme: make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret
+
+# 1b. (om ønskjeleg) Generer begrepsutkast frå eksisterande tekst
+make mcp-linkml-begrep-utkast INPUT=<sti-til-tekstfil>
+# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling-namn/begrep/begrepnavn.yaml
 ```
-
-Scriptet opprettar:
-- `src/linkml/domene/begrepssamling-namn/begrep/` — mappe for begrepsfiler
-- `src/linkml/domene/begrepssamling-namn/build.yaml` — manifest med aggregation-metadata
-
 ```bash
-# 2. Fyll ut aggregation-metadata i build.yaml
-#    → src/linkml/domene/begrepssamling-namn/build.yaml
-#    Sett: aggregation.organization (organisasjonsnummer)
-#          aggregation.catalog_name (t.d. "brreg-begrepskatalog")
+# 2. Rediger begrep etter behov
+#    → src/linkml/domene/begrepssamling-namn/begrep/<begrep-slug>.yaml
 ```
-
 ```bash
-# 3a. Generer begrep med mcp-linkml-begrep-utkast (anbefalt)
-make mcp-begrep-run
-# Bruk verktøyet 'skriv_begrep_fil' med:
-#   - domain: domene
-#   - begrepssamling: begrepssamling-namn
-#   - slug: begrep-identifikator (t.d. "foretaksnavn")
-#   - profil: "brreg" (eller "default")
-# → skriv til src/linkml/domene/begrepssamling-namn/begrep/<slug>.yaml
-
-# 3b. Eller skriv begrep manuelt:
-#    → src/linkml/domene/begrepssamling-namn/begrep/mitt-begrep.yaml
-```
-
-```bash
-# 4. Køyr gen-begrepskatalog-instance for å aggregere til begrepskatalog
+# 3. Aggreger til begrepskatalog
 make gen-begrepskatalog-instance
-# → genererer src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
 ```
-
 ```bash
-# 5. Valider begrepskatalogen
+# 4. Valider begrepskatalog
 make mcp-linkml-validate \
   SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog
 ```
-
 ```bash
-# 6. Generer artefaktar og publiser til dokumentasjonsportal
+# 5a. (om ønskjeleg) angi kva artefakter som skal genereres fra begrepskatalogen i build.yaml
+#    → src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/build.yaml
+
+# 5b. Generer artefakter og publiser til dokumentasjonsportal
 make begrepskatalog && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
-**Filstruktur:**
-```
-src/linkml/
-  oreg/
-    begrepssamling-foretaksregisteret/
-      build.yaml                    ← aggregation-metadata
-      begrep/
-        foretaksnavn.yaml          ← éin fil per begrep
-        nestleder.yaml
-  begrepskatalog/                   ← automatisk generert
-    brreg-begrepskatalog/
-      data/
-        brreg-begrepskatalog/
-          brreg-begrepskatalog.yaml ← aggregert frå alle brreg-begrepssamlingar
-```
+Nye begrepssamlingar under `src/linkml/<domain>/<begrepssamling>/` vert oppdaga automatisk.
 
 For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).
 
