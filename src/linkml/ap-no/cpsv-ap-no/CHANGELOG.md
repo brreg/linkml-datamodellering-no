@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.6.0...cpsv-ap-no-v1.7.0) (2026-07-12)
+
+
+### Features
+
+* **ap-no:** legg til EU Access Rights, ADMS Publisher Type og DCT Frequency som enumerasjonar ([2fbc2d7](https://github.com/brreg/linkml-datamodellering-no/commit/2fbc2d7ff6ce1856c5ca426635882d46e2dd5d06))
+* **ap-no:** legg til maskinlesbare annotations for kontrollerte vokabular ([baa7cee](https://github.com/brreg/linkml-datamodellering-no/commit/baa7ceee52b14ac15535c8052f0d011b43d3e626))
+* **begrepskatalog:** begrep per fil, automatisk aggregering, nye verktøy og oppdatert dokumentasjon ([e2d7d95](https://github.com/brreg/linkml-datamodellering-no/commit/e2d7d9522971ad423c0f313d44a19780d23e4603))
+
 ## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.5.0...cpsv-ap-no-v1.6.0) (2026-07-10)
 
 

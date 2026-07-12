@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.5.0...brreg-begrepskatalog-v1.6.0) (2026-07-12)
+
+
+### Features
+
+* **begrep:** legg til nynorsk (nn) for alle LangString-slots i begrepsfiler ([8ecf8dc](https://github.com/brreg/linkml-datamodellering-no/commit/8ecf8dc2f940fa4b06deceb44bf9adf37332d9e8))
+* **begrepskatalog:** begrep per fil, automatisk aggregering, nye verktøy og oppdatert dokumentasjon ([e2d7d95](https://github.com/brreg/linkml-datamodellering-no/commit/e2d7d9522971ad423c0f313d44a19780d23e4603))
+
+
+### Bug Fixes
+
+* **mcp-begrep-utkast:** generer LangString som streng-array (ikkje objekt) for LinkML-kompatibilitet ([08f5b91](https://github.com/brreg/linkml-datamodellering-no/commit/08f5b9105f271ccd33ec25a9dc51cb79c7683c68))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.4.0...brreg-begrepskatalog-v1.5.0) (2026-07-10)
 
 
