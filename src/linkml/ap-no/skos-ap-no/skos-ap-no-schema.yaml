@@ -6,11 +6,11 @@ name: skos-ap-no
 title: SKOS-AP-NO
 description: >-
   Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
-version: "2.11.0"
+version: "2.12.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-10"
+  endringsdato: "2026-07-12"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:
@@ -485,9 +485,7 @@ slots:
     slot_uri: euvoc:status
     range: Konsept
     description: >-
-      Status for omgrepet. Verdien KAN veljast frå EuroVoc Status-vokabularet
-      (http://publications.europa.eu/resource/authority/concept-status/).
-      Gyldige verdiar: CURRENT (gjeldande), DEPRECATED (foreldet).
+      Status for omgrepet. Verdien KAN veljast frå EuroVoc Status-vokabularet (http://publications.europa.eu/resource/authority/concept-status/). Gyldige verdiar: CURRENT (gjeldande), DEPRECATED (foreldet).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/concept-status/
       vokabular_krav: kan
@@ -504,10 +502,7 @@ slots:
     slot_uri: skosno:relationshipWithSource
     range: Konsept
     description: >-
-      Omgrep som beskriv forholdet mellom definisjonen og kjelda. Verdien BØR veljast frå
-      Termlosen sitt vokabular for kjelderelasjonstypar (https://data.norge.no/vocabulary/skosno/kilde-type).
-      Gyldige verdiar: basertPaaKilde (basert på kjelde), sitatFraKilde (sitat frå kjelde),
-      egendefinert (eigendefinert).
+      Omgrep som beskriv forholdet mellom definisjonen og kjelda. Verdien BØR veljast frå Termlosen sitt vokabular for kjelderelasjonstypar (https://data.norge.no/vocabulary/skosno/kilde-type). Gyldige verdiar: basertPaaKilde (basert på kjelde), sitatFraKilde (sitat frå kjelde), egendefinert (eigendefinert).
     annotations:
       gyldige_verdier: https://data.norge.no/vocabulary/skosno/kilde-type
       vokabular_krav: bør
@@ -535,10 +530,7 @@ slots:
     slot_uri: skosno:relationRole
     range: Konsept
     description: >-
-      Rolle eller type av den assosiative relasjonen. Verdien BØR veljast frå eit kontrollert vokabular
-      for assosiative relasjonar. Kandidat: Termlosen sine 8 relasjonskategoriar
-      (https://data.norge.no/vocabulary/skosno/associative-relation-role) — ikkje publisert enno.
-      Mellombels kan verdiar frå ISO 25964-1 brukast.
+      Rolle eller type av den assosiative relasjonen. Verdien BØR veljast frå eit kontrollert vokabular for assosiative relasjonar. Kandidat: Termlosen sine 8 relasjonskategoriar (https://data.norge.no/vocabulary/skosno/associative-relation-role) — ikkje publisert enno. Mellombels kan verdiar frå ISO 25964-1 brukast.
     annotations:
       gyldige_verdier: https://data.norge.no/vocabulary/skosno/associative-relation-role
       vokabular_krav: bør
