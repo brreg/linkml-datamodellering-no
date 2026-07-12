@@ -1,6 +1,7 @@
 id: https://begrep.brreg.no/foretaksnavn
 anbefalt_term:
 - foretaksnavn
+- føretaksnamn
 har_definisjon:
 - https://begrep.brreg.no/def/foretaksnavn-nb
 identifikator_literal: https://begrep.brreg.no/foretaksnavn

@@ -33,6 +33,18 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 * Github Pages [dokumentasjonsportal](https://brreg.github.io/linkml-datamodellering-no/) med oversikt over alle LinkML-skjema og genererte artefakter.
 * Opplegg for å [bootstrappe](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) eit eksternt repo for lokal LinkML modellering.
 
+---
+
+## Avgrensingar
+
+Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for fullstendig oversikt:
+
+- **[SCOPE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/SCOPE.md)** — kva repoet er, kva det ikkje er, og kva som høyrer heime her
+- **[BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md)** — komplett liste over kjende bugs og workarounds
+
+**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
+
+---
 
 ## Kom i gang
 
@@ -81,7 +93,7 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 ### Begrepsmodellering
 
-Begrep vert organiserte i **begrepssamlingar** (éin fil per begrep) som automatisk aggregerast til ein **begrepskatalog** per organisasjon.
+Begrep vert organiserte i **begrepssamlingar** (éi fil per begrep) som automatisk aggregerast til ein **begrepskatalog** per organisasjon.
 
 > Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
 
@@ -172,17 +184,6 @@ imports:
 ```
 
 Validering og generering skjer via reusable GitHub Actions-workflows i dette repoet — ingen lokal installasjon er nødvendig. Sjå [Bruk frå eksternt repo](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) for full rettleiing.
-
----
-
-## Avgrensingar
-
-Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for fullstendig oversikt:
-
-- **[SCOPE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/SCOPE.md)** — kva repoet er, kva det ikkje er, og kva som høyrer heime her
-- **[BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md)** — komplett liste over kjende bugs og workarounds
-
-**Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
 
 ---
 

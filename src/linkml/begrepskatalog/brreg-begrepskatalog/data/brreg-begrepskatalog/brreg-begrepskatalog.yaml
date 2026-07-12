@@ -5,6 +5,7 @@ begrep:
 - id: https://begrep.brreg.no/aksjeklasser
   anbefalt_term:
   - aksjeklasser
+  - aksjeklassar
   har_definisjon:
   - https://begrep.brreg.no/def/aksjeklasser-nb
   identifikator_literal: https://begrep.brreg.no/aksjeklasser
@@ -17,11 +18,15 @@ begrep:
   merknad:
   - I utgangspunktet skal alle aksjer gi lik rett i selskapet, men vedtektene kan
     bestemme at aksjene skal deles inn i forskjellige aksjeklasser.
+  - I utgangspunktet skal alle aksjar gi lik rett i selskapet, men vedtektene kan
+    bestemme at aksjene skal delast inn i ulike aksjeklassar.
   eksempel:
   - A-aksjer, b-aksjer, preferanseaksjer
+  - A-aksjar, b-aksjar, preferanseaksjar
 - id: https://begrep.brreg.no/foretaksnavn
   anbefalt_term:
   - foretaksnavn
+  - føretaksnamn
   har_definisjon:
   - https://begrep.brreg.no/def/foretaksnavn-nb
   identifikator_literal: https://begrep.brreg.no/foretaksnavn
