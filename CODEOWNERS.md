@@ -9,8 +9,7 @@ organizations:
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/ngr/ngr-virksomhet/**
-      - src/linkml/oreg/enhetsregisteret-bvrinn/**
-      - src/linkml/oreg/register-over-aksjeeiere/**
+      - src/linkml/oreg/**
 
   - alias: digdir
     name: Digitaliseringsdirektoratet

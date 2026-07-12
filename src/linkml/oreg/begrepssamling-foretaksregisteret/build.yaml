@@ -2,9 +2,8 @@ publish_external: false
 validation_policy: bronze
 
 # Metadata for aggregering til begrepskatalog
-aggregation:
-  organization: "974760673"  # Brønnøysundregistra
-  catalog_name: brreg-begrepskatalog
+# aggregation-metadata vert auto-detektert frå CODEOWNERS.md basert på path-matching
+# (kan overstyrast ved å legge til eksplisitt aggregation-blokk her)
 
 generators:
   jsonld_context: false

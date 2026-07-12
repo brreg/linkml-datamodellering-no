@@ -202,7 +202,7 @@ concepts:                   # valfri — utelat for å publisere heile datafila
 CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar 
 utan `build.yaml` vert validerte automatisk med `bronze`-policy.
 
-### Per begrepssamling (har `aggregation:`-seksjon)
+### Per begrepssamling (auto-detekterer `aggregation` frå CODEOWNERS.md)
 
 `build.yaml` per begrepssamling:
 
@@ -211,15 +211,27 @@ publish_external: false         # berre begrepskatalogen publiserer
 validation_policy: bronze       # bronze / silver / gold
 
 # Metadata for aggregering til begrepskatalog
-aggregation:
-  organization: "974760673"     # organisasjonsnummer (tilsv. Brønnøysundregistra)
-  catalog_name: brreg-begrepskatalog
+# aggregation-metadata vert auto-detektert frå CODEOWNERS.md basert på path-matching
+# (kan overstyrast ved å legge til eksplisitt aggregation-blokk her)
 
 generators:
   jsonld_context: true
   shacl: true
   # osv.
 ```
+
+**Aggregation-metadata:**
+
+Organisasjonstilhøyrsle og begrepskatalog-namn vert automatisk utleidd frå
+CODEOWNERS.md ved å matche begrepssamlinga sin sti mot `path_patterns` i
+YAML-frontmatter-blokka. Dersom ei begrepssamling ligg under `src/linkml/oreg/**`,
+vil `collect-concepts.py` finne at den høyrer til Brønnøysundregistra (`974760673`)
+og aggregere begrep til `brreg-begrepskatalog`.
+
+Fallback-orden:
+1. Eksplisitt `aggregation`-blokk i `build.yaml` (override)
+2. Auto-deteksjon frå CODEOWNERS.md (standard)
+3. Feil/warning dersom ingen match
 
 **Filstruktur for begrepssamlingar:**
 

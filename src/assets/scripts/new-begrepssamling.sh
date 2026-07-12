@@ -44,9 +44,8 @@ publish_external: false
 validation_policy: bronze
 
 # Metadata for aggregering til begrepskatalog
-aggregation:
-  organization: "TODO: organisasjonsnummer (t.d. 974760673)"
-  catalog_name: "TODO: begrepskatalog-namn (t.d. brreg-begrepskatalog)"
+# aggregation-metadata vert auto-detektert frå CODEOWNERS.md basert på path-matching
+# (kan overstyrast ved å legge til eksplisitt aggregation-blokk her)
 
 generators:
   jsonld_context: false
@@ -82,11 +81,10 @@ echo "  $MANIFEST_FILE"
 echo "  $BEGREP_DIR/"
 echo ""
 echo "Neste steg:"
-echo "  1. Fyll ut aggregation.organization og aggregation.catalog_name i $MANIFEST_FILE"
-echo "  2. Generer begrep med mcp-linkml-begrep-utkast:"
+echo "  1. Skriv begrep til begrep/<begrep-slug>.yaml (manuelt eller med mcp-linkml-begrep-utkast):"
 echo "     make mcp-begrep-run"
 echo "     Bruk verktøyet 'skriv_begrep_fil' med domain=$DOMAIN og begrepssamling=$NAME"
-echo "  3. Køyr collect-concepts for å aggregere til begrepskatalog:"
-echo "     make collect-concepts"
-echo "  4. Valider begrepskatalogen:"
+echo "  2. Køyr gen-begrepskatalog-instance for å aggregere til begrepskatalog:"
+echo "     make gen-begrepskatalog-instance"
+echo "  3. Valider begrepskatalogen:"
 echo "     make mcp-validate SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml POLICY=felles-begrepskatalog"

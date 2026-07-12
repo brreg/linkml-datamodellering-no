@@ -3,9 +3,14 @@
 Samlar alle begrep frå begrepssamlingar og genererer begrepskatalog per organisasjon.
 
 For kvar organisasjon:
- 1. Finn alle begrepssamlingar med aggregation.organization = <org-nr>
+ 1. Finn alle begrepssamlingar med aggregation.organization = <org-nr> (frå build.yaml eller CODEOWNERS.md)
  2. Samle alle begrep-YAML-filer frå begrepssamling-<namn>/begrep/*.yaml
  3. Generer aggregert begrepskatalog.yaml i begrepskatalog/<org>-begrepskatalog/data/<org>-begrepskatalog/
+
+Fallback-orden for aggregation-metadata:
+ 1. Eksplisitt aggregation-blokk i build.yaml
+ 2. Auto-deteksjon frå CODEOWNERS.md basert på path-matching
+ 3. Feil/warning dersom ingen av dei to finn eigar-org
 
 Køyrast av CI før generatorfasen.
 """
@@ -13,7 +18,9 @@ Køyrast av CI før generatorfasen.
 import sys
 from pathlib import Path
 import yaml
-from typing import Dict, List
+import re
+import fnmatch
+from typing import Dict, List, Optional
 from collections import defaultdict
 
 
@@ -31,6 +38,100 @@ def write_yaml(file_path: Path, data: Dict):
         f.write("# Generert av CI frå collect-concepts.py — ikkje rediger manuelt\n")
         f.write(f"# Samlar alle begrep frå begrepssamlingane til organisasjon\n\n")
         yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+
+
+def load_codeowners(repo_root: Path) -> List[Dict]:
+    """
+    Les YAML-frontmatter frå CODEOWNERS.md og returner liste av organisasjonar.
+    """
+    codeowners_path = repo_root / "CODEOWNERS.md"
+    if not codeowners_path.exists():
+        return []
+
+    with open(codeowners_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Ekstraher YAML-frontmatter (mellom ```yaml og ```)
+    yaml_match = re.search(r"```yaml\n(.*?)\n```", content, re.DOTALL)
+    if not yaml_match:
+        return []
+
+    yaml_content = yaml_match.group(1)
+    data = yaml.safe_load(yaml_content)
+    return data.get("organizations", [])
+
+
+def find_owner_org(begrepssamling_path: Path, orgs: List[Dict]) -> Optional[Dict]:
+    """
+    Finn eigar-organisasjon basert på path-matching mot CODEOWNERS.md.
+
+    Args:
+        begrepssamling_path: Relativ sti til begrepssamlinga (t.d. src/linkml/oreg/begrepssamling-foretaksregisteret)
+        orgs: Liste av organisasjonar frå CODEOWNERS.md
+
+    Returns:
+        Matchande organisasjon-dict eller None
+    """
+    begrepssamling_str = str(begrepssamling_path)
+
+    for org in orgs:
+        for pattern in org.get("path_patterns", []):
+            # Konverter glob-pattern til fnmatch og match
+            if fnmatch.fnmatch(begrepssamling_str, pattern):
+                return org
+
+    return None
+
+
+def get_aggregation_metadata(begrepssamling_dir: Path, orgs: List[Dict]) -> Optional[Dict]:
+    """
+    Hent aggregation-metadata frå build.yaml, eller frå CODEOWNERS.md som fallback.
+
+    Returns:
+        Dict med 'organization' og 'catalog_name', eller None dersom ikkje funne
+    """
+    build_yaml = begrepssamling_dir / "build.yaml"
+    if not build_yaml.exists():
+        return None
+
+    build_data = load_yaml(build_yaml)
+
+    # Dersom aggregation-blokka finst, bruk den
+    if "aggregation" in build_data and build_data["aggregation"]:
+        return build_data["aggregation"]
+
+    # Elles: finn organisasjon frå CODEOWNERS.md
+    # Konverter til relativ sti frå repo-root
+    repo_root = Path.cwd()
+    try:
+        relative_path = begrepssamling_dir.relative_to(repo_root)
+    except ValueError:
+        # begrepssamling_dir er ikkje under repo_root
+        return None
+
+    owner_org = find_owner_org(relative_path, orgs)
+    if not owner_org:
+        print(f"[WARNING] Kan ikkje finne eigar-org for {relative_path} i CODEOWNERS.md", file=sys.stderr)
+        return None
+
+    # Ekstraher organisasjonsnummer frå org_uri
+    org_uri = owner_org.get("org_uri", "")
+    org_number = org_uri.split("/")[-1] if org_uri else None
+
+    # Utlei begrepskatalog_slug frå catalog_slug
+    catalog_slug = owner_org.get("catalog_slug", "")
+    begrepskatalog_slug = catalog_slug.replace("-modellkatalog", "-begrepskatalog") if catalog_slug else None
+
+    if not org_number or not begrepskatalog_slug:
+        print(f"[WARNING] Ugyldig org_uri eller catalog_slug for {owner_org.get('alias')}", file=sys.stderr)
+        return None
+
+    print(f"[INFO] Auto-detektert {relative_path} → org {org_number} ({owner_org.get('name')}), katalog {begrepskatalog_slug}")
+
+    return {
+        "organization": org_number,
+        "catalog_name": begrepskatalog_slug,
+    }
 
 
 def find_begrepssamlingar(src_dir: Path) -> List[Path]:
@@ -86,19 +187,28 @@ def main():
 
     print("[INFO] Startar aggregering av begrep til begrepskatalogar")
 
+    # Last CODEOWNERS.md for auto-deteksjon
+    orgs = load_codeowners(repo_root)
+    if orgs:
+        print(f"[INFO] Lasta {len(orgs)} organisasjonar frå CODEOWNERS.md")
+
     # Finn alle begrepssamlingar og grupper per organisasjon
     org_samlings: Dict[str, Dict] = defaultdict(lambda: {"catalog_name": None, "samlings": []})
 
     for build_file in find_begrepssamlingar(src_dir):
         try:
-            build_data = load_yaml(build_file)
-            aggregation = build_data.get("aggregation", {})
+            # Hent aggregation-metadata (frå build.yaml eller CODEOWNERS.md)
+            aggregation = get_aggregation_metadata(build_file.parent, orgs)
+
+            if not aggregation:
+                print(f"[WARNING] Hoppar over {build_file.parent} — manglar aggregation-metadata", file=sys.stderr)
+                continue
 
             org_nr = aggregation.get("organization")
             catalog_name = aggregation.get("catalog_name")
 
             if not org_nr or not catalog_name:
-                print(f"[WARNING] Hoppar over {build_file.parent} — manglar aggregation.organization eller aggregation.catalog_name", file=sys.stderr)
+                print(f"[WARNING] Hoppar over {build_file.parent} — ugyldig aggregation-metadata", file=sys.stderr)
                 continue
 
             # Legg til i org_samlings
