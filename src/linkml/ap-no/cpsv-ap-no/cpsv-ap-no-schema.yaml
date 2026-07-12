@@ -6,11 +6,11 @@ name: cpsv-ap-no
 title: CPSV-AP-NO
 description: >-
   Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/
-version: "1.6.0"
+version: "1.7.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-10"
+  endringsdato: "2026-07-12"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:
@@ -993,9 +993,7 @@ slots:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
     description: >-
-      Kor ofte katalogen vert oppdatert. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency
-      (http://publications.europa.eu/resource/authority/frequency/).
-      Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar.
+      Kor ofte katalogen vert oppdatert. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency (http://publications.europa.eu/resource/authority/frequency/). Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar.
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
       vokabular_krav: skal

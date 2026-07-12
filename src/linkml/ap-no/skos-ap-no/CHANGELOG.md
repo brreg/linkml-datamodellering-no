@@ -1,5 +1,34 @@
 # Changelog
 
+## [2.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.11.0...skos-ap-no-v2.12.0) (2026-07-12)
+
+
+### Features
+
+* **ap-no,begrepskatalog,modellkatalog:** legg til DQV-kvalitetsmålingar (kvantifiserbar kvalitet) ([9009b1e](https://github.com/brreg/linkml-datamodellering-no/commit/9009b1e63660f55fce18c1a9bf4dda0757a27d5e))
+* **ap-no:** legg til maskinlesbare annotations for kontrollerte vokabular ([baa7cee](https://github.com/brreg/linkml-datamodellering-no/commit/baa7ceee52b14ac15535c8052f0d011b43d3e626))
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([9653abf](https://github.com/brreg/linkml-datamodellering-no/commit/9653abf7a46a7714b216e3d0f6e3ebb97efeabc9))
+* **begrepskatalog:** begrep per fil, automatisk aggregering, nye verktøy og oppdatert dokumentasjon ([e2d7d95](https://github.com/brreg/linkml-datamodellering-no/commit/e2d7d9522971ad423c0f313d44a19780d23e4603))
+* **ci:** legg til XSD-generering via avrotize-pipeline ([22b585b](https://github.com/brreg/linkml-datamodellering-no/commit/22b585b91e357a8280ad2c9c914407e8a0b1057a))
+* legg til flag for publisering av kvar enkelt modell i manifest.yaml som er omdøpt fra generate.yaml. Flytter data og examples katalogane inn under src/linkml/domene slik at alle relaterte filer ligg i samme struktur. ([a4cccbd](https://github.com/brreg/linkml-datamodellering-no/commit/a4cccbdfb8e327d0a9bb1874b34ec21bd9c374d0))
+* legg til OpenAPI 3.1 og AsyncAPI 3.0-generering ([7be7ef8](https://github.com/brreg/linkml-datamodellering-no/commit/7be7ef8ad6e4cda9fb2a08bbc336e1c782d5d794))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse ([1d493cd](https://github.com/brreg/linkml-datamodellering-no/commit/1d493cdafb5c3991b3270b901503b7df70717f6c))
+* **mkdocs:** konfigurerbare seksjons-kjelder i index.md ([122c704](https://github.com/brreg/linkml-datamodellering-no/commit/122c7047e78c3a54952d9c91910d62f53da682a3))
+* **modellmanifest:** autogenerer &lt;modell&gt;-manifest.yaml i make domain-* ([97fd24d](https://github.com/brreg/linkml-datamodellering-no/commit/97fd24de6b851e1807aa43d814ef77d58ac74b2d))
+* **skos-ap-no:** implementer TL1-TL3 frå avvik-termlosen.md, flytt spec til done ([d48ab8f](https://github.com/brreg/linkml-datamodellering-no/commit/d48ab8fec4fe46fa6ba3baa233dc3c200785271a))
+* **validate-capture:** parallelliser validering av alle skjema ([7d9a0a2](https://github.com/brreg/linkml-datamodellering-no/commit/7d9a0a28797a918d887b6ff22303ac6d56204655))
+* **validering:** komplett valideringssystem med auto-detect og visuell rapportering ([f0607bc](https://github.com/brreg/linkml-datamodellering-no/commit/f0607bc510640fa8c85b989b995e0162385eb06e))
+
+
+### Bug Fixes
+
+* **ap-no,specs:** rett avvik mot Prinsipper for informasjonsmodellar ([ce4964b](https://github.com/brreg/linkml-datamodellering-no/commit/ce4964bc4d121438606489a41dae63ac1bea672b))
+* **ap-no:** fjern tvetydig type for lisens og hardkod generator-flagg ([e7029d7](https://github.com/brreg/linkml-datamodellering-no/commit/e7029d735d66bc9a0ae4b1918dd7c431b6a0c7ef))
+* normaliser version-felt til tre-delt semver for release-please-kompatibilitet ([abd967b](https://github.com/brreg/linkml-datamodellering-no/commit/abd967be7c48043154a9c06c14d98c59e7154f36))
+* **release:** synk schema-versjon med release-nummer automatisk ([1d20298](https://github.com/brreg/linkml-datamodellering-no/commit/1d20298b932da0e876795152aab61baf99611daf))
+* **schemas,mcp-validator:** etterlevingsopprett mot Digdir felles modelleringsreglar (regel 6-11, 15) ([93a25e7](https://github.com/brreg/linkml-datamodellering-no/commit/93a25e79c2eacdfa5d7548d176370200efc79279))
+* **skos-ap-no:** juster subset og range-feil per SKOS-AP-NO-Begrep-standarden ([c7fd78b](https://github.com/brreg/linkml-datamodellering-no/commit/c7fd78b40d849cee74e9dcbdf227e0b0e7a60a91))
+
 ## [2.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.10.0...skos-ap-no-v2.11.0) (2026-07-10)
 
 

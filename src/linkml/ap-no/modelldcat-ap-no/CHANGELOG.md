@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.10.0...modelldcat-ap-no-v1.11.0) (2026-07-12)
+
+
+### Features
+
+* **begrepskatalog:** begrep per fil, automatisk aggregering, nye verktøy og oppdatert dokumentasjon ([e2d7d95](https://github.com/brreg/linkml-datamodellering-no/commit/e2d7d9522971ad423c0f313d44a19780d23e4603))
+
 ## [1.10.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.9.0...modelldcat-ap-no-v1.10.0) (2026-07-10)
 
 

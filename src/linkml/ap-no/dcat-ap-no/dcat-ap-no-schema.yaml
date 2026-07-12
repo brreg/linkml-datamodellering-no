@@ -6,11 +6,11 @@ name: dcat-ap-no
 title: DCAT-AP-NO
 description: >-
   Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
-version: "2.9.0"
+version: "2.10.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-10"
+  endringsdato: "2026-07-12"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:
@@ -74,9 +74,7 @@ classes:
           - Anbefalt
       type_concept:
         description: >-
-          Type aktør frå ADMS publisher type-vokabularet. Verdien BØR veljast frå
-          http://purl.org/adms/publishertype/ (t.d. NationalAuthority, LocalAuthority, Company).
-          Sjå enumerasjonen ADMSPublisherType i common-ap-no.
+          Type aktør frå ADMS publisher type-vokabularet. Verdien BØR veljast frå http://purl.org/adms/publishertype/ (t.d. NationalAuthority, LocalAuthority, Company). Sjå enumerasjonen ADMSPublisherType i common-ap-no.
         annotations:
           gyldige_verdier: http://purl.org/adms/publishertype/
           vokabular_krav: bør
@@ -797,12 +795,7 @@ slots:
     range: Konsept
     multivalued: true
     description: >-
-      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
-      (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
-      (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg.
-      EuroVoc kan brukast som sekundærvokabular.
-      Los har ~200 hovudtema og er for omfattande til å modellerast som enum.
-      Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
+      Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
       vokabular_krav: skal
@@ -814,9 +807,7 @@ slots:
     range: Begrepssamling
     multivalued: true
     description: >-
-      Temavokabular som vert brukt i katalogen. Verdien SKAL inkludere Los-referansen
-      (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt.
-      Andre temavokabular (t.d. EuroVoc) kan òg inkluderast.
+      Temavokabular som vert brukt i katalogen. Verdien SKAL inkludere Los-referansen (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt. Andre temavokabular (t.d. EuroVoc) kan òg inkluderast.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
       vokabular_krav: skal
@@ -827,9 +818,7 @@ slots:
     range: Konsept
     multivalued: true
     description: >-
-      Fagomgrep som datasettet handlar om. Verdien BØR peike til omgrep i ein begrepskatalog,
-      t.d. Felles begrepskatalog (https://concept-catalog.fellesdatakatalog.digdir.no/)
-      eller organisasjonens eigen begrepskatalog.
+      Fagomgrep som datasettet handlar om. Verdien BØR peike til omgrep i ein begrepskatalog, t.d. Felles begrepskatalog (https://concept-catalog.fellesdatakatalog.digdir.no/) eller organisasjonens eigen begrepskatalog.
     annotations:
       gyldige_verdier: https://concept-catalog.fellesdatakatalog.digdir.no/
       vokabular_krav: bør
@@ -849,10 +838,7 @@ slots:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
     description: >-
-      Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency
-      (http://publications.europa.eu/resource/authority/frequency/).
-      Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar
-      (DAILY, WEEKLY, MONTHLY, ANNUAL, CONTINUOUS, osv.).
+      Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency (http://publications.europa.eu/resource/authority/frequency/). Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar (DAILY, WEEKLY, MONTHLY, ANNUAL, CONTINUOUS, osv.).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
       vokabular_krav: skal
@@ -863,10 +849,7 @@ slots:
     slot_uri: dcatap:availability
     range: Konsept
     description: >-
-      Planlagt tilgjengelegheit for ressursen. Verdien BØR veljast frå EUs kontrollerte vokabular
-      Planned availability (http://publications.europa.eu/resource/authority/planned-availability/).
-      Gyldige verdiar: AVAILABLE (tilgjengeleg), EXPERIMENTAL (eksperimentell), STABLE (stabil),
-      TEMPORARY (mellombels).
+      Planlagt tilgjengelegheit for ressursen. Verdien BØR veljast frå EUs kontrollerte vokabular Planned availability (http://publications.europa.eu/resource/authority/planned-availability/). Gyldige verdiar: AVAILABLE (tilgjengeleg), EXPERIMENTAL (eksperimentell), STABLE (stabil), TEMPORARY (mellombels).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/planned-availability/
       vokabular_krav: bør
@@ -889,10 +872,7 @@ slots:
     slot_uri: dct:accessRights
     range: Konsept
     description: >-
-      Tilgangsrettar til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right
-      (http://publications.europa.eu/resource/authority/access-right/).
-      Gyldige verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa tilgang), NON_PUBLIC (ikkje offentleg).
-      Sjå enumerasjonen EUAccessRight i common-ap-no.
+      Tilgangsrettar til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right (http://publications.europa.eu/resource/authority/access-right/). Gyldige verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa tilgang), NON_PUBLIC (ikkje offentleg). Sjå enumerasjonen EUAccessRight i common-ap-no.
     multivalued: true
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/access-right/
