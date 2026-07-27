@@ -45,8 +45,10 @@ def main() -> None:
     # MkDocs genererer anker frå fullstendig overskriftstekst
     # bronze/silver/gold/felles-*: ### <policy> → #<policy>
     # Anchor-namnet er identisk med policy-namnet
+    # Alle index.md ligg to nivå ned (docs/domain/schema/), så relativ lenke er ../../
+    # MkDocs handterer .md → .html automatisk, så ikkje bruk .md i lenkja
     anchor = policy
-    policy_link = f"[policy: {policy}](/valideringsregler/#{anchor})"
+    policy_link = f"[policy: {policy}](../../valideringsregler/#{anchor})"
 
     lines = [
         "",
