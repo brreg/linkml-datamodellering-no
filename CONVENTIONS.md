@@ -171,17 +171,37 @@ Desse aliasa skal alltid brukast — aldri andre alias for same namespace:
 
 Conventional Commits-format: `<type>(<scope>): <skildring>`
 
-| Type | Bruksområde |
-|---|---|
-| `feat` | Ny klasse, nytt slot |
-| `fix` | Rettjing av feil range, URI o.l. |
-| `refactor` | Omstrukturering utan semantisk endring |
-| `docs` | Skildringar, README, portalinnhald |
-| `chore` | CI, skript, manifest utan modellendringar |
-| `feat!` / `fix!` | Brotande endring |
+| Type | Bruksområde | Scope-krav | Utløyser release? |
+|---|---|---|---|
+| `feat(<modell>)` | Ny klasse, nytt slot | **Må** vere gyldig modellnamn | ✅ Ja |
+| `fix(<modell>)` | Rettjing av feil range, URI o.l. | **Må** vere gyldig modellnamn | ✅ Ja |
+| `feat` / `fix` | Bakoverkompatibilitet (utan scope) | - | ✅ Ja |
+| `docs` | Skildringar, README, portalinnhald | Valfri (t.d. `docs`, `docs(mkdocs)`) | ❌ Nei |
+| `refactor` | Omstrukturering utan semantisk endring | Valfri | ❌ Nei |
+| `chore` | CI, skript, manifest utan modellendringar | Valfri (t.d. `chore(ci)`) | ❌ Nei |
+| `test` | Legg til eller endre testar | Valfri | ❌ Nei |
+| `ci` | CI/CD-konfigurasjon | Valfri | ❌ Nei |
+| `build` | Byggsystem-endringar | Valfri | ❌ Nei |
+| `perf` | Ytelsesforbetring | Valfri | ❌ Nei |
+| `style` | Formattering, whitespace | Valfri | ❌ Nei |
+| `feat!` / `fix!` | Brotande endring | **Må** vere gyldig modellnamn | ✅ Ja (major) |
 
-**Scope** er modellnamnet i kebab-case. Bruk `*` for infrastruktur-endringar
-som ikkje tilhøyrer éin modell.
+**Gyldige modellnamn (scope):**
+
+Lista over gyldige modellnamn vert **automatisk generert** frå `src/linkml/*/*/*-schema.yaml` og lagra i `.github/valid-scopes.txt`.
+
+- **Køyr `make update-valid-scopes`** for å regenerere lista manuelt
+- **`make new-model`**, **`make new-modellkatalog`** og **`make new-begrepssamling`** oppdaterer lista automatisk
+- Fila vert lest av `.github/workflows/release-please.yml` for å validere commit-scopes
+
+Sjå `.github/valid-scopes.txt` for fullstendig liste (32 modellar per 2026-07-27).
+
+**Viktig:** 
+- `feat(<modell>):` og `fix(<modell>):` **må** bruke gyldig modellnamn som scope — elles utløyser dei **ikkje** versjonering
+- `docs`, `chore`, `test`, `ci`, `build`, `perf`, `refactor`, `style` utløyser **aldri** versjonering
+- For dokumentendringar: bruk `docs(<scope>):` eller `docs:` (ikkje `fix(docs):`)
+- For CI/CD-endringar: bruk `ci:` eller `chore(ci):` (ikkje `fix(ci):`)
+- For dokumentgenerering (Jinja-templates, publish.sh): bruk `feat(docgen):` eller `fix(docgen):` (utløyser **ikkje** versjonering)
 
 **Format:** Commit-meldingar skal vere **så kompakte som mogleg**. Meldinga skal skrivast i 
 **presens** og kun innehalde **kva som er endra** (ikkje kvifor eller bakgrunn — det finst i 
@@ -190,10 +210,17 @@ per endra fil/komponent. Unngå lange forklarande avsnitt; bruk stikkord.
 
 Døme:
 ```
-fix(mcp-modell-utkast): prioriter multivalued og primitive typar i slot-konfliktar
-  - converter.py: prioriter multivalued over single-value, primitive over klasse-ref
-  - tests/test_make.sh: normaliser property-namn (bindestrek → underscore)
-  - specs/done/json-schema-roundtrip-test.md: alle tre testar passerer
+# Modellendringar — utløyser versjonering
+fix(dcat-ap-no): endre range for datasett.tema frå LangString til uriorcurie
+  - dcat-ap-no-schema.yaml: slot_usage.tema.range = uriorcurie
+
+# Dokumentendringar — utløyser IKKJE versjonering
+docs(mkdocs): oppdater ekstern-bruk.md med skjema-spesifikke taggar
+  - mkdocs/docs/ekstern-bruk.md: endre v1.0.0 til dcat-ap-no-v2.8.0
+
+# Dokumentgenerering — utløyser IKKJE versjonering
+fix(docgen): fiks linjeskift i slot-tabellar
+  - index.md.jinja2: endre {%- for til {% for -%}
 ```
 
 ---

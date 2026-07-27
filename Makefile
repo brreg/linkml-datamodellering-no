@@ -1331,6 +1331,16 @@ new-begrepskatalog:
 	  (echo "Bruk: make new-begrepskatalog NAME=<katalognavn>"; exit 1)
 	bash src/assets/scripts/new-begrepskatalog.sh "$(NAME)"
 
+# Generer .github/valid-scopes.txt frå alle *-schema.yaml-filer
+# Køyrer automatisk ved `make new-model`, `make new-modellkatalog`, `make new-begrepssamling`
+update-valid-scopes:
+	@echo "Genererer .github/valid-scopes.txt..."
+	@find src/linkml -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
+	  | sed 's|.*/||; s|-schema\.yaml$$||' \
+	  | sort \
+	  > .github/valid-scopes.txt
+	@echo "Generert $$(wc -l < .github/valid-scopes.txt) scopes"
+
 check-prereqs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make check-prereqs$(CLR_RST)"

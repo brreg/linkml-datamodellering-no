@@ -22,10 +22,22 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Checkout for scope-sjekk
+        if: github.event_name == 'push'
+        uses: actions/checkout@v7
+
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
         if: github.event_name == 'push'
         run: |
+          # Les gyldige scopes frå auto-generert fil
+          if [ ! -f .github/valid-scopes.txt ]; then
+            echo "Feil: .github/valid-scopes.txt finst ikkje — køyr 'make update-valid-scopes'" >&2
+            exit 1
+          fi
+
+          VALID_SCOPES=$(cat .github/valid-scopes.txt | tr '\n' '|' | sed 's/|$//')
+
           # Hent berre første linje av commit-meldinga
           COMMIT_MSG=$(cat <<'EOF'
           ${{ github.event.head_commit.message }}
@@ -33,13 +45,30 @@ jobs:
           )
           FIRST_LINE=$(echo "$COMMIT_MSG" | head -n 1)
 
+          # 1. Hopp over ikkje-releasande typar (uavhengig av scope)
           if echo "$FIRST_LINE" | grep -qE '^(style|docs|chore|test|ci|build|perf|refactor)(\(.*\))?:'; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "Siste commit er ikkje ein release-utløysande type — hoppar over"
             exit 0
           fi
-          echo "skip=false" >> $GITHUB_OUTPUT
-          echo "Siste commit kan trigge release — held fram"
+
+          # 2. Tillat feat/fix UTAN scope (bakoverkompatibilitet)
+          if echo "$FIRST_LINE" | grep -qE '^(feat|fix):'; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "Siste commit er feat/fix utan scope — held fram"
+            exit 0
+          fi
+
+          # 3. Tillat feat/fix med gyldig modell-scope
+          if echo "$FIRST_LINE" | grep -qE "^(feat|fix)\(($VALID_SCOPES)\):"; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "Siste commit er feat/fix med gyldig modell-scope — held fram"
+            exit 0
+          fi
+
+          # 4. Elles: hopp over (t.d. feat(docs), fix(docgen), feat(ci))
+          echo "skip=true" >> $GITHUB_OUTPUT
+          echo "Siste commit har ikkje gyldig modell-scope — hoppar over"
 
       - name: Checkout for release-please
         if: |

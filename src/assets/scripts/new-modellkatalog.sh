@@ -233,6 +233,13 @@ echo "  $CATALOG_DIR/build.yaml"
 echo "  $CATALOG_DIR/data/$catalog_slug/$catalog_slug.yaml"
 echo "  $CATALOG_DIR/data/$catalog_slug/build.yaml"
 echo "  $CATALOG_DIR/examples/$catalog_slug-eksempel.yaml"
+
+# Oppdater .github/valid-scopes.txt
+echo ""
+echo "Oppdaterer .github/valid-scopes.txt..."
+cd "$REPO_ROOT"
+make --no-print-directory update-valid-scopes
+
 echo ""
 echo "Neste steg:"
 echo "  1. Fyll inn TODO-verdiar i datafila: $CATALOG_DIR/data/$catalog_slug/$catalog_slug.yaml"

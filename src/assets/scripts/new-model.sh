@@ -144,6 +144,13 @@ echo "  $SCHEMA_FILE"
 echo "  $EXAMPLE_FILE"
 echo "  $MANIFEST_FILE"
 echo "  $DESCRIPTION_FILE"
+
+# Oppdater .github/valid-scopes.txt
+echo ""
+echo "Oppdaterer .github/valid-scopes.txt..."
+cd "$REPO_ROOT"
+make --no-print-directory update-valid-scopes
+
 echo ""
 echo "Neste steg:"
 echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"

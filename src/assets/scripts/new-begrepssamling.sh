@@ -79,6 +79,13 @@ echo ""
 echo "Oppretta:"
 echo "  $MANIFEST_FILE"
 echo "  $BEGREP_DIR/"
+
+# Oppdater .github/valid-scopes.txt
+echo ""
+echo "Oppdaterer .github/valid-scopes.txt..."
+cd "$REPO_ROOT"
+make --no-print-directory update-valid-scopes
+
 echo ""
 echo "Neste steg:"
 echo "  1. Skriv begrep til begrep/<begrep-slug>.yaml (manuelt eller med mcp-linkml-begrep-utkast):"

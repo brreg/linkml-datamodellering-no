@@ -319,7 +319,8 @@
       "Bash(make)",
       "Bash(make gendoc *)",
       "Bash(./publish.sh)",
-      "Bash(git ls-remote *)"
+      "Bash(git ls-remote *)",
+      "Bash(make update-valid-scopes *)"
     ]
   },
   "enableAllProjectMcpServers": true,
