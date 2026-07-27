@@ -316,7 +316,9 @@
       "Bash(make log-mcp-validate *)",
       "mcp__linkml-validator__validate_linkml_schema",
       "Bash(make build-domain *)",
-      "Bash(make)"
+      "Bash(make)",
+      "Bash(make gendoc *)",
+      "Bash(./publish.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -144,25 +144,25 @@
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
-{%- for s in ns_slots_verdiar.items|sort(attribute=sort_by) %}
-  {%- set origin = s.from_schema if s.from_schema else schema.id %}
-  {%- set is_used = namespace(value=false) -%}
-  {%- for class_name in schemaview.all_classes() %}
-    {%- set c = schemaview.get_class(class_name) %}
-    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
-    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
-      {%- set is_used.value = true -%}
-    {%- endif %}
-  {%- endfor %}
-  {%- if is_used.value -%}
-    {%- set usage_badge = "✅ Used" -%}
-  {%- else -%}
-    {%- set usage_badge = "⚠️ Defined" -%}
+{% for s in ns_slots_verdiar.items|sort(attribute=sort_by) -%}
+{%- set origin = s.from_schema if s.from_schema else schema.id %}
+{%- set is_used = namespace(value=false) -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+    {%- set is_used.value = true -%}
   {%- endif %}
-  {%- set defined_in_text = origin -%}
-  {%- set defined_in_link = origin -%}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
+{%- if is_used.value -%}
+  {%- set usage_badge = "✅ Used" -%}
+{%- else -%}
+  {%- set usage_badge = "⚠️ Defined" -%}
+{%- endif %}
+{%- set defined_in_text = origin -%}
+{%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
+{% endfor -%}
 {% endif -%}
 
 {%- if ns_slots_referansar.items %}
@@ -170,25 +170,25 @@
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
-{%- for s in ns_slots_referansar.items|sort(attribute=sort_by) %}
-  {%- set origin = s.from_schema if s.from_schema else schema.id %}
-  {%- set is_used = namespace(value=false) -%}
-  {%- for class_name in schemaview.all_classes() %}
-    {%- set c = schemaview.get_class(class_name) %}
-    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
-    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
-      {%- set is_used.value = true -%}
-    {%- endif %}
-  {%- endfor %}
-  {%- if is_used.value -%}
-    {%- set usage_badge = "✅ Used" -%}
-  {%- else -%}
-    {%- set usage_badge = "⚠️ Defined" -%}
+{% for s in ns_slots_referansar.items|sort(attribute=sort_by) -%}
+{%- set origin = s.from_schema if s.from_schema else schema.id %}
+{%- set is_used = namespace(value=false) -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+    {%- set is_used.value = true -%}
   {%- endif %}
-  {%- set defined_in_text = origin -%}
-  {%- set defined_in_link = origin -%}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
+{%- if is_used.value -%}
+  {%- set usage_badge = "✅ Used" -%}
+{%- else -%}
+  {%- set usage_badge = "⚠️ Defined" -%}
+{%- endif %}
+{%- set defined_in_text = origin -%}
+{%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
+{% endfor -%}
 {% endif -%}
 
 {%- if ns_slots_kodar.items %}
@@ -196,25 +196,25 @@
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
-{%- for s in ns_slots_kodar.items|sort(attribute=sort_by) %}
-  {%- set origin = s.from_schema if s.from_schema else schema.id %}
-  {%- set is_used = namespace(value=false) -%}
-  {%- for class_name in schemaview.all_classes() %}
-    {%- set c = schemaview.get_class(class_name) %}
-    {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
-    {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
-      {%- set is_used.value = true -%}
-    {%- endif %}
-  {%- endfor %}
-  {%- if is_used.value -%}
-    {%- set usage_badge = "✅ Used" -%}
-  {%- else -%}
-    {%- set usage_badge = "⚠️ Defined" -%}
+{% for s in ns_slots_kodar.items|sort(attribute=sort_by) -%}
+{%- set origin = s.from_schema if s.from_schema else schema.id %}
+{%- set is_used = namespace(value=false) -%}
+{%- for class_name in schemaview.all_classes() %}
+  {%- set c = schemaview.get_class(class_name) %}
+  {%- set c_origin = c.from_schema if c.from_schema else schema.id %}
+  {%- if c and not c.tree_root and c_origin == schema.id and s.name in (c.slots or []) %}
+    {%- set is_used.value = true -%}
   {%- endif %}
-  {%- set defined_in_text = origin -%}
-  {%- set defined_in_link = origin -%}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
+{%- if is_used.value -%}
+  {%- set usage_badge = "✅ Used" -%}
+{%- else -%}
+  {%- set usage_badge = "⚠️ Defined" -%}
+{%- endif %}
+{%- set defined_in_text = origin -%}
+{%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
+{% endfor -%}
 {% endif %}
 
 {%- set ns_used_enums = namespace(names=[]) -%}
