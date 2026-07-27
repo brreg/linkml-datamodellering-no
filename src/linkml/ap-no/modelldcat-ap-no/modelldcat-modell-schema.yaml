@@ -3,7 +3,7 @@ name: modelldcat-modell
 title: ModelDCAT-AP-NO - Modelldel
 description: >-
   Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste, Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel
-version: "1.11.0"
+version: "1.12.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   status: http://purl.org/adms/status/Completed
