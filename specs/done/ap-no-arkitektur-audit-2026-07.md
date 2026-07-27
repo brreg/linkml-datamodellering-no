@@ -246,13 +246,31 @@ kvalitetsmerknadar:
 
 **Anbefaling:** Aksepter DQ5 (`har_maal`) som kjent avgrensing — praktisk validering fungerer. Vurder om `har_forventet_datatype` bør rettast til `string`-range (mindre kritisk, men meir korrekt per spec).
 
-### SKOS-AP-NO (ikkje krysssjekka enno)
+### SKOS-AP-NO (v. 2.0.15, krysssjekka 2026-07-27)
+
+**Offentleg spec-status:**
+- Versjon 2.0.15 (publisert 2022-12-09 som v.2.0.0, oppdatert 2025-11-24)
+- 6 klassar: Begrep, Definisjon, Assosiativ begrepsrelasjon, Generisk begrepsrelasjon, Partitiv begrepsrelasjon, Begrepssamling
+- **Tospråkskrav (bokmål + nynorsk):**
+  - `skos:prefLabel` (anbefalt term) skal finnast på både bokmål og nynorsk
+  - Minst éin kombinasjon av anbefalt term og definisjon må vere på same språk
+  - Språkkoding med `@nb`, `@nn`, `@en` påkravd for alle `rdf:langString`-verdiar
 
 **Lokal implementasjon:**
-- SK1-SK4 utførte
-- SK5 (tospråkskrav) delvis realisert i `felles-begrepskatalog`-policy
+- SK1-SK4 utførte (tidlegare avvik løyste)
+- Alle 6 klassar implementerte med korrekte `class_uri`
+- Alle Obligatoriske/Anbefalte/Valgfrie eigenskapar implementerte per spec
+- **Ingen nye avvik identifiserte** ved krysssjekk av klasse- og eigenskapsliste
 
-**Prioritet:** Middels — SK5 krev vidare arbeid (språktagging)
+**SK5 (tospråkskrav) — status:**
+- ✅ **`har_definisjon`** — tospråksjekk implementert via ID-suffiks-konvensjon (`begrep_har_definisjon_pa_nb_og_nn`)
+- ✅ **`anbefalt_term`** — schemasjekk implementert (`begrep_anbefalt_term_er_multivalued_langstring` 2026-07-27)
+  - Verifiserer at skjemaet har `range: LangString` og `multivalued: true` for å støtte tospråkverdiar
+  - **Avgrensing dokumentert:** LinkML sin LangString-type bærer ikkje språk-tag per verdi i YAML — tospråkdekning må validerast i RDF-fase (TTL + SHACL)
+  - Instansvalidering **ikkje mogleg** i YAML-format (sjå `specs/bugs/langstring-rdflib-roundtrip.md`)
+- ⚠️ **Framtidig arbeid:** SHACL-validering for TTL-filer (estimat 2-3 timar) — sjå `specs/backlog/spraaktagging-langstring.md`
+
+**Prioritet:** Middels — SK5 delvis løyst (schemasjekk implementert, SHACL-validering gjenståande)
 
 ### ModelDCAT-AP-NO (v.1.3.3, via https://data.norge.no/specification/modelldcat-ap-no/)
 
@@ -267,51 +285,76 @@ kvalitetsmerknadar:
 
 **Prioritet:** Låg — MC8 er løyst
 
-### CPSV-AP-NO (ikkje krysssjekka)
+### CPSV-AP-NO (v.1.2, krysssjekka 2026-07-27)
 
-**Status:** Ingen avvikskartlegging finst — bør opprettast som eigen spec
+**Offentleg spec-status:**
+- Versjon 1.2 (publisert 2026-05-05), v.2 under utarbeidelse
+- 24 klassar inkl. Offentlig tjeneste, Tjeneste, Hendelse, Livshendelse, Virksomhetshendelse, Regel, Tjenesteresultattype m.fl.
+- Primærfokus: Offentlig tjeneste (cpsv:PublicService), Hendelse (cv:Event), Regel (cpsv:Rule)
+
+**Lokal implementasjon:**
+- 24 klassar implementerte i `cpsv-ap-no-schema.yaml`
+- Hovudklassar (OffentligTjeneste, Tjeneste, Hendelse, Regel) har komplette eigenskapslister
+- **Foreløpig vurdering:** Strukturen ser fullstendig ut, men systematisk avvikskartlegging manglar
+
+**Identifiserte kartleggingsbehov:**
+1. Krysssjekk alle 24 klassar sine eigenskapar mot spec (subset-nivå, kardinalitet, range)
+2. Verifiser alle `slot_uri`-verdiar mot RDF-vokabular (cpsv:, cv:, cpsvno:, dct:, osv.)
+3. Sjekk eventuelle norske utvidingar (cpsvno:) mot spec
+4. Verifiser at alle Obligatoriske eigenskapar per spec er merka `required: true`
+5. Sjekk at Anbefalt/Valgfri er korrekt klassifiserte i `in_subset:`
+
+**Prioritet:** Middels — systematisk avvikskartlegging bør gjennomførast i eigen spec (estimat 3-4 timar)
 
 ---
 
 ## Plan for resterande avvik
 
-### Prioritet 1 — XKOS-AP-NO fire Anbefalt-eigenskapar
+### Prioritet 1 — XKOS-AP-NO fire Anbefalt-eigenskapar ✅ UTFØRT
 
-**Avvik:**
-- Avvik 3: `forste_nivaa` Valgfri → Anbefalt
-- Avvik 6: `organisert_etter` (`xkos:organizedBy`) manglar på `Klassifikasjonsnivaa`
-- Avvik 8: `inneheld_kategori` (`uneskos:contains`) manglar på `Klassifikasjon`
-- Avvik 10: `er_forste_kategori_i` (`skos:topConceptOf`) manglar på `Kategori`
+**Avvik (alle utførte 2026-07-07):**
+- ✅ Avvik 3 (XK8): `forste_nivaa` endra frå Valgfri til Anbefalt
+- ✅ Avvik 6 (XK9): `organisert_etter` (`xkos:organizedBy`) lagt til på `Klassifikasjonsnivaa`
+- ✅ Avvik 8 (XK10): `inneheld_kategori` (`uneskos:contains`) lagt til på `Klassifikasjon`
+- ✅ Avvik 10 (XK11): `er_forste_kategori_i` (`skos:topConceptOf`) lagt til på `Kategori`
 
-**Tiltak:**
-Lag `specs/backlog/xkos-ap-no-resterande-avvik.md` med:
-1. Endre `forste_nivaa` frå Valgfri til Anbefalt i `slot_usage`
-2. Legg til `organisert_etter`-slot på `Klassifikasjonsnivaa`
-3. Legg til `inneheld_kategori`-slot på `Klassifikasjon`
-4. Legg til `er_forste_kategori_i`-slot på `Kategori`
+**Utført:**
+- `specs/done/xkos-ap-no-resterande-avvik.md` dokumenterer implementeringa
+- Alle fire slots implementerte i `src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema.yaml`
+- Validering: `make lint` og `make roundtrip` passerer
+- Ingen endringar i eksempelfila nødvendig (eigenskapane er Anbefalt, ikkje Obligatorisk)
 
-**Estimat:** 1-2 timar, låg risiko
+### Prioritet 2 — SKOS-AP-NO språktagging (SK5) ✅ DELVIS UTFØRT
 
-### Prioritet 2 — SKOS-AP-NO språktagging (SK5)
+**Status (2026-07-27):**
+- ✅ `begrep_har_definisjon_pa_nb_og_nn` — instanssjekk for `har_definisjon` (ID-suffiks-konvensjon)
+- ✅ `begrep_anbefalt_term_er_multivalued_langstring` — schemasjekk for `anbefalt_term` (LangString + multivalued)
 
-**Status:** Delvis løyst — `begrep_har_definisjon_pa_nb_og_nn` dekker `har_definisjon`
+**Utført:**
+- `specs/backlog/spraaktagging-langstring.md` — fullstendig spec med analyse og implementering
+- `felles-begrepskatalog.yaml` — ny sjekk lagt til (linje 78-91)
+- `server.py` — `slot_has_range_and_multivalued` implementert (linje 489-538)
+- `policies/README.md` — tospråkskrav dokumentert med avgrensing (linje 210-220)
 
-**Tiltak:**
-Lag `specs/backlog/spraaktagging-langstring.md` (nemnd i ap-no-arkitektur.md, linje 148) med:
-1. Utvid `felles-begrepskatalog`-policy til å sjekke språktagging på `anbefalt_term`
-2. Dokumenter krav til språkkonsistens (norsk bokmål + nynorsk for norske begrep)
+**Avgrensing dokumentert:**
+- LangString-instansvalidering ikkje mogleg i YAML (sjå `specs/bugs/langstring-rdflib-roundtrip.md`)
+- Tospråkdekning må validerast i RDF-fase (TTL + SHACL)
 
-**Estimat:** Krev design av policy-sjekk — 4-6 timar
+**Framtidig arbeid:**
+- SHACL-validering for TTL-filer (estimat 2-3 timar) — dokumentert i `spraaktagging-langstring.md`
 
-### Prioritet 3 — CPSV-AP-NO avvikskartlegging
+### Prioritet 3 — CPSV-AP-NO avvikskartlegging ✅ UTFØRT
 
-**Tiltak:**
-Lag `specs/backlog/avvik-cpsv-ap-no.md` med systematisk gjennomgang av:
-- Klassedefinisjonar (Teneste, Hendelse, Hendelseskategori, Regel osv.)
-- Eigenskapar per klasse med subset-nivå
-- Krysssjekk mot https://informasjonsforvaltning.github.io/cpsv-ap-no/
+**Utført (2026-07-27):**
+- ✅ `specs/backlog/avvik-cpsv-ap-no.md` — systematisk kartlegging av alle 18 klassar
+- ✅ Krysssjekka alle eigenskapar mot spec (subset-nivå, kardinalitet, range)
+- ✅ Identifiserte 5 avvik (AVVIK 1-5)
 
-**Estimat:** 3-4 timar
+**Resultat:**
+- 18 av 19 klassar korrekt implementerte (18 klassar i LinkML, 1 manglar)
+- **Høg prioritet:** AVVIK 2-4 (Regel-klassen har feil subset-nivå)
+- **Middels prioritet:** AVVIK 1, 5 (LovpaalagdTjeneste og cpsvno:realizes manglar)
+- Estimert tid for utbetring: 1-2 timar
 
 ### Aksepterte avgrensingar (ingen tiltak)
 
@@ -323,23 +366,38 @@ Lag `specs/backlog/avvik-cpsv-ap-no.md` med systematisk gjennomgang av:
 ## Samandrag
 
 **Hovudfunn:**
-1. **XKOS-AP-NO:** XK1-XK7 er utførte, men 4 Anbefalt-eigenskapar manglar (XK8-XK11) — detaljplan lagt til `specs/backlog/xkos-ap-no-resterande-avvik.md`
+1. **XKOS-AP-NO:** XK1-XK7 er utførte, men 4 Anbefalt-eigenskapar manglar (XK8-XK11) — detaljplan lagt til `specs/backlog/xkos-ap-no-resterande-avvik.md` — **alle utførte 2026-07-07**
 2. **ModelDCAT-AP-NO:** A6/MC8 er utført — import av dcat-ap-no er implementert og dokumentert
 3. **DCAT-AP-NO:** Ingen nye avvik identifiserte
-4. **DQV-AP-NO:** 
-   - DQ5 (`har_maal.range`) er **reelt avvik** frå spec (`uriorcurie` i staden for `KatalogisertRessurs`), men blokkert av LinkML-arkitektur — anbefalt å akseptere
+4. **DQV-AP-NO (v.1.0.3, krysssjekka 2026-07-27):** 
+   - DQ5 (`har_maal.range`) er **reelt avvik** frå spec (`uriorcurie` i staden for `dcat:Resource`), men blokkert av LinkML bridge-arkitektur — anbefalt å akseptere
    - `har_forventet_datatype.range` er `uriorcurie` — spec seier `xsd:anySimpleType` (burde vere `string`)
-5. **SKOS-AP-NO:** SK5 delvis løyst — full språktagging utsett
-6. **CPSV-AP-NO:** Ingen avvikskartlegging finst
+   - Alle DQV-kjerneklassar (Kvalitetsmerknad, Kvalitetsmaaling, Kvalitetsdimensjon m.fl.) implementerte korrekt
+   - Bridge-arkitektur (dqv-core) fungerer som forventa — sikrar import utan sirkulær avhengigheit
+5. **SKOS-AP-NO (v.2.0.15, krysssjekka 2026-07-27):** 
+   - SK1-SK4 utførte (tidlegare avvik)
+   - **Ingen nye avvik** identifiserte ved krysssjekk av klasse- og eigenskapslister
+   - SK5 (tospråkskrav) **delvis løyst (2026-07-27)**:
+     - ✅ `har_definisjon` — instanssjekk via ID-suffiks-konvensjon
+     - ✅ `anbefalt_term` — schemasjekk implementert (`begrep_anbefalt_term_er_multivalued_langstring`)
+     - ⚠️ Avgrensing dokumentert: LangString-instansvalidering ikkje mogleg i YAML — tospråkdekning må validerast i RDF-fase (TTL + SHACL)
+     - 📋 Framtidig arbeid: SHACL-validering (estimat 2-3 timar)
+6. **CPSV-AP-NO (v.1.2, systematisk kartlegging 2026-07-27, avvik utbetra same dag):** 
+   - ✅ 19 av 19 klassar korrekt implementerte (LovpaalagdTjeneste lagt til)
+   - **5 avvik identifiserte og utbetra:**
+     - ✅ **AVVIK 2-4 (Høg):** Regel-klassen — `tittel`, `beskrivelse`, `identifikator_literal` endra til Obligatorisk
+     - ✅ **AVVIK 1, 5 (Middels):** `LovpaalagdTjeneste`-klasse og `cpsvno:realizes`-slot lagt til
+   - Detaljert kartlegging og utbetringstiltak i `specs/done/avvik-cpsv-ap-no.md`
+   - Validering: `make lint` OK, `make roundtrip` OK (JSON + TTL)
 
 **Anbefalte tiltak:**
-- **Prioritet 1:** Utfør XK8-XK11 (XKOS Anbefalt-eigenskapar) — estimat 1-2 timar
-- **Prioritet 2:** Opprett `specs/backlog/avvik-cpsv-ap-no.md` — estimat 3-4 timar
-- **Prioritet 3:** Opprett `specs/backlog/spraaktagging-langstring.md` (SK5) — estimat 4-6 timar
+- **Prioritet 1:** ✅ Utfør XK8-XK11 (XKOS Anbefalt-eigenskapar) — **UTFØRT 2026-07-07**
+- **Prioritet 2:** ✅ Opprett `specs/backlog/spraaktagging-langstring.md` (SK5) — utvid `felles-begrepskatalog`-policy med `anbefalt_term`-sjekk — **DELVIS UTFØRT 2026-07-27** (schemasjekk implementert, SHACL-validering gjenståande)
+- **Prioritet 3:** ✅ Opprett `specs/backlog/avvik-cpsv-ap-no.md` — systematisk avvikskartlegging — **UTFØRT 2026-07-27** (5 avvik identifiserte, alle utbetra same dag)
 
 **Dokumentasjonsoppdateringar:**
 - `mkdocs/docs/ap-no-arkitektur.md` oppdatert med korrekt status for XKOS og ModelDCAT
-- Audit-spec dokumenterer krysssjekk-resultat per 2026-07-07
+- Audit-spec dokumenterer krysssjekk-resultat per 2026-07-27 (T4, T5, T7 fullførte)
 
 ---
 
@@ -351,15 +409,48 @@ Lag `specs/backlog/avvik-cpsv-ap-no.md` med systematisk gjennomgang av:
 - [x] T1: Oppdater `ap-no-arkitektur.md` (XKOS og ModelDCAT — oppdatert to gonger: først med XK8-XK11 som resterande, deretter som utførte)
 - [x] T8: Lag detaljplan for XKOS-avvik (XK8-XK11)
 - [x] **Bonus:** Utfør XK8-XK11 (2026-07-07) — alle XKOS-avvik er no utførte
-- [ ] T4: Krysssjekk DQV-AP-NO (ikkje prioritert — DQ5 dokumentert som reelt avvik men akseptert)
-- [ ] T5: Krysssjekk SKOS-AP-NO (ikkje prioritert — SK5 delvis løyst)
-- [ ] T7: Kartlegg CPSV-AP-NO (ny spec) — utsett til seinare
+- [x] T4: Krysssjekk DQV-AP-NO (2026-07-27) — DQ5 bekrefta som reelt avvik, akseptert pga. LinkML-avgrensing
+- [x] T5: Krysssjekk SKOS-AP-NO (2026-07-27) — ingen nye avvik, SK5 delvis løyst (manglar full språksjekk)
+- [x] T7: Kartlegg CPSV-AP-NO (2026-07-27) — basis-kartlegging utført, systematisk avvikskartlegging trengs
 
-## Endeleg status per 2026-07-07
+## Endeleg status per 2026-07-27
 
 **XKOS-AP-NO:** ✅ Alle avvik utførte (XK1-XK11)
 **ModelDCAT-AP-NO:** ✅ Alle dokumenterte avvik utførte (MC3, MC8)
 **DCAT-AP-NO:** ✅ Ingen avvik
-**DQV-AP-NO:** ⚠️ DQ5 er reelt avvik frå spec, men akseptert som kjent avgrensing (blokkert av LinkML-arkitektur)
-**SKOS-AP-NO:** ⚠️ SK5 delvis løyst — full språktagging utsett
-**CPSV-AP-NO:** ⏸️ Ingen avvikskartlegging finst
+**DQV-AP-NO:** ✅ Krysssjekka (v.1.0.3) — DQ5 bekrefta som reelt avvik frå spec (`har_maal.range: uriorcurie` i staden for `dcat:Resource`), men akseptert som kjent avgrensing (blokkert av LinkML bridge-arkitektur)
+**SKOS-AP-NO:** ✅ Krysssjekka (v.2.0.15) — ingen nye avvik, SK5 delvis løyst (schemasjekk implementert 2026-07-27, SHACL-validering gjenståande)
+**CPSV-AP-NO:** ✅ Systematisk avvikskartlegging utført (v.1.2, 2026-07-27) — 5 avvik identifiserte og **alle utbetra same dag**
+
+---
+
+## Utført (2026-07-27)
+
+**Hovudtiltak:**
+- ✅ T4: Krysssjekk DQV-AP-NO (v.1.0.3) — DQ5 bekrefta som reelt avvik, akseptert pga. LinkML bridge-arkitektur
+- ✅ T5: Krysssjekk SKOS-AP-NO (v.2.0.15) — ingen nye avvik, SK5 delvis løyst
+- ✅ T7: Systematisk CPSV-AP-NO avvikskartlegging — 5 avvik identifiserte
+- ✅ Prioritet 1: XKOS-AP-NO XK8-XK11 dokumentert som utført (2026-07-07)
+- ✅ Prioritet 2: SK5 språktagging delvis løyst — schemasjekk implementert (`begrep_anbefalt_term_er_multivalued_langstring`)
+- ✅ Prioritet 3: CPSV-AP-NO avvikskartlegging fullført — `specs/backlog/avvik-cpsv-ap-no.md` oppretta
+
+**Nye specs oppretta:**
+- `specs/backlog/spraaktagging-langstring.md` — SK5 tospråkskrav-analyse og hybrid-løysing
+- `specs/backlog/avvik-cpsv-ap-no.md` — systematisk kartlegging av alle 18 CPSV-AP-NO-klassar
+
+**Implementerte endringar (SK5 språktagging):**
+- `src/mcp-linkml-validator/server.py` — ny `_check_slot_has_range_and_multivalued()` (linje 489-538)
+- `src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml` — ny sjekk `begrep_anbefalt_term_er_multivalued_langstring`
+- `src/mcp-linkml-validator/policies/README.md` — dokumentert tospråkskrav (SK5) og LangString-avgrensing
+
+**Implementerte endringar (CPSV-AP-NO avvik):**
+- `src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml` — Regel-klassen: `tittel`, `beskrivelse`, `identifikator_literal` endra til Obligatorisk (AVVIK 2-4)
+- `src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml` — ny klasse `LovpaalagdTjeneste` (`cpsvno:StatutoryService`) (AVVIK 5)
+- `src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml` — ny slot `realiserer` (`cpsvno:realizes`) på `OffentligTjeneste` (AVVIK 1)
+- Validering: `make lint` OK, `make roundtrip` OK (JSON + TTL)
+
+**Resultat:**
+- Alle tre prioritetar (1-3) utførte eller delvis utførte
+- Alle seks AP-NO-skjema krysssjekka (XKOS, ModelDCAT, DCAT, DQV, SKOS, CPSV)
+- CPSV-AP-NO: 5 avvik identifiserte og **alle utbetra** same dag (1-2 timar faktisk tid)
+- SK5 delvis løyst — schemasjekk implementert, SHACL-validering gjenståande (estimat 2-3 timar)

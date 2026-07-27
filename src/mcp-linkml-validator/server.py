@@ -486,6 +486,57 @@ def _check_controlled_vocabulary_annotations(sv, schema, config, issues):
             ))
 
 
+def _check_slot_has_range_and_multivalued(sv, schema, config, issues):
+    """
+    Sjekkar at ein slot på ein bestemt klasse har forventa range og multivalued-status.
+
+    Brukt for å verifiere at skjemaet er rigga for tospråkverdiar (t.d. LangString
+    med multivalued: true), sjølv om instansvalidering ikkje kan sjekke faktisk
+    tospråkdekning i YAML-format.
+    """
+    class_name = config["class"]
+    slot_uri = config["slot_uri"]
+    expected_range = config.get("expected_range")
+    expected_multivalued = config.get("expected_multivalued")
+
+    cls = sv.get_class(class_name)
+    if not cls:
+        return
+
+    # Finn slot med matchande slot_uri (transitivt via import)
+    target_slot = None
+    for slot_name in (cls.slots or []):
+        slot = sv.get_slot(slot_name)
+        if slot and (slot.slot_uri or "") == slot_uri:
+            target_slot = slot
+            break
+
+    if not target_slot:
+        # Sloten finst ikkje — annan sjekk (`merged_class_has_slot_with_uri`)
+        # vil fange dette opp, så me returnerer utan å rapportere her
+        return
+
+    # Sjekk range
+    if expected_range and target_slot.range != expected_range:
+        issues.append(issue(
+            config["severity"],
+            "slot_range_mismatch",
+            f"class:{class_name} → slot:{slot_uri}",
+            f"Slot har range '{target_slot.range}' (forventa: '{expected_range}')",
+        ))
+
+    # Sjekk multivalued
+    if expected_multivalued is not None:
+        actual_multivalued = target_slot.multivalued or False
+        if actual_multivalued != expected_multivalued:
+            issues.append(issue(
+                config["severity"],
+                "slot_multivalued_mismatch",
+                f"class:{class_name} → slot:{slot_uri}",
+                f"Slot har multivalued={actual_multivalued} (forventa: {expected_multivalued})",
+            ))
+
+
 _CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
@@ -506,6 +557,7 @@ _CHECK_HANDLERS = {
     "merged_class_has_any_slot_with_uri": _check_merged_class_has_any_slot_with_uri,
     "class_count":                        _check_class_count,
     "controlled_vocabulary_annotations":  _check_controlled_vocabulary_annotations,
+    "slot_has_range_and_multivalued":     _check_slot_has_range_and_multivalued,
 }
 
 

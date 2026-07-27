@@ -312,7 +312,9 @@
       "Bash(make domain-begrepskatalog *)",
       "Bash(make new-begrepssamling *)",
       "Bash(make gen-readme-tables *)",
-      "Bash(make gen-begrepskatalog-instance *)"
+      "Bash(make gen-begrepskatalog-instance *)",
+      "Bash(make log-mcp-validate *)",
+      "mcp__linkml-validator__validate_linkml_schema"
     ]
   },
   "enableAllProjectMcpServers": true,

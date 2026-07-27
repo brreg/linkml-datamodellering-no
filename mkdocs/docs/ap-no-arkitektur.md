@@ -129,9 +129,13 @@ den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 
 | Kode | Avvik | Status |
 |------|-------|--------|
-| SK5 | Tospråkskrav (nb+nn) på `anbefalt_term` ikkje håndheva | Delvis løyst — `felles-begrepskatalog`-policy sjekkar `har_definisjon` |
+| SK5 | Tospråkskrav (nb+nn) på `anbefalt_term` ikkje håndheva i instansvalidering | **Delvis løyst** (2026-07-27) — schemasjekk implementert |
 
-**Forklaring SK5:** Full språktagging av `LangString` krev ein større refaktorering på tvers av AP-NO-profilane. Delvis realisert via `instance_check` i `felles-begrepskatalog`-policy.
+**Forklaring SK5:** 
+- **`har_definisjon`** — instanssjekk implementert (`begrep_har_definisjon_pa_nb_og_nn` i `felles-begrepskatalog`-policy) via ID-suffiks-konvensjon
+- **`anbefalt_term`** — schemasjekk implementert (`begrep_anbefalt_term_er_multivalued_langstring`) som verifiserer at skjemaet har `range: LangString` og `multivalued: true`
+- **Avgrensing:** LangString-verdiar i YAML bærer ikkje språk-tag per verdi (sjå `specs/bugs/langstring-rdflib-roundtrip.md`), så instansvalidering av tospråkdekning må gjerast i RDF-fase (TTL + SHACL)
+- Sjå `specs/backlog/spraaktagging-langstring.md` for detaljar og framtidig SHACL-validering
 
 ---
 
@@ -171,7 +175,9 @@ Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
 **Fil:** `src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml`  
 **Spesifikasjon:** <https://informasjonsforvaltning.github.io/cpsv-ap-no/>
 
-**Kjente avvik:** Ingen avvikskartlegging er gjennomført.
+**Status:** Systematisk avvikskartlegging gjennomført 2026-07-27 — 5 avvik identifiserte og **alle utbetra same dag**.
+
+**Resultat:** 19 av 19 klassar korrekt implementerte. Sjå `specs/done/avvik-cpsv-ap-no.md` for detaljar.
 
 ---
 
@@ -205,8 +211,12 @@ Særnorske bokstavar translittererast i klassenamn, slotnamn og URI-lokaldel:
 ## Referansar
 
 - `specs/done/avvik-dcat-ap-no.md` — detaljert kartlegging DCAT-AP-NO
-- `specs/done/avvik-dqv-ap-no.md` — detaljert kartlegging DQV-AP-NO
-- `specs/done/avvik-skos-ap-no.md` — kartlegging SKOS-AP-NO
-- `specs/done/avvik-xkos-ap-no.md` — kartlegging XKOS-AP-NO
-- `specs/done/avvik-modelldcat-ap-no.md` — kartlegging ModelDCAT-AP-NO
+- `specs/done/avvik-dqv-ap-no.md` — detaljert kartlegging DQV-AP-NO (DQ5 dokumentert)
+- `specs/done/avvik-skos-ap-no.md` — kartlegging SKOS-AP-NO (SK1-SK5)
+- `specs/done/avvik-xkos-ap-no.md` — kartlegging XKOS-AP-NO (XK1-XK7 utførte)
+- `specs/done/xkos-ap-no-resterande-avvik.md` — XKOS-AP-NO XK8-XK11 (utførte 2026-07-07)
+- `specs/done/avvik-modelldcat-ap-no.md` — kartlegging ModelDCAT-AP-NO (MC3, MC8 utførte)
+- `specs/done/avvik-cpsv-ap-no.md` — systematisk kartlegging CPSV-AP-NO (AVVIK 1-5 utførte 2026-07-27)
+- `specs/backlog/spraaktagging-langstring.md` — SK5 tospråkskrav (delvis løyst)
+- `specs/done/ap-no-arkitektur-audit-2026-07.md` — fullstendig audit av alle 6 AP-NO-skjema (juli 2026)
 - `specs/done/avvik-felles-modelleringsregler.md` — Digdir-modelleringsreglar

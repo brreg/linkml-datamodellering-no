@@ -61,6 +61,7 @@ classes:
       - type_concept
       - status
       - temaomrade
+      - realiserer
       - behandlingstid
       - er_beskrive_av
       - er_del_av
@@ -122,6 +123,9 @@ classes:
         in_subset:
           - Anbefalt
       temaomrade:
+        in_subset:
+          - Anbefalt
+      realiserer:
         in_subset:
           - Anbefalt
       behandlingstid:
@@ -303,6 +307,46 @@ classes:
         in_subset:
           - Valgfri
       sektor:
+        in_subset:
+          - Valgfri
+  # ---- Lovpålagt tjeneste -------------------------------------------------
+  LovpaalagdTjeneste:
+    class_uri: cpsvno:StatutoryService
+    description: >-
+      Ein abstrakt lovpålagt teneste (definert i lov eller forskrift) som kan
+      realiserast av éin eller fleire konkrete offentlege tenester.
+    slots:
+      - id
+      - tittel
+      - beskrivelse
+      - identifikator_literal
+      - har_kontaktpunkt
+      - har_regulativ_ressurs
+      - tema
+      - temaomrade
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      beskrivelse:
+        required: true
+        in_subset:
+          - Obligatorisk
+      identifikator_literal:
+        required: true
+        in_subset:
+          - Obligatorisk
+      har_kontaktpunkt:
+        in_subset:
+          - Anbefalt
+      har_regulativ_ressurs:
+        in_subset:
+          - Anbefalt
+      tema:
+        in_subset:
+          - Valgfri
+      temaomrade:
         in_subset:
           - Valgfri
   # ---- Hendelse -----------------------------------------------------------
@@ -612,17 +656,20 @@ classes:
       - type_concept
     slot_usage:
       tittel:
+        required: true
         in_subset:
-          - Valgfri
+          - Obligatorisk
       beskrivelse:
+        required: true
         in_subset:
-          - Valgfri
+          - Obligatorisk
       identifikator_literal:
+        required: true
         in_subset:
-          - Valgfri
+          - Obligatorisk
       spraak:
         in_subset:
-          - Valgfri
+          - Anbefalt
       type_concept:
         in_subset:
           - Valgfri
@@ -850,6 +897,13 @@ slots:
     range: Konsept
     multivalued: true
     description: Tematisk område for tenesta.
+  realiserer:
+    slot_uri: cpsvno:realizes
+    range: LovpaalagdTjeneste
+    multivalued: true
+    description: >-
+      Abstrakt lovpålagt teneste som denne offentlege tenesta realiserer.
+      Peikar til ein cpsvno:StatutoryService-instans som definierer lovkrava.
   har_dokumentasjonstype:
     slot_uri: cv:hasInputType
     range: Dokumentasjonstype

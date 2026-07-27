@@ -75,6 +75,20 @@ checks:
     class: Begrep
     slot_uri: skos:prefLabel
 
+  begrep_anbefalt_term_er_multivalued_langstring:
+    severity: warning
+    description: >
+      Begrep sin anbefalt_term (skos:prefLabel) bør ha range LangString og
+      multivalued: true for å støtte tospråkskravet (bokmål + nynorsk).
+      Merk: Instansvalidering av tospråkskravet er ikkje mogleg i YAML-format
+      (sjå specs/bugs/langstring-rdflib-roundtrip.md). Bruk RDF-validering
+      (SHACL) for å verifiere faktisk tospråkdekning i TTL-fila.
+    check: slot_has_range_and_multivalued
+    class: Begrep
+    slot_uri: skos:prefLabel
+    expected_range: LangString
+    expected_multivalued: true
+
   begrep_har_definisjon:
     severity: error
     description: >

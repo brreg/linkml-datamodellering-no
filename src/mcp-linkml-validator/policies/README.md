@@ -209,6 +209,18 @@ via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.g
 
 **`Definisjon`-, `AssosiativRelasjon`-, `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav** er dokumenterte i [`policies/felles-begrepskatalog.yaml`](felles-begrepskatalog.yaml).
 
+**Tospråkskrav (SK5, SKOS-AP-NO v.2.0.15):**
+
+| Alvor | Krav | Kode | Merk |
+|---|---|---|---|
+| warning | `anbefalt_term` (skos:prefLabel) har range `LangString` og `multivalued: true` | `begrep_anbefalt_term_er_multivalued_langstring` | Schemasjekk — sikrar at skjemaet **kan** innehalde tospråkverdiar |
+| warning | `har_definisjon` har minst éi Definisjon per språk (nb, nn) | `begrep_har_definisjon_pa_nb_og_nn` | Instanssjekk via ID-suffiks-konvensjon |
+
+**Avgrensing:** Tospråkskravet for `anbefalt_term` kan **ikkje** validerast i YAML-instansar
+pga. LinkML sin avgrensing (LangString bærer ikkje språk-tag per verdi i YAML — sjå
+`specs/bugs/langstring-rdflib-roundtrip.md`). Bruk RDF-validering (SHACL) eller manuell
+gjennomgang av `.ttl`-fila for å verifiere at både `@nb` og `@nn` er til stades.
+
 **Instanssjekk:**
 
 | Alvor | Krav | Kode |
