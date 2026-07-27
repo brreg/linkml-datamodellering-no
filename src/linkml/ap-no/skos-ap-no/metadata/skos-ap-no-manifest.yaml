@@ -10,7 +10,7 @@ beskrivelse:
     lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
   nn: Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med
     lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
-versjonsnummer: 2.12.0
+versjonsnummer: 2.14.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
 endringsdato: '2026-07-27'
