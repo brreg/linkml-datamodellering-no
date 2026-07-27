@@ -21,7 +21,7 @@ generate_quickstart() {
     if [ -n "$schema_file" ]; then
         version=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$schema_file')); print(d.get('version', ''))" 2>/dev/null || echo "")
     fi
-    local version_tag="${version:+v$version}"
+    local version_tag="${version:+${schema}-v$version}"
     local version_path="${version_tag:-main}"
 
     if [ -f "$quickstart_file" ]; then
