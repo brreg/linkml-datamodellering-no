@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.7.0...cpsv-ap-no-v1.8.0) (2026-07-27)
+
+
+### Features
+
+* **docgen:** fullstendig tabellradteljing, versjonerte imports og Subsets-kolonne ([de26c53](https://github.com/brreg/linkml-datamodellering-no/commit/de26c537241776f6ba6de670da52f1c6f6e8f6f8))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.6.0...cpsv-ap-no-v1.7.0) (2026-07-27)
 
 

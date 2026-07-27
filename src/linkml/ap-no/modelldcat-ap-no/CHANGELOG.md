@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.11.0...modelldcat-ap-no-v1.12.0) (2026-07-27)
+
+
+### Features
+
+* **docgen:** fullstendig tabellradteljing, versjonerte imports og Subsets-kolonne ([de26c53](https://github.com/brreg/linkml-datamodellering-no/commit/de26c537241776f6ba6de670da52f1c6f6e8f6f8))
+
 ## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.10.0...modelldcat-ap-no-v1.11.0) (2026-07-27)
 
 
