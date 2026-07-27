@@ -1,9 +1,8 @@
 id: https://data.norge.no/ap-no/dcat-ap-no
 name: dcat-ap-no
 title: DCAT-AP-NO
-description: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
-  inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
-version: 2.11.0
+description: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
+version: 2.11.1
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
@@ -33,874 +32,870 @@ prefixes:
 default_prefix: https://data.norge.no/ap-no/dcat-ap-no/
 default_range: string
 imports:
-- linkml:types
-- ../common-ap-no/common-ap-no-schema
-- ../dqv-ap-no/dqv-core-schema
+  - linkml:types
+  - ../common-ap-no/common-ap-no-schema
+  - ../dqv-ap-no/dqv-core-schema
 classes:
   KatalogisertRessurs:
     in_subset:
-    - Metadata
+      - Metadata
     abstract: true
     class_uri: dcat:Resource
     description: Basisklasse for ressursar som kan katalogiserast.
     slots:
-    - id
+      - id
   Aktoer:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: foaf:Agent
-    description: Ein aktør (person, organisasjon eller system) med ansvar for ein
-      ressurs.
+    description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
     slots:
-    - id
-    - navn_aktoer
-    - identifikator_literal
-    - type_concept
+      - id
+      - navn_aktoer
+      - identifikator_literal
+      - type_concept
     slot_usage:
       navn_aktoer:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       identifikator_literal:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       type_concept:
-        description: Type aktør frå ADMS publisher type-vokabularet. Verdien BØR veljast
-          frå http://purl.org/adms/publishertype/ (t.d. NationalAuthority, LocalAuthority,
-          Company). Sjå enumerasjonen ADMSPublisherType i common-ap-no.
+        description: Type aktør frå ADMS publisher type-vokabularet. Verdien BØR veljast frå http://purl.org/adms/publishertype/ (t.d. NationalAuthority, LocalAuthority, Company). Sjå enumerasjonen ADMSPublisherType i common-ap-no.
         annotations:
           gyldige_verdier: http://purl.org/adms/publishertype/
           vokabular_krav: bør
           enum_referanse: ADMSPublisherType
           enum_dekning: full
         in_subset:
-        - Anbefalt
+          - Anbefalt
     see_also:
-    - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
+      - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
   Kontaktopplysning:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: vcard:Kind
     description: Kontaktinformasjon for ein aktør.
     slots:
-    - id
-    - navn_vcard
-    - har_epost
-    - har_kontaktside
+      - id
+      - navn_vcard
+      - har_epost
+      - har_kontaktside
     slot_usage:
       navn_vcard:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       har_epost:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       har_kontaktside:
         in_subset:
-        - Anbefalt
+          - Anbefalt
     see_also:
-    - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
+      - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
   Tidsrom:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dct:PeriodOfTime
     description: Eit tidsintervall med start- og sluttdato.
     slots:
-    - id
-    - startdato
-    - sluttdato
-    - begynnelse
-    - slutt
+      - id
+      - startdato
+      - sluttdato
+      - begynnelse
+      - slutt
     see_also:
-    - https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f
+      - https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f
     slot_usage:
       startdato:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       sluttdato:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       begynnelse:
         in_subset:
-        - Valgfri
+          - Valgfri
       slutt:
         in_subset:
-        - Valgfri
+          - Valgfri
   Standard:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dct:Standard
     description: Ein standard eller spesifikasjon ein ressurs er i samsvar med.
     slots:
-    - id
-    - tittel
-    - har_referanse
-    - har_merknad
-    - versjon
+      - id
+      - tittel
+      - har_referanse
+      - har_merknad
+      - versjon
     slot_usage:
       tittel:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       har_referanse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       har_merknad:
         in_subset:
-        - Valgfri
+          - Valgfri
       versjon:
         in_subset:
-        - Valgfri
+          - Valgfri
   RegulativRessurs:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: eli:LegalResource
     description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
     slots:
-    - id
-    - beskrivelse
-    - identifikator_literal
-    - har_referanse
-    - spraak
-    - tittel
-    - type_concept
-    - relatert_regulativ_ressurs
+      - id
+      - beskrivelse
+      - identifikator_literal
+      - har_referanse
+      - spraak
+      - tittel
+      - type_concept
+      - relatert_regulativ_ressurs
     slot_usage:
       beskrivelse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       identifikator_literal:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       har_referanse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       spraak:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tittel:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       type_concept:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       relatert_regulativ_ressurs:
         in_subset:
-        - Valgfri
+          - Valgfri
   Identifikator:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: adms:Identifier
     description: Ein alternativ identifikator for ein ressurs.
     slots:
-    - id
-    - notasjon
+      - id
+      - notasjon
     slot_usage:
       notasjon:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
     see_also:
-    - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
+      - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
   Rettighetserklaring:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dct:RightsStatement
     description: Ei erklæring om rettar til ein ressurs (ODRS).
     slots:
-    - id
-    - anvendelsesretningslinjer
-    - jurisdiksjon
-    - krediteringstekst
-    - krediteringsurl
-    - opphavsrettserklaring
-    - opphavsrettsinnehaver
-    - opphavsrettsnotis
-    - opphavsrettsaar
+      - id
+      - anvendelsesretningslinjer
+      - jurisdiksjon
+      - krediteringstekst
+      - krediteringsurl
+      - opphavsrettserklaring
+      - opphavsrettsinnehaver
+      - opphavsrettsnotis
+      - opphavsrettsaar
     slot_usage:
       anvendelsesretningslinjer:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       jurisdiksjon:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       krediteringstekst:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       krediteringsurl:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       opphavsrettserklaring:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       opphavsrettsinnehaver:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       opphavsrettsnotis:
         in_subset:
-        - Valgfri
+          - Valgfri
       opphavsrettsaar:
         in_subset:
-        - Valgfri
+          - Valgfri
   Sjekksum:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: spdx:Checksum
     description: Ein sjekksum for ein distribusjon.
     slots:
-    - id
-    - algoritme
-    - sjekksumverdi
+      - id
+      - algoritme
+      - sjekksumverdi
     slot_usage:
       algoritme:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       sjekksumverdi:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
   Gebyr:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: cv:Cost
     description: Eit gebyr knytt til bruk av ein datatjeneste.
     slots:
-    - id
-    - belop
-    - beskrivelse
-    - dokumentasjon
-    - valuta
+      - id
+      - belop
+      - beskrivelse
+      - dokumentasjon
+      - valuta
     slot_usage:
       belop:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       beskrivelse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       dokumentasjon:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       valuta:
         in_subset:
-        - Anbefalt
+          - Anbefalt
   Relasjon:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dcat:Relationship
     description: Ein kvalifisert relasjon mellom to ressursar.
     slots:
-    - id
-    - har_rolle
-    - relasjon_til
+      - id
+      - har_rolle
+      - relasjon_til
     slot_usage:
       har_rolle:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       relasjon_til:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
   Distribusjon:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dcat:Distribution
     description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
     slots:
-    - id
-    - tilgangs_url
-    - beskrivelse
-    - format
-    - lisens
-    - status
-    - tilgjengelighet
-    - dokumentasjon
-    - endringsdato
-    - filstorrelse
-    - gjeldende_lovgivning
-    - i_samsvar_med
-    - komprimeringsformat
-    - medietype
-    - nedlastningslenke
-    - pakkeformat
-    - policy
-    - rettigheter
-    - sjekksum
-    - spraak
-    - tidsopplosning
-    - tilgangstjeneste
-    - tittel
-    - utgivelsesdato
-    - romlig_opplosning
+      - id
+      - tilgangs_url
+      - beskrivelse
+      - format
+      - lisens
+      - status
+      - tilgjengelighet
+      - dokumentasjon
+      - endringsdato
+      - filstorrelse
+      - gjeldende_lovgivning
+      - i_samsvar_med
+      - komprimeringsformat
+      - medietype
+      - nedlastningslenke
+      - pakkeformat
+      - policy
+      - rettigheter
+      - sjekksum
+      - spraak
+      - tidsopplosning
+      - tilgangstjeneste
+      - tittel
+      - utgivelsesdato
+      - romlig_opplosning
     slot_usage:
       tilgangs_url:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       beskrivelse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       format:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       lisens:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       status:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tilgjengelighet:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       nedlastningslenke:
         in_subset:
-        - Valgfri
+          - Valgfri
       dokumentasjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       endringsdato:
         in_subset:
-        - Valgfri
+          - Valgfri
       filstorrelse:
         in_subset:
-        - Valgfri
+          - Valgfri
       gjeldende_lovgivning:
         in_subset:
-        - Valgfri
+          - Valgfri
       i_samsvar_med:
         in_subset:
-        - Valgfri
+          - Valgfri
       komprimeringsformat:
         in_subset:
-        - Valgfri
+          - Valgfri
       medietype:
         in_subset:
-        - Valgfri
+          - Valgfri
       pakkeformat:
         in_subset:
-        - Valgfri
+          - Valgfri
       policy:
         in_subset:
-        - Valgfri
+          - Valgfri
       rettigheter:
         in_subset:
-        - Valgfri
+          - Valgfri
       romlig_opplosning:
         in_subset:
-        - Valgfri
+          - Valgfri
       sjekksum:
         in_subset:
-        - Valgfri
+          - Valgfri
       spraak:
         in_subset:
-        - Valgfri
+          - Valgfri
       tidsopplosning:
         in_subset:
-        - Valgfri
+          - Valgfri
       tilgangstjeneste:
         in_subset:
-        - Valgfri
+          - Valgfri
       tittel:
         in_subset:
-        - Valgfri
+          - Valgfri
       utgivelsesdato:
         in_subset:
-        - Valgfri
+          - Valgfri
   Datasett:
     in_subset:
-    - Metadata
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:Dataset
     description: Ei samling av data utgjeven eller kuratert av éin aktør.
     slots:
-    - id
-    - beskrivelse
-    - kontaktpunkt
-    - tema
-    - tittel
-    - utgiver
-    - begrep
-    - ble_generert_ved
-    - datasettdistribusjon
-    - dekningsomraade
-    - gjeldende_lovgivning
-    - nokkelord
-    - tidsrom
-    - tilgangsrettigheter
-    - annen_ansvarlig_aktor
-    - annen_identifikator
-    - annen_spesifikk_relasjon
-    - dokumentasjon
-    - eierskapshistorikk
-    - eksempeldata
-    - endringsdato
-    - identifikator_literal
-    - i_samsvar_med
-    - i_serie
-    - kilde_datasett
-    - landingsside
-    - produsent
-    - relatert_ressurs
-    - spraak
-    - type_concept
-    - utgivelsesdato
-    - versjon
-    - versjonsmerknad
-    - frekvens
-    - romlig_opplosning
-    - tidsopplosning
-    - har_gebyr
-    - erstatter
-    - forrige_versjon
-    - har_versjon
-    - er_referert_av
-    - har_kvalitetsmerknad
-    - har_kvalitetsmaaling
+      - id
+      - beskrivelse
+      - kontaktpunkt
+      - tema
+      - tittel
+      - utgiver
+      - begrep
+      - ble_generert_ved
+      - datasettdistribusjon
+      - dekningsomraade
+      - gjeldende_lovgivning
+      - nokkelord
+      - tidsrom
+      - tilgangsrettigheter
+      - annen_ansvarlig_aktor
+      - annen_identifikator
+      - annen_spesifikk_relasjon
+      - dokumentasjon
+      - eierskapshistorikk
+      - eksempeldata
+      - endringsdato
+      - identifikator_literal
+      - i_samsvar_med
+      - i_serie
+      - kilde_datasett
+      - landingsside
+      - produsent
+      - relatert_ressurs
+      - spraak
+      - type_concept
+      - utgivelsesdato
+      - versjon
+      - versjonsmerknad
+      - frekvens
+      - romlig_opplosning
+      - tidsopplosning
+      - har_gebyr
+      - erstatter
+      - forrige_versjon
+      - har_versjon
+      - er_referert_av
+      - har_kvalitetsmerknad
+      - har_kvalitetsmaaling
     slot_usage:
       har_kvalitetsmerknad:
         in_subset:
-        - Valgfri
+          - Valgfri
       har_kvalitetsmaaling:
         in_subset:
-        - Valgfri
+          - Valgfri
       beskrivelse:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       kontaktpunkt:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tema:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tittel:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       utgiver:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       begrep:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       ble_generert_ved:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       datasettdistribusjon:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       dekningsomraade:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       gjeldende_lovgivning:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       nokkelord:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tidsrom:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tilgangsrettigheter:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       frekvens:
         in_subset:
-        - Valgfri
+          - Valgfri
       dokumentasjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       landingsside:
         in_subset:
-        - Valgfri
+          - Valgfri
       identifikator_literal:
         in_subset:
-        - Valgfri
+          - Valgfri
       annen_ansvarlig_aktor:
         in_subset:
-        - Valgfri
+          - Valgfri
       annen_identifikator:
         in_subset:
-        - Valgfri
+          - Valgfri
       annen_spesifikk_relasjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       eierskapshistorikk:
         in_subset:
-        - Valgfri
+          - Valgfri
       eksempeldata:
         in_subset:
-        - Valgfri
+          - Valgfri
       endringsdato:
         in_subset:
-        - Valgfri
+          - Valgfri
       er_referert_av:
         in_subset:
-        - Valgfri
+          - Valgfri
       erstatter:
         in_subset:
-        - Valgfri
+          - Valgfri
       forrige_versjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       har_gebyr:
         in_subset:
-        - Valgfri
+          - Valgfri
       har_versjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       i_samsvar_med:
         in_subset:
-        - Valgfri
+          - Valgfri
       i_serie:
         in_subset:
-        - Valgfri
+          - Valgfri
       kilde_datasett:
         in_subset:
-        - Valgfri
+          - Valgfri
       produsent:
         in_subset:
-        - Valgfri
+          - Valgfri
       relatert_ressurs:
         in_subset:
-        - Valgfri
+          - Valgfri
       romlig_opplosning:
         in_subset:
-        - Valgfri
+          - Valgfri
       spraak:
         in_subset:
-        - Valgfri
+          - Valgfri
       tidsopplosning:
         in_subset:
-        - Valgfri
+          - Valgfri
       type_concept:
         in_subset:
-        - Valgfri
+          - Valgfri
       utgivelsesdato:
         in_subset:
-        - Valgfri
+          - Valgfri
       versjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       versjonsmerknad:
         in_subset:
-        - Valgfri
+          - Valgfri
   Datasettserie:
     in_subset:
-    - Metadata
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:DatasetSeries
     description: Ei serie av relaterte datasett publisert separat men med felles metadata.
     slots:
-    - beskrivelse
-    - kontaktpunkt
-    - tema
-    - tittel
-    - utgiver
-    - dekningsomraade
-    - gjeldende_lovgivning
-    - siste
-    - tidsrom
-    - endringsdato
-    - frekvens
-    - forste
-    - utgivelsesdato
+      - beskrivelse
+      - kontaktpunkt
+      - tema
+      - tittel
+      - utgiver
+      - dekningsomraade
+      - gjeldende_lovgivning
+      - siste
+      - tidsrom
+      - endringsdato
+      - frekvens
+      - forste
+      - utgivelsesdato
     slot_usage:
       beskrivelse:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       kontaktpunkt:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tema:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tittel:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       utgiver:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       dekningsomraade:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       gjeldende_lovgivning:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       siste:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tidsrom:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       endringsdato:
         in_subset:
-        - Valgfri
+          - Valgfri
       frekvens:
         in_subset:
-        - Valgfri
+          - Valgfri
       forste:
         in_subset:
-        - Valgfri
+          - Valgfri
       utgivelsesdato:
         in_subset:
-        - Valgfri
+          - Valgfri
   Datatjeneste:
     in_subset:
-    - Metadata
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:DataService
     description: Ei samling operasjonar tilgjengeleg via eit API-grensesnitt.
     slots:
-    - endepunkts_url
-    - kontaktpunkt
-    - tittel
-    - utgiver
-    - endepunktsbeskrivelse
-    - format
-    - gjeldende_lovgivning
-    - i_samsvar_med
-    - nokkelord
-    - tema
-    - tilgjengeliggjor_datasett
-    - tilgjengelighet
-    - beskrivelse
-    - dokumentasjon
-    - har_gebyr
-    - identifikator_literal
-    - landingsside
-    - lisens
-    - rettigheter
-    - status
-    - tilgangsrettigheter
-    - versjon
-    - versjonsmerknad
+      - endepunkts_url
+      - kontaktpunkt
+      - tittel
+      - utgiver
+      - endepunktsbeskrivelse
+      - format
+      - gjeldende_lovgivning
+      - i_samsvar_med
+      - nokkelord
+      - tema
+      - tilgjengeliggjor_datasett
+      - tilgjengelighet
+      - beskrivelse
+      - dokumentasjon
+      - har_gebyr
+      - identifikator_literal
+      - landingsside
+      - lisens
+      - rettigheter
+      - status
+      - tilgangsrettigheter
+      - versjon
+      - versjonsmerknad
     slot_usage:
       endepunkts_url:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       kontaktpunkt:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tittel:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       utgiver:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       endepunktsbeskrivelse:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       format:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       gjeldende_lovgivning:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       i_samsvar_med:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       nokkelord:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tema:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tilgjengeliggjor_datasett:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       tilgjengelighet:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       beskrivelse:
         in_subset:
-        - Valgfri
+          - Valgfri
       dokumentasjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       har_gebyr:
         in_subset:
-        - Valgfri
+          - Valgfri
       identifikator_literal:
         in_subset:
-        - Valgfri
+          - Valgfri
       landingsside:
         in_subset:
-        - Valgfri
+          - Valgfri
       lisens:
         in_subset:
-        - Valgfri
+          - Valgfri
       rettigheter:
         in_subset:
-        - Valgfri
+          - Valgfri
       status:
         in_subset:
-        - Valgfri
+          - Valgfri
       tilgangsrettigheter:
         in_subset:
-        - Valgfri
+          - Valgfri
       versjon:
         in_subset:
-        - Valgfri
+          - Valgfri
       versjonsmerknad:
         in_subset:
-        - Valgfri
+          - Valgfri
   Katalogpost:
     in_subset:
-    - Metadata
+      - Metadata
     class_uri: dcat:CatalogRecord
     description: Ein katalogpost som beskriv ein ressurs i katalogen.
     slots:
-    - id
-    - endringsdato
-    - primaertema
-    - i_samsvar_med
-    - status
-    - utgivelsesdato
-    - beskrivelse
-    - kilde_post
-    - spraak
-    - tittel
+      - id
+      - endringsdato
+      - primaertema
+      - i_samsvar_med
+      - status
+      - utgivelsesdato
+      - beskrivelse
+      - kilde_post
+      - spraak
+      - tittel
     slot_usage:
       endringsdato:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       primaertema:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       i_samsvar_med:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       status:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       utgivelsesdato:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       beskrivelse:
         in_subset:
-        - Valgfri
+          - Valgfri
       kilde_post:
         in_subset:
-        - Valgfri
+          - Valgfri
       spraak:
         in_subset:
-        - Valgfri
+          - Valgfri
       tittel:
         in_subset:
-        - Valgfri
+          - Valgfri
   Katalog:
     in_subset:
-    - Metadata
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:Catalog
-    description: Ei kuratert samling av metadata om datasett, datatenestar og/eller
-      andre katalogar.
+    description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar.
     slots:
-    - beskrivelse
-    - kontaktpunkt
-    - tittel
-    - utgiver
-    - datasett
-    - datatjeneste
-    - dekningsomraade
-    - endringsdato
-    - heimeside
-    - lisens
-    - spraak
-    - temaer
-    - utgivelsesdato
-    - gjeldende_lovgivning
-    - har_del
-    - identifikator_literal
-    - underkatalog
-    - katalogpost
-    - produsent
-    - rettigheter
-    - tidsrom
+      - beskrivelse
+      - kontaktpunkt
+      - tittel
+      - utgiver
+      - datasett
+      - datatjeneste
+      - dekningsomraade
+      - endringsdato
+      - heimeside
+      - lisens
+      - spraak
+      - temaer
+      - utgivelsesdato
+      - gjeldende_lovgivning
+      - har_del
+      - identifikator_literal
+      - underkatalog
+      - katalogpost
+      - produsent
+      - rettigheter
+      - tidsrom
     slot_usage:
       beskrivelse:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       kontaktpunkt:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       tittel:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       utgiver:
         required: true
         in_subset:
-        - Obligatorisk
+          - Obligatorisk
       datasett:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       datatjeneste:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       dekningsomraade:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       endringsdato:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       heimeside:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       lisens:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       spraak:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       temaer:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       utgivelsesdato:
         in_subset:
-        - Anbefalt
+          - Anbefalt
       gjeldende_lovgivning:
         in_subset:
-        - Valgfri
+          - Valgfri
       har_del:
         in_subset:
-        - Valgfri
+          - Valgfri
       identifikator_literal:
         in_subset:
-        - Valgfri
+          - Valgfri
       underkatalog:
         in_subset:
-        - Valgfri
+          - Valgfri
       katalogpost:
         in_subset:
-        - Valgfri
+          - Valgfri
       produsent:
         in_subset:
-        - Valgfri
+          - Valgfri
       rettigheter:
         in_subset:
-        - Valgfri
+          - Valgfri
       tidsrom:
         in_subset:
-        - Valgfri
+          - Valgfri
 slots:
   tittel_literal:
     slot_uri: dct:title
@@ -1063,12 +1058,7 @@ slots:
     slot_uri: dcat:theme
     range: Konsept
     multivalued: true
-    description: Tema frå eit kontrollert vokabular. For norske offentlege datasett
-      skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
-      (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc
-      kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande
-      til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema
-      for å søkje i Los-hierarkiet.
+    description: Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
       vokabular_krav: skal
@@ -1079,9 +1069,7 @@ slots:
     slot_uri: dcat:themeTaxonomy
     range: Begrepssamling
     multivalued: true
-    description: Temavokabular som vert brukt i katalogen. Verdien SKAL inkludere
-      Los-referansen (https://psi.norge.no/los/) for å signalisere til Felles datakatalog
-      at Los vert brukt. Andre temavokabular (t.d. EuroVoc) kan òg inkluderast.
+    description: Temavokabular som vert brukt i katalogen. Verdien SKAL inkludere Los-referansen (https://psi.norge.no/los/) for å signalisere til Felles datakatalog at Los vert brukt. Andre temavokabular (t.d. EuroVoc) kan òg inkluderast.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
       vokabular_krav: skal
@@ -1091,9 +1079,7 @@ slots:
     slot_uri: dct:subject
     range: Konsept
     multivalued: true
-    description: Fagomgrep som datasettet handlar om. Verdien BØR peike til omgrep
-      i ein begrepskatalog, t.d. Felles begrepskatalog (https://concept-catalog.fellesdatakatalog.digdir.no/)
-      eller organisasjonens eigen begrepskatalog.
+    description: Fagomgrep som datasettet handlar om. Verdien BØR peike til omgrep i ein begrepskatalog, t.d. Felles begrepskatalog (https://concept-catalog.fellesdatakatalog.digdir.no/) eller organisasjonens eigen begrepskatalog.
     annotations:
       gyldige_verdier: https://concept-catalog.fellesdatakatalog.digdir.no/
       vokabular_krav: bør
@@ -1112,10 +1098,7 @@ slots:
   frekvens:
     slot_uri: dct:accrualPeriodicity
     range: Konsept
-    description: Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs
-      kontrollerte vokabular Frequency (http://publications.europa.eu/resource/authority/frequency/).
-      Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar
-      (DAILY, WEEKLY, MONTHLY, ANNUAL, CONTINUOUS, osv.).
+    description: Oppdateringsfrekvens for datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Frequency (http://publications.europa.eu/resource/authority/frequency/). Sjå enumerasjonen DCTFrequency i common-ap-no for alle tilgjengelege verdiar (DAILY, WEEKLY, MONTHLY, ANNUAL, CONTINUOUS, osv.).
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/frequency/
       vokabular_krav: skal
@@ -1125,10 +1108,7 @@ slots:
   tilgjengelighet:
     slot_uri: dcatap:availability
     range: Konsept
-    description: 'Planlagt tilgjengelegheit for ressursen. Verdien BØR veljast frå
-      EUs kontrollerte vokabular Planned availability (http://publications.europa.eu/resource/authority/planned-availability/).
-      Gyldige verdiar: AVAILABLE (tilgjengeleg), EXPERIMENTAL (eksperimentell), STABLE
-      (stabil), TEMPORARY (mellombels).'
+    description: 'Planlagt tilgjengelegheit for ressursen. Verdien BØR veljast frå EUs kontrollerte vokabular Planned availability (http://publications.europa.eu/resource/authority/planned-availability/). Gyldige verdiar: AVAILABLE (tilgjengeleg), EXPERIMENTAL (eksperimentell), STABLE (stabil), TEMPORARY (mellombels).'
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/planned-availability/
       vokabular_krav: bør
@@ -1150,10 +1130,7 @@ slots:
   tilgangsrettigheter:
     slot_uri: dct:accessRights
     range: Konsept
-    description: 'Tilgangsrettar til datasettet. Verdien SKAL veljast frå EUs kontrollerte
-      vokabular Access Right (http://publications.europa.eu/resource/authority/access-right/).
-      Gyldige verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa tilgang),
-      NON_PUBLIC (ikkje offentleg). Sjå enumerasjonen EUAccessRight i common-ap-no.'
+    description: 'Tilgangsrettar til datasettet. Verdien SKAL veljast frå EUs kontrollerte vokabular Access Right (http://publications.europa.eu/resource/authority/access-right/). Gyldige verdiar: PUBLIC (ope, ingen registrering), RESTRICTED (avgrensa tilgang), NON_PUBLIC (ikkje offentleg). Sjå enumerasjonen EUAccessRight i common-ap-no.'
     multivalued: true
     annotations:
       gyldige_verdier: http://publications.europa.eu/resource/authority/access-right/
@@ -1190,8 +1167,7 @@ slots:
   ble_generert_ved:
     slot_uri: prov:wasGeneratedBy
     range: uri
-    description: Brukes til å referere til en aktivitet som genererte datasettet,
-      eller som gir forretningskontekst for oppretting av det.
+    description: Brukes til å referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det.
     annotations:
       gyldige_verdier: URI til prov:Activity
     multivalued: true
