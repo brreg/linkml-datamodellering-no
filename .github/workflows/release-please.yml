@@ -184,3 +184,46 @@ jobs:
               "$pkg_path/$model-schema.yaml" \
               --clobber || echo "::warning::Nokre artefaktar vart ikkje lasta opp for $model"
           done
+
+      - name: Opprett per-schema git-tags
+        if: ${{ steps.release-please.outputs.releases_created == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          echo "Opprettar per-schema tags for release..."
+
+          # Iterer berre over schema i paths_released (ikkje alle schema)
+          echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r '.paths_released[]' | while read pkg_path; do
+            schema_file=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" -type f | head -1)
+
+            if [ -z "$schema_file" ] || [ ! -f "$schema_file" ]; then
+              echo "⚠️  Ingen schema-fil funne i $pkg_path"
+              continue
+            fi
+
+            # Les versjon frå schema-fil (yq er allereie installert i steg "Oppdater schema-versjonar")
+            version=$(yq eval '.version' "$schema_file" 2>/dev/null | tr -d '"' | tr -d ' ')
+
+            if [ -z "$version" ] || [ "$version" = "null" ]; then
+              echo "⚠️  $schema_file: mangler version-felt"
+              continue
+            fi
+
+            schema=$(basename "$schema_file" .yaml | sed 's/-schema$//')
+            domain=$(basename "$(dirname "$(dirname "$schema_file")")")
+            tag_name="${schema}-v${version}"
+
+            # Sjekk om tag allereie finst
+            if git tag -l | grep -q "^${tag_name}$"; then
+              echo "✅ Tag $tag_name finst allereie"
+              continue
+            fi
+
+            echo "🏷️  Opprettar tag $tag_name for $domain/$schema"
+            git tag -a "$tag_name" -m "Release $schema version $version"
+            git push origin "$tag_name"
+            echo "::notice::Oppretta git-tag: $tag_name"
+          done

@@ -40,6 +40,44 @@ title:
 
 ---
 
+## Git-tagging for schema-versjonar
+
+Kvart schema skal ha ein git-tag for kvar publisert versjon.
+
+**Tag-format:** `<schema>-v<versjon>`
+
+Døme:
+- `common-ap-no-v1.0.0`
+- `dcat-ap-no-v2.10.0`
+- `samt-bu-v1.4.0`
+
+**Automatisk tagging:**
+
+`release-please` opprettar automatisk git-tags når ein release-PR vert merga. 
+Workflowen `.github/workflows/release-please.yml` opprettar både hovud-release-taggen 
+og per-schema-taggar for alle skjema som vart releaset.
+
+**Bruksområde:**
+
+Versjonerte GitHub raw-URL-ar (brukt i quickstart-eksempel i dokumentasjonsportalen) 
+peikar til desse taggane, t.d.:
+```
+https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml
+```
+
+**Manuell tagging (dersom nødvendig):**
+
+Dersom ein tag manglar (t.d. for eldre versjonar eller ved feil i CI):
+```bash
+# Opprett tag
+git tag <schema>-v<versjon>
+
+# Push tag til origin
+git push origin <schema>-v<versjon>
+```
+
+---
+
 ## URI-segment-konvensjon
 
 | Segment | Tydning | Døme |

@@ -516,4 +516,47 @@ Legg til steget **etter linje 186** (etter `Last opp artefaktar til GitHub Relea
 
 ## Utfall
 
-(Vert fylt ut etter implementasjon)
+**Implementert:** Alternativ B.2 (automatisk tagging ved release)
+
+**Endringar:**
+
+1. ✅ Lagt til ny step `Opprett per-schema git-tags` i `.github/workflows/release-please.yml` (etter linje 186)
+   - Køyrer berre når `releases_created == 'true'`
+   - Itererer over `paths_released[]` for effektivitet
+   - Brukar `yq` til å lese versjon (same som steg "Oppdater schema-versjonar")
+   - Brukar `RELEASE_PLEASE_TOKEN` (same som resten av workflowen)
+   - Sjekkar om tag allereie finst før oppretting
+   - Loggar `::notice::` for synlegheit i GitHub Actions
+
+2. ✅ Dokumentert git-tagging-konvensjon i `CONVENTIONS.md` (ny seksjon mellom schema-metadata og URI-segment)
+   - Tag-format: `<schema>-v<versjon>`
+   - Forklaring om automatisk tagging via `release-please`
+   - Bruksområde (quickstart-URL-ar)
+   - Instruksjonar for manuell tagging ved behov
+
+3. ✅ Oppretta 13 manglande tags for eksisterande skjema:
+   - `enhetsregisteret-bvrinn-v1.0.0`
+   - `common-ap-no-v1.0.0`
+   - `dqv-ap-no-v1.12.0`
+   - `dqv-core-v1.0.0`
+   - `modelldcat-katalog-v1.0.0`
+   - `modelldcat-modell-v1.11.0`
+   - `skos-ap-no-v2.12.0`
+   - `xkos-ap-no-v1.0.0`
+   - `digdir-modellkatalog-v1.0.0`
+   - `kartverket-modellkatalog-v1.0.0`
+   - `ksdigital-modellkatalog-v1.0.0`
+   - `novari-modellkatalog-v1.0.0`
+   - `skatteetaten-modellkatalog-v1.0.0`
+
+**Verifisering:**
+
+Køyrde verifiseringsscript som bekrefta at alle 33 schema no har korresponderande git-tags for sin noverande versjon.
+
+**Testing:**
+
+Automatisk tagging vil bli testa ved neste release-PR merge. Manuelt oppretta tags er klare til å brukast av quickstart.sh umiddelbart.
+
+**Avvik frå opphavleg plan:**
+
+Ingen. Implementerte B.2 som planlagt i specen.
