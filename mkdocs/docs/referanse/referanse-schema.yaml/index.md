@@ -101,7 +101,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 |----------|-----|
 | ER-diagram (Mermaid) | [`referanse-schema.yaml-erdiagram.md`](referanse-schema.yaml-erdiagram.md) |
 
-*Full byggekonfigurasjon:* [build.yaml](../../src/linkml/referanse/referanse-schema.yaml/build.yaml)
+*Full byggekonfigurasjon:* [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml/build.yaml)
 
 ---
 

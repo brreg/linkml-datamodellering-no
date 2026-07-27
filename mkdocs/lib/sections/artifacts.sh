@@ -74,7 +74,7 @@ generate_artifacts_table() {
         printf '%s' "$artifact_rows"
         if [ -n "$domain" ]; then
             echo ""
-            echo "*Full byggekonfigurasjon:* [build.yaml](../../src/linkml/$domain/$schema/build.yaml)"
+            echo "*Full byggekonfigurasjon:* [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/$domain/$schema/build.yaml)"
         fi
     fi
 }

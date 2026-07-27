@@ -178,7 +178,7 @@ Tabellradteljinga skal aggregerast per overskriftsnivå — kvar overskrift tel 
 - Oppdatert `mkdocs/lib/sections/artifacts.sh`:
   - Lagt til `domain`-parameter (fallback til `$CURRENT_DOMAIN`)
   - Lagt til lenke til `build.yaml` under artefakt-tabellen
-  - Relativ sti: `../../src/linkml/<domain>/<schema>/build.yaml`
+  - Absolutt GitHub-lenke: `https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/<domain>/<schema>/build.yaml`
 
 ### Validering fullført
 
@@ -194,7 +194,7 @@ Tabellradteljinga skal aggregerast per overskriftsnivå — kvar overskrift tel 
 - ✅ `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.10.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml` (dcat-ap-no v2.10.0)
 
 **Build.yaml-lenke:**
-- ✅ `**Full byggekonfigurasjon:** [build.yaml](../../src/linkml/samt/samt-bu/build.yaml)`
+- ✅ `*Full byggekonfigurasjon:* [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/samt/samt-bu/build.yaml)`
 
 Alle tre endringar verkar som forventa.
 
@@ -230,10 +230,119 @@ Fase 2 fullført:
 - ✅ `*Full byggekonfigurasjon:* [build.yaml](...)` — kursiv i staden for feit
 
 **Subsets "Defined in":**
-- ✅ Ny kolonne viser `Local` eller schema-URI (t.d. `https://data.norge.no/ap-no/common-ap-no`)
+- ✅ Ny kolonne viser schema-URI (t.d. `https://data.norge.no/ap-no/common-ap-no`)
+- ⚠️ Feil implementasjon: viste "Local" i staden for schema.id
+- ✅ Retta: brukar `origin` direkte (same mønster som Types/Enumerations)
 
-Alle nye krav er implementerte og validerte.
+Alle nye krav er implementerte.
+
+**Fase 3: Rett "Defined in"-mønster**
+- ✅ Fjerna "Local"-kondisjon i Subsets-tabell
+- ✅ Brukar `origin` (schema.id) direkte, same mønster som andre tabellar
+- ✅ Validert: både lokale og importerte subsets viser schema-URI (t.d. `https://data.norge.no/ap-no/common-ap-no`)
 
 ## Utført
 
-Spesifikasjonen er fullført 2026-07-27. Alle åtte endringar (3 frå fase 1 + 5 frå fase 2) er implementerte, validerte og fungerer som forventa i den genererte dokumentasjonsportalen.
+Spesifikasjonen er fullført 2026-07-27. Alle ni endringar (3 frå fase 1 + 5 frå fase 2 + 1 frå fase 3) er implementerte, validerte og fungerer som forventa i den genererte dokumentasjonsportalen.
+
+## Kjent problem: Manglande git-taggar
+
+**Problem:**
+Quickstart.sh genererer versjonerte GitHub raw-URL-ar basert på `schema.version` (t.d. `v1.0.0`), men det er inga garanti for at git-taggen faktisk eksisterer i GitHub. Eksempel:
+
+- common-ap-no har `version: "1.0.0"` i schema.yaml
+- Quickstart genererer: `https://raw.githubusercontent.com/.../v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml`
+- Men taggen `common-ap-no-v1.0.0` eller `v1.0.0` finst ikkje i GitHub → 404
+
+**Forslag til løysing:**
+
+### Alternativ A: CI-validering (anbefalt)
+Legg til ein GitHub Actions-sjekk som validerer at alle skjema sin `version`-verdi har ein korresponderande git-tag:
+
+```yaml
+# .github/workflows/validate-versions.yml
+name: Validate schema versions
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Treng full git-historikk for tags
+      
+      - name: Validate schema versions har git-tags
+        run: |
+          ./scripts/validate-schema-tags.sh
+```
+
+**Script: `scripts/validate-schema-tags.sh`**
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+EXIT_CODE=0
+
+for schema_file in $(find src/linkml -name "*-schema.yaml" -type f); do
+    version=$(grep "^version:" "$schema_file" | sed 's/version: *"\?\([^"]*\)"\?/\1/')
+    
+    if [ -z "$version" ]; then
+        echo "⚠️  $schema_file: mangler version-felt"
+        continue
+    fi
+    
+    # Ekstraher schema-namn
+    schema=$(basename "$schema_file" .yaml | sed 's/-schema$//')
+    domain=$(basename "$(dirname "$(dirname "$schema_file")")")
+    
+    # Sjekk om tag finst (format: <schema>-v<version> eller v<version>)
+    if ! git tag -l | grep -q "^${schema}-v${version}$\|^v${version}$"; then
+        echo "❌ $schema_file: versjon $version har ikkje git-tag"
+        echo "   Forventa tag: ${schema}-v${version} eller v${version}"
+        EXIT_CODE=1
+    else
+        echo "✅ $schema: versjon $version har git-tag"
+    fi
+done
+
+exit $EXIT_CODE
+```
+
+### Alternativ B: Automatisk tagging ved versjonsbump
+Utvid `release-please` eller CI-pipelinen til å automatisk opprette git-tags når `version`-feltet i eit schema endrar seg.
+
+### Alternativ C: Fallback til `main` ved manglande tag
+Endre `quickstart.sh` til å verifisere at taggen finst (via GitHub API eller lokal git), og falle tilbake til `main` dersom taggen manglar:
+
+```bash
+# I quickstart.sh
+if [ -n "$version_tag" ]; then
+    # Sjekk om tag finst (via git ls-remote)
+    if git ls-remote --tags origin | grep -q "refs/tags/$version_tag$"; then
+        version_path="$version_tag"
+    else
+        echo "⚠️  Tag $version_tag finst ikkje, brukar main" >&2
+        version_path="main"
+    fi
+else
+    version_path="main"
+fi
+```
+
+**Cons:** Krev nettverkstilgang under bygging, tregare, kan gi inkonsistente resultat.
+
+### Anbefaling
+
+**Alternativ A (CI-validering)** er anbefalt fordi:
+- Feil oppdagast tidleg (i PR-stage)
+- Ingen runtime-overhead i `quickstart.sh`
+- Tvingar korrekt versjonering-praksis
+- Enkel å implementere
+
+**Handlingsplan:**
+1. Lag `scripts/validate-schema-tags.sh` som beskrive ovanfor
+2. Legg til GitHub Actions workflow som køyrer scriptet
+3. Dokumenter tagging-konvensjonen i `CONVENTIONS.md`
+4. Opprett manglande tags for eksisterande skjema (eingangs-jobb)

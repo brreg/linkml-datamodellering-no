@@ -159,7 +159,9 @@
   {%- else -%}
     {%- set usage_badge = "⚠️ Defined" -%}
   {%- endif %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
+  {%- set defined_in_text = origin -%}
+  {%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
 {% endif -%}
 
@@ -183,7 +185,9 @@
   {%- else -%}
     {%- set usage_badge = "⚠️ Defined" -%}
   {%- endif %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
+  {%- set defined_in_text = origin -%}
+  {%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
 {% endif -%}
 
@@ -207,7 +211,9 @@
   {%- else -%}
     {%- set usage_badge = "⚠️ Defined" -%}
   {%- endif %}
-| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
+  {%- set defined_in_text = origin -%}
+  {%- set defined_in_link = origin -%}
+| {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {%- endfor %}
 {% endif %}
 
@@ -280,7 +286,9 @@
 {%- else -%}
 {%- set usage_badge = "⚠️ Defined" -%}
 {%- endif -%}
-| {{ gen.link(e, True) }} | {{ e.description|enshorten }} | {{ origin }} | {{ usage_badge }} |
+{%- set defined_in_text = origin -%}
+{%- set defined_in_link = origin -%}
+| {{ gen.link(e, True) }} | {{ e.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {% endif -%}
 {%- endfor -%}
 {% else %}
@@ -382,10 +390,7 @@
 | --- | --- | --- |
 {% for ss in schemaview.all_subsets().values()|sort(attribute='name') -%}
 {%- set origin = ss.from_schema if ss.from_schema else schema.id -%}
-{%- if origin == schema.id -%}
-{%- set defined_in = "Local" -%}
-{%- else -%}
-{%- set defined_in = origin -%}
-{%- endif -%}
-| {{ gen.link(ss, True) }} | {{ ss.description|enshorten }} | {{ defined_in }} |
+{%- set defined_in_text = origin -%}
+{%- set defined_in_link = origin -%}
+| {{ gen.link(ss, True) }} | {{ ss.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) |
 {% endfor %}
