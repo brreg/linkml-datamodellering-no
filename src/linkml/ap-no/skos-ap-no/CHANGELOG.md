@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.1](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.14.0...skos-ap-no-v2.14.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* **dcat-ap-no:** komplett subset-verifisering mot DCAT-AP-NO-spesifikasjonen ([6d3b357](https://github.com/brreg/linkml-datamodellering-no/commit/6d3b3578f801fd7e122cf7177ab31700ed2040fc))
+
 ## [2.14.0](https://github.com/brreg/linkml-datamodellering-no/compare/skos-ap-no-v2.13.0...skos-ap-no-v2.14.0) (2026-07-27)
 
 

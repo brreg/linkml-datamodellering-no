@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.11.0...dcat-ap-no-v2.11.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* **dcat-ap-no:** komplett subset-verifisering mot DCAT-AP-NO-spesifikasjonen ([6d3b357](https://github.com/brreg/linkml-datamodellering-no/commit/6d3b3578f801fd7e122cf7177ab31700ed2040fc))
+
 ## [2.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.10.0...dcat-ap-no-v2.11.0) (2026-07-27)
 
 
