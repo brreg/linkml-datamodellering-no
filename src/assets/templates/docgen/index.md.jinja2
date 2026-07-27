@@ -34,7 +34,7 @@
 {% endif -%}
 {% if schema.imports -%}
 | Imports | {% for imp in schema.imports %}{{ imp }}{% if not loop.last %}<br>{% endif %}{% endfor %} |
-{% endif -%}
+{% endif %}
 
 {% if include_top_level_diagram %}
 
