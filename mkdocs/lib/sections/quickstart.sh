@@ -16,9 +16,17 @@ generate_quickstart() {
     local example_file=""
     [ -n "$src_dir" ] && example_file="$src_dir/examples/${schema}-eksempel.yaml"
 
+    # Les versjon frå skjemaet
+    local version=""
+    if [ -n "$schema_file" ]; then
+        version=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$schema_file')); print(d.get('version', ''))" 2>/dev/null || echo "")
+    fi
+    local version_tag="${version:+v$version}"
+    local version_path="${version_tag:-main}"
+
     if [ -f "$quickstart_file" ]; then
         # Les og inject quickstart.md med variabel-substitusjon
-        sed "s/{{SCHEMA}}/$schema/g; s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g" "$quickstart_file"
+        sed "s/{{SCHEMA}}/$schema/g; s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g; s|{{VERSION_PATH}}|$version_path|g" "$quickstart_file"
         echo ""
         echo ""
     elif [ "$domain" = "ap-no" ]; then
@@ -29,7 +37,7 @@ generate_quickstart() {
         echo ""
         echo "\`\`\`yaml"
         echo "imports:"
-        echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/$schema/$schema-schema"
+        echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/$version_path/src/linkml/ap-no/$schema/$schema-schema.yaml"
         echo "\`\`\`"
         echo ""
         echo "### Python-bruk"

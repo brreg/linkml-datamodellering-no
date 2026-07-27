@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: Ontodia-vennlig LinkML-modell for skoler
   nn: Ontodia-vennlig LinkML-modell for skoler
-versjonsnummer: 1.4.0
+versjonsnummer: 1.6.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/971032146
-endringsdato: '2026-07-09'
+endringsdato: '2026-07-10'
 utgivelsesdato: '2026-06-10'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/

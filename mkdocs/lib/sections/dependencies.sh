@@ -24,18 +24,22 @@ generate_dependencies() {
 
     # Output (hierarkisk tre med transitive avhengigheiter)
     if [ -n "$imports" ]; then
+        # Bygg dependency tree og tel antal imports
+        local dep_tree
+        dep_tree=$(python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports" "$direct_imports_normalized")
+        local import_count
+        import_count=$(echo "$dep_tree" | grep -c '^' || echo 0)
+
         echo "---"
         echo ""
-        echo "## Avhengigheiter"
+        echo "## Avhengigheiter ($import_count)"
         echo ""
         echo "### Imports"
         echo ""
         echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
         echo ""
         echo "\`\`\`"
-        # Kall Python-script for å bygge hierarkisk tre
-        # Send normaliserte direkte importar som tredje argument
-        python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" "$schema" "$imports" "$direct_imports_normalized"
+        echo "$dep_tree"
         echo "\`\`\`"
         echo ""
         echo "!!! note \"Leseretning\""

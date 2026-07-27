@@ -37,7 +37,6 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 
-
 ### Obligatorisk
 
 | Class | Description |
@@ -58,7 +57,6 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ## Slots
 
-
 | Slot | Description |
 | --- | --- |
 | [beskrivelse](klasser/beskrivelse.md) | Kortfatta skildring av ressursen |
@@ -71,7 +69,6 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ## Enumerations
 
-
 | Enumeration | Description |
 | --- | --- |
 
@@ -79,7 +76,6 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 ## Types
-
 
 | Type | Description |
 | --- | --- |
@@ -99,11 +95,13 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ---
 
-## Generated artifacts
+## Generated artifacts (1)
 
 | Artefakt | Fil |
 |----------|-----|
 | ER-diagram (Mermaid) | [`referanse-schema.yaml-erdiagram.md`](referanse-schema.yaml-erdiagram.md) |
+
+*Full byggekonfigurasjon:* [build.yaml](../../src/linkml/referanse/referanse-schema.yaml/build.yaml)
 
 ---
 

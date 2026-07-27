@@ -99,38 +99,31 @@ generate_classes_section() {
     echo ""
 
     # Ekstraher Classes-seksjonen (frå "## Classes" til neste "##")
-    echo "## Classes"
-    echo ""
-    awk '/^## Classes$/,/^## [^C]/' "$klasse_src" | sed '1d;$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+    # Beheld overskrifta med teljing frå gendoc
+    awk '/^## Classes/,/^## [^C]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
     build_import_links "$domain" "$schema" "classes" "klasser"
     echo ""
     echo ""
 
     # Ekstraher Slots-seksjonen
-    if grep -q "^## Slots$" "$klasse_src"; then
-        echo "## Slots"
-        echo ""
-        awk '/^## Slots$/,/^## [^S]/' "$klasse_src" | sed '1d;$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+    if grep -q "^## Slots" "$klasse_src"; then
+        awk '/^## Slots/,/^## [^S]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
         build_import_links "$domain" "$schema" "slots" "slots"
         echo ""
         echo ""
     fi
 
     # Ekstraher Enumerations-seksjonen
-    if grep -q "^## Enumerations$" "$klasse_src"; then
-        echo "## Enumerations"
-        echo ""
-        awk '/^## Enumerations$/,/^## [^E]/' "$klasse_src" | sed '1d;$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+    if grep -q "^## Enumerations" "$klasse_src"; then
+        awk '/^## Enumerations/,/^## [^E]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
         build_import_links "$domain" "$schema" "enumerations" "enums"
         echo ""
         echo ""
     fi
 
     # Ekstraher Types-seksjonen
-    if grep -q "^## Types$" "$klasse_src"; then
-        echo "## Types"
-        echo ""
-        awk '/^## Types$/,/^## [^T]/' "$klasse_src" | sed '1d;$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+    if grep -q "^## Types" "$klasse_src"; then
+        awk '/^## Types/,/^## [^T]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
         build_import_links "$domain" "$schema" "types" "typer"
         echo ""
         echo ""

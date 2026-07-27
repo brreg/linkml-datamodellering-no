@@ -10,6 +10,7 @@ source "$SCRIPT_DIR/../utils/formatters.sh"
 generate_artifacts_table() {
     local out="$1"
     local schema="$2"
+    local domain="${3:-${CURRENT_DOMAIN:-}}"
 
     local has_artifact=false
     local artifact_rows=""
@@ -59,13 +60,21 @@ generate_artifacts_table() {
 
 
     if $has_artifact; then
+        # Tel antal rader (antal linjeskift i artifact_rows)
+        local artifact_count
+        artifact_count=$(echo -n "$artifact_rows" | grep -c '^' || echo 0)
+
         echo ""
         echo "---"
         echo ""
-        echo "## Generated artifacts"
+        echo "## Generated artifacts ($artifact_count)"
         echo ""
         echo "| Artefakt | Fil |"
         echo "|----------|-----|"
         printf '%s' "$artifact_rows"
+        if [ -n "$domain" ]; then
+            echo ""
+            echo "*Full byggekonfigurasjon:* [build.yaml](../../src/linkml/$domain/$schema/build.yaml)"
+        fi
     fi
 }

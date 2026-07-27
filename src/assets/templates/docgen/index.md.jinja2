@@ -45,16 +45,19 @@
 ```
 {% endif %}
 
-## Classes
 {%- set subsets_ordered = ['Obligatorisk', 'Anbefalt', 'Valgfri'] -%}
 {%- set ns_root = namespace(attr_names=[]) -%}
+{%- set ns_total_classes = namespace(count=0) -%}
 {%- for c in gen.all_class_objects() -%}
 {%- if c.tree_root -%}
 {%- for attr_name in c.attributes -%}
 {%- set ns_root.attr_names = ns_root.attr_names + [attr_name] -%}
 {%- endfor -%}
+{%- else -%}
+{%- set ns_total_classes.count = ns_total_classes.count + 1 -%}
 {%- endif -%}
 {%- endfor -%}
+## Classes ({{ ns_total_classes.count }})
 {%- if gen.hierarchical_class_view -%}
 
 | Class | Description |
@@ -89,7 +92,7 @@
 {%- endfor -%}
 {%- if ns.classes %}
 
-### {{ subset_name }}
+### {{ subset_name }} ({{ ns.classes|length }})
 
 | Class | Description |
 | --- | --- |
@@ -100,7 +103,6 @@
 {%- endfor %}
 {% endif %}
 
-## Slots
 {%- set ns_used_slots = namespace(names=[]) -%}
 {# Samle alle slots brukt i klasser #}
 {%- for class_name in schemaview.all_classes() %}
@@ -135,9 +137,10 @@
     {%- endif %}
   {%- endif %}
 {%- endfor -%}
+## Slots ({{ ns_used_slots.names|length }})
 
 {%- if ns_slots_verdiar.items %}
-### Verdiar
+### Verdiar ({{ ns_slots_verdiar.items|length }})
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
@@ -161,7 +164,7 @@
 {% endif -%}
 
 {%- if ns_slots_referansar.items %}
-### Referansar
+### Referansar ({{ ns_slots_referansar.items|length }})
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
@@ -185,7 +188,7 @@
 {% endif -%}
 
 {%- if ns_slots_kodar.items %}
-### Kodar
+### Kodar ({{ ns_slots_kodar.items|length }})
 
 | Slot | Description | Defined in | Usage |
 | --- | --- | --- | --- |
@@ -208,7 +211,6 @@
 {%- endfor %}
 {% endif %}
 
-## Enumerations
 {%- set ns_used_enums = namespace(names=[]) -%}
 {# Samle alle enums brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
@@ -239,6 +241,7 @@
     {%- set ns_used_enums.names = ns_used_enums.names + [enum_name] %}
   {%- endif %}
 {%- endfor -%}
+## Enumerations ({{ ns_used_enums.names|length }})
 {%- if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
 | --- | --- | --- | --- |
@@ -284,7 +287,6 @@
 *Ingen enumerations brukt i denne modellen.*
 {% endif %}
 
-## Types
 {%- set ns_used_types = namespace(names=[]) -%}
 {# Samle alle typar brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
@@ -315,6 +317,7 @@
     {%- set ns_used_types.names = ns_used_types.names + [type_name] %}
   {%- endif %}
 {%- endfor -%}
+## Types ({{ ns_used_types.names|length }})
 {%- if ns_used_types.names %}
 
 | Type | URI | Description | Defined in | Usage |
@@ -375,8 +378,14 @@
 
 ## Subsets
 
-| Subset | Description |
-| --- | --- |
+| Subset | Description | Defined in |
+| --- | --- | --- |
 {% for ss in schemaview.all_subsets().values()|sort(attribute='name') -%}
-| {{ gen.link(ss, True) }} | {{ ss.description|enshorten }} |
+{%- set origin = ss.from_schema if ss.from_schema else schema.id -%}
+{%- if origin == schema.id -%}
+{%- set defined_in = "Local" -%}
+{%- else -%}
+{%- set defined_in = origin -%}
+{%- endif -%}
+| {{ gen.link(ss, True) }} | {{ ss.description|enshorten }} | {{ defined_in }} |
 {% endfor %}

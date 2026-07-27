@@ -4,7 +4,7 @@
 
 ```yaml
 imports:
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/{{SCHEMA}}/{{SCHEMA}}-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/{{VERSION_PATH}}/src/linkml/ap-no/{{SCHEMA}}/{{SCHEMA}}-schema.yaml
 ```
 
 ### Python-bruk
