@@ -19,8 +19,8 @@ curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main
 For å feste til ein konkret versjon:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/bootstrap.sh \
-  | AP_NO_VERSION=v1.0.0 bash
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh \
+  | AP_NO_VERSION=dcat-ap-no-v2.8.0 bash
 ```
 
 Scriptet opprettar:
@@ -58,7 +58,7 @@ Døme på importdel i eit eksternt skjema:
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.8.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
 
 ---
@@ -75,11 +75,14 @@ Døme på import med versjonert URL:
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.8.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
 
 !!! tip "Anbefaling"
-    Bruk alltid ein **konkret versjon-tag** (`v1.0.0`, `v2.0.0`) i imports — aldri `main` eller `latest` — for å unngå overraskande endringer når dette repoet vert oppdatert.
+    Bruk alltid ein **skjema-spesifikk versjon-tag** (t.d. `dcat-ap-no-v2.8.0`, `common-ap-no-v1.0.0`) i imports — aldri `main` eller `latest` — for å unngå overraskande endringer når dette repoet vert oppdatert.
+
+!!! warning "Skjema-spesifikke taggar"
+    Generelle release-taggar (`v1.0.0`, `v1.1.0`) peikar til ein spesifikk commit, men garanterer **ikkje** at alle skjemafiler finst i den commiten. Bruk **skjema-spesifikke taggar** (t.d. `dcat-ap-no-v2.8.0`, `common-ap-no-v1.0.0`) for stabile import-URL-ar.
 
 ---
 
@@ -138,7 +141,7 @@ Sjå [Generatorkonfigurasjon](build-config.md) for detaljar.
 
 ```yaml
 # linkml-datamodellering.yaml
-ap-no-version: v1.0.0
+ap-no-version: latest
 ```
 
 Dei reusable workflowene les denne fila automatisk og nyttar rett versjon av
@@ -146,8 +149,8 @@ container-imagene og AP-NO-skjema. Du treng ikkje sende inn `version`-inputen ek
 
 | `ap-no-version` | Åtferd |
 |---|---|
-| `v1.0.0` | Brukar nøyaktig denne releasen |
-| `latest` | Brukar siste release-tag (flytande) |
+| `latest` | Brukar siste release-tag (flytande) — anbefalt |
+| `dcat-ap-no-v2.8.0` | Brukar nøyaktig denne skjema-versjonen |
 | (fila manglar) | Brukar `latest` |
 
 ---
@@ -210,4 +213,4 @@ podman run --rm \
   gen-json-schema src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
 ```
 
-Tilgjengelege image-taggar: `latest`, `v1.0.0`, `v1.1.0`, …
+Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap-no-v2.8.0`, …)

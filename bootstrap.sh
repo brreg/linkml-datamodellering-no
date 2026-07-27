@@ -2,9 +2,8 @@
 # Bootstrap: Legg til LinkML-støtte i eit eksisterande repo.
 #
 # Bruk:
-#   bash bootstrap.sh [ap-no-version]
-#   AP_NO_VERSION=v1.0.0 bash bootstrap.sh
-#   curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/bootstrap.sh | bash
+#   bash bootstrap.sh
+#   curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh | bash
 #
 # Standardversjon er "latest" (alltid siste release).
 # For å feste til ein konkret release, send versjonen som argument eller set AP_NO_VERSION.

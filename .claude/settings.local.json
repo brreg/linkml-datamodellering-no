@@ -318,7 +318,8 @@
       "Bash(make build-domain *)",
       "Bash(make)",
       "Bash(make gendoc *)",
-      "Bash(./publish.sh)"
+      "Bash(./publish.sh)",
+      "Bash(git ls-remote *)"
     ]
   },
   "enableAllProjectMcpServers": true,
