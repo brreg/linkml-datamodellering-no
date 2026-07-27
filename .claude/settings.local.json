@@ -314,7 +314,9 @@
       "Bash(make gen-readme-tables *)",
       "Bash(make gen-begrepskatalog-instance *)",
       "Bash(make log-mcp-validate *)",
-      "mcp__linkml-validator__validate_linkml_schema"
+      "mcp__linkml-validator__validate_linkml_schema",
+      "Bash(make build-domain *)",
+      "Bash(make)"
     ]
   },
   "enableAllProjectMcpServers": true,
