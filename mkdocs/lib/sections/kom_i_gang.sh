@@ -29,15 +29,15 @@ generate_quickstart() {
         sed "s/{{SCHEMA}}/$schema/g; s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g; s|{{VERSION_PATH}}|$version_path|g" "$quickstart_file"
         echo ""
         echo ""
-    elif [ "$domain" = "ap-no" ]; then
-        # Fallback: AP-NO Quickstart (hardkoda)
+    elif [ "$domain" = "ap-no" ] || [ "$domain" = "fair" ]; then
+        # Fallback: Metadatamodell Quickstart (AP-NO og FAIR)
         echo "## Kom i gang"
         echo ""
         echo "### Importer i LinkML-skjema"
         echo ""
         echo "\`\`\`yaml"
         echo "imports:"
-        echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/$version_path/src/linkml/ap-no/$schema/$schema-schema.yaml"
+        echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/$version_path/src/linkml/$domain/$schema/$schema-schema.yaml"
         echo "\`\`\`"
         echo ""
         echo "### Python-bruk"
