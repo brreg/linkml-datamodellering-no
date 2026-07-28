@@ -68,190 +68,104 @@ define run_gen
 @$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
-# Parallell versjon av run_gen med timer
-# $1=schemas  $2=generator  $3=output-file suffix
-define run_gen_parallel
+# ---------------------------------------------------------------------------
+# Steg 1: Generisk parallell generator-makro med timer
+# Tek kommando-snippet som argument og køyrer det parallelt med timing.
+# ---------------------------------------------------------------------------
+# $1=schemas  $2=generator-namn (for logging)  $3=serial-fallback-makro  $4=parallel-kommando
+define run_parallel_with_timer
 @if [ "$(PARALLEL)" = "1" ]; then \
-	$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);) \
+	$(call $(3),$(1)) \
 else \
 	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir" && \
-		$(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)"; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		name=$$$$(basename "$$$$s" -schema.yaml | sed "s/-schema$$$$//"); \
+		domain=$$$$(echo "$$$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$$$domain/$$$$name; \
+		t0=$$$$(date +%s%3N); \
+		$(4); \
+		rc=$$$$?; \
+		elapsed_ms=$$$$(($$$$( date +%s%3N) - t0)); \
 		printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
+			"$$$$domain" "$$$$name" \
+			$$$$((elapsed_ms / 1000)) \
+			$$$$((elapsed_ms % 1000 / 100)); \
+		exit $$$$rc'; \
 fi
+endef
+
+# Parallell versjon av run_gen med timer
+# $1=schemas  $2=generator  $3=output-file suffix
+define run_gen_parallel
+$(call run_parallel_with_timer,$(1),$(2),run_gen,mkdir -p "$$$$outdir" && $(LINKML_RUN) $(2) "$$$$s" > "$$$$outdir/$$$$name-$(3)")
+endef
+
+# Serial fallback for merge-imports
+define run_gen_linkml_serial
+@$(foreach s,$(1),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 endef
 
 # Parallell versjon av merge-imports (gen-linkml)
 define run_gen_linkml_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(foreach s,$(1),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		t0=$$(date +%s%3N); \
-		$(LINKML_RUN) gen-linkml "$$s" > /dev/null; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ merge-imports  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),merge-imports,run_gen_linkml_serial,$(LINKML_RUN) gen-linkml "$$$$s" > /dev/null)
 endef
 
 # Parallell versjon av gen-owl
+# Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl"; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ gen-owl  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),gen-owl,run_gen_owl,mkdir -p "$$$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$$$s" > "$$$$outdir/$$$$name-ontology.ttl")
 endef
 
 # Parallell versjon av gen-rdf
 define run_gen_rdf_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(call run_gen_rdf,$(1)) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl"; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ gen-rdf  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),gen-rdf,run_gen_rdf,mkdir -p "$$$$outdir" && $(LINKML_RUN) gen-rdf "$$$$s" > "$$$$outdir/$$$$name-schema.ttl")
 endef
 
 # Parallell versjon av gen-doc
 define run_gen_doc_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(call run_gen_doc,$(1)) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir/docgen-examples" "$$outdir/docs"; \
-		$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
-			"$$s" \
-			"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
-			"$$outdir/docgen-examples" > /dev/null 2>&1; \
-		$(LINKML_RUN) gen-doc \
-			--template-directory src/assets/templates/docgen \
-			--no-mergeimports \
-			--no-render-imports \
-			--no-hierarchical-class-view \
-			--diagram-type mermaid_class_diagram \
-			--example-directory "$$outdir/docgen-examples" \
-			-d "$$outdir/docs" "$$s" > /dev/null 2>&1; \
-		sed -i "/Container/d" "$$outdir/docs/index.md"; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ gen-docgen-examples + gen-doc  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,run_gen_doc,\
+mkdir -p "$$$$outdir/docgen-examples" "$$$$outdir/docs" && \
+$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
+	"$$$$s" \
+	"src/linkml/$$$$domain/$$$$name/examples/$$$$name-eksempel.yaml" \
+	"$$$$outdir/docgen-examples" > /dev/null 2>&1 && \
+$(LINKML_RUN) gen-doc \
+	--template-directory src/assets/templates/docgen \
+	--no-mergeimports \
+	--no-render-imports \
+	--no-hierarchical-class-view \
+	--diagram-type mermaid_class_diagram \
+	--example-directory "$$$$outdir/docgen-examples" \
+	-d "$$$$outdir/docs" "$$$$s" > /dev/null 2>&1 && \
+sed -i "/Container/d" "$$$$outdir/docs/index.md")
 endef
 
 # Parallell versjon av gen-erdiagram
 define run_gen_erdiagram_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(call run_gen_erdiagram,$(1)) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir"; \
-		$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
-			| awk -f src/assets/scripts/makefile/filter_container.awk \
-			> "$$outdir/$$name-erdiagram-unfiltered.md"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
-			"$$s" \
-			"$$outdir/$$name-erdiagram-unfiltered.md" \
-			> "$$outdir/$$name-erdiagram.md"; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ gen-erdiagram  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),gen-erdiagram,run_gen_erdiagram,\
+mkdir -p "$$$$outdir" && \
+$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$$$s" \
+	| awk -f src/assets/scripts/makefile/filter_container.awk \
+	> "$$$$outdir/$$$$name-erdiagram-unfiltered.md" && \
+$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
+	"$$$$s" \
+	"$$$$outdir/$$$$name-erdiagram-unfiltered.md" \
+	> "$$$$outdir/$$$$name-erdiagram.md")
 endef
 
 # Parallell versjon av gen-plantuml
 define run_gen_plantuml_parallel
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(call run_gen_plantuml,$(1)) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir/diagrams"; \
-		$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-			"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
-			> "$$outdir/diagrams/$$name-filtered.puml"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-			"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
-			> "$$outdir/diagrams/$$name.puml"; \
-		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null; \
-		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null; \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		printf "$(CLR_STEP)→ gen-plantuml  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
-		exit $$rc'; \
-fi
+$(call run_parallel_with_timer,$(1),gen-plantuml,run_gen_plantuml,\
+mkdir -p "$$$$outdir/diagrams" && \
+$(LINKML_RUN) gen-plantuml "$$$$s" > "$$$$outdir/diagrams/$$$$name-raw.puml" && \
+$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
+	"$$$$s" "$$$$outdir/diagrams/$$$$name-raw.puml" filtered \
+	> "$$$$outdir/diagrams/$$$$name-filtered.puml" && \
+$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
+	"$$$$s" "$$$$outdir/diagrams/$$$$name-raw.puml" full \
+	> "$$$$outdir/diagrams/$$$$name.puml" && \
+podman run --rm -v "$(CURDIR)/$$$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$$$name.puml > /dev/null && \
+podman run --rm -v "$(CURDIR)/$$$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$$$name-filtered.puml > /dev/null)
 endef
 
 # Parallell versjon av gen-openapi
@@ -559,113 +473,60 @@ validate-instance:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_RUN) linkml validate --schema "$(SCHEMA)" "$(INSTANCE)"
 
-gen-jsonld-context:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+# ---------------------------------------------------------------------------
+# Steg 2: Generisk target-generator for gen-* targets
+# Genererer ein target med standard header-logikk og makro-kall.
+# ---------------------------------------------------------------------------
+# $1=target-namn (t.d. gen-jsonschema)  $2=makro-namn (t.d. run_gen_parallel)  $3=ekstra argument til makroen
+define make_gen_target
+.PHONY: $(1)
+$(1):
+	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-jsonld-context SCHEMA=$(SCHEMA)$(CLR_RST)"
+	@echo "$$(CLR_HDR)*** make $(1) SCHEMA=$$(SCHEMA)$$(CLR_RST)"
 else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-jsonld-context DOMAIN=$(DOMAIN)$(CLR_RST)"
+	@echo "$$(CLR_HDR)*** make $(1) DOMAIN=$$(DOMAIN)$$(CLR_RST)"
 else
-	@echo "$(CLR_HDR)*** make gen-jsonld-context$(CLR_RST)"
+	@echo "$$(CLR_HDR)*** make $(1)$$(CLR_RST)"
 endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(call get_target_schemas),gen-jsonld-context,context.jsonld)
+	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
+	$$(call $(2),$$(call get_target_schemas)$(if $(3),$(COMMA)$(3)))
+endef
 
-gen-shacl:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-shacl SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-shacl DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-shacl$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_shacl,$(call get_target_schemas))
+COMMA := ,
 
-gen-python:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-python SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-python DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-python$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(call get_target_schemas),gen-python,model.py)
+# Generer alle standard gen-* targets
+$(eval $(call make_gen_target,gen-jsonld-context,run_gen,gen-jsonld-context$(COMMA)context.jsonld))
+$(eval $(call make_gen_target,gen-shacl,run_gen_shacl))
+$(eval $(call make_gen_target,gen-python,run_gen,gen-python$(COMMA)model.py))
+$(eval $(call make_gen_target,gen-jsonschema,run_gen,gen-json-schema$(COMMA)schema.json))
+$(eval $(call make_gen_target,gen-owl,run_gen_owl))
+$(eval $(call make_gen_target,gen-rdf,run_gen_rdf))
+$(eval $(call make_gen_target,gen-xsd,run_gen_xsd))
+$(eval $(call make_gen_target,gen-asyncapi,run_gen_asyncapi))
+$(eval $(call make_gen_target,gen-openapi,run_gen_openapi))
+$(eval $(call make_gen_target,gen-erdiagram,run_gen_erdiagram))
+$(eval $(call make_gen_target,gen-proto,run_gen,gen-proto$(COMMA)schema.proto))
+$(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml))
 
-gen-jsonschema:
+# gen-docs er spesiell (kallar to makroar)
+.PHONY: gen-docs
+gen-docs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-jsonschema SCHEMA=$(SCHEMA)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-docs SCHEMA=$(SCHEMA)$(CLR_RST)"
 else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-jsonschema DOMAIN=$(DOMAIN)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-docs DOMAIN=$(DOMAIN)$(CLR_RST)"
 else
-	@echo "$(CLR_HDR)*** make gen-jsonschema$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-docs$(CLR_RST)"
 endif
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(call get_target_schemas),gen-json-schema,schema.json)
+	$(call run_gen_doc,$(call get_target_schemas))
+	$(call run_gen_erdiagram,$(call get_target_schemas))
 
-gen-owl:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-owl SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-owl DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-owl$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_owl,$(call get_target_schemas))
-
-gen-rdf:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-rdf SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-rdf DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-rdf$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_rdf,$(call get_target_schemas))
-
-gen-xsd:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-xsd SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-xsd DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-xsd$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_xsd,$(call get_target_schemas))
-
-gen-asyncapi:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-asyncapi SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-asyncapi DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-asyncapi$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_asyncapi,$(call get_target_schemas))
-
-gen-openapi:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-openapi SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-openapi DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-openapi$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_openapi,$(call get_target_schemas))
+# ---------------------------------------------------------------------------
+# Generator targets (genererte av make_gen_target) — gamle definisjonar fjerna
+# ---------------------------------------------------------------------------
 
 build-docker-linkml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -696,57 +557,6 @@ build-docker-plantuml:
 	@echo "$(CLR_HDR)*** make build-docker-plantuml$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -f src/assets/containers/Dockerfile.plantuml -t localhost/plantuml:latest .
-
-
-
-gen-erdiagram:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-erdiagram SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-erdiagram DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-erdiagram$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_erdiagram,$(call get_target_schemas))
-
-gen-docs:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-docs SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-docs DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-docs$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_doc,$(call get_target_schemas))
-	$(call run_gen_erdiagram,$(call get_target_schemas))
-
-gen-proto:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-proto SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-proto DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-proto$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(call get_target_schemas),gen-proto,schema.proto)
-
-gen-plantuml:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-plantuml SCHEMA=$(SCHEMA)$(CLR_RST)"
-else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-plantuml DOMAIN=$(DOMAIN)$(CLR_RST)"
-else
-	@echo "$(CLR_HDR)*** make gen-plantuml$(CLR_RST)"
-endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen_plantuml,$(call get_target_schemas))
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
@@ -962,7 +772,8 @@ domain-$(1):
 	$$(call run_gen_informasjonsmodell_instance,$$(_schemas_$(1)))
 endef
 
-$(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
+# Generer domain-targets for alle domene unntatt begrepskatalog (har eksplisitt override nedanfor)
+$(foreach d,$(filter-out begrepskatalog,$(DOMAINS)),$(eval $(call domain_target,$(d))))
 
 # Override domain-begrepskatalog to run gen-begrepskatalog-instance first
 .PHONY: domain-begrepskatalog

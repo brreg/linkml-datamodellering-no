@@ -325,7 +325,9 @@
       "Bash(make config *)",
       "Bash(make check-prereqs *)",
       "Bash(SCHEMA=src/linkml/referanse/referanse-schema.yaml make gen-doc)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(make -n gen-jsonschema)",
+      "Bash(make -n domain-begrepskatalog)"
     ]
   },
   "enableAllProjectMcpServers": true,
