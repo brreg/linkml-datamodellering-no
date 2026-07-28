@@ -166,7 +166,7 @@ Alle skjema-jobbar køyrer parallelt for å redusere byggtid.
 - **ER-diagram** brukar PlantUML SVG (ikkje Mermaid) — zoombart i nettleser, med lenke til full versjon som viser importerte klasser
 - **Types-lista** viser alle typar som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte typar frå `linkml:types` m.fl., med "Defined in"-kolonne som viser "Local" eller "Imported"
 - **Enumerations-lista** viser alle enums som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte enums, med "Defined in"-kolonne
-- **Valideringsresultat** vert generert av `src/assets/scripts/generate-validation-md.py` frå `validation/<versjon>/<policy>.json` med rein Markdown (nummererte lister, ikkje `<details>`-blokkar)
+- **Valideringsresultat** vert generert av `mkdocs/lib/scripts/generate-validation-md.py` frå `validation/<versjon>/<policy>.json` med rein Markdown (nummererte lister, ikkje `<details>`-blokkar)
 - **Versjonslog** vert kopiert direkte frå `CHANGELOG.md` som rein Markdown (ikkje kollapsa)
 - **Lowercase-transformasjon** av klassefiler skjer for å unngå konflikt på case-insensitive filsystem (Windows/macOS)
 - **Filtrert PlantUML-diagram** vert prioritert over full versjon i ER-diagram-seksjonen

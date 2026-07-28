@@ -17,5 +17,5 @@ get_imported_schemas() {
     [ -z "$imports" ] && return 0
 
     # Kall parse-dependency-tree.py med --format flat
-    python3 "$REPO_ROOT/src/assets/scripts/parse-dependency-tree.py" --format flat "$schema" "$imports"
+    python3 "$REPO_ROOT/mkdocs/lib/scripts/parse-dependency-tree.py" --format flat "$schema" "$imports"
 }
