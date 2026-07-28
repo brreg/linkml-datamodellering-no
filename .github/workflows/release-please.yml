@@ -83,8 +83,8 @@ jobs:
         id: release-please
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          config-file: release-please-config.json
-          manifest-file: .release-please-manifest.json
+          config-file: .github/release-please-config.json
+          manifest-file: .github/release-please-manifest.json
 
       - name: Oppdater schema-versjonar i release-PR
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
@@ -105,10 +105,10 @@ jobs:
           # Hent dagens dato i ISO 8601-format
           TODAY=$(date -u +%Y-%m-%d)
 
-          # Les alle pakke-paths frå .release-please-manifest.json
-          jq -r 'keys[]' .release-please-manifest.json | while read pkg_path; do
+          # Les alle pakke-paths frå .github/release-please-manifest.json
+          jq -r 'keys[]' .github/release-please-manifest.json | while read pkg_path; do
             # Hent versjon frå manifest
-            version=$(jq -r --arg path "$pkg_path" '.[$path]' .release-please-manifest.json)
+            version=$(jq -r --arg path "$pkg_path" '.[$path]' .github/release-please-manifest.json)
 
             # Finn schema-fila i pakken
             schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" 2>/dev/null | head -1)
