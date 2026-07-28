@@ -327,7 +327,13 @@
       "Bash(SCHEMA=src/linkml/referanse/referanse-schema.yaml make gen-doc)",
       "Bash(git *)",
       "Bash(make -n gen-jsonschema)",
-      "Bash(make -n domain-begrepskatalog)"
+      "Bash(make -n domain-begrepskatalog)",
+      "Bash(mv artifacts.sh generated_artifacts.sh)",
+      "Bash(mv changelog.sh versjonslog.sh)",
+      "Bash(mv contact.sh kontakt.sh)",
+      "Bash(mv dependencies.sh avhengigheiter.sh)",
+      "Bash(mv description.sh om_denne_modellen.sh)",
+      "Bash(make dcat-ap-no *)"
     ]
   },
   "enableAllProjectMcpServers": true,
