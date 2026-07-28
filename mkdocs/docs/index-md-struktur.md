@@ -76,7 +76,7 @@ PlantUML-diagramma finst i to versjonar (sjå CLAUDE.md-seksjonen "PlantUML-diag
 Kjelder:
 
 - Kopiert frå `generated/<domain>/<schema>/diagrams/` til `mkdocs/docs/<domain>/<schema>/diagrams/`
-- Generert av `make gen-plantuml` (kjeldekode: `Makefile:run_gen_plantuml`, `src/assets/scripts/filter_plantuml.py`)
+- Generert av `make gen-plantuml` (kjeldekode: `Makefile:run_gen_plantuml`, `src/assets/scripts/makefile/filter_plantuml.py`)
 
 ### Datamodell (seksjon 11)
 
@@ -219,7 +219,7 @@ mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, i
 - **`mkdocs/lib/utils/metadata_parsers.sh`** — hjelpefunksjonar for parsing av manifest, versjon, validering
 - **`mkdocs/lib/scripts/parse-dependency-tree.py`** — byggjer avhengigheitstre
 - **`mkdocs/lib/scripts/generate-validation-md.py`** — formaterer valideringsresultat til Markdown
-- **`src/assets/scripts/filter_plantuml.py`** — filterer PlantUML-diagram til kun lokale klasser
+- **`src/assets/scripts/makefile/filter_plantuml.py`** — filterer PlantUML-diagram til kun lokale klasser
 - **`src/assets/templates/docgen/index.md.jinja2`** — Jinja2-template for gen-doc (genererer `generated/<domain>/<schema>/docs/index.md`)
 
 ## Sjå også

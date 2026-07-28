@@ -320,7 +320,11 @@
       "Bash(make gendoc *)",
       "Bash(./publish.sh)",
       "Bash(git ls-remote *)",
-      "Bash(make update-valid-scopes *)"
+      "Bash(make update-valid-scopes *)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(make config *)",
+      "Bash(make check-prereqs *)",
+      "Bash(SCHEMA=src/linkml/referanse/referanse-schema.yaml make gen-doc)"
     ]
   },
   "enableAllProjectMcpServers": true,

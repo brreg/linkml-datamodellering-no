@@ -171,7 +171,7 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir/docgen-examples" "$$outdir/docs"; \
-		$(PYTHON_RUN) python3 src/assets/scripts/gen-docgen-examples.py \
+		$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 			"$$s" \
 			"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
 			"$$outdir/docgen-examples" > /dev/null 2>&1; \
@@ -207,9 +207,9 @@ else \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir"; \
 		$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
-			| awk -f src/assets/scripts/filter_container.awk \
+			| awk -f src/assets/scripts/makefile/filter_container.awk \
 			> "$$outdir/$$name-erdiagram-unfiltered.md"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/filter_erdiagram.py \
+		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
 			"$$s" \
 			"$$outdir/$$name-erdiagram-unfiltered.md" \
 			> "$$outdir/$$name-erdiagram.md"; \
@@ -236,10 +236,10 @@ else \
 		t0=$$(date +%s%3N); \
 		mkdir -p "$$outdir/diagrams"; \
 		$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
+		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 			"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
 			> "$$outdir/diagrams/$$name-filtered.puml"; \
-		$(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py \
+		$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 			"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
 			> "$$outdir/diagrams/$$name.puml"; \
 		podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null; \
@@ -273,7 +273,7 @@ printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 	out="$$outdir/$$name-openapi.yaml"; \
 	t0=$$(date +%s%3N); \
 	mkdir -p "$$outdir"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
 		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
 	$(PYTHON_RUN) openapi-spec-validator /work/$$out > /dev/null 2>&1; \
 	rc=$$?; \
@@ -304,7 +304,7 @@ printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 	out="$$outdir/$$name-asyncapi.yaml"; \
 	t0=$$(date +%s%3N); \
 	mkdir -p "$$outdir"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
 		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
 	$(ASYNCAPI_RUN) validate /work/$$out > /dev/null 2>&1; \
 	rc=$$?; \
@@ -319,11 +319,11 @@ endef
 # gen-erdiagram: pipe through awk to strip Container classes (entity block + relationships)
 # $$  →  $  after make expansion, so shell sees  /^}$/  etc.
 define run_gen_erdiagram
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) | awk -f src/assets/scripts/filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) \
-  | awk -f src/assets/scripts/filter_container.awk \
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) | awk -f src/assets/scripts/makefile/filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) \
+  | awk -f src/assets/scripts/makefile/filter_container.awk \
   > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md && \
-  echo "$(PYTHON_RUN) python -u src/assets/scripts/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && \
-  $(PYTHON_RUN) python -u src/assets/scripts/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md; \
+  echo "$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && \
+  $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md; \
   )
 endef
 
@@ -332,7 +332,7 @@ define run_gen_doc
 @$(foreach s,$(1), \
   echo "$(CLR_STEP)→ gen-docgen-examples  $(s)$(CLR_RST)" && \
   mkdir -p $(call schema_outdir,$(s))/docgen-examples && \
-  $(PYTHON_RUN) python3 src/assets/scripts/gen-docgen-examples.py \
+  $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
     $(s) \
     src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/$(call schema_name,$(s))-eksempel.yaml \
     $(call schema_outdir,$(s))/docgen-examples && \
@@ -358,10 +358,10 @@ define run_gen_plantuml
   $(LINKML_RUN) gen-plantuml $(s) \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml && \
   echo "$(CLR_STEP)→ filter-plantuml (filtered)  $(s)$(CLR_RST)" && \
-  $(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml filtered \
+  $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml filtered \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-filtered.puml && \
   echo "$(CLR_STEP)→ filter-plantuml (full)  $(s)$(CLR_RST)" && \
-  $(PYTHON_RUN) python -u src/assets/scripts/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml full \
+  $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml full \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s)).puml && \
   podman run --rm \
     -v "$(CURDIR)/$(call schema_outdir,$(s))/diagrams:/data" \
@@ -416,7 +416,7 @@ define run_gen_xsd
 	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd >/dev/null 2>&1; \
 	rm -f "$$avsc"; \
 	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
-		/work/src/assets/scripts/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema >/dev/null 2>&1; \
+		/work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema >/dev/null 2>&1; \
 	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
 	printf "$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)\n" \
 		"$$domain" "$$name" \
@@ -444,7 +444,7 @@ define run_gen_asyncapi
 	out=$(GEN_DIR)/$$domain/$$name/$$name-asyncapi.yaml; \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
 	echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
 		/work/$$jsonschema /work/$$schema --out /work/$$out; \
 	$(ASYNCAPI_RUN) \
 		validate /work/$$out; \
@@ -470,7 +470,7 @@ define run_gen_openapi
 	out=$(GEN_DIR)/$$domain/$$name/$$name-openapi.yaml; \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
 	echo "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
 		/work/$$jsonschema /work/$$schema --out /work/$$out; \
 	$(PYTHON_RUN) openapi-spec-validator /work/$$out; \
 done
@@ -821,7 +821,7 @@ update-modellkatalog:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make update-modellkatalog$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	python3 src/assets/scripts/update-modellkatalog.py
+	python3 src/assets/scripts/makefile/update-modellkatalog.py
 
 # Reknar ut DQV-kvalitetsmålingar (fullstendighet/aktualitet) for datafiler med
 # data_policy felles-begrepskatalog/felles-datakatalog og skriv dem attende.
@@ -829,7 +829,7 @@ gen-dqv-measurements:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-dqv-measurements$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(PYTHON_RUN) python3 src/assets/scripts/gen-dqv-measurements.py
+	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-dqv-measurements.py
 
 # Genererer ModelDCAT-AP-NO-modellelement (Objekttype/Attributt/Assosiasjon/
 # Kodeliste/Kodeelement) frå LinkML-skjemastruktur og skriv dem inn i riktig
@@ -839,7 +839,7 @@ gen-modelldcat-elements:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-modelldcat-elements$(if $(ORG),  ORG=$(ORG))$(if $(DRYRUN),  DRYRUN=$(DRYRUN))$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_RUN) python3 src/assets/scripts/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
+	$(LINKML_RUN) python3 src/assets/scripts/makefile/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
 
 # Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make domain-<domain>-targets er køyrde fyrst.
@@ -848,7 +848,7 @@ docs-publish:
 	@echo "$(CLR_HDR)*** make docs-publish$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_INFO)Oppdaterer README.md-tabellar...$(CLR_RST)"
-	bash src/assets/scripts/generate-readme-tables.sh README.md
+	bash src/assets/scripts/makefile/generate-readme-tables.sh README.md
 	@echo "$(CLR_INFO)Publiserer mkdocs-portal...$(CLR_RST)"
 	bash mkdocs/publish.sh
 
@@ -856,7 +856,7 @@ docs-publish:
 # Per-model generator configuration — regenerated when any build.yaml changes.
 # ---------------------------------------------------------------------------
 config.mk: $(shell find src/linkml -name 'build.yaml')
-	bash src/assets/scripts/gen-config.sh > config.mk
+	bash src/assets/scripts/makefile/gen-config.sh > config.mk
 
 gen-config: config.mk
 
@@ -929,7 +929,7 @@ domain-$(1):
 			out=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-openapi.yaml; \
 			mkdir -p $(GEN_DIR)/$$$$domain/$$$$name; \
 			echo "$(CLR_STEP)→ gen-openapi  $$$$schema$(CLR_RST)"; \
-			$$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+			$$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
 				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
 			$$(PYTHON_RUN) openapi-spec-validator /work/$$$$out; \
 		done; \
@@ -952,7 +952,7 @@ domain-$(1):
 			out=$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-asyncapi.yaml; \
 			mkdir -p $(GEN_DIR)/$$$$domain/$$$$name; \
 			echo "$(CLR_STEP)→ gen-asyncapi  $$$$schema$(CLR_RST)"; \
-			$$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+			$$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
 				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
 			$$(ASYNCAPI_RUN) validate /work/$$$$out; \
 		done; \
@@ -1020,7 +1020,7 @@ domain-begrepskatalog: gen-begrepskatalog-instance
 			out=$(GEN_DIR)/$$domain/$$name/$$name-openapi.yaml; \
 			mkdir -p $(GEN_DIR)/$$domain/$$name; \
 			echo "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
-			$(PYTHON_RUN) python3 src/assets/scripts/gen-openapi.py \
+			$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
 				/work/$$jsonschema /work/$$schema --out /work/$$out; \
 			$(PYTHON_RUN) openapi-spec-validator /work/$$out; \
 		done; \
@@ -1043,7 +1043,7 @@ domain-begrepskatalog: gen-begrepskatalog-instance
 			out=$(GEN_DIR)/$$domain/$$name/$$name-asyncapi.yaml; \
 			mkdir -p $(GEN_DIR)/$$domain/$$name; \
 			echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
-			$(PYTHON_RUN) python3 src/assets/scripts/gen-asyncapi.py \
+			$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
 				/work/$$jsonschema /work/$$schema --out /work/$$out; \
 			$(ASYNCAPI_RUN) validate /work/$$out; \
 		done; \
@@ -1066,7 +1066,7 @@ ifdef DOMAIN
 		echo "--- $$schema ---"; \
 		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
 		echo "$$result"; \
-		python3 src/assets/scripts/save-validation-log.py \
+		python3 src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type bronze --result "$$result" 2>/dev/null || true; \
 		if ! SCHEMA="$$schema" python3 -c "import json,sys,os;d=json.loads(sys.stdin.read());s=os.environ.get('SCHEMA','');[print('::{} file={}::{}: {}'.format('error' if i.get('severity')=='error' else 'warning',s,i.get('target',''),i.get('message','').replace(chr(10),' '))) for i in d.get('issues',[])];sys.exit(0 if d.get('valid',True) else 1)" <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
@@ -1096,7 +1096,7 @@ ifdef DOMAIN
 		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
 		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
 		echo "$$result"; \
-		python3 src/assets/scripts/save-validation-log.py \
+		python3 src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
 	done
 else
@@ -1132,7 +1132,7 @@ ifdef DOMAIN
 		else \
 			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
 		fi; \
-		python3 src/assets/scripts/save-validation-log.py \
+		python3 src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type examples --result "$$result_json" 2>/dev/null || true; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
 		| grep -v common | sort | xargs grep -l "tree_root: true"); \
@@ -1345,7 +1345,7 @@ check-prereqs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make check-prereqs$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@bash src/assets/scripts/check-prereqs.bash
+	@bash src/assets/scripts/makefile/check-prereqs.bash
 
 # Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 # POLICY vert auto-detektert frå build.yaml dersom ikkje oppgjeven
@@ -1370,9 +1370,9 @@ validate-capture:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
-	    python3 src/assets/scripts/run-schema-validation.py --schema $(SCHEMA); \
+	    python3 src/assets/scripts/makefile/run-schema-validation.py --schema $(SCHEMA); \
 	else \
-	    python3 src/assets/scripts/run-schema-validation.py --parallel $(PARALLEL); \
+	    python3 src/assets/scripts/makefile/run-schema-validation.py --parallel $(PARALLEL); \
 	fi
 
 # Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
@@ -1470,7 +1470,7 @@ define run_gen_informasjonsmodell_instance
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	t0=$$(date +%s%3N); \
-	python3 src/assets/scripts/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
+	python3 src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
 	rc=$$?; \
 	elapsed_ms=$$(($$(date +%s%3N) - t0)); \
 	printf "$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -1501,13 +1501,13 @@ endif
 
 gen-modellkatalog-instance:
 	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
-	python3 src/assets/scripts/generate-modellkatalog.py
+	python3 src/assets/scripts/makefile/generate-modellkatalog.py
 
 .PHONY: gen-begrepskatalog-instance
 
 gen-begrepskatalog-instance:
 	@echo "$(CLR_HDR)Samlar begrep frå begrepssamlingar til begrepskatalogar$(CLR_RST)"
-	python3 src/assets/scripts/collect-concepts.py
+	python3 .github/scripts/collect-concepts.py
 
 .PHONY: validate-informasjonsmodell-instance
 

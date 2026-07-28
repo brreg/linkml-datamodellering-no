@@ -211,7 +211,7 @@ jobs:
         run: |
           # Python-script som samanliknar nye loggar med git HEAD
           # Fjernar identiske loggar (ignorer validated_at-felt)
-          python3 src/assets/scripts/filter-unchanged-logs.py
+          python3 .github/scripts/filter-unchanged-logs.py
 
       - name: Sjekk om det finst endringar
         id: check_changes
