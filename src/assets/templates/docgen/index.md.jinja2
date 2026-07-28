@@ -163,7 +163,7 @@
 {%- set defined_in_link = origin -%}
 | {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {% endfor -%}
-{% endif -%}
+{% endif %}
 
 {%- if ns_slots_referansar.items %}
 ### Referansar ({{ ns_slots_referansar.items|length }})
@@ -189,7 +189,7 @@
 {%- set defined_in_link = origin -%}
 | {{ gen.link(s, True) }} | {{ s.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {% endfor -%}
-{% endif -%}
+{% endif %}
 
 {%- if ns_slots_kodar.items %}
 ### Kodar ({{ ns_slots_kodar.items|length }})
@@ -217,7 +217,7 @@
 {% endfor -%}
 {% endif %}
 
-{%- set ns_used_enums = namespace(names=[]) -%}
+{% set ns_used_enums = namespace(names=[]) -%}
 {# Samle alle enums brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
   {%- set s = schemaview.get_slot(slot_name) %}
@@ -247,6 +247,7 @@
     {%- set ns_used_enums.names = ns_used_enums.names + [enum_name] %}
   {%- endif %}
 {%- endfor -%}
+
 ## Enumerations ({{ ns_used_enums.names|length }})
 {%- if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
@@ -295,7 +296,7 @@
 *Ingen enumerations brukt i denne modellen.*
 {% endif %}
 
-{%- set ns_used_types = namespace(names=[]) -%}
+{% set ns_used_types = namespace(names=[]) -%}
 {# Samle alle typar brukt i slots #}
 {%- for slot_name in ns_used_slots.names %}
   {%- set s = schemaview.get_slot(slot_name) %}
@@ -325,6 +326,7 @@
     {%- set ns_used_types.names = ns_used_types.names + [type_name] %}
   {%- endif %}
 {%- endfor -%}
+
 ## Types ({{ ns_used_types.names|length }})
 {%- if ns_used_types.names %}
 

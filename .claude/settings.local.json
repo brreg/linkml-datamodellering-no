@@ -333,7 +333,12 @@
       "Bash(mv contact.sh kontakt.sh)",
       "Bash(mv dependencies.sh avhengigheiter.sh)",
       "Bash(mv description.sh om_denne_modellen.sh)",
-      "Bash(make dcat-ap-no *)"
+      "Bash(make dcat-ap-no *)",
+      "Bash(echo \"SCHEMA=src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml\")",
+      "Bash(echo 'schema_name=$\\(basename $\\(basename $\\(notdir $\\(1\\)\\)\\)\\)')",
+      "Bash(echo 'test:')",
+      "Bash(echo '\t@echo \"Extracting schema_name from $\\(SCHEMA\\):\"')",
+      "Bash(echo '\t@echo \"Result: $\\(call schema_name,$\\(SCHEMA\\)\\)\"')"
     ]
   },
   "enableAllProjectMcpServers": true,

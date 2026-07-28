@@ -114,3 +114,6 @@ Dette er redundant fordi vi viser fullstendig avhengighetstre litt lenger nede.
 
 
 enumeration for status og lisens?
+
+
+behandle subsets på samme måten som andre overskrifter. Det betyr at kun lokalt definerte eller brukte subsets skal vises i lista, og så skal vi lenke til subsets i inkluderte schemaer under subsets tabellen.
