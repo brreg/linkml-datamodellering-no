@@ -345,5 +345,9 @@
   "enabledMcpjsonServers": [
     "linkml-validator",
     "linkml-generator"
-  ]
+  ],
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  }
 }

@@ -79,18 +79,19 @@ define run_parallel_with_timer
 else \
 	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 		s="{}"; \
-		name=$$$$(basename "$$$$s" -schema.yaml | sed "s/-schema$$$$//"); \
-		domain=$$$$(echo "$$$$s" | cut -d/ -f3); \
-		outdir=$(GEN_DIR)/$$$$domain/$$$$name; \
-		t0=$$$$(date +%s%3N); \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		t0=$$(date +%s%3N); \
 		$(4); \
-		rc=$$$$?; \
-		elapsed_ms=$$$$(($$$$( date +%s%3N) - t0)); \
+		rc=$$?; \
+		t1=$$(date +%s%3N); \
+		elapsed_ms=$$((t1 - t0)); \
 		printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
-			"$$$$domain" "$$$$name" \
-			$$$$((elapsed_ms / 1000)) \
-			$$$$((elapsed_ms % 1000 / 100)); \
-		exit $$$$rc'; \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)); \
+		exit $$rc'; \
 fi
 endef
 
