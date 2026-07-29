@@ -98,7 +98,7 @@ endef
 # Parallell versjon av run_gen med timer
 # $1=schemas  $2=generator  $3=output-file suffix
 define run_gen_parallel
-$(call run_parallel_with_timer,$(1),$(2),run_gen,mkdir -p "$$$$outdir" && $(LINKML_RUN) $(2) "$$$$s" > "$$$$outdir/$$$$name-$(3)")
+$(call run_parallel_with_timer,$(1),$(2),run_gen,mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
 endef
 
 # Serial fallback for merge-imports
@@ -108,65 +108,65 @@ endef
 
 # Parallell versjon av merge-imports (gen-linkml)
 define run_gen_linkml_parallel
-$(call run_parallel_with_timer,$(1),merge-imports,run_gen_linkml_serial,$(LINKML_RUN) gen-linkml "$$$$s" > /dev/null)
+$(call run_parallel_with_timer,$(1),merge-imports,run_gen_linkml_serial,$(LINKML_RUN) gen-linkml "$$s" > /dev/null)
 endef
 
 # Parallell versjon av gen-owl
 # Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
-$(call run_parallel_with_timer,$(1),gen-owl,run_gen_owl,mkdir -p "$$$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$$$s" > "$$$$outdir/$$$$name-ontology.ttl")
+$(call run_parallel_with_timer,$(1),gen-owl,run_gen_owl,mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
 endef
 
 # Parallell versjon av gen-rdf
 define run_gen_rdf_parallel
-$(call run_parallel_with_timer,$(1),gen-rdf,run_gen_rdf,mkdir -p "$$$$outdir" && $(LINKML_RUN) gen-rdf "$$$$s" > "$$$$outdir/$$$$name-schema.ttl")
+$(call run_parallel_with_timer,$(1),gen-rdf,run_gen_rdf,mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
 endef
 
 # Parallell versjon av gen-doc
 define run_gen_doc_parallel
 $(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,run_gen_doc,\
-mkdir -p "$$$$outdir/docgen-examples" "$$$$outdir/docs" && \
+mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
 $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
-	"$$$$s" \
-	"src/linkml/$$$$domain/$$$$name/examples/$$$$name-eksempel.yaml" \
-	"$$$$outdir/docgen-examples" > /dev/null 2>&1 && \
+	"$$s" \
+	"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
+	"$$outdir/docgen-examples" > /dev/null 2>&1 && \
 $(LINKML_RUN) gen-doc \
 	--template-directory src/assets/templates/docgen \
 	--no-mergeimports \
 	--no-render-imports \
 	--no-hierarchical-class-view \
 	--diagram-type mermaid_class_diagram \
-	--example-directory "$$$$outdir/docgen-examples" \
-	-d "$$$$outdir/docs" "$$$$s" > /dev/null 2>&1 && \
-sed -i "/Container/d" "$$$$outdir/docs/index.md")
+	--example-directory "$$outdir/docgen-examples" \
+	-d "$$outdir/docs" "$$s" > /dev/null 2>&1 && \
+sed -i "/Container/d" "$$outdir/docs/index.md")
 endef
 
 # Parallell versjon av gen-erdiagram
 define run_gen_erdiagram_parallel
 $(call run_parallel_with_timer,$(1),gen-erdiagram,run_gen_erdiagram,\
-mkdir -p "$$$$outdir" && \
-$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$$$s" \
+mkdir -p "$$outdir" && \
+$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 	| awk -f src/assets/scripts/makefile/filter_container.awk \
-	> "$$$$outdir/$$$$name-erdiagram-unfiltered.md" && \
+	> "$$outdir/$$name-erdiagram-unfiltered.md" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
-	"$$$$s" \
-	"$$$$outdir/$$$$name-erdiagram-unfiltered.md" \
-	> "$$$$outdir/$$$$name-erdiagram.md")
+	"$$s" \
+	"$$outdir/$$name-erdiagram-unfiltered.md" \
+	> "$$outdir/$$name-erdiagram.md")
 endef
 
 # Parallell versjon av gen-plantuml
 define run_gen_plantuml_parallel
 $(call run_parallel_with_timer,$(1),gen-plantuml,run_gen_plantuml,\
-mkdir -p "$$$$outdir/diagrams" && \
-$(LINKML_RUN) gen-plantuml "$$$$s" > "$$$$outdir/diagrams/$$$$name-raw.puml" && \
+mkdir -p "$$outdir/diagrams" && \
+$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-	"$$$$s" "$$$$outdir/diagrams/$$$$name-raw.puml" filtered \
-	> "$$$$outdir/diagrams/$$$$name-filtered.puml" && \
+	"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
+	> "$$outdir/diagrams/$$name-filtered.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-	"$$$$s" "$$$$outdir/diagrams/$$$$name-raw.puml" full \
-	> "$$$$outdir/diagrams/$$$$name.puml" && \
-podman run --rm -v "$(CURDIR)/$$$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$$$name.puml > /dev/null && \
-podman run --rm -v "$(CURDIR)/$$$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$$$name-filtered.puml > /dev/null)
+	"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
+	> "$$outdir/diagrams/$$name.puml" && \
+podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null && \
+podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null)
 endef
 
 # Parallell versjon av gen-openapi

@@ -339,7 +339,8 @@
       "Bash(echo 'test:')",
       "Bash(echo '\t@echo \"Extracting schema_name from $\\(SCHEMA\\):\"')",
       "Bash(echo '\t@echo \"Result: $\\(call schema_name,$\\(SCHEMA\\)\\)\"')",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(make merge-imports *)"
     ]
   },
   "enableAllProjectMcpServers": true,
