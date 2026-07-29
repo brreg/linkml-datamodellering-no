@@ -1,6 +1,6 @@
 /* Sidebar breidde */
 .md-sidebar--primary {
-  width: 15rem;
+  width: 13rem;
 }
 
 /* Desktop tweaks */
@@ -36,7 +36,7 @@
 
 /* TOC */
 .md-sidebar--secondary {
-  width: 12rem;
+  width: 13rem;
 }
 
 .md-sidebar--primary .md-nav {

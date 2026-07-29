@@ -116,27 +116,22 @@ a:hover {
 }
 
 /**
- * Overskrifter med bakgrunnsfarge → Brønnøysund designsystem
+ * Overskrifter med venstrestilt aksentlinje → Alternativ 1 frå header-styling.md
  */
 .md-typeset h1 {
-  background-color: var(--ds-color-main1-background-subtle) !important;
-  padding: 0.75rem 1rem !important;
-  margin-left: -1rem !important;
-  margin-right: -1rem !important;
+  background: var(--ds-color-main1-background-subtle);
+  border-left: 9px solid var(--ds-color-main1-border-default);
+  padding: 0.75rem 1rem;
 }
 
 .md-typeset h2 {
-  background-color: var(--ds-color-main1-background-default) !important;
-  padding: 0.5rem 1rem !important;
-  margin-left: -1rem !important;
-  margin-right: -1rem !important;
+  border-left: 6px solid var(--ds-color-main1-border-default);
+  padding-left: 0.75rem;
 }
 
 .md-typeset h3 {
-  background-color: var(--ds-color-main1-background-tinted) !important;
-  padding: 0.4rem 1rem !important;
-  margin-left: -1rem !important;
-  margin-right: -1rem !important;
+  border-left: 3px solid var(--ds-color-main1-border-default);
+  padding-left: 0.5rem;
 }
 
 /**
