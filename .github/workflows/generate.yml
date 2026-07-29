@@ -205,13 +205,9 @@ jobs:
       - name: Last mkdocs-local image frå GHCR
         run: |
           GHCR_TAG="ghcr.io/${{ github.repository_owner }}/mkdocs-local:${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}"
-          if podman pull "$GHCR_TAG" 2>/dev/null; then
-            podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
-            echo "Lasta mkdocs-local frå GHCR"
-          else
-            echo "GHCR-image finst ikkje — byggjer lokalt"
-            make build-docker-mkdocs
-          fi
+          echo "Lastar mkdocs-local frå GHCR: $GHCR_TAG"
+          podman pull "$GHCR_TAG"
+          podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
 
       - name: Cache mkdocs-build-cache
         uses: actions/cache@v6
