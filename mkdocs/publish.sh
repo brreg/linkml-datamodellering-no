@@ -233,6 +233,9 @@ printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)\n" \
     $((elapsed1_ms / 1000)) \
     $((elapsed1_ms % 1000 / 100))
 
+# Generer byggetidspunkt (ISO 8601 UTC)
+BUILD_TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+
 # ---------------------------------------------------------------------------
 # Steg 1.5: Bygg delmodell-map frå manifest-filer
 # ---------------------------------------------------------------------------
@@ -399,6 +402,14 @@ sed \
   -e '/Sjå.*CLAUDE\.md.*COMMANDS\.md/d' \
   "$REPO_ROOT/README.md" > "$DOCS/index.md"
 
+# Legg til footer med byggetidspunkt
+cat >> "$DOCS/index.md" <<EOF
+
+---
+
+_Portalen vart sist bygd: ${BUILD_TIMESTAMP}_
+EOF
+
 # ---------------------------------------------------------------------------
 # Steg 3: Generer valideringsregler.md
 # ---------------------------------------------------------------------------
@@ -444,8 +455,10 @@ plugins:
   - build-cache
 
 extra_css:
-  - stylesheets/aktivt-menypunkt.css
+  - stylesheets/digdir-designsystem.css  # Last Digdir tokens først
+  - stylesheets/digdir-poc.css           # Deretter overrides
   - stylesheets/responsivt-design.css
+#  - stylesheets/aktivt-menypunkt.css     # Behald eksisterande (vil bli overstyrt)
 
 extra_javascript:
   - javascripts/nav-active-fix.js

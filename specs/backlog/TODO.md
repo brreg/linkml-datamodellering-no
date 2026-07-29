@@ -117,3 +117,13 @@ enumeration for status og lisens?
 
 
 behandle subsets på samme måten som andre overskrifter. Det betyr at kun lokalt definerte eller brukte subsets skal vises i lista, og så skal vi lenke til subsets i inkluderte schemaer under subsets tabellen.
+
+
+siste byggetidspunkt i mkdocs portalen
+
+alle make kall skal kalkulere og logge forbrukt tid
+
+legge genererte artefakter før genererte begrepskatalogar i README.md. Vurder å droppe autogenerering av overskrifter i README.md
+
+lage en ny poc på meir omfattande designsystem-integrasjon basert på https://designsystemet.no/no/fundamentals/code/setup
+

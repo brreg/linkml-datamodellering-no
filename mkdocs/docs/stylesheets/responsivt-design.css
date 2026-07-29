@@ -19,11 +19,13 @@
 
   .md-sidebar--primary .md-sidebar--secondary .md-sidebar__scrollwrap {
     padding-top: 2rem;
+  }
 }
 
 /* Content-breidde (enkelt og kompatibelt) */
 .md-main__inner.md-grid {
-  max-width: 100rem;
+  min-width: 40rem;  /* nedre grense */
+  max-width: 100rem; /* øvre grense */
   margin: 0 auto;
 }
 
