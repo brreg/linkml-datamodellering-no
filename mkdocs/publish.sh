@@ -472,7 +472,7 @@ plugins:
   - build-cache
 
 extra_css:
-  - stylesheets/brreg-theme/brreg.css  # Brønnøysund designsystem-tema (NPM-pakke)
+  - stylesheets/brreg-theme.css        # Brønnøysund designsystem-tema (NPM-pakke, kombinert)
   - stylesheets/digdir-cli-poc.css     # Material-overrides
   - stylesheets/responsivt-design.css
 
