@@ -299,8 +299,12 @@ t2=$(date +%s%3N)
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
-# Samle domene/skjema-struktur sekvensielt (rask); hopp over tomme domene-katalogar og dublett-schema-katalogar
-for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
+# Hardkoda rekkefølgje på domene i nav-menyen
+DOMAIN_ORDER=("ap-no" "fair" "referanse" "ngr" "oreg" "fint" "samt" "begrepskatalog" "modellkatalog")
+
+# Samle domene/skjema-struktur frå generated/ — bygg opp DOMAIN_SCHEMA_LIST for alle domene
+declare -A DOMAIN_EXISTS=()
+for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d); do
     domain=$(basename "$domain_dir")
     schemas=()
     for schema_dir in $(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | sort); do
@@ -318,8 +322,21 @@ for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
         schemas+=("$schema")
     done
     [ "${#schemas[@]}" -eq 0 ] && continue
-    ALL_DOMAINS+=("$domain")
+    DOMAIN_EXISTS[$domain]=1
     DOMAIN_SCHEMA_LIST[$domain]="${schemas[*]:-}"
+done
+
+# Bygg ALL_DOMAINS i hardkoda rekkefølgje, deretter alfabetisk for resten
+for domain in "${DOMAIN_ORDER[@]}"; do
+    if [ "${DOMAIN_EXISTS[$domain]:-0}" = "1" ]; then
+        ALL_DOMAINS+=("$domain")
+        unset DOMAIN_EXISTS[$domain]
+    fi
+done
+
+# Legg til resterande domene (ikkje i DOMAIN_ORDER) i alfabetisk rekkefølgje
+for domain in $(printf '%s\n' "${!DOMAIN_EXISTS[@]}" | sort); do
+    ALL_DOMAINS+=("$domain")
 done
 
 # Start alle skjemajobbar parallelt
