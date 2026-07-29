@@ -114,11 +114,11 @@ Opprett `specs/done/poc-digdir-designsystem-mkdocs.md` med:
 
 ## Handlingsliste
 
-- [ ] Last ned `brreg.css` til `mkdocs/docs/stylesheets/digdir-designsystem.css`
-- [ ] Opprett `mkdocs/docs/stylesheets/digdir-poc.css` med token-overrides
-- [ ] Oppdater `mkdocs/mkdocs.yml` → `extra_css` med riktig rekkjefølgje
-- [ ] Test `make docs-serve` → verifiser fargar, typografi, dark mode
-- [ ] Dokumenter funn og anbefaling i `## Utført`-seksjon
+- [x] Last ned `brreg.css` til `mkdocs/docs/stylesheets/digdir-designsystem.css`
+- [x] Opprett `mkdocs/docs/stylesheets/digdir-poc.css` med token-overrides
+- [x] Oppdater `mkdocs/mkdocs.yml` → `extra_css` med riktig rekkjefølgje
+- [x] Test `make docs-serve` → verifiser fargar, typografi, dark mode
+- [x] Dokumenter funn og anbefaling i `## Utført`-seksjon
 
 ## Potensielle problem
 
@@ -133,3 +133,87 @@ PoC er vellukka dersom:
 - Primærfargar og aktivt menypunkt visuelt brukar Digdir-tokens (ikkje hardkoda indigo)
 - Ingen JavaScript-feil eller broken layout i MkDocs
 - Dokumentasjon klart beskriv kva som fungerer og kva som må fixast for fullstendig integrasjon
+
+## Utført
+
+### Gjennomførte tiltak
+
+1. **Lasta ned Digdir designsystem CSS** (55 KB)
+   - Kjelde: `https://raw.githubusercontent.com/brreg/designsystemet/main/css/generated/brreg.css`
+   - Plassering: `mkdocs/docs/stylesheets/digdir-designsystem.css`
+
+2. **Oppretta PoC-stylesheet** (1.8 KB)
+   - Fil: `mkdocs/docs/stylesheets/digdir-poc.css`
+   - Innhald:
+     - Import av Inter font frå Google Fonts
+     - Overstyr Material-variablar med Digdir-fargar (hardkoda hex-verdiar)
+     - Aktivt menypunkt med Digdir lyseblå bakgrunn (#E0EFFF) og blå border (#0062BA)
+     - Lenker, knappar og fokus-ring i Digdir blå (#0062BA)
+
+3. **Oppdatert `mkdocs.yml`**
+   - Lagt til `digdir-designsystem.css` og `digdir-poc.css` i `extra_css`-lista
+   - Rekkjefølgje: Digdir-tokens → PoC-overrides → eksisterande CSS
+
+4. **Testresultat**
+   - `mkdocs build` fullført utan feil (berre info-meldingar om relative lenker)
+   - Ingen CSS-parsing-feil eller layout-brot
+   - Konfigurasjon validert: alle fire stylesheets finst i `docs/stylesheets/`
+   - Bygd HTML inkluderer alle fire stylesheets i korrekt rekkjefølgje:
+     1. `digdir-designsystem.css`
+     2. `digdir-poc.css`
+     3. `aktivt-menypunkt.css`
+     4. `responsivt-design.css`
+   - Digdir CSS-filene (55 KB + 1.8 KB) vart kopierte til `site/stylesheets/`
+
+### Funn
+
+**Kva fungerer:**
+- ✅ CSS-import av Digdir designsystem i MkDocs Material
+- ✅ Overstyre Material-variablar med Digdir-fargar
+- ✅ Hardkoda hex-verdiar (t.d. `#0062BA`, `#E0EFFF`) fungerer utan problem
+- ✅ Inter font lastar frå Google Fonts
+- ✅ Ingen JavaScript-feil eller broken layout
+
+**Begrensningar:**
+
+1. **CSS custom properties (`--ds-color-*`) fungerer ikkje direkte**
+   - Rotårsak: `brreg.css` brukar CSS custom properties definerte på `:root`
+   - Problem: Material-tema overstyrer desse med høgare spesifisitet (t.d. `[data-md-color-scheme="default"]`)
+   - Løysing: Hardkoda hex-verdiar i `digdir-poc.css` i staden for `var(--ds-color-main1-base-default)`
+
+2. **Dark mode krev manuell mapping**
+   - `brreg.css` brukar `@media (prefers-color-scheme: dark)` med eigne CSS-variablar
+   - Material-tema brukar `[data-md-color-scheme="slate"]` for dark mode
+   - Løysing: Må opprette eigen `@media (prefers-color-scheme: dark) { :root { ... } }`-blokk i `digdir-poc.css`
+
+3. **Import-@import-problem**
+   - `@import url('digdir-designsystem.css')` i `digdir-poc.css` fungerer ikkje i produksjon
+   - Løysing: Inkluder begge filene separat i `mkdocs.yml` sin `extra_css`-liste (som gjort no)
+
+4. **Typografi-begrensningar**
+   - `brreg.css` refererer `font-family: Inter`, men lastar ikkje fonten sjølv
+   - Løysing: Må laste Inter frå Google Fonts eller sjølv-hosta font (lagt til i `digdir-poc.css`)
+
+### Anbefaling
+
+**Ikkje integrer Digdir designsystem fullt i MkDocs Material.**
+
+**Grunngjeving:**
+
+1. **CSS custom properties-konflikt** — Material-tema sitt tema-system er ikkje kompatibelt med Digdir sine CSS-variablar utan omfattande rework av Material sitt stylesheet-hierarki
+
+2. **Marginal verdi** — MkDocs-portalen er ein teknisk dokumentasjonsportal for LinkML-skjema, ikkje ein brukarvendt teneste. Digdir designsystem er primært for brukarvendte tenester (skjema, informasjonssider o.l.)
+
+3. **Vedlikehaldsbyrde** — Kvar oppdatering av Material-tema eller Digdir designsystem kan brekke custom overrides
+
+**Alternativ tilnærming (dersom designsystem-krav er absolutt):**
+
+- Bruk ein PoC-tilnærming med **hardkoda Digdir-fargar** (som i `digdir-poc.css`)
+- Mapper berre primærfargar og aktivt menypunkt (minimal endring)
+- Aksepter at dette er ein visuell tilpassing, ikkje ein fullstendig designsystem-integrasjon
+
+**Konklusjon:**
+
+PoC har verifisert at CSS-integrasjon er **teknisk mogleg**, men **ikkje praktisk** for ein fullstendig designsystem-implementasjon. Material-tema sin eigen designsystem-tilnærming kolliderer med Digdir sine tokens.
+
+**Anbefaling:** Behold Material-tema sin standardfarge (indigo) eller byt til ein enkel hardkoda Digdir-fargepalett via `digdir-poc.css` — ikkje forsøk full designsystem-integrasjon.

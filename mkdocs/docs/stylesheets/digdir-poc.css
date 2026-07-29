@@ -1,0 +1,62 @@
+/* PoC: Digdir designsystem i MkDocs Material
+ *
+ * Overstyr Material-tema med Digdir design tokens frå brreg.css
+ * for å verifisere CSS-integrasjon utan JavaScript-avhengigheiter.
+ */
+
+/* Overstyr Material theme med Digdir tokens */
+:root {
+  /* Primærfargar → Digdir Main1 (blå) */
+  --md-primary-fg-color: #0062BA;
+  --md-primary-fg-color--light: #E0EFFF;
+  --md-primary-fg-color--dark: #003A80;
+
+  /* Accent → Digdir Main2 (oransje) */
+  --md-accent-fg-color: #E18B00;
+  --md-accent-fg-color--transparent: rgba(225, 139, 0, 0.1);
+
+  /* Typografi - Inter */
+  --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --md-code-font: "Courier New", Consolas, Monaco, monospace;
+}
+
+/* Last Inter font frå Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Aktivt menypunkt → bruk Digdir fargar */
+.md-nav__item--active > .md-nav__link {
+  background-color: #E0EFFF !important;  /* --ds-color-main1-background-tinted */
+  border-left: 4px solid #0062BA !important;  /* --ds-color-main1-base-default */
+  padding-left: calc(1rem - 4px) !important;
+}
+
+.md-nav__item--level-1.md-nav__item--active > .md-nav__link {
+  background-color: #F5FAFF !important;  /* --ds-color-main1-background-default */
+  border-left: 4px solid #003A80 !important;  /* --ds-color-main1-border-default */
+}
+
+/* Lenker → Digdir blå */
+a {
+  color: #0062BA;
+}
+
+a:hover {
+  color: #003A80;
+}
+
+/* Knappar → Digdir primærfarge */
+.md-button {
+  background-color: #0062BA;
+  border-color: #0062BA;
+}
+
+.md-button:hover {
+  background-color: #003A80;
+  border-color: #003A80;
+}
+
+/* Fokus-ring → Digdir standard */
+*:focus-visible {
+  outline: 2px solid #0062BA;
+  outline-offset: 2px;
+}
