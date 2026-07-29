@@ -32,7 +32,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v8
         with:
           name: source
           path: |
@@ -164,7 +164,7 @@ jobs:
           # Køyr domene-target som genererer alle hovudartefaktar
           make domain-${{ matrix.domain }}
 
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v8
         with:
           name: generated-${{ matrix.domain }}
           path: generated/${{ matrix.domain }}/
