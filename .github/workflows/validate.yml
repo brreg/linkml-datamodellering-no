@@ -67,7 +67,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/upload-artifact@v8
+      - uses: actions/upload-artifact@v7
         with:
           name: source
           path: |
@@ -183,7 +183,7 @@ jobs:
 
       - name: Last opp validation-loggar
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        uses: actions/upload-artifact@v8
+        uses: actions/upload-artifact@v7
         with:
           name: validation-logs-${{ matrix.domain }}
           path: src/linkml/${{ matrix.domain }}/**/validation/

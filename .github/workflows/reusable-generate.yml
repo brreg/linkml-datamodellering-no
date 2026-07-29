@@ -114,7 +114,7 @@ jobs:
 
       - name: Last opp genererte artefaktar
         id: upload
-        uses: actions/upload-artifact@v8
+        uses: actions/upload-artifact@v7
         with:
           name: linkml-generated-${{ github.run_id }}
           path: generated/

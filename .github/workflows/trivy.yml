@@ -99,7 +99,7 @@ jobs:
           output: sbom.spdx.json
 
       - name: Last opp SBOM som artefakt
-        uses: actions/upload-artifact@v8
+        uses: actions/upload-artifact@v7
         with:
           name: sbom
           path: sbom.spdx.json

@@ -11,27 +11,21 @@ make: *** [Makefile:1322: gen-begrepskatalog-instance] Error 2
 
 Fila `.github/scripts/collect-concepts.py` finst i repoet og er inkludert i `checkout-source`-steget sitt `upload-artifact@v7`-kall (linje 41 i `generate.yml` inkluderer `.github/`).
 
-**Rotårsak:** `generate.yml` og `validate.yml` brukar `upload-artifact@v7` men `download-artifact@v8`. Desse versjonane kan ha ulik filstruktur-handtering, særleg rundt `merge-multiple`-parameteren som endra standardoppførsel i v4.4+.
+**Rotårsak:** `download-artifact@v8` i `generate`-jobben (linje 122) mangla eksplisitt `path: .`-parameter. Utan denne vert artefakten ekstrahert til eit undermappe-namn (basert på artefaktnamn), ikkje til gjeldande katalog. Dette gjer at `.github/scripts/collect-concepts.py` endar opp i feil katalog når `make domain-begrepskatalog` prøver å kjøyre fila.
 
 ## Løysing
 
-Oppgrader `upload-artifact` frå `@v7` til `@v8` i alle workflows for å sikre konsistent versjon med `download-artifact@v8`.
+Legg til `path: .` i `download-artifact@v8`-steget i `generate`-jobben for å sikre at artefakten vert ekstrahert til gjeldande katalog (ikkje undermappe).
 
 ## Tiltak
 
-- [x] 1. Oppdater `upload-artifact@v7` → `@v8` i `.github/workflows/generate.yml` (2 stader)
-- [x] 2. Oppdater `upload-artifact@v7` → `@v8` i `.github/workflows/validate.yml` (2 stader)
-- [x] 3. Oppdater `upload-artifact@v7` → `@v8` i `.github/workflows/trivy.yml` (1 stad)
-- [x] 4. Oppdater `upload-artifact@v7` → `@v8` i `.github/workflows/reusable-generate.yml` (1 stad)
+- [x] 1. Legg til `path: .` i `download-artifact@v8` i `generate`-jobben (linje 122-125)
 
 ## Utført
 
-Alle `upload-artifact@v7`-referansar i `.github/workflows/` er oppdaterte til `@v8` for konsistent versjonering med `download-artifact@v8`. Dette sikrar at filstrukturen vert bevart korrekt når artefaktar vert lasta ned i andre jobbar.
+Lagt til `path: .` i `download-artifact@v8`-steget i `generate`-jobben (linje 124).
 
-**Endra filer:**
-- `.github/workflows/generate.yml`: 2 oppdateringar (checkout-source og generate-artefaktar)
-- `.github/workflows/validate.yml`: 2 oppdateringar (checkout-source og validation-logs)
-- `.github/workflows/trivy.yml`: 1 oppdatering (SBOM-artefakt)
-- `.github/workflows/reusable-generate.yml`: 1 oppdatering (linkml-generated)
+**Endra fil:**
+- `.github/workflows/generate.yml`: linje 122-125
 
-**Forklaring:** `actions/upload-artifact@v7` og `actions/download-artifact@v8` kan ha inkompatibilitet rundt filstruktur-handtering (særleg `merge-multiple`-parameteren som endra standardoppførsel i v4.4+). Ved å oppgradere upload til same major-versjon som download, sikrar me at GitHub Actions handterer filstrukturen konsekvent.
+**Forklaring:** Utan eksplisitt `path`-parameter ekstraherer `download-artifact@v8` artefakten til ein undermappe med same namn som artefakten (t.d. `source/`), ikkje til gjeldande katalog. Dette gjer at `.github/scripts/collect-concepts.py` endar opp i `source/.github/scripts/` i staden for `.github/scripts/`, og Makefile finn ikkje fila. Med `path: .` vert filstrukturen ekstrahert direkte til gjeldande katalog.
