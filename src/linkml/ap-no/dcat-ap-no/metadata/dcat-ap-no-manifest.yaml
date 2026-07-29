@@ -10,7 +10,7 @@ beskrivelse:
     inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
   nn: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
     inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
-versjonsnummer: 2.11.0
+versjonsnummer: 2.11.1
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
 endringsdato: '2026-07-27'

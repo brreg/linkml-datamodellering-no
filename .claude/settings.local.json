@@ -340,7 +340,10 @@
       "Bash(echo '\t@echo \"Extracting schema_name from $\\(SCHEMA\\):\"')",
       "Bash(echo '\t@echo \"Result: $\\(call schema_name,$\\(SCHEMA\\)\\)\"')",
       "Read(//tmp/**)",
-      "Bash(make merge-imports *)"
+      "Bash(make merge-imports *)",
+      "WebFetch(domain:designsystemet.no)",
+      "Bash(npx @digdir/designsystemet tokens create --config designsystemet.config.json)",
+      "Bash(podman stop *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -455,10 +455,9 @@ plugins:
   - build-cache
 
 extra_css:
-  - stylesheets/digdir-designsystem.css  # Last Digdir tokens først
-  - stylesheets/digdir-poc.css           # Deretter overrides
+  - stylesheets/brreg-theme/brreg.css  # Brønnøysund designsystem-tema (NPM-pakke)
+  - stylesheets/digdir-cli-poc.css     # Material-overrides
   - stylesheets/responsivt-design.css
-#  - stylesheets/aktivt-menypunkt.css     # Behald eksisterande (vil bli overstyrt)
 
 extra_javascript:
   - javascripts/nav-active-fix.js

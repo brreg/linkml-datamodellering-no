@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@import "generated/brreg.css";
+
+@layer ds-override {
+  :root, .ds-skip-link {
+    --dsc-skiplink-background: var(--ds-color-focus-outer);
+    --dsc-skiplink-color: var(--ds-color-focus-inner);
+  }
+}

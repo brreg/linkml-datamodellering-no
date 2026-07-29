@@ -1,0 +1,171 @@
+/**
+ * Brønnøysund designsystem-tema for MkDocs Material
+ *
+ * Brukar @brreg/designsystemet-theme tokens (main1, main2, osv.)
+ * for å overstyre Material-tema sine fargar.
+ */
+
+/* Last Inter font frå Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/**
+ * Overstyr Material-tema variablar med Brønnøysund designsystem-tokens
+ *
+ * Merk: Material-tema brukar [data-md-color-scheme="default"] som selector,
+ * som har høgare spesifisitet enn :root. Brønnøysund tokens er definerte på :root,
+ * så vi må bruke !important for å overstyre Material.
+ */
+:root {
+  /* Primærfargar → Brønnøysund main1 (mørkeblå #001C3A) */
+  --md-primary-fg-color: var(--ds-color-main1-base-default) !important;
+  --md-primary-fg-color--light: var(--ds-color-main1-background-default) !important;
+  --md-primary-fg-color--dark: var(--ds-color-main1-base-hover) !important;
+
+  /* Accent → Brønnøysund main2 (oransje #FF8700) */
+  --md-accent-fg-color: var(--ds-color-main2-base-default) !important;
+  --md-accent-fg-color--transparent: var(--ds-color-main2-background-subtle) !important;
+
+  /* Typografi */
+  --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
+  --md-code-font: monospace, "Courier New", Consolas, Monaco;
+}
+
+/**
+ * Header (portaloverskrift-linje) → Brønnøysund-fargar
+ */
+.md-header {
+  background-color: var(--ds-color-main1-base-default) !important;
+}
+
+.md-header__title {
+  color: #ffffff !important;
+}
+
+.md-header__button {
+  color: #ffffff !important;
+}
+
+/**
+ * Bakgrunnsfarge på nav og ToC-menyane
+ */
+.md-sidebar__scrollwrap {
+  background-color: var(--ds-color-main1-background-default) !important;
+}
+
+.md-nav {
+  background-color: transparent;
+}
+
+/**
+ * Aktivt menypunkt → bruk Brønnøysund fargar
+ * Unngå !important for å la Material sin auto-collapse-logikk fungere
+ */
+.md-sidebar--primary .md-nav__item--active > .md-nav__link {
+  background-color: var(--ds-color-main1-background-subtle);
+  border-left: 4px solid var(--ds-color-main1-border-default);
+  padding-left: calc(1rem - 4px);
+}
+
+.md-sidebar--primary .md-nav__item--level-1.md-nav__item--active > .md-nav__link {
+  background-color: var(--ds-color-main1-background-tinted);
+  border-left: 4px solid var(--ds-color-main1-base-default);
+}
+
+/**
+ * Lenker i nav og toc → Brønnøysund blå (lysare)
+ */
+.md-nav__link,
+.md-nav__link:link,
+.md-nav__link:visited {
+  color: var(--ds-color-main1-base-active) !important;
+}
+
+.md-nav__link:hover {
+  color: var(--ds-color-main1-border-subtle) !important;
+}
+
+/* Hovudinnhald-lenker */
+a {
+  color: var(--ds-color-main1-base-active) !important;
+}
+
+a:hover {
+  color: var(--ds-color-main1-border-subtle) !important;
+}
+
+/**
+ * Knappar → Brønnøysund primærfarge
+ */
+.md-button {
+  background-color: var(--ds-color-main1-base-default) !important;
+  border-color: var(--ds-color-main1-base-default) !important;
+  color: #ffffff !important;
+}
+
+.md-button:hover {
+  background-color: var(--ds-color-main1-base-hover) !important;
+  border-color: var(--ds-color-main1-base-hover) !important;
+}
+
+/**
+ * Fokus-ring → Brønnøysund standard
+ */
+*:focus-visible {
+  outline: 2px solid var(--ds-color-main1-base-default) !important;
+  outline-offset: 2px;
+}
+
+/**
+ * Overskrifter med bakgrunnsfarge → Brønnøysund designsystem
+ */
+.md-typeset h1 {
+  background-color: var(--ds-color-main1-background-subtle) !important;
+  padding: 0.75rem 1rem !important;
+  margin-left: -1rem !important;
+  margin-right: -1rem !important;
+}
+
+.md-typeset h2 {
+  background-color: var(--ds-color-main1-background-default) !important;
+  padding: 0.5rem 1rem !important;
+  margin-left: -1rem !important;
+  margin-right: -1rem !important;
+}
+
+.md-typeset h3 {
+  background-color: var(--ds-color-main1-background-tinted) !important;
+  padding: 0.4rem 1rem !important;
+  margin-left: -1rem !important;
+  margin-right: -1rem !important;
+}
+
+/**
+ * Dark mode-støtte
+ */
+[data-md-color-scheme="slate"] {
+  /* Primærfargar i dark mode */
+  --md-primary-fg-color: var(--ds-color-main1-base-default) !important;
+  --md-primary-bg-color: var(--ds-color-main1-background-default) !important;
+
+  /* Accent i dark mode */
+  --md-accent-fg-color: var(--ds-color-main2-base-default) !important;
+}
+
+/**
+ * Footer-tekst på ei linje
+ */
+.md-footer-meta__inner {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+.md-footer-copyright {
+  flex: 1 !important;
+  white-space: nowrap !important;
+}
+
+.md-footer-social {
+  margin-left: auto !important;
+}

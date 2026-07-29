@@ -17,7 +17,7 @@
 
   /* Typografi - Inter */
   --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  --md-code-font: "Courier New", Consolas, Monaco, monospace;
+  --md-code-font: monospace, "Courier New", Consolas, Monaco;
 }
 
 /* Last Inter font frå Google Fonts */
