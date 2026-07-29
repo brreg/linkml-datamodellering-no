@@ -10,16 +10,13 @@ on:
     branches: [main]
     paths:
       - 'src/linkml/**'
-      - 'src/assets/containers/Dockerfile.linkml'
-      - 'src/assets/containers/Dockerfile.python'
-      - 'src/assets/containers/Dockerfile.avrotize'
-      - 'src/assets/containers/Dockerfile.asyncapi-cli'
-      - 'src/assets/containers/Dockerfile.mkdocs'
-      - 'src/assets/containers/Dockerfile.plantuml'
-      - 'src/assets/containers/requirements-python-test.txt'
+      - 'src/assets/containers/**'
       - 'src/assets/templates/**'
+      - 'src/assets/scripts/**'
       - 'mkdocs/**'
       - 'README.md'
+      - 'Makefile'
+
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -43,6 +40,7 @@ jobs:
             README.md
             CODEOWNERS.md
           retention-days: 1
+          include-hidden-files: true
 
   ensure-images:
     name: "build-image / ${{ matrix.image.name }}"
