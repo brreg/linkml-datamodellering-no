@@ -85,7 +85,6 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ## Subsets
 
-
 | Subset | Description |
 | --- | --- |
 | [Anbefalt](klasser/anbefalt.md) |  |

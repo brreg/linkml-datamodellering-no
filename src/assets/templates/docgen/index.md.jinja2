@@ -293,7 +293,7 @@
 {% endif -%}
 {%- endfor -%}
 {% else %}
-*Ingen enumerations brukt i denne modellen.*
+*Ingen enumerations definert lokalt eller brukt i denne modellen.*
 {% endif %}
 
 {% set ns_used_types = namespace(names=[]) -%}
@@ -383,16 +383,53 @@
 {% endif -%}
 {%- endfor -%}
 {% else %}
-*Ingen typar brukt i denne modellen.*
+*Ingen typar definert lokalt eller brukt i denne modellen.*
 {% endif %}
 
-## Subsets
+{%- set ns_used_subsets = namespace(names=[]) -%}
+{# Samle alle subsets brukt i klasser og slots #}
+{%- for class_name in schemaview.all_classes() -%}
+{%- set c = schemaview.get_class(class_name) -%}
+{%- set class_origin = c.from_schema if c.from_schema else schema.id -%}
+{%- if c and not c.tree_root and class_origin == schema.id -%}
+{# Sjekk class.in_subset #}
+{%- for subset_name in c.in_subset or [] -%}
+{%- if subset_name not in ns_used_subsets.names -%}
+{%- set ns_used_subsets.names = ns_used_subsets.names + [subset_name] -%}
+{%- endif -%}
+{%- endfor -%}
+{# Sjekk slot_usage[].in_subset #}
+{%- for slot_name, slot_usage in (c.slot_usage or {}).items() -%}
+{%- for subset_name in slot_usage.in_subset or [] -%}
+{%- if subset_name not in ns_used_subsets.names -%}
+{%- set ns_used_subsets.names = ns_used_subsets.names + [subset_name] -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{# OR-LOGIKK: Legg til alle lokalt DEFINERTE subsets (frå subsets:-seksjonen) #}
+{%- for subset_name in (schema.subsets or {}).keys() -%}
+{%- if subset_name not in ns_used_subsets.names -%}
+{%- set ns_used_subsets.names = ns_used_subsets.names + [subset_name] -%}
+{%- endif -%}
+{%- endfor -%}
+
+## Subsets ({{ ns_used_subsets.names|length }})
+{%- if ns_used_subsets.names %}
 
 | Subset | Description | Defined in |
 | --- | --- | --- |
-{% for ss in schemaview.all_subsets().values()|sort(attribute='name') -%}
+{% for subset_name in ns_used_subsets.names|sort -%}
+{%- set ss = schemaview.get_subset(subset_name) -%}
+{%- if ss -%}
 {%- set origin = ss.from_schema if ss.from_schema else schema.id -%}
 {%- set defined_in_text = origin -%}
 {%- set defined_in_link = origin -%}
 | {{ gen.link(ss, True) }} | {{ ss.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) |
-{% endfor %}
+{% endif -%}
+{%- endfor -%}
+{% else %}
+
+*Ingen subsets definert lokalt eller brukt i denne modellen.*
+{% endif %}

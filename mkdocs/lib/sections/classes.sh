@@ -129,10 +129,9 @@ generate_classes_section() {
         echo ""
     fi
 
-    # Ekstraher Subsets-seksjonen (utan import-lenkjer)
-    if grep -q "^## Subsets$" "$klasse_src"; then
-        echo "## Subsets"
-        echo ""
-        awk '/^## Subsets$/,0' "$klasse_src" | sed '1d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+    # Ekstraher Subsets-seksjonen (til slutt av fil, sidan Subsets er siste seksjon)
+    if grep -q "^## Subsets" "$klasse_src"; then
+        awk '/^## Subsets/,0' "$klasse_src" | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
+        build_import_links "$domain" "$schema" "subsets" "subsets"
     fi
 }

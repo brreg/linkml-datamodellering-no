@@ -338,7 +338,8 @@
       "Bash(echo 'schema_name=$\\(basename $\\(basename $\\(notdir $\\(1\\)\\)\\)\\)')",
       "Bash(echo 'test:')",
       "Bash(echo '\t@echo \"Extracting schema_name from $\\(SCHEMA\\):\"')",
-      "Bash(echo '\t@echo \"Result: $\\(call schema_name,$\\(SCHEMA\\)\\)\"')"
+      "Bash(echo '\t@echo \"Result: $\\(call schema_name,$\\(SCHEMA\\)\\)\"')",
+      "Read(//tmp/**)"
     ]
   },
   "enableAllProjectMcpServers": true,
@@ -347,7 +348,7 @@
     "linkml-generator"
   ],
   "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true
+    "enabled": false,
+    "autoAllowBashIfSandboxed": false
   }
 }
