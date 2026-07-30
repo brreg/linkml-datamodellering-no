@@ -350,7 +350,11 @@
       "Bash(make SCHEMAS=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
       "Bash(make gen-json-schema *)",
       "Bash(make domain-ngr *)",
-      "Bash(gh --version)"
+      "Bash(gh --version)",
+      "Bash(podman version *)",
+      "Bash(crun --version)",
+      "Bash(podman manifest *)",
+      "Bash(podman info *)"
     ]
   },
   "enableAllProjectMcpServers": true,

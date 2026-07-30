@@ -14,6 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
+
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -38,6 +46,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
+
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -60,6 +76,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
+
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -81,6 +105,14 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v7
+
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin

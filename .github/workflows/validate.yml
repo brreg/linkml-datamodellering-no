@@ -50,6 +50,13 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
       - name: Valider commit-meldingar (conventional commits)
         run: |
           podman run --rm \
@@ -86,6 +93,13 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: source
+      - name: Oppgrader crun til støtte for OCI v1-image
+        run: |
+          CRUN_VERSION=1.18.2
+          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
+          chmod +x /tmp/crun
+          sudo mv /tmp/crun /usr/bin/crun
+          crun --version
       - name: Cache mcp-linkml-validator image
         id: cache
         uses: actions/cache@v6
