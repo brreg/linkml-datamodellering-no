@@ -57,7 +57,7 @@
 }
 
 /**
- * Aktivt menypunkt → bruk Brønnøysund fargar
+ * Aktivt menypunkt i nav (venstre sidebar) → bruk Brønnøysund fargar
  * Unngå !important for å la Material sin auto-collapse-logikk fungere
  */
 .md-sidebar--primary .md-nav__item--active > .md-nav__link {
@@ -69,6 +69,16 @@
 .md-sidebar--primary .md-nav__item--level-1.md-nav__item--active > .md-nav__link {
   background-color: var(--ds-color-main1-background-tinted);
   border-left: 4px solid var(--ds-color-main1-base-default);
+}
+
+/**
+ * Aktivt element i ToC (høgre sidebar) → same stil som aktiv nav-lenke
+ */
+.md-sidebar--secondary .md-nav__link--active {
+  background-color: var(--ds-color-main1-background-subtle);
+  border-left: 4px solid var(--ds-color-main1-border-default);
+  padding-left: calc(0.6rem - 4px);
+  font-weight: 500;
 }
 
 /**
@@ -113,6 +123,16 @@ a:hover {
 *:focus-visible {
   outline: 2px solid var(--ds-color-main1-base-default) !important;
   outline-offset: 2px;
+}
+
+/**
+ * Horisontale skiljestrek (hr / ---) → Brønnøysund designsystem
+ */
+.md-typeset hr {
+  border: 0;
+  height: 1px;
+  background: var(--ds-color-main1-border-default);
+  margin: 2rem 0;
 }
 
 /**

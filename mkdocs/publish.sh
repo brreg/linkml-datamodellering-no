@@ -462,6 +462,7 @@ theme:
     - navigation.top
     - content.code.copy
     - navigation.instant
+    - toc.follow
   palette:
     - scheme: default
       primary: indigo
@@ -476,8 +477,8 @@ extra_css:
   - stylesheets/digdir-cli-poc.css     # Material-overrides
   - stylesheets/responsivt-design.css
 
-extra_javascript:
-  - javascripts/nav-active-fix.js
+#extra_javascript:
+#  - javascripts/nav-active-fix.js
 
 markdown_extensions:
   - admonition
