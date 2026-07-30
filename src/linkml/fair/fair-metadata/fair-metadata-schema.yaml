@@ -4,7 +4,7 @@
 id: https://data.norge.no/fair/fair-metadata
 name: fair-metadata
 title: FAIR Metadata Overbygning
-description: **FAIR**-metadataoverbygning (**FAIR**-prinsippa)
+description: "FAIR-metadataoverbygning (FAIR-prinsippa)"
 
 version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0

@@ -1,0 +1,38 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fair/fair-metadata
+tittel:
+  nb: FAIR Metadata Overbygning
+  nn: FAIR Metadata Overbygning
+beskrivelse:
+  nb: FAIR-metadataoverbygning (FAIR-prinsippa)
+  nn: FAIR-metadataoverbygning (FAIR-prinsippa)
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-07-10'
+utgivelsesdato: '2024-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fair/fair-metadata/
+er_i_samsvar_med:
+- id: https://www.go-fair.org/fair-principles/
+  tittel:
+    nb: FAIR Principles
+    nn: FAIR Principles
+  har_referanse: https://www.go-fair.org/fair-principles/
+inneholder_modellelement:
+- https://data.norge.no/fair/FAIRMetadata
+- https://data.norge.no/fair/Tilgangsmetadata
+- https://data.norge.no/fair/Gjenbruksmetadata
+- https://data.norge.no/fair/Proveniensmetadata
+- https://data.norge.no/fair/Katalogregistrering
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fair/fair-metadata/fair-metadata-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fair/fair-metadata/fair-metadata-schema.yaml
