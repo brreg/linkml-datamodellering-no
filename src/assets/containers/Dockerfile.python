@@ -1,5 +1,6 @@
 FROM python:3.13-alpine
 
+# Build format: Docker v2 (via --format docker flag in Makefile)
 # unngå cache / litt betre runtime
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
