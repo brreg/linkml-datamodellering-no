@@ -133,7 +133,7 @@ a:hover {
 .md-typeset hr {
   border: 0;
   height: 1px;
-  background: var(--ds-color-main1-border-default);
+  background: var(--ds-color-main1-border-subtle);
   margin: 2rem 0;
 }
 
@@ -232,7 +232,7 @@ a:hover {
 }
 
 .md-typeset h3 {
-  border-left: 3px solid var(--ds-color-main1-border-default);
+  border-left: 4px solid var(--ds-color-main1-border-default);
   padding-left: 0.5rem;
 }
 
