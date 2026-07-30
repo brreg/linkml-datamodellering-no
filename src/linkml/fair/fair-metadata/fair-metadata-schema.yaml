@@ -4,11 +4,12 @@
 id: https://data.norge.no/fair/fair-metadata
 name: fair-metadata
 title: FAIR Metadata Overbygning
-description: >
-  FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
+description: **FAIR**-metadataoverbygning (**FAIR**-prinsippa)
 
 version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://www.go-fair.org/fair-principles/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
   endringsdato: "2026-07-10"

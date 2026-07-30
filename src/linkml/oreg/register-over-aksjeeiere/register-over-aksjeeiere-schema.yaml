@@ -6,8 +6,7 @@ name: register-over-aksjeeiere
 version: "1.5.0"
 license: https://data.norge.no/nlod/no/2.0
 title: Aksje- og eigarskapsmodell
-description: >
-  LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
+description: Aksjeeigarar og eigedelar
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673

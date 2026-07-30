@@ -4,10 +4,11 @@
 id: https://data.norge.no/ap-no/modelldcat-ap-no
 name: modelldcat-ap-no
 title: ModelDCAT-AP-NO
-description: >-
-  Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format, modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
+description: Informasjonsmodellar
 version: "1.10.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://data.norge.no/specification/modelldcat-ap-no
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
   endringsdato: "2026-07-10"

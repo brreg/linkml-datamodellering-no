@@ -9,8 +9,7 @@
 id: https://example.org/linkml/referanse
 name: referanse-schema
 title: Referanseskjema
-description: >-
-  Annotert referanseskjema som viser alle hovudmønster: containerklasse, globale slots, import frå AP-NO-profil, class_uri/slot_uri, LangString, in_subset og lenking framfor inlining.
+description: Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur
 version: "1.2.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:

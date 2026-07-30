@@ -354,7 +354,9 @@
       "Bash(podman version *)",
       "Bash(crun --version)",
       "Bash(podman manifest *)",
-      "Bash(podman info *)"
+      "Bash(podman info *)",
+      "Bash(./scripts/migrate-schema-metadata.sh *)",
+      "Bash(./src/assets/scripts/makefile/generate-readme-tables.sh *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -4,10 +4,11 @@
 id: https://data.norge.no/ap-no/dqv-ap-no
 name: dqv-ap-no
 title: DQV-AP-NO
-description: >-
-  Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/
+description: Datakvalitet
 version: "1.13.1"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://data.norge.no/specification/dqv-ap-no
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
   endringsdato: "2026-07-27"

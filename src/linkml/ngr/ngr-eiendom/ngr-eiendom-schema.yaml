@@ -5,9 +5,10 @@ id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
 version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom
 title: Nasjonale grunndata - Eiendom
-description: >-
-  Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+description: Fast eigedom, matrikkeleining og bygning
 annotations:
   utgiver: https://data.norge.no/organizations/971040238
   endringsdato: "2026-07-10"

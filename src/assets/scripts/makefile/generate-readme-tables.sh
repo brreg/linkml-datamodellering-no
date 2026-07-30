@@ -42,55 +42,6 @@ generate_schema_table() {
   echo "| Domene | Skjema | Skildring | Dokumentasjon"
   echo "|---|---|---|---|"
 
-  # Hardkoda skildringar for spesielle skjema
-  declare -A DESCRIPTIONS=(
-    ["fair-metadata"]="**FAIR**-metadataoverbygning (**FAIR**-prinsippa)"
-    ["common-ap-no"]="Felles slot-definisjonar for alle AP-NO-profilar"
-    ["cpsv-ap-no"]="Offentlege tenester og hendingar"
-    ["dcat-ap-no"]="Datakatalogar og datasett"
-    ["dqv-ap-no"]="Datakvalitet"
-    ["modelldcat-ap-no"]="Informasjonsmodellar"
-    ["skos-ap-no"]="Omgrepsamlingar"
-    ["xkos-ap-no"]="Utvida klassifikasjon"
-    ["fint-common"]="Felles klassar for FINT"
-    ["fint-administrasjon"]="Lønn, arbeidsforhold, organisasjon"
-    ["fint-arkiv"]="Sak, journal, dokument"
-    ["fint-okonomi"]="Økonomi og rekneskap"
-    ["fint-personvern"]="Personvernmeldingar"
-    ["fint-ressurs"]="Ressursar"
-    ["fint-utdanning"]="Utdanning og skule"
-    ["ngr-adresse"]="Adresse"
-    ["ngr-eiendom"]="Fast eigedom, matrikkeleining og bygning"
-    ["ngr-person"]="Person, identifikasjon og familierelasjonar"
-    ["ngr-virksomhet"]="Verksemder, roller og organisasjonsstruktur"
-    ["enhetsregisteret-bvrinn"]="Berettigede, verger, rettighetshavere i næring (BVRiNN)"
-    ["register-over-aksjeeiere"]="Aksjeeigarar og eigedelar"
-    ["samt-bu"]="Skular og barnehagar"
-    ["referanse"]="Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur"
-  )
-
-  # Hardkoda dokumentasjonslenkjer
-  declare -A DOC_LINKS=(
-    ["fair-metadata"]="[www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)"
-    ["cpsv-ap-no"]="[data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)"
-    ["dcat-ap-no"]="[data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)"
-    ["dqv-ap-no"]="[data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)"
-    ["modelldcat-ap-no"]="[data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)"
-    ["skos-ap-no"]="[data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)"
-    ["xkos-ap-no"]="[data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)"
-    ["fint-administrasjon"]="[informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)"
-    ["fint-arkiv"]="[informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)"
-    ["fint-okonomi"]="[informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)"
-    ["fint-personvern"]="[informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)"
-    ["fint-ressurs"]="[informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)"
-    ["fint-utdanning"]="[informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)"
-    ["ngr-adresse"]="[informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)"
-    ["ngr-eiendom"]="[informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)"
-    ["ngr-person"]="[informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)"
-    ["ngr-virksomhet"]="[informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)"
-    ["samt-bu"]="[docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)"
-  )
-
   # Domene-rekkefølgje (same som i domene-tabellen)
   DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt")
 
@@ -133,11 +84,20 @@ generate_schema_table() {
       schema_dir=$(dirname "$schema_file")
       schema_name=$(basename "$schema_dir")
 
-      # Hent skildring
-      description="${DESCRIPTIONS[$schema_name]:-}"
+      # Hent description frå skjemafil (dynamisk via Python-script)
+      description=$(python3 src/assets/scripts/makefile/extract-schema-metadata.py "$schema_file" description)
 
-      # Hent dokumentasjonslenkje
-      doc_link="${DOC_LINKS[$schema_name]:-}"
+      # Hent see_also frå skjemafil (første URI via Python-script)
+      see_also_uri=$(python3 src/assets/scripts/makefile/extract-schema-metadata.py "$schema_file" see_also)
+
+      # Format dokumentasjonslenkje dersom see_also finst
+      if [[ -n "$see_also_uri" ]]; then
+        # Ekstraher domenenamn frå URI (t.d. data.norge.no, www.go-fair.org)
+        doc_domain=$(echo "$see_also_uri" | sed -E 's|https?://([^/]+).*|\1|')
+        doc_link="[$doc_domain]($see_also_uri)"
+      else
+        doc_link=""
+      fi
 
       # Konverter src/linkml/<domain>/<modell>/ til <domain>/<modell>/ for GitHub Pages
       ghpages_schema_link="${schema_dir#src/linkml/}"

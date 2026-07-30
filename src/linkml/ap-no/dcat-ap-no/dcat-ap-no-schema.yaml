@@ -1,9 +1,11 @@
 id: https://data.norge.no/ap-no/dcat-ap-no
 name: dcat-ap-no
 title: DCAT-AP-NO
-description: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
+description: Datakatalogar og datasett
 version: 2.11.1
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://data.norge.no/specification/dcat-ap-no
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
   endringsdato: '2026-07-27'

@@ -5,9 +5,10 @@ id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
 version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
 title: Nasjonale grunndata - Adresse
-description: >-
-  Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
+description: Adresse
 annotations:
   utgiver: https://data.norge.no/organizations/971040238
   endringsdato: "2026-07-10"

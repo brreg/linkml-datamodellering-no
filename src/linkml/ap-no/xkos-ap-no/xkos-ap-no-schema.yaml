@@ -3,9 +3,9 @@ name: xkos-ap-no
 title: XKOS-AP-NO
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
-description: >-
-  LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
-  Basert på https://data.norge.no/specification/xkos-ap-no
+see_also:
+  - https://data.norge.no/specification/xkos-ap-no
+description: Utvida klassifikasjon
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827

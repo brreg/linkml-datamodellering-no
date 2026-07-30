@@ -4,11 +4,12 @@
 id: https://data.norge.no/fint/fint-personvern
 name: fint-personvern
 title: FINT Personvern
-description: >
-  FINT-domenemodell for personvern. Dekkjer behandling av personopplysningar, samtykke, tenester og kodeverk for behandlingsgrunnlag og personopplysningstypar.
+description: Personvernmeldingar
 
 version: "4.4.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20
 annotations:
   utgiver: https://data.norge.no/organizations/985870714
   endringsdato: "2026-07-10"

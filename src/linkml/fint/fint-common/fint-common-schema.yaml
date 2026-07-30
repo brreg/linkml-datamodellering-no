@@ -4,8 +4,7 @@
 id: https://data.norge.no/fint/fint-common
 name: fint-common
 title: FINT Felles typar
-description: >
-  Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt mellom alle FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
+description: Felles klassar for FINT
 
 version: "4.2.0"
 license: https://data.norge.no/nlod/no/2.0

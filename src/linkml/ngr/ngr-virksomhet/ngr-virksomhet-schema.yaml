@@ -5,9 +5,10 @@ id: https://data.norge.no/ngr/ngr-virksomhet
 name: ngr-virksomhet
 version: "1.4.0"
 license: https://data.norge.no/nlod/no/2.0
+see_also:
+  - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet
 title: Nasjonale grunndata - Virksomhet
-description: >-
-  Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast). Modellerer Virksomhet med Underenhet og Hovudeining, roller, adresser og klassifikasjonar frå Enhetsregisteret. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+description: Verksemder, roller og organisasjonsstruktur
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
   endringsdato: "2026-07-10"

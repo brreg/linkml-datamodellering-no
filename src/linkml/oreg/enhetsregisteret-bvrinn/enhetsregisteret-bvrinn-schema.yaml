@@ -7,7 +7,7 @@ name: enhetsregisteret-bvrinn
 title: Enhetsregisteret - BVINN
 version: "1.0.0"
 license: https://data.norge.no/nlod/no/2.0
-description: Generert frå JSON Schema 'generated'.
+description: Berettigede, verger, rettighetshavere i næring (BVRiNN)
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
