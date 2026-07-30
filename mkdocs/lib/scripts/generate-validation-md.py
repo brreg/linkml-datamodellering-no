@@ -2,7 +2,7 @@
 """
 Genererer ein ## Valideringsresultat-seksjon frå validation JSON til stdout.
 
-Bruk: python3 generate-validation-md.py <src/linkml/domain/model/validation/version/policy.json>
+Bruk: python3 generate-validation-md.py <validation-json-path> <domain> <schema>
 """
 
 import json
@@ -11,11 +11,14 @@ from pathlib import Path
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        print("Bruk: generate-validation-md.py <validation-json>", file=sys.stderr)
+    if len(sys.argv) < 4:
+        print("Bruk: generate-validation-md.py <validation-json> <domain> <schema>", file=sys.stderr)
         sys.exit(1)
 
     path = Path(sys.argv[1])
+    domain = sys.argv[2]
+    schema = sys.argv[3]
+
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except Exception as e:
@@ -45,11 +48,10 @@ def main() -> None:
     # MkDocs genererer anker frå fullstendig overskriftstekst
     # bronze/silver/gold/felles-*: ### <policy> → #<policy>
     # Anchor-namnet er identisk med policy-namnet
-    # Bruk absolutt path frå site root (/) i staden for relativ path (../../)
-    # MkDocs vil då legge til site_url-prefikset automatisk
-    # MkDocs handterer .md → .html automatisk, så ikkje bruk .md i lenkja
+    # Bruk relativ path frå <domain>/<schema>/index.md til valideringsregler.md
+    # (to nivå opp: ../../valideringsregler/)
     anchor = policy
-    policy_link = f"[policy: {policy}](/valideringsregler/#{anchor})"
+    policy_link = f"[policy: {policy}](../../valideringsregler/#{anchor})"
 
     lines = [
         "",

@@ -15,7 +15,7 @@ generate_validation_results() {
     echo ""
 
     if [ -f "$validation_json" ]; then
-        python3 "$REPO_ROOT/mkdocs/lib/scripts/generate-validation-md.py" "$validation_json"
+        python3 "$REPO_ROOT/mkdocs/lib/scripts/generate-validation-md.py" "$validation_json" "$domain" "$schema"
     else
         echo "## Valideringsresultat"
         echo ""
