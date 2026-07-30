@@ -19,14 +19,14 @@ generate_artifacts_table() {
     local manifest_yaml="$out/${schema}-manifest.yaml"
     if [ -f "$manifest_yaml" ]; then
         has_artifact=true
-        artifact_rows+="| Modellmanifest ihht Modelldcat-ap-no | [\`${schema}-manifest.yaml\`](${schema}-manifest.yaml) |"$'\n'
+        artifact_rows+="| Modellmanifest ihht Modelldcat-ap-no | [${schema}-manifest.yaml](${schema}-manifest.yaml) |"$'\n'
     fi
 
     for suffix in $ARTIFACT_ORDER; do
         local f="$out/${schema}-${suffix}"
         if [ -f "$f" ]; then
             has_artifact=true
-            artifact_rows+="| $(artifact_label "$suffix") | [\`${schema}-${suffix}\`](${schema}-${suffix}) |"$'\n'
+            artifact_rows+="| $(artifact_label "$suffix") | [${schema}-${suffix}](${schema}-${suffix}) |"$'\n'
         fi
     done
 
