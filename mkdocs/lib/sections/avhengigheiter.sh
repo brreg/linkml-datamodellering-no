@@ -2,6 +2,88 @@
 # Generer avhengigheitstre (seksjon 9 i index.md)
 set -euo pipefail
 
+# Source imported_schemas utility
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../utils/imported_schemas.sh"
+
+# Hjelpefunksjon: Bygg lenkjeliste til importerte modeller
+build_imported_models_links() {
+    local domain="$1"
+    local schema="$2"
+
+    # Hent importerte skjema
+    local imported_schemas
+    imported_schemas=$(get_imported_schemas "$domain" "$schema")
+    [ -z "$imported_schemas" ] && return 0
+
+    # Bygg lenkjeliste
+    local links=""
+    local linkml_types_link=""
+
+    # Spesialbehandling for linkml:types (GitHub-lenke, først i lista)
+    if echo "$imported_schemas" | grep -q "^linkml:types$"; then
+        local linkml_url="https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml"
+        linkml_types_link="[linkml:types]($linkml_url)"
+    fi
+
+    while IFS= read -r imported; do
+        [ -z "$imported" ] && continue
+
+        # Hopp over linkml:types (handtert separat)
+        if [ "$imported" = "linkml:types" ]; then
+            continue
+        fi
+
+        # Parse domene/schema frå import-namn
+        # imported kan vere t.d. "common-ap-no-schema", "dcat-ap-no-schema"
+        # Fjern -schema-suffiks
+        local imported_clean="${imported%-schema}"
+
+        # Finn domene for importert skjema (søk i src/linkml/)
+        local imported_file
+        imported_file=$(find "$REPO_ROOT/src/linkml" -name "${imported_clean}-schema.yaml" -type f 2>/dev/null | head -1)
+        [ -z "$imported_file" ] && continue
+
+        # Trekk ut domene frå sti (src/linkml/<domain>/<dir>/<file>)
+        # Bruk relative sti frå REPO_ROOT for å handtere både absolutte og relative stiar
+        local rel_path="${imported_file#$REPO_ROOT/}"
+        local imported_domain
+        imported_domain=$(echo "$rel_path" | cut -d/ -f3)
+
+        # Bygg relativ lenke til #metadata-ankeret
+        local link
+        if [ "$imported_domain" = "$domain" ]; then
+            link="../${imported_clean}/#metadata"
+        else
+            link="../../${imported_domain}/${imported_clean}/#metadata"
+        fi
+
+        # Legg til lenke i lista
+        if [ -z "$links" ]; then
+            links="[$imported_clean]($link)"
+        else
+            links="$links, [$imported_clean]($link)"
+        fi
+    done <<< "$imported_schemas"
+
+    # Sett saman linkml:types (først) og andre imports
+    local final_links=""
+    if [ -n "$linkml_types_link" ]; then
+        final_links="$linkml_types_link"
+        if [ -n "$links" ]; then
+            final_links="$final_links, $links"
+        fi
+    else
+        final_links="$links"
+    fi
+
+    # Output lenkjelinje
+    if [ -n "$final_links" ]; then
+        echo ""
+        echo "*Importerte modeller: $final_links*"
+    fi
+}
+
 generate_dependencies() {
     local domain="$1"
     local schema="$2"
@@ -48,6 +130,7 @@ generate_dependencies() {
         echo "    alle sine avhengigheiter lengre til venstre i treet."
         echo ""
         echo "*Sjå [Importhierarki](../../importhierarki.md) for oversikt over heile repoet sitt importhierarki.*"
+        build_imported_models_links "$domain" "$schema"
         echo ""
         echo ""
     fi
