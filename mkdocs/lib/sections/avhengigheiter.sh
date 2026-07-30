@@ -116,8 +116,6 @@ generate_dependencies() {
         echo ""
         echo "## Avhengigheiter ($import_count) {#avhengigheiter}"
         echo ""
-        echo "### Imports"
-        echo ""
         echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
         echo ""
         echo "\`\`\`"

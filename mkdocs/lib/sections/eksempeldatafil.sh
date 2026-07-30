@@ -24,8 +24,6 @@ generate_example() {
     echo ""
     echo "## Eksempeldatafil"
     echo ""
-    echo "### YAML"
-    echo ""
     echo "\`\`\`yaml"
     # Ekstraher første 20 liner (eller til første tom linje etter header)
     head -20 "$example_file" | awk '
