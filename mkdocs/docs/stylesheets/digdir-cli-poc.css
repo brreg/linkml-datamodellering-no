@@ -64,11 +64,13 @@
   background-color: var(--ds-color-main1-background-subtle);
   border-left: 4px solid var(--ds-color-main1-border-default);
   padding-left: calc(1rem - 4px);
+  font-weight: 500;
 }
 
 .md-sidebar--primary .md-nav__item--level-1.md-nav__item--active > .md-nav__link {
   background-color: var(--ds-color-main1-background-tinted);
   border-left: 4px solid var(--ds-color-main1-base-default);
+  font-weight: 500;
 }
 
 /**
@@ -133,6 +135,13 @@ a:hover {
   height: 1px;
   background: var(--ds-color-main1-border-default);
   margin: 2rem 0;
+}
+
+/**
+ * Inline code → større tekst for betre lesbarheit
+ */
+.md-typeset code:not(pre code) {
+  font-size: 0.9em;
 }
 
 /**
