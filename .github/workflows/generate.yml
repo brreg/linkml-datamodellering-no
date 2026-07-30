@@ -83,6 +83,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: source
+          path: .
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -192,6 +193,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: source
+          path: .
 
       - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v8
