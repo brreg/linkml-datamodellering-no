@@ -632,7 +632,7 @@ update-modellkatalog:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make update-modellkatalog$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	python3 src/assets/scripts/makefile/update-modellkatalog.py
+	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/update-modellkatalog.py
 
 # Reknar ut DQV-kvalitetsmålingar (fullstendighet/aktualitet) for datafiler med
 # data_policy felles-begrepskatalog/felles-datakatalog og skriv dem attende.
@@ -878,9 +878,9 @@ ifdef DOMAIN
 		echo "--- $$schema ---"; \
 		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
 		echo "$$result"; \
-		python3 src/assets/scripts/makefile/save-validation-log.py \
+		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type bronze --result "$$result" 2>/dev/null || true; \
-		if ! SCHEMA="$$schema" python3 -c "import json,sys,os;d=json.loads(sys.stdin.read());s=os.environ.get('SCHEMA','');[print('::{} file={}::{}: {}'.format('error' if i.get('severity')=='error' else 'warning',s,i.get('target',''),i.get('message','').replace(chr(10),' '))) for i in d.get('issues',[])];sys.exit(0 if d.get('valid',True) else 1)" <<< "$$result"; then \
+		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
@@ -908,7 +908,7 @@ ifdef DOMAIN
 		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
 		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
 		echo "$$result"; \
-		python3 src/assets/scripts/makefile/save-validation-log.py \
+		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
 	done
 else
@@ -944,7 +944,7 @@ ifdef DOMAIN
 		else \
 			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
 		fi; \
-		python3 src/assets/scripts/makefile/save-validation-log.py \
+		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type examples --result "$$result_json" 2>/dev/null || true; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
 		| grep -v common | sort | xargs grep -l "tree_root: true"); \
@@ -1050,25 +1050,10 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
 # Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
 mcp-linkml-modell-utkast:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
-	@python3 -c "\
-import json; \
-content = open('$(SCHEMA)').read(); \
-fmt = '$(or $(FORMAT),json-schema)'; \
-profile = '$(or $(PROFILE),bronze)'; \
-msgs = [ \
-  {'jsonrpc':'2.0','id':1,'method':'initialize','params':{}}, \
-  {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'generate_linkml','arguments':{'inputFormat':fmt,'inputContent':content,'schemaId':'https://example.org/generated','schemaName':'generated','profile':profile}}}, \
-]; \
-print('\n'.join(json.dumps(m) for m in msgs)) \
-" | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
-  | python3 -c "\
-import json, sys, pathlib; \
-inp = pathlib.Path('$(SCHEMA)'); \
-out = inp.parent / (inp.stem + '-schema.yaml'); \
-[out.write_text(json.loads(r['result']['content'][0]['text'])['linkmlSchema'], encoding='utf-8') \
- or print('Skriv til:', out) \
- for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
-"
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
+		"$(SCHEMA)" "$(or $(FORMAT),json-schema)" "$(or $(PROFILE),bronze)" \
+		| $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
+		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-write-modell-utkast-response.py "$(SCHEMA)"
 	@# Automatisk roundtrip-test for JSON Schema
 	@if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \
 		echo "$(CLR_STEP)→ Køyrer roundtrip-test for $(SCHEMA)$(CLR_RST)"; \
@@ -1104,9 +1089,7 @@ mcp-linkml-begrep-utkast:
 	  (echo "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1)
 	@test -f "$(INPUT)" || \
 	  (echo "Feil: $(INPUT) finst ikkje"; exit 1)
-	@printf '%s\n%s\n' \
-	  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"make","version":"1"}}}' \
-	  "$$(python3 -c "import json; args=json.load(open('$(INPUT)')); print(json.dumps({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'opprett_begrep','arguments':args}}))")" \
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-begrep-utkast-request.py "$(INPUT)" \
 	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 # List profiler:
@@ -1163,10 +1146,7 @@ check-prereqs:
 # POLICY vert auto-detektert frå build.yaml dersom ikkje oppgjeven
 mcp-linkml-validate:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
-	@DETECTED_POLICY=$$(python3 -c "import yaml, sys; \
-	  manifest_path = '$(dir $(SCHEMA))build.yaml'; \
-	  manifest = yaml.safe_load(open(manifest_path)) if __import__('os').path.isfile(manifest_path) else {}; \
-	  print(manifest.get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"); \
+	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
 	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
 	echo "$(CLR_HDR)*** make mcp-linkml-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
@@ -1182,9 +1162,9 @@ validate-capture:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
-	    python3 src/assets/scripts/makefile/run-schema-validation.py --schema $(SCHEMA); \
+	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py --schema $(SCHEMA); \
 	else \
-	    python3 src/assets/scripts/makefile/run-schema-validation.py --parallel $(PARALLEL); \
+	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py --parallel $(PARALLEL); \
 	fi
 
 # Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
@@ -1282,7 +1262,7 @@ define run_gen_informasjonsmodell_instance
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	t0=$$(date +%s%3N); \
-	python3 src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
+	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
 	rc=$$?; \
 	elapsed_ms=$$(($$(date +%s%3N) - t0)); \
 	printf "$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)\n" \
@@ -1313,13 +1293,13 @@ endif
 
 gen-modellkatalog-instance:
 	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
-	python3 src/assets/scripts/makefile/generate-modellkatalog.py
+	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-modellkatalog.py
 
 .PHONY: gen-begrepskatalog-instance
 
 gen-begrepskatalog-instance:
 	@echo "$(CLR_HDR)Samlar begrep frå begrepssamlingar til begrepskatalogar$(CLR_RST)"
-	python3 .github/scripts/collect-concepts.py
+	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/collect-concepts.py
 
 .PHONY: validate-informasjonsmodell-instance
 

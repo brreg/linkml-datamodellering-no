@@ -1,4 +1,4 @@
-# Plan for å containerisere direkte Python-kall i Makefile
+# Containerisering av direkte Python-kall i Makefile
 
 ## Føremål
 
@@ -492,3 +492,84 @@ Sluttmålet bør vere at Makefile-en ikkje inneheld direkte `python3` eller `pyt
 - Eigne spesialcontainerar berre der det er nødvendig.
 
 I tillegg bør byggescript ligge under `src/assets/scripts/makefile/`, ikkje under `.github/scripts/`, dersom dei er del av ordinær byggelogikk.
+
+---
+
+## Utført
+
+**Dato:** 2026-07-30
+
+### Fase 1 & 2: Flytt byggescript og containeriser CI-kritiske kall
+
+**Utførte tiltak:**
+
+1. **Flytta `collect-concepts.py`**
+   - Kopierte `.github/scripts/collect-concepts.py` til `src/assets/scripts/makefile/collect-concepts.py`
+   - Oppdaterte `gen-begrepskatalog-instance`-target til å bruke `$(PYTHON_RUN)` og `/work/`-sti
+
+2. **Containeriserte enkle direkte scriptkall**
+   - `update-modellkatalog`: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/update-modellkatalog.py`
+   - `gen-modellkatalog-instance`: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-modellkatalog.py`
+   - `run_gen_informasjonsmodell_instance`: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py`
+   - `validate-bronze` (save-validation-log): `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py`
+   - `validate-data` (save-validation-log): `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py`
+   - `validate-examples` (save-validation-log): `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py`
+   - `validate-capture`: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py`
+
+### Fase 4: Rydd opp inline Python
+
+**Utførte tiltak:**
+
+1. **`emit-github-validation-annotations.py`**
+   - Flytta inline JSON-parsing i `validate-bronze` til eige script
+   - Scriptet les JSON frå stdin, emit GitHub-annotasjonar og returnerer exitkode
+   - Makefile: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py`
+
+2. **`mcp-build-modell-utkast-request.py`**
+   - Flytta inline JSON-RPC-request-bygging i `mcp-linkml-modell-utkast` til eige script
+   - Scriptet les schema-fil, bygg initialize + generate_linkml-meldingar og emit til stdout
+   - Makefile: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py`
+
+3. **`mcp-write-modell-utkast-response.py`**
+   - Flytta inline JSON-RPC-response-skriving i `mcp-linkml-modell-utkast` til eige script
+   - Scriptet les JSON-RPC-responsar frå stdin, ekstraher generert LinkML og skriv til fil
+   - Makefile: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-write-modell-utkast-response.py`
+
+4. **`mcp-build-begrep-utkast-request.py`**
+   - Flytta inline JSON-RPC-request-bygging i `mcp-linkml-begrep-utkast` til eige script
+   - Scriptet les JSON-argumentfil, bygg initialize + opprett_begrep-meldingar og emit til stdout
+   - Makefile: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-begrep-utkast-request.py`
+
+5. **`detect-validation-policy.py`**
+   - Flytta inline YAML-parsing i `mcp-linkml-validate` til eige script
+   - Scriptet les build.yaml frå same katalog som skjemaet og emit policy til stdout
+   - Makefile: `$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py`
+
+### Resultat
+
+**Gjennverande direkte host-Python-kall i Makefile:** Ingen (alle Makefile-targets brukar `$(PYTHON_RUN)` eller `$(LINKML_RUN)`)
+
+**Gjennverande direkte host-Python-kall i shell-script:**
+
+- `mkdocs/publish.sh` (linje 55, 254)
+- `tests/test_make.sh` (fleire linjer)
+
+Desse er mindre kritiske:
+
+- `mkdocs/publish.sh` køyrer berre ved manuell publisering (ikkje i CI)
+- `tests/test_make.sh` køyrer sjeldan i CI (mest lokal test)
+
+**Forbetringar oppnådd:**
+
+- Færre avhengigheiter på GitHub-runneren sitt Python-miljø
+- Meir deterministisk CI — same Python-image lokalt og i CI
+- Betre testbarheit — inline Python-kode er no i eigne script
+- Redusert quoting-kompleksitet i Makefile
+- Betre feilsøking — script kan køyrast isolert utanfor Makefile
+
+**Forslag til vidare arbeid:**
+
+- Containeriser Python-kall i `mkdocs/publish.sh` (lågare prioritet)
+- Containeriser Python-kall i `tests/test_make.sh` (lågare prioritet)
+- Vurder om `run-schema-validation.py` sjølv startar Podman-containerar (kan krevje tilgang til Podman socket)
+

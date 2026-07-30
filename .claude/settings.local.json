@@ -343,7 +343,12 @@
       "Bash(make merge-imports *)",
       "WebFetch(domain:designsystemet.no)",
       "Bash(npx @digdir/designsystemet tokens create --config designsystemet.config.json)",
-      "Bash(podman stop *)"
+      "Bash(podman stop *)",
+      "Bash(make update-modellkatalog *)",
+      "Bash(make gen-python *)",
+      "Bash(timeout 120 make domain-referanse)",
+      "Bash(make SCHEMAS=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
+      "Bash(make gen-json-schema *)"
     ]
   },
   "enableAllProjectMcpServers": true,
