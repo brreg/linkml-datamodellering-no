@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.5.0...register-over-aksjeeiere-v1.6.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.4.0...register-over-aksjeeiere-v1.5.0) (2026-07-10)
 
 

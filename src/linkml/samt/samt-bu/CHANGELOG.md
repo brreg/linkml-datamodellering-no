@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.7.0...samt-bu-v1.8.0) (2026-07-30)
+
+
+### Features
+
+* **makefile:** containeriser alle Python-kall ([a1833a2](https://github.com/brreg/linkml-datamodellering-no/commit/a1833a2dfd3fc0b3363f7fc43192115d66dc9ac5))
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.6.0...samt-bu-v1.7.0) (2026-07-27)
 
 

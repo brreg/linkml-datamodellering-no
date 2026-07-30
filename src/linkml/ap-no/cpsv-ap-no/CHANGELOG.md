@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.8.1...cpsv-ap-no-v1.9.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+* **mkdocs:** Brønnøysund designsystem-tema og byggetidspunkt ([4a18238](https://github.com/brreg/linkml-datamodellering-no/commit/4a1823892275f79a242a195b2bb0243b4391d913))
+
 ## [1.8.1](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.8.0...cpsv-ap-no-v1.8.1) (2026-07-27)
 
 
