@@ -6,7 +6,6 @@ trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >
 generate_quickstart() {
     local domain="$1"
     local schema="$2"
-    local quickstart_file="$REPO_ROOT/src/linkml/$domain/quickstart.md"
 
     # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
     local schema_file
@@ -109,53 +108,40 @@ PYEOF
     example_var="${example_var:-container}"
     policy="${policy:-bronze}"
 
-    if [ -f "$quickstart_file" ]; then
-        # Les og inject quickstart.md med variabel-substitusjon
-        sed "s/{{SCHEMA}}/$schema/g; \
-             s/{{SCHEMA_UNDERSCORE}}/${schema//-/_}/g; \
-             s|{{VERSION_PATH}}|$version_path|g; \
-             s/{{DOMAIN}}/$domain/g; \
-             s/{{EXAMPLE_CLASS}}/$example_class/g; \
-             s/{{EXAMPLE_VAR}}/$example_var/g; \
-             s/{{POLICY}}/$policy/g" "$quickstart_file"
-        echo ""
-        echo ""
-    else
-        # Fallback: Standard tre-delar-struktur (same for alle modellar)
-        echo "## Kom i gang"
-        echo ""
-        echo "### Importer i LinkML-skjema"
-        echo ""
-        echo "\`\`\`yaml"
-        echo "imports:"
-        echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/$version_path/src/linkml/$domain/$schema/$schema-schema.yaml"
-        echo "\`\`\`"
-        echo ""
-        echo "### Valider skjemaet mot $policy-policy"
-        echo ""
-        echo "\`\`\`bash"
-        echo "make mcp-validate SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml"
-        echo "\`\`\`"
-        echo ""
-        echo "### Valider datafil mot LinkML-skjemaet"
-        echo ""
-        echo "\`\`\`bash"
-        echo "make validate-instance SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml INSTANCE=mine-data.yaml"
-        echo "\`\`\`"
-        echo ""
-        echo "### Python-bruk"
-        echo ""
-        echo "\`\`\`bash"
-        echo "pip install linkml-runtime pyyaml"
-        echo "\`\`\`"
-        echo ""
-        echo "\`\`\`python"
-        echo "from linkml_runtime.loaders import yaml_loader"
-        echo "from ${schema//-/_}_model import $example_class"
-        echo ""
-        echo "$example_var = yaml_loader.load('mine-data.yaml', target_class=$example_class)"
-        echo "\`\`\`"
-        echo ""
-        echo ""
-    fi
+    # Generer standard struktur (dynamisk, same for alle modellar)
+    echo "## Kom i gang"
+    echo ""
+    echo "### Importer i LinkML-skjema"
+    echo ""
+    echo "\`\`\`yaml"
+    echo "imports:"
+    echo "  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/$version_path/src/linkml/$domain/$schema/$schema-schema.yaml"
+    echo "\`\`\`"
+    echo ""
+    echo "### Valider skjemaet mot $policy-policy"
+    echo ""
+    echo "\`\`\`bash"
+    echo "make mcp-validate SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml"
+    echo "\`\`\`"
+    echo ""
+    echo "### Valider datafil mot LinkML-skjemaet"
+    echo ""
+    echo "\`\`\`bash"
+    echo "make validate-instance SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml INSTANCE=mine-data.yaml"
+    echo "\`\`\`"
+    echo ""
+    echo "### Python-bruk"
+    echo ""
+    echo "\`\`\`bash"
+    echo "pip install linkml-runtime pyyaml"
+    echo "\`\`\`"
+    echo ""
+    echo "\`\`\`python"
+    echo "from linkml_runtime.loaders import yaml_loader"
+    echo "from ${schema//-/_}_model import $example_class"
+    echo ""
+    echo "$example_var = yaml_loader.load('mine-data.yaml', target_class=$example_class)"
+    echo "\`\`\`"
+    echo ""
+    echo ""
 }
