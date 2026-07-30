@@ -348,7 +348,8 @@
       "Bash(make gen-python *)",
       "Bash(timeout 120 make domain-referanse)",
       "Bash(make SCHEMAS=src/linkml/samt/samt-bu/samt-bu-schema.yaml)",
-      "Bash(make gen-json-schema *)"
+      "Bash(make gen-json-schema *)",
+      "Bash(make domain-ngr *)"
     ]
   },
   "enableAllProjectMcpServers": true,

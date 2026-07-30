@@ -137,23 +137,32 @@ jobs:
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           pull_image() {
-            local local_tag="$1" ghcr_tag="$2"
+            local local_tag="$1" ghcr_tag="$2" make_target="$3"
             local start=$(date +%s%3N)
-            podman pull "$ghcr_tag"
-            podman tag "$ghcr_tag" "$local_tag"
-            local elapsed=$(( $(date +%s%3N) - start ))
-            printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+            if podman pull "$ghcr_tag" 2>/dev/null; then
+              podman tag "$ghcr_tag" "$local_tag"
+              local elapsed=$(( $(date +%s%3N) - start ))
+              printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+            else
+              echo "⚠ GHCR-pull feila for $local_tag — byggjer lokalt"
+              make "$make_target"
+            fi
           }
           pull_image localhost/linkml-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" &
+            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" \
+            build-docker-linkml &
           pull_image localhost/python-pytest:latest \
-            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" &
+            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" \
+            build-docker-python &
           pull_image localhost/avrotize-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" &
+            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" \
+            build-docker-avrotize &
           pull_image localhost/asyncapi-cli-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" &
+            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" \
+            build-docker-asyncapi &
           pull_image localhost/plantuml:latest \
-            "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" &
+            "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" \
+            build-docker-plantuml &
           wait
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
