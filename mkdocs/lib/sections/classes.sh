@@ -149,6 +149,7 @@ generate_classes_section() {
     awk '/^## Classes/,/^## [^C]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g' | sed 's/^## Classes (\([0-9]*\))$/## Classes (\1) {#classes}/'
     build_import_links "$domain" "$schema" "classes" "klasser"
     echo ""
+    echo "---"
     echo ""
 
     # Ekstraher Slots-seksjonen
@@ -156,6 +157,7 @@ generate_classes_section() {
         awk '/^## Slots/,/^## [^S]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g' | sed 's/^## Slots (\([0-9]*\))$/## Slots (\1) {#slots}/'
         build_import_links "$domain" "$schema" "slots" "slots"
         echo ""
+        echo "---"
         echo ""
     fi
 
@@ -164,6 +166,7 @@ generate_classes_section() {
         awk '/^## Enumerations/,/^## [^E]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g' | sed 's/^## Enumerations (\([0-9]*\))$/## Enumerations (\1) {#enumerations}/'
         build_import_links "$domain" "$schema" "enumerations" "enums"
         echo ""
+        echo "---"
         echo ""
     fi
 
@@ -172,6 +175,7 @@ generate_classes_section() {
         awk '/^## Types/,/^## [^T]/' "$klasse_src" | sed '$d' | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g' | sed 's/^## Types (\([0-9]*\))$/## Types (\1) {#types}/'
         build_import_links "$domain" "$schema" "types" "typer"
         echo ""
+        echo "---"
         echo ""
     fi
 
