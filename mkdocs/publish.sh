@@ -3,7 +3,7 @@
 # Køyr etter make <domain> eller make validate.
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GEN="$REPO_ROOT/generated"
 DOCS="$REPO_ROOT/mkdocs/docs"
 MKDOCS_YML="$REPO_ROOT/mkdocs/mkdocs.yml"

@@ -6,12 +6,12 @@ tittel:
   nb: SAMT - Barnehagar og skular
   nn: SAMT - Barnehagar og skular
 beskrivelse:
-  nb: Ontodia-vennlig LinkML-modell for skoler
-  nn: Ontodia-vennlig LinkML-modell for skoler
-versjonsnummer: 1.7.0
+  nb: Skular og barnehagar
+  nn: Skular og barnehagar
+versjonsnummer: 1.8.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/971032146
-endringsdato: '2026-07-27'
+endringsdato: '2026-07-30'
 utgivelsesdato: '2026-06-10'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/

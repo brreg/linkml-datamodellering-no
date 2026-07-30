@@ -23,18 +23,16 @@ imports:
   - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/referanse-v1.3.0/src/linkml/referanse/referanse/referanse-schema.yaml
 ```
 
-### Valider datafil
-
-Valider datafil mot LinkML-skjemaet:
-
-```bash
-make validate-instance SCHEMA=src/linkml/referanse/referanse/referanse-schema.yaml INSTANCE=mine-data.yaml
-```
-
-Valider skjemaet mot bronze-policy:
+### Valider skjemaet mot bronze-policy
 
 ```bash
 make mcp-validate SCHEMA=src/linkml/referanse/referanse/referanse-schema.yaml
+```
+
+### Valider datafil mot LinkML-skjemaet
+
+```bash
+make validate-instance SCHEMA=src/linkml/referanse/referanse/referanse-schema.yaml INSTANCE=mine-data.yaml
 ```
 
 ### Python-bruk
@@ -54,8 +52,6 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 ---
 
 ## Avhengigheiter (4) {#avhengigheiter}
-
-### Imports
 
 Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 
@@ -83,7 +79,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/
 
 | Artefakt | Fil |
 |----------|-----|
-| JSON-LD kontekst | [`referanse-context.jsonld`](referanse-context.jsonld) |
+| JSON-LD kontekst | [referanse-context.jsonld](referanse-context.jsonld) |
 
 *Full byggekonfigurasjon: [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse/build.yaml)*
 

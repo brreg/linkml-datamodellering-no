@@ -15,18 +15,16 @@ imports:
   - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml
 ```
 
-### Valider datafil
-
-Valider datafil mot LinkML-skjemaet:
-
-```bash
-make validate-instance SCHEMA=src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml INSTANCE=mine-data.yaml
-```
-
-Valider skjemaet mot bronze-policy:
+### Valider skjemaet mot bronze-policy
 
 ```bash
 make mcp-validate SCHEMA=src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml
+```
+
+### Valider datafil mot LinkML-skjemaet
+
+```bash
+make validate-instance SCHEMA=src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml INSTANCE=mine-data.yaml
 ```
 
 ### Python-bruk
@@ -91,6 +89,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 
+---
 
 ## Slots
 
@@ -103,6 +102,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 
+---
 
 ## Enumerations
 
@@ -111,6 +111,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 
+---
 
 ## Types
 
@@ -119,6 +120,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 
 
+---
 
 ## Subsets
 
@@ -135,7 +137,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 | Artefakt | Fil |
 |----------|-----|
-| ER-diagram (Mermaid) | [`referanse-schema.yaml-erdiagram.md`](referanse-schema.yaml-erdiagram.md) |
+| ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
 
 *Full byggekonfigurasjon: [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml/build.yaml)*
 
