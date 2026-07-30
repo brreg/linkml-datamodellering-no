@@ -1,0 +1,59 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ngr/ngr-adresse
+tittel:
+  nb: Nasjonale grunndata - Adresse
+  nn: Nasjonale grunndata - Adresse
+beskrivelse:
+  nb: Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer
+    Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og
+    adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
+  nn: Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer
+    Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og
+    adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/971040238
+endringsdato: '2026-07-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-adresse/
+kontaktpunkt:
+- id: https://www.kartverket.no/om-kartverket/kontakt-oss/
+  navn_vcard:
+    nb: Kartverket
+    nn: Kartverket
+  har_kontaktside: https://www.kartverket.no/om-kartverket/kontakt-oss/
+inneholder_modellelement:
+- http://www.w3.org/ns/locn#Address
+- https://data.norge.no/vocabulary/ngr-adresse#OffisiellAdresse
+- https://data.norge.no/vocabulary/ngr-adresse#Postboksadresse
+- https://data.norge.no/vocabulary/ngr-adresse#Adressenavn
+- https://data.norge.no/vocabulary/ngr-adresse#Adresseomrade
+- https://data.norge.no/vocabulary/ngr-adresse#Adressekode
+- https://data.norge.no/vocabulary/ngr-adresse#Husnummer
+- https://data.norge.no/vocabulary/ngr-adresse#Bruksenhetsnummer
+- https://data.norge.no/vocabulary/ngr-adresse#Representasjonspunkt
+- https://data.norge.no/vocabulary/ngr-adresse#GeografiskOmrade
+- https://data.norge.no/vocabulary/ngr-adresse#Fylke
+- https://data.norge.no/vocabulary/ngr-adresse#Kommune
+- https://data.norge.no/vocabulary/ngr-adresse#Poststed
+- https://data.norge.no/vocabulary/ngr-adresse#Grunnkrets
+- https://data.norge.no/vocabulary/ngr-adresse#Tettsted
+- https://data.norge.no/vocabulary/ngr-adresse#Kirkesokn
+- https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets
+- https://data.norge.no/vocabulary/ngr-adresse#KommunalKrets
+- https://data.norge.no/vocabulary/ngr-adresse#Svalbard
+- https://data.norge.no/vocabulary/ngr-adresse#Postboks
+- https://data.norge.no/vocabulary/ngr-adresse#Bygning
+- https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-adresse/ngr-adresse-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml

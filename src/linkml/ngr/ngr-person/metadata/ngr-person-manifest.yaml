@@ -1,0 +1,71 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ngr/ngr-person
+tittel:
+  nb: Nasjonale grunndata - Person
+  nn: Nasjonale grunndata - Person
+beskrivelse:
+  nb: Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer
+    Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar
+    frå Folkeregisteret og KRR. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+  nn: Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer
+    Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar
+    frå Folkeregisteret og KRR. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974761076
+endringsdato: '2026-07-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-person/
+kontaktpunkt:
+- id: https://www.skatteetaten.no/kontakt/
+  navn_vcard:
+    nb: Skatteetaten
+    nn: Skatteetaten
+  har_kontaktside: https://www.skatteetaten.no/kontakt/
+inneholder_modellelement:
+- https://data.norge.no/vocabulary/ngr-person#Person
+- https://data.norge.no/vocabulary/ngr-person#Personnavn
+- https://data.norge.no/vocabulary/ngr-person#Folkeregisteridentifikator
+- https://data.norge.no/vocabulary/ngr-person#Foedselsnummer
+- https://data.norge.no/vocabulary/ngr-person#DNummer
+- https://data.norge.no/vocabulary/ngr-person#Personidentifikasjon
+- https://data.norge.no/vocabulary/ngr-person#FalskIdentitet
+- https://data.norge.no/vocabulary/ngr-person#Identifikasjonsdokument
+- https://data.norge.no/vocabulary/ngr-person#Identitetsgrunnlag
+- https://data.norge.no/vocabulary/ngr-person#Kjoenn
+- https://data.norge.no/vocabulary/ngr-person#Sivilstand
+- https://data.norge.no/vocabulary/ngr-person#Personstatus
+- https://data.norge.no/vocabulary/ngr-person#Statsborgerskap
+- https://data.norge.no/vocabulary/ngr-person#Opphold
+- https://data.norge.no/vocabulary/ngr-person#Foedsel
+- https://data.norge.no/vocabulary/ngr-person#Dodsfall
+- https://data.norge.no/vocabulary/ngr-person#KontaktinformasjonDoedsbo
+- https://data.norge.no/vocabulary/ngr-person#ForeldreansvarForelder
+- https://data.norge.no/vocabulary/ngr-person#ForeldreansvarBarn
+- https://data.norge.no/vocabulary/ngr-person#FamilierelasjonForelder
+- https://data.norge.no/vocabulary/ngr-person#FamilierelasjonBarn
+- https://data.norge.no/vocabulary/ngr-person#FamilierelasjonEktefelle
+- https://data.norge.no/vocabulary/ngr-person#InnflyttingTilNorge
+- https://data.norge.no/vocabulary/ngr-person#UtflyttingFraNorge
+- https://data.norge.no/vocabulary/ngr-person#GeografiskAdresse
+- https://data.norge.no/vocabulary/ngr-person#Bostedsadresse
+- https://data.norge.no/vocabulary/ngr-person#Postadresse
+- https://data.norge.no/vocabulary/ngr-person#Oppholdsadresse
+- https://data.norge.no/vocabulary/ngr-person#Adressebeskyttelse
+- https://data.norge.no/vocabulary/ngr-person#Verge
+- https://data.norge.no/vocabulary/ngr-person#RettsligHandleevne
+- https://data.norge.no/vocabulary/ngr-person#ReservasjonMotKommunikasjonPaaNett
+- https://data.norge.no/vocabulary/ngr-person#Kontaktopplysninger
+- https://data.norge.no/vocabulary/ngr-person#SpraakForElektroniskKommunikasjon
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-person/ngr-person-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ngr/ngr-person/ngr-person-schema.yaml

@@ -1,0 +1,78 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ngr/ngr-eiendom
+tittel:
+  nb: Nasjonale grunndata - Eiendom
+  nn: Nasjonale grunndata - Eiendom
+beskrivelse:
+  nb: Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast).
+    Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold
+    og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+  nn: Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast).
+    Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold
+    og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/971040238
+endringsdato: '2026-07-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-eiendom/
+kontaktpunkt:
+- id: https://www.kartverket.no/om-kartverket/kontakt-oss/
+  navn_vcard:
+    nb: Kartverket
+    nn: Kartverket
+  har_kontaktside: https://www.kartverket.no/om-kartverket/kontakt-oss/
+inneholder_modellelement:
+- https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
+- https://data.norge.no/vocabulary/ngr-eiendom#SamletFastEiendom
+- https://data.norge.no/vocabulary/ngr-eiendom#Borettslagsandel
+- https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelenhet
+- https://data.norge.no/vocabulary/ngr-eiendom#Grunneiendom
+- https://data.norge.no/vocabulary/ngr-eiendom#Festegrunn
+- https://data.norge.no/vocabulary/ngr-eiendom#Jordsameie
+- https://data.norge.no/vocabulary/ngr-eiendom#Eierseksjon
+- https://data.norge.no/vocabulary/ngr-eiendom#Anleggseiendom
+- https://data.norge.no/vocabulary/ngr-eiendom#AnnenMatrikkelenhet
+- https://data.norge.no/vocabulary/ngr-eiendom#Matrikkelnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Kommunenummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Seksjonsnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Bygning
+- https://data.norge.no/vocabulary/ngr-eiendom#Bygningsnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Representasjonspunkt
+- https://data.norge.no/vocabulary/ngr-eiendom#YtreInngang
+- https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet
+- https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhetsnummer
+- https://data.norge.no/vocabulary/ngr-eiendom#Etasje
+- https://data.norge.no/vocabulary/ngr-eiendom#Teig
+- https://data.norge.no/vocabulary/ngr-eiendom#Anleggsprojeksjonsflate
+- https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
+- https://data.norge.no/vocabulary/ngr-eiendom#TinglystEierforhold
+- https://data.norge.no/vocabulary/ngr-eiendom#IkkeTinglystEierforhold
+- https://data.norge.no/vocabulary/ngr-eiendom#Hjemmel
+- https://data.norge.no/vocabulary/ngr-eiendom#HjemmelTilEiendomsrett
+- https://data.norge.no/vocabulary/ngr-eiendom#HjemmelTilFesterett
+- https://data.norge.no/vocabulary/ngr-eiendom#HjemmelTilFramfesterett
+- https://data.norge.no/vocabulary/ngr-eiendom#Andel
+- https://data.norge.no/vocabulary/ngr-eiendom#Rettighetshaver
+- https://data.norge.no/vocabulary/ngr-eiendom#TinglystHeftelse
+- https://data.norge.no/vocabulary/ngr-eiendom#RettighetForAaBenytteEiendom
+- https://data.norge.no/vocabulary/ngr-eiendom#Borettslag
+- https://data.norge.no/vocabulary/ngr-eiendom#OffisiellAdresse
+- https://data.norge.no/vocabulary/ngr-eiendom#Person
+- https://data.norge.no/vocabulary/ngr-eiendom#Hovedenhet
+- https://data.norge.no/vocabulary/ngr-eiendom#Kommune
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-eiendom/ngr-eiendom-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ngr/ngr-eiendom/ngr-eiendom-schema.yaml

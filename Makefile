@@ -533,31 +533,31 @@ build-docker-linkml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-linkml$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE) .
+	podman build --format docker -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE) .
 
 build-docker-python:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-python$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
+	podman build --format docker -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
 
 build-docker-avrotize:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-avrotize$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
+	podman build --format docker -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
 
 build-docker-asyncapi:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-asyncapi$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
+	podman build --format docker -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
 
 build-docker-plantuml:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-plantuml$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f src/assets/containers/Dockerfile.plantuml -t localhost/plantuml:latest .
+	podman build --format docker -f src/assets/containers/Dockerfile.plantuml -t localhost/plantuml:latest .
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
@@ -963,7 +963,7 @@ build-docker-mkdocs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-mkdocs$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(DOCS_DOCKERFILE) -t $(DOCS_IMAGE)
+	podman build --format docker -f $(DOCS_DOCKERFILE) -t $(DOCS_IMAGE)
 
 docs-serve:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -990,7 +990,7 @@ build-docker-mcp-validator:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-mcp-validator$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -t $(MCP_IMAGE) $(MCP_DIR)
+	podman build --format docker -t $(MCP_IMAGE) $(MCP_DIR)
 
 mcp-linkml-validate-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1021,7 +1021,7 @@ build-docker-mcp-modell-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-mcp-modell-utkast$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
+	podman build --format docker -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
 
 mcp-linkml-modell-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1068,7 +1068,7 @@ build-docker-mcp-begrep-utkast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-mcp-begrep-utkast$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
+	podman build --format docker -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
 
 mcp-linkml-begrep-utkast-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -1222,7 +1222,7 @@ build-docker-gource:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make build-docker-gource$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -f $(GOURCE_DOCKERFILE) -t $(GOURCE_IMAGE)
+	podman build --format docker -f $(GOURCE_DOCKERFILE) -t $(GOURCE_IMAGE)
 
 gource-preview: build-docker-gource
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

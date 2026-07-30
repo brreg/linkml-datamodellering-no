@@ -1,0 +1,56 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/ngr/ngr-virksomhet
+tittel:
+  nb: Nasjonale grunndata - Virksomhet
+  nn: Nasjonale grunndata - Virksomhet
+beskrivelse:
+  nb: Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast). Modellerer
+    Virksomhet med Underenhet og Hovudeining, roller, adresser og klassifikasjonar
+    frå Enhetsregisteret. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+  nn: Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast). Modellerer
+    Virksomhet med Underenhet og Hovudeining, roller, adresser og klassifikasjonar
+    frå Enhetsregisteret. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+versjonsnummer: 1.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-07-10'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/
+kontaktpunkt:
+- id: https://brreg.no/kontakt/modellforvaltning
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
+inneholder_modellelement:
+- https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhet
+- https://data.norge.no/vocabulary/ngr-virksomhet#Underenhet
+- https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhet
+- https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand
+- https://data.norge.no/vocabulary/ngr-virksomhet#Organisasjonsform
+- https://data.norge.no/vocabulary/ngr-virksomhet#Naeringskode
+- https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkode
+- https://data.norge.no/vocabulary/ngr-virksomhet#Kontaktinformasjon
+- https://data.norge.no/vocabulary/ngr-virksomhet#Varslingsadresse
+- https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet
+- https://data.norge.no/vocabulary/ngr-virksomhet#RolleIVirksomhet
+- https://data.norge.no/vocabulary/ngr-virksomhet#Rolleinnehaver
+- https://data.norge.no/vocabulary/ngr-virksomhet#Signaturrett
+- https://data.norge.no/vocabulary/ngr-virksomhet#Prokura
+- https://data.norge.no/vocabulary/ngr-virksomhet#GeografiskAdresse
+- https://data.norge.no/vocabulary/ngr-virksomhet#Postadresse
+- https://data.norge.no/vocabulary/ngr-virksomhet#Forretningsadresse
+- https://data.norge.no/vocabulary/ngr-virksomhet#Beliggenhetsadresse
+- https://data.norge.no/vocabulary/ngr-virksomhet#Person
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ngr/ngr-virksomhet/ngr-virksomhet-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ngr/ngr-virksomhet/ngr-virksomhet-schema.yaml
