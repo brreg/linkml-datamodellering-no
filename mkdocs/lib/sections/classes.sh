@@ -10,8 +10,8 @@ source "$SCRIPT_DIR/../utils/imported_schemas.sh"
 build_import_links() {
     local domain="$1"
     local schema="$2"
-    local section="$3"  # classes, slots, enumerations, types
-    local label="$4"    # "klasser", "slots", "enums", "typer"
+    local section="$3"  # classes, slots, enumerations, types, subsets
+    local label="$4"    # "klasser", "slots", "enums", "typer", "subsets"
 
     # Hent importerte skjema
     local imported_schemas
@@ -27,6 +27,17 @@ build_import_links() {
         local linkml_url="https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml"
         linkml_types_link="[linkml:types]($linkml_url)"
     fi
+
+    # Map section til overskrift-format (Classes, Slots, Enumerations, Types, Subsets)
+    local section_header
+    case "$section" in
+        classes) section_header="Classes" ;;
+        slots) section_header="Slots" ;;
+        enumerations) section_header="Enumerations" ;;
+        types) section_header="Types" ;;
+        subsets) section_header="Subsets" ;;
+        *) section_header="" ;;
+    esac
 
     while IFS= read -r imported; do
         [ -z "$imported" ] && continue
@@ -51,6 +62,41 @@ build_import_links() {
         local rel_path="${imported_file#$REPO_ROOT/}"
         local imported_domain
         imported_domain=$(echo "$rel_path" | cut -d/ -f3)
+
+        # Sjekk om den importerte modellen faktisk har lokale definisjoner i denne seksjonen
+        local imported_index="$REPO_ROOT/generated/${imported_domain}/${imported_clean}/docs/index.md"
+        if [ -f "$imported_index" ] && [ -n "$section_header" ]; then
+            # Hent schema.id frå kjelde-YAML
+            local schema_id
+            schema_id=$(grep "^id:" "$imported_file" | head -1 | sed 's/^id: *//')
+
+            # Ekstraher teljing frå header (t.d. "## Classes (17)" → 17)
+            local count
+            count=$(grep "^## ${section_header} (" "$imported_index" | sed -n 's/.*(\([0-9]*\)).*/\1/p')
+
+            # Hopp over dersom teljing er 0
+            if [ "$count" = "0" ]; then
+                continue
+            fi
+
+            # For ikkje-null teljing: sjekk om det finst lokale definisjoner
+            # Ekstraher seksjonen og sjekk "Defined in"-kolonna
+            if [ -n "$count" ] && [ "$count" != "0" ]; then
+                # Ekstraher tabellen for denne seksjonen (frå header til "---" eller EOF)
+                local section_content
+                section_content=$(grep -A 100 "^## ${section_header}" "$imported_index" | grep -B 100 -m 1 "^---" 2>/dev/null || grep -A 100 "^## ${section_header}" "$imported_index")
+
+                # Sjekk om det finst minst ein rad der "Defined in" matcher schema.id
+                # Tabellformat: | Name | Description | Defined in |
+                local has_local
+                has_local=$(echo "$section_content" | grep -F "[$schema_id]" || true)
+
+                # Hopp over dersom ingen lokale definisjoner
+                if [ -z "$has_local" ]; then
+                    continue
+                fi
+            fi
+        fi
 
         # Bygg relativ lenke
         local link
