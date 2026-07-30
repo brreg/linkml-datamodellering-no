@@ -135,6 +135,7 @@ a:hover {
   height: 1px;
   background: var(--ds-color-main1-border-subtle);
   margin: 2rem 0;
+  opacity: 0.3;
 }
 
 /**
