@@ -145,6 +145,79 @@ a:hover {
 }
 
 /**
+ * Admonitions (note, warning, tip, info) → Brønnøysund Alert-stil
+ * Følger https://designsystemet.no/no/components/docs/alert/overview
+ */
+.md-typeset .admonition {
+  border: 1px solid var(--ds-color-info-border-default);
+  border-left: 4px solid var(--ds-color-info-border-default);
+  background-color: var(--ds-color-info-surface-default);
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: inherit;
+}
+
+.md-typeset .admonition.note {
+  border: 1px solid var(--ds-color-info-surface-hover);
+  border-left: 4px solid var(--ds-color-info-surface-hover);
+  background-color: var(--ds-color-info-surface-default);
+}
+
+.md-typeset .admonition.warning {
+  border: 1px solid var(--ds-color-warning-surface-hover);
+  border-left: 4px solid var(--ds-color-warning-surface-hover);
+  background-color: var(--ds-color-warning-surface-default);
+}
+
+.md-typeset .admonition.tip {
+  border: 1px solid var(--ds-color-success-surface-hover);
+  border-left: 4px solid var(--ds-color-success-surface-hover);
+  background-color: var(--ds-color-success-surface-default);
+}
+
+.md-typeset .admonition.info {
+  border: 1px solid var(--ds-color-info-surface-hover);
+  border-left: 4px solid var(--ds-color-info-surface-hover);
+  background-color: var(--ds-color-info-surface-default);
+}
+
+.md-typeset .admonition.danger {
+  border: 1px solid var(--ds-color-danger-surface-hover);
+  border-left: 4px solid var(--ds-color-danger-surface-hover);
+  background-color: var(--ds-color-danger-surface-default);
+}
+
+.md-typeset .admonition-title {
+  font-weight: 600;
+  background-color: transparent !important;
+}
+
+.md-typeset .admonition.note .admonition-title {
+  color: var(--ds-color-info-text-default);
+  background-color: var(--ds-color-info-surface-default) !important;
+}
+
+.md-typeset .admonition.warning .admonition-title {
+  color: var(--ds-color-warning-text-default);
+  background-color: var(--ds-color-warning-surface-default) !important;
+}
+
+.md-typeset .admonition.tip .admonition-title {
+  color: var(--ds-color-success-text-default);
+  background-color: var(--ds-color-success-surface-default) !important;
+}
+
+.md-typeset .admonition.info .admonition-title {
+  color: var(--ds-color-info-text-default);
+  background-color: var(--ds-color-info-surface-default) !important;
+}
+
+.md-typeset .admonition.danger .admonition-title {
+  color: var(--ds-color-danger-text-default);
+  background-color: var(--ds-color-danger-surface-default) !important;
+}
+
+/**
  * Overskrifter med venstrestilt aksentlinje → Alternativ 1 frå header-styling.md
  */
 .md-typeset h1 {

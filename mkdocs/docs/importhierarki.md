@@ -113,7 +113,7 @@ linkml:types
 
 **Import mellom domenemodeller er tillate**, men krev varsomheit:
 
-⚠️ **Alltid lås til ein konkret versjon** når du importerer ein domenemodell frå ein annan domenemodell. Dette er naudsynt fordi domenemodeller kan endre seg på måtar som bryt bakoverkompatibilitet (klasser/slots vert endra eller fjerna).
+!!! success "Låsing av versjon" **Alltid lås til ein konkret versjon** når du importerer ein domenemodell frå ein annan domenemodell. Dette er naudsynt fordi domenemodeller kan endre seg på måtar som bryt bakoverkompatibilitet (klasser/slots vert endra eller fjerna).
 
 **Eksempel — korrekt versjonslåsing:**
 
