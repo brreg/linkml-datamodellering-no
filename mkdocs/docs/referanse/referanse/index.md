@@ -14,6 +14,43 @@ Skjemaet demonstrerer alle hovudmønster i repoet: containerklasse, globale slot
 
 ---
 
+## Kom i gang
+
+### Importer i LinkML-skjema
+
+```yaml
+imports:
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/referanse-v1.3.0/src/linkml/referanse/referanse/referanse-schema.yaml
+```
+
+### Valider datafil
+
+Valider datafil mot LinkML-skjemaet:
+
+```bash
+make validate-instance SCHEMA=src/linkml/referanse/referanse/referanse-schema.yaml INSTANCE=mine-data.yaml
+```
+
+Valider skjemaet mot bronze-policy:
+
+```bash
+make mcp-validate SCHEMA=src/linkml/referanse/referanse/referanse-schema.yaml
+```
+
+### Python-bruk
+
+```bash
+pip install linkml-runtime pyyaml
+```
+
+```python
+from linkml_runtime.loaders import yaml_loader
+from referanse_model import Ressurs
+
+ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
+```
+
+
 ---
 
 ## Avhengigheiter (4) {#avhengigheiter}
@@ -29,12 +66,9 @@ linkml:types  # direkte import
         └── dcat-ap-no-schema  # direkte import
 ```
 
-!!! note "Leseretning"
-    Diagrammet ovanfor viser avhengigheiter **frå høgre til venstre**. Dette skjemaet
-    importerer dei skjemaa som står lengst til høgre, som igjen automatisk inkluderer
-    alle sine avhengigheiter lengre til venstre i treet.
-
 *Sjå [Importhierarki](../../importhierarki.md) for oversikt over heile repoet sitt importhierarki.*
+
+*Importerte modeller: [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml), [common-ap-no](../../ap-no/common-ap-no/#metadata), [dcat-ap-no](../../ap-no/dcat-ap-no/#metadata), [dqv-core](../../ap-no/dqv-core/#metadata)*
 
 
 

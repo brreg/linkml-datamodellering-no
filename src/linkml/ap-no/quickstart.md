@@ -7,6 +7,20 @@ imports:
   - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/{{VERSION_PATH}}/src/linkml/ap-no/{{SCHEMA}}/{{SCHEMA}}-schema.yaml
 ```
 
+### Valider datafil
+
+Valider datafil mot LinkML-skjemaet:
+
+```bash
+make validate-instance SCHEMA=src/linkml/ap-no/{{SCHEMA}}/{{SCHEMA}}-schema.yaml INSTANCE=mine-data.yaml
+```
+
+Valider skjemaet mot {{POLICY}}-policy:
+
+```bash
+make mcp-validate SCHEMA=src/linkml/ap-no/{{SCHEMA}}/{{SCHEMA}}-schema.yaml
+```
+
 ### Python-bruk
 
 ```bash
@@ -15,14 +29,7 @@ pip install linkml-runtime pyyaml
 
 ```python
 from linkml_runtime.loaders import yaml_loader
-from {{SCHEMA_UNDERSCORE}}_model import Katalog
+from {{SCHEMA_UNDERSCORE}}_model import {{EXAMPLE_CLASS}}
 
-katalog = yaml_loader.load('eksempel.yaml', target_class=Katalog)
-print(katalog.tittel)
-```
-
-### Valider data mot SHACL
-
-```bash
-pyshacl --shacl {{SCHEMA}}-shapes.ttl --data-format turtle mine-data.ttl
+{{EXAMPLE_VAR}} = yaml_loader.load('mine-data.yaml', target_class={{EXAMPLE_CLASS}})
 ```

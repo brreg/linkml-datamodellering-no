@@ -6,9 +6,46 @@
 [![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
 
 
+## Kom i gang
+
+### Importer i LinkML-skjema
+
+```yaml
+imports:
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml
+```
+
+### Valider datafil
+
+Valider datafil mot LinkML-skjemaet:
+
+```bash
+make validate-instance SCHEMA=src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml INSTANCE=mine-data.yaml
+```
+
+Valider skjemaet mot bronze-policy:
+
+```bash
+make mcp-validate SCHEMA=src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml
+```
+
+### Python-bruk
+
+```bash
+pip install linkml-runtime pyyaml
+```
+
+```python
+from linkml_runtime.loaders import yaml_loader
+from referanse_schema.yaml_model import Container
+
+container = yaml_loader.load('mine-data.yaml', target_class=Container)
+```
+
+
 ---
 
-## Modellmetadata
+## Modellmetadata {#metadata}
 
 | Felt | Verdi |
 | --- | --- |
