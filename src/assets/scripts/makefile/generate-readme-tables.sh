@@ -4,6 +4,7 @@
 # Output: Oppdatert README-fil med auto-genererte tabellar
 
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 README="${1:-README.md}"
 

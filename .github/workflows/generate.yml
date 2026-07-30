@@ -239,6 +239,8 @@ jobs:
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
+          set -euo pipefail
+          trap 'echo "::error file=.github/workflows/generate.yml,line=243::make domain-${{ matrix.domain }} failed — sjå loggar for detaljar"; exit 1' ERR
           # Køyr domene-target som genererer alle hovudartefaktar
           make domain-${{ matrix.domain }}
 
@@ -318,7 +320,10 @@ jobs:
           restore-keys: mkdocs-build-
 
       - name: Publiser og bygg dokumentasjonsportal
+        shell: bash
         run: |
+          set -euo pipefail
+          trap 'echo "::error file=.github/workflows/generate.yml,line=326::make docs-publish/docs-build failed — sjå loggar for detaljar"; exit 1' ERR
           make docs-publish
           make docs-build
 

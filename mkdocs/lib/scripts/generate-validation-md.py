@@ -9,6 +9,10 @@ import json
 import sys
 from pathlib import Path
 
+# Legg til repo-root i sys.path for å importere error_handler
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
+from utils.error_handler import log_error
+
 
 def main() -> None:
     if len(sys.argv) < 4:
@@ -21,9 +25,13 @@ def main() -> None:
 
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as e:
-        print(f"FEIL: kunne ikkje lese {path}: {e}", file=sys.stderr)
-        sys.exit(1)
+    except Exception:
+        log_error({
+            "validation_json": str(path),
+            "domain": domain,
+            "schema": schema,
+            "step": "read_validation_json",
+        })
 
     version = data.get("version", "")
     validated_at = data.get("validated_at", "")

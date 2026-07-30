@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Generer Kom i gang-seksjon (seksjon 5 i index.md)
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 generate_quickstart() {
     local domain="$1"

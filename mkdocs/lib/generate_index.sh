@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Orkestrer generering av index.md per skjema
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 # Source alle seksjonsgenererande funksjonar
 SECTIONS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/sections" && pwd)"

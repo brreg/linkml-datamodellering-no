@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Generer versjonslog-seksjon (seksjon 18 i index.md)
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 generate_changelog() {
     local domain="$1"

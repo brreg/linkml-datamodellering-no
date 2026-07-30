@@ -78,6 +78,8 @@ define run_parallel_with_timer
 	$(call $(3),$(1)) \
 else \
 	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+		set -euo pipefail; \
+		trap '\''echo "ERROR in Makefile parallel job for $$domain/$$name at line $$LINENO — command: $$BASH_COMMAND" >&2; exit 1'\'' ERR; \
 		s="{}"; \
 		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 		domain=$$(echo "$$s" | cut -d/ -f3); \

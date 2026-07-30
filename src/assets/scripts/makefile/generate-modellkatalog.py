@@ -14,6 +14,10 @@ from pathlib import Path
 import yaml
 from typing import Dict, List, Optional
 
+# Legg til repo-root i sys.path for å importere error_handler
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.error_handler import log_error
+
 
 def load_yaml(file_path: Path) -> Dict:
     """Last YAML-fil."""
@@ -243,66 +247,76 @@ def generate_modellkatalog_for_org(org: Dict, informasjonsmodeller: List[Dict]) 
 def main():
     print("Genererer per-org Modellkatalog-instansar")
 
-    # 1. Last CODEOWNERS.md
-    org_registry = load_codeowners()
-    if not org_registry:
-        print("Error: Ingen organisasjonar funne i CODEOWNERS.md", file=sys.stderr)
-        sys.exit(1)
+    try:
+        # 1. Last CODEOWNERS.md
+        org_registry = load_codeowners()
+        if not org_registry:
+            print("Error: Ingen organisasjonar funne i CODEOWNERS.md", file=sys.stderr)
+            sys.exit(1)
 
-    print(f"✓ Lasta {len(org_registry)} organisasjonar frå CODEOWNERS.md")
+        print(f"✓ Lasta {len(org_registry)} organisasjonar frå CODEOWNERS.md")
 
-    # 2. Finn alle Informasjonsmodell-instansar
-    modelldcat_files = discover_modelldcat_files()
-    if not modelldcat_files:
-        print("Warning: Ingen Informasjonsmodell-instansar funne", file=sys.stderr)
-        sys.exit(0)
+        # 2. Finn alle Informasjonsmodell-instansar
+        modelldcat_files = discover_modelldcat_files()
+        if not modelldcat_files:
+            print("Warning: Ingen Informasjonsmodell-instansar funne", file=sys.stderr)
+            sys.exit(0)
 
-    print(f"✓ Fann {len(modelldcat_files)} metadata/*-manifest.yaml-filer")
+        print(f"✓ Fann {len(modelldcat_files)} metadata/*-manifest.yaml-filer")
 
-    # 3. Last alle Informasjonsmodell-instansar og grupper etter utgiver
-    org_models = {org_uri: [] for org_uri in org_registry}
+        # 3. Last alle Informasjonsmodell-instansar og grupper etter utgiver
+        org_models = {org_uri: [] for org_uri in org_registry}
 
-    for file_path in modelldcat_files:
-        try:
-            modell = load_yaml(file_path)
-            utgiver = modell.get('utgiver')
+        for file_path in modelldcat_files:
+            try:
+                modell = load_yaml(file_path)
+                utgiver = modell.get('utgiver')
 
-            if not utgiver:
-                print(f"Warning: {file_path} manglar 'utgiver', hoppar over", file=sys.stderr)
-                continue
+                if not utgiver:
+                    print(f"Warning: {file_path} manglar 'utgiver', hoppar over", file=sys.stderr)
+                    continue
 
-            if utgiver in org_registry:
-                org_models[utgiver].append(modell)
-            else:
-                print(f"Warning: {file_path} har utgiver {utgiver} som ikkje finst i CODEOWNERS.md", file=sys.stderr)
+                if utgiver in org_registry:
+                    org_models[utgiver].append(modell)
+                else:
+                    print(f"Warning: {file_path} har utgiver {utgiver} som ikkje finst i CODEOWNERS.md", file=sys.stderr)
 
-        except Exception as e:
-            print(f"Warning: Kunne ikkje laste {file_path}: {e}", file=sys.stderr)
+            except Exception as e:
+                print(f"Warning: Kunne ikkje laste {file_path}: {e}", file=sys.stderr)
+    except Exception:
+        log_error({
+            "step": "load_and_group_models",
+        })
 
     # 4. Generer per-org katalogfiler
-    generated_count = 0
-    for org_uri, org in org_registry.items():
-        modeller = org_models.get(org_uri, [])
-        if not modeller:
-            print(f"  Hoppar over {org.get('name')} (ingen modellar)")
-            continue
+    try:
+        generated_count = 0
+        for org_uri, org in org_registry.items():
+            modeller = org_models.get(org_uri, [])
+            if not modeller:
+                print(f"  Hoppar over {org.get('name')} (ingen modellar)")
+                continue
 
-        catalog_slug = org.get('catalog_slug')
-        if not catalog_slug:
-            print(f"Warning: {org.get('name')} manglar 'catalog_slug', hoppar over", file=sys.stderr)
-            continue
+            catalog_slug = org.get('catalog_slug')
+            if not catalog_slug:
+                print(f"Warning: {org.get('name')} manglar 'catalog_slug', hoppar over", file=sys.stderr)
+                continue
 
-        # Generer katalog
-        katalog_data = generate_modellkatalog_for_org(org, modeller)
+            # Generer katalog
+            katalog_data = generate_modellkatalog_for_org(org, modeller)
 
-        # Skriv til fil
-        output_path = Path(f"src/linkml/modellkatalog/{catalog_slug}/data/{catalog_slug}/{catalog_slug}.yaml")
-        write_yaml(output_path, katalog_data)
+            # Skriv til fil
+            output_path = Path(f"src/linkml/modellkatalog/{catalog_slug}/data/{catalog_slug}/{catalog_slug}.yaml")
+            write_yaml(output_path, katalog_data)
 
-        print(f"✓ Generert: {output_path} ({len(modeller)} modellar)")
-        generated_count += 1
+            print(f"✓ Generert: {output_path} ({len(modeller)} modellar)")
+            generated_count += 1
 
-    print(f"\n✓ Totalt {generated_count} organisasjonskatalogar generert")
+        print(f"\n✓ Totalt {generated_count} organisasjonskatalogar generert")
+    except Exception:
+        log_error({
+            "step": "generate_catalogs",
+        })
 
 
 if __name__ == '__main__':

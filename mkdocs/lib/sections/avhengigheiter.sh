@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Generer avhengigheitstre (seksjon 9 i index.md)
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 # Source imported_schemas utility
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

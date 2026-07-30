@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Genererer config.mk frå alle build.yaml-filer (skjema-manifest) i src/linkml/.
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 echo "# Generert av src/assets/scripts/gen-config.sh — ikkje rediger manuelt"
 echo "# Regenerer med: make config.mk"

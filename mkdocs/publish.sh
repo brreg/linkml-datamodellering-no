@@ -2,6 +2,7 @@
 # Kopier genererte artefakter til mkdocs/docs/ og generer index-sider og mkdocs.yml.
 # Køyr etter make <domain> eller make validate.
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 export REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GEN="$REPO_ROOT/generated"
@@ -351,14 +352,30 @@ for domain in "${ALL_DOMAINS[@]}"; do
 done
 
 # Vent på alle jobbar og rapporter feil
-failed=0
+failed_jobs=()
 for i in "${!PIDS[@]}"; do
     if ! wait "${PIDS[$i]}"; then
-        echo "${CLR_ERR}FEIL: ${KEYS[$i]}${CLR_RST}" >&2
-        failed=$((failed + 1))
+        domain_schema="${KEYS[$i]}"
+        domain="${domain_schema%/*}"
+        schema="${domain_schema#*/}"
+
+        echo "${CLR_ERR}FEIL: $domain/$schema${CLR_RST}" >&2
+        echo "  Domain: $domain" >&2
+        echo "  Schema: $schema" >&2
+        echo "  Output: $DOCS/$domain/$schema/" >&2
+
+        failed_jobs+=("$domain/$schema")
     fi
 done
-[ "$failed" -gt 0 ] && exit 1
+
+if [ ${#failed_jobs[@]} -gt 0 ]; then
+    echo "" >&2
+    echo "${CLR_ERR}${SEP}${CLR_RST}" >&2
+    echo "${CLR_ERR}OPPSUMMERING: ${#failed_jobs[@]} skjema feila${CLR_RST}" >&2
+    printf '  - %s\n' "${failed_jobs[@]}" >&2
+    echo "${CLR_ERR}${SEP}${CLR_RST}" >&2
+    exit 1
+fi
 
 # Generer domain/index.md sekvensielt (avheng av at alle skjema er ferdige)
 for domain in "${ALL_DOMAINS[@]}"; do

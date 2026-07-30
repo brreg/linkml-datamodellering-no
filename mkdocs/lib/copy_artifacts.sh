@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Kopier genererte artefakter til mkdocs/docs/
 set -euo pipefail
+trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 copy_schema_artifacts() {
     local domain="$1"

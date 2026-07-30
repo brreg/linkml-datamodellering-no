@@ -20,6 +20,10 @@ import yaml
 import glob
 from typing import Dict, List, Optional
 
+# Legg til repo-root i sys.path for å importere error_handler
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.error_handler import log_error
+
 
 def load_yaml(file_path: Path) -> Dict:
     """Last YAML-fil."""
@@ -374,15 +378,21 @@ def main():
 
     print(f"Genererer Informasjonsmodell-instans for {schema_path}")
 
-    # Generer
-    modelldcat_data = generate_modelldcat_data(schema_path)
+    try:
+        # Generer
+        modelldcat_data = generate_modelldcat_data(schema_path)
 
-    # Skriv til metadata/<modell>-manifest.yaml
-    modell_name = schema_path.stem.replace('-schema', '')  # "dcat-ap-no-schema" → "dcat-ap-no"
-    output_path = schema_path.parent / 'metadata' / f'{modell_name}-manifest.yaml'
-    write_yaml(output_path, modelldcat_data)
+        # Skriv til metadata/<modell>-manifest.yaml
+        modell_name = schema_path.stem.replace('-schema', '')  # "dcat-ap-no-schema" → "dcat-ap-no"
+        output_path = schema_path.parent / 'metadata' / f'{modell_name}-manifest.yaml'
+        write_yaml(output_path, modelldcat_data)
 
-    print(f"✓ Generert: {output_path}")
+        print(f"✓ Generert: {output_path}")
+    except Exception:
+        log_error({
+            "schema": str(schema_path),
+            "step": "generate_informasjonsmodell",
+        })
 
 
 if __name__ == '__main__':
