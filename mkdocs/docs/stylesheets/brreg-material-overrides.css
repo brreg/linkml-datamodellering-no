@@ -237,6 +237,11 @@ a:hover {
   padding-left: 0.5rem;
 }
 
+.md-typeset h4 {
+  border-left: 2px solid var(--ds-color-main1-border-default);
+  padding-left: 0.5rem;
+}
+
 /**
  * Dark mode-støtte
  */
