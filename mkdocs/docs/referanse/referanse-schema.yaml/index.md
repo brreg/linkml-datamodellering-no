@@ -94,7 +94,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ---
 
-## Generated artifacts (1)
+## Generated artifacts (1) {#generated-artifacts}
 
 | Artefakt | Fil |
 |----------|-----|

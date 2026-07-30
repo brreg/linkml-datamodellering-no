@@ -67,7 +67,7 @@ generate_artifacts_table() {
         echo ""
         echo "---"
         echo ""
-        echo "## Generated artifacts ($artifact_count)"
+        echo "## Generated artifacts ($artifact_count) {#generated-artifacts}"
         echo ""
         echo "| Artefakt | Fil |"
         echo "|----------|-----|"

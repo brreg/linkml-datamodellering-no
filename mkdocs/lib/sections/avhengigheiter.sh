@@ -32,7 +32,7 @@ generate_dependencies() {
 
         echo "---"
         echo ""
-        echo "## Avhengigheiter ($import_count)"
+        echo "## Avhengigheiter ($import_count) {#avhengigheiter}"
         echo ""
         echo "### Imports"
         echo ""

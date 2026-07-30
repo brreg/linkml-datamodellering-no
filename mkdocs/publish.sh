@@ -480,6 +480,7 @@ extra_css:
 markdown_extensions:
   - admonition
   - tables
+  - attr_list
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true

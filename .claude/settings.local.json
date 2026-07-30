@@ -357,7 +357,9 @@
       "Bash(podman info *)",
       "Bash(./scripts/migrate-schema-metadata.sh *)",
       "Bash(./src/assets/scripts/makefile/generate-readme-tables.sh *)",
-      "Bash(src/assets/scripts/makefile/generate-readme-tables.sh *)"
+      "Bash(src/assets/scripts/makefile/generate-readme-tables.sh *)",
+      "Bash(make fint *)",
+      "Bash(make -n fint)"
     ]
   },
   "enableAllProjectMcpServers": true,

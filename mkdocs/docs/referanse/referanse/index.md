@@ -16,7 +16,7 @@ Skjemaet demonstrerer alle hovudmønster i repoet: containerklasse, globale slot
 
 ---
 
-## Avhengigheiter (4)
+## Avhengigheiter (4) {#avhengigheiter}
 
 ### Imports
 
@@ -45,7 +45,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/
 
 ---
 
-## Generated artifacts (1)
+## Generated artifacts (1) {#generated-artifacts}
 
 | Artefakt | Fil |
 |----------|-----|
