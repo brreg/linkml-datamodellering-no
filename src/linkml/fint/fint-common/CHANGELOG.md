@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.2.0...fint-common-v4.3.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+
 ## [4.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.1.0...fint-common-v4.2.0) (2026-07-10)
 
 

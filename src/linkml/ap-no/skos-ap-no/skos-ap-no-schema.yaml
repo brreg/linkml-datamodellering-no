@@ -5,13 +5,13 @@ id: https://data.norge.no/ap-no/skos-ap-no
 name: skos-ap-no
 title: SKOS-AP-NO
 description: Omgrepsamlingar
-version: "2.14.1"
+version: "2.15.0"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://data.norge.no/specification/skos-ap-no-begrep
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-27"
+  endringsdato: "2026-07-30"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:

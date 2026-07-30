@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-adresse-v1.4.0...ngr-adresse-v1.5.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+
+
+### Bug Fixes
+
+* **makefile:** legg til --format docker i alle build-docker-targets ([4c7fe1d](https://github.com/brreg/linkml-datamodellering-no/commit/4c7fe1da12381ac0dbda4a51129717faf2d6a740))
+
 ## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-adresse-v1.3.0...ngr-adresse-v1.4.0) (2026-07-10)
 
 

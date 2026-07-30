@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.4.0...fair-metadata-v1.5.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+
+
+### Bug Fixes
+
+* **fair-metadata:** fjern doble stjerner frå description-felt ([594ab72](https://github.com/brreg/linkml-datamodellering-no/commit/594ab72e5a4a49e7b33aa25a19e3be2378011214))
+
 ## [1.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.3.0...fair-metadata-v1.4.0) (2026-07-10)
 
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.11.1...dcat-ap-no-v2.12.0) (2026-07-30)
+
+
+### Features
+
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+* **mkdocs:** Brønnøysund designsystem-tema og byggetidspunkt ([4a18238](https://github.com/brreg/linkml-datamodellering-no/commit/4a1823892275f79a242a195b2bb0243b4391d913))
+
 ## [2.11.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.11.0...dcat-ap-no-v2.11.1) (2026-07-27)
 
 
