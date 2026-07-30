@@ -359,7 +359,12 @@
       "Bash(./src/assets/scripts/makefile/generate-readme-tables.sh *)",
       "Bash(src/assets/scripts/makefile/generate-readme-tables.sh *)",
       "Bash(make fint *)",
-      "Bash(make -n fint)"
+      "Bash(make -n fint)",
+      "Bash(make -n gen-config)",
+      "Bash(make gen-config *)",
+      "Bash(make -p)",
+      "Bash(make --version)",
+      "Bash(make *)"
     ]
   },
   "enableAllProjectMcpServers": true,

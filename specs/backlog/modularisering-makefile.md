@@ -1,5 +1,11 @@
 # Plan for modularisering av Makefile
 
+> **Oppdatert 2026-07-30:** Makefile-modular skal ligge i `makefile/`-katalogen i rotkatalogen (ikkje `mk/` eller `makefile/`).
+>
+> **Namnekonvensjon:** `makefile/` er meir sjølvdokumenterande enn `mk/` — nye bidragsytarar skjønar med ein gong kva det er.
+>
+> **Plassering:** Rotkatalogen er riktig stad for byggsystem-konfigurasjon — `src/` er reservert for runtime-kjeldekode (LinkML-skjema, MCP-serverar, Python-script). `Makefile` (rotkatalogen) inkluderer `makefile/*.mk` — same nivå, tydeleg relasjon.
+
 ## Føremål
 
 Målet er å dele dagens store Makefile opp i mindre, tematisk avgrensa `.mk`-filer som er enklare å lese, enklare å teste og enklare å endre utan å øydelegge andre delar av byggeløpet.
@@ -27,39 +33,55 @@ GNU Make støttar dette godt: `include` kan lese andre makefile-fragment inn i h
 
 ---
 
+## Katalogplassering og namnekonvensjon
+
+**Katalognamn:** `makefile/` (ikkje `mk/`)
+- Meir sjølvdokumenterande — nye bidragsytarar skjønar med ein gong kva det er
+- Samsvarer betre med `Makefile` (hovudfila)
+- `.mk`-filendinga + `makefile/`-katalog = maksimal tydelighet
+
+**Plassering:** Rotkatalogen (ikkje `src/makefile/`)
+- **Tydeleg separasjon av ansvar:**
+  - `src/` = runtime-kjeldekode (LinkML-skjema, MCP-serverar, Python-script, asset)
+  - `makefile/` = byggsystem-konfigurasjon
+  - `tests/` = testar
+  - `scripts/` = eingangsscript
+- **Tydeleg relasjon:** `Makefile` (rotkatalogen) inkluderer `makefile/*.mk` — same nivå, lett å finne
+- **Konsekvens:** `tests/`, `scripts/`, `mkdocs/`, `specs/` — alle er tematiske rotkatalogkar
+
 ## Foreslått katalogstruktur
 
 Anbefalt ny struktur:
 
 - `Makefile`
   - Tynn inngangsfil med `include` av modulane i rett rekkefølgje.
-- `mk/00-settings.mk`
+- `makefile/00-settings.mk`
   - Shell-flagg, standardvariablar, fargar, katalogar og image-namn.
-- `mk/01-containers.mk`
+- `makefile/01-containers.mk`
   - Alle Podman-wrapperar: `LINKML_RUN`, `PYTHON_RUN`, `DOCS_RUN`, `MCP_RUN`, osv.
-- `mk/02-schema-discovery.mk`
+- `makefile/02-schema-discovery.mk`
   - `SCHEMAS`, `DOMAINS`, `schema_domain`, `schema_name`, `schema_outdir`, `schema_key`, `get_target_schemas`.
-- `mk/03-output.mk`
+- `makefile/03-output.mk`
   - Felles header-/logging-makroar.
-- `mk/10-generator-macros.mk`
+- `makefile/10-generator-macros.mk`
   - `run_gen`, `run_parallel_with_timer`, `run_gen_parallel`, `run_gen_doc_parallel`, `run_gen_erdiagram_parallel`, osv.
-- `mk/11-generator-targets.mk`
+- `makefile/11-generator-targets.mk`
   - Dei genererte `gen-*`-targeta basert på `make_gen_target`.
-- `mk/20-domain-targets.mk`
+- `makefile/20-domain-targets.mk`
   - Generering av `domain-*`-target og spesialtilfelle for `begrepskatalog`.
-- `mk/30-instances.mk`
+- `makefile/30-instances.mk`
   - `gen-begrepskatalog-instance`, `gen-modellkatalog-instance`, `gen-informasjonsmodell-instance`, validering av instansar.
-- `mk/40-validation.mk`
+- `makefile/40-validation.mk`
   - `validate`, `lint`, `validate-bronze`, `validate-data`, `validate-examples`, `validate-capture`, `log-*`.
-- `mk/50-docs.mk`
+- `makefile/50-docs.mk`
   - `docs-publish`, `docs-build`, `docs-serve`, MkDocs-image.
-- `mk/60-mcp.mk`
+- `makefile/60-mcp.mk`
   - MCP-validator, modellutkast, begrepsutkast og relaterte target.
-- `mk/70-scaffolding.mk`
+- `makefile/70-scaffolding.mk`
   - `new-model`, `new-modellkatalog`, `new-begrepssamling`, `update-valid-scopes`.
-- `mk/80-images.mk`
+- `makefile/80-images.mk`
   - Alle `build-docker-*` target.
-- `mk/90-tools.mk`
+- `makefile/90-tools.mk`
   - Gource og andre verktøy-target.
 - `config.mk`
   - Framleis generert, men inkludert etter schema discovery og før target som treng konfigurasjonsvariablar.
@@ -75,9 +97,9 @@ Hovudfila bør bli svært kort og berre forklare lastrekkefølgja.
 Foreslått innhald, konseptuelt:
 
 - Definer `SHELL` og `.SHELLFLAGS` heilt øvst, slik at alle inkluderte filer får same shell-oppførsel.
-- Inkluder `mk/00-settings.mk`.
-- Inkluder `mk/01-containers.mk`.
-- Inkluder `mk/02-schema-discovery.mk`.
+- Inkluder `makefile/00-settings.mk`.
+- Inkluder `makefile/01-containers.mk`.
+- Inkluder `makefile/02-schema-discovery.mk`.
 - Inkluder `config.mk` med `-include config.mk`.
 - Inkluder output/logging.
 - Inkluder makroar.
@@ -90,7 +112,7 @@ Viktig: dersom de vil behalde eksisterande standardtarget, må `help` ikkje auto
 
 ## Modul 1: settings
 
-`mk/00-settings.mk` bør innehalde berre statiske og overordna variablar:
+`makefile/00-settings.mk` bør innehalde berre statiske og overordna variablar:
 
 - `GEN_DIR`
 - `SCHEMA_DIR`
@@ -110,7 +132,7 @@ Anbefaling:
 
 ## Modul 2: containers
 
-`mk/01-containers.mk` bør definere alle container-wrapperar samla.
+`makefile/01-containers.mk` bør definere alle container-wrapperar samla.
 
 Hovudmål:
 
@@ -136,7 +158,7 @@ Då blir wrapperane kortare og meir konsistente.
 
 ## Modul 3: schema discovery
 
-`mk/02-schema-discovery.mk` bør samle automatisk oppdaging av schema og domenar:
+`makefile/02-schema-discovery.mk` bør samle automatisk oppdaging av schema og domenar:
 
 - `SCHEMAS`
 - `DOMAINS`
@@ -160,7 +182,7 @@ Anbefaling:
 
 Dagens Makefile gjentek mykje header-logikk.
 
-Lag fellesmakroar i `mk/03-output.mk`:
+Lag fellesmakroar i `makefile/03-output.mk`:
 
 - `print_header`
 - `print_step`
@@ -183,7 +205,7 @@ Eksempel på ønskja bruk i target:
 
 ## Modul 5: generator-makroar
 
-`mk/10-generator-macros.mk` bør vere den største tekniske modulen, men berre innehalde generiske byggemønster.
+`makefile/10-generator-macros.mk` bør vere den største tekniske modulen, men berre innehalde generiske byggemønster.
 
 Flytt hit:
 
@@ -218,7 +240,7 @@ Anbefalt refaktorering:
 
 ## Modul 6: generator-target
 
-`mk/11-generator-targets.mk` bør innehalde `make_gen_target` og alle `$(eval $(call make_gen_target,...))`-linjene.
+`makefile/11-generator-targets.mk` bør innehalde `make_gen_target` og alle `$(eval $(call make_gen_target,...))`-linjene.
 
 Mål:
 
@@ -260,7 +282,7 @@ Dette vil fjerne mykje duplisering og gjere begrepskatalog-unntaket synleg på �
 
 ## Modul 8: instances
 
-`mk/30-instances.mk` bør samle target som genererer eller validerer instansdata:
+`makefile/30-instances.mk` bør samle target som genererer eller validerer instansdata:
 
 - `gen-begrepskatalog-instance`
 - `gen-modellkatalog-instance`
@@ -272,7 +294,7 @@ Dette vil fjerne mykje duplisering og gjere begrepskatalog-unntaket synleg på �
 Anbefalt opprydding:
 
 - Containeriser direkte Python-kall.
-- Flytt `collect-concepts.py` frå `.github/scripts` til `src/assets/scripts/makefile`.
+- ~~Flytt `collect-concepts.py` frå `.github/scripts` til `src/assets/scripts/makefile`.~~ (Allereie utført)
 - Bruk same logging-makroar som resten av Makefile.
 - Gjer det tydeleg kva target som skriv til `src/linkml/...` og kva target som berre skriv til `generated/...`.
 
@@ -280,7 +302,7 @@ Anbefalt opprydding:
 
 ## Modul 9: validation
 
-`mk/40-validation.mk` bør samle validering:
+`makefile/40-validation.mk` bør samle validering:
 
 - `validate`
 - `lint`
@@ -309,9 +331,9 @@ Menneskeleg lesbarheit:
 
 ## Modul 10: docs
 
-`mk/50-docs.mk` bør samle dokumentasjonsbygg:
+`makefile/50-docs.mk` bør samle dokumentasjonsbygg:
 
-- `build-docker-mkdocs`, dersom image-target ikkje blir samla i `mk/80-images.mk`
+- `build-docker-mkdocs`, dersom image-target ikkje blir samla i `makefile/80-images.mk`
 - `docs-serve`
 - `docs-build`
 - `docs-publish`
@@ -319,7 +341,7 @@ Menneskeleg lesbarheit:
 Vurdering:
 
 - `DOCS_RUN` er litt annleis enn dei andre container-wrapperane fordi han mountar delkatalogar individuelt.
-- Dette bør forklarast i `mk/01-containers.mk` eller i `mk/50-docs.mk`.
+- Dette bør forklarast i `makefile/01-containers.mk` eller i `makefile/50-docs.mk`.
 
 Anbefaling:
 
@@ -330,7 +352,7 @@ Anbefaling:
 
 ## Modul 11: MCP
 
-`mk/60-mcp.mk` bør samle alt som har med MCP-serverane å gjere:
+`makefile/60-mcp.mk` bør samle alt som har med MCP-serverane å gjere:
 
 - MCP validator
 - modellutkast
@@ -349,7 +371,7 @@ DRY-forbetringar:
 
 ## Modul 12: image-bygging
 
-`mk/80-images.mk` bør samle alle `build-docker-*` target:
+`makefile/80-images.mk` bør samle alle `build-docker-*` target:
 
 - `build-docker-linkml`
 - `build-docker-python`
@@ -469,9 +491,9 @@ Målet er å kunne sjå at refaktoreringa ikkje endrar semantikk utilsikta.
 
 ### Fase 1: Flytt reine variablar
 
-1. Opprett `mk/00-settings.mk`.
+1. Opprett `makefile/00-settings.mk`.
 2. Flytt statiske variablar dit.
-3. Opprett `mk/01-containers.mk`.
+3. Opprett `makefile/01-containers.mk`.
 4. Flytt container-wrapperar dit.
 5. La resten av Makefile-en stå uendra.
 
@@ -479,7 +501,7 @@ Risiko: låg.
 
 ### Fase 2: Flytt schema discovery og config-include
 
-1. Opprett `mk/02-schema-discovery.mk`.
+1. Opprett `makefile/02-schema-discovery.mk`.
 2. Flytt `SCHEMAS`, `DOMAINS` og schema-funksjonar dit.
 3. Behald `-include config.mk` i hovud-Makefile rett etter schema discovery.
 
@@ -487,7 +509,7 @@ Risiko: låg til middels.
 
 ### Fase 3: Flytt generator-makroar
 
-1. Opprett `mk/10-generator-macros.mk`.
+1. Opprett `makefile/10-generator-macros.mk`.
 2. Flytt alle `define run_*`-makroar dit.
 3. Køyr `make -n` på fleire target for å kontrollere at ekspansjonane er like.
 
@@ -495,7 +517,7 @@ Risiko: middels, på grunn av escaping i `define`, `foreach`, `xargs` og shell-v
 
 ### Fase 4: Flytt generator-target
 
-1. Opprett `mk/11-generator-targets.mk`.
+1. Opprett `makefile/11-generator-targets.mk`.
 2. Flytt `make_gen_target` og `$(eval ...)`-linjene.
 3. Test enkle generatorar først før domain-target.
 
@@ -503,7 +525,7 @@ Risiko: middels.
 
 ### Fase 5: Fjern duplisering i domain-targets
 
-1. Opprett `mk/20-domain-targets.mk`.
+1. Opprett `makefile/20-domain-targets.mk`.
 2. Flytt `domain_target` dit.
 3. Innfør domenespesifikke pre-hooks.
 4. Fjern manuell override av `domain-begrepskatalog`.
@@ -515,13 +537,13 @@ Risiko: høgaste fasen, fordi dette påverkar hovudflyten i CI.
 
 Flytt i denne rekkjefølgja:
 
-1. Instans-target til `mk/30-instances.mk`.
-2. Validering til `mk/40-validation.mk`.
-3. Docs til `mk/50-docs.mk`.
-4. MCP til `mk/60-mcp.mk`.
-5. Scaffolding til `mk/70-scaffolding.mk`.
-6. Image-bygging til `mk/80-images.mk`.
-7. Gource/verktøy til `mk/90-tools.mk`.
+1. Instans-target til `makefile/30-instances.mk`.
+2. Validering til `makefile/40-validation.mk`.
+3. Docs til `makefile/50-docs.mk`.
+4. MCP til `makefile/60-mcp.mk`.
+5. Scaffolding til `makefile/70-scaffolding.mk`.
+6. Image-bygging til `makefile/80-images.mk`.
+7. Gource/verktøy til `makefile/90-tools.mk`.
 
 Risiko: låg til middels når makroar og variablar allereie er flytta.
 
@@ -532,7 +554,7 @@ Dette kan gjerast parallelt med eller etter modularisering, men bør helst skje 
 1. Endre host-Python-kall til `$(PYTHON_RUN)` eller `$(LINKML_RUN)`.
 2. Flytt inline `python3 -c` til små script.
 3. Legg script under `src/assets/scripts/makefile/`.
-4. Fjern byggelogikk frå `.github/scripts`.
+4. ~~Fjern byggelogikk frå `.github/scripts`.~~ (Mesteparten allereie utført — berre `filter-unchanged-logs.py` att, som er for CI-loggfiltrering og ikkje byggelogikk)
 
 Risiko: middels.
 
@@ -593,7 +615,7 @@ Tiltak:
 
 ### Første PR: trygg struktur
 
-- Opprett `mk/`.
+- Opprett `makefile/`.
 - Flytt settings, containers og schema discovery.
 - Behald target-definisjonar mest mogleg uendra.
 
@@ -617,7 +639,7 @@ Tiltak:
 
 - Gjer direkte Python-kall containeriserte.
 - Flytt inline Python til script.
-- Flytt `collect-concepts.py` ut av `.github/scripts`.
+- ~~Flytt `collect-concepts.py` ut av `.github/scripts`.~~ (Allereie utført)
 
 ---
 
@@ -626,10 +648,10 @@ Tiltak:
 Ein utviklar som opnar repoet bør kunne forstå byggesystemet slik:
 
 1. `Makefile` viser kva modular som finst.
-2. `mk/00-settings.mk` og `mk/01-containers.mk` forklarer miljøet.
-3. `mk/02-schema-discovery.mk` forklarer korleis schema blir funne.
-4. `mk/10-generator-macros.mk` forklarer genereringsmønsteret.
-5. `mk/20-domain-targets.mk` viser rekkefølgja for domain-bygg.
+2. `makefile/00-settings.mk` og `makefile/01-containers.mk` forklarer miljøet.
+3. `makefile/02-schema-discovery.mk` forklarer korleis schema blir funne.
+4. `makefile/10-generator-macros.mk` forklarer genereringsmønsteret.
+5. `makefile/20-domain-targets.mk` viser rekkefølgja for domain-bygg.
 6. Tematiske filer viser konkrete target for validering, docs, MCP og verktøy.
 
 Dette gir lågare kognitiv last, mindre duplisering og mindre risiko for at endringar i eitt domene eller eitt target må kopierast manuelt fleire stader.
