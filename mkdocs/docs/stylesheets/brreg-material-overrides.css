@@ -134,7 +134,7 @@ a:hover {
   border: 0;
   height: 1px;
   background: var(--ds-color-main1-border-subtle);
-  margin: 2rem 0;
+  margin: 4rem 0;
   opacity: 0.3;
 }
 
@@ -142,7 +142,7 @@ a:hover {
  * Inline code → større tekst for betre lesbarheit
  */
 .md-typeset code:not(pre code) {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 /**

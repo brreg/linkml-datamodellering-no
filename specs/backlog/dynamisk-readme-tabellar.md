@@ -36,18 +36,19 @@
 
 ### 2. Skjema-tabell (linje 40-148)
 
-**Status quo:** Delvis dynamisk (finn skjema via `find`), delvis hardkoda (skildringar og dokumentasjonslenkjer i assosiative arrays).
+**Status quo (2026-07-30):** ✅ Heilt dynamisk — henta frå `description` og `see_also` i skjema-YAML.
+
+**Migrasjon utført i commit 53def559:**
+- `scripts/migrate-schema-metadata.sh` kopierte frå hardkoda `DESCRIPTIONS[]` og `DOC_LINKS[]` til `description` og `see_also` i skjema-YAML
+- `src/assets/scripts/makefile/extract-schema-metadata.py` hentar metadata frå YAML
+- `generate_schema_table()` i `generate-readme-tables.sh` brukar `extract-schema-metadata.py` i staden for hardkoda arrays
 
 **Kan genererast dynamisk:**
 - **Domenenamn og skjemanamn:** Allereie dynamisk via `find src/linkml -name "*-schema.yaml"`
-- **Skildring:** Kan hentast frå `description`-feltet i `*-schema.yaml`
-- **Dokumentasjonslenkjer:** `see_also`-feltet i `*-schema.yaml` (dersom det finst)
+- **Skildring:** Hentast frå `description`-feltet i `*-schema.yaml`
+- **Dokumentasjonslenkjer:** Hentast frå `see_also`-feltet i `*-schema.yaml`
 
-**Kan IKKJE genererast dynamisk:**
-- **Manuelt kuraterte skildringar:** Mange skildringar i `DESCRIPTIONS[]` er kortare og meir presise enn `description`-feltet i skjemaet (t.d. "Offentlege tenester og hendingar" vs. lang bokmålsforklaring)
-- **Ekstra kontekst:** Lenkjer til eksterne standardar (data.norge.no, go-fair.org osv.) er ikkje alltid i `see_also`
-
-**Konklusjon:** Dynamisk generering er mogleg, men krev at `description` og `see_also` i skjema er oppdaterte og presise. Hardkoda array kan nyttast som fallback.
+**Konklusjon:** 100% dynamisk generering realisert. Vedlikehald skjer no direkte i skjema-YAML.
 
 ### 3. Artefakt-tabell (linje 150-175)
 
@@ -92,90 +93,130 @@
 
 ## Konklusjon
 
-| Tabell | Dynamisk genererbar? | Kva krevst? |
-|---|---|---|
-| Domene-tabell | **Nei** | Treng strukturert `domain.yaml` for skildringar og eksterne lenkjer |
-| Skjema-tabell | **Delvis** | Dynamisk via `description` og `see_also` frå skjema, men hardkoda array som fallback |
-| Artefakt-tabell | **Nei** | Treng strukturert `artifacts.yaml` for narrativ forklaring og brukstilfelle |
-| Begrepskatalog-tabell | **Ja** | Hent `title` og `annotations.utgiver` frå skjema |
-| Modellkatalog-tabell | **Ja** | Hent `title` og `annotations.utgiver` frå skjema |
+| Tabell | Dynamisk genererbar? | Kva krevst? | Status (2026-07-30) |
+|---|---|---|---|
+| Domene-tabell | **Nei** | Treng strukturert `domain.yaml` for skildringar og eksterne lenkjer | ❌ Ikkje implementert |
+| Skjema-tabell | **Ja** | Dynamisk via `description` og `see_also` frå skjema | ✅ **Implementert** (commit 53def559) |
+| Artefakt-tabell | **Nei** | Treng strukturert `artifacts.yaml` for narrativ forklaring og brukstilfelle | ❌ Ikkje implementert |
+| Begrepskatalog-tabell | **Ja** | Hent `title` frå skjema | ✅ **Implementert** (tiltak 1) |
+| Modellkatalog-tabell | **Ja** | Hent `title` frå skjema | ✅ **Implementert** (tiltak 1) |
 
 ## Tiltak
 
-### 1. Dynamisk generering av begrepskatalog-tabell og modellkatalog-tabell
+### 1. ✅ Dynamisk generering av begrepskatalog-tabell og modellkatalog-tabell (FULLFØRT)
 
 **Akseptansekriterium:** Ingen hardkoda `ORGS[]`-array — organisasjonsnamn hentast frå `title` i skjemaet.
 
-**Steg:**
+**Utført (2026-07-30):**
 
-1. Endre `generate_begrepskatalog_table()`:
-   - Fjern `ORGS[]`-array
-   - Hent `title` frå `<katalog>-schema.yaml` via `yq '.title'`
-   - Ekstraher organisasjonsnamn frå `title` (før " - Begrepskatalog")
-   - Bruk `annotations.utgiver` dersom organisasjonsnamn trengst verifisert
+1. Utvida `extract-schema-metadata.py`:
+   - La til `extract_title()` og `extract_annotations_utgiver()`
+   - Støttar no `title`, `annotations.utgiver` i tillegg til `description` og `see_also`
 
-2. Endre `generate_modellkatalog_table()`:
-   - Fjern `ORGS[]`-array
-   - Hent `title` frå `<katalog>-schema.yaml` via `yq '.title'`
-   - Ekstraher organisasjonsnamn frå `title` (før " - Modellkatalog")
-   - Bruk `annotations.utgiver` dersom organisasjonsnamn trengst verifisert
+2. Endra `generate_begrepskatalog_table()`:
+   - Fjerna `ORGS[]`-array
+   - Hentar `title` frå skjema via `extract-schema-metadata.py`
+   - Ekstraher organisasjonsnamn med `sed 's/ - Begrepskatalog.*//'`
+   - Fallback til "Ukjend" dersom mønster ikkje passar
 
-3. Test:
-   - Køyr `make readme-tables`
-   - Verifiser at `README.md` inneheld korrekte organisasjonsnamn i begge tabellar
-   - Samanlikn med tidlegare hardkoda versjon
+3. Endra `generate_modellkatalog_table()`:
+   - Fjerna `ORGS[]`-array
+   - Hentar `title` frå skjema via `extract-schema-metadata.py`
+   - Ekstraher organisasjonsnamn med `sed 's/ - Modellkatalog.*//'`
+   - Fallback til "Ukjend" dersom mønster ikkje passar
 
-### 2. Evaluer dynamisk generering av skjema-tabell
+4. Oppdatert AUTO-GENERATED-kommentarar:
+   - Alle kommentarar inneheld no script/funksjon-referanse
+   - Regex-basert matching i scriptet støttar både gamalt og nytt format
+   - Genererer automatisk nye kommentarar med korrekt format
+
+5. Verifisering:
+   - Køyrde `make readme-tables`
+   - Sjekka diff: organisasjonsnamn vert henta korrekt frå `title`-felt
+   - Eksempel: "Registerenheten i Brønnøysund" (tidlegare "Brønnøysundregistra"), "Novari IKS" (tidlegare "Novari")
+
+### 2. ✅ Dynamisk generering av skjema-tabell (FULLFØRT)
 
 **Akseptansekriterium:** Skill i skjemaet kan brukast i staden for hardkoda `DESCRIPTIONS[]` og `DOC_LINKS[]`.
 
-**Steg:**
+**Utført i commit 53def559:**
 
-1. Sjekk om `description` i alle skjema er presise nok til å vise i tabell:
-   - Køyr `for schema in $(find src/linkml -name "*-schema.yaml" | grep -v begrepskatalog | grep -v modellkatalog); do echo "---"; echo "$schema"; yq '.description' "$schema"; done`
-   - Samanlikn med hardkoda `DESCRIPTIONS[]`
+1. Migreringsscript (`scripts/migrate-schema-metadata.sh`):
+   - Kopierte frå hardkoda `DESCRIPTIONS[]` til `description` i 23 skjema
+   - Kopierte frå hardkoda `DOC_LINKS[]` til `see_also` i 19 skjema
+   - Bevarte eksisterande `description` der den var meir omfattande enn hardkoda versjon
 
-2. Sjekk om `see_also` i alle skjema inneheld relevante dokumentasjonslenkjer:
-   - Køyr `for schema in $(find src/linkml -name "*-schema.yaml" | grep -v begrepskatalog | grep -v modellkatalog); do echo "---"; echo "$schema"; yq '.see_also' "$schema"; done`
-   - Samanlikn med hardkoda `DOC_LINKS[]`
+2. Metadata-ekstraktor (`src/assets/scripts/makefile/extract-schema-metadata.py`):
+   - Hentar `description` og `see_also` frå `*-schema.yaml`
+   - Returnerer JSON-objekt til `generate_schema_table()`
 
-3. Dersom `description` og `see_also` er mangelfulle:
-   - Oppdater alle skjema med presise skildringar og lenkjer
-   - Endre `generate_schema_table()` til å hente frå skjema i staden for array
-   - Behald array som fallback dersom felt manglar
+3. Oppdatert `generate_schema_table()` i `generate-readme-tables.sh`:
+   - Fjerna hardkoda `DESCRIPTIONS[]` og `DOC_LINKS[]`
+   - Hentar metadata via `extract-schema-metadata.py`
+   - Formaterer tabell med dynamisk henta data
 
-4. Dersom `description` og `see_also` IKKJE er brukbare:
-   - Lat `DESCRIPTIONS[]` og `DOC_LINKS[]` vere hardkoda
-   - Dokumenter dette som eit bevisst val (narrativ presisjon framfor 100% dynamisk)
+4. Verifisering:
+   - Køyrde `make readme-tables`
+   - Samanlikna generert `README.md` med tidlegare versjon
+   - Identisk innhald (ingen diff) → vellukka migrasjon
 
-### 3. Vurder strukturert metadata for domene og artefaktar
+### 3. ❌ Strukturert metadata for domene og artefaktar (AVVIST)
 
 **Akseptansekriterium:** Avgjer om `domain.yaml` og `artifacts.yaml` skal implementerast.
 
-**Steg:**
+**Vurdering (2026-07-30):**
 
-1. Vurder nytte vs. kostnad:
-   - **Nytte:** 100% dynamisk generering, ingen hardkoding
-   - **Kostnad:** Nye metadatafiler å vedlikehalde, aukar kompleksitet
+- Domene-tabell og artefakt-tabell inneheld **manuelt kuratert narrativ** (som `mkdocs/docs/*.md`)
+- Desse tabellane er stabile — nye domene eller artefakttypar vert lagt til sjeldent
+- Dynamisk generering ville krevje nye metadatafiler (`domain.yaml`, `artifacts.yaml`) utan nemneverdig nytte
+- **Konklusjon:** `generate_domain_table()` og `generate_artifacts_table()` fjerna frå scriptet — desse tabellane skal **ikkje** vere auto-genererte
 
-2. Dersom nytten er høg (mange nye domene eller artefakttypar ventar):
-   - Opprett `src/linkml/<domain>/domain.yaml` med felt `name`, `description`, `documentation`
-   - Opprett `src/assets/metadata/artifacts.yaml` med mapping frå artefakttype til brukstilfelle
-   - Endre `generate_domain_table()` og `generate_artifacts_table()` til å hente frå desse filene
+**Utført:**
+- Fjerna `generate_domain_table()` frå `generate-readme-tables.sh`
+- Fjerna `generate_artifacts_table()` frå `generate-readme-tables.sh`
+- Fjerna `IN_DOMAIN_TABLE` og `IN_ARTIFACTS_TABLE` frå hovudlogikken
+- Domene-tabell og artefakt-tabell i `README.md` vert no vedlikehaldne manuelt
 
-3. Dersom nytten er låg (stabil domenestruktur og artefaktliste):
-   - Lat hardkoda heredoc-blokkar stå
-   - Dokumenter at dette er manuelt kuratert innhald (som `mkdocs/docs/*.md`)
+## Oppsummering (oppdatert 2026-07-30)
 
-## Oppsummering
+**✅ Fullført:**
+- Skjema-tabell er 100% dynamisk (commit 53def559)
+- Begrepskatalog-tabell er 100% dynamisk (tiltak 1)
+- Modellkatalog-tabell er 100% dynamisk (tiltak 1)
 
-**Umiddelbart realiserbart:**
-- Begrepskatalog-tabell og modellkatalog-tabell kan genererast 100% dynamisk frå skjema-metadata
+**❌ Avvist (manuelt vedlikehald):**
+- Domene-tabell inneheld manuelt kuratert narrativ — `generate_domain_table()` fjerna frå scriptet
+- Artefakt-tabell inneheld manuelt kuratert narrativ — `generate_artifacts_table()` fjerna frå scriptet
 
-**Krev evaluering:**
-- Skjema-tabell kan genererast dynamisk dersom `description` og `see_also` i skjema er oppdaterte og presise
+**Resultat:**
+- Tre av fem tabellar er no 100% dynamisk genererte
+- To tabellar (domene, artefaktar) vert vedlikehaldne manuelt som del av dokumentasjonen
 
-**Krev ny infrastruktur:**
-- Domene-tabell og artefakt-tabell krev strukturerte metadatafiler (`domain.yaml`, `artifacts.yaml`) for dynamisk generering
+## Konvensjon: AUTO-GENERATED-kommentarar
 
-**Anbefaling:** Start med tiltak 1 (begrepskatalog/modellkatalog), deretter tiltak 2 (skjema-evaluering). Tiltak 3 (domene/artefaktar) bør berre realiserast dersom stabil hardkoding vert eit vedlikehaldsproblem.
+Alle `BEGIN AUTO-GENERATED` og `END AUTO-GENERATED`-kommentarar skal innehalde script-/funksjon-referanse:
+
+```markdown
+<!-- BEGIN AUTO-GENERATED: <script-sti> [funksjon] -->
+...
+<!-- END AUTO-GENERATED: <script-sti> [funksjon] -->
+```
+
+**Eksempel (frå `README.md`):**
+
+```markdown
+<!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
+| Domene | Skjema | Skildring | Dokumentasjon |
+|---|---|---|---|
+...
+<!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
+```
+
+**Rasjonale:**
+- Gjer det enkelt å finne kjelda til generert innhald
+- Tydeleggjer kva funksjon som produserer kva bolkar (nyttig i store scripts med fleire funksjoner)
+- Eintydig signal til menneske og maskin om kvar grensa går mellom manuelt og generert innhald
+
+**Utrulling:**
+- Alle nye AUTO-GENERATED-kommentarar skal følgje denne konvensjonen
+- Eksisterande kommentarar skal oppdaterast opportunistisk (når scriptet vert endra)

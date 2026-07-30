@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Ekstraher description og see_also frå LinkML-skjemafil.
+Ekstraher metadata frå LinkML-skjemafil.
 Brukt av generate-readme-tables.sh for dynamisk README-generering.
 """
 
@@ -48,10 +48,40 @@ def extract_see_also(schema_file):
 
     return see_also_match.group(1).strip()
 
+def extract_title(schema_file):
+    """Hent title-feltet frå YAML-skjema."""
+    with open(schema_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Finn title-felt (einlinjes)
+    title_pattern = r'^title:\s*(.+)$'
+    title_match = re.search(title_pattern, content, re.MULTILINE)
+
+    if not title_match:
+        return ""
+
+    return title_match.group(1).strip()
+
+def extract_annotations_utgiver(schema_file):
+    """Hent annotations.utgiver frå YAML-skjema."""
+    with open(schema_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Finn annotations-blokk, deretter utgiver-felt
+    # annotations:
+    #   utgiver: https://data.norge.no/organizations/974760673
+    anno_pattern = r'^annotations:\s*\n\s+utgiver:\s+(.+)$'
+    anno_match = re.search(anno_pattern, content, re.MULTILINE)
+
+    if not anno_match:
+        return ""
+
+    return anno_match.group(1).strip()
+
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         print("Bruk: extract-schema-metadata.py <schema-fil> <field>", file=sys.stderr)
-        print("  field: 'description' eller 'see_also'", file=sys.stderr)
+        print("  field: 'description', 'see_also', 'title', 'annotations.utgiver'", file=sys.stderr)
         sys.exit(1)
 
     schema_file = sys.argv[1]
@@ -61,6 +91,10 @@ if __name__ == '__main__':
         print(extract_description(schema_file))
     elif field == 'see_also':
         print(extract_see_also(schema_file))
+    elif field == 'title':
+        print(extract_title(schema_file))
+    elif field == 'annotations.utgiver':
+        print(extract_annotations_utgiver(schema_file))
     else:
         print(f"Ukjend felt: {field}", file=sys.stderr)
         sys.exit(1)
