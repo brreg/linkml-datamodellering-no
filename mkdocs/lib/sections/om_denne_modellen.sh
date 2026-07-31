@@ -20,6 +20,8 @@ generate_description() {
 
     echo "## Om denne modellen"
     echo ""
+    echo "> Denne sida dokumenterer LinkML-modellen $schema, inkludert klassar, eigenskapar, datatypar, valideringsresultat og genererte artefakt. Informasjonen er generert automatisk frå schemaet og tilhøyrande byggeprosess."
+    echo ""
     cat "$description_file"
     echo ""
     echo ""

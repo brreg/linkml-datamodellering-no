@@ -65,6 +65,8 @@ def main() -> None:
         "",
         "## Valideringsresultat",
         "",
+        "> Valideringsrapporten viser i kva grad modellen etterlever definerte modelleringsreglar og kvalitetskrav. Resultata kan omfatte både lokale og importerte element avhengig av kva reglar som er evaluerte.",
+        "",
         f"*Siste validering: {validated_at} — v{version} — {policy_link}*",
         "",
         "| Status | Feil | Åtvaringar |",

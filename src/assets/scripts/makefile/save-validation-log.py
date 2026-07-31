@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Lagrar valideringsresultat frå validate.yml som JSON i validation/logs/.
+Lagrar valideringsresultat frå validate.yml som JSON i src/linkml/<domain>/<model>/validation/.
 
-- Skriv til validation/logs/<domain>/<model>/<version>/<type>.json
+- Skriv til src/linkml/<domain>/<model>/validation/<version>/<type>.json
 - <type> er 'bronze', 'examples', 'data', eller policy-namn frå manifest
 - Versjonsnummer henta frå version:-feltet i skjemaet (fallback: 0.0.0-dev)
 
@@ -51,16 +51,16 @@ def save_log(
     schema_path: Path,
     validation_type: str,
     result_json: str,
-    output_dir: Path = Path("validation/logs"),
+    output_dir: Path = Path("src/linkml"),
 ) -> None:
     """
-    Lagrar valideringsresultat til validation/logs/<domain>/<model>/<version>/<type>.json.
+    Lagrar valideringsresultat til src/linkml/<domain>/<model>/validation/<version>/<type>.json.
 
     Args:
         schema_path: Sti til skjemafila (*.yaml)
         validation_type: Type validering (bronze/examples/data/<policy>)
         result_json: JSON-streng frå flatten-and-validate.bash
-        output_dir: Rotmappe for loggar (standard: validation/logs)
+        output_dir: Rotmappe for loggar (standard: src/linkml)
     """
     domain, model = get_domain_model(schema_path)
     schema_name = get_schema_name(schema_path)
@@ -83,8 +83,8 @@ def save_log(
         "result": result,
     }
 
-    # Skriv til validation/logs/<domain>/<model>/<version>/<type>.json
-    log_dir = output_dir / domain / model / version
+    # Skriv til src/linkml/<domain>/<model>/validation/<version>/<type>.json
+    log_dir = output_dir / domain / model / "validation" / version
     log_dir.mkdir(parents=True, exist_ok=True)
 
     # Filnamn basert på validation_type (t.d. bronze.json, examples.json, data.json)
@@ -96,7 +96,7 @@ def save_log(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Lagrar valideringsresultat frå validate.yml til validation/logs/"
+        description="Lagrar valideringsresultat frå validate.yml til src/linkml/<domain>/<model>/validation/"
     )
     parser.add_argument(
         "--schema",
@@ -117,8 +117,8 @@ def main():
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("validation/logs"),
-        help="Rotmappe for loggar (standard: validation/logs)",
+        default=Path("src/linkml"),
+        help="Rotmappe for loggar (standard: src/linkml)",
     )
 
     args = parser.parse_args()

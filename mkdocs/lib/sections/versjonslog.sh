@@ -23,6 +23,8 @@ generate_changelog() {
     echo ""
     echo "## Versjonslog"
     echo ""
+    echo "> Versjonsloggen viser endringar mellom publiserte versjonar av modellen. Innhaldet blir generert frå prosjektets release-historikk."
+    echo ""
     # Fjern hovudoverskrift "# Changelog" og auk nivået på alle andre overskrifter med éin #
     tail -n +1 "$changelog_src" | awk '
         NR==1 && /^# Changelog/ { next }

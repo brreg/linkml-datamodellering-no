@@ -20,6 +20,8 @@ generate_validation_results() {
     else
         echo "## Valideringsresultat"
         echo ""
+        echo "> Valideringsrapporten viser i kva grad modellen etterlever definerte modelleringsreglar og kvalitetskrav. Resultata kan omfatte både lokale og importerte element avhengig av kva reglar som er evaluerte."
+        echo ""
         echo "*Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*"
     fi
 }

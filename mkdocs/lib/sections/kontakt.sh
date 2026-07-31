@@ -13,6 +13,8 @@ generate_contact_info() {
     echo ""
     echo "## Kontakt"
     echo ""
+    echo "> Her finn du informasjon om forvaltningsansvarleg, kontaktpunkt og kanal for feilrapportering eller forslag til forbetringar."
+    echo ""
 
     # Les CODEOWNERS.md for å finne eigar-org basert på path pattern
     local codeowners_file="$REPO_ROOT/CODEOWNERS.md"

@@ -70,6 +70,8 @@ generate_artifacts_table() {
         echo ""
         echo "## Generated artifacts ($artifact_count) {#generated-artifacts}"
         echo ""
+        echo "> Denne seksjonen listar maskinlesbare artefakt som er genererte frå schemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering."
+        echo ""
         echo "| Artefakt | Fil |"
         echo "|----------|-----|"
         printf '%s' "$artifact_rows"

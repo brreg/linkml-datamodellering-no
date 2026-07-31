@@ -2,6 +2,8 @@
 
 ## Modellmetadata
 
+> Denne seksjonen viser sentrale metadata for modellen, inkludert versjon, status, lisens, identifikatorar og avhengigheiter. Verdiane er henta direkte frå schemaet.
+
 | Felt | Verdi |
 | --- | --- |
 | Name | {{ schema.name }} |
@@ -58,6 +60,8 @@
 {%- endif -%}
 {%- endfor -%}
 ## Classes ({{ ns_total_classes.count }})
+
+> Denne oversikta viser berre klassar som er definerte lokalt i {{ schema.name }}. Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
 {%- if gen.hierarchical_class_view -%}
 
 | Class | Description |
@@ -138,6 +142,8 @@
   {%- endif %}
 {%- endfor -%}
 ## Slots ({{ ns_used_slots.names|length }})
+
+> Denne oversikta viser eigenskapar som er brukte av lokale klassar i modellen. Nokre eigenskapar kan vere importerte frå andre schema sjølv om dei blir brukte lokalt.
 
 {%- if ns_slots_verdiar.items %}
 ### Verdiar ({{ ns_slots_verdiar.items|length }})
@@ -249,6 +255,8 @@
 {%- endfor -%}
 
 ## Enumerations ({{ ns_used_enums.names|length }})
+
+> Denne seksjonen viser kontrollerte verdiområde som er definerte eller brukte av modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
 {%- if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
 | --- | --- | --- | --- |
@@ -328,6 +336,8 @@
 {%- endfor -%}
 
 ## Types ({{ ns_used_types.names|length }})
+
+> Typar definerer primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatype brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
 {%- if ns_used_types.names %}
 
 | Type | URI | Description | Defined in | Usage |
@@ -416,6 +426,8 @@
 {%- endfor -%}
 
 ## Subsets ({{ ns_used_subsets.names|length }})
+
+> Subsets representerer klassifiseringar eller kravsnivå som blir brukte i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
 {%- if ns_used_subsets.names %}
 
 | Subset | Description | Defined in | Usage |
