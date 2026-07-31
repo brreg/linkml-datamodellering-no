@@ -5,6 +5,11 @@
 # - Informasjonsmodell-instansar (ModelDCAT-AP-NO metadata)
 # - Modellkatalog-instansar (aggregering av alle Informasjonsmodellar)
 # - Begrepskatalog-instansar (aggregering av begrepssamlingar)
+#
+# Relaterte script:
+# - src/assets/scripts/makefile/generate-informasjonsmodell.py
+# - src/assets/scripts/makefile/generate-modellkatalog.py
+# - src/assets/scripts/makefile/collect-concepts.py
 # ==============================================================================
 
 # ---------------------------------------------------------------------------

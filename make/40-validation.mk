@@ -6,6 +6,12 @@
 # - Bronze/policy-validering (validate-bronze, validate-data, validate-examples)
 # - MCP-validering (mcp-linkml-validate, validate-capture)
 # - Logging av valideringsresultat (log-mcp-validate, log-validate-instance)
+#
+# Relaterte script:
+# - src/assets/scripts/makefile/detect-validation-policy.py
+# - src/assets/scripts/makefile/run-schema-validation.py
+# - src/assets/scripts/makefile/save-validation-log.py
+# - src/assets/scripts/makefile/emit-github-validation-annotations.py
 # ==============================================================================
 
 # ---------------------------------------------------------------------------

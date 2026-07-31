@@ -6,6 +6,10 @@
 # - docs-serve: køyr lokal server på :8000
 # - docs-build: bygg statisk site til mkdocs/site/
 # - docs-publish: kopier generated/ til mkdocs/docs/ og generer mkdocs.yml
+#
+# Relaterte script:
+# - mkdocs/publish.sh (hovudscript for docs-publish)
+# - src/assets/scripts/makefile/generate-readme-tables.sh
 # ==============================================================================
 
 # ---------------------------------------------------------------------------

@@ -4,6 +4,9 @@
 # Verktøy og utilitetar:
 # - Gource: git-historikk-visualisering (preview, video, render)
 # - check-prereqs: sjekk at alle nødvendige verktøy er installerte
+#
+# Relaterte script:
+# - src/assets/scripts/makefile/check-prereqs.bash
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
