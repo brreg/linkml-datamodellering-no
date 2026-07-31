@@ -48,6 +48,8 @@ Repoet er i PoC-fase og har nokre kjende avgrensingar. Sjå desse dokumenta for 
 
 ## Kom i gang
 
+> Her får du ei kjapp innføring i oppsett av lokalt miljø for å komme igang med datamodellering og begrepsarbeid.
+
 **Føresetnader:** linux eller windows med  WSL2, [Podman](https://podman.io/) (rootless) og GNU make.
 
 ```bash
@@ -60,6 +62,8 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build && ma
 ```
 
 ### Datamodellering
+
+> Bruk oppskrifta under for å komme igang med datamodellering.
 
 > Bytt ut **`domene`** og **`modellnavn`** med dine aktuelle navn.
 
@@ -95,6 +99,8 @@ Nye skjema under `src/linkml/<domain>/<modellnavn>/` vert oppdaga automatisk.
 For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) og [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/).
 
 ### Begrepsmodellering
+
+> Bruk oppskrifta under for å komme igang med begrepsmodellering.
 
 > Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
 
@@ -136,8 +142,8 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 
 ### Bruk frå eksternt repo
 
-Vil du bruke AP-NO-profilene i ditt eige repo utan å jobbe inni dette monorepoet?
-Bootstrap-scriptet legg til dei to filene du treng på eitt minutt:
+> Vil du bruke AP-NO-profilene i ditt eige repo utan å jobbe inni dette monorepoet?
+> Bootstrap-scriptet legg til dei to filene du treng på eitt minutt:
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh | bash
@@ -157,6 +163,8 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 ## Domener
 
+> Datamodellane er gruppert i domener.
+
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
 | [fair](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
@@ -172,6 +180,8 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 ---
 
 ## Skjema
+
+> Det er eit skjema pr datamodell i LinkML format.
 
 Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
@@ -209,7 +219,9 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 ## Genererte artefakter
 
-Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
+> generate workflowen genererer automatisk artefakter for kvart modellskjema som default.
+
+Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer ei fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag | Generator |
 |---|---|---|---|---|---|
@@ -237,7 +249,7 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 
 ## Genererte begrepskatalogar
 
-Begrepskatalogar er automatisk genererte oversikter over begrep per organisasjon, basert på SKOS-AP-NO.
+> Begrepskatalogar er automatisk genererte oversikter over begrep per organisasjon, basert på SKOS-AP-NO.
 
 Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 
@@ -251,7 +263,7 @@ Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 
 ## Genererte modellkatalogar
 
-Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO.
+> Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO.
 
 Modellkatalogar ligg under `src/linkml/modellkatalog/`
 
@@ -269,6 +281,8 @@ Modellkatalogar ligg under `src/linkml/modellkatalog/`
 ---
 
 ## Katalogstruktur
+
+> Her viser vi oversikt over dei mest sentrale katalogane i repoet.
 
 ```
 linkml-datamodellering-no/
@@ -310,6 +324,8 @@ linkml-datamodellering-no/
 ---
 
 ## For bidragsytarar
+
+> Her har vi samla sentrale dokumenter for bidragsytere.
 
 Dersom du skal bidra til repoet, les desse dokumenta:
 
