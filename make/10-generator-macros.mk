@@ -14,10 +14,10 @@ define run_parallel_with_timer
 else \
 	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 		set -euo pipefail; \
-			trap '{ echo "::error file=$$s::$(2) feila for $$domain/$$name (linje $$LINENO)" >&2; echo "ERROR in Makefile parallel job for $$domain/$$name at line $$LINENO — command: $$BASH_COMMAND" >&2; exit 1; }' ERR; \
 		s="{}"; \
 		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 		domain=$$(echo "$$s" | cut -d/ -f3); \
+		trap "echo \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\" >&2; exit 1" ERR; \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		t0=$$(date +%s%3N); \
 		$(4); \
@@ -38,9 +38,11 @@ endef
 # $1=schemas  $2=generator-namn  $3=manifest-flagg (t.d. "openapi")  $4=input-suffix (t.d. "schema.json")  $5=output-suffix  $6=kommandoar
 define run_gen_with_check_parallel
 printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+	set -euo pipefail; \
 	s="{}"; \
 	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 	domain=$$(echo "$$s" | cut -d/ -f3); \
+	trap "echo \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\" >&2; exit 1" ERR; \
 	manifest=$$(dirname "$$s")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  $(3): true" "$$manifest"; then \
 		exit 0; \

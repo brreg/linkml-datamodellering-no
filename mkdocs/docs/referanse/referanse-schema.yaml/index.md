@@ -8,6 +8,8 @@
 
 ## Kom i gang
 
+> Her finn du døme på korleis du importerer, validerer og brukar modellen i eigne prosjekt.
+
 ### Importer i LinkML-skjema
 
 ```yaml
@@ -43,22 +45,10 @@ container = yaml_loader.load('mine-data.yaml', target_class=Container)
 
 ---
 
-## Modellmetadata {#metadata}
-
-| Felt | Verdi |
-| --- | --- |
-| Schema URI | [https://example.org/linkml/referanse](https://example.org/linkml/referanse) |
-| Versjon | 1.0.0 |
-| Lisens | [https://data.norge.no/nlod/no/2.0](https://data.norge.no/nlod/no/2.0) |
-| Utgjevar | [https://data.norge.no/organizations/974760673](https://data.norge.no/organizations/974760673) |
-| Status | http://purl.org/adms/status/UnderDevelopment |
-| Endringsdato | TODO |
-| Utgivelsesdato | TODO |
-| Imports | linkml:types<br>../ap-no/dcat-ap-no/dcat-ap-no-schema |
-
-
 
 ## Datamodell
+
+> Dette er den autoritative kjelda for modellen. Alle tabellar, diagram og artefakt på denne sida er genererte frå dette skjemaet.
 
 Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml/referanse-schema.yaml-schema.yaml)
 
@@ -135,6 +125,8 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ## Generated artifacts (1) {#generated-artifacts}
 
+> Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering.
+
 | Artefakt | Fil |
 |----------|-----|
 | ER-diagram (Mermaid) | [referanse-schema.yaml-erdiagram.md](referanse-schema.yaml-erdiagram.md) |
@@ -145,11 +137,15 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ## Valideringsresultat
 
+> Valideringsrapporten viser i kva grad modellen etterlever definerte modelleringsreglar og kvalitetskrav. Resultata kan omfatte både lokale og importerte element avhengig av kva reglar som er evaluerte.
+
 *Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
 
 ---
 
 ## Kontakt
+
+> Her finn du informasjon om forvaltningsansvarleg, kontaktpunkt og kanal for feilrapportering eller forslag til forbetringar.
 
 **Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)
 

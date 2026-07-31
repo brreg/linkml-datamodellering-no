@@ -10,9 +10,9 @@ beskrivelse:
     Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel'
   nn: 'Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste,
     Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel'
-versjonsnummer: 1.12.1
+versjonsnummer: 1.13.0
 lisens: https://data.norge.no/nlod/no/2.0
-endringsdato: '2026-07-27'
+endringsdato: '2026-07-30'
 utgivelsesdato: '2026-07-27'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/

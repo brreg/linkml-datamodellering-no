@@ -6,10 +6,8 @@ tittel:
   nb: Common AP-NO
   nn: Common AP-NO
 beskrivelse:
-  nb: Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
-    (AP-NO). Importerast av dei einskilde profilane.
-  nn: Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
-    (AP-NO). Importerast av dei einskilde profilane.
+  nb: Felles slot-definisjonar for alle AP-NO-profilar
+  nn: Felles slot-definisjonar for alle AP-NO-profilar
 versjonsnummer: 1.0.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827

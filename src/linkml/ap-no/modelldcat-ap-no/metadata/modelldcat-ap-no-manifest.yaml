@@ -6,10 +6,8 @@ tittel:
   nb: ModelDCAT-AP-NO
   nn: ModelDCAT-AP-NO
 beskrivelse:
-  nb: Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
-    modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
-  nn: Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
-    modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
+  nb: Informasjonsmodellar
+  nn: Informasjonsmodellar
 versjonsnummer: 1.10.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827

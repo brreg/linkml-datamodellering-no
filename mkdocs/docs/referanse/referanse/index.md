@@ -2,19 +2,22 @@
 
 ## Om denne modellen
 
+> Denne sida dokumenterer LinkML-modellen referanse, inkludert klassar, eigenskapar, datatypar, valideringsresultat og genererte artefakt. Informasjonen er generert automatisk frå skjemaet og tilhøyrande byggeprosess.
+
 Referanseskjema for nye utviklarar — viser alle hovudmønster brukte i dette repoet.
 
 Skjemaet demonstrerer alle hovudmønster i repoet: containerklasse, globale slots, import-hierarki, URI-mapping, fleirspråklege strengar, obligatorisk/anbefalt/valgfri-klassifisering og lenking framfor inlining.
 
 **Typisk brukar:** Nye utviklarar som lærer LinkML-modellering i dette repoet — skjemaet vert ikkje brukt i produksjon.
 
-**Nøkkelklasser:** `ReferanseContainer` (containerklasse), `Eksempelressurs`, `Eksempelkatalog`.
 
 
 
 ---
 
 ## Kom i gang
+
+> Her finn du døme på korleis du importerer, validerer og brukar modellen i eigne prosjekt.
 
 ### Importer i LinkML-skjema
 
@@ -53,6 +56,8 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 
 ## Avhengigheiter (4) {#avhengigheiter}
 
+> Denne modellen importerer og gjenbruker komponentar frå andre skjema. Importerte klassar og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen.
+
 Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 
 ```
@@ -70,12 +75,16 @@ linkml:types  # direkte import
 
 ## Datamodell
 
+> Dette er den autoritative kjelda for modellen. Alle tabellar, diagram og artefakt på denne sida er genererte frå dette skjemaet.
+
 Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse/referanse-schema.yaml)
 
 
 ---
 
 ## Generated artifacts (1) {#generated-artifacts}
+
+> Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering.
 
 | Artefakt | Fil |
 |----------|-----|
@@ -87,11 +96,15 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/
 
 ## Valideringsresultat
 
+> Valideringsrapporten viser i kva grad modellen etterlever definerte modelleringsreglar og kvalitetskrav. Resultata kan omfatte både lokale og importerte element avhengig av kva reglar som er evaluerte.
+
 *Valideringsresultat ikkje tilgjengeleg — ingen validering enno.*
 
 ---
 
 ## Versjonslog
+
+> Versjonsloggen viser endringar mellom publiserte versjonar av modellen. Innhaldet blir generert frå prosjektets release-historikk.
 
 
 ### [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/referanse-v1.2.0...referanse-v1.3.0) (2026-07-30)
@@ -147,6 +160,8 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/
 ---
 
 ## Kontakt
+
+> Her finn du informasjon om forvaltningsansvarleg, kontaktpunkt og kanal for feilrapportering eller forslag til forbetringar.
 
 **Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)
 

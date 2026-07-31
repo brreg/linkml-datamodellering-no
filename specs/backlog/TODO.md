@@ -132,3 +132,5 @@ Vi må få til å kjøre validering automatisk og oppdatere valideringsresultata
 generere Nøkkelklasser i index.md frå obligatoriske klasser i modellen
 
 gen-doc ser ut til å kutte innholdet i description feltet når den les eit punktum i teksten
+
+Vi må regenerere README-tabellgenerering sida basert på siste versjon av generate-readme-tables.sh

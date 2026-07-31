@@ -6,10 +6,8 @@ tittel:
   nb: XKOS-AP-NO
   nn: XKOS-AP-NO
 beskrivelse:
-  nb: LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
-    Basert på https://data.norge.no/specification/xkos-ap-no
-  nn: LinkML-modell for XKOS-AP-NO - norsk applikasjonsprofil for utvida SKOS-klassifikasjonar.
-    Basert på https://data.norge.no/specification/xkos-ap-no
+  nb: Utvida klassifikasjon
+  nn: Utvida klassifikasjon
 versjonsnummer: 1.0.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827

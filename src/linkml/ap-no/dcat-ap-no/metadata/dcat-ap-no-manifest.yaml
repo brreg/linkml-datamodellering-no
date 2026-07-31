@@ -6,14 +6,12 @@ tittel:
   nb: DCAT-AP-NO
   nn: DCAT-AP-NO
 beskrivelse:
-  nb: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
-    inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
-  nn: Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor
-    inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/
-versjonsnummer: 2.11.1
+  nb: Datakatalogar og datasett
+  nn: Datakatalogar og datasett
+versjonsnummer: 2.12.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
-endringsdato: '2026-07-27'
+endringsdato: '2026-07-30'
 utgivelsesdato: '2023-01-01'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dcat-ap-no/
