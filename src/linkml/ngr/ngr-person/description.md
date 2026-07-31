@@ -2,6 +2,6 @@ LinkML-modell av Nasjonale grunndata - Person, modellert som ein domenemodell fo
 
 Modellen dekkjer persondata frå Folkeregisteret, inkludert namn, identifikatorar, fødselsdato, kjønn og sivilstand.
 
-**Typisk brukar:** Offentlege verksemder som arbeider med persondata frå Skatteetaten sitt Folkeregister, og utviklare som implementerer person-API-ar baserte på Nasjonale grunndata.
+**Typisk brukar:** Offentlege verksemder som arbeider med persondata frå Skatteetaten sitt Folkeregister, og utviklarar som implementerer person-API-ar baserte på Nasjonale grunndata.
 
 

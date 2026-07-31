@@ -62,7 +62,7 @@ Legg til eit steg **før** image-pull som analyserer domenet sine `build.yaml`-f
 | gen-doc, gen-jsonld, gen-owl, osv. | `linkml-local` | (alltid) |
 | gen-python | `python-pytest` | (alltid) |
 | gen-plantuml | `plantuml` | (alltid) |
-| gen-asyncapi | `asyncapi-cli-local` | `asyncapi: true` |
+| gen-asyncapi | `asyncapi-cli-minimal` | `asyncapi: true` |
 | gen-avro | `avrotize-local` | `avro: true` |
 
 **Base images (alltid påkrevd):**  

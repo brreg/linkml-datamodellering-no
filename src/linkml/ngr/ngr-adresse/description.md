@@ -2,5 +2,5 @@ LinkML-modell av Nasjonale grunndata - Adresse, modellert som ein domenemodell f
 
 Modellen dekkjer norske adressar frå Adresseregisteret, inkludert offisielle adresser, postboksadresser, geografiske inndelingar og adressekomponentar.
 
-**Typisk brukar:** Offentlege verksemder som arbeider med adressedata frå Kartverket sitt Adresseregister, og utviklare som implementerer adresse-API-ar baserte på Nasjonale grunndata.
+**Typisk brukar:** Offentlege verksemder som arbeider med adressedata frå Kartverket sitt Adresseregister, og utviklarar som implementerer adresse-API-ar baserte på Nasjonale grunndata.
 

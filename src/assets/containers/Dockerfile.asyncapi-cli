@@ -1,2 +1,9 @@
+# DEPRECATED: Dette imaget er erstatta av Dockerfile.asyncapi-cli-minimal (296 MB vs. 4,43 GB)
+#
+# Tidlegare brukt: Full AsyncAPI CLI med Studio, Chromium og alle generatorar.
+# Ny løysing: Minimalt image med berre @asyncapi/parser for validering.
+#
+# Fil behalde for historisk referanse. Bruk asyncapi-cli-minimal i staden.
+
 # Build format: Docker v2 (via --format docker flag in Makefile)
 FROM docker.io/asyncapi/cli:latest

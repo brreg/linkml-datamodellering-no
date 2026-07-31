@@ -2,7 +2,7 @@ DCAT-AP-NO er den norske applikasjonsprofilen av [DCAT-AP](https://semiceu.githu
 
 Profilen dekkjer metadata for datasett, datatenester, distribusjonar og katalogar — tilpassa krava i [DCAT-AP-NO-spesifikasjonen](https://informasjonsforvaltning.github.io/dcat-ap-no/) frå Digitaliseringsdirektoratet.
 
-**Typisk brukar:** Offentlege verksemder som skal publisere datasettbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DCAT-AP-NO-kompatible system.
+**Typisk brukar:** Offentlege verksemder som skal publisere datasettbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklarar som implementerer DCAT-AP-NO-kompatible system.
 
 
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dcat-ap-no.md` for dokumenterte avvik og grunngjevingar.

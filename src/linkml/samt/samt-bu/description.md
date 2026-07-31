@@ -2,5 +2,5 @@ LinkML-modell av SAMT-bu (Samarbeid om Modernisering av Tenesteforvalting — Ba
 
 Modellen dekkjer barn og unge-relaterte tenester på tvers av kommunesektoren, inkludert skuleinformasjon, elevdata og organisasjonsstruktur for samarbeidande kommunar.
 
-**Typisk brukar:** Kommunale og offentlege verksemder som samarbeider om modernisering av tenester for barn og unge, og utviklare som implementerer tverrgåande integrasjonar.
+**Typisk brukar:** Kommunale og offentlege verksemder som samarbeider om modernisering av tenester for barn og unge, og utviklarar som implementerer tverrgåande integrasjonar.
 

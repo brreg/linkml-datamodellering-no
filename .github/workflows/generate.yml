@@ -67,10 +67,12 @@ jobs:
             dockerfile: src/assets/containers/Dockerfile.avrotize
             make_target: build-docker-avrotize
             hash_files: src/assets/containers/Dockerfile.avrotize
-          - name: asyncapi-cli-local
-            dockerfile: src/assets/containers/Dockerfile.asyncapi-cli
+          - name: asyncapi-cli-minimal
+            dockerfile: src/assets/containers/Dockerfile.asyncapi-cli-minimal
             make_target: build-docker-asyncapi
-            hash_files: src/assets/containers/Dockerfile.asyncapi-cli
+            hash_files: |
+              src/assets/containers/Dockerfile.asyncapi-cli-minimal
+              src/assets/scripts/container/asyncapi-validate.js
           - name: plantuml
             dockerfile: src/assets/containers/Dockerfile.plantuml
             make_target: build-docker-plantuml
@@ -189,7 +191,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: generated/${{ matrix.domain }}/
-          key: v3-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli', 'src/assets/templates/**', 'Makefile') }}
+          key: v3-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js', 'src/assets/templates/**', 'Makefile') }}
 
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -212,8 +214,8 @@ jobs:
 
             # AsyncAPI
             if grep -q "^  asyncapi: true" "$build_yaml" 2>/dev/null; then
-              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " asyncapi-cli-local " ]]; then
-                REQUIRED_IMAGES+=("asyncapi-cli-local")
+              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " asyncapi-cli-minimal " ]]; then
+                REQUIRED_IMAGES+=("asyncapi-cli-minimal")
               fi
             fi
 
@@ -278,9 +280,9 @@ jobs:
                   "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" \
                   build-docker-avrotize &
                 ;;
-              asyncapi-cli-local)
-                pull_image localhost/asyncapi-cli-local:latest \
-                  "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" \
+              asyncapi-cli-minimal)
+                pull_image localhost/asyncapi-cli-minimal:latest \
+                  "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-minimal:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}" \
                   build-docker-asyncapi &
                 ;;
             esac
@@ -289,7 +291,7 @@ jobs:
           wait
           echo "=== Alle pull-jobbar fullførte ==="
           echo "Lokale images:"
-          podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-local|plantuml)" || echo "Ingen images funne"
+          podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-minimal|plantuml)" || echo "Ingen images funne"
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'

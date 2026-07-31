@@ -16,8 +16,8 @@ LINKML_DOCKERFILE  := src/assets/containers/Dockerfile.linkml
 AVROTIZE_IMAGE     := localhost/avrotize-local:latest
 AVROTIZE_DOCKERFILE := src/assets/containers/Dockerfile.avrotize
 
-ASYNCAPI_IMAGE     := localhost/asyncapi-cli-local:latest
-ASYNCAPI_DOCKERFILE := src/assets/containers/Dockerfile.asyncapi-cli
+ASYNCAPI_IMAGE     := localhost/asyncapi-cli-minimal:latest
+ASYNCAPI_DOCKERFILE := src/assets/containers/Dockerfile.asyncapi-cli-minimal
 
 DOCS_IMAGE         := localhost/mkdocs-local:latest
 DOCS_DOCKERFILE    := src/assets/containers/Dockerfile.mkdocs

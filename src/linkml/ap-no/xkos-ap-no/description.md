@@ -2,5 +2,5 @@ XKOS-AP-NO er den norske applikasjonsprofilen av [XKOS](http://rdf-vocabulary.dd
 
 Profilen dekkjer metadata for klassifikasjonar, klassifikasjonsnivå og kategoriar — tilpassa krava i [XKOS-AP-NO-spesifikasjonen](https://data.norge.no/specification/xkos-ap-no) frå Digitaliseringsdirektoratet.
 
-**Typisk brukar:** Offentlege verksemder som skal publisere klassifikasjonar (t.d. kodeverk, nomenklaturer) til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer XKOS-AP-NO-kompatible system.
+**Typisk brukar:** Offentlege verksemder som skal publisere klassifikasjonar (t.d. kodeverk, nomenklaturer) til [Felles datakatalog](https://data.norge.no), og utviklarar som implementerer XKOS-AP-NO-kompatible system.
 

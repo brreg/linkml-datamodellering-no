@@ -2,7 +2,7 @@ DQV-AP-NO er den norske applikasjonsprofilen av [DQV](https://www.w3.org/TR/voca
 
 Profilen dekkjer metadata for datakvalitet, inkludert kvalitetsmerknadar, kvalitetsmålingar, kvalitetsdimensjonar og kvalitetsmål — tilpassa krava i [DQV-AP-NO-spesifikasjonen](https://informasjonsforvaltning.github.io/dqv-ap-no/) frå Digitaliseringsdirektoratet.
 
-**Typisk brukar:** Offentlege verksemder som skal annotere datasett med datakvalitetsinformasjon i [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DQV-AP-NO-kompatible system.
+**Typisk brukar:** Offentlege verksemder som skal annotere datasett med datakvalitetsinformasjon i [Felles datakatalog](https://data.norge.no), og utviklarar som implementerer DQV-AP-NO-kompatible system.
 
 
 **Skjemastruktur:** Profilen er delt i to filer for å unngå sirkulær import:
