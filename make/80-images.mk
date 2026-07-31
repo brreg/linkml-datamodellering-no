@@ -24,7 +24,7 @@ build-docker-avrotize: ## Bygg Avrotize container-image
 
 build-docker-asyncapi: ## Bygg AsyncAPI CLI container-image
 	$(call print_header,build-docker-asyncapi)
-	@podman build --format docker -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
+	@podman build --format docker -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE) .
 
 build-docker-plantuml: ## Bygg PlantUML container-image
 	$(call print_header,build-docker-plantuml)
