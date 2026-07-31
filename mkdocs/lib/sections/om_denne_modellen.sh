@@ -41,7 +41,7 @@ generate_description() {
 
     # Vis offisiell referanse etter ingress (dersom den finst)
     if [ -n "$external_spec" ]; then
-        echo "📘 **Offisiell referanse:** [$external_label]($external_spec)"
+        echo "**Offisiell referanse:** [$external_label]($external_spec)"
         echo ""
     fi
 
