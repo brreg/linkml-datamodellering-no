@@ -4,4 +4,3 @@ Modellen dekkjer felles konsept for alle FINT-domene, inkludert identifikatorar,
 
 **Typisk brukar:** Utviklare som arbeider med FINT-domenemodellane — skjemaet vert ikkje brukt direkte, berre importert.
 
-**Nøkkelklasser:** `Identifikator`, `Periode`, `Adresse`, `Kontaktinformasjon`, `Basisklasse`.

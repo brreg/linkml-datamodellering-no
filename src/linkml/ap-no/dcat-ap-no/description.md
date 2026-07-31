@@ -4,6 +4,5 @@ Profilen dekkjer metadata for datasett, datatenester, distribusjonar og kataloga
 
 **Typisk brukar:** Offentlege verksemder som skal publisere datasettbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DCAT-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Datasett`, `Katalog`, `Distribusjon`, `Datateneste`, `Agent`, `PeriodOfTime`.
 
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dcat-ap-no.md` for dokumenterte avvik og grunngjevingar.

@@ -4,5 +4,4 @@ Skjemaet demonstrerer alle hovudmønster i repoet: containerklasse, globale slot
 
 **Typisk brukar:** Nye utviklarar som lærer LinkML-modellering i dette repoet — skjemaet vert ikkje brukt i produksjon.
 
-**Nøkkelklasser:** `ReferanseContainer` (containerklasse), `Eksempelressurs`, `Eksempelkatalog`.
 

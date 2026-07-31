@@ -4,4 +4,3 @@ Modellen dekkjer HR-data og organisasjonsstruktur for kommunar og fylkeskommunar
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Administrasjon-API for personaldata og organisasjonsstruktur.
 
-**Nøkkelklasser:** `Personalressurs`, `Arbeidsforhold`, `Fullmakt`, `Organisasjonselement`, `Lonn`, `Fastlonn`, `Variabelonn`.

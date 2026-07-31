@@ -4,4 +4,3 @@ Modellen dekkjer aksjeeigarskapar i norske selskap, inkludert eigarstruktur, ste
 
 **Typisk brukar:** Utviklare som arbeider med aksjeeigardata frå Brønnøysundregistrene, og som ønskjer å eksperimentere med LinkML-basert registermodellering.
 
-**Nøkkelklasser:** `Aksjeeier`, `Aksjepost`, `Aksjeselskap`, `Rolle`, `Stemmerett`.

@@ -4,4 +4,3 @@ Modellen dekkjer Noark 5-basert arkiv og sakshandsaming, inkludert saksmapper, j
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Arkiv-API for sakshandsaming og arkiv.
 
-**Nøkkelklasser:** `Saksmappe`, `Journalpost`, `Dokumentbeskrivelse`, `Dokumentobjekt`, `Arkivdel`, `Klassifikasjonssystem`.

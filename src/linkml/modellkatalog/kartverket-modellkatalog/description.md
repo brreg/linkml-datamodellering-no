@@ -4,5 +4,4 @@ Katalogen inneheld metadata om Kartverket sine LinkML-modellar, publiserte til [
 
 **Typisk brukar:** Kartverket sine modelladministratorar og eksterne brukarar som søkjer etter informasjonsmodellar frå Kartverket.
 
-**Nøkkelklasser:** `ModellkatalogContainer` (containerklasse) — alle andre klasser (`Informasjonsmodell`, `Objekttype`, `Egenskap` m.fl.) er importerte frå `modelldcat-ap-no`.
 

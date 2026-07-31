@@ -4,7 +4,6 @@ Profilen dekkjer metadata for datakvalitet, inkludert kvalitetsmerknadar, kvalit
 
 **Typisk brukar:** Offentlege verksemder som skal annotere datasett med datakvalitetsinformasjon i [Felles datakatalog](https://data.norge.no), og utviklare som implementerer DQV-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Kvalitetsmerknad`, `Kvalitetsmaaling`, `Kvalitetsdimensjon`, `Kvalitetsmaal`, `Tekstdel`.
 
 **Skjemastruktur:** Profilen er delt i to filer for å unngå sirkulær import:
 - `dqv-ap-no-schema.yaml` — hovudskjema, narrowar `har_maal.range` til `KatalogisertRessurs`

@@ -4,4 +4,3 @@ Modellen utvider norske applikasjonsprofilar med tilleggseigenskapar for å oppf
 
 **Typisk brukar:** Forskingsinstitusjoner og offentlege verksemder som skal publisere FAIR-konforme datasett, og utviklare som implementerer FAIR-støtte.
 
-**Nøkkelklasser:** `FAIRMetadata`, `Tilgjengelegheitsgaranti`, `Provenance`, `Lisens`, `Vokabular`.

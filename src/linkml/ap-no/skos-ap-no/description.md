@@ -4,6 +4,5 @@ Profilen dekkjer metadata for omgrep (begrep), omgrepssystem og definisjonar —
 
 **Typisk brukar:** Offentlege verksemder som skal publisere omgrepskatalogar til [Felles begrepskatalog](https://data.norge.no/concepts), og utviklare som implementerer SKOS-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Begrep`, `Definisjon`, `BegrepSamling`, `AssosiativRelasjon`, `GenericRelasjon`, `PartitivRelasjon`.
 
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-skos-ap-no.md` for dokumenterte avvik og grunngjevingar.

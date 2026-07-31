@@ -4,4 +4,3 @@ Profilen dekkjer metadata for offentlege tenester, hendelser, regelkrav og bevis
 
 **Typisk brukar:** Offentlege verksemder som skal publisere teneste- og hendelsesbeskrivingar til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer CPSV-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Tjeneste`, `Hendelse`, `Regelkrav`, `Bevis`, `Kontaktpunkt`, `Kriterie`, `Kostnad`, `Agent`.

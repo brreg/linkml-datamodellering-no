@@ -4,4 +4,3 @@ Modellen dekkjer økonomisystem for kommunar og fylkeskommunar, inkludert faktur
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Økonomi-API for fakturahandsaming, innkjøp og regnskap.
 
-**Nøkkelklasser:** `Faktura`, `Ordre`, `Oppdrag`, `Kontering`, `Leverandor`, `Kunde`.

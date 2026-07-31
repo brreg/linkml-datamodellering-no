@@ -4,5 +4,4 @@ Modellen dekkjer verksemdsdata frå Enhetsregisteret, inkludert organisasjonsstr
 
 **Typisk brukar:** Offentlege verksemder som arbeider med verksemdsdata frå Brønnøysundregistrene sitt Enhetsregister, og utviklare som implementerer virksomhet-API-ar baserte på Nasjonale grunndata.
 
-**Nøkkelklasser:** `Virksomhet`, `Underenhet`, `Hovudeining`, `Naeringskode`, `Organisasjonsform`, `Adresse`.
 

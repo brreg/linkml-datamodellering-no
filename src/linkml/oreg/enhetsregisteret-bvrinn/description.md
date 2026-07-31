@@ -4,5 +4,4 @@ Modellen dekkjer norske verksemder registrerte i Enhetsregisteret, inkludert org
 
 **Typisk brukar:** Utviklare som arbeider med Enhetsregister-data frå Brønnøysundregistrene, og som ønskjer å eksperimentere med LinkML-basert registermodellering.
 
-**Nøkkelklasser:** `Enhet`, `Underenhet`, `Hovudeining`, `Organisasjonsform`, `Naeringskode`, `Adresse`.
 

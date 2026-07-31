@@ -4,4 +4,3 @@ Profilen dekkjer metadata for klassifikasjonar, klassifikasjonsnivå og kategori
 
 **Typisk brukar:** Offentlege verksemder som skal publisere klassifikasjonar (t.d. kodeverk, nomenklaturer) til [Felles datakatalog](https://data.norge.no), og utviklare som implementerer XKOS-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Klassifikasjon`, `Klassifikasjonsnivaa`, `Kategori`, `KorrespondanseTabell`, `Versjon`.

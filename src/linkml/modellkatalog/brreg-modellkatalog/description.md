@@ -4,4 +4,3 @@ Katalogen inneheld metadata om Brønnøysundregistrene sine LinkML-modellar, pub
 
 **Typisk brukar:** Brønnøysundregistrene sine modelladministratorar og eksterne brukarar som søkjer etter informasjonsmodellar frå BRREG.
 
-**Nøkkelklasser:** `ModellkatalogContainer` (containerklasse) — alle andre klasser (`Informasjonsmodell`, `Objekttype`, `Egenskap` m.fl.) er importerte frå `modelldcat-ap-no`.

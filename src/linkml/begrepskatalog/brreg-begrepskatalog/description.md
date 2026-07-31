@@ -4,4 +4,3 @@ Katalogen inneheld omgrepsdefininingar frå Brønnøysundregistrene, publiserte 
 
 **Typisk brukar:** Brønnøysundregistrene sine fagpersonar og eksterne brukarar som søkjer etter omgrepsdefininingar frå BRREG.
 
-**Nøkkelklasser:** `BegrepskatalogContainer` (containerklasse) — alle andre klasser (`Begrep`, `Definisjon`, `BegrepSamling` m.fl.) er importerte frå `skos-ap-no`.

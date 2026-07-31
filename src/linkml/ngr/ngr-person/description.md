@@ -4,5 +4,4 @@ Modellen dekkjer persondata frå Folkeregisteret, inkludert namn, identifikatora
 
 **Typisk brukar:** Offentlege verksemder som arbeider med persondata frå Skatteetaten sitt Folkeregister, og utviklare som implementerer person-API-ar baserte på Nasjonale grunndata.
 
-**Nøkkelklasser:** `Person`, `Navn`, `Identifikator`, `Foedselsdato`, `Kjoenn`, `Sivilstand`.
 

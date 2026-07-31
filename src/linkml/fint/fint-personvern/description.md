@@ -4,4 +4,3 @@ Modellen dekkjer GDPR-støtte for dokumentasjon av behandling av personopplysnin
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Personvern-API for å dokumentere behandling av personopplysningar.
 
-**Nøkkelklasser:** `Behandling`, `Personopplysning`, `RettsligGrunnlag`, `Behandlingsgrunnlag`, `Samtykke`.

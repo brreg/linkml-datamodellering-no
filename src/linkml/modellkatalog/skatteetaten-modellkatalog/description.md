@@ -4,5 +4,4 @@ Katalogen inneheld metadata om Skatteetaten sine LinkML-modellar, publiserte til
 
 **Typisk brukar:** Skatteetaten sine modelladministratorar og eksterne brukarar som søkjer etter informasjonsmodellar frå Skatteetaten.
 
-**Nøkkelklasser:** `ModellkatalogContainer` (containerklasse) — alle andre klasser (`Informasjonsmodell`, `Objekttype`, `Egenskap` m.fl.) er importerte frå `modelldcat-ap-no`.
 

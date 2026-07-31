@@ -4,4 +4,3 @@ Modellen dekkjer norske adressar frå Adresseregisteret, inkludert offisielle ad
 
 **Typisk brukar:** Offentlege verksemder som arbeider med adressedata frå Kartverket sitt Adresseregister, og utviklare som implementerer adresse-API-ar baserte på Nasjonale grunndata.
 
-**Nøkkelklasser:** `OffisiellAdresse`, `Postboksadresse`, `Adressenavn`, `Kommune`, `Fylke`, `Poststed`, `Gate`, `Vegnummer`.

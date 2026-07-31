@@ -34,9 +34,8 @@ generate_schema_index() {
         generate_header "$schema"
         generate_badges "$domain" "$schema" "$gendoc_index"
 
-        # Hopp over external_reference og description for delmodellar
+        # Hopp over description (som no også inneheld external_reference) for delmodellar
         if ! $is_submodel; then
-            generate_external_reference "$domain" "$schema"
             generate_description "$domain" "$schema"
         fi
 

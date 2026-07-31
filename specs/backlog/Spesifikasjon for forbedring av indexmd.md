@@ -2,7 +2,17 @@
 
 ## Lokale og importerte klassar
 
-### Anbefaling
+### Status: ✅ Delvis utført
+
+**Utført:**
+- Forklarande ingress lagt til under kvar seksjon (Classes, Slots, Enumerations, Types, Subsets)
+- Ingressane presiserer at teljinga omfattar lokale element og at importerte element kan vere synlege i diagram og rapportar
+- Ingressane brukar Markdown blockquote (`>`) for visuell separasjon
+
+**Ikkje utført:**
+- Seksjonshovuda viser berre tal, ikkje "lokale"-presisering (t.d. `Classes (19)` i staden for `Classes (19 lokale)`)
+
+### Anbefaling (opprinnelig)
 
 Gjer skilnaden synleg direkte i seksjonshovudet.
 
@@ -24,6 +34,13 @@ Bruk same mønster for andre seksjonar:
 - Types (7 lokale)
 
 Importerte element blir framleis dokumenterte separat gjennom eigne referansar til importerte modellar.
+
+### Gjenværande tiltak
+
+Dersom "lokale"-presisering i hovudet er ønskt:
+
+1. Endre `## Classes ({{ ns_total_classes.count }})` til `## Classes ({{ ns_total_classes.count }} lokale)` i `index.md.jinja2`
+2. Gjenta for Slots, Enumerations, Types og Subsets
 
 ---
 

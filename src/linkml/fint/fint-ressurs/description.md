@@ -4,4 +4,3 @@ Modellen dekkjer ressursforvaltning og tilgangsstyring, inkludert lisensadminist
 
 **Typisk brukar:** Kommunar og fylkeskommunar som brukar FINT Ressurs-API for tilgangsstyring og ressursforvaltning.
 
-**Nøkkelklasser:** `Ressurs`, `Lisens`, `Tilgangsstyring`, `Applikasjon`, `Bruksrett`.

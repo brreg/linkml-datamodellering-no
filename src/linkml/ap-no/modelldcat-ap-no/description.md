@@ -4,7 +4,6 @@ Profilen dekkjer metadata for informasjonsmodellar og modellelement — tilpassa
 
 **Typisk brukar:** Offentlege verksemder som skal publisere informasjonsmodellar til [Felles modellkatalog](https://data.norge.no/informationmodels), og utviklare som implementerer ModelDCAT-AP-NO-kompatible system.
 
-**Nøkkelklasser:** `Informasjonsmodell`, `Katalog`, `Objekttype`, `Datatype`, `Kodeliste`, `Egenskap` og subklassar av `Modellelement`.
 
 **Skjemastruktur:** Profilen er delt i tre filer for å unngå sirkular import:
 - `modelldcat-ap-no-schema.yaml` — hovudskjema, importerer dei to andre
