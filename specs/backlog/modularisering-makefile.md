@@ -523,15 +523,15 @@ Risiko: middels, på grunn av escaping i `define`, `foreach`, `xargs` og shell-v
 
 Risiko: middels.
 
-### Fase 5: Fjern duplisering i domain-targets
+### ~~Fase 5: Fjern duplisering i domain-targets~~ ✅
 
-1. Opprett `makefile/20-domain-targets.mk`.
-2. Flytt `domain_target` dit.
-3. Innfør domenespesifikke pre-hooks.
-4. Fjern manuell override av `domain-begrepskatalog`.
-5. Test `make -n domain-begrepskatalog` og samanlikn med tidlegare output.
+~~1. Opprett `makefile/20-domain-targets.mk`.~~
+~~2. Flytt `domain_target` dit.~~
+~~3. Innfør domenespesifikke pre-hooks.~~
+~~4. Fjern manuell override av `domain-begrepskatalog`.~~
+~~5. Test `make -n domain-begrepskatalog` og samanlikn med tidlegare output.~~
 
-Risiko: høgaste fasen, fordi dette påverkar hovudflyten i CI.
+**Utført 2026-07-31.** `make/20-domain-targets.mk` oppretta med `domain_target`-mal og pre-hook-støtte (`DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance`). Fjerna duplisert `domain-begrepskatalog`-override frå hovud-Makefile. Fase 5 reduserte Makefile med ~190 linjer.
 
 ### Fase 6: Flytt tematiske target
 

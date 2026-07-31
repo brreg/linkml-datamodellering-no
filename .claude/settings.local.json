@@ -364,7 +364,8 @@
       "Bash(make gen-config *)",
       "Bash(make -p)",
       "Bash(make --version)",
-      "Bash(make *)"
+      "Bash(make *)",
+      "Bash(echo \"Diff exit code: $?\")"
     ]
   },
   "enableAllProjectMcpServers": true,
