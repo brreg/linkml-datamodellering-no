@@ -2,7 +2,7 @@
 
 ## Modellmetadata
 
-> Denne seksjonen viser sentrale metadata for modellen, inkludert versjon, status, lisens, identifikatorar og avhengigheiter. Verdiane er henta direkte frå schemaet.
+> Denne oversikta viser sentrale metadata for modellen, inkludert versjon, status, lisens, identifikatorar og avhengigheiter. Verdiane er henta direkte frå schemaet.
 
 | Felt | Verdi |
 | --- | --- |
@@ -143,7 +143,7 @@
 {%- endfor -%}
 ## Slots ({{ ns_used_slots.names|length }})
 
-> Denne oversikta viser eigenskapar som er brukte av lokale klassar i modellen. Nokre eigenskapar kan vere importerte frå andre schema sjølv om dei blir brukte lokalt.
+> Denne oversikta viser eigenskapar som er definert i eller brukt av lokale klassar i modellen. Nokre eigenskapar kan vere importerte frå andre schema sjølv om dei blir brukte lokalt.
 
 {%- if ns_slots_verdiar.items %}
 ### Verdiar ({{ ns_slots_verdiar.items|length }})
@@ -256,7 +256,7 @@
 
 ## Enumerations ({{ ns_used_enums.names|length }})
 
-> Denne seksjonen viser kontrollerte verdiområde som er definerte eller brukte av modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
+> Denne oversikta viser kontrollerte verdiområde som er definert i eller brukt lokalt i modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
 
 {% if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
@@ -338,7 +338,7 @@
 
 ## Types ({{ ns_used_types.names|length }})
 
-> Typar definerer primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatype brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
+> Denne oversikta viser primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatypar som er definert i eller brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
 {%- if ns_used_types.names %}
 
 | Type | URI | Description | Defined in | Usage |
@@ -428,7 +428,7 @@
 
 ## Subsets ({{ ns_used_subsets.names|length }})
 
-> Subsets representerer klassifiseringar eller kravsnivå som blir brukte i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
+> Denne oversikta viser klassifiseringar av klasser og slots som blir brukt i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
 {%- if ns_used_subsets.names %}
 
 | Subset | Description | Defined in | Usage |
