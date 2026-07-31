@@ -134,3 +134,11 @@ generere Nøkkelklasser i index.md frå obligatoriske klasser i modellen
 gen-doc ser ut til å kutte innholdet i description feltet når den les eit punktum i teksten
 
 Vi må regenerere README-tabellgenerering sida basert på siste versjon av generate-readme-tables.sh
+
+Innføre loglvl DEBUG, INFO, ERROR i alle make targets, der INFO er default og tilsvarer dagens logging.
+
+På DEBUG nivå skal vi logge alle scriptkall og funksjonskall.
+
+På ERROR nivå skal vi kun logge ERRORS.
+
+Så skal vi konfigurere CI jobbane til å benytte DEBUG logging.

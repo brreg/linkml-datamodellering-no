@@ -2,13 +2,13 @@
 
 ## Kvifor auto-genererte tabellar?
 
-README.md inneheld fire tabellar som gir oversikt over repoets struktur. Desse tabellane vert **automatisk genererte** for å sikre:
+README.md inneheld tre tabellar som gir oversikt over repoets struktur. Desse tabellane vert **automatisk genererte** for å sikre:
 
 - **Konsistens** — identisk format og struktur på tvers av alle entries
 - **Redusert vedlikehald** — nye skjema og domene dukkar opp automatisk
 - **Færre feil** — ingen manuell kopiering av filstiar eller lenkjer
 
-Tabellane vert genererte av `src/assets/scripts/generate-readme-tables.sh` og sett inn mellom HTML-kommentarar i README.md. CI køyrer scriptet automatisk ved endringar i `src/linkml/`, men du kan også køyre det manuelt.
+Tabellane vert genererte av `src/assets/scripts/makefile/generate-readme-tables.sh` og sett inn mellom HTML-kommentarar i README.md. CI køyrer scriptet automatisk ved endringar i `src/linkml/`, men du kan også køyre det manuelt.
 
 ---
 
@@ -16,174 +16,151 @@ Tabellane vert genererte av `src/assets/scripts/generate-readme-tables.sh` og se
 
 | # | Tabell | Innhald | Kjelde | Funksjon i generate-readme-tables.sh |
 |---|---|---|---|---|
-| 1 | **Domenetabell** | Oversikt over alle domene med skildringar og dokumentasjonslenkjer | 100 % hardkoda | `generate_domain_table()` (linje 21-38) |
-| 2 | **Skjematabell** | Alle LinkML-skjemaer per domene med skildringar og dokumentasjonslenkjer | **Hybrid:** Skjemafiler auto-oppdaga frå `src/linkml/`, skildringar og lenkjer hardkoda | `generate_schema_table()` (linje 40-148) |
-| 3 | **Artefakttabell** | Alle genererte artefaktar, deira brukstilfelle, W3C-semantikk og manifest-flagg | 100 % hardkoda | `generate_artifacts_table()` (linje 150-175) |
-| 4 | **Modellkatalogtabell** | Automatisk genererte modellkatalogar per organisasjon | **Hybrid:** Modellkatalogfiler auto-oppdaga frå `src/linkml/modellkatalog/`, organisasjonsnamn hardkoda | `generate_modellkatalog_table()` (linje 177-204) |
+| 1 | **Skjematabell** | Alle LinkML-skjemaer per domene med skildringar og dokumentasjonslenkjer | **100 % auto-generert** frå skjemafiler via `extract-schema-metadata.py` | `generate_schema_table()` (linje 25-92) |
+| 2 | **Begrepskatalog-tabell** | Automatisk genererte begrepskatalogar per organisasjon | **100 % auto-generert** frå skjemafiler | `generate_begrepskatalog_table()` (linje 94-124) |
+| 3 | **Modellkatalog-tabell** | Automatisk genererte modellkatalogar per organisasjon | **100 % auto-generert** frå skjemafiler | `generate_modellkatalog_table()` (linje 126-156) |
 
 ---
 
-## 1. Domenetabell
-
-### Kva tabellen inneheld
-
-```markdown
-| Domene | Skildring | Dokumentasjon |
-|---|---|---|
-| [fair](fair/) | **FAIR**-metadataoverbygning ... | [FAIR principles](...) |
-| [ap-no](ap-no/) | Norske W3C-applikasjonsprofiler ... | [RDF-baserte ...](...) |
-```
-
-### Korleis han vert generert
-
-**Innhaldet er 100 % hardkoda** i `generate-readme-tables.sh` (linje 27-37).
-
-### Korleis legge til nytt domene
-
-1. Opprett domene-katalog: `src/linkml/<domene>/`
-2. Rediger `generate-readme-tables.sh`:
-
-```bash
-generate_domain_table() {
-  echo "| Domene | Skildring | Dokumentasjon |"
-  echo "|---|---|---|"
-  cat <<'EOF'
-...
-| [nytt-domene](nytt-domene/) | Skildring av domenet | [Dokumentasjon](https://...)
-EOF
-}
-```
-
-3. Køyr `make readme-tables` for å oppdatere README.md
-
----
-
-## 2. Skjematabell
+## 1. Skjematabell
 
 ### Kva tabellen inneheld
 
 ```markdown
 | Domene | Skjema | Skildring | Dokumentasjon |
 |---|---|---|---|
-| [fair](fair/) | [fair-metadata](fair/fair-metadata/) | **FAIR**-metadataoverbygning | [...](...) |
+| [fair](fair/) | [fair-metadata](fair/fair-metadata/) | **FAIR**-metadataoverbygning | [www.go-fair.org](https://...) |
+| [ap-no](ap-no/) | [dcat-ap-no](ap-no/dcat-ap-no/) | Standard for beskrivelse av datasett, ... | [data.norge.no](https://...) |
 ```
 
 ### Korleis han vert generert
 
-**Hybrid:**
-- **Skjemafiler vert auto-oppdaga** frå `src/linkml/` (linje 101-122)
-- **Skildringar og dokumentasjonslenkjer er hardkoda** (linje 45-93)
+**100 % auto-generert:**
+- **Skjemafiler vert auto-oppdaga** frå `src/linkml/<domene>/<skjema>/<skjema>-schema.yaml` (linje 35-57)
+- **Skildringar vert henta** frå `description:`-feltet i kvar skjemafil via `extract-schema-metadata.py` (linje 72)
+- **Dokumentasjonslenkjer vert henta** frå første URI i `see_also:`-lista via `extract-schema-metadata.py` (linje 75)
 
 Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, men inkluderer berre **hovudskjema** der filnamnet matcher katalognamnet (t.d. `modelldcat-ap-no/modelldcat-ap-no-schema.yaml` vert inkludert, men `modelldcat-ap-no/modelldcat-katalog-schema.yaml` vert hoppa over).
+
+**Domene som vert inkluderte:** fair, ap-no, referanse, ngr, oreg, fint, samt (linje 30)
+
+**Domene som vert ekskluderte:** modellkatalog, begrepskatalog (desse har eigne tabellar)
 
 ### Korleis legge til nytt skjema
 
 **Steg 1:** Opprett skjemaet med `make new-model NAME=<skjema> DOMAIN=<domene>`
 
-**Steg 2:** Legg til skildring og dokumentasjonslenkje i `generate-readme-tables.sh`:
+**Steg 2:** Fyll inn `description:` og `see_also:` i skjemafila `src/linkml/<domene>/<skjema>/<skjema>-schema.yaml`:
 
-```bash
-# Hardkoda skildringar
-declare -A DESCRIPTIONS=(
-  ...
-  ["mitt-nye-skjema"]="Kort skildring av skjemaet"
-)
+```yaml
+description: >-
+  Kort skildring av skjemaet som vises i README-tabellen.
+  Multiline-format er støtta.
 
-# Hardkoda dokumentasjonslenkjer (valfritt)
-declare -A DOC_LINKS=(
-  ...
-  ["mitt-nye-skjema"]="[doc-lenke](https://...)"
-)
+see_also:
+  - https://www.eksempel.no/dokumentasjon
 ```
 
-**Steg 3:** Køyr `make readme-tables`
+**Steg 3:** Køyr `make readme-tables` — README.md vert oppdatert automatisk
 
 ### Eksempel
 
 Dersom du opprettar `src/linkml/oreg/folkeregisteret/folkeregisteret-schema.yaml`:
 
-```bash
-# I generate-readme-tables.sh:
-declare -A DESCRIPTIONS=(
-  ...
-  ["folkeregisteret"]="Personopplysningar frå Folkeregisteret"
-)
-
-declare -A DOC_LINKS=(
-  ...
-  ["folkeregisteret"]="[skatteetaten.no/folkeregisteret](https://www.skatteetaten.no/...)"
-)
+```yaml
+# I src/linkml/oreg/folkeregisteret/folkeregisteret-schema.yaml
+id: https://data.norge.no/oreg/folkeregisteret
+name: folkeregisteret
+title: Folkeregisteret
+description: >-
+  Personopplysningar frå Folkeregisteret ved Skatteetaten.
+  Inneheld namn, adresse, fødselsnummer og relasjonar.
+see_also:
+  - https://www.skatteetaten.no/person/folkeregisteret/
 ```
 
 Resultatet vert:
 
 ```markdown
-| [oreg](oreg/) | [folkeregisteret](oreg/folkeregisteret/) | Personopplysningar frå Folkeregisteret | [skatteetaten.no/folkeregisteret](https://...) |
+| [oreg](oreg/) | [folkeregisteret](oreg/folkeregisteret/) | Personopplysningar frå Folkeregisteret ved Skatteetaten. Inneheld namn, adresse, fødselsnummer og relasjonar. | [skatteetaten.no](https://www.skatteetaten.no/person/folkeregisteret/) |
 ```
 
 ---
 
-## 3. Artefakttabell
+## 2. Begrepskatalog-tabell
 
 ### Kva tabellen inneheld
 
 ```markdown
-| Artefakt | Generator | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
-|---|---|---|---|---|---|
-| JSON-LD kontekst | [`gen-jsonld-context`](...) | `<skjema>-context.jsonld` | Mapping frå JSON til RDF | ✓ | `jsonld_context` |
+| Domene | Begrepskatalog | Organisasjon | Skildring | Generator |
+|---|---|---|---|---|
+| [begrepskatalog](...) | [brreg-begrepskatalog](...) | Brønnøysundregistra | Begrepskatalog for Brønnøysundregistra sine begrep | [`gen-begrepskatalog-instance`](...) |
 ```
 
 ### Korleis han vert generert
 
-**Innhaldet er 100 % hardkoda** i `generate-readme-tables.sh` (linje 156-174).
+**100 % auto-generert:**
+- **Begrepskatalogfiler vert auto-oppdaga** frå `src/linkml/begrepskatalog/` (linje 102-123)
+- **Organisasjonsnamn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Begrepskatalog" (linje 107-114)
 
-### Korleis legge til ny artefakttype
+### Korleis legge til ny begrepskatalog
 
-1. Implementer ny generator i `Makefile` og `src/assets/scripts/`
-2. Legg til rad i `generate_artifacts_table()`:
+**Steg 1:** Opprett begrepskatalog-skeleton (sjå [Ny organisasjon](ny-org.md))
 
-```bash
-generate_artifacts_table() {
-  ...
-  cat <<'EOF'
-...
-| Nytt artefakt | [`gen-nytt`](COMMANDS.md#...) | `<skjema>-nytt.ext` | Brukstilfelle | — | `nytt_flag` |
-EOF
-}
+**Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml`:
+
+```yaml
+title: "Organisasjonsnamn - Begrepskatalog"
 ```
 
-3. Køyr `make readme-tables`
+Organisasjonsnamnet vert ekstraherast automatisk ved å fjerne " - Begrepskatalog" frå `title`.
+
+**Steg 3:** Køyr `make readme-tables`
+
+### Eksempel
+
+```yaml
+# I src/linkml/begrepskatalog/statped-begrepskatalog/statped-begrepskatalog-schema.yaml
+id: https://data.norge.no/begrepskatalog/statped
+name: statped-begrepskatalog
+title: "Statped - Begrepskatalog"
+```
+
+Resultatet vert:
+
+```markdown
+| [begrepskatalog](...) | [statped-begrepskatalog](...) | Statped | Begrepskatalog for Statped sine begrep | [`gen-begrepskatalog-instance`](...) |
+```
 
 ---
 
-## 4. Modellkatalogtabell
+## 3. Modellkatalog-tabell
 
 ### Kva tabellen inneheld
 
 ```markdown
-| Modellkatalog | Organisasjon | Skildring | Generator |
-|---|---|---|---|
-| [brreg-modellkatalog](...) | Brønnøysundregistra | Modellkatalog for ... | [`gen-modellkatalog-instance`](...) |
+| Domene | Modellkatalog | Organisasjon | Skildring | Generator |
+|---|---|---|---|---|
+| [modellkatalog](...) | [brreg-modellkatalog](...) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](...) |
 ```
 
 ### Korleis han vert generert
 
-**Hybrid:**
-- **Modellkatalogfiler vert auto-oppdaga** frå `src/linkml/modellkatalog/` (linje 193-203)
-- **Organisasjonsnamn er hardkoda** (linje 183-190)
+**100 % auto-generert:**
+- **Modellkatalogfiler vert auto-oppdaga** frå `src/linkml/modellkatalog/` (linje 134-155)
+- **Organisasjonsnamn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" (linje 138-146)
 
 ### Korleis legge til ny modellkatalog
 
-**Steg 1:** Opprett modellkatalogen (sjå [Ny organisasjon](ny-org.md))
+**Steg 1:** Opprett modellkatalog-skeleton (sjå [Ny organisasjon](ny-org.md))
 
-**Steg 2:** Legg til organisasjonsnamn i `generate-readme-tables.sh`:
+**Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml`:
 
-```bash
-declare -A ORGS=(
-  ...
-  ["<alias>-modellkatalog"]="Offisielt organisasjonsnamn"
-)
+```yaml
+title: "Organisasjonsnamn - Modellkatalog"
 ```
+
+Organisasjonsnamnet vert ekstraherast automatisk ved å fjerne " - Modellkatalog" frå `title`.
 
 **Steg 3:** Køyr `make readme-tables`
 
@@ -191,18 +168,53 @@ declare -A ORGS=(
 
 Dersom du opprettar `src/linkml/modellkatalog/statped-modellkatalog/`:
 
-```bash
-# I generate-readme-tables.sh:
-declare -A ORGS=(
-  ...
-  ["statped-modellkatalog"]="Statped"
-)
+```yaml
+# I src/linkml/modellkatalog/statped-modellkatalog/statped-modellkatalog-schema.yaml
+id: https://data.norge.no/modellkatalog/statped
+name: statped-modellkatalog
+title: "Statped - Modellkatalog"
 ```
 
 Resultatet vert:
 
 ```markdown
-| [statped-modellkatalog](...) | Statped | Modellkatalog for Statped sine informasjonsmodellar | [`gen-modellkatalog-instance`](...) |
+| [modellkatalog](...) | [statped-modellkatalog](...) | Statped | Modellkatalog for Statped sine informasjonsmodellar | [`gen-modellkatalog-instance`](...) |
+```
+
+---
+
+## Avhengigheter
+
+`generate-readme-tables.sh` brukar Python-scriptet `extract-schema-metadata.py` for å hente metadata frå LinkML-skjemafiler:
+
+**`src/assets/scripts/makefile/extract-schema-metadata.py`**
+
+Støtta felt:
+- `description` — multiline eller einlinjes YAML-verdi, strippar `>-` og `>` og konverter til einlinjes tekst
+- `see_also` — første URI frå lista
+- `title` — einlinjes YAML-verdi
+- `annotations.utgiver` — einlinjes YAML-verdi
+
+**Bruk:**
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py <skjemafil> <felt>
+```
+
+**Eksempel:**
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py \
+  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml description
+
+# Output: Adresseinformasjon frå Det sentrale folkeregisteret (DSF)
+```
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py \
+  src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml title
+
+# Output: Brønnøysundregistra - Modellkatalog
 ```
 
 ---
@@ -213,7 +225,8 @@ Resultatet vert:
 
 GitHub Actions-workflowen `.github/workflows/update-readme.yml` køyrer `generate-readme-tables.sh` automatisk ved endringar i:
 - `src/linkml/**/*.yaml`
-- `src/assets/scripts/generate-readme-tables.sh`
+- `src/assets/scripts/makefile/generate-readme-tables.sh`
+- `src/assets/scripts/makefile/extract-schema-metadata.py`
 
 Workflowen commitar og pushar oppdatert README.md direkte til same PR.
 
@@ -223,7 +236,7 @@ Workflowen commitar og pushar oppdatert README.md direkte til same PR.
 make readme-tables
 ```
 
-Dette køyrer `src/assets/scripts/generate-readme-tables.sh README.md` og oppdaterer README.md i arbeidskatalogen.
+Dette køyrer `src/assets/scripts/makefile/generate-readme-tables.sh README.md` og oppdaterer README.md i arbeidskatalogen.
 
 ---
 
@@ -235,36 +248,81 @@ Dette køyrer `src/assets/scripts/generate-readme-tables.sh README.md` og oppdat
 
 1. **Er skjemafila på rett stad?** → Skal vere `src/linkml/<domene>/<skjema>/<skjema>-schema.yaml`
 2. **Matcher filnamnet katalognamnet?** → Filnamnet skal vere `<skjema>-schema.yaml` og katalogen skal heite `<skjema>`
-3. **Er domenet i domene-rekkefølgja?** → Sjå linje 96 i `generate-readme-tables.sh`:
+3. **Er domenet i domene-rekkefølgja?** → Sjå linje 30 i `generate-readme-tables.sh`:
 
    ```bash
-   DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt" "begrepskatalog")
+   DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt")
    ```
 
    Dersom domenet ditt ikkje er i denne lista, legg det til.
 
-4. **Har du lagt til skildring?** → Sjå [Korleis legge til nytt skjema](#korleis-legge-til-nytt-skjema)
+4. **Har du sett `description:`-feltet?** → Sjå [Korleis legge til nytt skjema](#korleis-legge-til-nytt-skjema)
 
 ### Skildringa mi vert ikkje vist
 
-Sjekk at skjemanamnet i `DESCRIPTIONS`-arrayet matcher katalognamnet eksakt:
+Sjekk at `description:`-feltet er sett i skjemafila:
 
 ```bash
-# Riktig (matcher katalognamnet)
-["mitt-skjema"]="Skildring..."
-
-# Feil (bindestreker ↔ underscore)
-["mitt_skjema"]="Skildring..."
+grep -A 5 "^description:" src/linkml/<domene>/<skjema>/<skjema>-schema.yaml
 ```
+
+Dersom `description:` manglar, legg det til:
+
+```yaml
+description: >-
+  Kort skildring av skjemaet.
+```
+
+**Debugging:** Test metadata-ekstraksjon direkte:
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py \
+  src/linkml/<domene>/<skjema>/<skjema>-schema.yaml description
+```
+
+Dersom output er tom, sjekk YAML-syntaksen i skjemafila.
 
 ### Dokumentasjonslenkja mi vert ikkje vist
 
-`DOC_LINKS`-arrayet er **valfritt**. Dersom du ikkje legg til lenkje, vert cella tom.
-
-Dersom du legg til lenkje, bruk full Markdown-lenkeformat:
+Sjekk at `see_also:`-feltet er sett i skjemafila og inneheld minst éin URI:
 
 ```bash
-["skjemanamn"]="[Lenketekst](https://...)"
+grep -A 3 "^see_also:" src/linkml/<domene>/<skjema>/<skjema>-schema.yaml
+```
+
+Dersom `see_also:` manglar, legg det til:
+
+```yaml
+see_also:
+  - https://www.eksempel.no/dokumentasjon
+```
+
+**Debugging:** Test metadata-ekstraksjon direkte:
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py \
+  src/linkml/<domene>/<skjema>/<skjema>-schema.yaml see_also
+```
+
+### Organisasjonsnamnet for modellkatalog/begrepskatalog er feil
+
+Organisasjonsnamnet vert ekstraherast frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" eller " - Begrepskatalog":
+
+```bash
+python3 src/assets/scripts/makefile/extract-schema-metadata.py \
+  src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml title
+
+# Forventar: "Organisasjonsnamn - Modellkatalog"
+```
+
+Dersom `title:` ikkje følgjer mønsteret, vert organisasjonsnamnet "Ukjend". Korriger `title:`-feltet i skjemafila:
+
+```yaml
+# Riktig
+title: "Brønnøysundregistra - Modellkatalog"
+
+# Feil (manglar " - Modellkatalog")
+title: "Brønnøysundregistra"
 ```
 
 ---
@@ -274,7 +332,8 @@ Dersom du legg til lenkje, bruk full Markdown-lenkeformat:
 | Fil | Rolle |
 |---|---|
 | [`README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md) | Målfil for auto-genererte tabellar |
-| [`src/assets/scripts/generate-readme-tables.sh`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/assets/scripts/generate-readme-tables.sh) | Genereringsscript |
+| [`src/assets/scripts/makefile/generate-readme-tables.sh`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/assets/scripts/makefile/generate-readme-tables.sh) | Genereringsscript |
+| [`src/assets/scripts/makefile/extract-schema-metadata.py`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/assets/scripts/makefile/extract-schema-metadata.py) | Metadata-ekstraksjon frå YAML-skjema |
 | [`.github/workflows/update-readme.yml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/.github/workflows/update-readme.yml) | CI-workflow for automatisk oppdatering |
 | [`Makefile`](https://github.com/brreg/linkml-datamodellering-no/blob/main/Makefile) | `make readme-tables`-target |
 
