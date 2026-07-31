@@ -533,19 +533,22 @@ Risiko: middels.
 
 **Utført 2026-07-31.** `make/20-domain-targets.mk` oppretta med `domain_target`-mal og pre-hook-støtte (`DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance`). Fjerna duplisert `domain-begrepskatalog`-override frå hovud-Makefile. Fase 5 reduserte Makefile med ~190 linjer.
 
-### Fase 6: Flytt tematiske target
+### ~~Fase 6: Flytt tematiske target~~ ✅ (delvis — 1-3 utført)
 
-Flytt i denne rekkjefølgja:
-
-1. Instans-target til `makefile/30-instances.mk`.
-2. Validering til `makefile/40-validation.mk`.
-3. Docs til `makefile/50-docs.mk`.
+~~1. Instans-target til `makefile/30-instances.mk`.~~
+~~2. Validering til `makefile/40-validation.mk`.~~
+~~3. Docs til `makefile/50-docs.mk`.~~
 4. MCP til `makefile/60-mcp.mk`.
 5. Scaffolding til `makefile/70-scaffolding.mk`.
 6. Image-bygging til `makefile/80-images.mk`.
 7. Gource/verktøy til `makefile/90-tools.mk`.
 
-Risiko: låg til middels når makroar og variablar allereie er flytta.
+**Utført 2026-07-31 (delvis):**
+- `make/30-instances.mk`: oppretta med `run_gen_informasjonsmodell_instance`, `gen-informasjonsmodell-instance`, `gen-modellkatalog-instance`, `gen-begrepskatalog-instance`, `validate-informasjonsmodell-instance`, `validate-modellkatalog-instance`
+- `make/40-validation.mk`: oppretta med `validate`, `lint`, `validate-instance`, `validate-bronze`, `validate-data`, `validate-examples`, `mcp-linkml-validate`, `validate-capture`, `log-mcp-validate`, `log-validate-instance`
+- `make/50-docs.mk`: oppretta med `build-docker-mkdocs`, `docs-serve`, `docs-build`, `docs-publish`
+- Hovud-Makefile: fjerna ~270 linjer (duplikerte target)
+- Tested: `make lint` fungerer via `make/40-validation.mk`
 
 ### Fase 7: Containeriser Python og rydd inline-kode
 
