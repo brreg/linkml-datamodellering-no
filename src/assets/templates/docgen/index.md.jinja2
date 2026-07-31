@@ -257,7 +257,8 @@
 ## Enumerations ({{ ns_used_enums.names|length }})
 
 > Denne seksjonen viser kontrollerte verdiområde som er definerte eller brukte av modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
-{%- if ns_used_enums.names %}
+
+{% if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
 | --- | --- | --- | --- |
 {% for enum_name in ns_used_enums.names|sort -%}
