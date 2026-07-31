@@ -25,7 +25,7 @@ over dei publiserte informasjonsmodellane og vert konvertert til Turtle ved hjel
 
 ## Slik fungerer det
 
-1. **Modellering:** Du lagar eller oppdaterer LinkML-skjema i `src/linkml/<domain>/<modell>/`
+1. **Modellering:** Du lagar eller oppdaterer LinkML-skjemaer i `src/linkml/<domain>/<modell>/`
 2. **Generering:** `make <domain>` genererer ModelDCAT-AP-NO-metadata frå skjema-annotasjonar
 3. **Publisering til GitHub Pages:** CI publiserer metadata til `https://brreg.github.io/linkml-datamodellering-no/...`
 4. **Høsting (ekstern prosess):** Felles Datakatalog kan konfigurere seg til å høste frå GitHub Pages-adressa

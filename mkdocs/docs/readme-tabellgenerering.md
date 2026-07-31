@@ -17,7 +17,7 @@ Tabellane vert genererte av `src/assets/scripts/generate-readme-tables.sh` og se
 | # | Tabell | Innhald | Kjelde | Funksjon i generate-readme-tables.sh |
 |---|---|---|---|---|
 | 1 | **Domenetabell** | Oversikt over alle domene med skildringar og dokumentasjonslenkjer | 100 % hardkoda | `generate_domain_table()` (linje 21-38) |
-| 2 | **Skjematabell** | Alle LinkML-skjema per domene med skildringar og dokumentasjonslenkjer | **Hybrid:** Skjemafiler auto-oppdaga frå `src/linkml/`, skildringar og lenkjer hardkoda | `generate_schema_table()` (linje 40-148) |
+| 2 | **Skjematabell** | Alle LinkML-skjemaer per domene med skildringar og dokumentasjonslenkjer | **Hybrid:** Skjemafiler auto-oppdaga frå `src/linkml/`, skildringar og lenkjer hardkoda | `generate_schema_table()` (linje 40-148) |
 | 3 | **Artefakttabell** | Alle genererte artefaktar, deira brukstilfelle, W3C-semantikk og manifest-flagg | 100 % hardkoda | `generate_artifacts_table()` (linje 150-175) |
 | 4 | **Modellkatalogtabell** | Automatisk genererte modellkatalogar per organisasjon | **Hybrid:** Modellkatalogfiler auto-oppdaga frå `src/linkml/modellkatalog/`, organisasjonsnamn hardkoda | `generate_modellkatalog_table()` (linje 177-204) |
 

@@ -221,7 +221,7 @@ make docs-publish
 **Oppdater CLAUDE.md:**
 Legg til i seksjonen "Korleis `publish.sh` fungerer" → "Viktige detaljar":
 - **Types-lista** viser alle typar som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte typar frå `linkml:types` m.fl.
-- **Enumerations-lista** viser alle enums som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte enums
+- **Enumerations-lista** viser alle enums som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte enumerations
 
 ## Vurdering av tilnærmingar
 

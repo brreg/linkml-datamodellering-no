@@ -25,7 +25,7 @@ generate_example() {
     echo ""
     echo "## Eksempeldatafil"
     echo ""
-    echo "> Eit komplett eksempel som viser korleis ein datafil basert på denne modellen ser ut i YAML-format."
+    echo "> Eksempel som viser korleis ei gyldig datafil basert på denne modellen kan sjå ut i YAML-format."
     echo ""
     echo "\`\`\`yaml"
     # Ekstraher første 20 liner (eller til første tom linje etter header)

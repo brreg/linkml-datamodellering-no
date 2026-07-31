@@ -68,7 +68,7 @@ Dokumentasjonsportalen (`make docs-publish`) vil:
 - Legg til "Delmodellar"-seksjon på hovudmodellen sin `index.md`
 - Legg til "Delmodell av"-boks på kvar delmodell sin `index.md`
 
-**Brukstilfelle:** Modellar som er splitta i fleire skjema for å handtere sirkulær import
+**Brukstilfelle:** Modellar som er splitta i fleire skjemaer for å handtere sirkulær import
 (t.d. `dqv-core` importert av `dcat-ap-no`, `dqv-ap-no` importerer `dcat-ap-no`) eller
 for å separere logiske komponentar (t.d. `modelldcat-modell` og `modelldcat-katalog`).
 

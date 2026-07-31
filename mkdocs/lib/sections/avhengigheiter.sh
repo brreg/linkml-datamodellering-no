@@ -117,7 +117,7 @@ generate_dependencies() {
         echo ""
         echo "## Avhengigheiter ($import_count) {#avhengigheiter}"
         echo ""
-        echo "> Denne modellen importerer og gjenbruker komponentar frå andre schema. Importerte klassar og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen."
+        echo "> Denne modellen importerer og gjenbruker komponentar frå andre skjema. Importerte klassar og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen."
         echo ""
         echo "Dette skjemaet importerer følgjande skjema (direkte og transitivt):"
         echo ""

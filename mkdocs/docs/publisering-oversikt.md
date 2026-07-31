@@ -134,7 +134,7 @@ ikkje berre Felles Begrepskatalog og Felles Datakatalog.
 
 ### Private datakatalogar
 
-Organisasjonsinterne datakatalogar kan høste LinkML-skjema og datafiler for:
+Organisasjonsinterne datakatalogar kan høste LinkML-skjemaer og datafiler for:
 - Intern begrepskatalog (SKOS/Turtle)
 - Intern datamodell-register (JSON Schema / OWL)
 - Intern dokumentasjon (Markdown / HTML)

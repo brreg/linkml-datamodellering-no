@@ -5,7 +5,7 @@
 Subsets-tabellen i `index.md` for kvar modell viser for tida **alle subsets** (både lokale og importerte) i same tabell, med "Defined in"-kolonne som viser kjeldeskjema-URI. Brukaren ønskjer å **filtrere** tabellen til kun å vise lokalt definerte subsets, og liste importerte subsets under tabellen som ei kommaseparert lenkeliste til kjeldeskjemaa.
 
 **Status quo for andre seksjonar:**
-- **Enumerations:** Viser (importerte enums brukte av lokale slots/klasser) **ELLER** (lokalt definerte enums) — ingen "Importerte enumerations"-linje i Jinja2-template, `classes.sh` legg til linja
+- **Enumerations:** Viser (importerte enumerations brukte av lokale slots/klasser) **ELLER** (lokalt definerte enums) — ingen "Importerte enumerations"-linje i Jinja2-template, `classes.sh` legg til linja
 - **Types:** Viser (importerte types brukte av lokale slots/klasser) **ELLER** (lokalt definerte types) — ingen "Importerte types"-linje i Jinja2-template, `classes.sh` legg til linja
 - **Slots:** Viser (importerte slots brukte av lokale klasser) **ELLER** (lokalt definerte slots) — ingen "Importerte slots"-linje i Jinja2-template, `classes.sh` legg til linja
 - **Classes:** Viser alle klasser (lokale + importerte) — ingen "Importerte classes"-linje i Jinja2-template, `classes.sh` legg til linja
@@ -317,7 +317,7 @@ Verifiser at ankeret `#subsets` fungerer i mkdocs-portalen ved å opne `mkdocs/d
 - **Anker:** `#subsets` (ikkje `index.md#subsets`) — mkdocs-konvensjon for overskrift-anker
 - **Gruppering:** Importerte subsets er gruppert per kjeldeskjema (t.d. dersom eit skjema importerer subsets frå både `common-ap-no` og `dcat-ap-no`, vil begge lenkjast separat: `*Importerte subsets: [common-ap-no](../common-ap-no/#subsets), [dcat-ap-no](../dcat-ap-no/#subsets)*`)
 - **Fallback for ukjende skjema:** Dersom URI ikkje startar med `https://data.norge.no/`, bruk schema-URI som lenketekst og lenke
-- **Kursiv format:** `*Importerte subsets: ...*` — same som "Importerte klasser", "Importerte slots", "Importerte enums", "Importerte typer"
+- **Kursiv format:** `*Importerte subsets: ...*` — same som "Importerte klasser", "Importerte slots", "Importerte enumerations", "Importerte typer"
 
 ## Handlingsliste
 

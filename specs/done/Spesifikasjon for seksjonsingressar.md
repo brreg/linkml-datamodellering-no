@@ -83,7 +83,7 @@ Denne seksjonen viser kontrollerte verdiområde som er definerte eller brukte av
 
 Anbefalt tekst:
 
-Typar definerer primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatype brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
+Typar definerer primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatypar brukt i modellen. Mange av desse kjem frå LinkML eller importerte skjema.
 
 ---
 
