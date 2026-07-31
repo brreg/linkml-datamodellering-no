@@ -111,6 +111,8 @@ PYEOF
     # Generer standard struktur (dynamisk, same for alle modellar)
     echo "## Kom i gang"
     echo ""
+    echo "> Her finn du døme på korleis du importerer, validerer og brukar modellen i eigne prosjekt."
+    echo ""
     echo "### Importer i LinkML-skjema"
     echo ""
     echo "\`\`\`yaml"
