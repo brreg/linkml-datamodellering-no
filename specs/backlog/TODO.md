@@ -125,5 +125,5 @@ alle make kall skal kalkulere og logge forbrukt tid
 
 legge genererte artefakter før genererte begrepskatalogar i README.md. Vurder å droppe autogenerering av overskrifter i README.md
 
-lage en ny poc på meir omfattande designsystem-integrasjon basert på https://designsystemet.no/no/fundamentals/code/setup
+Importerte modeller lenker skal peike på Datamodell overskrifta
 

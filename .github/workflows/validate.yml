@@ -81,6 +81,7 @@ jobs:
             src/
             .github/
             Makefile
+            make/
           retention-days: 1
 
   build-validator:

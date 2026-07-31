@@ -37,6 +37,7 @@ jobs:
             mkdocs/
             .github/
             Makefile
+            make/
             README.md
             CODEOWNERS.md
           retention-days: 1
