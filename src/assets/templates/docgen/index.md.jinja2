@@ -292,9 +292,9 @@
 {%- endif -%}
 {%- endfor -%}
 {%- if is_used.value -%}
-{%- set usage_badge = "✅ Used" -%}
+{%- set usage_badge = "✅ Brukt lokalt" -%}
 {%- else -%}
-{%- set usage_badge = "⚠️ Defined" -%}
+{%- set usage_badge = "⚠️ Definert lokalt" -%}
 {%- endif -%}
 {%- set defined_in_text = origin -%}
 {%- set defined_in_link = origin -%}
@@ -386,9 +386,9 @@
 {%- endif -%}
 {%- endfor -%}
 {%- if is_used.value -%}
-{%- set usage_badge = "✅ Used" -%}
+{%- set usage_badge = "✅ Brukt lokalt" -%}
 {%- else -%}
-{%- set usage_badge = "⚠️ Defined" -%}
+{%- set usage_badge = "⚠️ Definert lokalt" -%}
 {%- endif -%}
 | {{ type_name }} | [{{ uri_text }}]({{ uri_link }}) | {{ t.description|enshorten }} | [{{ defined_in_text }}]({{ defined_in_link }}) | {{ usage_badge }} |
 {% endif -%}
@@ -456,9 +456,9 @@
 {%- endif -%}
 {%- endfor -%}
 {%- if is_used.value -%}
-{%- set usage_badge = "✅ Used" -%}
+{%- set usage_badge = "✅ Brukt lokalt" -%}
 {%- else -%}
-{%- set usage_badge = "⚠️ Defined" -%}
+{%- set usage_badge = "⚠️ Definert lokalt" -%}
 {%- endif -%}
 {%- set defined_in_text = origin -%}
 {%- set defined_in_link = origin -%}
