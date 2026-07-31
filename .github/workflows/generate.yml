@@ -195,6 +195,44 @@ jobs:
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: Detekter påkrevde images for ${{ matrix.domain }}
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        id: detect-images
+        run: |
+          echo "=== Analyserer kva images ${{ matrix.domain }} treng ==="
+
+          # Base images som alltid trengs
+          REQUIRED_IMAGES=("linkml-local" "python-pytest" "plantuml")
+
+          # Sjekk alle build.yaml i domenet
+          for build_yaml in src/linkml/${{ matrix.domain }}/*/build.yaml; do
+            if [ ! -f "$build_yaml" ]; then
+              continue
+            fi
+
+            # AsyncAPI
+            if grep -q "^  asyncapi: true" "$build_yaml" 2>/dev/null; then
+              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " asyncapi-cli-local " ]]; then
+                REQUIRED_IMAGES+=("asyncapi-cli-local")
+              fi
+            fi
+
+            # Avrotize
+            if grep -q "^  avro: true" "$build_yaml" 2>/dev/null; then
+              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " avrotize-local " ]]; then
+                REQUIRED_IMAGES+=("avrotize-local")
+              fi
+            fi
+          done
+
+          echo "Påkrevde images:"
+          for img in "${REQUIRED_IMAGES[@]}"; do
+            echo "  - $img"
+          done
+
+          # Eksporter som output (space-separated)
+          echo "images=${REQUIRED_IMAGES[*]}" >> $GITHUB_OUTPUT
+
       - name: Last images inn i podman frå GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
@@ -216,21 +254,38 @@ jobs:
               set +x
             fi
           }
-          pull_image localhost/linkml-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" \
-            build-docker-linkml &
-          pull_image localhost/python-pytest:latest \
-            "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" \
-            build-docker-python &
-          pull_image localhost/avrotize-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" \
-            build-docker-avrotize &
-          pull_image localhost/asyncapi-cli-local:latest \
-            "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" \
-            build-docker-asyncapi &
-          pull_image localhost/plantuml:latest \
-            "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" \
-            build-docker-plantuml &
+
+          # Pull berre images som domenet faktisk treng
+          for img in ${{ steps.detect-images.outputs.images }}; do
+            case "$img" in
+              linkml-local)
+                pull_image localhost/linkml-local:latest \
+                  "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" \
+                  build-docker-linkml &
+                ;;
+              python-pytest)
+                pull_image localhost/python-pytest:latest \
+                  "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" \
+                  build-docker-python &
+                ;;
+              plantuml)
+                pull_image localhost/plantuml:latest \
+                  "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" \
+                  build-docker-plantuml &
+                ;;
+              avrotize-local)
+                pull_image localhost/avrotize-local:latest \
+                  "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" \
+                  build-docker-avrotize &
+                ;;
+              asyncapi-cli-local)
+                pull_image localhost/asyncapi-cli-local:latest \
+                  "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-local:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli') }}" \
+                  build-docker-asyncapi &
+                ;;
+            esac
+          done
+
           wait
           echo "=== Alle pull-jobbar fullførte ==="
           echo "Lokale images:"
