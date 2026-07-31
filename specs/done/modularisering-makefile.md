@@ -533,33 +533,40 @@ Risiko: middels.
 
 **Utført 2026-07-31.** `make/20-domain-targets.mk` oppretta med `domain_target`-mal og pre-hook-støtte (`DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance`). Fjerna duplisert `domain-begrepskatalog`-override frå hovud-Makefile. Fase 5 reduserte Makefile med ~190 linjer.
 
-### ~~Fase 6: Flytt tematiske target~~ ✅ (delvis — 1-3 utført)
+### ~~Fase 6: Flytt tematiske target~~ ✅
 
 ~~1. Instans-target til `makefile/30-instances.mk`.~~
 ~~2. Validering til `makefile/40-validation.mk`.~~
 ~~3. Docs til `makefile/50-docs.mk`.~~
-4. MCP til `makefile/60-mcp.mk`.
-5. Scaffolding til `makefile/70-scaffolding.mk`.
-6. Image-bygging til `makefile/80-images.mk`.
-7. Gource/verktøy til `makefile/90-tools.mk`.
+~~4. MCP til `makefile/60-mcp.mk`.~~
+~~5. Scaffolding til `makefile/70-scaffolding.mk`.~~
+~~6. Image-bygging til `makefile/80-images.mk`.~~
+~~7. Gource/verktøy til `makefile/90-tools.mk`.~~
 
-**Utført 2026-07-31 (delvis):**
-- `make/30-instances.mk`: oppretta med `run_gen_informasjonsmodell_instance`, `gen-informasjonsmodell-instance`, `gen-modellkatalog-instance`, `gen-begrepskatalog-instance`, `validate-informasjonsmodell-instance`, `validate-modellkatalog-instance`
-- `make/40-validation.mk`: oppretta med `validate`, `lint`, `validate-instance`, `validate-bronze`, `validate-data`, `validate-examples`, `mcp-linkml-validate`, `validate-capture`, `log-mcp-validate`, `log-validate-instance`
-- `make/50-docs.mk`: oppretta med `build-docker-mkdocs`, `docs-serve`, `docs-build`, `docs-publish`
-- Hovud-Makefile: fjerna ~270 linjer (duplikerte target)
-- Tested: `make lint` fungerer via `make/40-validation.mk`
+**Utført 2026-07-31:**
+- `make/30-instances.mk`: instans-generering og -validering
+- `make/40-validation.mk`: LinkML-, policy- og MCP-validering
+- `make/50-docs.mk`: mkdocs-target (build, serve, publish)
+- `make/60-mcp.mk`: alle MCP-serverar (validator, modell-utkast, begrep-utkast)
+- `make/70-scaffolding.mk`: new-model, new-modellkatalog, new-begrepssamling, update-valid-scopes
+- `make/80-images.mk`: build-docker-* for alle containerimage
+- `make/90-tools.mk`: gource-*, check-prereqs
+- Hovud-Makefile: fjerna ~520 linjer (duplikerte target)
+- Tested: `make build-docker-mcp-validator` fungerer via `make/60-mcp.mk`
 
-### Fase 7: Containeriser Python og rydd inline-kode
+### ~~Fase 7: Containeriser Python og rydd inline-kode~~ ✅
 
-Dette kan gjerast parallelt med eller etter modularisering, men bør helst skje etter at modulstrukturen er på plass.
+~~1. Endre host-Python-kall til `$(PYTHON_RUN)` eller `$(LINKML_RUN)`.~~
+~~2. Flytt inline `python3 -c` til små script.~~
+~~3. Legg script under `src/assets/scripts/makefile/`.~~
+~~4. Fjern byggelogikk frå `.github/scripts`.~~ (Mesteparten allereie utført — berre `filter-unchanged-logs.py` att, som er for CI-loggfiltrering og ikkje byggelogikk)
 
-1. Endre host-Python-kall til `$(PYTHON_RUN)` eller `$(LINKML_RUN)`.
-2. Flytt inline `python3 -c` til små script.
-3. Legg script under `src/assets/scripts/makefile/`.
-4. ~~Fjern byggelogikk frå `.github/scripts`.~~ (Mesteparten allereie utført — berre `filter-unchanged-logs.py` att, som er for CI-loggfiltrering og ikkje byggelogikk)
-
-Risiko: middels.
+**Utført 2026-07-31:**
+- Alle Python-kall i Makefile og make/*.mk brukar allereie containerisering via `$(PYTHON_RUN)` eller `$(LINKML_RUN)`
+- Ingen inline `python3 -c` funne i Makefile eller make/*.mk
+- Alle bygge-script ligg i `src/assets/scripts/makefile/`
+- `.github/scripts/filter-unchanged-logs.py` er for CI-loggfiltrering, ikkje byggelogikk — OK å behalde der
+- Verifisert: ingen direkte host-Python-kall i byggesystemet
 
 ---
 

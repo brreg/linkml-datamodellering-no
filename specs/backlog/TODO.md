@@ -1,5 +1,7 @@
 Modellere opp BR modell fra MagicDraw (bvrinn) (må testes meir)
 
+lag help-target i Makefile som viser oversikt over vanlege kommandoar
+
 teste ut anna publiseringsløsning enn mkdocs
 
 automatisk publisering av modell til felles datakatalog (må testes)

@@ -28,6 +28,12 @@ include make/30-instances.mk
 include make/40-validation.mk
 include make/50-docs.mk
 
+# Inkluder MCP, scaffolding, images og tools
+include make/60-mcp.mk
+include make/70-scaffolding.mk
+include make/80-images.mk
+include make/90-tools.mk
+
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
@@ -88,36 +94,8 @@ roundtrip-json-schema:
 # ---------------------------------------------------------------------------
 # Generator targets (genererte av make_gen_target) — gamle definisjonar fjerna
 # ---------------------------------------------------------------------------
-
-build-docker-linkml:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-linkml$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE) .
-
-build-docker-python:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-python$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
-
-build-docker-avrotize:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-avrotize$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
-
-build-docker-asyncapi:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-asyncapi$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE)
-
-build-docker-plantuml:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-plantuml$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f src/assets/containers/Dockerfile.plantuml -t localhost/plantuml:latest .
+# Image-bygging, MCP, scaffolding og verktøy flytta til make/*.mk
+# ---------------------------------------------------------------------------
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
@@ -227,235 +205,7 @@ gen-config: config.mk
 # ---------------------------------------------------------------------------
 
 
-# ---------------------------------------------------------------------------
-# MCP-validator
-# ---------------------------------------------------------------------------
-MCP_RUN := podman run -i --rm \
-  -v "$(CURDIR)/$(MCP_DIR)/server.py:/app/server.py:ro" \
-  -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
-
-build-docker-mcp-validator:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-validator$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(MCP_IMAGE) $(MCP_DIR)
-
-mcp-linkml-validate-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(MCP_RUN) $(MCP_IMAGE)
-
-mcp-linkml-validate-smoke: build-docker-mcp-validator
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
-
-mcp-linkml-validate-test: build-docker-mcp-validator
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman run --rm \
-		-v "$(CURDIR):/work:ro" \
-		-e PYTHONWARNINGS=ignore \
-		$(MCP_IMAGE) \
-		python3 /work/tests/test_mcp_policies.py -v
-
-# ---------------------------------------------------------------------------
-# mcp-linkml-modell-utkast
-# ---------------------------------------------------------------------------
-build-docker-mcp-modell-utkast:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-modell-utkast$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
-
-mcp-linkml-modell-utkast-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
-
-mcp-linkml-modell-utkast-smoke: build-docker-mcp-modell-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
-
-mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman run --rm \
-		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
-		-v "$(CURDIR)/tests:/app/tests:ro" \
-		-w /app/tests \
-		-e PYTHONPATH=/app/mcp-linkml-modell-utkast \
-		$(LINKML_MOD_IMAGE) \
-		python -m pytest test_mcp_linkml_generator.py -v
-
-# Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
-mcp-linkml-modell-utkast:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
-	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
-		"$(SCHEMA)" "$(or $(FORMAT),json-schema)" "$(or $(PROFILE),bronze)" \
-		| $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
-		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-write-modell-utkast-response.py "$(SCHEMA)"
-	@# Automatisk roundtrip-test for JSON Schema
-	@if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \
-		echo "$(CLR_STEP)→ Køyrer roundtrip-test for $(SCHEMA)$(CLR_RST)"; \
-		$(MAKE) roundtrip-json-schema JSONSCHEMA="$(SCHEMA)" || \
-		(echo "$(CLR_ERR)Roundtrip-test feila — sjå logg for detaljar$(CLR_RST)" && exit 1); \
-	fi
-
-# ---------------------------------------------------------------------------
-# mcp-linkml-begrep-utkast
-# ---------------------------------------------------------------------------
-build-docker-mcp-begrep-utkast:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-begrep-utkast$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
-
-mcp-linkml-begrep-utkast-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
-
-mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
-	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
-
-# Bruk: make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
-mcp-linkml-begrep-utkast:
-	@test -n "$(INPUT)" || \
-	  (echo "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1)
-	@test -f "$(INPUT)" || \
-	  (echo "Feil: $(INPUT) finst ikkje"; exit 1)
-	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-begrep-utkast-request.py "$(INPUT)" \
-	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
-
-# List profiler:
-#   make mcp-linkml-begrep-utkast-list-profiles
-mcp-linkml-begrep-utkast-list-profiles:
-	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-begrep-utkast
-	@echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_profiles","arguments":{}}}' \
-	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
-
-# Bruk: make new-model NAME=<namn> DOMAIN=<domene>
-new-model:
-	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
-	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
-	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
-	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
-
-# Bruk: make new-modellkatalog NAME=<alias>
-new-modellkatalog:
-	@test -n "$(NAME)" || (echo "Bruk: make new-modellkatalog NAME=<alias>"; exit 1)
-	bash src/assets/scripts/new-modellkatalog.sh "$(NAME)"
-
-# Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>
-new-begrepssamling:
-	@test -n "$(DOMAIN)" || \
-	  (echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1)
-	@test -n "$(NAME)" || \
-	  (echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1)
-	bash src/assets/scripts/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
-
-# Deprecated: bruk new-begrepssamling i staden
-new-begrepskatalog:
-	@echo "Åtvaring: 'make new-begrepskatalog' er deprecated. Bruk 'make new-begrepssamling' i staden." >&2
-	@test -n "$(NAME)" || \
-	  (echo "Bruk: make new-begrepskatalog NAME=<katalognavn>"; exit 1)
-	bash src/assets/scripts/new-begrepskatalog.sh "$(NAME)"
-
-# Generer .github/valid-scopes.txt frå alle *-schema.yaml-filer
-# Køyrer automatisk ved `make new-model`, `make new-modellkatalog`, `make new-begrepssamling`
-update-valid-scopes:
-	@echo "Genererer .github/valid-scopes.txt..."
-	@find src/linkml -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
-	  | sed 's|.*/||; s|-schema\.yaml$$||' \
-	  | sort \
-	  > .github/valid-scopes.txt
-	@echo "Generert $$(wc -l < .github/valid-scopes.txt) scopes"
-
-check-prereqs:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make check-prereqs$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@bash src/assets/scripts/makefile/check-prereqs.bash
-
-# ---------------------------------------------------------------------------
-# Gource – visualisering av git-historikk
-# ---------------------------------------------------------------------------
-GOURCE_IMAGE      := localhost/gource-local:latest
-GOURCE_DOCKERFILE := src/assets/containers/Dockerfile.gource
-
-define GOURCE_RUN
-podman run --rm \
-  -v "$(CURDIR):/repo:ro" \
-  -v "$(CURDIR)/tmp:/out" \
-  $(GOURCE_IMAGE) \
-  bash -c " \
-    git config --global --add safe.directory /repo && \
-    xvfb-run -a -s '-screen 0 1920x1080x24' \
-      gource /repo \
-        --seconds-per-day 1 \
-        --auto-skip-seconds 1 \
-        --title 'linkml-datamodellering-no' \
-        --hide mouse,progress \
-        --background-colour 111111 \
-        --font-size 18 \
-        --output-ppm-stream /out/gource.ppm \
-        $(GOURCE_EXTRA_FLAGS) && \
-    ffmpeg -y -r $(GOURCE_FPS) \
-        -f image2pipe -vcodec ppm \
-        -i /out/gource.ppm \
-        -an -vcodec libx264 $(GOURCE_FFMPEG_PRESET) \
-        -pix_fmt yuv420p -movflags +faststart \
-        /out/$(GOURCE_OUTFILE) && \
-    rm /out/gource.ppm"
-endef
-
-build-docker-gource:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-gource$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -f $(GOURCE_DOCKERFILE) -t $(GOURCE_IMAGE)
-
-gource-preview: build-docker-gource
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gource-preview$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@mkdir -p tmp
-	$(MAKE) --no-print-directory _gource-render \
-	  GOURCE_OUTFILE=gource-preview.mp4 \
-	  GOURCE_EXTRA_FLAGS="--viewport 1280x720" \
-	  GOURCE_FPS=30 \
-	  GOURCE_FFMPEG_PRESET="-preset ultrafast -crf 28"
-	@echo "Preview: tmp/gource-preview.mp4"
-
-gource-video: build-docker-gource
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gource-video$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@mkdir -p tmp
-	$(MAKE) --no-print-directory _gource-render \
-	  GOURCE_OUTFILE=gource.mp4 \
-	  GOURCE_EXTRA_FLAGS="--viewport 1920x1080 --bloom-multiplier 0.5" \
-	  GOURCE_FPS=60 \
-	  GOURCE_FFMPEG_PRESET="-preset fast -crf 22"
-	@echo "Video: tmp/gource.mp4"
-
-_gource-render:
-	$(GOURCE_RUN)
-
 # ===========================================================================
-# Instans-, validerings-, docs- og MCP-targets er flytta til make/*.mk
+# MCP, scaffolding, images og verktøy flytta til make/*.mk
 # ===========================================================================
 
