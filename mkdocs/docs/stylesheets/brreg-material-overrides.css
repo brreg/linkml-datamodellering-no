@@ -272,3 +272,21 @@ a:hover {
 .md-footer-social {
   margin-left: auto !important;
 }
+
+/**
+ * Blockquote-ingressar under seksjonar → Brønnøysund-profil
+ */
+article blockquote {
+  background-color: rgba(255, 135, 0, 0.05); /* main2 med 5% opacity */
+  border-left: 4px solid var(--ds-color-main2-base-default, #FF8700);
+  padding: 0.875rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: 4px;
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+article blockquote p {
+  margin: 0;
+}
