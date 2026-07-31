@@ -176,7 +176,7 @@ jobs:
           for manifest in $(find src/linkml/${{ matrix.domain }} -name manifest.yaml -type f); do
             if grep -q "^generators:" "$manifest"; then
               echo "Validerer skjema frå manifest: $manifest"
-              bash src/assets/scripts/run-validation.sh --manifest "$manifest" || true
+              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || true
             fi
           done
 
@@ -226,7 +226,7 @@ jobs:
         run: |
           # Python-script som samanliknar nye loggar med git HEAD
           # Fjernar identiske loggar (ignorer validated_at-felt)
-          python3 .github/scripts/filter-unchanged-logs.py
+          python3 src/assets/scripts/ci/filter-unchanged-logs.py
 
       - name: Sjekk om det finst endringar
         id: check_changes
