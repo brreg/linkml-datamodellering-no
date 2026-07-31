@@ -12,12 +12,11 @@
 # LinkML-validering
 # ---------------------------------------------------------------------------
 
-validate:
+validate: ## Valider alle skjema (merge-imports)
 	$(call print_header,validate)
 	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 
-# Bruk: make lint [SCHEMA=<sti-til-skjema>]
-lint:
+lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
 	@if [ -n "$(SCHEMA)" ]; then \
 		$(LINKML_RUN) linkml lint --config src/assets/containers/.linkmllint.yaml "$(SCHEMA)"; \
@@ -25,8 +24,7 @@ lint:
 		$(foreach s,$(SCHEMAS),$(LINKML_RUN) linkml lint --config src/assets/containers/.linkmllint.yaml "$(s)" &&) true; \
 	fi
 
-# Bruk: make validate-instance SCHEMA=<sti-til-skjema> INSTANCE=<sti-til-datafil>
-validate-instance:
+validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>)
 	@test -n "$(SCHEMA)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
 	@test -n "$(INSTANCE)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
 	$(call print_header,validate-instance,SCHEMA=$(SCHEMA)  INSTANCE=$(INSTANCE))
@@ -36,7 +34,7 @@ validate-instance:
 # Policy-validering (bronze/silver/gold/felles-*)
 # ---------------------------------------------------------------------------
 
-validate-bronze:
+validate-bronze: ## Valider skjema med bronze-policy (DOMAIN=<domain>)
 ifdef DOMAIN
 	@set +e; \
 	FAILED=0; \
@@ -56,7 +54,7 @@ else
 	@exit 1
 endif
 
-validate-data:
+validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domain>)
 ifdef DOMAIN
 	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
@@ -82,7 +80,7 @@ else
 	@exit 1
 endif
 
-validate-examples:
+validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domain>)
 ifdef DOMAIN
 	@set +e; \
 	FAILED=0; \
@@ -124,9 +122,7 @@ endif
 # MCP-validering
 # ---------------------------------------------------------------------------
 
-# Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
-# POLICY vert auto-detektert frå build.yaml dersom ikkje oppgjeven
-mcp-linkml-validate:
+mcp-linkml-validate: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
 	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
@@ -137,9 +133,7 @@ _mcp-validate-with-header:
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
-# Bruk: make validate-capture [SCHEMA=<sti>] [PARALLEL=8]
-# Utan SCHEMA: køyr for alle skjema med parallellisering.
-validate-capture:
+validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [PARALLEL=8]
 	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) $(PARALLEL) workers)))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \

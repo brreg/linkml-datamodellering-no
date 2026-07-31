@@ -12,25 +12,21 @@
 # MkDocs Material
 # ---------------------------------------------------------------------------
 
-# Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
-# Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
-build-docker-mkdocs:
+build-docker-mkdocs: ## Bygg MkDocs container-image
 	$(call print_header,build-docker-mkdocs)
 	@podman build --format docker -f $(DOCS_DOCKERFILE) -t $(DOCS_IMAGE)
 
-docs-serve:
+docs-serve: ## Køyr lokal MkDocs-server på :8000
 	$(call print_header,docs-serve)
 	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	@$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000
 
-docs-build:
+docs-build: ## Bygg statisk MkDocs-site til mkdocs/site/
 	$(call print_header,docs-build)
 	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	@$(DOCS_RUN) $(DOCS_IMAGE) build
 
-# Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
-# Føresetnad: relevante make domain-<domain>-targets er køyrde fyrst.
-docs-publish:
+docs-publish: ## Publiser generated/ til mkdocs/docs/ og oppdater mkdocs.yml
 	$(call print_header,docs-publish)
 	$(call print_info,Oppdaterer README.md-tabellar...)
 	@bash src/assets/scripts/makefile/generate-readme-tables.sh README.md

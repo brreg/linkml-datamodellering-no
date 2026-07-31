@@ -39,7 +39,7 @@ podman run --rm \
     rm /out/gource.ppm"
 endef
 
-gource-preview: build-docker-gource
+gource-preview: build-docker-gource ## Generer Gource preview-video (720p, rask encoding)
 	$(call print_header,gource-preview)
 	@mkdir -p tmp
 	@$(MAKE) --no-print-directory _gource-render \
@@ -49,7 +49,7 @@ gource-preview: build-docker-gource
 	  GOURCE_FFMPEG_PRESET="-preset ultrafast -crf 28"
 	@echo "Preview: tmp/gource-preview.mp4"
 
-gource-video: build-docker-gource
+gource-video: build-docker-gource ## Generer Gource produksjonsvideo (1080p, høg kvalitet)
 	$(call print_header,gource-video)
 	@mkdir -p tmp
 	@$(MAKE) --no-print-directory _gource-render \
@@ -66,6 +66,6 @@ _gource-render:
 # Verktøy-sjekk
 # ---------------------------------------------------------------------------
 
-check-prereqs:
+check-prereqs: ## Sjekk at alle nødvendige verktøy er installerte
 	$(call print_header,check-prereqs)
 	@bash src/assets/scripts/makefile/check-prereqs.bash

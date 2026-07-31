@@ -43,7 +43,7 @@ $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml))
 # gen-docs er spesiell (kallar to makroar)
 # ---------------------------------------------------------------------------
 .PHONY: gen-docs
-gen-docs:
+gen-docs: ## Generer dokumentasjon (gen-doc + gen-erdiagram) [SCHEMA=<sti>|DOMAIN=<domain>]
 ifdef SCHEMA
 	$(call print_header,gen-docs,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN

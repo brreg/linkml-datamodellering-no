@@ -57,7 +57,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 
 PARALLEL ?= 8
 
-.PHONY: test roundtrip validate lint validate-instance clean gen-config \
+.PHONY: help test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-bronze validate-data validate-examples \
@@ -72,17 +72,41 @@ PARALLEL ?= 8
         validate-capture \
         build-docker-gource gource-preview gource-video _gource-render
 
-test:
+.DEFAULT_GOAL := help
+
+help: ## Vis oversikt over tilgjengelege make-target
+	@echo "$(CLR_HDR)Tilgjengelege make-target:$(CLR_RST)"
+	@echo ""
+	@echo "$(CLR_INFO)Vanleg bruk:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(test|roundtrip|clean|help)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)Generering (per domene eller skjema):$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(gen-|domain-|convert-)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)Validering:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(validate|lint)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)Dokumentasjon:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'docs-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)Container images:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'build-docker-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)MCP-serverar:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'mcp-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(CLR_INFO)Vedlikehald:$(CLR_RST)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(update-|new-|check-)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+
+test: ## Køyr alle testar
 	$(call print_header,test)
 	bash tests/test_make.sh "$(SCHEMA)"
 
-# Bruk: make roundtrip [SCHEMA=<sti-til-skjema>]
-roundtrip:
+roundtrip: ## Køyr roundtrip-testar (YAML→TTL→YAML) [SCHEMA=<sti>]
 	$(call print_header,roundtrip,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
 	TEST_FILTER=roundtrip bash tests/test_make.sh "$(SCHEMA)"
 
-# Bruk: make roundtrip-json-schema [JSONSCHEMA=<sti-til-json-schema>]
-roundtrip-json-schema:
+roundtrip-json-schema: ## Køyr JSON Schema roundtrip-testar [JSONSCHEMA=<sti>]
 	$(call print_header,roundtrip-json-schema,$(if $(JSONSCHEMA),JSONSCHEMA=$(JSONSCHEMA),(alle JSON Schema i src/tmp)))
 	TEST_FILTER=roundtrip-json-schema bash tests/test_make.sh "$(JSONSCHEMA)"
 
@@ -92,9 +116,7 @@ roundtrip-json-schema:
 # Image-bygging, MCP, scaffolding og verktøy flytta til make/*.mk
 # ---------------------------------------------------------------------------
 
-# Convert example YAML to RDF/Turtle for all domains.
-# AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
-convert-rdf:
+convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	$(call print_header,convert-rdf)
 	@for example in $$(find $(SCHEMA_DIR) -path '*/examples/*-eksempel.yaml' | sort); do \
 		[ -f "$$example" ] || continue; \
@@ -122,10 +144,7 @@ convert-rdf:
 			$$example; \
 	done
 
-# Convert data YAML files to RDF/Turtle for all domains.
-# Naming convention: src/linkml/<domain>/<model>/data/<catalog>/<catalog>.yaml → generated/<domain>/<catalog>/<catalog>.ttl
-# Schema resolved as: src/linkml/<domain>/<model>/<model>-schema.yaml
-convert-data:
+convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 	$(call print_header,convert-data)
 	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
 		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
@@ -149,27 +168,19 @@ convert-data:
 			$$datafile; \
 	done
 
-clean:
+clean: ## Slett alle genererte filer (generated/)
 	$(call print_header,clean)
 	rm -rf $(GEN_DIR)
 
-# Oppdater Informasjonsmodell-innslag i modellkatalogen frå schema.annotations.*.
-# Les annotations frå alle skjema med annotations.utgiver og skriv til katalogdatafila.
-update-modellkatalog:
+update-modellkatalog: ## Oppdater modellkatalog frå schema.annotations.*
 	$(call print_header,update-modellkatalog)
 	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/update-modellkatalog.py
 
-# Reknar ut DQV-kvalitetsmålingar (fullstendighet/aktualitet) for datafiler med
-# data_policy felles-begrepskatalog/felles-datakatalog og skriv dem attende.
-gen-dqv-measurements:
+gen-dqv-measurements: ## Generer DQV-kvalitetsmålingar for datafiler
 	$(call print_header,gen-dqv-measurements)
 	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-dqv-measurements.py
 
-# Genererer ModelDCAT-AP-NO-modellelement (Objekttype/Attributt/Assosiasjon/
-# Kodeliste/Kodeelement) frå LinkML-skjemastruktur og skriv dem inn i riktig
-# org sin modellkatalog-datafil. Krev SchemaView, derfor $(LINKML_RUN) (ikkje
-# $(PYTHON_RUN)). Bruk: make gen-modelldcat-elements [ORG=alias] [DRYRUN=1]
-gen-modelldcat-elements:
+gen-modelldcat-elements: ## Generer ModelDCAT-AP-NO-modellelement [ORG=<alias>] [DRYRUN=1]
 	$(call print_header,gen-modelldcat-elements,$(if $(ORG),ORG=$(ORG))$(if $(DRYRUN), DRYRUN=$(DRYRUN)))
 	$(LINKML_RUN) python3 src/assets/scripts/makefile/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
 
