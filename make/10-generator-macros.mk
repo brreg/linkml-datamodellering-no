@@ -33,6 +33,38 @@ fi
 endef
 
 # ---------------------------------------------------------------------------
+# Generisk parallell generator-makro med pre-check (for OpenAPI/AsyncAPI)
+# ---------------------------------------------------------------------------
+# $1=schemas  $2=generator-namn  $3=manifest-flagg (t.d. "openapi")  $4=input-suffix (t.d. "schema.json")  $5=output-suffix  $6=kommandoar
+define run_gen_with_check_parallel
+printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+	s="{}"; \
+	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+	domain=$$(echo "$$s" | cut -d/ -f3); \
+	manifest=$$(dirname "$$s")/build.yaml; \
+	if [ ! -f "$$manifest" ] || ! grep -q "^  $(3): true" "$$manifest"; then \
+		exit 0; \
+	fi; \
+	outdir=$(GEN_DIR)/$$domain/$$name; \
+	input="$$outdir/$$name-$(4)"; \
+	if [ ! -f "$$input" ]; then \
+		echo "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name" >&2; \
+		exit 0; \
+	fi; \
+	out="$$outdir/$$name-$(5)"; \
+	t0=$$(date +%s%3N); \
+	mkdir -p "$$outdir"; \
+	$(6); \
+	rc=$$?; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		"$$domain" "$$name" \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)); \
+	exit $$rc'
+endef
+
+# ---------------------------------------------------------------------------
 # Serial generator-makro (fallback for run_gen når PARALLEL=1)
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator  $3=output-file suffix
@@ -264,33 +296,7 @@ endef
 
 # Parallell versjon av gen-asyncapi
 define run_gen_asyncapi_parallel
-printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-	s="{}"; \
-	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-	domain=$$(echo "$$s" | cut -d/ -f3); \
-	manifest=$$(dirname "$$s")/build.yaml; \
-	if [ ! -f "$$manifest" ] || ! grep -q "^  asyncapi: true" "$$manifest"; then \
-		exit 0; \
-	fi; \
-	outdir=$(GEN_DIR)/$$domain/$$name; \
-	jsonschema="$$outdir/$$name-schema.json"; \
-	if [ ! -f "$$jsonschema" ]; then \
-		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name" >&2; \
-		exit 0; \
-	fi; \
-	out="$$outdir/$$name-asyncapi.yaml"; \
-	t0=$$(date +%s%3N); \
-	mkdir -p "$$outdir"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
-		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
-	$(ASYNCAPI_RUN) validate /work/$$out > /dev/null 2>&1; \
-	rc=$$?; \
-	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	printf "$(CLR_STEP)→ gen-asyncapi  %s/%s$(CLR_RST) (%d.%ds)\n" \
-		"$$domain" "$$name" \
-		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)); \
-	exit $$rc'
+$(call run_gen_with_check_parallel,$(1),gen-asyncapi,asyncapi,schema.json,asyncapi.yaml,$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out > /dev/null 2>&1; $(ASYNCAPI_RUN) validate /work/$$out > /dev/null 2>&1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -320,31 +326,5 @@ endef
 
 # Parallell versjon av gen-openapi
 define run_gen_openapi_parallel
-printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-	s="{}"; \
-	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-	domain=$$(echo "$$s" | cut -d/ -f3); \
-	manifest=$$(dirname "$$s")/build.yaml; \
-	if [ ! -f "$$manifest" ] || ! grep -q "^  openapi: true" "$$manifest"; then \
-		exit 0; \
-	fi; \
-	outdir=$(GEN_DIR)/$$domain/$$name; \
-	jsonschema="$$outdir/$$name-schema.json"; \
-	if [ ! -f "$$jsonschema" ]; then \
-		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name" >&2; \
-		exit 0; \
-	fi; \
-	out="$$outdir/$$name-openapi.yaml"; \
-	t0=$$(date +%s%3N); \
-	mkdir -p "$$outdir"; \
-	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
-		/work/$$jsonschema /work/$$s --out /work/$$out > /dev/null 2>&1; \
-	$(PYTHON_RUN) openapi-spec-validator /work/$$out > /dev/null 2>&1; \
-	rc=$$?; \
-	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	printf "$(CLR_STEP)→ gen-openapi  %s/%s$(CLR_RST) (%d.%ds)\n" \
-		"$$domain" "$$name" \
-		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)); \
-	exit $$rc'
+$(call run_gen_with_check_parallel,$(1),gen-openapi,openapi,schema.json,openapi.yaml,$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out > /dev/null 2>&1; $(PYTHON_RUN) openapi-spec-validator /work/$$out > /dev/null 2>&1)
 endef
