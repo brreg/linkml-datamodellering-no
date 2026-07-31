@@ -16,28 +16,20 @@ MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
 
 build-docker-mcp-validator:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-validator$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(MCP_IMAGE) $(MCP_DIR)
+	$(call print_header,build-docker-mcp-validator)
+	@podman build --format docker -t $(MCP_IMAGE) $(MCP_DIR)
 
 mcp-linkml-validate-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(MCP_RUN) $(MCP_IMAGE)
+	$(call print_header,mcp-linkml-validate-run)
+	@$(MCP_RUN) $(MCP_IMAGE)
 
 mcp-linkml-validate-smoke: build-docker-mcp-validator
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
+	$(call print_header,mcp-linkml-validate-smoke)
+	@cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
 mcp-linkml-validate-test: build-docker-mcp-validator
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-validate-test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman run --rm \
+	$(call print_header,mcp-linkml-validate-test)
+	@podman run --rm \
 		-v "$(CURDIR):/work:ro" \
 		-e PYTHONWARNINGS=ignore \
 		$(MCP_IMAGE) \
@@ -48,28 +40,20 @@ mcp-linkml-validate-test: build-docker-mcp-validator
 # ---------------------------------------------------------------------------
 
 build-docker-mcp-modell-utkast:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-modell-utkast$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
+	$(call print_header,build-docker-mcp-modell-utkast)
+	@podman build --format docker -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
 
 mcp-linkml-modell-utkast-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
+	$(call print_header,mcp-linkml-modell-utkast-run)
+	@$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
 mcp-linkml-modell-utkast-smoke: build-docker-mcp-modell-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
+	$(call print_header,mcp-linkml-modell-utkast-smoke)
+	@cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
 mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-modell-utkast-test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman run --rm \
+	$(call print_header,mcp-linkml-modell-utkast-test)
+	@podman run --rm \
 		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
 		-v "$(CURDIR)/tests:/app/tests:ro" \
 		-w /app/tests \
@@ -96,21 +80,15 @@ mcp-linkml-modell-utkast:
 # ---------------------------------------------------------------------------
 
 build-docker-mcp-begrep-utkast:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-docker-mcp-begrep-utkast$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build --format docker -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
+	$(call print_header,build-docker-mcp-begrep-utkast)
+	@podman build --format docker -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
 
 mcp-linkml-begrep-utkast-run:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-run$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
+	$(call print_header,mcp-linkml-begrep-utkast-run)
+	@$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-linkml-begrep-utkast-smoke$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,mcp-linkml-begrep-utkast-smoke)
 	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 

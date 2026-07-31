@@ -40,11 +40,9 @@ podman run --rm \
 endef
 
 gource-preview: build-docker-gource
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gource-preview$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,gource-preview)
 	@mkdir -p tmp
-	$(MAKE) --no-print-directory _gource-render \
+	@$(MAKE) --no-print-directory _gource-render \
 	  GOURCE_OUTFILE=gource-preview.mp4 \
 	  GOURCE_EXTRA_FLAGS="--viewport 1280x720" \
 	  GOURCE_FPS=30 \
@@ -52,11 +50,9 @@ gource-preview: build-docker-gource
 	@echo "Preview: tmp/gource-preview.mp4"
 
 gource-video: build-docker-gource
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gource-video$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,gource-video)
 	@mkdir -p tmp
-	$(MAKE) --no-print-directory _gource-render \
+	@$(MAKE) --no-print-directory _gource-render \
 	  GOURCE_OUTFILE=gource.mp4 \
 	  GOURCE_EXTRA_FLAGS="--viewport 1920x1080 --bloom-multiplier 0.5" \
 	  GOURCE_FPS=60 \
@@ -71,7 +67,5 @@ _gource-render:
 # ---------------------------------------------------------------------------
 
 check-prereqs:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make check-prereqs$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,check-prereqs)
 	@bash src/assets/scripts/makefile/check-prereqs.bash

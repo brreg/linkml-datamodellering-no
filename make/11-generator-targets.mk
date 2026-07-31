@@ -11,15 +11,13 @@
 define make_gen_target
 .PHONY: $(1)
 $(1):
-	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$$(CLR_HDR)*** make $(1) SCHEMA=$$(SCHEMA)$$(CLR_RST)"
+	$$(call print_header,$(1),SCHEMA=$$(SCHEMA))
 else ifdef DOMAIN
-	@echo "$$(CLR_HDR)*** make $(1) DOMAIN=$$(DOMAIN)$$(CLR_RST)"
+	$$(call print_header,$(1),DOMAIN=$$(DOMAIN))
 else
-	@echo "$$(CLR_HDR)*** make $(1)$$(CLR_RST)"
+	$$(call print_header,$(1))
 endif
-	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
 	$$(call $(2),$$(call get_target_schemas)$(if $(3),$(COMMA)$(3)))
 endef
 
@@ -46,14 +44,12 @@ $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml))
 # ---------------------------------------------------------------------------
 .PHONY: gen-docs
 gen-docs:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-docs SCHEMA=$(SCHEMA)$(CLR_RST)"
+	$(call print_header,gen-docs,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-docs DOMAIN=$(DOMAIN)$(CLR_RST)"
+	$(call print_header,gen-docs,DOMAIN=$(DOMAIN))
 else
-	@echo "$(CLR_HDR)*** make gen-docs$(CLR_RST)"
+	$(call print_header,gen-docs)
 endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_doc,$(call get_target_schemas))
 	$(call run_gen_erdiagram,$(call get_target_schemas))

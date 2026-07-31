@@ -37,28 +37,26 @@ endef
 .PHONY: gen-informasjonsmodell-instance
 
 gen-informasjonsmodell-instance:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 ifdef SCHEMA
-	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance SCHEMA=$(SCHEMA)$(CLR_RST)"
+	$(call print_header,gen-informasjonsmodell-instance,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN
-	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance DOMAIN=$(DOMAIN)$(CLR_RST)"
+	$(call print_header,gen-informasjonsmodell-instance,DOMAIN=$(DOMAIN))
 else
-	@echo "$(CLR_HDR)*** make gen-informasjonsmodell-instance$(CLR_RST)"
+	$(call print_header,gen-informasjonsmodell-instance)
 endif
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_informasjonsmodell_instance,$(call get_target_schemas))
 
 .PHONY: gen-modellkatalog-instance
 
 gen-modellkatalog-instance:
-	@echo "$(CLR_HDR)Genererer Modellkatalog-instans$(CLR_RST)"
-	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-modellkatalog.py
+	$(call print_step,Genererer Modellkatalog-instans)
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-modellkatalog.py
 
 .PHONY: gen-begrepskatalog-instance
 
 gen-begrepskatalog-instance:
-	@echo "$(CLR_HDR)Samlar begrep frå begrepssamlingar til begrepskatalogar$(CLR_RST)"
-	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/collect-concepts.py
+	$(call print_step,Samlar begrep frå begrepssamlingar til begrepskatalogar)
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/collect-concepts.py
 
 # ---------------------------------------------------------------------------
 # Validering av instansdata
@@ -72,7 +70,7 @@ validate-informasjonsmodell-instance:
 		echo "Usage: make validate-informasjonsmodell-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
 		exit 1; \
 	fi
-	@echo "$(CLR_HDR)Validerer Informasjonsmodell-instans for $(SCHEMA)$(CLR_RST)"
+	$(call print_step,Validerer Informasjonsmodell-instans for $(SCHEMA))
 	@SCHEMA_DIR=$$(dirname "$(SCHEMA)"); \
 	MODELLDCAT_YAML="$$SCHEMA_DIR/metadata/modelldcat.yaml"; \
 	if [ ! -f "$$MODELLDCAT_YAML" ]; then \
@@ -94,7 +92,7 @@ validate-modellkatalog-instance:
 		echo "Eksempel: make validate-modellkatalog-instance ORG=digdir-modellkatalog"; \
 		exit 1; \
 	fi
-	@echo "$(CLR_HDR)Validerer Modellkatalog-instans for $(ORG)$(CLR_RST)"
+	$(call print_step,Validerer Modellkatalog-instans for $(ORG))
 	@ORG_SCHEMA="src/linkml/modellkatalog/$(ORG)/$(ORG)-schema.yaml"; \
 	ORG_DATA="src/linkml/modellkatalog/$(ORG)/data/$(ORG)/$(ORG).yaml"; \
 	if [ ! -f "$$ORG_SCHEMA" ]; then \

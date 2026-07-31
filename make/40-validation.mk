@@ -13,16 +13,12 @@
 # ---------------------------------------------------------------------------
 
 validate:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,validate)
 	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 
 # Bruk: make lint [SCHEMA=<sti-til-skjema>]
 lint:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make lint$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema))$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
 	@if [ -n "$(SCHEMA)" ]; then \
 		$(LINKML_RUN) linkml lint --config src/assets/containers/.linkmllint.yaml "$(SCHEMA)"; \
 	else \
@@ -33,9 +29,7 @@ lint:
 validate-instance:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
 	@test -n "$(INSTANCE)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make validate-instance  SCHEMA=$(SCHEMA)  INSTANCE=$(INSTANCE)$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,validate-instance,SCHEMA=$(SCHEMA)  INSTANCE=$(INSTANCE))
 	$(LINKML_RUN) linkml validate --schema "$(SCHEMA)" "$(INSTANCE)"
 
 # ---------------------------------------------------------------------------
@@ -136,18 +130,17 @@ mcp-linkml-validate:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
 	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
-	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
-	echo "$(CLR_HDR)*** make mcp-linkml-validate  SCHEMA=$(SCHEMA)  POLICY=$$POLICY_TO_USE$(CLR_RST)"; \
-	echo "$(CLR_SEP)$(SEP)$(CLR_RST)"; \
-	podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator; \
-	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $$POLICY_TO_USE $(INSTANCE)
+	$(MAKE) --no-print-directory _mcp-validate-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
+
+_mcp-validate-with-header:
+	$(call print_header,mcp-linkml-validate,SCHEMA=$(SCHEMA)  POLICY=$(POLICY))
+	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
+	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
 # Bruk: make validate-capture [SCHEMA=<sti>] [PARALLEL=8]
 # Utan SCHEMA: køyr for alle skjema med parallellisering.
 validate-capture:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make validate-capture$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema, $(PARALLEL) workers))$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) $(PARALLEL) workers)))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
 	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py --schema $(SCHEMA); \

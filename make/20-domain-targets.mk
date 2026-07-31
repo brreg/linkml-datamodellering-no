@@ -35,9 +35,7 @@ _domain_pre_$(1) := $$(DOMAIN_PRE_$(1))
 
 .PHONY: domain-$(1)
 domain-$(1): $$(_domain_pre_$(1))
-	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
-	@echo "$$(CLR_HDR)*** make domain-$(1)$$(if $$(filter-out 1,$$(PARALLEL)), (PARALLEL=$$(PARALLEL)),)$$(CLR_RST)"
-	@echo "$$(CLR_SEP)$$(SEP)$$(CLR_RST)"
+	$$(call print_header,domain-$(1),$$(if $$(filter-out 1,$$(PARALLEL)),(PARALLEL=$$(PARALLEL))))
 	$$(call run_gen_linkml_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-shacl,shapes.ttl)

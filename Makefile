@@ -12,6 +12,7 @@ SHELL       := /bin/bash
 include make/00-settings.mk
 include make/01-containers.mk
 include make/02-schema-discovery.mk
+include make/03-output.mk
 
 # Inkluder generert konfigurasjon (valgfri)
 -include config.mk
@@ -72,23 +73,17 @@ PARALLEL ?= 8
         build-docker-gource gource-preview gource-video _gource-render
 
 test:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,test)
 	bash tests/test_make.sh "$(SCHEMA)"
 
 # Bruk: make roundtrip [SCHEMA=<sti-til-skjema>]
 roundtrip:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make roundtrip$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema))$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,roundtrip,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
 	TEST_FILTER=roundtrip bash tests/test_make.sh "$(SCHEMA)"
 
 # Bruk: make roundtrip-json-schema [JSONSCHEMA=<sti-til-json-schema>]
 roundtrip-json-schema:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make roundtrip-json-schema$(if $(JSONSCHEMA),  JSONSCHEMA=$(JSONSCHEMA),  (alle JSON Schema i src/tmp))$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,roundtrip-json-schema,$(if $(JSONSCHEMA),JSONSCHEMA=$(JSONSCHEMA),(alle JSON Schema i src/tmp)))
 	TEST_FILTER=roundtrip-json-schema bash tests/test_make.sh "$(JSONSCHEMA)"
 
 # ---------------------------------------------------------------------------
@@ -100,9 +95,7 @@ roundtrip-json-schema:
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
 convert-rdf:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make convert-rdf$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,convert-rdf)
 	@for example in $$(find $(SCHEMA_DIR) -path '*/examples/*-eksempel.yaml' | sort); do \
 		[ -f "$$example" ] || continue; \
 		name=$$(basename "$$example" .yaml); \
@@ -133,9 +126,7 @@ convert-rdf:
 # Naming convention: src/linkml/<domain>/<model>/data/<catalog>/<catalog>.yaml → generated/<domain>/<catalog>/<catalog>.ttl
 # Schema resolved as: src/linkml/<domain>/<model>/<model>-schema.yaml
 convert-data:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make convert-data$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,convert-data)
 	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
 		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
@@ -159,25 +150,19 @@ convert-data:
 	done
 
 clean:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make clean$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,clean)
 	rm -rf $(GEN_DIR)
 
 # Oppdater Informasjonsmodell-innslag i modellkatalogen frå schema.annotations.*.
 # Les annotations frå alle skjema med annotations.utgiver og skriv til katalogdatafila.
 update-modellkatalog:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make update-modellkatalog$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,update-modellkatalog)
 	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/update-modellkatalog.py
 
 # Reknar ut DQV-kvalitetsmålingar (fullstendighet/aktualitet) for datafiler med
 # data_policy felles-begrepskatalog/felles-datakatalog og skriv dem attende.
 gen-dqv-measurements:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gen-dqv-measurements$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,gen-dqv-measurements)
 	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-dqv-measurements.py
 
 # Genererer ModelDCAT-AP-NO-modellelement (Objekttype/Attributt/Assosiasjon/
@@ -185,9 +170,7 @@ gen-dqv-measurements:
 # org sin modellkatalog-datafil. Krev SchemaView, derfor $(LINKML_RUN) (ikkje
 # $(PYTHON_RUN)). Bruk: make gen-modelldcat-elements [ORG=alias] [DRYRUN=1]
 gen-modelldcat-elements:
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make gen-modelldcat-elements$(if $(ORG),  ORG=$(ORG))$(if $(DRYRUN),  DRYRUN=$(DRYRUN))$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(call print_header,gen-modelldcat-elements,$(if $(ORG),ORG=$(ORG))$(if $(DRYRUN), DRYRUN=$(DRYRUN)))
 	$(LINKML_RUN) python3 src/assets/scripts/makefile/gen-modelldcat-elements.py $(if $(ORG),--org $(ORG)) $(if $(DRYRUN),--dry-run)
 
 
