@@ -279,9 +279,9 @@ a:hover {
 article blockquote {
   background-color: rgba(255, 135, 0, 0.05); /* main2 med 5% opacity */
   border-left: 4px solid var(--ds-color-main2-base-default, #FF8700);
-  padding: 0.875rem 1.25rem;
+/*  padding: 0.875rem 1.25rem;
   margin: 1.25rem 0;
-/*  border-radius: 4px;
+  border-radius: 4px;
   font-style: normal;
   font-size: 0.95rem;
   line-height: 1.6;*/
