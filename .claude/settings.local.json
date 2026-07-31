@@ -365,7 +365,8 @@
       "Bash(make -p)",
       "Bash(make --version)",
       "Bash(make *)",
-      "Bash(echo \"Diff exit code: $?\")"
+      "Bash(echo \"Diff exit code: $?\")",
+      "Bash(read schema *)"
     ]
   },
   "enableAllProjectMcpServers": true,

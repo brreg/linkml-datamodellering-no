@@ -241,9 +241,33 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          trap 'echo "::error file=.github/workflows/generate.yml,line=243::make domain-${{ matrix.domain }} failed — sjå loggar for detaljar"; exit 1' ERR
-          # Køyr domene-target som genererer alle hovudartefaktar
-          make domain-${{ matrix.domain }}
+
+          # Pre-flight: logg alle skjema som skal genererast
+          echo "=== Skjema som skal genererast for ${{ matrix.domain }} ==="
+          find src/linkml/${{ matrix.domain }} -name "*-schema.yaml" -type f | sort | while read schema; do
+            echo "  - $schema"
+          done
+          echo ""
+
+          # Køyr domene-target med retry-logikk for transiente podman-feil
+          retry_count=0
+          max_retries=2
+          while [ $retry_count -le $max_retries ]; do
+            if make domain-${{ matrix.domain }}; then
+              echo "✓ make domain-${{ matrix.domain }} fullført"
+              break
+            else
+              exit_code=$?
+              retry_count=$((retry_count + 1))
+              if [ $retry_count -le $max_retries ]; then
+                echo "::warning::make domain-${{ matrix.domain }} feila (forsøk $retry_count/$max_retries) — ventar 10s før retry"
+                sleep 10
+              else
+                echo "::error file=.github/workflows/generate.yml,line=239::make domain-${{ matrix.domain }} feila etter $max_retries retrys"
+                exit $exit_code
+              fi
+            fi
+          done
 
       - name: Logg genererte artefaktar før upload
         run: |
