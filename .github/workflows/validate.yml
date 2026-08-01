@@ -227,6 +227,11 @@ jobs:
           # Fjernar identiske loggar (ignorer validated_at-felt)
           python3 src/assets/scripts/ci/filter-unchanged-logs.py
 
+      - name: Stage nye og endra valideringsloggar
+        run: |
+          # Stage alle validation-filer (både nye og endra)
+          git add src/linkml/**/validation/**/*.json
+
       - name: Lag PR med valideringsloggar
         uses: peter-evans/create-pull-request@v8
         with:
