@@ -161,7 +161,6 @@ log_data = {
     "schema": schema_name,
     "domain": domain,
     "version": version,
-    "validated_at": datetime.now(timezone.utc).isoformat(),
     "validation_type": policy,
     "result": result,
 }

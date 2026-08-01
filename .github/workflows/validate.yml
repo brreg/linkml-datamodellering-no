@@ -263,13 +263,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Filtrer ut uendra loggar
-        run: |
-          # Python-script som samanliknar nye loggar med git HEAD
-          # Fjernar identiske loggar (ignorer validated_at-felt)
-          python3 src/assets/scripts/ci/filter-unchanged-logs.py
-
-      - name: Stage nye og endra valideringsloggar
+      - name: Stage alle valideringsloggar
         run: |
           # Stage alle validation-filer (både nye og endra)
           # validation/ er no fjerna frå .gitignore, så -f er ikkje nødvendig
