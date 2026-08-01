@@ -106,22 +106,24 @@ jobs:
           chmod +x /tmp/crun
           sudo mv /tmp/crun /usr/bin/crun
           crun --version
+
+      # mcp-linkml-validator
       - name: Cache mcp-linkml-validator image
-        id: cache
+        id: cache-mcp
         uses: actions/cache@v6
         with:
           path: mcp-linkml-validator.tar.zst
           key: mcp-linkml-validator-${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
       - name: Bygg mcp-linkml-validator image
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-mcp.outputs.cache-hit != 'true'
         run: |
           make build-docker-mcp-validator
           podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Sjekk om image finst i GHCR
-        id: ghcr-check
-        if: steps.cache.outputs.cache-hit == 'true'
+      - name: Sjekk om mcp-linkml-validator finst i GHCR
+        id: ghcr-check-mcp
+        if: steps.cache-mcp.outputs.cache-hit == 'true'
         run: |
           IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
           if podman pull "$IMAGE" 2>/dev/null; then
@@ -129,14 +131,46 @@ jobs:
           else
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
-      - name: Last inn image frå cache
-        if: steps.cache.outputs.cache-hit == 'true' && steps.ghcr-check.outputs.exists != 'true'
+      - name: Last inn mcp-linkml-validator frå cache
+        if: steps.cache-mcp.outputs.cache-hit == 'true' && steps.ghcr-check-mcp.outputs.exists != 'true'
         run: podman load < <(zstd -d -c mcp-linkml-validator.tar.zst)
-      - name: Push til GHCR
-        if: steps.ghcr-check.outputs.exists != 'true'
+      - name: Push mcp-linkml-validator til GHCR
+        if: steps.ghcr-check-mcp.outputs.exists != 'true'
         run: |
           IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
           podman tag mcp-linkml-validator "$IMAGE"
+          podman push "$IMAGE"
+
+      # linkml-local
+      - name: Cache linkml-local image
+        id: cache-linkml
+        uses: actions/cache@v6
+        with:
+          path: linkml-local.tar.zst
+          key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+      - name: Bygg linkml-local image
+        if: steps.cache-linkml.outputs.cache-hit != 'true'
+        run: |
+          make build-docker-linkml
+          podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
+      - name: Sjekk om linkml-local finst i GHCR
+        id: ghcr-check-linkml
+        if: steps.cache-linkml.outputs.cache-hit == 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          if podman pull "$IMAGE" 2>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Last inn linkml-local frå cache
+        if: steps.cache-linkml.outputs.cache-hit == 'true' && steps.ghcr-check-linkml.outputs.exists != 'true'
+        run: podman load < <(zstd -d -c linkml-local.tar.zst)
+      - name: Push linkml-local til GHCR
+        if: steps.ghcr-check-linkml.outputs.exists != 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          podman tag localhost/linkml-local:latest "$IMAGE"
           podman push "$IMAGE"
 
   validate:
@@ -167,12 +201,19 @@ jobs:
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Hent validator-image frå GHCR
+      - name: Hent mcp-linkml-validator frå GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
           IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
           podman pull "$IMAGE"
           podman tag "$IMAGE" mcp-linkml-validator:latest
+
+      - name: Hent linkml-local frå GHCR
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          podman pull "$IMAGE"
+          podman tag "$IMAGE" localhost/linkml-local:latest
 
       - name: Valider skjema mot validation_policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
