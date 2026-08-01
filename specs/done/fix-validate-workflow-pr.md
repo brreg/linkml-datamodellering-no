@@ -74,4 +74,5 @@ Last alltid opp valideringsloggar som artefaktar — uavhengig av om validering 
 
 **Endringar:**
 1. `.github/workflows/validate.yml:199`: Fjerna `if: steps.cache-validated.outputs.cache-hit != 'true'` slik at valideringsloggar alltid vert lasta opp — uavhengig av cache-hit
-2. `.github/workflows/validate.yml:246`: Endra `token: ${{ secrets.GITHUB_TOKEN }}` til `token: ${{ secrets.RELEASE_PLEASE_TOKEN }}` for å sikre at PR-ar triggar CI-bygg og tester
+2. `.github/workflows/validate.yml:230`: Endra `token: ${{ secrets.GITHUB_TOKEN }}` til `token: ${{ secrets.RELEASE_PLEASE_TOKEN }}` for å sikre at PR-ar triggar CI-bygg og tester
+3. `.github/workflows/validate.yml:230-244`: Fjerna `check_changes`-steget og `if`-betingelsen — `peter-evans/create-pull-request` handterer automatisk situasjonen når det ikkje finst endringar (lagar ikkje PR)

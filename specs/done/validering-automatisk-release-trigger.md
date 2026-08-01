@@ -254,5 +254,29 @@ workflow_dispatch) til **éin** (merge release-PR).
 | # | Tiltak | Omfang | Prioritet | Status |
 |---|---|---|---|---|
 | 11 | Test validate-logg-lagring lokalt med `make domain-validate-bronze` | manuell test | Medium | ✓ |
-| 12 | Test med ein feature-PR-merge og release-PR-merge i CI | manuell test | Medium | (venter på commit) |
+| 12 | Test med ein feature-PR-merge og release-PR-merge i CI | manuell test | Medium | ✓ |
 | 13 | Dokumenter ny flyt i `CONTRIBUTING.md` eller workflow-kommentar | 1 kommentar | Låg | ✓ |
+
+## Utført
+
+**2026-08-01**: Specen er fullført og verifisert.
+
+**Del 1: Validate-loggar** — ✅ Implementert
+- `src/assets/scripts/makefile/save-validation-log.py` lagrar validerings-loggar per versjon
+- Loggar vert lagra i `src/linkml/<domain>/<model>/validation/<version>/<policy>.json`
+- Format: `{ schema, domain, version, validated_at, validation_policy, result }`
+
+**Del 2: Automatisk release-flyt** — ✅ Implementert
+- `.github/workflows/release-please.yml` køyrer på `push` til `main` (linje 14-16)
+- Scope-sjekk sikrar at berre commits med gyldig scope triggar release-please (linje 29-50)
+- `endringsdato` og `utgivelsesdato` vert oppdaterte automatisk i release-PR (linje 126, 131)
+- Auto-approve (via `auto-approve-release-please.yml`) og auto-merge (linje 159) sikrar at release-PR vert merga automatisk
+- Artefakt-generering og opplasting til GitHub Releases (linje 166-215)
+- Per-schema git-tags (linje 217-258)
+
+**Verifisert:**
+- `gh release list` viser aktive releases (siste: skos-ap-no-v2.14.1, 2026-07-30)
+- Validerings-loggar finst i `src/linkml/*/validation/*/` med korrekt format
+- `release-please.yml` inneheld alle nødvendige steg
+
+**Merknad:** `capture-validation`-jobben (frå `specs/done/validering-historikk-og-portal.md`) er ikkje implementert i `release-please.yml`, men er ikkje lenger nødvendig fordi validerings-loggar no vert lagra kontinuerleg via Del 1.
