@@ -127,13 +127,11 @@ legge genererte artefakter før genererte begrepskatalogar i README.md. Vurder �
 
 Importerte modeller lenker skal peike på Datamodell overskrifta
 
-Vi må få til å kjøre validering automatisk og oppdatere valideringsresultata (logen) tilbake til repoet.
 
-generere Nøkkelklasser i index.md frå obligatoriske klasser i modellen
 
 gen-doc ser ut til å kutte innholdet i description feltet når den les eit punktum i teksten
 
-Vi må regenerere README-tabellgenerering sida basert på siste versjon av generate-readme-tables.sh
+
 
 Innføre loglvl DEBUG, INFO, ERROR i alle make targets, der INFO er default og tilsvarer dagens logging.
 

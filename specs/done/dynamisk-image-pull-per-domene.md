@@ -45,9 +45,9 @@ Legg til eit steg **før** image-pull som analyserer domenet sine `build.yaml`-f
 - [x] Skriv deteksjonslogikk i `.github/workflows/generate.yml`
 - [x] Refaktorer pull-steg til å iterere over detektert liste
 - [x] Test syntaks lokalt
-- [ ] Push og test i CI (sjå første generate-workflow-køyring)
-- [ ] Verifiser at domene som **treng** asyncapi (`samt`) framleis får det
-- [ ] Verifiser at andre domene **ikkje** pullar asyncapi
+- [x] Push og test i CI (sjå første generate-workflow-køyring)
+- [x] Verifiser at domene som **treng** asyncapi (`samt`) framleis får det
+- [x] Verifiser at andre domene **ikkje** pullar asyncapi
 
 ## Endra filer
 
@@ -94,15 +94,38 @@ grep -r "asyncapi: true" src/linkml/ap-no/*/build.yaml
    - `ap-no`, `fint`, osv. **ikkje** listar `asyncapi-cli-local`
 4. Verifiser redusert byggtid for domene utan asyncapi
 
-## Framtidig arbeid
+## Vurdering av vidare optimalisering
 
-**Potensielle forbetringar:**
+**1. Caching av images på tvers av domene (avvist):**  
+Pull images éin gong globalt (før matrix), eksporter til GitHub Actions artifacts, og last ned i kvar domene-jobb.
 
-1. **Caching av images på tvers av domene:**  
-   Pull images éin gong globalt (før matrix), slik at domene 2-8 gjenbrukar frå domene 1. Krev refaktorering av workflow-struktur.
+**Reknestykke:**
+- **Scenario A (dagens løysing):** 10.5 GB total nedlasting frå GHCR, ~90s total tid (parallell pull)
+- **Scenario B (artifact-caching):** 15.7 GB total nedlasting (5.2 GB GHCR + 10.5 GB artifacts), ~120s total tid (90s pull + 30s artifact-import)
 
-2. **Lazy-loading av images:**  
-   Pull images **etter kvart som dei trengs** i generatorstegene — ikkje alle på førehand. Krev endring i Makefile-logikk.
+**Konklusjon:** Dagens løysing er **raskare** (30s gevinst), brukar **mindre bandbreidde** (5 GB spart), og er **enklare**. Artifact-caching vil berre vere betre dersom GHCR-pull er ekstremt treg (>5 min per domene) eller me brukar sequential pull i staden for parallell.
 
-3. **Alternative base images:**  
-   Vurder å redusere storleiken på `asyncapi-cli-local` (for tida 4.43 GB) ved å bruke `alpine`-base eller multi-stage builds.
+**2. Lazy-loading av images:**  
+Pull images **etter kvart som dei trengs** i generatorstegene — ikkje alle på førehand. Krev endring i Makefile-logikk.
+
+**Potensial:** Berre `samt`-jobben pullar `asyncapi-cli-local`, andre jobbar hoppar over. Men sidan me allereie har dynamisk deteksjon (Fase 1), er gevinsten marginal.
+
+**3. Alternative base images:**  
+Vurder å redusere storleiken på `asyncapi-cli-local` (for tida 4.43 GB) ved å bruke `alpine`-base eller multi-stage builds.
+
+**Potensial:** Kan redusere `asyncapi-cli-local` frå 4.43 GB til ~1-2 GB. Dette vil spare ~3 GB og ~30-40s pull-tid for `samt`-domenet.
+
+## Utført
+
+**Dato:** 2026-08-01
+
+**Resultat:**  
+Implementerte dynamisk image-deteksjon per domene i `generate.yml`. Kvar domene-jobb analyserer sine `build.yaml`-filer og pullar **berre** dei nødvendige container-images. Dette reduserer sløsing frå 7 × 5 GB (asyncapi + avrotize) til 0 GB for domene som ikkje brukar desse generatorane.
+
+**Gevinst:**
+- **7 av 8 domene:** skipper asyncapi-cli-local (sparer ~60s per domene)
+- **Alle domene:** skipper avrotize-local dersom ikkje brukt (sparer ~30s)
+- **Total estimert tidsbesparing:** ~7 minutt per workflow-køyring
+
+**Avvist vidare optimalisering:**  
+Global artifact-caching vart vurdert og avvist fordi dagens løysing (parallell pull per domene) er både raskare (30s gevinst) og brukar mindre bandbreidde (5 GB spart) enn artifact-basert caching.

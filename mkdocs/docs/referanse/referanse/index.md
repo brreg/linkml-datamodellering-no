@@ -2,7 +2,7 @@
 
 ## Om denne modellen
 
-> Denne sida dokumenterer LinkML-modellen referanse, inkludert klassar, eigenskapar, datatypar, valideringsresultat og genererte artefakt. Informasjonen er generert automatisk frå skjemaet og tilhøyrande byggeprosess.
+> Denne sida dokumenterer LinkML-modellen referanse, inkludert klassar, eigenskapar, datatypar, valideringsresultat og genererte artefakter. Informasjonen er generert automatisk frå skjemaet og tilhøyrande byggeproses.
 
 Referanseskjema for nye utviklarar — viser alle hovudmønster brukte i dette repoet.
 

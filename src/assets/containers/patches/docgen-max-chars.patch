@@ -3,9 +3,30 @@
 @@ -48,7 +48,7 @@
  # In future this may become a Union statement, but for now we only have dialects for markdown
  DIALECT = MarkdownDialect
-
+ 
 -MAX_CHARS_IN_TABLE = 80
 +MAX_CHARS_IN_TABLE = 200
  MAX_RANK = 1000
-
+ 
  SCHEMA_SUBFOLDER = "schemas"
+@@ -68,9 +68,18 @@
+     if "\n" in input:
+         toks = input.split("\n")
+         input = toks[0]
++    # Returner heile teksten dersom den er kortare enn MAX_CHARS_IN_TABLE
++    if len(input) <= MAX_CHARS_IN_TABLE:
++        return input
++    # Teksten er for lang — prøv å kutte ved første setningsslutt
++    # (punktum følgt av mellomrom og stor bokstav)
+     if "." in input:
+-        toks = input.split(".")
+-        input = toks[0]
++        import re
++        match = re.search(r'\.\s+[A-Z]', input)
++        if match and match.start() + 1 <= MAX_CHARS_IN_TABLE:
++            # Kutt ved setningsslutt dersom det er innan MAX_CHARS_IN_TABLE
++            input = input[:match.start() + 1]
++    # Kutt ved MAX_CHARS_IN_TABLE dersom ingen setningsslutt vart funne
+     if len(input) > MAX_CHARS_IN_TABLE - 3:
+         input = input[0 : MAX_CHARS_IN_TABLE - 3] + "..."
+     return input
