@@ -205,7 +205,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: validation-logs-${{ matrix.domain }}
-          path: src/linkml/${{ matrix.domain }}/**/validation/
+          path: src/linkml/${{ matrix.domain }}/**/validation/**/*.json
           retention-days: 7
           if-no-files-found: ignore
 
@@ -220,11 +220,37 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Last ned validation-loggar frå alle domene
-        uses: actions/download-artifact@v8
-        with:
-          pattern: validation-logs-*
-          path: src/linkml/
-          merge-multiple: true
+        run: |
+          # Last ned kvar domain-artifact separat for å behalde domain-nivå i stien
+          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg samt; do
+            artifact_name="validation-logs-$domain"
+
+            # Sjekk om artifact finst (kan vere tomt dersom ingen loggar)
+            if gh run download ${{ github.run_id }} -n "$artifact_name" -D "/tmp/$artifact_name" 2>/dev/null; then
+              # Kopier loggar til rett stad: src/linkml/<domain>/<modell>/validation/...
+              if [ -d "/tmp/$artifact_name" ]; then
+                for model_dir in /tmp/$artifact_name/*/; do
+                  if [ ! -d "$model_dir" ]; then
+                    continue
+                  fi
+
+                  model=$(basename "$model_dir")
+                  target="src/linkml/$domain/$model"
+
+                  # Kopier validation-katalogen
+                  if [ -d "$model_dir/validation" ]; then
+                    mkdir -p "$target"
+                    cp -r "$model_dir/validation" "$target/"
+                    echo "✓ Kopierte $domain/$model validation-loggar"
+                  fi
+                done
+              fi
+            else
+              echo "⚠️  Ingen artifact for $domain"
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Filtrer ut uendra loggar
         run: |
