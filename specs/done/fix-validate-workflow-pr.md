@@ -74,6 +74,7 @@ Last alltid opp valideringsloggar som artefaktar — uavhengig av om validering 
 
 **Endringar:**
 1. `.github/workflows/validate.yml:199`: Fjerna `if: steps.cache-validated.outputs.cache-hit != 'true'` slik at valideringsloggar alltid vert lasta opp — uavhengig av cache-hit
-2. `.github/workflows/validate.yml:230-233`: Lagt til steg for å stage nye og endra valideringsloggar med `git add` — `peter-evans/create-pull-request` ser berre staged endringar
-3. `.github/workflows/validate.yml:235`: Endra `token: ${{ secrets.GITHUB_TOKEN }}` til `token: ${{ secrets.RELEASE_PLEASE_TOKEN }}` for å sikre at PR-ar triggar CI-bygg og tester
-4. `.github/workflows/validate.yml:230-247`: Fjerna `check_changes`-steget og `if`-betingelsen — `peter-evans/create-pull-request` handterer automatisk situasjonen når det ikkje finst endringar (lagar ikkje PR)
+2. `.gitignore:4`: Fjerna `validation/`-linja — valideringsloggar skal versjonskontrollerast i `src/linkml/*/validation/`
+3. `.github/workflows/validate.yml:230-233`: Lagt til steg for å stage nye og endra valideringsloggar med `git add` — `peter-evans/create-pull-request` ser berre staged endringar
+4. `.github/workflows/validate.yml:235`: Endra `token: ${{ secrets.GITHUB_TOKEN }}` til `token: ${{ secrets.RELEASE_PLEASE_TOKEN }}` for å sikre at PR-ar triggar CI-bygg og tester
+5. `.github/workflows/validate.yml:230-247`: Fjerna `check_changes`-steget og `if`-betingelsen — `peter-evans/create-pull-request` handterer automatisk situasjonen når det ikkje finst endringar (lagar ikkje PR)

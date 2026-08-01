@@ -230,6 +230,7 @@ jobs:
       - name: Stage nye og endra valideringsloggar
         run: |
           # Stage alle validation-filer (både nye og endra)
+          # validation/ er no fjerna frå .gitignore, så -f er ikkje nødvendig
           git add src/linkml/**/validation/**/*.json
 
       - name: Lag PR med valideringsloggar
