@@ -97,10 +97,24 @@ if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
 fi
 
 # Finn domain og modell frå schema-sti
-# Eksempel: src/linkml/samt/samt-bu/samt-bu-schema.yaml → samt, samt-bu
+# Eksempel:
+#   src/linkml/samt/samt-bu/samt-bu-schema.yaml → domain=samt, model=samt-bu
+#   src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml → domain=ngr, model=ngr-adresse
 schema_dir=$(dirname "$SCHEMA")
 model=$(basename "$schema_dir")
-domain=$(basename "$(dirname "$schema_dir")")
+
+# Sjekk om schema_dir har tre nivå (linkml/<domain>/<modell>) eller to (linkml/<modell>)
+parent_dir=$(dirname "$schema_dir")
+parent_name=$(basename "$parent_dir")
+
+if [ "$parent_name" = "linkml" ]; then
+  # To-nivå-struktur: linkml/<modell> (skal ikkje skje lenger, men handter det)
+  echo "Åtvaring: Schema ligg direkte under linkml/ utan domenenivå: $SCHEMA" >&2
+  domain="$model"  # Bruk modellnamn som domain (fallback)
+else
+  # Tre-nivå-struktur: linkml/<domain>/<modell>
+  domain="$parent_name"
+fi
 
 # Rekn ut loggsti (co-location)
 log_path="$schema_dir/validation/$VERSION/$POLICY.json"
