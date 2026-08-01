@@ -100,13 +100,18 @@ ifdef DOMAIN
 		echo "--- $$schema ---"; \
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
 			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
+		exit_code=$$?; \
 		echo "$$result"; \
 		has_error=false; \
-		if echo "$$result" | grep -q "\[ERROR\]"; then \
+		if [ $$exit_code -ne 0 ]; then \
 			has_error=true; \
-			echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
-				echo "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
-			done; \
+			if echo "$$result" | grep -q "\[ERROR\]"; then \
+				echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
+					echo "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
+				done; \
+			else \
+				echo "::error file=$$example::Validering feila (exit code $$exit_code)"; \
+			fi; \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
 		if [ "$$has_error" = "true" ]; then \
