@@ -124,35 +124,54 @@ echo "→ Validerer $domain/$model (v$VERSION) med policy: $POLICY" >&2
 # Køyr validering
 # REPO_ROOT peikar til repo-root (scriptet ligg i src/assets/scripts/ci/, så gå 4 nivå opp)
 REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../../../.." && pwd)}"
-VALIDATOR_SCRIPT="$REPO_ROOT/src/mcp-linkml-validator/validate-and-log.py"
-MCP_IMAGE="${MCP_IMAGE:-mcp-linkml-validator}"
+FLATTEN_VALIDATE_SCRIPT="$REPO_ROOT/src/mcp-linkml-validator/flatten-and-validate.bash"
 
 # Lag logg-katalog
 mkdir -p "$(dirname "$log_path")"
 
-# Bygg podman run-kommando
-podman_args=(
-  run --rm
-  -v "$REPO_ROOT:/work"
-  -w /work
-  "$MCP_IMAGE"
-  python3 /app/validate-and-log.py
-  --schema "/work/$SCHEMA"
-  --policy "$POLICY"
-  --log-file "/work/$log_path"
-)
+# Køyr validering via flatten-and-validate.bash (handterer importar korrekt)
+# Fang berre stdout (JSON-resultatet), lat stderr (logge-meldingar) gå til terminal
+result_json=$(bash "$FLATTEN_VALIDATE_SCRIPT" "$SCHEMA" "$POLICY" "$INSTANCE")
+exit_code=$?
 
-# Legg til --instance dersom spesifisert
-if [ -n "$INSTANCE" ]; then
-  if [ ! -f "$INSTANCE" ]; then
-    echo "Feil: Instans-fil finst ikkje: $INSTANCE" >&2
-    exit 1
-  fi
-  podman_args+=(--instance "/work/$INSTANCE")
-fi
+# Bygg logg-objekt med metadata
+python3 - "$SCHEMA" "$VERSION" "$POLICY" "$result_json" "$log_path" << 'PYEOF'
+import json, sys, yaml
+from datetime import datetime, timezone
+from pathlib import Path
 
-# Køyr validering
-if podman "${podman_args[@]}"; then
+schema_path, version, policy, result_json, log_file = sys.argv[1:6]
+
+# Parse result frå flatten-and-validate (kan vere JSON eller feilmelding)
+try:
+    result = json.loads(result_json)
+except:
+    result = {"valid": False, "errorCount": 1, "warningCount": 0, "issues": [{"severity": "error", "message": result_json}]}
+
+# Ekstraher metadata frå schema-sti
+path_parts = Path(schema_path).parts
+if len(path_parts) >= 4 and path_parts[0] == "src" and path_parts[1] == "linkml":
+    domain = path_parts[2]
+    schema_name = path_parts[3]
+else:
+    domain = ""
+    schema_name = Path(schema_path).stem
+
+log_data = {
+    "schema": schema_name,
+    "domain": domain,
+    "version": version,
+    "validated_at": datetime.now(timezone.utc).isoformat(),
+    "validation_type": policy,
+    "result": result,
+}
+
+Path(log_file).parent.mkdir(parents=True, exist_ok=True)
+with open(log_file, "w", encoding="utf-8") as f:
+    json.dump(log_data, f, indent=2, ensure_ascii=False, sort_keys=True)
+PYEOF
+
+if [ $exit_code -eq 0 ]; then
   echo "✓ Validering vellykka: $log_path" >&2
   exit 0
 else
