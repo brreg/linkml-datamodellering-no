@@ -31,9 +31,18 @@ get_validation_json_path() {
     local schema="$2"
     local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
     local policy=$(get_validation_policy "$manifest")
-    local validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
-    local latest_version=$(get_latest_validation_version "$validation_dir")
 
+    # Prioriter generated/ (nyare, frå generate-workflow) over src/ (eldre, frå validate-workflow)
+    local generated_validation_dir="$REPO_ROOT/generated/${domain}/${schema}/validation"
+    local src_validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+
+    local latest_version=$(get_latest_validation_version "$generated_validation_dir")
+    if [ -n "$latest_version" ] && [ -f "$generated_validation_dir/$latest_version/${policy}.json" ]; then
+        echo "$generated_validation_dir/$latest_version/${policy}.json"
+        return
+    fi
+
+    latest_version=$(get_latest_validation_version "$src_validation_dir")
     [ -z "$latest_version" ] && return
-    echo "$validation_dir/$latest_version/${policy}.json"
+    echo "$src_validation_dir/$latest_version/${policy}.json"
 }

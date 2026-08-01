@@ -184,3 +184,32 @@ Etter denne endringa:
 | 6 | Oppdater mkdocs/publish.sh til å prioritere generated/validation/ | `mkdocs/publish.sh` | Høg |
 | 7 | Test lokalt: køyr `make domain-ngr` og sjekk at validation/ vert kopiert | manuell test | Medium |
 | 8 | Test i CI: køyr generate-workflow og sjekk at index.md har valideringsresultat | manuell test | Medium |
+
+## Utført
+
+Alle 6 hovudtiltak er implementerte:
+
+1. ✓ **Legg til mcp-linkml-validator i ensure-images-jobben** — `.github/workflows/generate.yml:84-90`
+2. ✓ **Legg til mcp-linkml-validator i REQUIRED_IMAGES** — `.github/workflows/generate.yml:207`
+3. ✓ **Legg til pull-logikk for mcp-linkml-validator** — `.github/workflows/generate.yml:296-299`
+4. ✓ **Nytt steg: "Valider alle skjema for ${{ matrix.domain }}"** — `.github/workflows/generate.yml:307-325`
+5. ✓ **Nytt steg: "Kopier valideringsloggar til generated/"** — `.github/workflows/generate.yml:327-343`
+6. ✓ **Oppdater metadata_parsers.sh til å prioritere generated/validation/** — `mkdocs/lib/utils/metadata_parsers.sh:get_validation_json_path()`
+
+**Rekkefølgje i generate-jobben (per domene):**
+1. Last ned source-artefakt (har `src/linkml/` med gamle valideringsloggar)
+2. Pull container-images (inkl. `mcp-linkml-validator`)
+3. **Køyr validering** → skriv nye loggar til `src/linkml/<domain>/<schema>/validation/`
+4. **Kopier valideringsloggar** frå `src/linkml/` til `generated/`
+5. **Generer artefaktar** (gen-doc, gen-jsonschema osv.)
+6. Last opp `generated/`-artefakt
+
+**Kva skjer no:**
+
+- Nye versjonar får valideringsresultat umiddelbart i dokumentasjonsportalen (ikkje "Valideringsresultat ikkje tilgjengeleg")
+- `publish.sh` prioriterer `generated/validation/` (nyaste) over `src/linkml/.../validation/` (eldre)
+- `validate.yml` køyrer framleis nattleg og lagar PR med valideringsloggar til `src/linkml/` for versjonskontroll
+- Ingen PR frå `generate.yml` — berre inkludering i artefaktet
+
+**Testing:**
+- Tiltak 7-8 krev manuell verifisering i CI (køyr workflow eller vent til neste automatiske køyring)

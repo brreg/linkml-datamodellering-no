@@ -81,6 +81,12 @@ jobs:
             dockerfile: src/assets/containers/Dockerfile.mkdocs
             make_target: build-docker-mkdocs
             hash_files: src/assets/containers/Dockerfile.mkdocs
+          - name: mcp-linkml-validator
+            dockerfile: src/mcp-linkml-validator/Dockerfile
+            make_target: build-docker-mcp-validator
+            hash_files: |
+              src/mcp-linkml-validator/Dockerfile
+              src/mcp-linkml-validator/requirements.txt
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -204,7 +210,7 @@ jobs:
           echo "=== Analyserer kva images ${{ matrix.domain }} treng ==="
 
           # Base images som alltid trengs
-          REQUIRED_IMAGES=("linkml-local" "python-pytest" "plantuml")
+          REQUIRED_IMAGES=("linkml-local" "python-pytest" "plantuml" "mcp-linkml-validator")
 
           # Sjekk alle build.yaml i domenet
           for build_yaml in src/linkml/${{ matrix.domain }}/*/build.yaml; do
@@ -285,13 +291,57 @@ jobs:
                   "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-minimal:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}" \
                   build-docker-asyncapi &
                 ;;
+              mcp-linkml-validator)
+                pull_image localhost/mcp-linkml-validator:latest \
+                  "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}" \
+                  build-docker-mcp-validator &
+                ;;
             esac
           done
 
           wait
           echo "=== Alle pull-jobbar fullførte ==="
           echo "Lokale images:"
-          podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-minimal|plantuml)" || echo "Ingen images funne"
+          podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-minimal|plantuml|mcp-linkml-validator)" || echo "Ingen images funne"
+
+      - name: Valider alle skjema for ${{ matrix.domain }}
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "=== Validerer skjema for ${{ matrix.domain }} ==="
+
+          # Køyr validering for alle build.yaml med generators:-blokk
+          for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f); do
+            if grep -q "^generators:" "$manifest" 2>/dev/null; then
+              echo "→ Validerer skjema frå manifest: $manifest"
+              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || {
+                echo "::warning::Validering feila for $manifest — held fram"
+              }
+            fi
+          done
+
+          echo "✓ Validering fullført for ${{ matrix.domain }}"
+
+      - name: Kopier valideringsloggar til generated/
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        run: |
+          echo "=== Kopierer valideringsloggar til generated/ ==="
+
+          for schema_dir in src/linkml/${{ matrix.domain }}/*/; do
+            if [ ! -d "$schema_dir/validation" ]; then
+              continue
+            fi
+
+            schema_name=$(basename "$schema_dir")
+            target_dir="generated/${{ matrix.domain }}/$schema_name/validation"
+
+            mkdir -p "$target_dir"
+            cp -r "$schema_dir/validation"/* "$target_dir/" 2>/dev/null || true
+
+            echo "  ✓ $schema_name: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
+          done
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
