@@ -123,7 +123,6 @@ siste byggetidspunkt i mkdocs portalen
 
 alle make kall skal kalkulere og logge forbrukt tid
 
-legge genererte artefakter før genererte begrepskatalogar i README.md. Vurder å droppe autogenerering av overskrifter i README.md
 
 Importerte modeller lenker skal peike på Datamodell overskrifta
 

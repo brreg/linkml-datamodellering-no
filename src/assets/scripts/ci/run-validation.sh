@@ -136,7 +136,7 @@ podman_args=(
   -v "$REPO_ROOT:/work"
   -w /work
   "$MCP_IMAGE"
-  python3 /work/src/mcp-linkml-validator/validate-and-log.py
+  python3 /app/validate-and-log.py
   --schema "/work/$SCHEMA"
   --policy "$POLICY"
   --log-file "/work/$log_path"
