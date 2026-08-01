@@ -1,380 +1,380 @@
 {
-  "schema": "enhetsregisteret-bvrinn",
   "domain": "oreg",
-  "version": "1.0.0",
-  "validated_at": "2026-07-04",
-  "validation_policy": "silver",
   "result": {
-    "valid": false,
-    "error_count": 4,
-    "warning_count": 57,
+    "errorCount": 4,
     "issues": [
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:maalformForTilbakemelding",
-        "message": "Slotnamn 'maalformForTilbakemelding' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'maalformForTilbakemelding' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:maalformForTilbakemelding"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:fagsystemReferanse",
-        "message": "Slotnamn 'fagsystemReferanse' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'fagsystemReferanse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fagsystemReferanse"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:lenkeForEttersending",
-        "message": "Slotnamn 'lenkeForEttersending' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'lenkeForEttersending' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:lenkeForEttersending"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:oppfyllerKravTilNaeringsvirksomhet",
-        "message": "Slotnamn 'oppfyllerKravTilNaeringsvirksomhet' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'oppfyllerKravTilNaeringsvirksomhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oppfyllerKravTilNaeringsvirksomhet"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:venterAAFaaAnsatte",
-        "message": "Slotnamn 'venterAAFaaAnsatte' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'venterAAFaaAnsatte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:venterAAFaaAnsatte"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:datoForAvtale",
-        "message": "Slotnamn 'datoForAvtale' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'datoForAvtale' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:datoForAvtale"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:harAnsvarsbegrensning",
-        "message": "Slotnamn 'harAnsvarsbegrensning' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'harAnsvarsbegrensning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:harAnsvarsbegrensning"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:virksomhetsinformasjonUnderenhet",
-        "message": "Slotnamn 'virksomhetsinformasjonUnderenhet' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'virksomhetsinformasjonUnderenhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:virksomhetsinformasjonUnderenhet"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:meldtOpploesning",
-        "message": "Slotnamn 'meldtOpploesning' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'meldtOpploesning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:meldtOpploesning"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:meldtOmgjoeringAvOpploesning",
-        "message": "Slotnamn 'meldtOmgjoeringAvOpploesning' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'meldtOmgjoeringAvOpploesning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:meldtOmgjoeringAvOpploesning"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:bekreftelseProtokollSletting",
-        "message": "Slotnamn 'bekreftelseProtokollSletting' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'bekreftelseProtokollSletting' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokollSletting"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:registrertITilknyttetRegister",
-        "message": "Slotnamn 'registrertITilknyttetRegister' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'registrertITilknyttetRegister' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:registrertITilknyttetRegister"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:bekreftelseProtokollOpploesningOgOmgjoering",
-        "message": "Slotnamn 'bekreftelseProtokollOpploesningOgOmgjoering' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'bekreftelseProtokollOpploesningOgOmgjoering' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokollOpploesningOgOmgjoering"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:coNavn",
-        "message": "Slotnamn 'coNavn' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'coNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:coNavn"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:vNavn",
-        "message": "Slotnamn 'vNavn' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'vNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:vNavn"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:vegadresseId",
-        "message": "Slotnamn 'vegadresseId' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'vegadresseId' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:vegadresseId"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:internasjonaltPrefiks",
-        "message": "Slotnamn 'internasjonaltPrefiks' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'internasjonaltPrefiks' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:internasjonaltPrefiks"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:nasjonaltNummer",
-        "message": "Slotnamn 'nasjonaltNummer' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'nasjonaltNummer' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nasjonaltNummer"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:internasjonalAdresse",
-        "message": "Slotnamn 'internasjonalAdresse' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'internasjonalAdresse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:internasjonalAdresse"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:byEllerStedsnavn",
-        "message": "Slotnamn 'byEllerStedsnavn' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'byEllerStedsnavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:byEllerStedsnavn"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:distriktEllerBydel",
-        "message": "Slotnamn 'distriktEllerBydel' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'distriktEllerBydel' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:distriktEllerBydel"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:friAdressetekst",
-        "message": "Slotnamn 'friAdressetekst' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'friAdressetekst' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:friAdressetekst"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:mobilnummerUtgaar",
-        "message": "Slotnamn 'mobilnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'mobilnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:mobilnummerUtgaar"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:e_postadresseUtgaar",
-        "message": "Slotnamn 'e_postadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'e_postadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:e_postadresseUtgaar"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:nettadresseUtgaar",
-        "message": "Slotnamn 'nettadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'nettadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nettadresseUtgaar"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:telefonnummerUtgaar",
-        "message": "Slotnamn 'telefonnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'telefonnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:telefonnummerUtgaar"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:datoGyldigFra",
-        "message": "Slotnamn 'datoGyldigFra' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'datoGyldigFra' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:datoGyldigFra"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:nyOrganisasjonsform",
-        "message": "Slotnamn 'nyOrganisasjonsform' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'nyOrganisasjonsform' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nyOrganisasjonsform"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:kjoennssammensetningAnsattvalgte",
-        "message": "Slotnamn 'kjoennssammensetningAnsattvalgte' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'kjoennssammensetningAnsattvalgte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:kjoennssammensetningAnsattvalgte"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:kjoennssammensetningStyre",
-        "message": "Slotnamn 'kjoennssammensetningStyre' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'kjoennssammensetningStyre' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:kjoennssammensetningStyre"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:bekreftelseProtokoll",
-        "message": "Slotnamn 'bekreftelseProtokoll' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'bekreftelseProtokoll' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokoll"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:tildelerAvRolle",
-        "message": "Slotnamn 'tildelerAvRolle' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'tildelerAvRolle' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:tildelerAvRolle"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:oenskerAAFratre",
-        "message": "Slotnamn 'oenskerAAFratre' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'oenskerAAFratre' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskerAAFratre"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:fratredenErVarslet",
-        "message": "Slotnamn 'fratredenErVarslet' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'fratredenErVarslet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fratredenErVarslet"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:valgtAv",
-        "message": "Slotnamn 'valgtAv' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'valgtAv' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:valgtAv"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:mappingId",
-        "message": "Slotnamn 'mappingId' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'mappingId' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:mappingId"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:fulltNavn",
-        "message": "Slotnamn 'fulltNavn' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'fulltNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fulltNavn"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:signaturberettigetEllerProkurist",
-        "message": "Slotnamn 'signaturberettigetEllerProkurist' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'signaturberettigetEllerProkurist' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:signaturberettigetEllerProkurist"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:minsteMengdeangivelse",
-        "message": "Slotnamn 'minsteMengdeangivelse' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'minsteMengdeangivelse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:minsteMengdeangivelse"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:minsteAntall",
-        "message": "Slotnamn 'minsteAntall' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'minsteAntall' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:minsteAntall"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:oenskesRegistrertIForetaksregisteret",
-        "message": "Slotnamn 'oenskesRegistrertIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'oenskesRegistrertIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskesRegistrertIForetaksregisteret"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:oenskesSlettetIForetaksregisteret",
-        "message": "Slotnamn 'oenskesSlettetIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'oenskesSlettetIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskesSlettetIForetaksregisteret"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:typeEierskifte",
-        "message": "Slotnamn 'typeEierskifte' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'typeEierskifte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:typeEierskifte"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:organisasjonsnummerHovedenhet",
-        "message": "Slotnamn 'organisasjonsnummerHovedenhet' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'organisasjonsnummerHovedenhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:organisasjonsnummerHovedenhet"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:gjelderHeleAktiviteten",
-        "message": "Slotnamn 'gjelderHeleAktiviteten' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'gjelderHeleAktiviteten' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:gjelderHeleAktiviteten"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:hvilkeDeler",
-        "message": "Slotnamn 'hvilkeDeler' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'hvilkeDeler' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:hvilkeDeler"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:fagsystemID",
-        "message": "Slotnamn 'fagsystemID' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'fagsystemID' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fagsystemID"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:orgnrFagsystem",
-        "message": "Slotnamn 'orgnrFagsystem' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'orgnrFagsystem' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:orgnrFagsystem"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:referanseFagsystem",
-        "message": "Slotnamn 'referanseFagsystem' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'referanseFagsystem' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:referanseFagsystem"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:eksternFakturareferanse",
-        "message": "Slotnamn 'eksternFakturareferanse' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'eksternFakturareferanse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:eksternFakturareferanse"
       },
       {
-        "severity": "warning",
         "code": "slot_names_snake_case",
-        "target": "slot:gebyransvarligType",
-        "message": "Slotnamn 'gebyransvarligType' er ikkje snake_case (berre a-z, 0-9, _)"
+        "message": "Slotnamn 'gebyransvarligType' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:gebyransvarligType"
       },
       {
-        "severity": "warning",
         "code": "all_slots_have_slot_uri",
-        "target": "slot:id",
-        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
       },
       {
-        "severity": "warning",
         "code": "schema_has_annotation_oppdateringsfrekvens",
-        "target": "schema",
-        "message": "schema.annotations.oppdateringsfrekvens manglar"
-      },
-      {
-        "severity": "error",
-        "code": "container_missing_required_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Katalog'"
-      },
-      {
-        "severity": "error",
-        "code": "container_missing_required_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Datasett'"
-      },
-      {
-        "severity": "error",
-        "code": "container_missing_required_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmaal'"
-      },
-      {
-        "severity": "error",
-        "code": "container_missing_required_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmaaling'"
-      },
-      {
+        "message": "schema.annotations.oppdateringsfrekvens manglar",
         "severity": "warning",
-        "code": "container_missing_recommended_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Distribusjon'"
+        "target": "schema"
       },
       {
-        "severity": "warning",
-        "code": "container_missing_recommended_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Datatjeneste'"
+        "code": "container_missing_required_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Katalog'",
+        "severity": "error",
+        "target": "class:GeneratedContainer"
       },
       {
-        "severity": "warning",
-        "code": "container_missing_recommended_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsdimensjon'"
+        "code": "container_missing_required_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Datasett'",
+        "severity": "error",
+        "target": "class:GeneratedContainer"
       },
       {
-        "severity": "warning",
+        "code": "container_missing_required_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmaal'",
+        "severity": "error",
+        "target": "class:GeneratedContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmaaling'",
+        "severity": "error",
+        "target": "class:GeneratedContainer"
+      },
+      {
         "code": "container_missing_recommended_class",
-        "target": "class:GeneratedContainer",
-        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmerknad'"
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Distribusjon'",
+        "severity": "warning",
+        "target": "class:GeneratedContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Datatjeneste'",
+        "severity": "warning",
+        "target": "class:GeneratedContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsdimensjon'",
+        "severity": "warning",
+        "target": "class:GeneratedContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'GeneratedContainer' manglar attributt med range 'Kvalitetsmerknad'",
+        "severity": "warning",
+        "target": "class:GeneratedContainer"
       }
-    ]
-  }
+    ],
+    "valid": false,
+    "warningCount": 57
+  },
+  "schema": "enhetsregisteret-bvrinn",
+  "validated_at": "2026-08-01T15:53:42.436818+00:00",
+  "validation_type": "silver",
+  "version": "1.0.0"
 }

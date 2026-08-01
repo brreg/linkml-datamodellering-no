@@ -202,8 +202,9 @@ jobs:
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
           # Valider alle skjema i dette domenet med validation_policy frå build.yaml
+          # Ekskluder begrepssamling-* katalogar (datakatalogar, ikkje skjema)
           FAILED=0
-          for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f); do
+          for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest"; then
               echo "Validerer skjema frå manifest: $manifest"
               if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then
