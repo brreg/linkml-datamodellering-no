@@ -74,6 +74,11 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
+      - name: Fjern gamle valideringsloggar før artifact-upload
+        run: |
+          # Ekskluder validation/-katalogar frå source-artifact
+          # slik at berre nygenerte loggar vert lasta opp seinare
+          find src/linkml -type d -name validation -exec rm -rf {} + 2>/dev/null || true
       - uses: actions/upload-artifact@v7
         with:
           name: source
