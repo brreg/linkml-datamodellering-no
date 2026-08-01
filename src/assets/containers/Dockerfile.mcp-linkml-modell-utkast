@@ -5,7 +5,7 @@ RUN apt-get update \
        build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+COPY src/mcp-linkml-modell-utkast/requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 
@@ -18,9 +18,9 @@ WORKDIR /app
 
 COPY --from=builder /install /usr/local
 
-# Kopier inn validerings-script
-COPY server.py validate-and-log.py ./
-COPY policies/ policies/
+# Kopier inn MCP-server-script
+COPY src/mcp-linkml-modell-utkast/server.py src/mcp-linkml-modell-utkast/converter.py src/mcp-linkml-modell-utkast/validator.py ./
+COPY src/mcp-linkml-modell-utkast/profiles/ profiles/
 
 RUN useradd -m mcp
 USER mcp

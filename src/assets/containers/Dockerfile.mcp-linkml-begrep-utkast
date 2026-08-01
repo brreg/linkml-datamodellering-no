@@ -5,7 +5,7 @@ RUN apt-get update \
        build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+COPY src/mcp-linkml-begrep-utkast/requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 
@@ -18,9 +18,9 @@ WORKDIR /app
 
 COPY --from=builder /install /usr/local
 
-# server.py, converter.py, validator.py og profiles/ vert montert inn ved køyring.
-# Placeholders sikrar at CMD ikkje feilar ved bygg utan mount.
-RUN touch server.py converter.py validator.py
+# Kopier inn MCP-server-script
+COPY src/mcp-linkml-begrep-utkast/server.py src/mcp-linkml-begrep-utkast/generator.py src/mcp-linkml-begrep-utkast/los_tema.py ./
+COPY src/mcp-linkml-begrep-utkast/profiles/ profiles/
 
 RUN useradd -m mcp
 USER mcp
