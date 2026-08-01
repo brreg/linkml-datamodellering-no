@@ -335,12 +335,33 @@ jobs:
             fi
 
             schema_name=$(basename "$schema_dir")
-            target_dir="generated/${{ matrix.domain }}/$schema_name/validation"
+            schema_file="$schema_dir/${schema_name}-schema.yaml"
 
+            # Les versjon frå skjema
+            if [ ! -f "$schema_file" ]; then
+              echo "  ⚠️  $schema_name: Fann ikkje schema-fil, hoppar over" >&2
+              continue
+            fi
+
+            version=$(python3 -c "import yaml; print(yaml.safe_load(open('$schema_file')).get('version', ''))" 2>/dev/null || echo "")
+
+            if [ -z "$version" ] || [ "$version" = "None" ]; then
+              echo "  ⚠️  $schema_name: Manglar version-felt, hoppar over" >&2
+              continue
+            fi
+
+            # Sjekk om validerings-katalog for denne versjonen finst
+            validation_version_dir="$schema_dir/validation/$version"
+            if [ ! -d "$validation_version_dir" ]; then
+              echo "  ⚠️  $schema_name: Ingen validering for versjon $version, hoppar over" >&2
+              continue
+            fi
+
+            target_dir="generated/${{ matrix.domain }}/$schema_name/validation/$version"
             mkdir -p "$target_dir"
-            cp -r "$schema_dir/validation"/* "$target_dir/" 2>/dev/null || true
+            cp -r "$validation_version_dir"/* "$target_dir/" 2>/dev/null || true
 
-            echo "  ✓ $schema_name: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
+            echo "  ✓ $schema_name v$version: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
           done
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}

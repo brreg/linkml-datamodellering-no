@@ -140,3 +140,6 @@ På DEBUG nivå skal vi logge alle scriptkall og funksjonskall.
 På ERROR nivå skal vi kun logge ERRORS.
 
 Så skal vi konfigurere CI jobbane til å benytte DEBUG logging.
+
+
+oppdater katalogstruktur i README.md
