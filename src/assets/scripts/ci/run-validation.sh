@@ -122,8 +122,8 @@ log_path="$schema_dir/validation/$VERSION/$POLICY.json"
 echo "→ Validerer $domain/$model (v$VERSION) med policy: $POLICY" >&2
 
 # Køyr validering
-# REPO_ROOT for å finne validate-and-log.py og MCP-image
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"
+# REPO_ROOT peikar til repo-root (scriptet ligg i src/assets/scripts/ci/, så gå 4 nivå opp)
+REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../../../.." && pwd)}"
 VALIDATOR_SCRIPT="$REPO_ROOT/src/mcp-linkml-validator/validate-and-log.py"
 MCP_IMAGE="${MCP_IMAGE:-mcp-linkml-validator}"
 
