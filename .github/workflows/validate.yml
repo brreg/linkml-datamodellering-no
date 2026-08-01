@@ -219,12 +219,16 @@ jobs:
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
           # Valider alle skjema i dette domenet med validation_policy frå build.yaml
+          FAILED=0
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f); do
             if grep -q "^generators:" "$manifest"; then
               echo "Validerer skjema frå manifest: $manifest"
-              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || true
+              if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then
+                FAILED=$((FAILED + 1))
+              fi
             fi
           done
+          exit $FAILED
 
       - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'

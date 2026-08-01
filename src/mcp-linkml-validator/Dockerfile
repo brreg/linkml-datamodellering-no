@@ -18,9 +18,9 @@ WORKDIR /app
 
 COPY --from=builder /install /usr/local
 
-# server.py og policies/ vert montert inn ved køyring (sjå MCP_RUN i Makefile).
-# Legg att ein tom placeholder slik at CMD ikkje feilar ved bygg utan mount.
-RUN touch server.py
+# Kopier inn validerings-script
+COPY server.py validate-and-log.py ./
+COPY policies/ policies/
 
 RUN useradd -m mcp
 USER mcp
