@@ -1,0 +1,296 @@
+{
+  "schema": "ngr-eiendom",
+  "domain": "ngr",
+  "version": "1.0.0",
+  "validated_at": "2026-07-03",
+  "validation_policy": "felles-datakatalog",
+  "result": {
+    "valid": false,
+    "error_count": 5,
+    "warning_count": 42,
+    "issues": [
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:id",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:FastEiendom",
+        "message": "Klasse 'FastEiendom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:SamletFastEiendom",
+        "message": "Klasse 'SamletFastEiendom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Borettslagsandel",
+        "message": "Klasse 'Borettslagsandel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Matrikkelenhet",
+        "message": "Klasse 'Matrikkelenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Grunneiendom",
+        "message": "Klasse 'Grunneiendom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Festegrunn",
+        "message": "Klasse 'Festegrunn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Jordsameie",
+        "message": "Klasse 'Jordsameie' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Eierseksjon",
+        "message": "Klasse 'Eierseksjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Anleggseiendom",
+        "message": "Klasse 'Anleggseiendom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:AnnenMatrikkelenhet",
+        "message": "Klasse 'AnnenMatrikkelenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Matrikkelnummer",
+        "message": "Klasse 'Matrikkelnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kommunenummer",
+        "message": "Klasse 'Kommunenummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Gaardsnummer",
+        "message": "Klasse 'Gaardsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bruksnummer",
+        "message": "Klasse 'Bruksnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Festenummer",
+        "message": "Klasse 'Festenummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Seksjonsnummer",
+        "message": "Klasse 'Seksjonsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bygning",
+        "message": "Klasse 'Bygning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bygningsnummer",
+        "message": "Klasse 'Bygningsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Representasjonspunkt",
+        "message": "Klasse 'Representasjonspunkt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:YtreInngang",
+        "message": "Klasse 'YtreInngang' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bruksenhet",
+        "message": "Klasse 'Bruksenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bruksenhetsnummer",
+        "message": "Klasse 'Bruksenhetsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Etasje",
+        "message": "Klasse 'Etasje' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Teig",
+        "message": "Klasse 'Teig' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Anleggsprojeksjonsflate",
+        "message": "Klasse 'Anleggsprojeksjonsflate' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Eierforhold",
+        "message": "Klasse 'Eierforhold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:TinglystEierforhold",
+        "message": "Klasse 'TinglystEierforhold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:IkkeTinglystEierforhold",
+        "message": "Klasse 'IkkeTinglystEierforhold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Hjemmel",
+        "message": "Klasse 'Hjemmel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:HjemmelTilEiendomsrett",
+        "message": "Klasse 'HjemmelTilEiendomsrett' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:HjemmelTilFesterett",
+        "message": "Klasse 'HjemmelTilFesterett' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:HjemmelTilFramfesterett",
+        "message": "Klasse 'HjemmelTilFramfesterett' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Andel",
+        "message": "Klasse 'Andel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Rettighetshaver",
+        "message": "Klasse 'Rettighetshaver' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:TinglystHeftelse",
+        "message": "Klasse 'TinglystHeftelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:RettighetForAaBenytteEiendom",
+        "message": "Klasse 'RettighetForAaBenytteEiendom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Borettslag",
+        "message": "Klasse 'Borettslag' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:OffisiellAdresse",
+        "message": "Klasse 'OffisiellAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Person",
+        "message": "Klasse 'Person' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Hovedenhet",
+        "message": "Klasse 'Hovedenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kommune",
+        "message": "Klasse 'Kommune' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "error",
+        "code": "missing_required_import",
+        "target": "schema",
+        "message": "Skjemaet importerer ikkje 'modelldcat-ap-no-schema'"
+      },
+      {
+        "severity": "error",
+        "code": "schema_declares_standard_prefix",
+        "target": "schema",
+        "message": "Ingen standard vokabularprefiks deklarert (dct)"
+      },
+      {
+        "severity": "error",
+        "code": "schema_declares_standard_prefix",
+        "target": "schema",
+        "message": "Ingen standard vokabularprefiks deklarert (dcat)"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:EiendomContainer",
+        "message": "Container 'EiendomContainer' manglar attributt med range 'Modellkatalog'"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:EiendomContainer",
+        "message": "Container 'EiendomContainer' manglar attributt med range 'Informasjonsmodell'"
+      }
+    ]
+  }
+}

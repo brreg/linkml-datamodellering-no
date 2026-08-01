@@ -1,0 +1,176 @@
+{
+  "schema": "ngr-adresse",
+  "domain": "ngr",
+  "version": "1.1.0",
+  "validated_at": "2026-07-04",
+  "validation_policy": "felles-datakatalog",
+  "result": {
+    "valid": false,
+    "error_count": 4,
+    "warning_count": 23,
+    "issues": [
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:id",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:GeografiskAdresse",
+        "message": "Klasse 'GeografiskAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:OffisiellAdresse",
+        "message": "Klasse 'OffisiellAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Postboksadresse",
+        "message": "Klasse 'Postboksadresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Adressenavn",
+        "message": "Klasse 'Adressenavn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Adresseomrade",
+        "message": "Klasse 'Adresseomrade' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Adressekode",
+        "message": "Klasse 'Adressekode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Husnummer",
+        "message": "Klasse 'Husnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bruksenhetsnummer",
+        "message": "Klasse 'Bruksenhetsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Representasjonspunkt",
+        "message": "Klasse 'Representasjonspunkt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:GeografiskOmrade",
+        "message": "Klasse 'GeografiskOmrade' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Fylke",
+        "message": "Klasse 'Fylke' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kommune",
+        "message": "Klasse 'Kommune' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Poststed",
+        "message": "Klasse 'Poststed' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Grunnkrets",
+        "message": "Klasse 'Grunnkrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tettsted",
+        "message": "Klasse 'Tettsted' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Kirkesokn",
+        "message": "Klasse 'Kirkesokn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Stemmekrets",
+        "message": "Klasse 'Stemmekrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:KommunalKrets",
+        "message": "Klasse 'KommunalKrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Svalbard",
+        "message": "Klasse 'Svalbard' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Postboks",
+        "message": "Klasse 'Postboks' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bygning",
+        "message": "Klasse 'Bygning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Bruksenhet",
+        "message": "Klasse 'Bruksenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "error",
+        "code": "missing_required_import",
+        "target": "schema",
+        "message": "Skjemaet importerer ikkje 'modelldcat-ap-no-schema'"
+      },
+      {
+        "severity": "error",
+        "code": "schema_declares_standard_prefix",
+        "target": "schema",
+        "message": "Ingen standard vokabularprefiks deklarert (dcat)"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:AdresseContainer",
+        "message": "Container 'AdresseContainer' manglar attributt med range 'Modellkatalog'"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:AdresseContainer",
+        "message": "Container 'AdresseContainer' manglar attributt med range 'Informasjonsmodell'"
+      }
+    ]
+  }
+}

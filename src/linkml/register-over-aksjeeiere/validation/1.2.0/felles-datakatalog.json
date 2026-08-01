@@ -1,0 +1,422 @@
+{
+  "schema": "register-over-aksjeeiere",
+  "domain": "oreg",
+  "version": "1.2.0",
+  "validated_at": "2026-07-04",
+  "validation_policy": "felles-datakatalog",
+  "result": {
+    "valid": false,
+    "error_count": 5,
+    "warning_count": 63,
+    "issues": [
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeselskap",
+        "message": "Klasse 'Aksjeselskap' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjekapital",
+        "message": "Klasse 'Aksjekapital' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksje",
+        "message": "Klasse 'Aksje' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeklasse",
+        "message": "Klasse 'Aksjeklasse' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeeierrettighet",
+        "message": "Klasse 'Aksjeeierrettighet' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeeier",
+        "message": "Klasse 'Aksjeeier' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Eierposisjon",
+        "message": "Klasse 'Eierposisjon' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjepost",
+        "message": "Klasse 'Aksjepost' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Utbytte",
+        "message": "Klasse 'Utbytte' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Utdeling",
+        "message": "Klasse 'Utdeling' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Tidspunkt",
+        "message": "Klasse 'Tidspunkt' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Eierskapstransaksjon",
+        "message": "Klasse 'Eierskapstransaksjon' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeoverdragelse",
+        "message": "Klasse 'Aksjeoverdragelse' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Vederlag",
+        "message": "Klasse 'Vederlag' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Selskapshendelse",
+        "message": "Klasse 'Selskapshendelse' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:Aksjeinnskudd",
+        "message": "Klasse 'Aksjeinnskudd' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:InnbetaltAksjekapital",
+        "message": "Klasse 'InnbetaltAksjekapital' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_class_uri",
+        "target": "class:InnbetaltOverkurs",
+        "message": "Klasse 'InnbetaltOverkurs' manglar class_uri (formal ressursbeskrivelse)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:identifikator",
+        "message": "Slot 'identifikator' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:navn",
+        "message": "Slot 'navn' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:beskrivelse",
+        "message": "Slot 'beskrivelse' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:antall",
+        "message": "Slot 'antall' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:belop",
+        "message": "Slot 'belop' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:dato",
+        "message": "Slot 'dato' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:har_aksjekapital",
+        "message": "Slot 'har_aksjekapital' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:har_antall_aksjer",
+        "message": "Slot 'har_antall_aksjer' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:utsteder_aksje",
+        "message": "Slot 'utsteder_aksje' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:har_palydende_belop",
+        "message": "Slot 'har_palydende_belop' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:tilhorer_aksjeklasse",
+        "message": "Slot 'tilhorer_aksjeklasse' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:gjelder_aksjer_i_aksjeklasse",
+        "message": "Slot 'gjelder_aksjer_i_aksjeklasse' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:har_eierposisjon",
+        "message": "Slot 'har_eierposisjon' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:gjelder_aksjepost",
+        "message": "Slot 'gjelder_aksjepost' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:er_basert_paa_eierposisjon",
+        "message": "Slot 'er_basert_paa_eierposisjon' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:paavirker_eierposisjon",
+        "message": "Slot 'paavirker_eierposisjon' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:har_utdeling",
+        "message": "Slot 'har_utdeling' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:tidspunkt",
+        "message": "Slot 'tidspunkt' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:kan_vaere_aksjeoverdragelse",
+        "message": "Slot 'kan_vaere_aksjeoverdragelse' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:kan_vaere_selskapshendelse",
+        "message": "Slot 'kan_vaere_selskapshendelse' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:kan_ha_vederlag",
+        "message": "Slot 'kan_ha_vederlag' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:kan_ha_aksjeinnskudd",
+        "message": "Slot 'kan_ha_aksjeinnskudd' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:gjelder_innbetalt_aksjekapital",
+        "message": "Slot 'gjelder_innbetalt_aksjekapital' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
+        "target": "slot:gjelder_innbetalt_overkurs",
+        "message": "Slot 'gjelder_innbetalt_overkurs' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_identifier",
+        "target": "class:Tidspunkt",
+        "message": "Klasse 'Tidspunkt' manglar global identifikator (slot med identifier: true)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_identifier",
+        "target": "class:InnbetaltAksjekapital",
+        "message": "Klasse 'InnbetaltAksjekapital' manglar global identifikator (slot med identifier: true)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_identifier",
+        "target": "class:InnbetaltOverkurs",
+        "message": "Klasse 'InnbetaltOverkurs' manglar global identifikator (slot med identifier: true)"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeselskap",
+        "message": "Klasse 'Aksjeselskap' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjekapital",
+        "message": "Klasse 'Aksjekapital' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksje",
+        "message": "Klasse 'Aksje' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeklasse",
+        "message": "Klasse 'Aksjeklasse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeeierrettighet",
+        "message": "Klasse 'Aksjeeierrettighet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeeier",
+        "message": "Klasse 'Aksjeeier' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Eierposisjon",
+        "message": "Klasse 'Eierposisjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjepost",
+        "message": "Klasse 'Aksjepost' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Utbytte",
+        "message": "Klasse 'Utbytte' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Utdeling",
+        "message": "Klasse 'Utdeling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Tidspunkt",
+        "message": "Klasse 'Tidspunkt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Eierskapstransaksjon",
+        "message": "Klasse 'Eierskapstransaksjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeoverdragelse",
+        "message": "Klasse 'Aksjeoverdragelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Vederlag",
+        "message": "Klasse 'Vederlag' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Selskapshendelse",
+        "message": "Klasse 'Selskapshendelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Aksjeinnskudd",
+        "message": "Klasse 'Aksjeinnskudd' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:InnbetaltAksjekapital",
+        "message": "Klasse 'InnbetaltAksjekapital' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:InnbetaltOverkurs",
+        "message": "Klasse 'InnbetaltOverkurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "error",
+        "code": "missing_required_import",
+        "target": "schema",
+        "message": "Skjemaet importerer ikkje 'modelldcat-ap-no-schema'"
+      },
+      {
+        "severity": "error",
+        "code": "schema_declares_standard_prefix",
+        "target": "schema",
+        "message": "Ingen standard vokabularprefiks deklarert (dct)"
+      },
+      {
+        "severity": "error",
+        "code": "schema_declares_standard_prefix",
+        "target": "schema",
+        "message": "Ingen standard vokabularprefiks deklarert (dcat)"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:AksjeeierContainer",
+        "message": "Container 'AksjeeierContainer' manglar attributt med range 'Modellkatalog'"
+      },
+      {
+        "severity": "error",
+        "code": "container_missing_required_class",
+        "target": "class:AksjeeierContainer",
+        "message": "Container 'AksjeeierContainer' manglar attributt med range 'Informasjonsmodell'"
+      }
+    ]
+  }
+}
