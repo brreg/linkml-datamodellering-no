@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.5.0...fair-metadata-v1.6.0) (2026-08-02)
+
+
+### Features
+
+* **asyncapi:** reduser image-storleik frå 4.43 GB til 296 MB ([0b61fa2](https://github.com/brreg/linkml-datamodellering-no/commit/0b61fa2c813b89f1fef0357e5fe119f75b6c1ccb))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.4.0...fair-metadata-v1.5.0) (2026-07-30)
 
 

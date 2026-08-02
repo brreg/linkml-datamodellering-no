@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.8.0...samt-bu-v1.9.0) (2026-08-02)
+
+
+### Features
+
+* **asyncapi:** reduser image-storleik frå 4.43 GB til 296 MB ([0b61fa2](https://github.com/brreg/linkml-datamodellering-no/commit/0b61fa2c813b89f1fef0357e5fe119f75b6c1ccb))
+
+
+### Bug Fixes
+
+* **docgen:** endre Metadata til Modellmetadata og flytt anker til metadata.sh ([a83174b](https://github.com/brreg/linkml-datamodellering-no/commit/a83174bb6cd3d4a9b01603e5aac09444bfdfd606))
+* **samt-bu:** Endrer description for ein attributt for å trigge revalidering av samt-bu modellen i CI pipeline ([e09fa5a](https://github.com/brreg/linkml-datamodellering-no/commit/e09fa5a65e3107a53338959a5e90b09cd3bd1b97))
+
 ## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.7.0...samt-bu-v1.8.0) (2026-07-30)
 
 

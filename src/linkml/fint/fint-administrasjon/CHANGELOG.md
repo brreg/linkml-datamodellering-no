@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.1](https://github.com/brreg/linkml-datamodellering-no/compare/fint-administrasjon-v4.5.0...fint-administrasjon-v4.5.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* **ci:** bruk flatten-and-validate.bash i run-validation.sh for å handtere importar ([af53164](https://github.com/brreg/linkml-datamodellering-no/commit/af5316409e0d03aac44b3bc0471b1538727102d6))
+
 ## [4.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-administrasjon-v4.4.0...fint-administrasjon-v4.5.0) (2026-07-30)
 
 
