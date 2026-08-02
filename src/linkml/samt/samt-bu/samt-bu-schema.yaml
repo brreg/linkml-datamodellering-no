@@ -122,7 +122,7 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        description: Skolar i datasamlinga.
+        description: Skular i datasamlinga.
       kommuner:
         range: Kommune
         multivalued: true
