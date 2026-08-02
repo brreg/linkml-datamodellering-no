@@ -128,7 +128,7 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        description: Kommunar som kan vere skoleeigar.
+        description: Kommunar som kan vere skuleeigar.
       fylker:
         range: Fylke
         multivalued: true
