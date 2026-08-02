@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.13.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.12.0...dcat-ap-no-v2.13.0) (2026-08-02)
+
+
+### Features
+
+* **asyncapi:** reduser image-storleik frå 4.43 GB til 296 MB ([0b61fa2](https://github.com/brreg/linkml-datamodellering-no/commit/0b61fa2c813b89f1fef0357e5fe119f75b6c1ccb))
+
+
+### Bug Fixes
+
+* **make:** korriger trap-syntaks i parallelle generator-makroar ([2d18827](https://github.com/brreg/linkml-datamodellering-no/commit/2d18827aa0568bdd04b1fc54242b3ca739ffe25b))
+
 ## [2.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.11.1...dcat-ap-no-v2.12.0) (2026-07-30)
 
 

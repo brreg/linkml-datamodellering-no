@@ -5,13 +5,13 @@ id: https://data.norge.no/ap-no/cpsv-ap-no
 name: cpsv-ap-no
 title: CPSV-AP-NO
 description: Offentlege tenester og hendingar
-version: "1.9.0"
+version: "1.10.0"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://data.norge.no/specification/cpsv-ap-no
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-07-30"
+  endringsdato: "2026-08-02"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/Completed
 prefixes:

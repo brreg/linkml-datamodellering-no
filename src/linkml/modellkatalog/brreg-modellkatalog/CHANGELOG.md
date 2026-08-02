@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.5.0...brreg-modellkatalog-v1.5.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* **ci:** ekskluder begrepssamling-katalogar og legg til validation_policy i modellkatalog ([fe7dce0](https://github.com/brreg/linkml-datamodellering-no/commit/fe7dce05a14fcf7736372248e1d551188415624f))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.4.0...brreg-modellkatalog-v1.5.0) (2026-07-10)
 
 

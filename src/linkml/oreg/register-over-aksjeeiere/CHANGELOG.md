@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.6.0...register-over-aksjeeiere-v1.7.0) (2026-08-02)
+
+
+### Features
+
+* **asyncapi:** reduser image-storleik frå 4.43 GB til 296 MB ([0b61fa2](https://github.com/brreg/linkml-datamodellering-no/commit/0b61fa2c813b89f1fef0357e5fe119f75b6c1ccb))
+
+
+### Bug Fixes
+
+* **ci:** ekskluder begrepssamling-katalogar og legg til validation_policy i modellkatalog ([fe7dce0](https://github.com/brreg/linkml-datamodellering-no/commit/fe7dce05a14fcf7736372248e1d551188415624f))
+
 ## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.5.0...register-over-aksjeeiere-v1.6.0) (2026-07-30)
 
 

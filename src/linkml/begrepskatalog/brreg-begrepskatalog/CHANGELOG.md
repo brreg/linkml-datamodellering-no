@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.6.0...brreg-begrepskatalog-v1.6.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* **ci:** bruk flatten-and-validate.bash i run-validation.sh for å handtere importar ([af53164](https://github.com/brreg/linkml-datamodellering-no/commit/af5316409e0d03aac44b3bc0471b1538727102d6))
+
 ## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.5.0...brreg-begrepskatalog-v1.6.0) (2026-07-27)
 
 
