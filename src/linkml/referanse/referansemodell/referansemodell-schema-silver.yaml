@@ -4,7 +4,7 @@
 ## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema-silver.yaml POLICY=silver
 ##
 
-id: https://example.org/linkml/referansemodell-silver
+id: https://data.norge.no/linkml/referansemodell-silver
 name: referansemodell-schema-silver
 title: Referansemodell - sølvnivå
 description: >-
@@ -23,7 +23,7 @@ prefixes:
   foaf:  http://xmlns.com/foaf/0.1/
   dqv:   http://www.w3.org/ns/dqv#
 
-default_prefix: https://example.org/linkml/referansemodell-silver/
+default_prefix: https://data.norge.no/linkml/referansemodell-silver/
 default_range: string
 
 subsets:

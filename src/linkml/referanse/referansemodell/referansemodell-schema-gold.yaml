@@ -15,7 +15,7 @@
 ##   all_slots_have_slot_uri    → error (var warning på bronze)
 ##
 
-id: https://example.org/linkml/referansemodell-gold
+id: https://data.norge.no/linkml/referansemodell-gold
 name: referansemodell-schema-gold
 title: Referansemodell - gullnivå
 description: >-
@@ -36,7 +36,7 @@ prefixes:
   # gold I2: minst eitt av dct, dcat, skos, prov, rdf, rdfs, owl, foaf, xsd
   # er deklarert — dct og dcat ovanfor tilfredsstiller kravet
 
-default_prefix: https://example.org/linkml/referansemodell-gold/
+default_prefix: https://data.norge.no/linkml/referansemodell-gold/
 default_range: string
 
 subsets:
