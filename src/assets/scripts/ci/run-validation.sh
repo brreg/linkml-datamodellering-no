@@ -161,7 +161,7 @@ log_data = {
     "schema": schema_name,
     "domain": domain,
     "version": version,
-    "validation_type": policy,
+    "validation_policy": policy,
     "result": result,
 }
 

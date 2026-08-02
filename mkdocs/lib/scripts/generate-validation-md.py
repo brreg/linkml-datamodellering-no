@@ -37,7 +37,16 @@ def main() -> None:
     validated_at = data.get("validated_at", "")
 
     # Støtt både validation_policy (ny) og data_policy (gamal) for bakoverkompatibilitet
-    policy = data.get("validation_policy") or data.get("data_policy", "bronze")
+    policy = data.get("validation_policy") or data.get("data_policy")
+
+    if not policy:
+        log_error({
+            "validation_json": str(path),
+            "domain": domain,
+            "schema": schema,
+            "step": "missing_policy_field",
+            "message": "Valideringsfila manglar validation_policy eller data_policy"
+        })
 
     result = data.get("result", {})
     valid = result.get("valid", False)

@@ -31,6 +31,13 @@ copy_schema_artifacts() {
         cp "$src_dir/metadata/${schema}-manifest.yaml" "$out/${schema}-manifest.yaml"
     fi
 
+    # Kopier validation/-katalog dersom den finst i generated/ (populert frå CI eller lokal validering)
+    # Merk: generated/ er autorativ kjelde her — publish.sh les frå generated/, ikkje src/
+    if [ -d "$schema_dir/validation" ]; then
+        mkdir -p "$out/validation"
+        cp -r "$schema_dir/validation"/* "$out/validation/" 2>/dev/null || true
+    fi
+
     # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
     if [ -d "$schema_dir/diagrams" ]; then
         mkdir -p "$out/diagrams"

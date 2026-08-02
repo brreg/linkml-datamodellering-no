@@ -1,0 +1,367 @@
+{
+  "domain": "samt",
+  "result": {
+    "errorCount": 16,
+    "issues": [
+      {
+        "code": "all_classes_have_class_uri",
+        "message": "Klasse 'Kontaktlaerer' manglar class_uri (formal ressursbeskrivelse)",
+        "severity": "warning",
+        "target": "class:Kontaktlaerer"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Fylke' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fylke"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'PrivatVirksomhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:PrivatVirksomhet"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Basisgruppe' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Basisgruppe"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Elev' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Elev"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Rektor' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Rektor"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Lisensdokument"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Mediatype"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Konsept"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Begrepssamling"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsdimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsdimensjon"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsdeldimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsdeldimensjon"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsmaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmaal"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsmerknad' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmerknad"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Brukartilbakemelding' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Brukartilbakemelding"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetssertifikat' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetssertifikat"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsmaaling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmaaling"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Tekstdel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Tekstdel"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'KatalogisertRessurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:KatalogisertRessurs"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Aktoer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Aktoer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kontaktopplysning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kontaktopplysning"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Tidsrom' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Tidsrom"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Standard' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Standard"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'RegulativRessurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:RegulativRessurs"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Identifikator' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Identifikator"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Rettighetserklaring' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Rettighetserklaring"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Sjekksum' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Sjekksum"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Gebyr' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Gebyr"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Relasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Relasjon"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Distribusjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Distribusjon"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Datasett' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Datasett"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Datasettserie' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Datasettserie"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Datatjeneste' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Datatjeneste"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Katalogpost' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Katalogpost"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Katalog' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Katalog"
+      },
+      {
+        "code": "slot_description_mismatch",
+        "message": "Slot 'tema' har vokabular_krav='skal' men description inneheld ikkje 'SKAL'",
+        "severity": "warning",
+        "target": "slot:tema"
+      },
+      {
+        "code": "slot_missing_vokabular_krav",
+        "message": "Slot 'policy' har annotations.gyldige_verdier men manglar annotations.vokabular_krav (skal|bør|kan)",
+        "severity": "warning",
+        "target": "slot:policy"
+      },
+      {
+        "code": "slot_missing_vokabular_krav",
+        "message": "Slot 'eierskapshistorikk' har annotations.gyldige_verdier men manglar annotations.vokabular_krav (skal|bør|kan)",
+        "severity": "warning",
+        "target": "slot:eierskapshistorikk"
+      },
+      {
+        "code": "slot_missing_vokabular_krav",
+        "message": "Slot 'ble_generert_ved' har annotations.gyldige_verdier men manglar annotations.vokabular_krav (skal|bør|kan)",
+        "severity": "warning",
+        "target": "slot:ble_generert_ved"
+      },
+      {
+        "code": "slot_missing_vokabular_krav",
+        "message": "Slot 'annen_ansvarlig_aktor' har annotations.gyldige_verdier men manglar annotations.vokabular_krav (skal|bør|kan)",
+        "severity": "warning",
+        "target": "slot:annen_ansvarlig_aktor"
+      },
+      {
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "message": "schema.annotations.oppdateringsfrekvens manglar",
+        "severity": "warning",
+        "target": "schema"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Katalog'",
+        "severity": "error",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Kvalitetsmaal'",
+        "severity": "error",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Datatjeneste'",
+        "severity": "warning",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'tekstformat' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/file-type/[A-Z_]+$ for slot 'format' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[0].format"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'tekstformat' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/file-type/ for slot 'format' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[0].format"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'NO' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[0].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'NO' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/language/ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[0].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'tekstformat' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/file-type/[A-Z_]+$ for slot 'format' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[1].format"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'tekstformat' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/file-type/ for slot 'format' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[1].format"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'NO' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[1].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'NO' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/language/ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:tekstdeler[1].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' passar ikkje vokabular_pattern ^http://purl\\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[0].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' er ikkje frå vokabular-domenet http://purl.org/adms/status/ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[0].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' passar ikkje vokabular_pattern ^http://purl\\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[1].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' er ikkje frå vokabular-domenet http://purl.org/adms/status/ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[1].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'samtbuskole:no' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:gjeldende_lovgivninger[0].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'samtbuskole:no' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/language/ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:gjeldende_lovgivninger[0].spraak"
+      }
+    ],
+    "valid": false,
+    "warningCount": 43
+  },
+  "schema": "samt-bu",
+  "validation_policy": "silver",
+  "version": "1.9.0"
+}
