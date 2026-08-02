@@ -65,7 +65,7 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        description: Datasett med metadata om skoledata.
+        description: Datasett med metadata om skuledata.
       kvalitetsmerknader:
         range: Kvalitetsmerknad
         multivalued: true
