@@ -231,6 +231,7 @@ jobs:
         run: touch .validated-${{ matrix.domain }}
 
       - name: Last opp validation-loggar
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: validation-logs-${{ matrix.domain }}
@@ -267,9 +268,21 @@ jobs:
         run: |
           # Stage alle validation-filer (både nye og endra)
           # validation/ er no fjerna frå .gitignore, så -f er ikkje nødvendig
-          git add src/linkml/**/validation/**/*.json
+          git add src/linkml/**/validation/**/*.json || true
+
+      - name: Sjekk om det finst endringar
+        id: check-changes
+        run: |
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "Ingen endringar å committe (alle domene fekk cache hit)"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Endringar funne - lagar PR"
+          fi
 
       - name: Lag PR med valideringsloggar
+        if: steps.check-changes.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
