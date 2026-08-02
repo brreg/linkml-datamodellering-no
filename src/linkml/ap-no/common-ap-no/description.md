@@ -3,7 +3,3 @@ common-ap-no er basislaget for alle norske applikasjonsprofiler (AP-NO) i dette 
 Skjemaet dekkjer felles konsept for alle norske applikasjonsprofiler, inkludert datatypar (`LangString`, `DateOrDateTimeOrYear`), enum-ar (`AdmsStatus`, `PublisherType`) og prefiks som vert gjenbrukt på tvers av DCAT-AP-NO, SKOS-AP-NO, ModelDCAT-AP-NO, CPSV-AP-NO og XKOS-AP-NO.
 
 **Typisk brukar:** Utviklarar som arbeidar med AP-NO-profilane — skjemaet vert ikkje brukt direkte, berre importert.
-
-**Nøkkeltypar:** `LangString` (rdf:langString), `DateOrDateTimeOrYear` (dato med ulik presisjon), `XHTML` (XHTML-formatert tekst).
-
-**Nøkkelenum:** `AdmsStatus` (ADMS status-URI-ar), `PublisherType` (utgjevartype), `DcatMediaType` (IANA mediatypar).

@@ -196,7 +196,7 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 | [ap-no](ap-no/) | [modelldcat-ap-no](ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no](https://data.norge.no/specification/modelldcat-ap-no)
 | [ap-no](ap-no/) | [skos-ap-no](ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no](https://data.norge.no/specification/skos-ap-no-begrep)
 | [ap-no](ap-no/) | [xkos-ap-no](ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no](https://data.norge.no/specification/xkos-ap-no)
-| [referanse](referanse/) | [referanse](referanse/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
+| [referanse](referanse/) | [referansemodell](referanse/referansemodell/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
 | [ngr](ngr/) | [ngr-adresse](ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
 | [ngr](ngr/) | [ngr-eiendom](ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
 | [ngr](ngr/) | [ngr-person](ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)

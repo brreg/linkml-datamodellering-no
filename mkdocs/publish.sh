@@ -301,7 +301,7 @@ declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
 # Hardkoda rekkefølgje på domene i nav-menyen
-DOMAIN_ORDER=("ap-no" "fair" "referanse" "ngr" "oreg" "fint" "samt" "begrepskatalog" "modellkatalog")
+DOMAIN_ORDER=("referanse" "ap-no" "fair" "ngr" "oreg" "fint" "samt" "begrepskatalog" "modellkatalog")
 
 # Samle domene/skjema-struktur frå generated/ — bygg opp DOMAIN_SCHEMA_LIST for alle domene
 declare -A DOMAIN_EXISTS=()
