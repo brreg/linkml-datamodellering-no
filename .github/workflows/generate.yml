@@ -404,8 +404,8 @@ jobs:
             du -sh generated/${{ matrix.domain }}
             find generated/${{ matrix.domain }} -type f | wc -l | xargs echo "Antal filer:"
             echo ""
-            echo "=== Struktur (første 50 linjer) ==="
-            tree -L 3 generated/${{ matrix.domain }} 2>/dev/null | head -50 || find generated/${{ matrix.domain }} -type f | head -20
+            echo "=== Struktur ==="
+            tree -L 3 generated/${{ matrix.domain }} 2>/dev/null || find generated/${{ matrix.domain }} -type f | head -100
           else
             echo "⚠ generated/${{ matrix.domain }}/ finst ikkje!"
           fi
