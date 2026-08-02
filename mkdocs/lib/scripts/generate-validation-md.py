@@ -13,6 +13,28 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
 from utils.error_handler import log_error
 
+try:
+    import yaml
+except ImportError:
+    print("FEIL: pyyaml er ikkje installert. Køyr: pip install pyyaml", file=sys.stderr)
+    sys.exit(1)
+
+
+def get_validation_policy_from_manifest(domain: str, schema: str) -> str:
+    """Les validation_policy frå build.yaml (autoritativ kjelde)."""
+    repo_root = Path(__file__).resolve().parents[3]
+    manifest = repo_root / "src" / "linkml" / domain / schema / "build.yaml"
+
+    if not manifest.exists():
+        return "bronze"  # Fallback dersom build.yaml ikkje finst
+
+    try:
+        with manifest.open(encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+            return data.get("validation_policy", "bronze")
+    except Exception:
+        return "bronze"
+
 
 def main() -> None:
     if len(sys.argv) < 4:
@@ -36,17 +58,9 @@ def main() -> None:
     version = data.get("version", "")
     validated_at = data.get("validated_at", "")
 
-    # Støtt både validation_policy (ny) og data_policy (gamal) for bakoverkompatibilitet
-    policy = data.get("validation_policy") or data.get("data_policy")
-
-    if not policy:
-        log_error({
-            "validation_json": str(path),
-            "domain": domain,
-            "schema": schema,
-            "step": "missing_policy_field",
-            "message": "Valideringsfila manglar validation_policy eller data_policy"
-        })
+    # Les validation_policy frå build.yaml (autoritativ kjelde)
+    # i staden for frå validation JSON (kan mangle eller vere feil)
+    policy = get_validation_policy_from_manifest(domain, schema)
 
     result = data.get("result", {})
     valid = result.get("valid", False)
