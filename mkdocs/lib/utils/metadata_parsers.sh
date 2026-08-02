@@ -32,11 +32,11 @@ get_validation_json_path() {
     local manifest="$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
     local policy=$(get_validation_policy "$manifest")
 
-    # Bruk alltid src/linkml/.../validation/ som kjelde — både validate.yml
-    # og generate.yml lagrar valideringsloggar der
-    local src_validation_dir="$REPO_ROOT/src/linkml/${domain}/${schema}/validation"
+    # Bruk alltid generated/.../validation/ som kjelde — validate.yml kopierer
+    # dit, og generate.yml kopierer dit frå src/linkml/
+    local gen_validation_dir="$REPO_ROOT/generated/${domain}/${schema}/validation"
 
-    local latest_version=$(get_latest_validation_version "$src_validation_dir")
+    local latest_version=$(get_latest_validation_version "$gen_validation_dir")
     [ -z "$latest_version" ] && return
-    echo "$src_validation_dir/$latest_version/${policy}.json"
+    echo "$gen_validation_dir/$latest_version/${policy}.json"
 }
