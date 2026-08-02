@@ -28,12 +28,8 @@ prefixes:
   dct: http://purl.org/dc/terms/
 default_prefix: https://example.org/linkml/referansemodell/
 default_range: string
-# Subsets brukast i slot_usage for å markere om ein eigeskap er
-# obligatorisk, anbefalt eller valgfri per spesifikasjonen.
-subsets:
-  Obligatorisk: {}
-  Anbefalt: {}
-  Valgfri: {}
+# Subsets (Obligatorisk, Anbefalt, Valgfri) er arva frå common-ap-no via dcat-ap-no-import.
+# Desse treng ikkje definerast på nytt her.
 classes:
   # Containerklassen er inngangspunktet for validering og serialisering.
   # tree_root: true — éin per skjema, treng ikkje class_uri.
@@ -72,23 +68,10 @@ classes:
         in_subset:
           - Anbefalt
 slots:
-  # identifier: true gjer instansen refererbar via URI i koblede data.
-  # Hindrar at objektet vert bygd inn (inlined) som standardoppførsel i andre objekt.
-  id:
-    description: Unik URI-identifikator for ressursen.
-    identifier: true
-    range: uriorcurie
-    slot_uri: dct:identifier
-  # LangString (arva frå common-ap-no via dcat-ap-no) brukast for alle eigenskapar
-  # som er definerte som rdf:langString i spesifikasjonen (tittel, skildring osv.).
-  tittel:
-    description: Namn eller tittel på ressursen.
-    slot_uri: dct:title
-    range: LangString
-  beskrivelse:
-    description: Kortfatta skildring av ressursen.
-    slot_uri: dct:description
-    range: LangString
+  # id, tittel, beskrivelse er arva frå common-ap-no (via dcat-ap-no-import).
+  # Desse treng ikkje definerast på nytt her.
+  # Berre modell-spesifikke slots skal definerast under.
+
   # Referansar til andre ressursar (f.eks. organisasjonar) brukast som URI-ar,
   # ikkje som inlina objekt — sjølv om Organisasjon finst som klasse andre stader.
   utgjevar:
