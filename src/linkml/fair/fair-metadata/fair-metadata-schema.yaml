@@ -5,13 +5,13 @@ id: https://data.norge.no/fair/fair-metadata
 name: fair-metadata
 title: FAIR Metadata Overbygning
 description: "FAIR-metadataoverbygning (FAIR-prinsippa)"
-version: "1.5.0"
+version: "1.6.0"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://www.go-fair.org/fair-principles/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-07-30"
+  endringsdato: "2026-08-02"
   utgivelsesdato: "2024-01-01"
   status: http://purl.org/adms/status/Completed
 default_prefix: https://data.norge.no/fair/
