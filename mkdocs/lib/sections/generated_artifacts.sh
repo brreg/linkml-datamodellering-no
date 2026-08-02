@@ -68,7 +68,7 @@ generate_artifacts_table() {
         echo ""
         echo "---"
         echo ""
-        echo "## Generated artifacts ($artifact_count) {#generated-artifacts}"
+        echo "## Genererte artefakter ($artifact_count) {#generated-artifacts}"
         echo ""
         echo "> Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering."
         echo ""
