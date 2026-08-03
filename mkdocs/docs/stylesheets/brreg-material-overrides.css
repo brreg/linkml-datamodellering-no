@@ -155,7 +155,7 @@ a:hover {
   background-color: var(--ds-color-info-surface-default);
   border-radius: 4px;
   padding: 1rem;
-  font-size: inherit;
+  font-size: 0.7em;
 }
 
 .md-typeset .admonition.note {
