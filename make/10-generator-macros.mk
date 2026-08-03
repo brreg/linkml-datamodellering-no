@@ -276,7 +276,8 @@ endef
 # gen-xsd (JSON Schema → Avro → XSD via avrotize)
 # ---------------------------------------------------------------------------
 define run_gen_xsd
-@for schema in $(1); do \
+@eval "$$LOG_FUNCTIONS"; \
+for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	manifest=$$(dirname "$$schema")/build.yaml; \
@@ -285,13 +286,14 @@ define run_gen_xsd
 	fi; \
 	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
 	if [ ! -f "$$jsonschema" ]; then \
-		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-xsd for $$name" >&2; \
+		log_info "$(CLR_WARN)ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-xsd for $$name$(CLR_RST)"; \
 		continue; \
 	fi; \
 	avsc=$(GEN_DIR)/$$domain/$$name/$$name.avsc; \
 	xsd=$(GEN_DIR)/$$domain/$$name/$$name-schema.xsd; \
 	namespace=$$(grep '^id:' "$$schema" | head -1 | awk '{print $$2}'); \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	log_debug "[$$domain/$$name] Startar gen-xsd: $$schema → $$xsd"; \
 	t0=$$(date +%s%3N); \
 	$(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc >/dev/null 2>&1; \
 	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd >/dev/null 2>&1; \
@@ -299,10 +301,10 @@ define run_gen_xsd
 	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
 		/work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema >/dev/null 2>&1; \
 	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	printf "$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)\n" \
+	log_info "$$(printf '$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)' \
 		"$$domain" "$$name" \
 		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)); \
+		$$((elapsed_ms % 1000 / 100)))"; \
 done
 endef
 
@@ -310,7 +312,8 @@ endef
 # gen-asyncapi (JSON Schema → AsyncAPI YAML → validate)
 # ---------------------------------------------------------------------------
 define run_gen_asyncapi
-@for schema in $(1); do \
+@eval "$$LOG_FUNCTIONS"; \
+for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	manifest=$$(dirname "$$schema")/build.yaml; \
@@ -319,16 +322,22 @@ define run_gen_asyncapi
 	fi; \
 	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
 	if [ ! -f "$$jsonschema" ]; then \
-		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name" >&2; \
+		log_info "$(CLR_WARN)ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-asyncapi for $$name$(CLR_RST)"; \
 		continue; \
 	fi; \
 	out=$(GEN_DIR)/$$domain/$$name/$$name-asyncapi.yaml; \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
-	echo "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
+	log_info "$(CLR_STEP)→ gen-asyncapi  $$schema$(CLR_RST)"; \
+	log_debug "[$$domain/$$name] Kommando: gen-asyncapi.py /work/$$jsonschema → /work/$$out"; \
+	t0=$$(date +%s%3N); \
 	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
 		/work/$$jsonschema /work/$$schema --out /work/$$out; \
 	$(ASYNCAPI_RUN) \
 		validate /work/$$out; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	log_info "$$(printf '  Ferdig (%d.%ds)' \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)))"; \
 done
 endef
 
@@ -341,7 +350,8 @@ endef
 # gen-openapi (JSON Schema → OpenAPI YAML → validate)
 # ---------------------------------------------------------------------------
 define run_gen_openapi
-@for schema in $(1); do \
+@eval "$$LOG_FUNCTIONS"; \
+for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	manifest=$$(dirname "$$schema")/build.yaml; \
@@ -350,15 +360,21 @@ define run_gen_openapi
 	fi; \
 	jsonschema=$(GEN_DIR)/$$domain/$$name/$$name-schema.json; \
 	if [ ! -f "$$jsonschema" ]; then \
-		echo "ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name" >&2; \
+		log_info "$(CLR_WARN)ÅTVARING: $$jsonschema finst ikkje — hoppar over gen-openapi for $$name$(CLR_RST)"; \
 		continue; \
 	fi; \
 	out=$(GEN_DIR)/$$domain/$$name/$$name-openapi.yaml; \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
-	echo "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
+	log_info "$(CLR_STEP)→ gen-openapi  $$schema$(CLR_RST)"; \
+	log_debug "[$$domain/$$name] Kommando: gen-openapi.py /work/$$jsonschema → /work/$$out"; \
+	t0=$$(date +%s%3N); \
 	$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
 		/work/$$jsonschema /work/$$schema --out /work/$$out; \
 	$(PYTHON_RUN) openapi-spec-validator /work/$$out; \
+	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+	log_info "$$(printf '  Ferdig (%d.%ds)' \
+		$$((elapsed_ms / 1000)) \
+		$$((elapsed_ms % 1000 / 100)))"; \
 done
 endef
 

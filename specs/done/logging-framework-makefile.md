@@ -162,25 +162,25 @@ make domain-ngr LOGLVL=ERROR
 
 ## Handlingsliste
 
-- [ ] Legg til `LOGLVL`-variabel og `LOG_FUNCTIONS` i `make/00-settings.mk`
-- [ ] Oppdater `run_gen_parallel` i `make/10-generator-macros.mk` til å bruke `log_info`/`log_debug`
-- [ ] Oppdater `run_gen_parallel_file_input` i `make/10-generator-macros.mk`
-- [ ] Oppdater `run_gen` (serielle køyringar) til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_shacl`, `run_gen_owl`, `run_gen_rdf` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_doc` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_erdiagram` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_plantuml` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_xsd` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_asyncapi` til å bruke logge-funksjonar
-- [ ] Oppdater `run_gen_openapi` til å bruke logge-funksjonar
-- [ ] Oppdater validerings-makroar (`make/40-validation.mk`)
-- [ ] Oppdater docs-makroar (`make/50-docs.mk`)
-- [ ] Test lokalt med alle tre nivå: `make gen-doc LOGLVL=DEBUG`, `LOGLVL=INFO`, `LOGLVL=ERROR`
-- [ ] Verifiser at parallelle køyringar ikkje vrir saman output
-- [ ] Oppdater `COMMANDS.md` med logging-dokumentasjon
-- [ ] Oppdater `.github/workflows/generate.yml` — sett `LOGLVL=DEBUG` for alle make-kommandoar
-- [ ] Oppdater `.github/workflows/validate.yml` — sett `LOGLVL=DEBUG` (dersom den brukar make)
-- [ ] Oppdater `.github/workflows/release.yml` — sett `LOGLVL=DEBUG` (dersom den brukar make)
+- [x] Legg til `LOGLVL`-variabel og `LOG_FUNCTIONS` i `make/00-settings.mk`
+- [x] Oppdater `run_gen_parallel` i `make/10-generator-macros.mk` til å bruke `log_info`/`log_debug`
+- [x] Oppdater `run_gen_parallel_file_input` i `make/10-generator-macros.mk`
+- [x] Oppdater `run_gen` (serielle køyringar) til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_shacl`, `run_gen_owl`, `run_gen_rdf` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_doc` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_erdiagram` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_plantuml` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_xsd` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_asyncapi` til å bruke logge-funksjonar
+- [x] Oppdater `run_gen_openapi` til å bruke logge-funksjonar
+- [x] Oppdater validerings-makroar (`make/40-validation.mk`)
+- [x] Oppdater docs-makroar (`make/50-docs.mk`)
+- [x] Test lokalt med alle tre nivå: `make gen-docs LOGLVL=DEBUG`, `LOGLVL=INFO`, `LOGLVL=ERROR`
+- [x] Verifiser at parallelle køyringar ikkje vrir saman output
+- [x] Oppdater `COMMANDS.md` med logging-dokumentasjon
+- [x] Oppdater `.github/workflows/generate.yml` — sett `LOGLVL=DEBUG` for alle make-kommandoar
+- [x] Oppdater `.github/workflows/validate.yml` — sett `LOGLVL=DEBUG` for validate-examples og validate-data
+- [x] Oppdater `.github/workflows/release.yml` — ikkje nødvendig (brukar ikkje make)
 - [ ] Verifiser at GitHub Actions-loggar er lesbare med DEBUG-nivå (ikkje for verbose)
 
 ## Kriteria for fullføring
@@ -263,7 +263,7 @@ log_debug() {
 - `.github/workflows/validate.yml` — CI-validering (sett `LOGLVL=DEBUG` dersom make vert brukt)
 - `.github/workflows/release.yml` — Release-workflow (sett `LOGLVL=DEBUG` dersom make vert brukt)
 
-## Utført (delvis implementasjon)
+## Utført
 
 ### Endringar
 
@@ -283,32 +283,41 @@ log_debug() {
 - Oppdatert `run_gen_doc`: brukar `log_info`/`log_debug`
 - Oppdatert `run_gen_erdiagram`: brukar `log_info`/`log_debug`
 - Oppdatert `run_gen_plantuml`: brukar `log_info`/`log_debug`
+- Oppdatert `run_gen_xsd`: brukar `log_info`/`log_debug` + `log_info` for åtvaringar
+- Oppdatert `run_gen_asyncapi`: brukar `log_info`/`log_debug` + timing
+- Oppdatert `run_gen_openapi`: brukar `log_info`/`log_debug` + timing
+
+**`make/40-validation.mk`:**
+- Oppdatert `validate`: brukar `log_info`/`log_debug`
+- Oppdatert `validate-bronze`: brukar `log_info`/`log_debug` + `log_error` for feil
+- Oppdatert `validate-data`: brukar `log_info`/`log_debug` + `log_error` for feil
+- Oppdatert `validate-examples`: brukar `log_info`/`log_debug` + `log_error` for feil + `log_info` for åtvaringar
+
+**`make/50-docs.mk`:**
+- Oppdatert `docs-publish`: brukar `log_info`/`log_debug`
+
+**`COMMANDS.md`:**
+- La til "Logging"-seksjon med tabell over nivå (DEBUG/INFO/ERROR)
+- Dokumentert brukseksempel og GitHub Actions-bruk
 
 **`.github/workflows/generate.yml`:**
 - La til `env: LOGLVL: DEBUG` i "Generer alle artefaktar for ${{ matrix.domain }}"-steget
 - La til `env: LOGLVL: DEBUG` i "Publiser og bygg dokumentasjonsportal"-steget
 
-### Status
+**`.github/workflows/validate.yml`:**
+- La til `env: LOGLVL: DEBUG` i "Valider eksempelfiler mot skjema"-steget
+- La til `env: LOGLVL: DEBUG` i "Valider datafiler mot publiseringspolicyer"-steget
 
-**Fullført:**
-- Logging-rammeverket er implementert i `make/00-settings.mk`
-- Hovudgeneratorane (`run_gen_parallel`, `run_gen`, `run_gen_doc`, `run_gen_erdiagram`, `run_gen_plantuml`, `run_gen_shacl`, `run_gen_owl`, `run_gen_rdf`) brukar no logge-funksjonar
-- GitHub Actions brukar `LOGLVL=DEBUG` for `domain-*` og `docs-publish` targets
+### Testing
 
-**Gjenstår:**
-- Oppdatere `run_gen_xsd`, `run_gen_asyncapi`, `run_gen_openapi` til å bruke logge-funksjonar
-- Oppdatere validerings-makroar (`make/40-validation.mk`)
-- Oppdatere docs-makroar (`make/50-docs.mk`)
-- Teste lokalt med alle tre nivå
-- Verifisere at parallelle køyringar ikkje vrir saman output
-- Oppdatere `COMMANDS.md` med logging-dokumentasjon
-- Oppdatere andre workflows (`validate.yml`, `release.yml`) dersom dei brukar make
+**Lokal testing gjennomført:**
+- `make gen-docs SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=DEBUG` — viser alle kommandolinjer + timing
+- `make gen-docs SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=INFO` — viser berre status-meldingar (default)
+- `make gen-docs SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=ERROR` — viser berre header og feil (ingen output i dette tilfellet)
+- `make validate-bronze DOMAIN=samt LOGLVL=DEBUG` — viser kommandolinjer + valideringsresultat
 
-### Neste steg
-
-For å fullføre implementasjonen:
-1. Oppdater resterande generatorar (`run_gen_xsd`, `run_gen_asyncapi`, `run_gen_openapi`)
-2. Oppdater validerings- og docs-makroar
-3. Test lokalt med `make gen-doc LOGLVL=DEBUG`, `LOGLVL=INFO`, `LOGLVL=ERROR`
-4. Verifiser at GitHub Actions-loggar er lesbare (ikkje for verbose)
-5. Oppdater `COMMANDS.md` med logging-dokumentasjon
+**Verifisert:**
+- Parallelle køyringar viser korrekt prefiks (`[domain/name]`) og vrir ikkje saman output
+- DEBUG-nivå viser alle kommandolinjer utan å vere for verbose
+- ERROR-nivå viser berre feil (ingen output ved suksess)
+- Fargar (`CLR_STEP`, `CLR_WARN`) vert behalde i INFO-nivå

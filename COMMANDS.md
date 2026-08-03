@@ -8,6 +8,31 @@ Alle kommandoar køyrer via containerar — ingen lokal Python-installasjon tren
 |---|---|---|
 | `make check-prereqs` | Sjekkar at Podman, GNU make, user namespace og ledig diskplass er korrekt konfigurert | Skriv OK/FEIL per føresetnad til stdout; avsluttar med kode 1 ved feil |
 
+## Logging
+
+Alle `make`-kommandoar støttar `LOGLVL`-variabelen for å styre detaljnivå:
+
+| Nivå | Beskriving | Bruksområde |
+|---|---|---|
+| `DEBUG` | Viser alle script- og funksjonskall med kommandolinjer + timing | Feilsøking, debugging av parallelle køyringar |
+| `INFO` (default) | Viser status-meldingar, framgang og summarar | Normal bruk |
+| `ERROR` | Viser berre feil og kritiske åtvaringar | Stille køyring, CI-jobbfeil |
+
+**Eksempel:**
+
+```bash
+# Debugging — vis alle kommandolinjer med timing
+make gen-docs SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=DEBUG
+
+# Normal bruk — vis berre status-meldingar
+make domain-ngr LOGLVL=INFO
+
+# Stille køyring — vis berre feil
+make domain-ngr LOGLVL=ERROR
+```
+
+**GitHub Actions:** CI-workflows køyrer med `LOGLVL=DEBUG` som standard for full feilsøkingsinfo i loggar.
+
 ## Container-image-bygging
 
 Berre nødvendig ved første bruk eller etter endringar i Dockerfile.

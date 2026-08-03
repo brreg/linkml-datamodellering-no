@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: Omgrepsamlingar
   nn: Omgrepsamlingar
-versjonsnummer: 2.15.0
+versjonsnummer: 2.16.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
-endringsdato: '2026-07-30'
+endringsdato: '2026-08-02'
 utgivelsesdato: '2023-01-01'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/

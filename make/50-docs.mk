@@ -32,7 +32,10 @@ docs-build: ## Bygg statisk MkDocs-site til mkdocs/site/
 
 docs-publish: ## Publiser generated/ til mkdocs/docs/ og oppdater mkdocs.yml
 	$(call print_header,docs-publish)
-	$(call print_info,Oppdaterer README.md-tabellar...)
-	@bash src/assets/scripts/makefile/generate-readme-tables.sh README.md
-	$(call print_info,Publiserer mkdocs-portal...)
-	@bash mkdocs/publish.sh
+	@eval "$$LOG_FUNCTIONS"; \
+	log_info "$(CLR_STEP)Oppdaterer README.md-tabellar...$(CLR_RST)"; \
+	log_debug "Kommando: generate-readme-tables.sh README.md"; \
+	bash src/assets/scripts/makefile/generate-readme-tables.sh README.md; \
+	log_info "$(CLR_STEP)Publiserer mkdocs-portal...$(CLR_RST)"; \
+	log_debug "Kommando: mkdocs/publish.sh"; \
+	bash mkdocs/publish.sh

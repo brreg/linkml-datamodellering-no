@@ -216,10 +216,14 @@ jobs:
 
       - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'
+        env:
+          LOGLVL: DEBUG
         run: make validate-examples DOMAIN=${{ matrix.domain }}
 
       - name: Valider datafiler mot publiseringspolicyer
         if: steps.cache-validated.outputs.cache-hit != 'true'
+        env:
+          LOGLVL: DEBUG
         run: make validate-data DOMAIN=${{ matrix.domain }}
 
       - name: Sjekk at publiserte URI-ar ikkje er fjerna

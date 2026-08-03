@@ -20,7 +20,8 @@
 
 validate: ## Valider alle skjema (merge-imports)
 	$(call print_header,validate)
-	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+	@eval "$$LOG_FUNCTIONS"; \
+	$(foreach s,$(SCHEMAS),log_info "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && log_debug "Kommando: $(LINKML_RUN) gen-linkml $(s)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 
 lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
@@ -42,10 +43,14 @@ validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>
 
 validate-bronze: ## Valider skjema med bronze-policy (DOMAIN=<domain>)
 ifdef DOMAIN
-	@set +e; \
+	@eval "$$LOG_FUNCTIONS"; \
+	set +e; \
 	FAILED=0; \
 	while IFS= read -r schema; do \
-		echo "--- $$schema ---"; \
+		name=$$(basename "$$schema" -schema.yaml); \
+		domain=$$(echo "$$schema" | cut -d/ -f3); \
+		log_info "$(CLR_STEP)→ validate-bronze  $$domain/$$name$(CLR_RST)"; \
+		log_debug "[$$domain/$$name] Kommando: flatten-and-validate.bash $$schema bronze"; \
 		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
 		echo "$$result"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
@@ -56,13 +61,14 @@ ifdef DOMAIN
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
 	exit $$FAILED
 else
-	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domain>" >&2
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domain>"
 	@exit 1
 endif
 
 validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domain>)
 ifdef DOMAIN
-	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
+	@eval "$$LOG_FUNCTIONS"; \
+	for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
 		datafile="$$datadir/$$catalog.yaml"; \
@@ -75,29 +81,33 @@ ifdef DOMAIN
 			policy=bronze; \
 		fi; \
 		[ -n "$$policy" ] || policy=bronze; \
-		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
+		log_info "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
+		log_debug "[$(DOMAIN)/$$model] Kommando: flatten-and-validate.bash $$schema $$policy $$datafile"; \
 		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
 		echo "$$result"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
 	done
 else
-	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>" >&2
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>"
 	@exit 1
 endif
 
 validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domain>)
 ifdef DOMAIN
-	@set +e; \
+	@eval "$$LOG_FUNCTIONS"; \
+	set +e; \
 	FAILED=0; \
 	while IFS= read -r schema; do \
 		name=$$(basename "$$schema" -schema.yaml); \
+		domain=$$(echo "$$schema" | cut -d/ -f3); \
 		example="$(SCHEMA_DIR)/$(DOMAIN)/$$name/examples/$$name-eksempel.yaml"; \
 		if [ ! -f "$$example" ]; then \
-			echo "::warning file=$$schema::Ingen eksempelfil funne: $$example"; \
+			log_info "$(CLR_WARN)::warning file=$$schema::Ingen eksempelfil funne: $$example$(CLR_RST)"; \
 			continue; \
 		fi; \
-		echo "--- $$schema ---"; \
+		log_info "$(CLR_STEP)→ validate-examples  $$domain/$$name$(CLR_RST)"; \
+		log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$schema $$example"; \
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
 			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
 		exit_code=$$?; \
@@ -107,10 +117,10 @@ ifdef DOMAIN
 			has_error=true; \
 			if echo "$$result" | grep -q "\[ERROR\]"; then \
 				echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
-					echo "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
+					log_error "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
 				done; \
 			else \
-				echo "::error file=$$example::Validering feila (exit code $$exit_code)"; \
+				log_error "::error file=$$example::Validering feila (exit code $$exit_code)"; \
 			fi; \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
@@ -125,7 +135,7 @@ ifdef DOMAIN
 		| grep -v common | sort | xargs grep -l "tree_root: true"); \
 	exit $$FAILED
 else
-	@echo "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>" >&2
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>"
 	@exit 1
 endif
 
