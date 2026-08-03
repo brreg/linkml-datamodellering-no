@@ -128,8 +128,6 @@ Importerte modeller lenker skal peike på Datamodell overskrifta
 
 
 
-gen-doc ser ut til å kutte innholdet i description feltet når den les eit punktum i teksten
-
 
 
 Innføre loglvl DEBUG, INFO, ERROR i alle make targets, der INFO er default og tilsvarer dagens logging.

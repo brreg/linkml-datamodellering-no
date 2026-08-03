@@ -51,12 +51,12 @@ build_imported_models_links() {
         local imported_domain
         imported_domain=$(echo "$rel_path" | cut -d/ -f3)
 
-        # Bygg relativ lenke til #metadata-ankeret
+        # Bygg relativ lenke til #datamodell-ankeret
         local link
         if [ "$imported_domain" = "$domain" ]; then
-            link="../${imported_clean}/#metadata"
+            link="../${imported_clean}/#datamodell"
         else
-            link="../../${imported_domain}/${imported_clean}/#metadata"
+            link="../../${imported_domain}/${imported_clean}/#datamodell"
         fi
 
         # Legg til lenke i lista
