@@ -311,8 +311,10 @@ linkml-datamodellering-no/
 │   └── tmp/                                       # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 │
 ├── bootstrap.sh                                   # Bootstrap-script for eksterne repo
+├── bugs/                                          # Kjente bugs
 ├── tests/                                         # Testar og fixtures
 ├── generated/                                     # Genererte artefakter (ikkje sjekka inn i git)
+├── make/                                          # GNU Make filer for make kommandoar. Sjå COMMANDS.md for kommandoar.
 ├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
 │   └── docs/                                      # Den publiserte dokumentasjonsportalen
 │       └── <domain>/
