@@ -54,76 +54,13 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml-schema.yaml`](https:/
 
 ---
 
-## Classes
 
-
-
-
-
-
-
-### Obligatorisk
-
-| Class | Description |
-| --- | --- |
-| [Ressurs](klasser/ressurs.md) | Ein generisk ressurs med tittel, skildring og utgjevar |
-
-
-
-
-
-
-
-
-
-
+---
 
 
 ---
 
-## Slots
-
-| Slot | Description |
-| --- | --- |
-| [beskrivelse](klasser/beskrivelse.md) | Kortfatta skildring av ressursen |
-| [id](klasser/id.md) | Unik URI-identifikator for ressursen |
-| [tittel](klasser/tittel.md) | Namn eller tittel på ressursen |
-| [utgjevar](klasser/utgjevar.md) | Organisasjon ansvarleg for ressursen (referert med URI) |
-
-
-
----
-
-## Enumerations
-
-| Enumeration | Description |
-| --- | --- |
-
-
-
----
-
-## Types
-
-| Type | Description |
-| --- | --- |
-
-
-
----
-
-## Subsets
-
-| Subset | Description |
-| --- | --- |
-| [Anbefalt](klasser/anbefalt.md) |  |
-| [Metadata](klasser/metadata.md) | Klasser som beskriv metadata om ressursar, ikkje sjølve datainnhaldet |
-| [Obligatorisk](klasser/obligatorisk.md) |  |
-| [Valgfri](klasser/valgfri.md) |  |
-
----
-
-## Generated artifacts (1) {#generated-artifacts}
+## Genererte artefakter (1) {#generated-artifacts}
 
 > Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering.
 

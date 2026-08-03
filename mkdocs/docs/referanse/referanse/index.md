@@ -47,7 +47,7 @@ Kjelde-datamodell i LinkML-format: [`referanse-schema.yaml`](https://github.com/
 
 ---
 
-## Generated artifacts (1) {#generated-artifacts}
+## Genererte artefakter (1) {#generated-artifacts}
 
 > Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering.
 

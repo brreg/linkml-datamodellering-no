@@ -10,7 +10,7 @@ generate_metadata() {
 
     echo "---"
     echo ""
-    # Ekstraher frå "## Modellmetadata" til neste "## "-seksjon (ikkje inkludert)
+    # Ekstraher frå "## Modellmetadata" til neste "##" eller "###"-seksjon (ikkje inkludert)
     # Legg til {#metadata}-anker i overskrifta
-    awk '/^## Modellmetadata( \{#metadata\})?$/{ p=1; print "## Modellmetadata {#metadata}"; next } p{ if(/^## / && !/^## Modellmetadata( \{#metadata\})?$/){ exit } print }' "$gendoc_index"
+    awk '/^## Modellmetadata( \{#metadata\})?$/{ p=1; print "## Modellmetadata {#metadata}"; next } p{ if(/^###? / && !/^## Modellmetadata( \{#metadata\})?$/){ exit } print }' "$gendoc_index"
 }

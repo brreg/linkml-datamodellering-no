@@ -108,79 +108,15 @@ Kjelde-datamodell i LinkML-format: [`referansemodell-schema.yaml`](https://githu
 
 ---
 
-## Classes (1) {#classes}
-
-> Denne oversikta viser berre klassar som er definerte lokalt i referansemodell-schema. Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
-
-### Obligatorisk (1)
-
-| Class | Description |
-| --- | --- |
-| [Ressurs](klasser/ressurs.md) | Ein generisk ressurs med tittel, skildring og utgjevar. |
-
 
 *Importerte klasser: [common-ap-no](../../ap-no/common-ap-no/#classes), [dcat-ap-no](../../ap-no/dcat-ap-no/#classes), [dqv-core](../../ap-no/dqv-core/#classes)*
 
 ---
 
-## Slots (4) {#slots}
-
-> Denne oversikta viser eigenskapar som er definert i eller brukt av lokale klassar i modellen. Nokre eigenskapar kan vere importerte frå andre skjema sjølv om dei blir brukte lokalt.
-### Verdiar (4)
-
-| Slot | Description | Defined in | Usage |
-| --- | --- | --- | --- |
-| [beskrivelse](klasser/beskrivelse.md) | Fritekstbeskrivelse av ressursen (dct:description). | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-| [id](klasser/id.md) | URI-identifikator for ressursen. | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-| [tittel](klasser/tittel.md) | Namn/tittel på ressursen (dct:title). | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-| [utgjevar](klasser/utgjevar.md) | Organisasjon ansvarleg for ressursen (referert med URI). | [https://data.norge.no/linkml/referansemodell](https://data.norge.no/linkml/referansemodell) | ✅ Brukt lokalt |
-
-
-
-*Importerte slots: [common-ap-no](../../ap-no/common-ap-no/#slots), [dcat-ap-no](../../ap-no/dcat-ap-no/#slots), [dqv-core](../../ap-no/dqv-core/#slots)*
 
 ---
 
-## Enumerations (0) {#enumerations}
-
-> Denne oversikta viser kontrollerte verdiområde som er definert i eller brukt lokalt i modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
-
-
-*Ingen enumerations definert lokalt eller brukt i denne modellen.*
-
-
-
-*Importerte enums: [common-ap-no](../../ap-no/common-ap-no/#enumerations), [dqv-core](../../ap-no/dqv-core/#enumerations)*
-
----
-
-## Types (2) {#types}
-
-> Denne oversikta viser primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatypar som er definert i eller brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
-
-| Type | URI | Description | Defined in | Usage |
-| --- | --- | --- | --- | --- |
-| LangString | [rdf:langString](rdf:langString) | Språktagget streng (rdf:langString). | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-| uriorcurie | [xsd:anyURI](https://www.w3.org/TR/xmlschema11-2/#anyURI) | a URI or a CURIE | [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml) | ✅ Brukt lokalt |
-
-*Importerte typer: [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml), [common-ap-no](../../ap-no/common-ap-no/#types)*
-
----
-
-## Subsets (2) {#subsets}
-
-> Denne oversikta viser klassifiseringar av klasser og slots som blir brukt i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
-
-| Subset | Description | Defined in | Usage |
-| --- | --- | --- | --- |
-| [Anbefalt](klasser/anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil. | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-| [Obligatorisk](klasser/obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil. | [https://data.norge.no/ap-no/common-ap-no](https://data.norge.no/ap-no/common-ap-no) | ✅ Brukt lokalt |
-
-*Importerte subsets: [common-ap-no](../../ap-no/common-ap-no/#subsets)*
-
----
-
-## Generated artifacts (1) {#generated-artifacts}
+## Genererte artefakter (1) {#generated-artifacts}
 
 > Denne seksjonen listar maskinlesbare artefakt som er genererte frå skjemaet. Artefakta blir brukte til validering, integrasjon, dokumentasjon og kodegenerering.
 

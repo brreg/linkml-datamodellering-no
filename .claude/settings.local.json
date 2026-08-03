@@ -366,7 +366,11 @@
       "Bash(make --version)",
       "Bash(make *)",
       "Bash(echo \"Diff exit code: $?\")",
-      "Bash(read schema *)"
+      "Bash(read schema *)",
+      "Bash(./mkdocs/lib/generate_schema_index.sh samt *)",
+      "Bash(./mkdocs/lib/generate_index.sh samt *)",
+      "Bash(./mkdocs/publish.sh samt *)",
+      "Bash(export REPO_ROOT=/mnt/c/dev/github/linkml-datamodellering-no)"
     ]
   },
   "enableAllProjectMcpServers": true,
