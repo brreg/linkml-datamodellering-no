@@ -14,20 +14,22 @@ define run_parallel_with_timer
 else \
 	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 		set -euo pipefail; \
+		eval "$$LOG_FUNCTIONS"; \
 		s="{}"; \
 		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 		domain=$$(echo "$$s" | cut -d/ -f3); \
-		trap "echo \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\" >&2; exit 1" ERR; \
+		trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
+		log_debug "[$$domain/$$name] Startar $(2): $$s"; \
 		t0=$$(date +%s%3N); \
 		$(4); \
 		rc=$$?; \
 		t1=$$(date +%s%3N); \
 		elapsed_ms=$$((t1 - t0)); \
-		printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
+		log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
 			"$$domain" "$$name" \
 			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)); \
+			$$((elapsed_ms % 1000 / 100)))"; \
 		exit $$rc'; \
 fi
 endef
@@ -39,30 +41,33 @@ endef
 define run_gen_with_check_parallel
 printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 	set -euo pipefail; \
+	eval "$$LOG_FUNCTIONS"; \
 	s="{}"; \
 	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
 	domain=$$(echo "$$s" | cut -d/ -f3); \
-	trap "echo \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\" >&2; exit 1" ERR; \
+	trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
 	manifest=$$(dirname "$$s")/build.yaml; \
 	if [ ! -f "$$manifest" ] || ! grep -q "^  $(3): true" "$$manifest"; then \
+		log_debug "[$$domain/$$name] Hoppar over $(2) ($(3) ikkje aktivert i build.yaml)"; \
 		exit 0; \
 	fi; \
 	outdir=$(GEN_DIR)/$$domain/$$name; \
 	input="$$outdir/$$name-$(4)"; \
 	if [ ! -f "$$input" ]; then \
-		echo "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name" >&2; \
+		log_error "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name"; \
 		exit 0; \
 	fi; \
 	out="$$outdir/$$name-$(5)"; \
+	log_debug "[$$domain/$$name] Startar $(2): $$input → $$out"; \
 	t0=$$(date +%s%3N); \
 	mkdir -p "$$outdir"; \
 	$(6); \
 	rc=$$?; \
 	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)\n" \
+	log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
 		"$$domain" "$$name" \
 		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)); \
+		$$((elapsed_ms % 1000 / 100)))"; \
 	exit $$rc'
 endef
 
@@ -71,7 +76,11 @@ endef
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator  $3=output-file suffix
 define run_gen
-@$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
+@$(foreach s,$(1), \
+	eval "$$LOG_FUNCTIONS"; \
+	log_info "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)"; \
+	log_debug "Kommando: $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)"; \
+	mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
 # Parallell versjon av run_gen med timer
@@ -85,7 +94,11 @@ endef
 # ---------------------------------------------------------------------------
 # Serial fallback
 define run_gen_linkml_serial
-@$(foreach s,$(1),echo "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+@$(foreach s,$(1), \
+	eval "$$LOG_FUNCTIONS"; \
+	log_info "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)"; \
+	log_debug "Kommando: $(LINKML_RUN) gen-linkml $(s)"; \
+	$(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 endef
 
 # Parallell versjon
@@ -98,7 +111,11 @@ endef
 # ---------------------------------------------------------------------------
 SHACL_DEFAULT_FLAGS :=
 define run_gen_shacl
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-shacl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl;)
+@$(foreach s,$(1), \
+	eval "$$LOG_FUNCTIONS"; \
+	log_info "$(CLR_STEP)→ gen-shacl  $(s)$(CLR_RST)"; \
+	log_debug "Kommando: $(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl"; \
+	mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-shacl $(if $(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_FLAGS_$(call schema_key,$(s))),$(SHACL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl;)
 endef
 
 # ---------------------------------------------------------------------------
@@ -106,7 +123,11 @@ endef
 # ---------------------------------------------------------------------------
 OWL_DEFAULT_FLAGS := --skip-vacuous-local-range-axioms --skip-vacuous-min-zero-cardinality-axioms --consolidate-cardinality-axioms
 define run_gen_owl
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
+@$(foreach s,$(1), \
+	eval "$$LOG_FUNCTIONS"; \
+	log_info "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)"; \
+	log_debug "Kommando: $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl"; \
+	mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
 endef
 
 # Parallell versjon av gen-owl
@@ -119,7 +140,13 @@ endef
 # RDF-generering med per-schema skip-flagg
 # ---------------------------------------------------------------------------
 define run_gen_rdf
-@$(foreach s,$(1),$(if $(filter true,$(GEN_RDF_SKIP_$(call schema_key,$(s)))),echo "Hoppar over gen-rdf for $(call schema_name,$(s)) (GEN_RDF_SKIP_$(call schema_key,$(s)) er sett)";,echo "$(CLR_STEP)→ gen-rdf  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl;))
+@$(foreach s,$(1), \
+	eval "$$LOG_FUNCTIONS"; \
+	$(if $(filter true,$(GEN_RDF_SKIP_$(call schema_key,$(s)))), \
+		log_info "Hoppar over gen-rdf for $(call schema_name,$(s)) (GEN_RDF_SKIP_$(call schema_key,$(s)) er sett)";, \
+		log_info "$(CLR_STEP)→ gen-rdf  $(s)$(CLR_RST)"; \
+		log_debug "Kommando: $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl"; \
+		mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl;))
 endef
 
 # Parallell versjon av gen-rdf
@@ -132,14 +159,16 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_doc
 @$(foreach s,$(1), \
-  echo "$(CLR_STEP)→ gen-docgen-examples  $(s)$(CLR_RST)" && \
+  eval "$$LOG_FUNCTIONS"; \
+  log_info "$(CLR_STEP)→ gen-docgen-examples  $(s)$(CLR_RST)"; \
+  log_debug "Kommando: python3 src/assets/scripts/makefile/gen-docgen-examples.py $(s) ..."; \
   mkdir -p $(call schema_outdir,$(s))/docgen-examples && \
   $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
     $(s) \
     src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/$(call schema_name,$(s))-eksempel.yaml \
     $(call schema_outdir,$(s))/docgen-examples && \
-  echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
-  echo "$(LINKML_RUN) gen-doc --template-directory src/assets/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory $(call schema_outdir,$(s))/docgen-examples -d $(call schema_outdir,$(s))/docs $(s)" && \
+  log_info "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)"; \
+  log_debug "Kommando: $(LINKML_RUN) gen-doc --template-directory src/assets/templates/docgen ... -d $(call schema_outdir,$(s))/docs $(s)"; \
   mkdir -p $(call schema_outdir,$(s))/docs && \
   $(LINKML_RUN) gen-doc \
     --template-directory src/assets/templates/docgen \
@@ -176,10 +205,14 @@ endef
 # gen-erdiagram (pipar gjennom awk for å stripa Container-klassar)
 # ---------------------------------------------------------------------------
 define run_gen_erdiagram
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) | awk -f src/assets/scripts/makefile/filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) \
+@$(foreach s,$(1), \
+  eval "$$LOG_FUNCTIONS"; \
+  log_info "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)"; \
+  log_debug "Kommando: $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) | awk -f src/assets/scripts/makefile/filter_container.awk > ..."; \
+  mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) \
   | awk -f src/assets/scripts/makefile/filter_container.awk \
   > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md && \
-  echo "$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && \
+  log_debug "Kommando: python -u src/assets/scripts/makefile/filter_erdiagram.py $(s) ..."; \
   $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md; \
   )
 endef
@@ -202,16 +235,19 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_plantuml
 @$(foreach s,$(1), \
-  echo "$(CLR_STEP)→ gen-plantuml  $(s)$(CLR_RST)" && \
+  eval "$$LOG_FUNCTIONS"; \
+  log_info "$(CLR_STEP)→ gen-plantuml  $(s)$(CLR_RST)"; \
+  log_debug "Kommando: $(LINKML_RUN) gen-plantuml $(s) > diagrams/$(call schema_name,$(s))-raw.puml"; \
   mkdir -p $(call schema_outdir,$(s))/diagrams && \
   $(LINKML_RUN) gen-plantuml $(s) \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml && \
-  echo "$(CLR_STEP)→ filter-plantuml (filtered)  $(s)$(CLR_RST)" && \
+  log_info "$(CLR_STEP)→ filter-plantuml (filtered)  $(s)$(CLR_RST)"; \
   $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml filtered \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-filtered.puml && \
-  echo "$(CLR_STEP)→ filter-plantuml (full)  $(s)$(CLR_RST)" && \
+  log_info "$(CLR_STEP)→ filter-plantuml (full)  $(s)$(CLR_RST)"; \
   $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py $(s) $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s))-raw.puml full \
     > $(call schema_outdir,$(s))/diagrams/$(call schema_name,$(s)).puml && \
+  log_debug "Kommando: podman run plantuml -tsvg ..."; \
   podman run --rm \
     -v "$(CURDIR)/$(call schema_outdir,$(s))/diagrams:/data" \
     $(PLANTUML_IMAGE) -tsvg /data/$(call schema_name,$(s)).puml && \

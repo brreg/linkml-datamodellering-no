@@ -105,29 +105,13 @@ passe på at vi har nn og nb for alle langstring felt i skos-ap-no-sceham og beg
 
 
 egen dokumentasjon som dokumenterer korleis metadata/modelldcat.yaml blir generert med kva som er kilde til kvart informasjonselement.
+tilsvarande dokumentasjon
 
 dokumentere tydelig make targets som er wrappere rundt andre make targets
 
-fjærne fra index.md:
-Relasjon til andre modellar i dette repoet: - Importerer linkml:types og dqv-ap-no-schema direkte - Eksempel på tverrgåande samarbeid om domenemodellering
-Dette er redundant fordi vi viser fullstendig avhengighetstre litt lenger nede.
 
-
-enumeration for status og lisens?
-
-
-behandle subsets på samme måten som andre overskrifter. Det betyr at kun lokalt definerte eller brukte subsets skal vises i lista, og så skal vi lenke til subsets i inkluderte schemaer under subsets tabellen.
-
-
-siste byggetidspunkt i mkdocs portalen
 
 alle make kall skal kalkulere og logge forbrukt tid
-
-
-Importerte modeller lenker skal peike på Datamodell overskrifta
-
-
-
 
 
 Innføre loglvl DEBUG, INFO, ERROR i alle make targets, der INFO er default og tilsvarer dagens logging.

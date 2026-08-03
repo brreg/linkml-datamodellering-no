@@ -36,11 +36,45 @@ PARALLEL ?= 16
 INSTANCE ?=
 POLICY   ?=
 
+# Logging
+LOGLVL ?= INFO
+
 # Fargar for logging
 CLR_SEP    := $(shell printf '\033[1;33m')
 CLR_HDR    := $(shell printf '\033[1;37m')
 CLR_STEP   := $(shell printf '\033[0;36m')
+CLR_OK     := $(shell printf '\033[0;32m')
+CLR_ERR    := $(shell printf '\033[0;31m')
+CLR_DBG    := $(shell printf '\033[2m')
 CLR_RST    := $(shell printf '\033[0m')
 
 # Separatorlinje
 SEP := ************************************************************
+
+# Logging-hjelpefunksjonar (bash-snippet som kan sourcas i makroar)
+define LOG_FUNCTIONS
+log_debug() {
+  [[ "$(LOGLVL)" == "DEBUG" ]] && printf "$(CLR_DBG)[DEBUG]$(CLR_RST) %s\n" "$$*" >&2 || true
+}
+log_info() {
+  [[ "$(LOGLVL)" != "ERROR" ]] && printf "%s\n" "$$*" >&2 || true
+}
+log_error() {
+  printf "$(CLR_ERR)[ERROR]$(CLR_RST) %s\n" "$$*" >&2
+}
+timed_run() {
+  local label="$$1"; shift
+  local start=$$(date +%s%3N)
+  log_debug "→ $$label: $$*"
+  "$$@"
+  local exit_code=$$?
+  local elapsed=$$(( $$(date +%s%3N) - start ))
+  if [ $$exit_code -eq 0 ]; then
+    log_info "$$(printf '$(CLR_STEP)→ %s$(CLR_RST) (%d.%ds)' "$$label" $$((elapsed / 1000)) $$((elapsed % 1000 / 100)))"
+  else
+    log_error "$$(printf '%s feila etter %d.%ds (exit code %d)' "$$label" $$((elapsed / 1000)) $$((elapsed % 1000 / 100)) $$exit_code)"
+  fi
+  return $$exit_code
+}
+endef
+export LOG_FUNCTIONS

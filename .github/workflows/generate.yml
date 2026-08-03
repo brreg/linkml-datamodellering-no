@@ -367,6 +367,8 @@ jobs:
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
+        env:
+          LOGLVL: DEBUG
         run: |
           set -euo pipefail
 
@@ -474,6 +476,8 @@ jobs:
 
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
+        env:
+          LOGLVL: DEBUG
         run: |
           set -euo pipefail
           trap 'echo "::error file=.github/workflows/generate.yml,line=326::make docs-publish/docs-build failed — sjå loggar for detaljar"; exit 1' ERR
