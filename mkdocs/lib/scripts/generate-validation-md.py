@@ -47,13 +47,13 @@ def main() -> None:
 
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        log_error({
-            "validation_json": str(path),
-            "domain": domain,
-            "schema": schema,
-            "step": "read_validation_json",
-        })
+    except Exception as e:
+        # Dersom JSON-fila er ugyldig, skriv ein fallback-seksjon
+        print("\n## Valideringsresultat\n")
+        print("> Valideringsrapporten viser i kva grad modellen etterlever definerte modelleringsreglar og kvalitetskrav. Resultata kan omfatte både lokale og importerte element avhengig av kva reglar som er evaluerte.\n")
+        print(f"*Valideringsfila er ugyldig eller manglar nødvendige felt: {path}*\n")
+        print(f"*Feil: {e}*")
+        sys.exit(0)  # Exit utan feil for å ikkje stoppe publish-prosessen
 
     version = data.get("version", "")
     validated_at = data.get("validated_at", "")

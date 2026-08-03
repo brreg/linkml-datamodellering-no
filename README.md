@@ -165,11 +165,13 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 > Datamodellane er gruppert i domener.
 
+Domena ligg under `src/linkml/<domain>/`
+
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
+| [referanse](referanse/) | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) 
 | [fair](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | [ap-no](ap-no/) | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| [referanse](referanse/) | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) |
 | [ngr](ngr/) | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | [oreg](oreg/) | Offentlege register. |
 | [fint](fint/) | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
@@ -181,7 +183,7 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 ## Skjema
 
-> Det er eit skjema pr datamodell i LinkML format.
+> Det er eit skjema i LinkML format for kvar datamodell.
 
 Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
@@ -219,9 +221,11 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 ## Genererte artefakter
 
-> generate workflowen genererer automatisk artefakter for kvart modellskjema som default.
+> Du kan generere artefakter fra LinkML skjemaet.
 
-Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar generator produserer ei fil under `generated/<domain>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
+Genererte artefakter ligg under `generated/<domain>/<skjema>/`.  
+Køyr `make <domain>` for å generere alle artefakter for eit domene.  
+Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag | Generator |
 |---|---|---|---|---|---|
@@ -249,7 +253,7 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 
 ## Genererte begrepskatalogar
 
-> Begrepskatalogar er automatisk genererte oversikter over begrep per organisasjon, basert på SKOS-AP-NO.
+> Begrepskatalogar er automatisk genererte oversikter over begrep per organisasjon, basert på SKOS-AP-NO standarden.
 
 Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 
@@ -263,7 +267,7 @@ Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 
 ## Genererte modellkatalogar
 
-> Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO.
+> Modellkatalogar er automatisk genererte oversikter over informasjonsmodellar per organisasjon, basert på ModelDCAT-AP-NO standarden.
 
 Modellkatalogar ligg under `src/linkml/modellkatalog/`
 
@@ -282,7 +286,7 @@ Modellkatalogar ligg under `src/linkml/modellkatalog/`
 
 ## Katalogstruktur
 
-> Her viser vi oversikt over dei mest sentrale katalogane i repoet.
+> Her finn du oversikt over dei mest sentrale katalogane i repoet.
 
 ```
 linkml-datamodellering-no/
@@ -325,7 +329,7 @@ linkml-datamodellering-no/
 
 ## For bidragsytarar
 
-> Her har vi samla sentrale dokumenter for bidragsytere.
+> Her finn du sentrale dokumenter for bidragsytere.
 
 Dersom du skal bidra til repoet, les desse dokumenta:
 

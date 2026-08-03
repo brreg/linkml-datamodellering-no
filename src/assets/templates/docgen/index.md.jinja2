@@ -2,7 +2,7 @@
 
 ## Modellmetadata
 
-> Denne oversikta viser sentrale metadata for modellen, inkludert versjon, status, lisens, identifikatorar og avhengigheiter. Verdiane er henta direkte frå skjemaet.
+> Modellmetadata viser sentrale metadata for modellen, inkludert versjon, status, lisens, identifikatorar og avhengigheiter. Verdiane er henta direkte frå skjemaet.
 
 | Felt | Verdi |
 | --- | --- |
@@ -61,7 +61,8 @@
 {%- endfor -%}
 ### Classes ({{ ns_total_classes.count }})
 
-> Denne oversikta viser berre klassar som er definerte lokalt i {{ schema.name }}. Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
+> Classes viser klassar som er definerte lokalt i {{ schema.name }} modellen. 
+> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
 {%- if gen.hierarchical_class_view -%}
 
 | Class | Description |
@@ -143,7 +144,9 @@
 {%- endfor -%}
 ### Slots ({{ ns_used_slots.names|length }})
 
-> Denne oversikta viser eigenskapar som er definert i eller brukt av lokale klassar i modellen. Nokre eigenskapar kan vere importerte frå andre skjema sjølv om dei blir brukte lokalt.
+> Slots viser eigenskapar som er definert i eller brukt av lokale klassar i modellen. 
+> Eigenskapar kan vere importerte frå andre skjema. Då vil "Defined in" kolonna angi kildeskjemaet.
+> Usage "Definert lokalt" betyr at sloten er definert lokalt men ikkje i bruk lokalt. "Brukt lokalt" betyr at sloten er definert og brukt lokalt i modellen.
 
 {%- if ns_slots_verdiar.items %}
 #### Verdiar ({{ ns_slots_verdiar.items|length }})
@@ -256,7 +259,9 @@
 
 ### Enumerations ({{ ns_used_enums.names|length }})
 
-> Denne oversikta viser kontrollerte verdiområde som er definert i eller brukt lokalt i modellen. Importerte enumerasjonar blir dokumenterte separat der det er relevant.
+> Enumerations viser kontrollerte verdiområde som er definert i eller brukt lokalt i modellen. 
+> verdiområder kan vere importerte frå andre skjema. Då vil "Defined in" kolonna angi kildeskjemaet.
+> Usage "Definert lokalt" betyr at verdiområdet er definert lokalt men ikkje i bruk lokalt. "Brukt lokalt" betyr at verdiområdet er definert og brukt lokalt i modellen.
 
 {% if ns_used_enums.names %}
 | Enumeration | Description | Defined in | Usage |
@@ -338,7 +343,10 @@
 
 ### Types ({{ ns_used_types.names|length }})
 
-> Denne oversikta viser primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatypar som er definert i eller brukt i modellen. Mange av desse kjem frå LinkML eller importerte schema.
+> Types viser primitive verdiformat som datoar, URI-ar, språkstrengar og andre grunnleggjande datatypar som er definert i eller brukt i modellen. 
+> Verdiformat kan vere importerte frå andre skjema. Då vil "Defined in" kolonna angi kildeskjemaet.
+> Usage "Definert lokalt" betyr at verdiformatet er definert lokalt men ikkje i bruk lokalt. "Brukt lokalt" betyr at verdiformatet er definert og brukt lokalt i modellen.
+
 {%- if ns_used_types.names %}
 
 | Type | URI | Description | Defined in | Usage |
@@ -428,7 +436,10 @@
 
 ### Subsets ({{ ns_used_subsets.names|length }})
 
-> Denne oversikta viser klassifiseringar av klasser og slots som blir brukt i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
+> Subsets viser klassifiseringar av klasser og slots som blir brukt i modellen. For AP-NO-modellar vil dette typisk vere Obligatorisk, Anbefalt og Valgfri.
+> Klassifiseringar kan vere importerte frå andre skjema. Då vil "Defined in" kolonna angi kildeskjemaet.
+> Usage "Definert lokalt" betyr at klassifiseringa er definert lokalt men ikkje i bruk lokalt. "Brukt lokalt" betyr at klassifiseringa er definert og brukt lokalt i modellen.
+
 {%- if ns_used_subsets.names %}
 
 | Subset | Description | Defined in | Usage |
