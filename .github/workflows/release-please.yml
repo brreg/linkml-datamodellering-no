@@ -15,6 +15,14 @@ on:
   push:
     branches: [main]
 
+# Kø, ikkje kanseller: denne workflowen gjer mutasjonar (manifest-commit,
+# git-tags, releases) som ikkje er trygge å avbryte midtvegs. Utan
+# cancel-in-progress ventar eit samstundes-triggera løp (t.d. manuell
+# workflow_dispatch midt i eit automatisk push-triggera løp) til det
+# føregåande er ferdig, i staden for å skrive til same manifest samstundes.
+concurrency:
+  group: release-please
+
 jobs:
   release-please:
     runs-on: ubuntu-22.04
@@ -29,6 +37,13 @@ jobs:
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
         if: github.event_name == 'push'
+        env:
+          # Sendt via env i staden for direkte interpolert i scriptet —
+          # github.event.head_commit.message er ikkje tiltrudd innhald
+          # (skrive av kven som helst med push-tilgang), og direkte
+          # tekst-substitusjon inn i eit run:-script opnar for
+          # script-injection (jf. actionlint sitt [expression]-funn).
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           # Les gyldige scopes frå auto-generert fil
           if [ ! -f .github/valid-scopes.txt ]; then
@@ -39,11 +54,7 @@ jobs:
           VALID_SCOPES=$(cat .github/valid-scopes.txt | tr '\n' '|' | sed 's/|$//')
 
           # Hent berre første linje av commit-meldinga
-          COMMIT_MSG=$(cat <<'EOF'
-          ${{ github.event.head_commit.message }}
-          EOF
-          )
-          FIRST_LINE=$(echo "$COMMIT_MSG" | head -n 1)
+          FIRST_LINE=$(echo "$COMMIT_MESSAGE" | head -n 1)
 
           # 1. Hopp over ikkje-releasande typar (uavhengig av scope)
           if echo "$FIRST_LINE" | grep -qE '^(style|docs|chore|test|ci|build|perf|refactor)(\(.*\))?:'; then

@@ -37,7 +37,7 @@ Dette repoet er ein **Proof of Concept** for LinkML-basert datamodellering i nor
 
 ## Publiseringspolicy for eksterne katalogar
 
-Denne policyen gjeld for datafiler og modellar merka med `publish_external: true` i `manifest.yaml`.
+Denne policyen gjeld for datafiler og modellar merka med `publish_external: true` i `build.yaml`.
 
 ### Kva publiserast
 
@@ -68,7 +68,7 @@ Repoet **pusher ikkje** direkte til Felles Begrepskatalog eller Felles Datakatal
 
 Dersom data med `publish_external: true` må trekkjast tilbake:
 
-1. **Stopp vidare publisering:** Endre `publish_external: true` → `publish_external: false` i `manifest.yaml`
+1. **Stopp vidare publisering:** Endre `publish_external: true` → `publish_external: false` i `build.yaml`
 2. **Fjern frå GitHub Pages:** CI sluttar å publisere fila ved neste kjøring
 3. **Varsle Digitaliseringsdirektoratet:** Send e-post til dataopen@digdir.no med URI-ar som skal fjernast frå Felles Begrepskatalog/Datakatalog
 4. **Dokumentér i commit-melding:** Forklar kvifor data vart trekt tilbake

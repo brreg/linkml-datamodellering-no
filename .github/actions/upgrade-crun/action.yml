@@ -1,0 +1,16 @@
+name: 'Oppgrader crun'
+description: >-
+  Oppgraderer crun til ein versjon som støttar OCI v1-image — ubuntu-22.04
+  sin standard-crun gjer ikkje det, og podman i dette repoet krev det.
+runs:
+  using: 'composite'
+  steps:
+    - name: Oppgrader crun til støtte for OCI v1-image
+      shell: bash
+      run: |
+        CRUN_VERSION=1.18.2
+        echo "=== Oppgraderer crun frå $(crun --version | head -1) ==="
+        wget -q "https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64" -O /tmp/crun
+        chmod +x /tmp/crun
+        sudo mv /tmp/crun /usr/bin/crun
+        echo "=== Ny versjon: $(crun --version | head -1) ==="

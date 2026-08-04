@@ -43,7 +43,7 @@
   },
   {
     "name": "mcp-linkml-validator",
-    "dockerfile": "src/mcp-linkml-validator/Dockerfile",
+    "dockerfile": "src/assets/containers/Dockerfile.mcp-linkml-validator",
     "make_target": "build-docker-mcp-validator",
     "always_required": true,
     "required_if_generator_flag": null

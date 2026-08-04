@@ -225,9 +225,9 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 Genererte artefakter ligg under `generated/<domain>/<skjema>/`.  
 Køyr `make <domain>` for å generere alle artefakter for eit domene.  
-Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
+Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/build.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/build-config/) for detaljar.
 
-| Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag | Generator |
+| Artefakt | Fil | Brukstilfelle | W3C semantisk | build.yaml flag | Generator |
 |---|---|---|---|---|---|
 | Modellmetadata ihht ModellDCAT-AP-NO | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — | [`gen-informasjonsmodell-instance`](COMMANDS.md#vedlikehald) |
 | JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` | [`gen-jsonld-context`](COMMANDS.md#enkeltartefakter) |
@@ -296,14 +296,14 @@ linkml-datamodellering-no/
 │   │   └── <domain>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
-│   │           ├── manifest.yaml                  # Modell-manifest
+│   │           ├── build.yaml                     # Byggkonfigurasjon
 │   │           ├── published-uris.lock            # Stabile URI-er for publiserte katalogar
 │   │           ├── examples/                      
 │   │           │   └── <modell>-eksempel.yaml     # Eksempeldatafil
 │   │           └── data/                          # Kildedata for publiserte katalogar
 │   │               └── <datafil-katalog>/
 │   │                   ├── <datafil-katalog>.yaml # Datafil for begrepskatalog
-│   │                   └── manifest.yaml          # Datafil-manifest
+│   │                   └── build.yaml             # Datafil-byggkonfigurasjon
 │   │
 │   ├── mcp-linkml-validator/                      # MCP-server: policy-basert LinkML validering
 │   ├── mcp-linkml-modell-utkast/                  # MCP-server: generering av LinkML modell-utkast

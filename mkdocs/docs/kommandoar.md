@@ -45,11 +45,11 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make test` | Linter alle skjemaer og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
-| `make mcp-linkml-validate SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå manifest.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
+| `make mcp-linkml-validate SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå build.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
 | `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
 | `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
 | `make validate-bronze DOMAIN=<domain>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). Brukt i CI per domene. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
-| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå manifest.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
+| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
 | `make validate-examples DOMAIN=<domain>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
 | `make log-mcp-validate SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout |
 | `make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Instansvalidering med full JSON-logg. Nyttig for debugging av valideringsfeil. | JSON-logg til stdout |
@@ -66,7 +66,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
 ### Publiserings-Policyar
 
-Brukt for skjema der `publish_external: true` i `manifest.yaml`. Sjekkar at skjemaet
+Brukt for skjema der `publish_external: true` i `build.yaml`. Sjekkar at skjemaet
 er i samsvar med krava til ei bestemt ekstern katalog. Arvær `bronze`-laget.
 
 | Policy | Beskriving |
@@ -123,10 +123,10 @@ Alle `gen-*` targets støttar tre bruksmåtar:
 | <a id="gen-docs"></a>`make gen-docs [DOMAIN=...] [SCHEMA=...]` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` |
 | <a id="gen-proto"></a>`make gen-proto [DOMAIN=...] [SCHEMA=...]` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
 | <a id="gen-plantuml"></a>`make gen-plantuml [DOMAIN=...] [SCHEMA=...]` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
-| <a id="gen-xsd"></a>`make gen-xsd [DOMAIN=...] [SCHEMA=...]` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i manifest) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
-| <a id="gen-asyncapi"></a>`make gen-asyncapi [DOMAIN=...] [SCHEMA=...]` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
-| <a id="gen-openapi"></a>`make gen-openapi [DOMAIN=...] [SCHEMA=...]` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i manifest) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
-| <a id="gen-config"></a>`make gen-config [DOMAIN=...] [SCHEMA=...]` | Generatorkonfigurasjon frå manifest.yaml | `generated/<domain>/<modell>/config.yaml` |
+| <a id="gen-xsd"></a>`make gen-xsd [DOMAIN=...] [SCHEMA=...]` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
+| <a id="gen-asyncapi"></a>`make gen-asyncapi [DOMAIN=...] [SCHEMA=...]` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
+| <a id="gen-openapi"></a>`make gen-openapi [DOMAIN=...] [SCHEMA=...]` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
+| <a id="gen-config"></a>`make gen-config [DOMAIN=...] [SCHEMA=...]` | Generatorkonfigurasjon frå build.yaml | `generated/<domain>/<modell>/config.yaml` |
 | <a id="gen-dqv-measurements"></a>`make gen-dqv-measurements [DOMAIN=...] [SCHEMA=...]` | DQV-kvalitetsmålingar for datakatalogdata | `generated/<domain>/<modell>/dqv-measurements.ttl` |
 | <a id="gen-modelldcat-elements"></a>`make gen-modelldcat-elements [DOMAIN=...] [SCHEMA=...]` | ModelDCAT-element for modellkatalogdata | `generated/<domain>/<modell>/modelldcat-elements.ttl` |
 | <a id="convert-rdf"></a>`make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |

@@ -23,69 +23,27 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Skann mcp-linkml-validator/requirements.txt
+      # Éin skanning av heile repoet i staden for 4 separate fs-skanningar
+      # (éin per requirements.txt) — same scan-ref: .-mønster som
+      # generate-sbom-jobben under alt brukar. Trivy sin fs-scan finn alle
+      # avhengigheitsfiler (requirements.txt, Dockerfile osv.) rekursivt i
+      # éin gjennomgang, så granulariteten (kva fil eit funn kjem frå) går
+      # ikkje tapt — berre talet på separate Trivy-DB-oppslag/prosessar.
+      - name: Skann heile repoet for sårbare avhengigheiter
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
-          scan-ref: src/mcp-linkml-validator/requirements.txt
+          scan-ref: .
           format: sarif
-          output: trivy-validator.sarif
+          output: trivy-results.sarif
 
-      - name: Skann mcp-linkml-modell-utkast/requirements.txt
-        uses: aquasecurity/trivy-action@v0.36.0
-        with:
-          scan-type: fs
-          scan-ref: src/mcp-linkml-modell-utkast/requirements.txt
-          format: sarif
-          output: trivy-generator.sarif
-
-      - name: Skann mcp-linkml-begrep-utkast/requirements.txt
-        uses: aquasecurity/trivy-action@v0.36.0
-        with:
-          scan-type: fs
-          scan-ref: src/mcp-linkml-begrep-utkast/requirements.txt
-          format: sarif
-          output: trivy-begrep.sarif
-
-      - name: Skann assets/requirements-python-test.txt
-        uses: aquasecurity/trivy-action@v0.36.0
-        with:
-          scan-type: fs
-          scan-ref: src/assets/containers/requirements-python-test.txt
-          format: sarif
-          output: trivy-assets.sarif
-
-      - name: Last opp trivy-validator.sarif til GitHub Security
+      - name: Last opp trivy-results.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         continue-on-error: true
         with:
-          sarif_file: trivy-validator.sarif
-          category: trivy-validator
-
-      - name: Last opp trivy-generator.sarif til GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
-        if: always()
-        continue-on-error: true
-        with:
-          sarif_file: trivy-generator.sarif
-          category: trivy-generator
-
-      - name: Last opp trivy-begrep.sarif til GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
-        if: always()
-        continue-on-error: true
-        with:
-          sarif_file: trivy-begrep.sarif
-          category: trivy-begrep
-
-      - name: Last opp trivy-assets.sarif til GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
-        if: always()
-        continue-on-error: true
-        with:
-          sarif_file: trivy-assets.sarif
-          category: trivy-assets
+          sarif_file: trivy-results.sarif
+          category: trivy
 
   generate-sbom:
     runs-on: ubuntu-22.04

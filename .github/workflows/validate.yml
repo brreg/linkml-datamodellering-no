@@ -35,8 +35,15 @@ jobs:
       - uses: actions/checkout@v7
       - name: Krev version:-felt i alle publish_external-skjema
         run: |
+          # BUG-fiks: dette søkte tidlegare etter "manifest.yaml", eit
+          # filnamn som vart bytt til "build.yaml" ein gong i repoet si
+          # historie utan at dette steget (eller README/CONTRIBUTING/
+          # GOVERNANCE/COMMANDS.md) vart oppdatert. find fann difor 0
+          # filer, løkka køyrde 0 gonger, og jobben returnerte alltid
+          # suksess UTAN å sjekke noko som helst — retta saman med
+          # dokumentasjonen i same økt.
           fail=0
-          for mf in $(find src/linkml -name "manifest.yaml"); do
+          for mf in $(find src/linkml -name "build.yaml"); do
             grep -q "publish_external: true" "$mf" || continue
             grep -q "generators:" "$mf" || continue
             dir=$(dirname "$mf")
@@ -58,13 +65,8 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
       - name: Valider commit-meldingar (conventional commits)
         run: |
           podman run --rm \
@@ -83,21 +85,40 @@ jobs:
     outputs:
       domains: ${{ steps.discover.outputs.domains }}
       domain_list: ${{ steps.discover.outputs.domain_list }}
+      images: ${{ steps.image-tags.outputs.images }}
+      image_tags: ${{ steps.image-tags.outputs.image_tags }}
     steps:
       - uses: actions/checkout@v7
-      - name: Oppdag domene (autoritativ kjelde — make print-domains)
+      - name: Oppdag domene
         id: discover
+        uses: ./.github/actions/discover-domains
+      - name: Bygg image-liste og tag-oppslag for validering (frå images.json)
+        id: image-tags
         run: |
-          # Same domeneoppdaging som make domain-<x> sjølv brukar
-          # (make/02-schema-discovery.mk) — unngår hardkoda domenelister som
-          # kan drifte frå kva src/linkml/ faktisk inneheld (sjå
-          # specs/done/debug-referanse-nav-meny.md).
-          domains_raw=$(make print-domains)
-          domain_list=$(echo "$domains_raw" | tr '\n' ' ' | sed 's/[[:space:]]*$//')
-          domains_json=$(printf '%s\n' "$domains_raw" | jq -R -s -c 'split("\n") | map(select(length > 0))')
-          echo "Domene funne: $domain_list"
-          echo "domain_list=$domain_list" >> "$GITHUB_OUTPUT"
-          echo "domains=$domains_json" >> "$GITHUB_OUTPUT"
+          # Validering treng berre linkml-local + mcp-linkml-validator, ikkje
+          # generator-images (python-pytest/plantuml/avrotize/asyncapi) —
+          # filtrer images.json ned til desse to i staden for å hardkode
+          # dockerfile/make_target-metadata separat frå autoritativ kjelde
+          # (jf. generate.yml sitt tilsvarande steg, som treng alle 7).
+          NEEDED='["linkml-local","mcp-linkml-validator"]'
+          images=$(jq -c --argjson needed "$NEEDED" \
+            '[.[] | select(.name as $n | $needed | index($n)) | {name, make_target}]' \
+            src/assets/containers/images.json)
+          echo "images=$images" >> "$GITHUB_OUTPUT"
+
+          # Same grunngjeving som generate.yml sitt "Bygg image-tag-oppslag"-
+          # steg: hashFiles() finst berre som eit dollar-curly-uttrykk
+          # evaluert her, ikkje kallbart frå bash/jq ved køyretid — difor
+          # den einaste staden desse to hashFiles()-kalla skal stå for
+          # validate.yml. Både ensure-images og validate-jobben slår opp
+          # taggen herifrå i staden for å rekne han ut på nytt kvar for seg.
+          cat > /tmp/image-tags.json << EOF
+          {
+            "linkml-local": "${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}",
+            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}"
+          }
+          EOF
+          echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
       - name: Fjern gamle valideringsloggar før artifact-upload
         run: |
           # Ekskluder validation/-katalogar frå source-artifact
@@ -121,54 +142,28 @@ jobs:
       contents: read
       packages: write
     strategy:
+      # Image-lista kjem frå src/assets/containers/images.json (autoritativ
+      # kjelde, filtrert til dei to linkml-local/mcp-linkml-validator i
+      # checkout-source sitt image-tags-steg) — ikkje hardkoda her lenger.
       matrix:
-        image:
-          - name: mcp-linkml-validator
-            dockerfile: src/assets/containers/Dockerfile.mcp-linkml-validator
-            make_target: build-docker-mcp-validator
-            hash_files: |
-              src/assets/containers/Dockerfile.mcp-linkml-validator
-              src/mcp-linkml-validator/requirements.txt
-          - name: linkml-local
-            dockerfile: src/assets/containers/Dockerfile.linkml
-            make_target: build-docker-linkml
-            hash_files: src/assets/containers/Dockerfile.linkml
+        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
         with:
           name: source
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
-        id: ghcr-check
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
-          if skopeo inspect --format='exists' docker://"$IMAGE" 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Bygg ${{ matrix.image.name }} image
-        if: steps.ghcr-check.outputs.exists != 'true'
-        run: make ${{ matrix.image.make_target }}
-
-      - name: Push ${{ matrix.image.name }} til GHCR
-        if: steps.ghcr-check.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
-          podman tag localhost/${{ matrix.image.name }}:latest "$IMAGE"
-          podman push "$IMAGE"
+      - name: Sikre ${{ matrix.image.name }} i GHCR
+        uses: ./.github/actions/ensure-image
+        with:
+          name: ${{ matrix.image.name }}
+          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
+          make_target: ${{ matrix.image.make_target }}
 
   validate:
     name: "validate / ${{ matrix.domain }}"
@@ -201,14 +196,14 @@ jobs:
       - name: Hent mcp-linkml-validator frå GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ fromJson(needs.checkout-source.outputs.image_tags)['mcp-linkml-validator'] }}
           podman pull "$IMAGE"
           podman tag "$IMAGE" mcp-linkml-validator:latest
 
       - name: Hent linkml-local frå GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ fromJson(needs.checkout-source.outputs.image_tags)['linkml-local'] }}
           podman pull "$IMAGE"
           podman tag "$IMAGE" localhost/linkml-local:latest
 

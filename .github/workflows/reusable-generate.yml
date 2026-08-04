@@ -22,7 +22,12 @@ jobs:
     permissions:
       contents: read
     outputs:
-      artifact-name: ${{ steps.upload.outputs.artifact-name }}
+      # actions/upload-artifact@v7 har ikkje eit "artifact-name"-output
+      # (berre artifact-id/artifact-url/artifact-digest) — dette var difor
+      # alltid tomt for alle kallarar. Namnet er kjent på førehand (sett
+      # eksplisitt i steget under), så vi eksponerer det direkte i staden
+      # for å late som det kjem frå steget sitt output.
+      artifact-name: linkml-generated-${{ github.run_id }}
 
     steps:
       - name: Sjekk ut kallande repo
@@ -37,25 +42,66 @@ jobs:
           fi
           echo "version=${VERSION:-latest}" >> "$GITHUB_OUTPUT"
 
+      # Hentar Makefile/make/ frå denne workflowen sitt eige repo i staden
+      # for å reimplementere "korleis generere artefakt X" på nytt her —
+      # same generator-kommandoar (gen-shacl, gen-owl, osv.) som intern CI
+      # og lokal utvikling brukar, éin kjelde i staden for to som kan drive
+      # frå kvarandre. gen-config.sh er med sidan Makefile sin config.mk-
+      # regel (shacl_flags/owl_flags/rdf-skip-overstyringar frå build.yaml)
+      # elles ville feila når han manglar.
+      - name: Hent make-verktøy frå brreg/linkml-datamodellering-no
+        uses: actions/checkout@v7
+        with:
+          repository: brreg/linkml-datamodellering-no
+          ref: ${{ steps.config.outputs.version }}
+          sparse-checkout: |
+            Makefile
+            make
+            src/assets/scripts/makefile/gen-config.sh
+          path: _linkml-tools
+
+      - name: Kopier make-verktøy til repo-rota
+        run: |
+          # Makefile sin include-struktur (make/00-*.mk til make/90-*.mk) må
+          # liggje relativt til CWD, og LINKML_RUN mountar $(CURDIR) — begge
+          # krev at Makefile/make/ ligg i repo-rota, ikkje i ein underkatalog.
+          # Trygt sidan kallande repo forventast å følgje src/linkml/-
+          # konvensjonen (jf. inputs.schema sin dokumenterte sti) og difor
+          # normalt ikkje har eigen Makefile/make/ i rota frå før.
+          if [ -f Makefile ] || [ -d make ]; then
+            echo "::error::Kallande repo har alt ein Makefile/make/-katalog i rota — reusable-generate.yml kan ikkje trygt kopiere over utan å risikere å overskrive han. Kontakt vedlikehaldar av brreg/linkml-datamodellering-no."
+            exit 1
+          fi
+          cp _linkml-tools/Makefile .
+          cp -r _linkml-tools/make .
+          mkdir -p src/assets/scripts/makefile
+          cp _linkml-tools/src/assets/scripts/makefile/gen-config.sh src/assets/scripts/makefile/gen-config.sh
+          rm -rf _linkml-tools
+
       - name: Trekk inn linkml-local image
         run: |
           VERSION="${{ steps.config.outputs.version }}"
           podman pull "ghcr.io/brreg/linkml-local:${VERSION}"
-          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" linkml-local:latest
+          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" localhost/linkml-local:latest
 
-      - name: Les manifest.yaml og køyr generatorar
+      - name: Køyr generatorar via make (respekterer build.yaml-flagg)
         env:
           SCHEMA: ${{ inputs.schema }}
         run: |
-          SCHEMA_DIR=$(dirname "$SCHEMA")
-          NAME=$(basename "$SCHEMA_DIR")
-          DOMAIN=$(basename "$(dirname "$SCHEMA_DIR")")
+          set -euo pipefail
+
+          SCHEMA_LOCAL_DIR=$(dirname "$SCHEMA")
+          NAME=$(basename "$SCHEMA_LOCAL_DIR")
+          DOMAIN=$(basename "$(dirname "$SCHEMA_LOCAL_DIR")")
           OUT="generated/${DOMAIN}/${NAME}"
-          mkdir -p "$OUT"
 
-          MANIFEST="${SCHEMA_DIR}/manifest.yaml"
+          MANIFEST="${SCHEMA_LOCAL_DIR}/build.yaml"
 
-          # Les generator-flagg frå manifest.yaml (standard: true)
+          # Les generator-flagg frå build.yaml (standard: true) — avgjer
+          # BERRE om ein generator skal køyrast i det heile, ikkje kva
+          # flagg han skal bruke (shacl_flags/owl_flags/rdf-skip vert
+          # automatisk henta frå config.mk, generert av gen-config.sh,
+          # via Makefile sin eigen -include config.mk-mekanisme).
           read_flag() {
             local key="$1" default="${2:-true}"
             if [ -f "$MANIFEST" ]; then
@@ -66,46 +112,34 @@ jobs:
             fi
           }
 
-          LINKML_RUN="podman run --rm -v \"$PWD:/work\" -w /work -e PYTHONWARNINGS=ignore linkml-local:latest"
-
           run_gen() {
-            local flag="$1" cmd="$2" suffix="$3"
-            [ "$(read_flag "$flag")" = "false" ] && return
-            echo "→ ${cmd}  ${SCHEMA}"
-            eval "$LINKML_RUN $cmd \"$SCHEMA\"" > "$OUT/${NAME}-${suffix}"
+            local flag="$1" target="$2"
+            if [ "$(read_flag "$flag")" = "false" ]; then
+              echo "Hoppar over ${target} (${flag}: false)"
+              return
+            fi
+            make "$target" SCHEMA="$SCHEMA"
           }
 
-          run_gen jsonld_context  gen-jsonld-context  context.jsonld
-          run_gen json_schema     gen-json-schema     schema.json
-          run_gen python          gen-python          model.py
-          run_gen protobuf        gen-proto           schema.proto
+          run_gen jsonld_context gen-jsonld-context
+          run_gen json_schema    gen-jsonschema
+          run_gen python         gen-python
+          run_gen protobuf       gen-proto
+          run_gen shacl          gen-shacl
+          run_gen owl            gen-owl
+          run_gen rdf            gen-rdf
 
-          # SHACL — les eventuelle flagg
-          if [ "$(read_flag shacl)" != "false" ]; then
-            SHACL_FLAGS=$(grep -E "^  shacl_flags:" "$MANIFEST" 2>/dev/null | sed 's/.*: *"\(.*\)".*/\1/' || true)
-            echo "→ gen-shacl  ${SCHEMA}"
-            eval "$LINKML_RUN gen-shacl $SHACL_FLAGS \"$SCHEMA\"" > "$OUT/${NAME}-shapes.ttl"
-          fi
-
-          # OWL — les eventuelle flagg
-          if [ "$(read_flag owl)" != "false" ]; then
-            OWL_FLAGS=$(grep -E "^  owl_flags:" "$MANIFEST" 2>/dev/null | sed 's/.*: *"\(.*\)".*/\1/' || true)
-            echo "→ gen-owl  ${SCHEMA}"
-            eval "$LINKML_RUN gen-owl $OWL_FLAGS \"$SCHEMA\"" > "$OUT/${NAME}-ontology.ttl"
-          fi
-
-          # RDF-skjema
-          if [ "$(read_flag rdf)" != "false" ]; then
-            echo "→ gen-rdf  ${SCHEMA}"
-            eval "$LINKML_RUN gen-rdf \"$SCHEMA\"" > "$OUT/${NAME}-schema.ttl"
-          fi
-
-          # Eksempel-RDF — konverter eksempelfila til Turtle
+          # Eksempel-RDF — finst ikkje som eit frittståande make-target
+          # (berre inline i make/20-domain-targets.mk sin domain_target-
+          # pipeline), difor framleis direkte linkml-convert her.
           if [ "$(read_flag example_rdf)" != "false" ]; then
-            EXAMPLE="${SCHEMA_DIR}/examples/${NAME}-eksempel.yaml"
+            EXAMPLE="${SCHEMA_LOCAL_DIR}/examples/${NAME}-eksempel.yaml"
             if [ -f "$EXAMPLE" ]; then
               echo "→ linkml-convert  ${EXAMPLE}"
-              eval "$LINKML_RUN linkml-convert --schema \"$SCHEMA\" --output-format ttl --no-validate --output \"$OUT/${NAME}-eksempel.ttl\" \"$EXAMPLE\""
+              mkdir -p "$OUT"
+              podman run --rm -v "$PWD:/work" -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest \
+                linkml-convert --schema "$SCHEMA" --output-format ttl --no-validate \
+                --output "$OUT/${NAME}-eksempel.ttl" "$EXAMPLE"
             fi
           fi
 
@@ -113,7 +147,6 @@ jobs:
           ls -lh "$OUT/"
 
       - name: Last opp genererte artefaktar
-        id: upload
         uses: actions/upload-artifact@v7
         with:
           name: linkml-generated-${{ github.run_id }}

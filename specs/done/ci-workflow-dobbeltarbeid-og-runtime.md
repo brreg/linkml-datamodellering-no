@@ -340,8 +340,224 @@ avhengigheit (stega er stort sett uavhengige):
   utdatert løp synleg i Actions-historikken, crun-steget hoppa over ved
   cache-treff).
 
-**Attståande:** steg 3, 4, 6, 7, 8, 11, 12 (sjå "Rekkjefølgje og
-prioritet" for tilrådd vidare rekkjefølgje).
+**Steg 3, 4, 6, 7, 8, 11 utført** (2026-08-04):
+
+- **Steg 3 — `concurrency` på `release-please.yml`:** Gruppe
+  `release-please`, **utan** `cancel-in-progress` (mutasjonar må fullføre).
+- **Steg 4 — ekte gate i `generate.yml`:** Feilsvelginga fjerna;
+  valideringssteget tel no faktiske feil og gjer `exit 1` dersom nokon
+  manifest feilar, med ein kommentar som forklarer kvifor steget framleis
+  trengst (release-please sitt `[skip ci]`-versjonsbump-gap). Sjekka
+  samstundes om `publish`-jobben treng eksplisitt ekstra gating: **nei** —
+  GitHub Actions sin standardåtferd gjer at ein matrisejobb med
+  `fail-fast: false` likevel får samla konklusjon "failure" dersom éin
+  matrise-leg feilar, og `publish` (som har `needs: [generate, ...]`) vert
+  då automatisk hoppa over. Ingen ekstra endring naudsynt.
+- **Steg 6 — composite action `.github/actions/upgrade-crun/`:** Alle 9
+  kallstader (generate.yml×3, validate.yml×2, release.yml×4) peikar no på
+  denne. Éin `CRUN_VERSION`-konstant framover.
+- **Steg 7 — composite action `.github/actions/discover-domains/`:** Begge
+  `checkout-source`-jobbane (generate.yml, validate.yml) brukar no denne
+  i staden for identisk inline-script.
+- **Steg 8 — composite action `.github/actions/ensure-image/`:** Tek
+  imot ein ferdig utrekna full GHCR-tag (ikkje eigne hashFiles()-kall inni
+  composite-actionen, sidan hashFiles() sin parse-tids-natur gjer det
+  usikkert om ho fungerer generisk via `inputs.*` i alle kontekstar —
+  kallaren reknar ut taggen sentralt, actionen berre sjekkar/byggjer/pushar).
+  Brukt frå `generate.yml` sin `ensure-images`-matrise (uendra
+  tag-oppslag). `validate.yml` fekk i tillegg:
+  - Eit nytt "Bygg image-liste og tag-oppslag for validering"-steg i
+    `checkout-source`, som filtrerer `images.json` ned til dei to imaga
+    valideringsflyten faktisk treng (`linkml-local`, `mcp-linkml-validator`)
+    og reknar ut tagganne sentralt — same mønster som `generate.yml`, berre
+    med eit ekstra filter sidan validate.yml ikkje treng alle 7 image.
+  - `ensure-images`-matrisa migrert frå hardkoda YAML til
+    `${{ fromJson(needs.checkout-source.outputs.images) }}` — **fullfører
+    B4-oppfølginga frå `specs/done/dry-opprydding.md`**.
+  - **Ekstra funn undervegs:** `validate`-jobben sine to "Hent X frå
+    GHCR"-steg hadde ei **tredje** kopi av same hashFiles()-formlar
+    (utover ensure-images-matrisa) — ikkje fanga opp i den opphavlege
+    kartlegginga. Retta til å slå opp same sentrale tag-oppslag, slik at
+    alle tre stadene no deler éi berekning.
+- **Steg 11 — `trivy.yml` konsolidert:** `scan-requirements`-jobben sine 4
+  separate `trivy-action`-kall (eitt per `requirements.txt`) er no éin
+  einaste `scan-ref: .`-skanning (same mønster som `generate-sbom`-jobben
+  alt brukte), med éin samla SARIF-kategori (`trivy`) i staden for 4.
+
+**Bonus-funn og -fiksar undervegs** (utanfor det opphavlege steg-scopet,
+men oppdaga og retta fordi dei var direkte i vegen for steg 5/8):
+
+- **Feil Dockerfile-sti for `mcp-linkml-validator`:** `images.json` sitt
+  `dockerfile`-felt peika på `src/mcp-linkml-validator/Dockerfile` (finst
+  ikkje — den faktiske fila er `src/assets/containers/Dockerfile.mcp-linkml-validator`).
+  Same feil var kopiert inn i `generate.yml` sitt sentrale image-tag-oppslag
+  og (av meg, i steg 5) inn i `release.yml`. Retta alle tre stadene.
+  Konsekvens av feilen før fiksen: `generate.yml`/`validate.yml` sin
+  GHCR-hash-tag for `mcp-linkml-validator` var **upåverka av faktiske
+  endringar i Dockerfilen** (hashFiles() matcha berre `requirements.txt`,
+  sidan den andre stien ikkje fanst) — ein endra Dockerfile ville difor
+  ikkje ha trigga ny image-bygging, og CI kunne ha servert eit forelda
+  image utan varsel. `images.json` sitt `dockerfile`-felt er berre brukt
+  til logging i dag (stadfesta med `grep`), så feilen har ikkje påverka
+  sjølve `make`-bygginga — berre hash-tag-korrektheita.
+- **Broten byggjekontekst i `release.yml` sin `mcp-linkml-validator`-jobb:**
+  Original (og min fyrste versjon av steg 5) kalla
+  `podman build ... src/mcp-linkml-validator` utan `-f`-flagg — podman
+  søkjer då etter `src/mcp-linkml-validator/Dockerfile`, som ikkje finst.
+  Retta til å bruke same `-f src/assets/containers/Dockerfile.mcp-linkml-validator`
+  + build-kontekst `.` som `make build-docker-mcp-validator` sjølv brukar
+  (`make/60-mcp.mk`).
+- **Script-injection-funn frå `actionlint`:** `release-please.yml` sitt
+  steg *"Sjekk om siste commit skal trigge release-please"* interpolerte
+  `${{ github.event.head_commit.message }}` direkte inn i eit
+  heredoc-script — flagga av `actionlint` som `[expression]` (ikkje berre
+  `[shellcheck]`-stilråd, altså blokkerande per CLAUDE.md sin
+  actionlint-regel). Retta til å sende commit-meldinga via `env:` i
+  staden, slik GitHub sjølv anbefaler for utiltrudd input i `run:`-script.
+
+**Steg 12 utført** (2026-08-04) — etter at brukaren stadfesta at ingen
+eksterne repo brukar `reusable-generate.yml` i dag, og eksplisitt
+godkjende endring:
+
+- **`reusable-generate.yml` migrert til å delegere til `make gen-<x>
+  SCHEMA=...`** i staden for å reimplementere generator-kommandoane
+  direkte med `podman run`. Workflowen hentar no `Makefile`, `make/` og
+  `src/assets/scripts/makefile/gen-config.sh` frå
+  `brreg/linkml-datamodellering-no` (sparse-checkout til `_linkml-tools/`,
+  kopiert til repo-rota — naudsynt sidan Makefile sin `include`-struktur
+  og `$(CURDIR)`-mounting krev CWD = repo-rot). `gen-config.sh` er med
+  slik at Makefile sin `-include config.mk`-sjølvoppdaterings-mekanisme
+  (shacl_flags/owl_flags/rdf-skip-overstyringar frå build.yaml) fungerer
+  identisk med intern bruk, utan å reimplementere den logikken separat.
+  Ein vaktklausul stoppar med tydeleg feilmelding dersom kallande repo
+  alt har `Makefile`/`make/` i rota (unngår å overskrive uovervara).
+- **`manifest.yaml` → `build.yaml`** retta i workflowen sitt eige
+  manifest-oppslag, som del av same funn som under.
+- **Bonus-funn — repo-vid namnedrift `manifest.yaml` vs. `build.yaml`:**
+  Under arbeidet med steg 12 vart det stadfesta empirisk
+  (`find src/linkml -name "manifest.yaml"` → 0 treff,
+  `-name "build.yaml"` → 38 treff) at per-skjema-konfigfila vart omdøypt
+  til `build.yaml` ein gong i repoet si historie, utan at README.md,
+  CONTRIBUTING.md, GOVERNANCE.md, COMMANDS.md eller
+  `mkdocs/docs/kommandoar.md` vart oppdaterte til å følgje. Retta alle
+  desse (`manifest.yaml` → `build.yaml` der det viser til per-skjema/
+  per-datafil-konfig; dei legitime `metadata/<skjema>-manifest.yaml`-
+  referansane — ein heilt annan, autogenerert ModelDCAT-artefakt — er
+  urørte).
+  - **Alvorlegast:** `validate.yml` sin `check-publish-version`-jobb søkte
+    òg etter `manifest.yaml` — sidan `find` fann 0 filer, køyrde
+    kontroll-løkka 0 gonger, og jobben returnerte alltid suksess **utan
+    å sjekke noko som helst**. Denne jobben skal handheve at alle
+    `publish_external: true`-skjema har eit `version:`-felt — han har
+    reelt sett ikkje gjort det sidan omdøypinga. Retta til `build.yaml`,
+    med ein forklarande kommentar i steget. Stadfesta lokalt at fiksen
+    ikkje umiddelbart avdekkjer nokon eksisterande brot (køyrde den
+    retta logikken mot faktisk repo-tilstand: 0 feil).
+
+**Verifisert (steg 12):**
+- YAML-syntaks og `actionlint` på `reusable-generate.yml`: **heilt reint**
+  (exit code 0, ingen funn i det heile — verken `[expression]` eller
+  `[shellcheck]`)
+- Undervegs fann `actionlint` eit **andre** reelt `[expression]`-funn i
+  same fil, uendra frå originalen: `steps.upload.outputs.artifact-name`
+  eksisterer ikkje i `actions/upload-artifact@v7` sitt faktiske
+  output-skjema (berre `artifact-id`/`artifact-url`/`artifact-digest`) —
+  workflowen sitt `artifact-name`-output har difor vore tomt for alle
+  som nokon gong har kalla han. Retta til å eksponere namnet direkte
+  (kjent på førehand), sidan det ikkje finst noko tilsvarande steg-output
+  å hente det frå.
+- `check-publish-version`-fiksen testa lokalt mot faktisk `src/linkml/`-
+  innhald: finn no 38 `build.yaml`-filer (var 0 med `manifest.yaml`),
+  ingen eksisterande `version:`-brot oppdaga
+- Full `actionlint`-sveip av **alle** `.github/workflows/*.yml` i repoet:
+  0 `[expression]`-funn, berre 17 pre-eksisterande `[shellcheck]`-stilråd
+- **Ikkje verifisert:** faktisk `make gen-<x>`-køyring frå ein ekte
+  ekstern kallar (ingen finst å teste mot i dag, stadfesta av brukaren).
+  Logikken er verifisert ved kode-gjennomgang av dei faktiske
+  `make`-måla og -makroane (`schema_domain`/`schema_name`-utleiing frå
+  stimønster, `config.mk`-sjølvoppdatering, output-suffiks-namngjeving)
+  mot kva den opphavlege handrullande implementasjonen produserte — ikkje
+  ved ei reell CI-køyring. Bør testast med ein midlertidig testrepo eller
+  `workflow_dispatch` frå ein annan repo før dette vert stole på i
+  produksjon.
+
+**Attståande:** Ingenting frå den opphavlege 15-steg-lista. Steg 13 (full
+CI-verifisering) er framleis berre delvis dekt — sjå "Ikkje verifisert"
+under kvart steg — resten kan berre stadfestast ved faktisk køyring i
+GitHub Actions, noko som ligg utanfor denne økta sin kapasitet. Spec-en
+vert likevel flytta til `specs/done/` no, sidan alt planlagt arbeid er
+utført; oppfølging av dei ikkje-verifiserte punkta bør skje som ny,
+liten spec dersom noko faktisk feilar i praksis.
+
+**Verifisert (steg 3, 4, 6, 7, 8, 11):**
+- Alle endra/nye filer parsar korrekt (`python3 -c "import yaml; ..."` for
+  YAML, `json.load` for `images.json`)
+- `actionlint` køyrd på nytt mot alle 5 endra workflow-filer
+  (`validate.yml`, `generate.yml`, `release.yml`, `release-please.yml`,
+  `trivy.yml`): **null** `[expression]`-funn (stadfesta med `grep -c`),
+  berre pre-eksisterande `[shellcheck]`-stilråd på urørte linjer
+- `jq`-filteret i `validate.yml` sitt nye image-tags-steg testa lokalt mot
+  det faktiske `images.json` — produserer korrekt `[{name, make_target}]`
+  for begge dei to naudsynte imaga
+- Kryssjekka at ingen attverande referansar til det gamle
+  `matrix.image.hash_files`/`matrix.image.dockerfile`-mønsteret finst i
+  `validate.yml` etter migreringa (`grep`, tomt resultat)
+- **Ikkje verifisert:** faktisk køyring i GitHub Actions. Særleg
+  `ensure-image`-actionen (ny bruk av composite actions med
+  ferdig-utrekna tag som input) og det nye image-tags-steget i
+  `validate.yml` sin `checkout-source` bør overvakast nøye ved neste PR og
+  neste push til main, jf. same føre-var-merknad som
+  `dry-opprydding.md` gav for sine nye mønster.
+
+**Attståande:** steg 12 (krev eksplisitt godkjenning, sjå over). Steg 13
+(full CI-verifisering) er delvis dekt — sjå "Ikkje verifisert" per steg —
+resten kan berre stadfestast ved faktisk køyring. Steg 14 er utført (sjå
+kryssreferansen lagt til i `specs/done/dry-opprydding.md`). Steg 15
+(flytt til `specs/done/`) er difor **ikkje** gjort endå.
+
+## Utført
+
+Alle 15 opphavlege steg er gjennomførte, fordelt over tre arbeidsøkter
+(sjå "Framdrift" over for fullstendige detaljar og verifikasjon per steg):
+
+- **Steg 1, 2, 9, 10** — `concurrency`-blokker på `validate.yml`/
+  `generate.yml`, cache-hit-gating av crun-oppgradering, `paths:`-filter
+  på `trivy.yml`
+- **Steg 5** — `release.yml` sin `mcp-linkml-validator`-jobb gjenbruker
+  hash-tagga GHCR-image i staden for full rebuild
+- **Steg 3, 4** — kø-basert `concurrency` på `release-please.yml`;
+  `generate.yml` sitt valideringssteg er no eit ekte gate
+- **Steg 6, 7, 8** — tre nye composite actions (`upgrade-crun`,
+  `discover-domains`, `ensure-image`) fjernar 9+2+3 dupliserte
+  kodeblokkar; `validate.yml` sin `ensure-images`-matrise migrert til
+  `images.json` (fullfører oppfølginga frå `dry-opprydding.md`)
+- **Steg 11** — `trivy.yml` konsolidert frå 4 til 1 skanning
+- **Steg 12** — `reusable-generate.yml` migrert til å delegere til
+  `make gen-<x>`, etter eksplisitt brukargodkjenning (ingen eksterne
+  konsumentar fanst)
+
+**Vesentlege bonus-funn, retta undervegs (ikkje del av opphavleg plan):**
+- Feil `dockerfile`-sti for `mcp-linkml-validator` i `images.json` gjorde
+  GHCR-hash-taggen blind for faktiske Dockerfile-endringar
+- Broten podman-byggjekontekst i `release.yml` (manglande `-f`-flagg)
+- Script-injection-funn (`[expression]`) i `release-please.yml` —
+  usikra commit-melding interpolert direkte i eit script
+- Repo-vid `manifest.yaml`/`build.yaml`-namnedrift: `validate.yml` sin
+  `check-publish-version`-jobb har vore reelt daud kode (finn 0 filer,
+  returnerer alltid suksess utan å sjekke noko); README/CONTRIBUTING/
+  GOVERNANCE/COMMANDS.md/kommandoar.md dokumenterte framleis det gamle
+  filnamnet
+- Nytt `[expression]`-funn i `reusable-generate.yml`: eit
+  `artifact-name`-output som aldri kunne fungert
+  (`actions/upload-artifact@v7` har ikkje det outputtet)
+
+**Ikkje verifisert i praksis:** Ingen av endringane er stadfesta ved
+faktisk køyring i GitHub Actions (kan ikkje testast lokalt). Særleg
+`concurrency`-kansellering, dei nye composite actions og
+`reusable-generate.yml` sin `make`-delegering bør overvakast nøye ved
+neste PR, neste push til main, og — dersom nokon tek han i bruk — neste
+faktiske eksterne kallar. Oppfølging ved feil bør gjerast som ein ny,
+liten spec i staden for å attopne denne.
 
 ## Relaterte filer
 
@@ -359,3 +575,13 @@ prioritet" for tilrådd vidare rekkjefølgje).
   faktiske innhald (ingen validering inkludert)
 - `specs/done/dry-opprydding.md` — opphavet til B2/B4-funna (attståande
   oppfølging derifrå), mønster-referanse for korleis A1/A2 der vart løyst
+- `.github/actions/upgrade-crun/action.yml` — ny, løyser B1
+- `.github/actions/discover-domains/action.yml` — ny, løyser B2
+- `.github/actions/ensure-image/action.yml` — ny, løyser B3/B4
+- `src/assets/containers/images.json` — retta feil `dockerfile`-sti for
+  `mcp-linkml-validator` (bonus-funn under steg 5/8)
+- `.github/workflows/reusable-generate.yml` — steg 12, full migrering til
+  `make gen-<x>`-delegering
+- `README.md`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `COMMANDS.md`,
+  `mkdocs/docs/kommandoar.md` — `manifest.yaml` → `build.yaml`
+  (bonus-funn under steg 12)

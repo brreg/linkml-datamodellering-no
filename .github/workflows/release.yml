@@ -14,13 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -46,22 +41,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Hent eller bygg mcp-linkml-validator
         run: |
-          HASH_TAG="ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}"
+          HASH_TAG="ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}"
           if ! podman pull "$HASH_TAG" 2>/dev/null; then
-            podman build -t localhost/mcp-linkml-validator:latest src/mcp-linkml-validator
+            podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml-validator -t localhost/mcp-linkml-validator:latest .
             podman tag localhost/mcp-linkml-validator:latest "$HASH_TAG"
             podman push "$HASH_TAG"
           fi
@@ -78,13 +68,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -108,13 +93,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin

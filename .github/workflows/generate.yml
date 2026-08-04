@@ -39,19 +39,9 @@ jobs:
       image_tags: ${{ steps.image-tags.outputs.image_tags }}
     steps:
       - uses: actions/checkout@v7
-      - name: Oppdag domene (autoritativ kjelde — make print-domains)
+      - name: Oppdag domene
         id: discover
-        run: |
-          # Same domeneoppdaging som make domain-<x> sjølv brukar
-          # (make/02-schema-discovery.mk) — unngår hardkoda domenelister som
-          # kan drifte frå kva src/linkml/ faktisk inneheld (sjå
-          # specs/done/debug-referanse-nav-meny.md).
-          domains_raw=$(make print-domains)
-          domain_list=$(echo "$domains_raw" | tr '\n' ' ' | sed 's/[[:space:]]*$//')
-          domains_json=$(printf '%s\n' "$domains_raw" | jq -R -s -c 'split("\n") | map(select(length > 0))')
-          echo "Domene funne: $domain_list"
-          echo "domain_list=$domain_list" >> "$GITHUB_OUTPUT"
-          echo "domains=$domains_json" >> "$GITHUB_OUTPUT"
+        uses: ./.github/actions/discover-domains
       - name: Bygg image-tag-oppslag (autoritativ kjelde — src/assets/containers/images.json)
         id: image-tags
         run: |
@@ -72,7 +62,7 @@ jobs:
             "asyncapi-cli-minimal": "${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}",
             "plantuml": "${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}",
             "mkdocs-local": "${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}",
-            "mcp-linkml-validator": "${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}"
+            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}"
           }
           EOF
           echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
@@ -124,51 +114,18 @@ jobs:
           echo "crun: $(crun --version | head -1)"
           echo "skopeo: $(skopeo --version)"
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          echo "=== Oppgraderer crun frå $(crun --version | head -1) ==="
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          echo "=== Ny versjon: $(crun --version | head -1) ==="
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
-        id: ghcr-check
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
-          echo "=== Sjekkar GHCR for $IMAGE ==="
-          if skopeo inspect --format='exists' docker://"$IMAGE" 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-            echo "✓ Image finst i GHCR"
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-            echo "✗ Image finst ikkje — må byggje lokalt"
-          fi
-
-      - name: Bygg ${{ matrix.image.name }} image
-        if: steps.ghcr-check.outputs.exists != 'true'
-        run: |
-          echo "=== Byggjer ${{ matrix.image.name }} ==="
-          echo "Dockerfile: ${{ matrix.image.dockerfile }}"
-          echo "Make target: ${{ matrix.image.make_target }}"
-          set -x
-          make ${{ matrix.image.make_target }}
-          set +x
-          echo "=== Image bygd — inspekterer lokalt image ==="
-          podman inspect localhost/${{ matrix.image.name }}:latest | head -50
-
-      - name: Push ${{ matrix.image.name }} til GHCR
-        if: steps.ghcr-check.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
-          echo "=== Pushar til GHCR: $IMAGE ==="
-          podman tag localhost/${{ matrix.image.name }}:latest "$IMAGE"
-          podman push "$IMAGE"
-          echo "✓ Push fullført"
+      - name: Sikre ${{ matrix.image.name }} i GHCR
+        uses: ./.github/actions/ensure-image
+        with:
+          name: ${{ matrix.image.name }}
+          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
+          make_target: ${{ matrix.image.make_target }}
 
   generate:
     name: "generate / ${{ matrix.domain }}"
@@ -206,15 +163,9 @@ jobs:
           path: generated/${{ matrix.domain }}/
           key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'Makefile') }}
 
-      - name: Oppgrader crun til støtte for OCI v1-image
+      - name: Oppgrader crun
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        run: |
-          echo "=== Oppgraderer crun ==="
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          echo "=== Ny versjon: $(crun --version | head -1) ==="
+        uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -294,6 +245,14 @@ jobs:
           podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-minimal|plantuml|mcp-linkml-validator)" || echo "Ingen images funne"
 
       - name: Valider alle skjema for ${{ matrix.domain }}
+        # Einaste kontrollen mot innhaldet ETTER release-please sin
+        # [skip ci]-versjonsbump (sjå release-please.yml, steget "Oppdater
+        # schema-versjonar i release-PR") — validate.yml validerer aldri
+        # denne konkrete, versjonsoppdaterte skjema-tilstanden før merge,
+        # sidan den bump-commiten går rett til PR-branchen med [skip ci].
+        # Feilar difor bygget ved reell valideringsfeil i staden for å
+        # svelgje feilkoden — sjå ikkje på dette som dobbeltarbeid og fjern
+        # det ikkje utan å løyse [skip ci]-gapet på annan måte fyrst.
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
@@ -301,15 +260,22 @@ jobs:
 
           echo "=== Validerer skjema for ${{ matrix.domain }} ==="
 
+          FAILED=0
           # Køyr validering for alle build.yaml med generators:-blokk
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f); do
             if grep -q "^generators:" "$manifest" 2>/dev/null; then
               echo "→ Validerer skjema frå manifest: $manifest"
-              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || {
-                echo "::warning::Validering feila for $manifest — held fram"
-              }
+              if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then
+                echo "::error file=$manifest::Validering feila"
+                FAILED=$((FAILED + 1))
+              fi
             fi
           done
+
+          if [ "$FAILED" -gt 0 ]; then
+            echo "::error::Validering feila for $FAILED manifest(ar) i ${{ matrix.domain }} — stoppar bygget"
+            exit 1
+          fi
 
           echo "✓ Validering fullført for ${{ matrix.domain }}"
 
@@ -425,13 +391,8 @@ jobs:
           name: source
           path: .
 
-      - name: Oppgrader crun til støtte for OCI v1-image
-        run: |
-          CRUN_VERSION=1.18.2
-          wget -q https://github.com/containers/crun/releases/download/${CRUN_VERSION}/crun-${CRUN_VERSION}-linux-amd64 -O /tmp/crun
-          chmod +x /tmp/crun
-          sudo mv /tmp/crun /usr/bin/crun
-          crun --version
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
 
       - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v8

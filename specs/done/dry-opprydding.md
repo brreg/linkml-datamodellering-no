@@ -427,7 +427,11 @@ fullstendige detaljar og verifikasjon per steg):
   (utanfor økta sitt handterlege omfang, fungerer korrekt i dag)
 - `validate.yml` har ei mindre, analog image-metadata-duplisering til A2 sitt
   `generate.yml`-funn — krev ein delt composite action for full løysing sidan
-  workflow-filer ikkje deler `needs`-output; ikkje gjort
+  workflow-filer ikkje deler `needs`-output; ikkje gjort. **Oppfølgt og løyst**
+  i `specs/backlog/ci-workflow-dobbeltarbeid-og-runtime.md` (steg 7-8): felles
+  composite actions `.github/actions/discover-domains/` og
+  `.github/actions/ensure-image/`, `validate.yml` sin `ensure-images`-matrise
+  migrert til `images.json`
 
 Alt verifisert lokalt gjennom heile arbeidet: reelle domenebyggjer
 (`make domain-referanse`, `make domain-samt`) under både `PARALLEL=1` og

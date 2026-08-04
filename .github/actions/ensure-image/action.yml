@@ -1,0 +1,57 @@
+name: 'Sikre image i GHCR'
+description: >-
+  Sjekkar om eit gitt hash-tagga image finst i GHCR frå før; byggjer (via
+  det oppgitte make-targetet) og pushar det berre dersom det manglar. Tek
+  imot ein ferdig utrekna tag i staden for å rekne hashFiles() ut sjølv,
+  sidan hashFiles() ikkje kan kallast dynamisk frå eit vilkårleg
+  input-verdi i alle kontekstar — kal​laren reknar ut taggen éin stad
+  (sjå discover-domains/checkout-source sitt "image-tags"-steg) og sender
+  han inn ferdig. Krev at podman alt er innlogga mot GHCR før dette steget
+  køyrer.
+inputs:
+  name:
+    description: 'Image-namn (t.d. linkml-local)'
+    required: true
+  tag:
+    description: 'Full GHCR-tag, t.d. ghcr.io/eigar/linkml-local:<hash>'
+    required: true
+  make_target:
+    description: 'make-target som byggjer imaget lokalt (t.d. build-docker-linkml)'
+    required: true
+outputs:
+  exists:
+    description: '"true" dersom imaget alt fanst i GHCR før dette steget'
+    value: ${{ steps.ghcr-check.outputs.exists }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Sjekk om ${{ inputs.name }} finst i GHCR
+      id: ghcr-check
+      shell: bash
+      run: |
+        echo "=== Sjekkar GHCR for ${{ inputs.tag }} ==="
+        if skopeo inspect --format='exists' docker://"${{ inputs.tag }}" 2>&1; then
+          echo "exists=true" >> "$GITHUB_OUTPUT"
+          echo "✓ Image finst i GHCR"
+        else
+          echo "exists=false" >> "$GITHUB_OUTPUT"
+          echo "✗ Image finst ikkje — må byggje lokalt"
+        fi
+
+    - name: Bygg ${{ inputs.name }} image
+      if: steps.ghcr-check.outputs.exists != 'true'
+      shell: bash
+      run: |
+        echo "=== Byggjer ${{ inputs.name }} (make ${{ inputs.make_target }}) ==="
+        set -x
+        make ${{ inputs.make_target }}
+        set +x
+
+    - name: Push ${{ inputs.name }} til GHCR
+      if: steps.ghcr-check.outputs.exists != 'true'
+      shell: bash
+      run: |
+        echo "=== Pushar til GHCR: ${{ inputs.tag }} ==="
+        podman tag "localhost/${{ inputs.name }}:latest" "${{ inputs.tag }}"
+        podman push "${{ inputs.tag }}"
+        echo "✓ Push fullført"
