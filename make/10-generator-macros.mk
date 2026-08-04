@@ -258,9 +258,16 @@ define run_gen_plantuml
 )
 endef
 
-# Parallell versjon av gen-plantuml
+# Parallell versjon av gen-plantuml — hoppar over skjema utan `plantuml: true` i
+# build.yaml (same mønster som run_gen_with_check_parallel for openapi/asyncapi),
+# sidan images.json sitt required_if_generator_flag: "plantuml" føreset at biletet
+# faktisk ikkje vert bruka for slike skjema
 define run_gen_plantuml_parallel
 $(call run_parallel_with_timer,$(1),gen-plantuml,\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  plantuml: true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over gen-plantuml (plantuml: true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
 mkdir -p "$$outdir/diagrams" && \
 $(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \

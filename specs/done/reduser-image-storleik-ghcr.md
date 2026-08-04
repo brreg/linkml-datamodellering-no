@@ -244,7 +244,9 @@ testa mot faktisk generator-pipeline via `make gen-asyncapi`/`make gen-xsd`/`mak
 - [x] A4: verifiser og evt. fjern `graphviz` frå `Dockerfile.linkml`
 - [x] A3: undersøk minimal-avhengigheit-installasjon for `avrotize-local`
 - [x] B1: fiks `-f`-flagg i `release.yml` for dei to `mcp-linkml-*-utkast`-jobbane
-- [ ] B2: vurder/planlegg konsolidering av `mcp-linkml-*`-imaga (eiga oppfølging)
+- [x] B2: vurder/planlegg konsolidering av `mcp-linkml-*`-imaga (eiga oppfølging) — utført,
+      sjå `specs/done/videre-containeroptimering-mcp-plantuml-alpine.md` (som òg tok B3
+      og B4, dei to Tier C-punkta som opphavleg var utanfor omfanget her)
 
 ## Utført (B1 — 2026-08-04)
 
