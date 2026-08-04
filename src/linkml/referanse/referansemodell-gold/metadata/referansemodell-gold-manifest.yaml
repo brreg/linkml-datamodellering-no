@@ -1,0 +1,33 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/linkml/referansemodell-gold
+tittel:
+  nb: Referansemodell - gullnivå
+  nn: Referansemodell - gullnivå
+beskrivelse:
+  nb: 'Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss FAIR-metadata
+    (title, version, prefiks, lisens, proveniens).'
+  nn: 'Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss FAIR-metadata
+    (title, version, prefiks, lisens, proveniens).'
+versjonsnummer: 1.0.0
+heimeside: https://brreg.github.io/linkml-datamodellering-no/referanse/referansemodell-gold/
+inneholder_modellelement:
+- http://www.w3.org/ns/dcat#Catalog
+- http://www.w3.org/ns/dcat#CatalogRecord
+- http://www.w3.org/ns/dcat#Dataset
+- http://www.w3.org/ns/dcat#Distribution
+- http://www.w3.org/ns/dcat#DataService
+- http://xmlns.com/foaf/0.1/Agent
+- http://www.w3.org/ns/dqv#Metric
+- http://www.w3.org/ns/dqv#QualityMeasurement
+- http://www.w3.org/ns/dqv#Dimension
+- http://www.w3.org/ns/dqv#QualityAnnotation
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-gold/referansemodell-gold-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referansemodell-gold/referansemodell-gold-schema.yaml

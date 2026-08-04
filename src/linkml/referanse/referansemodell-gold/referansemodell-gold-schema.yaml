@@ -75,8 +75,8 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      aktørar:
-        range: Aktør
+      aktorar:
+        range: Aktor
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -218,7 +218,7 @@ classes:
         required: true
         in_subset: [Obligatorisk]
 
-  Aktør:
+  Aktor:
     description: Ein aktør (person, organisasjon eller programvaresystem).
     class_uri: foaf:Agent
     annotations:

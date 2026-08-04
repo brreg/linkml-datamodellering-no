@@ -1,0 +1,27 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/linkml/referansemodell
+tittel:
+  nb: Referansemodell
+  nn: Referansemodell
+beskrivelse:
+  nb: Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur
+  nn: Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur
+versjonsnummer: 1.3.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-07-30'
+utgivelsesdato: '2026-07-09'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/referanse/referansemodell/
+inneholder_modellelement:
+- http://purl.org/dc/terms/BibliographicResource
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell/referansemodell-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referansemodell/referansemodell-schema.yaml

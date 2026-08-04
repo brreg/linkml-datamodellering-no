@@ -1,0 +1,26 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/linkml/referansemodell-bronze
+tittel:
+  nb: Referansemodell - bronsjenivå
+  nn: Referansemodell - bronsjenivå
+beskrivelse:
+  nb: 'Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata (title,
+    version), class_uri, identifier-slot, slot_uri og begrepsidentifikator på riktig
+    format.'
+  nn: 'Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata (title,
+    version), class_uri, identifier-slot, slot_uri og begrepsidentifikator på riktig
+    format.'
+versjonsnummer: 1.0.0
+heimeside: https://brreg.github.io/linkml-datamodellering-no/referanse/referansemodell-bronze/
+inneholder_modellelement:
+- http://purl.org/dc/terms/BibliographicResource
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-bronze/referansemodell-bronze-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml

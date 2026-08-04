@@ -37,7 +37,7 @@ classes:
   #         container_kvalitetsmaaling → error
   # silver: container_distribusjon, container_datatjeneste,
   #         container_kvalitetsdimensjon, container_kvalitetsmerknad → warning
-  ReferanseSølvContainer:
+  ReferanseSolvContainer:
     description: Toppnivåobjekt for datafila — samlar alle AP-NO- og DQV-AP-NO-entitetar.
     tree_root: true
     attributes:
@@ -66,8 +66,8 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      aktørar:
-        range: Aktør
+      aktorar:
+        range: Aktor
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -210,7 +210,7 @@ classes:
         in_subset: [Obligatorisk]
 
   # silver: aktor_namn → error
-  Aktør:
+  Aktor:
     description: Ein aktør (person, organisasjon eller programvaresystem).
     class_uri: foaf:Agent
     annotations:

@@ -1,0 +1,33 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/linkml/referansemodell-silver
+tittel:
+  nb: Referansemodell - sølvnivå
+  nn: Referansemodell - sølvnivå
+beskrivelse:
+  nb: 'Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss DCAT-AP-NO
+    og DQV-AP-NO-klassar med påkravde slots og containerklasse.'
+  nn: 'Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss DCAT-AP-NO
+    og DQV-AP-NO-klassar med påkravde slots og containerklasse.'
+versjonsnummer: 1.0.0
+heimeside: https://brreg.github.io/linkml-datamodellering-no/referanse/referansemodell-silver/
+inneholder_modellelement:
+- http://www.w3.org/ns/dcat#Catalog
+- http://www.w3.org/ns/dcat#CatalogRecord
+- http://www.w3.org/ns/dcat#Dataset
+- http://www.w3.org/ns/dcat#Distribution
+- http://www.w3.org/ns/dcat#DataService
+- http://xmlns.com/foaf/0.1/Agent
+- http://www.w3.org/ns/dqv#Metric
+- http://www.w3.org/ns/dqv#QualityMeasurement
+- http://www.w3.org/ns/dqv#Dimension
+- http://www.w3.org/ns/dqv#QualityAnnotation
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/referanse/referansemodell-silver/referansemodell-silver-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/referanse/referansemodell-silver/referansemodell-silver-schema.yaml

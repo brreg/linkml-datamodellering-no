@@ -159,3 +159,23 @@ Alle tiltak er utførte:
 - ✅ `make mcp-linkml-validate` (rett målnamn — CLAUDE.md sitt `mcp-validate` finst ikkje som eige target) — `valid: true, errorCount: 0` for bronze/silver/gold, POLICY korrekt auto-detektert frå kvar ny `build.yaml`
 - ✅ `find src/linkml -mindepth 3 -maxdepth 3 -name '*-schema.yaml'` viser no fire distinkte skjema under `referanse/` utan katalog-/output-kollisjon (tidlegare delte alle fire same `schema_outdir`/`schema_key` via mappenamnet `referansemodell`)
 - ✅ Ingen andre filer i repoet refererer til dei gamle stiane (kun `specs/done/` og denne specen sjølv, som er historiske/skildrande)
+
+### Etterfølgjande feilretting: transliterasjon i silver/gold
+
+Då `make domain-referanse` vart køyrt med full generator-konfigurasjon (jf. steg 4),
+feila `gen-jsonld-context` for silver og gold med
+`ValueError: Not a valid URI: https://data.norge.no/linkml/referansemodell-silver/aktørar`.
+Årsak: attributtet `aktørar` (containerklassen) og klassen `Aktør` braut
+CLAUDE.md-regelen om at særnorske bokstavar skal translittererast i identifikatorar
+(klassenamn, slotnamn, attributtnamn) — `ø` er ikkje gyldig i ein URI utan
+prosentkoding, og feilen var latent fordi desse skjemaa aldri hadde generators
+aktivert før denne omorganiseringa.
+
+Retta i begge filer:
+- `aktørar` → `aktorar` (attributtnamn)
+- `Aktør` → `Aktor` (klassenamn, `range:`-referanse)
+- `ReferanseSølvContainer` → `ReferanseSolvContainer` (klassenamn, berre silver)
+
+`description`-felt med `ø` (fritekst) er urørte — dei er unntatt frå kravet.
+Verifisert med `make lint` (berre pre-eksisterande warnings) og
+`make domain-referanse` (fullført med exit code 0 for alle fire skjema).
