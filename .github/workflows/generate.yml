@@ -1,8 +1,10 @@
 name: Generate and publish
 
-# Kjent, akseptert race condition mot release-please.yml sin update-dates-
-# jobb (kommentert der) — denne workflowen kan derfor køyre to gonger per
-# release (éin gong på data frå før update-dates, éin gong korrigert).
+# Tidlegare kjent race condition mot release-please.yml sin
+# schema-versjons-oppdateringsjobb: denne workflowen kunne køyre to gonger
+# per release (éin gong på data frå før versjonsoppdateringa, éin gong
+# korrigert). `concurrency`-blokka under løyser dette — når det korrigerte
+# løpet startar, vert det førre, no utdaterte løpet kansellert automatisk.
 
 on:
   workflow_dispatch:
@@ -17,6 +19,9 @@ on:
       - 'README.md'
       - 'Makefile'
 
+concurrency:
+  group: generate-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -194,7 +199,15 @@ jobs:
           echo "=== Disk-bruk ==="
           df -h
 
+      - name: Cache genererte artefaktar (${{ matrix.domain }})
+        id: cache-generated
+        uses: actions/cache@v6
+        with:
+          path: generated/${{ matrix.domain }}/
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'Makefile') }}
+
       - name: Oppgrader crun til støtte for OCI v1-image
+        if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           echo "=== Oppgraderer crun ==="
           CRUN_VERSION=1.18.2
@@ -202,13 +215,6 @@ jobs:
           chmod +x /tmp/crun
           sudo mv /tmp/crun /usr/bin/crun
           echo "=== Ny versjon: $(crun --version | head -1) ==="
-
-      - name: Cache genererte artefaktar (${{ matrix.domain }})
-        id: cache-generated
-        uses: actions/cache@v6
-        with:
-          path: generated/${{ matrix.domain }}/
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'Makefile') }}
 
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'

@@ -3,6 +3,10 @@ name: Trivy
 on:
   push:
     branches: [main]
+    paths:
+      - '**/Dockerfile*'
+      - '**/requirements*.txt'
+      - 'src/assets/containers/**'
   schedule:
     - cron: '0 6 * * 2'   # tirsdag morgen
 

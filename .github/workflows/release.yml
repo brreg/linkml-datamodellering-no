@@ -57,14 +57,16 @@ jobs:
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Bygg og push mcp-linkml-validator
+      - name: Hent eller bygg mcp-linkml-validator
         run: |
-          podman build \
-            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}" \
-            src/mcp-linkml-validator
-          podman tag \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}" \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
+          HASH_TAG="ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}"
+          if ! podman pull "$HASH_TAG" 2>/dev/null; then
+            podman build -t localhost/mcp-linkml-validator:latest src/mcp-linkml-validator
+            podman tag localhost/mcp-linkml-validator:latest "$HASH_TAG"
+            podman push "$HASH_TAG"
+          fi
+          podman tag "$HASH_TAG" "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}"
+          podman tag "$HASH_TAG" "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
 

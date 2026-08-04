@@ -17,6 +17,14 @@ on:
       - 'src/linkml/**'
       - 'src/mcp-linkml-validator/**'
 
+# Kansellerer utdaterte køyringar: ein ny push til same PR treng ikkje
+# fullføre valideringa av den førre pusheen. Event-namnet er med i gruppa
+# slik at ei nattleg schedule-køyring aldri vert kansellert av ein PR (eller
+# omvendt) — dei har ulikt formål (nattleg drift-sjekk vs. PR-gate).
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
 jobs:
 
   check-publish-version:
