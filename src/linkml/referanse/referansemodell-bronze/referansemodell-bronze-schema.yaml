@@ -1,11 +1,11 @@
 ##
 ## Referansemodell — bronsjenivå
 ## Viser minstekrava for å bestå bronsepolicyen.
-## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema-bronze.yaml POLICY=bronze
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml POLICY=bronze
 ##
 
 id: https://data.norge.no/linkml/referansemodell-bronze
-name: referansemodell-schema-bronze
+name: referansemodell-bronze
 title: Referansemodell - bronsjenivå
 description: >-
   Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata

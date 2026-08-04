@@ -1,7 +1,7 @@
 ##
 ## Referansemodell — gullnivå
 ## Viser minstekrava for å bestå gullpolicyen (bronze + silver + FAIR).
-## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema-gold.yaml POLICY=gold
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell-gold/referansemodell-gold-schema.yaml POLICY=gold
 ##
 ## Gullnivå over sølv krev:
 ##   F1 (arva frå bronze): schema.id er HTTP(S)-URI
@@ -16,7 +16,7 @@
 ##
 
 id: https://data.norge.no/linkml/referansemodell-gold
-name: referansemodell-schema-gold
+name: referansemodell-gold
 title: Referansemodell - gullnivå
 description: >-
   Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss

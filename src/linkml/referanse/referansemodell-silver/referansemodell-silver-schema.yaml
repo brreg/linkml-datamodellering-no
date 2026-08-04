@@ -1,11 +1,11 @@
 ##
 ## Referansemodell — sølvnivå
 ## Viser minstekrava for å bestå sølvpolicyen (bronze + DCAT-AP-NO + DQV-AP-NO).
-## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema-silver.yaml POLICY=silver
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell-silver/referansemodell-silver-schema.yaml POLICY=silver
 ##
 
 id: https://data.norge.no/linkml/referansemodell-silver
-name: referansemodell-schema-silver
+name: referansemodell-silver
 title: Referansemodell - sølvnivå
 description: >-
   Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss
