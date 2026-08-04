@@ -261,8 +261,13 @@ jobs:
           echo "=== Validerer skjema for ${{ matrix.domain }} ==="
 
           FAILED=0
-          # Køyr validering for alle build.yaml med generators:-blokk
-          for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f); do
+          # Køyr validering for alle build.yaml med generators:-blokk.
+          # Ekskluder begrepssamling-* (same filter som validate.yml sin
+          # validate-jobb) — desse er konseptsamlingar utan skjemafil, sjølv
+          # om build.yaml deira har eit generators:-avsnitt (alle flagg
+          # false); utan filteret feilar run-validation.sh alltid med
+          # "Fann ingen *-schema.yaml".
+          for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest" 2>/dev/null; then
               echo "→ Validerer skjema frå manifest: $manifest"
               if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then

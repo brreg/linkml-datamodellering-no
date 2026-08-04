@@ -585,3 +585,32 @@ liten spec i staden for å attopne denne.
 - `README.md`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `COMMANDS.md`,
   `mkdocs/docs/kommandoar.md` — `manifest.yaml` → `build.yaml`
   (bonus-funn under steg 12)
+
+## Etterfølgande fiksar (oppdaga etter merge, direkte utløyst av denne spec-en sitt arbeid)
+
+**2026-08-04, same dag:**
+
+1. **`Makefile` sitt `config.mk`-mål mangla `@`-prefiks** — Make ekkoa
+   oppskriftlinja (`bash .../gen-config.sh > config.mk`) til stdout kvar
+   gong `config.mk` vart auto-rebygd via `-include`-mekanismen (alltid på
+   ein fersk checkout). `checkout-source` sitt `domains_raw=$(make
+   print-domains)` fanga denne ekkoa linja som ein falsk 10. "domene".
+   **Pre-eksisterande bug, stadfesta å ha feila alt før denne spec-en sitt
+   arbeid starta** (same symptom i ein køyring frå tidlegare same dag) —
+   ikkje ein regresjon frå steg 6/7, men retta i same økt sidan han
+   blokkerte verifisering av resten av arbeidet. Fiks: `@`-prefiks lagt
+   til i `Makefile`.
+2. **`generate.yml` sitt valideringssteg (steg 4) mangla
+   `grep -v '/begrepssamling-'`-filteret** som `validate.yml` sin
+   `validate`-jobb alt har. `src/linkml/oreg/begrepssamling-foretaksregisteret/build.yaml`
+   har eit `generators:`-avsnitt (alle flagg `false`, sidan katalogen er
+   ei begrepssamling utan skjemafil), så han vart plukka opp av steget sin
+   enkle `grep -q "^generators:"`-sjekk og feila alltid med "Fann ingen
+   *-schema.yaml". **Dette holet fanst alt før steg 4** — det var berre
+   usynleg fordi det gamle, svelgde feilkode-mønsteret (som steg 4 fjerna)
+   skjulte akkurat denne feilen. Gate-fiksen i steg 4 gjorde jobben sin
+   rett ved å avsløre han. Fiks: same filter kopiert inn i `generate.yml`.
+
+Begge fiksane er verifiserte lokalt (simulert fersk checkout for (1);
+`find | grep -v` mot faktisk repo-struktur for (2)) — ikkje verifiserte i
+ei ny, fullstendig CI-køyring endå.
