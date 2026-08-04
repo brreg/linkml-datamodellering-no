@@ -77,8 +77,10 @@ jobs:
       - name: Bygg og push mcp-linkml-modell-utkast
         run: |
           podman build \
+            --format docker \
+            -f src/assets/containers/Dockerfile.mcp-linkml-modell-utkast \
             -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}" \
-            src/mcp-linkml-modell-utkast
+            .
           podman tag \
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}" \
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:latest"
@@ -102,8 +104,10 @@ jobs:
       - name: Bygg og push mcp-linkml-begrep-utkast
         run: |
           podman build \
+            --format docker \
+            -f src/assets/containers/Dockerfile.mcp-linkml-begrep-utkast \
             -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}" \
-            src/mcp-linkml-begrep-utkast
+            .
           podman tag \
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}" \
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:latest"

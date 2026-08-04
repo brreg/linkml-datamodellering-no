@@ -243,8 +243,27 @@ testa mot faktisk generator-pipeline via `make gen-asyncapi`/`make gen-xsd`/`mak
 - [x] A2: fjern `@stoplight/spectral-cli` frå `Dockerfile.asyncapi-cli-minimal`
 - [x] A4: verifiser og evt. fjern `graphviz` frå `Dockerfile.linkml`
 - [x] A3: undersøk minimal-avhengigheit-installasjon for `avrotize-local`
-- [ ] B1: fiks `-f`-flagg i `release.yml` for dei to `mcp-linkml-*-utkast`-jobbane
+- [x] B1: fiks `-f`-flagg i `release.yml` for dei to `mcp-linkml-*-utkast`-jobbane
 - [ ] B2: vurder/planlegg konsolidering av `mcp-linkml-*`-imaga (eiga oppfølging)
+
+## Utført (B1 — 2026-08-04)
+
+`release.yml` sine `mcp-linkml-modell-utkast`- og `mcp-linkml-begrep-utkast`-jobbar bygde i
+praksis feil: `podman build -t ... src/mcp-linkml-modell-utkast` (utan `-f`) leita etter ein
+bar `Dockerfile` i den katalogen, som ikkje finst — reelle Dockerfile ligg i
+`src/assets/containers/`, og desse Dockerfile-ane har `COPY`-stiar (t.d.
+`COPY src/mcp-linkml-modell-utkast/requirements.txt .`) som føreset byggjekontekst = repo-rota,
+ikkje underkatalogen som vart brukt som kontekst.
+
+**Fiks:** endra begge jobbane til å byggje med `-f src/assets/containers/Dockerfile.mcp-linkml-
+<namn>` og kontekst `.` (repo-rota), pluss `--format docker` — same mønster som
+`make/60-mcp.mk` sine `build-docker-mcp-modell-utkast`/`build-docker-mcp-begrep-utkast`-target
+og som `mcp-linkml-validator`-jobben lenger oppe i same fil alt brukar.
+
+**Verifisert:**
+- Begge `podman build`-kommandoane (nøyaktig slik dei no står i `release.yml`) køyrde og
+  fullførte utan feil lokalt, mot dei faktiske Dockerfile-ane og repo-rota som kontekst.
+- `actionlint` mot `.github/workflows/release.yml` — ingen funn.
 
 ## Utkast til commit-melding
 
