@@ -186,18 +186,18 @@ endef
 define run_gen_doc_parallel
 $(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,run_gen_doc,\
 mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
-$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
+run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 	"$$s" \
 	"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
-	"$$outdir/docgen-examples" > /dev/null 2>&1 && \
-$(LINKML_RUN) gen-doc \
+	"$$outdir/docgen-examples" && \
+run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--template-directory src/assets/templates/docgen \
 	--no-mergeimports \
 	--no-render-imports \
 	--no-hierarchical-class-view \
 	--diagram-type mermaid_class_diagram \
 	--example-directory "$$outdir/docgen-examples" \
-	-d "$$outdir/docs" "$$s" > /dev/null 2>&1 && \
+	-d "$$outdir/docs" "$$s" && \
 sed -i "/Container/d" "$$outdir/docs/index.md")
 endef
 
@@ -277,6 +277,7 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_xsd
 @eval "$$LOG_FUNCTIONS"; \
+has_error=0; \
 for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
@@ -295,17 +296,21 @@ for schema in $(1); do \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
 	log_debug "[$$domain/$$name] Startar gen-xsd: $$schema → $$xsd"; \
 	t0=$$(date +%s%3N); \
-	$(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc >/dev/null 2>&1; \
-	$(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd >/dev/null 2>&1; \
+	if run_logged "gen-xsd/j2a $$domain/$$name" $(AVROTIZE_RUN) j2a /work/$$jsonschema --out /work/$$avsc \
+		&& run_logged "gen-xsd/a2x $$domain/$$name" $(AVROTIZE_RUN) a2x /work/$$avsc --namespace "$$namespace" --out /work/$$xsd \
+		&& run_logged "gen-xsd/fix-xsd-dates $$domain/$$name" podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) /work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema; \
+	then \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		log_info "$$(printf '$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)' \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)))"; \
+	else \
+		has_error=1; \
+	fi; \
 	rm -f "$$avsc"; \
-	podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) \
-		/work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$xsd /work/$$jsonschema >/dev/null 2>&1; \
-	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	log_info "$$(printf '$(CLR_STEP)→ gen-xsd  %s/%s$(CLR_RST) (%d.%ds)' \
-		"$$domain" "$$name" \
-		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)))"; \
-done
+done; \
+[ "$$has_error" -eq 0 ]
 endef
 
 # ---------------------------------------------------------------------------
@@ -343,7 +348,7 @@ endef
 
 # Parallell versjon av gen-asyncapi
 define run_gen_asyncapi_parallel
-$(call run_gen_with_check_parallel,$(1),gen-asyncapi,asyncapi,schema.json,asyncapi.yaml,$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out > /dev/null 2>&1; $(ASYNCAPI_RUN) validate /work/$$out > /dev/null 2>&1)
+$(call run_gen_with_check_parallel,$(1),gen-asyncapi,asyncapi,schema.json,asyncapi.yaml,run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out)
 endef
 
 # ---------------------------------------------------------------------------
@@ -380,5 +385,5 @@ endef
 
 # Parallell versjon av gen-openapi
 define run_gen_openapi_parallel
-$(call run_gen_with_check_parallel,$(1),gen-openapi,openapi,schema.json,openapi.yaml,$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out > /dev/null 2>&1; $(PYTHON_RUN) openapi-spec-validator /work/$$out > /dev/null 2>&1)
+$(call run_gen_with_check_parallel,$(1),gen-openapi,openapi,schema.json,openapi.yaml,run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out)
 endef

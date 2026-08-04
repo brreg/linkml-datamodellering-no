@@ -76,5 +76,29 @@ timed_run() {
   fi
   return $$exit_code
 }
+# run_logged "<label>" <kommando> [args...] — fangar stdout+stderr frå kommandoen.
+# Ved feil: loggar heile den fanga teksten via log_error (synleg på LOGLVL=ERROR)
+# saman med exit code og kommandolinja, og returnerer kommandoen sin exit code.
+# Ved suksess: fanga output går berre til log_debug (stille som før på INFO/ERROR).
+# Finst for å unngå at "cmd > /dev/null 2>&1"-mønsteret kastar vekk stderr, og
+# for å unngå at feil midt i ei &&-kjede går forbi ein trap ERR usett (bash sin
+# set -e ignorerer feil i alle ledd av ei &&/||-liste utanom det siste — sjå
+# specs/done/ingen-stille-feil.md).
+run_logged() {
+  local label="$$1"; shift
+  local output rc
+  if output=$$("$$@" 2>&1); then
+    rc=0
+  else
+    rc=$$?
+  fi
+  if [ $$rc -ne 0 ]; then
+    log_error "$$label feila (exit code $$rc) — kommando: $$*"
+    [ -n "$$output" ] && log_error "$$output"
+    return $$rc
+  fi
+  log_debug "$$output"
+  return 0
+}
 endef
 export LOG_FUNCTIONS
