@@ -21,6 +21,11 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # Opprett temp-fil
 TEMP_README=$(mktemp)
 
+# --- Funksjon: Uppercase domenenamn for tabellvising ---
+domain_short_label() {
+  echo "$1" | tr '[:lower:]' '[:upper:]'
+}
+
 # --- Funksjon: Generer skjema-tabell ---
 generate_schema_table() {
   echo "| Domene | Skjema | Skildring | Dokumentasjon"
@@ -86,7 +91,7 @@ generate_schema_table() {
       # Konverter src/linkml/<domain>/<modell>/ til <domain>/<modell>/ for GitHub Pages
       ghpages_schema_link="${schema_dir#src/linkml/}"
 
-      echo "| [$domain]($domain/) | [$schema_name]($ghpages_schema_link/) | $description | $doc_link"
+      echo "| [$(domain_short_label "$domain")]($domain/) | [$schema_name]($ghpages_schema_link/) | $description | $doc_link"
     done <<< "${DOMAIN_SCHEMAS[$domain]}"
   done
 }
@@ -119,7 +124,7 @@ generate_begrepskatalog_table() {
     # Konverter src/linkml/begrepskatalog/<katalog>/ til begrepskatalog/<katalog>/ for GitHub Pages
     ghpages_link="${schema_dir#src/linkml/}"
 
-    echo "| [begrepskatalog]($domain_link) | [$schema_name]($ghpages_link/) | $org | Begrepskatalog for $org sine begrep | [\`gen-begrepskatalog-instance\`](COMMANDS.md#vedlikehald) |"
+    echo "| [begrepskatalog]($domain_link) | [$schema_name]($ghpages_link/) | $org | Begrepskatalog for $org sine begrep | [\`gen-begrepskatalog-instance\`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-begrepskatalog-instance) |"
   done < <(find src/linkml/begrepskatalog -name "*-schema.yaml" -type f | sort)
 }
 
@@ -151,7 +156,7 @@ generate_modellkatalog_table() {
     # Konverter src/linkml/modellkatalog/<katalog>/ til modellkatalog/<katalog>/ for GitHub Pages
     ghpages_link="${schema_dir#src/linkml/}"
 
-    echo "| [modellkatalog]($domain_link) | [$schema_name]($ghpages_link/) | $org | Modellkatalog for $org sine informasjonsmodellar | [\`gen-modellkatalog-instance\`](COMMANDS.md#vedlikehald) |"
+    echo "| [modellkatalog]($domain_link) | [$schema_name]($ghpages_link/) | $org | Modellkatalog for $org sine informasjonsmodellar | [\`gen-modellkatalog-instance\`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |"
   done < <(find src/linkml/modellkatalog -name "*-schema.yaml" -type f | sort)
 }
 
@@ -163,12 +168,12 @@ IN_MODELLKATALOG_TABLE=false
 
 while IFS= read -r line; do
   # Skjema-tabell
-  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*SCHEMA\ TABLE ]]; then
+  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*generate_schema_table ]]; then
     IN_SCHEMA_TABLE=true
     echo "<!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->" >> "$TEMP_README"
     generate_schema_table >> "$TEMP_README"
     continue
-  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*SCHEMA\ TABLE ]]; then
+  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*generate_schema_table ]]; then
     IN_SCHEMA_TABLE=false
     echo "<!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->" >> "$TEMP_README"
     continue
@@ -177,12 +182,12 @@ while IFS= read -r line; do
   fi
 
   # Begrepskatalog-tabell
-  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*BEGREPSKATALOG\ TABLE ]]; then
+  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*generate_begrepskatalog_table ]]; then
     IN_BEGREPSKATALOG_TABLE=true
     echo "<!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_begrepskatalog_table -->" >> "$TEMP_README"
     generate_begrepskatalog_table >> "$TEMP_README"
     continue
-  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*BEGREPSKATALOG\ TABLE ]]; then
+  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*generate_begrepskatalog_table ]]; then
     IN_BEGREPSKATALOG_TABLE=false
     echo "<!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_begrepskatalog_table -->" >> "$TEMP_README"
     continue
@@ -191,12 +196,12 @@ while IFS= read -r line; do
   fi
 
   # Modellkatalog-tabell
-  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*MODELLKATALOG\ TABLE ]]; then
+  if [[ "$line" =~ ^\<\!--\ BEGIN\ AUTO-GENERATED:.*generate_modellkatalog_table ]]; then
     IN_MODELLKATALOG_TABLE=true
     echo "<!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_modellkatalog_table -->" >> "$TEMP_README"
     generate_modellkatalog_table >> "$TEMP_README"
     continue
-  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*MODELLKATALOG\ TABLE ]]; then
+  elif [[ "$line" =~ ^\<\!--\ END\ AUTO-GENERATED:.*generate_modellkatalog_table ]]; then
     IN_MODELLKATALOG_TABLE=false
     echo "<!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_modellkatalog_table -->" >> "$TEMP_README"
     continue
