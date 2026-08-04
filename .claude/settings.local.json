@@ -373,7 +373,9 @@
       "Bash(export REPO_ROOT=/mnt/c/dev/github/linkml-datamodellering-no)",
       "Bash(echo \"MAKE EXIT: $?\")",
       "Bash(skopeo --version)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "Bash(cp __TRACKED_VAR__/dcat-ap-no.svg /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/285b32b7-d5f7-4d63-96ee-082cc76a5170/scratchpad/dcat-new.svg)",
+      "Bash(cp __TRACKED_VAR__/dcat-ap-no-filtered.svg /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/285b32b7-d5f7-4d63-96ee-082cc76a5170/scratchpad/dcat-filtered-new.svg)"
     ]
   },
   "enableAllProjectMcpServers": true,

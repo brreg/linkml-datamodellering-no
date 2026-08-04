@@ -1,2 +1,26 @@
 # Build format: Docker v2 (via --format docker flag in Makefile)
-FROM docker.io/plantuml/plantuml:latest
+#
+# Eigenbygd, slankare erstatning for docker.io/plantuml/plantuml:latest (328 MB —
+# full Ubuntu 22.04 + full Temurin JDK). Kopierer plantuml.jar direkte frå
+# upstream-imaget (garanterer identisk PlantUML-versjon/åtferd) og køyrer det på
+# ein JRE-Alpine-basis i staden for JDK-Ubuntu.
+#
+# VIKTIG: font-filene kjem òg frå upstream-imaget, ikkje Alpine sin eigen
+# ttf-dejavu-apk-pakke. Alpine sitt DejaVu-bygg gjev subtilt andre
+# glyph-metrikkar enn Ubuntu sitt, som får AWT sin interne tekstlayout
+# (brukt til å plassere multiplisitetsetikettar på relasjonslinjer) til å
+# plassere etikettar opptil ~60px annleis i tette diagram — sjølv om
+# skrifttypenamnet er identisk ("DejaVu Sans"). Verifisert (2026-08-04) at
+# denne varianten gjev byte-identisk SVG-output mot upstream-imaget, både
+# for eit enkelt diagram og eit stort/tett diagram med mange relasjonar
+# (dcat-ap-no).
+FROM docker.io/plantuml/plantuml:latest AS upstream
+
+FROM docker.io/library/eclipse-temurin:17-jre-alpine
+RUN apk add --no-cache graphviz fontconfig \
+    && rm -rf /usr/share/fonts/dejavu /usr/share/fonts/cantarell
+COPY --from=upstream /usr/share/fonts/truetype/dejavu /usr/share/fonts/truetype/dejavu
+RUN fc-cache -f
+COPY --from=upstream /opt/plantuml.jar /opt/plantuml.jar
+WORKDIR /data
+ENTRYPOINT ["java", "-jar", "/opt/plantuml.jar"]
