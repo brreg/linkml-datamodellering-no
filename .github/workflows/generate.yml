@@ -451,7 +451,7 @@ jobs:
       - name: Slå saman domene-artefaktar til generated/
         run: |
           mkdir -p generated/
-          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg samt; do
+          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg referanse samt; do
             if [ -d "generated-merged/generated-$domain" ]; then
               mv "generated-merged/generated-$domain" "generated/$domain"
             fi

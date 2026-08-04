@@ -247,7 +247,7 @@ jobs:
         run: |
           # Last ned kvar domain-artifact direkte til gjeldande katalog
           # (artifacts inneheld allereie src/linkml/<domain>/<modell>/validation/-struktur)
-          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg samt; do
+          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg referanse samt; do
             artifact_name="validation-logs-$domain"
             if gh run download ${{ github.run_id }} -n "$artifact_name" -D . 2>/dev/null; then
               echo "✓ Lasta ned $artifact_name"

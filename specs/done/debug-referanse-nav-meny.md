@@ -243,6 +243,39 @@ make docs-build
 4. Test lokalt med `make docs-serve`
 5. Push og verifiser på GitHub Pages
 
+## Funna
+
+Ingen av dei opphavlege 6 hypotesane var rotårsaka. Feilen ligg i CI-workflowen, ikkje i `publish.sh`:
+
+**`src/linkml/referanse/referansemodell/` finst og er komplett** (schema, build.yaml, examples manglar men er valfritt). Schema-discovery (`make/02-schema-discovery.mk`) plukkar opp domenet korrekt, og `mkdocs/publish.sh` sin `DOMAIN_ORDER`-liste (linje 304) har alt `"referanse"` fyrst i lista.
+
+Verifisert lokalt: etter å ha bygd manglande container-image (`python-pytest`, `plantuml`) og køyrt `make domain-referanse` + `make docs-publish`, dukka `REFERANSE` korrekt opp i generert `mkdocs/mkdocs.yml`. Dette provar at `publish.sh` og schema-discovery fungerer som forventa når `generated/referanse/` finst.
+
+**Rotårsak:** `.github/workflows/generate.yml`, steget «Slå saman domene-artefaktar til generated/» i `publish`-jobben (linje ~454), har ei **hardkoda domeneliste** som ikkje inkluderer `referanse`:
+
+```bash
+for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg samt; do
+  if [ -d "generated-merged/generated-$domain" ]; then
+    mv "generated-merged/generated-$domain" "generated/$domain"
+  fi
+done
+```
+
+`generate`-jobbens matrise (linje 167) inkluderer derimot `referanse` korrekt, så artefaktane vert generert og lasta opp som `generated-referanse`-artifact — men aldri flytta inn i `generated/referanse/` før `make docs-publish` køyrer i `publish`-jobben. Difor manglar domenet heilt i NAV-menyen på GitHub Pages, sjølv om alt anna i kjeda fungerer.
+
+Same hardkoda liste (utan `referanse`) fanst òg i `.github/workflows/validate.yml` linje 250 («Last ned validation-loggar frå alle domene»), som ville ha hoppa over å laste ned og committe valideringsloggar for referanse.
+
+**Sekundært avvik funne:** `.gitignore` manglar `mkdocs/docs/referanse/` i lista over ignorerte, auto-genererte portalkatalogar (linje 6-13 har alle andre domene). Dette har truleg ført til at `mkdocs/docs/referanse/`-innhald vart committa ved eit uhell tidlegare, i motsetnad til dei andre domena som aldri vert tracka.
+
+## Utført
+
+1. `.github/workflows/generate.yml`: la til `referanse` i den hardkoda domenelista i «Slå saman domene-artefaktar til generated/»-steget
+2. `.github/workflows/validate.yml`: la til `referanse` i den hardkoda domenelista i «Last ned validation-loggar frå alle domene»-steget
+3. `.gitignore`: la til `mkdocs/docs/referanse/` i lista over ignorerte, auto-genererte portalkatalogar
+4. Verifisert lokalt at `make domain-referanse` + `make docs-publish` produserer korrekt `REFERANSE`-seksjon i `mkdocs/mkdocs.yml` når `generated/referanse/` finst
+
+**Ikkje utført (krev brukarhandling):** `mkdocs/docs/referanse/` er allereie tracka i git frå tidlegare uhell. `.gitignore`-endringa hindrar nye endringar i å verte committa, men fjernar ikkje dei allereie tracka filene frå indeksen. Brukaren kan køyre `git rm -r --cached mkdocs/docs/referanse/` dersom dei skal fjernast frå versjonskontroll.
+
 ## Relaterte filer
 
 - `mkdocs/publish.sh` — genererer `mkdocs.yml` og kopierer artefaktar til `mkdocs/docs/`
