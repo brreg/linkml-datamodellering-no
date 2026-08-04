@@ -11,7 +11,6 @@ WORKDIR /app
 # Drastically reduces image size from 4.43 GB to ~296 MB
 RUN npm install --global --omit=dev \
     @asyncapi/parser@^3.6.0 \
-    @stoplight/spectral-cli@6.15.1 \
     js-yaml@^4.1.1
 
 # Set NODE_PATH to find globally installed modules

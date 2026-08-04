@@ -31,8 +31,8 @@
     "name": "plantuml",
     "dockerfile": "src/assets/containers/Dockerfile.plantuml",
     "make_target": "build-docker-plantuml",
-    "always_required": true,
-    "required_if_generator_flag": null
+    "always_required": false,
+    "required_if_generator_flag": "plantuml"
   },
   {
     "name": "mkdocs-local",

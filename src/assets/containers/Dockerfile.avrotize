@@ -1,10 +1,21 @@
 FROM python:3.12-alpine AS builder
 
 # Build format: Docker v2 (via --format docker flag in Makefile)
-# Installer byggjeavhengigheiter og avrotize i éin RUN-kommando
+# avrotize sine pakka avhengigheiter (pyarrow, pandas, azure-*, pyiceberg,
+# sqlalchemy, botocore m.fl.) er ubetinga i pyproject.toml (ikkje "extras"),
+# men avrotize sin eigen __init__.py brukar lazy-import — dei tunge modulane
+# vert berre faktisk importerte når konvertaren for det formatet vert kalla.
+# Denne containeren brukar berre `j2a` (avrotize.jsonstoavro) og `a2x`
+# (avrotize.avrotoxsd), som til saman berre treng jsonpointer/requests/
+# jsoncomparison/jinja2 (verifisert ved å lese import-lister i avrotize sin
+# kjeldekode). --no-deps + eksplisitt minimal avhengigheitsliste unngår difor
+# ~450 MB ubrukte transitive pakkar retta mot Parquet/Iceberg/Kusto/S3/SQL
+# som denne containeren aldri brukar.
 RUN apk add --no-cache --virtual .build-deps \
     gcc musl-dev libffi-dev g++ \
-    && pip install --no-cache-dir --prefix=/install avrotize \
+    && pip install --no-cache-dir --prefix=/install --no-deps avrotize \
+    && pip install --no-cache-dir --prefix=/install \
+       jsonpointer requests jsoncomparison jinja2 \
     && apk del .build-deps
 
 FROM python:3.12-alpine
