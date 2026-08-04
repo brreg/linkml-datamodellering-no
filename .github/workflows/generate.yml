@@ -260,20 +260,33 @@ jobs:
 
           echo "=== Validerer skjema for ${{ matrix.domain }} ==="
 
-          FAILED=0
-          # Køyr validering for alle build.yaml med generators:-blokk.
+          # Køyr validering for alle build.yaml med generators:-blokk, parallelt.
+          # Kvart run-validation.sh-kall flatar ut og validerer berre sitt eige
+          # skjema (unik mktemp-fil, unik loggsti) — heilt isolert frå andre
+          # skjema sin køyring, så parallellisering av løkka er trygt. Same
+          # &-/PIDS-/wait-mønster som mkdocs/publish.sh (Steg 2) brukar for
+          # parallell skjemagenerering.
           # Ekskluder begrepssamling-* (same filter som validate.yml sin
           # validate-jobb) — desse er konseptsamlingar utan skjemafil, sjølv
           # om build.yaml deira har eit generators:-avsnitt (alle flagg
           # false); utan filteret feilar run-validation.sh alltid med
           # "Fann ingen *-schema.yaml".
+          declare -a PIDS=()
+          declare -a MANIFESTS=()
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest" 2>/dev/null; then
               echo "→ Validerer skjema frå manifest: $manifest"
-              if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then
-                echo "::error file=$manifest::Validering feila"
-                FAILED=$((FAILED + 1))
-              fi
+              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" &
+              PIDS+=($!)
+              MANIFESTS+=("$manifest")
+            fi
+          done
+
+          FAILED=0
+          for i in "${!PIDS[@]}"; do
+            if ! wait "${PIDS[$i]}"; then
+              echo "::error file=${MANIFESTS[$i]}::Validering feila"
+              FAILED=$((FAILED + 1))
             fi
           done
 
