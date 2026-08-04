@@ -235,7 +235,7 @@ printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)\n" \
     $((elapsed1_ms % 1000 / 100))
 
 # Generer byggetidspunkt (ISO 8601 UTC)
-BUILD_TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
 
 # ---------------------------------------------------------------------------
 # Steg 1.5: Bygg delmodell-map frå manifest-filer
