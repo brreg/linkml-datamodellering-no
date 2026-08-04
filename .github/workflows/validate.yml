@@ -262,7 +262,13 @@ jobs:
         run: |
           # Stage alle validation-filer (både nye og endra)
           # validation/ er no fjerna frå .gitignore, så -f er ikkje nødvendig
-          git add src/linkml/**/validation/**/*.json || true
+          # Feil kan vere legitimt "ingen filer å leggje til" (fyrste køyring,
+          # ingen nye/endra loggar) — men vis alltid årsaka i staden for å
+          # skjule ho, sidan ei reell git-feil (t.d. index-problem) elles er umogleg å oppdage.
+          if ! git add src/linkml/**/validation/**/*.json 2>/tmp/git-add-validation.log; then
+            echo "::warning::git add fann ingen valideringsloggar å leggje til — dette er venta viss ingen skjema vart validerte i denne køyringa"
+            cat /tmp/git-add-validation.log >&2
+          fi
 
       - name: Sjekk om det finst endringar
         id: check-changes

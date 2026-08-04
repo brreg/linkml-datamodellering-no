@@ -27,7 +27,8 @@ def main():
         policy = manifest.get('validation_policy', 'bronze')
         print(policy)
 
-    except Exception:
+    except Exception as e:
+        print(f"ÅTVARING: klarte ikkje lese validation_policy frå {manifest_path} ({e}) — brukar bronze", file=sys.stderr)
         print("bronze")
 
 if __name__ == '__main__':

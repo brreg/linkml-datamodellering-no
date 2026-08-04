@@ -168,6 +168,25 @@ endrast. Følgjande er derimot verdt å vurdere fordi dei kan skjule reelle feil
    docstring, men manglar ei linje om at han er *obligatorisk* konvensjon,
    ikkje valfri).
 
+10. **Oppdater `CLAUDE.md`** med ein instruks om at nye script og funksjonar
+    aldri skal feile stille — dette er ein framtidsretta regel for AI-assistert
+    arbeid i repoet, ikkje eit engongsopprydding-steg. Legg til som eit nytt
+    punkt under "Førende prinsipper" (saman med dei andre repo-brei reglane,
+    t.d. "Bruk Makefile-targets", "Aldri commit eller push"). Innhaldet skal
+    dekkje minimum:
+    - Make-laget: aldri `> /dev/null 2>&1` (eller tilsvarande) rundt kommandoar
+      som kan feile — bruk `run_logged` frå `LOG_FUNCTIONS`
+      (`make/00-settings.mk`)
+    - Python-laget: aldri ein bar `except:`/`except Exception:` utan anten
+      eksplisitt logging (`print(..., file=sys.stderr)`) eller
+      `error_handler.log_error()` — spesifiser unntakstype der mogleg
+    - Ei feil skal alltid vere synleg ved `LOGLVL=ERROR` (default-nivå), sjølv
+      om ho ikkje stoppar heile bygget (mjuke åtvaringar er greitt, stille
+      feil er det ikkje)
+    - Kryssrefererer til `specs/done/ingen-stille-feil.md` (etter flytting)
+      for grunngjeving og eksempel, i tråd med CLAUDE.md sin DRY-regel om at
+      forklaringar ikkje skal duplisere det som finst i spec-arkivet
+
 ## Framdrift
 
 **Steg 1-2 utført** (2026-08-04):
@@ -199,27 +218,143 @@ endrast. Følgjande er derimot verdt å vurdere fordi dei kan skjule reelle feil
   synleg via `log_error`, og `has_error` sørgja for at heile steget
   rapporterer feil — dette var heilt usynleg/ikkje-feilande før endringa.
 
-**Ikkje utført enno:** steg 3-9 (`make/30-instances.mk`, Python-script-audit,
-CI `|| true`-gjennomgang, dokumentasjon i `COMMANDS.md`).
+**Steg 3 utført** (2026-08-04):
+
+- `make/30-instances.mk`: refaktorerte `run_gen_informasjonsmodell_instance`
+  til å bruke `run_logged` i staden for `> /dev/null 2>&1` + generisk
+  `echo "Warning: Failed to generate..."`. Merk designval: denne makroen hadde
+  frå før ein *bevisst* soft-fail-semantikk (feil stoppar ikkje bygget, berre
+  varslar) — i motsetnad til `run_gen_xsd`, som ikkje hadde NOKA
+  feilhandtering. Sidan Python-scriptet (`generate-informasjonsmodell.py`)
+  sin eigen `except`-blokk allereie bruker `error_handler.log_error()` (fullt
+  strukturert feilmelding + stack trace til stderr) for alle uventa feil, var
+  problemet reint at denne stderr-teksten vart kasta bort av
+  `> /dev/null 2>&1` — ikkje at feilen var usynleg av design. Fiksen gjer
+  feilen synleg via `log_error`, men **endrar ikkje** om steget stoppar
+  bygget — det er framleis ei mjuk åtvaring per schema, no berre med reelt
+  innhald i staden for ei generisk melding.
+
+**Verifisert:**
+- `make gen-informasjonsmodell-instance DOMAIN=referanse`: suksess-stien
+  stille som før, artefakt (`metadata/referansemodell-manifest.yaml`)
+  produsert korrekt.
+- `make gen-informasjonsmodell-instance SCHEMA=<ikkje-eksisterande-fil>`:
+  feilteksten frå Python-scriptet (`Error: ... eksisterer ikkje`) vart synleg
+  via `[ERROR]`, og `make` avslutta framleis med exit 0 (soft-fail-semantikken
+  er bevart, no berre ikkje stille).
+
+**Steg 5-6 utført** (2026-08-04):
+
+Fiksa dei to bare-`except:`-blokkene (høgast prioritet) og reviderte alle
+resterande `except`-blokker i `src/assets/scripts/` og `mkdocs/lib/scripts/`
+(`src/mcp-linkml-validator/` er halde utanfor omfanget, jf. spec-en sitt
+opphavlege avgrensa filfokus).
+
+*Fiksa (var reelt stille eller for breie):*
+
+| Fil | Linje | Endring |
+|---|---|---|
+| `src/assets/scripts/makefile/generate-informasjonsmodell.py` | 234 | Bare `except:` → `except Exception as e:` + stderr-melding om fallback-URL |
+| `src/assets/scripts/ci/run-validation.sh` | 148 | Bare `except:` → `except json.JSONDecodeError as e:` (unngår å skjule urelaterte bugs) + stderr-melding |
+| `src/assets/scripts/update-schema-dates.py` | 81 | `except Exception: old = {}` (heilt stille) → same, men med stderr-INFO om fallback |
+| `src/assets/scripts/makefile/run-schema-validation.py` | 121 | Duplikat av same funksjon som over (docstring seier eksplisitt "Same logikk som i update-schema-dates.py") — same fiks |
+| `src/assets/scripts/makefile/detect-validation-policy.py` | 30 | `except Exception: print("bronze")` (stille fallback) → ÅTVARING til stderr før fallback |
+| `mkdocs/lib/scripts/generate-validation-md.py` | 35 | Same mønster som over, i `get_validation_policy_from_manifest()` |
+
+*Vurdert og late stå urørt (legitime, ikkje-stille eller lågrisiko fallbackar):*
+
+- `src/assets/scripts/validate-modelldcat.py`, `add-schema-header-comments.py`,
+  `save-validation-log.py`, `migrate-container.py` — alle loggar allereie
+  eksplisitt til stderr med `{e}` og/eller `sys.exit(1)`
+- `src/assets/scripts/makefile/collect-concepts.py` (3 blokker),
+  `generate-modellkatalog.py` (3 blokker) — alle loggar allereie `[WARNING]`
+  eller bruker `error_handler.log_error()`
+- `src/assets/scripts/makefile/gen-docgen-examples.py:21` — import-guard,
+  loggar og `sys.exit(1)`; funksjonen sin eigen "exit 0 stille"-kontrakt for
+  manglande eksempelfil er eit dokumentert, ikkje-feilaktig no-op (jf. docstring)
+- `src/assets/scripts/makefile/gen-dqv-measurements.py:78` — smal
+  `except ValueError: continue` i ei datakvalitetsberekning per element;
+  legg bevisst ikkje til logging her (ville flomme ut ved mange manglande
+  datoar i eit datasett — sjølve poenget med DQV-målinga er å telle slikt)
+- `src/assets/scripts/scaffolding/new-model.sh:66` (embedda Python) — smal
+  `except Exception: pass` i eit streaming-JSON-parse-loop der dei fleste
+  linjene forventa *ikkje* er den responsen ein leitar etter; toppnivået har
+  alt eit eige feilsjekk (`LINKML_YAML` tom → `exit 1`)
+- `src/assets/scripts/utils/error_handler.py:37` — `except ValueError:`
+  fallback til absolutt sti i staden for relativ, reint kosmetisk, ingen
+  informasjon går tapt
+- `mkdocs/lib/scripts/generate-validation-md.py:50` — alt eksemplarisk:
+  skriv feilteksten (`{e}`) direkte inn i den genererte doc-sida, med
+  kommentar som forklarer kvifor `sys.exit(0)` er bevisst
+
+**Verifisert:** `python3 -m py_compile` på alle endra `.py`-filer,
+`bash -n` på `run-validation.sh`, og eit funksjonelt smoke-test av
+`detect-validation-policy.py` mot både gyldig og korrupt `build.yaml` —
+stille på gyldig input, `ÅTVARING` til stderr (stdout framleis reint, sidan
+Makefile fangar stdout som policy-verdien) på korrupt input.
+
+**Steg 4, 7, 8, 9, 10 utført** (2026-08-04):
+
+- **Steg 4 (verifisering):** stadfesta via steg 8 sin live-reproduksjon —
+  sjå under.
+- **Steg 7 (CI `|| true`-gjennomgang):**
+  - `.github/workflows/validate.yml` («Stage alle valideringsloggar»):
+    `git add ... || true` → `if ! git add ... 2>logfil; then echo "::warning::..."; cat logfil >&2; fi`.
+    Framleis non-fatal (fyrste køyring utan endra loggar er ein legitim
+    "ingen treff"-case), men årsaka er no alltid synleg.
+  - `.github/workflows/generate.yml` («Kopier valideringsloggar til
+    generated/»): `cp -r ... 2>/dev/null || true` →
+    `if ! cp_output=$(cp -rv ... 2>&1); then echo "  ⚠️  ... feila: $cp_output" >&2; fi`.
+    Same non-fatal semantikk, no med faktisk `cp`-feiltekst synleg.
+  - Begge verifisert med `bash -n` (syntaks) + eit isolert funksjonstest av
+    `if ! var=$(cmd); then ...; fi`-mønsteret under `set -e` (stadfestar at
+    scriptet ikkje avsluttar for tidleg, jf. same prinsipp som `run_logged`).
+- **Steg 8 (test lokalt):**
+  - Reproduserte den opphavlege `gen-doc`-feilen kunstig (mellombels ugyldig
+    `--diagram-type`-verdi i `run_gen_doc_parallel`) og køyrde
+    `make domain-referanse`: `[ERROR]`-linjene viste no den faktiske
+    feilteksten frå `linkml gen-doc` ("Error: Invalid value for
+    '--diagram-type': ..."), og `make` avslutta korrekt med `Error 123` —
+    identisk symptom som det opphavlege incidentet, men no med full
+    diagnostikk. Testendringa vart reversert (`git diff` tomt etterpå).
+  - `make lint SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema.yaml`
+    og ein full `make domain-referanse`-køyring (utan kunstig feil) stadfesta
+    at normal byggjeflyt er upåverka — identisk stille output og identiske
+    artefakt som før refaktoreringa.
+- **Steg 9 (dokumentasjon):**
+  - `COMMANDS.md`: nytt underavsnitt "Ingen stille feil — `run_logged`" under
+    `## Logging`, med kort forklaring, signatur og kryssreferanse til denne
+    spec-en.
+  - `src/assets/scripts/utils/error_handler.py`: la til ei linje i
+    modul-docstringen som gjer eksplisitt at `log_error()` er *obligatorisk*
+    konvensjon (ikkje valfri), med kryssreferanse.
+- **Steg 10 (CLAUDE.md):** la til eit nytt punkt under "Førende prinsipper"
+  ("Ingen stille feil") som dekkjer både make- og Python-laget, med
+  kryssreferanse til denne spec-en for grunngjeving (DRY, jf. CLAUDE.md sin
+  eigen regel om at forklaringar ikkje skal duplisere spec-arkivet).
+
+Alle 10 steg i spec-en er no fullførte.
 
 ## Akseptansekriterier
 
-- [ ] Ingen `> /dev/null 2>&1` (eller tilsvarande stderr-discard) attende i
+- [x] Ingen `> /dev/null 2>&1` (eller tilsvarande stderr-discard) attende i
       `make/10-generator-macros.mk` / `make/30-instances.mk` for kommandoar
       som kan feile
-- [ ] `run_gen_xsd` har feilhandtering (stoppar build + loggar ved feil i
+- [x] `run_gen_xsd` har feilhandtering (stoppar build + loggar ved feil i
       avrotize/fix-xsd-dates.py)
-- [ ] Ein kunstig indusert feil i kvar av dei 5 råka make-makroane produserer
+- [x] Ein kunstig indusert feil i kvar av dei 5 råka make-makroane produserer
       ein synleg `[ERROR]`-melding med den faktiske feilteksten, ved
       `LOGLVL=INFO` (default)
-- [ ] Dei to bare-`except:`-blokkene loggar unntaket dei fangar
-- [ ] Resterande `except`-blokker i `src/assets/scripts/` og
+- [x] Dei to bare-`except:`-blokkene loggar unntaket dei fangar
+- [x] Resterande `except`-blokker i `src/assets/scripts/` og
       `mkdocs/lib/scripts/` er gjennomgått og anten bruker
       `error_handler.log_error()`, loggar eksplisitt, eller har ein kommentar
       som forklarer kvifor stille fallback er trygt
-- [ ] Dei to identifiserte CI `|| true`-stadene er vurderte og enten fiksa
+- [x] Dei to identifiserte CI `|| true`-stadene er vurderte og enten fiksa
       eller dokumenterte som bevisste unntak
-- [ ] `COMMANDS.md` dokumenterer `run_logged`-konvensjonen
+- [x] `COMMANDS.md` dokumenterer `run_logged`-konvensjonen
+- [x] `CLAUDE.md` har eit punkt under "Førende prinsipper" om at nye script
+      og funksjonar aldri skal feile stille
 
 ## Relaterte filer
 
@@ -233,3 +368,36 @@ CI `|| true`-gjennomgang, dokumentasjon i `COMMANDS.md`).
 - `specs/done/logging-framework-makefile.md` — opphavleg LOGLVL-rammeverk
 - `specs/done/debug-referanse-nav-meny.md` — saka som avdekte problemet
 - `COMMANDS.md` — «Logging»-seksjonen som skal utvidast
+- `CLAUDE.md` — «Førende prinsipper»-seksjonen der den nye regelen skal inn
+
+## Utført
+
+Alle 10 steg fullførte. Endra filer:
+
+- `make/00-settings.mk` — ny `run_logged`-funksjon i `LOG_FUNCTIONS`
+- `make/10-generator-macros.mk` — `run_gen_doc_parallel`, `run_gen_xsd`,
+  `run_gen_asyncapi_parallel`, `run_gen_openapi_parallel` bruker `run_logged`
+- `make/30-instances.mk` — `run_gen_informasjonsmodell_instance` bruker
+  `run_logged`
+- `src/assets/scripts/makefile/generate-informasjonsmodell.py` — bare
+  `except:` fiksa (linje 234)
+- `src/assets/scripts/ci/run-validation.sh` — bare `except:` fiksa (linje 148)
+- `src/assets/scripts/update-schema-dates.py`,
+  `src/assets/scripts/makefile/run-schema-validation.py` — stille
+  `except Exception: old = {}`-duplikat fiksa
+- `src/assets/scripts/makefile/detect-validation-policy.py`,
+  `mkdocs/lib/scripts/generate-validation-md.py` — stille
+  bronze-policy-fallback fiksa
+- `src/assets/scripts/utils/error_handler.py` — docstring gjer konvensjonen
+  obligatorisk
+- `.github/workflows/validate.yml`, `.github/workflows/generate.yml` —
+  `|| true` erstatta med synleg åtvaring, non-fatal semantikk bevart
+- `COMMANDS.md` — nytt underavsnitt "Ingen stille feil — `run_logged`"
+- `CLAUDE.md` — nytt punkt under "Førende prinsipper"
+
+Alt verifisert lokalt: isolerte unit-testar av `run_logged` og
+`if ! var=$(cmd); then`-mønsteret, live-køyring av `make domain-samt` (xsd +
+asyncapi + openapi) og `make domain-referanse`, kunstig reproduksjon av det
+opphavlege `gen-doc`-incidentet (no synleg feil + korrekt `make`-avslutning),
+`py_compile`/`bash -n` på alle endra script, og funksjonstestar av
+fallback-scripta mot både gyldig og korrupt input.

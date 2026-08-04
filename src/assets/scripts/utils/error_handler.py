@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Standardisert error-handtering for Python-script i repoet."""
+"""Standardisert error-handtering for Python-script i repoet.
+
+Dette er den obligatoriske konvensjonen for uventa unntak i script under
+src/assets/scripts/ og mkdocs/lib/scripts/ — ikkje ei valfri hjelpefunksjon.
+Ein bar `except:`/`except Exception:` utan anten log_error() herifrå eller
+eksplisitt print(..., file=sys.stderr) er ikkje tillate. Sjå
+specs/done/ingen-stille-feil.md for grunngjeving.
+"""
 
 import sys
 import traceback

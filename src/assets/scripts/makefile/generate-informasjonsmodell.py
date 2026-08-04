@@ -231,8 +231,8 @@ def get_github_raw_base_url() -> str:
             owner = parts[0]
             repo = parts[1]
             return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
-    except:
-        pass
+    except Exception as e:
+        print(f"⚠️  Kunne ikkje hente git remote-URL ({e}) — brukar fallback-URL", file=sys.stderr)
 
     # Fallback
     return "https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/"

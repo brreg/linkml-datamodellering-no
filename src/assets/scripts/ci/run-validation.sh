@@ -145,7 +145,8 @@ schema_path, version, policy, result_json, log_file = sys.argv[1:6]
 # Parse result frå flatten-and-validate (kan vere JSON eller feilmelding)
 try:
     result = json.loads(result_json)
-except:
+except json.JSONDecodeError as e:
+    print(f"[ERROR] Klarte ikkje parse resultat som JSON ({e}) — brukar rå tekst som feilmelding", file=sys.stderr)
     result = {"valid": False, "errorCount": 1, "warningCount": 0, "issues": [{"severity": "error", "message": result_json}]}
 
 # Ekstraher metadata frå schema-sti

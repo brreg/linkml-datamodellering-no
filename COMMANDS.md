@@ -33,6 +33,28 @@ make domain-ngr LOGLVL=ERROR
 
 **GitHub Actions:** CI-workflows køyrer med `LOGLVL=DEBUG` som standard for full feilsøkingsinfo i loggar.
 
+### Ingen stille feil — `run_logged`
+
+Generator-makroar i `make/*.mk` skal **aldri** redirigere ein kommando sitt
+output til `/dev/null` (`> /dev/null 2>&1`) — det kastar vekk den faktiske
+feilteksten dersom kommandoen feilar. Bruk i staden `run_logged` frå
+`LOG_FUNCTIONS` (`make/00-settings.mk`):
+
+```bash
+run_logged "<label>" <kommando> [args...]
+```
+
+`run_logged` fangar stdout+stderr frå kommandoen. Ved suksess går fanga
+output til `log_debug` (stille på `INFO`/`ERROR`, akkurat som i dag). Ved
+feil skriv han kommandolinja, exit code og den faktiske output-teksten via
+`log_error` — synleg sjølv på `LOGLVL=ERROR`. Sjå `specs/done/ingen-stille-feil.md`
+for bakgrunn og fleire eksempel på refaktorering.
+
+For Python-script gjeld tilsvarande: bruk `error_handler.log_error()`
+(`src/assets/scripts/utils/error_handler.py`) for uventa unntak, og skriv
+alltid noko til `stderr` ved bevisste fallback-verdiar. Ein bar `except:`
+eller `except Exception:` utan noka logging er ikkje tillate.
+
 ## Container-image-bygging
 
 Berre nødvendig ved første bruk eller etter endringar i Dockerfile.

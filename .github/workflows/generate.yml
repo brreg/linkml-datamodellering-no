@@ -359,7 +359,9 @@ jobs:
 
             target_dir="generated/${{ matrix.domain }}/$schema_name/validation/$version"
             mkdir -p "$target_dir"
-            cp -r "$validation_version_dir"/* "$target_dir/" 2>/dev/null || true
+            if ! cp_output=$(cp -rv "$validation_version_dir"/* "$target_dir/" 2>&1); then
+              echo "  ⚠️  $schema_name v$version: kopiering av valideringsloggar feila: $cp_output" >&2
+            fi
 
             echo "  ✓ $schema_name v$version: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
           done

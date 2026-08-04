@@ -78,7 +78,8 @@ def find_released_packages(config: dict) -> list[str]:
             stderr=subprocess.DEVNULL,
         ).decode()
         old = json.loads(old_json)
-    except Exception:
+    except Exception as e:
+        print(f"INFO: fann ikkje HEAD~1:.release-please-manifest.json ({e}) — behandlar alle pakkar som nye", file=sys.stderr)
         old = {}
 
     try:

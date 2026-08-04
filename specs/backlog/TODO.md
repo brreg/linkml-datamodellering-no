@@ -111,20 +111,5 @@ dokumentere tydelig make targets som er wrappere rundt andre make targets
 
 
 
-alle make kall skal kalkulere og logge forbrukt tid
 
 
-Innføre loglvl DEBUG, INFO, ERROR i alle make targets, der INFO er default og tilsvarer dagens logging.
-
-På DEBUG nivå skal vi logge alle scriptkall og funksjonskall.
-
-På ERROR nivå skal vi kun logge ERRORS.
-
-Så skal vi konfigurere CI jobbane til å benytte DEBUG logging.
-
-
- utfør det som gjenstår specs/done/validation-cache-invalidering.md:
-  - Oppdatere run_gen_xsd, run_gen_asyncapi, run_gen_openapi
-  - Oppdatere validerings- og docs-makroar (make/40-validation.mk, make/50-docs.mk)
-  - Teste lokalt med alle tre nivå
-  - Oppdatere COMMANDS.md med logging-dokumentasjon

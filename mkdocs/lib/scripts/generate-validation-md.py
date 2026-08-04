@@ -32,7 +32,8 @@ def get_validation_policy_from_manifest(domain: str, schema: str) -> str:
         with manifest.open(encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return data.get("validation_policy", "bronze")
-    except Exception:
+    except Exception as e:
+        print(f"ÅTVARING: klarte ikkje lese validation_policy frå {manifest} ({e}) — brukar bronze", file=sys.stderr)
         return "bronze"
 
 

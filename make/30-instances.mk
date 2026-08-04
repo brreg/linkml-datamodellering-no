@@ -18,19 +18,17 @@
 # Per-schema Informasjonsmodell-instans generator.
 # $1=schemas
 define run_gen_informasjonsmodell_instance
-@for schema in $(1); do \
+@eval "$$LOG_FUNCTIONS"; \
+for schema in $(1); do \
 	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
 	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
 	t0=$$(date +%s%3N); \
-	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema" >/dev/null 2>&1; \
-	rc=$$?; \
-	elapsed_ms=$$(($$(date +%s%3N) - t0)); \
-	printf "$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)\n" \
-		"$$domain" "$$name" \
-		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)); \
-	if [ $$rc -ne 0 ]; then \
-		echo "Warning: Failed to generate Informasjonsmodell for $$schema"; \
+	if run_logged "gen-informasjonsmodell-instance $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema"; then \
+		elapsed_ms=$$(($$(date +%s%3N) - t0)); \
+		log_info "$$(printf '$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)' \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)))"; \
 	fi; \
 done
 endef
