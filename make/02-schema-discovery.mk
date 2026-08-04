@@ -28,6 +28,10 @@ schema_key = $(subst -,_,$(call schema_domain,$(1)))_$(subst -,_,$(call schema_n
 # Domenar vert automatisk avleidde frå oppdaga skjema
 DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
 
+.PHONY: print-domains
+print-domains: ## Skriv ut alle oppdaga domenenamn, eitt per linje (brukt av CI for dynamisk matrise)
+	@printf '%s\n' $(DOMAINS)
+
 # Hjelpefunksjon: bestem kva skjema som skal prosesserast basert på DOMAIN eller SCHEMA
 # Returnerer liste av skjema-stiar
 define get_target_schemas

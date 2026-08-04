@@ -1,0 +1,51 @@
+[
+  {
+    "name": "linkml-local",
+    "dockerfile": "src/assets/containers/Dockerfile.linkml",
+    "make_target": "build-docker-linkml",
+    "always_required": true,
+    "required_if_generator_flag": null
+  },
+  {
+    "name": "python-pytest",
+    "dockerfile": "src/assets/containers/Dockerfile.python",
+    "make_target": "build-docker-python",
+    "always_required": true,
+    "required_if_generator_flag": null
+  },
+  {
+    "name": "avrotize-local",
+    "dockerfile": "src/assets/containers/Dockerfile.avrotize",
+    "make_target": "build-docker-avrotize",
+    "always_required": false,
+    "required_if_generator_flag": "xsd"
+  },
+  {
+    "name": "asyncapi-cli-minimal",
+    "dockerfile": "src/assets/containers/Dockerfile.asyncapi-cli-minimal",
+    "make_target": "build-docker-asyncapi",
+    "always_required": false,
+    "required_if_generator_flag": "asyncapi"
+  },
+  {
+    "name": "plantuml",
+    "dockerfile": "src/assets/containers/Dockerfile.plantuml",
+    "make_target": "build-docker-plantuml",
+    "always_required": true,
+    "required_if_generator_flag": null
+  },
+  {
+    "name": "mkdocs-local",
+    "dockerfile": "src/assets/containers/Dockerfile.mkdocs",
+    "make_target": "build-docker-mkdocs",
+    "always_required": false,
+    "required_if_generator_flag": null
+  },
+  {
+    "name": "mcp-linkml-validator",
+    "dockerfile": "src/mcp-linkml-validator/Dockerfile",
+    "make_target": "build-docker-mcp-validator",
+    "always_required": true,
+    "required_if_generator_flag": null
+  }
+]

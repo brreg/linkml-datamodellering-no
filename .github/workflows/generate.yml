@@ -27,8 +27,50 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+    outputs:
+      domains: ${{ steps.discover.outputs.domains }}
+      domain_list: ${{ steps.discover.outputs.domain_list }}
+      images: ${{ steps.image-tags.outputs.images }}
+      image_tags: ${{ steps.image-tags.outputs.image_tags }}
     steps:
       - uses: actions/checkout@v7
+      - name: Oppdag domene (autoritativ kjelde — make print-domains)
+        id: discover
+        run: |
+          # Same domeneoppdaging som make domain-<x> sjølv brukar
+          # (make/02-schema-discovery.mk) — unngår hardkoda domenelister som
+          # kan drifte frå kva src/linkml/ faktisk inneheld (sjå
+          # specs/done/debug-referanse-nav-meny.md).
+          domains_raw=$(make print-domains)
+          domain_list=$(echo "$domains_raw" | tr '\n' ' ' | sed 's/[[:space:]]*$//')
+          domains_json=$(printf '%s\n' "$domains_raw" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "Domene funne: $domain_list"
+          echo "domain_list=$domain_list" >> "$GITHUB_OUTPUT"
+          echo "domains=$domains_json" >> "$GITHUB_OUTPUT"
+      - name: Bygg image-tag-oppslag (autoritativ kjelde — src/assets/containers/images.json)
+        id: image-tags
+        run: |
+          # Namn/Dockerfile/make-target for kvart image kjem frå images.json —
+          # einaste staden dei skal skrivast. GHCR-tag-hashen må derimot
+          # framleis reknast ut med GitHub sin eigen hashFiles(), som berre
+          # finst som eit ${{ }}-uttrykk evaluert ved parse-tid (ikkje
+          # kallbar frå bash/jq ved køyretid) — difor er dette den EINASTE
+          # staden i heile workflowen desse hashFiles()-kalla skal stå.
+          # Både ensure-images og generate-jobben slår opp taggen herifrå,
+          # i staden for å rekne han ut på nytt kvar for seg (som før).
+          echo "images=$(jq -c . src/assets/containers/images.json)" >> "$GITHUB_OUTPUT"
+          cat > /tmp/image-tags.json << EOF
+          {
+            "linkml-local": "${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}",
+            "python-pytest": "${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}",
+            "avrotize-local": "${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}",
+            "asyncapi-cli-minimal": "${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}",
+            "plantuml": "${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}",
+            "mkdocs-local": "${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}",
+            "mcp-linkml-validator": "${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}"
+          }
+          EOF
+          echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v7
         with:
           name: source
@@ -51,42 +93,11 @@ jobs:
       contents: read
       packages: write
     strategy:
+      # Image-lista kjem frå src/assets/containers/images.json (autoritativ
+      # kjelde, lasta via checkout-source sitt image-tags-steg) — ikkje
+      # hardkoda her lenger.
       matrix:
-        image:
-          - name: linkml-local
-            dockerfile: src/assets/containers/Dockerfile.linkml
-            make_target: build-docker-linkml
-            hash_files: src/assets/containers/Dockerfile.linkml
-          - name: python-pytest
-            dockerfile: src/assets/containers/Dockerfile.python
-            make_target: build-docker-python
-            hash_files: |
-              src/assets/containers/Dockerfile.python
-              src/assets/containers/requirements-python-test.txt
-          - name: avrotize-local
-            dockerfile: src/assets/containers/Dockerfile.avrotize
-            make_target: build-docker-avrotize
-            hash_files: src/assets/containers/Dockerfile.avrotize
-          - name: asyncapi-cli-minimal
-            dockerfile: src/assets/containers/Dockerfile.asyncapi-cli-minimal
-            make_target: build-docker-asyncapi
-            hash_files: |
-              src/assets/containers/Dockerfile.asyncapi-cli-minimal
-              src/assets/scripts/container/asyncapi-validate.js
-          - name: plantuml
-            dockerfile: src/assets/containers/Dockerfile.plantuml
-            make_target: build-docker-plantuml
-            hash_files: src/assets/containers/Dockerfile.plantuml
-          - name: mkdocs-local
-            dockerfile: src/assets/containers/Dockerfile.mkdocs
-            make_target: build-docker-mkdocs
-            hash_files: src/assets/containers/Dockerfile.mkdocs
-          - name: mcp-linkml-validator
-            dockerfile: src/mcp-linkml-validator/Dockerfile
-            make_target: build-docker-mcp-validator
-            hash_files: |
-              src/mcp-linkml-validator/Dockerfile
-              src/mcp-linkml-validator/requirements.txt
+        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -123,7 +134,7 @@ jobs:
       - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
         id: ghcr-check
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
           echo "=== Sjekkar GHCR for $IMAGE ==="
           if skopeo inspect --format='exists' docker://"$IMAGE" 2>&1; then
             echo "exists=true" >> $GITHUB_OUTPUT
@@ -148,7 +159,7 @@ jobs:
       - name: Push ${{ matrix.image.name }} til GHCR
         if: steps.ghcr-check.outputs.exists != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
           echo "=== Pushar til GHCR: $IMAGE ==="
           podman tag localhost/${{ matrix.image.name }}:latest "$IMAGE"
           podman push "$IMAGE"
@@ -156,7 +167,7 @@ jobs:
 
   generate:
     name: "generate / ${{ matrix.domain }}"
-    needs: [ensure-images]
+    needs: [ensure-images, checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -164,7 +175,7 @@ jobs:
       packages: read
     strategy:
       matrix:
-        domain: [ap-no, begrepskatalog, fair, fint, modellkatalog, ngr, oreg, referanse, samt]
+        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -208,29 +219,25 @@ jobs:
         id: detect-images
         run: |
           echo "=== Analyserer kva images ${{ matrix.domain }} treng ==="
+          IMAGES_MANIFEST="src/assets/containers/images.json"
 
-          # Base images som alltid trengs
-          REQUIRED_IMAGES=("linkml-local" "python-pytest" "plantuml" "mcp-linkml-validator")
+          # Base images som alltid trengs (always_required i images.json)
+          mapfile -t REQUIRED_IMAGES < <(jq -r '.[] | select(.always_required) | .name' "$IMAGES_MANIFEST")
 
-          # Sjekk alle build.yaml i domenet
+          # Sjekk alle build.yaml i domenet mot dei betinga imaga
+          # (required_if_generator_flag i images.json)
           for build_yaml in src/linkml/${{ matrix.domain }}/*/build.yaml; do
             if [ ! -f "$build_yaml" ]; then
               continue
             fi
 
-            # AsyncAPI
-            if grep -q "^  asyncapi: true" "$build_yaml" 2>/dev/null; then
-              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " asyncapi-cli-minimal " ]]; then
-                REQUIRED_IMAGES+=("asyncapi-cli-minimal")
+            while IFS=$'\t' read -r img flag; do
+              if grep -q "^  $flag: true" "$build_yaml" 2>/dev/null; then
+                if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " $img " ]]; then
+                  REQUIRED_IMAGES+=("$img")
+                fi
               fi
-            fi
-
-            # Avrotize
-            if grep -q "^  avro: true" "$build_yaml" 2>/dev/null; then
-              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " avrotize-local " ]]; then
-                REQUIRED_IMAGES+=("avrotize-local")
-              fi
-            fi
+            done < <(jq -r '.[] | select(.required_if_generator_flag != null) | [.name, .required_if_generator_flag] | @tsv' "$IMAGES_MANIFEST")
           done
 
           echo "Påkrevde images:"
@@ -263,40 +270,16 @@ jobs:
             fi
           }
 
-          # Pull berre images som domenet faktisk treng
+          # Pull berre images som domenet faktisk treng — namn/make-target
+          # kjem frå images.json, tag frå den førehandsrekna tag-mappa i
+          # checkout-source (sjå kommentar der for kvifor hashFiles() ikkje
+          # kan reknast ut på nytt her).
+          IMAGES_MANIFEST="src/assets/containers/images.json"
+          IMAGE_TAGS='${{ needs.checkout-source.outputs.image_tags }}'
           for img in ${{ steps.detect-images.outputs.images }}; do
-            case "$img" in
-              linkml-local)
-                pull_image localhost/linkml-local:latest \
-                  "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}" \
-                  build-docker-linkml &
-                ;;
-              python-pytest)
-                pull_image localhost/python-pytest:latest \
-                  "ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}" \
-                  build-docker-python &
-                ;;
-              plantuml)
-                pull_image localhost/plantuml:latest \
-                  "ghcr.io/${{ github.repository_owner }}/plantuml:${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}" \
-                  build-docker-plantuml &
-                ;;
-              avrotize-local)
-                pull_image localhost/avrotize-local:latest \
-                  "ghcr.io/${{ github.repository_owner }}/avrotize-local:${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}" \
-                  build-docker-avrotize &
-                ;;
-              asyncapi-cli-minimal)
-                pull_image localhost/asyncapi-cli-minimal:latest \
-                  "ghcr.io/${{ github.repository_owner }}/asyncapi-cli-minimal:${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}" \
-                  build-docker-asyncapi &
-                ;;
-              mcp-linkml-validator)
-                pull_image localhost/mcp-linkml-validator:latest \
-                  "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}" \
-                  build-docker-mcp-validator &
-                ;;
-            esac
+            make_target=$(jq -r --arg n "$img" '.[] | select(.name==$n) | .make_target' "$IMAGES_MANIFEST")
+            tag=$(echo "$IMAGE_TAGS" | jq -r --arg n "$img" '.[$n]')
+            pull_image "localhost/$img:latest" "ghcr.io/${{ github.repository_owner }}/$img:$tag" "$make_target" &
           done
 
           wait
@@ -421,7 +404,7 @@ jobs:
           retention-days: 1
 
   publish:
-    needs: [generate]
+    needs: [generate, checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -453,7 +436,7 @@ jobs:
       - name: Slå saman domene-artefaktar til generated/
         run: |
           mkdir -p generated/
-          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg referanse samt; do
+          for domain in ${{ needs.checkout-source.outputs.domain_list }}; do
             if [ -d "generated-merged/generated-$domain" ]; then
               mv "generated-merged/generated-$domain" "generated/$domain"
             fi

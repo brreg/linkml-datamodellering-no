@@ -43,6 +43,10 @@ schema_domain() { echo "$1" | cut -d/ -f3; }
 schema_name()   { echo "$1" | cut -d/ -f4; }
 schema_outdir() { echo "$GEN_DIR/$(schema_domain "$1")/$(schema_name "$1")"; }
 
+# ap-no og fair har ikkje tree_root — påverkar linkml-convert (treng fixture-
+# schema for å bestemme målklasse) og gen-rdf frå eksempelfiler.
+lacks_tree_root() { [[ "$1" == "ap-no" || "$1" == "fair" ]]; }
+
 echo "test_make.sh — $(date)" > "$LOG"
 echo "LINKML_IMAGE: $LINKML_IMAGE" >> "$LOG"
 printf "Skjema (%d):\n" "${#SCHEMAS[@]}" >> "$LOG"
@@ -286,7 +290,7 @@ test_linkml_validate() {
         return 0
     fi
     local validate_schema
-    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+    if lacks_tree_root "$domain"; then
         validate_schema="tests/fixtures/$name-fixture.yaml"
         if [ ! -f "$validate_schema" ]; then
             echo "Ingen fixture: $validate_schema (hoppar over)"
@@ -306,7 +310,7 @@ test_linkml_validate() {
 test_roundtrip_json() {
     local schema="$1" example="$2" domain="$3" name="$4"
 
-    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+    if lacks_tree_root "$domain"; then
         echo "Hoppar over roundtrip-json for $domain (ingen tree_root)"
         return 0
     fi
@@ -368,7 +372,7 @@ PYEOF
 test_roundtrip_ttl() {
     local schema="$1" example="$2" domain="$3" name="$4"
 
-    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+    if lacks_tree_root "$domain"; then
         echo "Hoppar over roundtrip-ttl for $domain (ingen tree_root)"
         return 0
     fi
@@ -464,8 +468,7 @@ PYEOF
 
 test_convert_rdf() {
     local schema="$1" outfile="$2" example="$3" domain="$4"
-    # ap-no og fair har ikkje tree_root — linkml-convert kan ikkje bestemme målklasse
-    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+    if lacks_tree_root "$domain"; then
         echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
         return 0
     fi
@@ -522,7 +525,7 @@ test_gen_plantuml() {
 
 test_mcp_validate_instance() {
     local schema="$1" example="$2" domain="$3" name="$4"
-    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+    if lacks_tree_root "$domain"; then
         echo "Hoppar over mcp-validate-instance for $domain (ingen tree_root)"
         return 0
     fi

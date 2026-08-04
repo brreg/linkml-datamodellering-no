@@ -72,8 +72,24 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+    outputs:
+      domains: ${{ steps.discover.outputs.domains }}
+      domain_list: ${{ steps.discover.outputs.domain_list }}
     steps:
       - uses: actions/checkout@v7
+      - name: Oppdag domene (autoritativ kjelde — make print-domains)
+        id: discover
+        run: |
+          # Same domeneoppdaging som make domain-<x> sjølv brukar
+          # (make/02-schema-discovery.mk) — unngår hardkoda domenelister som
+          # kan drifte frå kva src/linkml/ faktisk inneheld (sjå
+          # specs/done/debug-referanse-nav-meny.md).
+          domains_raw=$(make print-domains)
+          domain_list=$(echo "$domains_raw" | tr '\n' ' ' | sed 's/[[:space:]]*$//')
+          domains_json=$(printf '%s\n' "$domains_raw" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "Domene funne: $domain_list"
+          echo "domain_list=$domain_list" >> "$GITHUB_OUTPUT"
+          echo "domains=$domains_json" >> "$GITHUB_OUTPUT"
       - name: Fjern gamle valideringsloggar før artifact-upload
         run: |
           # Ekskluder validation/-katalogar frå source-artifact
@@ -148,7 +164,7 @@ jobs:
 
   validate:
     name: "validate / ${{ matrix.domain }}"
-    needs: ensure-images
+    needs: [ensure-images, checkout-source]
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-22.04
     permissions:
@@ -156,7 +172,7 @@ jobs:
       packages: read
     strategy:
       matrix:
-        domain: [ap-no, begrepskatalog, fair, fint, modellkatalog, ngr, oreg, referanse, samt]
+        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -234,7 +250,7 @@ jobs:
           if-no-files-found: ignore
 
   create-pr-with-validation-logs:
-    needs: validate
+    needs: [validate, checkout-source]
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     permissions:
@@ -247,7 +263,7 @@ jobs:
         run: |
           # Last ned kvar domain-artifact direkte til gjeldande katalog
           # (artifacts inneheld allereie src/linkml/<domain>/<modell>/validation/-struktur)
-          for domain in ap-no begrepskatalog fair fint modellkatalog ngr oreg referanse samt; do
+          for domain in ${{ needs.checkout-source.outputs.domain_list }}; do
             artifact_name="validation-logs-$domain"
             if gh run download ${{ github.run_id }} -n "$artifact_name" -D . 2>/dev/null; then
               echo "✓ Lasta ned $artifact_name"
