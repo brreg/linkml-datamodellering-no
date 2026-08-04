@@ -19,10 +19,14 @@ Køyr frå repo-rota:
 import argparse
 import glob
 import re
+import sys
 from datetime import date
 from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.yaml_io import load_yaml  # noqa: E402
 
 METRIC_COMPLETENESS = "https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004"
 METRIC_CURRENTNESS = "https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001"
@@ -52,11 +56,6 @@ def find_data_manifests(root="src/linkml"):
     """Finn alle datafil-manifest (build.yaml med data_policy, utan generators:)."""
     for path in sorted(glob.glob(f"{root}/*/*/data/*/build.yaml")):
         yield Path(path)
-
-
-def load_yaml(path):
-    with open(path, encoding="utf-8") as fh:
-        return yaml.safe_load(fh) or {}
 
 
 def compute_completeness(items, required_field):

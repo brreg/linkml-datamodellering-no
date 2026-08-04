@@ -13,30 +13,12 @@ paths: {} — schema library only, no endpoint stubs.
 import argparse
 import json
 import sys
+from pathlib import Path
 
 import yaml
 
-
-def rewrite_refs(obj):
-    if isinstance(obj, dict):
-        return {
-            k: v.replace("#/$defs/", "#/components/schemas/") if k == "$ref" else rewrite_refs(v)
-            for k, v in obj.items()
-        }
-    if isinstance(obj, list):
-        return [rewrite_refs(item) for item in obj]
-    return obj
-
-
-def load_yaml_meta(yaml_path):
-    with open(yaml_path) as f:
-        schema = yaml.safe_load(f)
-    return {
-        "title":       schema.get("title") or schema.get("name", ""),
-        "version":     str(schema.get("version") or "0.0.0"),
-        "description": schema.get("description") or "",
-        "id":          schema.get("id") or "",
-    }
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from api_spec_common import load_yaml_meta, rewrite_refs  # noqa: E402
 
 
 def build_openapi(json_path, yaml_path):

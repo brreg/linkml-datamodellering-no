@@ -15,6 +15,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
+from utils.release_helpers import find_released_packages  # noqa: E402
+
 
 def update_dates(schema_path: Path, today: str, dry_run: bool = False) -> bool:
     content = schema_path.read_text(encoding="utf-8")
@@ -66,29 +69,6 @@ def update_dates(schema_path: Path, today: str, dry_run: bool = False) -> bool:
     prefix = "[dry-run] " if dry_run else ""
     print(f"  {prefix}OPPDATERT: {schema_path} ({', '.join(changed_fields)})")
     return True
-
-
-def find_released_packages(config: dict) -> list[str]:
-    """Finn pakkar som endra versjon mellom HEAD~1 og HEAD ved å samanlikne manifest."""
-    import subprocess
-
-    try:
-        old_json = subprocess.check_output(
-            ["git", "show", "HEAD~1:.release-please-manifest.json"],
-            stderr=subprocess.DEVNULL,
-        ).decode()
-        old = json.loads(old_json)
-    except Exception as e:
-        print(f"INFO: fann ikkje HEAD~1:.release-please-manifest.json ({e}) — behandlar alle pakkar som nye", file=sys.stderr)
-        old = {}
-
-    try:
-        new = json.loads(Path(".release-please-manifest.json").read_text())
-    except Exception as e:
-        print(f"FEIL: kunne ikkje lese .release-please-manifest.json: {e}", file=sys.stderr)
-        return []
-
-    return [p for p in new if old.get(p) != new[p] and p in config.get("packages", {})]
 
 
 def main() -> None:

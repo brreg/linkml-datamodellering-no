@@ -17,6 +17,10 @@ import tempfile
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.release_helpers import find_released_packages  # noqa: E402
+from utils.schema_meta import get_domain_model, get_version  # noqa: E402
+
 
 def get_policy(schema_path: Path) -> str:
     manifest = schema_path.parent / "build.yaml"
@@ -25,21 +29,6 @@ def get_policy(schema_path: Path) -> str:
         m = re.search(r"^validation_policy:\s*(\S+)", content, re.MULTILINE)
         return m.group(1) if m else "bronze"
     return "bronze"
-
-
-def get_version(schema_path: Path) -> str:
-    content = schema_path.read_text(encoding="utf-8")
-    m = re.search(r'^version:\s*"([^"]+)"', content, re.MULTILINE)
-    return m.group(1) if m else "0.0.0"
-
-
-def get_domain_model(schema_path: Path) -> tuple[str, str]:
-    """Utlei domain og modellnamn frå skjemastien."""
-    model = schema_path.parent.name
-    domain = schema_path.parent.parent.name
-    if domain == "linkml":
-        domain = model
-    return domain, model
 
 
 def run_validation(schema_path: Path, policy: str, dry_run: bool = False) -> dict | None:
@@ -108,27 +97,6 @@ def save_report(
         f"  {status} {policy_json} "
         f"({result.get('error_count', 0)} feil, {result.get('warning_count', 0)} åtv.)"
     )
-
-
-def find_released_packages(config: dict) -> list[str]:
-    """Same logikk som i update-schema-dates.py — manifest-diff mellom HEAD~1 og HEAD."""
-    try:
-        old_json = subprocess.check_output(
-            ["git", "show", "HEAD~1:.release-please-manifest.json"],
-            stderr=subprocess.DEVNULL,
-        ).decode()
-        old = json.loads(old_json)
-    except Exception as e:
-        print(f"INFO: fann ikkje HEAD~1:.release-please-manifest.json ({e}) — behandlar alle pakkar som nye", file=sys.stderr)
-        old = {}
-
-    try:
-        new = json.loads(Path(".release-please-manifest.json").read_text())
-    except Exception as e:
-        print(f"FEIL: kunne ikkje lese .release-please-manifest.json: {e}", file=sys.stderr)
-        return []
-
-    return [p for p in new if old.get(p) != new[p] and p in config.get("packages", {})]
 
 
 def process_schema(schema_path: Path, dry_run: bool) -> dict:

@@ -17,29 +17,12 @@ Bruk:
 
 import argparse
 import json
-import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-
-def get_version(schema_path: Path) -> str:
-    """Hent versjonsnummer frå version:-feltet i skjemaet."""
-    if not schema_path.exists():
-        return "0.0.0-dev"
-    content = schema_path.read_text(encoding="utf-8")
-    m = re.search(r'^version:\s*"([^"]+)"', content, re.MULTILINE)
-    return m.group(1) if m else "0.0.0-dev"
-
-
-def get_domain_model(schema_path: Path) -> tuple[str, str]:
-    """Utlei domain og modellnamn frå skjemastien."""
-    model = schema_path.parent.name
-    domain = schema_path.parent.parent.name
-    if domain == "linkml":
-        # src/linkml/referanse/referanse-schema.yaml → domain=referanse
-        domain = model
-    return domain, model
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.schema_meta import get_domain_model, get_version  # noqa: E402
 
 
 def get_schema_name(schema_path: Path) -> str:
@@ -64,7 +47,7 @@ def save_log(
     """
     domain, model = get_domain_model(schema_path)
     schema_name = get_schema_name(schema_path)
-    version = get_version(schema_path)
+    version = get_version(schema_path, fallback="0.0.0-dev")
 
     # Parse result-JSON
     try:

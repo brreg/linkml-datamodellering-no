@@ -14,25 +14,10 @@ from pathlib import Path
 import yaml
 from typing import Dict, List, Optional
 
-# Legg til repo-root i sys.path for å importere error_handler
+# Legg til repo-root i sys.path for å importere delte hjelpefunksjonar
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
 from utils.error_handler import log_error
-
-
-def load_yaml(file_path: Path) -> Dict:
-    """Last YAML-fil."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
-
-
-def write_yaml(file_path: Path, data: Dict):
-    """Skriv YAML-fil."""
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(file_path, 'w', encoding='utf-8') as f:
-        # Legg til header-kommentar
-        f.write("# Generert av CI frå generate-modellkatalog.py — ikkje rediger manuelt\n")
-        f.write("# Samlar alle Informasjonsmodell-instansar per organisasjon frå metadata/*-manifest.yaml\n\n")
-        yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+from utils.yaml_io import load_yaml, write_yaml
 
 
 def generate_langstring(nb_value: str, nn_value: str = None) -> Dict[str, str]:
@@ -307,7 +292,11 @@ def main():
 
             # Skriv til fil
             output_path = Path(f"src/linkml/modellkatalog/{catalog_slug}/data/{catalog_slug}/{catalog_slug}.yaml")
-            write_yaml(output_path, katalog_data)
+            write_yaml(
+                output_path, katalog_data,
+                generated_by=Path(__file__).name,
+                note="Samlar alle Informasjonsmodell-instansar per organisasjon frå metadata/*-manifest.yaml",
+            )
 
             print(f"✓ Generert: {output_path} ({len(modeller)} modellar)")
             generated_count += 1

@@ -23,21 +23,8 @@ import fnmatch
 from typing import Dict, List, Optional
 from collections import defaultdict
 
-
-def load_yaml(file_path: Path) -> Dict:
-    """Last YAML-fil."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
-
-
-def write_yaml(file_path: Path, data: Dict):
-    """Skriv YAML-fil."""
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(file_path, 'w', encoding='utf-8') as f:
-        # Legg til header-kommentar
-        f.write("# Generert av CI frå collect-concepts.py — ikkje rediger manuelt\n")
-        f.write(f"# Samlar alle begrep frå begrepssamlingane til organisasjon\n\n")
-        yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.yaml_io import load_yaml, write_yaml  # noqa: E402
 
 
 def load_codeowners(repo_root: Path) -> List[Dict]:
@@ -174,7 +161,11 @@ def generate_begrepskatalog(org_nr: str, catalog_name: str, begrepssamlingar: Li
 
     # Skriv til fil
     data = {"begrep": all_begrep}
-    write_yaml(catalog_file, data)
+    write_yaml(
+        catalog_file, data,
+        generated_by=Path(__file__).name,
+        note="Samlar alle begrep frå begrepssamlingane til organisasjon",
+    )
 
     print(f"[INFO] ✓ Genererte {catalog_file} med {len(all_begrep)} begrep")
 

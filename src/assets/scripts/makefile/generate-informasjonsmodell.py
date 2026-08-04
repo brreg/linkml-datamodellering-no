@@ -20,25 +20,10 @@ import yaml
 import glob
 from typing import Dict, List, Optional
 
-# Legg til repo-root i sys.path for å importere error_handler
+# Legg til repo-root i sys.path for å importere delte hjelpefunksjonar
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
 from utils.error_handler import log_error
-
-
-def load_yaml(file_path: Path) -> Dict:
-    """Last YAML-fil."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
-
-
-def write_yaml(file_path: Path, data: Dict):
-    """Skriv YAML-fil."""
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(file_path, 'w', encoding='utf-8') as f:
-        # Legg til header-kommentar
-        f.write("# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt\n")
-        f.write("# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar\n\n")
-        yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+from utils.yaml_io import load_yaml, write_yaml
 
 
 def parse_codeowners(schema_path: Path) -> Optional[Dict]:
@@ -385,7 +370,11 @@ def main():
         # Skriv til metadata/<modell>-manifest.yaml
         modell_name = schema_path.stem.replace('-schema', '')  # "dcat-ap-no-schema" → "dcat-ap-no"
         output_path = schema_path.parent / 'metadata' / f'{modell_name}-manifest.yaml'
-        write_yaml(output_path, modelldcat_data)
+        write_yaml(
+            output_path, modelldcat_data,
+            generated_by=Path(__file__).name,
+            note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar",
+        )
 
         print(f"✓ Generert: {output_path}")
     except Exception:

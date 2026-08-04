@@ -267,8 +267,65 @@ skal utførast gradvis:
   Bør overvakast nøye ved neste push til main, evt. testast fyrst med
   `workflow_dispatch` manuelt.
 
-**Ikkje utført enno:** steg 4-11 (B1-B7 Python-funksjonar,
-C1 Makefile-macro, C2 serial/parallel-undersøking, dokumentasjon).
+**Steg B1-B6 utført** (2026-08-04):
+
+Alle 6 dupliserte Python-funksjonar flytta til delte, samanhengande modular
+— kvar funksjon finst no berre éin stad (stadfesta med `grep -rl` mot heile
+`src/assets/scripts/`):
+
+| Funksjon(ar) | Ny plassering | Kallstader oppdatert |
+|---|---|---|
+| B1: `find_released_packages` | `utils/release_helpers.py` | `update-schema-dates.py`, `makefile/run-schema-validation.py` |
+| B2/B6: `get_domain_model`, `get_version` | `utils/schema_meta.py` | `makefile/save-validation-log.py`, `makefile/run-schema-validation.py` |
+| B3: `load_yaml_meta`, `rewrite_refs` | `makefile/api_spec_common.py` (smalt scope, sidan sibling-import) | `makefile/gen-asyncapi.py`, `makefile/gen-openapi.py` |
+| B4/B5: `write_yaml`, `load_yaml` | `utils/yaml_io.py` | `makefile/collect-concepts.py`, `makefile/generate-modellkatalog.py`, `makefile/generate-informasjonsmodell.py`, `makefile/gen-docgen-examples.py`, `makefile/gen-dqv-measurements.py` |
+
+**Designval undervegs:**
+- `get_version(schema_path, fallback="0.0.0")`: fallback parametrisert som
+  spec-en bad om — `save-validation-log.py` sender eksplisitt
+  `fallback="0.0.0-dev"`, `run-schema-validation.py` brukar default. Begge
+  sine opphavlege standardverdiar er bevart, stadfesta med direkte kall mot
+  begge variantane.
+- `load_yaml(path) -> Dict`: brukar den strengaste varianten
+  (`or {}`-fallback mot tom/`None`-fil) frå `gen-dqv-measurements.py`, slik
+  spec-en bad om. Verifisert at ingen av dei 5 kallstadene gjer eksplisitt
+  `is None`-sjekk som ville brote med denne endringa.
+- `write_yaml(file_path, data, generated_by, note="")`: `note` vart lagt
+  til som eit ekstra, valfritt parameter (utover det spec-en eksplisitt
+  nemnde) for å bevare den domenespesifikke andre kommentarlinja kvar av
+  dei 3 originalfilene hadde — unngår å miste informasjon berre for å
+  konsolidere. Stadfesta byte-identisk header-output for alle 3 kallstader.
+- `gen-docgen-examples.py` sin eksisterande `try/except ImportError`-vakt
+  for PyYAML er bevart urørt (importen av `utils.yaml_io` skjer *etter*
+  vakta, ikkje før) — mister ikkje den vennlege feilmeldinga viss PyYAML
+  skulle mangle.
+
+**Verifisert:**
+- `python3 -m py_compile` på alle 14 involverte filer (4 nye + 10 endra)
+- Delt-objekt-identitet stadfesta for alle 6 funksjonar: importerte i fleire
+  filer, viser identisk minneadresse — bevis på faktisk delt kode, ikkje
+  berre identisk tekst
+- Reell CLI-køyring av `gen-openapi.py`/`gen-asyncapi.py` mot generert
+  `samt-bu`-skjema — korrekt output, byte-for-byte samanlikna manuelt
+- Reell køyring av `collect-concepts.py` mot ekte repo-data: output
+  **byte-identisk** med det som alt var committa (stadfesta med
+  `git diff` — tomt)
+- `generate-modellkatalog.py`: **viktig funn under testing** — reell
+  køyring overskreiv 5 committa modellkatalog-datafiler med sterkt
+  reduserte data, fordi mitt lokale arbeidstre berre har
+  `metadata/*-manifest.yaml` generert for eitt domene (`referanse`) denne
+  økta, ikkje alle. Dette er **ikkje** ein regresjon frå refaktoreringa —
+  det er ein konsekvens av at scriptet aggregerer frå eit ufullstendig
+  lokalt datagrunnlag. Endringane vart øyeblikkeleg reverterte
+  (`git checkout --`), og `write_yaml`-bruken vart i staden verifisert
+  trygt/isolert (mot ein midlertidig testfil, ikkje ekte repo-data).
+- `gen-dqv-measurements.py` testa med `--dry-run` (scriptet skriv elles
+  attende til ekte datafiler — unngjekk å røre committa data)
+- `gen-docgen-examples.py` testa mot ein midlertidig output-katalog
+
+**Ikkje utført enno:** steg 8 (C1 Makefile-macro), steg 9 (C2
+serial/parallel-undersøking), steg 10 (testverifisering samla), steg 11
+(dokumentasjon).
 
 ## Relaterte filer
 

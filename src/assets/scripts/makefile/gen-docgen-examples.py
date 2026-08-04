@@ -22,10 +22,8 @@ except ImportError:
     print("PyYAML not available", file=sys.stderr)
     sys.exit(1)
 
-
-def load_yaml(path):
-    with open(path, encoding="utf-8") as f:
-        return yaml.safe_load(f)
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.yaml_io import load_yaml  # noqa: E402
 
 
 def slug_from_obj(obj, index):
