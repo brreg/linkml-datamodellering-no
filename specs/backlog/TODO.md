@@ -109,6 +109,7 @@ tilsvarande dokumentasjon
 
 dokumentere tydelig make targets som er wrappere rundt andre make targets
 
+fylle inde.md for kvart domene med bedre innhold.
 
 
 

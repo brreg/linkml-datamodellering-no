@@ -133,6 +133,7 @@ jobs:
             Makefile
             make/
           retention-days: 1
+          include-hidden-files: true
 
   ensure-images:
     name: "build-image / ${{ matrix.image.name }}"
