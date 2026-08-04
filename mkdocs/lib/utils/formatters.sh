@@ -4,6 +4,7 @@ set -euo pipefail
 
 domain_label() {
     case "$1" in
+        referanse) echo "REF - Referansemodeller" ;;
         ap-no)   echo "AP-NO - Applikasjonsprofiler" ;;
         begrepskatalog) echo "Begrepskatalog - Begrepskatalogmodellar" ;;
         modellkatalog)   echo "Modellkatalog - Informasjonsmodellar" ;;
