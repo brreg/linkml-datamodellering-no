@@ -211,15 +211,28 @@ jobs:
       - name: Valider skjema mot validation_policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: |
-          # Valider alle skjema i dette domenet med validation_policy frå build.yaml
+          # Valider alle skjema i dette domenet med validation_policy frå build.yaml,
+          # parallelt. Kvart run-validation.sh-kall flatar ut og validerer berre sitt
+          # eige skjema (unik mktemp-fil, unik loggsti) — heilt isolert frå andre
+          # skjema sin køyring, så parallellisering av løkka er trygt. Same mønster
+          # som generate.yml sitt tilsvarande steg og mkdocs/publish.sh (Steg 2).
           # Ekskluder begrepssamling-* katalogar (datakatalogar, ikkje skjema)
-          FAILED=0
+          declare -a PIDS=()
+          declare -a MANIFESTS=()
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest"; then
               echo "Validerer skjema frå manifest: $manifest"
-              if ! bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest"; then
-                FAILED=$((FAILED + 1))
-              fi
+              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" &
+              PIDS+=($!)
+              MANIFESTS+=("$manifest")
+            fi
+          done
+
+          FAILED=0
+          for i in "${!PIDS[@]}"; do
+            if ! wait "${PIDS[$i]}"; then
+              echo "::error file=${MANIFESTS[$i]}::Validering feila"
+              FAILED=$((FAILED + 1))
             fi
           done
           exit $FAILED
