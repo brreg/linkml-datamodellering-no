@@ -3,11 +3,12 @@
 ## Bakgrunn
 
 Oppfølging av `specs/backlog/reduser-image-storleik-ghcr.md` (Tier A + B1 er alt utførte og
-gjev −897 MB på dei fire hovudimaga, sjå den specen for detaljar). Denne specen **planlegg**
-dei tre attverande punkta (B2, B3, B4) som vart lista som eiga oppfølging — ho **iverksett dei
-ikkje**. Kvart punkt er verifisert med eit lite, isolert spike-bygg (ikkje permanente
-endringar) for å grunngje planen i verifiserte fakta i staden for antaking, men den faktiske
-Dockerfile-/Makefile-/CI-endringa står att.
+gjev −897 MB på dei fire hovudimaga, sjå den specen for detaljar). Denne specen planla og
+**har no iverksett** dei tre attverande punkta (B2, B3, B4) som vart lista som eiga oppfølging.
+Kvart punkt vart først verifisert med eit lite, isolert spike-bygg (ikkje permanente endringar)
+for å grunngje planen i verifiserte fakta i staden for antaking — sjå kvart punkt sitt
+`## Utført`-avsnitt for den faktiske Dockerfile-/Makefile-/CI-endringa og full
+regresjonsverifisering.
 
 **Prioritert rekkjefølgje (tilrådd):** B3 → B2 → B4, etter forholdet mellom stadfesta gevinst,
 kor mange domene/jobbar som faktisk råkast, og kompleksitet/risiko ved iverksetjing (grunngjeving
@@ -287,7 +288,86 @@ tre, og bør ikkje iverksetjast utan full regresjonstesting (steg 3) fyrst.**
 
 - [x] B3: erstatt `Dockerfile.plantuml` med Temurin-JRE-Alpine-variant, verifiser breiare
       (fleire skjema) enn spiken, oppdater dersom avvik
-- [ ] B2: slå saman dei tre `mcp-linkml-*`-Dockerfile-ane til éin fil med `--target`-stega,
+- [x] B2: slå saman dei tre `mcp-linkml-*`-Dockerfile-ane til éin fil med `--target`-stega,
       oppdater `make/60-mcp.mk`, `release.yml`, `generate.yml` (hashFiles), `images.json`
-- [ ] B4: full regresjonstest av Alpine-migrering (domene-pipeline, roundtrip, byggjetid) —
+- [x] B4: full regresjonstest av Alpine-migrering (domene-pipeline, roundtrip, byggjetid) —
       berre iverksett dersom testane ikkje avdekkjer regresjonar
+
+## Utført (B2 — 2026-08-04)
+
+Iverksett som planlagt: `src/assets/containers/Dockerfile.mcp-linkml` (multi-stage, tre
+namngjevne mål `validator`/`modell-utkast`/`begrep-utkast`) erstattar dei tre separate
+Dockerfile-ane. `src/mcp-linkml-{validator,modell-utkast,begrep-utkast}/requirements.txt` er
+sletta (versjonane står no samla i `base-builder`-stega). `make/60-mcp.mk`, `release.yml`
+(begge `mcp-linkml-modell-utkast`/`mcp-linkml-begrep-utkast`-jobbane, i tillegg til
+`mcp-linkml-validator`-jobben som alt brukte `-f`), `generate.yml` og `validate.yml` sine
+`hashFiles(...)`-oppslag, og `images.json` sitt `mcp-linkml-validator`-oppslag er alle
+oppdaterte til å peike på den nye, delte fila.
+
+**Referansesjekk før sletting av `requirements.txt` (steg 2):** `grep -rn` mot heile repoet
+(ekskl. `generated/`) fann berre referansar til dei gamle filnamna i `specs/done/*` (arkivert,
+unnateke DRY-regelen) og i denne specen sjølv. `trivy.yml` scannar rekursivt (`scan-ref: .`),
+ikkje ei hardkoda fil-liste — sletting av `requirements.txt`-filene påverkar ikkje
+sårbarheitsskanninga.
+
+**Verifisering (steg 7):**
+- Alle tre bygde lokalt via dei oppdaterte `make build-docker-mcp-*`-targeta (`--target
+  validator`/`--target modell-utkast`/`--target begrep-utkast` mot felles Dockerfile).
+- `podman inspect --format '{{range .RootFS.Layers}}...'` stadfesta at dei fem delte laga
+  (`base-builder`- og `base-runtime`-stega) har **identisk digest** på tvers av alle tre
+  sluttbileta — cross-repo blob-mount ved push til GHCR fungerer som planlagt.
+- `make mcp-linkml-validate-smoke`, `make mcp-linkml-modell-utkast-smoke`,
+  `make mcp-linkml-begrep-utkast-smoke` køyrde alle tre utan feil (initialize/tools-list/
+  tool-call-responsane er uendra samanlikna med før konsolideringa).
+
+**Storleik:** alle tre `mcp-linkml-*`-image gjekk frå ~292 MB (`python:3.11-slim`) til
+**222 MB** (`python:3.11-alpine`, kombinert med B4-migreringa under) — **−70 MB per image
+(−24 %)**.
+
+## Utført (B4 — 2026-08-04)
+
+Iverksett for både `Dockerfile.linkml` og `Dockerfile.mcp-linkml` (dei einaste to Dockerfile-ane
+som er omfatta av B4). Base er endra frå `python:3.11-slim` til `python:3.11-alpine` i begge.
+
+**Full regresjonstest (steg 3 i den opphavlege planen):**
+
+1. **Byggjetid** — `--no-cache`-bygg av `Dockerfile.linkml`, målt mot ein mellombels kopi av
+   den førre (committa) `slim`-varianten via `git show HEAD:... > tempfile` (ingen
+   `git stash`/arbeidstre-endring brukt): **alpine 1m 57s vs. slim 2m 7s** — alpine er om lag
+   like raskt å byggje, ikkje tregare, sjølv om `gcc`/`musl-dev`/`libffi-dev`/`g++` må
+   installerast frå apk (ingen Rust-/C-kjeldekompilering trengst — `pydantic-core` m.fl.
+   installerer frå ferdigbygde musllinux-wheel, stadfesta i pip-loggen).
+2. **Full generator-pipeline på alle 9 domene** — `make domain-ap-no`, `domain-begrepskatalog`,
+   `domain-fair`, `domain-fint`, `domain-modellkatalog`, `domain-ngr`, `domain-oreg`,
+   `domain-referanse`, `domain-samt` køyrde alle **utan feil** mot den nye alpine-baserte
+   `linkml-local`-imaget (alle generatorar: `gen-linkml`, `gen-jsonld-context`, `gen-shacl`,
+   `gen-python`, `gen-json-schema`, `gen-owl`, `gen-rdf`, `linkml-convert`, `gen-doc`,
+   `gen-erdiagram`, `gen-proto`, `gen-plantuml`, `gen-xsd`, `gen-openapi`/`gen-asyncapi` der
+   aktuelt, `gen-informasjonsmodell-instance`).
+3. **`make roundtrip`** (alle skjema): **56 OK, 6 feil.** Alle 6 feila **òg** på det uendra,
+   committa `slim`-imaget (verifisert empirisk med same `linkml-convert`-kommando mot ein
+   mellombels `git show HEAD:...`-bygd slim-container — identisk feilmelding, ord for ord) —
+   **ingen regresjon frå alpine-migreringa**:
+   - 4 av dei (`fint-administrasjon`, `fint-okonomi`, `fint-personvern`, `fint-utdanning`)
+     er det dokumenterte [BUG-3](../../bugs/mappingerror-rdflib-roundtrip.md)
+     (`MappingError` i `rdflib_loader` for domene-URI-ar utan eksplisitt `slot_uri`).
+   - 2 av dei (`samt-bu`, `enhetsregisteret-bvrinn`) feiler i `yaml→ttl`-steget med
+     `ValueError: Unknown CURIE prefix: @base` frå `namespaces().uri_for()` — same rotårsak
+     som er skildra for `samt-bu` i `specs/backlog/reduser-image-storleik-ghcr.md` sitt
+     A4-avsnitt (feil i sjølve eksempeldataen/rdflib-namneromoppløysing, urelatert til
+     containerbilete). Merk: `enhetsregisteret-bvrinn` er ikkje lista i BUG-3 sin
+     skjema-tabell i dag, sidan feilen der skjer i eit tidlegare steg (dump, ikkje load) enn
+     det BUG-3 skildrar — ikkje retta som del av denne specen, berre stadfesta pre-eksisterande.
+4. **B2-smoke-testar** (sjå over) køyrde òg mot dei alpine-baserte `mcp-linkml-*`-imaga —
+   ingen skilnad i åtferd.
+
+**Storleik:**
+- `linkml-local`: 294 MB (slim, etter A4-fiksen) → **222 MB** (alpine) — **−72 MB (−24 %)**.
+- `mcp-linkml-*` (alle tre): 292 MB (slim) → **222 MB** (alpine) — **−70 MB per image (−24 %)**.
+
+**Konklusjon:** gevinsten stemmer godt med spikens opphavlege anslag (~25 %, ikkje dei ~63 %
+biletet sin isolerte basisstorleik skulle tilseie — same forklaring som i spiken: mesteparten
+av storleiken kjem frå sjølve Python-pakkane, ikkje distro-laget). Ingen funksjonell regresjon
+funnen i verken domene-pipeline eller roundtrip-testing. Risikoen vurdert som moderat i planen
+er ikkje realisert — musl vs. glibc-skilnaden viste seg ikkje å påverke korkje RDF-serialisering,
+sortering eller nokon av generatorane som vart testa.

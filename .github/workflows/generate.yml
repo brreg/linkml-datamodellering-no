@@ -62,7 +62,7 @@ jobs:
             "asyncapi-cli-minimal": "${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}",
             "plantuml": "${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}",
             "mkdocs-local": "${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}",
-            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}"
+            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}"
           }
           EOF
           echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"

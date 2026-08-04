@@ -17,7 +17,7 @@ MCP_RUN := podman run -i --rm \
 
 build-docker-mcp-validator:
 	$(call print_header,build-docker-mcp-validator)
-	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml-validator -t $(MCP_IMAGE) .
+	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target validator -t $(MCP_IMAGE) .
 
 mcp-linkml-validate-run:
 	$(call print_header,mcp-linkml-validate-run)
@@ -41,7 +41,7 @@ mcp-linkml-validate-test: build-docker-mcp-validator
 
 build-docker-mcp-modell-utkast:
 	$(call print_header,build-docker-mcp-modell-utkast)
-	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml-modell-utkast -t $(LINKML_MOD_IMAGE) .
+	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target modell-utkast -t $(LINKML_MOD_IMAGE) .
 
 mcp-linkml-modell-utkast-run:
 	$(call print_header,mcp-linkml-modell-utkast-run)
@@ -81,7 +81,7 @@ mcp-linkml-modell-utkast:
 
 build-docker-mcp-begrep-utkast:
 	$(call print_header,build-docker-mcp-begrep-utkast)
-	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml-begrep-utkast -t $(LINKML_BEGREP_IMAGE) .
+	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target begrep-utkast -t $(LINKML_BEGREP_IMAGE) .
 
 mcp-linkml-begrep-utkast-run:
 	$(call print_header,mcp-linkml-begrep-utkast-run)

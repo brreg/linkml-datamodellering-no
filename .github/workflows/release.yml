@@ -49,9 +49,9 @@ jobs:
 
       - name: Hent eller bygg mcp-linkml-validator
         run: |
-          HASH_TAG="ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}"
+          HASH_TAG="ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}"
           if ! podman pull "$HASH_TAG" 2>/dev/null; then
-            podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml-validator -t localhost/mcp-linkml-validator:latest .
+            podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target validator -t localhost/mcp-linkml-validator:latest .
             podman tag localhost/mcp-linkml-validator:latest "$HASH_TAG"
             podman push "$HASH_TAG"
           fi
@@ -78,7 +78,8 @@ jobs:
         run: |
           podman build \
             --format docker \
-            -f src/assets/containers/Dockerfile.mcp-linkml-modell-utkast \
+            -f src/assets/containers/Dockerfile.mcp-linkml \
+            --target modell-utkast \
             -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}" \
             .
           podman tag \
@@ -105,7 +106,8 @@ jobs:
         run: |
           podman build \
             --format docker \
-            -f src/assets/containers/Dockerfile.mcp-linkml-begrep-utkast \
+            -f src/assets/containers/Dockerfile.mcp-linkml \
+            --target begrep-utkast \
             -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}" \
             .
           podman tag \

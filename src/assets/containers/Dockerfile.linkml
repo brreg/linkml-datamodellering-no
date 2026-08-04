@@ -1,20 +1,16 @@
-FROM python:3.11-slim AS builder
+FROM python:3.11-alpine AS builder
 
 # Build format: Docker v2 (via --format docker flag in Makefile)
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends build-essential \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev libffi-dev g++
 
 RUN pip install --no-cache-dir --prefix=/install \
     "linkml==1.11.1" \
     rdflib
 
 
-FROM python:3.11-slim
+FROM python:3.11-alpine
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends patch \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache patch
 
 COPY --from=builder /install /usr/local
 
