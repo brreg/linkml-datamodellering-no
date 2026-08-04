@@ -89,12 +89,27 @@ jobs:
             make/
           retention-days: 1
 
-  build-validator:
+  ensure-images:
+    name: "build-image / ${{ matrix.image.name }}"
     needs: [checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        image:
+          - name: mcp-linkml-validator
+            dockerfile: src/assets/containers/Dockerfile.mcp-linkml-validator
+            make_target: build-docker-mcp-validator
+            hash_files: |
+              src/assets/containers/Dockerfile.mcp-linkml-validator
+              src/mcp-linkml-validator/requirements.txt
+          - name: linkml-local
+            dockerfile: src/assets/containers/Dockerfile.linkml
+            make_target: build-docker-linkml
+            hash_files: src/assets/containers/Dockerfile.linkml
+      fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -107,58 +122,33 @@ jobs:
           sudo mv /tmp/crun /usr/bin/crun
           crun --version
 
-      # mcp-linkml-validator
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Sjekk om mcp-linkml-validator finst i GHCR
-        id: ghcr-check-mcp
+      - name: Sjekk om ${{ matrix.image.name }} finst i GHCR
+        id: ghcr-check
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}
-          if podman pull "$IMAGE" 2>/dev/null; then
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
+          if skopeo inspect --format='exists' docker://"$IMAGE" 2>&1; then
             echo "exists=true" >> $GITHUB_OUTPUT
-            podman tag "$IMAGE" mcp-linkml-validator:latest
           else
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Bygg mcp-linkml-validator image
-        if: steps.ghcr-check-mcp.outputs.exists != 'true'
-        run: make build-docker-mcp-validator
+      - name: Bygg ${{ matrix.image.name }} image
+        if: steps.ghcr-check.outputs.exists != 'true'
+        run: make ${{ matrix.image.make_target }}
 
-      - name: Push mcp-linkml-validator til GHCR
-        if: steps.ghcr-check-mcp.outputs.exists != 'true'
+      - name: Push ${{ matrix.image.name }} til GHCR
+        if: steps.ghcr-check.outputs.exists != 'true'
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml-validator', 'src/mcp-linkml-validator/requirements.txt') }}
-          podman tag mcp-linkml-validator "$IMAGE"
-          podman push "$IMAGE"
-
-      # linkml-local
-      - name: Sjekk om linkml-local finst i GHCR
-        id: ghcr-check-linkml
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          if podman pull "$IMAGE" 2>/dev/null; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-            podman tag "$IMAGE" localhost/linkml-local:latest
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Bygg linkml-local image
-        if: steps.ghcr-check-linkml.outputs.exists != 'true'
-        run: make build-docker-linkml
-
-      - name: Push linkml-local til GHCR
-        if: steps.ghcr-check-linkml.outputs.exists != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          podman tag localhost/linkml-local:latest "$IMAGE"
+          IMAGE=ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ hashFiles(matrix.image.hash_files) }}
+          podman tag localhost/${{ matrix.image.name }}:latest "$IMAGE"
           podman push "$IMAGE"
 
   validate:
     name: "validate / ${{ matrix.domain }}"
-    needs: build-validator
+    needs: ensure-images
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-22.04
     permissions:

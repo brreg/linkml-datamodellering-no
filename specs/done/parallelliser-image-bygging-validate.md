@@ -158,12 +158,20 @@ validate:
 
 ## Handlingsliste
 
-- [ ] Endre `build-validator` til `ensure-images` med matrix-strategi
-- [ ] Oppdater `validate`-jobben sin `needs`-avhengighet
-- [ ] Test at begge image byggjer parallelt
-- [ ] Test at `validate`-jobben hentar bileta korrekt
-- [ ] Verifiser at cache-nøkkel matchår mellom `ensure-images` og `validate`
-- [ ] Commit og push endringane
+- [x] Endre `build-validator` til `ensure-images` med matrix-strategi
+- [x] Oppdater `validate`-jobben sin `needs`-avhengighet
+- [ ] Test at begge image byggjer parallelt (verifiserast ved neste CI-køyring)
+- [ ] Test at `validate`-jobben hentar bileta korrekt (verifiserast ved neste CI-køyring)
+- [x] Verifiser at cache-nøkkel matchår mellom `ensure-images` og `validate`
+- [ ] Commit og push endringane (brukar utfører sjølv)
+
+## Utført
+
+- `.github/workflows/validate.yml`: `build-validator`-jobben er erstatta med `ensure-images`, som brukar `strategy.matrix` for å byggje `mcp-linkml-validator` og `linkml-local` parallelt (same mønster som `ensure-images` i `generate.yml`)
+- GHCR-eksistenssjekk brukar no `skopeo inspect --format='exists'` i staden for `podman pull`
+- `validate`-jobben sin `needs` peikar no til `ensure-images`
+- Image-henting i `validate`-jobben (`Hent mcp-linkml-validator/linkml-local frå GHCR`) er uendra — `hashFiles()`-nøklane der matchar `matrix.image.hash_files` i `ensure-images`
+- Verifisert med `python3 -c "import yaml; yaml.safe_load(...)"` at workflow-fila er gyldig YAML
 
 ## Relaterte filer
 
