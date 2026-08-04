@@ -189,7 +189,7 @@ gen-modelldcat-elements: ## Generer ModelDCAT-AP-NO-modellelement [ORG=<alias>] 
 # Per-model generator configuration — regenerated when any build.yaml changes.
 # ---------------------------------------------------------------------------
 config.mk: $(shell find src/linkml -name 'build.yaml')
-	bash src/assets/scripts/makefile/gen-config.sh > config.mk
+	@bash src/assets/scripts/makefile/gen-config.sh > config.mk
 
 gen-config: config.mk
 
