@@ -432,9 +432,7 @@ printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)\n" \
 log_step "Steg 3: Generer index.md frå README.md"
 t3=$(date +%s%3N)
 
-sed \
-  -e '/Sjå.*CLAUDE\.md.*COMMANDS\.md/d' \
-  "$REPO_ROOT/README.md" > "$DOCS/index.md"
+cp "$REPO_ROOT/README.md" "$DOCS/index.md"
 
 # Legg til footer med byggetidspunkt
 cat >> "$DOCS/index.md" <<EOF

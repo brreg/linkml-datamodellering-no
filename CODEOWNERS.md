@@ -8,6 +8,7 @@ organizations:
     contact_uri: https://brreg.no/kontakt/modellforvaltning
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
+      - src/linkml/referanse/**
       - src/linkml/ngr/ngr-virksomhet/**
       - src/linkml/oreg/**
 

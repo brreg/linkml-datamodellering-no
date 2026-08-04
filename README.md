@@ -138,7 +138,7 @@ Nye begrepssamlingar under `src/linkml/<domain>/<begrepssamling>/` vert oppdaga 
 
 For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).
 
-Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.md) for alle tilgjengelege kommandoar.
+Sjå [CLAUDE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md) for alle tilgjengelege kommandoar.
 
 ### Bruk frå eksternt repo
 
