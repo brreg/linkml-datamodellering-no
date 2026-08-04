@@ -7,12 +7,18 @@
 # ---------------------------------------------------------------------------
 # Generisk parallell generator-makro med timer
 # ---------------------------------------------------------------------------
-# $1=schemas  $2=generator-namn (for logging)  $3=serial-fallback-makro  $4=parallel-kommando
+# $1=schemas  $2=generator-namn (for logging)  $3=parallel-kommando
+#
+# Køyrer alltid via xargs -P $(PARALLEL) — også når PARALLEL=1 (då køyrer
+# xargs éin job om gongen, funksjonelt identisk med ein serialisert løkke).
+# Hadde tidlegare ei eiga "PARALLEL=1 → køyr serial-fallback-makro direkte"-
+# grein, men den var reelt øydelagd: serial-makroane sin eigen leiande "@"
+# hamna midt i ei bash-linje når han vart substituert inn i denne makroen
+# sitt if/else, og feila med "bash: @: command not found" for kvart einaste
+# steg. Stadfesta empirisk (før/etter, med make -n og reelle domain-byggjer)
+# at xargs -P 1 gir identisk, korrekt output — sjå specs/done/dry-opprydding.md.
 define run_parallel_with_timer
-@if [ "$(PARALLEL)" = "1" ]; then \
-	$(call $(3),$(1)) \
-else \
-	printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
+@printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 		set -euo pipefail; \
 		eval "$$LOG_FUNCTIONS"; \
 		s="{}"; \
@@ -22,7 +28,7 @@ else \
 		outdir=$(GEN_DIR)/$$domain/$$name; \
 		log_debug "[$$domain/$$name] Startar $(2): $$s"; \
 		t0=$$(date +%s%3N); \
-		$(4); \
+		$(3); \
 		rc=$$?; \
 		t1=$$(date +%s%3N); \
 		elapsed_ms=$$((t1 - t0)); \
@@ -30,8 +36,7 @@ else \
 			"$$domain" "$$name" \
 			$$((elapsed_ms / 1000)) \
 			$$((elapsed_ms % 1000 / 100)))"; \
-		exit $$rc'; \
-fi
+		exit $$rc'
 endef
 
 # ---------------------------------------------------------------------------
@@ -72,7 +77,10 @@ printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
 endef
 
 # ---------------------------------------------------------------------------
-# Serial generator-makro (fallback for run_gen når PARALLEL=1)
+# Serial generator-makro — brukt av dei frittståande gen-*-targeta i
+# make/11-generator-targets.mk (t.d. make gen-jsonld-context SCHEMA=...),
+# ikkje som PARALLEL=1-fallback (den mekanismen er fjerna, sjå
+# run_parallel_with_timer over)
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator  $3=output-file suffix
 define run_gen
@@ -86,24 +94,17 @@ endef
 # Parallell versjon av run_gen med timer
 # $1=schemas  $2=generator  $3=output-file suffix
 define run_gen_parallel
-$(call run_parallel_with_timer,$(1),$(2),run_gen,mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
+$(call run_parallel_with_timer,$(1),$(2),mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
 endef
 
 # ---------------------------------------------------------------------------
 # LinkML merge-imports (gen-linkml)
 # ---------------------------------------------------------------------------
-# Serial fallback
-define run_gen_linkml_serial
-@$(foreach s,$(1), \
-	eval "$$LOG_FUNCTIONS"; \
-	log_info "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)"; \
-	log_debug "Kommando: $(LINKML_RUN) gen-linkml $(s)"; \
-	$(LINKML_RUN) gen-linkml $(s) > /dev/null;)
-endef
-
-# Parallell versjon
+# Ingen frittståande gen-linkml-target finst (merge-imports er berre eit
+# steg i domain_target-pipelinen), difor finst det heller ingen serial
+# variant å halde ved like — berre denne, brukt via run_parallel_with_timer.
 define run_gen_linkml_parallel
-$(call run_parallel_with_timer,$(1),merge-imports,run_gen_linkml_serial,$(LINKML_RUN) gen-linkml "$$s" > /dev/null)
+$(call run_parallel_with_timer,$(1),merge-imports,$(LINKML_RUN) gen-linkml "$$s" > /dev/null)
 endef
 
 # ---------------------------------------------------------------------------
@@ -133,7 +134,7 @@ endef
 # Parallell versjon av gen-owl
 # Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
-$(call run_parallel_with_timer,$(1),gen-owl,run_gen_owl,mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
+$(call run_parallel_with_timer,$(1),gen-owl,mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
 endef
 
 # ---------------------------------------------------------------------------
@@ -151,7 +152,7 @@ endef
 
 # Parallell versjon av gen-rdf
 define run_gen_rdf_parallel
-$(call run_parallel_with_timer,$(1),gen-rdf,run_gen_rdf,mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
+$(call run_parallel_with_timer,$(1),gen-rdf,mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
 endef
 
 # ---------------------------------------------------------------------------
@@ -184,7 +185,7 @@ endef
 
 # Parallell versjon av gen-doc
 define run_gen_doc_parallel
-$(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,run_gen_doc,\
+$(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,\
 mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
 run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 	"$$s" \
@@ -219,7 +220,7 @@ endef
 
 # Parallell versjon av gen-erdiagram
 define run_gen_erdiagram_parallel
-$(call run_parallel_with_timer,$(1),gen-erdiagram,run_gen_erdiagram,\
+$(call run_parallel_with_timer,$(1),gen-erdiagram,\
 mkdir -p "$$outdir" && \
 $(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 	| awk -f src/assets/scripts/makefile/filter_container.awk \
@@ -259,7 +260,7 @@ endef
 
 # Parallell versjon av gen-plantuml
 define run_gen_plantuml_parallel
-$(call run_parallel_with_timer,$(1),gen-plantuml,run_gen_plantuml,\
+$(call run_parallel_with_timer,$(1),gen-plantuml,\
 mkdir -p "$$outdir/diagrams" && \
 $(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \

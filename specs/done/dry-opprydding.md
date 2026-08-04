@@ -323,9 +323,118 @@ Alle 6 dupliserte Python-funksjonar flytta til delte, samanhengande modular
   attende til ekte datafiler — unngjekk å røre committa data)
 - `gen-docgen-examples.py` testa mot ein midlertidig output-katalog
 
-**Ikkje utført enno:** steg 8 (C1 Makefile-macro), steg 9 (C2
-serial/parallel-undersøking), steg 10 (testverifisering samla), steg 11
-(dokumentasjon).
+**Steg C1-C2 utført** (2026-08-04):
+
+- **C1 — `make/80-images.mk`:** Forsøkte fyrst full `$(eval $(call ...))`-
+  macro-isering (same mønster som `domain_target`), men støytte på to
+  problem som gjorde det opphavlege designet feil, begge stadfesta
+  empirisk med `make -n` før dei vart retta:
+  1. `$(GOURCE_DOCKERFILE)`/`$(GOURCE_IMAGE)` (definerte i
+     `make/90-tools.mk`, inkludert *etter* `80-images.mk`) vart expandert
+     til tomt fordi call-argument vert evaluert eagerly ved parse-tid —
+     løyst ved å escape call-argumenta (`$$(...)`), som utset oppslaget
+     til køyretid.
+  2. Sjølv med (1) retta, viste det seg at `make help` sitt
+     hjelpetekst-oppslag grep'ar KJELDEFILA på disk — `$(eval ...)`-
+     generert target-tekst finst berre i Make sin minnetilstand, aldri
+     på disk, og vart difor usynleg i `make help`. Sidan spec-en
+     eksplisitt kravde at `make help` skal halde fram å fungere, vart
+     designet lagt om: kvar target står att som literal, grep-bar tekst
+     (namn + `##`-beskriving), medan sjølve den repeterte `podman build`-
+     oppskrifta er delt via ein liten `docker_build`-makro brukt frå kvart
+     target sin recipe. Reduserer duplikasjonen frå 6×3 linjer til 6×2 +
+     éin delt makro, utan å ofre `make help`-discoverability.
+  - La i tillegg til den manglande `PLANTUML_DOCKERFILE`-variabelen i
+    `make/00-settings.mk` (fanst berre `PLANTUML_IMAGE` frå før) for
+    konsistens med alle andre image-variablar.
+  - Verifisert: alle 6 `make -n build-docker-<x>` gir identisk kommando
+    som før endringa (inkl. den opphavlege, uendra "."-inkonsistensen per
+    image), `make help` listar alle 6 med korrekt beskriving, og ein reell
+    `make build-docker-plantuml` fullførte utan feil.
+
+- **C2 — serial/parallel-undersøking:** Testen avdekte noko meir alvorleg
+  enn spec-en la opp til: `run_parallel_with_timer` sin
+  `PARALLEL=1`-fallback (som kalla serial-makroen direkte via
+  `$(call $(3),$(1))`) var **reelt øydelagd** — serial-makroane sin eigen
+  leiande `@` (t.d. `run_gen_linkml_serial` sin `@$(foreach ...)`) hamna
+  midt i ei bash-linje når han vart substituert inn i
+  `if ...; then $(call $(3),$(1)) ...`-blokka, og feila umiddelbart med
+  `bash: @: command not found`. Stadfesta med `make domain-referanse
+  PARALLEL=1` (feila før endringa) — ein bug som truleg aldri vart
+  oppdaga sidan `PARALLEL` sin standardverdi er 16, ikkje 1.
+  - **Fiks:** fjerna `if [ "$(PARALLEL)" = "1" ]; then ... else ... fi`-
+    grena heilt frå `run_parallel_with_timer` — han bruker no alltid
+    `xargs -P $(PARALLEL)` (der `PARALLEL=1` berre gjev éin jobb om
+    gongen, funksjonelt identisk med den tiltenkte serielle åtferda).
+    Fjerna det no ubrukte 3. arg (serial-makro-namn) frå alle 7 kallstader.
+  - **Viktig presisering oppdaga undervegs:** dei "serielle" makroane
+    (`run_gen`, `run_gen_owl`, `run_gen_rdf`, `run_gen_doc`,
+    `run_gen_erdiagram`, `run_gen_plantuml`, `run_gen_openapi`,
+    `run_gen_asyncapi`) er **ikkje** reindyrka PARALLEL=1-fallbacks — dei
+    vert også brukt direkte av dei frittståande `make gen-doc`/`make
+    gen-openapi`/osv-targeta i `make/11-generator-targets.mk` (ein annan,
+    legitim bruksmåte: eitt skjema/domene om gongen, utanfor
+    domain-byggjepipelinen). Desse makroane er difor **ikkje** fjerna —
+    berre den øydelagde PARALLEL=1-kopling-mekanismen i
+    `run_parallel_with_timer` er fjerna. Oppdaterte dei no misvisande
+    "(fallback ... PARALLEL=1)"-kommentarane til å forklare dette presist.
+  - **`run_gen_linkml_serial` var derimot 100 % daud kode** (ingen
+    frittståande `gen-linkml`-target finst) — fjerna heilt.
+  - **Ikkje utført/utanfor omfang:** `domain_target` har sin eigen,
+    tredje kopi av openapi/asyncapi-logikken hand-duplisert direkte inn i
+    `PARALLEL=1`-grenene (linje 73-118 i `make/20-domain-targets.mk`,
+    IKKJE via `run_gen_openapi`/`run_gen_asyncapi`). Denne fungerer
+    korrekt i dag (ingen bug), men er ei ekstra, urelatert duplisering
+    utover det opphavlege "eitt par"-scopet spec-en peika på — flagga som
+    funn, ikkje fiksa, for å halde denne økta sitt endringsomfang
+    handterleg.
+  - Verifisert: to fulle `make domain-<x> PARALLEL=1`-køyringar
+    (referanse, samt — sistnemnde med xsd+openapi+asyncapi) fullførte
+    korrekt (var *totalt* øydelagt før), pluss ei full
+    `make domain-samt`-køyring med standard `PARALLEL=16` for å stadfeste
+    ingen regresjon i normalsporet. Alle 7 råka makro-par eksercert.
+
+## Framdrift — status
+
+Alle steg A, B og C (A1-A3, B1-B6, C1-C2) er no fullførte og verifiserte.
+Attståande: steg 10 (samla testverifisering — dekt løpande per steg over,
+ikkje eit eige gjenstående arbeid) og steg 11 (dokumentasjon: flytt denne
+spec-en til `specs/done/` og legg til kryssreferanse i `CLAUDE.md`).
+
+## Utført
+
+Alle 11 steg fullførte. Oppsummert per kategori (sjå "Framdrift" over for
+fullstendige detaljar og verifikasjon per steg):
+
+- **A (hardkoda lister → dynamiske):** domeneliste utleia frå
+  `make print-domains` i staden for 4 hardkoda kopiar; image-metadata
+  samla i `src/assets/containers/images.json`; `tests/test_make.sh` sitt
+  `ap-no`/`fair`-vilkår konsolidert til éin funksjon
+- **B (dupliserte Python-funksjonar):** 6 funksjonar flytta til delte,
+  samanhengande modular (`utils/release_helpers.py`, `utils/schema_meta.py`,
+  `makefile/api_spec_common.py`, `utils/yaml_io.py`)
+- **C (Makefile-strukturell duplikasjon):** `make/80-images.mk` sine 6
+  build-target deler no ein `docker_build`-makro; det viktigaste funnet var
+  likevel at `run_parallel_with_timer` sin `PARALLEL=1`-fallback var reelt
+  øydelagd — fiksa, med `run_gen_linkml_serial` fjerna som daud kode
+
+**Ekstra funn undervegs** (utover den opphavlege planen):
+- Ein `avro`→`xsd`-feilnamngjeving i `generate.yml` sitt `detect-images`-steg
+  gjorde at `avrotize-local` aldri vart lagt til CI sin image-liste for noko
+  domene — retta som del av A2
+- `domain_target` sin tredje, hand-duplikerte kopi av openapi/asyncapi-logikk
+  (`make/20-domain-targets.mk` linje 73-118) — identifisert, ikkje fiksa
+  (utanfor økta sitt handterlege omfang, fungerer korrekt i dag)
+- `validate.yml` har ei mindre, analog image-metadata-duplisering til A2 sitt
+  `generate.yml`-funn — krev ein delt composite action for full løysing sidan
+  workflow-filer ikkje deler `needs`-output; ikkje gjort
+
+Alt verifisert lokalt gjennom heile arbeidet: reelle domenebyggjer
+(`make domain-referanse`, `make domain-samt`) under både `PARALLEL=1` og
+standard `PARALLEL=16`, `py_compile` på alle nye/endra Python-filer,
+delt-objekt-identitet stadfesta for konsoliderte funksjonar, YAML-syntaks og
+jobb-avhengigheiter kontrollert programmatisk for CI-workflows, og
+funksjonstestar av kvar enkelt fiks mot både gyldig og korrupt/manglande input.
 
 ## Relaterte filer
 

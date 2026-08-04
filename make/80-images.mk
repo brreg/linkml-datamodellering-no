@@ -8,28 +8,45 @@
 # - build-docker-asyncapi: AsyncAPI CLI-container (validering av AsyncAPI-spec)
 # - build-docker-plantuml: PlantUML-container (generering av diagram)
 # - build-docker-gource: Gource-container (git-historikk-visualisering)
+#
+# Targeta er skrivne ut kvar for seg (ikkje generert via $(eval $(call ...)),
+# slik domain_target i make/20-domain-targets.mk gjer) fordi `make help`
+# oppdagar ##-hjelpetekst ved å grep'e KJELDEFILA på disk (sjå help-targetet
+# i Makefile) — target/kommentar-linjer generert av $(eval ...) finst berre
+# i Make sin minnetilstand, aldri på disk, og ville difor vorte usynlege i
+# `make help`. Sjølve podman build-oppskrifta (den delen som faktisk var
+# duplisert) er derimot delt via docker_build-makroen.
 # ==============================================================================
+
+# ---------------------------------------------------------------------------
+# docker_build — delt oppskrift for "podman build -f <dockerfile> -t <tag> <kontekst>"
+# ---------------------------------------------------------------------------
+# $1 = Dockerfile-sti  $2 = image-tag  $3 = build-kontekst (t.d. "." eller tomt)
+# ---------------------------------------------------------------------------
+define docker_build
+@podman build --format docker -f $(1) -t $(2) $(3)
+endef
 
 build-docker-linkml: ## Bygg LinkML container-image
 	$(call print_header,build-docker-linkml)
-	@podman build --format docker -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE) .
+	$(call docker_build,$(LINKML_DOCKERFILE),$(LINKML_IMAGE),.)
 
 build-docker-python: ## Bygg Python container-image
 	$(call print_header,build-docker-python)
-	@podman build --format docker -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
+	$(call docker_build,$(PYTHON_DOCKERFILE),$(PYTHON_IMAGE),)
 
 build-docker-avrotize: ## Bygg Avrotize container-image
 	$(call print_header,build-docker-avrotize)
-	@podman build --format docker -f $(AVROTIZE_DOCKERFILE) -t $(AVROTIZE_IMAGE)
+	$(call docker_build,$(AVROTIZE_DOCKERFILE),$(AVROTIZE_IMAGE),)
 
 build-docker-asyncapi: ## Bygg AsyncAPI CLI container-image
 	$(call print_header,build-docker-asyncapi)
-	@podman build --format docker -f $(ASYNCAPI_DOCKERFILE) -t $(ASYNCAPI_IMAGE) .
+	$(call docker_build,$(ASYNCAPI_DOCKERFILE),$(ASYNCAPI_IMAGE),.)
 
 build-docker-plantuml: ## Bygg PlantUML container-image
 	$(call print_header,build-docker-plantuml)
-	@podman build --format docker -f src/assets/containers/Dockerfile.plantuml -t localhost/plantuml:latest .
+	$(call docker_build,$(PLANTUML_DOCKERFILE),$(PLANTUML_IMAGE),.)
 
 build-docker-gource: ## Bygg Gource container-image
 	$(call print_header,build-docker-gource)
-	@podman build --format docker -f $(GOURCE_DOCKERFILE) -t $(GOURCE_IMAGE)
+	$(call docker_build,$(GOURCE_DOCKERFILE),$(GOURCE_IMAGE),)

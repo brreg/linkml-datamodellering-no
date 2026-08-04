@@ -23,6 +23,7 @@ DOCS_IMAGE         := localhost/mkdocs-local:latest
 DOCS_DOCKERFILE    := src/assets/containers/Dockerfile.mkdocs
 
 PLANTUML_IMAGE     := localhost/plantuml:latest
+PLANTUML_DOCKERFILE := src/assets/containers/Dockerfile.plantuml
 
 PYTHON_IMAGE       := localhost/python-pytest:latest
 PYTHON_DOCKERFILE  := src/assets/containers/Dockerfile.python
