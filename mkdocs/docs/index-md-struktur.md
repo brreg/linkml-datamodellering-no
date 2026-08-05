@@ -195,9 +195,22 @@ For å endre innhaldet i ein modell sin `index.md`:
 
 **Viktig:** `index.md` skal **aldri redigerast manuelt** — alle endringar vert overskrivne neste gong `make docs-publish` køyrer.
 
+## Domene-index (`index.md` per domene)
+
+Kvart domene (t.d. `mkdocs/docs/fint/index.md`, vist som "FINT - Fylkeskommunale integrasjonar" i navigasjonsmenyen) har òg sin eigen `index.md`, éitt nivå over skjema-`index.md`-ane skildra ovanfor. Denne fila vert generert direkte i `mkdocs/publish.sh` (domene-løkka etter parallell-jobben, ikkje via `generate_schema_index()`), og inneheld:
+
+1. **Hovudoverskrift** — `# <domain_label>`, frå `domain_label()` i `lib/utils/formatters.sh`
+2. **Domene-skildring** (valfri) — innhaldet i `src/linkml/<domain>/description.md`, rendra av `generate_domain_description()` i `lib/sections/domene_beskrivelse.sh`
+3. **Modell-tabell** — éin rad per skjema i domenet, med lenkje til skjemaet sin `index.md` og ei liste over tilgjengelege artefaktar (og publiseringsstatus, dersom domenet har publiserte skjema)
+
+`domene_beskrivelse.sh` ligg i `lib/sections/` saman med dei skjema-nivå-seksjonane, og vert difor sourca automatisk av same glob-løkke i `generate_index.sh` — men funksjonen `generate_domain_description()` vert kalla frå domene-løkka i `publish.sh`, ikkje frå `generate_schema_index()`.
+
+**Oppdatere domene-skildringa:** rediger `src/linkml/<domain>/description.md` (opprett fila dersom ho manglar — domenet vil då berre visa tittel + tabell, som før).
+
 ## Sannkjelde-hierarki
 
 ```
+src/linkml/<domain>/description.md                 ← SANNKJELDE for domene-skildring (valfri)
 src/linkml/<domain>/<schema>/<schema>-schema.yaml   ← SANNKJELDE for metadata, klasser, slots
 src/linkml/<domain>/<schema>/build.yaml          ← SANNKJELDE for generators + validation_policy
 src/linkml/<domain>/<schema>/description.md         ← SANNKJELDE for introduksjonstekst
@@ -214,7 +227,7 @@ mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, i
 - **`mkdocs/publish.sh`** — hovudscript (orkestrering av steg 1-4)
 - **`mkdocs/lib/copy_artifacts.sh`** — kopier genererte artefakter til `mkdocs/docs/`
 - **`mkdocs/lib/generate_index.sh`** — orkestrer generering av `index.md` per skjema
-- **`mkdocs/lib/sections/*.sh`** — 15 modular som genererer kvar sin seksjon i `index.md`
+- **`mkdocs/lib/sections/*.sh`** — modular som genererer kvar sin seksjon i skjema-`index.md` (via `generate_index.sh`) eller domene-`index.md` (`domene_beskrivelse.sh`, kalla direkte frå `publish.sh`)
 - **`mkdocs/lib/utils/formatters.sh`** — hjelpefunksjonar for formatering (`artifact_label`, `domain_label`)
 - **`mkdocs/lib/utils/metadata_parsers.sh`** — hjelpefunksjonar for parsing av manifest, versjon, validering
 - **`mkdocs/lib/scripts/parse-dependency-tree.py`** — byggjer avhengigheitstre

@@ -388,6 +388,7 @@ for domain in "${ALL_DOMAINS[@]}"; do
     {
         echo "# $(domain_label "$domain")"
         echo ""
+        generate_domain_description "$domain"
         if $domain_has_published; then
             echo "| Modell | Tilgjengelege artefakter | Publisert til |"
             echo "|--------|--------------------------|---------------|"
