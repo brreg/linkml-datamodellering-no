@@ -72,7 +72,7 @@ domain-$(1): $$(_domain_pre_$(1))
 	$$(call run_gen_xsd,$$(_schemas_$(1)))
 	$$(call run_gen_openapi_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1)))
-	$$(call run_gen_informasjonsmodell_instance,$$(_schemas_$(1)))
+	$$(call run_gen_informasjonsmodell_instance_parallel,$$(_schemas_$(1)))
 endef
 
 # Generer domain-targets for alle domene

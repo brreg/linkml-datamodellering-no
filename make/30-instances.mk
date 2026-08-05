@@ -33,6 +33,15 @@ for schema in $(1); do \
 done
 endef
 
+# Parallell versjon av run_gen_informasjonsmodell_instance — brukt av
+# domain_target (make/20-domain-targets.mk). Trygt å parallellisere sidan
+# kvart skjema skriv til sin eigen metadata/<modell>-manifest.yaml, og
+# ingen build.yaml-generatorflagg gatar dette steget i dag.
+define run_gen_informasjonsmodell_instance_parallel
+@GEN_CMD='run_logged "gen-informasjonsmodell-instance $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$s"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-informasjonsmodell-instance -- $(1)
+endef
+
 # ---------------------------------------------------------------------------
 # Generering av instansdata
 # ---------------------------------------------------------------------------
