@@ -91,10 +91,16 @@ define run_gen
 	mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
-# Parallell versjon av run_gen med timer
-# $1=schemas  $2=generator  $3=output-file suffix
+# Parallell versjon av run_gen med timer — gata mot build.yaml sitt
+# generators:-flagg (same mønster som run_gen_plantuml_parallel)
+# $1=schemas  $2=generator  $3=output-file suffix  $4=build.yaml generator-flagg
 define run_gen_parallel
-$(call run_parallel_with_timer,$(1),$(2),mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
+$(call run_parallel_with_timer,$(1),$(2),\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  $(4): true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over $(2) ($(4): true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
+mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
 endef
 
 # ---------------------------------------------------------------------------
@@ -131,10 +137,15 @@ define run_gen_owl
 	mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(if $(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_FLAGS_$(call schema_key,$(s))),$(OWL_DEFAULT_FLAGS)) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
 endef
 
-# Parallell versjon av gen-owl
+# Parallell versjon av gen-owl — gata mot build.yaml (owl: true)
 # Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
-$(call run_parallel_with_timer,$(1),gen-owl,mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
+$(call run_parallel_with_timer,$(1),gen-owl,\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  owl: true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over gen-owl (owl: true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
+mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
 endef
 
 # ---------------------------------------------------------------------------
@@ -150,9 +161,14 @@ define run_gen_rdf
 		mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl;))
 endef
 
-# Parallell versjon av gen-rdf
+# Parallell versjon av gen-rdf — gata mot build.yaml (rdf: true)
 define run_gen_rdf_parallel
-$(call run_parallel_with_timer,$(1),gen-rdf,mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
+$(call run_parallel_with_timer,$(1),gen-rdf,\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  rdf: true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over gen-rdf (rdf: true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
+mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
 endef
 
 # ---------------------------------------------------------------------------
@@ -183,9 +199,13 @@ define run_gen_doc
 )
 endef
 
-# Parallell versjon av gen-doc
+# Parallell versjon av gen-doc — gata mot build.yaml (docs: true)
 define run_gen_doc_parallel
 $(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  docs: true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over gen-doc (docs: true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
 mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
 run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 	"$$s" \
@@ -218,9 +238,13 @@ define run_gen_erdiagram
   )
 endef
 
-# Parallell versjon av gen-erdiagram
+# Parallell versjon av gen-erdiagram — gata mot build.yaml (erdiagram: true)
 define run_gen_erdiagram_parallel
 $(call run_parallel_with_timer,$(1),gen-erdiagram,\
+if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  erdiagram: true" "$$(dirname "$$s")/build.yaml"; then \
+	log_debug "[$$domain/$$name] Hoppar over gen-erdiagram (erdiagram: true ikkje sett i build.yaml)"; \
+	exit 0; \
+fi; \
 mkdir -p "$$outdir" && \
 $(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 	| awk -f src/assets/scripts/makefile/filter_container.awk \
