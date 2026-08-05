@@ -188,14 +188,24 @@ def generate_mkdocs_url(schema_path: Path) -> str:
 
 def get_github_raw_base_url() -> str:
     """
-    Hent GitHub raw base-URL frå .git/config.
+    Hent GitHub raw base-URL.
 
-    Les remote-URL-en direkte frå config-fila i staden for å shelle ut til
-    git-binæren, sidan denne funksjonen køyrer i ein minimal Python-container
-    utan git installert (repoet, inkl. .git/, er alltid mounta).
-
-    Fallback: brreg/linkml-datamodellering-no
+    Prioritet:
+    1. GITHUB_REPOSITORY-miljøvariabelen (sett automatisk av GitHub Actions
+       i alle jobb-shell, format "owner/repo") — krev ikkje .git/ i det
+       heile. generate-workflowen sin generate-jobb lastar kjeldekoda som
+       eit artifact (sjå checkout-source i generate.yml) utan .git/, sjølv
+       om .git/ alltid er mounta ved lokal `make`-bruk.
+    2. .git/config (lokal utvikling — les direkte frå config-fila i staden
+       for å shelle ut til git-binæren, sidan denne funksjonen køyrer i ein
+       minimal Python-container utan git installert)
+    3. Hardkoda fallback: brreg/linkml-datamodellering-no
     """
+    github_repository = os.environ.get("GITHUB_REPOSITORY", "")
+    if "/" in github_repository:
+        owner, repo = github_repository.split("/", 1)
+        return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
+
     git_config_path = Path.cwd() / ".git" / "config"
 
     try:

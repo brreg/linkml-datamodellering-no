@@ -26,8 +26,15 @@ ASYNCAPI_RUN := podman run --rm $(WORK_MOUNT) \
 	$(ASYNCAPI_IMAGE)
 
 # Python container
+# -e GITHUB_REPOSITORY: vidarefører GitHub Actions sin automatisk sette
+# owner/repo-variabel inn i containeren (t.d. brukt av
+# generate-informasjonsmodell.py for å slå opp raw-URL utan .git/, som
+# generate-jobben i generate.yml aldri har — sjå
+# specs/done/fiks-git-remote-url-ci-varsel.md). Trygt no-op lokalt der
+# variabelen ikkje er sett.
 PYTHON_RUN := podman run --rm $(WORK_MOUNT) \
 	-e PYTHONWARNINGS=ignore \
+	-e GITHUB_REPOSITORY \
 	$(PYTHON_IMAGE)
 
 # MkDocs container (spesiell mount-konfigurasjon)
