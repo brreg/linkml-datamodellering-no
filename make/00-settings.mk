@@ -98,7 +98,12 @@ run_logged() {
     [ -n "$$output" ] && log_error "$$output"
     return $$rc
   fi
-  log_debug "$$output"
+  # linkml sine gen-*-CLI-kommandoar skriv stundom bokstaveleg "None" til
+  # stdout ved suksess (CLI-en sin returverdi frå serialize()) — filtrer
+  # vekk denne kjende støykjelda, og hopp over tom output, frå debug-logginga
+  if [ -n "$$output" ] && [ "$$output" != "None" ]; then
+    log_debug "$$output"
+  fi
   return 0
 }
 endef

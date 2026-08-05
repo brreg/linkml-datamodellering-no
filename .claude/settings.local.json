@@ -378,7 +378,10 @@
       "Bash(cp __TRACKED_VAR__/dcat-ap-no-filtered.svg /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/285b32b7-d5f7-4d63-96ee-082cc76a5170/scratchpad/dcat-filtered-new.svg)",
       "Bash(echo \"EXIT:$?\")",
       "Bash(echo \"none found: $?\")",
-      "Bash(echo \"exit $?\")"
+      "Bash(echo \"exit $?\")",
+      "Bash(cd *)",
+      "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-fail)",
+      "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-ok)"
     ]
   },
   "enableAllProjectMcpServers": true,
