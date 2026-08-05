@@ -63,10 +63,16 @@ if [ -n "$MANIFEST" ]; then
   fi
 
   # Finn schema-sti frå manifest (same katalog som build.yaml)
+  # Bruk namnekonvensjonen (<modell>-schema.yaml = katalognamnet, sjå
+  # CONVENTIONS.md) i staden for `find | head -n1` — katalogar med fleire
+  # *-schema.yaml-filer (t.d. modelldcat-ap-no, dqv-ap-no) ga elles eit
+  # vilkårleg val som ikkje samsvarte med kva generate.yml sitt kopisteg
+  # forventar.
   schema_dir=$(dirname "$MANIFEST")
-  SCHEMA=$(find "$schema_dir" -maxdepth 1 -name "*-schema.yaml" | head -n1)
+  schema_name=$(basename "$schema_dir")
+  SCHEMA="$schema_dir/${schema_name}-schema.yaml"
 
-  if [ -z "$SCHEMA" ]; then
+  if [ ! -f "$SCHEMA" ]; then
     echo "Feil: Fann ingen *-schema.yaml i $schema_dir" >&2
     exit 1
   fi
