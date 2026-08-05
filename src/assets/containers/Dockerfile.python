@@ -1,4 +1,4 @@
-FROM python:3.13-alpine
+FROM python:3.14-alpine
 
 # Build format: Docker v2 (via --format docker flag in Makefile)
 # unngå cache / litt betre runtime
