@@ -143,11 +143,84 @@ inne i `GEN_CMD`. Avgjer under implementering — hald grensesnittet minimalt.
 
 ## Handlingsliste
 
-- [ ] Skriv `run-parallel-gen.sh` med argument-parsing, filter, deloverskrift, skip-logg, xargs-løkke
-- [ ] Pilot: migrer `run_gen_owl_parallel`, verifiser dry-run + reell test
-- [ ] Migrer resterande 6 `run_parallel_with_timer`-kallarar
-- [ ] Migrer `run_gen_openapi_parallel`/`run_gen_asyncapi_parallel` (embedda kallstad)
-- [ ] Fjern `run_parallel_with_timer` og `run_gen_with_check_parallel`
-- [ ] Full regresjonstest (standard `PARALLEL` + `PARALLEL=1`, artefakt-diff)
-- [ ] `LOGLVL=DEBUG` skip-logg verifisert for begge variantar
-- [ ] Commit-melding
+- [x] Skriv `run-parallel-gen.sh` med argument-parsing, filter, deloverskrift, skip-logg, xargs-løkke
+- [x] Pilot: migrer `run_gen_owl_parallel`, verifiser dry-run + reell test
+- [x] Migrer resterande 6 `run_parallel_with_timer`-kallarar
+- [x] Migrer `run_gen_openapi_parallel`/`run_gen_asyncapi_parallel` (embedda kallstad)
+- [x] Fjern `run_parallel_with_timer` og `run_gen_with_check_parallel`
+- [x] Full regresjonstest (standard `PARALLEL` + `PARALLEL=1`, artefakt-diff)
+- [x] `LOGLVL=DEBUG` skip-logg verifisert for begge variantar
+- [x] Commit-melding
+
+## Utført
+
+Alle 9 kallarar (7 tidlegare via `run_parallel_with_timer`, 2 via
+`run_gen_with_check_parallel`) migrert til å kalle det nye, delte
+`src/assets/scripts/makefile/run-parallel-gen.sh` — parametrisert med
+`--generator`, valfri `--flag` (build.yaml-flagg, utelaten for
+`run_gen_linkml_parallel` som ikkje har noko flagg å filtrere mot), valfri
+`--check-suffix`/`--out-suffix` (openapi/asyncapi sin
+input-fil-eksistenssjekk + output-filnamn), og sjølve genererings-kommandoen
+via miljøvariabelen `GEN_CMD` (`eval`-a inne i kvar xargs-arbeidar). Dei to
+gamle scaffolding-makroane (`run_parallel_with_timer`,
+`run_gen_with_check_parallel`) er fjerna frå `make/10-generator-macros.mk`
+saman med sine stale kryssreferansar i kommentarar.
+
+Skriptet gjer scaffoldinga (build.yaml-filtrering, deloverskrift,
+samla skip-debug-linje, `xargs -P`, per-skjema timer, `ERR`-trap) om til
+vanleg, lineært bash — ingen nøsta bash-i-bash-i-xargs-i-make-escaping att.
+`GEN_DIR`, `PARALLEL`, `CLR_STEP`, `CLR_RST` er no eksporterte frå
+`make/00-settings.mk` (saman med det allereie eksporterte `LOG_FUNCTIONS`)
+slik at scriptet — som ein sjølvstendig prosess, ikkje make-generert tekst —
+har tilgang til dei same verdiane utan å måtte tekst-substituerast inn.
+
+**Kritisk detalj halden ved lag frå openapi/asyncapi-migreringa i førre
+økt:** `run_gen_openapi_parallel`/`run_gen_asyncapi_parallel` vert kalla
+embedda inne i `domain_target` sitt `PARALLEL≠1`-shell-script
+(`make/20-domain-targets.mk`), IKKJE som sjølvstendige recipe-linjer — dei
+har difor ingen leiande `@` i den nye wrapper-makroen (silencing kjem frå
+kallestaden). Dei andre 7 wrapper-makroane KALLAST som sjølvstendige
+recipe-linjer og har difor leiande `@`. Feil plassering av `@` her var
+nøyaktig same feilkjelde som vart oppdaga og retta i
+`specs/done/deloverskrift-openapi-asyncapi.md` — no eksplisitt dokumentert
+med ein kommentar rett over begge desse to makroane.
+
+**Verifisering:**
+- Isolert scripttesting (mocka `LOG_FUNCTIONS`/`GEN_CMD`, utan podman):
+  flagg-filtrering, valfri flagg (ingen filtrering), `--check-suffix` (både
+  fil-finst og fil-manglar-grein), `ERR`-trap-propagering ved ekte
+  kommandofeil (stadfesta at `exit`-builtin i `GEN_CMD` IKKJE utløyser ERR-
+  trap, som forventa bash-åtferd — testa med `false` i staden, som stadfesta
+  at feilhandteringa fungerer identisk til dei gamle makroane)
+- `make -n domain-samt` (standard og `PARALLEL=1`) — dry-run, stadfesta
+  korrekt make-escaping for alle 9 kallstader, inkludert embedda
+  openapi/asyncapi
+- Reell `make domain-samt` (samt-bu — einaste skjema med `xsd`, `openapi`
+  OG `asyncapi` alle `true`, jf. `specs/done/parallelliser-image-pull-validate-workflow.md`):
+  alle 14 forventa artefaktfiler + diagrams/docs/docgen-examples-katalogar
+  generert korrekt, openapi/asyncapi-YAML validert av dei respektive
+  spec-validatorane
+- Reell `make PARALLEL=1 domain-samt`: same artefaktsett generert korrekt;
+  openapi/asyncapi brukte som venta den utanfor-scope, urørte
+  `PARALLEL=1`-inline-greina (ikkje det nye scriptet) — stadfesta at dette
+  framleis fungerer uendra
+- Ikkje-determinisme i TTL/OWL-utdata (blank-node-rekkjefølgje) og
+  `generation_date`-tidsstempel stadfesta å vere ein eigenskap ved
+  LinkML/rdflib-verktøya sjølve (to reine `podman run gen-owl`-kall utanom
+  make, rett etter kvarandre, gav ulik blank-node-rekkjefølgje) — urelatert
+  til denne refaktoreringa, difor ikkje eit gyldig regresjonssignal
+- `LOGLVL=DEBUG make domain-fair` (mange build.yaml-flagg `false`):
+  stadfesta korrekt `(ingen skjema aktivert)` + samla skip-debug-linje for
+  BÅDE `run_gen_parallel`-familien (jsonld_context, python, json_schema,
+  protobuf) OG dei embedda openapi/asyncapi-kallstadene — inkludert
+  "alle skjema hoppa over"-tilfellet for embedda-kallstaden, som ikkje vart
+  eksplisitt testa i `specs/done/deloverskrift-openapi-asyncapi.md`
+
+**Sideeffekt oppdaga under testing, ikkje del av denne endringa:**
+`make domain-fair`-køyringane regenererte
+`src/linkml/fair/fair-metadata/metadata/fair-metadata-manifest.yaml` med
+oppdatert `versjonsnummer`/`endringsdato`/`kontaktpunkt` — normal åtferd frå
+`gen-informasjonsmodell-instance` (urelatert makro, ikkje del av denne
+speccen) som synkroniserer instansen mot noverande skjema-state. Fila var
+tydelegvis ute av synk frå før denne økta. Ikkje revertert — brukaren avgjer
+sjølv om endringa skal behaldast.

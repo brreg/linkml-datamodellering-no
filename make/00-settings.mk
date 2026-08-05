@@ -108,3 +108,10 @@ run_logged() {
 }
 endef
 export LOG_FUNCTIONS
+
+# Eksportert for src/assets/scripts/makefile/run-parallel-gen.sh (delt
+# orkestrering for parallell generering — sjå make/10-generator-macros.mk)
+export GEN_DIR
+export PARALLEL
+export CLR_STEP
+export CLR_RST

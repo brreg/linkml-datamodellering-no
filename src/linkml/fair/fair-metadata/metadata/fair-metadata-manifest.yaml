@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: FAIR-metadataoverbygning (FAIR-prinsippa)
   nn: FAIR-metadataoverbygning (FAIR-prinsippa)
-versjonsnummer: 1.4.0
+versjonsnummer: 1.6.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-07-10'
+endringsdato: '2026-08-02'
 utgivelsesdato: '2024-01-01'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/fair/fair-metadata/
@@ -21,6 +21,12 @@ er_i_samsvar_med:
     nb: FAIR Principles
     nn: FAIR Principles
   har_referanse: https://www.go-fair.org/fair-principles/
+kontaktpunkt:
+- id: https://brreg.no/kontakt/modellforvaltning
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
 inneholder_modellelement:
 - https://data.norge.no/fair/FAIRMetadata
 - https://data.norge.no/fair/Tilgangsmetadata

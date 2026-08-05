@@ -5,135 +5,10 @@
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
-# Generisk parallell generator-makro med timer
-# ---------------------------------------------------------------------------
-# $1=schemas  $2=generator-namn (for logging)  $3=parallel-kommando
-# $4=build.yaml-flaggnamn (valfri — tom streng => inga filtrering, alle
-#    skjema i $1 vert handsama)
-#
-# Filtrerer $1 mot $4 i build.yaml FØR xargs-parallelliseringa startar (i
-# staden for at kvar arbeidar sjekkar flagget sjølv og loggar éi
-# "Hoppar over"-linje kvar — det ga uoversiktleg CI-logg med to linjer per
-# hoppa-over skjema, sjå specs/done/kompakt-generator-logging.md). Skriv éi
-# deloverskrift med kva skjema som får artefaktet, og — berre på
-# LOGLVL=DEBUG — éi samla linje med kva som vart hoppa over og kvifor.
-#
-# Køyrer alltid via xargs -P $(PARALLEL) — også når PARALLEL=1 (då køyrer
-# xargs éin job om gongen, funksjonelt identisk med ein serialisert løkke).
-# Hadde tidlegare ei eiga "PARALLEL=1 → køyr serial-fallback-makro direkte"-
-# grein, men den var reelt øydelagd: serial-makroane sin eigen leiande "@"
-# hamna midt i ei bash-linje når han vart substituert inn i denne makroen
-# sitt if/else, og feila med "bash: @: command not found" for kvart einaste
-# steg. Stadfesta empirisk (før/etter, med make -n og reelle domain-byggjer)
-# at xargs -P 1 gir identisk, korrekt output — sjå specs/done/dry-opprydding.md.
-define run_parallel_with_timer
-@enabled=""; skipped=""; \
-for s in $(1); do \
-	d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); \
-	if [ -z "$(4)" ]; then \
-		enabled="$$enabled $$s"; \
-	else \
-		manifest=$$(dirname "$$s")/build.yaml; \
-		if [ -f "$$manifest" ] && grep -q "^  $(4): true" "$$manifest"; then \
-			enabled="$$enabled $$s"; \
-		else \
-			skipped="$$skipped $$d/$$n"; \
-		fi; \
-	fi; \
-done; \
-eval "$$LOG_FUNCTIONS"; \
-if [ -n "$$enabled" ]; then \
-	names=$$(for s in $$enabled; do d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); echo "$$d/$$n"; done | paste -sd, -); \
-else \
-	names="(ingen skjema aktivert)"; \
-fi; \
-log_info "$(CLR_STEP)→ $(2): $$names$(CLR_RST)"; \
-if [ -n "$$skipped" ]; then \
-	skipped_list=$$(echo "$$skipped" | sed 's/^ //; s/ /, /g'); \
-	log_debug "  hoppar over ($(4): false): $$skipped_list"; \
-fi; \
-if [ -n "$$enabled" ]; then \
-	printf '%s\n' $$enabled | xargs -P $(PARALLEL) -I {} bash -c ' \
-			set -euo pipefail; \
-			eval "$$LOG_FUNCTIONS"; \
-			s="{}"; \
-			name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-			domain=$$(echo "$$s" | cut -d/ -f3); \
-			trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
-			outdir=$(GEN_DIR)/$$domain/$$name; \
-			t0=$$(date +%s%3N); \
-			$(3); \
-			rc=$$?; \
-			t1=$$(date +%s%3N); \
-			elapsed_ms=$$((t1 - t0)); \
-			log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
-				"$$domain" "$$name" \
-				$$((elapsed_ms / 1000)) \
-				$$((elapsed_ms % 1000 / 100)))"; \
-			exit $$rc'; \
-fi
-endef
-
-# ---------------------------------------------------------------------------
-# Generisk parallell generator-makro med pre-check (for OpenAPI/AsyncAPI)
-# ---------------------------------------------------------------------------
-# $1=schemas  $2=generator-namn  $3=manifest-flagg (t.d. "openapi")  $4=input-suffix (t.d. "schema.json")  $5=output-suffix  $6=kommandoar
-define run_gen_with_check_parallel
-enabled=""; skipped=""; \
-for s in $(1); do \
-	d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); \
-	manifest=$$(dirname "$$s")/build.yaml; \
-	if [ -f "$$manifest" ] && grep -q "^  $(3): true" "$$manifest"; then \
-		enabled="$$enabled $$s"; \
-	else \
-		skipped="$$skipped $$d/$$n"; \
-	fi; \
-done; \
-eval "$$LOG_FUNCTIONS"; \
-if [ -n "$$enabled" ]; then \
-	names=$$(for s in $$enabled; do d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); echo "$$d/$$n"; done | paste -sd, -); \
-else \
-	names="(ingen skjema aktivert)"; \
-fi; \
-log_info "$(CLR_STEP)→ $(2): $$names$(CLR_RST)"; \
-if [ -n "$$skipped" ]; then \
-	skipped_list=$$(echo "$$skipped" | sed 's/^ //; s/ /, /g'); \
-	log_debug "  hoppar over ($(3): false): $$skipped_list"; \
-fi; \
-if [ -n "$$enabled" ]; then \
-	printf '%s\n' $$enabled | xargs -P $(PARALLEL) -I {} bash -c ' \
-		set -euo pipefail; \
-		eval "$$LOG_FUNCTIONS"; \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		input="$$outdir/$$name-$(4)"; \
-		if [ ! -f "$$input" ]; then \
-			log_error "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name"; \
-			exit 0; \
-		fi; \
-		out="$$outdir/$$name-$(5)"; \
-		log_debug "[$$domain/$$name] Startar $(2): $$input → $$out"; \
-		t0=$$(date +%s%3N); \
-		mkdir -p "$$outdir"; \
-		$(6); \
-		rc=$$?; \
-		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-		log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)))"; \
-		exit $$rc'; \
-fi
-endef
-
-# ---------------------------------------------------------------------------
 # Serial generator-makro — brukt av dei frittståande gen-*-targeta i
 # make/11-generator-targets.mk (t.d. make gen-jsonld-context SCHEMA=...),
 # ikkje som PARALLEL=1-fallback (den mekanismen er fjerna, sjå
-# run_parallel_with_timer over)
+# src/assets/scripts/makefile/run-parallel-gen.sh)
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator  $3=output-file suffix
 define run_gen
@@ -148,8 +23,8 @@ endef
 # generators:-flagg (same mønster som run_gen_plantuml_parallel)
 # $1=schemas  $2=generator  $3=output-file suffix  $4=build.yaml generator-flagg
 define run_gen_parallel
-$(call run_parallel_with_timer,$(1),$(2),\
-mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)",$(4))
+@GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator $(2) $(if $(4),--flag $(4)) -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -157,9 +32,10 @@ endef
 # ---------------------------------------------------------------------------
 # Ingen frittståande gen-linkml-target finst (merge-imports er berre eit
 # steg i domain_target-pipelinen), difor finst det heller ingen serial
-# variant å halde ved like — berre denne, brukt via run_parallel_with_timer.
+# variant å halde ved like — berre denne.
 define run_gen_linkml_parallel
-$(call run_parallel_with_timer,$(1),merge-imports,$(LINKML_RUN) gen-linkml "$$s" > /dev/null,)
+@GEN_CMD='$(LINKML_RUN) gen-linkml "$$s" > /dev/null' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator merge-imports -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -189,8 +65,8 @@ endef
 # Parallell versjon av gen-owl — gata mot build.yaml (owl: true)
 # Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
-$(call run_parallel_with_timer,$(1),gen-owl,\
-mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl",owl)
+@GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-owl --flag owl -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -208,8 +84,8 @@ endef
 
 # Parallell versjon av gen-rdf — gata mot build.yaml (rdf: true)
 define run_gen_rdf_parallel
-$(call run_parallel_with_timer,$(1),gen-rdf,\
-mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl",rdf)
+@GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-rdf --flag rdf -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -242,8 +118,7 @@ endef
 
 # Parallell versjon av gen-doc — gata mot build.yaml (docs: true)
 define run_gen_doc_parallel
-$(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,\
-mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
+@GEN_CMD='mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
 run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 	"$$s" \
 	"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
@@ -256,7 +131,8 @@ run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--diagram-type mermaid_class_diagram \
 	--example-directory "$$outdir/docgen-examples" \
 	-d "$$outdir/docs" "$$s" && \
-sed -i "/Container/d" "$$outdir/docs/index.md",docs)
+sed -i "/Container/d" "$$outdir/docs/index.md"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator "gen-docgen-examples + gen-doc" --flag docs -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -277,15 +153,15 @@ endef
 
 # Parallell versjon av gen-erdiagram — gata mot build.yaml (erdiagram: true)
 define run_gen_erdiagram_parallel
-$(call run_parallel_with_timer,$(1),gen-erdiagram,\
-mkdir -p "$$outdir" && \
+@GEN_CMD='mkdir -p "$$outdir" && \
 $(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 	| awk -f src/assets/scripts/makefile/filter_container.awk \
 	> "$$outdir/$$name-erdiagram-unfiltered.md" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
 	"$$s" \
 	"$$outdir/$$name-erdiagram-unfiltered.md" \
-	> "$$outdir/$$name-erdiagram.md",erdiagram)
+	> "$$outdir/$$name-erdiagram.md"' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-erdiagram --flag erdiagram -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -316,12 +192,10 @@ define run_gen_plantuml
 endef
 
 # Parallell versjon av gen-plantuml — hoppar over skjema utan `plantuml: true` i
-# build.yaml (same mønster som run_gen_with_check_parallel for openapi/asyncapi),
-# sidan images.json sitt required_if_generator_flag: "plantuml" føreset at biletet
-# faktisk ikkje vert bruka for slike skjema
+# build.yaml, sidan images.json sitt required_if_generator_flag: "plantuml"
+# føreset at biletet faktisk ikkje vert bruka for slike skjema
 define run_gen_plantuml_parallel
-$(call run_parallel_with_timer,$(1),gen-plantuml,\
-mkdir -p "$$outdir/diagrams" && \
+@GEN_CMD='mkdir -p "$$outdir/diagrams" && \
 $(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
@@ -330,7 +204,8 @@ $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
 	> "$$outdir/diagrams/$$name.puml" && \
 podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null && \
-podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null,plantuml)
+podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-plantuml --flag plantuml -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -408,8 +283,13 @@ done
 endef
 
 # Parallell versjon av gen-asyncapi
+# NB: kalla embedda inne i domain_target sitt PARALLEL≠1-shell-script
+# (make/20-domain-targets.mk) — IKKJE ei sjølvstendig recipe-linje. Skal
+# difor IKKJE ha leiande "@" (silencing kjem frå kallestaden) — sjå
+# specs/done/deloverskrift-openapi-asyncapi.md for feilkjelda dette unngår.
 define run_gen_asyncapi_parallel
-$(call run_gen_with_check_parallel,$(1),gen-asyncapi,asyncapi,schema.json,asyncapi.yaml,run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out)
+GEN_CMD='run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-asyncapi --flag asyncapi --check-suffix schema.json --out-suffix asyncapi.yaml -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -445,6 +325,11 @@ done
 endef
 
 # Parallell versjon av gen-openapi
+# NB: kalla embedda inne i domain_target sitt PARALLEL≠1-shell-script
+# (make/20-domain-targets.mk) — IKKJE ei sjølvstendig recipe-linje. Skal
+# difor IKKJE ha leiande "@" (silencing kjem frå kallestaden) — sjå
+# specs/done/deloverskrift-openapi-asyncapi.md for feilkjelda dette unngår.
 define run_gen_openapi_parallel
-$(call run_gen_with_check_parallel,$(1),gen-openapi,openapi,schema.json,openapi.yaml,run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out)
+GEN_CMD='run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out' \
+	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-openapi --flag openapi --check-suffix schema.json --out-suffix openapi.yaml -- $(1)
 endef
