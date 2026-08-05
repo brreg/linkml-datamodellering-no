@@ -8,6 +8,15 @@
 # Generisk parallell generator-makro med timer
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator-namn (for logging)  $3=parallel-kommando
+# $4=build.yaml-flaggnamn (valfri — tom streng => inga filtrering, alle
+#    skjema i $1 vert handsama)
+#
+# Filtrerer $1 mot $4 i build.yaml FØR xargs-parallelliseringa startar (i
+# staden for at kvar arbeidar sjekkar flagget sjølv og loggar éi
+# "Hoppar over"-linje kvar — det ga uoversiktleg CI-logg med to linjer per
+# hoppa-over skjema, sjå specs/done/kompakt-generator-logging.md). Skriv éi
+# deloverskrift med kva skjema som får artefaktet, og — berre på
+# LOGLVL=DEBUG — éi samla linje med kva som vart hoppa over og kvifor.
 #
 # Køyrer alltid via xargs -P $(PARALLEL) — også når PARALLEL=1 (då køyrer
 # xargs éin job om gongen, funksjonelt identisk med ein serialisert løkke).
@@ -18,25 +27,51 @@
 # steg. Stadfesta empirisk (før/etter, med make -n og reelle domain-byggjer)
 # at xargs -P 1 gir identisk, korrekt output — sjå specs/done/dry-opprydding.md.
 define run_parallel_with_timer
-@printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-		set -euo pipefail; \
-		eval "$$LOG_FUNCTIONS"; \
-		s="{}"; \
-		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-		domain=$$(echo "$$s" | cut -d/ -f3); \
-		trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
-		outdir=$(GEN_DIR)/$$domain/$$name; \
-		log_debug "[$$domain/$$name] Startar $(2): $$s"; \
-		t0=$$(date +%s%3N); \
-		$(3); \
-		rc=$$?; \
-		t1=$$(date +%s%3N); \
-		elapsed_ms=$$((t1 - t0)); \
-		log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)))"; \
-		exit $$rc'
+@enabled=""; skipped=""; \
+for s in $(1); do \
+	d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); \
+	if [ -z "$(4)" ]; then \
+		enabled="$$enabled $$s"; \
+	else \
+		manifest=$$(dirname "$$s")/build.yaml; \
+		if [ -f "$$manifest" ] && grep -q "^  $(4): true" "$$manifest"; then \
+			enabled="$$enabled $$s"; \
+		else \
+			skipped="$$skipped $$d/$$n"; \
+		fi; \
+	fi; \
+done; \
+eval "$$LOG_FUNCTIONS"; \
+if [ -n "$$enabled" ]; then \
+	names=$$(for s in $$enabled; do d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); echo "$$d/$$n"; done | paste -sd, -); \
+else \
+	names="(ingen skjema aktivert)"; \
+fi; \
+log_info "$(CLR_STEP)→ $(2): $$names$(CLR_RST)"; \
+if [ -n "$$skipped" ]; then \
+	skipped_list=$$(echo "$$skipped" | sed 's/^ //; s/ /, /g'); \
+	log_debug "  hoppar over ($(4) ikkje sett): $$skipped_list"; \
+fi; \
+if [ -n "$$enabled" ]; then \
+	printf '%s\n' $$enabled | xargs -P $(PARALLEL) -I {} bash -c ' \
+			set -euo pipefail; \
+			eval "$$LOG_FUNCTIONS"; \
+			s="{}"; \
+			name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+			domain=$$(echo "$$s" | cut -d/ -f3); \
+			trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
+			outdir=$(GEN_DIR)/$$domain/$$name; \
+			t0=$$(date +%s%3N); \
+			$(3); \
+			rc=$$?; \
+			t1=$$(date +%s%3N); \
+			elapsed_ms=$$((t1 - t0)); \
+			log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
+				"$$domain" "$$name" \
+				$$((elapsed_ms / 1000)) \
+				$$((elapsed_ms % 1000 / 100)))"; \
+			exit $$rc'; \
+fi
 endef
 
 # ---------------------------------------------------------------------------
@@ -96,11 +131,7 @@ endef
 # $1=schemas  $2=generator  $3=output-file suffix  $4=build.yaml generator-flagg
 define run_gen_parallel
 $(call run_parallel_with_timer,$(1),$(2),\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  $(4): true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over $(2) ($(4): true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
-mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)")
+mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)",$(4))
 endef
 
 # ---------------------------------------------------------------------------
@@ -110,7 +141,7 @@ endef
 # steg i domain_target-pipelinen), difor finst det heller ingen serial
 # variant å halde ved like — berre denne, brukt via run_parallel_with_timer.
 define run_gen_linkml_parallel
-$(call run_parallel_with_timer,$(1),merge-imports,$(LINKML_RUN) gen-linkml "$$s" > /dev/null)
+$(call run_parallel_with_timer,$(1),merge-imports,$(LINKML_RUN) gen-linkml "$$s" > /dev/null,)
 endef
 
 # ---------------------------------------------------------------------------
@@ -141,11 +172,7 @@ endef
 # Merk: brukar OWL_DEFAULT_FLAGS i parallell-modus (config.mk overrides vert ikkje propagerte til xargs)
 define run_gen_owl_parallel
 $(call run_parallel_with_timer,$(1),gen-owl,\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  owl: true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over gen-owl (owl: true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
-mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl")
+mkdir -p "$$outdir" && $(LINKML_RUN) gen-owl $(OWL_DEFAULT_FLAGS) "$$s" > "$$outdir/$$name-ontology.ttl",owl)
 endef
 
 # ---------------------------------------------------------------------------
@@ -164,11 +191,7 @@ endef
 # Parallell versjon av gen-rdf — gata mot build.yaml (rdf: true)
 define run_gen_rdf_parallel
 $(call run_parallel_with_timer,$(1),gen-rdf,\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  rdf: true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over gen-rdf (rdf: true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
-mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl")
+mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl",rdf)
 endef
 
 # ---------------------------------------------------------------------------
@@ -202,10 +225,6 @@ endef
 # Parallell versjon av gen-doc — gata mot build.yaml (docs: true)
 define run_gen_doc_parallel
 $(call run_parallel_with_timer,$(1),gen-docgen-examples + gen-doc,\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  docs: true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over gen-doc (docs: true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
 mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
 run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
 	"$$s" \
@@ -219,7 +238,7 @@ run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--diagram-type mermaid_class_diagram \
 	--example-directory "$$outdir/docgen-examples" \
 	-d "$$outdir/docs" "$$s" && \
-sed -i "/Container/d" "$$outdir/docs/index.md")
+sed -i "/Container/d" "$$outdir/docs/index.md",docs)
 endef
 
 # ---------------------------------------------------------------------------
@@ -241,10 +260,6 @@ endef
 # Parallell versjon av gen-erdiagram — gata mot build.yaml (erdiagram: true)
 define run_gen_erdiagram_parallel
 $(call run_parallel_with_timer,$(1),gen-erdiagram,\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  erdiagram: true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over gen-erdiagram (erdiagram: true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
 mkdir -p "$$outdir" && \
 $(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 	| awk -f src/assets/scripts/makefile/filter_container.awk \
@@ -252,7 +267,7 @@ $(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
 	"$$s" \
 	"$$outdir/$$name-erdiagram-unfiltered.md" \
-	> "$$outdir/$$name-erdiagram.md")
+	> "$$outdir/$$name-erdiagram.md",erdiagram)
 endef
 
 # ---------------------------------------------------------------------------
@@ -288,10 +303,6 @@ endef
 # faktisk ikkje vert bruka for slike skjema
 define run_gen_plantuml_parallel
 $(call run_parallel_with_timer,$(1),gen-plantuml,\
-if [ ! -f "$$(dirname "$$s")/build.yaml" ] || ! grep -q "^  plantuml: true" "$$(dirname "$$s")/build.yaml"; then \
-	log_debug "[$$domain/$$name] Hoppar over gen-plantuml (plantuml: true ikkje sett i build.yaml)"; \
-	exit 0; \
-fi; \
 mkdir -p "$$outdir/diagrams" && \
 $(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
@@ -301,7 +312,7 @@ $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
 	> "$$outdir/diagrams/$$name.puml" && \
 podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null && \
-podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null)
+podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null,plantuml)
 endef
 
 # ---------------------------------------------------------------------------
