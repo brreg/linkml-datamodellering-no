@@ -50,7 +50,7 @@ fi; \
 log_info "$(CLR_STEP)→ $(2): $$names$(CLR_RST)"; \
 if [ -n "$$skipped" ]; then \
 	skipped_list=$$(echo "$$skipped" | sed 's/^ //; s/ /, /g'); \
-	log_debug "  hoppar over ($(4) ikkje sett): $$skipped_list"; \
+	log_debug "  hoppar over ($(4): false): $$skipped_list"; \
 fi; \
 if [ -n "$$enabled" ]; then \
 	printf '%s\n' $$enabled | xargs -P $(PARALLEL) -I {} bash -c ' \
