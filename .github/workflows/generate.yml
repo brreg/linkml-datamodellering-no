@@ -276,7 +276,18 @@ jobs:
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest" 2>/dev/null; then
               echo "→ Validerer skjema frå manifest: $manifest"
-              bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" &
+              (
+                start=$(date +%s%3N)
+                rc=0
+                bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || rc=$?
+                elapsed=$(( $(date +%s%3N) - start ))
+                if [ $rc -eq 0 ]; then
+                  printf "✓ Validert %s (%d.%ds)\n" "$manifest" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                else
+                  printf "✗ Validering feila for %s (%d.%ds)\n" "$manifest" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                fi
+                exit $rc
+              ) &
               PIDS+=($!)
               MANIFESTS+=("$manifest")
             fi
