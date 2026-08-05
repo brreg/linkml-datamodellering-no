@@ -70,52 +70,8 @@ domain-$(1): $$(_domain_pre_$(1))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-proto,schema.proto,protobuf)
 	$$(call run_gen_plantuml_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_xsd,$$(_schemas_$(1)))
-	@if [ "$$(PARALLEL)" = "1" ]; then \
-		for schema in $$(_schemas_$(1)); do \
-			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
-			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
-			manifest=$$$$(dirname "$$$$schema")/build.yaml; \
-			if [ ! -f "$$$$manifest" ] || ! grep -q "^  openapi: true" "$$$$manifest"; then \
-				continue; \
-			fi; \
-			jsonschema=$$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-schema.json; \
-			if [ ! -f "$$$$jsonschema" ]; then \
-				echo "ÅTVARING: $$$$jsonschema finst ikkje — hoppar over gen-openapi for $$$$name" >&2; \
-				continue; \
-			fi; \
-			out=$$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-openapi.yaml; \
-			mkdir -p $$(GEN_DIR)/$$$$domain/$$$$name; \
-			echo "$$(CLR_STEP)→ gen-openapi  $$$$schema$$(CLR_RST)"; \
-			$$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py \
-				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
-			$$(PYTHON_RUN) openapi-spec-validator /work/$$$$out; \
-		done; \
-	else \
-		$$(call run_gen_openapi_parallel,$$(_schemas_$(1))); \
-	fi
-	@if [ "$$(PARALLEL)" = "1" ]; then \
-		for schema in $$(_schemas_$(1)); do \
-			domain=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$3}'); \
-			name=$$$$(echo "$$$$schema" | awk -F/ '{print $$$$4}'); \
-			manifest=$$$$(dirname "$$$$schema")/build.yaml; \
-			if [ ! -f "$$$$manifest" ] || ! grep -q "^  asyncapi: true" "$$$$manifest"; then \
-				continue; \
-			fi; \
-			jsonschema=$$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-schema.json; \
-			if [ ! -f "$$$$jsonschema" ]; then \
-				echo "ÅTVARING: $$$$jsonschema finst ikkje — hoppar over gen-asyncapi for $$$$name" >&2; \
-				continue; \
-			fi; \
-			out=$$(GEN_DIR)/$$$$domain/$$$$name/$$$$name-asyncapi.yaml; \
-			mkdir -p $$(GEN_DIR)/$$$$domain/$$$$name; \
-			echo "$$(CLR_STEP)→ gen-asyncapi  $$$$schema$$(CLR_RST)"; \
-			$$(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py \
-				/work/$$$$jsonschema /work/$$$$schema --out /work/$$$$out; \
-			$$(ASYNCAPI_RUN) validate /work/$$$$out; \
-		done; \
-	else \
-		$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1))); \
-	fi
+	$$(call run_gen_openapi_parallel,$$(_schemas_$(1)))
+	$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_informasjonsmodell_instance,$$(_schemas_$(1)))
 endef
 

@@ -283,12 +283,8 @@ done
 endef
 
 # Parallell versjon av gen-asyncapi
-# NB: kalla embedda inne i domain_target sitt PARALLEL≠1-shell-script
-# (make/20-domain-targets.mk) — IKKJE ei sjølvstendig recipe-linje. Skal
-# difor IKKJE ha leiande "@" (silencing kjem frå kallestaden) — sjå
-# specs/done/deloverskrift-openapi-asyncapi.md for feilkjelda dette unngår.
 define run_gen_asyncapi_parallel
-GEN_CMD='run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out' \
+@GEN_CMD='run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out' \
 	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-asyncapi --flag asyncapi --check-suffix schema.json --out-suffix asyncapi.yaml -- $(1)
 endef
 
@@ -325,11 +321,7 @@ done
 endef
 
 # Parallell versjon av gen-openapi
-# NB: kalla embedda inne i domain_target sitt PARALLEL≠1-shell-script
-# (make/20-domain-targets.mk) — IKKJE ei sjølvstendig recipe-linje. Skal
-# difor IKKJE ha leiande "@" (silencing kjem frå kallestaden) — sjå
-# specs/done/deloverskrift-openapi-asyncapi.md for feilkjelda dette unngår.
 define run_gen_openapi_parallel
-GEN_CMD='run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out' \
+@GEN_CMD='run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out' \
 	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-openapi --flag openapi --check-suffix schema.json --out-suffix openapi.yaml -- $(1)
 endef
