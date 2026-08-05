@@ -16,7 +16,7 @@
 # (dcat-ap-no).
 FROM docker.io/plantuml/plantuml:latest AS upstream
 
-FROM docker.io/library/eclipse-temurin:17-jre-alpine
+FROM docker.io/library/eclipse-temurin:25-jre-alpine
 RUN apk add --no-cache graphviz fontconfig \
     && rm -rf /usr/share/fonts/dejavu /usr/share/fonts/cantarell
 COPY --from=upstream /usr/share/fonts/truetype/dejavu /usr/share/fonts/truetype/dejavu
