@@ -1,0 +1,81 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-arkiv
+tittel:
+  nb: FINT Arkiv
+  nn: FINT Arkiv
+beskrivelse:
+  nb: Sak, journal, dokument
+  nn: Sak, journal, dokument
+versjonsnummer: 4.5.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-07-30'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-arkiv/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Arkiv
+    nn: FINT Informasjonsmodell - Arkiv
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/arkiv/Mappe
+- https://schema.fintlabs.no/arkiv/Saksmappe
+- https://schema.fintlabs.no/arkiv/Registrering
+- https://schema.fintlabs.no/arkiv/AdministrativEnhet
+- https://schema.fintlabs.no/arkiv/Arkivdel
+- https://schema.fintlabs.no/arkiv/Arkivressurs
+- https://schema.fintlabs.no/arkiv/Autorisasjon
+- https://schema.fintlabs.no/arkiv/Dokumentfil
+- https://schema.fintlabs.no/arkiv/Journalpost
+- https://schema.fintlabs.no/arkiv/Klassifikasjonssystem
+- https://schema.fintlabs.no/arkiv/Tilgang
+- https://schema.fintlabs.no/arkiv/Sak
+- https://schema.fintlabs.no/arkiv/Personalmappe
+- https://schema.fintlabs.no/arkiv/DispensasjonAutomatiskFredaKulturminne
+- https://schema.fintlabs.no/arkiv/TilskuddFartoy
+- https://schema.fintlabs.no/arkiv/TilskuddFredaBygningPrivatEie
+- https://schema.fintlabs.no/arkiv/SoeknadDrosjeloeyve
+- https://schema.fintlabs.no/arkiv/Avskrivning
+- https://schema.fintlabs.no/arkiv/Dokumentbeskrivelse
+- https://schema.fintlabs.no/arkiv/Dokumentobjekt
+- https://schema.fintlabs.no/arkiv/Klasse
+- https://schema.fintlabs.no/arkiv/Korrespondansepart
+- https://schema.fintlabs.no/arkiv/Merknad
+- https://schema.fintlabs.no/arkiv/Part
+- https://schema.fintlabs.no/arkiv/Skjerming
+- https://schema.fintlabs.no/arkiv/DokumentStatus
+- https://schema.fintlabs.no/arkiv/DokumentType
+- https://schema.fintlabs.no/arkiv/Format
+- https://schema.fintlabs.no/arkiv/JournalpostType
+- https://schema.fintlabs.no/arkiv/JournalStatus
+- https://schema.fintlabs.no/arkiv/Klassifikasjonstype
+- https://schema.fintlabs.no/arkiv/KorrespondansepartType
+- https://schema.fintlabs.no/arkiv/Merknadstype
+- https://schema.fintlabs.no/arkiv/PartRolle
+- https://schema.fintlabs.no/arkiv/Rolle
+- https://schema.fintlabs.no/arkiv/Saksmappetype
+- https://schema.fintlabs.no/arkiv/Saksstatus
+- https://schema.fintlabs.no/arkiv/Skjermingshjemmel
+- https://schema.fintlabs.no/arkiv/Tilgangsgruppe
+- https://schema.fintlabs.no/arkiv/Tilgangsrestriksjon
+- https://schema.fintlabs.no/arkiv/TilknyttetRegistreringSom
+- https://schema.fintlabs.no/arkiv/Variantformat
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-arkiv/fint-arkiv-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-arkiv/fint-arkiv-schema.yaml

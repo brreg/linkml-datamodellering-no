@@ -1,0 +1,110 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-utdanning
+tittel:
+  nb: FINT Utdanning
+  nn: FINT Utdanning
+beskrivelse:
+  nb: Utdanning og skule
+  nn: Utdanning og skule
+versjonsnummer: 4.5.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-07-30'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-utdanning/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Utdanning
+    nn: FINT Informasjonsmodell - Utdanning
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/utdanning/Gruppe
+- https://schema.fintlabs.no/utdanning/Gruppemedlemskap
+- https://schema.fintlabs.no/utdanning/Utdanningsforhold
+- https://schema.fintlabs.no/utdanning/Elevforhold
+- https://schema.fintlabs.no/utdanning/Elevtilrettelegging
+- https://schema.fintlabs.no/utdanning/Klasse
+- https://schema.fintlabs.no/utdanning/Klassemedlemskap
+- https://schema.fintlabs.no/utdanning/Kontaktlaerergruppe
+- https://schema.fintlabs.no/utdanning/Kontaktlaerergruppemedlemskap
+- https://schema.fintlabs.no/utdanning/Persongruppe
+- https://schema.fintlabs.no/utdanning/Persongruppemedlemskap
+- https://schema.fintlabs.no/utdanning/Skole
+- https://schema.fintlabs.no/utdanning/Skoleressurs
+- https://schema.fintlabs.no/utdanning/Varsel
+- https://schema.fintlabs.no/utdanning/Arstrinn
+- https://schema.fintlabs.no/utdanning/Programomrade
+- https://schema.fintlabs.no/utdanning/Programomrademedlemskap
+- https://schema.fintlabs.no/utdanning/Utdanningsprogram
+- https://schema.fintlabs.no/utdanning/Eksamen
+- https://schema.fintlabs.no/utdanning/Fag
+- https://schema.fintlabs.no/utdanning/Faggruppe
+- https://schema.fintlabs.no/utdanning/Faggruppemedlemskap
+- https://schema.fintlabs.no/utdanning/Rom
+- https://schema.fintlabs.no/utdanning/Time
+- https://schema.fintlabs.no/utdanning/Undervisningsforhold
+- https://schema.fintlabs.no/utdanning/Undervisningsgruppe
+- https://schema.fintlabs.no/utdanning/Undervisningsgruppemedlemskap
+- https://schema.fintlabs.no/utdanning/FagvurderingAbstrakt
+- https://schema.fintlabs.no/utdanning/OrdensvurderingAbstrakt
+- https://schema.fintlabs.no/utdanning/Anmerkninger
+- https://schema.fintlabs.no/utdanning/Eksamensgruppe
+- https://schema.fintlabs.no/utdanning/Eksamensgruppemedlemskap
+- https://schema.fintlabs.no/utdanning/Eksamensvurdering
+- https://schema.fintlabs.no/utdanning/Elevfravar
+- https://schema.fintlabs.no/utdanning/Elevvurdering
+- https://schema.fintlabs.no/utdanning/Fravarsoversikt
+- https://schema.fintlabs.no/utdanning/Fravarsprosent
+- https://schema.fintlabs.no/utdanning/Fraversregistrering
+- https://schema.fintlabs.no/utdanning/Halvaarsfagvurdering
+- https://schema.fintlabs.no/utdanning/Halvaarsordensvurdering
+- https://schema.fintlabs.no/utdanning/Karakterhistorie
+- https://schema.fintlabs.no/utdanning/Sensor
+- https://schema.fintlabs.no/utdanning/Sluttfagvurdering
+- https://schema.fintlabs.no/utdanning/Sluttordensvurdering
+- https://schema.fintlabs.no/utdanning/Underveisfagvurdering
+- https://schema.fintlabs.no/utdanning/Underveisordensvurdering
+- https://schema.fintlabs.no/utdanning/AvlagtProve
+- https://schema.fintlabs.no/utdanning/Laerling
+- https://schema.fintlabs.no/utdanning/OtUngdom
+- https://schema.fintlabs.no/utdanning/Avbruddsaarsak
+- https://schema.fintlabs.no/utdanning/Betalingsstatus
+- https://schema.fintlabs.no/utdanning/Bevistype
+- https://schema.fintlabs.no/utdanning/Brevtype
+- https://schema.fintlabs.no/utdanning/Eksamensform
+- https://schema.fintlabs.no/utdanning/Elevkategori
+- https://schema.fintlabs.no/utdanning/Fagmerknad
+- https://schema.fintlabs.no/utdanning/Fagstatus
+- https://schema.fintlabs.no/utdanning/Fravartype
+- https://schema.fintlabs.no/utdanning/Fullfortkode
+- https://schema.fintlabs.no/utdanning/Karakterskala
+- https://schema.fintlabs.no/utdanning/Karakterstatus
+- https://schema.fintlabs.no/utdanning/Karakterverdi
+- https://schema.fintlabs.no/utdanning/OtEnhet
+- https://schema.fintlabs.no/utdanning/OtStatus
+- https://schema.fintlabs.no/utdanning/Provestatus
+- https://schema.fintlabs.no/utdanning/Skoleaar
+- https://schema.fintlabs.no/utdanning/Skoleeiertype
+- https://schema.fintlabs.no/utdanning/Termin
+- https://schema.fintlabs.no/utdanning/Tilrettelegging
+- https://schema.fintlabs.no/utdanning/Varseltype
+- https://schema.fintlabs.no/utdanning/Vitnemalsmerknad
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-utdanning/fint-utdanning-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-utdanning/fint-utdanning-schema.yaml

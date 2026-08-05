@@ -1,0 +1,53 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-okonomi
+tittel:
+  nb: FINT Økonomi
+  nn: FINT Økonomi
+beskrivelse:
+  nb: Økonomi og rekneskap
+  nn: Økonomi og rekneskap
+versjonsnummer: 4.5.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-07-30'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-okonomi/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Økonomi
+    nn: FINT Informasjonsmodell - Økonomi
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/okonomi/Faktura
+- https://schema.fintlabs.no/okonomi/Fakturagrunnlag
+- https://schema.fintlabs.no/okonomi/Fakturautsteder
+- https://schema.fintlabs.no/okonomi/Fakturamottaker
+- https://schema.fintlabs.no/okonomi/Fakturalinje
+- https://schema.fintlabs.no/okonomi/Transaksjon
+- https://schema.fintlabs.no/okonomi/Postering
+- https://schema.fintlabs.no/okonomi/Leverandor
+- https://schema.fintlabs.no/okonomi/Leverandorgruppe
+- https://schema.fintlabs.no/okonomi/Bilag
+- https://schema.fintlabs.no/okonomi/Kontostreng
+- https://schema.fintlabs.no/okonomi/Vare
+- https://schema.fintlabs.no/okonomi/Merverdiavgift
+- https://schema.fintlabs.no/okonomi/Valuta
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-okonomi/fint-okonomi-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-okonomi/fint-okonomi-schema.yaml

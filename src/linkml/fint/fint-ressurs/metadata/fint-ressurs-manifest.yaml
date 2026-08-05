@@ -1,0 +1,55 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-ressurs
+tittel:
+  nb: FINT Ressurs
+  nn: FINT Ressurs
+beskrivelse:
+  nb: Ressursar
+  nn: Ressursar
+versjonsnummer: 4.5.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-07-30'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-ressurs/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Ressurs
+    nn: FINT Informasjonsmodell - Ressurs
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/ressurs/Applikasjon
+- https://schema.fintlabs.no/ressurs/Applikasjonsressurs
+- https://schema.fintlabs.no/ressurs/Applikasjonsressurstilgjengelighet
+- https://schema.fintlabs.no/ressurs/DigitalEnhet
+- https://schema.fintlabs.no/ressurs/Enhetsgruppe
+- https://schema.fintlabs.no/ressurs/Enhetsgruppemedlemskap
+- https://schema.fintlabs.no/ressurs/Identitet
+- https://schema.fintlabs.no/ressurs/Rettighet
+- https://schema.fintlabs.no/ressurs/Applikasjonskategori
+- https://schema.fintlabs.no/ressurs/Brukertype
+- https://schema.fintlabs.no/ressurs/Enhetstype
+- https://schema.fintlabs.no/ressurs/Handhevingstype
+- https://schema.fintlabs.no/ressurs/Lisensmodell
+- https://schema.fintlabs.no/ressurs/Plattform
+- https://schema.fintlabs.no/ressurs/Produsent
+- https://schema.fintlabs.no/ressurs/Status
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-ressurs/fint-ressurs-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-ressurs/fint-ressurs-schema.yaml

@@ -79,36 +79,54 @@ endef
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator-namn  $3=manifest-flagg (t.d. "openapi")  $4=input-suffix (t.d. "schema.json")  $5=output-suffix  $6=kommandoar
 define run_gen_with_check_parallel
-printf '%s\n' $(1) | xargs -P $(PARALLEL) -I {} bash -c ' \
-	set -euo pipefail; \
-	eval "$$LOG_FUNCTIONS"; \
-	s="{}"; \
-	name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
-	domain=$$(echo "$$s" | cut -d/ -f3); \
-	trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
+enabled=""; skipped=""; \
+for s in $(1); do \
+	d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); \
 	manifest=$$(dirname "$$s")/build.yaml; \
-	if [ ! -f "$$manifest" ] || ! grep -q "^  $(3): true" "$$manifest"; then \
-		log_debug "[$$domain/$$name] Hoppar over $(2) ($(3) ikkje aktivert i build.yaml)"; \
-		exit 0; \
+	if [ -f "$$manifest" ] && grep -q "^  $(3): true" "$$manifest"; then \
+		enabled="$$enabled $$s"; \
+	else \
+		skipped="$$skipped $$d/$$n"; \
 	fi; \
-	outdir=$(GEN_DIR)/$$domain/$$name; \
-	input="$$outdir/$$name-$(4)"; \
-	if [ ! -f "$$input" ]; then \
-		log_error "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name"; \
-		exit 0; \
-	fi; \
-	out="$$outdir/$$name-$(5)"; \
-	log_debug "[$$domain/$$name] Startar $(2): $$input → $$out"; \
-	t0=$$(date +%s%3N); \
-	mkdir -p "$$outdir"; \
-	$(6); \
-	rc=$$?; \
-	elapsed_ms=$$(($$( date +%s%3N) - t0)); \
-	log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
-		"$$domain" "$$name" \
-		$$((elapsed_ms / 1000)) \
-		$$((elapsed_ms % 1000 / 100)))"; \
-	exit $$rc'
+done; \
+eval "$$LOG_FUNCTIONS"; \
+if [ -n "$$enabled" ]; then \
+	names=$$(for s in $$enabled; do d=$$(echo "$$s" | cut -d/ -f3); n=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); echo "$$d/$$n"; done | paste -sd, -); \
+else \
+	names="(ingen skjema aktivert)"; \
+fi; \
+log_info "$(CLR_STEP)→ $(2): $$names$(CLR_RST)"; \
+if [ -n "$$skipped" ]; then \
+	skipped_list=$$(echo "$$skipped" | sed 's/^ //; s/ /, /g'); \
+	log_debug "  hoppar over ($(3): false): $$skipped_list"; \
+fi; \
+if [ -n "$$enabled" ]; then \
+	printf '%s\n' $$enabled | xargs -P $(PARALLEL) -I {} bash -c ' \
+		set -euo pipefail; \
+		eval "$$LOG_FUNCTIONS"; \
+		s="{}"; \
+		name=$$(basename "$$s" -schema.yaml | sed "s/-schema$$//"); \
+		domain=$$(echo "$$s" | cut -d/ -f3); \
+		trap "log_error \"::error file=$$s::$(2) feila for $$domain/$$name (linje \$$LINENO) — kommando: \$$BASH_COMMAND\"; exit 1" ERR; \
+		outdir=$(GEN_DIR)/$$domain/$$name; \
+		input="$$outdir/$$name-$(4)"; \
+		if [ ! -f "$$input" ]; then \
+			log_error "ÅTVARING: $$input finst ikkje — hoppar over $(2) for $$name"; \
+			exit 0; \
+		fi; \
+		out="$$outdir/$$name-$(5)"; \
+		log_debug "[$$domain/$$name] Startar $(2): $$input → $$out"; \
+		t0=$$(date +%s%3N); \
+		mkdir -p "$$outdir"; \
+		$(6); \
+		rc=$$?; \
+		elapsed_ms=$$(($$( date +%s%3N) - t0)); \
+		log_info "$$(printf "$(CLR_STEP)→ $(2)  %s/%s$(CLR_RST) (%d.%ds)" \
+			"$$domain" "$$name" \
+			$$((elapsed_ms / 1000)) \
+			$$((elapsed_ms % 1000 / 100)))"; \
+		exit $$rc'; \
+fi
 endef
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,44 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-personvern
+tittel:
+  nb: FINT Personvern
+  nn: FINT Personvern
+beskrivelse:
+  nb: Personvernmeldingar
+  nn: Personvernmeldingar
+versjonsnummer: 4.5.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-07-30'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-personvern/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Personvern
+    nn: FINT Informasjonsmodell - Personvern
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/personvern/Behandling
+- https://schema.fintlabs.no/personvern/Samtykke
+- https://schema.fintlabs.no/personvern/Tjeneste
+- https://schema.fintlabs.no/personvern/Behandlingsgrunnlag
+- https://schema.fintlabs.no/personvern/Personopplysning
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-personvern/fint-personvern-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-personvern/fint-personvern-schema.yaml

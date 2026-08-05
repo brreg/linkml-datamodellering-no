@@ -1,0 +1,72 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-administrasjon
+tittel:
+  nb: FINT Administrasjon
+  nn: FINT Administrasjon
+beskrivelse:
+  nb: Lønn, arbeidsforhold, organisasjon
+  nn: Lønn, arbeidsforhold, organisasjon
+versjonsnummer: 4.5.1
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-08-02'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-administrasjon/
+er_i_samsvar_med:
+- id: https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.30
+  tittel:
+    nb: FINT Informasjonsmodell - Administrasjon
+    nn: FINT Informasjonsmodell - Administrasjon
+  har_referanse: https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.30
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/administrasjon/Lonn
+- https://schema.fintlabs.no/administrasjon/Kontostreng
+- https://schema.fintlabs.no/administrasjon/Aktivitet
+- https://schema.fintlabs.no/administrasjon/Anlegg
+- https://schema.fintlabs.no/administrasjon/Ansvar
+- https://schema.fintlabs.no/administrasjon/Art
+- https://schema.fintlabs.no/administrasjon/Arbeidsforholdstype
+- https://schema.fintlabs.no/administrasjon/Diverse
+- https://schema.fintlabs.no/administrasjon/Formaal
+- https://schema.fintlabs.no/administrasjon/Fravaersgrunn
+- https://schema.fintlabs.no/administrasjon/Fravaerstype
+- https://schema.fintlabs.no/administrasjon/Funksjon
+- https://schema.fintlabs.no/administrasjon/Kontrakt
+- https://schema.fintlabs.no/administrasjon/Lonsart
+- https://schema.fintlabs.no/administrasjon/Lopenummer
+- https://schema.fintlabs.no/administrasjon/Objekt
+- https://schema.fintlabs.no/administrasjon/Organisasjonstype
+- https://schema.fintlabs.no/administrasjon/Personalressurskategori
+- https://schema.fintlabs.no/administrasjon/Prosjekt
+- https://schema.fintlabs.no/administrasjon/Prosjektart
+- https://schema.fintlabs.no/administrasjon/Ramme
+- https://schema.fintlabs.no/administrasjon/Stillingskode
+- https://schema.fintlabs.no/administrasjon/Uketimetall
+- https://schema.fintlabs.no/administrasjon/Fastlonn
+- https://schema.fintlabs.no/administrasjon/Fasttillegg
+- https://schema.fintlabs.no/administrasjon/Variabellonn
+- https://schema.fintlabs.no/administrasjon/Fravaer
+- https://schema.fintlabs.no/administrasjon/Fullmakt
+- https://schema.fintlabs.no/administrasjon/Rolle
+- https://schema.fintlabs.no/administrasjon/Arbeidslokasjon
+- https://schema.fintlabs.no/administrasjon/Organisasjonselement
+- https://schema.fintlabs.no/administrasjon/Personalressurs
+- https://schema.fintlabs.no/administrasjon/Arbeidsforhold
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-administrasjon/fint-administrasjon-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml

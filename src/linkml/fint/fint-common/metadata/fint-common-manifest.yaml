@@ -1,0 +1,52 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/fint/fint-common
+tittel:
+  nb: FINT Felles typar
+  nn: FINT Felles typar
+beskrivelse:
+  nb: Felles klassar for FINT
+  nn: Felles klassar for FINT
+versjonsnummer: 4.4.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/985870714
+endringsdato: '2026-08-02'
+utgivelsesdato: '2023-01-01'
+status: http://purl.org/adms/status/Completed
+heimeside: https://brreg.github.io/linkml-datamodellering-no/fint/fint-common/
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+inneholder_modellelement:
+- https://schema.fintlabs.no/Aktoer
+- https://schema.fintlabs.no/Begrep
+- https://schema.fintlabs.no/Elev
+- https://schema.fintlabs.no/Enhet
+- https://schema.fintlabs.no/Identifikator
+- https://schema.fintlabs.no/Periode
+- https://schema.fintlabs.no/Personnavn
+- https://schema.fintlabs.no/Kontaktinformasjon
+- https://schema.fintlabs.no/Adresse
+- https://schema.fintlabs.no/Matrikkelnummer
+- https://schema.fintlabs.no/Landkode
+- https://schema.fintlabs.no/Kjonn
+- https://schema.fintlabs.no/Fylke
+- https://schema.fintlabs.no/Kommune
+- https://schema.fintlabs.no/Spraak
+- https://schema.fintlabs.no/Valuta
+- https://schema.fintlabs.no/Person
+- https://schema.fintlabs.no/Kontaktperson
+- https://schema.fintlabs.no/Virksomhet
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/fint/fint-common/fint-common-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/fint/fint-common/fint-common-schema.yaml
