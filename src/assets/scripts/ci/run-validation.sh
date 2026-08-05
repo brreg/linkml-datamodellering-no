@@ -9,6 +9,11 @@
 # Eksempel:
 #   run-validation.sh --schema src/linkml/samt/samt-bu/samt-bu-schema.yaml --policy silver
 #   run-validation.sh --manifest src/linkml/samt/samt-bu/build.yaml
+#
+# --quiet: undertrykk den menneskelesbare "✓ Validering vellykka: ..." /
+#   "✗ Validering feila: ..." linja til stderr, og skriv i staden berre
+#   loggstien til stdout. Nytta av CI-wrapparar (generate.yml, validate.yml)
+#   som byggjer si eiga samanslåtte statuslinje med køyretid inkludert.
 
 set -euo pipefail
 
@@ -17,6 +22,7 @@ SCHEMA=""
 POLICY=""
 MANIFEST=""
 INSTANCE=""
+QUIET=false
 
 # Parse argument
 while [[ $# -gt 0 ]]; do
@@ -36,6 +42,10 @@ while [[ $# -gt 0 ]]; do
     --instance)
       INSTANCE="$2"
       shift 2
+      ;;
+    --quiet)
+      QUIET=true
+      shift
       ;;
     *)
       echo "Feil: Ukjent argument: $1" >&2
@@ -177,10 +187,16 @@ with open(log_file, "w", encoding="utf-8") as f:
     json.dump(log_data, f, indent=2, ensure_ascii=False, sort_keys=True)
 PYEOF
 
-if [ $exit_code -eq 0 ]; then
+if [ "$QUIET" = true ]; then
+  echo "$log_path"
+elif [ $exit_code -eq 0 ]; then
   echo "✓ Validering vellykka: $log_path" >&2
-  exit 0
 else
   echo "✗ Validering feila: sjå $log_path for detaljar" >&2
+fi
+
+if [ $exit_code -eq 0 ]; then
+  exit 0
+else
   exit 1
 fi

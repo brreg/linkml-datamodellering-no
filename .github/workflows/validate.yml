@@ -218,12 +218,12 @@ jobs:
               (
                 start=$(date +%s%3N)
                 rc=0
-                bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" || rc=$?
+                log_path=$(bash src/assets/scripts/ci/run-validation.sh --manifest "$manifest" --quiet) || rc=$?
                 elapsed=$(( $(date +%s%3N) - start ))
                 if [ $rc -eq 0 ]; then
-                  printf "✓ Validert %s (%d.%ds)\n" "$manifest" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                  printf "✓ Validert %s → %s (%d.%ds)\n" "$manifest" "$log_path" $((elapsed / 1000)) $((elapsed % 1000 / 100))
                 else
-                  printf "✗ Validering feila for %s (%d.%ds)\n" "$manifest" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                  printf "✗ Validering feila for %s → %s (%d.%ds)\n" "$manifest" "$log_path" $((elapsed / 1000)) $((elapsed % 1000 / 100))
                 fi
                 exit $rc
               ) &
