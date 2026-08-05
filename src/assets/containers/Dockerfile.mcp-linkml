@@ -6,12 +6,12 @@
 # blob-mount gjenbruke dei ved push til GHCR, utan behov for eit separat publisert
 # basisimage. Sjå specs/backlog/videre-containeroptimering-mcp-plantuml-alpine.md (B2).
 
-FROM python:3.11-alpine AS base-builder
+FROM python:3.14-alpine AS base-builder
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev libffi-dev g++
 RUN pip install --no-cache-dir --prefix=/install \
     "linkml>=1.11.1,<2.0.0" "linkml-runtime>=1.11.1,<2.0.0" "pyyaml>=6.0.3"
 
-FROM python:3.11-alpine AS base-runtime
+FROM python:3.14-alpine AS base-runtime
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app

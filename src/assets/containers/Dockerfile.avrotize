@@ -1,4 +1,4 @@
-FROM python:3.12-alpine AS builder
+FROM python:3.14-alpine AS builder
 
 # Build format: Docker v2 (via --format docker flag in Makefile)
 # avrotize sine pakka avhengigheiter (pyarrow, pandas, azure-*, pyiceberg,
@@ -18,7 +18,7 @@ RUN apk add --no-cache --virtual .build-deps \
        jsonpointer requests jsoncomparison jinja2 \
     && apk del .build-deps
 
-FROM python:3.12-alpine
+FROM python:3.14-alpine
 
 # Kopier berre runtime-avhengigheiter
 COPY --from=builder /install /usr/local
