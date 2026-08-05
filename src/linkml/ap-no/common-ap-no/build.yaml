@@ -2,12 +2,12 @@ publish_external: false
 validation_policy: bronze
 
 generators:
-  jsonld_context: true
+  jsonld_context: false
   shacl: false
-  python: true
-  json_schema: true
-  owl: true
-  rdf: true
+  python: false
+  json_schema: false
+  owl: false
+  rdf: false
   protobuf: false
   erdiagram: true
   docs: true

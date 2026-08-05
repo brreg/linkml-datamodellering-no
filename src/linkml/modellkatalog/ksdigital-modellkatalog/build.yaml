@@ -5,7 +5,7 @@ generators:
   jsonld_context: true
   shacl: false
   python: false
-  json_schema: true
+  json_schema: false
   owl: false
   rdf: true
   protobuf: false
@@ -13,4 +13,4 @@ generators:
   docs: true
   plantuml: false
   example_rdf: false
-  openapi: true
+  openapi: false

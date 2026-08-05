@@ -65,25 +65,25 @@ Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `ex
 
 Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrekt og har nødvendig metadata.
 
-| Sjekk | Alvor | Digdir-regel | FAIR |
-|---|---|---|---|
-| `schema.id` til stades | error | 4 — Identifiserbarheit | F1 |
-| `schema.id` er HTTP(S)-URI | error | 4 — Identifiserbarheit | F1 |
-| `schema.name` til stades | error | 1 — Forståelighet | — |
-| `schema.title` til stades | error | 1 — Forståelighet, 2 — Meiningsfullheit | F2 |
-| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — |
-| `schema.default_prefix` er absolutt HTTPS-URI med avsluttande `/` | error | 4 — Identifiserbarheit | — |
-| `schema.description` til stades | warning | 1 — Forståelighet | F2 |
-| `schema.version` til stades | warning | 9 — Datering | F4 |
-| `schema.license` til stades | warning | 7 — Tilgjengeleggjering | R1.1 |
-| Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | warning | 6 — Modularitet | — |
-| Alle klassenamn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner | — |
-| Alle slotnamn er snake_case (berre `a-z`, `0-9`, `_` — **ikkje bindestreker**) | warning | 3 — Navne- og skrivekonvensjoner | — |
-| Alle klasser (unntatt `tree_root`) har `class_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 |
-| Alle globale slots har `slot_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 |
-| Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 |
-| Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 |
-| Slots med kontrollerte vokabular har korrekte annotations | warning | 8 — Maskinprosserbarheit | I1 |
+| Sjekk | Alvor | Digdir-regel | FAIR | Skildring |
+|---|---|---|---|---|
+| `schema.id` til stades | error | 4 — Identifiserbarheit | F1 | Persistent identifikator for skjemaet |
+| `schema.id` er HTTP(S)-URI | error | 4 — Identifiserbarheit | F1 | Sikrar at identifikatoren er ein oppløyseleg URI |
+| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart namn for skjemaet |
+| `schema.title` til stades | error | 1 — Forståelighet, 2 — Meiningsfullheit | F2 | Menneskelesbar tittel |
+| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnamnerom for lokale identifikatorar |
+| `schema.default_prefix` er absolutt HTTPS-URI med avsluttande `/` | error | 4 — Identifiserbarheit | — | Sikrar korrekt URI-konstruksjon for lokale ressursar |
+| `schema.description` til stades | warning | 1 — Forståelighet | F2 | Fritekstskildring av skjemaet sitt føremål |
+| `schema.version` til stades | warning | 9 — Datering | F4 | Versjonsnummer for sporbarheit |
+| `schema.license` til stades | warning | 7 — Tilgjengeleggjering | R1.1 | Lisens for gjenbruk av skjemaet |
+| Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | warning | 6 — Modularitet | — | Handterleg mengde modellelement per modul |
+| Alle klassenamn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for klasser |
+| Alle slotnamn er snake_case (berre `a-z`, `0-9`, `_` — **ikkje bindestreker**) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for eigenskapar |
+| Alle klasser (unntatt `tree_root`) har `class_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 | Mappar klassen til RDF-vokabular |
+| Alle globale slots har `slot_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 | Mappar eigenskapen til RDF-vokabular |
+| Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 | Sikrar at instansar av klassen kan identifiserast unikt |
+| Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 | Koplar modellelement til fagomgrep i begrepskatalog |
+| Slots med kontrollerte vokabular har korrekte annotations | warning | 8 — Maskinprosserbarheit | I1 | Sikrar maskinlesbar dokumentasjon av vokabularkrav |
 
 > **`snake_case`-format:** Slotnamn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
 >
@@ -95,15 +95,36 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 
 ### silver
 
-Arvar bronse. Legg til livssyklusmetadata og krav frå DCAT-AP-NO og DQV-AP-NO for domenemodeller i norsk offentleg sektor.
+Arvar bronse. Legg til livssyklusmetadata og krav frå DCAT-AP-NO og DQV-AP-NO
+for domenemodeller i norsk offentleg sektor, samt instanssjekkar for
+kontrollerte vokabular.
 
-### Livssyklusmetadata
-
-| Sjekk | Alvor | Digdir-regel | FAIR |
-|---|---|---|---|
-| `schema.annotations.utgiver` — URI på forma `https://data.norge.no/organizations/<orgnr>` | warning | 10 — Ansvar | R1.2 |
-| `schema.annotations.endringsdato` — ISO 8601-dato | warning | 9 — Datering | R1.3 |
-| `schema.annotations.status` — ADMS Status-URI | warning | 11 — Modellstatus | R1.3 |
+| Sjekk | Alvor | Digdir-regel | FAIR | Skildring |
+|---|---|---|---|---|
+| `schema.annotations.utgiver` er URI på forma `https://data.norge.no/organizations/<orgnr>` | warning | 10 — Ansvar | R1.2 | Identifiserer kven som har ansvar for modellen |
+| `schema.annotations.endringsdato` er ISO 8601-dato | warning | 9 — Datering | R1.3 | Datering av siste endring |
+| `schema.annotations.status` er ADMS Status-URI | warning | 11 — Modellstatus | R1.3 | Eksplisitt livssyklusstatus (`UnderDevelopment`/`Completed`/`Deprecated`/`Withdrawn`) |
+| `Katalog` har `dct:title` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Tittel på katalogen |
+| `Katalog` har `dct:description` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Skildring av katalogen |
+| `Katalog` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Kontaktpunkt for katalogen |
+| `Katalog` har `dct:publisher` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Utgjevar av katalogen |
+| `Katalogpost` har `dct:modified` | error | 9 — Datering | R1.3 | Endringsdato for katalogposten |
+| `Katalogpost` har `foaf:primaryTopic` | error | 9 — Datering | R1.3 | Kopling til hovudressursen katalogposten skildrar |
+| `Datasett` har `dct:title` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Tittel på datasettet |
+| `Datasett` har `dct:description` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Skildring av datasettet |
+| `Datasett` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Kontaktpunkt for datasettet |
+| `Datasett` har `dcat:theme` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Tema/kategori for datasettet (Los) |
+| `Datasett` har `dct:publisher` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Utgjevar av datasettet |
+| `Distribusjon` har `dcat:accessURL` | error | — | A1 | Tilgangsadresse til distribusjonen |
+| `Datatjeneste` har `dcat:endpointURL` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Endepunkt-URL for tenesta |
+| `Datatjeneste` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Kontaktpunkt for tenesta |
+| `Datatjeneste` har `dct:title` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Tittel på tenesta |
+| `Datatjeneste` har `dct:publisher` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Utgjevar av tenesta |
+| `Aktør` har `foaf:name` | error | 1 — Forståelighet | F2 | Namn på aktøren |
+| Containerklassen (`tree_root`) har attributt med range `Katalog`, `Datasett`, `Kvalitetsmaal`, `Kvalitetsmaaling` | error | — | — | Sikrar at hovudklassene i DCAT-AP-NO/DQV-AP-NO er kopla til containeren |
+| Containerklassen har attributt med range `Distribusjon`, `Datatjeneste`, `Kvalitetsdimensjon`, `Kvalitetsmerknad` | warning | — | — | Sikrar at støtteklassene er kopla til containeren |
+| Instansverdiar for slots med `vokabular_pattern` matchar regex-mønsteret **(krev `INSTANCE=`)** | error/warning/info | 8 — Maskinprosserbarheit | I1 | Kode: `instance_slot_invalid_vocabulary_pattern`. Alvor avheng av `vokabular_krav`: **error** for `skal`, **warning** for `bør`, **info** for `kan` |
+| Instansverdiar er frå korrekt vokabular-domene (`gyldige_verdier`) **(krev `INSTANCE=`)** | error/warning | 8 — Maskinprosserbarheit | I1 | Kode: `instance_slot_invalid_vocabulary_domain`. Sjekkar at URI-ar startar med `gyldige_verdier`-domenet |
 
 Gyldige verdiar for `annotations.status`: `http://purl.org/adms/status/UnderDevelopment`, `Completed`, `Deprecated`, `Withdrawn`.
 
@@ -111,36 +132,7 @@ Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-sc
 (Digdir regel 10 og 8 — Maskinprosserbarheit via ModellDCAT-AP-NO).  
 `make update-modellkatalog` genererer `Informasjonsmodell`-instansar for modellkatalogen frå desse annotasjonane.
 
-### Klasse-slot-krav (obligatoriske per DCAT-AP-NO / DQV-AP-NO)
-
-Alle brot gir `error`.
-
-| Klasse | Påkravd slot (`slot_uri`) | Digdir-regel | FAIR |
-|---|---|---|---|
-| `Katalog` | `dct:title`, `dct:description`, `dcat:contactPoint`, `dct:publisher` | 1, 2, 10 | F2, R1.2 |
-| `Katalogpost` | `dct:modified`, `foaf:primaryTopic` | 9 | R1.3 |
-| `Datasett` | `dct:title`, `dct:description`, `dcat:contactPoint`, `dcat:theme`, `dct:publisher` | 1, 2, 10 | F2, R1.2 |
-| `Distribusjon` | `dcat:accessURL` | — | A1 |
-| `Datatjeneste` | `dcat:endpointURL`, `dcat:contactPoint`, `dct:title`, `dct:publisher` | 1, 2, 10 | F2, A1, R1.2 |
-| `Aktør` | `foaf:name` | 1 | F2 |
-
-### Containerklasse-krav
-
-| Sjekk | Alvor | Digdir-regel | FAIR |
-|---|---|---|---|
-| Containerklassen (`tree_root`) har attributt med range `Katalog`, `Datasett`, `Kvalitetsmaal`, `Kvalitetsmaaling` | error | — | — |
-| Containerklassen har attributt med range `Distribusjon`, `Datatjeneste`, `Kvalitetsdimensjon`, `Kvalitetsmerknad` | warning | — | — |
-
-### Instansvalidering (silver)
-
-Silver-policy har instanssjekkar som krev faktiske instansdata (gitt via `INSTANCE=` til `make mcp-validate`):
-
-| Sjekk | Alvor | Kode | Skildring |
-|---|---|---|---|
-| Instansverdiar for slots med `vokabular_pattern` matcher regex-mønsteret | error/warning/info | `instance_slot_invalid_vocabulary_pattern` | Alvorlegheit avheng av `vokabular_krav`: **error** for `skal`, **warning** for `bør`, **info** for `kan` |
-| Instansverdiar er frå korrekt vokabular-domene (`gyldige_verdier`) | error/warning | `instance_slot_invalid_vocabulary_domain` | Sjekkar at URI-ar startar med `gyldige_verdier`-domenet |
-
-**Døme:** Dersom `spraak`-slot har `vokabular_krav: skal` og `vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$"`, så vil verdien `"http://example.com/NOB"` gje **error** (feil domene) og `"http://publications.europa.eu/resource/authority/language/NORSK"` gje **error** (feil pattern — skal vere 3-bokstavskode).
+**Døme (instanssjekk):** Dersom `spraak`-slot har `vokabular_krav: skal` og `vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$"`, så vil verdien `"http://example.com/NOB"` gje **error** (feil domene) og `"http://publications.europa.eu/resource/authority/language/NORSK"` gje **error** (feil pattern — skal vere 3-bokstavskode).
 
 ---
 
@@ -150,14 +142,26 @@ Arvar sølv og bronse. Implementerer gap til FAIR-prinsippa (Findable, Accessibl
 
 | Sjekk | Alvor | Digdir-regel | FAIR | Skildring |
 |---|---|---|---|---|
-| `schema.id` er HTTP(S)-URI | error | 4 | F1 | Persistent og globalt unik identifikator — arva frå bronse, oppgradert til error |
-| `schema.title` til stades | error | 1, 2 | F2 | Tittel er del av rike metadata som gjer ressursen søkbar — arva frå bronse |
-| Alle klasser (unntatt `tree_root`) har `class_uri` | error | 4, 8 | F3 | Mappar klassen til RDF-vokabular — arva frå bronse, oppgradert til error |
-| `schema.version` til stades | error | 9 | F4 | Versjonering støttar katalogregistrering og sporbarheit — arva frå bronse, oppgradert til error |
-| Alle globale slots har `slot_uri` | error | 4, 8 | I1 | Mappar eigenskapen til RDF-vokabular — arva frå bronse, oppgradert til error |
-| Skjemaet deklarerer minst eitt standard vokabularprefiks (`dct`, `dcat`, `skos`, `prov`, `rdf`, `rdfs`, `owl`, `foaf`, `xsd`) | error | 8 | I2 | Standardvokabular sikrar interoperabilitet på tvers av system |
-| Skjemaet har ein slot med `dct:license` | error | 7 | R1.1 | Lisensinformasjon er føresetnad for gjenbruk — arva frå bronse, oppgradert til error |
-| Skjemaet har ein slot for proveniens (`prov:wasAttributedTo`, `prov:wasGeneratedBy`, `dct:creator`, `dct:publisher` eller `dct:contributor`) | error | 10 | R1.2 | Proveniens er viktig for tillit til og gjenbruk av data |
+| `schema.id` til stades | error | 4 — Identifiserbarheit | F1 | Persistent identifikator for skjemaet — arva frå bronse (allereie error) |
+| `schema.id` er HTTP(S)-URI | error | 4 — Identifiserbarheit | F1 | Sikrar at identifikatoren er ein oppløyseleg URI — arva frå bronse (allereie error) |
+| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart namn for skjemaet — arva frå bronse (allereie error) |
+| `schema.title` til stades | error | 1 — Forståelighet, 2 — Meiningsfullheit | F2 | Tittel er del av rike metadata som gjer ressursen søkbar — arva frå bronse (allereie error) |
+| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnamnerom for lokale identifikatorar — arva frå bronse (allereie error) |
+| `schema.default_prefix` er absolutt HTTPS-URI med avsluttande `/` | error | 4 — Identifiserbarheit | — | Sikrar korrekt URI-konstruksjon — arva frå bronse (allereie error) |
+| `schema.description` til stades | error | 1 — Forståelighet | F2 | Fritekstskildring av skjemaet sitt føremål — arva frå bronse, oppgradert til error |
+| `schema.version` til stades | error | 9 — Datering | F4 | Versjonering støttar katalogregistrering og sporbarheit — arva frå bronse, oppgradert til error |
+| `schema.license` til stades | error | 7 — Tilgjengeleggjering | R1.1 | Lisens for gjenbruk av skjemaet — arva frå bronse, oppgradert til error |
+| Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | error | 6 — Modularitet | — | Handterleg mengde modellelement per modul — arva frå bronse, oppgradert til error |
+| Alle klassenamn startar med stor bokstav (PascalCase) | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for klasser — arva frå bronse, oppgradert til error |
+| Alle slotnamn er snake_case | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for eigenskapar — arva frå bronse, oppgradert til error |
+| Alle klasser (unntatt `tree_root`) har `class_uri` | error | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 | Mappar klassen til RDF-vokabular — arva frå bronse, oppgradert til error |
+| Alle globale slots har `slot_uri` | error | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 | Mappar eigenskapen til RDF-vokabular — arva frå bronse, oppgradert til error |
+| Alle klasser (unntatt `tree_root`) har identifikator-slot | error | 4 — Identifiserbarheit | F1 | Sikrar at instansar av klassen kan identifiserast unikt — arva frå bronse, oppgradert til error |
+| Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | error | 13 — Begreper | A2 | Koplar modellelement til fagomgrep i begrepskatalog — arva frå bronse, oppgradert til error |
+| Slots med kontrollerte vokabular har korrekte annotations | error | 8 — Maskinprosserbarheit | I1 | Sikrar maskinlesbar dokumentasjon av vokabularkrav — arva frå bronse, oppgradert til error |
+| Skjemaet deklarerer minst eitt standard vokabularprefiks (`dct`, `dcat`, `skos`, `prov`, `rdf`, `rdfs`, `owl`, `foaf`, `xsd`) | error | 8 — Maskinprosserbarheit | I2 | Standardvokabular sikrar interoperabilitet på tvers av system |
+| Skjemaet har ein slot med `dct:license` | error | 7 — Tilgjengeleggjering | R1.1 | Lisensinformasjon er føresetnad for gjenbruk — arva frå bronse, oppgradert til error |
+| Skjemaet har ein slot for proveniens (`prov:wasAttributedTo`, `prov:wasGeneratedBy`, `dct:creator`, `dct:publisher` eller `dct:contributor`) | error | 10 — Ansvar | R1.2 | Proveniens er viktig for tillit til og gjenbruk av data |
 
 ---
 

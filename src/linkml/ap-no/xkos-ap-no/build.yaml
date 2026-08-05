@@ -3,17 +3,17 @@ validation_policy: gold
 external_spec_url: https://data.norge.no/specification/xkos-ap-no
 external_spec_label: Spesifikasjon for klassifikasjonsbeskrivelser (XKOS-AP-NO)
 generators:
-  jsonld_context: true
+  jsonld_context: false
   shacl: true
-  python: true
-  json_schema: true
+  python: false
+  json_schema: false
   owl: true
   rdf: true
-  protobuf: true
+  protobuf: false
   erdiagram: true
   docs: true
   plantuml: true
   example_rdf: false
   xsd: false
-  openapi: true
+  openapi: false
   asyncapi: false
