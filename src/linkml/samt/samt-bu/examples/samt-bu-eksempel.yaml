@@ -50,14 +50,14 @@ dataset_metadata:
 tekstdeler:
   - id: dqv:tekstdel-1
     har_verdi_tekstdel:  "Bruker rapporterer at datakvaliteten er tilfredsstillende."
-    format: tekstformat
-    spraak: 
-      - "NO"
+    format: http://publications.europa.eu/resource/authority/file-type/TXT
+    spraak:
+      - http://publications.europa.eu/resource/authority/language/NOB
   - id: dqv:tekstdel-2
     har_verdi_tekstdel:  "Datasettet mangler enkelte observasjoner for 2023."
-    format: tekstformat
-    spraak: 
-      - "NO"
+    format: http://publications.europa.eu/resource/authority/file-type/TXT
+    spraak:
+      - http://publications.europa.eu/resource/authority/language/NOB
 
 tidsromer:
   - id: dqv:tidsrom-1
