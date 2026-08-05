@@ -70,7 +70,6 @@ PYEOF
 
 # Steg 2: Send flattened schema til MCP-serveren og print resultatet.
 # Policyar vert montert inn frå repoet slik at endringar tek effekt utan rebuild.
-echo "→ Validerer (policy: $POLICY) ..." >&2
 python3 -c "
 import json, sys, os, yaml
 flat_path, policy, example_path = sys.argv[1], sys.argv[2], sys.argv[3]
