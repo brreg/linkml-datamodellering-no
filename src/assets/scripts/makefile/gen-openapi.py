@@ -55,7 +55,6 @@ def main():
     if args.out:
         with open(args.out, "w") as f:
             f.write(output)
-        print(f"gen-openapi: skriven til {args.out}", file=sys.stderr)
     else:
         sys.stdout.write(output)
 

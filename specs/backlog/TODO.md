@@ -109,7 +109,7 @@ tilsvarande dokumentasjon
 
 dokumentere tydelig make targets som er wrappere rundt andre make targets
 
-
+dokumentere silver policy med ein tabell som inneheld alt innhold i policyen på tilsvarande måte som bronae og gold policyane
 
 
 
