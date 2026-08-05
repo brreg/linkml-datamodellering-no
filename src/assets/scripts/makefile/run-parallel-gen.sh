@@ -12,7 +12,16 @@
 #
 # Bruk:
 #   GEN_CMD='...' run-parallel-gen.sh --generator <namn> [--flag <flagg>] \
-#       [--check-suffix <suffiks>] [--out-suffix <suffiks>] -- <skjema...>
+#       [--check-suffix <suffiks>] [--out-suffix <suffiks>] \
+#       [--extra-flags-field <build.yaml-feltnamn>] -- <skjema...>
+#
+# --extra-flags-field: valfritt. Om sett, les kvart skjema sitt eige
+#   build.yaml-felt (t.d. "shacl_flags" eller "owl_flags", forma som
+#   `  <felt>: "--nokre --flagg"` under generators:) og gjer verdien
+#   tilgjengeleg som shell-variabelen $extra_flags for GEN_CMD. Tom/manglande
+#   verdi gjev tom $extra_flags. Les direkte frå build.yaml (ikkje via
+#   config.mk/Make-variablar) sidan GEN_CMD vert evaluert i ein xargs-
+#   subshell utan tilgang til Make sin variabeltilstand.
 #
 # Miljøvariablar som må vere sette (eksportert frå make/00-settings.mk):
 #   GEN_CMD, GEN_DIR, PARALLEL, LOG_FUNCTIONS, CLR_STEP, CLR_RST
@@ -23,6 +32,7 @@ generator=""
 flag=""
 check_suffix=""
 out_suffix=""
+extra_flags_field=""
 
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -30,6 +40,7 @@ while [ $# -gt 0 ]; do
         --flag) flag="$2"; shift 2 ;;
         --check-suffix) check_suffix="$2"; shift 2 ;;
         --out-suffix) out_suffix="$2"; shift 2 ;;
+        --extra-flags-field) extra_flags_field="$2"; shift 2 ;;
         --) shift; break ;;
         *) echo "run-parallel-gen.sh: ukjent flagg: $1" >&2; exit 1 ;;
     esac
@@ -74,7 +85,7 @@ fi
 
 [ "${#enabled[@]}" -eq 0 ] && exit 0
 
-export GEN_CMD GEN_DIR LOG_FUNCTIONS CLR_STEP CLR_RST generator check_suffix out_suffix
+export GEN_CMD GEN_DIR LOG_FUNCTIONS CLR_STEP CLR_RST generator check_suffix out_suffix extra_flags_field
 
 printf '%s\n' "${enabled[@]}" | xargs -P "$PARALLEL" -I {} bash -c '
     set -euo pipefail
@@ -94,6 +105,13 @@ printf '%s\n' "${enabled[@]}" | xargs -P "$PARALLEL" -I {} bash -c '
     fi
     if [ -n "$out_suffix" ]; then
         out="$outdir/$name-$out_suffix"
+    fi
+    extra_flags=""
+    if [ -n "$extra_flags_field" ]; then
+        manifest=$(dirname "$s")/build.yaml
+        if [ -f "$manifest" ]; then
+            extra_flags=$(sed -n "s/^  ${extra_flags_field}: *\"\\(.*\\)\"/\\1/p" "$manifest" | head -1)
+        fi
     fi
     t0=$(date +%s%3N)
     eval "$GEN_CMD"

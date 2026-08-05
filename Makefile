@@ -55,8 +55,6 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
-PARALLEL ?= 8
-
 .PHONY: help test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
@@ -77,26 +75,7 @@ PARALLEL ?= 8
 help: ## Vis oversikt over tilgjengelege make-target
 	@echo "$(CLR_HDR)Tilgjengelege make-target:$(CLR_RST)"
 	@echo ""
-	@echo "$(CLR_INFO)Vanleg bruk:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(test|roundtrip|clean|help)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)Generering (per domene eller skjema):$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(gen-|domain-|convert-)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)Validering:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(validate|lint)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)Dokumentasjon:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'docs-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)Container images:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'build-docker-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)MCP-serverar:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E 'mcp-' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
-	@echo ""
-	@echo "$(CLR_INFO)Vedlikehald:$(CLR_RST)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | grep -E '(update-|new-|check-)' | sed 's/^[^:]*://' | awk 'BEGIN {FS = "## "}; {printf "  $(CLR_STEP)%-30s$(CLR_RST) %s\n", $$1, $$2}'
+	@bash src/assets/scripts/makefile/help.sh $(MAKEFILE_LIST)
 
 test: ## Køyr alle testar
 	$(call print_header,test)
@@ -118,29 +97,15 @@ roundtrip-json-schema: ## Køyr JSON Schema roundtrip-testar [JSONSCHEMA=<sti>]
 
 convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	$(call print_header,convert-rdf)
-	@for example in $$(find $(SCHEMA_DIR) -path '*/examples/*-eksempel.yaml' | sort); do \
-		[ -f "$$example" ] || continue; \
-		name=$$(basename "$$example" .yaml); \
-		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
-		domain=$$(echo "$$example" | awk -F/ '{print $$3}'); \
-		manifest=$(SCHEMA_DIR)/$$domain/$$profil/build.yaml; \
-		if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
-			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
-			continue; \
-		fi; \
-		mkdir -p $(GEN_DIR)/$$domain/$$profil; \
-		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
-			schema=tests/fixtures/$$profil-fixture.yaml; \
-		else \
-			schema=$(SCHEMA_DIR)/$$domain/$$profil/$$profil-schema.yaml; \
-		fi; \
+	@SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
+	while IFS=$$'\t' read -r schema example out; do \
 		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $$out $$example"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
 			--no-validate \
-			--output $(GEN_DIR)/$$domain/$$profil/$$name.ttl \
+			--output $$out \
 			$$example; \
 	done
 

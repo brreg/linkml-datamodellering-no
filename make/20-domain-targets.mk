@@ -38,38 +38,27 @@ domain-$(1): $$(_domain_pre_$(1))
 	$$(call print_header,domain-$(1),$$(if $$(filter-out 1,$$(PARALLEL)),(PARALLEL=$$(PARALLEL))))
 	$$(call run_gen_linkml_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld,jsonld_context)
-	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-shacl,shapes.ttl,shacl)
+	$$(call run_gen_shacl_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-python,model.py,python)
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-json-schema,schema.json,json_schema)
 	$$(call run_gen_owl_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_rdf_parallel,$$(_schemas_$(1)))
-	@for example in $$(find $$(SCHEMA_DIR)/$(1) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
-		[ -f "$$$$example" ] || continue; \
-		name=$$$$(basename "$$$$example" .yaml); \
-		profil=$$$$(echo "$$$$name" | sed 's/-eksempel$$$$//'); \
-		if [ -f $$(SCHEMA_DIR)/$(1)/$$$$profil/build.yaml ] && grep -q "^  example_rdf: false" $$(SCHEMA_DIR)/$(1)/$$$$profil/build.yaml; then \
-			echo "Hoppar over linkml-convert for $$$$example (example_rdf: false)"; \
-			continue; \
-		fi; \
-		mkdir -p $$(GEN_DIR)/$(1)/$$$$profil; \
-		if [ -f tests/fixtures/$$$$profil-fixture.yaml ]; then \
-			schema=tests/fixtures/$$$$profil-fixture.yaml; \
-		else \
-			schema=$$(SCHEMA_DIR)/$(1)/$$$$profil/$$$$profil-schema.yaml; \
-		fi; \
+	@SCHEMA_DIR=$$(SCHEMA_DIR) GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(1) | \
+	while IFS=$$$$'\t' read -r schema example out; do \
 		echo "$$(CLR_STEP)→ linkml-convert  $$$$example$$(CLR_RST)"; \
-		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate $$$$example > $$(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl"; \
+		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $$$$out $$$$example"; \
 		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
 			--no-validate \
-			$$$$example > $$(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl; \
+			--output $$$$out \
+			$$$$example; \
 	done
 	$$(call run_gen_doc_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_erdiagram_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),gen-proto,schema.proto,protobuf)
 	$$(call run_gen_plantuml_parallel,$$(_schemas_$(1)))
-	$$(call run_gen_xsd,$$(_schemas_$(1)))
+	$$(call run_gen_xsd_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_openapi_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_asyncapi_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_informasjonsmodell_instance_parallel,$$(_schemas_$(1)))

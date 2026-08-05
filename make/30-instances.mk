@@ -13,30 +13,13 @@
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
-# run_gen_informasjonsmodell_instance — makro for å generere Informasjonsmodell
+# run_gen_informasjonsmodell_instance_parallel — makro for å generere
+# Informasjonsmodell per skjema. Trygt å parallellisere sidan kvart skjema
+# skriv til sin eigen metadata/<modell>-manifest.yaml, og ingen
+# build.yaml-generatorflagg gatar dette steget i dag. Brukt av både
+# domain_target (make/20-domain-targets.mk) og det frittståande
+# gen-informasjonsmodell-instance-targetet under.
 # ---------------------------------------------------------------------------
-# Per-schema Informasjonsmodell-instans generator.
-# $1=schemas
-define run_gen_informasjonsmodell_instance
-@eval "$$LOG_FUNCTIONS"; \
-for schema in $(1); do \
-	domain=$$(echo "$$schema" | awk -F/ '{print $$3}'); \
-	name=$$(echo "$$schema" | awk -F/ '{print $$4}'); \
-	t0=$$(date +%s%3N); \
-	if run_logged "gen-informasjonsmodell-instance $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$schema"; then \
-		elapsed_ms=$$(($$(date +%s%3N) - t0)); \
-		log_info "$$(printf '$(CLR_STEP)→ gen-informasjonsmodell-instance  %s/%s$(CLR_RST) (%d.%ds)' \
-			"$$domain" "$$name" \
-			$$((elapsed_ms / 1000)) \
-			$$((elapsed_ms % 1000 / 100)))"; \
-	fi; \
-done
-endef
-
-# Parallell versjon av run_gen_informasjonsmodell_instance — brukt av
-# domain_target (make/20-domain-targets.mk). Trygt å parallellisere sidan
-# kvart skjema skriv til sin eigen metadata/<modell>-manifest.yaml, og
-# ingen build.yaml-generatorflagg gatar dette steget i dag.
 define run_gen_informasjonsmodell_instance_parallel
 @GEN_CMD='run_logged "gen-informasjonsmodell-instance $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$s"' \
 	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-informasjonsmodell-instance -- $(1)
@@ -56,7 +39,7 @@ else ifdef DOMAIN
 else
 	$(call print_header,gen-informasjonsmodell-instance)
 endif
-	$(call run_gen_informasjonsmodell_instance,$(call get_target_schemas))
+	$(call run_gen_informasjonsmodell_instance_parallel,$(call get_target_schemas))
 
 .PHONY: gen-modellkatalog-instance
 
