@@ -381,7 +381,8 @@
       "Bash(echo \"exit $?\")",
       "Bash(cd *)",
       "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-fail)",
-      "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-ok)"
+      "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-ok)",
+      "Bash(podman --version)"
     ]
   },
   "enableAllProjectMcpServers": true,

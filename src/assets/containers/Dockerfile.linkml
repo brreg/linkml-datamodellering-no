@@ -16,8 +16,8 @@ COPY --from=builder /install /usr/local
 
 # Patch LinkML docgen for lengre description i tabellar
 COPY src/assets/containers/patches/docgen-max-chars.patch /tmp/
-RUN patch /usr/local/lib/python3.11/site-packages/linkml/generators/docgen.py \
-    < /tmp/docgen-max-chars.patch \
+RUN DOCGEN_PATH=$(find /usr/local/lib -path '*/site-packages/linkml/generators/docgen.py') \
+    && patch "$DOCGEN_PATH" < /tmp/docgen-max-chars.patch \
     && rm /tmp/docgen-max-chars.patch
 
 WORKDIR /work
