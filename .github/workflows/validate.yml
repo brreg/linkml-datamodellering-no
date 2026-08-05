@@ -194,19 +194,12 @@ jobs:
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Hent mcp-linkml-validator frå GHCR
+      - name: Last images inn i podman frå GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ fromJson(needs.checkout-source.outputs.image_tags)['mcp-linkml-validator'] }}
-          podman pull "$IMAGE"
-          podman tag "$IMAGE" mcp-linkml-validator:latest
-
-      - name: Hent linkml-local frå GHCR
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ fromJson(needs.checkout-source.outputs.image_tags)['linkml-local'] }}
-          podman pull "$IMAGE"
-          podman tag "$IMAGE" localhost/linkml-local:latest
+        uses: ./.github/actions/pull-images
+        with:
+          images: ${{ needs.checkout-source.outputs.images }}
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Valider skjema mot validation_policy
         if: steps.cache-validated.outputs.cache-hit != 'true'

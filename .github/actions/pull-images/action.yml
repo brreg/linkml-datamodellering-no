@@ -1,0 +1,46 @@
+name: 'Last images inn i podman frå GHCR (parallelt)'
+description: >-
+  Pullar ei liste med images frå GHCR parallelt, taggar dei lokalt som
+  localhost/<namn>:latest, og fell tilbake til lokalt bygg (make <target>)
+  for kvart image som ikkje let seg pulle. Krev at podman alt er innlogga
+  mot GHCR før dette steget køyrer.
+inputs:
+  images:
+    description: 'JSON-array [{name, make_target}, ...]'
+    required: true
+  image_tags:
+    description: 'JSON-map {namn: hash-tag} for GHCR-taggar'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Pullar images frå GHCR (parallelt)
+      shell: bash
+      run: |
+        echo "=== Pullar images frå GHCR (parallelt) ==="
+        pull_image() {
+          local local_tag="$1" ghcr_tag="$2" make_target="$3"
+          local start=$(date +%s%3N)
+          echo "→ Prøver å pulle $ghcr_tag"
+          if podman pull "$ghcr_tag" 2>&1; then
+            podman tag "$ghcr_tag" "$local_tag"
+            local elapsed=$(( $(date +%s%3N) - start ))
+            printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+          else
+            echo "⚠ GHCR-pull feila for $local_tag — byggjer lokalt"
+            set -x
+            make "$make_target"
+            set +x
+          fi
+        }
+
+        declare -a PIDS=()
+        while IFS=$'\t' read -r img make_target; do
+          tag=$(echo '${{ inputs.image_tags }}' | jq -r --arg n "$img" '.[$n]')
+          pull_image "localhost/$img:latest" "ghcr.io/${{ github.repository_owner }}/$img:$tag" "$make_target" &
+          PIDS+=($!)
+        done < <(echo '${{ inputs.images }}' | jq -r '.[] | [.name, .make_target] | @tsv')
+
+        wait
+        echo "=== Alle pull-jobbar fullførte ==="
+        podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}"

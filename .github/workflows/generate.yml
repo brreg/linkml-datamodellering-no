@@ -202,47 +202,21 @@ jobs:
             echo "  - $img"
           done
 
-          # Eksporter som output (space-separated)
-          echo "images=${REQUIRED_IMAGES[*]}" >> $GITHUB_OUTPUT
+          # Eksporter som JSON-array [{name, make_target}, ...] — same form
+          # som ./.github/actions/pull-images forventar, og same
+          # filtreringsidiom som validate.yml sitt checkout-source-steg
+          # brukar (select(.name as $n | ... | index($n))).
+          images_json=$(jq -c --argjson names "$(printf '%s\n' "${REQUIRED_IMAGES[@]}" | jq -R . | jq -s .)" \
+            '[.[] | select(.name as $n | $names | index($n))] | map({name, make_target})' \
+            "$IMAGES_MANIFEST")
+          echo "images=$images_json" >> $GITHUB_OUTPUT
 
       - name: Last images inn i podman frå GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        run: |
-          echo "=== Pullar images frå GHCR (parallelt) ==="
-          pull_image() {
-            local local_tag="$1" ghcr_tag="$2" make_target="$3"
-            local start=$(date +%s%3N)
-            echo "→ Prøver å pulle $ghcr_tag"
-            if podman pull "$ghcr_tag" 2>&1; then
-              podman tag "$ghcr_tag" "$local_tag"
-              local elapsed=$(( $(date +%s%3N) - start ))
-              printf "✓ Henta %s frå GHCR (%d.%ds)\n" "$local_tag" $((elapsed / 1000)) $((elapsed % 1000 / 100))
-              echo "  Inspekterer image:"
-              podman inspect "$local_tag" | grep -E "ManifestType|Created" | head -5
-            else
-              echo "⚠ GHCR-pull feila for $local_tag — byggjer lokalt"
-              set -x
-              make "$make_target"
-              set +x
-            fi
-          }
-
-          # Pull berre images som domenet faktisk treng — namn/make-target
-          # kjem frå images.json, tag frå den førehandsrekna tag-mappa i
-          # checkout-source (sjå kommentar der for kvifor hashFiles() ikkje
-          # kan reknast ut på nytt her).
-          IMAGES_MANIFEST="src/assets/containers/images.json"
-          IMAGE_TAGS='${{ needs.checkout-source.outputs.image_tags }}'
-          for img in ${{ steps.detect-images.outputs.images }}; do
-            make_target=$(jq -r --arg n "$img" '.[] | select(.name==$n) | .make_target' "$IMAGES_MANIFEST")
-            tag=$(echo "$IMAGE_TAGS" | jq -r --arg n "$img" '.[$n]')
-            pull_image "localhost/$img:latest" "ghcr.io/${{ github.repository_owner }}/$img:$tag" "$make_target" &
-          done
-
-          wait
-          echo "=== Alle pull-jobbar fullførte ==="
-          echo "Lokale images:"
-          podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}" | grep -E "localhost/(linkml-local|python-pytest|avrotize-local|asyncapi-cli-minimal|plantuml|mcp-linkml-validator)" || echo "Ingen images funne"
+        uses: ./.github/actions/pull-images
+        with:
+          images: ${{ steps.detect-images.outputs.images }}
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Valider alle skjema for ${{ matrix.domain }}
         # Einaste kontrollen mot innhaldet ETTER release-please sin
