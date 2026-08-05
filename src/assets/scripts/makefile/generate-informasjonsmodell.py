@@ -15,6 +15,7 @@ Skriv: metadata/modelldcat.yaml (samla datafil med Informasjonsmodell + Kontakto
 
 import sys
 import os
+import configparser
 from pathlib import Path
 import yaml
 import glob
@@ -187,37 +188,39 @@ def generate_mkdocs_url(schema_path: Path) -> str:
 
 def get_github_raw_base_url() -> str:
     """
-    Hent GitHub raw base-URL frå git remote.
+    Hent GitHub raw base-URL frå .git/config.
+
+    Les remote-URL-en direkte frå config-fila i staden for å shelle ut til
+    git-binæren, sidan denne funksjonen køyrer i ein minimal Python-container
+    utan git installert (repoet, inkl. .git/, er alltid mounta).
 
     Fallback: brreg/linkml-datamodellering-no
     """
-    import subprocess
+    git_config_path = Path.cwd() / ".git" / "config"
 
     try:
-        # Hent remote URL
-        result = subprocess.run(
-            ['git', 'remote', 'get-url', 'origin'],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        remote_url = result.stdout.strip()
+        if not git_config_path.exists():
+            raise FileNotFoundError(f"{git_config_path} finst ikkje")
+
+        config = configparser.ConfigParser()
+        config.read(git_config_path)
+        remote_url = config.get('remote "origin"', 'url')
 
         # Parse owner/repo frå git@github.com:owner/repo.git eller https://github.com/owner/repo.git
         if remote_url.startswith('git@github.com:'):
             # git@github.com:owner/repo.git
             parts = remote_url.split(':')[1].replace('.git', '').split('/')
-            owner = parts[0]
-            repo = parts[1]
-            return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
         elif remote_url.startswith('https://github.com/'):
             # https://github.com/owner/repo.git
             parts = remote_url.replace('https://github.com/', '').replace('.git', '').split('/')
-            owner = parts[0]
-            repo = parts[1]
-            return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
+        else:
+            raise ValueError(f"Ukjent remote-URL-format: {remote_url}")
+
+        owner = parts[0]
+        repo = parts[1]
+        return f"https://raw.githubusercontent.com/{owner}/{repo}/main/"
     except Exception as e:
-        print(f"⚠️  Kunne ikkje hente git remote-URL ({e}) — brukar fallback-URL", file=sys.stderr)
+        print(f"⚠️  Kunne ikkje lese git remote-URL frå {git_config_path} ({e}) — brukar fallback-URL", file=sys.stderr)
 
     # Fallback
     return "https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/"

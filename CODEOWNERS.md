@@ -11,6 +11,7 @@ organizations:
       - src/linkml/referanse/**
       - src/linkml/ngr/ngr-virksomhet/**
       - src/linkml/oreg/**
+      - src/linkml/fair/**
 
   - alias: digdir
     name: Digitaliseringsdirektoratet
