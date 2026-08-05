@@ -214,7 +214,6 @@ jobs:
           declare -a MANIFESTS=()
           for manifest in $(find src/linkml/${{ matrix.domain }} -name build.yaml -type f | grep -v '/begrepssamling-'); do
             if grep -q "^generators:" "$manifest"; then
-              echo "Validerer skjema frå manifest: $manifest"
               (
                 start=$(date +%s%3N)
                 rc=0

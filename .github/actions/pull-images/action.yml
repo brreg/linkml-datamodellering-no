@@ -43,4 +43,4 @@ runs:
 
         wait
         echo "=== Alle pull-jobbar fullførte ==="
-        podman images --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}"
+        podman images --filter "reference=localhost/*" --format "table {{.Repository}}:{{.Tag}}\t{{.Size}}\t{{.Created}}"

@@ -21,7 +21,7 @@
 # $1=schemas  $2=generator  $3=output-file suffix  $4=valfritt build.yaml generator-flagg
 define run_gen_parallel
 @GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator $(2) $(if $(4),--flag $(4)) -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator $(2) $(if $(4),--flag $(4)) -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -30,7 +30,7 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_linkml_parallel
 @GEN_CMD='$(LINKML_RUN) gen-linkml "$$s" > /dev/null' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator merge-imports -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator merge-imports -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -40,7 +40,7 @@ endef
 SHACL_DEFAULT_FLAGS :=
 define run_gen_shacl_parallel
 @GEN_CMD='$(LINKML_RUN) gen-shacl $${extra_flags:-$(SHACL_DEFAULT_FLAGS)} "$$s" > "$$outdir/$$name-shapes.ttl"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-shacl --flag shacl --extra-flags-field shacl_flags -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-shacl --flag shacl --extra-flags-field shacl_flags -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -51,7 +51,7 @@ endef
 OWL_DEFAULT_FLAGS := --skip-vacuous-local-range-axioms --skip-vacuous-min-zero-cardinality-axioms --consolidate-cardinality-axioms
 define run_gen_owl_parallel
 @GEN_CMD='$(LINKML_RUN) gen-owl $${extra_flags:-$(OWL_DEFAULT_FLAGS)} "$$s" > "$$outdir/$$name-ontology.ttl"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-owl --flag owl --extra-flags-field owl_flags -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-owl --flag owl --extra-flags-field owl_flags -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -59,7 +59,7 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_rdf_parallel
 @GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-rdf --flag rdf -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-rdf --flag rdf -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -81,7 +81,7 @@ run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--example-directory "$$outdir/docgen-examples" \
 	-d "$$outdir/docs" "$$s" && \
 sed -i "/Container/d" "$$outdir/docs/index.md"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator "gen-docgen-examples + gen-doc" --flag docs -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator "gen-docgen-examples + gen-doc" --flag docs -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
 	"$$s" \
 	"$$outdir/$$name-erdiagram-unfiltered.md" \
 	> "$$outdir/$$name-erdiagram.md"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-erdiagram --flag erdiagram -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-erdiagram --flag erdiagram -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -117,7 +117,7 @@ $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	> "$$outdir/diagrams/$$name.puml" && \
 podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null && \
 podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-plantuml --flag plantuml -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-plantuml --flag plantuml -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -133,7 +133,7 @@ run_logged "gen-xsd/j2a $$domain/$$name" $(AVROTIZE_RUN) j2a /work/$$input --out
 run_logged "gen-xsd/a2x $$domain/$$name" $(AVROTIZE_RUN) a2x /work/$$outdir/$$name.avsc --namespace "$$namespace" --out /work/$$out && \
 run_logged "gen-xsd/fix-xsd-dates $$domain/$$name" podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) /work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$out /work/$$input && \
 rm -f "$$outdir/$$name.avsc"' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-xsd --flag xsd --check-suffix schema.json --out-suffix schema.xsd -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-xsd --flag xsd --check-suffix schema.json --out-suffix schema.xsd -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -142,7 +142,7 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_asyncapi_parallel
 @GEN_CMD='run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-asyncapi --flag asyncapi --check-suffix schema.json --out-suffix asyncapi.yaml -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-asyncapi --flag asyncapi --check-suffix schema.json --out-suffix asyncapi.yaml -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -151,5 +151,5 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_openapi_parallel
 @GEN_CMD='run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out' \
-	src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-openapi --flag openapi --check-suffix schema.json --out-suffix openapi.yaml -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-openapi --flag openapi --check-suffix schema.json --out-suffix openapi.yaml -- $(1)
 endef
