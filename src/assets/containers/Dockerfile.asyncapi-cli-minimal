@@ -1,4 +1,4 @@
-FROM node:24-alpine
+FROM node:25-alpine
 
 LABEL org.opencontainers.image.title="AsyncAPI Validator (Minimal)"
 LABEL org.opencontainers.image.description="Minimal AsyncAPI validator using only @asyncapi/parser (~296 MB vs 4.43 GB)"
