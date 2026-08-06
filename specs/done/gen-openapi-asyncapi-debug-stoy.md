@@ -28,6 +28,8 @@ Linje 3 kjem frå at `openapi-spec-validator` (tredjeparts CLI-verktøy) sjølv 
 
 - **Undertrykkje `openapi-spec-validator`/`asyncapi validate` sin eigen suksess-output.** Ville krevje anten (a) endring i den delte `run_logged()`-funksjonen med spesialtilfelle per verktøy (bryt med at `run_logged` skal vere generisk), eller (b) `> /dev/null` rundt validator-kallet (forbode av CLAUDE.md sin "Ingen stille feil"-regel, sidan det ville undertrykt feilinformasjon òg). Utelate frå denne specen — linja er dessutan genuint informativ (stadfestar gyldig spesifikasjon), i motsetnad til linje 2 som berre gjentek linje 1.
 
+  **Reversert i `specs/done/fjern-openapi-validator-ok-debugstoy.md`:** brukaren bad eksplisitt om at linja vert fjerna likevel. Løysinga vart eit filter i `run_logged()` (utvida det eksisterande "None"-filteret), ikkje `> /dev/null` — feilmeldingar (heilt anna tekstformat enn `<sti>: OK`) er difor framleis fullt synlege via `log_error`-greina.
+
 ## Steg
 
 1. **Fjern** `print(f"gen-openapi: skriven til {args.out}", file=sys.stderr)` frå `src/assets/scripts/makefile/gen-openapi.py` (linje 58). Skriving til fil (`with open(args.out, "w") as f: f.write(output)`) er uendra — berre stderr-stadfestinga vert fjerna.

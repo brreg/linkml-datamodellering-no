@@ -101,8 +101,12 @@ run_logged() {
   fi
   # linkml sine gen-*-CLI-kommandoar skriv stundom bokstaveleg "None" til
   # stdout ved suksess (CLI-en sin returverdi frå serialize()) — filtrer
-  # vekk denne kjende støykjelda, og hopp over tom output, frå debug-logginga
-  if [ -n "$$output" ] && [ "$$output" != "None" ]; then
+  # vekk denne kjende støykjelda, og hopp over tom output, frå debug-logginga.
+  # Tilsvarande skriv openapi-spec-validator "<sti>: OK" ved vellykka
+  # validering — same kjende støymønster, filtrert på same måte. Trygt:
+  # feilmeldingar frå desse verktøya har heilt anna format og vert framleis
+  # fanga av log_error-greina over.
+  if [ -n "$$output" ] && [ "$$output" != "None" ] && [[ "$$output" != *": OK" ]]; then
     log_debug "$$output"
   fi
   return 0
