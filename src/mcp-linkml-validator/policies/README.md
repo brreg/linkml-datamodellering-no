@@ -162,6 +162,15 @@ Arvar sølv og bronse. Implementerer gap til FAIR-prinsippa (Findable, Accessibl
 | Skjemaet deklarerer minst eitt standard vokabularprefiks (`dct`, `dcat`, `skos`, `prov`, `rdf`, `rdfs`, `owl`, `foaf`, `xsd`) | error | 8 — Maskinprosserbarheit | I2 | Standardvokabular sikrar interoperabilitet på tvers av system |
 | Skjemaet har ein slot med `dct:license` | error | 7 — Tilgjengeleggjering | R1.1 | Lisensinformasjon er føresetnad for gjenbruk — arva frå bronse, oppgradert til error |
 | Skjemaet har ein slot for proveniens (`prov:wasAttributedTo`, `prov:wasGeneratedBy`, `dct:creator`, `dct:publisher` eller `dct:contributor`) | error | 10 — Ansvar | R1.2 | Proveniens er viktig for tillit til og gjenbruk av data |
+| `schema.annotations.utgiver` til stades | error | 10 — Ansvar | R1.2 | URI til ansvarleg organisasjon — arva frå sølv, oppgradert til error |
+| `schema.annotations.endringsdato` til stades | error | 9 — Datering | R1.3 | ISO 8601-dato for siste endring — arva frå sølv, oppgradert til error |
+| `schema.annotations.oppdateringsfrekvens` til stades | error | 9 — Datering | R1.3 | URI frå EU sin Frequency Named Authority List — arva frå sølv, oppgradert til error |
+| `schema.annotations.status` til stades | error | 11 — Modellstatus | R1.3 | ADMS Status-URI for modellstatus — arva frå sølv, oppgradert til error |
+| `Distribusjon` har slot med `dct:license` | error | 7 — Tilgjengeleggjering | R1.1 | Lisens på distribusjonsnivå — arva frå sølv, oppgradert til error |
+| Containerklassen har attributt med range `Distribusjon` | error | — | — | Arva frå sølv, oppgradert til error |
+| Containerklassen har attributt med range `Datatjeneste` | error | — | — | Arva frå sølv, oppgradert til error |
+| Containerklassen har attributt med range `Kvalitetsdimensjon` | error | — | — | Arva frå sølv, oppgradert til error |
+| Containerklassen har attributt med range `Kvalitetsmerknad` | error | — | — | Arva frå sølv, oppgradert til error |
 
 ---
 

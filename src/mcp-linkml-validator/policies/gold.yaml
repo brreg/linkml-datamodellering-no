@@ -43,6 +43,194 @@ checks:
     digdir_rule: 4, 8
     fair_principle: I1
 
+  schema_has_license:
+    severity: error
+    description: >
+      schema.license skal vere til stades med URI til ein open lisens
+      (t.d. CC BY 4.0). Støttar Digdir-regel 7 (Tilgjengeliggjøring) om at
+      modellen skal vere fritt tilgjengeleg. Krev: ikkje berre anbefalt (bronze-nivå).
+    check: schema_field_present
+    field: license
+    digdir_rule: 7
+    fair_principle: R1.1
+
+  class_names_pascal_case:
+    severity: error
+    description: >
+      Klassenamn skal starte med stor forbokstav (PascalCase). Følgjer
+      Digdir-regel 3 (Navne- og skrivekonvensjoner) og gjer klasser
+      skiljbare frå slot- og attributtnamn. Krev: ikkje berre anbefalt (bronze-nivå).
+    check: class_names_pascal_case
+    digdir_rule: 3
+
+  slot_names_snake_case:
+    severity: error
+    description: >
+      Slotnamn skal bruke liten forbokstav og understrek (snake_case): berre a-z,
+      0-9 og _ er tillate. Bindestreker er ikkje tillate — bruk samansette ord
+      (t.d. epost, epostadresse) eller understrek. Følgjer Digdir-regel 3
+      (Navne- og skrivekonvensjoner). Krev: ikkje berre anbefalt (bronze-nivå).
+    check: slot_names_snake_case
+    exclude_schemas:
+      - fint-administrasjon
+      - fint-arkiv
+      - fint-common
+      - fint-okonomi
+      - fint-personvern
+      - fint-ressurs
+      - fint-utdanning
+    digdir_rule: 3
+
+  all_classes_have_identifier:
+    severity: error
+    description: >
+      Alle klasser (unntatt tree_root) skal ha ein global identifikator — ein slot
+      med identifier: true (eigen eller arva). Sikrar at instansar kan adresserast
+      med URI i koblede data. Krev: ikkje berre anbefalt (bronze-nivå).
+    check: all_classes_have_identifier
+    digdir_rule: 4
+    fair_principle: F1
+
+  class_count_limit:
+    severity: error
+    description: >
+      Skjema med fleire enn 50 klasser (unntatt tree_root) skal delast opp i
+      undermoduler for å halde modellen handterleg. Støttar Digdir-regel 6
+      (Modularitet) om handterleg mengd modellelement per modul. Krev: ikkje
+      berre anbefalt (bronze-nivå).
+    check: class_count
+    max_classes: 50
+    digdir_rule: 6
+
+  all_classes_have_concept_ref:
+    severity: error
+    description: >
+      Alle klasser (unntatt tree_root) skal ha annotations.begrepsidentifikator
+      som peikar på eit begrep i Felles begrepskatalog på forma
+      https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>.
+      Sikrar omgrepsforankring og semantisk interoperabilitet. Krev: ikkje berre
+      anbefalt (bronze-nivå).
+    check: all_classes_have_concept_ref
+    concept_catalog_uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections
+    digdir_rule: 13
+    fair_principle: A2
+
+  controlled_vocabulary_annotations:
+    severity: error
+    description: >
+      Slots som refererer til kontrollerte vokabular (annotations.gyldige_verdier)
+      skal ha annotations.vokabular_krav (skal|bør|kan), og description skal innehalde
+      SKAL/BØR/KAN-formulering som matcher vokabular_krav. Sikrar konsistent og
+      maskinlesbar dokumentasjon av vokabularkrav. Krev: ikkje berre anbefalt
+      (bronze-nivå).
+    check: controlled_vocabulary_annotations
+
+  schema_has_annotation_utgiver:
+    severity: error
+    description: >
+      schema.annotations.utgiver skal vere til stades med URI til ansvarleg
+      organisasjon (https://data.norge.no/organizations/<orgnr>).
+      Svarar til Informasjonsmodell.utgiver (dct:publisher) i ModelDCAT-AP-NO.
+      Digdir-regel 10: Ansvar. Krev: ikkje berre anbefalt (sølv-nivå).
+    check: schema_has_annotation
+    annotation: utgiver
+    value_pattern: "^https://data\\.norge\\.no/organizations/\\d+$"
+    digdir_rule: 10
+    fair_principle: R1.2
+
+  schema_has_annotation_endringsdato:
+    severity: error
+    description: >
+      schema.annotations.endringsdato skal vere til stades (ISO 8601-dato).
+      Svarar til Informasjonsmodell.endringsdato (dct:modified) i ModelDCAT-AP-NO.
+      Digdir-regel 9: Datering. Krev: ikkje berre anbefalt (sølv-nivå).
+    check: schema_has_annotation
+    annotation: endringsdato
+    digdir_rule: 9
+    fair_principle: R1.3
+
+  schema_has_annotation_oppdateringsfrekvens:
+    severity: error
+    description: >
+      schema.annotations.oppdateringsfrekvens skal vere til stades med ein URI frå
+      EU sin Frequency Named Authority List (publications.europa.eu). Svarar til
+      dct:accrualPeriodicity. Digdir-rettleiar for åpne data, punkt 6: Oppdaterte data —
+      verksemda skal vere tydeleg på oppdateringsfrekvens. Krev: ikkje berre anbefalt
+      (sølv-nivå).
+    check: schema_has_annotation
+    annotation: oppdateringsfrekvens
+    value_pattern: "^http://publications\\.europa\\.eu/resource/authority/frequency/.+$"
+    digdir_rule: 9
+    fair_principle: R1.3
+
+  schema_has_annotation_status:
+    severity: error
+    description: >
+      schema.annotations.status skal vere til stades med ein ADMS Status-URI.
+      Svarar til Informasjonsmodell.status (adms:status) i ModelDCAT-AP-NO.
+      Digdir-regel 11: Modellstatus. Krev: ikkje berre anbefalt (sølv-nivå).
+    check: schema_has_annotation
+    annotation: status
+    allowed_values:
+      - http://purl.org/adms/status/UnderDevelopment
+      - http://purl.org/adms/status/Completed
+      - http://purl.org/adms/status/Deprecated
+      - http://purl.org/adms/status/Withdrawn
+    digdir_rule: 11
+    fair_principle: R1.3
+
+  distribusjon_lisens:
+    principle: Retningslinjer ved tilgjengeliggjøring av offentlige data
+    severity: error
+    description: >
+      dcat:Distribution skal ha dct:license (lisens) for offentlege data.
+      Anbefalt, ikkje obligatorisk, i DCAT-AP-NO 2. Krev: ikkje berre anbefalt
+      (sølv-nivå).
+    check: class_has_slot_with_uri
+    class: Distribusjon
+    slot_uri: dct:license
+    digdir_rule: 7
+    fair_principle: R1.1
+
+  container_distribusjon:
+    principle: DCAT-AP-NO
+    severity: error
+    description: >
+      Containerklassen skal ha eit attributt med range Distribusjon
+      (dcat:Distribution). Anbefalt i DCAT-AP-NO 2. Krev: ikkje berre anbefalt
+      (sølv-nivå).
+    check: container_has_class
+    class: Distribusjon
+
+  container_datatjeneste:
+    principle: DCAT-AP-NO
+    severity: error
+    description: >
+      Containerklassen skal ha eit attributt med range Datatjeneste
+      (dcat:DataService). Anbefalt i DCAT-AP-NO 2. Krev: ikkje berre anbefalt
+      (sølv-nivå).
+    check: container_has_class
+    class: Datatjeneste
+
+  container_kvalitetsdimensjon:
+    principle: DQV-AP-NO
+    severity: error
+    description: >
+      Containerklassen skal ha eit attributt med range Kvalitetsdimensjon
+      (dqv:Dimension). Anbefalt i DQV-AP-NO. Krev: ikkje berre anbefalt (sølv-nivå).
+    check: container_has_class
+    class: Kvalitetsdimensjon
+
+  container_kvalitetsmerknad:
+    principle: DQV-AP-NO
+    severity: error
+    description: >
+      Containerklassen skal ha eit attributt med range Kvalitetsmerknad
+      (dqv:QualityAnnotation). Anbefalt i DQV-AP-NO. Krev: ikkje berre anbefalt
+      (sølv-nivå).
+    check: container_has_class
+    class: Kvalitetsmerknad
+
 # FAIR-sjekkar — alle brot gir feil (severity: error)
 # Kvar sjekk er ein dict med:
 #   principle   — FAIR-prinsipp (F1, F2, I1, R1.1, …)

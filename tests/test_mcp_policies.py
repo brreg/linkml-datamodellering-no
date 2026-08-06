@@ -146,13 +146,19 @@ name: GoldKatalog
 title: Gull-testkatalog
 description: Testmodell for gull-policy
 version: "1.0"
+license: https://data.norge.no/nlod/no/2.0
+annotations:
+  utgiver: https://data.norge.no/organizations/123456789
+  endringsdato: "2026-01-01"
+  oppdateringsfrekvens: http://publications.europa.eu/resource/authority/frequency/DAILY
+  status: http://purl.org/adms/status/Completed
 prefixes:
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   dqv: http://www.w3.org/ns/dqv#
   foaf: http://xmlns.com/foaf/0.1/
   ex: https://example.org/
-default_prefix: ex
+default_prefix: https://example.org/
 classes:
   Container:
     tree_root: true
@@ -169,11 +175,23 @@ classes:
       kvalitetsmalinger:
         range: Kvalitetsmaaling
         multivalued: true
+      distribusjoner:
+        range: Distribusjon
+        multivalued: true
+      datatjenester:
+        range: Datatjeneste
+        multivalued: true
+      kvalitetsdimensjoner:
+        range: Kvalitetsdimensjon
+        multivalued: true
+      kvalitetsmerknader:
+        range: Kvalitetsmerknad
+        multivalued: true
   Katalog:
     class_uri: dcat:Catalog
     description: Ein DCAT-katalog
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/katalog
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/1/concepts/katalog
     slots:
       - id
       - beskrivelse
@@ -186,7 +204,7 @@ classes:
     class_uri: dcat:Dataset
     description: Eit DCAT-datasett
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/datasett
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/1/concepts/datasett
     slots:
       - id
       - beskrivelse
@@ -198,14 +216,14 @@ classes:
     class_uri: dqv:Metric
     description: Eit kvalitetsmål
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaal
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/1/concepts/kvalitetsmaal
     slots:
       - id
   Kvalitetsmaaling:
     class_uri: dqv:QualityMeasurement
     description: Ei kvalitetsmåling
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaaling
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/1/concepts/kvalitetsmaaling
     slots:
       - id
 slots:
