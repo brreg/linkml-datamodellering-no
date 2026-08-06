@@ -273,17 +273,14 @@ def _check_all_classes_have_concept_ref(sv, schema, config, issues):
     catalog_uri = config.get("concept_catalog_uri",
                              "https://concept-catalog.fellesdatakatalog.digdir.no/collections")
     code = "all_classes_have_concept_ref"
-    # Primærformat + bakoverkompatibelt format (data.norge.no/concepts/ er eit alias som framleis er i bruk)
-    accepted_prefixes = [catalog_uri.rstrip("/") + "/"]
-    for extra in config.get("concept_catalog_uri_also_accept", []):
-        accepted_prefixes.append(extra.rstrip("/") + "/")
+    accepted_prefix = catalog_uri.rstrip("/") + "/"
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
             continue
         ann = cls.annotations or {}
         begrep = ann.get("begrepsidentifikator")
         begrep_val = str(begrep.value if hasattr(begrep, "value") else begrep or "")
-        if any(begrep_val.startswith(p) for p in accepted_prefixes):
+        if begrep_val.startswith(accepted_prefix):
             continue
         issues.append(issue(
             config["severity"], code, f"class:{cname}",

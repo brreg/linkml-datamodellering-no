@@ -36,10 +36,11 @@ def issues_for(result: dict, code: str, target: str) -> list:
 _BRONZE_PASS = """\
 id: https://example.org/schema
 name: TestSchema
+title: Testtittel
 description: Testmodell
 prefixes:
   ex: https://example.org/
-default_prefix: ex
+default_prefix: https://example.org/
 classes:
   Ting:
     description: Ei ting
@@ -57,13 +58,14 @@ slots:
 _SILVER_PASS = """\
 id: https://example.org/catalog
 name: SilverKatalog
+title: Sølv-testkatalog
 description: Testmodell for sølv-policy
 prefixes:
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   dqv: http://www.w3.org/ns/dqv#
   ex: https://example.org/
-default_prefix: ex
+default_prefix: https://example.org/
 classes:
   Container:
     tree_root: true
@@ -376,7 +378,7 @@ classes:
   Ting:
     description: Ei ting
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/2
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/1/concepts/2
     slots:
       - id
 slots:
@@ -587,9 +589,9 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_f1"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "schema_id_is_http_uri"))
 
-    def test_fair_f2_schema_utan_title_gir_advarsel(self):
+    def test_fair_f2_schema_utan_title_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -599,9 +601,9 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_f2"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_f2"))
 
-    def test_fair_f3_klasse_utan_class_uri_gir_advarsel(self):
+    def test_fair_f3_klasse_utan_class_uri_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -626,9 +628,9 @@ slots:
     slot_uri: dct:identifier
     range: uriorcurie
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_f3"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "all_classes_have_class_uri"))
 
-    def test_fair_f4_schema_utan_version_gir_advarsel(self):
+    def test_fair_f4_schema_utan_version_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -639,9 +641,9 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_f4"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_f4"))
 
-    def test_fair_i1_slot_utan_slot_uri_gir_advarsel(self):
+    def test_fair_i1_slot_utan_slot_uri_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -665,9 +667,9 @@ slots:
     identifier: true
     range: uriorcurie
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_i1"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "all_slots_have_slot_uri"))
 
-    def test_fair_i2_utan_standard_prefiks_gir_advarsel(self):
+    def test_fair_i2_utan_standard_prefiks_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -678,9 +680,9 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_i2"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_i2"))
 
-    def test_fair_r11_utan_lisensslot_gir_advarsel(self):
+    def test_fair_r11_utan_lisensslot_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -705,9 +707,9 @@ slots:
     slot_uri: dct:identifier
     range: uriorcurie
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_r11"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_r11"))
 
-    def test_fair_r12_utan_provenienssslot_gir_advarsel(self):
+    def test_fair_r12_utan_provenienssslot_gir_feil(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -737,7 +739,7 @@ slots:
     slot_uri: dct:license
     range: uriorcurie
 """
-        self.assertTrue(has_warning(validate_schema(schema, "gold"), "fair_r12"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_r12"))
 
 
 # ── Instans-sjekkar (instance_checks) ──────────────────────────────────────────
