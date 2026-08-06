@@ -1,0 +1,30 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/kartverket-modellkatalog
+tittel:
+  nb: Kartverket - Modellkatalog
+  nn: Kartverket - Modellkatalog
+beskrivelse:
+  nb: Modellkatalog for Kartverket sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+  nn: Modellkatalog for Kartverket sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+versjonsnummer: 1.0.0
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/kartverket-modellkatalog/
+kontaktpunkt:
+- id: https://www.kartverket.no/om-kartverket/kontakt-oss/
+  navn_vcard:
+    nb: Kartverket
+    nn: Kartverket
+  har_kontaktside: https://www.kartverket.no/om-kartverket/kontakt-oss/
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/kartverket-modellkatalog/kartverket-modellkatalog-schema.yaml

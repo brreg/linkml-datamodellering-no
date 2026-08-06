@@ -729,7 +729,7 @@ classes:
       - tekst
       - utsteder
       - karakteransvarlig
-      - type
+      - varseltype
       - faggruppemedlemskap
     slot_usage:
       fravarsprosent:
@@ -747,8 +747,7 @@ classes:
       karakteransvarlig:
         in_subset:
           - Valgfri
-      type:
-        range: Varseltype
+      varseltype:
         in_subset:
           - Valgfri
       faggruppemedlemskap:
@@ -1170,17 +1169,15 @@ classes:
     class_uri: utd:Anmerkninger
     slots:
       - id
-      - atferd
-      - orden
+      - atferdskarakter
+      - ordenskarakter
       - skoleaar
     slot_usage:
-      atferd:
-        range: integer
+      atferdskarakter:
         required: true
         in_subset:
           - Obligatorisk
-      orden:
-        range: integer
+      ordenskarakter:
         required: true
         in_subset:
           - Obligatorisk
@@ -2618,16 +2615,22 @@ slots:
     slot_uri: utd:karakter
     range: Karakterverdi
     description: Karakterverdi.
-  # OrdensvurderingAbstrakt — atferd og orden har base-range Karakterverdi;
-  # Anmerkninger overskriv til integer via slot_usage.
   atferd:
     slot_uri: utd:atferd
     range: Karakterverdi
-    description: Åtferdskarakter.
+    description: Åtferdsvurdering for OrdensvurderingAbstrakt (referanse til Karakterverdi).
   orden:
     slot_uri: utd:orden
     range: Karakterverdi
-    description: Ordenskarakter.
+    description: Ordensvurdering for OrdensvurderingAbstrakt (referanse til Karakterverdi).
+  atferdskarakter:
+    slot_uri: utd:atferdskarakter
+    range: integer
+    description: Åtferdskarakter for Anmerkninger, som heiltal.
+  ordenskarakter:
+    slot_uri: utd:ordenskarakter
+    range: integer
+    description: Ordenskarakter for Anmerkninger, som heiltal.
   # Eksamensgruppemedlemskap
   delegert:
     slot_uri: utd:delegert
@@ -2759,6 +2762,10 @@ slots:
     slot_uri: utd:bevistype
     range: Bevistype
     description: Type kompetansebevis.
+  varseltype:
+    slot_uri: utd:varseltype
+    range: Varseltype
+    description: Type varsel.
   # Laerling
   kontraktstype:
     slot_uri: utd:kontraktstype

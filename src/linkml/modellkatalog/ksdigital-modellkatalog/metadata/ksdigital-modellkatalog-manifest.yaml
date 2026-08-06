@@ -1,0 +1,30 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/ksdigital-modellkatalog
+tittel:
+  nb: KS Digital - Modellkatalog
+  nn: KS Digital - Modellkatalog
+beskrivelse:
+  nb: Modellkatalog for KS Digital sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+  nn: Modellkatalog for KS Digital sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+versjonsnummer: 1.0.0
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/ksdigital-modellkatalog/
+kontaktpunkt:
+- id: https://www.ks.no/fagomrader/digitalisering/
+  navn_vcard:
+    nb: KS Digital
+    nn: KS Digital
+  har_kontaktside: https://www.ks.no/fagomrader/digitalisering/
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/ksdigital-modellkatalog/ksdigital-modellkatalog-schema.yaml

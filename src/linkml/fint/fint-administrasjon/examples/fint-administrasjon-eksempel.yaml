@@ -90,7 +90,7 @@ arbeidsforhold:
     hovedstilling: true
     gyldighetsperiode:
       start: "2020-01-15T00:00:00Z"
-    personalressurs: finta:personalressurs/p12345
+    ansatt: finta:personalressurs/p12345
     arbeidssted: finta:organisasjonselement/it-avdeling
     stillingskode: finta:stillingskode/raadgiver
 
@@ -104,6 +104,6 @@ arbeidsforhold:
     hovedstilling: true
     gyldighetsperiode:
       start: "2018-08-01T00:00:00Z"
-    personalressurs: finta:personalressurs/p23456
+    ansatt: finta:personalressurs/p23456
     arbeidssted: finta:organisasjonselement/it-avdeling
     stillingskode: finta:stillingskode/overingenir

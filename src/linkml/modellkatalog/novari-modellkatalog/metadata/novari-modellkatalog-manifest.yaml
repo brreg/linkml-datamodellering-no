@@ -1,0 +1,30 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/novari-modellkatalog
+tittel:
+  nb: Novari IKS - Modellkatalog (FINT)
+  nn: Novari IKS - Modellkatalog (FINT)
+beskrivelse:
+  nb: Modellkatalog for Novari IKS sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+  nn: Modellkatalog for Novari IKS sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+versjonsnummer: 1.0.0
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/novari-modellkatalog/
+kontaktpunkt:
+- id: https://novari.no/kontakt
+  navn_vcard:
+    nb: Novari IKS
+    nn: Novari IKS
+  har_kontaktside: https://novari.no/kontakt
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/novari-modellkatalog/novari-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/novari-modellkatalog/novari-modellkatalog-schema.yaml

@@ -1,0 +1,30 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog
+tittel:
+  nb: Skatteetaten - Modellkatalog
+  nn: Skatteetaten - Modellkatalog
+beskrivelse:
+  nb: Modellkatalog for Skatteetaten sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+  nn: Modellkatalog for Skatteetaten sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO
+    direkte via import.
+versjonsnummer: 1.0.0
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/skatteetaten-modellkatalog/
+kontaktpunkt:
+- id: https://www.skatteetaten.no/kontakt/
+  navn_vcard:
+    nb: Skatteetaten
+    nn: Skatteetaten
+  har_kontaktside: https://www.skatteetaten.no/kontakt/
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/skatteetaten-modellkatalog/skatteetaten-modellkatalog-schema.yaml

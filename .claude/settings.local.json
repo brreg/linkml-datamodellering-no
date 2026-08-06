@@ -388,7 +388,9 @@
       "Bash(LOGLVL=DEBUG timeout 100 make domain-oreg)",
       "Bash(LOGLVL=DEBUG timeout 60 make domain-oreg)",
       "Bash(LOGLVL=DEBUG timeout 40 make domain-oreg)",
-      "Bash(LOGLVL=DEBUG timeout 90 make domain-oreg)"
+      "Bash(LOGLVL=DEBUG timeout 90 make domain-oreg)",
+      "Bash(LOGLVL=DEBUG timeout 60 make domain-begrepskatalog)",
+      "Bash(LOGLVL=DEBUG timeout 100 make domain-begrepskatalog)"
     ]
   },
   "enableAllProjectMcpServers": true,

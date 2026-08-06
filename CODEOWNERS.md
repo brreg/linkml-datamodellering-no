@@ -12,6 +12,8 @@ organizations:
       - src/linkml/ngr/ngr-virksomhet/**
       - src/linkml/oreg/**
       - src/linkml/fair/**
+      - src/linkml/modellkatalog/brreg-modellkatalog/**
+      - src/linkml/begrepskatalog/brreg-begrepskatalog/**
 
   - alias: digdir
     name: Digitaliseringsdirektoratet
@@ -22,6 +24,7 @@ organizations:
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/ap-no/**
+      - src/linkml/modellkatalog/digdir-modellkatalog/**
 
   - alias: novari
     name: Novari IKS
@@ -33,6 +36,7 @@ organizations:
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/fint/**
+      - src/linkml/modellkatalog/novari-modellkatalog/**
 
   - alias: ksdigital
     name: KS Digital
@@ -44,6 +48,7 @@ organizations:
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/samt/**
+      - src/linkml/modellkatalog/ksdigital-modellkatalog/**
 
   - alias: skatteetaten
     name: Skatteetaten
@@ -54,6 +59,7 @@ organizations:
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/ngr/ngr-person/**
+      - src/linkml/modellkatalog/skatteetaten-modellkatalog/**
 
   - alias: kartverket
     name: Kartverket
@@ -65,6 +71,7 @@ organizations:
     path_patterns:
       - src/linkml/ngr/ngr-adresse/**
       - src/linkml/ngr/ngr-eiendom/**
+      - src/linkml/modellkatalog/kartverket-modellkatalog/**
 ```
 
 # Modelleigarskapar (CODEOWNERS)

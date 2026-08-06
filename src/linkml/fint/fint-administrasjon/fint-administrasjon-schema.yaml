@@ -373,10 +373,10 @@ slots:
     slot_uri: adm:variabellonn
     range: Variabellonn
     description: Variabel lønn for arbeidsforholdet.
-  personalressurs:
-    slot_uri: adm:personalressurs
+  ansatt:
+    slot_uri: adm:ansatt
     range: Personalressurs
-    description: Personalressurs til arbeidsforholdet.
+    description: Personalressursen (den tilsette) arbeidsforholdet gjeld for.
   personalleder:
     slot_uri: adm:personalleder
     range: Personalressurs
@@ -1292,7 +1292,7 @@ classes:
       - fasttillegg
       - fravaer
       - variabellonn
-      - personalressurs
+      - ansatt
       - personalleder
       - undervisningsforhold
     slot_usage:
@@ -1328,7 +1328,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-      personalressurs:
+      ansatt:
         required: true
         in_subset:
           - Obligatorisk

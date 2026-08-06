@@ -10,13 +10,19 @@ beskrivelse:
     med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog.
   nn: Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt
     med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog.
-versjonsnummer: 1.6.0
+versjonsnummer: 1.6.1
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-07-27'
+endringsdato: '2026-08-02'
 utgivelsesdato: '2026-07-09'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/brreg-begrepskatalog/
+kontaktpunkt:
+- id: https://brreg.no/kontakt/modellforvaltning
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
 finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-context.jsonld
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-ontology.ttl

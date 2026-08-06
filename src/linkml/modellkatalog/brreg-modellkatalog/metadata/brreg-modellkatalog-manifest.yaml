@@ -1,0 +1,34 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/brreg-modellkatalog
+tittel:
+  nb: Brønnøysundregistra - Modellkatalog
+  nn: Brønnøysundregistra - Modellkatalog
+beskrivelse:
+  nb: Modellkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer
+    ModelDCAT-AP-NO direkte via import.
+  nn: Modellkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer
+    ModelDCAT-AP-NO direkte via import.
+versjonsnummer: 1.5.1
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-02'
+utgivelsesdato: '2026-07-09'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/brreg-modellkatalog/
+kontaktpunkt:
+- id: https://brreg.no/kontakt/modellforvaltning
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml

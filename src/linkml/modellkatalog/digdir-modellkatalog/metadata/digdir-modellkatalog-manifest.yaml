@@ -1,0 +1,30 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+
+id: https://data.norge.no/modellkatalog/digdir-modellkatalog
+tittel:
+  nb: Digitaliseringsdirektoratet - Modellkatalog
+  nn: Digitaliseringsdirektoratet - Modellkatalog
+beskrivelse:
+  nb: Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar. Implementerer
+    ModelDCAT-AP-NO direkte via import.
+  nn: Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar. Implementerer
+    ModelDCAT-AP-NO direkte via import.
+versjonsnummer: 1.0.0
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/modellkatalog/digdir-modellkatalog/
+kontaktpunkt:
+- id: https://www.digdir.no/om-oss/kontakt-oss/887
+  navn_vcard:
+    nb: Digitaliseringsdirektoratet
+    nn: Digitaliseringsdirektoratet
+  har_kontaktside: https://www.digdir.no/om-oss/kontakt-oss/887
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/modellkatalog/digdir-modellkatalog/digdir-modellkatalog-schema.yaml

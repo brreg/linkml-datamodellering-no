@@ -25,6 +25,7 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 - JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
 - AsyncAPI-generering er eksperimentell og ikkje aktivert by default
 - **BUG-6, BUG-7**: Class/slot-override av importerte element krasjar eller korrumperer genererte artefaktar
+- **BUG-9**: `gen-xsd` skriv ei ufarleg falsk "circular dependency"-åtvaring for containerklassar (reint støy, påverkar ikkje utdata)
 
 ### Publisering
 - Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
@@ -51,6 +52,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-6](bugs/dqv-standard-class-override.md) | Class override av importert klasse krasjar (python/rdf/jsonld-context) eller korrumperer (json-schema/shacl/owl) avhengig av generator | `workaround` | `linkml` | `dqv-ap-no`, `samt-bu` |
 | [BUG-7](bugs/duplicate-slot-merge-konflikt.md) | Duplikat globalt slot-namn i importgrafen krasjar `merge_dicts` (slot-variant av BUG-6) | `workaround` | `linkml` | `modelldcat-ap-no`, `brreg-modellkatalog` |
 | [BUG-8](bugs/polymorphic-inlined-list-yaml-loader.md) | YAML/SchemaLoader-basert lasting støttar ikkje polymorf `inlined_as_list` (subklasseinstansar i delt liste) | `open` | `linkml-runtime` | `modelldcat-ap-no` (modelldel), `*-modellkatalog` (planlagt, MD5) |
+| [BUG-9](bugs/avrotize-falsk-circular-dependency-warning.md) | `dependency_resolver` rapporterer falsk sirkulær avhengigheit for containerklassar med fleire `inlined_as_list`-attributtar | `upstream` | `avrotize` | `samt-bu` (einaste skjema med `xsd: true`) |
 
 ## Statusforklaring
 
