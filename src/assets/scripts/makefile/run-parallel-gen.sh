@@ -78,7 +78,11 @@ if [ "${#enabled[@]}" -gt 0 ]; then
 else
     names="(ingen skjema aktivert)"
 fi
-log_debug "${generator} for schemas: ${names}"
+if [ -n "$flag" ]; then
+    log_debug "${generator} (${flag}: true) for schemas: ${names}"
+else
+    log_debug "${generator} for schemas: ${names}"
+fi
 
 if [ "${#skipped[@]}" -gt 0 ]; then
     skipped_list=$(printf '%s, ' "${skipped[@]}")

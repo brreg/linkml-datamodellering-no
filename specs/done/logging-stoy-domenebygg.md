@@ -268,3 +268,49 @@ kommaseparert liste, prosentfjerning av trailing komma) som
   ap-no/dcat-ap-no, ap-no/dqv-ap-no, ap-no/modelldcat-ap-no,
   ap-no/skos-ap-no, ap-no/xkos-ap-no` — i staden for 6 separate ubetinga
   linjer
+
+**Følgje opp 4 — `→ linkml-convert  <fil>` er ei start-linje forkledd som
+fullført-linje:**
+
+Brukaren la merke til at `→ linkml-convert  <fil>` dukkar opp **rett
+etter** `→ gen-rdf  samt/samt-bu (6.0s)` i loggen, og vart usikker på kva
+tidsrom linja gjaldt. Rotårsaka: denne linja vert skrive **før**
+`linkml-convert`-kallet køyrer (`log_info "→ linkml-convert  $example"`,
+utan `(Ns)`-tidsstempel), medan **alle** dei 12 andre generator-stega
+(via `run-parallel-gen.sh`) berre loggar éi `log_info`-linje **etter**
+vellukka køyring, med køyretid — `→ <generator>  <domain>/<namn>
+(N.Ns)`. Same `→`-prefiks og fargekode vert dermed brukt til å bety to
+ulike ting (start vs. fullført) avhengig av kva steg det gjeld, utan at
+lesaren kan sjå forskjellen.
+
+**Retting:** `linkml-convert`-løkka (alle tre stadene: `domain_target` i
+`make/20-domain-targets.mk`, `convert-rdf` og `convert-data` i
+`Makefile`) målar no køyretid rundt sjølve `linkml-convert`-kallet
+(`t0=$(date +%s%3N)` … `t1=$(date +%s%3N)`) og loggar `→ linkml-convert
+<fil> (N.Ns)` **etter** vellukka konvertering — same format og
+tidspunkt-semantikk (fullført, med køyretid) som alle andre
+generator-steg.
+
+**Verifisert:** `make domain-samt` — linja er no `→ linkml-convert
+src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml (11.2s)`, plassert
+etter `→ gen-rdf … (14.7s)` som før, men no eintydig eit
+fullført-med-køyretid-steg, ikkje eit ambiguøst startvarsel.
+`make -n domain-fair`/`convert-rdf`/`convert-data` — korrekt
+make-escaping stadfesta (shell ser `$(date …)`, `$(( … ))` og
+`$example`/`$datafile`, ikkje literalar eller feiltolka make-referansar).
+
+**Følgje opp 5 — deloverskrifta inkluderer no generator-flagget:**
+
+Brukaren peika på at generator-kommandonamn (`gen-shacl`, `gen-proto`,
+`gen-json-schema` …) ikkje alltid matchar `build.yaml`-flaggnamnet
+(`shacl`, `protobuf`, `json_schema` …), noko som skaper forvirring når ein
+skal slå opp kva flagg som styrer eit steg. `run-parallel-gen.sh` (linje
+81) skriv no `"${generator} (${flag}: true) for schemas: ${names}"` når
+eit flagg finst, elles same tekst som før (for `merge-imports` og
+`gen-informasjonsmodell-instance`, som ikkje er flagg-styrte).
+
+Verifisert med `make domain-samt LOGLVL=DEBUG`: t.d. `gen-shacl (shacl:
+true) for schemas: samt/samt-bu`, `gen-json-schema (json_schema: true)
+for schemas: samt/samt-bu`, `gen-proto (protobuf: true) for schemas:
+samt/samt-bu` — flagget vist tydeleg saman med generator-namnet, medan
+`merge-imports for schemas: samt/samt-bu` (ingen flagg) er uendra.

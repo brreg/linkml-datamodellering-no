@@ -46,13 +46,16 @@ domain-$(1): $$(_domain_pre_$(1))
 	@SCHEMA_DIR=$$(SCHEMA_DIR) GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(1) | \
 	while IFS=$$$$'\t' read -r schema example out; do \
 		eval "$$$$LOG_FUNCTIONS"; \
-		log_info "$$(CLR_STEP)→ linkml-convert  $$$$example$$(CLR_RST)"; \
+		t0=$$$$(date +%s%3N); \
 		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
 			--no-validate \
 			--output $$$$out \
 			$$$$example; \
+		t1=$$$$(date +%s%3N); \
+		ms=$$$$(( t1 - t0 )); \
+		log_info "$$$$(printf '$$(CLR_STEP)→ linkml-convert  %s$$(CLR_RST) (%d.%ds)' "$$$$example" $$$$(( ms / 1000 )) $$$$(( ms % 1000 / 100 )))"; \
 	done
 	$$(call run_gen_doc_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_erdiagram_parallel,$$(_schemas_$(1)))

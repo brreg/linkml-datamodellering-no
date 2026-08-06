@@ -100,13 +100,16 @@ convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	@eval "$$LOG_FUNCTIONS"; \
 	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
 	while IFS=$$'\t' read -r schema example out; do \
-		log_info "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+		t0=$$(date +%s%3N); \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
 			--no-validate \
 			--output $$out \
 			$$example; \
+		t1=$$(date +%s%3N); \
+		ms=$$(( t1 - t0 )); \
+		log_info "$$(printf '$(CLR_STEP)→ linkml-convert  %s$(CLR_RST) (%d.%ds)' "$$example" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 	done
 
 convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
@@ -124,13 +127,16 @@ convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 		[ -f "$$datafile" ] || continue; \
 		schema=$(SCHEMA_DIR)/$$domain/$$model/$$model-schema.yaml; \
 		mkdir -p $(GEN_DIR)/$$domain/$$catalog; \
-		log_info "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
+		t0=$$(date +%s%3N); \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
 			--no-validate \
 			--output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl \
 			$$datafile; \
+		t1=$$(date +%s%3N); \
+		ms=$$(( t1 - t0 )); \
+		log_info "$$(printf '$(CLR_STEP)→ linkml-convert  %s$(CLR_RST) (%d.%ds)' "$$datafile" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 	done
 
 clean: ## Slett alle genererte filer (generated/)
