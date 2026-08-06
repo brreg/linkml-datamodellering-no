@@ -7,8 +7,11 @@
 #
 # Skriv éi tab-separert linje per eksempelfil som skal konverterast:
 #   <skjema-sti>\t<eksempel-sti>\t<output-ttl-sti>
-# Hoppa-over-eksempel vert samla til éi log_debug-linje (synleg berre på
-# LOGLVL=DEBUG), same skip-mønster som run-parallel-gen.sh. Sjølve
+# Køyrer discovery/filtrering FØR noko vert skrive til stdout, slik at
+# éi log_debug-deloverskrift ("linkml-convert (example_rdf: true) for
+# schemas: …") kan skrivast først — same mønster og rekkjefølgje som
+# run-parallel-gen.sh. Hoppa-over-eksempel vert samla til éi eiga
+# log_debug-linje rett under, synleg berre på LOGLVL=DEBUG. Sjølve
 # linkml-convert-kallet gjer kallaren (ikkje dette scriptet), sidan det
 # krev $(LINKML_RUN) sin podman-kontekst — den strengen inneheld sjølve
 # anførselsteikn (frå WORK_MOUNT) som berre er trygge å la shellen tolke
@@ -29,6 +32,8 @@ domain_filter="${1:-}"
 search_dir="$SCHEMA_DIR"
 [ -n "$domain_filter" ] && search_dir="$SCHEMA_DIR/$domain_filter"
 
+enabled=()
+enabled_names=()
 skipped=()
 for example in $(find "$search_dir" -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do
     [ -f "$example" ] || continue
@@ -47,11 +52,23 @@ for example in $(find "$search_dir" -path '*/examples/*-eksempel.yaml' 2>/dev/nu
         schema="$SCHEMA_DIR/$domain/$profil/$profil-schema.yaml"
     fi
     out="$GEN_DIR/$domain/$profil/$name.ttl"
-    printf '%s\t%s\t%s\n' "$schema" "$example" "$out"
+    enabled+=("$(printf '%s\t%s\t%s' "$schema" "$example" "$out")")
+    enabled_names+=("$domain/$profil")
 done
+
+if [ "${#enabled_names[@]}" -gt 0 ]; then
+    names=$(printf '%s\n' "${enabled_names[@]}" | paste -sd, -)
+else
+    names="(ingen eksempel aktivert)"
+fi
+log_debug "linkml-convert (example_rdf: true) for schemas: ${names}"
 
 if [ "${#skipped[@]}" -gt 0 ]; then
     skipped_list=$(printf '%s, ' "${skipped[@]}")
     skipped_list=${skipped_list%, }
     log_debug "  hoppar over linkml-convert (example_rdf: false): ${skipped_list}"
 fi
+
+for entry in "${enabled[@]}"; do
+    printf '%s\n' "$entry"
+done

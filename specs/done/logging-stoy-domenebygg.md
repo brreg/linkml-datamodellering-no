@@ -314,3 +314,37 @@ true) for schemas: samt/samt-bu`, `gen-json-schema (json_schema: true)
 for schemas: samt/samt-bu`, `gen-proto (protobuf: true) for schemas:
 samt/samt-bu` — flagget vist tydeleg saman med generator-namnet, medan
 `merge-imports for schemas: samt/samt-bu` (ingen flagg) er uendra.
+
+**Følgje opp 6 — `linkml-convert` mangla deloverskrifta alle andre steg
+har:**
+
+Brukaren la merke til at `linkml-convert`-steget (som ikkje går via
+`run-parallel-gen.sh`, men sin eigen løkke i `domain_target`/`convert-rdf`/
+`convert-data`, drive av `convert-examples.sh`) var det einaste steget
+utan ei tilsvarande `[DEBUG] <steg> (<flagg>: true) for schemas: …`-linje
+— berre skip-samandraget (`hoppar over linkml-convert (example_rdf:
+false): …`) fanst frå før, ikkje ei linje for kva som faktisk er
+*aktivert*.
+
+**Retting:** `convert-examples.sh` er omstrukturert frå éin
+strøyme-medan-du-oppdagar-løkke til to steg: (1) ein discovery-/
+filtreringsløkke som byggjer opp `enabled`/`enabled_names`/`skipped`-array
+utan å skrive noko til stdout enno, (2) etterpå — i same rekkjefølgje som
+`run-parallel-gen.sh` — éi `log_debug "linkml-convert (example_rdf: true)
+for schemas: ${names}"`-deloverskrift (`(ingen eksempel aktivert)` når
+ingen er aktiverte, same fallback-tekst som generator-makroane), så
+skip-samandraget, og til slutt dei tab-separerte linjene til stdout (éin
+`printf` per element i `enabled`-arrayet). Dette sikrar at deloverskrifta
+alltid vert skriven FØR sjølve konverteringane startar, sjølv om
+nedstraums `while read`-forbrukaren i Makefile-recipa byrjar køyre
+`linkml-convert` for første fil før scriptet er heilt ferdig.
+
+**Verifisert:**
+- `make domain-samt LOGLVL=DEBUG`: `[DEBUG] linkml-convert (example_rdf:
+  true) for schemas: samt/samt-bu` vises rett før `→ linkml-convert …
+  (10.8s)`
+- `make domain-ap-no LOGLVL=DEBUG`: `[DEBUG] linkml-convert (example_rdf:
+  true) for schemas: (ingen eksempel aktivert)` etterfølgt av
+  skip-samandraget (alle 6 ap-no-eksempel har `example_rdf: false`)
+- `make domain-samt` (default `LOGLVL=INFO`): ingen treff på
+  `linkml-convert (example_rdf` — usynleg som forventa
