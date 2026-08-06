@@ -46,14 +46,15 @@ kvalitetsmaal:
 kvalitetsmaalingar:
   - id: https://example.org/maalingar/adresser-dekning-2024
     er_kvalitetsmaaling_av: https://example.org/maal/dekning-prosent
-    har_verdi: "98.7"
+    har_numerisk_verdi: 98.7
 
 kvalitetsmerknader:
   - id: https://example.org/merknader/adresser-kompletheit-1
-    er_motivert_av: https://www.w3.org/ns/oa#assessing
+    er_motivert_av: assessing
     er_i_kvalitetsdimensjon:
       - https://data.norge.no/vocabulary/dqvno#completeness
-    har_tekstdel: https://example.org/tekstdelar/adresser-vurdering-1
+    har_tekstdel:
+      - https://example.org/tekstdelar/adresser-vurdering-1
     har_merknad:
       - Datasettet dekkjer om lag 98,7 % av registrerte adresser i Noreg.
 
@@ -69,7 +70,5 @@ standardar:
       - ISO 19157 - Geographic information - Data quality
     har_referanse:
       - https://www.iso.org/standard/32575.html
-    versjonsnummer: "2013"
-    er_i_kvalitetsdimensjon:
-      - https://data.norge.no/vocabulary/dqvno#completeness
+    versjon: "2013"
 

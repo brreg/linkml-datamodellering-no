@@ -1,0 +1,13 @@
+{
+  "schema": "fint-personvern",
+  "domain": "fint",
+  "version": "4.5.0",
+  "validated_at": "2026-08-06T18:23:24.599854+00:00",
+  "validation_type": "examples",
+  "result": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "issues": []
+  }
+}

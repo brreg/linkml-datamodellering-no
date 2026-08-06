@@ -35,8 +35,8 @@ generiskeRelasjonar:
       - https://example.org/omgrep/dataressurs
     har_spesifikt_omgrep:
       - https://example.org/omgrep/datasett
-    inndelingskriterium:
-      - grad av strukturering og tilgjengeleggjering
+    beskrivelse:
+      - "Inndelingskriterium: grad av strukturering og tilgjengeleggjering"
 
 samlingar:
   - id: https://example.org/samlingar/dcat-omgrep

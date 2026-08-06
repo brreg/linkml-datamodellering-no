@@ -17,6 +17,7 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 
 ### Validering og testing
 - **BUG-1, BUG-2, BUG-3**: Roundtrip-testing (YAML → TTL → YAML) fungerer ikkje for alle skjema pga. bugs i `linkml-runtime`
+- **BUG-10**: `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande while-løkke — `validate-data` validerer framleis kun første datafil per katalog
 - Ingen automatisk validering mot eksterne API-ar (t.d. at Los-tema faktisk eksisterer)
 - Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
 

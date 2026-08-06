@@ -42,7 +42,7 @@ objekttypar:
       - "Vegadresse"
     beskrivelse:
       - "Adresse der vegnamn, husnummer og eventuell bokstav inngår."
-    har_eigenskap:
+    har_egenskap:
       - https://example.org/attributtar/adressekode
       - https://example.org/attributtar/adressenavn
       - https://example.org/attributtar/nummer
@@ -53,7 +53,7 @@ objekttypar:
       - "Matrikkeladresse"
     beskrivelse:
       - "Adresse basert på matrikkelnummer (gardsnummer, bruksnummer m.m.)."
-    har_eigenskap:
+    har_egenskap:
       - https://example.org/attributtar/gardsnummer
       - https://example.org/attributtar/bruksnummer
 
@@ -63,8 +63,8 @@ attributtar:
       - "adressekode"
     beskrivelse:
       - "Nummer som entydig identifiserer adresserbare gater, vegar, stiar, plassar og område."
-    min_multiplisitet: 1
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 1
+    oevre_multiplisitet: "1"
     har_enkel_type:
       - https://example.org/enkle-typar/firesifra-heltall
 
@@ -73,16 +73,16 @@ attributtar:
       - "adressenavn"
     beskrivelse:
       - "Namn på gate, veg, sti, plass eller område som er ført i matrikkelen."
-    min_multiplisitet: 1
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 1
+    oevre_multiplisitet: "1"
 
   - id: https://example.org/attributtar/nummer
     tittel:
       - "nummer"
     beskrivelse:
       - "Husnummer — nummer i adressenummereringssystemet for vegadressa."
-    min_multiplisitet: 1
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 1
+    oevre_multiplisitet: "1"
     har_enkel_type:
       - https://example.org/enkle-typar/positivt-heltall
 
@@ -91,8 +91,8 @@ attributtar:
       - "bokstav"
     beskrivelse:
       - "Bokstavtillegg til husnummeret."
-    min_multiplisitet: 0
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 0
+    oevre_multiplisitet: "1"
     har_enkel_type:
       - https://example.org/enkle-typar/enkelt-teikn
 
@@ -101,8 +101,8 @@ attributtar:
       - "gardsnummer"
     beskrivelse:
       - "Gardsnummer i matrikkelen."
-    min_multiplisitet: 1
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 1
+    oevre_multiplisitet: "1"
     har_enkel_type:
       - https://example.org/enkle-typar/positivt-heltall
 
@@ -111,8 +111,8 @@ attributtar:
       - "bruksnummer"
     beskrivelse:
       - "Bruksnummer i matrikkelen."
-    min_multiplisitet: 1
-    maks_multiplisitet: "1"
+    nedre_multiplisitet: 1
+    oevre_multiplisitet: "1"
     har_enkel_type:
       - https://example.org/enkle-typar/positivt-heltall
 
@@ -155,21 +155,21 @@ kodelister:
 
 kodeelement:
   - id: https://example.org/kodeelement/vegadresse
-    notasjon: "V"
-    anbefalt_term:
+    kode: "V"
+    anbefalt_kodetekst:
       - "Vegadresse"
     definisjon:
       - "Adresse med vegnamn og husnummer."
-    i_skjema:
+    i_kodeliste:
       - https://example.org/kodelister/adressetype
 
   - id: https://example.org/kodeelement/matrikkeladresse
-    notasjon: "M"
-    anbefalt_term:
+    kode: "M"
+    anbefalt_kodetekst:
       - "Matrikkeladresse"
     definisjon:
       - "Adresse basert på matrikkelnummer."
-    i_skjema:
+    i_kodeliste:
       - https://example.org/kodelister/adressetype
 
 aktorar:

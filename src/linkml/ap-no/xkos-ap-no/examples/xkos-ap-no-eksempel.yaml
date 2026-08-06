@@ -9,8 +9,6 @@ klassifikasjonar:
     beskrivelse:
       - Nomenklatur for økonomiske aktivitetar (NACE Rev. 2).
     utgjevar: https://example.org/org/ssb
-    tema:
-      - https://example.org/tema/okonomi
     antall_nivaa: 2
     forste_nivaa:
       - https://example.org/nivaa/nace2-seksjonar

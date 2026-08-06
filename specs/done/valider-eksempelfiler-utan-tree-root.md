@@ -170,9 +170,51 @@ at eksisterande åtferd er uendra der.
 
 ## Handlingsliste
 
-- [ ] Fjern `xargs grep -l "tree_root: true"`-forfilteret i `validate-examples` (`make/40-validation.mk`)
-- [ ] Legg til per-skjema tree_root-sjekk med fixture-fallback og synleg åtvaring ved manglande fixture
-- [ ] Bruk `$$validate_schema` i valideringskallet, behald `$$schema` i `save-validation-log.py`-kallet
-- [ ] Test `make validate-examples DOMAIN=ap-no` lokalt — stadfest at 6 skjema no validerer via fixture
-- [ ] Regresjonstest `make validate-examples DOMAIN=<domene med tree_root>` — stadfest uendra åtferd
-- [ ] Injiser ein feil i eit ap-no-eksempel og stadfest at `::error`-annotasjon og `exit 1` fungerer
+- [x] Fjern `xargs grep -l "tree_root: true"`-forfilteret i `validate-examples` (`make/40-validation.mk`)
+- [x] Legg til per-skjema tree_root-sjekk med fixture-fallback og synleg åtvaring ved manglande fixture
+- [x] Bruk `$$validate_schema` i valideringskallet, behald `$$schema` i `save-validation-log.py`-kallet
+- [x] Test `make validate-examples DOMAIN=ap-no` lokalt — stadfest at 6 skjema no validerer via fixture
+- [x] Regresjonstest `make validate-examples DOMAIN=<domene med tree_root>` — stadfest uendra åtferd
+- [x] Injiser ein feil i eit ap-no-eksempel og stadfest at `::error`-annotasjon og `exit 1` fungerer
+
+## Utført
+
+Alle steg gjennomførte som spesifisert. To uventa funn dukka opp under
+verifiseringssteget og vart løyste etter avklaring med brukaren:
+
+**1. BUG-10 — `podman run -i` (PYTHON_RUN) konsumerte while-løkka sin stdin.**
+`save-validation-log.py` køyrer via `$(PYTHON_RUN)` (`podman run -i --rm ...`)
+inne i `while read -r schema; do ... done < <(find ...)`-løkka. `-i` kopla
+containeren sin stdin til same fd som løkka sin `read` las frå, slik at
+podman konsumerte resten av skjemalista og løkka stoppa stille etter første
+skjema — **uavhengig av `tree_root`**, stadfesta òg på uendra `main` for
+`DOMAIN=fint` (kun `fint-administrasjon` vart nokon gong validert av 6).
+Retta med `< /dev/null` på `$(PYTHON_RUN)`-kallet i `validate-examples`.
+Dokumentert i `bugs/podman-interactive-stdin-konsumerer-while-lokke.md`
+(BUG-10) og `BUGS.md`. `validate-data` har same mønster og er **ikkje**
+retta i denne økta — brukaren valde å avgrense fiksen til `validate-examples`.
+
+**2. Reell drift mellom eksempelfiler og skjema, avslørt av tooling-fiksen.**
+Med validering faktisk kopla til, feila 4 av 6 ap-no-eksempelfiler — feil
+som aldri hadde vore fanga av CI før. Brukaren valde å rette alle fire:
+
+- `dqv-ap-no-eksempel.yaml`: `har_verdi` → `har_numerisk_verdi` (riktig
+  DQV-verditype); `versjonsnummer`/`er_i_kvalitetsdimensjon` på `Standard`
+  fjerna/retta til `versjon` (feltet finst ikkje på `Standard`);
+  `har_tekstdel` gjort til liste (multivalued); `er_motivert_av` retta frå
+  full URI (`https://www.w3.org/ns/oa#assessing`) til permissible value-lykel
+  (`assessing`)
+- `modelldcat-ap-no-eksempel.yaml`: `har_eigenskap` → `har_egenskap`
+  (skrivefeil i eksempelet); `min_multiplisitet`/`maks_multiplisitet` →
+  `nedre_multiplisitet`/`oevre_multiplisitet`; `kodeelement`-blokk retta
+  frå `notasjon`/`anbefalt_term`/`i_skjema` til `kode`/`anbefalt_kodetekst`/
+  `i_kodeliste`
+- `skos-ap-no-eksempel.yaml`: `inndelingskriterium` (ikkje-eksisterande slot)
+  → innhaldet flytta inn i `beskrivelse`
+- `xkos-ap-no-eksempel.yaml`: `tema` (ikkje-eksisterande slot på
+  `Klassifikasjon`) fjerna
+
+Alle 6 ap-no-skjema med eksempelfiler validerer no reint via fixture.
+Regresjonstest på `DOMAIN=fint` (tree_root-domene) uendra/OK — og fekk
+same stdin-fiks-gevinst (gjekk frå 1/6 til 6/6 validerte skjema).
+Feilinjeksjonstest stadfesta `::error`-annotasjon og non-zero exit.

@@ -1,0 +1,13 @@
+{
+  "schema": "skos-ap-no",
+  "domain": "ap-no",
+  "version": "2.16.0",
+  "validated_at": "2026-08-06T18:26:39.768495+00:00",
+  "validation_type": "examples",
+  "result": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "issues": []
+  }
+}

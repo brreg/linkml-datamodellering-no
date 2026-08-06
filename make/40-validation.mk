@@ -113,10 +113,20 @@ ifdef DOMAIN
 			log_info "$(CLR_WARN)::warning file=$$schema::Ingen eksempelfil funne: $$example$(CLR_RST)"; \
 			continue; \
 		fi; \
-		log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$schema $$example"; \
+		validate_schema="$$schema"; \
+		if ! grep -q "tree_root: true" "$$schema"; then \
+			fixture="tests/fixtures/$$name-fixture.yaml"; \
+			if [ -f "$$fixture" ]; then \
+				validate_schema="$$fixture"; \
+			else \
+				log_info "$(CLR_WARN)::warning file=$$schema::Ingen tree_root og ingen fixture funne ($$fixture) — hoppar over$(CLR_RST)"; \
+				continue; \
+			fi; \
+		fi; \
+		log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$validate_schema $$example"; \
 		t0=$$(date +%s%3N); \
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
-			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
+			$(LINKML_IMAGE) linkml validate --schema "$$validate_schema" "$$example" 2>&1); \
 		exit_code=$$?; \
 		t1=$$(date +%s%3N); \
 		ms=$$(( t1 - t0 )); \
@@ -140,9 +150,9 @@ ifdef DOMAIN
 			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
 		fi; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type examples --result "$$result_json" 2>/dev/null || true; \
+			--schema "$$schema" --type examples --result "$$result_json" < /dev/null 2>/dev/null || true; \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
-		| grep -v common | sort | xargs grep -l "tree_root: true"); \
+		| grep -v common | sort); \
 	exit $$FAILED
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>"
