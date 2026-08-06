@@ -97,10 +97,11 @@ roundtrip-json-schema: ## Køyr JSON Schema roundtrip-testar [JSONSCHEMA=<sti>]
 
 convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	$(call print_header,convert-rdf)
-	@SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
+	@eval "$$LOG_FUNCTIONS"; \
+	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
 	while IFS=$$'\t' read -r schema example out; do \
-		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $$out $$example"; \
+		log_info "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+		log_debug "Kommando: $(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $$out $$example"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
@@ -111,7 +112,8 @@ convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 
 convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 	$(call print_header,convert-data)
-	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
+	@eval "$$LOG_FUNCTIONS"; \
+	for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
 		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
@@ -123,8 +125,8 @@ convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 		[ -f "$$datafile" ] || continue; \
 		schema=$(SCHEMA_DIR)/$$domain/$$model/$$model-schema.yaml; \
 		mkdir -p $(GEN_DIR)/$$domain/$$catalog; \
-		echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl $$datafile"; \
+		log_info "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
+		log_debug "Kommando: $(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl $$datafile"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \

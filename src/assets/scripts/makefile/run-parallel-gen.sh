@@ -2,8 +2,11 @@
 # Delt orkestrering for parallell artefaktgenerering — brukt av alle
 # "_parallel"-makroane i make/10-generator-macros.mk. Filtrerer skjemalista
 # mot eit valfritt build.yaml-flagg FØR xargs-parallelliseringa startar,
-# skriv éi deloverskrift + éi samla skip-debug-linje, og køyrer sjølve
-# genererings-kommandoen (gitt via miljøvariabelen GEN_CMD) per skjema.
+# skriv éi deloverskrift (log_debug) + éi samla skip-debug-linje, og køyrer
+# sjølve genererings-kommandoen (gitt via miljøvariabelen GEN_CMD) per
+# skjema — kvar fullført køyring loggar si eiga log_info-linje med
+# køyretid, så deloverskrifta held seg til LOGLVL=DEBUG for å unngå at
+# batchar med berre eitt skjema logger to nesten identiske INFO-linjer.
 #
 # Sjå specs/done/delt-script-parallell-generering.md for grunngjeving —
 # erstattar dei to tidlegare, nesten identiske make-makroane
@@ -75,7 +78,7 @@ if [ "${#enabled[@]}" -gt 0 ]; then
 else
     names="(ingen skjema aktivert)"
 fi
-log_info "${CLR_STEP}→ ${generator}: ${names}${CLR_RST}"
+log_debug "${generator} for schemas: ${names}"
 
 if [ "${#skipped[@]}" -gt 0 ]; then
     skipped_list=$(printf '%s, ' "${skipped[@]}")

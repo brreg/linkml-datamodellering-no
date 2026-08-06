@@ -45,8 +45,9 @@ domain-$(1): $$(_domain_pre_$(1))
 	$$(call run_gen_rdf_parallel,$$(_schemas_$(1)))
 	@SCHEMA_DIR=$$(SCHEMA_DIR) GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(1) | \
 	while IFS=$$$$'\t' read -r schema example out; do \
-		echo "$$(CLR_STEP)→ linkml-convert  $$$$example$$(CLR_RST)"; \
-		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $$$$out $$$$example"; \
+		eval "$$$$LOG_FUNCTIONS"; \
+		log_info "$$(CLR_STEP)→ linkml-convert  $$$$example$$(CLR_RST)"; \
+		log_debug "Kommando: $$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $$$$out $$$$example"; \
 		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
