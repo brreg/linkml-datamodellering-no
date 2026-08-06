@@ -78,7 +78,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make new-modell NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
 | `make new-modellkatalog NAME=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
 | `make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>` | Opprettar katalogstruktur for ei ny begrepssamling. Oppretter `begrep/`-mappe og `build.yaml` med aggregation-metadata. Døme: `make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret` | `src/linkml/<domain>/<begrepssamling-namn>/` |
-| `make new-begrepskatalog NAME=<katalognavn>` | **Deprecated.** Bruk `make new-begrepssamling` i staden. Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalognavn>/` |
+| `make new-begrepskatalog NAME=<katalognavn>` | **Legacy**, ikkje ein alias for `make new-begrepssamling` — eige script, eigen monolittisk `BegrepContainer`-skjemastruktur. Bruk `make new-begrepssamling` for nye begrepssamlingar; dette targetet held fram fordi `brreg-begrepskatalog` alt nyttar formatet. | `src/linkml/begrepskatalog/<katalognavn>/` |
 
 ## Validering
 

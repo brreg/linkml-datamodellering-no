@@ -11,7 +11,7 @@ Makefile er delt i 13 tematiske modular:
 | `00-settings.mk` | Globale variablar (fargar, katalogar, parallellisering) |
 | `01-containers.mk` | Container-image-namn og køyre-kommandoar (LINKML_RUN, PYTHON_RUN, osv.) |
 | `02-schema-discovery.mk` | Søk opp alle skjema og domene i `src/linkml/` |
-| `03-output.mk` | Logging-makroar (print_header, print_step, print_info, osv.) |
+| `03-output.mk` | Logging-makroar (print_header, print_step) |
 | `10-generator-macros.mk` | Generelle makroar for å køyre LinkML-generatorar parallelt |
 | `11-generator-targets.mk` | Target for spesifikke generatorar (gen-jsonschema, gen-owl, osv.) |
 | `20-domain-targets.mk` | Target per domene (domain-ap-no, domain-fint, osv.) med pre-hooks |
@@ -102,7 +102,9 @@ make docs-publish
 
 - **Target-namn:** Bruk `kebab-case` (gen-docs, validate-instance)
 - **Interne target:** Prefiks med `_` (_gource-render, _mcp-valider-modell-with-header)
-- **Logging:** Bruk `print_*`-makroar frå `03-output.mk` (print_header, print_step, print_info)
+- **Logging:** Bruk `print_header`/`print_step` frå `03-output.mk` for overskrifter/steg, og
+  `log_info`/`log_debug`/`log_error` frå `LOG_FUNCTIONS` (`00-settings.mk`) for status/feil —
+  aldri rå `echo`/`printf` (jf. CLAUDE.md § «Ingen stille feil»)
 - **Parallellisering:** Bruk `$(PARALLEL)` frå `00-settings.mk` (default 8)
 - **Container-køyring:** Bruk `*_RUN`-variablar frå `01-containers.mk` (LINKML_RUN, PYTHON_RUN)
 

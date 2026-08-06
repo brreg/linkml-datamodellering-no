@@ -164,6 +164,17 @@ _mcp-valider-modell-with-header:
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
+# Merk namnekonsistens/overlapp med log-mcp-validate/log-validate-instance
+# under: begge skriv til same output-format (validation/<versjon>/<policy>.json),
+# men er ikkje duplikat i praksis. validate-capture (run-schema-validation.py)
+# er eit manuelt batch-verktøy avgrensa til release-please-config.json sine
+# "released packages" — ikkje brukt frå CI. log-mcp-validate/log-validate-
+# instance (run-validation.sh) er derimot kalla direkte frå
+# .github/workflows/{generate,validate}.yml for kvart einskild skjema/manifest
+# — CI-kritisk infrastruktur. Konsolidering vart difor vurdert (jf.
+# specs/backlog/make-kommando-inkonsistens-audit.md, namnekonsistens 4) og
+# medvite utsett: å skrive om eit CI-kritisk script utan eksplisitt brukar-
+# godkjenning bryt CLAUDE.md sitt DRY-unntak for risikofylte omskrivingar.
 validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [PARALLEL=8]
 	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) $(PARALLEL) workers)))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
@@ -177,9 +188,8 @@ validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [
 # Logging av valideringsresultat
 # ---------------------------------------------------------------------------
 
-# Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
 # Validerer og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/<policy>.json
-log-mcp-validate:
+log-mcp-validate: ## Policy-validering med full JSON-logg (MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>)
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -n "$(MANIFEST)" ]; then \
 		bash src/assets/scripts/makefile/run-validation.sh --manifest $(MANIFEST); \
@@ -190,9 +200,8 @@ log-mcp-validate:
 		exit 1; \
 	fi
 
-# Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>
 # Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<namn>.json
-log-validate-instance:
+log-validate-instance: ## Instansvalidering med full JSON-logg (SCHEMA=<sti> INSTANCE=<sti>)
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@bash src/assets/scripts/makefile/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)

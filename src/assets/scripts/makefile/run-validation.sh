@@ -138,7 +138,7 @@ log_path="$schema_dir/validation/$VERSION/$POLICY.json"
 echo "→ Validerer $domain/$model (v$VERSION) med policy: $POLICY" >&2
 
 # Køyr validering
-# REPO_ROOT peikar til repo-root (scriptet ligg i src/assets/scripts/ci/, så gå 4 nivå opp)
+# REPO_ROOT peikar til repo-root (scriptet ligg i src/assets/scripts/makefile/, så gå 4 nivå opp)
 REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../../../.." && pwd)}"
 FLATTEN_VALIDATE_SCRIPT="$REPO_ROOT/src/mcp-linkml-validator/flatten-and-validate.bash"
 

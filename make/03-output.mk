@@ -21,27 +21,3 @@ endef
 define print_step
 @echo "$(CLR_STEP)$(1)$(CLR_RST)"
 endef
-
-# ---------------------------------------------------------------------------
-# print_info — skriv info-melding med farge
-# ---------------------------------------------------------------------------
-# $1=melding
-define print_info
-@echo "$(CLR_INFO)$(1)$(CLR_RST)"
-endef
-
-# ---------------------------------------------------------------------------
-# print_warning — skriv åtvaring med farge
-# ---------------------------------------------------------------------------
-# $1=melding
-define print_warning
-@echo "$(CLR_WARN)ÅTVARING: $(1)$(CLR_RST)"
-endef
-
-# ---------------------------------------------------------------------------
-# print_error — skriv feil med farge
-# ---------------------------------------------------------------------------
-# $1=melding
-define print_error
-@echo "$(CLR_ERR)FEIL: $(1)$(CLR_RST)"
-endef

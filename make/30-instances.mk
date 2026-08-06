@@ -32,7 +32,7 @@ endef
 
 .PHONY: gen-informasjonsmodell-instance
 
-gen-informasjonsmodell-instance:
+gen-informasjonsmodell-instance: ## Generer ModelDCAT-metadata for skjema [SCHEMA=<sti>|DOMAIN=<domain>]
 ifdef SCHEMA
 	$(call print_header,gen-informasjonsmodell-instance,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN
@@ -44,13 +44,13 @@ endif
 
 .PHONY: gen-modellkatalog-instance
 
-gen-modellkatalog-instance:
+gen-modellkatalog-instance: ## Generer per-org modellkatalogar frå alle Informasjonsmodell-instansar
 	$(call print_step,Genererer Modellkatalog-instans)
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-modellkatalog.py
 
 .PHONY: gen-begrepskatalog-instance
 
-gen-begrepskatalog-instance:
+gen-begrepskatalog-instance: ## Samle begrep frå begrepssamlingar til begrepskatalogar per organisasjon
 	$(call print_step,Samlar begrep frå begrepssamlingar til begrepskatalogar)
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/collect-concepts.py
 
@@ -60,7 +60,7 @@ gen-begrepskatalog-instance:
 
 .PHONY: validate-informasjonsmodell-instance
 
-validate-informasjonsmodell-instance:
+validate-informasjonsmodell-instance: ## Valider generert ModelDCAT-metadata mot modelldcat-katalog-schema (SCHEMA=<sti>)
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -z "$(SCHEMA)" ]; then \
 		log_error "SCHEMA parameter required. Bruk: make validate-informasjonsmodell-instance SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml"; \
@@ -81,7 +81,7 @@ validate-informasjonsmodell-instance:
 
 .PHONY: validate-modellkatalog-instance
 
-validate-modellkatalog-instance:
+validate-modellkatalog-instance: ## Valider generert modellkatalog-datafil mot org-skjema (ORG=<org-slug>)
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -z "$(ORG)" ]; then \
 		log_error "ORG parameter required. Bruk: make validate-modellkatalog-instance ORG=<org-slug> (eksempel: ORG=digdir-modellkatalog)"; \

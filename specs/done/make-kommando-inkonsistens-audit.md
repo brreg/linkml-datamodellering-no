@@ -270,19 +270,19 @@ handlingslista under.
    endringa. Den separate `mcp-begrep-run`-delen av funn 2 er **ikkje**
    omfatta av dette tiltaket og står att i handlingslista.
 
-## Handlingsliste (attverande, ikkje utført no)
+## Handlingsliste
 
 - [x] Funn 1: løyst som del av funn 6 (ny sti er korrekt frå start)
-- [ ] Funn 2 (delvis): `mcp-begrep-run`-referansane (ikkje `mcp-validate`-delen, som er løyst av namnekonsistens 2) — sjå fil-liste i funn 2
+- [x] Funn 2: `mcp-validate`-delen løyst av namnekonsistens 2; `mcp-begrep-run`-delen løyst i runde 2, sjå «Utført, runde 2»
 - [x] Funn 3: løyst — alternativ (a), sjå «Vedtekne tiltak»
-- [ ] Funn 4: fjern daud `print_info`/`print_warning`/`print_error`-kode
-- [ ] Funn 5: slett `make/10-generator-macros.mk.bak`
+- [x] Funn 4: løyst i runde 2 — daud `print_info`/`print_warning`/`print_error`-kode fjerna
+- [x] Funn 5: løyst i runde 2 — `make/10-generator-macros.mk.bak` sletta
 - [x] Funn 6: løyst, sjå «Vedtekne tiltak»
-- [ ] Funn 7: legg til manglande `## `-hjelpetekst for `make help`-synlegheit
+- [x] Funn 7: løyst i runde 2 — manglande `## `-hjelpetekst lagt til, pluss ein relatert `help.sh`-bug retta undervegs
 - [x] Namnekonsistens 1: løyst — `new-model` → `new-modell`
 - [x] Namnekonsistens 2: løyst — `mcp-linkml-validate` → `mcp-linkml-valider-modell`
-- [ ] Namnekonsistens 3: asymmetriske MCP-sub-target-suffiks — ikkje avklart
-- [ ] Namnekonsistens 4: `log-mcp-validate`/`log-validate-instance`-mønsteret — ikkje avklart
+- [x] Namnekonsistens 3: avklart i runde 2 — inga testsuite finst for begrep-utkast, dokumentert i kode, ingen `-test`-target lagt til
+- [x] Namnekonsistens 4: avklart i runde 2 — reelt ulike behov (CI-kritisk vs. manuelt release-verktøy), konsolidering medvite utsett, dokumentert i kode
 
 ## Utført
 
@@ -348,5 +348,93 @@ Alle fire vedtekne tiltak er gjennomførte.
 - Verifisert: `make -n help`, `make -n mcp-linkml-valider-modell SCHEMA=...`
   og `make -n new-modell` løyser korrekt utan Makefile-parsefeil.
 
-**Ikkje utført (attverande i handlingslista):** funn 2 (`mcp-begrep-run`-
-delen), funn 4, funn 5, funn 7, namnekonsistens 3 og 4.
+**Ikkje utført etter runde 1 (løyst i runde 2, sjå under):** funn 2
+(`mcp-begrep-run`-delen), funn 4, funn 5, funn 7, namnekonsistens 3 og 4.
+
+## Utført, runde 2
+
+Brukaren bad om at alle attverande tiltak i handlingslista skulle
+gjennomførast. Alle punkt er no løyste.
+
+**Funn 2, resten (`mcp-begrep-run` → `mcp-linkml-begrep-utkast-run`):**
+- Sed-sveip over `mkdocs/docs/ny-begrepsmodell.md`,
+  `specs/backlog/mcp-begrep-utkast-enkeltfil-generering.md`,
+  `src/assets/scripts/scaffolding/{new-begrepskatalog,new-begrepssamling}.sh`,
+  `src/mcp-linkml-begrep-utkast/README.md`. `specs/done/` urørt.
+
+**Funn 4 (daud `print_*`-kode):**
+- `print_info`, `print_warning`, `print_error` fjerna frå
+  `make/03-output.mk` (berre `print_header`/`print_step` var i reell bruk).
+- `make/README.md` oppdatert: fjerna referanse til `print_info` i
+  makro-oversikta, og omskrive logging-konvensjonen til å skildre den
+  faktiske arbeidsdelinga (`print_header`/`print_step` for overskrifter,
+  `LOG_FUNCTIONS` for status/feil).
+
+**Funn 5 (stray backup-fil):**
+- `make/10-generator-macros.mk.bak` sletta.
+
+**Funn 7 (manglande `## `-hjelpetekst) + ein relatert `help.sh`-bug:**
+- Lagt til `## `-hjelpetekst på alle target lista i funn 7:
+  `make/30-instances.mk` (5 target), `make/60-mcp.mk` (11 target, inkl. alle
+  `build-docker-mcp-*` og heile `mcp-linkml-{valider-modell,modell-utkast,
+  begrep-utkast}`-familien), `make/70-scaffolding.mk` (5 target),
+  `make/40-validation.mk` (`log-mcp-validate`, `log-validate-instance`).
+  Interne target (`_mcp-valider-modell-with-header`, `_gource-render`)
+  framleis utan `## ` som tilsikta.
+- **Bug oppdaga og retta i `src/assets/scripts/makefile/help.sh`:** verifisering
+  med `make help` etter dei nye `## `-linjene avslørte to eksisterande feil i
+  kategoriseringslogikken, begge usynlege før no fordi ingen target med desse
+  eigenskapane hadde `## `-tekst tidlegare:
+  1. Target med eit Makefile-prerequisite (t.d.
+     `mcp-linkml-valider-modell-smoke: build-docker-mcp-validator ## ...`)
+     fekk prerequisite-namnet med i namnekolonna i output
+     (`mcp-linkml-valider-modell-smoke: build-docker-mcp-validator`) — same
+     feilmønster fanst frå før på `gource-preview`/`gource-video`, berre
+     ikkje lagt merke til.
+  2. Kategori-filtreringa var ikkje gjensidig utelukkande trass i
+     toppkommentaren sin påstand om at «første kategori-mønster som matchar
+     vinn» — `build-docker-mcp-*`-target matcha både «Container images»
+     (`build-docker-`) og «MCP-serverar» (`mcp-`) og vart difor lista dobbelt.
+  `help.sh` omskriven til eitt-gjennomlaup med ein `shown`-oppslagstabell som
+  faktisk handhevar første-match-vinn, pluss eit sed-steg som strippar
+  prerequisite frå namnekolonna før utskrift. Verifisert med full
+  `make help`-køyring: ingen duplikat, ingen garbla target-namn, alle nye
+  target synlege i korrekt kategori.
+
+**Namnekonsistens 3 (asymmetriske MCP-sub-target):**
+- Undersøkt: `tests/` har `test_mcp_linkml_generator.py` (modell-utkast) og
+  `test_mcp_policies.py` (validator), men ingen ekvivalent for begrep-utkast.
+  Ingen testsuite å knyte ein `-test`-target til. Dokumentert med kommentar i
+  `make/60-mcp.mk` i staden for å oppretta eit tomt/uverksamt target.
+
+**Namnekonsistens 4 (`log-mcp-validate`/`log-validate-instance` vs.
+`validate-capture`):**
+- Undersøkt begge underliggande script (`run-validation.sh`,
+  `run-schema-validation.py`). Konklusjon: reelt ulike behov, ikkje
+  modningsrestar. `run-validation.sh` er kalla direkte frå
+  `.github/workflows/{generate,validate}.yml` — CI-kritisk infrastruktur.
+  `run-schema-validation.py`/`validate-capture` er eit manuelt batch-verktøy
+  avgrensa til `release-please-config.json` sine "released packages", ikkje
+  brukt frå CI. Konsolidering vart difor medvite **ikkje** utført —
+  å skrive om CI-kritisk script for DRY åleine krev eksplisitt brukar-
+  godkjenning (CLAUDE.md). Konklusjonen er dokumentert som kommentar over
+  `validate-capture` i `make/40-validation.mk`.
+
+**Attverande smårettingar oppdaga undervegs:**
+- `COMMANDS.md` sin rad for `new-begrepskatalog` sa framleis "Deprecated" —
+  inkonsistent med retting frå runde 1 (tiltak 3a). Retta til å skildre
+  legacy-status korrekt, i tråd med `make/70-scaffolding.mk`.
+- `src/assets/scripts/makefile/run-validation.sh` sin eigen kommentar om
+  eigen filplassering ("scriptet ligg i src/assets/scripts/ci/") var forelda
+  etter flyttinga i runde 1 (funn 6) — retta til `makefile/`.
+
+**Verifisert:** `make -n help` (ingen parsefeil), full `make help`-køyring
+(alle nye target synlege, ingen duplikat/garbling), repo-vidt grep-sveip
+for attverande `new-model`/`mcp-validate`/`mcp-linkml-validate`/
+`mcp-begrep-run` utanom `specs/done/` — tomt resultat.
+
+**Ikkje rørt (utanfor det brukaren bad om):** `.claude/settings.local.json`
+sine forelda permission-mønster (reint lokal verktøykonfig, ikkje del av
+make-laget/kodebasen).
+
+Alle funn og namnekonsistens-punkt frå denne auditen er no løyste.

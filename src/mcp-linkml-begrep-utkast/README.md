@@ -14,7 +14,7 @@ make mcp-begrep-build
 make mcp-begrep-list-profiles
 
 # Køyr serveren interaktivt (MCP stdio-transport)
-make mcp-begrep-run
+make mcp-linkml-begrep-utkast-run
 ```
 
 **Eksempel: generer YAML for eitt begrep med `brreg`-profilen**

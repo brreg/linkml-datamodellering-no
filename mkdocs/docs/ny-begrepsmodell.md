@@ -99,7 +99,7 @@ generators:
 
 ```yaml
 # Eksempel for test-begrep
-# Generer YAML-blokker med: make mcp-begrep-run (sjå steg 2)
+# Generer YAML-blokker med: make mcp-linkml-begrep-utkast-run (sjå steg 2)
 ---
 BegrepContainer:
   begrep: []

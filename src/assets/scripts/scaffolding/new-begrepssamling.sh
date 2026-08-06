@@ -64,7 +64,7 @@ EOF
 cat > "$BEGREP_DIR/.gitkeep" << 'EOF'
 # Denne mappa inneheld éin YAML-fil per begrep.
 # Bruk mcp-linkml-begrep-utkast til å generere begrepsfiler:
-#   make mcp-begrep-run
+#   make mcp-linkml-begrep-utkast-run
 # Eller skriv manuelt i formatet:
 #   id: https://begrep.org.no/<slug>
 #   anbefalt_term: [...]
@@ -89,7 +89,7 @@ make --no-print-directory update-valid-scopes
 echo ""
 echo "Neste steg:"
 echo "  1. Skriv begrep til begrep/<begrep-slug>.yaml (manuelt eller med mcp-linkml-begrep-utkast):"
-echo "     make mcp-begrep-run"
+echo "     make mcp-linkml-begrep-utkast-run"
 echo "     Bruk verktøyet 'skriv_begrep_fil' med domain=$DOMAIN og begrepssamling=$NAME"
 echo "  2. Køyr gen-begrepskatalog-instance for å aggregere til begrepskatalog:"
 echo "     make gen-begrepskatalog-instance"

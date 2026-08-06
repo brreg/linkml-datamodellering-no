@@ -107,7 +107,7 @@ fagomrade:
 
 ```bash
 # Test at skriv_begrep_fil skriv til riktig katalog
-make mcp-begrep-run
+make mcp-linkml-begrep-utkast-run
 
 # Send MCP-melding:
 {

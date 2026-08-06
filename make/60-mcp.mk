@@ -15,19 +15,19 @@ MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
 
-build-docker-mcp-validator:
+build-docker-mcp-validator: ## Bygg container-image for validator MCP-serveren
 	$(call print_header,build-docker-mcp-validator)
 	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target validator -t $(MCP_IMAGE) .
 
-mcp-linkml-valider-modell-run:
+mcp-linkml-valider-modell-run: ## Start validator MCP-serveren interaktivt (JSON-RPC på stdin/stdout)
 	$(call print_header,mcp-linkml-valider-modell-run)
 	@$(MCP_RUN) $(MCP_IMAGE)
 
-mcp-linkml-valider-modell-smoke: build-docker-mcp-validator
+mcp-linkml-valider-modell-smoke: build-docker-mcp-validator ## Røyktest validator MCP-serveren med eksempel-meldingar
 	$(call print_header,mcp-linkml-valider-modell-smoke)
 	@cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-mcp-linkml-valider-modell-test: build-docker-mcp-validator
+mcp-linkml-valider-modell-test: build-docker-mcp-validator ## Køyr alle policy-testar for validator MCP-serveren
 	$(call print_header,mcp-linkml-valider-modell-test)
 	@podman run --rm \
 		-v "$(CURDIR):/work:ro" \
@@ -39,19 +39,19 @@ mcp-linkml-valider-modell-test: build-docker-mcp-validator
 # mcp-linkml-modell-utkast
 # ---------------------------------------------------------------------------
 
-build-docker-mcp-modell-utkast:
+build-docker-mcp-modell-utkast: ## Bygg container-image for modell-utkast MCP-serveren
 	$(call print_header,build-docker-mcp-modell-utkast)
 	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target modell-utkast -t $(LINKML_MOD_IMAGE) .
 
-mcp-linkml-modell-utkast-run:
+mcp-linkml-modell-utkast-run: ## Start modell-utkast MCP-serveren interaktivt (JSON-RPC på stdin/stdout)
 	$(call print_header,mcp-linkml-modell-utkast-run)
 	@$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-linkml-modell-utkast-smoke: build-docker-mcp-modell-utkast
+mcp-linkml-modell-utkast-smoke: build-docker-mcp-modell-utkast ## Røyktest modell-utkast MCP-serveren med eksempel-meldingar
 	$(call print_header,mcp-linkml-modell-utkast-smoke)
 	@cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
+mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast ## Køyr alle unit-testar for modell-utkast MCP-serveren
 	$(call print_header,mcp-linkml-modell-utkast-test)
 	@podman run --rm \
 		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
@@ -61,8 +61,7 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
 		$(LINKML_MOD_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-# Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
-mcp-linkml-modell-utkast:
+mcp-linkml-modell-utkast: ## Generer LinkML-skjemautkast frå JSON Schema (SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze])
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1; }
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
 		"$(SCHEMA)" "$(or $(FORMAT),json-schema)" "$(or $(PROFILE),bronze)" \
@@ -78,23 +77,28 @@ mcp-linkml-modell-utkast:
 
 # ---------------------------------------------------------------------------
 # mcp-linkml-begrep-utkast
+#
+# Ingen -test-target her (til skilnad frå mcp-linkml-valider-modell-test og
+# mcp-linkml-modell-utkast-test): det finst ingen pytest/unittest-suite for
+# denne serveren i tests/ i dag (jf. tests/test_mcp_linkml_generator.py for
+# modell-utkast). Legg til mcp-linkml-begrep-utkast-test her dersom ei slik
+# testsuite vert oppretta.
 # ---------------------------------------------------------------------------
 
-build-docker-mcp-begrep-utkast:
+build-docker-mcp-begrep-utkast: ## Bygg container-image for begrep-utkast MCP-serveren
 	$(call print_header,build-docker-mcp-begrep-utkast)
 	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target begrep-utkast -t $(LINKML_BEGREP_IMAGE) .
 
-mcp-linkml-begrep-utkast-run:
+mcp-linkml-begrep-utkast-run: ## Start begrep-utkast MCP-serveren interaktivt (JSON-RPC på stdin/stdout)
 	$(call print_header,mcp-linkml-begrep-utkast-run)
 	@$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
-mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
+mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast ## Røyktest begrep-utkast MCP-serveren med eksempel-meldingar
 	$(call print_header,mcp-linkml-begrep-utkast-smoke)
 	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
-# Bruk: make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
-mcp-linkml-begrep-utkast:
+mcp-linkml-begrep-utkast: ## Generer YAML-utkast til begrep frå JSON-fil (INPUT=<sti-til-json>)
 	@test -n "$(INPUT)" || \
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1; }
 	@test -f "$(INPUT)" || \
@@ -102,9 +106,7 @@ mcp-linkml-begrep-utkast:
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-begrep-utkast-request.py "$(INPUT)" \
 	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
-# List profiler:
-#   make mcp-linkml-begrep-utkast-list-profiles
-mcp-linkml-begrep-utkast-list-profiles:
+mcp-linkml-begrep-utkast-list-profiles: ## List alle tilgjengelege organisasjonsprofiler for begrepsoppretting
 	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-begrep-utkast
 	@echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_profiles","arguments":{}}}' \
 	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
