@@ -32,8 +32,8 @@ lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	fi
 
 validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>)
-	@test -n "$(SCHEMA)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
-	@test -n "$(INSTANCE)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
+	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	$(call print_header,validate-instance,SCHEMA=$(SCHEMA)  INSTANCE=$(INSTANCE))
 	$(LINKML_RUN) linkml validate --schema "$(SCHEMA)" "$(INSTANCE)"
 
@@ -49,10 +49,13 @@ ifdef DOMAIN
 	while IFS= read -r schema; do \
 		name=$$(basename "$$schema" -schema.yaml); \
 		domain=$$(echo "$$schema" | cut -d/ -f3); \
-		log_info "$(CLR_STEP)→ validate-bronze  $$domain/$$name$(CLR_RST)"; \
 		log_debug "[$$domain/$$name] Kommando: flatten-and-validate.bash $$schema bronze"; \
+		t0=$$(date +%s%3N); \
 		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
-		echo "$$result"; \
+		t1=$$(date +%s%3N); \
+		ms=$$(( t1 - t0 )); \
+		log_debug "$$result"; \
+		log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type bronze --result "$$result" 2>/dev/null || true; \
 		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
@@ -81,10 +84,13 @@ ifdef DOMAIN
 			policy=bronze; \
 		fi; \
 		[ -n "$$policy" ] || policy=bronze; \
-		log_info "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
 		log_debug "[$(DOMAIN)/$$model] Kommando: flatten-and-validate.bash $$schema $$policy $$datafile"; \
+		t0=$$(date +%s%3N); \
 		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
-		echo "$$result"; \
+		t1=$$(date +%s%3N); \
+		ms=$$(( t1 - t0 )); \
+		log_debug "$$result"; \
+		log_info "$$(printf '$(CLR_STEP)→ mcp-validate  %s  (policy: %s)$(CLR_RST) (%d.%ds)' "$$datafile" "$$policy" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
 	done
@@ -106,12 +112,15 @@ ifdef DOMAIN
 			log_info "$(CLR_WARN)::warning file=$$schema::Ingen eksempelfil funne: $$example$(CLR_RST)"; \
 			continue; \
 		fi; \
-		log_info "$(CLR_STEP)→ validate-examples  $$domain/$$name$(CLR_RST)"; \
 		log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$schema $$example"; \
+		t0=$$(date +%s%3N); \
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
 			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
 		exit_code=$$?; \
-		echo "$$result"; \
+		t1=$$(date +%s%3N); \
+		ms=$$(( t1 - t0 )); \
+		log_debug "$$result"; \
+		log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		has_error=false; \
 		if [ $$exit_code -ne 0 ]; then \
 			has_error=true; \
@@ -144,7 +153,7 @@ endif
 # ---------------------------------------------------------------------------
 
 mcp-linkml-validate: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1; }
 	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
 	$(MAKE) --no-print-directory _mcp-validate-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
@@ -170,18 +179,19 @@ validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [
 # Bruk: make log-mcp-validate MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>
 # Validerer og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/<policy>.json
 log-mcp-validate:
-	@if [ -n "$(MANIFEST)" ]; then \
+	@eval "$$LOG_FUNCTIONS"; \
+	if [ -n "$(MANIFEST)" ]; then \
 		bash src/assets/scripts/run-validation.sh --manifest $(MANIFEST); \
 	elif [ -n "$(SCHEMA)" ] && [ -n "$(POLICY)" ]; then \
 		bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --policy $(POLICY); \
 	else \
-		echo "Feil: Oppgi anten MANIFEST=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
+		log_error "Oppgi anten MANIFEST=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
 		exit 1; \
 	fi
 
 # Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>
 # Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<namn>.json
 log-validate-instance:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
-	@test -n "$(INSTANCE)" || (echo "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
+	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)

@@ -382,7 +382,8 @@
       "Bash(cd *)",
       "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-fail)",
       "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-ok)",
-      "Bash(podman --version)"
+      "Bash(podman --version)",
+      "Bash(podman image *)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -4,19 +4,18 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
+: "${LOG_FUNCTIONS:?miljøvariabelen LOG_FUNCTIONS må vere sett (eksportert frå make/00-settings.mk)}"
+eval "$LOG_FUNCTIONS"
+
 export REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GEN="$REPO_ROOT/generated"
 DOCS="$REPO_ROOT/mkdocs/docs"
 MKDOCS_YML="$REPO_ROOT/mkdocs/mkdocs.yml"
 
-SEP="************************************************************"
-CLR_SEP=$(printf '\033[1;33m')
-CLR_HDR=$(printf '\033[1;37m')
-CLR_STEP=$(printf '\033[0;36m')
-CLR_OK=$(printf '\033[0;32m')
-CLR_ERR=$(printf '\033[0;31m')
-CLR_RST=$(printf '\033[0m')
-
+# log_step — banner/deloverskrift, alltid synleg (uavhengig av LOGLVL),
+# same kontrakt som print_header i make/03-output.mk. SEP/CLR_*-variablane
+# er arva frå miljøet (eksportert av make/00-settings.mk), ikkje
+# redeklarerte lokalt.
 log_step() {
     echo "${CLR_SEP}${SEP}${CLR_RST}"
     echo "${CLR_HDR}$*${CLR_RST}"
@@ -122,7 +121,7 @@ generate_validation_docs() {
     local output="$DOCS/valideringsregler.md"
     local github_base="https://github.com/brreg/linkml-datamodellering-no/blob/main"
 
-    echo "${CLR_STEP}→ Genererer valideringsregler.md frå policies/README.md${CLR_RST}"
+    log_info "${CLR_STEP}→ Genererer valideringsregler.md frå policies/README.md${CLR_RST}"
 
     {
         cat <<'EOF'
@@ -140,7 +139,7 @@ EOF
             sed -E "s|specs/done/([^)]+)|$github_base/specs/done/\1|g"
     } > "$output"
 
-    echo "${CLR_OK}✓ Genererte $output${CLR_RST}"
+    log_info "${CLR_OK}✓ Genererte $output${CLR_RST}"
 }
 
 # DEPRECATED: build_dependency_graph() er flytta til lib/sections/dependencies.sh
@@ -185,10 +184,10 @@ process_schema() {
     unset PARENT_MODEL SUBMODELS
 
     local elapsed_ms=$(( $(date +%s%3N) - t0 ))
-    printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)\n" \
+    log_info "$(printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)" \
         "$domain" "$schema" \
         $((elapsed_ms / 1000)) \
-        $((elapsed_ms % 1000 / 100))
+        $((elapsed_ms % 1000 / 100)))"
 }
 
 # ---------------------------------------------------------------------------
@@ -198,7 +197,7 @@ log_step "Steg 1: Rens tidlegare genererte domene-katalogar frå docs/"
 t1=$(date +%s%3N)
 
 if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
-    echo "Ingen genererte artefakter funne i $GEN. Køyr make <domain> fyrst." >&2
+    log_error "Ingen genererte artefakter funne i $GEN. Køyr make <domain> fyrst."
     exit 1
 fi
 
@@ -210,7 +209,7 @@ for domain_dir in "$GEN"/*/; do
     domain=$(basename "$domain_dir")
     # Åtvar om domenet finst i generated/ men ikkje i src/linkml/ (stale artefakter)
     if [ ! -d "$REPO_ROOT/src/linkml/$domain" ]; then
-        echo "${CLR_ERR}ÅTVARING: $domain finst i generated/ men ikkje i src/linkml/ — stale artefakter frå omdøypt domene?${CLR_RST}" >&2
+        log_info "${CLR_WARN}ÅTVARING: $domain finst i generated/ men ikkje i src/linkml/ — stale artefakter frå omdøypt domene?${CLR_RST}"
     fi
     find "${DOCS}/${domain}" -mindepth 1 -depth -delete 2>/dev/null || true
     rmdir "${DOCS}/${domain}" 2>/dev/null || true
@@ -224,15 +223,15 @@ for docs_domain_dir in "$DOCS"/*/; do
         stylesheets|javascripts) continue ;;
     esac
     if [ ! -d "$GEN/$domain" ]; then
-        echo "Ryddar forsvunne domene: $domain"
+        log_info "Ryddar forsvunne domene: $domain"
         rm -rf "$docs_domain_dir"
     fi
 done
 
 elapsed1_ms=$(( $(date +%s%3N) - t1 ))
-printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)\n" \
+log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed1_ms / 1000)) \
-    $((elapsed1_ms % 1000 / 100))
+    $((elapsed1_ms % 1000 / 100)))"
 
 # Generer byggetidspunkt (ISO 8601 UTC)
 BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
@@ -359,21 +358,16 @@ for i in "${!PIDS[@]}"; do
         domain="${domain_schema%/*}"
         schema="${domain_schema#*/}"
 
-        echo "${CLR_ERR}FEIL: $domain/$schema${CLR_RST}" >&2
-        echo "  Domain: $domain" >&2
-        echo "  Schema: $schema" >&2
-        echo "  Output: $DOCS/$domain/$schema/" >&2
+        log_error "$domain/$schema (Domain: $domain, Schema: $schema, Output: $DOCS/$domain/$schema/)"
 
         failed_jobs+=("$domain/$schema")
     fi
 done
 
 if [ ${#failed_jobs[@]} -gt 0 ]; then
-    echo "" >&2
-    echo "${CLR_ERR}${SEP}${CLR_RST}" >&2
-    echo "${CLR_ERR}OPPSUMMERING: ${#failed_jobs[@]} skjema feila${CLR_RST}" >&2
-    printf '  - %s\n' "${failed_jobs[@]}" >&2
-    echo "${CLR_ERR}${SEP}${CLR_RST}" >&2
+    failed_list=$(printf '  - %s\n' "${failed_jobs[@]}")
+    log_error "OPPSUMMERING: ${#failed_jobs[@]} skjema feila:
+${failed_list}"
     exit 1
 fi
 
@@ -423,9 +417,9 @@ for domain in "${ALL_DOMAINS[@]}"; do
 done
 
 elapsed2_ms=$(( $(date +%s%3N) - t2 ))
-printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)\n" \
+log_info "$(printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed2_ms / 1000)) \
-    $((elapsed2_ms % 1000 / 100))
+    $((elapsed2_ms % 1000 / 100)))"
 
 # ---------------------------------------------------------------------------
 # Steg 3: Generer index.md frå README.md
@@ -450,9 +444,9 @@ log_step "Steg 3: Generer valideringsregler.md"
 generate_validation_docs
 
 elapsed3_ms=$(( $(date +%s%3N) - t3 ))
-printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)\n" \
+log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed3_ms / 1000)) \
-    $((elapsed3_ms % 1000 / 100))
+    $((elapsed3_ms % 1000 / 100)))"
 
 # ---------------------------------------------------------------------------
 # Steg 4: Generer mkdocs.yml
@@ -563,10 +557,9 @@ STATIC
 } > "$MKDOCS_YML"
 
 elapsed4_ms=$(( $(date +%s%3N) - t4 ))
-printf "${CLR_OK}✓ Steg 4 ferdig${CLR_RST} (%d.%ds)\n" \
+log_info "$(printf "${CLR_OK}✓ Steg 4 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed4_ms / 1000)) \
-    $((elapsed4_ms % 1000 / 100))
+    $((elapsed4_ms % 1000 / 100)))"
 
-echo ""
-echo "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
-echo "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"
+log_info "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
+log_info "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"

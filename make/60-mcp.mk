@@ -63,16 +63,17 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast
 
 # Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]
 mcp-linkml-modell-utkast:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1)
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1; }
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
 		"$(SCHEMA)" "$(or $(FORMAT),json-schema)" "$(or $(PROFILE),bronze)" \
 		| $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
 		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-write-modell-utkast-response.py "$(SCHEMA)"
 	@# Automatisk roundtrip-test for JSON Schema
-	@if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \
-		echo "$(CLR_STEP)→ Køyrer roundtrip-test for $(SCHEMA)$(CLR_RST)"; \
+	@eval "$$LOG_FUNCTIONS"; \
+	if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \
+		log_info "$(CLR_STEP)→ Køyrer roundtrip-test for $(SCHEMA)$(CLR_RST)"; \
 		$(MAKE) roundtrip-json-schema JSONSCHEMA="$(SCHEMA)" || \
-		(echo "$(CLR_ERR)Roundtrip-test feila — sjå logg for detaljar$(CLR_RST)" && exit 1); \
+		(log_error "Roundtrip-test feila — sjå logg for detaljar" && exit 1); \
 	fi
 
 # ---------------------------------------------------------------------------
@@ -95,9 +96,9 @@ mcp-linkml-begrep-utkast-smoke: build-docker-mcp-begrep-utkast
 # Bruk: make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
 mcp-linkml-begrep-utkast:
 	@test -n "$(INPUT)" || \
-	  (echo "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1)
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-begrep-utkast INPUT=<sti-til-json>"; exit 1; }
 	@test -f "$(INPUT)" || \
-	  (echo "Feil: $(INPUT) finst ikkje"; exit 1)
+	  { eval "$$LOG_FUNCTIONS"; log_error "$(INPUT) finst ikkje"; exit 1; }
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-begrep-utkast-request.py "$(INPUT)" \
 	  | $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 

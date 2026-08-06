@@ -6,14 +6,17 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
+: "${LOG_FUNCTIONS:?miljøvariabelen LOG_FUNCTIONS må vere sett}"
+eval "$LOG_FUNCTIONS"
+
 README="${1:-README.md}"
 
 if [[ ! -f "$README" ]]; then
-  echo "❌ Feil: $README finst ikkje"
+  log_error "$README finst ikkje"
   exit 1
 fi
 
-echo "🔧 Genererer auto-genererte tabellar for $README..."
+log_info "Genererer auto-genererte tabellar for $README..."
 
 # Katalog for støttescripts
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -216,4 +219,4 @@ done < "$README"
 # Erstatt original med oppdatert versjon
 mv "$TEMP_README" "$README"
 
-echo "✅ $README er oppdatert med auto-genererte tabellar"
+log_info "$README er oppdatert med auto-genererte tabellar"

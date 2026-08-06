@@ -46,6 +46,7 @@ CLR_HDR    := $(shell printf '\033[1;37m')
 CLR_STEP   := $(shell printf '\033[0;36m')
 CLR_OK     := $(shell printf '\033[0;32m')
 CLR_ERR    := $(shell printf '\033[0;31m')
+CLR_WARN   := $(shell printf '\033[0;33m')
 CLR_DBG    := $(shell printf '\033[2m')
 CLR_RST    := $(shell printf '\033[0m')
 
@@ -115,3 +116,16 @@ export GEN_DIR
 export PARALLEL
 export CLR_STEP
 export CLR_RST
+
+# Eksportert for frittståande script som ikkje får fargane via Make sin
+# tekstsubstitusjon i sjølve recipe-linja (t.d. mkdocs/publish.sh, kalla
+# som eit eige script frå make/50-docs.mk, ikkje som embedda $(CLR_*)
+# i ei recipe-linje) — unngår at slike script må redeklarere same
+# fargeverdiar lokalt
+export SEP
+export CLR_SEP
+export CLR_HDR
+export CLR_OK
+export CLR_ERR
+export CLR_WARN
+export CLR_DBG
