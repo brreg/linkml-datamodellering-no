@@ -150,13 +150,16 @@ mkdir -p "$(dirname "$log_path")"
 result_json=$(bash "$FLATTEN_VALIDATE_SCRIPT" "$SCHEMA" "$POLICY" "$INSTANCE")
 exit_code=$?
 
-# Bygg logg-objekt med metadata
-python3 - "$SCHEMA" "$VERSION" "$POLICY" "$result_json" "$log_path" << 'PYEOF'
-import json, sys, yaml
-from datetime import datetime, timezone
+# Bygg logg-objekt med metadata (delt struktur — sjå
+# src/assets/scripts/utils/validation_log.py, BUG-12)
+python3 - "$SCHEMA" "$VERSION" "$POLICY" "$result_json" "$log_path" "$REPO_ROOT" << 'PYEOF'
+import json, sys
 from pathlib import Path
 
-schema_path, version, policy, result_json, log_file = sys.argv[1:6]
+schema_path, version, policy, result_json, log_file, repo_root = sys.argv[1:7]
+
+sys.path.insert(0, str(Path(repo_root) / "src" / "assets" / "scripts"))
+from utils.validation_log import build_validation_log_entry, write_validation_log
 
 # Parse result frå flatten-and-validate (kan vere JSON eller feilmelding)
 try:
@@ -174,17 +177,8 @@ else:
     domain = ""
     schema_name = Path(schema_path).stem
 
-log_data = {
-    "schema": schema_name,
-    "domain": domain,
-    "version": version,
-    "validation_policy": policy,
-    "result": result,
-}
-
-Path(log_file).parent.mkdir(parents=True, exist_ok=True)
-with open(log_file, "w", encoding="utf-8") as f:
-    json.dump(log_data, f, indent=2, ensure_ascii=False, sort_keys=True)
+log_data = build_validation_log_entry(schema_name, domain, version, policy, result)
+write_validation_log(Path(log_file), log_data)
 PYEOF
 
 if [ "$QUIET" = true ]; then

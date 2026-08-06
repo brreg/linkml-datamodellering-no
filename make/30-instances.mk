@@ -69,7 +69,8 @@ validate-informasjonsmodell-instance: ## Valider generert ModelDCAT-metadata mot
 	$(call print_step,Validerer Informasjonsmodell-instans for $(SCHEMA))
 	@eval "$$LOG_FUNCTIONS"; \
 	SCHEMA_DIR=$$(dirname "$(SCHEMA)"); \
-	MODELLDCAT_YAML="$$SCHEMA_DIR/metadata/modelldcat.yaml"; \
+	MODELL_NAME=$$(basename "$(SCHEMA)" -schema.yaml); \
+	MODELLDCAT_YAML="$$SCHEMA_DIR/metadata/$$MODELL_NAME-manifest.yaml"; \
 	if [ ! -f "$$MODELLDCAT_YAML" ]; then \
 		log_error "$$MODELLDCAT_YAML eksisterer ikkje. Køyr først: make gen-informasjonsmodell-instance SCHEMA=$(SCHEMA)"; \
 		exit 1; \

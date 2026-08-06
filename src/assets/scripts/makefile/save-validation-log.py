@@ -18,11 +18,11 @@ Bruk:
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
 from utils.schema_meta import get_domain_model, get_version  # noqa: E402
+from utils.validation_log import build_validation_log_entry, write_validation_log  # noqa: E402
 
 
 def get_schema_name(schema_path: Path) -> str:
@@ -56,23 +56,13 @@ def save_log(
         print(f"FEIL: Ugyldig JSON i --result: {e}", file=sys.stderr)
         sys.exit(1)
 
-    # Bygg opp logg-objektet
-    log_entry = {
-        "schema": schema_name,
-        "domain": domain,
-        "version": version,
-        "validated_at": datetime.now(timezone.utc).isoformat(),
-        "validation_type": validation_type,
-        "result": result,
-    }
+    # Bygg opp logg-objektet (delt struktur — sjå utils/validation_log.py, BUG-12)
+    log_entry = build_validation_log_entry(schema_name, domain, version, validation_type, result)
 
     # Skriv til src/linkml/<domain>/<model>/validation/<version>/<type>.json
-    log_dir = output_dir / domain / model / "validation" / version
-    log_dir.mkdir(parents=True, exist_ok=True)
-
     # Filnamn basert på validation_type (t.d. bronze.json, examples.json, data.json)
-    log_file = log_dir / f"{validation_type}.json"
-    log_file.write_text(json.dumps(log_entry, indent=2, ensure_ascii=False) + "\n")
+    log_file = output_dir / domain / model / "validation" / version / f"{validation_type}.json"
+    write_validation_log(log_file, log_entry)
 
     print(f"✓ Lagra {log_file}", file=sys.stderr)
 

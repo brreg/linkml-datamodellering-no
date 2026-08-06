@@ -10,7 +10,7 @@ Les 6 kjelder:
 5. Genererte artefaktar (finnes_i_format)
 6. annotations.er_profil_av (MVP workaround for DX-PROF)
 
-Skriv: metadata/modelldcat.yaml (samla datafil med Informasjonsmodell + Kontaktopplysning + Standard)
+Skriv: metadata/<modell>-manifest.yaml (samla datafil med Informasjonsmodell + Kontaktopplysning + Standard)
 """
 
 import sys

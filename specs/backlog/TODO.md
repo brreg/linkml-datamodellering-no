@@ -100,10 +100,6 @@ Modellere FINT Felles (mangler i dag)
 
 
 
-egen dokumentasjon som dokumenterer korleis metadata/modelldcat.yaml blir generert med kva som er kilde til kvart informasjonselement.
-tilsvarande dokumentasjon
-
-dokumentere tydelig make targets som er wrappere rundt andre make targets
 
 
 

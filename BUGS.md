@@ -54,6 +54,8 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-8](bugs/polymorphic-inlined-list-yaml-loader.md) | YAML/SchemaLoader-basert lasting støttar ikkje polymorf `inlined_as_list` (subklasseinstansar i delt liste) | `open` | `linkml-runtime` | `modelldcat-ap-no` (modelldel), `*-modellkatalog` (planlagt, MD5) |
 | [BUG-9](bugs/avrotize-falsk-circular-dependency-warning.md) | `dependency_resolver` rapporterer falsk sirkulær avhengigheit for containerklassar med fleire `inlined_as_list`-attributtar | `upstream` | `avrotize` | `samt-bu` (einaste skjema med `xsd: true`) |
 | [BUG-10](bugs/podman-interactive-stdin-konsumerer-while-lokke.md) | `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande `while read < <(...)`-løkke — kun første skjema/eksempel vart validert | `løyst` | `make/40-validation.mk` | `validate-examples`, `validate-bronze` (alle domene) |
+| [BUG-11](bugs/informasjonsmodell-instance-stale-metadata-sti.md) | `validate-informasjonsmodell-instance` peikar på utdatert sti `metadata/modelldcat.yaml` i staden for `metadata/<modell>-manifest.yaml` | `løyst` | `make/30-instances.mk` | alle skjema med Informasjonsmodell-generering (unntatt `dqv-ap-no`) |
+| [BUG-12](bugs/valideringslogg-json-inkonsistent-skjema.md) | Tre skriveveger til `validation/<versjon>/<policy>.json` brukte ulike feltnamn (`validation_policy`/`validation_type`, med/utan `validated_at`) | `løyst` | `make/40-validation.mk` | alle skjema |
 
 ## Statusforklaring
 
