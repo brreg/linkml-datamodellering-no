@@ -55,6 +55,54 @@ For Python-script gjeld tilsvarande: bruk `error_handler.log_error()`
 alltid noko til `stderr` ved bevisste fallback-verdiar. Ein bar `except:`
 eller `except Exception:` utan noka logging er ikkje tillate.
 
+## Wrapper-target
+
+Nokre target gjer ikkje arbeidet sjølv, men **delegerer** til eit anna
+target via eit rekursivt `$(MAKE) <target>`-kall i oppskrifta si. Dette
+avsnittet gjer denne delegeringa eksplisitt, sidan ho ikkje er synleg i
+`make help`-output.
+
+### Reelle wrapper-target
+
+| Target | Delegerer til | Kvifor |
+|---|---|---|
+| `make mcp-linkml-valider-modell` | `_mcp-valider-modell-with-header` (internt) | Detekterer POLICY frå build.yaml (eller bruker eksplisitt `POLICY=`), sender så vidare til det interne targetet som gjer sjølve valideringa |
+| `make gource-preview` | `_gource-render` (internt) | Set `GOURCE_OUTFILE/EXTRA_FLAGS/FPS/FFMPEG_PRESET` for rask 720p-preview, kallar så delt render-oppskrift |
+| `make gource-video` | `_gource-render` (internt) | Same mønster som over, men 1080p full kvalitet |
+| `make mcp-linkml-modell-utkast` | `roundtrip-json-schema` (berre dersom `SCHEMA` er ei `.json`-fil) | Etter generering av eit JSON Schema-utkast køyrer targetet automatisk ein roundtrip-test som sjølvverifisering |
+
+### "Bygg image berre viss det manglar"-vakt
+
+Same `$(MAKE)`-delegeringsmønster, brukt for lat biletbygging
+(`podman image exists ... || $(MAKE) build-docker-*`):
+
+| Target | Byggjer (viss image manglar) |
+|---|---|
+| `_mcp-valider-modell-with-header` | `build-docker-mcp-validator` |
+| `make validate-capture` | `build-docker-mcp-validator` |
+| `make mcp-linkml-begrep-utkast-list-profiles` | `build-docker-mcp-begrep-utkast` |
+| `make new-modell` | `build-docker-mcp-modell-utkast` |
+
+**Merk — kontrasterande mønster:** `mcp-linkml-valider-modell-smoke`,
+`mcp-linkml-valider-modell-test`, `mcp-linkml-modell-utkast-smoke`,
+`mcp-linkml-modell-utkast-test`, `mcp-linkml-begrep-utkast-smoke`,
+`gource-preview` og `gource-video` listar i staden `build-docker-*` som ein
+vanleg Make-prerequisite (`target: build-docker-x`). Sidan
+`build-docker-*`-target er `.PHONY`, tyder dette at biletet vert **bygd på
+nytt kvar gong** desse targeta køyrer — til skilnad frå
+`podman image exists`-vakten over, som berre byggjer ved behov. Dette er
+altså to ulike, medvitne mønster med ulik åtferd, ikkje berre ein
+stilskilnad.
+
+### Konseptuelle wrapparar (ikkje `$(MAKE)`-kall)
+
+`validate-informasjonsmodell-instance` og `validate-modellkatalog-instance`
+(sjå tabellen under "Vedlikehald" nedanfor) vert omtala som "convenience
+wrapper" for `make validate-instance` — men dei kallar **ikkje**
+`make validate-instance` via `$(MAKE)`. Dei gjenbruker same underliggande
+`linkml validate`-logikk direkte, med SCHEMA/INSTANCE-stiar auto-utleia frå
+høvesvis `SCHEMA=` og `ORG=`.
+
 ## Container-image-bygging
 
 Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
@@ -170,10 +218,10 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | Kommando | Beskriving | Output |
 |---|---|---|
 | <a id="gen-informasjonsmodell-instance"></a>`make gen-informasjonsmodell-instance SCHEMA=<sti>` | Genererer ModelDCAT-metadata-fil (`metadata/modelldcat.yaml`) for eit enkelt skjema. Samlar data frå 6 kjelder: schema.yaml (toppnivå + annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar, er_profil_av. Genererer inline Kontaktopplysning og Standard-instansar. | `src/linkml/<domain>/<modell>/metadata/modelldcat.yaml` |
-| <a id="validate-informasjonsmodell-instance"></a>`make validate-informasjonsmodell-instance SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. **Convenience wrapper** for `make validate-instance` som auto-detekterer `metadata/modelldcat.yaml` og schema-sti. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
+| <a id="validate-informasjonsmodell-instance"></a>`make validate-informasjonsmodell-instance SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): gjenbruker same underliggande valideringslogikk, men via eige script som auto-detekterer `metadata/modelldcat.yaml` og schema-sti. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
 | <a id="gen-begrepskatalog-instance"></a>`make gen-begrepskatalog-instance` | Samlar alle begrep frå begrepssamlingar og genererer begrepskatalog per organisasjon. Finn alle begrepssamlingar med `aggregation.organization`-metadata, samle begrep-YAML-filer frå `begrep/*.yaml`, og generer aggregert begrepskatalog under `begrepskatalog/<org>-begrepskatalog/data/`. Køyrast automatisk av CI før generatorfasen. | `src/linkml/begrepskatalog/<org>-begrepskatalog/data/<org>-begrepskatalog/<org>-begrepskatalog.yaml` |
 | <a id="gen-modellkatalog-instance"></a>`make gen-modellkatalog-instance` | Genererer per-org modellkatalogar frå alle `metadata/modelldcat.yaml`-filer. Grupper Informasjonsmodell-instansar etter utgiver (frå CODEOWNERS.md) og genererer éi katalogfil per organisasjon for publisering til Felles datakatalog. Konverterer standard URI-ar (`https://data.norge.no/...`) til org-spesifikke URI-ar (`https://<org-domene>/modellkatalogar/<catalog_slug>/...`). **Erstatter:** `make update-modellkatalog` (deprecated). | `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` |
-| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<org-slug>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir-modellkatalog`. Validerer `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` mot `src/linkml/modellkatalog/<org>/<org>-schema.yaml`. **Convenience wrapper** for `make validate-instance` som auto-konstruerer schema- og instans-stiar. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
+| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<org-slug>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir-modellkatalog`. Validerer `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` mot `src/linkml/modellkatalog/<org>/<org>-schema.yaml`. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): køyrer same underliggande `linkml validate`-kommando direkte, med schema- og instans-stiar auto-konstruerte frå `ORG=`. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
 
 ## Dokumentasjonsportal
 

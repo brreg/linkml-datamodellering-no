@@ -62,7 +62,6 @@ juster generering av plantuml og er diagram
 
 opprette slack kanal under digdir samarbeid?
 
-lage ein sturktur for å ta vare på output fra valideringer knytta til kvar modell
 
 
 lag ein job som tester alle URL og URIer i repoet og logg html returkoden. 
@@ -88,20 +87,17 @@ evaluer gap mot https://data.norge.no/nb/docs skriv til ./specs
 
 evaluer gap mot https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-eget-hus/2716 skriv til ./specs
 
-lag plan for å oppdatere mkdocs/docs/ap-no-arkitektur.md eg ønsker å fjærne alle lukka avvik fra fila. Det er kun gjeldande avvik som er interessant å dokumentere skriv til ./specs
 
 
-vær veldig kritisk og gjer ein full gjennomgang av dette repoet for å avdekke om det er noko vi bør handtere før vi inviterer andre brukere inn. skriv til ./specs
 
 evaluer gap mot https://data.norge.no/nb/docs/sharing-data skriv til ./specs
 
-ein del gjentakelser i Makefile. Lag plan for å redusere duplikat kode ifølge DRY prinsippet samtidig som vi beheld best mulig lesbarhet
 
-evaluer om vi burde hatt ein ny docker container for hjelpeverktøy som yq og jq og andre nyttige bibliotek som vi mangler i dei eksisterande containerimmagene
+
 
 Modellere FINT Felles (mangler i dag)
 
-passe på at vi har nn og nb for alle langstring felt i skos-ap-no-sceham og begreps-datafiler
+
 
 
 egen dokumentasjon som dokumenterer korleis metadata/modelldcat.yaml blir generert med kva som er kilde til kvart informasjonselement.
@@ -109,7 +105,7 @@ tilsvarande dokumentasjon
 
 dokumentere tydelig make targets som er wrappere rundt andre make targets
 
-dokumentere silver policy med ein tabell som inneheld alt innhold i policyen på tilsvarande måte som bronae og gold policyane
+
 
 
 

@@ -107,6 +107,11 @@ make docs-publish
   aldri rå `echo`/`printf` (jf. CLAUDE.md § «Ingen stille feil»)
 - **Parallellisering:** Bruk `$(PARALLEL)` frå `00-settings.mk` (default 8)
 - **Container-køyring:** Bruk `*_RUN`-variablar frå `01-containers.mk` (LINKML_RUN, PYTHON_RUN)
+- **Wrapper-target:** target som delegerer til eit anna target via eit rekursivt
+  `$(MAKE) <target>`-kall (t.d. `mcp-linkml-valider-modell` → `_mcp-valider-modell-with-header`,
+  `gource-preview`/`gource-video` → `_gource-render`) er dokumenterte samla i
+  `COMMANDS.md` § «Wrapper-target» — sjå der for full liste og for skilnaden mellom
+  det rekursive `$(MAKE)`-mønsteret og det vanlege Make-prerequisite-mønsteret
 
 ## Feilsøking
 
