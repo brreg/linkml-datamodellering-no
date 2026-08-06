@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Opprettar filstruktur og boilerplate for ein ny LinkML-domenemodell.
-# Bruk: bash src/assets/scripts/new-model.sh <name> <domain>
+# Bruk: bash src/assets/scripts/scaffolding/new-modell.sh <name> <domain>
 set -euo pipefail
 
 NAME="${1:-}"
@@ -8,7 +8,7 @@ DOMAIN="${2:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>" >&2
+    echo "Bruk: make new-modell NAME=<namn> DOMAIN=<domene>" >&2
     exit 1
 fi
 
@@ -156,4 +156,4 @@ echo "Neste steg:"
 echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"
 echo "  2. Legg til domene-spesifikke imports (sjå kommentar i skjemafila)"
 echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"
-echo "  4. Valider: make mcp-validate SCHEMA=$SCHEMA_FILE POLICY=bronze"
+echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE POLICY=bronze"

@@ -73,7 +73,7 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build && ma
 
 ```bash
 # 1. Lag eit nytt tomt LinkML-skjema (skjema + filstruktur)
-make new-model NAME=modellnavn DOMAIN=domene
+make new-modell NAME=modellnavn DOMAIN=domene
 
 # 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
@@ -86,7 +86,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modellnavn.json
 ```
 ```bash
 # 3. Valider skjema
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml \
   POLICY=felles-datakatalog
 ```
@@ -126,7 +126,7 @@ make gen-begrepskatalog-instance
 ```
 ```bash
 # 4. Valider begrepskatalog
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog
 ```

@@ -16,7 +16,7 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build
 ## 1a. — Scaffold
 
 ```bash
-make new-model NAME=<modell> DOMAIN=<domain>
+make new-modell NAME=<modell> DOMAIN=<domain>
 ```
 
 Dette oppretter:
@@ -32,7 +32,7 @@ src/linkml/<domain>/<modell>/
 
 
 
-For `make new-model NAME=tilskudd DOMAIN=eksempel` ser dei genererte filene slik ut:
+For `make new-modell NAME=tilskudd DOMAIN=eksempel` ser dei genererte filene slik ut:
 
 **`tilskudd-schema.yaml`**
 
@@ -158,9 +158,9 @@ For hurtig validering kan du linte skjemaet:
 
 Lint + validering mot medaljong-profil:
 ```bash
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 | Policy | Sjekkar |
@@ -258,7 +258,7 @@ imports:
 Valider mot gold-policy (gold-policy validerer spesifikt FAIR konformitet):
 
 ```bash
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ---
@@ -272,7 +272,7 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 ## Tilpass manifest for generering og publisering
 
 Kvar modell har ei `build.yaml` ved sida av skjemafila som styrer kva artefaktar
-som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
+som vert genererte. `make new-modell` oppretter standardkonfigen automatisk — alle
 generatorar på, ingen ekstra flagg.
 
 For å slå av ein generator eller leggje til flagg, rediger `build.yaml` og køyr:
@@ -318,7 +318,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] Klasse- og slotnamn er på norsk bokmål
 [ ] Alle klasser (unntatt tree_root) har class_uri
 [ ] Alle globale slots har slot_uri
-[ ] make mcp-linkml-validate POLICY=bronze gir 0 feil
+[ ] make mcp-linkml-valider-modell POLICY=bronze gir 0 feil
 [ ] Om validation_policy: silver eller høgare: annotations.utgiver, annotations.endringsdato,
     annotations.utgivelsesdato, annotations.status og annotations.oppdateringsfrekvens
     er fylt inn

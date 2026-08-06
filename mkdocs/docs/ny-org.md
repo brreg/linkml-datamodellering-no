@@ -64,7 +64,7 @@ Fyll inn `TODO`-verdiane i datafila manuelt:
 ## Steg 3 — Opprett domenemodeller
 
 ```bash
-make new-model NAME=<modell> DOMAIN=<domain>
+make new-modell NAME=<modell> DOMAIN=<domain>
 ```
 
 Opne den genererte skjemafila og set `annotations.utgiver` til org-en sin URI:
@@ -109,13 +109,13 @@ python3 src/assets/scripts/update-modellkatalog.py --org <alias>
 
 Valider kvar enkelt domenemodell:
 ```bash
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-linkml-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
 ```
 
 Valider modellkatalogen mot publiseringspolicy:
 ```bash
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/modellkatalog/<alias>-modellkatalog/<alias>-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
   INSTANCE=src/linkml/modellkatalog/<alias>-modellkatalog/data/<alias>-modellkatalog/<alias>-modellkatalog.yaml

@@ -3,7 +3,7 @@
 #
 # MCP-serverar (Model Context Protocol):
 # - mcp-linkml-validator: validator-server (build, run, smoke, test)
-# - mcp-linkml-modell-utkast: modellgenerator-server (build, run, smoke, test, new-model)
+# - mcp-linkml-modell-utkast: modellgenerator-server (build, run, smoke, test, new-modell)
 # - mcp-linkml-begrep-utkast: begrepsgenerator-server (build, run, smoke, list-profiles)
 # ==============================================================================
 
@@ -19,16 +19,16 @@ build-docker-mcp-validator:
 	$(call print_header,build-docker-mcp-validator)
 	@podman build --format docker -f src/assets/containers/Dockerfile.mcp-linkml --target validator -t $(MCP_IMAGE) .
 
-mcp-linkml-validate-run:
-	$(call print_header,mcp-linkml-validate-run)
+mcp-linkml-valider-modell-run:
+	$(call print_header,mcp-linkml-valider-modell-run)
 	@$(MCP_RUN) $(MCP_IMAGE)
 
-mcp-linkml-validate-smoke: build-docker-mcp-validator
-	$(call print_header,mcp-linkml-validate-smoke)
+mcp-linkml-valider-modell-smoke: build-docker-mcp-validator
+	$(call print_header,mcp-linkml-valider-modell-smoke)
 	@cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-mcp-linkml-validate-test: build-docker-mcp-validator
-	$(call print_header,mcp-linkml-validate-test)
+mcp-linkml-valider-modell-test: build-docker-mcp-validator
+	$(call print_header,mcp-linkml-valider-modell-test)
 	@podman run --rm \
 		-v "$(CURDIR):/work:ro" \
 		-e PYTHONWARNINGS=ignore \

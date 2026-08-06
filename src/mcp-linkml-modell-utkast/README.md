@@ -129,7 +129,7 @@ annotations:
   status: "http://purl.org/adms/status/UnderDevelopment"
 ```
 
-Fyll inn korrekte verdiar og valider: `make mcp-validate POLICY=silver`.
+Fyll inn korrekte verdiar og valider: `make mcp-linkml-valider-modell POLICY=silver`.
 
 ## MCP-verktøy
 
@@ -151,7 +151,7 @@ Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 7. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
 ```
 
 Sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) for full rettleiing.

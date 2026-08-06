@@ -66,7 +66,7 @@ informasjonsmodellar:
 **3. Valider skjema og katalogfil:**
 
 ```bash
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
   INSTANCE=src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml

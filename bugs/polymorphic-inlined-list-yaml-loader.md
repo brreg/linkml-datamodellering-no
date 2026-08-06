@@ -30,11 +30,11 @@ keyword-argument og feilar identisk (`unexpected keyword argument '@type'`).
 ## Motsetnad med JSON Schema-validering
 
 `linkml.validator.validate()` (jsonschema-basert, brukt av
-`make validate-instance` og `mcp-validate`) validerer derimot **korrekt** —
+`make validate-instance` og `mcp-linkml-valider-modell`) validerer derimot **korrekt** —
 generert JSON Schema brukar `anyOf` over alle subklassar av range-klassa, og
 strukturell matching (utan `@type`) lykkast så lenge subklasseformene er
 strukturelt unike. Dette gjev eit **falskt positivt** signal: ein instans kan
-validere feilfritt med `make validate-instance`/`mcp-validate`, men likevel
+validere feilfritt med `make validate-instance`/`mcp-linkml-valider-modell`, men likevel
 krasje hardt ved `linkml-convert`/`gen-rdf`/python-dataclass-lasting.
 
 ## Rot-årsak

@@ -68,7 +68,7 @@ make roundtrip SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
 # POLICY vert auto-detektert frå build.yaml — overstyr ved behov med POLICY=<bronze|silver|gold>
-make mcp-validate SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
 ```
 
 ## Policy-hierarki

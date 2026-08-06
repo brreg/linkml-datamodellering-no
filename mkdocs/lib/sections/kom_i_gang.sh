@@ -123,7 +123,7 @@ PYEOF
     echo "### Valider skjemaet mot $policy-policy"
     echo ""
     echo "\`\`\`bash"
-    echo "make mcp-validate SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml"
+    echo "make mcp-linkml-valider-modell SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml"
     echo "\`\`\`"
     echo ""
     echo "### Valider datafil mot LinkML-skjemaet"

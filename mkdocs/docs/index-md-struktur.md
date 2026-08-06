@@ -164,7 +164,7 @@ make gen-plantuml (diagram)
   ↓
 make gen-doc (metadata, klasselister)
   ↓
-make mcp-validate (valideringsresultat)
+make mcp-linkml-valider-modell (valideringsresultat)
   ↓
 mkdocs/publish.sh (build index.md)
   ↓
@@ -189,7 +189,7 @@ For å endre innhaldet i ein modell sin `index.md`:
 | Avhengigheiter | Endre `imports:`-seksjonen i `<schema>-schema.yaml` |
 | ER-diagram | Endre klasser/slots i `<schema>-schema.yaml` og køyr `make gen-plantuml` |
 | Klasselister | Endre klasser/slots/enums i `<schema>-schema.yaml` og køyr `make gen-doc` |
-| Valideringsresultat | Køyr `make mcp-validate SCHEMA=...` → genererer `validation/<versjon>/<policy>.json` |
+| Valideringsresultat | Køyr `make mcp-linkml-valider-modell SCHEMA=...` → genererer `validation/<versjon>/<policy>.json` |
 | Versjonslog | Rediger `src/linkml/<domain>/<schema>/CHANGELOG.md` (følgj keep-a-changelog-format) |
 | Kontaktinformasjon | Endre `annotations.utgiver` i `<schema>-schema.yaml` (silver-annotasjon) |
 

@@ -16,7 +16,7 @@ flowchart TB
     
     subgraph "GitHub Repository"
         B[Pullrequest til main] --> C[GitHub Actions<br/>generate.yml]
-        C --> D[Validering<br/>make mcp-linkml-validate]
+        C --> D[Validering<br/>make mcp-linkml-valider-modell]
         D --> E[Generering<br/>make convert-data]
         E --> F[Genererte artefaktar<br/>TTL / JSON Schema / OWL]
     end
@@ -114,7 +114,7 @@ Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle
 
 **Kva må skje for at høsting skal fungere:**
 
-1. **Datafila må validere:** `make mcp-validate SCHEMA=<skjema> POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
+1. **Datafila må validere:** `make mcp-linkml-valider-modell SCHEMA=<skjema> POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
 2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
 3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
 
@@ -259,7 +259,7 @@ sequenceDiagram
     
     Dev->>Git: git push
     Git->>CI: Trigger generate.yml
-    CI->>CI: make mcp-linkml-validate POLICY=felles-begrepskatalog
+    CI->>CI: make mcp-linkml-valider-modell POLICY=felles-begrepskatalog
     CI->>CI: make convert-data (YAML → TTL)
     CI->>Pages: Deploy til brreg.github.io
     Pages-->>Dev: ✓ Synleg på GitHub Pages
@@ -314,7 +314,7 @@ git push -u origin feature/mi-endring
 ### 2. CI kjører validering og generering
 
 GitHub Actions (`generate.yml`):
-1. Validerer datafila: `make mcp-linkml-validate POLICY=felles-begrepskatalog`
+1. Validerer datafila: `make mcp-linkml-valider-modell POLICY=felles-begrepskatalog`
 2. Genererer `.ttl`-fil: `make convert-data`
 3. Publiserer til GitHub Pages: `actions/deploy-pages@v1`
 

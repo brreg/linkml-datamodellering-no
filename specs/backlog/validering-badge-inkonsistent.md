@@ -25,7 +25,7 @@ Steget "Kopier valideringsloggar til generated/" (linje 327) har `if: steps.cach
 ## Relevante filer
 
 - `.github/workflows/generate.yml` — workflow for generering og publisering
-- `src/assets/scripts/ci/run-validation.sh` — validering-script som skriv til `src/linkml/`
+- `src/assets/scripts/makefile/run-validation.sh` — validering-script som skriv til `src/linkml/`
 - `mkdocs/publish.sh` — les valideringsloggar frå `generated/` og genererer `index.md`
 - `mkdocs/lib/scripts/generate-validation-md.py` — genererer Markdown frå valideringsloggar
 

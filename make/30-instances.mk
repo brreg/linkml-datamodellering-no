@@ -10,6 +10,7 @@
 # - src/assets/scripts/makefile/generate-informasjonsmodell.py
 # - src/assets/scripts/makefile/generate-modellkatalog.py
 # - src/assets/scripts/makefile/collect-concepts.py
+# - src/assets/scripts/makefile/validate-modelldcat.py
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
@@ -74,7 +75,7 @@ validate-informasjonsmodell-instance:
 		exit 1; \
 	fi; \
 	log_info "$(CLR_STEP)Køyrer full LinkML-validering$(CLR_RST)"; \
-	$(LINKML_RUN) python3 /work/src/assets/scripts/validate-modelldcat.py \
+	$(LINKML_RUN) python3 /work/src/assets/scripts/makefile/validate-modelldcat.py \
 		"$$MODELLDCAT_YAML" \
 		/work/src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml
 

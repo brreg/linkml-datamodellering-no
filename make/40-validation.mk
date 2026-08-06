@@ -4,7 +4,7 @@
 # Validering av skjema, eksempelfiler og datafiler:
 # - LinkML-validering (validate, lint, validate-instance)
 # - Bronze/policy-validering (validate-bronze, validate-data, validate-examples)
-# - MCP-validering (mcp-linkml-validate, validate-capture)
+# - MCP-validering (mcp-linkml-valider-modell, validate-capture)
 # - Logging av valideringsresultat (log-mcp-validate, log-validate-instance)
 #
 # Relaterte script:
@@ -12,6 +12,7 @@
 # - src/assets/scripts/makefile/run-schema-validation.py
 # - src/assets/scripts/makefile/save-validation-log.py
 # - src/assets/scripts/makefile/emit-github-validation-annotations.py
+# - src/assets/scripts/makefile/run-validation.sh
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
@@ -152,14 +153,14 @@ endif
 # MCP-validering
 # ---------------------------------------------------------------------------
 
-mcp-linkml-validate: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
-	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1; }
+mcp-linkml-valider-modell: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-valider-modell SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1; }
 	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
-	$(MAKE) --no-print-directory _mcp-validate-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
+	$(MAKE) --no-print-directory _mcp-valider-modell-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
 
-_mcp-validate-with-header:
-	$(call print_header,mcp-linkml-validate,SCHEMA=$(SCHEMA)  POLICY=$(POLICY))
+_mcp-valider-modell-with-header:
+	$(call print_header,mcp-linkml-valider-modell,SCHEMA=$(SCHEMA)  POLICY=$(POLICY))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
@@ -181,9 +182,9 @@ validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [
 log-mcp-validate:
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -n "$(MANIFEST)" ]; then \
-		bash src/assets/scripts/run-validation.sh --manifest $(MANIFEST); \
+		bash src/assets/scripts/makefile/run-validation.sh --manifest $(MANIFEST); \
 	elif [ -n "$(SCHEMA)" ] && [ -n "$(POLICY)" ]; then \
-		bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --policy $(POLICY); \
+		bash src/assets/scripts/makefile/run-validation.sh --schema $(SCHEMA) --policy $(POLICY); \
 	else \
 		log_error "Oppgi anten MANIFEST=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
 		exit 1; \
@@ -194,4 +195,4 @@ log-mcp-validate:
 log-validate-instance:
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
-	@bash src/assets/scripts/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)
+	@bash src/assets/scripts/makefile/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)

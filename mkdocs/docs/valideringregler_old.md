@@ -8,17 +8,17 @@
 
 ```bash
 # Medaljongnivå:
-make mcp-linkml-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
-make mcp-linkml-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
-make mcp-linkml-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-linkml-valider-modell SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
 
 # Publisering — med datafil/instans:
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=data/begrep/<katalog>.yaml
 
-make mcp-linkml-validate \
+make mcp-linkml-valider-modell \
   SCHEMA=src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-datakatalog \
   INSTANCE=examples/modell/<katalog>-eksempel.yaml
@@ -236,14 +236,14 @@ bronze
   └── felles-datakatalog  (extends: bronze)
 ```
 
-`make mcp-linkml-validate POLICY=gold` køyrer alle bronse-, sølv- og gull-krav i éin gjennomgang.
+`make mcp-linkml-valider-modell POLICY=gold` køyrer alle bronse-, sølv- og gull-krav i éin gjennomgang.
 
 Publiseringspolicyane er sidegreinar — dei arvar bronse, men ikkje sølv eller gull.
 Bruk dei saman med medaljongnivåa for fullstendig dekning:
 
 ```bash
-make mcp-linkml-validate SCHEMA=... POLICY=bronze
-make mcp-linkml-validate SCHEMA=... POLICY=felles-begrepskatalog INSTANCE=...
+make mcp-linkml-valider-modell SCHEMA=... POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=... POLICY=felles-begrepskatalog INSTANCE=...
 ```
 
 ---

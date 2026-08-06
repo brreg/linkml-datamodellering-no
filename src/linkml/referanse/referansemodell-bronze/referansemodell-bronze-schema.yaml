@@ -1,7 +1,7 @@
 ##
 ## Referansemodell — bronsjenivå
 ## Viser minstekrava for å bestå bronsepolicyen.
-## Run: make mcp-validate SCHEMA=src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml POLICY=bronze
+## Run: make mcp-linkml-valider-modell SCHEMA=src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml POLICY=bronze
 ##
 
 id: https://data.norge.no/linkml/referansemodell-bronze

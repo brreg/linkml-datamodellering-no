@@ -259,7 +259,7 @@ ressursroller:
 ### 4a — Generer OWL
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/ap-no/dx-prof/dx-prof-schema.yaml POLICY=bronze
+make mcp-linkml-valider-modell SCHEMA=src/linkml/ap-no/dx-prof/dx-prof-schema.yaml POLICY=bronze
 make domain-gen-owl DOMAIN=ap-no   # eller enkeltskjema via make gen-owl
 ```
 
@@ -338,7 +338,7 @@ AP-NO-profil-skjema utan duplisering.
 | 1 | Skjema | `src/linkml/ap-no/dx-prof/dx-prof-schema.yaml` | Implementer etter specen over |
 | 2 | Manifest | `src/linkml/ap-no/dx-prof/manifest.yaml` | `owl: true` er obligatorisk |
 | 3 | Eksempel | `src/linkml/ap-no/dx-prof/examples/dx-prof-eksempel.yaml` | Containerklasse + minimal instans |
-| 4 | Bronze-validering | — | `make mcp-validate ... POLICY=bronze` |
+| 4 | Bronze-validering | — | `make mcp-linkml-valider-modell ... POLICY=bronze` |
 | 5 | OWL-generering | `generated/ap-no/dx-prof/dx-prof.owl.ttl` | Verifiser at `gen-owl` lukkast |
 | 6 | Valideringsskript | `src/assets/scripts/validate-owl-vs-source.py` | rdflib-basert innhaldssjekk |
 | 7 | Importintegrasjon | `common-ap-no-schema.yaml` (valfritt) | Berre om andre skjema treng prof:-klasser |

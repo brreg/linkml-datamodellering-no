@@ -107,7 +107,7 @@ Alle 17 importar er mellom skjema i `src/linkml/` og gjeld følgjande par:
 |---|---|
 | `Makefile` | `find ... -name '*-schema.yaml'` → `'*.linkml.yaml'`; `basename "$s" -schema.yaml` → strip `.linkml.yaml`; alle hardkoda `$$profil-schema.yaml`-mønster; genererte filnamn (sjå nedanfor) |
 | `tests/test_make.sh` | `find ... -name '*-schema.yaml'`; `basename "$schema" -schema.yaml` |
-| `src/assets/scripts/new-model.sh` | `SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"` → `$NAME.linkml.yaml` |
+| `src/assets/scripts/scaffolding/new-modell.sh` | `SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"` → `$NAME.linkml.yaml` |
 | `src/assets/scripts/migreringsscript/migrate-all-containers.sh` | `basename ... -schema.yaml`; `find ... -name '*-schema*.yaml'` |
 | `src/mcp-linkml-validator/flatten-and-validate.bash` | Kommentarar med eksempelstiar |
 | `.github/workflows/reusable-validate.yml` | Eksempel i `description:` |
@@ -212,7 +212,7 @@ Same mønster som Makefile:
 
 ### Steg 4 — Oppdater skript og verktøy
 
-- `src/assets/scripts/new-model.sh`: `$NAME-schema.yaml` → `$NAME.linkml.yaml`
+- `src/assets/scripts/scaffolding/new-modell.sh`: `$NAME-schema.yaml` → `$NAME.linkml.yaml`
 - `src/assets/scripts/migreringsscript/migrate-all-containers.sh`: same
 - `bootstrap.sh`: eksempel-config
 

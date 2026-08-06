@@ -191,7 +191,7 @@ Conventional Commits-format: `<type>(<scope>): <skildring>`
 Lista over gyldige modellnamn vert **automatisk generert** frå `src/linkml/*/*/*-schema.yaml` og lagra i `.github/valid-scopes.txt`.
 
 - **Køyr `make update-valid-scopes`** for å regenerere lista manuelt
-- **`make new-model`**, **`make new-modellkatalog`** og **`make new-begrepssamling`** oppdaterer lista automatisk
+- **`make new-modell`**, **`make new-modellkatalog`** og **`make new-begrepssamling`** oppdaterer lista automatisk
 - Fila vert lest av `.github/workflows/release-please.yml` for å validere commit-scopes
 
 Sjå `.github/valid-scopes.txt` for fullstendig liste (32 modellar per 2026-07-27).

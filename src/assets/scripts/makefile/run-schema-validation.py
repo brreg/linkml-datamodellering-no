@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Køyrer mcp-validate for kvart releasja skjema og lagrar resultata som JSON.
+Køyrer mcp-linkml-valider-modell for kvart releasja skjema og lagrar resultata som JSON.
 
 - Hentar policy frå build.yaml sitt validation_policy-felt (fallback: bronze)
 - Lagrar src/linkml/<domain>/<model>/validation/<version>/<policy>.json

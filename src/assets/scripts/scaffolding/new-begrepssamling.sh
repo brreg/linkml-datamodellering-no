@@ -94,4 +94,4 @@ echo "     Bruk verktøyet 'skriv_begrep_fil' med domain=$DOMAIN og begrepssamli
 echo "  2. Køyr gen-begrepskatalog-instance for å aggregere til begrepskatalog:"
 echo "     make gen-begrepskatalog-instance"
 echo "  3. Valider begrepskatalogen:"
-echo "     make mcp-validate SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml POLICY=felles-begrepskatalog"
+echo "     make mcp-linkml-valider-modell SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml POLICY=felles-begrepskatalog"

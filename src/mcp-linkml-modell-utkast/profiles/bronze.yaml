@@ -3,7 +3,7 @@ description: >
   Bronze-profil for JSON Schema → LinkML-konvertering.
   Implementerer grunnkrava i bronze-policy: globale slots, lenking framfor inlining,
   norske klassenamn, obligatorisk/anbefalt/valgfri-subsets og containerklasse med tree_root.
-  Det genererte skjemaet passerer make mcp-validate POLICY=bronze utan manuell redigering.
+  Det genererte skjemaet passerer make mcp-linkml-valider-modell POLICY=bronze utan manuell redigering.
 
 naming:
   class_uri_prefix: "ex"

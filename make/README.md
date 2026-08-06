@@ -36,7 +36,7 @@ Viktige script:
 | `gen-dqv-measurements.py` | `gen-dqv-measurements` | Generer DQV-kvalitetsmålingar for datafiler |
 | `collect-concepts.py` | `gen-begrepskatalog-instance` | Samle begrep frå begrepssamlingar til begrepskatalogar |
 | `run-schema-validation.py` | `validate-capture` | Køyr MCP-validering parallelt med logging |
-| `detect-validation-policy.py` | `mcp-linkml-validate` | Auto-detekter policy frå build.yaml |
+| `detect-validation-policy.py` | `mcp-linkml-valider-modell` | Auto-detekter policy frå build.yaml |
 | `gen-config.sh` | `gen-config` | Generer config.mk frå build.yaml-filer |
 | `check-prereqs.bash` | `check-prereqs` | Sjekk at nødvendige verktøy er installerte |
 
@@ -58,7 +58,7 @@ make domain-ap-no
 make gen-docs SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
 
 # Valider eit skjema med MCP-validator
-make mcp-linkml-validate SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
+make mcp-linkml-valider-modell SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
 
 # Bygg og publiser dokumentasjonsportal
 make docs-publish
@@ -101,7 +101,7 @@ make docs-publish
 ## Konvensjonar
 
 - **Target-namn:** Bruk `kebab-case` (gen-docs, validate-instance)
-- **Interne target:** Prefiks med `_` (_gource-render, _mcp-validate-with-header)
+- **Interne target:** Prefiks med `_` (_gource-render, _mcp-valider-modell-with-header)
 - **Logging:** Bruk `print_*`-makroar frå `03-output.mk` (print_header, print_step, print_info)
 - **Parallellisering:** Bruk `$(PARALLEL)` frå `00-settings.mk` (default 8)
 - **Container-køyring:** Bruk `*_RUN`-variablar frå `01-containers.mk` (LINKML_RUN, PYTHON_RUN)

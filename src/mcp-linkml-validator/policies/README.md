@@ -39,7 +39,7 @@ Policyfilene her er brukte til to ulike føremål:
 **Skjemakvalitet (bronze / silver / gold)**  
 Sjekkar at eit LinkML-skjema (`.yaml`-fila i `src/linkml/`) held eit visst
 kvalitetsnivå: metadata, namngjeving, URI-ar, begrepsreferansar osv.  
-Køyrast med `make mcp-validate SCHEMA=... POLICY=bronze`.
+Køyrast med `make mcp-linkml-valider-modell SCHEMA=... POLICY=bronze`.
 
 **Publiseringskonformitet (felles-datakatalog / felles-begrepskatalog)**  
 Sjekkar at eit skjema er i samsvar med krava til ei bestemt ekstern katalog.
@@ -292,13 +292,13 @@ via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github
 
 | Kva | Verktøy | Policy |
 |---|---|---|
-| Skjemakvalitet | `make mcp-validate POLICY=bronze/silver/gold` | Policyfilene her |
+| Skjemakvalitet | `make mcp-linkml-valider-modell POLICY=bronze/silver/gold` | Policyfilene her |
 | Datakvalitet (instansar) | `make validate-instance` | — |
-| Publiseringskonformitet | `make mcp-validate POLICY=felles-datakatalog` | `felles-datakatalog.yaml` |
+| Publiseringskonformitet | `make mcp-linkml-valider-modell POLICY=felles-datakatalog` | `felles-datakatalog.yaml` |
 
 `felles-begrepskatalog.yaml` har i tillegg eit eige `instance_checks:`-felt for
 sjekkar som krev faktiske instansdata (gitt via `INSTANCE=` til
-`make mcp-validate`), t.d. `utgjevar_er_kjend_org` (kjende utgivar-URI-ar) og
+`make mcp-linkml-valider-modell`), t.d. `utgjevar_er_kjend_org` (kjende utgivar-URI-ar) og
 `begrep_har_definisjon_pa_nb_og_nn` (tospråkskravet — sjå
 `specs/done/avvik-skos-ap-no.md`, SK5 Forslag A).
 

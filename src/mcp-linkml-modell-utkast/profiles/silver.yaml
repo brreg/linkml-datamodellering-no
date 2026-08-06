@@ -4,7 +4,7 @@ description: >
   Silver-profil for JSON Schema → LinkML-konvertering.
   Arvar bronze-profilen og legg til schema_annotations med livssyklusmetadata
   (Digdir-regel 9, 10, 11). Det genererte skjemaet vil passere
-  make mcp-validate POLICY=silver etter at TODO-verdiane er fylte inn.
+  make mcp-linkml-valider-modell POLICY=silver etter at TODO-verdiane er fylte inn.
 
 # Livssyklusmetadata som vert lagt til schema.annotations i det genererte skjemaet.
 # Nøkkelnamna svarar til Informasjonsmodell-slots i modelldcat-ap-no-schema.yaml.

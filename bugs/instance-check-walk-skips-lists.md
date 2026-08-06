@@ -20,7 +20,7 @@ Stadfesta empirisk: ved å bytte ut ein gyldig `utgjevar`-URI med ein ugyldig
 og køyre
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
+make mcp-linkml-valider-modell SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
 ```
