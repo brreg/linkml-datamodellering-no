@@ -101,7 +101,6 @@ convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
 	while IFS=$$'\t' read -r schema example out; do \
 		log_info "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-		log_debug "Kommando: $(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $$out $$example"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
@@ -126,7 +125,6 @@ convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 		schema=$(SCHEMA_DIR)/$$domain/$$model/$$model-schema.yaml; \
 		mkdir -p $(GEN_DIR)/$$domain/$$catalog; \
 		log_info "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
-		log_debug "Kommando: $(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl $$datafile"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \

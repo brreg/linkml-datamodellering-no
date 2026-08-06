@@ -180,3 +180,91 @@ til `log_info` (steg-linja, som før synleg på INFO) og `log_debug`
   rå `podman run …`-linje for `linkml-convert`
 - `make domain-samt LOGLVL=DEBUG`: deloverskrifta (`X for schemas: Y`) og
   `linkml-convert`-kommandolinja er begge synlege att
+
+**Følgje opp — `generate-informasjonsmodell.py` sine eigne progress-prints:**
+
+Brukaren peika ut endå ei støylinje frå same CI-logg, køyrt gjennom
+`generate-informasjonsmodell.py` (kalla av
+`run_gen_informasjonsmodell_instance_parallel`, `make/30-instances.mk`):
+
+```
+[DEBUG] Genererer Informasjonsmodell-instans for src/linkml/samt/samt-bu/samt-bu-schema.yaml
+✓ Generert: src/linkml/samt/samt-bu/metadata/samt-bu-manifest.yaml
+```
+
+Same rotårsak som Funn 2 (`run_logged` fangar stdout og sender det til
+`log_debug` ved suksess), men her er sjølve *innhaldet* òg reint
+overflødig: `run-parallel-gen.sh` sin xargs-arbeidar loggar allereie éi
+`log_info`-fullført-linje med køyretid (`→
+gen-informasjonsmodell-instance samt/samt-bu (Ns)`) etter kvart vellukka
+kall, så scriptet sine eigne `print(f"Genererer …")` og `print(f"✓
+Generert: …")` (linje 377 og 392) dupliserer informasjon som allereie
+finst, og finst berre i skriptet fordi det historisk vart køyrt
+frittståande før `run_logged`/`run-parallel-gen.sh` vart innført. Fjerna
+begge `print()`-kalla — feilhandteringa (`log_error(...)` i
+`except`-blokka, uendra) dekkjer framleis kravet om ingen stille feil.
+
+Verifisert med `make gen-informasjonsmodell-instance
+SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=DEBUG`: berre
+deloverskrifta og fullført-linja vert vist, ingen duplikat frå scriptet.
+
+**Følgje opp 2 — `Kommando: podman run …`-debuglinja i `linkml-convert`-løkka fjerna heilt:**
+
+Brukaren peika ut at `log_debug "Kommando: $(LINKML_RUN) linkml-convert
+…"` (lagt til i Funn 3 over, som DEBUG-gata erstatning for den gamle
+ubetinga `echo`) framleis er unødvendig støy, sjølv på `LOGLVL=DEBUG`.
+Samanlikna med dei 12 andre generator-makroane i
+`make/10-generator-macros.mk`: ingen av dei loggar sin eigen
+`podman run`-kommandolinje på noko loggnivå — kommandoen (gitt via
+`GEN_CMD`) køyrer stille, og `run-parallel-gen.sh` sin
+start-/fullført-logg dekkjer kva som skjer og kor lang tid det tok.
+`Kommando: …`-linja var dermed overflødig ceremoni frå omskrivinga, ikkje
+eit reelt behov. Fjerna heilt (ikkje berre DEBUG-gata) frå alle tre
+stadene (`make/20-domain-targets.mk`, `Makefile` sine `convert-rdf` og
+`convert-data`) — `log_info "→ linkml-convert  <fil>"` står att som einaste
+loggnivå for dette steget, uendra.
+
+Verifisert med `make domain-samt LOGLVL=DEBUG`: `Kommando: …`-linja er
+borte, `→ linkml-convert  <fil>`-linja er framleis synleg.
+
+**Følgje opp 3 — CI-preflight-header og `Hoppar over linkml-convert`-linjer (frå `make domain-ap-no`-logg):**
+
+Brukaren limte inn CI-loggen frå `make domain-ap-no` (10 skjema, fleire
+`example_rdf: false`) og peika ut to nye ting:
+
+1. Header-teksten `.github/workflows/generate.yml` skriv før
+   `make domain-<domain>` startar (`echo "=== Skjema som skal genererast
+   for ${{ matrix.domain }} ==="`, linje 335) skulle endrast til `"===
+   ${{ matrix.domain }} skjema for artefakt generering ==="`. Reint
+   tekstbyte, gjort direkte. `actionlint` køyrd mot `generate.yml` etter
+   endringa — berre pre-eksisterande `[shellcheck]`-funn (stilråd, ikkje
+   blokkerande), ingen `[expression]`-feil.
+2. `Hoppar over linkml-convert for <full sti> (example_rdf: false)` —
+   éi linje per hoppa-over eksempelfil, skrive **ubetinga** til stderr av
+   `convert-examples.sh` (linje 35, rein `echo`, ikkje gata av `LOGLVL`).
+   Bryt konvensjonen etablert av `run-parallel-gen.sh` (og handheva i
+   `specs/done/kompakt-generator-logging.md`): skip-meldingar skal
+   samlast til **éi** kombinert linje per steg, via `log_debug` (synleg
+   berre på `LOGLVL=DEBUG`) — jf. `hoppar over (<flag>: false):
+   domain/skjema1, domain/skjema2` frå dei parallelle generator-makroane.
+   `convert-examples.sh` hadde derimot éin `echo` per fil, ubetinga
+   synleg på alle loggnivå, med full filsti i staden for korte
+   `domain/skjema`-namn.
+
+**Retting:** `convert-examples.sh` (`src/assets/scripts/makefile/`) fekk
+`eval "$LOG_FUNCTIONS"` (miljøvariabelen er allereie eksportert av
+`make/00-settings.mk`, ingen ny kallar-endring nødvendig sidan Make
+eksporterer ho til alle recipe-shell), eit `skipped=()`-array som samlar
+`domain/profil` for kvart hoppa-over eksempel undervegs i løkka, og éi
+`log_debug "  hoppar over linkml-convert (example_rdf: false):
+${skipped_list}"` etter løkka — same mønster (leiande to mellomrom,
+kommaseparert liste, prosentfjerning av trailing komma) som
+`run-parallel-gen.sh` sin skip-logg.
+
+**Verifisert:**
+- `make domain-ap-no` (default `LOGLVL=INFO`): ingen `hoppar over`-treff
+- `make domain-ap-no LOGLVL=DEBUG`: éi samla linje —
+  `hoppar over linkml-convert (example_rdf: false): ap-no/cpsv-ap-no,
+  ap-no/dcat-ap-no, ap-no/dqv-ap-no, ap-no/modelldcat-ap-no,
+  ap-no/skos-ap-no, ap-no/xkos-ap-no` — i staden for 6 separate ubetinga
+  linjer

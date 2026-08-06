@@ -47,7 +47,6 @@ domain-$(1): $$(_domain_pre_$(1))
 	while IFS=$$$$'\t' read -r schema example out; do \
 		eval "$$$$LOG_FUNCTIONS"; \
 		log_info "$$(CLR_STEP)→ linkml-convert  $$$$example$$(CLR_RST)"; \
-		log_debug "Kommando: $$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $$$$out $$$$example"; \
 		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \

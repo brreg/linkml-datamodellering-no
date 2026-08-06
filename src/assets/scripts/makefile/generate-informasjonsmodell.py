@@ -374,8 +374,6 @@ def main():
         print(f"Error: {schema_path} eksisterer ikkje")
         sys.exit(1)
 
-    print(f"Genererer Informasjonsmodell-instans for {schema_path}")
-
     try:
         # Generer
         modelldcat_data = generate_modelldcat_data(schema_path)
@@ -388,8 +386,6 @@ def main():
             generated_by=Path(__file__).name,
             note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar",
         )
-
-        print(f"✓ Generert: {output_path}")
     except Exception:
         log_error({
             "schema": str(schema_path),
