@@ -492,6 +492,7 @@ classes:
     slot_usage:
       nummer:
         required: true
+        range: Husnummer
         in_subset:
         - Obligatorisk
       bokstav:

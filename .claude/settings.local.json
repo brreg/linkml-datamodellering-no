@@ -383,7 +383,12 @@
       "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-fail)",
       "Bash(LOGLVL=DEBUG make -f /tmp/test-runlogged.mk test-ok)",
       "Bash(podman --version)",
-      "Bash(podman image *)"
+      "Bash(podman image *)",
+      "Bash(LOGLVL=DEBUG timeout 60 make linkml-convert DOMAIN=oreg)",
+      "Bash(LOGLVL=DEBUG timeout 100 make domain-oreg)",
+      "Bash(LOGLVL=DEBUG timeout 60 make domain-oreg)",
+      "Bash(LOGLVL=DEBUG timeout 40 make domain-oreg)",
+      "Bash(LOGLVL=DEBUG timeout 90 make domain-oreg)"
     ]
   },
   "enableAllProjectMcpServers": true,
