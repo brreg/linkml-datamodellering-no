@@ -1,7 +1,7 @@
 # Bug: `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande while-løkke
 
 **ID:** BUG-10
-**Status:** `delvis retta` (validate-examples retta, validate-data framleis råka)
+**Status:** `løyst` (alle råka targets retta)
 **Komponent:** `make/01-containers.mk`, `make/40-validation.mk`
 **Oppdaga:** 2026-08-06
 
@@ -9,13 +9,16 @@
 
 Makefile-targets som køyrer `$(PYTHON_RUN)` (definert som `podman run -i --rm ...`
 i `make/01-containers.mk:41`) inne i ei `while IFS= read -r x; do ... done < <(...)`-løkke
-prosesserer berre **det første elementet** i løkka, deretter avsluttar løkka stille
-— utan feilmelding, utan logglinje, utan ikkje-null exit code.
+(prosess-substitusjon) prosesserer berre **det første elementet** i løkka,
+deretter avsluttar løkka stille — utan feilmelding, utan logglinje, utan
+ikkje-null exit code.
 
-Verifisert på uendra `main`: `make validate-examples DOMAIN=fint` validerer kun
-`fint-administrasjon` sjølv om domenet har 6 skjema med eksempelfiler
-(`fint-arkiv`, `fint-okonomi`, `fint-personvern`, `fint-ressurs`, `fint-utdanning`
-vert aldri validerte).
+Verifisert på uendra `main`:
+- `make validate-examples DOMAIN=fint` validerte kun `fint-administrasjon`
+  sjølv om domenet har 6 skjema med eksempelfiler.
+- `make validate-bronze DOMAIN=ap-no` validerte kun **1 av 9** skjema
+  (stadfesta empirisk: `git stash` av fiksen → 1 logglinje, fiks attpå →
+  9 logglinjer).
 
 ## Rot-årsak
 
@@ -32,32 +35,42 @@ Dette er ikkje relatert til `tree_root`-forfilteret som vart retta i
 at *ingen* ap-no-skjema nokon gong nådde løkka. Dette problemet gjer at kun
 det *første* skjemaet i kvart domene vert validert, uansett domene.
 
+**`validate-data` er ikkje råka**, sjølv om det også kallar `$(PYTHON_RUN)`
+inne i ei løkke: targetet brukar `for datadir in $$(find ...); do ... done`
+(ordliste frå ferdig-evaluert kommandosubstitusjon), ikkje
+`while read < <(...)`. `for`-løkka har ingen avhengigheit til fd 0 mellom
+iterasjonar — heile filstien-lista er alt i minnet før løkka startar, så det
+finst ingen "neste `read`" som podman kan svelte. Verifisert empirisk med
+`make validate-data DOMAIN=modellkatalog` (6 datakatalogar, alle 6 validerte
+korrekt på uendra `main`).
+
 ## Berørte targets
 
-| Target | Fil | Status |
-|---|---|---|
-| `validate-examples` | `make/40-validation.mk` | **Retta** — `$(PYTHON_RUN)`-kallet har no `< /dev/null` |
-| `validate-data` | `make/40-validation.mk` | **Ikkje retta** — same mønster, same feil, framleis open |
+| Target | Fil | Loop-mønster | Status |
+|---|---|---|---|
+| `validate-examples` | `make/40-validation.mk` | `while read < <(...)` | **Retta** — `$(PYTHON_RUN)`-kallet har `< /dev/null` |
+| `validate-bronze` | `make/40-validation.mk` | `while read < <(...)` | **Retta** — `save-validation-log.py`-kallet har `< /dev/null` (`emit-github-validation-annotations.py`-kallet brukte alt here-string `<<<` og var ikkje råka) |
+| `validate-data` | `make/40-validation.mk` | `for x in $$(...)` | **Ikkje råka** — anna loop-mønster, ingen fiks naudsynt |
 
-## Workaround / fiks
+## Fiks
 
-Legg til `< /dev/null` på `$(PYTHON_RUN)`-kallet inne i løkka, slik at podman
-sin stdin peikar til `/dev/null` i staden for å arve løkka sin fd 0.
-`save-validation-log.py` treng ikkje stdin-input, så dette er trygt:
+Legg til `< /dev/null` på `$(PYTHON_RUN)`-kallet inne i `while read`-løkka,
+slik at podman sin stdin peikar til `/dev/null` i staden for å arve løkka
+sin fd 0. `save-validation-log.py` treng ikkje stdin-input, så dette er trygt:
 
 ```bash
 $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 	--schema "$$schema" --type examples --result "$$result_json" < /dev/null 2>/dev/null || true; \
 ```
 
-## Løysing
+Eit `$(PYTHON_RUN)`-kall som alt brukar eit here-string (`<<< "$$var"`) som
+stdin (som `emit-github-validation-annotations.py` i `validate-bronze`) er
+**ikkje** råka — here-stringen overstyrer allereie fd 0 for det kallet.
 
-Anten:
-1. Fjern `-i`-flagget frå `PYTHON_RUN` (verifiser at ingen andre bruksstader
-   av `$(PYTHON_RUN)` faktisk treng interaktiv stdin), eller
-2. Legg til `< /dev/null` på kvart `$(PYTHON_RUN)`-kall som køyrer inne i ei
-   `while read`-løkke — inkludert `validate-data` (`make/40-validation.mk`,
-   `save-validation-log.py --type data-$$catalog`-kallet).
+## Generell regel
 
-Når `validate-data` er retta, oppdater denne fila til `Status: løyst` og
-fjern raden frå "Berørte targets"-tabellen.
+Ethvert `podman run -i`-kall (eller anna kommando som koplar til stdin) inne
+i ei `while read < <(...)`-løkke i dette repoet må anten omdirigere sin
+eigen stdin (`< /dev/null` eller `<<< "$$var"`), eller løkka må byggjast om
+til `for x in $$(...)`-mønsteret der det er trygt (ordlista må då tåle å bli
+fullt evaluert i minnet før løkka startar — uegna for veldig store lister).

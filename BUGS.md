@@ -17,7 +17,6 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 
 ### Validering og testing
 - **BUG-1, BUG-2, BUG-3**: Roundtrip-testing (YAML → TTL → YAML) fungerer ikkje for alle skjema pga. bugs i `linkml-runtime`
-- **BUG-10**: `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande while-løkke — `validate-data` validerer framleis kun første datafil per katalog
 - Ingen automatisk validering mot eksterne API-ar (t.d. at Los-tema faktisk eksisterer)
 - Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
 
@@ -54,6 +53,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-7](bugs/duplicate-slot-merge-konflikt.md) | Duplikat globalt slot-namn i importgrafen krasjar `merge_dicts` (slot-variant av BUG-6) | `workaround` | `linkml` | `modelldcat-ap-no`, `brreg-modellkatalog` |
 | [BUG-8](bugs/polymorphic-inlined-list-yaml-loader.md) | YAML/SchemaLoader-basert lasting støttar ikkje polymorf `inlined_as_list` (subklasseinstansar i delt liste) | `open` | `linkml-runtime` | `modelldcat-ap-no` (modelldel), `*-modellkatalog` (planlagt, MD5) |
 | [BUG-9](bugs/avrotize-falsk-circular-dependency-warning.md) | `dependency_resolver` rapporterer falsk sirkulær avhengigheit for containerklassar med fleire `inlined_as_list`-attributtar | `upstream` | `avrotize` | `samt-bu` (einaste skjema med `xsd: true`) |
+| [BUG-10](bugs/podman-interactive-stdin-konsumerer-while-lokke.md) | `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande `while read < <(...)`-løkke — kun første skjema/eksempel vart validert | `løyst` | `make/40-validation.mk` | `validate-examples`, `validate-bronze` (alle domene) |
 
 ## Statusforklaring
 

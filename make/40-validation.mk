@@ -58,7 +58,7 @@ ifdef DOMAIN
 		log_debug "$$result"; \
 		log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type bronze --result "$$result" 2>/dev/null || true; \
+			--schema "$$schema" --type bronze --result "$$result" < /dev/null 2>/dev/null || true; \
 		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
