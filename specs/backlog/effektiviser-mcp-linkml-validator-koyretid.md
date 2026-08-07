@@ -1,0 +1,344 @@
+# Effektiviser køyretida til policy-validering (mcp-linkml-validator)
+
+## Bakgrunn
+
+Brukaren opplever at validering mot policy (`make validate-bronze`,
+`make validate-data`, `make mcp-linkml-valider-modell` m.fl.) tek lang tid.
+Denne specen er resultatet av ein full gjennomgang av all kode knytt til
+`mcp-linkml-validator` — `server.py`, `flatten-and-validate.bash`,
+`validate-and-log.py`, `annotate-validate.py`, policy-YAML, alle
+`make/40-validation.mk`- og `make/60-mcp.mk`-target, og støtteskripta i
+`src/assets/scripts/makefile/` — for å finne konkrete, målbare tiltak.
+
+**Allereie gjort (ikkje duplisert her):**
+
+- `specs/done/parallelliser-domene-validering.md` — parallelliserte
+  «Valider alle skjema for domene»-steget i `generate.yml`/`validate.yml`
+  (CI-nivå, per-manifest bakgrunnsjobbar).
+- `specs/done/timing-valideringskall.md` — la til per-kall-timing i CI-logg.
+- `specs/done/videre-containeroptimering-mcp-plantuml-alpine.md` (B2+B4) —
+  konsoliderte dei tre `mcp-linkml-*`-imaga til éin Dockerfile med delte lag,
+  og migrerte til Alpine-basis (`mcp-linkml-validator` og `linkml-local` er
+  no ~216–222 MB, ned frå ~292–352 MB).
+- `specs/done/containerisering-python-kall.md` — fjerna alle direkte
+  host-Python-kall frå Makefile; all Python køyrer no via `$(PYTHON_RUN)`/
+  `$(LINKML_RUN)`/`$(MCP_RUN)`.
+
+Desse tiltaka løyste image-storleik og CI-nivå overlapping, men rørte **ikkje**
+sjølve arkitekturen for korleis eit einskild valideringskall er bygd opp.
+Denne specen fokuserer på nettopp det — kor tida faktisk går **innanfor**
+eitt `flatten-and-validate.bash`-kall, og kvifor det gjentek seg identisk for
+kvart skjema.
+
+## Funn — kvantifiserte målingar
+
+Målt lokalt (WSL2/podman, varme image-lag, ingen nettverkspulling) med
+`src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml`, eit middels stort skjema:
+
+| Steg | Tid | Kommentar |
+|---|---|---|
+| `bash flatten-and-validate.bash <schema> bronze` (heile kallet) | **19,8 s** | 2 podman-kontainarar i sekvens |
+| — Steg 1: `podman run … gen-linkml --mergeimports` (flat ut) | 8,6 s | `LINKML_IMAGE` |
+| — Steg 2: `podman run … mcp-linkml-validator` (valider) | 11,4 s | `MCP_IMAGE` |
+| Reint `podman run --rm mcp-linkml-validator python3 -c "print()"` (tom kontainar-oppstart) | 2,6 s | Baseline podman/WSL2-overhead |
+| `import linkml_runtime` (inne i kontainaren) | 3,5 s | |
+| + `from linkml.validator import validate` | 1,4 s | |
+| + `from linkml.linter.linter import Linter` | 0,02 s | Ubetydeleg |
+
+**Kjernefunn: Python-importtida til `linkml`/`linkml_runtime` (~5 s) dominerer
+totalt over både podman-oppstart (~2,6 s) og sjølve valideringslogikken
+(sub-sekund — `user`/`sys`-tid i alle målingane over er 0,1–0,3 s).** Dette
+er ikkje eit spørsmål om image-storleik (Alpine-migreringa i
+`videre-containeroptimering`-specen løyste eit anna problem), men om at
+`linkml` sitt avhengigheitstre (pydantic, antlr4, sqlalchemy-liknande
+maskineri m.fl.) må lastast på nytt for **kvar einaste** kontainar-prosess,
+og repoet startar éin ny kontainar-prosess **per skjema**, **to gonger**
+(flat ut + valider).
+
+### Verifisert: importtida er nesten heilt amortiserbar
+
+Sende 5 valideringskall (same skjema) som 5 separate JSON-RPC-meldingar til
+**éin** `mcp-linkml-validator`-kontainar over stdin (serveren les alt
+meldingar i ei løkke frå stdin i `main()` — dette krev ingen kodeendring i
+`server.py`):
+
+- 1 kall i éin kontainar: **11,2 s**
+- 5 kall i éin kontainar: **14,7 s** — marginalkostnad **~0,9 s per ekstra
+  skjema**, mot ~11 s for eit nytt, kaldt kontainarkall.
+
+Det vil seie: importtida til `linkml_runtime`/`linkml.validator` vert betalt
+**éin gong per kontainar-prosess**, ikkje éin gong per skjema. Repoet nyttar
+i dag arkitekturen «éin kontainar per skjema» i alle løkker
+(`validate-bronze`, `validate-data`, `validate-examples` i
+`make/40-validation.mk`), og betaler dermed importskatten på nytt for kvart
+einaste skjema, heilt unødvendig.
+
+### Verifisert: sjølve utflatingssteget (Steg 1) er unødvendig
+
+`flatten-and-validate.bash` sitt Steg 1 køyrer `gen-linkml --mergeimports`
+i ein **eigen** kontainar (`LINKML_IMAGE`) for å slå saman importerte skjema
+til éi flat fil, før den flate fila vert sendt til
+`mcp-linkml-validator`-kontainaren som rå tekst (`schemaText`).
+
+Testa direkte: `linkml_runtime.utils.schemaview.SchemaView` løyser
+imports **transitivt og automatisk** ved konstruksjon, utan noka ekstern
+utflating:
+
+```
+construct SchemaView (uflata, løyser imports naturleg): 0,13 s
+imports deklarert: ['linkml:types']
+tree_root til stades: True
+all_classes (inkl. importerte): 23
+```
+
+0,13 s mot 8,6 s for utflatingssteget via eigen kontainar. `server.py` sin
+eigen `validate_schema()`-funksjon konstruerer allereie ein `SchemaView`
+(linje 767–770) — utflatinga i Steg 1 er reint dobbeltarbeid som gjer
+**akkurat det SchemaView allereie gjer internt**, berre tregare og via ein
+ekstra kontainar.
+
+**Utflatinga er dessutan årsak til to dokumenterte, eksisterande
+workarounds** som forsvinn heilt om ho fjernast:
+
+1. `flatten-and-validate.bash` Steg 1b (linje 49–69): `gen-linkml
+   --mergeimports` strippar `tree_root`-flagget frå containerklassen når det
+   dumpar til YAML att — koden må lese det tilbake frå originalskjemaet og
+   patche det inn manuelt.
+2. `server.py` sin `_check_schema_imports`-handterar (linje 368–381):
+   kommentaren seier eksplisitt «Merged schemas lose the imports list — use
+   a characteristic class as proxy» — sjekken må gjette seg til om eit
+   skjema importerer noko basert på om ein kjenneteikn-klasse finst, sidan
+   den flate YAML-fila ikkje lenger har `imports:`-lista.
+
+Begge er symptom på informasjonstap ved å rundtrippe skjemaet gjennom
+serialisering-til-YAML-og-attende i staden for å la `SchemaView` løyse
+imports naturleg mot filsystemet.
+
+## Tiltak (prioritert etter forventa gevinst / risiko)
+
+### Tiltak 1 — Batch fleire skjema inn i éin MCP-kontainar-prosess
+
+**Forventa gevinst:** størst enkelttiltak. For eit domene med N skjema:
+frå ~N × 11 s til ~11 s + (N−1) × 0,9 s for valideringssteget åleine.
+For `fint` (7 skjema) svarar det til ~77 s → ~17 s for valideringssteget.
+
+**Steg:**
+
+1. Lag eit nytt orkestreringsskript (t.d.
+   `src/assets/scripts/makefile/batch-flatten-and-validate.py`) som for eit
+   gjeve domene/liste av skjema:
+   - Byggjer éin lang JSON-RPC-meldingsstraum (`initialize` + eitt
+     `tools/call` per skjema) og sender ho til **éin**
+     `podman run -i --rm … mcp-linkml-validator`-kontainar.
+   - Demultipleksar dei N JSON-RPC-svara tilbake til éin-resultat-per-skjema,
+     same JSON-form som dagens `flatten-and-validate.bash` produserer, slik
+     at `save-validation-log.py`/`emit-github-validation-annotations.py`
+     kan gjenbrukast uendra.
+2. Oppdater `validate-bronze`, `validate-data`, `validate-examples`
+   (`make/40-validation.mk`) til å kalle det nye batch-skriptet i staden for
+   å løkke `flatten-and-validate.bash` per skjema.
+3. Handter feil per skjema individuelt (eitt skjema sin parse/valideringsfeil
+   skal ikkje stoppe resten av batchen) — spegl dagens
+   feilhandtering/exit-kode-oppførsel i `validate-bronze`.
+4. Test: køyr mot eit domene med mange skjema (`fint` eller `ap-no`) og
+   samanlikn resultat-JSON mot noverande sekvensielle køyring for kvart
+   skjema (bør vere identisk innhald, berre raskare).
+
+**Risiko:** Låg-til-moderat. Endrar orkestreringslaget, ikkje sjølve
+valideringslogikken i `server.py`. Følgjer det etablerte mønsteret frå
+`containerisering-python-kall.md` (flytt Makefile-logikk til eigne
+Python-script).
+
+### Tiltak 2 — Fjern det separate utflatingssteget (Steg 1)
+
+**Forventa gevinst:** halverer talet på kontainar-oppstartar per skjema,
+og fjernar ~8,6 s (kald kontainar) eller det tilsvarande importtillegget
+(varm/batch) per skjema. Kombinert med Tiltak 1 køyrer heile
+flat-ut-og-valider-flyten i **éin** kontainar-prosess i staden for to.
+
+**Steg:**
+
+1. Endre MCP-verktøyet (`validate_linkml_schema`) til å ta imot skjemaets
+   **repo-relative sti** i staden for (eller i tillegg til) `schemaText`,
+   og mount heile repoet (ikkje berre `server.py` + `policies/`) inn i
+   kontainaren — slik `SchemaView` kan løyse relative imports naturleg mot
+   filsystemet, akkurat som i spiketesten over.
+2. Fjern Steg 1 (`gen-linkml --mergeimports`) og Steg 1b
+   (tree_root-tilbakelesing) frå `flatten-and-validate.bash`.
+3. Forenkle `_check_schema_imports` i `server.py` — fjern
+   `characteristic_class`-proxy-fallbacket, sidan `schema.imports` no alltid
+   er korrekt.
+4. Verifiser at instansvalidering (`validate_instance()` → `linkml.validator
+   .validate(instance, schema_dict, target_class=...)`) framleis løyser
+   imports korrekt når han får eit `schema_dict` som ikkje lenger er
+   pre-flata — LinkML sin `validate()`-funksjon aksepterer normalt ein
+   skjemasti direkte, som truleg er meir robust enn dagens
+   `yaml.safe_load(schema_text)`-omveg. Krev eiga verifisering, sidan dette
+   er den delen av koden med høgast risiko for regresjon.
+5. Oppdater `reusable-validate.yml` (brukt av **eksterne** repo via
+   `workflow_call`) tilsvarande — han kallar same
+   `flatten-and-validate.bash`, så endringa slår gjennom automatisk, men
+   test eksplisitt at eit kallande repo med berre delvis sparse-checkout
+   framleis har dei filene `SchemaView` treng for å løyse sine imports.
+6. Kjør `tests/test_mcp_policies.py` og
+   `mcp-linkml-valider-modell-smoke`/`-test` og stadfest uendra resultat.
+
+**Risiko:** Moderat — dette er den einaste endringa som rører sjølve
+MCP-verktøyets input-kontrakt (`schemaText` → sti-basert) og
+instansvalideringsvegen. Følg repoet sitt etablerte mønster for slike
+endringar (jf. Alpine-spiken i `videre-containeroptimering-mcp-plantuml-
+alpine.md`): gjer eit lite, isolert spike-forsøk først (som er gjort her,
+sjå «Funn») og verifiser breitt (fleire skjema, inkl. eitt med fleire
+importnivå og eitt med instansdata) før permanent endring.
+
+### Tiltak 3 — Parallelliser Makefile sine eigne validate-target
+
+**Forventa gevinst:** moderat, men svært lav risiko og rask å gjennomføre —
+overlappar eksisterande arbeid i staden for å fjerne det, så gevinsten er
+mindre enn Tiltak 1/2, men tiltaket er trygt å gjere uavhengig og først.
+
+**Funn:** `specs/done/parallelliser-domene-validering.md` parallelliserte
+CI-workflowen (`generate.yml`/`validate.yml`), men **Makefile sine eigne**
+`validate-bronze`, `validate-data`, `validate-examples`
+(`make/40-validation.mk`) er framleis strengt sekvensielle
+`while IFS= read -r schema; do … done`-løkker. Dette er banen ein
+utviklar faktisk trigger lokalt via `make validate-bronze DOMAIN=fint`, og
+han får ingen nytte av CI-parallelliseringa.
+
+**Steg:**
+
+1. Bruk same mønster som `parallelliser-domene-validering.md` etablerte
+   (`&` + `PIDS`-array + `wait`-løkke for feilsamling) i dei tre
+   løkkene i `make/40-validation.mk`.
+2. Behald `save-validation-log.py`/`emit-github-validation-annotations.py`-
+   kalla per skjema uendra (dei er allereie containeriserte via
+   `$(PYTHON_RUN)`, jf. `containerisering-python-kall.md`).
+3. Vurder om ei `-P<N>`-avgrensing (jf. `validate-capture` sin
+   `PARALLEL`-parameter) er naudsynt for å unngå å overbelaste lokal
+   podman-maskin ved store domene (t.d. `ap-no` med 10 skjema) — spesielt
+   viktig her sidan denne endringa **ikkje** reduserer talet på kontainarar,
+   berre overlappar dei (i motsetnad til Tiltak 1/2, som reduserer det
+   faktiske arbeidet).
+
+**Risiko:** Låg — same mønster er alt verifisert og i produksjon i
+`generate.yml`/`validate.yml`.
+
+**Merk om rekkjefølgje:** Tiltak 3 åleine gjev mindre gevinst enn Tiltak 1,
+og kan i verste fall **auke** ressurspresset dersom det vert gjort **utan**
+Tiltak 1/2 — fleire samtidige kontainarar som kvar for seg betaler full
+importskatt (~11 s), på ein lokal podman-maskin med avgrensa CPU/IO, kan gje
+dårlegare totalgjennomstrøyming enn sekvensiell køyring med redusert
+per-kontainar-kostnad. `parallelliser-domene-validering.md` flagga
+akkurat dette som eit ope spørsmål for CI («opp mot 16 containarar
+samstundes … dersom CI-runnerane viser seg overbelasta, bør ei
+`xargs -P<N>`-avgrensing vurderast»). **Tilråding: gjer Tiltak 1 (batching)
+først** — det gjev størst gevinst med lågast ressursrisiko, og gjer Tiltak 3
+mindre naudsynt (ein batch treng ikkje parallellisering, sidan han allereie
+unngår per-skjema-kontainarkostnaden).
+
+### Ikkje eit tiltak: image-storleik / Alpine
+
+Presiserer for ordens skuld: ytterlegare containerslanking er **ikkje**
+identifisert som eit gjenverande problem her. `videre-containeroptimering-
+mcp-plantuml-alpine.md` har alt teke `mcp-linkml-validator`/`linkml-local`
+ned til ~216–222 MB på Alpine, og målingane over syner tydeleg at
+flaskehalsen er Python sitt eige importoppsett (talet på moduler `linkml`
+lastar), ikkje image-laget eller nettverk. Ei ny runde med image-slanking
+ville ikkje målbart påverke tala i denne specen.
+
+## Handlingsliste
+
+- [x] Tiltak 1: design og implementer batch-orkestreringsskript for
+      MCP-validering (eitt podman-kall, N skjema over stdin)
+- [x] Tiltak 1: oppdater `make/40-validation.mk` sine target til å bruke
+      batch-skriptet
+- [x] Tiltak 1: verifiser identisk resultat-JSON mot dagens sekvensielle
+      køyring for eit fleirskjema-domene
+- [ ] Tiltak 3: parallelliser `validate-examples` i `make/40-validation.mk`
+      (einaste attverande sekvensielle løkke — brukar ikkje
+      `flatten-and-validate.bash`/MCP-validatoren og fell difor utanfor
+      Tiltak 1/2 sitt virkefelt, sjå eige punkt under)
+- [ ] Tiltak 2: spike verifisert (sjå «Funn») — implementer sti-basert
+      `validate_linkml_schema`-kontrakt, fjern Steg 1/1b frå
+      `flatten-and-validate.bash`
+- [ ] Tiltak 2: forenkle `_check_schema_imports` i `server.py` (fjern
+      `characteristic_class`-proxy)
+- [ ] Tiltak 2: verifiser instansvalideringsvegen (`validate_instance()`)
+      framleis løyser imports korrekt utan pre-flating
+- [ ] Tiltak 2: kjør `tests/test_mcp_policies.py` og
+      `mcp-linkml-valider-modell-smoke`/`-test`, stadfest uendra resultat
+- [ ] Tiltak 2: verifiser `reusable-validate.yml` (ekstern repo-bruk)
+      framleis fungerer med sti-basert kontrakt
+
+## Utført (Tiltak 1 — 2026-08-07)
+
+Implementert som planlagt, med éi tilleggsendring utover opphavleg design
+(sjå «Nødvendig herding» under).
+
+**Nye/endra filer:**
+
+- `src/mcp-linkml-validator/batch-flatten-and-validate.py` (ny) — batchar
+  Steg 2 (MCP-validering) for N skjema inn i éin `podman run`. Steg 1
+  (utflating via `gen-linkml --mergeimports`) køyrer framleis éin
+  kontainar per skjema — uendra frå før, ventar på Tiltak 2. Støttar to
+  kallformer: `--policy <p> schema1 schema2 …` (homogen policy, instans
+  auto-oppdaga — brukt av `validate-bronze`) og `--jobs-tsv <fil>`
+  (heterogen schema/policy/instans-liste — brukt av `validate-data`).
+- `make/40-validation.mk`: `validate-bronze` og `validate-data` bygger no
+  éin jobbliste og kallar batch-skriptet éin gong for heile domenet, i
+  staden for å løkke `flatten-and-validate.bash` per skjema/datafil.
+  Nedstraums logging (`save-validation-log.py`,
+  `emit-github-validation-annotations.py`) er uendra — les berre resultatet
+  frå batch-outputen i staden for frå eit ferskt `flatten-and-validate.bash`-kall.
+- `src/mcp-linkml-validator/server.py`: `main()`-løkka fangar no
+  exceptions per JSON-RPC-melding i staden for å la dei ta ned heile
+  prosessen. **Nødvendig herding, ikkje valfri polish:** før batching delte
+  kvart skjema sin eigen kontainar — éin uventa feil i éitt skjema kunne
+  berre ramme det eine skjemaet. Med batching deler N skjema éin
+  serverprosess, så utan denne endringa ville éin ubehandla exception i
+  skjema K drepe heile batchen og miste resultat for skjema K+1…N.
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag):**
+
+| Domene | Skjema | Før (sekvensiell) | Etter (batcha) | Gevinst |
+|---|---|---|---|---|
+| `oreg` | 2 | 39,7 s | 31,7 s | −20 % |
+| `fint` | 6 | 139,5 s | 91,2 s | −35 % |
+
+Gevinsten er mindre enn dei ~10× som vart målt for MCP-steget isolert
+(sjå «Funn»), sidan utflatingssteget (framleis éin kontainar per skjema)
+utgjer ein stadig større del av totaltida etter kvart som denne
+optimeringa fjernar tida MCP-steget brukte. Dette er venta, og er nettopp
+grunngjevinga for Tiltak 2 (fjern utflatingssteget) som neste steg — det
+vil gje eit mykje større samla gevinst.
+
+Resultatinnhald verifisert byte-for-byte identisk (sortert på
+`(code, target)`) mot gamal sekvensiell køyring for `oreg` (begge skjema)
+og `fint` (`fint-arkiv`). `validate-data` verifisert mot `modellkatalog`
+(6 katalogar) — `valid`/`errorCount`/`warningCount`/`issues` identiske;
+den einaste feltdiff-en som dukka opp (`validation_type` →
+`validation_policy` i éin loggfil) er ei alt dokumentert, ikkje-relatert
+feltnamnavdrift (BUG-12), ikkje ei følgje av denne endringa.
+
+**Testa:**
+- `make mcp-linkml-valider-modell-test` (28 testar) — alle grøne etter
+  `server.py`-herdinga.
+- `make mcp-linkml-valider-modell-smoke` — uendra respons.
+- `make validate-bronze DOMAIN=oreg`, `make validate-data
+  DOMAIN=modellkatalog` — køyrde til slutt, skreiv korrekte
+  valideringsloggar (verifisert innhald, deretter reverterte
+  test-genererte artefaktar før commit).
+
+**Funne, ikkje-relatert bug undervegs:** `emit-github-validation-
+annotations.py` les skjemastien frå miljøvariabelen `SCHEMA`, men
+`$(PYTHON_RUN)` (i `make/01-containers.mk`) forwardar ikkje `-e SCHEMA`
+inn i kontainaren — annotasjonane vert difor emitta med tomt `file=`
+(`::warning file=::slot:x: …`). Dette er ein feil som fanst identisk før
+denne endringa (kallmønsteret `SCHEMA="$$schema" $(PYTHON_RUN) …` er
+uendra), berre ikkje verifisert i praksis før no. Påverkar ikkje
+`FAILED`-teljinga (som brukar scriptet sin exit-kode, ikkje `file=`-
+feltet), så ingen funksjonell konsekvens for denne specen — men bør
+dokumenterast i `bugs/` som eiga sak.
+
+**Attverande arbeid:** Tiltak 2 og Tiltak 3 (delvis, sjå over) er ikkje
+implementerte i denne runden.

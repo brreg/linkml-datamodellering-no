@@ -1069,7 +1069,16 @@ def main():
                   "error": {"code": -32700, "message": f"Parse-feil: {exc}"}})
             continue
 
-        response = handle(msg)
+        try:
+            response = handle(msg)
+        except Exception as exc:
+            # Ein uventa feil i handteringa av éin melding skal ikkje ta ned
+            # resten av stdin-straumen — kritisk når fleire valideringskall
+            # vert batcha inn i éin serverprosess (sjå batch-flatten-and-
+            # validate.py), sidan éin ubehandla exception elles ville drepe
+            # heile prosessen og miste resultatet for alle attverande jobbar.
+            response = {"jsonrpc": "2.0", "id": msg.get("id"),
+                        "error": {"code": -32000, "message": f"Uventa feil: {exc}"}}
         if response is not None:
             send(response)
 

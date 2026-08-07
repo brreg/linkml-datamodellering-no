@@ -47,22 +47,32 @@ ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
 	FAILED=0; \
+	SCHEMA_LIST=$$(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
+	if [ -z "$$SCHEMA_LIST" ]; then \
+		log_info "Ingen skjema funne for DOMAIN=$(DOMAIN)"; \
+		exit 0; \
+	fi; \
+	COUNT=$$(echo "$$SCHEMA_LIST" | wc -l); \
+	BATCH_DIR=$$(mktemp -d); \
+	trap 'rm -rf "$$BATCH_DIR"' EXIT; \
+	log_debug "Kommando: batch-flatten-and-validate.py --policy bronze ($$COUNT skjema, domain $(DOMAIN))"; \
+	t0=$$(date +%s%3N); \
+	python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --policy bronze \
+		--output-dir "$$BATCH_DIR" $$SCHEMA_LIST 2>/dev/null; \
+	t1=$$(date +%s%3N); \
+	ms=$$(( t1 - t0 )); \
+	log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s  (%d skjema, batcha)$(CLR_RST) (%d.%ds)' "$(DOMAIN)" "$$COUNT" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+	i=0; \
 	while IFS= read -r schema; do \
-		name=$$(basename "$$schema" -schema.yaml); \
-		domain=$$(echo "$$schema" | cut -d/ -f3); \
-		log_debug "[$$domain/$$name] Kommando: flatten-and-validate.bash $$schema bronze"; \
-		t0=$$(date +%s%3N); \
-		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
-		t1=$$(date +%s%3N); \
-		ms=$$(( t1 - t0 )); \
+		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
 		log_debug "$$result"; \
-		log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type bronze --result "$$result" < /dev/null 2>/dev/null || true; \
 		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
-	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
+		i=$$((i + 1)); \
+	done <<< "$$SCHEMA_LIST"; \
 	exit $$FAILED
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domain>"
@@ -72,7 +82,16 @@ endif
 validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domain>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
-	for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
+	DATADIRS=$$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); \
+	if [ -z "$$DATADIRS" ]; then \
+		log_info "Ingen datafiler funne for DOMAIN=$(DOMAIN)"; \
+		exit 0; \
+	fi; \
+	BATCH_DIR=$$(mktemp -d); \
+	trap 'rm -rf "$$BATCH_DIR"' EXIT; \
+	JOBS_TSV="$$BATCH_DIR/jobs.tsv"; \
+	: > "$$JOBS_TSV"; \
+	for datadir in $$DATADIRS; do \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
 		datafile="$$datadir/$$catalog.yaml"; \
@@ -85,16 +104,25 @@ ifdef DOMAIN
 			policy=bronze; \
 		fi; \
 		[ -n "$$policy" ] || policy=bronze; \
-		log_debug "[$(DOMAIN)/$$model] Kommando: flatten-and-validate.bash $$schema $$policy $$datafile"; \
-		t0=$$(date +%s%3N); \
-		result=$$(bash $(MCP_DIR)/flatten-and-validate.bash "$$schema" "$$policy" "$$datafile" 2>/dev/null); \
-		t1=$$(date +%s%3N); \
-		ms=$$(( t1 - t0 )); \
+		printf '%s\t%s\t%s\n' "$$schema" "$$policy" "$$datafile" >> "$$JOBS_TSV"; \
+	done; \
+	COUNT=$$(wc -l < "$$JOBS_TSV"); \
+	log_debug "Kommando: batch-flatten-and-validate.py --jobs-tsv ($$COUNT datafiler, domain $(DOMAIN))"; \
+	t0=$$(date +%s%3N); \
+	python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --jobs-tsv "$$JOBS_TSV" \
+		--output-dir "$$BATCH_DIR" 2>/dev/null; \
+	t1=$$(date +%s%3N); \
+	ms=$$(( t1 - t0 )); \
+	log_info "$$(printf '$(CLR_STEP)→ validate-data  %s  (%d datafiler, batcha)$(CLR_RST) (%d.%ds)' "$(DOMAIN)" "$$COUNT" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+	i=0; \
+	while IFS=$$'\t' read -r schema policy datafile; do \
+		catalog=$$(basename "$$datafile" .yaml); \
+		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
 		log_debug "$$result"; \
-		log_info "$$(printf '$(CLR_STEP)→ mcp-validate  %s  (policy: %s)$(CLR_RST) (%d.%ds)' "$$datafile" "$$policy" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
 		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
 			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
-	done
+		i=$$((i + 1)); \
+	done < "$$JOBS_TSV"
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>"
 	@exit 1
