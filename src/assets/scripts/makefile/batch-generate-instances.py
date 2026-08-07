@@ -23,8 +23,19 @@ same spec for identisk grunngjeving). `openapi-spec-validator` ER batcha
 
 Bruk:
   python3 batch-generate-instances.py --generator <kind> -- schema1.yaml schema2.yaml ...
+  python3 batch-generate-instances.py --generator convert --jobs-tsv <fil>
 
   <kind>: docgen-examples | openapi | asyncapi | informasjonsmodell
+        | erdiagram-filter | plantuml-filter | convert
+
+`erdiagram-filter`/`plantuml-filter` er Fase B for gen-erdiagram/
+gen-plantuml (Fase A, rå-generering, er batcha i batch-generate.py) —
+filtrerer alt genererte `-raw`/`-unfiltered`-mellomfiler, importerer
+`filter_erdiagram.py`/`filter_plantuml.py` sine reine `process_file()`-
+funksjonar. `convert` batchar `linkml-convert` (eksempel → RDF/Turtle) via
+ei jobb-TSV frå `convert-examples.sh` (schema/example/out-triplar,
+handterer m.a. `tests/fixtures/`-overstyring — IKKJE duplisert her).
+Sjå specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 4).
 """
 
 from __future__ import annotations
@@ -69,9 +80,13 @@ def fmt_elapsed(seconds: float) -> str:
 
 
 def _import_from_path(module_name: str, file_name: str):
-    """Importer eit script med bindestrek-i-namnet (t.d. gen-openapi.py) som modul."""
+    """Importer eit script med bindestrek-i-namnet (t.d. gen-openapi.py) som modul.
+    Registrerer modulen i sys.modules FØR exec_module() — obligatorisk for
+    at @dataclass (brukt av batch-generate.py) skal fungere, sidan
+    dataclasses sin interne typeoppløysing slår opp sys.modules[cls.__module__]."""
     spec = importlib.util.spec_from_file_location(module_name, SCRIPT_DIR / file_name)
     module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
 
@@ -102,6 +117,91 @@ def filter_enabled(schemas: list[str], flag: str | None, generator: str) -> list
         names = ", ".join("/".join(schema_domain_name(s)) for s in skipped)
         log_debug(f"{generator}: hoppar over ({flag}: false): {names}")
     return enabled
+
+
+def run_erdiagram_filter(schemas: list[str]) -> int:
+    """Fase B for gen-erdiagram: filtrer $name-erdiagram-unfiltered.md (skrive
+    av awk-steget mellom batch-generate.py sin "erdiagram"-kind og dette
+    steget, jf. spec Tiltak 4) til den endelege $name-erdiagram.md."""
+    schemas = filter_enabled(schemas, "erdiagram", "erdiagram-filter")
+    mod = _import_from_path("filter_erdiagram", "filter_erdiagram.py")
+    failed = 0
+    for s in schemas:
+        domain, name = schema_domain_name(s)
+        unfiltered = Path(GEN_DIR) / domain / name / f"{name}-erdiagram-unfiltered.md"
+        out = Path(GEN_DIR) / domain / name / f"{name}-erdiagram.md"
+        if not unfiltered.is_file():
+            log_error(f"ÅTVARING: {unfiltered} finst ikkje — hoppar over erdiagram-filter for {domain}/{name}")
+            continue
+        t0 = time.time()
+        try:
+            out.write_text(mod.process_file(Path(s), unfiltered), encoding="utf-8")
+        except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon
+            log_error(f"::error file={s}::erdiagram-filter feila for {domain}/{name} ({fmt_elapsed(time.time() - t0)}) — {exc}")
+            failed += 1
+            continue
+        log_info(f"{CLR_STEP}→ erdiagram-filter  {domain}/{name}{CLR_RST} ({fmt_elapsed(time.time() - t0)})")
+    return failed
+
+
+def run_plantuml_filter(schemas: list[str]) -> int:
+    """Fase B for gen-plantuml: filtrer $name-raw.puml (skrive av
+    batch-generate.py sin "plantuml"-kind) til $name-filtered.puml og
+    $name.puml (full) — 2 modus per skjema, jf. spec Tiltak 4."""
+    schemas = filter_enabled(schemas, "plantuml", "plantuml-filter")
+    mod = _import_from_path("filter_plantuml", "filter_plantuml.py")
+    failed = 0
+    for s in schemas:
+        domain, name = schema_domain_name(s)
+        diagrams_dir = Path(GEN_DIR) / domain / name / "diagrams"
+        raw = diagrams_dir / f"{name}-raw.puml"
+        if not raw.is_file():
+            log_error(f"ÅTVARING: {raw} finst ikkje — hoppar over plantuml-filter for {domain}/{name}")
+            continue
+        t0 = time.time()
+        try:
+            # process_file() returnerer utan avsluttande linjeskift (som
+            # print() i CLI-en la til) — legg det til her for byte-identisk
+            # output.
+            (diagrams_dir / f"{name}-filtered.puml").write_text(mod.process_file(Path(s), raw, "filtered") + "\n", encoding="utf-8")
+            (diagrams_dir / f"{name}.puml").write_text(mod.process_file(Path(s), raw, "full") + "\n", encoding="utf-8")
+        except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon
+            log_error(f"::error file={s}::plantuml-filter feila for {domain}/{name} ({fmt_elapsed(time.time() - t0)}) — {exc}")
+            failed += 1
+            continue
+        log_info(f"{CLR_STEP}→ plantuml-filter  {domain}/{name}{CLR_RST} ({fmt_elapsed(time.time() - t0)})")
+    return failed
+
+
+def run_convert(jobs_tsv: str) -> int:
+    """Batchar linkml-convert (eksempel → RDF/Turtle) for jobbane i jobs_tsv
+    (schema\\texample\\tout per linje, produsert av convert-examples.sh sin
+    eksisterande discovery/filtreringslogikk — IKKJE duplisert her, sidan
+    ho m.a. handterer tests/fixtures/-overstyring). Same Click-drivne
+    in-process-mønster som batch-generate.py (linkml.converter.cli:cli
+    skriv sjølv til --output, ikkje stdout)."""
+    batch_generate = _import_from_path("batch_generate", "batch-generate.py")
+    converter_mod = importlib.import_module("linkml.converter.cli")
+    cli_cmd = converter_mod.cli
+    failed = 0
+    lines = [line for line in Path(jobs_tsv).read_text(encoding="utf-8").splitlines() if line.strip()]
+    for line in lines:
+        schema, example, out = line.split("\t")
+        parts = Path(out).parts  # generated/<domain>/<name>/<fil>.ttl
+        domain, name = parts[1], parts[2]
+        t0 = time.time()
+        try:
+            Path(out).parent.mkdir(parents=True, exist_ok=True)
+            batch_generate.run_click(
+                cli_cmd,
+                ["--schema", schema, "--output-format", "ttl", "--no-validate", "--output", out, example],
+            )
+        except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon
+            log_error(f"::error file={schema}::linkml-convert feila for {domain}/{name} ({fmt_elapsed(time.time() - t0)}) — {exc}")
+            failed += 1
+            continue
+        log_info(f"{CLR_STEP}→ linkml-convert  {example}{CLR_RST} ({fmt_elapsed(time.time() - t0)})")
+    return failed
 
 
 def run_docgen_examples(schemas: list[str]) -> int:
@@ -211,16 +311,24 @@ RUNNERS = {
     "informasjonsmodell": run_informasjonsmodell,
     "openapi": run_openapi,
     "asyncapi": run_asyncapi,
+    "erdiagram-filter": run_erdiagram_filter,
+    "plantuml-filter": run_plantuml_filter,
 }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--generator", required=True, choices=sorted(RUNNERS))
-    parser.add_argument("schemas", nargs="+")
+    parser.add_argument("--generator", required=True, choices=sorted([*RUNNERS, "convert"]))
+    parser.add_argument("--jobs-tsv", help="TSV-fil (schema\\texample\\tout per linje) — berre for --generator convert")
+    parser.add_argument("schemas", nargs="*")
     args = parser.parse_args()
 
-    failed = RUNNERS[args.generator](args.schemas)
+    if args.generator == "convert":
+        if not args.jobs_tsv:
+            parser.error("--generator convert krev --jobs-tsv")
+        failed = run_convert(args.jobs_tsv)
+    else:
+        failed = RUNNERS[args.generator](args.schemas)
     return 1 if failed else 0
 
 

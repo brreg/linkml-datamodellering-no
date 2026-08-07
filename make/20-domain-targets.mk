@@ -43,20 +43,14 @@ domain-$(1): $$(_domain_pre_$(1))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),json-schema)
 	$$(call run_gen_owl_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_rdf_parallel,$$(_schemas_$(1)))
-	@SCHEMA_DIR=$$(SCHEMA_DIR) GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(1) | \
-	while IFS=$$$$'\t' read -r schema example out; do \
-		eval "$$$$LOG_FUNCTIONS"; \
-		t0=$$$$(date +%s%3N); \
-		$$(LINKML_RUN) linkml-convert \
-			--schema $$$$schema \
-			--output-format ttl \
-			--no-validate \
-			--output $$$$out \
-			$$$$example; \
-		t1=$$$$(date +%s%3N); \
-		ms=$$$$(( t1 - t0 )); \
-		log_info "$$$$(printf '$$(CLR_STEP)→ linkml-convert  %s$$(CLR_RST) (%d.%ds)' "$$$$example" $$$$(( ms / 1000 )) $$$$(( ms % 1000 / 100 )))"; \
-	done
+	@JOBS_TSV=$$$$(mktemp "$$(GEN_DIR)/.convert-jobs.XXXXXX") && \
+	SCHEMA_DIR=$$(SCHEMA_DIR) GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(1) > "$$$$JOBS_TSV" && \
+	if [ -s "$$$$JOBS_TSV" ]; then \
+		$$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator convert --jobs-tsv "$$$$JOBS_TSV"; rc=$$$$?; \
+	else \
+		rc=0; \
+	fi; \
+	rm -f "$$$$JOBS_TSV"; exit $$$$rc
 	$$(call run_gen_doc_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_erdiagram_parallel,$$(_schemas_$(1)))
 	$$(call run_gen_parallel,$$(_schemas_$(1)),proto)

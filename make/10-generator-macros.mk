@@ -14,12 +14,16 @@
 # brukar — spesifiser det IKKJE på nytt her). Sjå
 # specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 1).
 #
-# Dei resterande makroane (gen-doc, gen-erdiagram, gen-plantuml, gen-xsd,
-# gen-openapi, gen-asyncapi) har etterhandsaming/eksterne verktøy som ikkje
-# er reine linkml-Python-API-kall, og nyttar framleis den delte
-# xargs-orkestreringa i run-parallel-gen.sh (filtrering mot build.yaml-
-# flagg, parallellisering, timing, logging) — sjå spec Tiltak 2/3 for
-# vidare batching av desse.
+# gen-doc, gen-erdiagram og gen-plantuml er delt i fleire batcha fasar
+# (linkml-generering via batch-generate.py, python-etterhandsaming via
+# batch-generate-instances.py, SVG-rendering via batch-render-plantuml.sh)
+# — sjå Tiltak 2/3/4 i spec-fila for grunngjeving og enkeltsteg.
+#
+# gen-xsd køyrer framleis udelt via run-parallel-gen.sh (éin kontainar per
+# skjema × 3 verktøy) — berre 1 skjema i heile repoet har xsd: true, så det
+# finst ingenting å vinne på å batche (jf. «Ikkje eit tiltak: gen-xsd» i
+# spec-fila). `asyncapi validate` (i gen-asyncapi) er av same grunn framleis
+# udelt, sjølv om resten av gen-asyncapi/gen-openapi er batcha.
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
@@ -67,45 +71,37 @@ endef
 
 # ---------------------------------------------------------------------------
 # gen-doc (genererer dokumentasjon til katalog i staden for stdout) —
-# gata mot build.yaml (docs: true).
-#
-# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
-# Tiltak 3): Fase A batchar `gen-docgen-examples.py` (reint Python, ingen
-# linkml-import) for ALLE skjema til ÉIN kontainar via
-# batch-generate-instances.py. Fase B er uendra — gen-doc CLI-et sjølv
-# skriv til ein katalog (ikkje stdout) og krev framleis éin kontainar per
-# skjema, så han køyrer via run-parallel-gen.sh som før (GEN_CMD trimma til
-# berre gen-doc + sed-oppryddinga).
+# gata mot build.yaml (docs: true). Heilt batcha (sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md, Tiltak 3+4):
+# Fase A batchar `gen-docgen-examples.py` (reint Python), Fase B batchar
+# sjølve `gen-doc`-CLI-et (DocGenerator, Click-drive-invokering same
+# mønster som dei linkml-baserte generatorane i Tiltak 1 — skriv sjølv til
+# katalog via -d, ikkje stdout, jf. GeneratorSpec sin extra_argv_fn/post_fn
+# i batch-generate.py). Ingen run-parallel-gen.sh-fase att.
 # ---------------------------------------------------------------------------
 define run_gen_doc_parallel
 @$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator docgen-examples -- $(1)
-@GEN_CMD='mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
-run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
-	--template-directory src/assets/templates/docgen \
-	--no-mergeimports \
-	--no-render-imports \
-	--no-hierarchical-class-view \
-	--diagram-type mermaid_class_diagram \
-	--example-directory "$$outdir/docgen-examples" \
-	-d "$$outdir/docs" "$$s" && \
-sed -i "/Container/d" "$$outdir/docs/index.md"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-doc --flag docs -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator doc -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
-# gen-erdiagram (pipar gjennom awk for å stripa Container-klassar) —
-# gata mot build.yaml (erdiagram: true)
+# gen-erdiagram — gata mot build.yaml (erdiagram: true). Tre fasar (sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md, Tiltak 4):
+# Fase A batchar rå-genereringa (linkml, batch-generate.py). Fase A.5 er
+# awk-steget (Container-stripping) — køyrer framleis per skjema direkte på
+# host (ikkje kontainerisert i dag, difor ingen kontainar-kostnad å
+# batche). Fase B batchar python-filteret (batch-generate-instances.py).
 # ---------------------------------------------------------------------------
 define run_gen_erdiagram_parallel
-@GEN_CMD='mkdir -p "$$outdir" && \
-$(LINKML_RUN) gen-erdiagram --no-mergeimports "$$s" \
-	| awk -f src/assets/scripts/makefile/filter_container.awk \
-	> "$$outdir/$$name-erdiagram-unfiltered.md" && \
-$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_erdiagram.py \
-	"$$s" \
-	"$$outdir/$$name-erdiagram-unfiltered.md" \
-	> "$$outdir/$$name-erdiagram.md"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-erdiagram --flag erdiagram -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator erdiagram -- $(1)
+@for s in $(1); do \
+	domain=$$(echo "$$s" | cut -d/ -f3); \
+	name=$$(basename "$$s" -schema.yaml | sed 's/-schema$$//'); \
+	raw="$(GEN_DIR)/$$domain/$$name/$$name-erdiagram-raw.md"; \
+	[ -f "$$raw" ] || continue; \
+	awk -f src/assets/scripts/makefile/filter_container.awk "$$raw" > "$(GEN_DIR)/$$domain/$$name/$$name-erdiagram-unfiltered.md"; \
+done
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator erdiagram-filter -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -114,23 +110,16 @@ endef
 # required_if_generator_flag: "plantuml" føreset at biletet faktisk ikkje
 # vert bruka for slike skjema.
 #
-# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
-# Tiltak 2): Fase A genererer .puml-filene (linkml + python-filter, framleis
-# éin kontainar-triple per skjema via run-parallel-gen.sh, uendra). Fase B
-# batchar SVG-renderinga for ALLE skjema sine .puml-filer til ÉITT
-# podman-kall (PlantUML sitt CLI tek fleire filer om gongen) i staden for
-# eitt kall per fil.
+# Tre fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
+# Tiltak 2+4): Fase A batchar rå-.puml-generering (linkml,
+# batch-generate.py). Fase B batchar python-filteret, 2 modus per skjema
+# (batch-generate-instances.py). Fase C batchar SVG-renderinga for ALLE
+# skjema sine .puml-filer til ÉITT podman-kall (PlantUML sitt CLI tek
+# fleire filer om gongen).
 # ---------------------------------------------------------------------------
 define run_gen_plantuml_parallel
-@GEN_CMD='mkdir -p "$$outdir/diagrams" && \
-$(LINKML_RUN) gen-plantuml "$$s" > "$$outdir/diagrams/$$name-raw.puml" && \
-$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-	"$$s" "$$outdir/diagrams/$$name-raw.puml" filtered \
-	> "$$outdir/diagrams/$$name-filtered.puml" && \
-$(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
-	"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
-	> "$$outdir/diagrams/$$name.puml"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-plantuml --flag plantuml -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator plantuml -- $(1)
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator plantuml-filter -- $(1)
 @PLANTUML_IMAGE=$(PLANTUML_IMAGE) bash src/assets/scripts/makefile/batch-render-plantuml.sh $(1)
 endef
 

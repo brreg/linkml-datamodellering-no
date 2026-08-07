@@ -397,7 +397,15 @@
       "Bash(xargs -n1 basename)",
       "Bash(sed -i 's/log_debug\\(f\"openapi: {domain}\\\\/{name} hoppa over — {json_schema} finst ikkje \\(krev gen-jsonschema\\)\"\\)/log_error\\(f\"ÅTVARING: {json_schema} finst ikkje — hoppar over gen-openapi for {domain}\\\\/{name}\"\\)/' src/assets/scripts/makefile/batch-generate-instances.py)",
       "Bash(sed -i 's/log_debug\\(f\"asyncapi: {domain}\\\\/{name} hoppa over — {json_schema} finst ikkje \\(krev gen-jsonschema\\)\"\\)/log_error\\(f\"ÅTVARING: {json_schema} finst ikkje — hoppar over gen-asyncapi for {domain}\\\\/{name}\"\\)/' src/assets/scripts/makefile/batch-generate-instances.py)",
-      "Bash(echo \"diff exit: $?\")"
+      "Bash(echo \"diff exit: $?\")",
+      "Bash(rm -rf /tmp/before-doc-fresh)",
+      "Bash(mkdir -p /tmp/before-doc-fresh)",
+      "Bash(rm -rf /tmp/before-doc-fresh/docgen-examples /tmp/before-doc-fresh/docs)",
+      "Bash(mkdir -p /tmp/before-doc-fresh/docgen-examples)",
+      "Bash(mkdir -p /tmp/tiltak4-verify)",
+      "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk /tmp/tiltak4-verify/current-makefiles/)",
+      "Bash(mkdir -p /tmp/tiltak4-verify/current-makefiles)",
+      "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk src/assets/scripts/makefile/filter_plantuml.py src/assets/scripts/makefile/filter_erdiagram.py src/assets/scripts/makefile/batch-generate.py src/assets/scripts/makefile/batch-generate-instances.py /tmp/tiltak4-verify/current-makefiles/)"
     ]
   },
   "enableAllProjectMcpServers": true,

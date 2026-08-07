@@ -559,21 +559,23 @@ konklusjon, same metodikk som Tiltak 1–3.
       `gen-*`-targeta sin observerbare oppførsel (loggformat, feilmeldingar)
       endrar seg som følgje av batchinga (`make/README.md` oppdatert;
       loggformatet er uendra utetter, ingen `mkdocs/docs/`-endring naudsynt)
-- [ ] Tiltak 4: refaktorer `filter_plantuml.py`/`filter_erdiagram.py` til
+- [x] Tiltak 4: refaktorer `filter_plantuml.py`/`filter_erdiagram.py` til
       importerbare `process_file()`-funksjonar, verifiser standalone-CLI
       uendra
-- [ ] Tiltak 4: legg til `"doc"`/`"erdiagram"`/`"plantuml"`-kind i
-      `batch-generate.py` sitt REGISTRY (utvid `GeneratorSpec` med
-      `writes_directory`-felt for `gen-doc`)
-- [ ] Tiltak 4: batch `linkml-convert` (schema+eksempel+utfil-triplar) i
+- [x] Tiltak 4: legg til `"doc"`/`"erdiagram"`/`"plantuml"`-kind i
+      `batch-generate.py` sitt REGISTRY (utvida `GeneratorSpec` med
+      `extra_argv_fn`/`post_fn`/`out_subdir`-felt, ikkje `writes_directory`
+      som opphavleg skissert — sjå «Utført» for grunngjeving)
+- [x] Tiltak 4: batch `linkml-convert` (schema+eksempel+utfil-triplar) i
       `batch-generate-instances.py`, gjenbruk `convert-examples.sh` sin
       discovery-logikk
-- [ ] Tiltak 4: batch `"erdiagram-filter"`/`"plantuml-filter"` (2 modus)
+- [x] Tiltak 4: batch `"erdiagram-filter"`/`"plantuml-filter"` (2 modus)
       i `batch-generate-instances.py`
-- [ ] Tiltak 4: verifiser byte-for-byte/RDF-isomorfi for alle fire mot
-      ikkje-batcha køyring (lite + stort domene), isolert feilhandterings-
-      test for begge refaktorerte filter-scripta
-- [ ] Tiltak 4: oppdater `make/20-domain-targets.mk` — fjern
+- [x] Tiltak 4: verifiser byte-for-byte/RDF-isomorfi for alle fire mot
+      ikkje-batcha køyring (fullstendig domene-diff, `oreg`, 330 filer +
+      enkeltprimitiv-verifisering av kvart steg separat før integrasjon),
+      isolert feilhandteringstest for erdiagram-filter
+- [x] Tiltak 4: oppdater `make/20-domain-targets.mk` — fjern
       `linkml-convert`-løkka, pek attverande fasar til nye batch-kall
 
 ## Utført (Tiltak 1 — 2026-08-07)
@@ -884,6 +886,163 @@ committa kjeldedata, ikkje reint byggoutput.
   begge exit-kode 0.
 - Isolert feilhandteringstest for `openapi-spec-validator` (ugyldig spec).
 
-**Attverande arbeid:** parallellisering mellom batch-gruppene, og
-CI-måling er ikkje gjennomførte. Alle tre tiltak (1, 2, 3) i denne specen
-er no implementerte og verifiserte lokalt.
+**Attverande arbeid (etter Tiltak 3):** parallellisering mellom batch-
+gruppene, og CI-måling er ikkje gjennomførte.
+
+## Utført (Tiltak 4 — 2026-08-07)
+
+Implementert som planlagt for alle fire attverande generatorane
+(`linkml-convert`, `gen-erdiagram`, `gen-plantuml` Fase A, `gen-doc`
+Fase B). Alle 11 generator-«kind»-namn i `batch-generate.py` sitt REGISTRY
+(dei 8 frå Tiltak 1 + `erdiagram`/`plantuml`/`doc`) og alle 7 i
+`batch-generate-instances.py` (dei 4 frå Tiltak 3 +
+`erdiagram-filter`/`plantuml-filter`/`convert`) brukar no det same
+Click-drivne in-process-mønsteret som vart etablert og verifisert i
+Tiltak 1.
+
+**Nye/endra filer:**
+
+- `src/assets/scripts/makefile/filter_plantuml.py`,
+  `filter_erdiagram.py`: refaktorert frå flate modul-nivå-script (ingen
+  `main()`, `global`-basert tilstand) til `process_file(...) -> str`-
+  funksjonar med lokal tilstand (`nonlocal` i staden for `global`), pluss
+  ein tynn CLI-kompatibel `main()`. Verifisert standalone-CLI-åtferd
+  uendra FØR batch-integrasjonen vart testa.
+- `src/assets/scripts/makefile/batch-generate.py`: `GeneratorSpec` utvida
+  med tre nye, valfrie felt — `extra_argv_fn` (per-skjema-argv-bygging med
+  biverknad, t.d. mkdir), `post_fn` (etterhandsaming etter vellukka kall,
+  t.d. sed-erstatning), `out_subdir` (for `gen-plantuml` sin
+  `diagrams/`-underkatalog). Nye REGISTRY-oppføringar: `erdiagram`
+  (`--no-mergeimports`, skriv `-erdiagram-raw.md`), `plantuml` (skriv
+  `diagrams/-raw.puml`), `doc` (`out_suffix=None` — DocGenerator skriv
+  sjølv til katalog via eigne `-d`/`--example-directory`-flagg bygde av
+  `extra_argv_fn`, opprydding via `post_fn`).
+- `src/assets/scripts/makefile/batch-generate-instances.py`: tre nye
+  `run_*`-funksjonar — `run_erdiagram_filter`/`run_plantuml_filter`
+  (importerer dei refaktorerte filter-scripta, same per-skjema-isolasjon
+  som resten av fila) og `run_convert` (importerer
+  `linkml.converter.cli:cli`, les jobbar frå ei TSV-fil via nytt
+  `--jobs-tsv`-flagg — attributta til `main()` sin argparse, sidan
+  `convert`-jobbar ikkje er ei enkel skjemaliste). `_import_from_path()`
+  fekk ein kritisk fiks (sjå eige avsnitt under).
+- `make/10-generator-macros.mk`: `run_gen_doc_parallel` er no HEILT
+  batcha (ingen `run-parallel-gen.sh`-fase att for gen-doc).
+  `run_gen_erdiagram_parallel` er tre fasar (batcha generering → per-
+  skjema awk, framleis host-køyrt/ubatcha sidan han aldri kosta noko → batcha
+  filter). `run_gen_plantuml_parallel` er no tre fasar (batcha generering
+  → batcha filter, ny → batcha SVG-render frå Tiltak 2).
+- `make/20-domain-targets.mk`: `linkml-convert`-steget bytt frå ei
+  manuell `while read`-løkke (éin kontainar per eksempelfil) til å skrive
+  `convert-examples.sh` sin jobbliste til ei mellombels TSV-fil
+  (`$(GEN_DIR)/.convert-jobs.XXXXXX`, sletta etterpå) og gjere **eitt**
+  batcha kall — hoppar over kallet heilt dersom jobblista er tom (unngår
+  ein unødvendig tom kontainar-start for domene utan konverterbare
+  eksempel).
+- `make/README.md`: oppdatert til å nemne dei nye kinda.
+
+**Avvik frå opphavleg plan:** `GeneratorSpec` fekk **tre** nye felt
+(`extra_argv_fn`, `post_fn`, `out_subdir`), ikkje det eine
+`writes_directory`-feltet som vart skissert i spec-planen. Grunngjeving,
+avdekt undervegs: `out_suffix=None` (alt eksisterande, brukt av `merge`)
+dekte allereie «diskarder run_click()-returverdien»-semantikken `doc`
+treng — den reelle nye kompleksiteten var **å bygge dei rette CLI-flagga**
+(`--template-directory`, `--example-directory <per-skjema-sti>`, `-d
+<per-skjema-sti>`) og **rydde opp etterpå** (sed-erstatninga), ikkje sjølve
+skrivemåten. To presist namngjevne, valfrie felt (brukt av éin einaste
+REGISTRY-oppføring kvar) vurderast som minimal nok utviding, i tråd med
+spec-planen sitt uttrykte mål om å ikkje komplisere REGISTRY-et for dei 10
+andre, uendra oppføringane.
+
+### Kritisk bug avdekt og retta undervegs: dataclass-import via `importlib.util` krasjar utan `sys.modules`-registrering
+
+`batch-generate-instances.py` sin `_import_from_path()`-hjelpar (etablert i
+Tiltak 3 for bindestrek-namngjevne script) kasta
+`AttributeError: 'NoneType' object has no attribute '__dict__'` når
+`run_convert()` prøvde å importere `batch-generate.py` (for å gjenbruke
+`run_click()`). Rotårsak: `batch-generate.py` sin `GeneratorSpec` brukar
+`@dataclass`, og `dataclasses` sin interne typeoppløysing slår opp
+`sys.modules[cls.__module__]` — men eit modulobjekt bygd via
+`importlib.util.module_from_spec()` er **ikkje** automatisk registrert i
+`sys.modules` før `exec_module()` er kalla, med mindre ein eksplisitt
+gjer det sjølv. Retting: `sys.modules[module_name] = module` lagt til
+**før** `spec.loader.exec_module(module)` i `_import_from_path()` — ein
+éin-linjes, standard Python-idiom for dynamiske modulimportar, no
+verifisert naudsynt her (ikkje berre defensiv kode). Påverkar alle
+kallarar av `_import_from_path()`, ikkje berre `run_convert()` — retta éin
+stad.
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag):**
+
+Kvart nytt steg vart FØRST verifisert isolert (byte-for-byte mot ekte
+CLI-subprosess-output) FØR integrasjonstesten:
+
+| Steg | Testa mot | Resultat |
+|---|---|---|
+| `doc` (rå Click-invokering, katalog-skrivande) | `oreg` (60 `.md`-filer, med eksempel via `docgen-examples`) | `diff -rq` — 0 skilnader |
+| `erdiagram` (rå generering) | `oreg` | Byte-identisk |
+| `plantuml` (rå generering) | `oreg` | Byte-identisk |
+| `erdiagram-filter` | `oreg` | Byte-identisk mot refaktorert `filter_erdiagram.py` sin eigen CLI |
+| `plantuml-filter` (2 modus) | `oreg` | Byte-identisk **etter** ein fiks (manglande avsluttande linjeskift — sjå under) |
+| `convert` | `oreg` | Byte-identisk |
+
+**Mindre bug avdekt og retta:** `plantuml-filter` sin første
+implementasjon skreiv `process_file()` sin returverdi direkte til fil,
+men glømte at CLI-en sin `main()` brukte `print(...)`, som legg til eit
+avsluttande linjeskift `process_file()` sjølv ikkje inkluderer. Avdekt
+ved byte-diff (1 linje differanse: «No newline at end of file»), retta
+ved å leggje til `+ "\n"` i skrivestegen. `erdiagram-filter` trong ingen
+tilsvarande fiks sidan `filter_erdiagram.py` sin `process_file()` alt
+bakar inn alle tre opphavlege `print()`-linjeskifta strukturelt i
+returverdien.
+
+**Full domene-integrasjonstest (`oreg`, mot ei uavhengig, fullstendig
+attståande baseline):** bygde ei FERSK, sjølvstendig baseline ved å
+reversere `make/10-generator-macros.mk`, `make/20-domain-targets.mk` til
+committa `HEAD` (som på dette tidspunktet var Tiltak 1+2+3, committa av
+brukaren mellom øktene — IKKJE Tiltak 4), køyrde `make domain-oreg` reint,
+tok vare på resultatet, gjenoppretta Tiltak 4-endringane, køyrde
+`make domain-oreg` på nytt, og samanlikna heile `generated/oreg/`
+fil-for-fil (byte-diff for dei fleste filtypar, RDF-graf-isomorfi for
+`.ttl`, jf. Tiltak 1 sin grunngjeving for kvifor byte-diff ikkje er eit
+gyldig kriterium for `gen-shacl`/`gen-rdf`-output):
+
+- **330 felles filer.** Berre **6 avvik** — nøyaktig dei same 6 kjende,
+  harmlause avvika som Tiltak 1 sin verifisering fann (2× embedda
+  `generation_date`-tidsstempel i `.jsonld`/`.py`, 2× kjend RDF-non-
+  determinisme i `.ttl`, same triple-tal, stadfesta pre-eksisterande og
+  ikkje-relatert til denne endringa).
+- **2 nye filer** (berre i den nye arkitekturen):
+  `<name>-erdiagram-raw.md` — venta og korrekt: den nye arkitekturen
+  skriv rå-linkml-output til disk FØR awk-steget (i staden for å pipe det
+  direkte inn i awk utan mellomlagring, slik den gamle arkitekturen
+  gjorde) — eit reint tilleggs-mellomsteg, ikkje eit tap av data.
+- **0 manglande filer.**
+
+**Feilisolasjon verifisert eksplisitt for `erdiagram-filter`:** batcha eit
+gyldig og eit bevisst øydelagd skjema (ugyldig YAML) i same kall —
+stadfesta at det gyldige skjemaet framleis produserer korrekt output,
+feilen for det øydelagde skjemaet vert logga synleg (ikkje stille,
+inkluderer den faktiske YAML-parse-feilen), og skriptet returnerer
+korrekt feil-exit-kode for heile batchen.
+
+**Veggklokketid:** `oreg` (2 skjema) — baseline (Tiltak 1-3) 176 s, etter
+Tiltak 4 172 s. Ingen målbar endring, same forklaring som Tiltak 1: denne
+sandkassa har 16 lokale CPU-kjernar, langt fleire enn dei 2 skjemaa i
+`oreg`, så den gamle arkitekturen sin xargs-parallellitet var alt nær
+optimal her. Same atterhald som før: den reelle gevinsten (færre
+kontainar-oppstartar, mindre CPU-kontensjon) er venta å vise seg tydelegare
+på ein ressurs-avgrensa CI-runner, ikkje nødvendigvis i denne lokale
+målinga.
+
+**Testa:**
+- Alle 11 (`batch-generate.py`) + 7 (`batch-generate-instances.py`)
+  generator-kind testa individuelt før integrasjon.
+- `make -n domain-oreg` (dry-run) — stadfesta korrekt batcha kommandolinje
+  for kvart steg, inkludert den nye `linkml-convert`-TSV-mekanismen.
+- `make domain-oreg` — fullt, uavhengig før/etter-samanlikna
+  integrasjonstest (sjå over).
+- Isolert feilhandteringstest for `erdiagram-filter`.
+
+**Attverande arbeid:** parallellisering mellom batch-gruppene og
+CI-måling er ikkje gjennomførte. Alle fire tiltak (1, 2, 3, 4) i denne
+specen er no implementerte og verifiserte lokalt.

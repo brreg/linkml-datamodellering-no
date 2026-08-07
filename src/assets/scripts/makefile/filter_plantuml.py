@@ -1,102 +1,104 @@
 # filter_plantuml.py
-import re, sys, yaml
+"""Filtrer eit PlantUML-diagram til "filtered" (berre lokale klasser) eller
+"full" (alle klasser utanom tree_root) modus.
+
+Bruk (CLI): python3 filter_plantuml.py <schema.yaml> <raw.puml> [filtered|full]
+Bruk (import): process_file(schema_path, puml_path, mode) -> str
+"""
+
+import re
+import sys
 from pathlib import Path
 
-schema_path = Path(sys.argv[1])
-puml_path = Path(sys.argv[2])
-mode = sys.argv[3] if len(sys.argv) > 3 else "filtered"  # "filtered" eller "full"
+import yaml
 
-schema = yaml.safe_load(schema_path.read_text(encoding="utf-8"))
-classes_dict = schema.get("classes") or {}
+CLASS_DEF_RE = re.compile(r'^\s*(abstract\s+|class\s+)"([^"]+)"')
+# Fangar relasjonar: "A" --> "B" eller "A" --> "0..1" "B" eller "A" ^-- "B" (arv),
+# inkl. kardinalitet som "0..1", "1..*" osv.
+REL_RE = re.compile(r'^\s*"([^"]+)"\s+([\-*o<>.|^]+)\s+(?:"[^"]*"\s+)?"([^"]+)"')
 
-# Hent tree_root-klasser (containerklasser) — skal alltid filtrerast vekk
-tree_root_classes = set()
-for cls_name, cls_def in classes_dict.items():
-    if (cls_def or {}).get("tree_root", False):
-        tree_root_classes.add(cls_name)
 
-# Hent lokale klasser (ekskl. tree_root)
-local_classes = set()
-for cls_name, cls_def in classes_dict.items():
-    if not (cls_def or {}).get("tree_root", False):
-        local_classes.add(cls_name)
+def process_file(schema_path: Path, puml_path: Path, mode: str = "filtered") -> str:
+    """Filtrer puml_path sitt innhald basert på schema_path sine klasser.
 
-# Bestem kva klasser som skal inkluderast basert på mode
-if mode == "filtered":
-    # Berre lokale klasser (ingen importerte)
-    allowed_classes = local_classes
-else:  # mode == "full"
-    # Alle klasser minus tree_root (inkluderer importerte)
-    allowed_classes = None  # None betyr "alle utanom tree_root"
+    mode="filtered": berre lokale klasser (ingen importerte).
+    mode="full": alle klasser minus tree_root (inkluderer importerte).
+    """
+    schema = yaml.safe_load(schema_path.read_text(encoding="utf-8"))
+    classes_dict = schema.get("classes") or {}
 
-text = puml_path.read_text(encoding="utf-8").splitlines()
+    tree_root_classes = {
+        cls_name for cls_name, cls_def in classes_dict.items() if (cls_def or {}).get("tree_root", False)
+    }
+    local_classes = {
+        cls_name for cls_name, cls_def in classes_dict.items() if not (cls_def or {}).get("tree_root", False)
+    }
+    allowed_classes = local_classes if mode == "filtered" else None  # None => alle utanom tree_root
 
-out = []
-in_class_block = False
-current_class = None
-class_buf = []
+    def should_include_class(cls_name: str) -> bool:
+        if cls_name in tree_root_classes:
+            return False
+        if allowed_classes is None:
+            return True
+        return cls_name in allowed_classes
 
-# Regex for klassedefinisjoner: class "Klassenamn" eller abstract "Klassenamn"
-class_def_re = re.compile(r'^\s*(abstract\s+|class\s+)"([^"]+)"')
+    text = puml_path.read_text(encoding="utf-8").splitlines()
 
-# Regex for relasjonar: "A" --> "B" eller "A" --> "0..1" "B" eller "A" ^-- "B" (arv)
-# Fangar også kardinalitet som "0..1", "1..*" osv.
-rel_re = re.compile(r'^\s*"([^"]+)"\s+([\-*o<>.|^]+)\s+(?:"[^"]*"\s+)?"([^"]+)"')
-
-def should_include_class(cls_name):
-    """Sjekk om ein klasse skal inkluderast basert på mode."""
-    if cls_name in tree_root_classes:
-        return False  # tree_root-klasser skal alltid filtrerast vekk
-    if allowed_classes is None:
-        return True  # "full" mode — alle utanom tree_root
-    return cls_name in allowed_classes  # "filtered" mode — berre lokale
-
-def flush_class():
-    global class_buf, current_class
-    if current_class and should_include_class(current_class):
-        out.extend(class_buf)
-    class_buf = []
+    out: list[str] = []
+    in_class_block = False
     current_class = None
+    class_buf: list[str] = []
 
-for line in text:
-    # Bevare header-linjer
-    if line.strip() in ["@startuml", "@enduml"] or line.startswith("skinparam") or line.startswith("hide"):
-        out.append(line)
-        continue
+    def flush_class():
+        nonlocal class_buf, current_class
+        if current_class and should_include_class(current_class):
+            out.extend(class_buf)
+        class_buf = []
+        current_class = None
 
-    # Klassedefinisjonsstart: class "Klassenamn" { eller abstract "Klassenamn" {
-    m = class_def_re.match(line)
-    if m:
-        flush_class()
-        in_class_block = True
-        current_class = m.group(2)
-        class_buf = [line]
-        continue
+    for line in text:
+        if line.strip() in ["@startuml", "@enduml"] or line.startswith("skinparam") or line.startswith("hide"):
+            out.append(line)
+            continue
 
-    if in_class_block:
-        class_buf.append(line)
-        if line.strip() == "}":
-            in_class_block = False
+        m = CLASS_DEF_RE.match(line)
+        if m:
             flush_class()
-        continue
+            in_class_block = True
+            current_class = m.group(2)
+            class_buf = [line]
+            continue
 
-    # Relasjonslinje: "A" --> "B" : "label"
-    m = rel_re.match(line)
-    if m:
-        a = m.group(1)
-        b = m.group(3)
-        # I "filtered" mode: berre relasjonar mellom lokale klasser
-        # I "full" mode: alle relasjonar utanom dei som involverer tree_root
-        if mode == "filtered":
-            if a in local_classes and b in local_classes:
-                out.append(line)
-        else:  # mode == "full"
-            if a not in tree_root_classes and b not in tree_root_classes:
-                out.append(line)
-        continue
+        if in_class_block:
+            class_buf.append(line)
+            if line.strip() == "}":
+                in_class_block = False
+                flush_class()
+            continue
 
-    # Tomme linjer
-    if line.strip() == "":
-        out.append(line)
+        m = REL_RE.match(line)
+        if m:
+            a, b = m.group(1), m.group(3)
+            if mode == "filtered":
+                if a in local_classes and b in local_classes:
+                    out.append(line)
+            else:
+                if a not in tree_root_classes and b not in tree_root_classes:
+                    out.append(line)
+            continue
 
-print("\n".join(out))
+        if line.strip() == "":
+            out.append(line)
+
+    return "\n".join(out)
+
+
+def main():
+    schema_path = Path(sys.argv[1])
+    puml_path = Path(sys.argv[2])
+    mode = sys.argv[3] if len(sys.argv) > 3 else "filtered"
+    print(process_file(schema_path, puml_path, mode))
+
+
+if __name__ == "__main__":
+    main()
