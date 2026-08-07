@@ -539,3 +539,111 @@ av denne enkeltendringa.
 
 **Alle tiltak i denne specen er no gjennomførte** (Tiltak 1, 2, 3 og
 loggregenereringa). Specen er klar til å flyttast til `specs/done/`.
+
+## Tillegg: estimert minnegevinst og evaluering av byggetidstiltak (2026-08-07)
+
+Oppfølgingsspørsmål frå brukar: (1) kvantifiser estimert spart minnebruk frå
+tiltaka over, (2) vurder om noko kan gjerast ved **bygging** av
+`linkml`/`linkml_runtime`-kontaineren for å redusere oppstart-/importtid
+ytterlegare, utover det Tiltak 1/2 alt oppnår.
+
+### 1) Estimert spart minnebruk
+
+Målt direkte (`resource.getrusage().ru_maxrss` inne i kontaineren):
+
+| Prosess | Peak RSS |
+|---|---|
+| Bar Python-tolk, ingen import | 9,4 MB |
+| Etter `import linkml_runtime` + `linkml.validator` + `linkml.linter` | 89–110 MB |
+| `gen-linkml` sitt eige importkjede (`linkml.generators.linkmlgen`) | 86,3 MB |
+
+Minneveksten **innanfor** éin batcha prosess er svak — importkostnaden
+dominerer, ikkje talet på valideringar i same prosess:
+
+| Skjema validerte i same prosess (batch) | Peak RSS |
+|---|---|
+| 1 | 107,6 MB |
+| 10 | 124,4 MB (+1,9 MB/skjema) |
+| 36 | 172,5 MB (+1,9 MB/skjema) |
+
+**Kvar minnegevinsten faktisk gjeld — og kvar han ikkje gjer:**
+
+- **`make validate-bronze`/`validate-data` (Tiltak 1):** den gamle
+  arkitekturen var *sekvensiell* — peak-minne var alltid ~110 MB på eitt
+  tidspunkt, uansett kor mange skjema (containerar køyrde etter kvarandre,
+  ikkje samstundes). Tiltak 1 endrar difor **ikkje** peak-minnebruk her i
+  praksis — gevinsten var tid (importskatten betalt éin gong, ikkje N
+  gonger), ikkje minne. Verdt å presisere sidan det er lett å anta
+  «færre containerar = mindre minne generelt», noko som berre stemmer for
+  *samtidige* scenario.
+- **Tiltak 2 (fjerna utflatingssteget) i CI sin parallelle domenevalidering**
+  (`generate.yml`/`validate.yml`, alt parallellisert i ein tidlegare spec —
+  N skjema validerte **samstundes** i bakgrunnen): før Tiltak 2 brukte
+  kvart samtidig skjema to sekvensielle containerar (flatten ~86 MB +
+  valider ~110 MB). Estimert aggregert peak-minne for eit domene med N
+  samtidige skjema: **frå ~N × 196 MB til ~N × 110 MB, ei odel omtrent
+  44 % reduksjon** i denne konkrete, samtidige køyringsbanen. (Estimat basert
+  på målte einskild-prosess-tal — ikkje stadfesta med faktisk
+  `podman stats`-måling under ein reell parallell CI-køyring.)
+- **Tiltak 3 (parallellisert `validate-examples`) går motsett veg,
+  medvite:** N containerar køyrer no samstundes i staden for sekvensielt —
+  byter **meir** aggregert minnebruk mot **mindre** veggklokketid. For eit
+  domene med N skjema er estimert samtidig peak no i storleiksorden N ×
+  (minnebruk for éin `linkml validate`-container), mot éin einskild
+  container om gongen før. Nemnt eksplisitt her sidan spørsmålet gjeld
+  minne spesifikt — dette er ein avveging, ikkje ei eintydig forbetring på
+  minnesida.
+
+### 2) Evaluering: byggetidstiltak for å redusere importtid
+
+Testa empirisk mot `src/assets/containers/Dockerfile.mcp-linkml`:
+
+**a) Precompilert bytekode.** Biletet set i dag `PYTHONDONTWRITEBYTECODE=1`
+i `base-runtime`-steget, som hindrar **all** `.pyc`-cache (stadfesta: nesten
+ingen `__pycache__`-katalogar finst i det committa biletet). Bygde eit
+spike-bilete med `RUN python3 -m compileall -q -j 0 /install` lagt til i
+`base-builder`-steget (stadfesta at `.pyc`-filer faktisk vart skrivne og
+kopierte over til sluttbiletet). Målt importtid (3 køyringar kvar):
+produksjonsbilete 3,9–5,0 s, spike-bilete 4,2–5,4 s — **ingen måleleg
+forbetring**, innanfor normal støy.
+
+**b) `PYTHONOPTIMIZE=1`.** Testa som ei rimeleg gissing (strip
+docstrings/assert). Resultat: **gjorde det verre** — importtid dobla seg
+til ~10,2–10,6 s. Sannsynleg årsak: ein separat, ukacha bytekode-variant
+(`.opt-1.pyc`) tvingar full rekompilering uavhengig av om
+`PYTHONDONTWRITEBYTECODE` er sett. **Ikkje å tilrå.**
+
+**c) `-X importtime`-profilering** (`python3 -X importtime -c "import
+linkml_runtime; from linkml.validator import validate; from
+linkml.linter.linter import Linter"`): kostnaden fordeler seg over **~984
+moduler**, ingen enkelt modul dominerer (største enkeltmodul etter eigen
+tid: `linkml_runtime.linkml_model.meta` på 160 ms, deretter `typing`
+124 ms, `ShExJSG.ShExJ` 116 ms, `argparse` 91 ms, `tarfile` 88 ms — ei lang
+hale av moderate kostnader, ikkje éin flaskehals). Summen av eigen-tid
+(~5,1 s) matchar observert veggklokketid tett, som stadfestar at kostnaden
+er reell **CPU-utføringstid ved modulinitialisering** (bygging av
+pydantic-liknande modellar, klassehierarki, registreringar i
+`linkml_runtime.linkml_model`, `rdflib`, `linkml.generators` m.fl.) — ikkje
+disk-I/O og ikkje parse-/kompileringstid (jf. punkt a).
+
+**Konklusjon:** ingen testa byggetidstiltak reduserer sjølve importkostnaden
+meiningsfullt. Kostnaden er **strukturell** — bredda av `linkml` sitt
+avhengigheitstre (~984 moduler for ein minimal valideringsbruk) — ikkje
+konsentrert i éin komponent som kan fjernast eller bytast ut utan å endre
+`linkml`/`linkml_runtime` sjølve (utanfor dette repoet sin kontroll, og eit
+langt større og meir risikofylt inngrep enn nokon av tiltaka i denne
+specen). Den tidlegare Alpine-migreringa
+(`videre-containeroptimering-mcp-plantuml-alpine.md`) endrar heller ikkje
+dette biletet — importkostnaden er CPU-bunden Python-utføring, ikkje noko
+musl/glibc-skilnaden mellom Alpine og Debian/slim påverkar.
+
+**Praktisk følgje:** batching (Tiltak 1) er difor ikkje berre den beste,
+men i praksis den **einaste** tilgjengelege avbøtinga innanfor dette repoet
+sin kontroll — han reduserer *kor ofte* kostnaden vert betalt, ikkje sjølve
+kostnaden. Er endå meir aggressiv batching (t.d. éin langlevd
+validator-prosess/daemon på tvers av heile `make`-økta, i staden for éin
+kontainar per `validate-bronze DOMAIN=...`-kall) ønskt, er det den einaste
+attverande retninga med reelt potensial — men det er eit større
+arkitektonisk steg (krev eit persistent daemon-oppsett, gjev mest nytte
+lokalt i utviklingsløkker, lite for CI der kvar jobb uansett startar i eit
+reint miljø) og er **ikkje** vurdert eller implementert her.
