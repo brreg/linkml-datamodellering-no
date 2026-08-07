@@ -374,6 +374,160 @@ skjema-nivå (`xargs -P16` fell bort som konsept for dei batcha
 generatorane). Domene-nivå-parallelliteten i `generate.yml` sin matrise er
 uendra og treng ingen endring.
 
+## Tiltak 4 — Batch dei fire attverande generatorane (linkml-convert, gen-erdiagram, gen-plantuml Fase A, gen-doc Fase B)
+
+Etter Tiltak 1–3 står fire generatorar att heilt eller delvis ubatcha (jf.
+«kva gjenstår»-svaret gitt undervegs i denne specen):
+
+| Generator | Status i dag | Kontainarar/skjema |
+|---|---|---|
+| `linkml-convert` (eksempel-RDF) | Heilt ubatcha — eiga manuell bash-løkke i `domain_target` | 1 (LINKML_RUN) |
+| `gen-erdiagram` | Heilt ubatcha | 2 (LINKML_RUN + PYTHON_RUN) — awk-steget imellom er allereie host-køyrt, ikkje kontainerisert |
+| `gen-plantuml` Fase A (`.puml`-generering) | Ubatcha (berre Fase B, SVG-rendering, vart batcha i Tiltak 2) | 3 (LINKML_RUN + 2× PYTHON_RUN) |
+| `gen-doc` Fase B (sjølve CLI-et) | Ubatcha (berre `docgen-examples`-forsteget vart batcha i Tiltak 3) | 1 (LINKML_RUN) |
+
+**Verifisert føresetnad for dette tiltaket:** alle fire brukar Click-kommandoar
+frå same familie som Tiltak 1 sine generatorar:
+
+- `linkml-convert` → `linkml.converter.cli:cli` (stadfesta via
+  `importlib.metadata.entry_points()`)
+- `gen-erdiagram` → `linkml.generators.erdiagramgen.cli`
+- `gen-plantuml` → `linkml.generators.plantumlgen.cli` (alt kjent frå
+  Tiltak 2)
+- `gen-doc` → `linkml.generators.docgen.cli`
+
+Import-kostnad målt for dei tre nye modulane (same mønster som Tiltak 1
+sitt «Funn»): `linkml.converter.cli` 5,47 s, `erdiagramgen` 5,74 s,
+`docgen` 5,72 s — konsistent med dei ~5,4–5,7 s alle andre linkml-
+generator-modular alt viste.
+
+**Kritisk spike verifisert før dette tiltaket vart skrive:** `gen-doc` er
+annleis enn Tiltak 1 sine generatorar — `DocGenerator` **skriv fleire
+filer til ein katalog** (via `-d`), returnerer ikkje éin streng til
+stdout. Testa eksplisitt om `batch-generate.py` sitt `run_click()`-mønster
+(`make_context()` + `invoke()`) framleis fungerer korrekt for denne typen
+kommando: køyrde `gen-doc` in-process mot `register-over-aksjeeiere`,
+samanlikna heile output-katalogen (60 `.md`-filer) mot ein ekte CLI-
+subprosess-køyring — **`diff -rq` fann ingen skilnader i det heile**.
+Dette stadfestar at Click-drive-invokering-mønsteret generaliserer til
+katalog-skrivande generatorar utan endring, ikkje berre dei stdout-
+returnerande frå Tiltak 1.
+
+**Viktig skilnad frå Tiltak 1 sine generatorar — dei to filter-scripta må
+refaktorerast først:** `filter_plantuml.py` og `filter_erdiagram.py` er,
+i motsetnad til `gen-docgen-examples.py` (alt refaktorert reint i Tiltak
+3), **flate modul-nivå-script** — dei les `sys.argv` direkte som
+modul-nivå-kode, har ingen `main()`-funksjon og ingen
+`if __name__ == "__main__":`-vakt. Dei kan difor **ikkje** importerast
+trygt i dag (import ville køyrt heile skriptlogikken med feil/manglande
+argv med det same). Dette er den einaste reelle blokkeringa for Fase B av
+`gen-erdiagram`/`gen-plantuml` — sjølve genereringssteget (Fase A) er
+uavhengig av dette og kan batchast med det same.
+
+`filter_container.awk` (brukt av `gen-erdiagram`, mellom generering og
+python-filter) køyrer allereie **direkte på CI-runnaren/host**, ikkje i
+ein kontainar (ingen `podman run`-innpakking i dagens `GEN_CMD`) — han ber
+difor ikkje kontainar-oppstart-kostnaden dei andre stega gjer, og **er
+ikkje ein kandidat for batching** (ingenting å vinne, jf. same grunngjeving
+som «Ikkje eit tiltak: gen-xsd»).
+
+### Steg
+
+1. **`gen-doc` Fase B** (lågast risiko, alt spike-verifisert): legg til
+   `"doc"` som ny generator-kind i `batch-generate.py`. `DocGenerator`
+   sitt filskrivings-mønster (katalog, ikkje éin streng) passar ikkje heilt
+   inn i dagens `GeneratorSpec.out_suffix`-felt (som antek éin
+   utfil-streng) — utvid `GeneratorSpec` med eit `writes_directory: bool`-
+   felt (eller tilsvarande), slik at `main()`-løkka anten skriv
+   `run_click()` sin returverdi til éi fil (som i dag) eller berre kallar
+   `run_click()` for biverknaden (filene DocGenerator alt skreiv via
+   `-d`/`directory`-kwarget) utan å skrive noko sjølv. Flytt
+   `sed -i "/Container/d" index.md`-oppryddinga inn i same batch-steg som
+   ei enkel Python-strengoperasjon (fjernar ein liten, unødvendig
+   host-avhengigheit til `sed`).
+2. **`linkml-convert`:** legg til ein ny batch-funksjon (i
+   `batch-generate-instances.py`, sidan jobb-lista her ikkje er reint
+   schema→utfil, men schema+eksempel+utfil-triplar). Gjenbruk
+   `convert-examples.sh` sin eksisterande discovery/filtrerings-logikk
+   (finn eksempelfiler, filtrer mot `example_rdf: false`) — anten ved å
+   halde fram å køyre det scriptet for å produsere jobb-TSV-en og lese ho
+   inn i batch-Python-et, eller ved å portere same filtreringslogikk til
+   Python (vurder kva som gjev minst duplisering). Kall
+   `linkml.converter.cli:cli` sitt Click-API in-process per triple,
+   isolert feilhandtering per triple (same mønster som resten av
+   `batch-generate-instances.py`). Erstatt `domain_target` sin manuelle
+   `while read`-løkke med eitt batch-kall.
+3. **`gen-erdiagram` Fase A (generering):** legg til `"erdiagram"` som ny
+   kind i `batch-generate.py` sitt REGISTRY (same mønster som dei 8
+   eksisterande), skriv til `$name-erdiagram-unfiltered.md` **før** awk-
+   steget (uendra, held fram å køyre per skjema på host).
+4. **`gen-erdiagram` Fase B (python-filter):** refaktorer
+   `filter_erdiagram.py` etter same mønster som Tiltak 3 sin
+   `gen-docgen-examples.py`-refaktorering — trekk ut ein
+   `process_file(schema_path, mmd_path) -> str`-funksjon, behald
+   ein tynn CLI-kompatibel `main()` som kallar henne. Legg til ein
+   `"erdiagram-filter"`-modus i `batch-generate-instances.py` som løkkar
+   over N skjema sine (alt awk-filtrerte) mellomresultat i éin prosess.
+5. **`gen-plantuml` Fase A (generering):** legg til `"plantuml"` som ny
+   kind i `batch-generate.py` sitt REGISTRY, skriv `$name-raw.puml`.
+6. **`gen-plantuml` Fase B (python-filter, to modus):** refaktorer
+   `filter_plantuml.py` same måte som steg 4 — trekk ut
+   `process_file(schema_path, puml_path, mode) -> str`. Legg til ein
+   `"plantuml-filter"`-modus i `batch-generate-instances.py` som løkkar
+   over (skjema × modus)-kombinasjonar (2 per skjema: `filtered` og
+   `full`) i éin prosess.
+7. **Verifiser** alle fire som i Tiltak 1–3: byte-for-byte-diff (eller
+   RDF-isomorfi der relevant — `linkml-convert` sitt TTL-output er
+   underlagt same kjende non-determinisme som `gen-shacl`/`gen-rdf`, jf.
+   Tiltak 1) mot ikkje-batcha køyring, for minst eitt lite og eitt stort
+   domene, pluss ein isolert feilhandteringstest for kvar av dei to
+   refaktorerte filter-scripta.
+8. **Oppdater `make/20-domain-targets.mk`** — fjern `linkml-convert`-
+   løkka og pek `run_gen_doc_parallel`/`run_gen_erdiagram_parallel`/
+   `run_gen_plantuml_parallel` sine attverande fasar til dei nye batch-
+   kalla.
+
+### Forventa gevinst
+
+Kontainar-tal for eit domene med maksimalt aktiverte skjema, dei fire
+generatorane samla (baserte på dagens repo-breie flagg-tal: `example_rdf`
+16, `erdiagram` 33, `plantuml` 19, `docs` 33):
+
+| Generator | Kontainarar i dag (repo-breitt) | Etter Tiltak 4 (repo-breitt, ~9 domene) |
+|---|---|---|
+| `linkml-convert` | 16 | ≤9 |
+| `gen-erdiagram` (generering) | 33 | ≤9 |
+| `gen-erdiagram` (filter) | 33 | ≤9 |
+| `gen-plantuml` (generering) | 19 | ≤9 |
+| `gen-plantuml` (filter, 2×) | 38 | ≤9 |
+| `gen-doc` | 33 | ≤9 |
+| **Sum** | **172** | **≤54** |
+
+Same atterhald som Tiltak 1 og 2: den reelle veggklokkegevinsten avheng av
+om steget alt var fullt overlappa av `xargs -P16` lokalt (som Tiltak 1) eller
+strukturelt flytta ut av ein per-skjema-kritisk-sti (som Tiltak 2 synte
+ekte gevinst for). `gen-doc` og `gen-erdiagram` gjer også reelt
+malararbeid/traversering (ikkje berre import), så gevinsten der vil vere
+mindre enn dei reint import-dominerte stega — mål lokalt og i CI før
+konklusjon, same metodikk som Tiltak 1–3.
+
+### Risiko
+
+**Moderat.** Høgast risiko-element:
+
+- Refaktoreringa av `filter_plantuml.py`/`filter_erdiagram.py` frå flate
+  script til importerbare funksjonar er meir ein reell kodeendring enn
+  Tiltak 1–3 sine reint additive endringar — begge må verifiserast å
+  produsere **identisk** output før/etter refaktorering, isolert frå
+  batch-spørsmålet (same to-stegs verifiseringsmetodikk som
+  `gen-docgen-examples.py`-refaktoreringa i Tiltak 3: test standalone-CLI
+  uendra FØRST, deretter test batch-modus).
+- `GeneratorSpec`-utvidinga for katalog-skrivande generatorar (`gen-doc`)
+  er den einaste strukturelle endringa i sjølve `batch-generate.py` sidan
+  Tiltak 1 vart implementert — hold ho minimal (eitt nytt felt, ikkje ein
+  ny abstraksjonsklasse) for å unngå å komplisere REGISTRY-et unødvendig
+  for dei 8 eksisterande, uendra generatorane.
+
 ## Handlingsliste
 
 - [x] Tiltak 1: design og implementer `batch-generate.py` for dei 8
@@ -390,9 +544,9 @@ uendra og treng ingen endring.
       (minst eitt lite domene, eitt stort domene med mange generatorar)
 - [x] Tiltak 1: oppdater `make/10-generator-macros.mk` og
       `make/20-domain-targets.mk` til å bruke batch-skriptet
-- [ ] Tiltak 2: batch PlantUML SVG-rendering til éitt `podman run`-kall per
+- [x] Tiltak 2: batch PlantUML SVG-rendering til éitt `podman run`-kall per
       domene, verifiser identisk SVG-output og feilhandtering per fil
-- [ ] Tiltak 3: batch `gen-openapi`/`gen-asyncapi`/
+- [x] Tiltak 3: batch `gen-openapi`/`gen-asyncapi`/
       `gen-informasjonsmodell-instance`/`gen-docgen-examples` sine
       Python-script til éin prosess per domene per scripttype
 - [ ] Parallellisering: implementer `&`/`wait`-mønster mellom dei 3-4
@@ -405,6 +559,22 @@ uendra og treng ingen endring.
       `gen-*`-targeta sin observerbare oppførsel (loggformat, feilmeldingar)
       endrar seg som følgje av batchinga (`make/README.md` oppdatert;
       loggformatet er uendra utetter, ingen `mkdocs/docs/`-endring naudsynt)
+- [ ] Tiltak 4: refaktorer `filter_plantuml.py`/`filter_erdiagram.py` til
+      importerbare `process_file()`-funksjonar, verifiser standalone-CLI
+      uendra
+- [ ] Tiltak 4: legg til `"doc"`/`"erdiagram"`/`"plantuml"`-kind i
+      `batch-generate.py` sitt REGISTRY (utvid `GeneratorSpec` med
+      `writes_directory`-felt for `gen-doc`)
+- [ ] Tiltak 4: batch `linkml-convert` (schema+eksempel+utfil-triplar) i
+      `batch-generate-instances.py`, gjenbruk `convert-examples.sh` sin
+      discovery-logikk
+- [ ] Tiltak 4: batch `"erdiagram-filter"`/`"plantuml-filter"` (2 modus)
+      i `batch-generate-instances.py`
+- [ ] Tiltak 4: verifiser byte-for-byte/RDF-isomorfi for alle fire mot
+      ikkje-batcha køyring (lite + stort domene), isolert feilhandterings-
+      test for begge refaktorerte filter-scripta
+- [ ] Tiltak 4: oppdater `make/20-domain-targets.mk` — fjern
+      `linkml-convert`-løkka, pek attverande fasar til nye batch-kall
 
 ## Utført (Tiltak 1 — 2026-08-07)
 
@@ -524,5 +694,196 @@ gevinst.
   tilstand etter testinga (`git checkout --`), ikkje ein del av denne
   endringa sitt diff.
 
-**Attverande arbeid:** Tiltak 2, Tiltak 3, parallellisering mellom
+**Attverande arbeid (etter Tiltak 1):** Tiltak 2, Tiltak 3, parallellisering
+mellom batch-gruppene, og CI-måling er ikkje gjennomførte i denne runden.
+
+## Utført (Tiltak 2 — 2026-08-07)
+
+Implementert som planlagt: `gen-plantuml` er delt i to fasar. Fase A
+(`gen-plantuml` + `filter_plantuml.py` × 2) er **uendra** — framleis éin
+kontainar-triple per skjema via `run-parallel-gen.sh`, sidan denne delen
+lagar per-skjema-spesifikke `.puml`-filer (ikkje eit reint linkml-API-kall
+som i Tiltak 1, så det høyrer ikkje naturleg inn i `batch-generate.py`
+sitt REGISTRY). Fase B er ny: **éitt** `podman run … plantuml -tsvg
+<alle .puml-filer for domenet>`-kall renderer SVG for samtlege skjema i eitt
+steg, i staden for eitt kall per fil (full + filtrert × N skjema).
+
+**Nye/endra filer:**
+
+- `src/assets/scripts/makefile/batch-render-plantuml.sh` (ny) — for kvart
+  skjema i lista, sjekkar om `<name>.puml`/`<name>-filtered.puml` faktisk
+  vart skrivne av Fase A (filnærvær er einaste gate — dupliserer **ikkje**
+  build.yaml sin `plantuml:true`-sjekk, sidan Fase A alt handhevar han).
+  Samlar opp alle funne filer og gjer eitt samla `podman run` mot
+  `PLANTUML_IMAGE`. Skriv null filer → hoppar over kallet heilt (ingen tom
+  kontainar-start).
+- `make/10-generator-macros.mk`: `run_gen_plantuml_parallel` kallar no
+  Fase A (uendra `run-parallel-gen.sh`, men SVG-render-linjene fjerna frå
+  `GEN_CMD`) etterfølgt av Fase B (`batch-render-plantuml.sh`).
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag):**
+
+| Domene | Skjema med `plantuml: true` | Før (per-fil render) | Etter (batcha) | Gevinst |
+|---|---|---|---|---|
+| `oreg` | 2 | 31 s | 24 s | **−23 %** |
+| `ap-no` | 7 (20 filer inkl. raw) | — (ikkje målt separat før Tiltak 2) | 33 s (Fase A 20,6s + Fase B **8,0s for 20 filer**) | — |
+
+**Merk kvifor dette tiltaket VISER veggklokkegevinst lokalt, i motsetnad
+til Tiltak 1** (som ikkje gjorde det, jf. eige avsnitt der): Tiltak 1
+batcha arbeid som **allereie var fullt overlappa** av `xargs -P16` i den
+gamle arkitekturen (schema-parallelt, ingen ekstra struktur å vinne på
+lokalt med 16 kjernar tilgjengeleg). Tiltak 2 er strukturelt annleis — før
+denne endringa var SVG-renderinga **inne i** kvart skjema sin eigen
+parallelle kritiske sti (2 ekstra sekvensielle podman-kall per skjema,
+lagt til slutt i kvar sin xargs-jobb), så total kritisk sti = det
+tregaste skjemaet sin EIGEN render-tid. Etter endringa er rendering flytta
+**ut** av per-skjema-kritisk-sti og inn i eitt konsolidert steg — alle
+skjema sine renderingar deler no éin JVM-/kontainar-oppstart i staden for
+at kvart skjema sin parallelle gein må vente på sine eigne to. Dette er ei
+ekte strukturell endring (ikkje berre sekvensialisert import-amortisering
+som i Tiltak 1), og gjev difor målbar gevinst sjølv med rikeleg lokal
+kjernetilgang.
+
+**Semantisk verifisering:** samanlikna alle `.puml`/`.svg`-filer
+byte-for-byte mot ei ikkje-batcha (per-fil-render) køyring —
+**`oreg`: 10/10 filer identiske. `ap-no`: 50/50 filer identiske.**
+SVG-rendering er (i motsetnad til `gen-shacl`/`gen-rdf`, jf. Tiltak 1) ikkje
+underlagt blanknode-non-determinisme — byte-diff er eit gyldig
+identitetskriterium her.
+
+**Feilhandtering verifisert eksplisitt** (spec-krav, steg 3): testa eit
+batch-kall med éin gyldig og éin bevisst øydelagd `.puml`-fil.
+PlantUML-biletet **fullfører framleis rendering av den gyldige fila**
+(skriv korrekt SVG) OG skriv ei eiga feil-SVG for den øydelagde fila, men
+returnerer exit-kode ≠ 0 for heile kallet. `batch-render-plantuml.sh` sin
+`set -euo pipefail` + `trap ERR` fangar dette og **feilar heile
+byggesteget** (ingen stille feil) — PlantUML sin eigen feilmelding («Error
+line N in file: …») går til stderr (ikkje undertrykt av
+`> /dev/null`, som berre gjeld stdout) og identifiserer konkret kva fil som
+var øydelagd, sjølv utan per-skjema-isolert feilmelding frå vårt eige
+script.
+
+**Avvik frå opphavleg plan:** ingen — implementert nøyaktig som skissert.
+
+**Testa:**
+- `make gen-plantuml DOMAIN=oreg` og `make gen-plantuml DOMAIN=ap-no` —
+  begge fullførte med exit-kode 0.
+- `make -n` (dry-run) verifisert for både frittståande
+  `gen-plantuml SCHEMA=...`-target og `domain-<domain>`-pipelinen —
+  begge kallar `batch-render-plantuml.sh` korrekt.
+- Isolert feilhandteringstest (god + øydelagd `.puml` i same batch) —
+  stadfesta partial-success-skriving + korrekt heil-feil-signalisering.
+
+**Attverande arbeid (etter Tiltak 2):** Tiltak 3, parallellisering mellom
 batch-gruppene, og CI-måling er ikkje gjennomførte i denne runden.
+
+## Utført (Tiltak 3 — 2026-08-07)
+
+Implementert som planlagt for alle fire scripta: `gen-docgen-examples.py`,
+`generate-informasjonsmodell.py`, `gen-openapi.py`, `gen-asyncapi.py`.
+Alle fire er UENDRA i åtferd (framleis brukbare frittståande éin-skjema-
+CLI-ar) — eit nytt orkestreringsskript importerer dei reine funksjonane
+deira og løkkar over N skjema i same prosess.
+
+**Nye/endra filer:**
+
+- `src/assets/scripts/makefile/batch-generate-instances.py` (ny) —
+  REGISTRY-liknande dispatcher (`--generator docgen-examples|openapi|
+  asyncapi|informasjonsmodell`). Importerer kvart underliggjande script
+  med `importlib.util.spec_from_file_location` (handterer bindestrek-i-
+  filnamn). Kvar `run_*`-funksjon replikerer run-parallel-gen.sh sin
+  filtreringssemantikk eksplisitt (build.yaml-flagg-gating via
+  `filter_enabled()`, `--check-suffix schema.json`-gating via
+  `json_schema.is_file()`, same «ÅTVARING: … finst ikkje»-melding),
+  isolerer feil per skjema (eitt skjema sin feil stoppar ikkje resten av
+  batchen — matchar Tiltak 1/2 sitt etablerte mønster), og batchar
+  `openapi-spec-validator` saman med sjølve openapi-genereringa (same
+  python-pytest-image, ingen ekstra kontainar) ved å kalle
+  `openapi_spec_validator.__main__.main()` sitt Python-API direkte
+  (fangar `SystemExit` per skjema, same «kall verktøyet sin eigen
+  main()»-mønster som batch-generate.py sin Click-baserte tilnærming i
+  Tiltak 1, men her eit vanleg argparse-`main(args)`, ikkje eit
+  Click-`Command`).
+- `src/assets/scripts/makefile/gen-docgen-examples.py`: reint refaktorert
+  (åtferd uendra) — per-skjema-kroppen flytta frå `main()` til ein ny
+  `process_schema(schema_path, example_path, out_dir)`-funksjon, slik at
+  `batch-generate-instances.py` kan importere og kalle henne direkte.
+  `main()` kallar no berre `process_schema()` — verifisert identisk
+  standalone-CLI-åtferd.
+- `make/10-generator-macros.mk`: `run_gen_doc_parallel` delt i Fase A
+  (batcha `docgen-examples`) + Fase B (uendra per-skjema `gen-doc`-CLI +
+  sed-opprydding, sidan `gen-doc` skriv til ein katalog og krev framleis
+  éin kontainar per skjema). `run_gen_openapi_parallel` er no éin einaste
+  batcha kall (generering + validering saman). `run_gen_asyncapi_parallel`
+  delt i Fase A (batcha generering) + Fase B (uendra `asyncapi validate`,
+  MEDVITE ikkje batcha — sjå grunngjeving under).
+- `make/30-instances.mk`: `run_gen_informasjonsmodell_instance_parallel`
+  er no éin batcha kall for heile skjemalista.
+
+**Medvite ikkje batcha: `asyncapi validate`.** Node.js-CLI-et
+(`ASYNCAPI_IMAGE`) er eit heilt anna image enn generatorskripta (python-
+pytest), og kan difor ikkje delta i den same in-process-batchinga. Berre
+**1 skjema i heile repoet** (`samt-bu`) har `asyncapi: true` i dag — det
+finst difor ingenting å batche i praksis, same grunngjeving som «Ikkje eit
+tiltak: gen-xsd» i spec-hovuddelen. Fase B for asyncapi held difor fram
+uendra (éin kontainar per skjema via run-parallel-gen.sh), men er no
+åtskild frå Fase A (generering), som sjølv batchar korrekt for framtidige
+fleir-skjema-scenario.
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag):**
+
+Semantisk ekvivalens for alle fire generatorane, verifisert med
+byte-for-byte-diff mot ikkje-batcha (frittståande CLI-) køyring:
+
+| Generator | Testa mot | Resultat |
+|---|---|---|
+| `informasjonsmodell` | `oreg` (2 skjema) + `samt-bu` (mot committa manifest) | Byte-identisk |
+| `docgen-examples` | `oreg` (2 skjema, 30 splitta eksempelfiler) | Byte-identisk, CLI-refaktoreringa endra ingenting |
+| `openapi` (generering + validering) | `oreg` (2 skjema) | Byte-identisk, `openapi-spec-validator: OK` begge vegar |
+| `asyncapi` (berre generering) | `samt-bu` (einaste aktiverte skjema) | Byte-identisk |
+
+**Feilisolasjon verifisert eksplisitt for `openapi`:** kalla
+`openapi_spec_validator.__main__.main()` direkte mot ein bevisst ugyldig
+spec (manglande obligatorisk `version`-felt) — stadfesta at funksjonen
+kastar `SystemExit(1)` med feilmeldinga fanga korrekt, som batch-scriptet
+omset til ein per-skjema-isolert feil (loggar, tel opp, held fram med
+neste skjema, feilar heile steget til slutt) — ingen stille feil, ingen
+krasj som stoppar resten av batchen.
+
+**Full domene-integrasjonstest:** `make domain-oreg` (alle steg, inkl.
+Tiltak 1+2+3 saman) — fullførte med exit-kode 0, alle 6 batch-steg
+(informasjonsmodell, docgen-examples, openapi, pluss dei 8 frå Tiltak 1 og
+plantuml-fasane frå Tiltak 2) synleg i loggen med korrekt per-skjema-
+timing. `make domain-samt` (einaste domenet med `asyncapi: true`) —
+stadfesta at Fase A (`gen-asyncapi`, batcha) → Fase B
+(`asyncapi-validate`, uendra) rekkjefølgja fungerer i full pipeline-
+kontekst, og at `generate-informasjonsmodell.py` sin
+`discover_artifacts()`-funksjon korrekt fann det nygenererte
+`*-openapi.yaml`-artefaktet (stadfester at kryss-generator-rekkjefølgja i
+`domain_target` — openapi/asyncapi før informasjonsmodell-instans — held
+seg riktig etter omstruktureringa).
+
+**Uhell undervegs, retta:** under oppryddinga etter `make domain-samt`-
+testen sletta eg ved eit mistak `src/linkml/samt/samt-bu/metadata/
+samt-bu-manifest.yaml` (ein `rm -rf metadata/`-vane frå `oreg`-testinga,
+der tilsvarande katalog **ikkje** var committa frå før — men `samt-bu` sin
+VAR det). Oppdaga umiddelbart via `git status`, gjenoppretta med
+`git checkout --`, og verifiserte separat at ein fersk regenerering av
+same fil er byte-identisk med den committa versjonen (`git diff --stat`
+tomt output). Ingen tapt endring, men eit godt døme på kvifor
+`git status` bør sjekkast før og etter opprydding av testartefaktar i eit
+repo der nokre `generated`-liknande katalogar (`metadata/`) faktisk ER
+committa kjeldedata, ikkje reint byggoutput.
+
+**Testa:**
+- `make -n` (dry-run) verifisert for alle fire generator-måla
+  (`gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi`,
+  `gen-docs`) — korrekt batcha kommandolinje generert i alle tilfelle.
+- `make gen-docs DOMAIN=oreg` — isolert test av Fase A/B-splitten.
+- `make domain-oreg`, `make domain-samt` — fulle domene-integrasjonstestar,
+  begge exit-kode 0.
+- Isolert feilhandteringstest for `openapi-spec-validator` (ugyldig spec).
+
+**Attverande arbeid:** parallellisering mellom batch-gruppene, og
+CI-måling er ikkje gjennomførte. Alle tre tiltak (1, 2, 3) i denne specen
+er no implementerte og verifiserte lokalt.

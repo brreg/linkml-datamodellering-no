@@ -394,7 +394,10 @@
       "Bash(xargs cat)",
       "Bash(echo \"exit code: $?\")",
       "Bash(echo \"script exit code: $?\")",
-      "Bash(xargs -n1 basename)"
+      "Bash(xargs -n1 basename)",
+      "Bash(sed -i 's/log_debug\\(f\"openapi: {domain}\\\\/{name} hoppa over — {json_schema} finst ikkje \\(krev gen-jsonschema\\)\"\\)/log_error\\(f\"ÅTVARING: {json_schema} finst ikkje — hoppar over gen-openapi for {domain}\\\\/{name}\"\\)/' src/assets/scripts/makefile/batch-generate-instances.py)",
+      "Bash(sed -i 's/log_debug\\(f\"asyncapi: {domain}\\\\/{name} hoppa over — {json_schema} finst ikkje \\(krev gen-jsonschema\\)\"\\)/log_error\\(f\"ÅTVARING: {json_schema} finst ikkje — hoppar over gen-asyncapi for {domain}\\\\/{name}\"\\)/' src/assets/scripts/makefile/batch-generate-instances.py)",
+      "Bash(echo \"diff exit: $?\")"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -60,25 +60,21 @@ def find_attr_class_map(schema):
     return {}
 
 
-def main():
-    if len(sys.argv) != 4:
-        print(f"Usage: {sys.argv[0]} <schema.yaml> <eksempel.yaml> <output-dir>", file=sys.stderr)
-        sys.exit(1)
-
-    schema_path = Path(sys.argv[1])
-    example_path = Path(sys.argv[2])
-    out_dir = Path(sys.argv[3])
-
+def process_schema(schema_path: Path, example_path: Path, out_dir: Path) -> None:
+    """Split ein eksempelfil til per-klasse-filer i out_dir. Skriv ingenting
+    (stille no-op, ikkje feil) for dei dokumenterte opt-out/manglar-tilfella
+    — sjå moduldocstring. Kalla både av main() (éin-skjema-CLI) og
+    batch-generate-instances.py (fleire skjema i same prosess)."""
     # Check opt-out in build.yaml (sibling of schema file)
     generate_yaml = schema_path.parent / "build.yaml"
     if generate_yaml.exists():
         with open(generate_yaml, encoding="utf-8") as f:
             for line in f:
                 if re.match(r"^docgen_examples\s*:\s*false\s*$", line.strip()):
-                    sys.exit(0)
+                    return
 
     if not example_path.exists():
-        sys.exit(0)
+        return
 
     if not schema_path.exists():
         print(f"Schema not found: {schema_path}", file=sys.stderr)
@@ -87,11 +83,11 @@ def main():
     schema = load_yaml(schema_path)
     attr_class_map = find_attr_class_map(schema)
     if not attr_class_map:
-        sys.exit(0)
+        return
 
     example = load_yaml(example_path)
     if not isinstance(example, dict):
-        sys.exit(0)
+        return
 
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -119,6 +115,14 @@ def main():
             filename = out_dir / f"{class_name}-{base_slug}.yaml"
             with open(filename, "w", encoding="utf-8") as f:
                 yaml.dump(obj, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+
+def main():
+    if len(sys.argv) != 4:
+        print(f"Usage: {sys.argv[0]} <schema.yaml> <eksempel.yaml> <output-dir>", file=sys.stderr)
+        sys.exit(1)
+
+    process_schema(Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3]))
 
 
 if __name__ == "__main__":

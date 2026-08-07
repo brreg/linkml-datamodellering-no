@@ -15,7 +15,7 @@ Makefile er delt i 13 tematiske modular:
 | `10-generator-macros.mk` | Generelle makroar for å køyre LinkML-generatorar — dei linkml-baserte (merge, jsonld-context, shacl, python, json-schema, owl, rdf, proto) batchar N skjema inn i éin kontainar via `batch-generate.py`, resten køyrer parallelt via `run-parallel-gen.sh` |
 | `11-generator-targets.mk` | Target for spesifikke generatorar (gen-jsonschema, gen-owl, osv.) |
 | `20-domain-targets.mk` | Target per domene (domain-ap-no, domain-fint, osv.) med pre-hooks |
-| `30-instances.mk` | Generering og validering av instansdata (Informasjonsmodell, modellkatalog) |
+| `30-instances.mk` | Generering og validering av instansdata (Informasjonsmodell, modellkatalog) — Informasjonsmodell-generering batchar N skjema inn i éin kontainar via `batch-generate-instances.py` |
 | `40-validation.mk` | Validering av skjema, eksempel og data |
 | `50-docs.mk` | MkDocs-dokumentasjonsportal (serve, build, publish) |
 | `60-mcp.mk` | MCP-serverar (validator, modell-utkast, begrep-utkast) |
@@ -32,7 +32,9 @@ Viktige script:
 | Script | Brukt av | Føremål |
 |---|---|---|
 | `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
-| `generate-informasjonsmodell.py` | `gen-informasjonsmodell-instance` | Generer ModelDCAT-AP-NO-metadata frå schema.annotations |
+| `batch-generate-instances.py` | `gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi` (generering), `gen-docs` (docgen-examples-fasen) | Batchar dei ikkje-linkml PYTHON_RUN-scripta (under) for N skjema i éin kontainar-prosess |
+| `batch-render-plantuml.sh` | `gen-plantuml` (SVG-render-fasen) | Batchar PlantUML SVG-rendering for N skjema sine `.puml`-filer i éitt `podman run`-kall |
+| `generate-informasjonsmodell.py` | `gen-informasjonsmodell-instance` (via `batch-generate-instances.py`) | Generer ModelDCAT-AP-NO-metadata frå schema.annotations |
 | `update-modellkatalog.py` | `update-modellkatalog` | Oppdater modellkatalog frå alle skjema |
 | `gen-dqv-measurements.py` | `gen-dqv-measurements` | Generer DQV-kvalitetsmålingar for datafiler |
 | `collect-concepts.py` | `gen-begrepskatalog-instance` | Samle begrep frå begrepssamlingar til begrepskatalogar |

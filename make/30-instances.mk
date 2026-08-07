@@ -14,16 +14,16 @@
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
-# run_gen_informasjonsmodell_instance_parallel — makro for å generere
-# Informasjonsmodell per skjema. Trygt å parallellisere sidan kvart skjema
-# skriv til sin eigen metadata/<modell>-manifest.yaml, og ingen
-# build.yaml-generatorflagg gatar dette steget i dag. Brukt av både
+# run_gen_informasjonsmodell_instance_parallel — batchar Informasjonsmodell-
+# generering for ALLE skjema til ÉIN kontainar (reint Python, ingen
+# linkml-import) — sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 3).
+# Ingen build.yaml-generatorflagg gatar dette steget i dag. Brukt av både
 # domain_target (make/20-domain-targets.mk) og det frittståande
 # gen-informasjonsmodell-instance-targetet under.
 # ---------------------------------------------------------------------------
 define run_gen_informasjonsmodell_instance_parallel
-@GEN_CMD='run_logged "gen-informasjonsmodell-instance $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/generate-informasjonsmodell.py "$$s"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-informasjonsmodell-instance -- $(1)
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator informasjonsmodell -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
