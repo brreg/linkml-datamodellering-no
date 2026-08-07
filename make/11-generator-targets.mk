@@ -26,17 +26,17 @@ COMMA := ,
 # ---------------------------------------------------------------------------
 # Standard gen-* targets (genererte via make_gen_target)
 # ---------------------------------------------------------------------------
-$(eval $(call make_gen_target,gen-jsonld-context,run_gen_parallel,gen-jsonld-context$(COMMA)context.jsonld))
+$(eval $(call make_gen_target,gen-jsonld-context,run_gen_parallel,jsonld-context))
 $(eval $(call make_gen_target,gen-shacl,run_gen_shacl_parallel))
-$(eval $(call make_gen_target,gen-python,run_gen_parallel,gen-python$(COMMA)model.py))
-$(eval $(call make_gen_target,gen-jsonschema,run_gen_parallel,gen-json-schema$(COMMA)schema.json))
+$(eval $(call make_gen_target,gen-python,run_gen_parallel,python))
+$(eval $(call make_gen_target,gen-jsonschema,run_gen_parallel,json-schema))
 $(eval $(call make_gen_target,gen-owl,run_gen_owl_parallel))
 $(eval $(call make_gen_target,gen-rdf,run_gen_rdf_parallel))
 $(eval $(call make_gen_target,gen-xsd,run_gen_xsd_parallel))
 $(eval $(call make_gen_target,gen-asyncapi,run_gen_asyncapi_parallel))
 $(eval $(call make_gen_target,gen-openapi,run_gen_openapi_parallel))
 $(eval $(call make_gen_target,gen-erdiagram,run_gen_erdiagram_parallel))
-$(eval $(call make_gen_target,gen-proto,run_gen_parallel,gen-proto$(COMMA)schema.proto))
+$(eval $(call make_gen_target,gen-proto,run_gen_parallel,proto))
 $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 
 # ---------------------------------------------------------------------------

@@ -1,65 +1,68 @@
 # ==============================================================================
 # make/10-generator-macros.mk
 #
-# Generiske generator-makroar for å byggje LinkML-artefaktar. Alle makroar
-# nyttar den delte orkestreringa i src/assets/scripts/makefile/run-parallel-gen.sh
-# (filtrering mot build.yaml-flagg, xargs-parallellisering, timing, logging).
-# Det finst ingen serial fallback-variant lenger — sjå
-# specs/done/forenkle-make-laget.md for grunngjeving: éin frittståande
-# `make gen-x SCHEMA=...`-kalling er berre eit spesialtilfelle av parallell
-# køyring med éin skjema-liste, så det var ikkje verdi i å halde ved like to
-# nesten identiske implementasjonar (éin bash `for`-løkke, éin xargs) per
-# generator.
+# Generiske generator-makroar for å byggje LinkML-artefaktar.
+#
+# Dei reint linkml-baserte generatorane (merge, jsonld-context, shacl,
+# python, json-schema, owl, rdf, proto) batchar no N skjema inn i ÉIN
+# podman-kontainar via src/assets/scripts/makefile/batch-generate.py —
+# import av linkml/linkml_runtime (~5,4 s) vert då betalt éin gong per
+# generator-kall i staden for éin gong per skjema. Filtrering mot
+# build.yaml-flagg, ekstra-flagg-override (shacl_flags/owl_flags) og
+# timing/logging er implementert i batch-generate.py sjølv (REGISTRY-et
+# der er einaste kjelde for kva build.yaml-flagg/suffiks kvar generator
+# brukar — spesifiser det IKKJE på nytt her). Sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 1).
+#
+# Dei resterande makroane (gen-doc, gen-erdiagram, gen-plantuml, gen-xsd,
+# gen-openapi, gen-asyncapi) har etterhandsaming/eksterne verktøy som ikkje
+# er reine linkml-Python-API-kall, og nyttar framleis den delte
+# xargs-orkestreringa i run-parallel-gen.sh (filtrering mot build.yaml-
+# flagg, parallellisering, timing, logging) — sjå spec Tiltak 2/3 for
+# vidare batching av desse.
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
-# Generisk generator-makro — dekkar generatorar utan spesiell etterhandsaming
-# (gen-jsonld-context, gen-python, gen-jsonschema, gen-proto), brukt av både
-# frittståande gen-*-target (make/11-generator-targets.mk, utan $4 — ugata)
-# og domain_target (make/20-domain-targets.mk, med $4 — gata mot build.yaml)
+# Generisk batch-generator-makro — dekkar generatorar utan spesiell
+# etterhandsaming (jsonld-context, python, json-schema, proto), brukt av
+# både frittståande gen-*-target (make/11-generator-targets.mk) og
+# domain_target (make/20-domain-targets.mk)
 # ---------------------------------------------------------------------------
-# $1=schemas  $2=generator  $3=output-file suffix  $4=valfritt build.yaml generator-flagg
+# $1=schemas  $2=batch-generate.py generator-namn (jf. REGISTRY der)
 define run_gen_parallel
-@GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) $(2) "$$s" > "$$outdir/$$name-$(3)"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator $(2) $(if $(4),--flag $(4)) -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator $(2) -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
-# LinkML merge-imports (gen-linkml) — berre eit steg i domain_target-
-# pipelinen, ingen frittståande gen-linkml-target finst
+# LinkML merge-imports (gen-linkml) — reint fail-fast valideringssteg
+# (output diskarda), berre eit steg i domain_target-pipelinen, ingen
+# frittståande gen-linkml-target finst
 # ---------------------------------------------------------------------------
 define run_gen_linkml_parallel
-@GEN_CMD='$(LINKML_RUN) gen-linkml "$$s" > /dev/null' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator merge-imports -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator merge -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
 # SHACL-generering — gata mot build.yaml (shacl: true), per-schema
-# shacl_flags-override lesen direkte frå build.yaml (--extra-flags-field)
+# shacl_flags-override lesen direkte frå build.yaml
 # ---------------------------------------------------------------------------
-SHACL_DEFAULT_FLAGS :=
 define run_gen_shacl_parallel
-@GEN_CMD='$(LINKML_RUN) gen-shacl $${extra_flags:-$(SHACL_DEFAULT_FLAGS)} "$$s" > "$$outdir/$$name-shapes.ttl"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-shacl --flag shacl --extra-flags-field shacl_flags -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator shacl -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
 # OWL-generering — gata mot build.yaml (owl: true), per-schema owl_flags-
-# override lesen direkte frå build.yaml (--extra-flags-field) i staden for
-# OWL_DEFAULT_FLAGS ved override
+# override lesen direkte frå build.yaml (elles standardflagga i REGISTRY)
 # ---------------------------------------------------------------------------
-OWL_DEFAULT_FLAGS := --skip-vacuous-local-range-axioms --skip-vacuous-min-zero-cardinality-axioms --consolidate-cardinality-axioms
 define run_gen_owl_parallel
-@GEN_CMD='$(LINKML_RUN) gen-owl $${extra_flags:-$(OWL_DEFAULT_FLAGS)} "$$s" > "$$outdir/$$name-ontology.ttl"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-owl --flag owl --extra-flags-field owl_flags -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator owl -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
 # RDF-generering — gata mot build.yaml (rdf: true)
 # ---------------------------------------------------------------------------
 define run_gen_rdf_parallel
-@GEN_CMD='mkdir -p "$$outdir" && $(LINKML_RUN) gen-rdf "$$s" > "$$outdir/$$name-schema.ttl"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-rdf --flag rdf -- $(1)
+@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator rdf -- $(1)
 endef
 
 # ---------------------------------------------------------------------------

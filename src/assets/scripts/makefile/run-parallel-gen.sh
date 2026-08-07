@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-# Delt orkestrering for parallell artefaktgenerering — brukt av alle
-# "_parallel"-makroane i make/10-generator-macros.mk. Filtrerer skjemalista
-# mot eit valfritt build.yaml-flagg FØR xargs-parallelliseringa startar,
+# Delt orkestrering for parallell artefaktgenerering — brukt av "_parallel"-
+# makroane i make/10-generator-macros.mk som har etterhandsaming/eksterne
+# verktøy (gen-doc, gen-erdiagram, gen-plantuml, gen-xsd, gen-openapi,
+# gen-asyncapi). Dei reint linkml-baserte generatorane (merge, jsonld-
+# context, shacl, python, json-schema, owl, rdf, proto) batchar i staden N
+# skjema inn i éin kontainar via batch-generate.py — sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 1).
+# Filtrerer skjemalista mot eit valfritt build.yaml-flagg FØR xargs-parallelliseringa startar,
 # skriv éi deloverskrift (log_debug) + éi samla skip-debug-linje, og køyrer
 # sjølve genererings-kommandoen (gitt via miljøvariabelen GEN_CMD) per
 # skjema — kvar fullført køyring loggar si eiga log_info-linje med
