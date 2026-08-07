@@ -1,9 +1,10 @@
 # Arkitekturoversikt
 
-Diagramma under viser dei vesentlege delane av repoet og korleis dei spiller
-saman med eksterne offentlege tenester. Dette er ein orienteringsskisse, ikkje
-ein endringsplan — sjå `specs/README.md` for konvensjonen om kva som høyrer
-under `backlog/`, `done/`, `rejected/` og `bugs/`.
+!!! note "Beskrivelse"
+
+    Denne sida viser dei vesentlege delane av repoet og korleis dei spelar saman med eksterne offentlege tenester — frå kjeldeskjema, via MCP-serverar og CI, til publiserte artefaktar og dei nasjonale katalogane/verksemdene som hentar frå dei.
+
+---
 
 Skissa er delt i to diagram (i staden for eitt breidt) for å halde tekstboksane
 store og lesbare: del 1 dekkjer den interne flyten frå kildeskjema til
@@ -209,15 +210,21 @@ flowchart BT
   validere skjema/instansar mot policy-nivå, utan å forlate det lokale miljøet.
 - **GitHub Actions** — validerer PR-ar, byggjer artefakt + portal ved push til
   `main`, byggjer/pushar container-images ved release-tag, og fangar
-  valideringshistorikk ved release-please-versjonering.
+  valideringshistorikk ved release-please-versjonering. Sjå
+  [Artefaktgenerering — kjelder og pipeline](artefakt-generering.md) § 5 for
+  detaljert CI-rekkjefølgje, og [Monitorering av automasjon](monitorering.md)
+  for korleis du les loggane frå desse workflowane.
 - **Publiserte pull-punkt** — repoet **pullar aldri til, berre frå**: GitHub
   Pages er den publiserte portalen; GitHub Releases og
   `raw.githubusercontent.com` er stabile hente-punkt for skjema-import frå
-  andre repo; GHCR distribuerer container-images.
+  andre repo; GHCR distribuerer container-images. Sjå
+  [Publiseringsoversikt](publisering-oversikt.md) sin seksjon "Kvar
+  genererte filer endar" for full oversikt over kva som ligg kvar stad.
 - **Nasjonale katalogar** — publisering til Felles Begrepskatalog og Felles
   Datakatalog er **manuelle** steg gjort av eit menneske som følgjer
   rettleiingane i portalen — repoet pushar ikkje direkte til desse katalogane
-  (jf. "Pull, ikkje push"-prinsippet i `CLAUDE.md`).
+  (jf. "Pull, ikkje push"-prinsippet i `CLAUDE.md`, fullt forklart med
+  diagram og eksempel i [Publiseringsoversikt](publisering-oversikt.md)).
 - **Eksternt repo** — andre repo kan bootstrappe seg sjølve med
   `bootstrap.sh` og importere AP-NO-profilar direkte via tag-baserte
   `raw.githubusercontent.com`-URL-ar, og validerer/genererer via dei same
@@ -231,17 +238,17 @@ flowchart BT
     same mønster som data.norge.no sjølv brukar for å hauste
     DCAT-AP-NO-metadata frå GitHub Pages. Repoet leverer altså data til KUDAF
     *indirekte*, via Felles Datakatalog som mellomlager/hub.
-  - **Private datakatalogar** i verksemder kan søke/spørje Felles Datakatalog
-    for datasett-metadata på same måte, og/eller hente skjemaartefaktar
-    (SHACL, JSON Schema, JSON-LD-context, OWL) direkte frå GitHub Pages for å
-    validere og typesette eigne data mot dei nasjonale profilane.
-  - **Dataplattformar** i verksemder kan importere LinkML-skjema direkte via
-    tag-versjonerte `raw.githubusercontent.com`-URL-ar (samme mekanisme som
-    eksterne repo) for å bruke skjema i eigen pipeline, eller hente genererte
-    artefaktar (JSON Schema, SHACL) frå GitHub Pages for validering.
-  - **API-gateway** i verksemder kan hente JSON Schema/JSON-LD-context frå
-    GitHub Pages for å validere API-kontrakta mot dei nasjonale profilane, og
-    eksponerer data frå verksemda sin eigen dataplattform i samsvar med dei
-    samme skjemaa.
+  - **Private datakatalogar, dataplattformer og API-gateway** i verksemder
+    kan hente skjemaartefaktar (SHACL, JSON Schema, JSON-LD-context, OWL)
+    direkte frå GitHub Pages, eller importere LinkML-skjema tag-versjonert
+    via `raw.githubusercontent.com` — sjå Publiseringsoversikt sin seksjon
+    "Private system som kan høste" for format- og bruksdetaljar per
+    konsumenttype.
   - Alle desse koplingane er **pull**: ingen av konsumentane mottek push frå
     dette repoet, i tråd med "Pull, ikkje push"-prinsippet.
+
+## Sjå òg
+
+- [Artefaktgenerering — kjelder og pipeline](artefakt-generering.md) — detaljert kjeldesporing for kvar automatisk generert artefakt
+- [Publiseringsoversikt](publisering-oversikt.md) — "Pull, ikkje push"-prinsippet, kvar genererte filer endar, og steg-for-steg-flyt til data.norge.no
+- [Monitorering av automasjon](monitorering.md) — korleis overvake at CI-workflowane faktisk fungerer

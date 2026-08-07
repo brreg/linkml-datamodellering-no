@@ -353,6 +353,12 @@ https://github.com/brreg/linkml-datamodellering-no/releases.atom
 
 ## Avgrensingar
 
+Avgrensingane under er ei direkte følgje av at repoet praktiserer
+"Pull, ikkje push" (sjå [Publiseringsoversikt](publisering-oversikt.md)
+for full forklaring av prinsippet): repoet har ingen API-tilgang eller
+credentials mot eksterne katalogar, og kan difor ikkje overvake kva som
+skjer *etter* at artefaktar er publiserte til GitHub Pages.
+
 ### Kva repoet IKKJE kan monitorere
 
 1. **Om Felles Begrepskatalog/Datakatalog faktisk høstar data**

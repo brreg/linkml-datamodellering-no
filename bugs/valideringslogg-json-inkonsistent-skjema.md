@@ -62,7 +62,7 @@ deg sjølv" i `CLAUDE.md`.
 `src/assets/scripts/makefile/save-validation-log.py`,
 `src/mcp-linkml-validator/validate-and-log.py`
 
-Oppdaga under arbeid med `specs/backlog/artefakt-generering.md` § 3.5.
+Oppdaga under arbeid med `mkdocs/docs/artefakt-generering.md` § 3.5.
 
 ### Utført (2026-08-06)
 

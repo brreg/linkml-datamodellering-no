@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(podman run --rm -v \"$(pwd)\":/repo:ro -w /repo docker.io/rhysd/actionlint:latest *)",
+      "Bash(make -n *)",
+      "Bash(podman images *)",
+      "Bash(make lint *)",
+      "Bash(make validate-examples *)",
+      "Bash(make roundtrip *)"
+    ]
+  }
+}

@@ -1,16 +1,16 @@
 # Artefaktgenerering — kjelder og pipeline
 
-Dette er ei orienteringsskisse (same sjanger som `specs/backlog/arkitektur-oversikt.md`),
-ikkje ein endringsplan — sjå `specs/README.md` for konvensjonen om `backlog/`,
-`done/`, `rejected/` og `bugs/`. Målet er å svare presist på to spørsmål for
-kvar automatisk genererte artefakt i repoet: **korleis vert han generert**
-(kva `make`-target, kva kommando, kva container), og **kva er kjelda til
-innhaldet** (kva skjemafelt, `build.yaml`-nøkkel eller annan fil styrer det
-som står i artefakten).
+!!! note "Beskrivelse"
 
-For kommandoreferanse (korleis *køyre* targeta) — sjå `COMMANDS.md`.
-For prinsippa bak importhierarkiet skjemaa sjølve følgjer — sjå `PRINCIPLES.md`
-§ 3 og `mkdocs/docs/importhierarki.md`. Denne fila dekkjer laget *mellom*
+    Denne sida svarar presist på to spørsmål for kvar automatisk genererte artefakt i repoet: **korleis vert han generert** (kva `make`-target, kva kommando, kva container), og **kva er kjelda til innhaldet** (kva skjemafelt, `build.yaml`-nøkkel eller annan fil styrer det som står i artefakten).
+
+---
+
+For kommandoreferanse (korleis *køyre* targeta) — sjå
+[`COMMANDS.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md).
+For prinsippa bak importhierarkiet skjemaa sjølve følgjer — sjå
+[`PRINCIPLES.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/PRINCIPLES.md)
+§ 3 og [Importhierarki](importhierarki.md). Denne sida dekkjer laget *mellom*
 kjeldeskjema og publisert portal: kva som skjer i `make/*.mk`, kva script
 som køyrer inni kvar container, og kvar kvart felt i sluttresultatet
 kjem frå.
@@ -151,7 +151,8 @@ modulen `src/assets/scripts/utils/validation_log.py`, som garanterer same
 feltsett i alle tilfelle: `{schema, domain, version, validation_policy,
 validated_at, result}`. Fram til dette vart retta skreiv dei tre vegane
 ulike feltnamn (`validation_policy` vs `validation_type`, med/utan
-`validated_at`) — sjå `bugs/valideringslogg-json-inkonsistent-skjema.md`
+`validated_at`) — sjå
+[bugs/valideringslogg-json-inkonsistent-skjema.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/valideringslogg-json-inkonsistent-skjema.md)
 (BUG-12, `løyst`) for historikk. Eksisterande, allereie committa
 `validation/**/*.json`-filer frå før retting kan framleis ha det gamle
 feltnamnet — `mkdocs/lib/scripts/generate-validation-md.py` er uavhengig av
@@ -161,21 +162,11 @@ aldri frå JSON-feltet).
 ### 3.6 Informasjonsmodell-instans og modellkatalog
 
 `generate-informasjonsmodell.py` byggjer éin `Informasjonsmodell`-instans
-per skjema (skriven til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`)
-frå følgjande kjelder:
-
-| Felt | Kjelde |
-|---|---|
-| `id`, `versjonsnummer`, `lisens` | `schema.id`, `schema.version`, `schema.license` |
-| `tittel`, `beskrivelse` | `schema.title`/`schema.description` (nb) + `annotations.tittel_nn`/`annotations.beskrivelse_nn` (nn, fell tilbake til nb) |
-| `utgiver`, `endringsdato`, `utgivelsesdato`, `status` | silver-annotasjonane (`annotations.*`) |
-| `tema`, `dekningsomraade`, `nokkelord`, `er_profil_av` | `annotations.*`, valfrie |
-| `heimeside` | utrekna: `https://brreg.github.io/linkml-datamodellering-no/<domain>/<modell>/` |
-| `er_i_samsvar_med` | `build.yaml`: `external_spec_url`/`external_spec_label` |
-| `har_del` | `build.yaml`: `submodels` |
-| `kontaktpunkt` | `CODEOWNERS.md` sin YAML-frontmatter, matcha på `path_patterns` mot skjemastien |
-| `inneholder_modellelement` | URI-ar til alle lokale (ikkje-`tree_root`) klassar |
-| `finnes_i_format` | raw-GitHub-lenkjer til dei genererte artefakta som faktisk finst for skjemaet |
+per skjema (skriven til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`).
+Kjeldene for kvart felt (`schema.yaml`, `build.yaml`, `CODEOWNERS.md`,
+lokale klassar, genererte artefaktar) er dokumenterte i full detalj i
+[Generering av modellmanifest](modellmanifest-generering.md) — ikkje
+gjenteke her.
 
 `make gen-modellkatalog-instance` samlar so alle `**/metadata/*-manifest.yaml`
 på tvers av repoet, grupperer dei etter utgjevar (matcha mot
@@ -190,8 +181,8 @@ frå alle `begrepssamling-*`-katalogar.
 `<modell>-manifest.yaml`-stien direkte frå `SCHEMA` (same mønster som
 `generate-informasjonsmodell.py` sjølv brukar for filnamnet). Han refererte
 tidlegare til den gamle, delte stien `metadata/modelldcat.yaml` — sjå
-`bugs/informasjonsmodell-instance-stale-metadata-sti.md` (BUG-11, `løyst`)
-for historikk.
+[bugs/informasjonsmodell-instance-stale-metadata-sti.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/informasjonsmodell-instance-stale-metadata-sti.md)
+(BUG-11, `løyst`) for historikk.
 
 ### 3.7 CHANGELOG.md — genereres IKKJE av make-pipelinen
 
@@ -256,12 +247,10 @@ skjema i domenet via `run-validation.sh --manifest`, kopierer eksisterande
 (slår saman alle `generated-<domain>`-artefakt-opplastingar, køyrer
 `make docs-publish && make docs-build`, deployer til GitHub Pages).
 
-`validate.yml` (nattleg cron + PR + manuell) køyrer tilsvarande
-validering per domene, pluss `validate-examples`, `validate-data` og
-`check-published-uris`, og er den einaste flyten som faktisk **committar**
-oppdaterte `validation/**/*.json`-filer tilbake til `src/linkml/` (via ein
-eigen PR — `generate.yml` les/kopierer berre eksisterande valideringsloggar,
-skriv aldri nye tilbake til `src/linkml/`).
+For kva `validate.yml` gjer (nattleg cron + PR + manuell validering,
+logglagring, PR-oppretting for oppdaterte valideringsloggar) og korleis du
+tolkar loggane frå begge workflowane — sjå
+[Monitorering av automasjon](monitorering.md), som dekkjer dette i detalj.
 
 ## 6. Kjapp oppslagstabell: "kvar kjem X frå?"
 
@@ -273,5 +262,12 @@ skriv aldri nye tilbake til `src/linkml/`).
 | "Valideringsresultat"-seksjonen | `validation/<versjon>/<policy>.json`, policy frå `build.yaml.validation_policy` (§ 3.5) |
 | "Versjonslog"-seksjonen | `CHANGELOG.md`, skriven av release-please, ikkje av make-pipelinen (§ 3.7) |
 | "Publisert til"-kolonna | Eksistens av `published-uris.lock`, manuelt vedlikehalden (§ 3.8) |
-| `Informasjonsmodell`/modellkatalog-oppføringar | `generate-informasjonsmodell.py`, kjelder i tabellen i § 3.6 |
+| `Informasjonsmodell`/modellkatalog-oppføringar | `generate-informasjonsmodell.py` — sjå [Generering av modellmanifest](modellmanifest-generering.md) (§ 3.6) |
 | Kva artefakt-filer som er lenka i portalen | Faktiske filer på disk i `generated/<domain>/<modell>/`, ikkje `build.yaml`-flagga direkte (§ 4) |
+
+## Sjå òg
+
+- [Arkitekturoversikt](arkitektur-oversikt.md) — heilskapsbiletet: korleis denne pipelinen heng saman med MCP-serverar, CI og eksterne konsumentar
+- [Struktur for index.md](index-md-struktur.md) — djupdykk i seksjonane i kvart skjema sin publiserte side
+- [Generering av modellmanifest](modellmanifest-generering.md) — fullstendig kjeldetabell for Informasjonsmodell-instansen (§ 3.6)
+- [Monitorering av automasjon](monitorering.md) — korleis CI-workflowane faktisk køyrer og korleis du tolkar loggane (§ 5)

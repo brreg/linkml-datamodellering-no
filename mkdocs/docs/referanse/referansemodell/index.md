@@ -35,7 +35,7 @@ imports:
 ### Valider skjemaet mot bronze-policy
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema.yaml
+make mcp-linkml-valider-modell SCHEMA=src/linkml/referanse/referansemodell/referansemodell-schema.yaml
 ```
 
 ### Valider datafil mot LinkML-skjemaet

@@ -514,20 +514,26 @@ validation:
 nav:
   - Rettleiingar:
       - index.md
-      - Bli modelleigar: ny-org.md
-      - Ny domenemodell: ny-domenemodell.md
-      - Ny begrepskatalog: ny-begrepsmodell.md
-      - Byggmanifest: build-config.md
-      - Kommandooversikt: kommandoar.md
-      - Importhierarki: importhierarki.md
-      - Valideringsreglar: valideringsregler.md
-      - AP-NO arkitektur og avvik: ap-no-arkitektur.md
-      - Bruk frå eksternt repo: ekstern-bruk.md
-      - Publiser til Felles Begrepskatalog: publisering-begrep.md
-      - Publiser til Felles Datakatalog: publisering-modell.md
-      - Publiseringsflyt: publisering-oversikt.md
-      - Generering av modell-dokumentasjon: index-md-struktur.md
-      - Generering av modellmanifest: modellmanifest-generering.md
+      - Kom i gang:
+          - Bli modelleigar: ny-org.md
+          - Ny domenemodell: ny-domenemodell.md
+          - Ny begrepskatalog: ny-begrepsmodell.md
+          - Byggmanifest: build-config.md
+          - Kommandooversikt: kommandoar.md
+      - Arkitektur og publisering:
+          - Arkitekturoversikt: arkitektur-oversikt.md
+          - Importhierarki: importhierarki.md
+          - Valideringsreglar: valideringsregler.md
+          - AP-NO arkitektur og avvik: ap-no-arkitektur.md
+          - Bruk frå eksternt repo: ekstern-bruk.md
+          - Publiseringsflyt: publisering-oversikt.md
+          - Publiser til Felles Begrepskatalog: publisering-begrep.md
+          - Publiser til Felles Datakatalog: publisering-modell.md
+      - Korleis artefaktar vert generert:
+          - Artefaktgenerering — kjelder og pipeline: artefakt-generering.md
+          - Generering av modell-dokumentasjon: index-md-struktur.md
+          - Generering av modellmanifest: modellmanifest-generering.md
+          - README-tabellgenerering: readme-tabellgenerering.md
       - Monitorering av automasjon: monitorering.md
       - Om dette repoet: om.md
 STATIC

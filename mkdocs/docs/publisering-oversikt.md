@@ -246,9 +246,13 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 
 ---
 
-## Dataflyt: frå YAML til data.norge.no
+## Frå commit til synleg på data.norge.no
 
-### Steg 1-4: Repoet sitt ansvar (automatisk)
+Heile flyten frå ei kodeendring til begrepet/modellen er søkbart på
+data.norge.no — vist først som diagram (arkitektur-oversikt), så som
+konkret kommandolinje-gjennomgang av dei same stega (operasjonell detalj).
+
+### Diagram: steg 1-4 (repoet sitt ansvar, automatisk)
 
 ```mermaid
 sequenceDiagram
@@ -265,9 +269,7 @@ sequenceDiagram
     Pages-->>Dev: ✓ Synleg på GitHub Pages
 ```
 
-**Tidsbruk:** 3-5 minutt
-
-### Steg 5-6: Ekstern prosess (manuell koordinering)
+### Diagram: steg 5-6 (ekstern prosess, manuell koordinering)
 
 ```mermaid
 sequenceDiagram
@@ -285,13 +287,9 @@ sequenceDiagram
     FDK->>Public: Publiser til data.norge.no
 ```
 
-**Tidsbruk:** Varierer (minutt til dagar, avhengig av høstingsoppsett)
+### Steg-for-steg med kommandoar
 
----
-
-## Workflow: frå commit til synleg på data.norge.no
-
-### 1. Utviklar lager pullrequest til `main`
+**1. Utviklar lager pullrequest til `main`:**
 
 ```bash
 # Oppdater main
@@ -311,29 +309,24 @@ git push -u origin feature/mi-endring
 # Opprett Pull Request til main i GitHub-grensesnittet
 ```
 
-### 2. CI kjører validering og generering
+**2. CI validerer og genererer** (`generate.yml`, ~3-5 minutt, avhengig av storleik på endringar):
 
-GitHub Actions (`generate.yml`):
 1. Validerer datafila: `make mcp-linkml-valider-modell POLICY=felles-begrepskatalog`
 2. Genererer `.ttl`-fil: `make convert-data`
 3. Publiserer til GitHub Pages: `actions/deploy-pages@v1`
 
-**Tidsbruk:** ~3-5 minutt (avhengig av storleik på endringar)
-
-### 3. GitHub Pages er oppdatert
+**3. GitHub Pages er oppdatert:**
 
 `https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog.ttl` inneheld no den oppdaterte datafila i SKOS/Turtle-format.
 
-### 4. Felles Begrepskatalog høstar (ekstern prosess)
+**4. Felles Begrepskatalog høstar** (ekstern prosess, varierer — minutt til dagar):
 
 **Kven:** Digitaliseringsdirektoratet / Felles Begrepskatalog-systemet  
 **Når:** Avhengig av høstingsintervall (t.d. dagleg, ukentleg)  
 **Korleis:** HTTP GET frå GitHub Pages-URL  
 **Kontroll:** Repoet har ingen kontroll over når/om høsting skjer
 
-**Tidsbruk:** Varierer — frå minutt til dagar, avhengig av høstingsoppsett
-
-### 5. Synleg på data.norge.no
+**5. Synleg på data.norge.no:**
 
 Begrepet visast på [data.norge.no/concepts](https://data.norge.no/concepts) etter at høsting og indeksering er fullført.
 
