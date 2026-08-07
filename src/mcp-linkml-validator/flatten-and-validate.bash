@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-# Validerer eit LinkML-skjema med alle importar resolve (flatten + validate).
-# Nyttig for domenemodeller med relative importar (t.d. FINT, AP-NO).
+# Validerer eit LinkML-skjema mot mcp-linkml-validator. Namnet er historisk —
+# skriptet flatar ikkje lenger ut importar sjølv: heile repoet vert montert
+# inn i validator-kontainaren, og SchemaView løyser relative importar
+# naturleg mot filsystemet. Sjå specs/backlog/effektiviser-mcp-linkml-
+# validator-koyretid.md (Tiltak 2) for grunngjevinga — den tidlegare
+# `gen-linkml --mergeimports`-utflatinga var reint dobbeltarbeid av det
+# SchemaView allereie gjer internt, berre via ein ekstra podman-kontainar.
 #
 # Bruk: bash src/mcp-linkml-validator/flatten-and-validate.bash <sti-til-skjema> [policy] [instans]
 # Eks:  bash src/mcp-linkml-validator/flatten-and-validate.bash \
@@ -29,57 +34,22 @@ fi
 if [ -n "$EXPLICIT_INSTANCE" ]; then
     EXAMPLE="${REPO_ROOT}/${EXPLICIT_INSTANCE}"
 fi
-# Desse kan overstyrasst utanfrå (t.d. for å bruke eit spesifikt image)
-LINKML_IMAGE="${LINKML_IMAGE:-ghcr.io/brreg/linkml-local:latest}"
+# Kan overstyrast utanfrå (t.d. for å bruke eit spesifikt image)
 MCP_IMAGE="${MCP_IMAGE:-mcp-linkml-validator}"
 
-TMPFILE=$(mktemp /tmp/flat-XXXXXX.yaml)
-trap 'rm -f "$TMPFILE"' EXIT
-
-# Steg 1: Flat ut alle importar til eitt komplett skjema
-echo "→ Flattar ut $SCHEMA ..." >&2
-podman run --rm \
-  -v "$REPO_ROOT:/work" \
-  -w /work \
-  -e PYTHONWARNINGS=ignore \
-  "$LINKML_IMAGE" \
-  gen-linkml --mergeimports --format yaml "$SCHEMA" \
-  > "$TMPFILE" 2>/dev/null
-
-# Steg 1b: gen-linkml --mergeimports strip tree_root — les det tilbake frå original-skjemaet.
-python3 - "$REPO_ROOT/$SCHEMA" "$TMPFILE" << 'PYEOF'
-import yaml, sys
-
-orig_path, flat_path = sys.argv[1], sys.argv[2]
-with open(orig_path) as f:
-    orig = yaml.safe_load(f)
-tree_root_classes = {
-    name for name, cls in (orig.get("classes") or {}).items()
-    if isinstance(cls, dict) and cls.get("tree_root")
-}
-if not tree_root_classes:
-    sys.exit(0)
-with open(flat_path) as f:
-    flat = yaml.safe_load(f)
-for name in tree_root_classes:
-    if name in (flat.get("classes") or {}) and isinstance(flat["classes"][name], dict):
-        flat["classes"][name]["tree_root"] = True
-with open(flat_path, "w") as f:
-    yaml.dump(flat, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-PYEOF
-
-# Steg 2: Send flattened schema til MCP-serveren og print resultatet.
-# Policyar vert montert inn frå repoet slik at endringar tek effekt utan rebuild.
+# Send skjemastien direkte til MCP-serveren (schemaPath, ikkje schemaText) —
+# heile repoet vert montert read-only på /repo slik at SchemaView kan løyse
+# relative importar. Policyar vert monterte inn frå repoet slik at endringar
+# tek effekt utan rebuild.
 python3 -c "
 import json, sys, os, yaml
-flat_path, policy, example_path = sys.argv[1], sys.argv[2], sys.argv[3]
-schema = open(flat_path).read()
-args = {'schemaText': schema, 'policy': policy}
+schema_rel, container_schema_path, policy, example_path = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+args = {'schemaPath': container_schema_path, 'policy': policy}
 if os.path.isfile(example_path):
-    flat = yaml.safe_load(schema)
+    schema = yaml.safe_load(open(schema_rel).read())
     has_tree_root = any(
         isinstance(cls, dict) and cls.get('tree_root')
-        for cls in (flat.get('classes') or {}).values()
+        for cls in (schema.get('classes') or {}).values()
     )
     if has_tree_root:
         args['instanceText'] = open(example_path).read()
@@ -91,7 +61,8 @@ msgs = [
     }},
 ]
 print('\n'.join(json.dumps(m) for m in msgs))
-" "$TMPFILE" "$POLICY" "$EXAMPLE" | podman run -i --rm \
+" "$REPO_ROOT/$SCHEMA" "/repo/$SCHEMA" "$POLICY" "$EXAMPLE" | podman run -i --rm \
+  -v "$REPO_ROOT:/repo:ro" \
   -v "$VALIDATOR_DIR/server.py:/app/server.py:ro" \
   -v "$VALIDATOR_DIR/policies:/app/policies:ro" \
   "$MCP_IMAGE" | python3 -c "

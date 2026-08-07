@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
-Batch-variant av flatten-and-validate.bash: flatar ut og validerer FLEIRE
-skjema, men sender berre éitt samla JSON-RPC-kall til mcp-linkml-validator
-(éin podman-kontainar for heile batchen i staden for éin per skjema).
+Batch-variant av flatten-and-validate.bash: validerer FLEIRE skjema, men
+sender berre éitt samla JSON-RPC-kall til mcp-linkml-validator (éin podman-
+kontainar for heile batchen i staden for éin per skjema).
 
 Bakgrunn: import av linkml/linkml_runtime tek ~5s og vert betalt på nytt for
 kvar einaste podman-kontainar. Sidan mcp-linkml-validator sin server.py alt
 les JSON-RPC-meldingar i ei løkke frå stdin, kan N valideringskall sendast
 til éin kontainar-prosess og dele éin importkostnad i staden for N.
-Sjå specs/backlog/effektiviser-mcp-linkml-validator-koyretid.md (Tiltak 1).
 
-Utflatinga (Steg 1: gen-linkml --mergeimports) køyrer framleis éin gong per
-skjema i eigen kontainar (LINKML_IMAGE) — berre sjølve valideringssteget
-(Steg 2) er batcha her. Sjå same spec (Tiltak 2) for planen om å fjerne
-utflatingssteget heilt.
+Skjema vert sendt som `schemaPath` (ikkje `schemaText`) — heile repoet vert
+montert read-only inn i kontainaren, og SchemaView løyser relative importar
+naturleg mot filsystemet. Dette fjernar òg det tidlegare separate
+utflatingssteget (`gen-linkml --mergeimports` i eigen kontainar per skjema)
+heilt. Sjå specs/backlog/effektiviser-mcp-linkml-validator-koyretid.md
+(Tiltak 1 + Tiltak 2).
 
 Bruk:
   # Alle skjema med same policy, instans auto-oppdaga (validate-bronze):
@@ -84,44 +85,18 @@ def resolve_example_path(repo_root: Path, schema_rel: str, explicit_instance: st
     return example
 
 
-def flatten_schema(repo_root: Path, schema_rel: str, linkml_image: str) -> tuple[str | None, dict | None]:
-    """Køyrer gen-linkml --mergeimports for eitt skjema. Returnerer (flat_text, error_result)."""
-    proc = subprocess.run(
-        ["podman", "run", "--rm", "-v", f"{repo_root}:/work", "-w", "/work",
-         "-e", "PYTHONWARNINGS=ignore", linkml_image,
-         "gen-linkml", "--mergeimports", "--format", "yaml", schema_rel],
-        capture_output=True, text=True,
+def schema_has_tree_root(repo_root: Path, schema_rel: str) -> bool:
+    """tree_root-klassen er alltid definert lokalt i skjemaet (aldri importert), jf.
+    CLAUDE.md sin konvensjon — treng difor ikkje løyse importar for å sjekke dette."""
+    schema = yaml.safe_load((repo_root / schema_rel).read_text(encoding="utf-8"))
+    return any(
+        isinstance(cls, dict) and cls.get("tree_root")
+        for cls in (schema.get("classes") or {}).values()
     )
-    if proc.returncode != 0 or not proc.stdout.strip():
-        error_result = {
-            "valid": False, "errorCount": 1, "warningCount": 0,
-            "issues": [{
-                "severity": "error", "code": "flatten_error", "target": "schema",
-                "message": f"gen-linkml --mergeimports feila for {schema_rel}: {proc.stderr.strip()[:500]}",
-            }],
-        }
-        return None, error_result
-
-    # Steg 1b: gen-linkml --mergeimports strip tree_root — les det tilbake
-    # frå originalskjemaet (same fiks som flatten-and-validate.bash).
-    orig = yaml.safe_load((repo_root / schema_rel).read_text(encoding="utf-8"))
-    tree_root_classes = {
-        cname for cname, cls in (orig.get("classes") or {}).items()
-        if isinstance(cls, dict) and cls.get("tree_root")
-    }
-    if not tree_root_classes:
-        return proc.stdout, None
-
-    flat = yaml.safe_load(proc.stdout)
-    for cname in tree_root_classes:
-        if cname in (flat.get("classes") or {}) and isinstance(flat["classes"][cname], dict):
-            flat["classes"][cname]["tree_root"] = True
-    flat_text = yaml.dump(flat, allow_unicode=True, default_flow_style=False, sort_keys=False)
-    return flat_text, None
 
 
-def build_tool_call(msg_id: int, flat_text: str, policy: str, instance_text: str | None) -> dict:
-    arguments = {"schemaText": flat_text, "policy": policy}
+def build_tool_call(msg_id: int, container_schema_path: str, policy: str, instance_text: str | None) -> dict:
+    arguments = {"schemaPath": container_schema_path, "policy": policy}
     if instance_text is not None:
         arguments["instanceText"] = instance_text
     return {
@@ -130,11 +105,12 @@ def build_tool_call(msg_id: int, flat_text: str, policy: str, instance_text: str
     }
 
 
-def run_mcp_batch(validator_dir: Path, mcp_image: str, messages: list[dict]) -> dict[int, dict]:
+def run_mcp_batch(repo_root: Path, validator_dir: Path, mcp_image: str, messages: list[dict]) -> dict[int, dict]:
     """Sender alle meldingane til éin mcp-linkml-validator-kontainar. Returnerer id -> parsed response."""
     stdin_payload = "\n".join(json.dumps(m) for m in messages) + "\n"
     proc = subprocess.run(
         ["podman", "run", "-i", "--rm",
+         "-v", f"{repo_root}:/repo:ro",
          "-v", f"{validator_dir}/server.py:/app/server.py:ro",
          "-v", f"{validator_dir}/policies:/app/policies:ro",
          mcp_image],
@@ -166,8 +142,6 @@ def main() -> None:
     parser.add_argument("--repo-root", default=os.environ.get("REPO_ROOT", str(Path.cwd())))
     parser.add_argument("--validator-dir", default=os.environ.get(
         "VALIDATOR_DIR", str(Path(__file__).resolve().parent)))
-    parser.add_argument("--linkml-image", default=os.environ.get(
-        "LINKML_IMAGE", "ghcr.io/brreg/linkml-local:latest"))
     parser.add_argument("--mcp-image", default=os.environ.get("MCP_IMAGE", "mcp-linkml-validator"))
     args = parser.parse_args()
 
@@ -177,55 +151,43 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     jobs = load_jobs(args)
-    log(f"→ Flatar ut {len(jobs)} skjema ...")
 
     messages = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}}]
-    job_results: dict[int, dict | None] = {}  # index -> ferdig resultat (None = ventar på MCP-svar)
-    job_msg_id: dict[int, int] = {}           # index -> JSON-RPC id sendt til MCP
+    job_msg_id: dict[int, int] = {}  # index -> JSON-RPC id sendt til MCP
 
     for idx, job in enumerate(jobs):
         schema_rel = job["schema"]
         policy = job["policy"]
-        flat_text, error_result = flatten_schema(repo_root, schema_rel, args.linkml_image)
-        if error_result is not None:
-            job_results[idx] = error_result
-            continue
 
         example_path = resolve_example_path(repo_root, schema_rel, job.get("instance"))
         instance_text = None
-        if example_path.is_file():
-            flat_dict = yaml.safe_load(flat_text)
-            has_tree_root = any(
-                isinstance(cls, dict) and cls.get("tree_root")
-                for cls in (flat_dict.get("classes") or {}).values()
-            )
-            if has_tree_root:
-                instance_text = example_path.read_text(encoding="utf-8")
+        if example_path.is_file() and schema_has_tree_root(repo_root, schema_rel):
+            instance_text = example_path.read_text(encoding="utf-8")
 
         msg_id = idx + 2  # id 1 er 'initialize'
         job_msg_id[idx] = msg_id
-        messages.append(build_tool_call(msg_id, flat_text, policy, instance_text))
+        messages.append(build_tool_call(msg_id, f"/repo/{schema_rel}", policy, instance_text))
 
-    pending = len(job_msg_id)
-    log(f"→ Validerer {pending} skjema i éin mcp-linkml-validator-kontainar ...")
-    if pending:
-        responses = run_mcp_batch(validator_dir, args.mcp_image, messages)
-        for idx, msg_id in job_msg_id.items():
-            resp = responses.get(msg_id)
-            if resp is None:
-                job_results[idx] = {
-                    "valid": False, "errorCount": 1, "warningCount": 0,
-                    "issues": [{"severity": "error", "code": "no_mcp_response", "target": "schema",
-                                "message": "Ingen svar frå mcp-linkml-validator-batchen (sjå container-logg)"}],
-                }
-            elif "error" in resp:
-                job_results[idx] = {
-                    "valid": False, "errorCount": 1, "warningCount": 0,
-                    "issues": [{"severity": "error", "code": "mcp_error", "target": "schema",
-                                "message": str(resp["error"])}],
-                }
-            else:
-                job_results[idx] = json.loads(resp["result"]["content"][0]["text"])
+    log(f"→ Validerer {len(jobs)} skjema i éin mcp-linkml-validator-kontainar ...")
+    responses = run_mcp_batch(repo_root, validator_dir, args.mcp_image, messages)
+
+    job_results: dict[int, dict] = {}
+    for idx, msg_id in job_msg_id.items():
+        resp = responses.get(msg_id)
+        if resp is None:
+            job_results[idx] = {
+                "valid": False, "errorCount": 1, "warningCount": 0,
+                "issues": [{"severity": "error", "code": "no_mcp_response", "target": "schema",
+                            "message": "Ingen svar frå mcp-linkml-validator-batchen (sjå container-logg)"}],
+            }
+        elif "error" in resp:
+            job_results[idx] = {
+                "valid": False, "errorCount": 1, "warningCount": 0,
+                "issues": [{"severity": "error", "code": "mcp_error", "target": "schema",
+                            "message": str(resp["error"])}],
+            }
+        else:
+            job_results[idx] = json.loads(resp["result"]["content"][0]["text"])
 
     for idx in range(len(jobs)):
         (output_dir / f"{idx}.json").write_text(

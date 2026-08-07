@@ -254,21 +254,26 @@ ville ikkje målbart påverke tala i denne specen.
       batch-skriptet
 - [x] Tiltak 1: verifiser identisk resultat-JSON mot dagens sekvensielle
       køyring for eit fleirskjema-domene
+- [x] Tiltak 2: spike verifisert (sjå «Funn») — implementer sti-basert
+      `validate_linkml_schema`-kontrakt, fjern Steg 1/1b frå
+      `flatten-and-validate.bash`
+- [x] Tiltak 2: verifiser instansvalideringsvegen (`validate_instance()`)
+      framleis løyser imports korrekt utan pre-flating (avdekte og retta ein
+      separat bug undervegs, sjå «Utført (Tiltak 2)»)
+- [x] Tiltak 2: kjør `tests/test_mcp_policies.py` og
+      `mcp-linkml-valider-modell-smoke`/`-test`, stadfest uendra resultat
+- [x] Tiltak 2: verifiser `reusable-validate.yml` (ekstern repo-bruk)
+      framleis fungerer med sti-basert kontrakt
 - [ ] Tiltak 3: parallelliser `validate-examples` i `make/40-validation.mk`
       (einaste attverande sekvensielle løkke — brukar ikkje
       `flatten-and-validate.bash`/MCP-validatoren og fell difor utanfor
       Tiltak 1/2 sitt virkefelt, sjå eige punkt under)
-- [ ] Tiltak 2: spike verifisert (sjå «Funn») — implementer sti-basert
-      `validate_linkml_schema`-kontrakt, fjern Steg 1/1b frå
-      `flatten-and-validate.bash`
-- [ ] Tiltak 2: forenkle `_check_schema_imports` i `server.py` (fjern
-      `characteristic_class`-proxy)
-- [ ] Tiltak 2: verifiser instansvalideringsvegen (`validate_instance()`)
-      framleis løyser imports korrekt utan pre-flating
-- [ ] Tiltak 2: kjør `tests/test_mcp_policies.py` og
-      `mcp-linkml-valider-modell-smoke`/`-test`, stadfest uendra resultat
-- [ ] Tiltak 2: verifiser `reusable-validate.yml` (ekstern repo-bruk)
-      framleis fungerer med sti-basert kontrakt
+- [ ] **Nytt, avdekt av Tiltak 2:** regenerer og gjennomgå alle committa
+      `validation/*/bronze.json`-loggar for skjema med imports (`ap-no`,
+      `fint`, `modellkatalog` m.fl.) — talet på åtvaringar går ned for desse
+      (sjå «Utført (Tiltak 2)», bugfix-funnet). Dei committa loggane er
+      framleis dei gamle, inflaterte tala til nokon køyrer valideringa på
+      nytt.
 
 ## Utført (Tiltak 1 — 2026-08-07)
 
@@ -342,3 +347,142 @@ dokumenterast i `bugs/` som eiga sak.
 
 **Attverande arbeid:** Tiltak 2 og Tiltak 3 (delvis, sjå over) er ikkje
 implementerte i denne runden.
+
+## Utført (Tiltak 2 — 2026-08-07)
+
+Implementert som planlagt: `validate_linkml_schema` tek no imot **anten**
+`schemaText` (uendra, for kallarar utan montert repo) **eller** `schemaPath`
+(nytt — sti til ei fil som alt finst i kontainaren). `schemaText` er
+**ikkje** fjerna eller endra i åtferd — reint additivt, null risiko for
+eksisterande kallarar som framleis sender rå tekst (t.d. denne MCP-serveren
+brukt direkte som verktøy av eit AI-klientprogram, jf.
+`mcp__linkml-validator__validate_linkml_schema` i denne økta).
+
+**Endra filer:**
+
+- `src/mcp-linkml-validator/server.py`: `validate_schema()`/
+  `validate_instance()` tek no imot `schema_path`/`schema_obj` som
+  alternativ til `schema_text`. TOOL_DEF for `validate_linkml_schema` har
+  fått eit nytt `schemaPath`-felt (ikkje lenger `required: [schemaText]` —
+  validering av at minst éitt av felta er gjeve skjer no i
+  `validate_schema()` sjølv).
+- `src/mcp-linkml-validator/flatten-and-validate.bash`: Steg 1
+  (`gen-linkml --mergeimports` i eigen kontainar) og Steg 1b
+  (tree_root-tilbakelesing) er fjerna heilt. Skriptet monterer no
+  `$REPO_ROOT:/repo:ro` og sender `schemaPath` i staden for `schemaText`.
+  Namnet er historisk (skriptet flatar ikkje lenger ut noko sjølv) —
+  ikkje endra, for å unngå å bryte eksterne referansar (`reusable-
+  validate.yml` sitt sparse-checkout listar filnamnet eksplisitt).
+- `src/mcp-linkml-validator/batch-flatten-and-validate.py`: fjerna
+  `flatten_schema()` og all podman-bruk av `LINKML_IMAGE` heilt —
+  batch-skriptet gjer no **berre** eitt podman-kall totalt, uansett kor
+  mange skjema som valideres.
+- `.github/workflows/reusable-validate.yml`: fjerna pull/tag av
+  `ghcr.io/brreg/linkml-local` (ikkje lenger brukt av
+  `flatten-and-validate.bash`) og `LINKML_IMAGE`-env frå «Valider
+  skjema»-steget. `actionlint` køyrd — ingen `[expression]`-feil.
+
+**Avvik frå opphavleg plan:** `_check_schema_imports` i `server.py` er
+**ikkje** forenkla/fjerna `characteristic_class`-fallbacket, i motsetnad til
+det opphavlege forslaget. Grunngjeving: fallbacket er framleis reelt nyttig
+for `schemaText`-kallarar (som framleis kan sende inn skjema utan fullt
+løyste imports), og å fjerne det gjev inga målbar gevinst — det er død kode
+berre for `schemaPath`-vegen, der `schema.imports` alt er korrekt. Behalde
+uendra som eit trygt fallback.
+
+### Kritisk bug avdekt og retta undervegs: `linkml.validator.validate()` reknar feil sti for relative importar når schema er ein rå sti-streng
+
+Spiken i «Funn» synte at `SchemaView(schema_path)` løyser imports korrekt og
+raskt (0,13 s) — men instansvalideringssteget (`validate_instance()`, kalla
+frå `validate_schema()` når `instanceText` er gjeven) sender skjemaet vidare
+til **linkml sin eigen** `linkml.validator.validate(instance, schema, …)`.
+Verifisert empirisk at denne funksjonen, når `schema` er ein rå sti-streng,
+reknar ut relative importar **feil** — for
+`/repo/src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml`
+sin import `../../ap-no/modelldcat-ap-no/modelldcat-ap-no-schema` gav han
+`[Errno 2] No such file or directory: '/ap-no/modelldcat-ap-no/modelldcat-
+ap-no-schema.yaml'` — biblioteket brukar tilsynelatande CWD/eit anna
+grunnlag enn skjemafila sin eigen katalog for å løyse relative importar når
+det får ein sti-streng, i staden for filas eigen plassering.
+
+**Retting:** send eit alt bygd `SchemaDefinition`-objekt (`sv.schema`, som
+`validate_schema()` uansett alt har bygd i Steg 1) til `lm_validate()` i
+staden for ein sti-streng. Verifisert direkte at dette gjev korrekt
+importoppløysing (0 feil, mot feilen over med sti-streng). `validate_
+instance()` sin signatur er endra frå `schema_path: str | None` til
+`schema_obj: SchemaDefinition | None` som følgje av dette — reint internt,
+ingen kontraktendring for MCP-verktøya utetter.
+
+### Uventa, men korrekt sideeffekt: fjerning av utflating fiksar ein reell falsk-positiv-bug i policy-sjekkane
+
+Samanlikna resultat for `brreg-modellkatalog-schema.yaml` (importerer
+`modelldcat-ap-no`, som igjen importerer `dcat-ap-no`) med
+`felles-datakatalog`-policy, før og etter Tiltak 2:
+
+| | Errors | Warnings |
+|---|---|---|
+| Før (utflata schemaText) | 0 | 67 |
+| Etter (schemaPath, native imports) | 0 | 6 |
+
+61 av dei 61 forskjellige åtvaringane var kodane `all_classes_have_
+concept_ref` m.fl. retta mot klasser som **ikkje er definerte i
+`brreg-modellkatalog-schema.yaml`** i det heile — dei er importerte frå
+`modelldcat-ap-no`/`dcat-ap-no` (`Datasett`, `Distribusjon`, `Katalog`,
+`Aktoer` m.fl.). **Dette er stikk i strid med CLAUDE.md sin eigen
+dokumenterte regel:** «AP-NO-profil-skjema skal ikkje ha
+`begrepsidentifikator` på klassane sine … Klassane der (t.d. `Datasett`,
+`Katalog`, `Distribusjon`) er definerte av W3C/EU-standardar … ikkje av
+norske omgrep i Felles begrepskatalog.»
+
+**Rotårsak:** `gen-linkml --mergeimports` slår saman alle importerte
+klasser inn i `classes:`-blokka til det utflata skjemaet, slik at dei ser
+ut som lokalt definerte klasser. Policy-sjekkane i `server.py` itererer
+medvite over `schema.classes` (ikkje `sv.all_classes()`) nettopp for å
+avgrense seg til lokalt definerte element — men denne avgrensinga vart
+verdilaus når «lokalt» og «importert» vart identiske etter utflating.
+Native `SchemaView`-oppløysing (utan utflating) held skiljet korrekt: kun
+genuint lokale klasser/slots hamnar i `schema.classes`/`schema.slots`.
+
+**Verifisert breiare** (ikkje berre spesialtilfellet over) — same mønster
+stadfesta for fleire skjema med imports via `make validate-bronze`:
+
+| Skjema | Åtvaringar før | Åtvaringar etter |
+|---|---|---|
+| `ap-no/dcat-ap-no` | 35 | 22 |
+| `fint/fint-administrasjon` | 63 | 34 |
+
+Alle testa skjema heldt `errorCount: 0`/`valid: true` uendra — berre
+talet på (reelt feilaktige) åtvaringar gjekk ned. Dette er **ikkje** ein
+regresjon frå Tiltak 2, men ein bugfix som var ein direkte konsekvens av å
+fjerne utflatinga. **Konsekvens:** alle committa
+`src/linkml/*/*/validation/*/bronze.json` (og tilsvarande `silver`/`gold`/
+`felles-*`-loggar) for skjema med imports viser no inflaterte,
+historisk feilaktige åtvaringstal inntil dei vert regenererte (sjå
+handlingslista).
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag) — totalgevinst
+Tiltak 1 + Tiltak 2 kombinert:**
+
+| Domene | Skjema | Original baseline | Tiltak 1 åleine | Tiltak 1+2 |
+|---|---|---|---|---|
+| `oreg` | 2 | 39,7 s | 31,7 s | — (ikkje re-målt separat) |
+| `fint` | 6 | 139,5 s | 91,2 s | **63,3 s** (−55 % frå baseline) |
+| `ap-no` | 10 | — (ikkje målt før) | — | 81,4 s |
+
+**Testa:**
+- `make mcp-linkml-valider-modell-test` (28 testar) — grøne, inkludert
+  etter `validate_instance()`-signaturendringa.
+- `make mcp-linkml-valider-modell-smoke` — uendra respons.
+- `make validate-bronze DOMAIN={oreg,fint,ap-no}` — alle fullførte med
+  exit-kode 0, ingen krasj, korrekte valideringsloggar (verifiserte,
+  deretter reverterte testgenererte artefaktar før commit).
+- Direkte samanlikning `flatten-and-validate.bash` før/etter (via
+  `git stash`) for `ngr-adresse` (enkel importstruktur, kun `linkml:
+  types`) og `brreg-modellkatalog` (fleirnivå relativ import via
+  `modelldcat-ap-no` → `dcat-ap-no`).
+- `actionlint` mot `reusable-validate.yml`.
+
+**Ikkje testa/gjenstår:** faktisk køyring av `reusable-validate.yml` frå eit
+ekte eksternt repo (krev eit reelt `workflow_call`-oppsett, ikkje testbart
+lokalt) — logikken er verifisert å vere korrekt (same `REPO_ROOT`-mekanisme
+som før, berre eitt mindre podman-kall), men ikkje stadfesta i praksis i CI.

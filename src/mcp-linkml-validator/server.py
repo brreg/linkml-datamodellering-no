@@ -754,15 +754,38 @@ def _run_checks(sv, schema, policy: dict, issues: list) -> None:
 # Validering
 # ---------------------------------------------------------------------------
 
-def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text: str | None = None) -> dict:
+def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
+                     instance_text: str | None = None, schema_path: str | None = None) -> dict:
+    """
+    Validerer eit LinkML-skjema. Gjev anten `schema_text` (rå YAML, skriven til
+    ein mellombels fil) eller `schema_path` (sti til ei skjemafil som alt
+    finst på disk, t.d. inne i eit montert repo) — aldri begge.
+
+    `schema_path` let SchemaView løyse relative imports naturleg mot
+    filsystemet, utan behov for førehandsutflating via `gen-linkml
+    --mergeimports` (sjå specs/backlog/effektiviser-mcp-linkml-validator-
+    koyretid.md, Tiltak 2). `schema_text` er framleis støtta for kallarar
+    som ikkje har eit montert repo tilgjengeleg (t.d. ein ekstern MCP-klient
+    som berre har skjemainnhaldet i minnet).
+    """
+    if schema_path is None and schema_text is None:
+        return {
+            "valid": False, "errorCount": 1, "warningCount": 0,
+            "issues": [issue("error", "parse_error", "schema",
+                              "Anten schemaText eller schemaPath må oppgjevast")],
+        }
+
     policy = load_policy(policy_name)
     base = _is_base_policy(policy_name)
     issues = []
 
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        schema_path = str(Path(tmp_dir) / "schema.yaml")
+    tmp_dir_ctx = None
+    if schema_path is None:
+        tmp_dir_ctx = tempfile.TemporaryDirectory()
+        schema_path = str(Path(tmp_dir_ctx.name) / "schema.yaml")
         Path(schema_path).write_text(schema_text, encoding="utf-8")
 
+    try:
         # 1) Parse — gir parse-feil som error
         try:
             from linkml_runtime.utils.schemaview import SchemaView
@@ -789,12 +812,23 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
             except Exception as exc:
                 issues.append(issue("error", "linter_error", "schema", str(exc)))
 
-        # 3) Instansvalidering — køyrer for alle policyer om instans er gjeven.
-        if instance_text is not None:
-            inst_result = validate_instance(schema_text, instance_text)
-            issues.extend(inst_result["issues"])
-
         schema = sv.schema
+
+        # 3) Instansvalidering — køyrer for alle policyer om instans er gjeven.
+        # Gjenbruk sv.schema (alt bygd, med imports løyste) i staden for å
+        # sende schema_path vidare til lm_validate(): linkml sin eigen
+        # sti-baserte import-oppløysing bruker CWD/objektnamn som base i
+        # staden for skjemafila sin eigen katalog, og reknar difor ut feil
+        # absolutt sti for relative importar (verifisert empirisk — feilar
+        # med t.d. "/ap-no/..." i staden for "/repo/src/linkml/ap-no/...").
+        # target_class er alt kjent frå sv.schema her, så validate_instance()
+        # slepp òg å parse skjemaet på nytt berre for å finne tree_root-klassen.
+        if instance_text is not None:
+            target_class = next(
+                (cname for cname, cls in (schema.classes or {}).items() if cls.tree_root), None)
+            inst_result = validate_instance(
+                schema_text, instance_text, target_class=target_class, schema_obj=schema)
+            issues.extend(inst_result["issues"])
 
         # 4) Policy-felt-sjekkar
         def _check(obj, obj_label: str, required_fields: list, recommended_fields: list):
@@ -847,6 +881,9 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
         if instance_text is not None:
             parsed_instance = yaml.safe_load(instance_text)
             _run_instance_checks(sv, schema, parsed_instance, policy, issues)
+    finally:
+        if tmp_dir_ctx is not None:
+            tmp_dir_ctx.cleanup()
 
     errors = [i for i in issues if i["severity"] == "error"]
     warnings = [i for i in issues if i["severity"] == "warning"]
@@ -862,7 +899,18 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
 # Instansvalidering — tilsvarar `linkml validate --schema <schema> <instance>`
 # ---------------------------------------------------------------------------
 
-def validate_instance(schema_text: str, instance_text: str, target_class: str | None = None) -> dict:
+def validate_instance(schema_text: str | None, instance_text: str, target_class: str | None = None,
+                       schema_obj=None) -> dict:
+    """
+    Gjev anten `schema_text` (vert parsa til ein dict) eller `schema_obj` (eit
+    alt bygd `SchemaDefinition`, typisk `sv.schema` frå ein eksisterande
+    SchemaView). Merk: å sende ein rå skjemasti til `linkml.validator.
+    validate()` er **ikkje** trygt — verifisert empirisk at biblioteket då
+    reknar ut feil absolutt sti for relative importar (brukar CWD/objektnamn
+    som base i staden for skjemafila sin eigen katalog). Send difor alltid
+    eit alt oppløyst `SchemaDefinition`-objekt når skjemaet har imports som
+    må løysast frå filsystemet.
+    """
     issues = []
 
     try:
@@ -875,26 +923,30 @@ def validate_instance(schema_text: str, instance_text: str, target_class: str | 
             "issues": [issue("error", "parse_error", "instance", str(exc))],
         }
 
-    try:
-        schema_dict = yaml.safe_load(schema_text)
-    except Exception as exc:
-        return {
-            "valid": False,
-            "errorCount": 1,
-            "warningCount": 0,
-            "issues": [issue("error", "parse_error", "schema", str(exc))],
-        }
-
-    if not target_class:
-        for cname, cls_def in (schema_dict.get("classes") or {}).items():
-            if isinstance(cls_def, dict) and cls_def.get("tree_root"):
-                target_class = cname
-                break
+    schema_for_validate: object
+    if schema_obj is not None:
+        schema_for_validate = schema_obj
+    else:
+        try:
+            schema_dict = yaml.safe_load(schema_text)
+        except Exception as exc:
+            return {
+                "valid": False,
+                "errorCount": 1,
+                "warningCount": 0,
+                "issues": [issue("error", "parse_error", "schema", str(exc))],
+            }
+        schema_for_validate = schema_dict
+        if not target_class:
+            for cname, cls_def in (schema_dict.get("classes") or {}).items():
+                if isinstance(cls_def, dict) and cls_def.get("tree_root"):
+                    target_class = cname
+                    break
 
     try:
         from linkml.validator import validate as lm_validate
         from linkml.validator.report import Severity
-        report = lm_validate(instance, schema_dict, target_class=target_class)
+        report = lm_validate(instance, schema_for_validate, target_class=target_class)
         _severity_map = {
             Severity.FATAL: "error",
             Severity.ERROR: "error",
@@ -934,11 +986,23 @@ TOOL_DEF = {
     ),
     "inputSchema": {
         "type": "object",
-        "required": ["schemaText"],
         "properties": {
             "schemaText": {
                 "type": "string",
-                "description": "LinkML-skjema i YAML-format.",
+                "description": (
+                    "LinkML-skjema i YAML-format. Bruk schemaPath i staden dersom skjemaet "
+                    "har relative imports og filsystemet er montert i kontainaren — SchemaView "
+                    "løyser då imports naturleg, utan førehandsutflating. Anten schemaText "
+                    "eller schemaPath må oppgjevast, aldri begge."
+                ),
+            },
+            "schemaPath": {
+                "type": "string",
+                "description": (
+                    "Sti til ei skjemafil som alt finst på disk i kontainaren "
+                    "(t.d. /repo/src/linkml/<domain>/<modell>/<modell>-schema.yaml). "
+                    "Brukast i staden for schemaText når heile repoet er montert inn."
+                ),
             },
             "policy": {
                 "type": "string",
@@ -1017,7 +1081,9 @@ def handle(msg: dict) -> dict | None:
         if tool_name == "validate_linkml_schema":
             policy_name = arguments.get("policy", "bronze")
             instance_text = arguments.get("instanceText") or None
-            result = validate_schema(arguments.get("schemaText", ""), policy_name, instance_text)
+            schema_path = arguments.get("schemaPath") or None
+            schema_text = arguments.get("schemaText") or None
+            result = validate_schema(schema_text, policy_name, instance_text, schema_path=schema_path)
             return {
                 "jsonrpc": "2.0",
                 "id": msg_id,

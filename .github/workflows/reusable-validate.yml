@@ -54,8 +54,6 @@ jobs:
       - name: Trekk inn container-image
         run: |
           VERSION="${{ steps.config.outputs.version }}"
-          podman pull "ghcr.io/brreg/linkml-local:${VERSION}"
-          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" ghcr.io/brreg/linkml-local:latest
           podman pull "ghcr.io/brreg/mcp-linkml-validator:${VERSION}"
           podman tag  "ghcr.io/brreg/mcp-linkml-validator:${VERSION}" mcp-linkml-validator
 
@@ -68,7 +66,6 @@ jobs:
           result=$(
             REPO_ROOT="$GITHUB_WORKSPACE" \
             VALIDATOR_DIR="$GITHUB_WORKSPACE/_linkml-tools/src/mcp-linkml-validator" \
-            LINKML_IMAGE="ghcr.io/brreg/linkml-local:latest" \
             bash _linkml-tools/src/mcp-linkml-validator/flatten-and-validate.bash \
               "$SCHEMA" "$POLICY" "$INSTANCE"
           )
