@@ -1,0 +1,20 @@
+{
+  "domain": "referanse",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "schema_field_present",
+        "message": "schema.license manglar",
+        "severity": "warning",
+        "target": "schema"
+      }
+    ],
+    "valid": true,
+    "warningCount": 1
+  },
+  "schema": "referansemodell-gold",
+  "validated_at": "2026-08-07T12:03:15.153511+00:00",
+  "validation_policy": "bronze",
+  "version": "1.0.0"
+}

@@ -392,7 +392,9 @@
       "Bash(LOGLVL=DEBUG timeout 60 make domain-begrepskatalog)",
       "Bash(LOGLVL=DEBUG timeout 100 make domain-begrepskatalog)",
       "Bash(xargs cat)",
-      "Bash(echo \"exit code: $?\")"
+      "Bash(echo \"exit code: $?\")",
+      "Bash(echo \"script exit code: $?\")",
+      "Bash(xargs -n1 basename)"
     ]
   },
   "enableAllProjectMcpServers": true,

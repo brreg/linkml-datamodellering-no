@@ -264,11 +264,11 @@ ville ikkje målbart påverke tala i denne specen.
       `mcp-linkml-valider-modell-smoke`/`-test`, stadfest uendra resultat
 - [x] Tiltak 2: verifiser `reusable-validate.yml` (ekstern repo-bruk)
       framleis fungerer med sti-basert kontrakt
-- [ ] Tiltak 3: parallelliser `validate-examples` i `make/40-validation.mk`
+- [x] Tiltak 3: parallelliser `validate-examples` i `make/40-validation.mk`
       (einaste attverande sekvensielle løkke — brukar ikkje
       `flatten-and-validate.bash`/MCP-validatoren og fell difor utanfor
       Tiltak 1/2 sitt virkefelt, sjå eige punkt under)
-- [ ] **Nytt, avdekt av Tiltak 2:** regenerer og gjennomgå alle committa
+- [x] **Nytt, avdekt av Tiltak 2:** regenerer og gjennomgå alle committa
       `validation/*/bronze.json`-loggar for skjema med imports (`ap-no`,
       `fint`, `modellkatalog` m.fl.) — talet på åtvaringar går ned for desse
       (sjå «Utført (Tiltak 2)», bugfix-funnet). Dei committa loggane er
@@ -486,3 +486,56 @@ Tiltak 1 + Tiltak 2 kombinert:**
 ekte eksternt repo (krev eit reelt `workflow_call`-oppsett, ikkje testbart
 lokalt) — logikken er verifisert å vere korrekt (same `REPO_ROOT`-mekanisme
 som før, berre eitt mindre podman-kall), men ikkje stadfesta i praksis i CI.
+
+## Utført (Tiltak 3 + loggregenerering — 2026-08-07)
+
+### Tiltak 3 — parallelliser `validate-examples`
+
+`validate-examples` (`make/40-validation.mk`) var den einaste attverande
+strengt sekvensielle løkka — han brukar `linkml validate` direkte, ikkje
+`flatten-and-validate.bash`/batch-skriptet, og fall difor utanfor Tiltak
+1/2 sitt verkefelt. Parallellisert med same mønster som `mkdocs/publish.sh`
+og `specs/done/parallelliser-domene-validering.md` alt etablerte:
+kvart skjema sin valideringskropp er pakka inn i ein `( … ) &`-subshell
+(eigen variabel-scope per parallell jobb — unngår race conditions på
+`result`/`has_error`/`exit_code`), PID-ar og skjemanamn sporast i
+`PIDS`/`KEYS`-array, og ei etterfølgande `wait`-løkke tel opp `FAILED`
+basert på kvar subshell sin exit-kode. `SHELL := /bin/bash` er alt sett i
+`Makefile` (linje 8), så bash-array-syntaksen fungerer utan endring.
+
+**Verifisert:**
+- Isolert test av sjølve PIDS/KEYS/wait-mekanikken (4 simulerte jobbar, 2
+  suksess + 2 feil) — stadfesta at `FAILED`-teljinga og exit-koden er
+  korrekte under parallell køyring.
+- `make validate-examples DOMAIN=ngr` (4 skjema): fullførte med exit-kode
+  0, alle fire valideringsloggane skrivne korrekt. Kvart skjema sitt
+  einskildkall tok ~10,7 s, men **total veggklokketid var 17,1 s** (mot
+  ~42,8 s sekvensielt — dei fire containerane køyrde overlappande).
+- Testartefaktar reverterte før commit.
+
+### Loggregenerering — fiks stale valideringsloggar frå Tiltak 2-bugfixen
+
+Køyrde `make validate-bronze DOMAIN=<domene>` for alle 9 domene (`ap-no`,
+`begrepskatalog`, `fair`, `fint`, `modellkatalog`, `ngr`, `oreg`,
+`referanse`, `samt`) for å oppdatere dei committa `bronze.json`-loggane med
+korrekt (ikkje-inflatert) åtvaringstal etter bugfixen i Tiltak 2.
+
+**Resultat:** 21 eksisterande `bronze.json`-filer oppdaterte (pluss 2 nye
+for `oreg`, som ikkje hadde committa bronze-loggar frå før). Verifisert
+programmatisk (samanlikna kvar fil mot `git show HEAD:<sti>`) at **alle**
+endringane er reine reduksjonar i `warningCount` — `valid` og `errorCount`
+er identiske før/etter for kvar einaste fil, ingen skjema gjekk frå gyldig
+til ugyldig eller omvendt. Størst utslag: `modelldcat-ap-no` (66→8 og
+66→5 åtvaringar for to versjonar), `dqv-ap-no 1.15.0` (35→5),
+`digdir-/kartverket-/ksdigital-/novari-/skatteetaten-modellkatalog`
+(68→7 kvar).
+
+Silver/gold/`felles-*`-loggar (skrivne via `log-mcp-validate`/
+`run-validation.sh`, ikkje `validate-bronze`) er **ikkje** regenererte i
+denne runden — dei brukar den same, no fiksa `flatten-and-validate.bash`,
+og vil difor sjølvrette seg ved neste ordinære `generate.yml`/
+`validate.yml`-køyring i CI. Ikkje prioritert her for å avgrense omfanget
+av denne enkeltendringa.
+
+**Alle tiltak i denne specen er no gjennomførte** (Tiltak 1, 2, 3 og
+loggregenereringa). Specen er klar til å flyttast til `specs/done/`.

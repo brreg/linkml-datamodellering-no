@@ -1,0 +1,116 @@
+{
+  "domain": "fair",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'ressursIdentifikator' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:ressursIdentifikator"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'tilgangsURL' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:tilgangsURL"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'autentiseringPaakrevd' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:autentiseringPaakrevd"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'metadataPersistens' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:metadataPersistens"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'ansvarlegAktoer' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:ansvarlegAktoer"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'generertAvAktivitet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:generertAvAktivitet"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'registrertIKatalog' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:registrertIKatalog"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'katalogOppfoeringURL' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:katalogOppfoeringURL"
+      },
+      {
+        "code": "all_classes_have_identifier",
+        "message": "Klasse 'Tilgangsmetadata' manglar global identifikator (slot med identifier: true)",
+        "severity": "warning",
+        "target": "class:Tilgangsmetadata"
+      },
+      {
+        "code": "all_classes_have_identifier",
+        "message": "Klasse 'Gjenbruksmetadata' manglar global identifikator (slot med identifier: true)",
+        "severity": "warning",
+        "target": "class:Gjenbruksmetadata"
+      },
+      {
+        "code": "all_classes_have_identifier",
+        "message": "Klasse 'Proveniensmetadata' manglar global identifikator (slot med identifier: true)",
+        "severity": "warning",
+        "target": "class:Proveniensmetadata"
+      },
+      {
+        "code": "all_classes_have_identifier",
+        "message": "Klasse 'Katalogregistrering' manglar global identifikator (slot med identifier: true)",
+        "severity": "warning",
+        "target": "class:Katalogregistrering"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'FAIRMetadata' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:FAIRMetadata"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Tilgangsmetadata' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Tilgangsmetadata"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Gjenbruksmetadata' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Gjenbruksmetadata"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Proveniensmetadata' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Proveniensmetadata"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Katalogregistrering' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Katalogregistrering"
+      }
+    ],
+    "valid": true,
+    "warningCount": 17
+  },
+  "schema": "fair-metadata",
+  "validated_at": "2026-08-07T11:59:23.617879+00:00",
+  "validation_policy": "bronze",
+  "version": "1.6.0"
+}

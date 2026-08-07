@@ -132,7 +132,8 @@ validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domain>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
-	FAILED=0; \
+	declare -a PIDS=(); \
+	declare -a KEYS=(); \
 	while IFS= read -r schema; do \
 		name=$$(basename "$$schema" -schema.yaml); \
 		domain=$$(echo "$$schema" | cut -d/ -f3); \
@@ -151,36 +152,47 @@ ifdef DOMAIN
 				continue; \
 			fi; \
 		fi; \
-		log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$validate_schema $$example"; \
-		t0=$$(date +%s%3N); \
-		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
-			$(LINKML_IMAGE) linkml validate --schema "$$validate_schema" "$$example" 2>&1); \
-		exit_code=$$?; \
-		t1=$$(date +%s%3N); \
-		ms=$$(( t1 - t0 )); \
-		log_debug "$$result"; \
-		log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
-		has_error=false; \
-		if [ $$exit_code -ne 0 ]; then \
-			has_error=true; \
-			if echo "$$result" | grep -q "\[ERROR\]"; then \
-				echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
-					log_error "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
-				done; \
-			else \
-				log_error "::error file=$$example::Validering feila (exit code $$exit_code)"; \
+		( \
+			log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$validate_schema $$example"; \
+			t0=$$(date +%s%3N); \
+			result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
+				$(LINKML_IMAGE) linkml validate --schema "$$validate_schema" "$$example" 2>&1); \
+			exit_code=$$?; \
+			t1=$$(date +%s%3N); \
+			ms=$$(( t1 - t0 )); \
+			log_debug "$$result"; \
+			log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+			has_error=false; \
+			if [ $$exit_code -ne 0 ]; then \
+				has_error=true; \
+				if echo "$$result" | grep -q "\[ERROR\]"; then \
+					echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
+						log_error "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
+					done; \
+				else \
+					log_error "::error file=$$example::Validering feila (exit code $$exit_code)"; \
+				fi; \
 			fi; \
-			FAILED=$$((FAILED + 1)); \
-		fi; \
-		if [ "$$has_error" = "true" ]; then \
-			result_json='{"valid":false,"error_count":1,"warning_count":0,"issues":[{"severity":"error","target":"examples","message":"Validation failed"}]}'; \
-		else \
-			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
-		fi; \
-		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type examples --result "$$result_json" < /dev/null 2>/dev/null || true; \
+			if [ "$$has_error" = "true" ]; then \
+				result_json='{"valid":false,"error_count":1,"warning_count":0,"issues":[{"severity":"error","target":"examples","message":"Validation failed"}]}'; \
+			else \
+				result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
+			fi; \
+			$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
+				--schema "$$schema" --type examples --result "$$result_json" < /dev/null 2>/dev/null || true; \
+			[ "$$has_error" = "true" ] && exit 1 || exit 0; \
+		) & \
+		PIDS+=($$!); \
+		KEYS+=("$$domain/$$name"); \
 	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
 		| grep -v common | sort); \
+	FAILED=0; \
+	for i in "$${!PIDS[@]}"; do \
+		if ! wait "$${PIDS[$$i]}"; then \
+			log_debug "validate-examples feila for $${KEYS[$$i]}"; \
+			FAILED=$$((FAILED + 1)); \
+		fi; \
+	done; \
 	exit $$FAILED
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>"

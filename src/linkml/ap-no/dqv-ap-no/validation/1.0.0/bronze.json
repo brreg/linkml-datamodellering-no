@@ -1,92 +1,62 @@
 {
-  "schema": "dqv-core",
   "domain": "ap-no",
-  "version": "1.0.0",
-  "validated_at": "2026-08-06T18:40:10.926039+00:00",
-  "validation_type": "bronze",
   "result": {
-    "valid": true,
     "errorCount": 0,
-    "warningCount": 13,
     "issues": [
       {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kvalitetsdimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
         "severity": "warning",
-        "code": "all_slots_have_slot_uri",
-        "target": "slot:id",
-        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+        "target": "class:Kvalitetsdimensjon"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetsdimensjon",
-        "message": "Klasse 'Kvalitetsdimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kvalitetsdeldimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsdeldimensjon"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetsdeldimensjon",
-        "message": "Klasse 'Kvalitetsdeldimensjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kvalitetsmaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmaal"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetsmaal",
-        "message": "Klasse 'Kvalitetsmaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kvalitetsmerknad' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmerknad"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetsmerknad",
-        "message": "Klasse 'Kvalitetsmerknad' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Brukartilbakemelding' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Brukartilbakemelding"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Brukartilbakemelding",
-        "message": "Klasse 'Brukartilbakemelding' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kvalitetssertifikat' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetssertifikat"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetssertifikat",
-        "message": "Klasse 'Kvalitetssertifikat' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kvalitetsmaaling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kvalitetsmaaling"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kvalitetsmaaling",
-        "message": "Klasse 'Kvalitetsmaaling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
+        "message": "Klasse 'Tekstdel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
         "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Tekstdel",
-        "message": "Klasse 'Tekstdel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Lisensdokument",
-        "message": "Klasse 'Lisensdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Mediatype",
-        "message": "Klasse 'Mediatype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Konsept",
-        "message": "Klasse 'Konsept' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Begrepssamling",
-        "message": "Klasse 'Begrepssamling' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "target": "class:Tekstdel"
       }
-    ]
-  }
+    ],
+    "valid": true,
+    "warningCount": 8
+  },
+  "schema": "dqv-core",
+  "validated_at": "2026-08-07T11:58:08.612216+00:00",
+  "validation_policy": "bronze",
+  "version": "1.0.0"
 }

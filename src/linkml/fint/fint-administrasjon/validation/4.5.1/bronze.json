@@ -1,392 +1,218 @@
 {
-  "schema": "fint-administrasjon",
   "domain": "fint",
-  "version": "4.5.1",
-  "validated_at": "2026-08-06T18:48:39.583643+00:00",
-  "validation_type": "bronze",
   "result": {
-    "valid": true,
     "errorCount": 0,
-    "warningCount": 63,
     "issues": [
       {
-        "severity": "warning",
-        "code": "all_slots_have_slot_uri",
-        "target": "slot:id",
-        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert"
-      },
-      {
-        "severity": "warning",
         "code": "all_classes_have_identifier",
-        "target": "class:Kontostreng",
-        "message": "Klasse 'Kontostreng' manglar global identifikator (slot med identifier: true)"
+        "message": "Klasse 'Kontostreng' manglar global identifikator (slot med identifier: true)",
+        "severity": "warning",
+        "target": "class:Kontostreng"
       },
       {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Aktoer",
-        "message": "Klasse 'Aktoer' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Enhet",
-        "message": "Klasse 'Enhet' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Identifikator",
-        "message": "Klasse 'Identifikator' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Periode",
-        "message": "Klasse 'Periode' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Personnavn",
-        "message": "Klasse 'Personnavn' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Kontaktinformasjon",
-        "message": "Klasse 'Kontaktinformasjon' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Adresse",
-        "message": "Klasse 'Adresse' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_identifier",
-        "target": "class:Matrikkelnummer",
-        "message": "Klasse 'Matrikkelnummer' manglar global identifikator (slot med identifier: true)"
-      },
-      {
-        "severity": "warning",
-        "code": "class_count_exceeds_limit",
-        "target": "schema",
-        "message": "Skjemaet har 52 klasser (maks anbefalt: 50). Vurder å dele opp i fleire skjema (Digdir-regel 6: Modularitet)."
-      },
-      {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Lonn",
-        "message": "Klasse 'Lonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Lonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Lonn"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kontostreng",
-        "message": "Klasse 'Kontostreng' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kontostreng' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kontostreng"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Aktivitet",
-        "message": "Klasse 'Aktivitet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Aktivitet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Aktivitet"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Anlegg",
-        "message": "Klasse 'Anlegg' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Anlegg' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Anlegg"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Ansvar",
-        "message": "Klasse 'Ansvar' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Ansvar' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Ansvar"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Art",
-        "message": "Klasse 'Art' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Art' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Art"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Arbeidsforholdstype",
-        "message": "Klasse 'Arbeidsforholdstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Arbeidsforholdstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Arbeidsforholdstype"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Diverse",
-        "message": "Klasse 'Diverse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Diverse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Diverse"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Formaal",
-        "message": "Klasse 'Formaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Formaal' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Formaal"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fravaersgrunn",
-        "message": "Klasse 'Fravaersgrunn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fravaersgrunn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fravaersgrunn"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fravaerstype",
-        "message": "Klasse 'Fravaerstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fravaerstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fravaerstype"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Funksjon",
-        "message": "Klasse 'Funksjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Funksjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Funksjon"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Kontrakt",
-        "message": "Klasse 'Kontrakt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Kontrakt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kontrakt"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Lonsart",
-        "message": "Klasse 'Lonsart' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Lonsart' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Lonsart"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Lopenummer",
-        "message": "Klasse 'Lopenummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Lopenummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Lopenummer"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Objekt",
-        "message": "Klasse 'Objekt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Objekt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Objekt"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Organisasjonstype",
-        "message": "Klasse 'Organisasjonstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Organisasjonstype' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Organisasjonstype"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Personalressurskategori",
-        "message": "Klasse 'Personalressurskategori' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Personalressurskategori' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Personalressurskategori"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Prosjekt",
-        "message": "Klasse 'Prosjekt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Prosjekt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Prosjekt"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Prosjektart",
-        "message": "Klasse 'Prosjektart' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Prosjektart' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Prosjektart"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Ramme",
-        "message": "Klasse 'Ramme' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Ramme' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Ramme"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Stillingskode",
-        "message": "Klasse 'Stillingskode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Stillingskode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Stillingskode"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Uketimetall",
-        "message": "Klasse 'Uketimetall' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Uketimetall' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Uketimetall"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fastlonn",
-        "message": "Klasse 'Fastlonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fastlonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fastlonn"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fasttillegg",
-        "message": "Klasse 'Fasttillegg' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fasttillegg' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fasttillegg"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Variabellonn",
-        "message": "Klasse 'Variabellonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Variabellonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Variabellonn"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fravaer",
-        "message": "Klasse 'Fravaer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fravaer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fravaer"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Fullmakt",
-        "message": "Klasse 'Fullmakt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Fullmakt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fullmakt"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Rolle",
-        "message": "Klasse 'Rolle' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Rolle' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Rolle"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Arbeidslokasjon",
-        "message": "Klasse 'Arbeidslokasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Arbeidslokasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Arbeidslokasjon"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Organisasjonselement",
-        "message": "Klasse 'Organisasjonselement' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Organisasjonselement' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Organisasjonselement"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Personalressurs",
-        "message": "Klasse 'Personalressurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "message": "Klasse 'Personalressurs' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Personalressurs"
       },
       {
-        "severity": "warning",
         "code": "all_classes_have_concept_ref",
-        "target": "class:Arbeidsforhold",
-        "message": "Klasse 'Arbeidsforhold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
+        "message": "Klasse 'Arbeidsforhold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
         "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Aktoer",
-        "message": "Klasse 'Aktoer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Begrep",
-        "message": "Klasse 'Begrep' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Elev",
-        "message": "Klasse 'Elev' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Enhet",
-        "message": "Klasse 'Enhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Identifikator",
-        "message": "Klasse 'Identifikator' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Periode",
-        "message": "Klasse 'Periode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Personnavn",
-        "message": "Klasse 'Personnavn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Kontaktinformasjon",
-        "message": "Klasse 'Kontaktinformasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Adresse",
-        "message": "Klasse 'Adresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Matrikkelnummer",
-        "message": "Klasse 'Matrikkelnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Landkode",
-        "message": "Klasse 'Landkode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Kjonn",
-        "message": "Klasse 'Kjonn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Fylke",
-        "message": "Klasse 'Fylke' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Kommune",
-        "message": "Klasse 'Kommune' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Spraak",
-        "message": "Klasse 'Spraak' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Valuta",
-        "message": "Klasse 'Valuta' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Person",
-        "message": "Klasse 'Person' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Kontaktperson",
-        "message": "Klasse 'Kontaktperson' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
-      },
-      {
-        "severity": "warning",
-        "code": "all_classes_have_concept_ref",
-        "target": "class:Virksomhet",
-        "message": "Klasse 'Virksomhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+        "target": "class:Arbeidsforhold"
       }
-    ]
-  }
+    ],
+    "valid": true,
+    "warningCount": 34
+  },
+  "schema": "fint-administrasjon",
+  "validated_at": "2026-08-07T11:59:52.784071+00:00",
+  "validation_policy": "bronze",
+  "version": "4.5.1"
 }

@@ -1,0 +1,224 @@
+{
+  "domain": "ngr",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Person' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Person"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Personnavn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Personnavn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Folkeregisteridentifikator' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Folkeregisteridentifikator"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Foedselsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Foedselsnummer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'DNummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:DNummer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Personidentifikasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Personidentifikasjon"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'FalskIdentitet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:FalskIdentitet"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Identifikasjonsdokument' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Identifikasjonsdokument"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Identitetsgrunnlag' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Identitetsgrunnlag"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kjoenn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kjoenn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Sivilstand' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Sivilstand"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Personstatus' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Personstatus"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Statsborgerskap' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Statsborgerskap"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Opphold' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Opphold"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Foedsel' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Foedsel"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Dodsfall' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Dodsfall"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'KontaktinformasjonDoedsbo' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:KontaktinformasjonDoedsbo"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'ForeldreansvarForelder' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:ForeldreansvarForelder"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'ForeldreansvarBarn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:ForeldreansvarBarn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'FamilierelasjonForelder' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:FamilierelasjonForelder"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'FamilierelasjonBarn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:FamilierelasjonBarn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'FamilierelasjonEktefelle' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:FamilierelasjonEktefelle"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'InnflyttingTilNorge' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:InnflyttingTilNorge"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'UtflyttingFraNorge' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:UtflyttingFraNorge"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'GeografiskAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:GeografiskAdresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Bostedsadresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Bostedsadresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Postadresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Postadresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Oppholdsadresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Oppholdsadresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Adressebeskyttelse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Adressebeskyttelse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Verge' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Verge"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'RettsligHandleevne' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:RettsligHandleevne"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'ReservasjonMotKommunikasjonPaaNett' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:ReservasjonMotKommunikasjonPaaNett"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kontaktopplysninger' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kontaktopplysninger"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'SpraakForElektroniskKommunikasjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:SpraakForElektroniskKommunikasjon"
+      }
+    ],
+    "valid": true,
+    "warningCount": 35
+  },
+  "schema": "ngr-person",
+  "validated_at": "2026-08-07T12:02:11.796703+00:00",
+  "validation_policy": "bronze",
+  "version": "1.6.0"
+}

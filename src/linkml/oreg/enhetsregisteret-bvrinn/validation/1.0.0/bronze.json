@@ -1,0 +1,326 @@
+{
+  "domain": "oreg",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'maalformForTilbakemelding' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:maalformForTilbakemelding"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'fagsystemReferanse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fagsystemReferanse"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'lenkeForEttersending' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:lenkeForEttersending"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'oppfyllerKravTilNaeringsvirksomhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oppfyllerKravTilNaeringsvirksomhet"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'venterAAFaaAnsatte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:venterAAFaaAnsatte"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'datoForAvtale' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:datoForAvtale"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'harAnsvarsbegrensning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:harAnsvarsbegrensning"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'virksomhetsinformasjonUnderenhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:virksomhetsinformasjonUnderenhet"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'meldtOpploesning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:meldtOpploesning"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'meldtOmgjoeringAvOpploesning' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:meldtOmgjoeringAvOpploesning"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'bekreftelseProtokollSletting' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokollSletting"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'registrertITilknyttetRegister' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:registrertITilknyttetRegister"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'bekreftelseProtokollOpploesningOgOmgjoering' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokollOpploesningOgOmgjoering"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'coNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:coNavn"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'vNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:vNavn"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'vegadresseId' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:vegadresseId"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'internasjonaltPrefiks' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:internasjonaltPrefiks"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'nasjonaltNummer' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nasjonaltNummer"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'internasjonalAdresse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:internasjonalAdresse"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'byEllerStedsnavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:byEllerStedsnavn"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'distriktEllerBydel' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:distriktEllerBydel"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'friAdressetekst' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:friAdressetekst"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'mobilnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:mobilnummerUtgaar"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'e_postadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:e_postadresseUtgaar"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'nettadresseUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nettadresseUtgaar"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'telefonnummerUtgaar' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:telefonnummerUtgaar"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'datoGyldigFra' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:datoGyldigFra"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'nyOrganisasjonsform' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:nyOrganisasjonsform"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'kjoennssammensetningAnsattvalgte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:kjoennssammensetningAnsattvalgte"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'kjoennssammensetningStyre' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:kjoennssammensetningStyre"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'bekreftelseProtokoll' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:bekreftelseProtokoll"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'tildelerAvRolle' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:tildelerAvRolle"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'oenskerAAFratre' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskerAAFratre"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'fratredenErVarslet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fratredenErVarslet"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'valgtAv' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:valgtAv"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'mappingId' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:mappingId"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'fulltNavn' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fulltNavn"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'signaturberettigetEllerProkurist' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:signaturberettigetEllerProkurist"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'minsteMengdeangivelse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:minsteMengdeangivelse"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'minsteAntall' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:minsteAntall"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'oenskesRegistrertIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskesRegistrertIForetaksregisteret"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'oenskesSlettetIForetaksregisteret' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:oenskesSlettetIForetaksregisteret"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'typeEierskifte' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:typeEierskifte"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'organisasjonsnummerHovedenhet' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:organisasjonsnummerHovedenhet"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'gjelderHeleAktiviteten' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:gjelderHeleAktiviteten"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'hvilkeDeler' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:hvilkeDeler"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'fagsystemID' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:fagsystemID"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'orgnrFagsystem' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:orgnrFagsystem"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'referanseFagsystem' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:referanseFagsystem"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'eksternFakturareferanse' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:eksternFakturareferanse"
+      },
+      {
+        "code": "slot_names_snake_case",
+        "message": "Slotnamn 'gebyransvarligType' er ikkje snake_case (berre a-z, 0-9, _)",
+        "severity": "warning",
+        "target": "slot:gebyransvarligType"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
+      }
+    ],
+    "valid": true,
+    "warningCount": 52
+  },
+  "schema": "enhetsregisteret-bvrinn",
+  "validated_at": "2026-08-07T12:02:40.020520+00:00",
+  "validation_policy": "bronze",
+  "version": "1.0.0"
+}

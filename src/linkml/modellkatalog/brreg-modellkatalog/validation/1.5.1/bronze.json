@@ -10,12 +10,6 @@
         "target": "class:ModellkatalogContainer"
       },
       {
-        "code": "schema_field_present",
-        "message": "schema.license manglar",
-        "severity": "warning",
-        "target": "schema"
-      },
-      {
         "code": "slot_description_mismatch",
         "message": "Slot 'tema' har vokabular_krav='skal' men description inneheld ikkje 'SKAL'",
         "severity": "warning",
@@ -47,10 +41,10 @@
       }
     ],
     "valid": true,
-    "warningCount": 7
+    "warningCount": 6
   },
-  "schema": "skatteetaten-modellkatalog",
-  "validated_at": "2026-08-07T12:01:35.909793+00:00",
+  "schema": "brreg-modellkatalog",
+  "validated_at": "2026-08-07T12:01:03.526859+00:00",
   "validation_policy": "bronze",
-  "version": "1.0.0"
+  "version": "1.5.1"
 }

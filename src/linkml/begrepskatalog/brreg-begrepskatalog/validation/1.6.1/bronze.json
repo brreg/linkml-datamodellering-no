@@ -1,0 +1,20 @@
+{
+  "domain": "begrepskatalog",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "missing_recommended_metadata",
+        "message": "Manglar anbefalt metadata: description",
+        "severity": "warning",
+        "target": "class:BegrepContainer"
+      }
+    ],
+    "valid": true,
+    "warningCount": 1
+  },
+  "schema": "brreg-begrepskatalog",
+  "validated_at": "2026-08-07T11:59:02.471083+00:00",
+  "validation_policy": "bronze",
+  "version": "1.6.1"
+}

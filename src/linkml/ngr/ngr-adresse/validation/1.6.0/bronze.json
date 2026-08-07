@@ -1,0 +1,152 @@
+{
+  "domain": "ngr",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'id' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:id"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'GeografiskAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:GeografiskAdresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'OffisiellAdresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:OffisiellAdresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Postboksadresse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Postboksadresse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Adressenavn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Adressenavn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Adresseomrade' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Adresseomrade"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Adressekode' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Adressekode"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Husnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Husnummer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Bruksenhetsnummer' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Bruksenhetsnummer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Representasjonspunkt' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Representasjonspunkt"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'GeografiskOmrade' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:GeografiskOmrade"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Fylke' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fylke"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kommune' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kommune"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Poststed' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Poststed"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Grunnkrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Grunnkrets"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Tettsted' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Tettsted"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Kirkesokn' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Kirkesokn"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Stemmekrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Stemmekrets"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'KommunalKrets' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:KommunalKrets"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Svalbard' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Svalbard"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Postboks' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Postboks"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Bygning' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Bygning"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Bruksenhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Bruksenhet"
+      }
+    ],
+    "valid": true,
+    "warningCount": 23
+  },
+  "schema": "ngr-adresse",
+  "validated_at": "2026-08-07T12:01:58.329845+00:00",
+  "validation_policy": "bronze",
+  "version": "1.6.0"
+}
