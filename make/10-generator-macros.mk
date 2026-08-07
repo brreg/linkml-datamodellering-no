@@ -67,14 +67,19 @@ endef
 
 # ---------------------------------------------------------------------------
 # gen-doc (genererer dokumentasjon til katalog i staden for stdout) —
-# gata mot build.yaml (docs: true)
+# gata mot build.yaml (docs: true).
+#
+# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
+# Tiltak 3): Fase A batchar `gen-docgen-examples.py` (reint Python, ingen
+# linkml-import) for ALLE skjema til ÉIN kontainar via
+# batch-generate-instances.py. Fase B er uendra — gen-doc CLI-et sjølv
+# skriv til ein katalog (ikkje stdout) og krev framleis éin kontainar per
+# skjema, så han køyrer via run-parallel-gen.sh som før (GEN_CMD trimma til
+# berre gen-doc + sed-oppryddinga).
 # ---------------------------------------------------------------------------
 define run_gen_doc_parallel
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator docgen-examples -- $(1)
 @GEN_CMD='mkdir -p "$$outdir/docgen-examples" "$$outdir/docs" && \
-run_logged "gen-docgen-examples $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-docgen-examples.py \
-	"$$s" \
-	"src/linkml/$$domain/$$name/examples/$$name-eksempel.yaml" \
-	"$$outdir/docgen-examples" && \
 run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--template-directory src/assets/templates/docgen \
 	--no-mergeimports \
@@ -84,7 +89,7 @@ run_logged "gen-doc $$domain/$$name" $(LINKML_RUN) gen-doc \
 	--example-directory "$$outdir/docgen-examples" \
 	-d "$$outdir/docs" "$$s" && \
 sed -i "/Container/d" "$$outdir/docs/index.md"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator "gen-docgen-examples + gen-doc" --flag docs -- $(1)
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-doc --flag docs -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -107,7 +112,14 @@ endef
 # gen-plantuml (genererer PlantUML-diagram med filtrering) — hoppar over
 # skjema utan `plantuml: true` i build.yaml, sidan images.json sitt
 # required_if_generator_flag: "plantuml" føreset at biletet faktisk ikkje
-# vert bruka for slike skjema
+# vert bruka for slike skjema.
+#
+# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
+# Tiltak 2): Fase A genererer .puml-filene (linkml + python-filter, framleis
+# éin kontainar-triple per skjema via run-parallel-gen.sh, uendra). Fase B
+# batchar SVG-renderinga for ALLE skjema sine .puml-filer til ÉITT
+# podman-kall (PlantUML sitt CLI tek fleire filer om gongen) i staden for
+# eitt kall per fil.
 # ---------------------------------------------------------------------------
 define run_gen_plantuml_parallel
 @GEN_CMD='mkdir -p "$$outdir/diagrams" && \
@@ -117,10 +129,9 @@ $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	> "$$outdir/diagrams/$$name-filtered.puml" && \
 $(PYTHON_RUN) python -u src/assets/scripts/makefile/filter_plantuml.py \
 	"$$s" "$$outdir/diagrams/$$name-raw.puml" full \
-	> "$$outdir/diagrams/$$name.puml" && \
-podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name.puml > /dev/null && \
-podman run --rm -v "$(CURDIR)/$$outdir/diagrams:/data" $(PLANTUML_IMAGE) -tsvg /data/$$name-filtered.puml > /dev/null' \
+	> "$$outdir/diagrams/$$name.puml"' \
 	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-plantuml --flag plantuml -- $(1)
+@PLANTUML_IMAGE=$(PLANTUML_IMAGE) bash src/assets/scripts/makefile/batch-render-plantuml.sh $(1)
 endef
 
 # ---------------------------------------------------------------------------
@@ -141,18 +152,30 @@ endef
 
 # ---------------------------------------------------------------------------
 # gen-asyncapi (JSON Schema → AsyncAPI YAML → validate) — gata mot
-# build.yaml (asyncapi: true), krev gen-jsonschema (--check-suffix schema.json)
+# build.yaml (asyncapi: true), krev gen-jsonschema.
+#
+# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
+# Tiltak 3): Fase A batchar sjølve genereringa (`gen-asyncapi.py`, reint
+# Python) for ALLE skjema til ÉIN kontainar. Fase B (`asyncapi validate`)
+# køyrer i eit heilt anna image (Node.js, ASYNCAPI_IMAGE) og er difor IKKJE
+# batcha — berre 1 skjema i heile repoet har asyncapi: true i dag, så det
+# finst ingenting å vinne på å batche denne delen no (jf. "Ikkje eit
+# tiltak: gen-xsd" i same spec for identisk grunngjeving).
 # ---------------------------------------------------------------------------
 define run_gen_asyncapi_parallel
-@GEN_CMD='run_logged "gen-asyncapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-asyncapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$out' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-asyncapi --flag asyncapi --check-suffix schema.json --out-suffix asyncapi.yaml -- $(1)
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator asyncapi -- $(1)
+@GEN_CMD='run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$input' \
+	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator asyncapi-validate --flag asyncapi --check-suffix asyncapi.yaml -- $(1)
 endef
 
 # ---------------------------------------------------------------------------
 # gen-openapi (JSON Schema → OpenAPI YAML → validate) — gata mot
-# build.yaml (openapi: true), krev gen-jsonschema (--check-suffix schema.json)
+# build.yaml (openapi: true), krev gen-jsonschema. Generering OG validering
+# (`openapi-spec-validator`) køyrer begge i python-pytest-biletet, og er
+# difor batcha saman for ALLE skjema til ÉIN kontainar (sjå
+# specs/backlog/effektiviser-generate-workflow-koyretid.md, Tiltak 3) —
+# ingen resterande per-skjema-fase her, i motsetnad til gen-asyncapi.
 # ---------------------------------------------------------------------------
 define run_gen_openapi_parallel
-@GEN_CMD='run_logged "gen-openapi $$domain/$$name" $(PYTHON_RUN) python3 src/assets/scripts/makefile/gen-openapi.py /work/$$input /work/$$s --out /work/$$out && run_logged "openapi-spec-validator $$domain/$$name" $(PYTHON_RUN) openapi-spec-validator /work/$$out' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-openapi --flag openapi --check-suffix schema.json --out-suffix openapi.yaml -- $(1)
+@$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator openapi -- $(1)
 endef
