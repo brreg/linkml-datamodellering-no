@@ -405,7 +405,8 @@
       "Bash(mkdir -p /tmp/tiltak4-verify)",
       "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk /tmp/tiltak4-verify/current-makefiles/)",
       "Bash(mkdir -p /tmp/tiltak4-verify/current-makefiles)",
-      "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk src/assets/scripts/makefile/filter_plantuml.py src/assets/scripts/makefile/filter_erdiagram.py src/assets/scripts/makefile/batch-generate.py src/assets/scripts/makefile/batch-generate-instances.py /tmp/tiltak4-verify/current-makefiles/)"
+      "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk src/assets/scripts/makefile/filter_plantuml.py src/assets/scripts/makefile/filter_erdiagram.py src/assets/scripts/makefile/batch-generate.py src/assets/scripts/makefile/batch-generate-instances.py /tmp/tiltak4-verify/current-makefiles/)",
+      "Bash(jobs)"
     ]
   },
   "enableAllProjectMcpServers": true,

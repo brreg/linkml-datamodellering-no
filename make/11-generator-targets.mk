@@ -26,6 +26,7 @@ COMMA := ,
 # ---------------------------------------------------------------------------
 # Standard gen-* targets (genererte via make_gen_target)
 # ---------------------------------------------------------------------------
+$(eval $(call make_gen_target,gen-linkml-merge,run_gen_linkml_parallel))
 $(eval $(call make_gen_target,gen-jsonld-context,run_gen_parallel,jsonld-context))
 $(eval $(call make_gen_target,gen-shacl,run_gen_shacl_parallel))
 $(eval $(call make_gen_target,gen-python,run_gen_parallel,python))
@@ -49,6 +50,7 @@ $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 # genererings-logikken — Make tillèt fleire reglar for same target så lenge
 # berre éi av dei har ei oppskrift. Sjå specs/done/forenkle-make-laget.md.
 # ---------------------------------------------------------------------------
+gen-linkml-merge: ## Valider skjema (gen-linkml, fail-fast, ingen fil skriven) [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-jsonld-context: ## Generer JSON-LD context [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-shacl: ## Generer SHACL-shapes [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-python: ## Generer Python-klassar [SCHEMA=<sti>|DOMAIN=<domain>]

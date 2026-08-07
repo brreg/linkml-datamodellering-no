@@ -549,9 +549,10 @@ konklusjon, same metodikk som Tiltak 1–3.
 - [x] Tiltak 3: batch `gen-openapi`/`gen-asyncapi`/
       `gen-informasjonsmodell-instance`/`gen-docgen-examples` sine
       Python-script til éin prosess per domene per scripttype
-- [ ] Parallellisering: implementer `&`/`wait`-mønster mellom dei 3-4
-      gjenverande batch-gruppene per domene (Tiltak 1/2/3), med korrekt
-      avhengigheit (`openapi`/`asyncapi` ventar på `gen-json-schema`)
+- [x] Parallellisering: implementer `&`/`wait`-mønster mellom dei
+      uavhengige batch-gruppene per domene (etter Tiltak 1-4), med korrekt
+      avhengigheit (`openapi`/`asyncapi`/`xsd` ventar på `gen-jsonschema`,
+      `gen-informasjonsmodell-instance` ventar på alt)
 - [ ] Mål reell veggklokkegevinst i CI (ikkje berre lokalt) for minst eitt
       lite domene (`oreg`) og eitt stort (`ap-no` eller `fint`), samanlikna
       mot baseline før denne specen
@@ -1043,6 +1044,112 @@ målinga.
   integrasjonstest (sjå over).
 - Isolert feilhandteringstest for `erdiagram-filter`.
 
-**Attverande arbeid:** parallellisering mellom batch-gruppene og
-CI-måling er ikkje gjennomførte. Alle fire tiltak (1, 2, 3, 4) i denne
-specen er no implementerte og verifiserte lokalt.
+**Attverande arbeid (etter Tiltak 4):** parallellisering mellom
+batch-gruppene og CI-måling er ikkje gjennomførte.
+
+## Utført (Parallellisering etter batching — 2026-08-07)
+
+Implementert som skissert i «Parallellisering etter batching»-avsnittet,
+men oppdatert til å dekke ALLE gruppene som finst etter Tiltak 1-4 (avsnittet
+vart opphavleg skrive før Tiltak 4 fanst og nemnde berre "3-4 grupper" —
+det reelle talet no er 11 uavhengige grupper i fase 1 åleine).
+
+**Design:** i staden for å reimplementere podman-kall i rå bash (risikabelt
+— ville kravd å rekonstruere `LINKML_RUN`/`PYTHON_RUN` sine monterings-
+strengar med anførselsteikn utanfor Make sin eigen `$$`-escaping, jf.
+kvoteringsfellene alt dokumenterte i Tiltak 4 sitt `run_convert`-arbeid),
+vart kvart steg i domain_target eit **rekursivt `$(MAKE) <target>
+DOMAIN=<domene>`-kall til eit alt eksisterande, sjølvstendig verifisert
+gen-*-target**. Det nye orkestreringsskriptet reimplementerer difor
+ingen genereringslogikk i det heile — berre fase-rekkjefølgje,
+samstundes-oppstart og feilsamling.
+
+**Nye/endra filer:**
+
+- `src/assets/scripts/makefile/run-domain-pipeline.sh` (ny) — tek imot eit
+  domenenamn, startar Fase 1 (11 uavhengige grupper: `gen-linkml-merge`,
+  `gen-jsonld-context`, `gen-shacl`, `gen-python`, `gen-jsonschema`,
+  `gen-owl`, `gen-rdf`, `gen-proto`, `gen-linkml-convert`, `gen-docs`
+  [doc+erdiagram saman], `gen-plantuml`) som separate baksgrunnsprosessar
+  via ein `run_bg()`-hjelpar (`( … ) &` + PID-array, same mønster som
+  `parallelliser-domene-validering.md`), ventar **spesifikt** på
+  `gen-jsonschema` (ikkje resten av fase 1) før Fase 2 (`gen-xsd`,
+  `gen-openapi`, `gen-asyncapi` — alle les `<name>-schema.json`) startar,
+  ventar så på ALLE attverande PID-ar (resten av fase 1 + heile fase 2),
+  og køyrer til slutt Fase 3 (`gen-informasjonsmodell-instance`, som
+  skannar heile `generated/<domain>/<name>/` for `finnes_i_format`-lista
+  og difor må vente på absolutt alt).
+- `make/11-generator-targets.mk`: ny `gen-linkml-merge`-target (wrappar
+  `run_gen_linkml_parallel`, som før berre fanst som eit internt steg i
+  `domain_target` — trengst no som eit frittståande mål for det rekursive
+  `$(MAKE)`-kallet).
+- `make/20-domain-targets.mk`: ny `gen-linkml-convert`-target (flytta
+  `linkml-convert`-logikken frå å vere inline `domain_target`-kode til eit
+  eige, frittståande mål, av same grunn). `domain_target` sjølv er no
+  redusert til eitt `print_header` + eitt kall til
+  `run-domain-pipeline.sh` — heile den tidlegare 30-linjers pipelinen er
+  borte frå Makefile-et, flytta til scriptet.
+
+**Kritisk, men ufarleg funn: GNU Make sin dry-run-oppdaging av `$(MAKE)`.**
+Første `make -n domain-oreg`-testen køyrde **faktisk** heile pipelinen i
+staden for å berre skrive ut kommandoane — GNU Make kjenner att `$(MAKE)`
+(eller `${MAKE}`) **som tekst kvar som helst i ei recipe-linje** og
+tvingar då linja til å køyre for reelt, sjølv under `-n`, for å støtte
+rekursive byggjesteg. Mi eiga `MAKE="$(MAKE)"`-miljøvariabel-vidareføring
+inneheldt nettopp denne understrengen. **Stadfesta ufarleg**: same
+`-n`-flagget vert automatisk vidareført til dei rekursive
+`$(MAKE)`-underkalla via `MAKEFLAGS`, så DEI køyrer sjølve i dry-run-modus
+òg — heile kjeda skriv berre ut kommandoar, ingenting vert faktisk bygd.
+Verifisert ved at ingen filer i `generated/` fekk nyare tidsstempel etter
+testen.
+
+**Verifisert (målt lokalt, WSL2/podman, varme image-lag):**
+
+| Domene | Skjema | Før (Tiltak 1-4, sekvensielt) | Etter (parallellisert) | Gevinst |
+|---|---|---|---|---|
+| `oreg` | 2 | 172 s | **59 s** | **−66 %** |
+| `ap-no` | 7 | 207 s (Tiltak 1-baseline; ikkje re-målt sekvensielt etter Tiltak 4) | **123 s** | minst −41 % |
+
+**Dette er den klart største enkeltgevinsten i heile denne specen, og
+den FØRSTE som viser stor lokal veggklokkegevinst utan atterhald om
+CI-spesifikk kontensjon** — i motsetnad til Tiltak 1 (ingen lokal gevinst,
+sidan batching berre gjorde alt-som-var-parallelt-skjult sekvensielt-i-éin-
+kontainar) og Tiltak 2 (moderat lokal gevinst frå strukturell konsolidering),
+skaper denne endringa **heilt ny samstundes arbeid** som **aldri fanst før i
+det heile** — dei 11 fase 1-gruppene køyrde tidlegare 100 % sekvensielt som
+separate Make-recipe-linjer, uavhengig av kor raske dei individuelt var
+etter batching. Denne gevinsten er difor venta å halde seg (eller bli endå
+større relativt) i CI, sidan han ikkje er avhengig av rikeleg lokal
+kjernetilgang slik Tiltak 1 sin (manglande) gevinst var.
+
+**Feilhandtering verifisert (utilsikta, men reelt):** første forsøket på
+`make domain-oreg` feila reelt — ein forbigåande DNS-oppløysingsfeil i
+`gen-rdf` (`<urlopen error [Errno -3] Try again>`, stadfesta forbigåande
+ved eit isolert `gen-rdf`-attempt rett etterpå som lukkast). Dette synte
+feilhandteringa i praksis: `rdf`-jobben feila synleg (ikkje stille),
+`FAILED`-teljaren auka, **alle andre uavhengige fase 1/2-jobbar fullførte
+framleis korrekt** (isolasjon stadfesta), og scriptet stoppa **korrekt før
+Fase 3** (`gen-informasjonsmodell-instance` vart ikkje køyrd, sidan han
+ville lese ufullstendige/manglande RDF-artefaktar). Retry lukkast fullt ut.
+
+**Korrektheit verifisert:** `gen-informasjonsmodell-instance` (Fase 3) sin
+`finnes_i_format`-liste inneheldt **alle** 7 forventa artefakttypar
+(context.jsonld, ontology.ttl, openapi.yaml, schema.json, schema.proto,
+schema.ttl, shapes.ttl) etter den vellukka `oreg`-køyringa — stadfestar at
+Fase 3 korrekt ventar på at ALT frå Fase 1+2 er skrive før han les
+`generated/`-katalogen, ingen race condition.
+
+**Testa:**
+- `make -n domain-oreg` — stadfesta korrekt fase-rekkjefølgje (json-schema
+  ventast på spesifikt, xsd/openapi/asyncapi startar rett etter,
+  informasjonsmodell-instance sist).
+- `make domain-oreg` × 2 (éin feila forbigåande, éin lukkast) — stadfesta
+  både feilisolasjon/-stopp og fullt vellukka køyring.
+- `make domain-ap-no` (7 skjema, større domene) — vellukka, ingen feil,
+  korrekt filtal.
+- Manuell inspeksjon av `finnes_i_format` for race-condition-fri Fase 3.
+
+**Ikkje testa/gjenstår:** CI-måling (reell gevinst på ein ressurs-avgrensa
+runner, venta minst like stor som lokalt målt sidan denne gevinsten ikkje
+avheng av rikeleg kjernetilgang, jf. drøftinga over) — det einaste
+attverande punktet i heile specen sin opphavlege handlingsliste.

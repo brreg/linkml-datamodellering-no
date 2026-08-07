@@ -14,7 +14,7 @@ Makefile er delt i 13 tematiske modular:
 | `03-output.mk` | Logging-makroar (print_header, print_step) |
 | `10-generator-macros.mk` | Generelle makroar for å køyre LinkML-generatorar — dei linkml-baserte (merge, jsonld-context, shacl, python, json-schema, owl, rdf, proto, erdiagram, plantuml, doc) batchar N skjema inn i éin kontainar via `batch-generate.py`; python-etterhandsaming (erdiagram-filter, plantuml-filter, docgen-examples, openapi, asyncapi) batchar via `batch-generate-instances.py`; berre gen-xsd og `asyncapi validate` køyrer framleis udelt via `run-parallel-gen.sh` (éin aktivert skjema kvar, ingenting å vinne) |
 | `11-generator-targets.mk` | Target for spesifikke generatorar (gen-jsonschema, gen-owl, osv.) |
-| `20-domain-targets.mk` | Target per domene (domain-ap-no, domain-fint, osv.) med pre-hooks |
+| `20-domain-targets.mk` | Target per domene (domain-ap-no, domain-fint, osv.) med pre-hooks — sjølve genereringspipelinen er delegert til `run-domain-pipeline.sh`, som fase-parallelliserer dei uavhengige batch-gruppene (rekursive `$(MAKE) DOMAIN=...`-kall) |
 | `30-instances.mk` | Generering og validering av instansdata (Informasjonsmodell, modellkatalog) — Informasjonsmodell-generering batchar N skjema inn i éin kontainar via `batch-generate-instances.py` |
 | `40-validation.mk` | Validering av skjema, eksempel og data |
 | `50-docs.mk` | MkDocs-dokumentasjonsportal (serve, build, publish) |
@@ -34,6 +34,7 @@ Viktige script:
 | `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `gen-erdiagram`/`gen-plantuml` (rå-generering), `gen-docs` (sjølve gen-doc), `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
 | `batch-generate-instances.py` | `gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi` (generering), `gen-docs` (docgen-examples-fasen), `gen-erdiagram`/`gen-plantuml` (filter-fasen), `domain_target` (linkml-convert) | Batchar dei ikkje-linkml PYTHON_RUN-scripta (under) for N skjema i éin kontainar-prosess |
 | `batch-render-plantuml.sh` | `gen-plantuml` (SVG-render-fasen) | Batchar PlantUML SVG-rendering for N skjema sine `.puml`-filer i éitt `podman run`-kall |
+| `run-domain-pipeline.sh` | `domain-<domain>` | Fase-parallelliserer dei uavhengige gen-*-gruppene for eit domene (rekursive `$(MAKE)`-kall, PID-array + wait) |
 | `generate-informasjonsmodell.py` | `gen-informasjonsmodell-instance` (via `batch-generate-instances.py`) | Generer ModelDCAT-AP-NO-metadata frå schema.annotations |
 | `update-modellkatalog.py` | `update-modellkatalog` | Oppdater modellkatalog frå alle skjema |
 | `gen-dqv-measurements.py` | `gen-dqv-measurements` | Generer DQV-kvalitetsmålingar for datafiler |
