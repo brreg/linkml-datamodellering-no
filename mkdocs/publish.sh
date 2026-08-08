@@ -507,7 +507,6 @@ theme:
 
 plugins:
   - search
-  - build-cache
 
 extra_css:
   - stylesheets/brreg-theme.css              # Brønnøysund designsystem-tema (NPM-pakke, kombinert)

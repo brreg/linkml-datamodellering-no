@@ -428,13 +428,6 @@ jobs:
           podman pull "$GHCR_TAG"
           podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
 
-      - name: Cache mkdocs-build-cache
-        uses: actions/cache@v6
-        with:
-          path: mkdocs/.cache/
-          key: mkdocs-build-${{ hashFiles('src/linkml/**', 'src/assets/containers/Dockerfile.mkdocs', 'src/assets/templates/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'mkdocs/overrides/**') }}
-          restore-keys: mkdocs-build-
-
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
         env:
