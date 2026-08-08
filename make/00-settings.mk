@@ -116,8 +116,12 @@ export LOG_FUNCTIONS
 
 # Eksportert for src/assets/scripts/makefile/run-parallel-gen.sh (delt
 # orkestrering for parallell generering — sjå make/10-generator-macros.mk)
+# og for batch-generate.py/batch-generate-instances.py (les LOGLVL/CLR_STEP/
+# CLR_RST direkte frå os.environ — sjå make/01-containers.mk sin -e-vidareføring
+# av desse inn i LINKML_RUN/PYTHON_RUN-kontainerane)
 export GEN_DIR
 export PARALLEL
+export LOGLVL
 export CLR_STEP
 export CLR_RST
 

@@ -406,7 +406,9 @@
       "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk /tmp/tiltak4-verify/current-makefiles/)",
       "Bash(mkdir -p /tmp/tiltak4-verify/current-makefiles)",
       "Bash(cp make/10-generator-macros.mk make/20-domain-targets.mk src/assets/scripts/makefile/filter_plantuml.py src/assets/scripts/makefile/filter_erdiagram.py src/assets/scripts/makefile/batch-generate.py src/assets/scripts/makefile/batch-generate-instances.py /tmp/tiltak4-verify/current-makefiles/)",
-      "Bash(jobs)"
+      "Bash(jobs)",
+      "Bash(LOGLVL=DEBUG make domain-samt)",
+      "Bash(tee /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/bbc28c3b-87c6-4779-a29f-c4537b1d53be/scratchpad/domain-samt.log)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -51,27 +51,33 @@ wait_job() {
     unset "PIDS[$key]"
 }
 
+# --no-print-directory: utan dette skrur GNU Make automatisk på
+# "Entering/Leaving directory"-meldingar for sub-make-kall som oppdagar dei
+# køyrer under ein annan make (MAKELEVEL > 0) — rein støy her, sidan kvart
+# steg alt har si eiga print_header-deloverskrift (sjå
+# specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
+
 # --- Fase 1 — uavhengige grupper, inkl. gen-jsonschema ---------------------
-run_bg merge          "$MAKE" gen-linkml-merge DOMAIN="$domain"
-run_bg jsonld-context "$MAKE" gen-jsonld-context DOMAIN="$domain"
-run_bg shacl          "$MAKE" gen-shacl DOMAIN="$domain"
-run_bg python         "$MAKE" gen-python DOMAIN="$domain"
-run_bg json-schema    "$MAKE" gen-jsonschema DOMAIN="$domain"
-run_bg owl            "$MAKE" gen-owl DOMAIN="$domain"
-run_bg rdf            "$MAKE" gen-rdf DOMAIN="$domain"
-run_bg proto          "$MAKE" gen-proto DOMAIN="$domain"
-run_bg linkml-convert "$MAKE" gen-linkml-convert DOMAIN="$domain"
-run_bg docs           "$MAKE" gen-docs DOMAIN="$domain"
-run_bg plantuml       "$MAKE" gen-plantuml DOMAIN="$domain"
+run_bg merge          "$MAKE" --no-print-directory gen-linkml-merge DOMAIN="$domain"
+run_bg jsonld-context "$MAKE" --no-print-directory gen-jsonld-context DOMAIN="$domain"
+run_bg shacl          "$MAKE" --no-print-directory gen-shacl DOMAIN="$domain"
+run_bg python         "$MAKE" --no-print-directory gen-python DOMAIN="$domain"
+run_bg json-schema    "$MAKE" --no-print-directory gen-jsonschema DOMAIN="$domain"
+run_bg owl            "$MAKE" --no-print-directory gen-owl DOMAIN="$domain"
+run_bg rdf            "$MAKE" --no-print-directory gen-rdf DOMAIN="$domain"
+run_bg proto          "$MAKE" --no-print-directory gen-proto DOMAIN="$domain"
+run_bg linkml-convert "$MAKE" --no-print-directory gen-linkml-convert DOMAIN="$domain"
+run_bg docs           "$MAKE" --no-print-directory gen-docs DOMAIN="$domain"
+run_bg plantuml       "$MAKE" --no-print-directory gen-plantuml DOMAIN="$domain"
 
 # Fase 2 avheng berre av gen-jsonschema (ikkje resten av fase 1) — vent på
 # nøyaktig den eine jobben, la dei andre halde fram i bakgrunnen.
 wait_job json-schema
 
 # --- Fase 2 — treng gen-jsonschema sitt output ------------------------------
-run_bg xsd      "$MAKE" gen-xsd DOMAIN="$domain"
-run_bg openapi  "$MAKE" gen-openapi DOMAIN="$domain"
-run_bg asyncapi "$MAKE" gen-asyncapi DOMAIN="$domain"
+run_bg xsd      "$MAKE" --no-print-directory gen-xsd DOMAIN="$domain"
+run_bg openapi  "$MAKE" --no-print-directory gen-openapi DOMAIN="$domain"
+run_bg asyncapi "$MAKE" --no-print-directory gen-asyncapi DOMAIN="$domain"
 
 # Vent på resten av fase 1 + heile fase 2.
 for key in "${!PIDS[@]}"; do
@@ -84,4 +90,4 @@ if [ "$FAILED" -gt 0 ]; then
 fi
 
 # --- Fase 3 — treng ALT (finnes_i_format-lista skannar heile generated/) ---
-"$MAKE" gen-informasjonsmodell-instance DOMAIN="$domain"
+"$MAKE" --no-print-directory gen-informasjonsmodell-instance DOMAIN="$domain"

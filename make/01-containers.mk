@@ -9,9 +9,17 @@
 WORK_MOUNT := -v "$(CURDIR):/work" -w /work
 
 # LinkML container
+# -e LOGLVL/CLR_STEP/CLR_RST: vidarefører logg-nivå og fargekodar til
+# batch-generate.py (køyrt inne i denne kontaineren), som les dei frå
+# os.environ — utan desse ser skriptet alltid LOGLVL=INFO og skriv aldri
+# DEBUG-deloverskrifta "<generator> for schemas: ..." (sjå
+# specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md)
 LINKML_RUN := podman run --rm $(WORK_MOUNT) \
 	-e PYTHONWARNINGS=ignore \
 	-e HOME=/tmp \
+	-e LOGLVL \
+	-e CLR_STEP \
+	-e CLR_RST \
 	--user root \
 	$(LINKML_IMAGE)
 
@@ -38,9 +46,14 @@ ASYNCAPI_RUN := podman run --rm $(WORK_MOUNT) \
 # generate-jobben i generate.yml aldri har — sjå
 # specs/done/fiks-git-remote-url-ci-varsel.md). Trygt no-op lokalt der
 # variabelen ikkje er sett.
+# -e LOGLVL/CLR_STEP/CLR_RST: sjå tilsvarande kommentar på LINKML_RUN over —
+# batch-generate-instances.py les same miljøvariablane.
 PYTHON_RUN := podman run -i --rm $(WORK_MOUNT) \
 	-e PYTHONWARNINGS=ignore \
 	-e GITHUB_REPOSITORY \
+	-e LOGLVL \
+	-e CLR_STEP \
+	-e CLR_RST \
 	$(PYTHON_IMAGE)
 
 # MkDocs container (spesiell mount-konfigurasjon)
