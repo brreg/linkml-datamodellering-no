@@ -56,6 +56,7 @@ done
 if [ "${#enabled_names[@]}" -gt 0 ]; then
     names=$(printf '%s, ' "${enabled_names[@]}")
     names=${names%, }
+    names="${CLR_OK}${names}${CLR_RST}"
 else
     names="(ingen)"
 fi

@@ -65,6 +65,7 @@ from typing import Callable
 
 LOGLVL = os.environ.get("LOGLVL", "INFO")
 CLR_STEP = os.environ.get("CLR_STEP", "")
+CLR_OK = os.environ.get("CLR_OK", "")
 CLR_RST = os.environ.get("CLR_RST", "")
 GEN_DIR = os.environ.get("GEN_DIR", "generated")
 
@@ -215,7 +216,8 @@ def main() -> int:
 
     flag_desc = f" ({spec.flag}: true)" if spec.flag else ""
     names = ", ".join(schema_domain_name(s)[1] for s in enabled)
-    log_debug(f"{args.generator}{flag_desc} — køyrer: {names or '(ingen)'}")
+    names_display = f"{CLR_OK}{names}{CLR_RST}" if names else "(ingen)"
+    log_debug(f"{args.generator}{flag_desc} — køyrer: {names_display}")
 
     if not enabled:
         return 0

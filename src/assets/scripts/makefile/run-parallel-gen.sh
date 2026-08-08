@@ -76,6 +76,7 @@ done
 if [ "${#enabled[@]}" -gt 0 ]; then
     names=$(for s in "${enabled[@]}"; do n=$(basename "$s" -schema.yaml | sed 's/-schema$//'); printf '%s, ' "$n"; done)
     names=${names%, }
+    names="${CLR_OK}${names}${CLR_RST}"
 else
     names="(ingen)"
 fi

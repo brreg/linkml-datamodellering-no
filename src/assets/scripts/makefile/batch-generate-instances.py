@@ -52,6 +52,7 @@ from pathlib import Path
 
 LOGLVL = os.environ.get("LOGLVL", "INFO")
 CLR_STEP = os.environ.get("CLR_STEP", "")
+CLR_OK = os.environ.get("CLR_OK", "")
 CLR_RST = os.environ.get("CLR_RST", "")
 GEN_DIR = os.environ.get("GEN_DIR", "generated")
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -113,7 +114,8 @@ def filter_enabled(schemas: list[str], flag: str | None, generator: str) -> list
         return list(schemas)
     enabled = [s for s in schemas if read_build_yaml_flag(s, flag)]
     names = ", ".join(schema_domain_name(s)[1] for s in enabled)
-    log_debug(f"{generator} ({flag}: true) — køyrer: {names or '(ingen)'}")
+    names_display = f"{CLR_OK}{names}{CLR_RST}" if names else "(ingen)"
+    log_debug(f"{generator} ({flag}: true) — køyrer: {names_display}")
     return enabled
 
 
