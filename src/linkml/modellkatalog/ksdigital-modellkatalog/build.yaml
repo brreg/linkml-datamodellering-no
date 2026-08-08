@@ -2,7 +2,7 @@ publish_external: true
 validation_policy: bronze
 
 generators:
-  jsonld_context: true
+  jsonld_context: false
   shacl: false
   python: false
   json_schema: false
