@@ -63,3 +63,17 @@ køyrer: cpsv-ap-no, dcat-ap-no, dqv-ap-no, ...`), utan domeneprefiks.
 Verifiseringskøyringane sin biverknad på `*-manifest.yaml`-filer under
 `src/linkml/ap-no/` (regenerert `finnes_i_format` frå lokal, ufullstendig
 `generated/`-tilstand) vart reverterte igjen — ikkje ei tilsikta endring.
+
+### Rettefølgje
+
+Steg 4 fjerna debug-logginga frå `filter_enabled()` heilt (sidan ho før
+berre hadde ei "hoppar over"-linje). Dette var for aggressivt: dei fem
+kallarane (`erdiagram-filter`, `plantuml-filter`, `docgen-examples`,
+`gen-openapi`, `gen-asyncapi`) mista då ALL debug-synlegheit for kva
+skjema dei køyrer for — t.d. var `gen-openapi (openapi: true) — køyrer:
+...` heilt borte frå domain-samt-logg. Retta ved å gjenreise ei rein
+"køyrer"-linje (ingen "hoppar over") i `filter_enabled()`, med
+`generator`-parameteret attgjeve til funksjonen og dei fem kallstadene, i
+same format som dei andre generatorane. Verifisert med
+`LOGLVL=DEBUG make domain-samt`: alle fem viser no si eiga `<generator>
+(<flag>: true) — køyrer: samt-bu`-linje.
