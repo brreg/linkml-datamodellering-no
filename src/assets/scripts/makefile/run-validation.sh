@@ -112,10 +112,8 @@ if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
   exit 1
 fi
 
-# Finn domain og modell frå schema-sti
-# Eksempel:
-#   src/linkml/samt/samt-bu/samt-bu-schema.yaml → domain=samt, model=samt-bu
-#   src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml → domain=ngr, model=ngr-adresse
+# Finn modell frå schema-sti, t.d.
+#   src/linkml/samt/samt-bu/samt-bu-schema.yaml → model=samt-bu
 schema_dir=$(dirname "$SCHEMA")
 model=$(basename "$schema_dir")
 
@@ -126,16 +124,12 @@ parent_name=$(basename "$parent_dir")
 if [ "$parent_name" = "linkml" ]; then
   # To-nivå-struktur: linkml/<modell> (skal ikkje skje lenger, men handter det)
   echo "Åtvaring: Schema ligg direkte under linkml/ utan domenenivå: $SCHEMA" >&2
-  domain="$model"  # Bruk modellnamn som domain (fallback)
-else
-  # Tre-nivå-struktur: linkml/<domain>/<modell>
-  domain="$parent_name"
 fi
 
 # Rekn ut loggsti (co-location)
 log_path="$schema_dir/validation/$VERSION/$POLICY.json"
 
-echo "→ Validerer $domain/$model (v$VERSION) med policy: $POLICY" >&2
+echo "→ Validerer $model (v$VERSION) med policy: $POLICY" >&2
 
 # Køyr validering
 # REPO_ROOT peikar til repo-root (scriptet ligg i src/assets/scripts/makefile/, så gå 4 nivå opp)

@@ -219,10 +219,15 @@ jobs:
                 rc=0
                 log_path=$(bash src/assets/scripts/makefile/run-validation.sh --manifest "$manifest" --quiet) || rc=$?
                 elapsed=$(( $(date +%s%3N) - start ))
+                # Kort visningssti (utan "src/linkml/<domain>/"-prefiks) — sjå
+                # specs/done/kort-validering-logglinje.md.
+                model=$(basename "$(dirname "$manifest")")
+                schema_short="$model/$model-schema.yaml"
+                log_short="$model/${log_path#*/"$model"/}"
                 if [ $rc -eq 0 ]; then
-                  printf "✓ Validert %s → %s (%d.%ds)\n" "$manifest" "$log_path" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                  printf "✓ Validert %s → %s (%d.%ds)\n" "$schema_short" "$log_short" $((elapsed / 1000)) $((elapsed % 1000 / 100))
                 else
-                  printf "✗ Validering feila for %s → %s (%d.%ds)\n" "$manifest" "$log_path" $((elapsed / 1000)) $((elapsed % 1000 / 100))
+                  printf "✗ Validering feila for %s → %s (%d.%ds)\n" "$schema_short" "$log_short" $((elapsed / 1000)) $((elapsed % 1000 / 100))
                 fi
                 exit $rc
               ) &
