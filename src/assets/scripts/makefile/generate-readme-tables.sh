@@ -112,7 +112,7 @@ generate_begrepskatalog_table() {
     schema_name=$(basename "$schema_dir")
 
     # Hent title frå skjema, ekstraher organisasjonsnamn (før " - Begrepskatalog")
-    title=$("$extractor" "$schema_file" title)
+    title=$(python3 "$extractor" "$schema_file" title)
     # Fjern " - Begrepskatalog" og alt etter det (inkl. eventuelle parentesar)
     org=$(echo "$title" | sed 's/ - Begrepskatalog.*//')
 
@@ -144,7 +144,7 @@ generate_modellkatalog_table() {
     schema_name=$(basename "$schema_dir")
 
     # Hent title frå skjema, ekstraher organisasjonsnamn (før " - Modellkatalog")
-    title=$("$extractor" "$schema_file" title)
+    title=$(python3 "$extractor" "$schema_file" title)
     # Fjern " - Modellkatalog" og alt etter det (inkl. eventuelle parentesar)
     org=$(echo "$title" | sed 's/ - Modellkatalog.*//')
 
