@@ -5,13 +5,11 @@
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
-# print_header — skriv separator, header og separator
+# print_header — skriv éin header-linje med stjerner på kvar side
 # ---------------------------------------------------------------------------
 # $1=target-namn  $2=valfri tilleggsinfo (t.d. SCHEMA=...)
 define print_header
-@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-@echo "$(CLR_HDR)*** make $(1)$(if $(2),  $(2))$(CLR_RST)"
-@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+@echo "$(CLR_SEP)$(SEP)$(CLR_RST) $(CLR_HDR)make $(1)$(if $(2),  $(2))$(CLR_RST) $(CLR_SEP)$(SEP)$(CLR_RST)"
 endef
 
 # ---------------------------------------------------------------------------

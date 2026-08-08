@@ -50,8 +50,8 @@ CLR_WARN   := $(shell printf '\033[0;33m')
 CLR_DBG    := $(shell printf '\033[2m')
 CLR_RST    := $(shell printf '\033[0m')
 
-# Separatorlinje
-SEP := ************************************************************
+# Stjerner rundt header-teksten i print_header
+SEP := ********************
 
 # Logging-hjelpefunksjonar (bash-snippet som kan sourcas i makroar)
 define LOG_FUNCTIONS
