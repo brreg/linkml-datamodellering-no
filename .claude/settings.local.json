@@ -409,7 +409,8 @@
       "Bash(jobs)",
       "Bash(LOGLVL=DEBUG make domain-samt)",
       "Bash(tee /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/bbc28c3b-87c6-4779-a29f-c4537b1d53be/scratchpad/domain-samt.log)",
-      "Bash(LOGLVL=DEBUG make domain-ap-no)"
+      "Bash(LOGLVL=DEBUG make domain-ap-no)",
+      "Bash(echo \"diff exit=$?\")"
     ]
   },
   "enableAllProjectMcpServers": true,

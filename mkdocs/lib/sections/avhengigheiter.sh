@@ -12,9 +12,10 @@ build_imported_models_links() {
     local domain="$1"
     local schema="$2"
 
-    # Hent importerte skjema
-    local imported_schemas
-    imported_schemas=$(get_imported_schemas "$domain" "$schema")
+    # Bruk memoisert resultat frå generate_schema_index() i staden for å
+    # kalle get_imported_schemas() på nytt (sjå
+    # specs/backlog/batch-docs-publish-generering.md)
+    local imported_schemas="${IMPORTED_SCHEMAS_CACHE:-}"
     [ -z "$imported_schemas" ] && return 0
 
     # Bygg lenkjeliste
@@ -40,16 +41,10 @@ build_imported_models_links() {
         # Fjern -schema-suffiks
         local imported_clean="${imported%-schema}"
 
-        # Finn domene for importert skjema (søk i src/linkml/)
-        local imported_file
-        imported_file=$(find "$REPO_ROOT/src/linkml" -name "${imported_clean}-schema.yaml" -type f 2>/dev/null | head -1)
-        [ -z "$imported_file" ] && continue
-
-        # Trekk ut domene frå sti (src/linkml/<domain>/<dir>/<file>)
-        # Bruk relative sti frå REPO_ROOT for å handtere både absolutte og relative stiar
-        local rel_path="${imported_file#$REPO_ROOT/}"
+        # Slå opp domene for importert skjema via føre-berekna oppslag
+        # (publish.sh Steg 1.5) i staden for whole-tree find
         local imported_domain
-        imported_domain=$(echo "$rel_path" | cut -d/ -f3)
+        imported_domain=$(lookup_schema_domain "$imported") || continue
 
         # Bygg relativ lenke til #datamodell-ankeret
         local link

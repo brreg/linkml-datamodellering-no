@@ -275,6 +275,33 @@ for key in "${!SCHEMA_SUBMODELS_TMP[@]}"; do
     SCHEMA_SUBMODELS_SERIALIZED+="$key=${SCHEMA_SUBMODELS_TMP[$key]} "
 done
 
+# Globalt oppslag skjemanamn → domene og → filsti, bygd éin gong for heile
+# repoet. Erstattar gjentekne whole-tree `find "$REPO_ROOT/src/linkml" -name
+# "<namn>-schema.yaml"`-kall i classes.sh/avhengigheiter.sh (kvart slikt
+# find-kall er dyrt på NTFS-monterte /mnt/c-filsystem under WSL2 — sjå
+# specs/backlog/batch-docs-publish-generering.md for profilering).
+# Filstien vert lagra direkte (ikkje rekonstruert frå katalogkonvensjonen)
+# fordi delmodell-skjema (t.d. dqv-core-schema.yaml) ligg i FORELDREskjemaet
+# sin katalog (dqv-ap-no/), ikkje i ein katalog oppkalla etter seg sjølv.
+declare -A SCHEMA_NAME_TO_DOMAIN_TMP=()
+declare -A SCHEMA_NAME_TO_PATH_TMP=()
+for schema_yaml in $(find "$REPO_ROOT/src/linkml" -name '*-schema.yaml'); do
+    schema_name=$(basename "$schema_yaml" .yaml)
+    domain=$(basename "$(dirname "$(dirname "$schema_yaml")")")
+    SCHEMA_NAME_TO_DOMAIN_TMP["$schema_name"]="$domain"
+    SCHEMA_NAME_TO_PATH_TMP["$schema_name"]="$schema_yaml"
+done
+
+export SCHEMA_NAME_TO_DOMAIN_SERIALIZED=""
+for key in "${!SCHEMA_NAME_TO_DOMAIN_TMP[@]}"; do
+    SCHEMA_NAME_TO_DOMAIN_SERIALIZED+="$key=${SCHEMA_NAME_TO_DOMAIN_TMP[$key]} "
+done
+
+export SCHEMA_NAME_TO_PATH_SERIALIZED=""
+for key in "${!SCHEMA_NAME_TO_PATH_TMP[@]}"; do
+    SCHEMA_NAME_TO_PATH_SERIALIZED+="$key=${SCHEMA_NAME_TO_PATH_TMP[$key]} "
+done
+
 # Bygg lokale map for bruk i hovudshell (nav-generering)
 declare -A SCHEMA_PARENT_MODEL=()
 declare -A SCHEMA_SUBMODELS=()

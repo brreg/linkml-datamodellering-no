@@ -26,6 +26,18 @@ generate_schema_index() {
     export CURRENT_DOMAIN="$domain"
     export CURRENT_SCHEMA="$schema"
 
+    # Berekn importerte skjema éin gong (i staden for på nytt i kvar av dei
+    # 5 Classes/Slots/Enumerations/Types/Subsets-seksjonane + éin gong til i
+    # avhengigheiter-seksjonen — kvart kall spawnar python3 + gjer find).
+    # Sjå specs/backlog/batch-docs-publish-generering.md.
+    export IMPORTED_SCHEMAS_CACHE
+    IMPORTED_SCHEMAS_CACHE=$(get_imported_schemas "$domain" "$schema")
+
+    # Berekn build.yaml-felt (validation_policy, external_spec_url/label)
+    # éin gong — same fil vert elles lest av opptil 5 separate python3-kall
+    # spreidd over badges.sh/om_denne_modellen.sh/valideringsresultat.sh.
+    load_manifest_cache "$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
+
     # Sjekk om dette er ein delmodell
     local is_submodel=false
     [ -n "${PARENT_MODEL:-}" ] && is_submodel=true
@@ -57,4 +69,6 @@ generate_schema_index() {
     # Rydd opp miljøvariablar
     unset CURRENT_DOMAIN
     unset CURRENT_SCHEMA
+    unset IMPORTED_SCHEMAS_CACHE
+    unset MANIFEST_CACHE_PATH MANIFEST_CACHE_POLICY MANIFEST_CACHE_EXTERNAL_SPEC_URL MANIFEST_CACHE_EXTERNAL_SPEC_LABEL
 }

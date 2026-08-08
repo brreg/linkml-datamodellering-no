@@ -12,7 +12,9 @@ copy_schema_artifacts() {
     mkdir -p "$out/klasser"
 
     # Kopier artefaktfiler (berre filer, ikkje docs/-underkatalog)
-    find "$schema_dir" -maxdepth 1 -type f -exec cp {} "$out/" \;
+    # -exec ... + batchar alle filer inn i færre cp-prosessar (i staden for
+    # éin cp-prosess per fil) — sjå specs/backlog/batch-docs-publish-generering.md
+    find "$schema_dir" -maxdepth 1 -type f -exec cp -t "$out" {} +
 
     # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
     # Søk etter <schema>-schema.yaml i src/linkml/<domain>/*/
@@ -41,12 +43,12 @@ copy_schema_artifacts() {
     # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
     if [ -d "$schema_dir/diagrams" ]; then
         mkdir -p "$out/diagrams"
-        find "$schema_dir/diagrams" -type f -exec cp {} "$out/diagrams/" \;
+        find "$schema_dir/diagrams" -type f -exec cp -t "$out/diagrams" {} +
     fi
 
     # Kopier gen-doc markdown-filer til klasser/-underkatalog
     if [ -d "$schema_dir/docs" ]; then
-        find "$schema_dir/docs" -name "*.md" -exec cp {} "$out/klasser/" \;
+        find "$schema_dir/docs" -name "*.md" -exec cp -t "$out/klasser" {} +
         # Rename alle .md-filer til lowercase (via .tmp for case-insensitive filsystem)
         for f in "$out/klasser/"*.md; do
             [ -f "$f" ] || continue
@@ -59,6 +61,6 @@ copy_schema_artifacts() {
         done
         # Oppdater alle interne .md-lenkjer til lowercase
         find "$out/klasser" -maxdepth 1 -name "*.md" \
-            -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} \;
+            -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} +
     fi
 }

@@ -2,8 +2,54 @@
 # Parsing av manifest, validation-policy, versjon osv.
 set -euo pipefail
 
+# Les validation_policy/external_spec_url/external_spec_label frå build.yaml
+# i éin python3-prosess og cache dei i eksporterte variablar, i staden for
+# at get_validation_policy/get_external_spec_url/get_external_spec_label
+# kvar gjer sitt eige python3-kall mot same fil (opptil 5 kall per skjema
+# før denne endringa — sjå specs/backlog/batch-docs-publish-generering.md).
+load_manifest_cache() {
+    local manifest="$1"
+    export MANIFEST_CACHE_PATH="$manifest"
+    if [ ! -f "$manifest" ]; then
+        export MANIFEST_CACHE_POLICY="bronze"
+        export MANIFEST_CACHE_EXTERNAL_SPEC_URL=""
+        export MANIFEST_CACHE_EXTERNAL_SPEC_LABEL=""
+        return
+    fi
+    # Merk: `key=verdi`-format (ikkje reine verdi-linjer) er nødvendig sidan
+    # `$(...)`-kommandosubstitusjon strippar ALLE etterfølgjande linjeskift —
+    # med reine verdi-linjer ville ein tom external_spec_label (vanlegast
+    # tilfelle) kollapsa dei siste linjeskilja og brote opplesinga.
+    local result
+    result=$(python3 -c "
+import yaml
+d = yaml.safe_load(open('$manifest')) or {}
+print('policy=' + str(d.get('validation_policy', 'bronze')))
+print('external_spec_url=' + str(d.get('external_spec_url', '')))
+print('external_spec_label=' + str(d.get('external_spec_label', '')))
+" 2>/dev/null) || result=""
+
+    export MANIFEST_CACHE_POLICY="bronze"
+    export MANIFEST_CACHE_EXTERNAL_SPEC_URL=""
+    export MANIFEST_CACHE_EXTERNAL_SPEC_LABEL=""
+    local key val
+    # Prosess-substitusjon (< <(...)) garanterer eit avsluttande linjeskift,
+    # slik at siste felt ikkje vert forkasta av `read` ved EOF utan newline.
+    while IFS='=' read -r key val; do
+        case "$key" in
+            policy) MANIFEST_CACHE_POLICY="$val" ;;
+            external_spec_url) MANIFEST_CACHE_EXTERNAL_SPEC_URL="$val" ;;
+            external_spec_label) MANIFEST_CACHE_EXTERNAL_SPEC_LABEL="$val" ;;
+        esac
+    done < <(printf '%s\n' "$result")
+}
+
 get_validation_policy() {
     local manifest="$1"
+    if [ "${MANIFEST_CACHE_PATH:-}" = "$manifest" ]; then
+        echo "$MANIFEST_CACHE_POLICY"
+        return
+    fi
     [ ! -f "$manifest" ] && echo "bronze" && return
     python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"
 }
@@ -16,12 +62,20 @@ get_latest_validation_version() {
 
 get_external_spec_url() {
     local manifest="$1"
+    if [ "${MANIFEST_CACHE_PATH:-}" = "$manifest" ]; then
+        echo "$MANIFEST_CACHE_EXTERNAL_SPEC_URL"
+        return
+    fi
     [ ! -f "$manifest" ] && return
     python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_url', ''))" 2>/dev/null || echo ""
 }
 
 get_external_spec_label() {
     local manifest="$1"
+    if [ "${MANIFEST_CACHE_PATH:-}" = "$manifest" ]; then
+        echo "$MANIFEST_CACHE_EXTERNAL_SPEC_LABEL"
+        return
+    fi
     [ ! -f "$manifest" ] && return
     python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_label', ''))" 2>/dev/null || echo ""
 }
