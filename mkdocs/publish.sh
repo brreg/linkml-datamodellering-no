@@ -220,7 +220,7 @@ for docs_domain_dir in "$DOCS"/*/; do
     [ -d "$docs_domain_dir" ] || continue
     domain=$(basename "$docs_domain_dir")
     case "$domain" in
-        stylesheets|javascripts) continue ;;
+        stylesheets|javascripts|kom-i-gang|arkitektur|publisering|automasjon) continue ;;
     esac
     if [ ! -d "$GEN/$domain" ]; then
         log_info "Ryddar forsvunne domene: $domain"
@@ -515,26 +515,26 @@ nav:
   - Rettleiingar:
       - index.md
       - Kom i gang:
-          - kom-i-gang.md
+          - kom-i-gang/index.md
           - Bli modelleigar: ny-org.md
           - Ny domenemodell: ny-domenemodell.md
           - Ny begrepskatalog: ny-begrepsmodell.md
           - Byggmanifest: build-config.md
           - Kommandooversikt: kommandoar.md
       - Arkitektur:
-          - arkitektur.md
+          - arkitektur/index.md
           - Arkitekturoversikt: arkitektur-oversikt.md
           - Importhierarki: importhierarki.md
           - Valideringsreglar: valideringsregler.md
           - AP-NO arkitektur og avvik: ap-no-arkitektur.md
           - Bruk frå eksternt repo: ekstern-bruk.md
       - Publisering:
-          - publisering.md
+          - publisering/index.md
           - Publiseringsflyt: publisering-oversikt.md
           - Publiser til Felles Begrepskatalog: publisering-begrep.md
           - Publiser til Felles Datakatalog: publisering-modell.md
       - Automasjon:
-          - automasjon.md
+          - automasjon/index.md
           - Artefaktgenerering — kjelder og pipeline: artefakt-generering.md
           - Generering av modell-dokumentasjon: index-md-struktur.md
           - Generering av modellmanifest: modellmanifest-generering.md
