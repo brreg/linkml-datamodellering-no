@@ -61,7 +61,7 @@ ifdef DOMAIN
 		--output-dir "$$BATCH_DIR" $$SCHEMA_LIST 2>/dev/null; \
 	t1=$$(date +%s%3N); \
 	ms=$$(( t1 - t0 )); \
-	log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s  (%d skjema, batcha)$(CLR_RST) (%d.%ds)' "$(DOMAIN)" "$$COUNT" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+	log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s  (%d skjema, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
 	i=0; \
 	while IFS= read -r schema; do \
 		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
@@ -113,7 +113,7 @@ ifdef DOMAIN
 		--output-dir "$$BATCH_DIR" 2>/dev/null; \
 	t1=$$(date +%s%3N); \
 	ms=$$(( t1 - t0 )); \
-	log_info "$$(printf '$(CLR_STEP)→ validate-data  %s  (%d datafiler, batcha)$(CLR_RST) (%d.%ds)' "$(DOMAIN)" "$$COUNT" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+	log_info "$$(printf '$(CLR_STEP)→ validate-data  %s  (%d datafiler, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
 	i=0; \
 	while IFS=$$'\t' read -r schema policy datafile; do \
 		catalog=$$(basename "$$datafile" .yaml); \
@@ -161,7 +161,7 @@ ifdef DOMAIN
 			t1=$$(date +%s%3N); \
 			ms=$$(( t1 - t0 )); \
 			log_debug "$$result"; \
-			log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%d.%ds)' "$$domain" "$$name" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
+			log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%s)' "$$domain" "$$name" "$$(fmt_elapsed_ms $$ms)")"; \
 			has_error=false; \
 			if [ $$exit_code -ne 0 ]; then \
 				has_error=true; \

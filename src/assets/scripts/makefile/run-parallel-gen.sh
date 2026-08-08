@@ -62,37 +62,27 @@ done
 eval "$LOG_FUNCTIONS"
 
 enabled=()
-skipped=()
 for s in "$@"; do
-    d=$(echo "$s" | cut -d/ -f3)
-    n=$(basename "$s" -schema.yaml | sed 's/-schema$//')
     if [ -z "$flag" ]; then
         enabled+=("$s")
     else
         manifest=$(dirname "$s")/build.yaml
         if [ -f "$manifest" ] && grep -q "^  $flag: true" "$manifest"; then
             enabled+=("$s")
-        else
-            skipped+=("$d/$n")
         fi
     fi
 done
 
 if [ "${#enabled[@]}" -gt 0 ]; then
-    names=$(for s in "${enabled[@]}"; do d=$(echo "$s" | cut -d/ -f3); n=$(basename "$s" -schema.yaml | sed 's/-schema$//'); echo "$d/$n"; done | paste -sd, -)
+    names=$(for s in "${enabled[@]}"; do n=$(basename "$s" -schema.yaml | sed 's/-schema$//'); printf '%s, ' "$n"; done)
+    names=${names%, }
 else
-    names="(ingen skjema aktivert)"
+    names="(ingen)"
 fi
 if [ -n "$flag" ]; then
-    log_debug "${generator} (${flag}: true) for schemas: ${names}"
+    log_debug "${generator} (${flag}: true) — køyrer: ${names}"
 else
-    log_debug "${generator} for schemas: ${names}"
-fi
-
-if [ "${#skipped[@]}" -gt 0 ]; then
-    skipped_list=$(printf '%s, ' "${skipped[@]}")
-    skipped_list=${skipped_list%, }
-    log_debug "  hoppar over (${flag}: false): ${skipped_list}"
+    log_debug "${generator} — køyrer: ${names}"
 fi
 
 [ "${#enabled[@]}" -eq 0 ] && exit 0
@@ -130,6 +120,6 @@ printf '%s\n' "${enabled[@]}" | xargs -P "$PARALLEL" -I {} bash -c '
     rc=$?
     t1=$(date +%s%3N)
     elapsed_ms=$((t1 - t0))
-    log_info "$(printf "${CLR_STEP}→ %s  %s/%s${CLR_RST} (%d.%ds)" "$generator" "$domain" "$name" $((elapsed_ms / 1000)) $((elapsed_ms % 1000 / 100)))"
+    log_info "$(printf "${CLR_STEP}→ %s  %s/%s${CLR_RST} (%s)" "$generator" "$domain" "$name" "$(fmt_elapsed_ms "$elapsed_ms")")"
     exit "$rc"
 '

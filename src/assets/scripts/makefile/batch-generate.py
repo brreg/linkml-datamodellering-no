@@ -197,7 +197,8 @@ def run_click(cli_cmd, argv: list[str]) -> str:
 
 
 def fmt_elapsed(seconds: float) -> str:
-    return f"{int(seconds)}.{int(seconds * 10) % 10}s"
+    ms = int(seconds * 1000)
+    return f"{ms // 1000}.{ms % 1000 // 10:02d}s"
 
 
 def main() -> int:
@@ -208,20 +209,13 @@ def main() -> int:
 
     spec = REGISTRY[args.generator]
 
-    enabled: list[str] = []
-    skipped: list[str] = []
-    for s in args.schemas:
-        d, n = schema_domain_name(s)
-        if spec.flag is None or read_build_yaml_flag(s, spec.flag):
-            enabled.append(s)
-        else:
-            skipped.append(f"{d}/{n}")
+    enabled: list[str] = [
+        s for s in args.schemas if spec.flag is None or read_build_yaml_flag(s, spec.flag)
+    ]
 
     flag_desc = f" ({spec.flag}: true)" if spec.flag else ""
-    names = ",".join(f"{schema_domain_name(s)[0]}/{schema_domain_name(s)[1]}" for s in enabled)
-    log_debug(f"{args.generator}{flag_desc} for schemas: {names or '(ingen skjema aktivert)'}")
-    if skipped:
-        log_debug(f"  hoppar over ({spec.flag}: false): {', '.join(skipped)}")
+    names = ", ".join(schema_domain_name(s)[1] for s in enabled)
+    log_debug(f"{args.generator}{flag_desc} — køyrer: {names or '(ingen)'}")
 
     if not enabled:
         return 0

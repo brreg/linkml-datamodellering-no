@@ -7,11 +7,10 @@
 #
 # Skriv éi tab-separert linje per eksempelfil som skal konverterast:
 #   <skjema-sti>\t<eksempel-sti>\t<output-ttl-sti>
-# Køyrer discovery/filtrering FØR noko vert skrive til stdout, slik at
-# éi log_debug-deloverskrift ("linkml-convert (example_rdf: true) for
-# schemas: …") kan skrivast først — same mønster og rekkjefølgje som
-# run-parallel-gen.sh. Hoppa-over-eksempel vert samla til éi eiga
-# log_debug-linje rett under, synleg berre på LOGLVL=DEBUG. Sjølve
+# Køyrer discovery/filtrering FØR noko vert skrive til stdout, slik at éi
+# log_debug-deloverskrift ("linkml-convert (example_rdf: true) — køyrer:
+# …") kan skrivast først — same mønster og rekkjefølgje som
+# run-parallel-gen.sh, synleg berre på LOGLVL=DEBUG. Sjølve
 # linkml-convert-kallet gjer kallaren (ikkje dette scriptet), sidan det
 # krev $(LINKML_RUN) sin podman-kontekst — den strengen inneheld sjølve
 # anførselsteikn (frå WORK_MOUNT) som berre er trygge å la shellen tolke
@@ -34,7 +33,6 @@ search_dir="$SCHEMA_DIR"
 
 enabled=()
 enabled_names=()
-skipped=()
 for example in $(find "$search_dir" -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do
     [ -f "$example" ] || continue
     name=$(basename "$example" .yaml)
@@ -42,7 +40,6 @@ for example in $(find "$search_dir" -path '*/examples/*-eksempel.yaml' 2>/dev/nu
     domain=$(echo "$example" | awk -F/ '{print $3}')
     manifest="$SCHEMA_DIR/$domain/$profil/build.yaml"
     if [ -f "$manifest" ] && grep -q "^  example_rdf: false" "$manifest"; then
-        skipped+=("$domain/$profil")
         continue
     fi
     mkdir -p "$GEN_DIR/$domain/$profil"
@@ -53,21 +50,16 @@ for example in $(find "$search_dir" -path '*/examples/*-eksempel.yaml' 2>/dev/nu
     fi
     out="$GEN_DIR/$domain/$profil/$name.ttl"
     enabled+=("$(printf '%s\t%s\t%s' "$schema" "$example" "$out")")
-    enabled_names+=("$domain/$profil")
+    enabled_names+=("$profil")
 done
 
 if [ "${#enabled_names[@]}" -gt 0 ]; then
-    names=$(printf '%s\n' "${enabled_names[@]}" | paste -sd, -)
+    names=$(printf '%s, ' "${enabled_names[@]}")
+    names=${names%, }
 else
-    names="(ingen eksempel aktivert)"
+    names="(ingen)"
 fi
-log_debug "linkml-convert (example_rdf: true) for schemas: ${names}"
-
-if [ "${#skipped[@]}" -gt 0 ]; then
-    skipped_list=$(printf '%s, ' "${skipped[@]}")
-    skipped_list=${skipped_list%, }
-    log_debug "  hoppar over linkml-convert (example_rdf: false): ${skipped_list}"
-fi
+log_debug "linkml-convert (example_rdf: true) — køyrer: ${names}"
 
 for entry in "${enabled[@]}"; do
     printf '%s\n' "$entry"

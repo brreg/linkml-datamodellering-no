@@ -76,7 +76,8 @@ def log_error(msg: str) -> None:
 
 
 def fmt_elapsed(seconds: float) -> str:
-    return f"{int(seconds)}.{int(seconds * 10) % 10}s"
+    ms = int(seconds * 1000)
+    return f"{ms // 1000}.{ms % 1000 // 10:02d}s"
 
 
 def _import_from_path(module_name: str, file_name: str):
@@ -105,25 +106,19 @@ def read_build_yaml_flag(schema: str, flag: str) -> bool:
     return re.search(rf"^  {re.escape(flag)}: true$", text, re.MULTILINE) is not None
 
 
-def filter_enabled(schemas: list[str], flag: str | None, generator: str) -> list[str]:
+def filter_enabled(schemas: list[str], flag: str | None) -> list[str]:
     """Same filtreringssemantikk som run-parallel-gen.sh sin --flag: skjema
     utan build.yaml eller utan `<flag>: true` vert hoppa over (ikkje feil)."""
     if flag is None:
         return list(schemas)
-    enabled, skipped = [], []
-    for s in schemas:
-        (enabled if read_build_yaml_flag(s, flag) else skipped).append(s)
-    if skipped:
-        names = ", ".join("/".join(schema_domain_name(s)) for s in skipped)
-        log_debug(f"{generator}: hoppar over ({flag}: false): {names}")
-    return enabled
+    return [s for s in schemas if read_build_yaml_flag(s, flag)]
 
 
 def run_erdiagram_filter(schemas: list[str]) -> int:
     """Fase B for gen-erdiagram: filtrer $name-erdiagram-unfiltered.md (skrive
     av awk-steget mellom batch-generate.py sin "erdiagram"-kind og dette
     steget, jf. spec Tiltak 4) til den endelege $name-erdiagram.md."""
-    schemas = filter_enabled(schemas, "erdiagram", "erdiagram-filter")
+    schemas = filter_enabled(schemas, "erdiagram")
     mod = _import_from_path("filter_erdiagram", "filter_erdiagram.py")
     failed = 0
     for s in schemas:
@@ -148,7 +143,7 @@ def run_plantuml_filter(schemas: list[str]) -> int:
     """Fase B for gen-plantuml: filtrer $name-raw.puml (skrive av
     batch-generate.py sin "plantuml"-kind) til $name-filtered.puml og
     $name.puml (full) — 2 modus per skjema, jf. spec Tiltak 4."""
-    schemas = filter_enabled(schemas, "plantuml", "plantuml-filter")
+    schemas = filter_enabled(schemas, "plantuml")
     mod = _import_from_path("filter_plantuml", "filter_plantuml.py")
     failed = 0
     for s in schemas:
@@ -205,7 +200,7 @@ def run_convert(jobs_tsv: str) -> int:
 
 
 def run_docgen_examples(schemas: list[str]) -> int:
-    schemas = filter_enabled(schemas, "docs", "docgen-examples")
+    schemas = filter_enabled(schemas, "docs")
     mod = _import_from_path("gen_docgen_examples", "gen-docgen-examples.py")
     failed = 0
     for s in schemas:
@@ -247,7 +242,7 @@ def run_informasjonsmodell(schemas: list[str]) -> int:
 
 
 def run_openapi(schemas: list[str]) -> int:
-    schemas = filter_enabled(schemas, "openapi", "gen-openapi")
+    schemas = filter_enabled(schemas, "openapi")
     gen_mod = _import_from_path("gen_openapi", "gen-openapi.py")
     validator_mod = importlib.import_module("openapi_spec_validator.__main__")
     failed = 0
@@ -282,7 +277,7 @@ def run_openapi(schemas: list[str]) -> int:
 def run_asyncapi(schemas: list[str]) -> int:
     """Batchar berre generering (build_asyncapi) — IKKJE `asyncapi validate`,
     sjå moduldocstring for grunngjeving."""
-    schemas = filter_enabled(schemas, "asyncapi", "gen-asyncapi")
+    schemas = filter_enabled(schemas, "asyncapi")
     gen_mod = _import_from_path("gen_asyncapi", "gen-asyncapi.py")
     failed = 0
     for s in schemas:

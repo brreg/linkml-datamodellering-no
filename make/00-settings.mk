@@ -64,6 +64,15 @@ log_info() {
 log_error() {
   printf "$(CLR_ERR)[ERROR]$(CLR_RST) %s\n" "$$*" >&2
 }
+# fmt_elapsed_ms <ms> — formaterer millisekund som "<sekund>.<hundredel>s"
+# (to desimaler, avkorta). Delt av all køyretids-logging i make-laget
+# (timed_run under, run-parallel-gen.sh, batch-render-plantuml.sh,
+# 40-validation.mk) — éin kjelde for elapsed-formatet, sjå
+# specs/done/gjer-generator-debug-logging-mer-lesbar.md.
+fmt_elapsed_ms() {
+  local ms="$$1"
+  printf '%d.%02ds' $$(( ms / 1000 )) $$(( ms % 1000 / 10 ))
+}
 timed_run() {
   local label="$$1"; shift
   local start=$$(date +%s%3N)
@@ -72,9 +81,9 @@ timed_run() {
   local exit_code=$$?
   local elapsed=$$(( $$(date +%s%3N) - start ))
   if [ $$exit_code -eq 0 ]; then
-    log_info "$$(printf '$(CLR_STEP)→ %s$(CLR_RST) (%d.%ds)' "$$label" $$((elapsed / 1000)) $$((elapsed % 1000 / 100)))"
+    log_info "$$(printf '$(CLR_STEP)→ %s$(CLR_RST) (%s)' "$$label" "$$(fmt_elapsed_ms $$elapsed)")"
   else
-    log_error "$$(printf '%s feila etter %d.%ds (exit code %d)' "$$label" $$((elapsed / 1000)) $$((elapsed % 1000 / 100)) $$exit_code)"
+    log_error "$$(printf '%s feila etter %s (exit code %d)' "$$label" "$$(fmt_elapsed_ms $$elapsed)" $$exit_code)"
   fi
   return $$exit_code
 }

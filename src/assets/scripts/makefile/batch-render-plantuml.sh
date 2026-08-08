@@ -38,4 +38,4 @@ t0=$(date +%s%3N)
 podman run --rm -v "$PWD:/work" -w /work "$PLANTUML_IMAGE" -tsvg "${files[@]}" > /dev/null
 t1=$(date +%s%3N)
 ms=$(( t1 - t0 ))
-log_info "$(printf '%s→ gen-plantuml-svg  batch (%d fil(er))%s (%d.%ds)' "$CLR_STEP" "${#files[@]}" "$CLR_RST" $(( ms / 1000 )) $(( ms % 1000 / 100 )))"
+log_info "$(printf '%s→ gen-plantuml-svg  batch (%d fil(er))%s (%s)' "$CLR_STEP" "${#files[@]}" "$CLR_RST" "$(fmt_elapsed_ms "$ms")")"
