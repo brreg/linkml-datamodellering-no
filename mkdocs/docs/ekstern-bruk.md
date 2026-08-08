@@ -63,7 +63,7 @@ imports:
 
 ---
 
-## Versjonerte artefaktar
+## Versjonerte artefakter
 
 GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein **stabil, versjonert adresse** til ein historisk versjon — t.d. for import frå eit eksternt repo — bruk:
 

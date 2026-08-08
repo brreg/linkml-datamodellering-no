@@ -55,7 +55,7 @@ make help
 # Køyr alle testar
 make test
 
-# Generer artefaktar for eit domene
+# Generer artefakter for eit domene
 make domain-ap-no
 
 # Generer dokumentasjon for eit skjema

@@ -68,7 +68,7 @@ Stadfesta at dette **ikkje** er ei reell sirkulær avhengigheit:
 ## Workaround
 
 Ingen workaround nødvendig — åtvaringa er reint informativ støy og påverkar
-ikkje genererte artefaktar. Ingen skip-betingelse i `tests/test_make.sh` er
+ikkje genererte artefakter. Ingen skip-betingelse i `tests/test_make.sh` er
 lagt til sidan ingen test feiler.
 
 ## Løysing

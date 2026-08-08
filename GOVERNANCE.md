@@ -27,7 +27,7 @@ Dette repoet er ein **Proof of Concept** for LinkML-basert datamodellering i nor
 - Repo-administrator prioriterer eigne behov og kritiske feil først
 
 **Publisering:**
-- Artefaktar publiserte til GitHub Pages kan endre format eller struktur
+- Artefakter publiserte til GitHub Pages kan endre format eller struktur
 - `publish_external: true` betyr tilrettelegging for høsting, ikkje garantert publisering til Felles Begrepskatalog/Datakatalog
 - Høsting frå eksterne katalogar må koordinerast manuelt med Digitaliseringsdirektoratet
 
@@ -41,7 +41,7 @@ Denne policyen gjeld for datafiler og modellar merka med `publish_external: true
 
 ### Kva publiserast
 
-Repoet publiserer **artefaktar til GitHub Pages** som høstingsendepunkt:
+Repoet publiserer **artefakter til GitHub Pages** som høstingsendepunkt:
 
 - **Begrepskatalogar:** SKOS/Turtle-filer (`.ttl`) genererte frå `src/linkml/begrepskatalog/*/data/`
 - **Modellkatalogar:** ModelDCAT-AP-NO-metadata (`.ttl`) genererte frå `src/linkml/modellkatalog/*/data/`
@@ -342,7 +342,7 @@ Ueinigheitar om endringar i felles infrastruktur:
 | Felles infrastruktur (CI/CD, containerar, AP-NO-profilar) | Repo-administrator | E-post til ave@brreg.no |
 | Domenemodeller (schema, datafiler) | Katalogeigarleiing per org | GitHub Issue (`bug` eller `data-quality`) |
 | Personopplysningar i datafiler | Katalogeigarleiing per org | GitHub Issue + omgåande fjerning |
-| Publiserte artefaktar på GitHub Pages | Repo-administrator (infrastruktur), Katalogeigarleiing (innhald) | Avhengig av type problem |
+| Publiserte artefakter på GitHub Pages | Repo-administrator (infrastruktur), Katalogeigarleiing (innhald) | Avhengig av type problem |
 
 ### Katalogeigarleiing sitt ansvar
 
@@ -358,7 +358,7 @@ Kvar organisasjon er ansvarleg for:
 Repo-administrator er ansvarleg for:
 
 - **Infrastruktur-sikkerheit:** Sikre at CI/CD-pipelines, containerar og GitHub Actions-workflows ikkje har sårbarheiter
-- **Secrets-handtering:** Sikre at GitHub Secrets ikkje vert lekka i loggar eller artefaktar
+- **Secrets-handtering:** Sikre at GitHub Secrets ikkje vert lekka i loggar eller artefakter
 - **Sårbarheitsrespons:** Svare på sikkerheitsrapportar innan 5 arbeidsdagar (1 dag for kritiske)
 - **Koordinering:** Koordinere fiks og ansvarleg offentleggjering ved sårbarheiter i felles infrastruktur
 

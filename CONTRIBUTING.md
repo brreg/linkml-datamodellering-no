@@ -261,7 +261,7 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 **Kva du MÅ gjere sjølv:**
 - Feilsøke problemer i eigne domenemodeller
 - Validere data før publisering (`make mcp-linkml-valider-modell SCHEMA=...` — brukar automatisk `validation_policy` frå build.yaml)
-- Teste genererte artefaktar lokalt før push
+- Teste genererte artefakter lokalt før push
 - Lese dokumentasjon og eksisterande issues før du rapporterer nye problem
 
 ### Få hjelp

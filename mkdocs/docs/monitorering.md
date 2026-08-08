@@ -2,7 +2,7 @@
 
 !!! note "Beskrivelse"
 
-    Denne sida forklarar korleis du kan monitorere at generering og publisering av artefaktar fungerer som forventa.
+    Denne sida forklarar korleis du kan monitorere at generering og publisering av artefakter fungerer som forventa.
 
 ---
 
@@ -21,7 +21,7 @@ https://github.com/brreg/linkml-datamodellering-no/actions
 
 | Workflow | URL | Kva det gjer |
 |---|---|---|
-| `generate.yml` | [actions/workflows/generate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/generate.yml) | Validerer, genererer artefaktar og publiserer til GitHub Pages |
+| `generate.yml` | [actions/workflows/generate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/generate.yml) | Validerer, genererer artefakter og publiserer til GitHub Pages |
 | `validate.yml` | [actions/workflows/validate.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/validate.yml) | Nattleg validering (02:00 UTC) som lagrar loggar til `src/linkml/*/validation/` og opprettar PR ved endringar |
 | `release-please.yml` | [actions/workflows/release-please.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release-please.yml) | Opprettar release-PR automatisk |
 | `release.yml` | [actions/workflows/release.yml](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/release.yml) | Byggjer og pushar container-images ved release |
@@ -223,7 +223,7 @@ Etter at `generate.yml` har køyrt vellukka, verifiser at artefaktane faktisk er
 - Navigasjonsmeny med domener (AP-NO, NGR, FINT, osv.)
 - Genererte skjema-sider med dokumentasjon og diagram
 
-### Genererte artefaktar
+### Genererte artefakter
 
 **Eksempel — SHACL shapes for ngr-virksomhet:**
 ```
@@ -357,7 +357,7 @@ Avgrensingane under er ei direkte følgje av at repoet praktiserer
 "Pull, ikkje push" (sjå [Publiseringsoversikt](publisering-oversikt.md)
 for full forklaring av prinsippet): repoet har ingen API-tilgang eller
 credentials mot eksterne katalogar, og kan difor ikkje overvake kva som
-skjer *etter* at artefaktar er publiserte til GitHub Pages.
+skjer *etter* at artefakter er publiserte til GitHub Pages.
 
 ### Kva repoet IKKJE kan monitorere
 

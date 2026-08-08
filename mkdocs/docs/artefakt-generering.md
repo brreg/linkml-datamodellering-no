@@ -164,7 +164,7 @@ aldri frå JSON-feltet).
 `generate-informasjonsmodell.py` byggjer éin `Informasjonsmodell`-instans
 per skjema (skriven til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`).
 Kjeldene for kvart felt (`schema.yaml`, `build.yaml`, `CODEOWNERS.md`,
-lokale klassar, genererte artefaktar) er dokumenterte i full detalj i
+lokale klassar, genererte artefakter) er dokumenterte i full detalj i
 [Generering av modellmanifest](modellmanifest-generering.md) — ikkje
 gjenteke her.
 

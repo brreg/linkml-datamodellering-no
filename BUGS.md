@@ -24,7 +24,7 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 - PlantUML-diagram vert ikkje genererte for skjema med meir enn 50 klasser (ytelsesproblem)
 - JSON Schema-generatoren støttar ikkje `union_of` med meir enn to typar
 - AsyncAPI-generering er eksperimentell og ikkje aktivert by default
-- **BUG-6, BUG-7**: Class/slot-override av importerte element krasjar eller korrumperer genererte artefaktar
+- **BUG-6, BUG-7**: Class/slot-override av importerte element krasjar eller korrumperer genererte artefakter
 - **BUG-9**: `gen-xsd` skriv ei ufarleg falsk "circular dependency"-åtvaring for containerklassar (reint støy, påverkar ikkje utdata)
 
 ### Publisering

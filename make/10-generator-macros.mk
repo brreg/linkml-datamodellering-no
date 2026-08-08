@@ -1,7 +1,7 @@
 # ==============================================================================
 # make/10-generator-macros.mk
 #
-# Generiske generator-makroar for å byggje LinkML-artefaktar.
+# Generiske generator-makroar for å byggje LinkML-artefakter.
 #
 # Dei reint linkml-baserte generatorane (merge, jsonld-context, shacl,
 # python, json-schema, owl, rdf, proto) batchar no N skjema inn i ÉIN

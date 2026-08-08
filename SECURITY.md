@@ -26,7 +26,7 @@ Vi koordinerer ansvarleg offentleggjering saman med deg.
 **Sikkerheitssårbarheiter som bør rapporterast:**
 
 - Kjeldekodeinjeksjon i CI-pipelines (t.d. uvalidert input i GitHub Actions)
-- Lekking av credentials eller secrets i loggar eller artefaktar
+- Lekking av credentials eller secrets i loggar eller artefakter
 - Utilsikta eksponering av intern infrastruktur
 - Sårbarheiter i containerar (Dockerfile, dependencies)
 - Ukontrollert ekstern input i `Makefile`, shell-skript eller Python-skript

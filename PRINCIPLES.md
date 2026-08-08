@@ -62,7 +62,7 @@ Python-pakkar, Node-avhengigheiter eller anna verktøy direkte på vertsmaskina.
 
 ## 6. Pull, ikkje push
 
-Repoet *genererer* artefaktar og publiserer dei til GitHub Pages og GitHub Releases.
+Repoet *genererer* artefakter og publiserer dei til GitHub Pages og GitHub Releases.
 Andre system hentar artefaktane derifrå sjølve — repoet pusher aldri til eksterne kjelder
 (schema-registry, API-katalog, datakatalog o.l.).
 

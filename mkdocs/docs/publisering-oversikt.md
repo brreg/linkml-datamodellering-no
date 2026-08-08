@@ -18,7 +18,7 @@ flowchart TB
         B[Pullrequest til main] --> C[GitHub Actions<br/>generate.yml]
         C --> D[Validering<br/>make mcp-linkml-valider-modell]
         D --> E[Generering<br/>make convert-data]
-        E --> F[Genererte artefaktar<br/>TTL / JSON Schema / OWL]
+        E --> F[Genererte artefakter<br/>TTL / JSON Schema / OWL]
     end
     
     subgraph GitHub
@@ -76,7 +76,7 @@ Repoet følgjer "pull, ikkje push"-prinsippet:
 
 | Kva repoet GØR | Kva repoet IKKJE gjer |
 |---|---|
-| ✅ Publiserer artefaktar til GitHub Pages | ❌ Pusher ikkje til data.norge.no |
+| ✅ Publiserer artefakter til GitHub Pages | ❌ Pusher ikkje til data.norge.no |
 | ✅ Publiserer releases til GitHub | ❌ Har ikkje API-credentials for Felles Begrepskatalog |
 | ✅ Validerer data mot policies | ❌ Har ikkje API-credentials for Felles Datakatalog |
 | ✅ Genererer høstingsklare TTL-filer | ❌ Kontrollerer ikkje når høsting skjer |
@@ -95,16 +95,16 @@ Repoet følgjer "pull, ikkje push"-prinsippet:
 
 ### GitHub Pages (automatisk)
 
-Alle genererte artefaktar vert automatisk publisert til GitHub Pages ved push til `main`:
+Alle genererte artefakter vert automatisk publisert til GitHub Pages ved push til `main`:
 
-- **Genererte skjema-artefaktar:** SHACL, JSON Schema, OWL, Turtle, Python, Protobuf, OpenAPI, AsyncAPI, PlantUML-diagram, HTML-dokumentasjon
+- **Genererte skjema-artefakter:** SHACL, JSON Schema, OWL, Turtle, Python, Protobuf, OpenAPI, AsyncAPI, PlantUML-diagram, HTML-dokumentasjon
 - **Begrepskatalogar:** `.ttl`-filer frå `src/linkml/begrepskatalog/*/data/` (konvertert frå YAML)
 - **Modellkatalogar:** `.ttl`-filer frå `src/linkml/modellkatalog/*/data/` (konvertert frå YAML)
 - **MkDocs-dokumentasjonsportal:** Menneskelesbar dokumentasjon med ER-diagram og artefakt-nedlastingar
 
 **URL:** `https://brreg.github.io/linkml-datamodellering-no/`
 
-**Versjonering:** Peikar alltid til siste versjon på `main`. For versjonsstabile adresser, sjå [Bruk frå eksternt repo](ekstern-bruk.md#versjonerte-artefaktar).
+**Versjonering:** Peikar alltid til siste versjon på `main`. For versjonsstabile adresser, sjå [Bruk frå eksternt repo](ekstern-bruk.md#versjonerte-artefakter).
 
 ### Felles Begrepskatalog / Felles Datakatalog (manuell koordinering)
 
@@ -215,7 +215,7 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 **Kvar kom det frå:** CI-jobben `generate.yml` (kjører på push til `main`)
 
 **Innhald:**
-- Alle genererte artefaktar (same som `generated/`)
+- Alle genererte artefakter (same som `generated/`)
 - Begrepskatalogar: `.ttl`-filer frå `src/linkml/begrepskatalog/*/data/`
 - Modellkatalogar: `.ttl`-filer frå `src/linkml/modellkatalog/*/data/`
 - MkDocs-dokumentasjonsportal
@@ -228,7 +228,7 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 
 ---
 
-### 3. GitHub Releases (versjonerte artefaktar)
+### 3. GitHub Releases (versjonerte artefakter)
 
 **URL:** `https://github.com/brreg/linkml-datamodellering-no/releases`
 
@@ -236,7 +236,7 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 
 **Innhald:**
 - Source code (`.zip`, `.tar.gz`)
-- (Potensielt) bundla artefaktar som release assets
+- (Potensielt) bundla artefakter som release assets
 
 **Versjonering:** Semantisk versjonering (`v1.0.0`, `v1.1.0`, osv.) — **versjonsstabil**
 
@@ -377,7 +377,7 @@ validation_policy: felles-begrepskatalog  # Valideringspolicy
 |---|---|---|---|
 | 1. Rediger YAML | Utviklar | Nei | Ja (lokal validering) |
 | 2. Pullrequest til `main` | Utviklar | Nei | Ja (GitHub) |
-| 3. CI genererer artefaktar | GitHub Actions | Ja | Ja (Actions-logg) |
+| 3. CI genererer artefakter | GitHub Actions | Ja | Ja (Actions-logg) |
 | 4. Publiser til GitHub Pages | GitHub Actions | Ja | Ja (sjekk URL) |
 | 5a. Høsting frå Felles Begrepskatalog/Datakatalog | Org i den enkelte virksomhet | Nei (manuell setup) | Nei (ikkje tilgjengeleg for repoet) |
 | 5b. Høsting frå private system | Organisasjon | Nei (manuell setup) | Nei (ikkje tilgjengeleg for repoet) |

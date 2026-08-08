@@ -1,5 +1,5 @@
 # Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
-# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
 
 id: https://data.norge.no/ngr/ngr-person
 tittel:

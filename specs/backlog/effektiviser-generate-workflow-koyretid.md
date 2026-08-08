@@ -1130,7 +1130,7 @@ feilhandteringa i praksis: `rdf`-jobben feila synleg (ikkje stille),
 `FAILED`-teljaren auka, **alle andre uavhengige fase 1/2-jobbar fullførte
 framleis korrekt** (isolasjon stadfesta), og scriptet stoppa **korrekt før
 Fase 3** (`gen-informasjonsmodell-instance` vart ikkje køyrd, sidan han
-ville lese ufullstendige/manglande RDF-artefaktar). Retry lukkast fullt ut.
+ville lese ufullstendige/manglande RDF-artefakter). Retry lukkast fullt ut.
 
 **Korrektheit verifisert:** `gen-informasjonsmodell-instance` (Fase 3) sin
 `finnes_i_format`-liste inneheldt **alle** 7 forventa artefakttypar

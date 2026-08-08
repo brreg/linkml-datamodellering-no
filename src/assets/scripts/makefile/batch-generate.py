@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Batch-generer LinkML-artefaktar (SHACL, OWL, Python, JSON Schema, RDF,
+Batch-generer LinkML-artefakter (SHACL, OWL, Python, JSON Schema, RDF,
 Protobuf, JSON-LD-context, skjema-validering/merge) for FLEIRE skjema i éin
 prosess, i staden for éin podman-kontainar per skjema.
 

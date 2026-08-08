@@ -8,7 +8,7 @@
 
 `index.md` fungerer som hovudsida for kvar modell i dokumentasjonsportalen. Fila blir **automatisk generert** av `mkdocs/publish.sh` (funksjonen `process_schema()`) basert på ulike kjelder:
 
-- Genererte artefaktar frå LinkML (gen-doc, PlantUML, valideringsresultat)
+- Genererte artefakter frå LinkML (gen-doc, PlantUML, valideringsresultat)
 - Kildefiler i `src/linkml/<domain>/<schema>/` (manifest, eksempel, description.md, CHANGELOG.md)
 - Dynamisk parsing av metadata frå gen-doc-output
 
@@ -34,7 +34,7 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 | 14 | **Enumerations** | Enumerationsliste | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
 | 15 | **Types** | Typeliste (inkl. importerte typar) med "Defined in"-kolonne | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
 | 16 | **Subsets** | Subsetliste | Del av same ekstraksjon som Classes (gen-doc) | `lib/sections/classes.sh:generate_classes_section()` |
-| **17** | **Generated artifacts** | Tabell med lenkjer til genererte artefaktar (**modellmanifest først**, deretter SHACL, JSON-LD, JSON Schema, OWL, RDF, Python, Protobuf, PlantUML osv.) | Generert dynamisk frå `mkdocs/docs/<domain>/<schema>/` og `diagrams/`-underkatalog. Modellmanifest kopiert frå `src/linkml/<domain>/<schema>/metadata/<schema>-manifest.yaml` | `lib/sections/artifacts.sh:generate_artifacts_table()` |
+| **17** | **Generated artifacts** | Tabell med lenkjer til genererte artefakter (**modellmanifest først**, deretter SHACL, JSON-LD, JSON Schema, OWL, RDF, Python, Protobuf, PlantUML osv.) | Generert dynamisk frå `mkdocs/docs/<domain>/<schema>/` og `diagrams/`-underkatalog. Modellmanifest kopiert frå `src/linkml/<domain>/<schema>/metadata/<schema>-manifest.yaml` | `lib/sections/artifacts.sh:generate_artifacts_table()` |
 | 18 | **Valideringsresultat** | Valideringsstatus, feiltal, åtvaringtal + detaljert feil-/åtvaringsliste | Generert av `mkdocs/lib/scripts/generate-validation-md.py` frå `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` | `lib/sections/validation.sh:generate_validation_results()` → `generate-validation-md.py` |
 | 19 | **Versjonslog** | CHANGELOG-innhald som rein Markdown | Kopiert frå `src/linkml/<domain>/<schema>/CHANGELOG.md` — hovudoverskrift fjerna, alle andre auka med éin `#` | `lib/sections/changelog.sh:generate_changelog()` |
 | 20 | **Kontakt** | Kontaktinformasjon (forvaltningsansvarleg, support) | Generert frå `CODEOWNERS.md`. Matchdar schema-path mot `path_patterns` per organisasjon. | `lib/sections/contact.sh:generate_contact_info()` |
@@ -91,7 +91,7 @@ Kjelder:
 Kjelde-datamodell i LinkML-format: [`<schema>-schema.yaml`](../../../src/linkml/<domain>/<schema>/<schema>-schema.yaml)
 ```
 
-**Formål:** Gi direkte tilgang til LinkML-schema-kjeldekoden (YAML) frå modellportalen. Dette skil LinkML-schemaet frå genererte artefaktar (som ligg i "Generated artifacts"-seksjonen).
+**Formål:** Gi direkte tilgang til LinkML-schema-kjeldekoden (YAML) frå modellportalen. Dette skil LinkML-schemaet frå genererte artefakter (som ligg i "Generated artifacts"-seksjonen).
 
 **Kjelde:** `src/linkml/<domain>/<schema>/<schema>-schema.yaml` (relativ lenke frå `mkdocs/docs/<domain>/<schema>/index.md`)
 
@@ -201,7 +201,7 @@ Kvart domene (t.d. `mkdocs/docs/fint/index.md`, vist som "FINT - Fylkeskommunale
 
 1. **Hovudoverskrift** — `# <domain_label>`, frå `domain_label()` i `lib/utils/formatters.sh`
 2. **Domene-skildring** (valfri) — innhaldet i `src/linkml/<domain>/description.md`, rendra av `generate_domain_description()` i `lib/sections/domene_beskrivelse.sh`
-3. **Modell-tabell** — éin rad per skjema i domenet, med lenkje til skjemaet sin `index.md` og ei liste over tilgjengelege artefaktar (og publiseringsstatus, dersom domenet har publiserte skjema)
+3. **Modell-tabell** — éin rad per skjema i domenet, med lenkje til skjemaet sin `index.md` og ei liste over tilgjengelege artefakter (og publiseringsstatus, dersom domenet har publiserte skjema)
 
 `domene_beskrivelse.sh` ligg i `lib/sections/` saman med dei skjema-nivå-seksjonane, og vert difor sourca automatisk av same glob-løkke i `generate_index.sh` — men funksjonen `generate_domain_description()` vert kalla frå domene-løkka i `publish.sh`, ikkje frå `generate_schema_index()`.
 

@@ -2,18 +2,18 @@
 
 !!! note "Beskrivelse"
 
-    Denne sida viser dei vesentlege delane av repoet og korleis dei spelar saman med eksterne offentlege tenester — frå kjeldeskjema, via MCP-serverar og CI, til publiserte artefaktar og dei nasjonale katalogane/verksemdene som hentar frå dei.
+    Denne sida viser dei vesentlege delane av repoet og korleis dei spelar saman med eksterne offentlege tenester — frå kjeldeskjema, via MCP-serverar og CI, til publiserte artefakter og dei nasjonale katalogane/verksemdene som hentar frå dei.
 
 ---
 
 Skissa er delt i to diagram (i staden for eitt breidt) for å halde tekstboksane
 store og lesbare: del 1 dekkjer den interne flyten frå kildeskjema til
-publiserte artefaktar, del 2 dekkjer korleis nasjonale katalogar, KUDAF og
+publiserte artefakter, del 2 dekkjer korleis nasjonale katalogar, KUDAF og
 verksemder hentar frå dei publiserte punkta. Usynlege lenkjer (`~~~`) brukast
 berre for å tvinge nodar utan reell relasjon til å stable seg vertikalt i
 staden for å spre seg i breidda — dei representerer ikkje ein avhengigheit.
 
-## Del 1 — Frå kildeskjema til publiserte artefaktar
+## Del 1 — Frå kildeskjema til publiserte artefakter
 
 ```mermaid
 %%{init: {'themeVariables': {'fontSize': '20px'}}}%%

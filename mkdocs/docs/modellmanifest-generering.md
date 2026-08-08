@@ -12,7 +12,7 @@ Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema 
 2. `build.yaml` (heimeside, har_del)
 3. `CODEOWNERS.md` (kontaktpunkt)
 4. Skjemaet sine lokale klasser (inneholder_modellelement)
-5. Genererte artefaktar (finnes_i_format)
+5. Genererte artefakter (finnes_i_format)
 6. `annotations.er_profil_av` (MVP workaround for DX-PROF)
 
 **Output:** `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`
@@ -39,7 +39,7 @@ Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema 
 | `kontaktpunkt` | Kontaktopplysning-instans (inline) | `CODEOWNERS.md` | `organizations[].contact_uri` + `organizations[].name` |
 | `er_profil_av` | MVP workaround (valgfri) | `<modell>-schema.yaml` | `annotations.er_profil_av` |
 | `inneholder_modellelement` | Liste av class_uri (ekskl. tree_root) | `<modell>-schema.yaml` | Lokale klasser frå `classes:` |
-| `finnes_i_format` | GitHub raw URL-ar til `.ttl`, `.json`, `.owl`, `.yaml` osv. | (generert) | Genererte artefaktar i `generated/<domain>/<modell>/` |
+| `finnes_i_format` | GitHub raw URL-ar til `.ttl`, `.json`, `.owl`, `.yaml` osv. | (generert) | Genererte artefakter i `generated/<domain>/<modell>/` |
 
 ## Genereringsprosess
 
@@ -54,7 +54,7 @@ Dette køyrer (i rekkjefølgje):
 1. `gen-linkml` (merge-imports)
 2. `gen-jsonld-context`, `gen-shacl`, `gen-python`, `gen-jsonschema`, `gen-owl`, `gen-rdf`
 3. `gen-doc`, `gen-plantuml`, `gen-proto`, `gen-xsd`, `gen-openapi`, `gen-asyncapi`
-4. **`gen-informasjonsmodell-instance`** (parallelt, etter alle artefaktar er genererte)
+4. **`gen-informasjonsmodell-instance`** (parallelt, etter alle artefakter er genererte)
 
 ### Steg 2: `gen-informasjonsmodell-instance` samlar metadata
 
@@ -68,7 +68,7 @@ Dette køyrer (i rekkjefølgje):
 2. Les `build.yaml` (heimeside, submodels)
 3. Parse `CODEOWNERS.md` YAML-frontmatter (match schema-path mot `path_patterns`)
 4. Ekstraher lokale klasser (frå `classes:`-blokka, ekskluder `tree_root`)
-5. Finn genererte artefaktar (glob `generated/<domain>/<modell>/*`)
+5. Finn genererte artefakter (glob `generated/<domain>/<modell>/*`)
 6. Generer GitHub raw URL-ar (auto-detektert frå `git remote`)
 7. LangString-transformasjon (nb/nn)
 8. Inline Kontaktopplysning- og Standard-instansar
@@ -97,7 +97,7 @@ Feilhandtering: Feil vert logga, men byggeprosessen stoppar ikkje (warning).
 
 ```yaml
 # Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
-# Kjelder: <modell>-schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar
+# Kjelder: <modell>-schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
 
 id: https://data.norge.no/ap-no/dcat-ap-no
 tittel:
@@ -184,7 +184,7 @@ Kjelde-datamodell i LinkML-format: [`dcat-ap-no-schema.yaml`](../../../src/linkm
 
 ## Avhengigheiter mellom generatorar
 
-Modellmanifest-generering krev at alle artefaktar er genererte først (for `finnes_i_format`-lista):
+Modellmanifest-generering krev at alle artefakter er genererte først (for `finnes_i_format`-lista):
 
 ```
 make gen-linkml (merge-imports)
@@ -205,7 +205,7 @@ mkdocs serve (portalen er klar)
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make gen-informasjonsmodell-instance SCHEMA=<path>` | Generer manifest for eitt skjema | `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml` |
-| `make domain-ap-no` | Generer alle artefaktar + manifest for ap-no-domenet | 10 manifest-filer (common-ap-no, dcat-ap-no, dqv-ap-no, ...) |
+| `make domain-ap-no` | Generer alle artefakter + manifest for ap-no-domenet | 10 manifest-filer (common-ap-no, dcat-ap-no, dqv-ap-no, ...) |
 | `make validate-informasjonsmodell-instance SCHEMA=<path>` | Valider generert manifest mot `modelldcat-katalog-schema.yaml` | Exit 0 (OK) eller Exit 1 (feil) |
 | `make gen-modellkatalog-instance` | Samlar alle manifest til per-org modellkatalogfiler | `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` |
 

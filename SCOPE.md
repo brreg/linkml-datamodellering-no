@@ -10,7 +10,7 @@
 i offentleg sektor. Det kombinerer:
 
 - **Ferdiglagde LinkML-skjema** for norske AP-NO-profilene og domenemodeller
-- **Infrastruktur** for automatisk generering, validering og publisering av artefaktar
+- **Infrastruktur** for automatisk generering, validering og publisering av artefakter
 - **Verktøy** for å bootstrappe LinkML-modellering i andre repo
 
 Repoet er tenkt som eit felles grunnlag — ein stad der norske offentlege verksemder
@@ -28,9 +28,9 @@ felles modellar saman.
 | Det er IKKJE… | Forklaring |
 |---|---|
 | Ein schema-registry | Repoet pusher ikkje skjema til Apicurio, Confluent eller andre schema-registries. Skjema vert henta frå GitHub (pull). |
-| Ein datakatalog | Repoet er ikkje sjølv ein datakatalog. Det genererer maskinlesbare artefaktar (SKOS/RDF, ModelDCAT-AP-NO) som Felles datakatalog og Felles begrepskatalog *sjølv* kan sette opp pull mot frå GitHub Pages eller GitHub Releases. |
+| Ein datakatalog | Repoet er ikkje sjølv ein datakatalog. Det genererer maskinlesbare artefakter (SKOS/RDF, ModelDCAT-AP-NO) som Felles datakatalog og Felles begrepskatalog *sjølv* kan sette opp pull mot frå GitHub Pages eller GitHub Releases. |
 | Ein kjeldesystem for produksjonsdata | Med eitt unntak (`data/`-underkatalogar for begrepskatalog og modellkatalog) inneheld ikkje repoet produksjonsdata. Modellane *skildrar* data, dei *inneheld* det ikkje. |
-| Eit API | Repoet eksponerer ikkje API-endepunkt. Artefaktar vert publisert som statiske filer på GitHub Pages og GitHub Releases. |
+| Eit API | Repoet eksponerer ikkje API-endepunkt. Artefakter vert publisert som statiske filer på GitHub Pages og GitHub Releases. |
 | Ein integrasjonsplattform | Repoet integrasjoner ikkje mot kjeldesystem, registre eller applikasjonar direkte. |
 | Eit verktøy for enkeltverksemder | Repo-et er eit *delt* monorepo. Verksemder med behov for full kontroll bør vurdere å bruke bootstrap-mekanismen og halde eigne modeller i eige repo. |
 
@@ -44,7 +44,7 @@ felles modellar saman.
   `publish_external: true`. Eksempeldata (under `examples/`) er alltid illustrativt,
   ikkje normativt.
 - **Ekstern katalog-integrasjon** er alltid pull-basert: Felles datakatalog og Felles
-  begrepskatalog må sjølv sette opp henting av artefaktar frå GitHub Pages eller GitHub Releases.
+  begrepskatalog må sjølv sette opp henting av artefakter frå GitHub Pages eller GitHub Releases.
   Dette repoet initierer aldri push til eksterne katalogar.
 
 ### Kva det vil seie å vere «i repoet»
@@ -120,7 +120,7 @@ MCP-validator (`src/mcp-linkml-validator/`) med medaljong policy-nivå og publis
 | Pipeline | Utløysar | Kva det gjer |
 |---|---|---|
 | `validate.yml` | Push, PR | Linter og validerer alle skjema med MCP-validator |
-| `generate.yml` | Push til main | Genererer alle artefaktar, publiserer til GitHub Pages |
+| `generate.yml` | Push til main | Genererer alle artefakter, publiserer til GitHub Pages |
 | `reusable-validate.yml` | Kall frå eksterne repo | Validering av eitt skjema med éin policy |
 | `release-please.yml` | Push til main | Oppretter release-PR ved nye commits |
 
@@ -147,7 +147,7 @@ imports:
 
 ### Dokumentasjonsportal
 
-GitHub Pages (`mkdocs/`) med oversikt over alle skjema, genererte artefaktar,
+GitHub Pages (`mkdocs/`) med oversikt over alle skjema, genererte artefakter,
 ER-diagram og HTML-dokumentasjon. Vert automatisk oppdatert ved push til `main`.
 
 ---

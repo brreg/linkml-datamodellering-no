@@ -2,7 +2,7 @@
 
 !!!note "Kva er `build.yaml`?"
 
-    Kvar modell under `src/linkml/<domain>/<modell>/` har ei `build.yaml` som styrer kva artefaktar som vert genererte, kva flagg som vert brukte, og om modellen skal publiserast til ein ekstern katalog. `make new-modell` oppretter fila automatisk med standardkonfigen.
+    Kvar modell under `src/linkml/<domain>/<modell>/` har ei `build.yaml` som styrer kva artefakter som vert genererte, kva flagg som vert brukte, og om modellen skal publiserast til ein ekstern katalog. `make new-modell` oppretter fila automatisk med standardkonfigen.
 
 ## To typar manifest
 

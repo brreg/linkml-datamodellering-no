@@ -2,7 +2,7 @@
 
 ## Avvist
 
-**Avvist 2026-06-10.** Integrasjonslogikk mot GCP Data Catalog høyrer heime i konsumentens eige repo — ikkje her. Dette repoet har ansvar for å modellere og publisere artefaktar; orchestrering av registrering i ein ekstern datakatalog er ein operasjonell oppgåve som er tett knytt til konsumentens GCP-miljø, infrastruktur og tilgangsstyring.
+**Avvist 2026-06-10.** Integrasjonslogikk mot GCP Data Catalog høyrer heime i konsumentens eige repo — ikkje her. Dette repoet har ansvar for å modellere og publisere artefakter; orchestrering av registrering i ein ekstern datakatalog er ein operasjonell oppgåve som er tett knytt til konsumentens GCP-miljø, infrastruktur og tilgangsstyring.
 
 Å plassere scriptet her ville dessutan trekkje inn GCP-avhengigheiter (`google-cloud-datacatalog`) og testoppsett som ikkje høyrer heime i eit modelleringsrepo. Konsumenten bør heller referere til `catalog.json` frå GitHub Pages og implementere registreringslogikken i sin eigen integrasjonspipeline.
 
@@ -19,7 +19,7 @@ oppslag i sin eigen GCP-katalog, med lenke attende til dokumentasjonsportalen.
 
 ## Arkitekturprinsipp: pull, ikkje push
 
-Dette repoet pusher aldri artefaktar til eksterne kjelder (sjå `CLAUDE.md`).
+Dette repoet pusher aldri artefakter til eksterne kjelder (sjå `CLAUDE.md`).
 GCP Data Catalog er eit push-API: konsumenten kallar APIet for å registrere
 oppslag. **Løysinga er at koden lever i dette repoet, men køyrer i
 konsumentens eige GCP-miljø** — ikkje i CI-pipeline-en her.

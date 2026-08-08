@@ -271,7 +271,7 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ## Tilpass manifest for generering og publisering
 
-Kvar modell har ei `build.yaml` ved sida av skjemafila som styrer kva artefaktar
+Kvar modell har ei `build.yaml` ved sida av skjemafila som styrer kva artefakter
 som vert genererte. `make new-modell` oppretter standardkonfigen automatisk — alle
 generatorar på, ingen ekstra flagg.
 

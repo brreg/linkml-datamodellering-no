@@ -6,7 +6,7 @@ name: Release Please
 # 2. Denne workflowen oppdaterer version, endringsdato og utgivelsesdato i *-schema.yaml
 # 3. auto-approve-release-please.yml godkjenner PR-en automatisk
 # 4. PR vert merga automatisk når alle checks passerer (auto-merge)
-#    → GitHub Releases vert oppretta automatisk med artefaktar (JSON Schema, SHACL, OWL, osv.)
+#    → GitHub Releases vert oppretta automatisk med artefakter (JSON Schema, SHACL, OWL, osv.)
 #
 # Manuell trigger via workflow_dispatch er tilgjengeleg for admin.
 
@@ -174,7 +174,7 @@ jobs:
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}
         uses: actions/checkout@v7
 
-      - name: Generer artefaktar for releases
+      - name: Generer artefakter for releases
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}
         run: |
           # Installer podman (for containerbygging)
@@ -185,9 +185,9 @@ jobs:
           make build-docker-python
           make build-docker-avrotize
 
-          # Generer artefaktar for kvar releaset pakke
+          # Generer artefakter for kvar releaset pakke
           echo '${{ steps.release-please.outputs.paths_released }}' | jq -r '.[]' | while read pkg_path; do
-            echo "Genererer artefaktar for $pkg_path"
+            echo "Genererer artefakter for $pkg_path"
             schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" | head -1)
             if [ -n "$schema" ]; then
               make gen-jsonschema SCHEMA="$schema"
@@ -198,7 +198,7 @@ jobs:
             fi
           done
 
-      - name: Last opp artefaktar til GitHub Releases
+      - name: Last opp artefakter til GitHub Releases
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
@@ -208,13 +208,13 @@ jobs:
             # Hent tag-namn frå release-please outputs
             tag_name=$(echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r --arg path "$pkg_path" '.releases[$path].tag_name')
 
-            # Finn genererte artefaktar
+            # Finn genererte artefakter
             domain=$(echo "$pkg_path" | cut -d/ -f3)
             model=$(echo "$pkg_path" | cut -d/ -f4)
 
-            echo "Lastar opp artefaktar for $model (tag: $tag_name)"
+            echo "Lastar opp artefakter for $model (tag: $tag_name)"
 
-            # Last opp artefaktar (ignorer feil dersom filer ikkje finst)
+            # Last opp artefakter (ignorer feil dersom filer ikkje finst)
             gh release upload "$tag_name" \
               "generated/$domain/$model/$model-schema.json" \
               "generated/$domain/$model/$model-shapes.ttl" \
@@ -222,7 +222,7 @@ jobs:
               "generated/$domain/$model/$model-context.jsonld" \
               "generated/$domain/$model/$model-erdiagram.md" \
               "$pkg_path/$model-schema.yaml" \
-              --clobber || echo "::warning::Nokre artefaktar vart ikkje lasta opp for $model"
+              --clobber || echo "::warning::Nokre artefakter vart ikkje lasta opp for $model"
           done
 
       - name: Opprett per-schema git-tags

@@ -143,10 +143,10 @@ jobs:
             fi
           fi
 
-          echo "Genererte artefaktar:"
+          echo "Genererte artefakter:"
           ls -lh "$OUT/"
 
-      - name: Last opp genererte artefaktar
+      - name: Last opp genererte artefakter
         uses: actions/upload-artifact@v7
         with:
           name: linkml-generated-${{ github.run_id }}

@@ -2,13 +2,13 @@
 
 ## Avvist
 
-**Avvist 2026-06-10.** Denne planen er avvist fordi han bryt med eit grunnleggjande arkitekturprinsipp for dette repoet: **repoet pusher aldri artefaktar til eksterne kjelder.**
+**Avvist 2026-06-10.** Denne planen er avvist fordi han bryt med eit grunnleggjande arkitekturprinsipp for dette repoet: **repoet pusher aldri artefakter til eksterne kjelder.**
 
-Apicurio Registry-integrasjonen ville krevje at repoet sjølv pushar genererte artefaktar til ein ekstern schema-registry. Dette er problematisk av fleire grunnar:
+Apicurio Registry-integrasjonen ville krevje at repoet sjølv pushar genererte artefakter til ein ekstern schema-registry. Dette er problematisk av fleire grunnar:
 
 - **Spesialtilpassingar per målsystem** — kvar ekstern kjelde har sitt eige autentiseringsopplegg, API-konvensjonar og feilhåndteringsreglar som repoet må tilpassast til.
 - **Ekstern avhengigheit** — CI-pipeline-en vert avhengig av at den eksterne tenesta er oppe og tilgjengeleg. Nedetid hjå registryen feilar publisering av modellane.
-- **Ansvarsfelt** — dette repoet har ansvar for å *generere* og *gjere tilgjengeleg* artefaktar, ikkje for å *distribuere* dei til konsumentar sine system.
+- **Ansvarsfelt** — dette repoet har ansvar for å *generere* og *gjere tilgjengeleg* artefakter, ikkje for å *distribuere* dei til konsumentar sine system.
 
 **Rett tilnærming:** Konsumentar som ønsker å bruke artefaktane i Apicurio Registry hentar dei sjølve via `raw.githubusercontent.com` eller GitHub Releases og importerer til sin eigen registry. Sjå prinsipp i `CLAUDE.md` og `README.md`.
 
@@ -18,7 +18,7 @@ Apicurio Registry-integrasjonen ville krevje at repoet sjølv pushar genererte a
 
 Apicurio Registry er ein open-source schema- og API-registry som støttar
 OpenAPI, AsyncAPI, JSON Schema, Avro, XSD, Protobuf og fleire format.
-Integrasjonen gjer det mogleg å publisere genererte artefaktar frå dette repoet
+Integrasjonen gjer det mogleg å publisere genererte artefakter frå dette repoet
 til ein sentral registry, slik at konsumentar kan hente skjema via API heller
 enn å laste ned filer frå portalen.
 
@@ -29,7 +29,7 @@ enn å laste ned filer frå portalen.
 | Opprett/oppdater artefakt | `POST /groups/{groupId}/artifacts` |
 | Ny versjon | `POST /groups/{groupId}/artifacts/{artifactId}/versions` |
 | Hent artefaktmetadata | `GET /groups/{groupId}/artifacts/{artifactId}` |
-| Liste artefaktar i gruppe | `GET /groups/{groupId}/artifacts` |
+| Liste artefakter i gruppe | `GET /groups/{groupId}/artifacts` |
 
 Relevante artefakttypar: `OPENAPI`, `ASYNCAPI`, `JSON`, `XSD`
 

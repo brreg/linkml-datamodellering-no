@@ -7,7 +7,7 @@ Les 6 kjelder:
 2. build.yaml (heimeside, har_del)
 3. CODEOWNERS.md YAML-frontmatter (kontaktpunkt)
 4. Skjemaet sine lokale klasser (inneholder_modellelement)
-5. Genererte artefaktar (finnes_i_format)
+5. Genererte artefakter (finnes_i_format)
 6. annotations.er_profil_av (MVP workaround for DX-PROF)
 
 Skriv: metadata/<modell>-manifest.yaml (samla datafil med Informasjonsmodell + Kontaktopplysning + Standard)
@@ -110,7 +110,7 @@ def discover_artifacts(schema_path: Path) -> List[str]:
     """
     Finn alle format modellen er tilgjengeleg i:
     1. LinkML-skjemaet sjølv (kjeldekode i src/)
-    2. Genererte artefaktar (i generated/)
+    2. Genererte artefakter (i generated/)
 
     Base-URL: Henta frå git remote
 
@@ -132,7 +132,7 @@ def discover_artifacts(schema_path: Path) -> List[str]:
     schema_rel_path = schema_abs_path.relative_to(repo_root)
     artifacts.append(base_url_prefix + str(schema_rel_path))
 
-    # 2. Legg til genererte artefaktar
+    # 2. Legg til genererte artefakter
     generated_dir = repo_root / 'generated' / domain / modell
 
     if not generated_dir.exists():
@@ -141,7 +141,7 @@ def discover_artifacts(schema_path: Path) -> List[str]:
 
     base_url_generated = base_url_prefix + f"generated/{domain}/{modell}/"
 
-    # Inkluder relevante genererte artefaktar
+    # Inkluder relevante genererte artefakter
     patterns = [
         '*-schema.ttl',
         '*-schema.json',
@@ -285,7 +285,7 @@ def generate_modelldcat_data(schema_path: Path) -> Dict:
     # 4. Ekstraher lokale klasser
     inneholder_modellelement = extract_local_classes(schema)
 
-    # 5. Finn genererte artefaktar
+    # 5. Finn genererte artefakter
     finnes_i_format = discover_artifacts(schema_path)
 
     # 6. Bygg Informasjonsmodell-instans
@@ -352,7 +352,7 @@ def generate_modelldcat_data(schema_path: Path) -> Dict:
     if inneholder_modellelement:
         informasjonsmodell['inneholder_modellelement'] = inneholder_modellelement
 
-    # Frå genererte artefaktar
+    # Frå genererte artefakter
     if finnes_i_format:
         informasjonsmodell['finnes_i_format'] = finnes_i_format
 
@@ -384,7 +384,7 @@ def main():
         write_yaml(
             output_path, modelldcat_data,
             generated_by=Path(__file__).name,
-            note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar",
+            note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter",
         )
     except Exception:
         log_error({

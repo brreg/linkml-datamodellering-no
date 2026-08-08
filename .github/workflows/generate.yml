@@ -156,7 +156,7 @@ jobs:
           echo "=== Disk-bruk ==="
           df -h
 
-      - name: Cache genererte artefaktar (${{ matrix.domain }})
+      - name: Cache genererte artefakter (${{ matrix.domain }})
         id: cache-generated
         uses: actions/cache@v6
         with:
@@ -328,7 +328,7 @@ jobs:
             echo "  ✓ $schema_name v$version: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
           done
 
-      - name: Generer alle artefaktar for ${{ matrix.domain }}
+      - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         env:
@@ -365,9 +365,9 @@ jobs:
             fi
           done
 
-      - name: Logg genererte artefaktar før upload
+      - name: Logg genererte artefakter før upload
         run: |
-          echo "=== Genererte artefaktar for ${{ matrix.domain }} ==="
+          echo "=== Genererte artefakter for ${{ matrix.domain }} ==="
           if [ -d "generated/${{ matrix.domain }}" ]; then
             du -sh generated/${{ matrix.domain }}
             find generated/${{ matrix.domain }} -type f | wc -l | xargs echo "Antal filer:"
@@ -403,13 +403,13 @@ jobs:
       - name: Oppgrader crun
         uses: ./.github/actions/upgrade-crun
 
-      - name: Last ned alle genererte artefaktar
+      - name: Last ned alle genererte artefakter
         uses: actions/download-artifact@v8
         with:
           pattern: generated-*
           path: generated-merged/
 
-      - name: Slå saman domene-artefaktar til generated/
+      - name: Slå saman domene-artefakter til generated/
         run: |
           mkdir -p generated/
           for domain in ${{ needs.checkout-source.outputs.domain_list }}; do

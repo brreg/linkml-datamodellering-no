@@ -236,7 +236,7 @@ def run_informasjonsmodell(schemas: list[str]) -> int:
             mod.write_yaml(
                 output_path, data,
                 generated_by="generate-informasjonsmodell.py",
-                note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefaktar",
+                note="Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter",
             )
         except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon
             log_error(f"::error file={s}::gen-informasjonsmodell-instance feila for {domain}/{name} ({fmt_elapsed(time.time() - t0)}) — {exc}")

@@ -304,7 +304,7 @@ publisert. Dersom ikkje, bruk URI-mønster frå `data.norge.no`-domenet:
 - id: https://data.norge.no/oreg/brreg-modellkatalog
 ```
 
-Merk at repoet sjølv er kjelde for artefaktar (jf. «Pull, ikkje push»-prinsippet),
+Merk at repoet sjølv er kjelde for artefakter (jf. «Pull, ikkje push»-prinsippet),
 men instans-URI-ane bør framleis vere live eller eksplisitt merka som «planlagde».
 
 ---
