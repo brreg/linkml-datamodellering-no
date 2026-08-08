@@ -9,7 +9,7 @@
     - Modellar og verktøy er under utvikling og kan endre seg
     - Dokumentasjonen kan vere ufullstendig eller utdatert
     - Nokre funksjonar er berre delvis implementerte
-    - Det finst [kjende avgrensingar og bugs](#kjende-avgrensingar)
+    - Det finst [kjende avgrensingar og bugs](#avgrensingar)
     - Ingen garantert stabilitet eller support-SLA
     
     **For eksterne organisasjonar:** Les [for bidragsytarar](#for-bidragsytarar) for forventningar til stabilitet og ansvar.

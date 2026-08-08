@@ -529,11 +529,14 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 
 # gen-doc genererer interne lenkjer som ikkje alltid har tilsvarende .md-filer
-# (t.d. lowercase-alias for PascalCase-klassefiler på case-insensitive filsystem).
+# (t.d. lowercase-alias for PascalCase-klassefiler på case-insensitive filsystem),
+# og systematiske fragment-lenkjer utan filnamn (t.d. ../../ap-no/dcat-ap-no/#classes
+# i staden for .../index.md#classes) som mkdocs ikkje kjenner att som interne lenkjer.
 # Desse åtvaringane er ikkje kritiske og vert undertrykka her.
 validation:
   links:
     not_found: ignore
+    unrecognized_links: ignore
   nav:
     omitted_files: ignore
 
