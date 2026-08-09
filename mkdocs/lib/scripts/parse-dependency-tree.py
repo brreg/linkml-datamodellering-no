@@ -355,10 +355,10 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
     """
     # Read importhierarki.md
     repo_root = Path(__file__).resolve().parents[3]
-    hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'importhierarki.md'
+    hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'arkitektur' / 'importhierarki.md'
 
     if not hierarchy_file.exists():
-        # Fallback to flat list
+        print(f"WARN parse-dependency-tree: fann ikkje {hierarchy_file}, fell tilbake til flat importliste", file=sys.stderr)
         return '\n'.join(imports)
 
     with open(hierarchy_file, 'r', encoding='utf-8') as f:
@@ -368,7 +368,7 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
     hierarchies = parse_hierarchy_blocks(md_content)
 
     if not hierarchies:
-        # Fallback to flat list
+        print(f"WARN parse-dependency-tree: fann ingen hierarki-blokker i {hierarchy_file}, fell tilbake til flat importliste", file=sys.stderr)
         return '\n'.join(imports)
 
     # Normalize imports to match hierarchy names
@@ -379,7 +379,7 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
     relevant_trees = find_relevant_imports(imports, hierarchies)
 
     if not relevant_trees:
-        # Fallback to flat list
+        print(f"WARN parse-dependency-tree: ingen relevante hierarki funne for {schema_name} sine importar, fell tilbake til flat importliste", file=sys.stderr)
         return '\n'.join(imports)
 
     # Merge all relevant trees
@@ -396,7 +396,7 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
     filtered_tree = filter_tree_to_targets(merged_tree, target_schemas)
 
     if not filtered_tree:
-        # Fallback to flat list
+        print(f"WARN parse-dependency-tree: ingen filtrert tre fann veg til {schema_name} sine importar, fell tilbake til flat importliste", file=sys.stderr)
         return '\n'.join(imports)
 
     # Find root (schema with no parent in filtered tree)
@@ -452,7 +452,7 @@ def main():
         hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'arkitektur' / 'importhierarki.md'
 
         if not hierarchy_file.exists():
-            # Fallback: return normalized imports
+            print(f"WARN parse-dependency-tree: fann ikkje {hierarchy_file}, fell tilbake til flat importliste", file=sys.stderr)
             normalized = [normalize_schema_name(imp) for imp in imports if not imp.startswith('linkml:')]
             print('\n'.join(sorted(normalized)))
             return
@@ -464,7 +464,7 @@ def main():
         hierarchies = parse_hierarchy_blocks(md_content)
 
         if not hierarchies:
-            # Fallback
+            print(f"WARN parse-dependency-tree: fann ingen hierarki-blokker i {hierarchy_file}, fell tilbake til flat importliste", file=sys.stderr)
             normalized = [normalize_schema_name(imp) for imp in imports]
             print('\n'.join(sorted(normalized)))
             return
@@ -473,7 +473,7 @@ def main():
         relevant_trees = find_relevant_imports(imports, hierarchies)
 
         if not relevant_trees:
-            # Fallback
+            print(f"WARN parse-dependency-tree: ingen relevante hierarki funne for {schema_name} sine importar, fell tilbake til flat importliste", file=sys.stderr)
             normalized = [normalize_schema_name(imp) for imp in imports]
             print('\n'.join(sorted(normalized)))
             return

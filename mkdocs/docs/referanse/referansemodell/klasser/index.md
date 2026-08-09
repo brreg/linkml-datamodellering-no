@@ -22,7 +22,8 @@
 ### Classes (1)
 
 > Classes viser klassar som er definerte lokalt i referansemodell-schema modellen. 
-> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
+> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.  
+> Klassar grupperes i Obligatorisk, Anbefalt, Valgfri og Andre (uklassifisert).
 
 #### Obligatorisk (1)
 

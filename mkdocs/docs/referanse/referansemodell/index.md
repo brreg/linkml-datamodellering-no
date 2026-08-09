@@ -81,7 +81,7 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 
 ---
 
-## Avhengigheiter (2) {#avhengigheiter}
+## Avhengigheiter (4) {#avhengigheiter}
 
 > Denne modellen importerer og gjenbruker komponentar frå andre skjema. 
 > Importerte klassar og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen.
@@ -89,8 +89,10 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 
 ```
-linkml:types
-ap-no/dcat-ap-no/dcat-ap-no-schema
+linkml:types  # direkte import
+└── common-ap-no-schema  # transitiv import
+    └── dqv-core-schema  # transitiv import
+        └── dcat-ap-no-schema  # direkte import
 ```
 
 *Sjå [Importhierarki](../../arkitektur/importhierarki.md) for oversikt over heile repoet sitt importhierarki.*
@@ -121,7 +123,8 @@ Kjelde-datamodell i LinkML-format: [`referansemodell-schema.yaml`](https://githu
 ### Classes (1) {#classes}
 
 > Classes viser klassar som er definerte lokalt i referansemodell-schema modellen. 
-> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.
+> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.  
+> Klassar grupperes i Obligatorisk, Anbefalt, Valgfri og Andre (uklassifisert).
 
 #### Obligatorisk (1)
 
