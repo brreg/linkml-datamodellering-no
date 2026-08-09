@@ -19,18 +19,14 @@
 # LinkML-validering
 # ---------------------------------------------------------------------------
 
-validate: ## Valider alle skjema (merge-imports)
+validate: ## Valider alle skjema (merge-imports) [SCHEMAS=<sti ...>]
 	$(call print_header,validate)
-	@eval "$$LOG_FUNCTIONS"; \
-	$(foreach s,$(SCHEMAS),log_info "$(CLR_STEP)→ merge-imports  $(s)$(CLR_RST)" && log_debug "Kommando: $(LINKML_RUN) gen-linkml $(s)" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+	$(call run_gen_linkml_parallel,$(SCHEMAS))
 
 lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
-	@if [ -n "$(SCHEMA)" ]; then \
-		$(LINKML_RUN) linkml lint --config src/assets/containers/.linkmllint.yaml "$(SCHEMA)"; \
-	else \
-		$(foreach s,$(SCHEMAS),$(LINKML_RUN) linkml lint --config src/assets/containers/.linkmllint.yaml "$(s)" &&) true; \
-	fi
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-lint.py \
+		--config src/assets/containers/.linkmllint.yaml -- $(if $(SCHEMA),$(SCHEMA),$(SCHEMAS))
 
 validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>)
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
