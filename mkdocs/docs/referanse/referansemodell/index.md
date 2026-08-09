@@ -4,6 +4,8 @@
 [![Status](https://img.shields.io/badge/status-Under_utvikling-orange)]()
 [![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
 [![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
+[![Utgiver](https://img.shields.io/badge/utgiver-Brønnøysundregistra-blue)]()
+[![Endringsdato](https://img.shields.io/badge/endringsdato-2026--07--30-blue)]()
 
 
 ## Om denne modellen
@@ -72,7 +74,7 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 | Schema URI | [https://data.norge.no/linkml/referansemodell](https://data.norge.no/linkml/referansemodell) |
 | Versjon | 1.3.0 |
 | Lisens | [https://data.norge.no/nlod/no/2.0](https://data.norge.no/nlod/no/2.0) |
-| Utgjevar | [https://data.norge.no/organizations/974760673](https://data.norge.no/organizations/974760673) |
+| Utgiver | [https://data.norge.no/organizations/974760673](https://data.norge.no/organizations/974760673) |
 | Status | [http://purl.org/adms/status/UnderDevelopment](http://purl.org/adms/status/UnderDevelopment) |
 | Endringsdato | 2026-07-30 |
 | Utgivelsesdato | 2026-07-09 |

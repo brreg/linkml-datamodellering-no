@@ -12,7 +12,7 @@
 | Schema URI | [https://data.norge.no/linkml/referansemodell](https://data.norge.no/linkml/referansemodell) |
 | Versjon | 1.3.0 |
 | Lisens | [https://data.norge.no/nlod/no/2.0](https://data.norge.no/nlod/no/2.0) |
-| Utgjevar | [https://data.norge.no/organizations/974760673](https://data.norge.no/organizations/974760673) |
+| Utgiver | [https://data.norge.no/organizations/974760673](https://data.norge.no/organizations/974760673) |
 | Status | [http://purl.org/adms/status/UnderDevelopment](http://purl.org/adms/status/UnderDevelopment) |
 | Endringsdato | 2026-07-30 |
 | Utgivelsesdato | 2026-07-09 |

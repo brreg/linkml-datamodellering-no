@@ -144,7 +144,7 @@ For kvart skjema i `generated/<domain>/<schema>/`:
 4. Kopier gen-doc Markdown-filer frå `generated/<domain>/<schema>/docs/` til `mkdocs/docs/<domain>/<schema>/klasser/`
 5. Generer `mkdocs/docs/<domain>/<schema>/index.md` med følgjande seksjons-rekkjefølgje:
    - Hovudoverskrift (`# <schema>`)
-   - **Metadata-tabell** (`## Metadata` frå gen-doc — name, title, description, versjon, lisens, utgjevar, status osv.)
+   - **Metadata-tabell** (`## Metadata` frå gen-doc — name, title, description, versjon, lisens, utgiver, status osv.)
    - Publiseringsinfo (boks dersom `published-uris.lock` finst)
    - **ER-diagram** (`## ER-diagram` med PlantUML SVG — zoombart, lenke til full versjon)
    - Klasseliste (`## Classes`, `## Slots`, `## Enumerations`, `## Types` frå gen-doc)
@@ -164,7 +164,7 @@ Alle skjema-jobbar køyrer parallelt for å redusere byggtid.
 
 **Viktige detaljar:**
 
-- **Metadata-tabell** vert generert av Jinja-templaten `src/assets/templates/docgen/index.md.jinja2` og inneheld name, title, description, versjon, lisens, utgjevar, status m.m.
+- **Metadata-tabell** vert generert av Jinja-templaten `src/assets/templates/docgen/index.md.jinja2` og inneheld name, title, description, versjon, lisens, utgiver, status m.m.
 - **ER-diagram** brukar PlantUML SVG (ikkje Mermaid) — zoombart i nettleser, med lenke til full versjon som viser importerte klasser
 - **Types-lista** viser alle typar som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte typar frå `linkml:types` m.fl., med "Defined in"-kolonne som viser "Local" eller "Imported"
 - **Enumerations-lista** viser alle enums som faktisk vert brukt i modellen (frå `slots[*].range`), inkludert importerte enums, med "Defined in"-kolonne

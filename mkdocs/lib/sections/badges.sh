@@ -18,7 +18,7 @@ generate_badges() {
     local status=$(grep "^| Status" "$gendoc_index" | sed 's|.*status/\([^)]*\).*|\1|' | head -1)
     local license=$(grep "^| Lisens" "$gendoc_index" | sed 's|.*/nlod/no/\([0-9.]*\).*|\1|' | head -1)
     local endringsdato=$(grep "^| Endringsdato" "$gendoc_index" | sed 's/^| Endringsdato | \(.*\) |$/\1/' | head -1)
-    local utgiver_uri=$(grep "^| Utgjevar" "$gendoc_index" | sed -n 's/^| Utgjevar | \[\(https:[^]]*\)\].*/\1/p' | head -1)
+    local utgiver_uri=$(grep "^| Utgiver" "$gendoc_index" | sed -n 's/^| Utgiver | \[\(https:[^]]*\)\].*/\1/p' | head -1)
 
     # Slå opp organisasjonsnamn i CODEOWNERS.md ved å matche org_uri mot utgiver-URI-en
     local utgiver_navn=""
