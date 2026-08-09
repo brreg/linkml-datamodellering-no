@@ -55,6 +55,23 @@ For Python-script gjeld tilsvarande: bruk `error_handler.log_error()`
 alltid noko til `stderr` ved bevisste fallback-verdiar. Ein bar `except:`
 eller `except Exception:` utan noka logging er ikkje tillate.
 
+## Batching
+
+Fleire kommandoar samlar N skjema inn i **éin** kontainarprosess i staden
+for éin `podman run` per skjema — skildra per kommando i "Batching"-kolonna
+i tabellane under §§ Validering, Generering av artefakter og Vedlikehald.
+Dette er noko anna enn **parallellisering** (`PARALLEL=N`, sjå § "Generering
+av artefakter"): parallellisering styrer kor mange skjema som køyrer
+**samstundes** (fleire prosessar), medan batching styrer kor mange
+**kontainarar** som startast i det heile, ved å behandle N skjema i éin
+delt prosess. Gevinsten er størst for `linkml`-baserte kommandoar, der
+import av `linkml`/`linkml_runtime` (~5-8 s) elles vert betalt på nytt for
+kvart einaste skjema uavhengig av kor lite arbeid sjølve kallet gjer. Sjå
+`specs/done/effektiviser-generate-workflow-koyretid.md`,
+`specs/done/effektiviser-mcp-linkml-validator-koyretid.md` og
+`specs/done/batch-validate-lint-test-per-skjema.md` for målingar, metode
+og full grunngjeving.
+
 ## Wrapper-target
 
 Nokre target gjer ikkje arbeidet sjølv, men **delegerer** til eit anna
@@ -130,25 +147,25 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
 ## Validering
 
-| Kommando | Beskriving | Output |
-|---|---|---|
-| `make lint` | Linter alle skjema i repoet. | OK/FEIL per skjema til stdout; avsluttar med kode 1 ved feil |
-| `make lint SCHEMA=<sti>` | Linter eit enkelt skjema raskt utan å køyre generatorar. Nyttig for hurtigsjekk under utvikling. | OK/FEIL til stdout; avsluttar med kode 1 ved feil |
-| `make validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Validerer ei datafil mot eit skjema utan lint og generatorar. Raskaste enkeltsjekk av datainnhald. | OK/FEIL til stdout; avsluttar med kode 1 ved feil |
-| `make roundtrip SCHEMA=<sti>` | Køyrer berre roundtrip-testane (JSON og TTL) for eitt skjema. Raskare enn full testsuite — nyttig etter skjema-endringar som kan påverke serialisering. | Testrapport for `roundtrip-json` og `roundtrip-ttl` til stdout; avsluttar med kode 1 ved feil |
-| `make roundtrip` | Køyrer roundtrip-testar for alle skjema i repoet. | Testrapport til stdout; avsluttar med kode 1 ved feil |
-| `make roundtrip-json-schema SCHEMA=<sti>` | Køyrer roundtrip-test spesifikt for JSON Schema-generering. Verifiserer at YAML → JSON Schema → YAML gjev same resultat. | Testrapport til stdout; avsluttar med kode 1 ved feil |
-| `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
-| `make test` | Linter alle skjema og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
-| `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
-| `make mcp-linkml-valider-modell SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå build.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
-| `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
-| `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
-| `make validate-bronze DOMAIN=<domain>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). Brukt i CI per domene. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
-| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
-| `make validate-examples DOMAIN=<domain>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
-| `make log-mcp-validate SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout |
-| `make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Instansvalidering med full JSON-logg. Nyttig for debugging av valideringsfeil. | JSON-logg til stdout |
+| Kommando | Beskriving | Output | Batching |
+|---|---|---|---|
+| `make lint` | Linter alle skjema i repoet. | OK/FEIL per skjema til stdout; avsluttar med kode 1 ved feil | Batcha — `batch-lint.py`, éin delt `Linter`/`TerminalFormatter`-sesjon for alle skjema |
+| `make lint SCHEMA=<sti>` | Linter eit enkelt skjema raskt utan å køyre generatorar. Nyttig for hurtigsjekk under utvikling. | OK/FEIL til stdout; avsluttar med kode 1 ved feil | Batcha (same mekanisme, N=1) |
+| `make validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Validerer ei datafil mot eit skjema utan lint og generatorar. Raskaste enkeltsjekk av datainnhald. | OK/FEIL til stdout; avsluttar med kode 1 ved feil | Ikkje batcha — eitt skjema/éin instans om gongen |
+| `make roundtrip SCHEMA=<sti>` | Køyrer berre roundtrip-testane (JSON og TTL) for eitt skjema. Raskare enn full testsuite — nyttig etter skjema-endringar som kan påverke serialisering. | Testrapport for `roundtrip-json` og `roundtrip-ttl` til stdout; avsluttar med kode 1 ved feil | Batcha — `tests/test_make.sh` sitt Fase A/B-mønster (`batch-convert.py`), Kategori D |
+| `make roundtrip` | Køyrer roundtrip-testar for alle skjema i repoet. | Testrapport til stdout; avsluttar med kode 1 ved feil | Batcha (same, for heile skjemalista) |
+| `make roundtrip-json-schema SCHEMA=<sti>` | Køyrer roundtrip-test spesifikt for JSON Schema-generering. Verifiserer at YAML → JSON Schema → YAML gjev same resultat. | Testrapport til stdout; avsluttar med kode 1 ved feil | Ikkje batcha — eiga testveg (MCP-modell-utkast-rundtur), utanfor Kategori A-D |
+| `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil | Batcha — Fase A/B-mønster (alle 17 teststeg, Kategori A-D), sjølv med eitt skjema |
+| `make test` | Linter alle skjema og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil | Batcha (same, for heile skjemalista testen dekkjer) |
+| `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout | Batcha — `batch-generate.py --generator merge`, éin kontainar mergar imports for alle skjema |
+| `make mcp-linkml-valider-modell SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå build.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout | Ikkje batcha — tek berre eitt skjema; underliggande `batch-flatten-and-validate.py` støttar batching (brukt av `validate-bronze`/`validate-data`), men eksponerast ikkje her |
+| `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat | Ikkje batcha — parallellisert (`--parallel`, ThreadPool), men éin kontainar per skjema |
+| `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat | Ikkje batcha |
+| `make validate-bronze DOMAIN=<domain>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). Brukt i CI per domene. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil | Batcha — `batch-flatten-and-validate.py --policy bronze`, éin kontainar for alle skjema i domenet |
+| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout | Batcha — same script med `--jobs-tsv`, heterogene (skjema, policy, datafil)-triplar i éin kontainar |
+| `make validate-examples DOMAIN=<domain>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil | Ikkje batcha — parallellisert via bakgrunnsjobbar, men éin `linkml validate`-kontainar per skjema |
+| `make log-mcp-validate SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout | Ikkje batcha |
+| `make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Instansvalidering med full JSON-logg. Nyttig for debugging av valideringsfeil. | JSON-logg til stdout | Ikkje batcha |
 
 
 ## Generering av artefakter
@@ -159,7 +176,7 @@ Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
 
 1. **Validering**: `merge-imports` mergar imports og validerer skjemaet (output vert kasta)
 2. **Artefaktgenerering** (parallelt): JSON-LD context, SHACL, Python, JSON Schema, OWL, RDF, PlantUML, docs
-3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
+3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle via `gen-linkml-convert` (dersom `example_rdf: true`)
 4. **Modellmanifest** (parallelt): Genererer Informasjonsmodell-instans ihht ModelDCAT-AP-NO til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`
 
 **Parallellisering**: Alle `domain-*` targets støttar `PARALLEL` parameter (default: 8 jobbar).
@@ -169,6 +186,17 @@ Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
 - `make domain-ap-no PARALLEL=1` — køyrer sekvensielt (debugging)
 
 Parallell køyring viser timer per jobb: `→ gen-jsonld-context ap-no/dcat-ap-no (5.1s)`
+
+**Batching:** `domain-*` er sjølv **ikkje** ei batch-operasjon — han er ein
+fase-parallell *orkestrator* (`run-domain-pipeline.sh`) som kallar kvart av
+steg 1-4 over som eit eige, rekursivt `$(MAKE) <target> DOMAIN=<domain>`-kall.
+Batchinga skjer eitt nivå ned, i **kvart einskild** steg (alle fire er
+batcha på tvers av skjema i domenet — sjå "Batching"-kolonna i tabellen
+under § "Enkeltartefakter" for mekanismen per generator, inkludert
+`gen-linkml-convert` som er steg 3 sin batcha eksempelkonverterings-
+mekanisme). `domain-*` batchar altså ikkje på tvers av **domene** —
+`make domain-ap-no` og `make domain-oreg` er framleis to separate
+kommandokøyringar.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
@@ -189,39 +217,40 @@ Alle `gen-*` targets støttar tre bruksmåtar:
 - **`make gen-<format> DOMAIN=<domain>`** — generer for alle skjema i **eitt domene**
 - **`make gen-<format> SCHEMA=<sti>`** — generer for **eitt** spesifikt skjema
 
-| Kommando | Beskriving | Output |
-|---|---|---|
-| <a id="gen-jsonld-context"></a>`make gen-jsonld-context [DOMAIN=...] [SCHEMA=...]` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` |
-| <a id="gen-shacl"></a>`make gen-shacl [DOMAIN=...] [SCHEMA=...]` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` |
-| <a id="gen-python"></a>`make gen-python [DOMAIN=...] [SCHEMA=...]` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` |
-| <a id="gen-jsonschema"></a>`make gen-jsonschema [DOMAIN=...] [SCHEMA=...]` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` |
-| <a id="gen-owl"></a>`make gen-owl [DOMAIN=...] [SCHEMA=...]` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` |
-| <a id="gen-rdf"></a>`make gen-rdf [DOMAIN=...] [SCHEMA=...]` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` |
-| <a id="gen-erdiagram"></a>`make gen-erdiagram [DOMAIN=...] [SCHEMA=...]` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` |
-| <a id="gen-docs"></a>`make gen-docs [DOMAIN=...] [SCHEMA=...]` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` |
-| <a id="gen-proto"></a>`make gen-proto [DOMAIN=...] [SCHEMA=...]` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` |
-| <a id="gen-plantuml"></a>`make gen-plantuml [DOMAIN=...] [SCHEMA=...]` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` |
-| <a id="gen-xsd"></a>`make gen-xsd [DOMAIN=...] [SCHEMA=...]` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-schema.xsd` |
-| <a id="gen-asyncapi"></a>`make gen-asyncapi [DOMAIN=...] [SCHEMA=...]` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` |
-| <a id="gen-openapi"></a>`make gen-openapi [DOMAIN=...] [SCHEMA=...]` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-openapi.yaml` |
-| <a id="gen-config"></a>`make gen-config [DOMAIN=...] [SCHEMA=...]` | Generatorkonfigurasjon frå build.yaml | `generated/<domain>/<modell>/config.yaml` |
-| <a id="gen-dqv-measurements"></a>`make gen-dqv-measurements [DOMAIN=...] [SCHEMA=...]` | DQV-kvalitetsmålingar for datakatalogdata | `generated/<domain>/<modell>/dqv-measurements.ttl` |
-| <a id="gen-modelldcat-elements"></a>`make gen-modelldcat-elements [DOMAIN=...] [SCHEMA=...]` | ModelDCAT-element for modellkatalogdata | `generated/<domain>/<modell>/modelldcat-elements.ttl` |
-| <a id="convert-rdf"></a>`make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle | `generated/<domain>/<modell>/<modell>-eksempel.ttl` |
-| <a id="convert-data"></a>`make convert-data` | Konverter produksjonsdatafiler i `data/`-underkatalogar til RDF/Turtle (berre `publish_external: true`) | `generated/<domain>/<katalog>/<katalog>.ttl` |
-| <a id="clean"></a>`make clean` | Slett `generated/` | — |
+| Kommando | Beskriving | Output | Batching |
+|---|---|---|---|
+| <a id="gen-jsonld-context"></a>`make gen-jsonld-context [DOMAIN=...] [SCHEMA=...]` | JSON-LD kontekst | `generated/<domain>/<modell>/<modell>-context.jsonld` | Batcha — `batch-generate.py --generator jsonld-context`, éin kontainar |
+| <a id="gen-shacl"></a>`make gen-shacl [DOMAIN=...] [SCHEMA=...]` | SHACL shapes | `generated/<domain>/<modell>/<modell>-shapes.ttl` | Batcha — `batch-generate.py --generator shacl` |
+| <a id="gen-python"></a>`make gen-python [DOMAIN=...] [SCHEMA=...]` | Python-dataklassar | `generated/<domain>/<modell>/<modell>-model.py` | Batcha — `batch-generate.py --generator python` |
+| <a id="gen-jsonschema"></a>`make gen-jsonschema [DOMAIN=...] [SCHEMA=...]` | JSON Schema | `generated/<domain>/<modell>/<modell>-schema.json` | Batcha — `batch-generate.py --generator json-schema` |
+| <a id="gen-owl"></a>`make gen-owl [DOMAIN=...] [SCHEMA=...]` | OWL/Turtle-ontologi | `generated/<domain>/<modell>/<modell>-ontology.ttl` | Batcha — `batch-generate.py --generator owl` |
+| <a id="gen-rdf"></a>`make gen-rdf [DOMAIN=...] [SCHEMA=...]` | RDF/Turtle-graf av skjemaet | `generated/<domain>/<modell>/<modell>-schema.ttl` | Batcha — `batch-generate.py --generator rdf` |
+| <a id="gen-erdiagram"></a>`make gen-erdiagram [DOMAIN=...] [SCHEMA=...]` | Mermaid ER-diagram | `generated/<domain>/<modell>/<modell>-erdiagram.md` | Delvis batcha — Fase A (linkml-generering) og Fase B (Python-filter) batcha, Fase A.5 (awk-filtrering) køyrer per skjema direkte på host, ikkje kontainerisert |
+| <a id="gen-docs"></a>`make gen-docs [DOMAIN=...] [SCHEMA=...]` | HTML-klassereferanse og Mermaid ER-diagram | `generated/<domain>/<modell>/docs/` | Batcha — to fasar (`batch-generate-instances.py --generator docgen-examples` + `batch-generate.py --generator doc`) |
+| <a id="gen-proto"></a>`make gen-proto [DOMAIN=...] [SCHEMA=...]` | Protocol Buffers-skjema | `generated/<domain>/<modell>/<modell>-schema.proto` | Batcha — `batch-generate.py --generator proto` |
+| <a id="gen-plantuml"></a>`make gen-plantuml [DOMAIN=...] [SCHEMA=...]` | PlantUML-diagram og SVG | `generated/<domain>/<modell>/diagrams/<modell>.svg` | Batcha — tre fasar (rå .puml-generering, Python-filter, SVG-rendering for **alle** skjema samla i éin PlantUML-kontainar) |
+| <a id="gen-xsd"></a>`make gen-xsd [DOMAIN=...] [SCHEMA=...]` | XSD-skjema via Avrotize (berre skjema med `xsd: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-schema.xsd` | Ikkje batcha — berre 1 skjema i repoet har `xsd: true`, inga gevinst å hente |
+| <a id="gen-asyncapi"></a>`make gen-asyncapi [DOMAIN=...] [SCHEMA=...]` | AsyncAPI 3.0-spec (berre skjema med `asyncapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-asyncapi.yaml` | Delvis batcha — generering batcha, `asyncapi validate` (Node.js-image) ikkje; berre 1 skjema har `asyncapi: true`, inga gevinst i valideringssteget |
+| <a id="gen-openapi"></a>`make gen-openapi [DOMAIN=...] [SCHEMA=...]` | OpenAPI 3.1-spec (berre skjema med `openapi: true` i build.yaml) | `generated/<domain>/<modell>/<modell>-openapi.yaml` | Batcha — generering og validering saman i éin kontainar |
+| <a id="gen-config"></a>`make gen-config [DOMAIN=...] [SCHEMA=...]` | Generatorkonfigurasjon frå build.yaml | `generated/<domain>/<modell>/config.yaml` | Ikkje aktuelt — eitt samla script over alle `build.yaml`, ikkje eit per-skjema-kontainarkall |
+| <a id="gen-dqv-measurements"></a>`make gen-dqv-measurements [DOMAIN=...] [SCHEMA=...]` | DQV-kvalitetsmålingar for datakatalogdata | `generated/<domain>/<modell>/dqv-measurements.ttl` | Ikkje aktuelt — same grunn |
+| <a id="gen-modelldcat-elements"></a>`make gen-modelldcat-elements [DOMAIN=...] [SCHEMA=...]` | ModelDCAT-element for modellkatalogdata | `generated/<domain>/<modell>/modelldcat-elements.ttl` | Ikkje aktuelt — same grunn |
+| <a id="gen-linkml-convert"></a>`make gen-linkml-convert DOMAIN=<domain>` | Konverter eksempel-YAML til RDF/Turtle for eitt domene — dette er steg 3 ("Eksempelkonvertering") i `domain-*`-pipelinen, sjeldan kalla frittståande. **Ikkje** same implementasjon som `convert-rdf` under, sjølv om resultatet er likt. | `generated/<domain>/<modell>/<modell>-eksempel.ttl` | Batcha — `batch-generate-instances.py --generator convert --jobs-tsv <fil>`, éin kontainar for alle skjema i domenet |
+| <a id="convert-rdf"></a>`make convert-rdf` | Konverter alle eksempel-YAML til RDF/Turtle, repo-vidt (ikkje domenegata). Frittståande, brukarvendt kommando — **ikkje** same implementasjon som `gen-linkml-convert` over. | `generated/<domain>/<modell>/<modell>-eksempel.ttl` | Ikkje batcha — éin `linkml-convert`-kontainar per fil, sekvensielt (`tests/test_make.sh` sin interne `batch-convert.py` batchar tilsvarande operasjon i testsuiten, men er ikkje kopla til dette målet) |
+| <a id="convert-data"></a>`make convert-data` | Konverter produksjonsdatafiler i `data/`-underkatalogar til RDF/Turtle (berre `publish_external: true`) | `generated/<domain>/<katalog>/<katalog>.ttl` | Ikkje batcha — same som `convert-rdf` |
+| <a id="clean"></a>`make clean` | Slett `generated/` | — | Ikkje aktuelt |
 
 Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ingen Makefile-endringar nødvendig.
 
 ### Vedlikehald
 
-| Kommando | Beskriving | Output |
-|---|---|---|
-| <a id="gen-informasjonsmodell-instance"></a>`make gen-informasjonsmodell-instance SCHEMA=<sti>` | Genererer ModelDCAT-metadata-fil (`metadata/modelldcat.yaml`) for eit enkelt skjema. Samlar data frå 6 kjelder: schema.yaml (toppnivå + annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter, er_profil_av. Genererer inline Kontaktopplysning og Standard-instansar. | `src/linkml/<domain>/<modell>/metadata/modelldcat.yaml` |
-| <a id="validate-informasjonsmodell-instance"></a>`make validate-informasjonsmodell-instance SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): gjenbruker same underliggande valideringslogikk, men via eige script som auto-detekterer `metadata/modelldcat.yaml` og schema-sti. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
-| <a id="gen-begrepskatalog-instance"></a>`make gen-begrepskatalog-instance` | Samlar alle begrep frå begrepssamlingar og genererer begrepskatalog per organisasjon. Finn alle begrepssamlingar med `aggregation.organization`-metadata, samle begrep-YAML-filer frå `begrep/*.yaml`, og generer aggregert begrepskatalog under `begrepskatalog/<org>-begrepskatalog/data/`. Køyrast automatisk av CI før generatorfasen. | `src/linkml/begrepskatalog/<org>-begrepskatalog/data/<org>-begrepskatalog/<org>-begrepskatalog.yaml` |
-| <a id="gen-modellkatalog-instance"></a>`make gen-modellkatalog-instance` | Genererer per-org modellkatalogar frå alle `metadata/modelldcat.yaml`-filer. Grupper Informasjonsmodell-instansar etter utgiver (frå CODEOWNERS.md) og genererer éi katalogfil per organisasjon for publisering til Felles datakatalog. Konverterer standard URI-ar (`https://data.norge.no/...`) til org-spesifikke URI-ar (`https://<org-domene>/modellkatalogar/<catalog_slug>/...`). **Erstatter:** `make update-modellkatalog` (deprecated). | `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` |
-| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<org-slug>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir-modellkatalog`. Validerer `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` mot `src/linkml/modellkatalog/<org>/<org>-schema.yaml`. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): køyrer same underliggande `linkml validate`-kommando direkte, med schema- og instans-stiar auto-konstruerte frå `ORG=`. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
+| Kommando | Beskriving | Output | Batching |
+|---|---|---|---|
+| <a id="gen-informasjonsmodell-instance"></a>`make gen-informasjonsmodell-instance SCHEMA=<sti>` | Genererer ModelDCAT-metadata-fil (`metadata/modelldcat.yaml`) for eit enkelt skjema. Samlar data frå 6 kjelder: schema.yaml (toppnivå + annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter, er_profil_av. Genererer inline Kontaktopplysning og Standard-instansar. | `src/linkml/<domain>/<modell>/metadata/modelldcat.yaml` | Batcha — `batch-generate-instances.py --generator informasjonsmodell`, reint Python, éin kontainar (gevinsten realiserast fullt ut når kalla for fleire skjema, t.d. via `domain-*`/`DOMAIN=`) |
+| <a id="validate-informasjonsmodell-instance"></a>`make validate-informasjonsmodell-instance SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): gjenbruker same underliggande valideringslogikk, men via eige script som auto-detekterer `metadata/modelldcat.yaml` og schema-sti. | Pass/fail til stdout; avsluttar med kode 1 ved feil | Ikkje batcha — eitt skjema om gongen |
+| <a id="gen-begrepskatalog-instance"></a>`make gen-begrepskatalog-instance` | Samlar alle begrep frå begrepssamlingar og genererer begrepskatalog per organisasjon. Finn alle begrepssamlingar med `aggregation.organization`-metadata, samle begrep-YAML-filer frå `begrep/*.yaml`, og generer aggregert begrepskatalog under `begrepskatalog/<org>-begrepskatalog/data/`. Køyrast automatisk av CI før generatorfasen. | `src/linkml/begrepskatalog/<org>-begrepskatalog/data/<org>-begrepskatalog/<org>-begrepskatalog.yaml` | Ikkje aktuelt — eitt samla script over alle begrepssamlingar, ikkje eit per-skjema-kontainarmønster |
+| <a id="gen-modellkatalog-instance"></a>`make gen-modellkatalog-instance` | Genererer per-org modellkatalogar frå alle `metadata/modelldcat.yaml`-filer. Grupper Informasjonsmodell-instansar etter utgiver (frå CODEOWNERS.md) og genererer éi katalogfil per organisasjon for publisering til Felles datakatalog. Konverterer standard URI-ar (`https://data.norge.no/...`) til org-spesifikke URI-ar (`https://<org-domene>/modellkatalogar/<catalog_slug>/...`). **Erstatter:** `make update-modellkatalog` (deprecated). | `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` | Ikkje aktuelt — same grunn |
+| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<org-slug>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir-modellkatalog`. Validerer `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` mot `src/linkml/modellkatalog/<org>/<org>-schema.yaml`. **Convenience-target** (ikkje eit `$(MAKE)`-kall til `validate-instance` — sjå [§ Wrapper-target](#wrapper-target)): køyrer same underliggande `linkml validate`-kommando direkte, med schema- og instans-stiar auto-konstruerte frå `ORG=`. | Pass/fail til stdout; avsluttar med kode 1 ved feil | Ikkje batcha |
 
 ## Dokumentasjonsportal
 
