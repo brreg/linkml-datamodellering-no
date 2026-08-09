@@ -113,7 +113,7 @@ PYEOF
     echo ""
     echo "> Her finn du døme på korleis du importerer, validerer og brukar modellen i eigne prosjekt."
     echo ""
-    echo "### Importer i eget LinkML-skjema"
+    echo "### Importer i egne LinkML-skjema"
     echo ""
     echo "\`\`\`yaml"
     echo "imports:"

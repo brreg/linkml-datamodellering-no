@@ -30,7 +30,7 @@ informasjonsmodeller:
   tittel:
   - Common AP-NO
   beskrivelse:
-  - Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofiler
+  - Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofilar
     (AP-NO). Importerast av dei einskilde profilane.
   utgiver: https://data.norge.no/organizations/991825827
   identifikator_literal: https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/common-ap-no
