@@ -110,20 +110,20 @@ flowchart TB
     DOMENE -.->|"importerer via tag-URL"| RAWGH
     APNO -.->|"importerer via tag-URL"| RAWGH
 
-    classDef default fill:#000000,color:#ffffff,stroke:#ffffff;
-    classDef ekstern fill:#3a0a0a,color:#ffffff,stroke:#e74c3c;
-    classDef ci fill:#0a1f3a,color:#ffffff,stroke:#5b9bd5;
-    classDef mcp fill:#0a3a1f,color:#ffffff,stroke:#2ecc71;
+    classDef default fill:#f5f5f5,color:#000000,stroke:#888888;
+    classDef ekstern fill:#fdeaea,color:#000000,stroke:#e74c3c;
+    classDef ci fill:#e3f2fd,color:#000000,stroke:#2196f3;
+    classDef mcp fill:#e1f5e1,color:#000000,stroke:#4caf50;
     classDef usynlig fill:none,stroke:none,color:transparent;
     class GHPAGES,GHRELEASES,GHCR,RAWGH ekstern
     class WFVALIDATE,WFGENERATE,WFRELEASE,WFRELEASEPLEASE ci
     class MCPMOD,MCPBEGREP,MCPVAL,AI mcp
     class PADKILDE,PADMCP,PADCI,PADPUB usynlig
 
-    style KILDE fill:#000000,color:#ffffff,stroke:#ffffff
-    style MCP fill:#000000,color:#ffffff,stroke:#ffffff
-    style CI fill:#000000,color:#ffffff,stroke:#ffffff
-    style PUBLISERT fill:#000000,color:#ffffff,stroke:#ffffff
+    style KILDE fill:#fafafa,color:#000000,stroke:#cccccc
+    style MCP fill:#fafafa,color:#000000,stroke:#cccccc
+    style CI fill:#fafafa,color:#000000,stroke:#cccccc
+    style PUBLISERT fill:#fafafa,color:#000000,stroke:#cccccc
 ```
 
 ## Del 2 — Korleis nasjonale katalogar, KUDAF og verksemder hentar frå dette repoet
@@ -183,19 +183,19 @@ flowchart BT
     DATAPLATTFORM -.->|"importerer LinkML-skjema<br/>(tag-versjonert)"| RAWGH2
     APIGATEWAY -.->|"hentar skjema for<br/>API-kontrakt"| GHPAGES2
 
-    classDef default fill:#000000,color:#ffffff,stroke:#ffffff;
-    classDef ekstern fill:#3a0a0a,color:#ffffff,stroke:#e74c3c;
-    classDef ci fill:#0a1f3a,color:#ffffff,stroke:#5b9bd5;
-    classDef konsument fill:#2a0a3a,color:#ffffff,stroke:#9b59b6;
+    classDef default fill:#f5f5f5,color:#000000,stroke:#888888;
+    classDef ekstern fill:#fdeaea,color:#000000,stroke:#e74c3c;
+    classDef ci fill:#e3f2fd,color:#000000,stroke:#2196f3;
+    classDef konsument fill:#f0e6fa,color:#000000,stroke:#9b59b6;
     classDef usynlig fill:none,stroke:none,color:transparent;
     class GHPAGES2,RAWGH2 ekstern
     class REPOCI ci
     class PRIVATKAT,DATAPLATTFORM,APIGATEWAY konsument
     class PADKAT,PADKON,PADEKS,ANCHOR2 usynlig
 
-    style KATALOGAR fill:#000000,color:#ffffff,stroke:#ffffff
-    style EKSTERNREPO fill:#000000,color:#ffffff,stroke:#ffffff
-    style KONSUMENTER fill:#000000,color:#ffffff,stroke:#ffffff
+    style KATALOGAR fill:#fafafa,color:#000000,stroke:#cccccc
+    style EKSTERNREPO fill:#fafafa,color:#000000,stroke:#cccccc
+    style KONSUMENTER fill:#fafafa,color:#000000,stroke:#cccccc
 ```
 
 ## Forklaring av dei vesentlege delane
