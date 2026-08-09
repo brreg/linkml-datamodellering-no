@@ -169,7 +169,7 @@ make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-sche
 | [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/README.md) | Bronze + `annotations.utgiver`, `annotations.endringsdato`, `annotations.status` (warning) + DCAT-AP-NO/DQV-AP-NO strukturkrav (error) |
 | [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/README.md) | Silver + FAIR F1-R1.3: full semantisk interoperabilitet |
 
-Sjå [Valideringsreglar](valideringregler.md) for fullstendig oversikt over kva som vert sjekka på kvart nivå.
+Sjå [Valideringsreglar](../arkitektur/valideringsregler.md) for fullstendig oversikt over kva som vert sjekka på kvart nivå.
 
 ## 4 — Full testsuite
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
@@ -359,7 +359,7 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 
 ### Publisering
 
-- Publisering til Felles Begrepskatalog er delvis implementert — sjå [publisering-begrep.md](publisering-begrep.md) for faktisk status
+- Publisering til Felles Begrepskatalog er delvis implementert — sjå [publisering-begrep.md](../publisering/publisering-begrep.md) for faktisk status
 - Modellkatalogar med `publish_external: true` vert ikkje automatisk registrerte i data.norge.no enno — høsting må koordinerast manuelt
 
 **Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.

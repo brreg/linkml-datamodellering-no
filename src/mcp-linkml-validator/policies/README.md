@@ -89,7 +89,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 >
 > FINT-skjema er unntekne frå snake_case-sjekken — dei arvar camelCase frå FINT API-spesifikasjonen.
 
-> **Kontrollerte vokabular:** Slots med `annotations.gyldige_verdier` skal ha `annotations.vokabular_krav` (`skal`|`bør`|`kan`) og `description` skal innehalde matchande SKAL/BØR/BØR-formulering. Sikrar konsistent og maskinlesbar dokumentasjon av vokabularkrav. Sjå [CONVENTIONS.md § Kontrollerte vokabular](../../CONVENTIONS.md#kontrollerte-vokabular--annotation-konvensjon).
+> **Kontrollerte vokabular:** Slots med `annotations.gyldige_verdier` skal ha `annotations.vokabular_krav` (`skal`|`bør`|`kan`) og `description` skal innehalde matchande SKAL/BØR/BØR-formulering. Sikrar konsistent og maskinlesbar dokumentasjon av vokabularkrav. Sjå [CONVENTIONS.md § Kontrollerte vokabular](../../../CONVENTIONS.md#kontrollerte-vokabular--annotation-konvensjon).
 
 ---
 

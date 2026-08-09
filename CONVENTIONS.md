@@ -216,7 +216,7 @@ fix(dcat-ap-no): endre range for datasett.tema frå LangString til uriorcurie
 
 # Dokumentendringar — utløyser IKKJE versjonering
 docs(mkdocs): oppdater ekstern-bruk.md med skjema-spesifikke taggar
-  - mkdocs/docs/ekstern-bruk.md: endre v1.0.0 til dcat-ap-no-v2.8.0
+  - mkdocs/docs/arkitektur/ekstern-bruk.md: endre v1.0.0 til dcat-ap-no-v2.8.0
 
 # Dokumentgenerering — utløyser IKKJE versjonering
 fix(docgen): fiks linjeskift i slot-tabellar

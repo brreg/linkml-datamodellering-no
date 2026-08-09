@@ -15,9 +15,9 @@ Repoet er ope, og alle kan bidra ved å sende PR frå ein fork. Det er to typar 
 **NB: Dette er ein Proof of Concept.** Repoet er under aktiv utvikling, og modellar, verktøy og dokumentasjon kan endre seg. Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvente i PoC-fasen.
 
 Om du representerer ein ny organisasjon som ikkje er registrert i `CODEOWNERS.md` enno,
-sjå [Bli modelleigar](mkdocs/docs/ny-org.md) først.
+sjå [Bli modelleigar](mkdocs/docs/kom-i-gang/ny-org.md) først.
 
-Sjå [Ny domenemodell](mkdocs/docs/ny-domenemodell.md) for fullstendig rettleiing om
+Sjå [Ny domenemodell](mkdocs/docs/kom-i-gang/ny-domenemodell.md) for fullstendig rettleiing om
 føresetnader, oppsett, validering og steg-for-steg-instruksjonar for å leggje til ein modell.
 
 
@@ -46,7 +46,7 @@ For fullstendig oversikt, sjå:
 Kvar org skal liste **alle** sine skjema i sin modellkatalog
 (`src/linkml/modellkatalog/<alias>-modellkatalog/`), også utkast som ikkje er ferdige
 enno (`annotations.status: http://purl.org/adms/status/UnderDevelopment`). Sjå
-[Ny organisasjon](mkdocs/docs/ny-org.md) steg 4 for korleis katalogen synkroniseres med
+[Ny organisasjon](mkdocs/docs/kom-i-gang/ny-org.md) steg 4 for korleis katalogen synkroniseres med
 `make update-modellkatalog`.
 
 ## Generer artefakter lokalt
@@ -116,7 +116,7 @@ gh release create "samt-bu-v${VERSION}" \
 
 For fleire komponentar i same release-PR, opprett ein release per komponent.
 
-Sjå [monitorering.md](mkdocs/docs/monitorering.md#release-arbeidsflyt) for flytdiagram og meir detaljar.
+Sjå [monitorering.md](mkdocs/docs/automasjon/monitorering.md#release-arbeidsflyt) for flytdiagram og meir detaljar.
 
 **Versjonering følgjer Conventional Commits automatisk:**
 - `fix:` → patch-bump (0.0.X)

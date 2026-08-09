@@ -158,7 +158,7 @@ Det er ingen formelle krav til organisasjonstype — både offentlege verksemder
 forskningsmiljø og leverandørar kan delta. Alle modellar som vert publiserte med
 `publish_external: true` må ha gyldig `dct:publisher`-URI frå `data.norge.no`.
 
-Sjå [Ny organisasjon](mkdocs/docs/ny-org.md) for steg-for-steg-rettleiing.
+Sjå [Ny organisasjon](mkdocs/docs/kom-i-gang/ny-org.md) for steg-for-steg-rettleiing.
 
 ---
 

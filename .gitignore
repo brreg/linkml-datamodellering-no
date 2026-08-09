@@ -13,7 +13,7 @@ mkdocs/docs/oreg/
 mkdocs/docs/referanse/
 mkdocs/docs/samt/
 mkdocs/docs/index.md
-mkdocs/docs/valideringsregler.md
+mkdocs/docs/arkitektur/valideringsregler.md
 mkdocs/mkdocs.yml
 tests/testlogs/
 __pycache__/

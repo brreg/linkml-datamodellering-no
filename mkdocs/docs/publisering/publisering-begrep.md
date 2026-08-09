@@ -325,7 +325,7 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 
 ## Sjå òg
 
-- [Ny begrepskatalog](ny-begrepsmodell.md) — opprette nytt skjema
+- [Ny begrepskatalog](../kom-i-gang/ny-begrepsmodell.md) — opprette nytt skjema
 - [`felles-begrepskatalog.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml) — full policy-definisjon
 - [`specs/publisering-felles-begrepskatalog.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/publisering-felles-begrepskatalog.md) — teknisk spesifikasjon
 - [SKOS-AP-NO-Begrep-spesifikasjonen](https://informasjonsforvaltning.github.io/skos-ap-no-begrep/)

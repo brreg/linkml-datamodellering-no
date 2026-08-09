@@ -313,7 +313,7 @@ Seksjonar:
 ### Steg 7 — Dokumenter bruken i dette repoet
 
 Legg til ein lenke og kort omtale av demo-repoet i dokumentasjonsportalen
-(`mkdocs/docs/ny-domenemodell.md` eller ei ny side `mkdocs/docs/ekstern-bruk.md`):
+(`mkdocs/docs/kom-i-gang/ny-domenemodell.md` eller ei ny side `mkdocs/docs/arkitektur/ekstern-bruk.md`):
 
 - Korleis bootstrap.sh fungerer
 - Korleis importer-via-HTTP fungerer

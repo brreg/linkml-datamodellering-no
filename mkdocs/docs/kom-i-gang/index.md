@@ -10,11 +10,11 @@ Vel rettleiinga som passar til det du skal gjere:
 
 | Rettleiing | Når brukar du ho? |
 |---|---|
-| [Bli modelleigar](../ny-org.md) | Din organisasjon skal ta i bruk repoet for første gong, saman med Brønnøysundregistra og andre verksemder. |
-| [Ny domenemodell](../ny-domenemodell.md) | Du skal opprette ein heilt ny LinkML-domenemodell — frå filstruktur til RDF-eksport klar for Felles Datakatalog. |
-| [Ny begrepskatalog](../ny-begrepsmodell.md) | Du skal opprette ei ny samling begrep — frå filstruktur til RDF-eksport klar for Felles Begrepskatalog. |
-| [Byggmanifest (build.yaml)](../build-config.md) | Du treng referanse for kva `build.yaml` styrer — kva artefakter som vert genererte, publiseringsflagg og valideringspolicy. |
-| [Kommandooversikt](../kommandoar.md) | Du treng ei fullstendig liste over alle `make`-kommandoar repoet tilbyr. |
+| [Bli modelleigar](ny-org.md) | Din organisasjon skal ta i bruk repoet for første gong, saman med Brønnøysundregistra og andre verksemder. |
+| [Ny domenemodell](ny-domenemodell.md) | Du skal opprette ein heilt ny LinkML-domenemodell — frå filstruktur til RDF-eksport klar for Felles Datakatalog. |
+| [Ny begrepskatalog](ny-begrepsmodell.md) | Du skal opprette ei ny samling begrep — frå filstruktur til RDF-eksport klar for Felles Begrepskatalog. |
+| [Byggmanifest (build.yaml)](build-config.md) | Du treng referanse for kva `build.yaml` styrer — kva artefakter som vert genererte, publiseringsflagg og valideringspolicy. |
+| [Kommandooversikt](kommandoar.md) | Du treng ei fullstendig liste over alle `make`-kommandoar repoet tilbyr. |
 
 ## Føresetnader
 

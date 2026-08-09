@@ -118,9 +118,9 @@ Alle 17 importar er mellom skjema i `src/linkml/` og gjeld følgjande par:
 ### Dokumentasjon (9 filer, ~80 referansar)
 
 `CLAUDE.md`, `README.md`, `COMMANDS.md`, `mkdocs/docs/index.md`,
-`mkdocs/docs/ny-domenemodell.md`, `mkdocs/docs/ny-begrepsmodell.md`,
-`mkdocs/docs/publisering-begrep.md`, `mkdocs/docs/publisering-modell.md`,
-`mkdocs/docs/ekstern-bruk.md`
+`mkdocs/docs/kom-i-gang/ny-domenemodell.md`, `mkdocs/docs/kom-i-gang/ny-begrepsmodell.md`,
+`mkdocs/docs/publisering/publisering-begrep.md`, `mkdocs/docs/publisering/publisering-modell.md`,
+`mkdocs/docs/arkitektur/ekstern-bruk.md`
 
 ### Genererte artefakter
 

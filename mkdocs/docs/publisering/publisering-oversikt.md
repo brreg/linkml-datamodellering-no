@@ -104,7 +104,7 @@ Alle genererte artefakter vert automatisk publisert til GitHub Pages ved push ti
 
 **URL:** `https://brreg.github.io/linkml-datamodellering-no/`
 
-**Versjonering:** Peikar alltid til siste versjon på `main`. For versjonsstabile adresser, sjå [Bruk frå eksternt repo](ekstern-bruk.md#versjonerte-artefakter).
+**Versjonering:** Peikar alltid til siste versjon på `main`. For versjonsstabile adresser, sjå [Bruk frå eksternt repo](../arkitektur/ekstern-bruk.md#versjonerte-artefakter).
 
 ### Felles Begrepskatalog / Felles Datakatalog (manuell koordinering)
 
@@ -118,7 +118,7 @@ Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle
 2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
 3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
 
-**PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](../GOVERNANCE.md) for publiseringspolicy.
+**PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](../../../GOVERNANCE.md) for publiseringspolicy.
 
 **Detaljerte rettleiingar:**
 
@@ -391,5 +391,5 @@ validation_policy: felles-begrepskatalog  # Valideringspolicy
 
 - [publisering-begrep.md](publisering-begrep.md) — rettleiing for begrepskatalog
 - [publisering-modell.md](publisering-modell.md) — rettleiing for modellkatalog
-- [monitorering.md](monitorering.md) — korleis monitorere publisering
+- [monitorering.md](../automasjon/monitorering.md) — korleis monitorere publisering
 - [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) — publiseringspolicy

@@ -80,10 +80,10 @@ def main() -> None:
     # MkDocs genererer anker frå fullstendig overskriftstekst
     # bronze/silver/gold/felles-*: ### <policy> → #<policy>
     # Anchor-namnet er identisk med policy-namnet
-    # Bruk relativ path frå <domain>/<schema>/index.md til valideringsregler.md
-    # (to nivå opp: ../../valideringsregler/)
+    # Bruk relativ path frå <domain>/<schema>/index.md til arkitektur/valideringsregler.md
+    # (to nivå opp, so inn i arkitektur/: ../../arkitektur/valideringsregler/)
     anchor = policy
-    policy_link = f"[policy: {policy}](../../valideringsregler/#{anchor})"
+    policy_link = f"[policy: {policy}](../../arkitektur/valideringsregler/#{anchor})"
 
     lines = [
         "",

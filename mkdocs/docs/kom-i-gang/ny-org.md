@@ -121,7 +121,7 @@ make mcp-linkml-valider-modell \
   INSTANCE=src/linkml/modellkatalog/<alias>-modellkatalog/data/<alias>-modellkatalog/<alias>-modellkatalog.yaml
 ```
 
-Sjå [Valideringsreglar](valideringregler.md) for fullstendig oversikt.
+Sjå [Valideringsreglar](../arkitektur/valideringsregler.md) for fullstendig oversikt.
 
 ## Steg 6 — Send pull request
 

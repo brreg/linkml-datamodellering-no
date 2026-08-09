@@ -121,7 +121,7 @@ generate_dependencies() {
         echo "$dep_tree"
         echo "\`\`\`"
         echo ""
-        echo "*Sjå [Importhierarki](../../importhierarki.md) for oversikt over heile repoet sitt importhierarki.*"
+        echo "*Sjå [Importhierarki](../../arkitektur/importhierarki.md) for oversikt over heile repoet sitt importhierarki.*"
         build_imported_models_links "$domain" "$schema"
         echo ""
         echo ""

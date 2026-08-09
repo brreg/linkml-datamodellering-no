@@ -27,7 +27,7 @@ vert modelert med URI-referanse, ikkje inlining.
 
 Skjema importerer frå eit klart hierarki — aldri på tvers eller nedover.
 
-**Fullstendig hierarki-oversikt:** Sjå [mkdocs/docs/importhierarki.md](mkdocs/docs/importhierarki.md) for komplett dokumentasjon av:
+**Fullstendig hierarki-oversikt:** Sjå [mkdocs/docs/arkitektur/importhierarki.md](mkdocs/docs/arkitektur/importhierarki.md) for komplett dokumentasjon av:
 - AP-NO-hierarki (common-ap-no → dcat-ap-no / dqv-ap-no / skos-ap-no / xkos-ap-no / cpsv-ap-no / modelldcat-ap-no)
 - FINT-hierarki (fint-common → fint-administrasjon / fint-arkiv / fint-okonomi / osv.)
 - FAIR-metadata (standalone, kan kombinerast med AP-NO, FINT og oreg)

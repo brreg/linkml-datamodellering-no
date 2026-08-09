@@ -45,7 +45,7 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
 
 ## LinkML Importhierarki
 
-Sjå [PRINCIPLES.md § 3](PRINCIPLES.md#3-modularitet-via-import-hierarki) og [mkdocs/docs/importhierarki.md](mkdocs/docs/importhierarki.md) for fullstendig importhierarki, konkrete YAML-eksempel, reglar og versjonslåsing-rettleiing.
+Sjå [PRINCIPLES.md § 3](PRINCIPLES.md#3-modularitet-via-import-hierarki) og [mkdocs/docs/arkitektur/importhierarki.md](mkdocs/docs/arkitektur/importhierarki.md) for fullstendig importhierarki, konkrete YAML-eksempel, reglar og versjonslåsing-rettleiing.
 
 **Hovudpunkt:**
 - `common-ap-no-schema` importerer `linkml:types` — berre AP-NO-profilene importerer denne direkte
@@ -362,7 +362,7 @@ Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppga
 - `dct:subject` (`begrep`-slot) peikar til fagomgrep i begrepskatalog — ikkje til Los
 
 ### Ny profil eller domenemodell
-Sjå `mkdocs/docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
+Sjå `mkdocs/docs/kom-i-gang/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
 ## Namngjeving
 

@@ -449,7 +449,7 @@ def main():
         # Return flat list of all imported schemas (excluding linkml:types)
         # Read importhierarki.md
         repo_root = Path(__file__).resolve().parents[3]
-        hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'importhierarki.md'
+        hierarchy_file = repo_root / 'mkdocs' / 'docs' / 'arkitektur' / 'importhierarki.md'
 
         if not hierarchy_file.exists():
             # Fallback: return normalized imports

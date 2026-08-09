@@ -105,7 +105,7 @@ Resultatet vert:
 
 ### Korleis legge til ny begrepskatalog
 
-**Steg 1:** Opprett begrepskatalog-skeleton (sjå [Ny organisasjon](ny-org.md))
+**Steg 1:** Opprett begrepskatalog-skeleton (sjå [Ny organisasjon](../kom-i-gang/ny-org.md))
 
 **Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml`:
 
@@ -152,7 +152,7 @@ Resultatet vert:
 
 ### Korleis legge til ny modellkatalog
 
-**Steg 1:** Opprett modellkatalog-skeleton (sjå [Ny organisasjon](ny-org.md))
+**Steg 1:** Opprett modellkatalog-skeleton (sjå [Ny organisasjon](../kom-i-gang/ny-org.md))
 
 **Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml`:
 
@@ -341,6 +341,6 @@ title: "Brønnøysundregistra"
 
 ## Relatert dokumentasjon
 
-- [Ny domenemodell](ny-domenemodell.md)
-- [Ny organisasjon](ny-org.md)
+- [Ny domenemodell](../kom-i-gang/ny-domenemodell.md)
+- [Ny organisasjon](../kom-i-gang/ny-org.md)
 - [CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md)

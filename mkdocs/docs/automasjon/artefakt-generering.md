@@ -10,7 +10,7 @@ For kommandoreferanse (korleis *køyre* targeta) — sjå
 [`COMMANDS.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md).
 For prinsippa bak importhierarkiet skjemaa sjølve følgjer — sjå
 [`PRINCIPLES.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/PRINCIPLES.md)
-§ 3 og [Importhierarki](importhierarki.md). Denne sida dekkjer laget *mellom*
+§ 3 og [Importhierarki](../arkitektur/importhierarki.md). Denne sida dekkjer laget *mellom*
 kjeldeskjema og publisert portal: kva som skjer i `make/*.mk`, kva script
 som køyrer inni kvar container, og kvar kvart felt i sluttresultatet
 kjem frå.
@@ -267,7 +267,7 @@ tolkar loggane frå begge workflowane — sjå
 
 ## Sjå òg
 
-- [Arkitekturoversikt](arkitektur-oversikt.md) — heilskapsbiletet: korleis denne pipelinen heng saman med MCP-serverar, CI og eksterne konsumentar
+- [Arkitekturoversikt](../arkitektur/arkitektur-oversikt.md) — heilskapsbiletet: korleis denne pipelinen heng saman med MCP-serverar, CI og eksterne konsumentar
 - [Struktur for index.md](index-md-struktur.md) — djupdykk i seksjonane i kvart skjema sin publiserte side
 - [Generering av modellmanifest](modellmanifest-generering.md) — fullstendig kjeldetabell for Informasjonsmodell-instansen (§ 3.6)
 - [Monitorering av automasjon](monitorering.md) — korleis CI-workflowane faktisk køyrer og korleis du tolkar loggane (§ 5)

@@ -44,7 +44,7 @@ broten for resten.
 ## Workaround
 
 Ingen aktiv workaround nødvendig — targetet er **ikkje** kalla frå CI
-(`generate.yml`/`validate.yml`, sjå `mkdocs/docs/artefakt-generering.md` § 5),
+(`generate.yml`/`validate.yml`, sjå `mkdocs/docs/automasjon/artefakt-generering.md` § 5),
 berre eit manuelt utviklarverktøy. Bugen blokkerer difor ikkje bygg eller
 publisering, men gjer targetet ubrukeleg som lokalt verifikasjonssteg.
 
@@ -58,7 +58,7 @@ oppdaterte docstringen i `generate-informasjonsmodell.py:13` til å seie
 
 **Filer:** `make/30-instances.mk`, `src/assets/scripts/makefile/generate-informasjonsmodell.py`
 
-Oppdaga under arbeid med `mkdocs/docs/artefakt-generering.md` § 3.6.
+Oppdaga under arbeid med `mkdocs/docs/automasjon/artefakt-generering.md` § 3.6.
 
 ### Utført (2026-08-06)
 

@@ -118,7 +118,7 @@ PYEOF
 # ---------------------------------------------------------------------------
 generate_validation_docs() {
     local policies_readme="$REPO_ROOT/src/mcp-linkml-validator/policies/README.md"
-    local output="$DOCS/valideringsregler.md"
+    local output="$DOCS/arkitektur/valideringsregler.md"
     local github_base="https://github.com/brreg/linkml-datamodellering-no/blob/main"
 
     log_info "${CLR_STEP}→ Genererer valideringsregler.md frå policies/README.md${CLR_RST}"
@@ -545,30 +545,30 @@ nav:
       - index.md
       - Kom i gang:
           - kom-i-gang/index.md
-          - Bli modelleigar: ny-org.md
-          - Ny domenemodell: ny-domenemodell.md
-          - Ny begrepskatalog: ny-begrepsmodell.md
-          - Byggmanifest: build-config.md
-          - Kommandooversikt: kommandoar.md
+          - Bli modelleigar: kom-i-gang/ny-org.md
+          - Ny domenemodell: kom-i-gang/ny-domenemodell.md
+          - Ny begrepskatalog: kom-i-gang/ny-begrepsmodell.md
+          - Byggmanifest: kom-i-gang/build-config.md
+          - Kommandooversikt: kom-i-gang/kommandoar.md
       - Arkitektur:
           - arkitektur/index.md
-          - Arkitekturoversikt: arkitektur-oversikt.md
-          - Importhierarki: importhierarki.md
-          - Valideringsreglar: valideringsregler.md
-          - AP-NO arkitektur og avvik: ap-no-arkitektur.md
-          - Bruk frå eksternt repo: ekstern-bruk.md
+          - Arkitekturoversikt: arkitektur/arkitektur-oversikt.md
+          - Importhierarki: arkitektur/importhierarki.md
+          - Valideringsreglar: arkitektur/valideringsregler.md
+          - AP-NO arkitektur og avvik: arkitektur/ap-no-arkitektur.md
+          - Bruk frå eksternt repo: arkitektur/ekstern-bruk.md
       - Publisering:
           - publisering/index.md
-          - Publiseringsflyt: publisering-oversikt.md
-          - Publiser til Felles Begrepskatalog: publisering-begrep.md
-          - Publiser til Felles Datakatalog: publisering-modell.md
+          - Publiseringsflyt: publisering/publisering-oversikt.md
+          - Publiser til Felles Begrepskatalog: publisering/publisering-begrep.md
+          - Publiser til Felles Datakatalog: publisering/publisering-modell.md
       - Automasjon:
           - automasjon/index.md
-          - Artefaktgenerering — kjelder og pipeline: artefakt-generering.md
-          - Generering av modell-dokumentasjon: index-md-struktur.md
-          - Generering av modellmanifest: modellmanifest-generering.md
-          - README-tabellgenerering: readme-tabellgenerering.md
-          - Monitorering av automasjon: monitorering.md
+          - Artefaktgenerering — kjelder og pipeline: automasjon/artefakt-generering.md
+          - Generering av modell-dokumentasjon: automasjon/index-md-struktur.md
+          - Generering av modellmanifest: automasjon/modellmanifest-generering.md
+          - README-tabellgenerering: automasjon/readme-tabellgenerering.md
+          - Monitorering av automasjon: automasjon/monitorering.md
       - Om dette repoet: om.md
 STATIC
 

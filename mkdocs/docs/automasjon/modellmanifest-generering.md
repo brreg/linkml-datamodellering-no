@@ -227,7 +227,7 @@ Dersom `gen-informasjonsmodell-instance` feiler for eit skjema:
 
 ## Relaterte dokument
 
-- [specs/done/manifest-som-modelldcat-datafil.md](../../specs/done/manifest-som-modelldcat-datafil.md) — Hovudspec for ModelDCAT-manifest-design
-- [specs/done/autogenerer-modellmanifest-i-domain-make.md](../../specs/done/autogenerer-modellmanifest-i-domain-make.md) — Implementeringsspec (generering i domain-*)
+- [specs/done/manifest-som-modelldcat-datafil.md](../../../specs/done/manifest-som-modelldcat-datafil.md) — Hovudspec for ModelDCAT-manifest-design
+- [specs/done/autogenerer-modellmanifest-i-domain-make.md](../../../specs/done/autogenerer-modellmanifest-i-domain-make.md) — Implementeringsspec (generering i domain-*)
 - [index-md-struktur.md](index-md-struktur.md) — Struktur for `index.md` per modell
 - [COMMANDS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md) — Kommandoreferanse (make-targets)

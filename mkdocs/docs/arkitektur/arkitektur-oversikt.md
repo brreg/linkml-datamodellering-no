@@ -211,20 +211,20 @@ flowchart BT
 - **GitHub Actions** — validerer PR-ar, byggjer artefakt + portal ved push til
   `main`, byggjer/pushar container-images ved release-tag, og fangar
   valideringshistorikk ved release-please-versjonering. Sjå
-  [Artefaktgenerering — kjelder og pipeline](artefakt-generering.md) § 5 for
-  detaljert CI-rekkjefølgje, og [Monitorering av automasjon](monitorering.md)
+  [Artefaktgenerering — kjelder og pipeline](../automasjon/artefakt-generering.md) § 5 for
+  detaljert CI-rekkjefølgje, og [Monitorering av automasjon](../automasjon/monitorering.md)
   for korleis du les loggane frå desse workflowane.
 - **Publiserte pull-punkt** — repoet **pullar aldri til, berre frå**: GitHub
   Pages er den publiserte portalen; GitHub Releases og
   `raw.githubusercontent.com` er stabile hente-punkt for skjema-import frå
   andre repo; GHCR distribuerer container-images. Sjå
-  [Publiseringsoversikt](publisering-oversikt.md) sin seksjon "Kvar
+  [Publiseringsoversikt](../publisering/publisering-oversikt.md) sin seksjon "Kvar
   genererte filer endar" for full oversikt over kva som ligg kvar stad.
 - **Nasjonale katalogar** — publisering til Felles Begrepskatalog og Felles
   Datakatalog er **manuelle** steg gjort av eit menneske som følgjer
   rettleiingane i portalen — repoet pushar ikkje direkte til desse katalogane
   (jf. "Pull, ikkje push"-prinsippet i `CLAUDE.md`, fullt forklart med
-  diagram og eksempel i [Publiseringsoversikt](publisering-oversikt.md)).
+  diagram og eksempel i [Publiseringsoversikt](../publisering/publisering-oversikt.md)).
 - **Eksternt repo** — andre repo kan bootstrappe seg sjølve med
   `bootstrap.sh` og importere AP-NO-profilar direkte via tag-baserte
   `raw.githubusercontent.com`-URL-ar, og validerer/genererer via dei same
@@ -249,6 +249,6 @@ flowchart BT
 
 ## Sjå òg
 
-- [Artefaktgenerering — kjelder og pipeline](artefakt-generering.md) — detaljert kjeldesporing for kvar automatisk generert artefakt
-- [Publiseringsoversikt](publisering-oversikt.md) — "Pull, ikkje push"-prinsippet, kvar genererte filer endar, og steg-for-steg-flyt til data.norge.no
-- [Monitorering av automasjon](monitorering.md) — korleis overvake at CI-workflowane faktisk fungerer
+- [Artefaktgenerering — kjelder og pipeline](../automasjon/artefakt-generering.md) — detaljert kjeldesporing for kvar automatisk generert artefakt
+- [Publiseringsoversikt](../publisering/publisering-oversikt.md) — "Pull, ikkje push"-prinsippet, kvar genererte filer endar, og steg-for-steg-flyt til data.norge.no
+- [Monitorering av automasjon](../automasjon/monitorering.md) — korleis overvake at CI-workflowane faktisk fungerer

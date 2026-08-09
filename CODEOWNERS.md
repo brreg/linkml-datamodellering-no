@@ -144,7 +144,7 @@ Endringar i felles infrastruktur krev godkjenning frå repo-administrator (sjå 
 
 ## Legg til ny organisasjon
 
-Sjå [Ny organisasjon](mkdocs/docs/ny-org.md) for steg-for-steg-rettleiing.
+Sjå [Ny organisasjon](mkdocs/docs/kom-i-gang/ny-org.md) for steg-for-steg-rettleiing.
 
 Kort oppsummert:
 1. Legg til org i YAML-frontmatter over (PR til `main`)

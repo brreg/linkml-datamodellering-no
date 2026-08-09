@@ -239,4 +239,4 @@ mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, i
 
 - **`CLAUDE.md`** — normativ kjelde for modelleringsprinsipper
 - **`COMMANDS.md`** — fullstendig oversikt over make-targets
-- **`mkdocs/docs/ny-domenemodell.md`** — steg-for-steg-rettleiing for å lage ny modell
+- **`mkdocs/docs/kom-i-gang/ny-domenemodell.md`** — steg-for-steg-rettleiing for å lage ny modell

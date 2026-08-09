@@ -410,7 +410,12 @@
       "Bash(LOGLVL=DEBUG make domain-samt)",
       "Bash(tee /tmp/claude-1000/-mnt-c-dev-git-linkml-datamodellering-no/bbc28c3b-87c6-4779-a29f-c4537b1d53be/scratchpad/domain-samt.log)",
       "Bash(LOGLVL=DEBUG make domain-ap-no)",
-      "Bash(echo \"diff exit=$?\")"
+      "Bash(echo \"diff exit=$?\")",
+      "Bash(set -e)",
+      "Bash(mv ny-org.md ny-domenemodell.md ny-begrepsmodell.md build-config.md kommandoar.md kom-i-gang/)",
+      "Bash(mv arkitektur-oversikt.md importhierarki.md valideringsregler.md ap-no-arkitektur.md ekstern-bruk.md arkitektur/)",
+      "Bash(mv publisering-oversikt.md publisering-begrep.md publisering-modell.md publisering/)",
+      "Bash(mv artefakt-generering.md index-md-struktur.md modellmanifest-generering.md readme-tabellgenerering.md monitorering.md automasjon/)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -9,7 +9,7 @@ Når du legg til ein skip-betingelse i `tests/test_make.sh`, skal det alltid fin
 Denne oversikta er skrive for tekniske brukarar og bidragsytarar. Dersom du berre brukar repoet for datamodellering, les:
 
 - [Kjende avgrensingar](mkdocs/docs/index.md#kjende-avgrensingar) (brukarvendt oversikt)
-- "Kjende avgrensingar"-seksjonane i kvar rettleiing (t.d. [ny-domenemodell.md](mkdocs/docs/ny-domenemodell.md#kjende-avgrensingar))
+- "Kjende avgrensingar"-seksjonane i kvar rettleiing (t.d. [ny-domenemodell.md](mkdocs/docs/kom-i-gang/ny-domenemodell.md#kjende-avgrensingar))
 
 ## PoC-status
 

@@ -354,7 +354,7 @@ https://github.com/brreg/linkml-datamodellering-no/releases.atom
 ## Avgrensingar
 
 Avgrensingane under er ei direkte følgje av at repoet praktiserer
-"Pull, ikkje push" (sjå [Publiseringsoversikt](publisering-oversikt.md)
+"Pull, ikkje push" (sjå [Publiseringsoversikt](../publisering/publisering-oversikt.md)
 for full forklaring av prinsippet): repoet har ingen API-tilgang eller
 credentials mot eksterne katalogar, og kan difor ikkje overvake kva som
 skjer *etter* at artefakter er publiserte til GitHub Pages.
@@ -397,7 +397,7 @@ skjer *etter* at artefakter er publiserte til GitHub Pages.
 
 ## Sjå òg
 
-- [Publiser til Felles Begrepskatalog](publisering-begrep.md) — rettleiing for begrepskatalogar
-- [Publiser til Felles Datakatalog](publisering-modell.md) — rettleiing for modellkatalogar
-- [Publiseringsoversikt](publisering-oversikt.md) — publiseringsflyt frå repo til eksterne katalogar
+- [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md) — rettleiing for begrepskatalogar
+- [Publiser til Felles Datakatalog](../publisering/publisering-modell.md) — rettleiing for modellkatalogar
+- [Publiseringsoversikt](../publisering/publisering-oversikt.md) — publiseringsflyt frå repo til eksterne katalogar
 - [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) — publiseringspolicy

@@ -25,7 +25,7 @@ Skjemaet demonstrerer alle hovudmønster i repoet: containerklasse, globale slot
 
 > Her finn du døme på korleis du importerer, validerer og brukar modellen i eigne prosjekt.
 
-### Importer i LinkML-skjema
+### Importer i egne LinkML-skjema
 
 ```yaml
 imports:
@@ -81,7 +81,7 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 
 ---
 
-## Avhengigheiter (4) {#avhengigheiter}
+## Avhengigheiter (2) {#avhengigheiter}
 
 > Denne modellen importerer og gjenbruker komponentar frå andre skjema. 
 > Importerte klassar og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen.
@@ -89,13 +89,11 @@ ressurs = yaml_loader.load('mine-data.yaml', target_class=Ressurs)
 Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 
 ```
-linkml:types  # direkte import
-└── common-ap-no-schema  # transitiv import
-    └── dqv-core-schema  # transitiv import
-        └── dcat-ap-no-schema  # direkte import
+linkml:types
+ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
 
-*Sjå [Importhierarki](../../importhierarki.md) for oversikt over heile repoet sitt importhierarki.*
+*Sjå [Importhierarki](../../arkitektur/importhierarki.md) for oversikt over heile repoet sitt importhierarki.*
 
 *Importerte modeller: [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml), [common-ap-no](../../ap-no/common-ap-no/#datamodell), [dcat-ap-no](../../ap-no/dcat-ap-no/#datamodell), [dqv-core](../../ap-no/dqv-core/#datamodell)*
 

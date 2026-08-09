@@ -209,7 +209,7 @@ Output: `generated/begrepskatalog/<katalognavn>/<katalognavn>-eksempel.ttl`
 
 Denne Turtle-fila er berre for lokal kontroll av at YAML-instansen vert korrekt
 serialisert. For publisering til Felles Begrepskatalog — sjå
-[Publiser til Felles Begrepskatalog](publisering-begrep.md).
+[Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md).
 
 ---
 
@@ -248,13 +248,13 @@ make mcp-linkml-valider-modell \
 ```
 
 For fullstendig rettleiing om registrering og URI-stabilitet:
-sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md).
+sjå [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md).
 
 ---
 
 ## Sjå òg
 
-- [Begrep - domeneindeks](begrep/index.md)
-- [Publiser til Felles Begrepskatalog](publisering-begrep.md) — pipeline og URI-stabilitet
+- [Begrep - domeneindeks](../begrepskatalog/index.md)
+- [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md) — pipeline og URI-stabilitet
 - [`specs/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/begrep-modellering.md) — fullstendig teknisk spesifikasjon
 - [`src/mcp-linkml-begrep-utkast/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) — dokumentasjon for MCP-serveren
