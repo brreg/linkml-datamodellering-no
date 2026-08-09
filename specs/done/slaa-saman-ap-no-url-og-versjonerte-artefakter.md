@@ -172,10 +172,18 @@ som skissert i forslaget over — ingen justeringar bedne om.
    underseksjon "AP-NO-profilar" i staden for sin eigen `##`-seksjon).
 
 **Notert, ikkje endra (utanfor scope):** tre andre stader i same fil
-(`ekstern-bruk.md` linje 23, 147, 232 før denne endringa) brukar framleis
+(`ekstern-bruk.md` linje 23, 147, 232 før denne endringa) brukte framleis
 den eldre `dcat-ap-no-v2.8.0`-taggen som illustrativt eksempel — desse var
 ikkje del av dei to seksjonane brukaren bad om å slå saman, og vart difor
-ikkje rørte. Flagga til brukaren separat dersom dei òg bør oppdaterast.
+ikkje rørte i fyrste omgang.
+
+### Oppfølging: alle tre retta til v2.13.0
+
+Brukaren bad om å oppdatere desse tre gjenverande stadene òg. Alle tre
+(Bootstrap-eksempel linje 22-23, `ap-no-version`-tabell linje 147,
+image-tagg-notat linje 232) retta frå `dcat-ap-no-v2.8.0` til
+`dcat-ap-no-v2.13.0`. Stadfesta med `grep -c "dcat-ap-no-v2.8.0"
+mkdocs/docs/arkitektur/ekstern-bruk.md` → 0 treff att i heile fila.
 
 Status: ferdig. Flytta til `specs/done/`.
 

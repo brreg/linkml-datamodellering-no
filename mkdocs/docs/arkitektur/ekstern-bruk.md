@@ -20,7 +20,7 @@ For å feste til ein konkret versjon:
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh \
-  | AP_NO_VERSION=dcat-ap-no-v2.8.0 bash
+  | AP_NO_VERSION=dcat-ap-no-v2.13.0 bash
 ```
 
 Scriptet opprettar:
@@ -144,7 +144,7 @@ container-imagene og AP-NO-skjema. Du treng ikkje sende inn `version`-inputen ek
 | `ap-no-version` | Åtferd |
 |---|---|
 | `latest` | Brukar siste release-tag (flytande) — anbefalt |
-| `dcat-ap-no-v2.8.0` | Brukar nøyaktig denne skjema-versjonen |
+| `dcat-ap-no-v2.13.0` | Brukar nøyaktig denne skjema-versjonen |
 | (fila manglar) | Brukar `latest` |
 
 ---
@@ -229,7 +229,7 @@ podman run --rm \
   gen-json-schema src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
 ```
 
-Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap-no-v2.8.0`, …)
+Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap-no-v2.13.0`, …)
 
 !!! note "`linkml lint` utan `--config` bruker eit anna regelsett enn CI"
     Dette repoet sin eigen lint-config
