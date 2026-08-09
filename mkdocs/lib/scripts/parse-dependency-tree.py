@@ -396,6 +396,23 @@ def build_dependency_tree(schema_name: str, imports: List[str], direct_imports: 
     filtered_tree = filter_tree_to_targets(merged_tree, target_schemas)
 
     if not filtered_tree:
+        # target_schemas kan vere sjølve rota i eit hierarki (t.d. eit skjema
+        # som berre importerer linkml:types direkte). filter_tree_to_targets
+        # finn berre vegar NED TIL eit mål, så når målet er rota sjølv finst
+        # det ingen veg å filtrere fram — dette er ikkje ein feil, berre eit
+        # trivielt tilfelle. Sjekk om måla er kjende nodar i det samla treet
+        # før vi fell tilbake til rå flat liste.
+        all_known_schemas = set(merged_tree.keys())
+        for children in merged_tree.values():
+            all_known_schemas.update(children)
+
+        if target_schemas <= all_known_schemas:
+            all_lines = []
+            visited: Set[str] = set()
+            for target in sorted(target_schemas):
+                all_lines.extend(build_subtree(target, {}, visited, direct_imports))
+            return '\n'.join(all_lines) if all_lines else '\n'.join(imports)
+
         print(f"WARN parse-dependency-tree: ingen filtrert tre fann veg til {schema_name} sine importar, fell tilbake til flat importliste", file=sys.stderr)
         return '\n'.join(imports)
 
