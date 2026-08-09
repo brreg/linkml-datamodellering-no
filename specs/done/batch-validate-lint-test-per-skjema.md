@@ -565,10 +565,144 @@ tilsvarande bug er **ikkje** rørt).
 avveging som for Kategori A/B — ei ekstra full 36-skjema-køyring berre for
 tidsmåling vart ikkje prioritert i denne økta).
 
-**Attverande arbeid:** Kategori D (convert-rdf, roundtrip-json,
-roundtrip-ttl via batcha `linkml-convert`; linkml-validate via
-`linkml.validator.validate()`) er framleis ikkje implementert. Denne
-specen vert difor **ikkje** flytta til `specs/done/` endå.
+## Utført (Tiltak 3 Kategori D — 2026-08-09)
+
+Alle fire attverande stega batcha: `convert-rdf`, `roundtrip-json`,
+`roundtrip-ttl` (alle via `linkml-convert`) og `linkml-validate` (via
+`linkml.validator.validate()`-API-et direkte, sidan CLI-en kallar
+`sys.exit()` og ikkje er `run_click()`-kompatibel, jf. evalueringa).
+
+### To nye batch-script
+
+- **`src/assets/scripts/makefile/batch-convert.py`** — batchar
+  `linkml-convert`-kall via same `run_click()`-mønster som
+  `batch-generate.py` (stadfesta i evalueringa: `linkml.converter.cli:cli`
+  har ingen `sys.exit()` i kroppen). Tek ei `--jobs-tsv`-fil
+  (`schema<TAB>input<TAB>output-format<TAB>output`, same TSV-konvensjon
+  som `batch-flatten-and-validate.py`) sidan jobbane er heterogene (ulik
+  input/format/output per jobb, ulikt Kategori A/B sine faste
+  generator-typar). Jobbar for same skjema (roundtrip-stega) må stå i rett
+  rekkjefølgje i TSV-fila når eit steg sin `input` er eit tidlegare steg
+  sin `output` — verifisert trygt sidan scriptet prosesserer strengt
+  sekvensielt (éin prosess, ingen intern parallellitet).
+- **`src/assets/scripts/makefile/batch-linkml-validate.py`** — batchar
+  `linkml validate`-kall via `linkml.validator.validate()` direkte,
+  same funksjon `mcp-linkml-validator` sin `server.py` alt brukar internt.
+  Tek `--jobs-tsv` med `attribueringsnøkkel<TAB>skjema-å-validere-mot
+  <TAB>instansfil` — nøkkelen er alltid det ORIGINALE skjemaet (for
+  `phase_a_check`-oppslag), medan "skjema-å-validere-mot" kan vere ein
+  test-fixture for skjema utan `tree_root` (same fixture-mønster som
+  `mcp_instance_job()` frå Kategori C, men her vert skjemaet validert mot
+  fixturen i staden for hoppa heilt over — ulik åtferd, difor eigen
+  `linkml_validate_job()`-hjelpefunksjon, ikkje gjenbruk av
+  `mcp_instance_job()`).
+
+### Fase A/B-integrasjon i `tests/test_make.sh`
+
+- Fire nye Fase A-funksjonar: `run_phase_a_convert_rdf()`,
+  `run_phase_a_roundtrip_json()`, `run_phase_a_roundtrip_ttl()`,
+  `run_phase_a_linkml_validate()`. Roundtrip-stega sine mellomlagringsfiler
+  (tidlegare `mktemp`-genererte tilfeldige namn inne i kvar per-skjema-
+  testfunksjon) er no deterministiske stiar under `tmp/roundtrip-json/
+  <namn>/` og `tmp/roundtrip-ttl/<namn>/` — nødvendig for at Fase A (som
+  køyrer FØR skjema-nivå-bakgrunnsjobbane) kan skrive dei, og Fase B (i
+  bakgrunnsjobbane) kan finne dei att utan ekstra tilstandsvidareføring
+  mellom fasane.
+- Fire nye delte jobb-hjelpefunksjonar (`convert_rdf_job()`,
+  `roundtrip_json_job()`, `roundtrip_ttl_job()`, `linkml_validate_job()`),
+  same mønster som `mcp_instance_job()` frå Kategori C — deler skip-
+  logikken mellom Fase A (jobbliste) og Fase B (skip-meldingar), unngår at
+  dei to driv frå kvarandre.
+- `test_convert_rdf()`, `test_roundtrip_json()`, `test_roundtrip_ttl()`,
+  `test_linkml_validate()` er alle reduserte til: sjekk om jobben skal
+  køyrast (delt hjelpefunksjon) → `phase_a_check` → (for roundtrip-testane)
+  same reine Python-samanlikningslogikk som før, uendra, mot dei no
+  deterministiske filstiane.
+
+### Tre pre-eksisterande bugar oppdaga og retta undervegs
+
+Alle tre vart oppdaga fordi dei enten hindra batching frå å gje meining
+(sti-bugane) eller batching sin eigen implementering avdekte dei direkte
+(stale filnamn). Ingen av dei er introduserte av denne endringa —
+stadfesta for den viktigaste (sti-bugen) med `git show HEAD` i Kategori C
+sitt tilsvarande funn; dei to nye er verifisert ved at det aktuelle
+filnamnet/mønsteret aldri finst andre stader i repoet.
+
+1. **`test_convert_rdf`/`test_linkml_validate` brukte same feil
+   eksempelfil-sti som `test_mcp_validate_instance` hadde i Kategori C**
+   (`examples/$domain/$name-eksempel.yaml`, manglar `src/linkml/`-prefiks
+   — ingen toppnivå-katalog `examples/` finst i repoet). Retta for begge,
+   same grunngjeving/godkjenning som Kategori C sin tilsvarande fiks
+   (brukar hadde alt godkjent denne bug-klassen for retting — ikkje spurt
+   på nytt for denne identiske gjentakinga, men dokumentert her for
+   sporbarheit). `test_roundtrip_json`/`test_roundtrip_ttl` brukte alt
+   korrekt sti (ein lokal `$example`-variabel i `run_schema_tests()`) og
+   var **ikkje** påverka.
+2. **`test_convert_rdf` sjekka `generate.yaml` i staden for `build.yaml`**
+   for `example_rdf: false`-flagget. `generate.yaml` vart omdøypt til
+   `build.yaml` ein gong tidlegare i prosjektet si historie (stadfesta:
+   `find src/linkml -iname "generate.yaml"` gjev 0 treff, `-iname
+   "build.yaml"` gjev 41), men denne eine sjekken vart aldri oppdatert —
+   `[ -f "$gen_yaml" ]` var difor **alltid** usann, og
+   `example_rdf: false`-skipen triggast **aldri**. Praktisk konsekvens:
+   9 skjema (`modellkatalog/{digdir,kartverket,ksdigital,novari,
+   skatteetaten}-modellkatalog`, `referanse/{referansemodell,
+   -bronze,-silver,-gold}`) som eksplisitt ber om å IKKJE få convert-rdf
+   køyrd, fekk det likevel (dei 7 `ap-no`/`fair`-skjema med same flagget
+   vart alt dekte av `lacks_tree_root`-sjekken, så dei var upåverka).
+   Retta: `gen_yaml`/`generate.yaml` → `build_yaml`/`build.yaml` i
+   `convert_rdf_job()`.
+
+**Verifisert:**
+- `python3 -c "import ast; ast.parse(...)"` på begge nye script,
+  `bash -n tests/test_make.sh` — alle OK.
+- `batch-convert.py` testa direkte med ei 3-stegs kjede (yaml→json→yaml→
+  json, `samt-bu`) — byte-identisk innhald mellom første og siste steg sin
+  output, stadfesta at kjeda med avhengige input/output-stiar fungerer
+  korrekt sekvensielt i éin batch.
+- `batch-linkml-validate.py` testa direkte med 2 skjema (`samt-bu`,
+  `ngr-adresse`) — begge valide, batcha i éin kontainar.
+- **Éin-skjema-modus** (`bash tests/test_make.sh
+  src/linkml/samt/samt-bu/samt-bu-schema.yaml`): 16 OK, 1 FEIL — same
+  einaste feil som heile tida (`roundtrip-ttl`, pre-eksisterande
+  `rdflib_loader.MappingError`). Stadfesta i loggen at feilen no vert
+  fanga med presis attribuering **gjennom eit kaskaderande andre steg**:
+  steg 3 (ttl→yaml) feilar med den kjende `MappingError`-en, steg 4
+  (yaml→json) feilar deretter naturleg fordi steg 3 sin output-fil aldri
+  vart skriven — begge korrekt logga med `::error file=<schema>::`,
+  `phase_a_check` fangar første treffet og rapporterer FEIL, uendra
+  sluttresultat.
+- **Full køyring, alle 36 skjema:** **536 OK, 42 FEIL — nøyaktig same tal
+  som gjennom heile Kategori A/B/C-verifiseringa.** Same 36
+  `build.yaml`-flagg-hòl (urelatert til Kategori D) + same 6
+  `roundtrip-ttl`-feil. **0 nye feil**, sjølv om `convert-rdf` og
+  `linkml-validate` no **faktisk køyrer** for dei fleste skjema for første
+  gong (stadfesta i Fase A-loggen: 102 `linkml-convert`-kall totalt på
+  tvers av convert-rdf/roundtrip-json/roundtrip-ttl sine batchar, 30
+  skjema faktisk linkml-validerte) — igjen stadfesting av at både
+  batchinga og eksempeldataen er korrekte, ikkje at testane er tannlause.
+- Ingen utilsikta repo-tilstandsendring: `git status` viser berre dei tre
+  intenderte filene (`tests/test_make.sh`, `batch-convert.py` (ny),
+  `batch-linkml-validate.py` (ny)) som endra. `tmp/`-katalogen (no med
+  nye `roundtrip-json/`/`roundtrip-ttl/`-underkatalogar) vert framleis
+  fjerna heilt av `cleanup()`-trappa ved skriptslutt, uendra frå før.
+
+**Ikkje gjort:** presist før/etter-tidsmål for Kategori D isolert (same
+avveging som Kategori A/B/C — ei ekstra full 36-skjema-køyring berre for
+tidsmåling vart ikkje prioritert).
+
+**Alle fire kategoriar (A, B, C, D) i Tiltak 3 er no gjennomførte og
+verifiserte.** Spesifikasjonen sitt opphavlege mål — undersøkje og
+realisere batching-gevinst for `make validate`, `make lint` og `make
+test` — er dermed oppnådd i sin heilskap. Denne specen er **ikkje** flytta
+til `specs/done/` i denne økta likevel, av eitt gjenståande omsyn: eit
+presist før/etter-tidsmål for full `make test`-køyring (nemnt som
+«ikkje gjort» under kvar kategori sin eigen «Utført»-seksjon) er aldri
+teke — kvar kategori sin fulle 36-skjema-verifisering målte KORREKTHEIT
+(536 OK/42 feil, konsekvent gjennom alle fire rundar), ikkje TID isolert
+frå kvarandre. Dette er eit medvite, dokumentert etterslep, ikkje eit
+attverande funksjonelt tiltak — flytting til `specs/done/` bør vurderast
+saman med brukaren.
 
 ## Handlingsliste
 
@@ -592,9 +726,11 @@ specen vert difor **ikkje** flytta til `specs/done/` endå.
       `mcp-validate-instance`-modernisering til `schemaPath`, begge batcha
       og verifisert 0 regresjonar mot full 36-skjema-køyring — i tillegg
       retta ein alvorleg, pre-eksisterande sti-bug (sjå eiga «Utført»)
-- [ ] Tiltak 3 Kategori D: batching av `linkml-convert`-baserte steg
+- [x] Tiltak 3 Kategori D: batching av `linkml-convert`-baserte steg
       (convert-rdf, roundtrip-json, roundtrip-ttl) og `linkml-validate` via
-      `linkml.validator.validate()` — ikkje starta
+      `linkml.validator.validate()`, verifisert 0 regresjonar mot full
+      36-skjema-køyring — i tillegg retta to fleire pre-eksisterande bugar
+      (sjå eiga «Utført»)
 
 ## Utført (Tiltak 1 + 2 — 2026-08-09)
 

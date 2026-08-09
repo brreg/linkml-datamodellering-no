@@ -64,6 +64,69 @@ mcp_instance_job() {
     echo "$validate_schema $example"
 }
 
+# Delte "treng dette skjemaet steg X"-avgjerder for Kategori D (convert-rdf,
+# roundtrip-json, roundtrip-ttl, linkml-validate) — same grunngjeving som
+# mcp_instance_job() over: delt mellom Fase A (jobbliste) og Fase B
+# (skip-meldingar) for å garantere samsvar.
+
+convert_rdf_job() {
+    local schema="$1" domain="$2" name="$3" example="$4"
+    lacks_tree_root "$domain" && return 1
+    local build_yaml="$(dirname "$schema")/build.yaml"
+    if [ -f "$build_yaml" ] && grep -q "^  example_rdf: false" "$build_yaml"; then
+        return 1
+    fi
+    # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
+    # Sjå bugs/inlined-as-list-rdflib-roundtrip.md
+    case "$name" in
+        ngr-adresse|ngr-eiendom|ngr-virksomhet) return 1 ;;
+    esac
+    [ -f "$example" ] || return 1
+    return 0
+}
+
+roundtrip_json_job() {
+    local schema="$1" domain="$2" name="$3" example="$4"
+    lacks_tree_root "$domain" && return 1
+    [ -f "$example" ] || return 1
+    return 0
+}
+
+roundtrip_ttl_job() {
+    local schema="$1" domain="$2" name="$3" example="$4"
+    lacks_tree_root "$domain" && return 1
+    # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
+    case "$name" in
+        ngr-adresse|ngr-eiendom|ngr-virksomhet) return 1 ;;
+    esac
+    # BUG-1: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
+    # Sjå bugs/langstring-rdflib-roundtrip.md
+    case "$name" in
+        brreg-begrepskatalog|brreg-modellkatalog|digdir-modellkatalog| \
+        novari-modellkatalog|ksdigital-modellkatalog|skatteetaten-modellkatalog| \
+        kartverket-modellkatalog) return 1 ;;
+    esac
+    [ -f "$example" ] || return 1
+    return 0
+}
+
+# Avgjer om eit skjema treng linkml-validate, og i så fall kva skjema det
+# skal validerast MOT (kan vere ein test-fixture, for skjema som manglar
+# tree_root — ulikt mcp_instance_job() vert desse IKKJE hoppa over, berre
+# validerte mot fixture i staden). Skriv skjemaet-å-validere-mot til stdout.
+# Attribueringsnøkkelen (brukt av phase_a_check) er alltid det ORIGINALE
+# skjemaet ($schema), aldri fixture-stien.
+linkml_validate_job() {
+    local schema="$1" domain="$2" name="$3" example="$4"
+    [ -f "$example" ] || return 1
+    local validate_schema="$schema"
+    if lacks_tree_root "$domain"; then
+        validate_schema="tests/fixtures/$name-fixture.yaml"
+        [ -f "$validate_schema" ] || return 1
+    fi
+    echo "$validate_schema"
+}
+
 echo "test_make.sh — $(date)" > "$LOG"
 echo "LINKML_IMAGE: $LINKML_IMAGE" >> "$LOG"
 printf "Skjema (%d):\n" "${#SCHEMAS[@]}" >> "$LOG"
@@ -139,11 +202,9 @@ run_schema_tests() {
         _run_one "gen-docs ($name)"        test_gen_docs       "$schema" "$outdir/docs"
         _run_one "gen-shacl ($name)"       test_gen_shacl      "$schema" "$outdir/$name-shapes.ttl"
         _run_one "gen-owl ($name)"         test_gen_owl        "$schema" "$outdir/$name-ontology.ttl"
-        _run_one "convert-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" \
-                                                               "examples/$domain/$name-eksempel.yaml" "$domain"
+        _run_one "convert-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" "$example" "$domain"
         _run_one "linkml-lint ($name)"     test_linkml_lint    "$schema"
-        _run_one "linkml-validate ($name)" test_linkml_validate "$schema" \
-                                                               "examples/$domain/$name-eksempel.yaml" "$domain" "$name"
+        _run_one "linkml-validate ($name)" test_linkml_validate "$schema" "$domain" "$name"
         _run_one "gen-proto ($name)"              test_gen_proto             "$schema" "$outdir/$name-schema.proto"
         _run_one "gen-plantuml ($name)"           test_gen_plantuml          "$schema" "$outdir/diagrams/$name.puml" "$outdir/diagrams/$name.svg"
         _run_one "mcp-validate-instance ($name)"  test_mcp_validate_instance "$schema" "$domain" "$name"
@@ -195,9 +256,12 @@ wait_for_tests() {
 # batch-lint.py/batch-validate-instances.py i staden for
 # batch-generate.py-makroane over.
 #
-# Kategori D-steg (convert-rdf, roundtrip-json/roundtrip-ttl, linkml-
-# validate) er IKKJE batcha her — dei køyrer framleis éin gong per skjema
-# i run_schema_tests() sin per-skjema-kjede, uendra frå før.
+# Kategori D (convert-rdf, roundtrip-json/roundtrip-ttl, linkml-validate)
+# ER OGSÅ batcha her — sjå run_phase_a_convert_rdf()/
+# run_phase_a_roundtrip_json()/run_phase_a_roundtrip_ttl()/
+# run_phase_a_linkml_validate() lenger nede, som brukar batch-convert.py
+# (linkml-convert-kall) og batch-linkml-validate.py (linkml.validator
+# .validate()-API direkte).
 # ---------------------------------------------------------------------------
 declare -A PHASE_A_LOG
 
@@ -302,6 +366,160 @@ run_phase_a_mcp_instance() {
     } >> "$LOG"
 }
 
+# Kategori D: convert-rdf, roundtrip-json, roundtrip-ttl (alle batcha via
+# batch-convert.py, sjå den fila sin toppkommentar for grunngjeving) og
+# linkml-validate (batcha via batch-linkml-validate.py). Same
+# jobbliste/TSV-mønster som batch-flatten-and-validate.py etablerte for
+# heterogene jobbar.
+_run_phase_a_convert_batch() {
+    local key="$1" jobs_tsv="$2" label="$3"
+    local logfile
+    logfile=$(mktemp "$LOGDIR/phase_a_${key}_XXXXXX.log")
+    echo "→ Fase A: $label ($(wc -l < "$jobs_tsv") jobb(ar)) ..." >&3
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_tsv" \
+        > "$logfile" 2>&1 || true
+    PHASE_A_LOG[$key]="$logfile"
+    rm -f "$jobs_tsv"
+    {
+        echo "========================================"
+        echo "FASE A: $label  ($(date '+%H:%M:%S'))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
+run_phase_a_convert_rdf() {
+    local prefix="convert-rdf"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local jobs_tsv
+    jobs_tsv=$(mktemp "$LOGDIR/phase_a_convert_rdf_jobs_XXXXXX.tsv")
+    local has_jobs=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name example outdir
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        outdir=$(schema_outdir "$schema")
+        convert_rdf_job "$schema" "$domain" "$name" "$example" || continue
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "ttl" "$outdir/$name-eksempel.ttl" >> "$jobs_tsv"
+        has_jobs=1
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_tsv"
+        return 0
+    fi
+    _run_phase_a_convert_batch convert_rdf "$jobs_tsv" "convert-rdf"
+}
+
+run_phase_a_roundtrip_json() {
+    local prefix="roundtrip-json"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local jobs_tsv
+    jobs_tsv=$(mktemp "$LOGDIR/phase_a_roundtrip_json_jobs_XXXXXX.tsv")
+    local has_jobs=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name example rtdir
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        roundtrip_json_job "$schema" "$domain" "$name" "$example" || continue
+        rtdir="tmp/roundtrip-json/$name"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "json" "$rtdir/a.json" >> "$jobs_tsv"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$rtdir/a.json" "yaml" "$rtdir/b.yaml" >> "$jobs_tsv"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$rtdir/b.yaml" "json" "$rtdir/c.json" >> "$jobs_tsv"
+        has_jobs=1
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_tsv"
+        return 0
+    fi
+    _run_phase_a_convert_batch roundtrip_json "$jobs_tsv" "roundtrip-json"
+}
+
+run_phase_a_roundtrip_ttl() {
+    local prefix="roundtrip-ttl"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local jobs_tsv
+    jobs_tsv=$(mktemp "$LOGDIR/phase_a_roundtrip_ttl_jobs_XXXXXX.tsv")
+    local has_jobs=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name example rtdir
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        roundtrip_ttl_job "$schema" "$domain" "$name" "$example" || continue
+        rtdir="tmp/roundtrip-ttl/$name"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "json" "$rtdir/a.json" >> "$jobs_tsv"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "ttl" "$rtdir/b.ttl" >> "$jobs_tsv"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$rtdir/b.ttl" "yaml" "$rtdir/c.yaml" >> "$jobs_tsv"
+        printf '%s\t%s\t%s\t%s\n' "$schema" "$rtdir/c.yaml" "json" "$rtdir/d.json" >> "$jobs_tsv"
+        has_jobs=1
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_tsv"
+        return 0
+    fi
+    _run_phase_a_convert_batch roundtrip_ttl "$jobs_tsv" "roundtrip-ttl"
+}
+
+run_phase_a_linkml_validate() {
+    local prefix="linkml-validate"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local jobs_tsv
+    jobs_tsv=$(mktemp "$LOGDIR/phase_a_linkml_validate_jobs_XXXXXX.tsv")
+    local has_jobs=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name example validate_schema
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        validate_schema=$(linkml_validate_job "$schema" "$domain" "$name" "$example") || continue
+        printf '%s\t%s\t%s\n' "$schema" "$validate_schema" "$example" >> "$jobs_tsv"
+        has_jobs=1
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_tsv"
+        return 0
+    fi
+    local logfile
+    logfile=$(mktemp "$LOGDIR/phase_a_linkml_validate_XXXXXX.log")
+    echo "→ Fase A: linkml-validate ($(wc -l < "$jobs_tsv") skjema) ..." >&3
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "/work/$jobs_tsv" \
+        > "$logfile" 2>&1 || true
+    PHASE_A_LOG[linkml_validate]="$logfile"
+    rm -f "$jobs_tsv"
+    {
+        echo "========================================"
+        echo "FASE A: linkml-validate  ($(date '+%H:%M:%S'))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
 run_phase_a() {
     run_phase_a_step validate   validate           "validate"
     run_phase_a_step jsonld     gen-jsonld-context  "gen-jsonld"
@@ -316,6 +534,10 @@ run_phase_a() {
     run_phase_a_step plantuml   gen-plantuml        "gen-plantuml"
     run_phase_a_lint
     run_phase_a_mcp_instance
+    run_phase_a_convert_rdf
+    run_phase_a_roundtrip_json
+    run_phase_a_roundtrip_ttl
+    run_phase_a_linkml_validate
 }
 
 # Sjekk om eit gitt skjema feila i Fase A-batchen for ein gjeven generator.
@@ -475,75 +697,35 @@ test_linkml_lint() {
 }
 
 test_linkml_validate() {
-    local schema="$1" example="$2" domain="$3" name="$4"
-    if [ ! -f "$example" ]; then
-        echo "Ingen eksempelfil: $example (hoppar over)"
+    local schema="$1" domain="$2" name="$3"
+    local example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+    local validate_schema
+    if ! validate_schema=$(linkml_validate_job "$schema" "$domain" "$name" "$example"); then
+        if [ ! -f "$example" ]; then
+            echo "Ingen eksempelfil: $example (hoppar over)"
+        else
+            echo "Ingen fixture: tests/fixtures/$name-fixture.yaml (hoppar over)"
+        fi
         return 0
     fi
-    local validate_schema
-    if lacks_tree_root "$domain"; then
-        validate_schema="tests/fixtures/$name-fixture.yaml"
-        if [ ! -f "$validate_schema" ]; then
-            echo "Ingen fixture: $validate_schema (hoppar over)"
-            return 0
-        fi
-    else
-        validate_schema="$schema"
-    fi
-    podman run --rm \
-        -v "$REPO_ROOT:/work" \
-        -w /work \
-        -e PYTHONWARNINGS=ignore \
-        "$LINKML_IMAGE" \
-        linkml validate --schema "$validate_schema" "$example" || return 1
+    phase_a_check linkml_validate "$schema" || return 1
 }
 
 test_roundtrip_json() {
     local schema="$1" example="$2" domain="$3" name="$4"
 
-    if lacks_tree_root "$domain"; then
-        echo "Hoppar over roundtrip-json for $domain (ingen tree_root)"
+    if ! roundtrip_json_job "$schema" "$domain" "$name" "$example"; then
+        if lacks_tree_root "$domain"; then
+            echo "Hoppar over roundtrip-json for $domain (ingen tree_root)"
+        else
+            echo "Ingen eksempelfil: $example (hoppar over)"
+        fi
         return 0
     fi
-    if [ ! -f "$example" ]; then
-        echo "Ingen eksempelfil: $example (hoppar over)"
-        return 0
-    fi
+    phase_a_check roundtrip_json "$schema" || return 1
 
-    local tmp_json tmp_rt_yaml tmp_rt_json
-    tmp_json=$(mktemp "$REPO_ROOT/tmp/rt_json_XXXXXX.json")
-    tmp_rt_yaml=$(mktemp "$REPO_ROOT/tmp/rt_yaml_XXXXXX.yaml")
-    tmp_rt_json=$(mktemp "$REPO_ROOT/tmp/rt_json2_XXXXXX.json")
-
-    # Steg 1: yaml → json
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format json \
-            --no-validate --output "tmp/$(basename "$tmp_json")" "$example" \
-        || { echo "yaml→json feila"; rm -f "$tmp_json" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 2: json → yaml
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format yaml \
-            --no-validate --output "tmp/$(basename "$tmp_rt_yaml")" "tmp/$(basename "$tmp_json")" \
-        || { echo "json→yaml feila"; rm -f "$tmp_json" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 3: yaml → json (kanonisk form av roundtrip-resultatet)
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format json \
-            --no-validate --output "tmp/$(basename "$tmp_rt_json")" "tmp/$(basename "$tmp_rt_yaml")" \
-        || { echo "rt-yaml→json feila"; rm -f "$tmp_json" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 4: samanlikn JSON som Python-dict (key-rekkefølgje-uavhengig)
-    python3 - "$tmp_json" "$tmp_rt_json" << 'PYEOF'
+    local rtdir="tmp/roundtrip-json/$name"
+    python3 - "$rtdir/a.json" "$rtdir/c.json" << 'PYEOF'
 import json, sys
 a = json.load(open(sys.argv[1]))
 b = json.load(open(sys.argv[2]))
@@ -555,83 +737,30 @@ if a != b:
     sys.exit(1)
 print("Roundtrip OK")
 PYEOF
-    local rc=$?
-    rm -f "$tmp_json" "$tmp_rt_yaml" "$tmp_rt_json"
-    return $rc
 }
 
 test_roundtrip_ttl() {
     local schema="$1" example="$2" domain="$3" name="$4"
 
-    if lacks_tree_root "$domain"; then
-        echo "Hoppar over roundtrip-ttl for $domain (ingen tree_root)"
+    if ! roundtrip_ttl_job "$schema" "$domain" "$name" "$example"; then
+        if lacks_tree_root "$domain"; then
+            echo "Hoppar over roundtrip-ttl for $domain (ingen tree_root)"
+        elif [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || "$name" == "ngr-virksomhet" ]]; then
+            echo "Hoppar over roundtrip-ttl for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
+        elif [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" || \
+                "$name" == "digdir-modellkatalog" || "$name" == "novari-modellkatalog" || \
+                "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
+                "$name" == "kartverket-modellkatalog" ]]; then
+            echo "Hoppar over roundtrip-ttl for $name (BUG-1: linkml-runtime LangString-bug)"
+        else
+            echo "Ingen eksempelfil: $example (hoppar over)"
+        fi
         return 0
     fi
-    # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
-    # Sjå bugs/inlined-as-list-rdflib-roundtrip.md
-    if [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || \
-          "$name" == "ngr-virksomhet" ]]; then
-        echo "Hoppar over roundtrip-ttl for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
-        return 0
-    fi
-    # BUG-1: rdflib_loader rekonstruerer ikkje LangString-verdiar frå TTL
-    # Sjå bugs/langstring-rdflib-roundtrip.md
-    if [[ "$name" == "brreg-begrepskatalog" || "$name" == "brreg-modellkatalog" || \
-          "$name" == "digdir-modellkatalog" || "$name" == "novari-modellkatalog" || \
-          "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
-          "$name" == "kartverket-modellkatalog" ]]; then
-        echo "Hoppar over roundtrip-ttl for $name (BUG-1: linkml-runtime LangString-bug)"
-        return 0
-    fi
-    if [ ! -f "$example" ]; then
-        echo "Ingen eksempelfil: $example (hoppar over)"
-        return 0
-    fi
+    phase_a_check roundtrip_ttl "$schema" || return 1
 
-    local tmp_json tmp_ttl tmp_rt_yaml tmp_rt_json
-    tmp_json=$(mktemp "$REPO_ROOT/tmp/rt_ttl_json_XXXXXX.json")
-    tmp_ttl=$(mktemp "$REPO_ROOT/tmp/rt_XXXXXX.ttl")
-    tmp_rt_yaml=$(mktemp "$REPO_ROOT/tmp/rt_ttl_yaml_XXXXXX.yaml")
-    tmp_rt_json=$(mktemp "$REPO_ROOT/tmp/rt_ttl_json2_XXXXXX.json")
-
-    # Steg 1: yaml → json (referanse)
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format json \
-            --no-validate --output "tmp/$(basename "$tmp_json")" "$example" \
-        || { echo "yaml→json feila"; rm -f "$tmp_json" "$tmp_ttl" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 2: yaml → ttl
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format ttl \
-            --no-validate --output "tmp/$(basename "$tmp_ttl")" "$example" \
-        || { echo "yaml→ttl feila"; rm -f "$tmp_json" "$tmp_ttl" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 3: ttl → yaml
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format yaml \
-            --no-validate --output "tmp/$(basename "$tmp_rt_yaml")" "tmp/$(basename "$tmp_ttl")" \
-        || { echo "ttl→yaml feila"; rm -f "$tmp_json" "$tmp_ttl" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 4: rt-yaml → json (kanonisk form)
-    podman run --rm \
-        -v "$REPO_ROOT:/work" -w /work \
-        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
-        "$LINKML_IMAGE" \
-        linkml-convert --schema "$schema" --output-format json \
-            --no-validate --output "tmp/$(basename "$tmp_rt_json")" "tmp/$(basename "$tmp_rt_yaml")" \
-        || { echo "rt-yaml→json feila"; rm -f "$tmp_json" "$tmp_ttl" "$tmp_rt_yaml" "$tmp_rt_json"; return 1; }
-
-    # Steg 5: samanlikn JSON som Python-dict (sorter lister med id-felt — RDF er uordna)
-    python3 - "$tmp_json" "$tmp_rt_json" << 'PYEOF'
+    local rtdir="tmp/roundtrip-ttl/$name"
+    python3 - "$rtdir/a.json" "$rtdir/d.json" << 'PYEOF'
 import json, sys
 def sort_lists(obj):
     if isinstance(obj, dict):
@@ -652,48 +781,26 @@ if a != b:
     sys.exit(1)
 print("Roundtrip OK")
 PYEOF
-    local rc=$?
-    rm -f "$tmp_json" "$tmp_ttl" "$tmp_rt_yaml" "$tmp_rt_json"
-    return $rc
 }
 
 test_convert_rdf() {
     local schema="$1" outfile="$2" example="$3" domain="$4"
-    if lacks_tree_root "$domain"; then
-        echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
-        return 0
-    fi
-    # Respekter example_rdf: false i generate.yaml
-    local gen_yaml
-    gen_yaml="$(dirname "$schema")/generate.yaml"
-    if [ -f "$gen_yaml" ] && grep -q "^  example_rdf: false" "$gen_yaml"; then
-        echo "Hoppar over convert-rdf for $(schema_name "$schema") (example_rdf: false)"
-        return 0
-    fi
-    # BUG-2: rdflib_loader feiler på inlined_as_list + identifier: true
-    # Sjå bugs/inlined-as-list-rdflib-roundtrip.md
     local name
     name=$(schema_name "$schema")
-    if [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || "$name" == "ngr-virksomhet" ]]; then
-        echo "Hoppar over convert-rdf for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
+    if ! convert_rdf_job "$schema" "$domain" "$name" "$example"; then
+        local build_yaml="$(dirname "$schema")/build.yaml"
+        if lacks_tree_root "$domain"; then
+            echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
+        elif [ -f "$build_yaml" ] && grep -q "^  example_rdf: false" "$build_yaml"; then
+            echo "Hoppar over convert-rdf for $name (example_rdf: false)"
+        elif [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || "$name" == "ngr-virksomhet" ]]; then
+            echo "Hoppar over convert-rdf for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
+        else
+            echo "Ingen eksempelfil: $example (hoppar over)"
+        fi
         return 0
     fi
-    if [ ! -f "$example" ]; then
-        echo "Ingen eksempelfil: $example (hoppar over)"
-        return 0
-    fi
-    mkdir -p "$(dirname "$outfile")"
-    podman run --rm \
-        -v "$REPO_ROOT:/work" \
-        -w /work \
-        -e PYTHONWARNINGS=ignore \
-        "$LINKML_IMAGE" \
-        linkml-convert \
-            --schema "$schema" \
-            --output-format ttl \
-            --no-validate \
-            --output "$outfile" \
-            "$example" || return 1
+    phase_a_check convert_rdf "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
