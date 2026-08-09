@@ -32,13 +32,30 @@ Scriptet opprettar:
 
 ---
 
-## AP-NO-skjema-URL-ar
+## Skjema-URL-ar og versjonering {: #versjonerte-artefakter }
 
-Alle AP-NO-profilar er tilgjengelege via GitHub Raw med versjon-tag eller `main`:
+Alle skjema i dette repoet er tilgjengelege via GitHub Raw med ein
+versjon-tag eller `main`:
 
 ```
-https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/{versjon}/src/linkml/ap-no/{profil}/{profil}-schema.yaml
+https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/{versjon}/{sti}
 ```
+
+GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`)
+peikar alltid til siste versjon på `main`. For ein **stabil, versjonert
+adresse** til ein historisk versjon — t.d. for import frå eit eksternt
+repo — bruk i staden:
+
+- **[GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases)** (anbefalt) — kanonisk adresse for eldre versjonar
+- **`raw.githubusercontent.com`-URL med tag**, som over
+
+!!! tip "Anbefaling"
+    Bruk alltid ein **skjema-spesifikk versjon-tag** (t.d. `dcat-ap-no-v2.13.0`, `common-ap-no-v1.0.0`) i imports — aldri `main` eller `latest` — for å unngå overraskande endringer når dette repoet vert oppdatert.
+
+!!! warning "Skjema-spesifikke taggar"
+    Generelle release-taggar (`v1.0.0`, `v1.1.0`) peikar til ein spesifikk commit, men garanterer **ikkje** at alle skjemafiler finst i den commiten. Bruk **skjema-spesifikke taggar** (t.d. `dcat-ap-no-v2.13.0`, `common-ap-no-v1.0.0`) for stabile import-URL-ar.
+
+### AP-NO-profilar
 
 | Profil | Import-URL (`versjon`) | Brukstilfelle |
 |---|---|---|
@@ -58,31 +75,8 @@ Døme på importdel i eit eksternt skjema:
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.8.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
-
----
-
-## Versjonerte artefakter
-
-GitHub Pages-URL-ar (`https://brreg.github.io/linkml-datamodellering-no/...`) peikar alltid til siste versjon på `main`. For ein **stabil, versjonert adresse** til ein historisk versjon — t.d. for import frå eit eksternt repo — bruk:
-
-- **[GitHub Releases](https://github.com/brreg/linkml-datamodellering-no/releases)** (anbefalt) — kanonisk adresse for eldre versjonar
-- **`raw.githubusercontent.com`-URL med tag** — `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/<tag>/<sti>`
-
-Døme på import med versjonert URL:
-
-```yaml
-imports:
-  - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.8.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
-```
-
-!!! tip "Anbefaling"
-    Bruk alltid ein **skjema-spesifikk versjon-tag** (t.d. `dcat-ap-no-v2.8.0`, `common-ap-no-v1.0.0`) i imports — aldri `main` eller `latest` — for å unngå overraskande endringer når dette repoet vert oppdatert.
-
-!!! warning "Skjema-spesifikke taggar"
-    Generelle release-taggar (`v1.0.0`, `v1.1.0`) peikar til ein spesifikk commit, men garanterer **ikkje** at alle skjemafiler finst i den commiten. Bruk **skjema-spesifikke taggar** (t.d. `dcat-ap-no-v2.8.0`, `common-ap-no-v1.0.0`) for stabile import-URL-ar.
 
 ---
 
