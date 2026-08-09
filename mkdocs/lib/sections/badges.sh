@@ -17,6 +17,33 @@ generate_badges() {
     local version=$(grep "^| Versjon" "$gendoc_index" | sed 's/.*| \([^ ]*\) |/\1/' | head -1)
     local status=$(grep "^| Status" "$gendoc_index" | sed 's|.*status/\([^)]*\).*|\1|' | head -1)
     local license=$(grep "^| Lisens" "$gendoc_index" | sed 's|.*/nlod/no/\([0-9.]*\).*|\1|' | head -1)
+    local endringsdato=$(grep "^| Endringsdato" "$gendoc_index" | sed 's/^| Endringsdato | \(.*\) |$/\1/' | head -1)
+    local utgiver_uri=$(grep "^| Utgjevar" "$gendoc_index" | sed -n 's/^| Utgjevar | \[\(https:[^]]*\)\].*/\1/p' | head -1)
+
+    # Slå opp organisasjonsnamn i CODEOWNERS.md ved å matche org_uri mot utgiver-URI-en
+    local utgiver_navn=""
+    if [ -n "$utgiver_uri" ] && [ -f "$REPO_ROOT/CODEOWNERS.md" ]; then
+        utgiver_navn=$(python3 - "$utgiver_uri" "$REPO_ROOT/CODEOWNERS.md" <<'PYEOF' 2>/dev/null
+import re
+import sys
+
+import yaml
+
+utgiver_uri, codeowners_file = sys.argv[1], sys.argv[2]
+
+with open(codeowners_file, "r") as f:
+    content = f.read()
+
+match = re.search(r'^```yaml\n(.*?)\n```', content, re.MULTILINE | re.DOTALL)
+if match:
+    data = yaml.safe_load(match.group(1))
+    for org in data.get('organizations', []):
+        if org.get('org_uri', '') == utgiver_uri:
+            print(org['name'])
+            break
+PYEOF
+) || utgiver_navn=""
+    fi
 
     # Valideringsstatus
     local validation_json=$(get_validation_json_path "$domain" "$schema")
@@ -58,6 +85,13 @@ generate_badges() {
     echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
     echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
     [ -n "$license" ] && echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
+    if [ -n "$utgiver_navn" ]; then
+        local utgiver_encoded="${utgiver_navn// /_}"
+        utgiver_encoded="${utgiver_encoded//-/--}"
+        echo "[![Utgiver](https://img.shields.io/badge/utgiver-${utgiver_encoded}-blue)]()"
+    fi
+    local endringsdato_encoded="${endringsdato//-/--}"
+    [ -n "$endringsdato" ] && echo "[![Endringsdato](https://img.shields.io/badge/endringsdato-${endringsdato_encoded}-blue)]()"
     echo ""
     echo ""
 }

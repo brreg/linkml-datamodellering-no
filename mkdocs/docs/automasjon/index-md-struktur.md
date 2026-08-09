@@ -210,12 +210,13 @@ Kvart domene (t.d. `mkdocs/docs/fint/index.md`, vist som "FINT - Fylkeskommunale
 ## Sannkjelde-hierarki
 
 ```
-src/linkml/<domain>/description.md                 ← SANNKJELDE for domene-skildring (valfri)
+src/linkml/<domain>/description.md                  ← SANNKJELDE for domene-skildring (valfri)
 src/linkml/<domain>/<schema>/<schema>-schema.yaml   ← SANNKJELDE for metadata, klasser, slots
-src/linkml/<domain>/<schema>/build.yaml          ← SANNKJELDE for generators + validation_policy
-src/linkml/<domain>/<schema>/description.md         ← SANNKJELDE for introduksjonstekst
-src/linkml/<domain>/<schema>/examples/              ← SANNKJELDE for eksempel
+src/linkml/<domain>/<schema>/build.yaml             ← SANNKJELDE for generators + validation_policy
+src/linkml/<domain>/<schema>/description.md         ← SANNKJELDE for introduksjonstekst (valfri)
+src/linkml/<domain>/<schema>/examples/              ← SANNKJELDE for eksempel (valfri)
 src/linkml/<domain>/<schema>/CHANGELOG.md           ← SANNKJELDE for versjonslog
+CODEOWNERS.md                                       ← SANNKJELDE for utgiver        
   ↓
 generated/<domain>/<schema>/                        ← Mellomlagring (gen-doc, PlantUML osv.)
   ↓
