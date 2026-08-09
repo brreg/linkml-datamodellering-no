@@ -33,7 +33,9 @@ generate_submodel_box() {
         return 0
     fi
 
-    local parent_title=$(python3 -c "import yaml; d=yaml.safe_load(open('$parent_schema')); print(d.get('title', d.get('name', '$parent')))" 2>/dev/null || echo "$parent")
+    local parent_title
+    parent_title=$(python3 -c "import yaml; d=yaml.safe_load(open('$parent_schema')); print(d.get('title', d.get('name', '$parent')))" 2>&1) \
+        || { echo "ÅTVARING: kunne ikkje lese title frå $parent_schema — bruker '$parent' ($parent_title)" >&2; parent_title="$parent"; }
 
     echo "!!! info \"Delmodell\""
     echo "    Denne modellen er ein delmodell av [${parent_title}](../${parent}/)."
@@ -64,8 +66,12 @@ generate_submodels_section() {
             continue
         fi
 
-        local sub_title=$(python3 -c "import yaml; d=yaml.safe_load(open('$sub_schema')); print(d.get('title', d.get('name', '$sub')))" 2>/dev/null || echo "$sub")
-        local sub_desc=$(python3 -c "import yaml; d=yaml.safe_load(open('$sub_schema')); desc=d.get('description', ''); print(desc.split('.')[0] if desc else '')" 2>/dev/null || echo "")
+        local sub_title
+        sub_title=$(python3 -c "import yaml; d=yaml.safe_load(open('$sub_schema')); print(d.get('title', d.get('name', '$sub')))" 2>&1) \
+            || { echo "ÅTVARING: kunne ikkje lese title frå $sub_schema — bruker '$sub' ($sub_title)" >&2; sub_title="$sub"; }
+        local sub_desc
+        sub_desc=$(python3 -c "import yaml; d=yaml.safe_load(open('$sub_schema')); desc=d.get('description', ''); print(desc.split('.')[0] if desc else '')" 2>&1) \
+            || { echo "ÅTVARING: kunne ikkje lese description frå $sub_schema ($sub_desc)" >&2; sub_desc=""; }
 
         if [ -n "$sub_desc" ]; then
             # Fjern linjeskift og forkorta til første setning

@@ -416,7 +416,14 @@
       "Bash(mv arkitektur-oversikt.md importhierarki.md valideringsregler.md ap-no-arkitektur.md ekstern-bruk.md arkitektur/)",
       "Bash(mv publisering-oversikt.md publisering-begrep.md publisering-modell.md publisering/)",
       "Bash(mv artefakt-generering.md index-md-struktur.md modellmanifest-generering.md readme-tabellgenerering.md monitorering.md automasjon/)",
-      "Bash(mount)"
+      "Bash(mount)",
+      "Bash(LOGLVL=DEBUG make validate-data DOMAIN=modellkatalog)",
+      "Bash(make validate-data *)",
+      "Bash(echo \"REAL EXIT CODE: $?\")",
+      "Bash(LOGLVL=DEBUG make validate-bronze DOMAIN=fair)",
+      "Bash(sed -e 's/^\\\\t@\\\\?//' -e 's/\\\\$\\\\$/\\\\$/g')",
+      "Bash(sed -i 's/\\\\$\\(SCHEMA_DIR\\)/SCHEMA_DIR/g; s/\\\\$\\(DOMAIN\\)/DOMAIN/g; s/\\\\$\\(PYTHON_RUN\\)/PYTHON_RUN/g; s/\\\\$\\(CLR_STEP\\)/CLR_STEP/g; s/\\\\$\\(CLR_RST\\)/CLR_RST/g; s/\\\\$\\(CLR_WARN\\)/CLR_WARN/g; s/\\\\$\\(LINKML_IMAGE\\)/LINKML_IMAGE/g' /tmp/ve_test.sh)",
+      "Bash(LOGLVL=INFO make validate-examples DOMAIN=fair)"
     ]
   },
   "enableAllProjectMcpServers": true,

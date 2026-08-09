@@ -23,7 +23,8 @@ def _list_profiles() -> list:
             with open(path, encoding="utf-8") as f:
                 data = yaml.safe_load(f) or {}
             profiles.append({"name": path.stem, "description": data.get("description", "")})
-        except Exception:
+        except Exception as e:
+            print(f"ÅTVARING: kunne ikkje lese profil {path} — {e}", file=sys.stderr)
             profiles.append({"name": path.stem, "description": ""})
     return profiles
 

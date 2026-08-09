@@ -251,7 +251,10 @@ for manifest_file in $(find "$REPO_ROOT/src/linkml" -name build.yaml); do
     domain=$(basename "$(dirname "$schema_dir")")
 
     # Les submodels-lista frå manifest (bruk komma som skiljetegn for å unngå konflikt med mellomrom i serialisering)
-    submodels=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$manifest_file')); print(','.join(d.get('submodels', [])))" 2>/dev/null || echo "")
+    if ! submodels=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$manifest_file')); print(','.join(d.get('submodels', [])))" 2>&1); then
+        echo "ÅTVARING: kunne ikkje lese submodels frå $manifest_file — hoppar over ($submodels)" >&2
+        submodels=""
+    fi
 
     if [ -n "$submodels" ]; then
         SCHEMA_SUBMODELS_TMP["$schema"]="$submodels"

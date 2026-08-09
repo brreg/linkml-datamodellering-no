@@ -5,6 +5,7 @@ Offentleg API:
   validate_generated(linkml_yaml: str) → dict
 """
 
+import sys
 import tempfile
 from pathlib import Path
 
@@ -45,8 +46,8 @@ def _build_dummy_instance(sv, class_name: str) -> dict:
             if slot.required or slot.identifier:
                 range_str = str(slot.range or "string")
                 instance[slot.name] = _placeholder(range_str)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"ÅTVARING: kunne ikkje byggje dummy-instans for {class_name} — {e}", file=sys.stderr)
     return instance
 
 

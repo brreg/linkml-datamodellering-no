@@ -53,8 +53,8 @@ ifdef DOMAIN
 	trap 'rm -rf "$$BATCH_DIR"' EXIT; \
 	log_debug "Kommando: batch-flatten-and-validate.py --policy bronze ($$COUNT skjema, domain $(DOMAIN))"; \
 	t0=$$(date +%s%3N); \
-	python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --policy bronze \
-		--output-dir "$$BATCH_DIR" $$SCHEMA_LIST 2>/dev/null; \
+	run_logged "batch-flatten-and-validate/bronze $(DOMAIN)" python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --policy bronze \
+		--output-dir "$$BATCH_DIR" $$SCHEMA_LIST; \
 	t1=$$(date +%s%3N); \
 	ms=$$(( t1 - t0 )); \
 	log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s  (%d skjema, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
@@ -62,8 +62,8 @@ ifdef DOMAIN
 	while IFS= read -r schema; do \
 		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
 		log_debug "$$result"; \
-		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type bronze --result "$$result" < /dev/null 2>/dev/null || true; \
+		run_logged "save-validation-log/bronze $$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
+			--schema "$$schema" --type bronze --result "$$result" < /dev/null; \
 		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
 			FAILED=$$((FAILED + 1)); \
 		fi; \
@@ -78,6 +78,8 @@ endif
 validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domain>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
+	set +e; \
+	FAILED=0; \
 	DATADIRS=$$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); \
 	if [ -z "$$DATADIRS" ]; then \
 		log_info "Ingen datafiler funne for DOMAIN=$(DOMAIN)"; \
@@ -105,8 +107,8 @@ ifdef DOMAIN
 	COUNT=$$(wc -l < "$$JOBS_TSV"); \
 	log_debug "Kommando: batch-flatten-and-validate.py --jobs-tsv ($$COUNT datafiler, domain $(DOMAIN))"; \
 	t0=$$(date +%s%3N); \
-	python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --jobs-tsv "$$JOBS_TSV" \
-		--output-dir "$$BATCH_DIR" 2>/dev/null; \
+	run_logged "batch-flatten-and-validate/data $(DOMAIN)" python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --jobs-tsv "$$JOBS_TSV" \
+		--output-dir "$$BATCH_DIR"; \
 	t1=$$(date +%s%3N); \
 	ms=$$(( t1 - t0 )); \
 	log_info "$$(printf '$(CLR_STEP)→ validate-data  %s  (%d datafiler, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
@@ -115,10 +117,15 @@ ifdef DOMAIN
 		catalog=$$(basename "$$datafile" .yaml); \
 		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
 		log_debug "$$result"; \
-		$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type "data-$$catalog" --result "$$result" 2>/dev/null || true; \
+		if echo "$$result" | grep -Eq '"valid"[[:space:]]*:[[:space:]]*false'; then \
+			FAILED=$$((FAILED + 1)); \
+			log_error "::error file=$$datafile::Validering feila ($$catalog): $$result"; \
+		fi; \
+		run_logged "save-validation-log/data $$catalog" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
+			--schema "$$schema" --type "data-$$catalog" --result "$$result" < /dev/null; \
 		i=$$((i + 1)); \
-	done < "$$JOBS_TSV"
+	done < "$$JOBS_TSV"; \
+	exit $$FAILED
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>"
 	@exit 1
@@ -174,8 +181,8 @@ ifdef DOMAIN
 			else \
 				result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
 			fi; \
-			$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-				--schema "$$schema" --type examples --result "$$result_json" < /dev/null 2>/dev/null || true; \
+			run_logged "save-validation-log/examples $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
+				--schema "$$schema" --type examples --result "$$result_json" < /dev/null; \
 			[ "$$has_error" = "true" ] && exit 1 || exit 0; \
 		) & \
 		PIDS+=($$!); \
@@ -201,7 +208,7 @@ endif
 
 mcp-linkml-valider-modell: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-valider-modell SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1; }
-	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" 2>/dev/null || echo "bronze"); \
+	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
 	$(MAKE) --no-print-directory _mcp-valider-modell-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
 

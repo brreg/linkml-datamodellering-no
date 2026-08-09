@@ -54,14 +54,17 @@ PYEOF
 
     if [ -f "$validation_json" ]; then
         # Støtt både errorCount (ny camelCase) og error_count (gamal snake_case)
-        local errors=$(python3 -c "import json; d=json.load(open('$validation_json')); r=d.get('result', {}); print(r.get('errorCount', r.get('error_count', 0)))" 2>/dev/null || echo "0")
-        [ -z "$errors" ] && errors="0"
-        if [ "$errors" -eq 0 ]; then
-            val_status="✓_godkjent"
-            val_color="green"
+        local errors
+        if errors=$(python3 -c "import json; d=json.load(open('$validation_json')); r=d.get('result', {}); print(r.get('errorCount', r.get('error_count', 0)))" 2>&1) && [ -n "$errors" ]; then
+            if [ "$errors" -eq 0 ]; then
+                val_status="✓_godkjent"
+                val_color="green"
+            else
+                val_status="${errors}_feil"
+                val_color="yellow"
+            fi
         else
-            val_status="${errors}_feil"
-            val_color="yellow"
+            echo "ÅTVARING: kunne ikkje lese valideringsresultat frå $validation_json — behelt status 'ukjent' ($errors)" >&2
         fi
     fi
 

@@ -27,7 +27,7 @@ d = yaml.safe_load(open('$manifest')) or {}
 print('policy=' + str(d.get('validation_policy', 'bronze')))
 print('external_spec_url=' + str(d.get('external_spec_url', '')))
 print('external_spec_label=' + str(d.get('external_spec_label', '')))
-" 2>/dev/null) || result=""
+" 2>&1) || { echo "ÅTVARING: kunne ikkje lese $manifest — bruker default-verdiar ($result)" >&2; result=""; }
 
     export MANIFEST_CACHE_POLICY="bronze"
     export MANIFEST_CACHE_EXTERNAL_SPEC_URL=""
@@ -51,7 +51,13 @@ get_validation_policy() {
         return
     fi
     [ ! -f "$manifest" ] && echo "bronze" && return
-    python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>/dev/null || echo "bronze"
+    local policy
+    if policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>&1); then
+        echo "$policy"
+    else
+        echo "ÅTVARING: kunne ikkje lese validation_policy frå $manifest — bruker bronze ($policy)" >&2
+        echo "bronze"
+    fi
 }
 
 get_latest_validation_version() {
