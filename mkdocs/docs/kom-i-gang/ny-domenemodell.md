@@ -10,7 +10,7 @@
 
 ```bash
 make check-prereqs
-make linkml-build-docker && make python-build-docker && make mcp-val-build
+make build-docker-linkml && make build-docker-python && make build-docker-mcp-validator
 ```
 
 ## 1a. — Scaffold

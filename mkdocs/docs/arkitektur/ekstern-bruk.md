@@ -40,14 +40,14 @@ Alle AP-NO-profilar er tilgjengelege via GitHub Raw med versjon-tag eller `main`
 https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/{versjon}/src/linkml/ap-no/{profil}/{profil}-schema.yaml
 ```
 
-| Profil | Import-URL (`main`) | Brukstilfelle |
+| Profil | Import-URL (`versjon`) | Brukstilfelle |
 |---|---|---|
-| `dcat-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema` | Datakatalogar og datasett |
-| `skos-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/skos-ap-no/skos-ap-no-schema` | Omgrepsamlingar |
-| `modelldcat-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema` | Informasjonsmodellar |
-| `dqv-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema` | Datakvalitet |
-| `cpsv-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema` | Offentlege tenester og hendingar |
-| `xkos-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema` | Utvida klassifikasjon |
+| `dcat-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema` | Datakatalogar og datasett |
+| `skos-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/skos-ap-no-v2.16.0/src/linkml/ap-no/skos-ap-no/skos-ap-no-schema` | Omgrepsamlingar |
+| `modelldcat-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/modelldcat-ap-no-v1.10.0/src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema` | Informasjonsmodellar |
+| `dqv-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dqv-ap-no-v1.15.0/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema` | Datakvalitet |
+| `cpsv-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/cpsv-ap-no-v1.10.0/src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema` | Offentlege tenester og hendingar |
+| `xkos-ap-no` | `https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/xkos-ap-no-v1.0.0/src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema` | Utvida klassifikasjon |
 
 !!! note "`.yaml`-ending er valfri"
     LinkML løyser importer utan filending — begge variantar fungerer:
@@ -197,14 +197,36 @@ og brukar GitHub Releases som kjelde:
 
 ## Lokal utvikling
 
+### 0 — Sjekk føresetnader
+
+Før du køyrer podman-eksempla under, sjekk at Podman (rootless), user
+namespace-mapping og diskplass er korrekt konfigurert:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/assets/scripts/makefile/check-prereqs.bash | bash
+```
+
+Scriptet krev ingen tilgang til dette repoet sin Makefile eller
+katalogstruktur — det sjekkar berre systemføresetnader (Git, Podman,
+Podman rootless, `/etc/subuid`/`/etc/subgid`, diskplass) og fungerer difor
+identisk i eit eksternt repo.
+
+### 1 — Valider og generer artefakter
+
 Container-imagene er offentleg tilgjengelege frå GHCR — ingen innlogging er nødvendig:
 
 ```bash
-# Valider skjema lokalt
+# Strukturvalidering (fail-fast, ingen fil skriven)
 podman run --rm \
   -v "$(pwd):/work" -w /work \
   ghcr.io/brreg/linkml-local:latest \
-  gen-linkml --validate src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
+  gen-linkml src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
+
+# Stilsjekk (namnekonvensjonar, URI-ar, obligatoriske felt)
+podman run --rm \
+  -v "$(pwd):/work" -w /work \
+  ghcr.io/brreg/linkml-local:latest \
+  linkml lint src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
 
 # Generer JSON Schema
 podman run --rm \
@@ -214,3 +236,27 @@ podman run --rm \
 ```
 
 Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap-no-v2.8.0`, …)
+
+!!! note "`linkml lint` utan `--config` bruker eit anna regelsett enn CI"
+    Dette repoet sin eigen lint-config
+    ([`.linkmllint.yaml`](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/assets/containers/.linkmllint.yaml))
+    slår av `standard_naming`-regelen (som elles forventar engelske
+    namnekonvensjonar, i konflikt med norsk bokmål-namngjeving). Utan denne
+    configen brukar `linkml lint` sitt eige standardregelsett. For
+    identisk åtferd med CI, hent configen og legg til `--config
+    .linkmllint.yaml` i kallet over.
+
+!!! warning "Policy-validering (bronze/silver/gold) krev meir enn éin podman-kommando lokalt"
+    `make mcp-linkml-valider-modell` (sjå [Rettleiing: ny domenemodell](../kom-i-gang/ny-domenemodell.md#3-valider-undervegs))
+    brukar `ghcr.io/brreg/mcp-linkml-validator` — biletet **er** offentleg
+    tilgjengeleg, men i motsetnad til `gen-linkml`/`linkml lint` over held
+    det ikkje å montere skjemaet inn: sjølve valideringslogikken vert
+    styrt av `flatten-and-validate.bash` og `policies/`-katalogen, som må
+    hentast frå dette repoet og monterast inn saman med biletet (sjå
+    `src/mcp-linkml-validator/flatten-and-validate.bash`). `gen-linkml`/
+    `linkml lint` over dekkjer strukturvalidering og stilsjekk direkte;
+    for full bronze/silver/gold-policy (`begrepsidentifikator`,
+    `annotations.utgiver` osv.) er GitHub Actions-workflowen frå
+    [Bootstrap](#bootstrap-ein-kommando) den enklaste vegen — han hentar
+    desse støttefilene og køyrer full policy-validering automatisk via
+    `reusable-validate.yml`.
