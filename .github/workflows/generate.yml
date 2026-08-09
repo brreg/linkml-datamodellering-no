@@ -431,6 +431,16 @@ jobs:
           podman pull "$GHCR_TAG"
           podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
 
+      - name: Last python-pytest image frå GHCR
+        # mkdocs/publish.sh (via mkdocs/lib/utils/python_container.sh) køyrer
+        # YAML-oppslag i denne kontaineren i staden for python3 direkte på
+        # runneren — sjå specs/done/nye-host-python-kall-batching.md (Funn 3).
+        run: |
+          GHCR_TAG="ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
+          echo "Lastar python-pytest frå GHCR: $GHCR_TAG"
+          podman pull "$GHCR_TAG"
+          podman tag "$GHCR_TAG" localhost/python-pytest:latest
+
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
         env:

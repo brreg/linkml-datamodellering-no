@@ -422,5 +422,37 @@ sin implisitte `set -eo pipefail` for `run:`-steg.
   `git checkout --` sidan det er urelatert til denne spec-en. Ingen andre
   avvik i nokon av dei ni domena.
 
-Alle steg i spec-en er fullførte (steg 1-9). Ingen ytterlegare oppfølging i
-`bugs/` naudsynt.
+**Oppfølging (2026-08-09, etter første CI-køyring):** `make docs-publish`
+feila i `.github/workflows/generate.yml` sin `publish`-jobb med gjentekne
+`ÅTVARING: kunne ikkje lese submodels ... (... pinging container registry
+localhost: dial tcp [::1]:443: connect: connection refused)`. Rotårsak: lokal
+testing skjedde med `localhost/python-pytest:latest` alt bygd i podman sitt
+image-lager, men **kvar CI-jobb køyrer på ein separat, tom runner-VM** —
+podman sitt image-lager delast ikkje mellom jobbar. `publish`-jobben
+(`needs: [generate, checkout-source]`) har sin eigen, avgrensa
+image-innlastingslogikk (berre eit "Last mkdocs-local image frå GHCR"-steg,
+sidan det historisk var einaste image `docs-publish`/`docs-build` trong) —
+i motsetnad til `generate`-jobben, som brukar ein generell
+"detect-images"/pull-images-composite-action og alt korrekt lastar
+`python-pytest` (`always_required: true` i `images.json`, difor uavhengig av
+domene). Fiksen containeriserte kall som no krev `python-pytest` i
+`publish`-jobben, men jobben fekk aldri eit tilsvarande pull-steg.
+
+**Fiks:** la til eit "Last python-pytest image frå GHCR"-steg i
+`publish`-jobben (`.github/workflows/generate.yml`, rett etter det
+eksisterande mkdocs-local-steget), med identisk mønster
+(`podman pull` + `podman tag ... localhost/python-pytest:latest`) og
+identisk GHCR-tag-utrekning (`hashFiles('src/assets/containers/Dockerfile.python',
+'src/assets/containers/requirements-python-test.txt')`) som `checkout-source`
+sitt `image-tags`-steg alt brukar for same image. `actionlint` køyrt på nytt
+mot `generate.yml` — ingen nye `[expression]`-feil (same to
+pre-eksisterande `[shellcheck]`-funn som før, urelaterte linjer 177/339).
+Kunne ikkje fullt ut reproduserast lokalt (krev faktisk GHCR-autentisering
+og separate, tomme runner-VM-ar), men tag-mønsteret er verifisert identisk
+med det alt fungerande `mkdocs-local`-steget og med `ensure-images`-jobben
+sin biletbygging — same `always_required: true`-image, same
+hash-input-kombinasjon.
+
+Alle steg i spec-en er fullførte (steg 1-9), inkludert oppfølgingsfiksen for
+CI-image-tilgjenge. Ingen ytterlegare oppfølging i `bugs/` naudsynt utover
+denne spec-en sin eigen dokumentasjon av funnet.

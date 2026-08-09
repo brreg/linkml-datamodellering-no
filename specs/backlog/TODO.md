@@ -101,6 +101,15 @@ Modellere FINT Felles (mangler i dag)
 
 
 
+arkitektur/valideringsregler.md:
+valideringsreglar tabell "Nivå for skjemakvalitet" skal lenke til respektive overskrifter for kvar valideringsregel (bronze, silver, gold) i same dokumentet.
+Publiseringspolicyer må ha ein tabell tilsvarande "Nivå for skjemakvalitet" tabellen som listar opp alle publiseringspolicyane.
+Kvar publiseringspolicy skal dokumenterast som ein tabell på tilsvarande måte som kvar av kvalitetspolicyane.
+
+
+
+skal vi fjærne parallellisering flagget?
+
 
 
 
