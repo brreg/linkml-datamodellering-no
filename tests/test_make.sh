@@ -165,6 +165,78 @@ wait_for_tests() {
 }
 
 # ---------------------------------------------------------------------------
+# Fase A: batch-generer for ALLE skjema som skal testast, éin gong per
+# generator (i staden for éin gong per skjema × generator). Gjenbruker den
+# same batch-generate.py/batch-generate-instances.py-infrastrukturen som
+# `make generate`/`make docs-publish` alt brukar i produksjon — amortiserer
+# linkml/linkml_runtime sin importskatt (~8 s) over heile skjemalista i
+# staden for å betale han på nytt for kvart einaste skjema × steg. Sjå
+# specs/backlog/batch-validate-lint-test-per-skjema.md, Tiltak 3 Kategori
+# A+B.
+#
+# Kategori C/D-steg (linkml-lint, mcp-validate-instance, convert-rdf,
+# roundtrip-json/roundtrip-ttl, linkml-validate) er IKKJE batcha her — dei
+# køyrer framleis éin gong per skjema i run_schema_tests() sin per-skjema-
+# kjede, uendra frå før.
+# ---------------------------------------------------------------------------
+declare -A PHASE_A_LOG
+
+# Køyr eitt batcha make-mål for heile skjemalista.
+# $1=nøkkel (brukt av phase_a_check)  $2=make-target  $3=testnamn-prefiks
+# (for å respektere TEST_FILTER — same filtreringsregel som _run_one)
+run_phase_a_step() {
+    local key="$1" target="$2" prefix="$3"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local logfile
+    logfile=$(mktemp "$LOGDIR/phase_a_${key}_XXXXXX.log")
+    echo "→ Fase A: $target (${#SCHEMAS[@]} skjema) ..." >&3
+    make "$target" SCHEMAS="${SCHEMAS[*]}" > "$logfile" 2>&1 || true
+    PHASE_A_LOG[$key]="$logfile"
+    {
+        echo "========================================"
+        echo "FASE A: $target  ($(date '+%H:%M:%S'))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
+run_phase_a() {
+    run_phase_a_step validate   validate           "validate"
+    run_phase_a_step jsonld     gen-jsonld-context  "gen-jsonld"
+    run_phase_a_step python     gen-python          "gen-python"
+    run_phase_a_step jsonschema gen-jsonschema      "gen-jsonschema"
+    run_phase_a_step rdf        gen-rdf             "gen-rdf"
+    run_phase_a_step erdiagram  gen-erdiagram       "gen-erdiagram"
+    run_phase_a_step docs       gen-docs            "gen-docs"
+    run_phase_a_step shacl      gen-shacl           "gen-shacl"
+    run_phase_a_step owl        gen-owl             "gen-owl"
+    run_phase_a_step proto      gen-proto           "gen-proto"
+    run_phase_a_step plantuml   gen-plantuml        "gen-plantuml"
+}
+
+# Sjekk om eit gitt skjema feila i Fase A-batchen for ein gjeven generator.
+# batch-generate.py/batch-generate-instances.py skriv ::error file=<schema>::
+# for per-skjema-isolerte feil (sjå spec, Tiltak 1/2) — grep denne markøren
+# i staden for å stole på heile batchen sin exit-kode, sidan éitt skjema sin
+# feil elles ville sjå ut som at ALLE skjema i batchen feila.
+phase_a_check() {
+    local key="$1" schema="$2"
+    local logfile="${PHASE_A_LOG[$key]:-}"
+    [ -n "$logfile" ] || return 0  # Fase A køyrde ikkje (TEST_FILTER) — _run_one hoppar uansett over kallaren
+    local err
+    err=$(grep "::error file=$schema::" "$logfile" 2>/dev/null || true)
+    if [ -n "$err" ]; then
+        echo "$err"
+        return 1
+    fi
+    return 0
+}
+
+# ---------------------------------------------------------------------------
 # Hjelpefunksjonar
 # ---------------------------------------------------------------------------
 assert_file_nonempty() {
@@ -201,12 +273,12 @@ print('tripler:', len(g))
 # Testfunksjonar — generiske, tar schema og outfile som argument
 # ---------------------------------------------------------------------------
 test_validate() {
-    make validate SCHEMAS="$1" || return 1
+    phase_a_check validate "$1" || return 1
 }
 
 test_gen_jsonld() {
     local schema="$1" outfile="$2"
-    make gen-jsonld-context SCHEMAS="$schema" || return 1
+    phase_a_check jsonld "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_json_valid "$outfile" || return 1
     assert_json_has_key "$outfile" "@context" || return 1
@@ -214,14 +286,14 @@ test_gen_jsonld() {
 
 test_gen_python() {
     local schema="$1" outfile="$2"
-    make gen-python SCHEMAS="$schema" || return 1
+    phase_a_check python "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     python3 -m py_compile "$outfile" || { echo "Syntaksfeil i $outfile"; return 1; }
 }
 
 test_gen_jsonschema() {
     local schema="$1" outfile="$2"
-    make gen-jsonschema SCHEMAS="$schema" || return 1
+    phase_a_check jsonschema "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_json_valid "$outfile" || return 1
     python3 -c "
@@ -233,14 +305,14 @@ assert '\$defs' in d or 'properties' in d, '\$defs og properties manglar i $outf
 
 test_gen_rdf() {
     local schema="$1" outfile="$2" domain="$3"
-    make gen-rdf SCHEMAS="$schema" || return 1
+    phase_a_check rdf "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
 
 test_gen_erdiagram() {
     local schema="$1" outfile="$2"
-    make gen-erdiagram SCHEMAS="$schema" || return 1
+    phase_a_check erdiagram "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     grep -q '```mermaid' "$outfile" || { echo "Manglar mermaid-blokk i $outfile"; return 1; }
     grep -q 'erDiagram'  "$outfile" || { echo "Manglar erDiagram i $outfile"; return 1; }
@@ -248,7 +320,7 @@ test_gen_erdiagram() {
 
 test_gen_docs() {
     local schema="$1" docsdir="$2"
-    make gen-docs SCHEMAS="$schema" || return 1
+    phase_a_check docs "$schema" || return 1
     [ -d "$docsdir" ] || { echo "Katalog manglar: $docsdir"; return 1; }
     local mdcount
     mdcount=$(find "$docsdir" -name "*.md" | wc -l)
@@ -261,14 +333,14 @@ test_gen_docs() {
 
 test_gen_shacl() {
     local schema="$1" outfile="$2"
-    make gen-shacl SCHEMAS="$schema" || return 1
+    phase_a_check shacl "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
 
 test_gen_owl() {
     local schema="$1" outfile="$2"
-    make gen-owl SCHEMAS="$schema" || return 1
+    phase_a_check owl "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
@@ -509,14 +581,14 @@ test_convert_rdf() {
 
 test_gen_proto() {
     local schema="$1" outfile="$2"
-    make gen-proto SCHEMAS="$schema" || return 1
+    phase_a_check proto "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     grep -qE 'syntax\s*=\s*"proto3"' "$outfile" || { echo "Manglar proto3-syntaksdeklarasjon i $outfile"; return 1; }
 }
 
 test_gen_plantuml() {
     local schema="$1" pumlfile="$2" svgfile="$3"
-    make gen-plantuml SCHEMAS="$schema" || return 1
+    phase_a_check plantuml "$schema" || return 1
     assert_file_nonempty "$pumlfile" || return 1
     assert_file_nonempty "$svgfile" || return 1
     grep -q '@startuml' "$pumlfile" || { echo "Manglar @startuml i $pumlfile"; return 1; }
@@ -1031,6 +1103,7 @@ run_json_schema_tests "$SCHEMA_FILTER"
 
 # Køyr vanlige skjema-testar (dersom TEST_FILTER != roundtrip-json-schema)
 if [[ "${TEST_FILTER:-}" != "roundtrip-json-schema" ]]; then
+    run_phase_a
     for schema in "${SCHEMAS[@]}"; do
         run_schema_tests "$schema"
     done

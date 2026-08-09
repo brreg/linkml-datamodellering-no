@@ -175,51 +175,281 @@ verifisere mot eksisterande CLI-output.
    skjema mot dagens CLI-baserte `make lint SCHEMA=<x>` for eit utval skjema
    (minst eitt med kjende lint-åtvaringar, eitt heilt reint).
 
-### Tiltak 3 — `tests/test_make.sh`: omstrukturer til å bruke batcha generatorar på tvers av skjema
+### Tiltak 3 — `tests/test_make.sh`: detaljert evaluering
 
-**Gevinst:** størst i absolutte tal (dette er i dag den klart lengste
-kommandoen i repoet), men **høgast risiko og størst omfang** — rører
-testinfrastrukturen sjølv, ikkje berre eitt make-mål.
+**Baseline-måling** (lokalt, WSL2/podman, varme image-lag,
+`bash tests/test_make.sh <eitt skjema>` — dokumentert einskild-skjema-modus):
+alle 17 testtrinn for `samt/samt-bu` sekvensielt: **4 min 45 s (285 s)**,
+16 OK / 1 FEIL (`roundtrip-ttl` — sjå «Sidefunn» under, ikkje relatert til
+batching). Dette talet er representativt for **alle** 36 skjema sin
+kjedelengd, sidan `run_schema_tests()` gjev kvart skjema si eiga
+sekvensielle kjede av same 17 steg — skjema-nivå-parallelliteten
+(bakgrunnsjobbar) let kjedene **overlappe**, men forkortar ikkje **kvar
+enkelt** kjede. Total `make test`-tid i dag er difor avgrensa nedanfrå av
+denne ~285 s-kjedelengda (pluss ressurskonkurranse frå opp til 36 samtidige
+kontainarar), uansett kor mange skjema som køyrer samstundes. **Dette er
+sjølve flaskehalsen Tiltak 3 må angripe** — ikkje talet på skjema, men
+lengda på kjeda per skjema.
 
-**Føresetnad/avgrensing:** dette tiltaket bør **ikkje** startast før
-Tiltak 1 (og helst òg 2) er gjennomførte og verifiserte, sidan
-`test_validate`/`test_linkml_lint` sjølve kallar `make validate`/`make lint`
-og automatisk arvar gevinsten frå Tiltak 1/2 utan eiga endring.
+**Kategorisering av dei 17 testtrinna** (kva kontainarkall/mekanisme kvart
+steg brukar i dag, og kor batchbart det er):
 
-**Føreslått retning (krev vidare design før implementering — ikkje detaljert
-her):**
-1. Del testkøyringa i to fasar per skjema-batch: **Fase A** (generering) —
-   kall kvart `gen-X`/`validate`/`lint`-mål **éin gong for heile
-   skjemalista** (`SCHEMAS="$schema1 $schema2 ..."`), same mønster som
-   `make generate` alt gjer via `batch-generate.py`. **Fase B** (assert) —
-   for kvart skjema, køyr dei eksisterande `assert_*`-sjekkane
-   (`assert_file_nonempty`, `assert_json_valid` osv.) mot filene Fase A alt
-   har generert — ingen nye kontainarkall her, reint filsystem-arbeid.
-2. `roundtrip-json`/`roundtrip-ttl`/`mcp-validate-instance` (linje 526-638+
-   i `tests/test_make.sh`) gjer eige, meir samansett arbeid (last inn att,
-   samanlikn) — vurder om desse kan batchast med same mønster, eller om dei
-   bør haldast utanfor Fase A/B-oppdelinga i første omgang (lågare
-   kompleksitet, seinare oppfølging).
-3. Behald skjema-nivå-parallelliteten som finst i dag (`run_schema_tests`
-   sin bakgrunnsjobb-mekanikk) — han løyser eit anna problem (unngår at éitt
-   trått skjema blokkerer resten) og er ikkje i konflikt med
-   generator-nivå-batching.
-4. Verifiser grundig: testresultat (pass/fail per test, per skjema) må vere
-   **identisk** før/etter, og feilmeldingar må framleis kunne sporast
-   tilbake til rett skjema + rett steg (i dag garantert av
-   `_run_one`-namngjevinga — må behaldast eller erstattast med tilsvarande
-   presisjon i den nye strukturen).
-5. Mål total `make test`-tid før/etter, jf. metoden i dei to referanse-
-   specane (isolert profileringsrigg + reell full køyring).
+| Steg | Mekanisme i dag | Kategori | Batchbarheit |
+|---|---|---|---|
+| validate | `make validate SCHEMAS=<1>` | A | Alt batcha infrastruktur (Tiltak 1) — treng berre kallast med N skjema i staden for 1 |
+| gen-jsonld | `make gen-jsonld-context SCHEMAS=<1>` | A | Alt batcha (`run_gen_parallel,jsonld-context`) |
+| gen-python | `make gen-python SCHEMAS=<1>` | A | Alt batcha (`run_gen_parallel,python`) |
+| gen-jsonschema | `make gen-jsonschema SCHEMAS=<1>` | A | Alt batcha (`run_gen_parallel,json-schema`) |
+| gen-rdf | `make gen-rdf SCHEMAS=<1>` | A | Alt batcha (`run_gen_rdf_parallel`) |
+| gen-shacl | `make gen-shacl SCHEMAS=<1>` | A | Alt batcha (`run_gen_shacl_parallel`) |
+| gen-owl | `make gen-owl SCHEMAS=<1>` | A | Alt batcha (`run_gen_owl_parallel`) |
+| gen-proto | `make gen-proto SCHEMAS=<1>` | A | Alt batcha (`run_gen_parallel,proto`) |
+| gen-erdiagram | `make gen-erdiagram SCHEMAS=<1>` | B | Alt batcha, 2-fase (`run_gen_erdiagram_parallel`) |
+| gen-docs | `make gen-docs SCHEMAS=<1>` | B | Alt batcha, 2-fase (`run_gen_doc_parallel` + erdiagram) |
+| gen-plantuml | `make gen-plantuml SCHEMAS=<1>` | B | Alt batcha, 3-fase — Fase C batchar SVG-rendering for **alle** skjema alt i dag |
+| linkml-lint | Eigen `podman run linkml lint --ignore-warnings` (bypassar `make lint`) | C | `batch-lint.py` (Tiltak 2) finst alt — treng berre eit `--ignore-warnings`-tilsvarande flagg |
+| mcp-validate-instance | `gen-linkml --mergeimports` **+** JSON-RPC `schemaText` til MCP-server | C | Sjå eige funn under — burde bruke `schemaPath` (alt bygd i `effektiviser-mcp-...` Tiltak 2) OG batchast som `batch-flatten-and-validate.py` alt gjer |
+| convert-rdf | Direkte `linkml-convert`-podman-kall | D | `linkml.converter.cli:cli` er ein rein Click-kommando **utan** `sys.exit()` i kroppen — kompatibel med same `run_click()`-mønster som Tiltak A/B |
+| roundtrip-json | 3× `linkml-convert`-kall + Python-samanlikning | D | Same som convert-rdf, 3 kall per skjema kan batchast som 3 separate jobbar i éin kontainar |
+| roundtrip-ttl | 4× `linkml-convert`-kall + Python-samanlikning | D | Same som over, 4 kall per skjema |
+| linkml-validate | Direkte `linkml validate --schema X Y`-podman-kall | D | `linkml.validator.cli:cli` kallar **derimot** `sys.exit()` (2 stader) — kan IKKJE gjenbrukast via `run_click()`. Bruk i staden `linkml.validator.validate()`-API-et direkte (same funksjon MCP-serveren alt brukar internt) |
 
-**Merk:** dette er det einaste tiltaket i denne specen som ikkje er
-"gjenbruk ei alt bygd og verifisert løysing" (Tiltak 1) eller "eit lite,
-isolert nytt script følgje eit etablert mønster" (Tiltak 2) — det er ei
-reell omstrukturering av eit 1000+ linjers testscript. Vurder å skrive
-**ein eigen, meir detaljert oppfølgings-spec** for Tiltak 3 når Tiltak 1/2
-er gjennomførte og den faktiske resterande testtida er kjend (kan vise seg
-å vere "godt nok" allereie etter Tiltak 1/2 sin arva gevinst via
-`test_validate`/`test_linkml_lint`).
+**Kategori A (8 steg) og B (3 steg) — 11 av 17 steg, null nytt script-
+arbeid:** infrastrukturen (`batch-generate.py` + dei tilhøyrande
+`run_gen_*_parallel`-makroane) finst og er verifisert **allereie**. Det
+einaste som manglar er å endre **korleis testorkestreringa kallar han** —
+i staden for at kvart skjema sin `run_schema_tests()`-kjede kallar
+`make gen-X SCHEMAS="$schema"` (N=1, betaler importskatt for kvart einaste
+skjema), må ei ny **Fase A** kalle `make gen-X SCHEMAS="<alle skjema som
+skal testast>"` **éin gong per generator, før** skjema-løkka startar. Ei
+etterfølgjande **Fase B**, per skjema, køyrer så dei eksisterande
+`assert_*`-sjekkane (`assert_file_nonempty`, `assert_json_valid` osv.) mot
+filene Fase A alt har skrive — reint filsystem-arbeid, ingen nye
+kontainarkall.
+
+**Kategori C (2 steg) — treng lite nytt script-arbeid, godt presedens:**
+
+- **linkml-lint:** `batch-lint.py` (Tiltak 2) manglar berre eit flagg som
+  speglar CLI-en sitt `--ignore-warnings` (styrer kun exit-kode-
+  utrekninga — ingen endring i sjølve lint-logikken).
+- **mcp-validate-instance — eige funn:** denne testen er **ikkje**
+  oppdatert etter `effektiviser-mcp-linkml-validator-koyretid.md` sitt
+  Tiltak 2 (sjå «Sidefunn» under for detaljar) — han gjer framleis den no
+  overflødige `gen-linkml --mergeimports`-utflatinga sjølv, og sender
+  `schemaText` i staden for `schemaPath`. Å modernisere denne testen til
+  same mønster som `flatten-and-validate.bash` alt bruker (send
+  `schemaPath` direkte, ingen utflating) fjernar **både** eit heilt
+  kontainarkall per skjema (utflatinga) **og** opnar for å batche sjølve
+  MCP-kallet med akkurat den same JSON-RPC-stdin-mekanismen
+  `batch-flatten-and-validate.py` alt implementerer for N skjema i éin
+  kontainar.
+
+**Kategori D (4 steg, involverer opptil 8 `linkml-convert`-kall per
+skjema) — stadfesta batchbart, men størst implementeringsarbeid:**
+Verifisert direkte (`inspect.getsource`) at `linkml.converter.cli:cli`
+(bak `linkml-convert`) er ein rein Click-kommando som **ikkje** kallar
+`sys.exit()` i kroppen (kastar exceptions i staden) — dette er nøyaktig
+kontrakten `run_click()`-hjelparen i `batch-generate.py` alt føreset, så
+alle `linkml-convert`-kall (convert-rdf, og dei 3+4 delkonverteringane i
+roundtrip-json/roundtrip-ttl) kan i prinsippet batchast med same mekanisme.
+Ulikt Kategori A/B (éin fast generator-type med berre `schema` som
+argument) treng convert-jobbane derimot eit **heterogent jobb-format**
+(kvar jobb har eigen `schema`, `input`, `output-format`, `output-path`) —
+same mønster `batch-flatten-and-validate.py` alt etablerte for heterogene
+MCP-valideringsjobbar (`--jobs-tsv`). `linkml-validate` (siste rad i
+tabellen) krev eit anna grep — CLI-en kallar `sys.exit()` og kan ikkje
+gjenbrukast direkte, så batching der må gå via `linkml.validator.validate()`
+sitt Python-API (same funksjon MCP-serveren sjølv brukar, med same kjende
+"send eit bygd `SchemaDefinition`-objekt, ikkje ein stistreng"-detalj som
+`effektiviser-mcp-linkml-validator-koyretid.md` alt dokumenterte og løyste).
+
+**Estimert samla gevinst:** basert på dei same amortiseringsforholda som
+Tiltak 1/2/MCP-specen målte (~8 s fast importskatt + ~0,1-0,9 s marginalt
+per ekstra skjema/jobb i same prosess), ville ei full batching av Kategori
+A-D redusere kjedelengda per skjema frå ~285 s til i praksis nesten berre
+konverterings-/samanlikningsarbeidet (sub-sekund per skjema) pluss ein
+handfull faste importskattar (éin per generator/verktøy, ikkje éin per
+skjema × steg). Talet på `podman run`-kall for **heile** testsuiten (36
+skjema × 17 steg ≈ 600+ kall i dag) ville falle til storleiksorden 15-20
+kall totalt (éin per Kategori A/B/C/D-gruppe), uavhengig av kor mange
+skjema som testast. Dette er eit **estimat basert på verifisert
+amortiseringsrate**, ikkje ei direkte måling av den fullt batcha
+arkitekturen — presis totaltid bør målast etter kvar fase er implementert,
+jf. metoden i referansespecane.
+
+**Tilrådd rekkjefølgje (aukande risiko):**
+
+1. Kategori A+B (11 steg) — reorganiser `run_schema_tests()` til Fase A
+   (batch-generering for heile skjemalista) + Fase B (per-skjema assert).
+   Null nytt script-arbeid, berre bash-omstrukturering. **Lågast risiko,
+   størst del av gevinsten** (11 av 17 steg).
+2. Kategori C (linkml-lint, mcp-validate-instance) — liten scriptutviding
+   (lint-flagg) + modernisering av mcp-validate-instance til
+   `schemaPath`. **Låg-til-moderat risiko** (mcp-validate-instance-delen
+   rører kontrakten testen sender til MCP-serveren, sjølv om
+   `schemaPath`-støtta alt er verifisert i produksjon andre stader).
+3. Kategori D (convert-rdf, roundtrip-json, roundtrip-ttl, linkml-validate)
+   — nytt batch-script for heterogene `linkml-convert`-jobbar +
+   `linkml.validator.validate()`-basert batching. **Høgast risiko** —
+   roundtrip-testane sin eigen samanlikningslogikk (sortering,
+   normalisering) må halde fram å få nøyaktig same input som i dag, og
+   dette er den delen av testsuiten med flest kjende, dokumenterte
+   BUG-1/BUG-2-workarounds som lett kan bli utilsikta påverka av ei
+   omskriving.
+
+**Fellesregel for alle fasar:**
+- Behald skjema-nivå-parallelliteten som finst i dag
+  (`run_schema_tests()` sin bakgrunnsjobb-mekanikk) for Fase B/assert-delen
+  — han løyser eit anna problem (unngår at éitt trått skjema blokkerer
+  rapportering av resten) og er ikkje i konflikt med generator-nivå-
+  batching i Fase A.
+- Feilmeldingar må framleis kunne sporast tilbake til rett skjema + rett
+  steg (i dag garantert av `_run_one`-namngjevinga) — batch-scripta sitt
+  eksisterande `::error file=<schema>::...`-format (Tiltak 1/2) gjev alt
+  denne sporbarheita, men den nye Fase A/B-strukturen må vidareføre ho heilt
+  ut til `_run_one`-rapporteringa.
+- Testresultat (pass/fail per test, per skjema) må vere **identisk**
+  før/etter kvar fase, verifisert steg for steg (ikkje samla til slutt) —
+  same disiplin som `batch-docs-publish-generering.md` og
+  `effektiviser-generate-workflow-koyretid.md` brukte.
+- Mål total `make test`-tid før/etter kvar fase.
+
+**Eksplisitt utanfor scope for Tiltak 3:** `run_json_schema_tests()`/
+`test_roundtrip_json_schema()` (linje 587-1022) — ein separat testveg (MCP
+`mcp-linkml-modell-utkast`-rundtur), berre aktiv med
+`TEST_FILTER=roundtrip-json-schema`, typisk få filer om gongen. Låg
+prioritet samanlikna med hovudløkka sine 36 skjema × 17 steg.
+
+**Sidefunn under evalueringa (ikkje batching-relatert, men verdt å
+dokumentere):**
+
+1. **`test_mcp_validate_instance` er ikkje oppdatert etter
+   `effektiviser-mcp-linkml-validator-koyretid.md` sitt Tiltak 2.** Den
+   specen fjerna heile utflatingssteget (`gen-linkml --mergeimports`) frå
+   `flatten-and-validate.bash` og let MCP-serveren løyse imports naturleg
+   via `schemaPath` — og fann i tillegg ein reell falsk-positiv-bug som
+   utflatinga forårsaka (importerte klassar vart telde som lokale).
+   `test_mcp_validate_instance` (linje 526-585 i `tests/test_make.sh`) gjer
+   framleis den gamle, no overflødige utflatinga sjølv og sender
+   `schemaText`. Dette er ikkje ein feil i seg sjølv (testen fungerer), men
+   testen validerer no ein kodeveg (`schemaText`-kontrakten) som ikkje
+   lenger er den ordinære produksjonsvegen, og betaler ein unødvendig
+   kontainarkostnad kvar gong. Bør rettast som eige, lite steg (uavhengig
+   av resten av Tiltak 3) — flagg som eiga oppgåve i oppfølgingsarbeidet.
+2. **Pre-eksisterande testfeil oppdaga under baseline-målinga, ikkje
+   relatert til batching:** `roundtrip-ttl (samt-bu)` feilar i dag med
+   `linkml_runtime.MappingError: No pred for
+   https://data.norge.no/samt/samt-bu/id <class 'rdflib.term.URIRef'>` i
+   `rdflib_loader.from_rdf_graph()`. Ikkje undersøkt vidare her (utanfor
+   denne evalueringa sitt omfang), men bør fylgjast opp separat — sjekk om
+   han høyrer heime i `bugs/` saman med dei allereie dokumenterte
+   BUG-1/BUG-2 rdflib-roundtrip-avvika, eller om han er ny.
+
+**Konklusjon:** Tiltak 3 er **stadfesta gjennomførbart i sin heilskap** —
+alle 17 steg let seg i prinsippet batche, 11 av dei med infrastruktur som
+alt finst og er verifisert. Attverande arbeid er i hovudsak
+**orkestreringsomskriving** (Kategori A/B), ikkje ny kontainar-/API-
+forsking — den forskinga er gjort her.
+
+## Utført (Tiltak 3 Kategori A+B — 2026-08-09)
+
+`tests/test_make.sh` omstrukturert til to fasar, som skissert i evalueringa
+over:
+
+- **Ny «Fase A»** (`run_phase_a()`, `run_phase_a_step()`): køyrer kvart av
+  dei 11 Kategori A/B-generatormåla (`validate`, `gen-jsonld-context`,
+  `gen-python`, `gen-jsonschema`, `gen-rdf`, `gen-erdiagram`, `gen-docs`,
+  `gen-shacl`, `gen-owl`, `gen-proto`, `gen-plantuml`) **éin gong** med
+  `SCHEMAS="<heile skjemalista testen dekkjer>"`, i staden for éin gong per
+  skjema. Respekterer `TEST_FILTER` (hoppar over eit steg sin batch dersom
+  filteret ikkje kan matche det steget sitt testnamn — unngår unødvendig
+  generering). Køyrer **før** skjema-nivå-bakgrunnsjobbane startar, rett
+  etter `TEST_DIRS`/cleanup-registreringa (kritisk rekkjefølgje — Fase A
+  må ikkje skrive output før cleanup-registreringa har fastslått kva
+  katalogar som er nye).
+- **Ny `phase_a_check()`:** per (generator, skjema), grep etter
+  `::error file=<skjema>::` i Fase A sin logg for det generatoren (skriven
+  av `batch-generate.py`/`batch-generate-instances.py` sin alt eksisterande
+  per-skjema-isolasjon, jf. Tiltak 1/2) — gjev presis feilattribuering
+  sjølv når Fase A-batchen som heilskap "lykkast" for dei fleste skjema,
+  men feila for nokre få.
+- Dei 11 tilhøyrande testfunksjonane (`test_validate`, `test_gen_jsonld`,
+  `test_gen_python`, `test_gen_jsonschema`, `test_gen_rdf`,
+  `test_gen_erdiagram`, `test_gen_docs`, `test_gen_shacl`, `test_gen_owl`,
+  `test_gen_proto`, `test_gen_plantuml`) bruker no `phase_a_check <nøkkel>
+  "$schema"` i staden for sitt eige `make gen-X SCHEMAS="$schema"`-kall —
+  sjølve `assert_*`-sjekkane etter er **uendra**.
+- Kategori C/D-steg (`linkml-lint`, `mcp-validate-instance`, `convert-rdf`,
+  `roundtrip-json`, `roundtrip-ttl`, `linkml-validate`) er **ikkje** rørte —
+  køyrer framleis éin gong per skjema, uendra frå før, slik evalueringa sin
+  tilrådde fase-rekkjefølgje føreset.
+
+**Kjend, medvite akseptert avgrensing:** `batch-render-plantuml.sh`
+(SVG-render-fasen av `gen-plantuml`) manglar per-fil-feilattribuering (jf.
+evalueringa sitt funn) — dersom heile denne batchen feilar utan at noko
+enkeltskjema får ein `::error file=`-markør, fell `phase_a_check` tilbake
+til å returnere "ingen feil funne", og dei eksisterande
+`assert_file_nonempty`-sjekkane på `.puml`/`.svg` er den einaste
+resterande sikringa. Same avgrensing gjeld i praksis alt i dag for
+produksjons-`make gen-plantuml` (ikkje noko denne omlegginga innfører) —
+ikkje forsøkt løyst her, jf. CLAUDE.md sin regel om å unngå spekulativ
+feilhandtering for scenario som ikkje er stadfesta å skje i praksis.
+
+**Verifisert:**
+
+1. `bash -n tests/test_make.sh` — syntaks OK.
+2. **Éin-skjema-modus** (`bash tests/test_make.sh
+   src/linkml/samt/samt-bu/samt-bu-schema.yaml`): **16 OK, 1 FEIL** — byte-
+   for-byte same resultat (same einaste feil, `roundtrip-ttl`, pre-
+   eksisterande `rdflib_loader.MappingError`, ikkje relatert) som før
+   endringa. Tid: 4 min 43 s, praktisk talt uendra frå baseline (4 min 45 s)
+   — venta, sidan N=1 ikkje gjev batching-gevinst (import-/oppstands-
+   kostnaden er den same anten han betalast i den gamle eller nye
+   strukturen når det berre er eitt skjema).
+3. **Full køyring, alle 36 skjema:** fullførte på **17 min 26 s**, **536
+   OK, 42 FEIL**. Alle 42 feil verifisert å vere **fullstendig urelaterte**
+   til denne endringa:
+   - **36 feil** (`gen-jsonld`/`gen-python`/`gen-jsonschema`/`gen-proto` ×
+     9 skjema kvar — `cpsv-ap-no`, `dcat-ap-no`, `dqv-ap-no`,
+     `modelldcat-ap-no`, `skos-ap-no`, `xkos-ap-no`): **pre-eksisterande
+     hòl i testsuiten**, stadfesta uendra med `git stash` mot uendra kode
+     for `cpsv-ap-no`/`gen-jsonld` (identisk `Fil manglar: ...`-feil både
+     før og etter). Rotårsak: desse er AP-NO-profilskjema som **medvite**
+     har `jsonld_context: false`/`python: false`/`json_schema: false`/
+     `protobuf: false` i `build.yaml` (stadfesta for alle 5 unike
+     skjemanamn) — testane sjekkar ikkje desse flagga før dei ventar at
+     output-fila finst. Denne testsuite-mangelen finst identisk i **begge**
+     arkitekturane og er **ikkje** noko denne omlegginga innfører eller
+     påverkar. Ikkje retta her (utanfor omfanget av Tiltak 3 Kategori A/B).
+   - **6 feil** (`roundtrip-ttl` for `samt-bu`, `fint-utdanning`,
+     `fint-personvern`, `enhetsregisteret-bvrinn` m.fl.): Kategori D,
+     ikkje rørt av denne endringa. `samt-bu`-tilfellet er identisk med
+     feilen alt dokumentert under Tiltak 3-evalueringa sitt «Sidefunn».
+   - **0 feil** i noko av dei 11 Kategori A/B-testtypane utover dei alt
+     nemnde, pre-eksisterande `build.yaml`-flagg-tilfella.
+4. Ingen utilsikta repo-tilstandsendring: `git status` viser berre
+   `tests/test_make.sh` og denne specen som endra. `generated/` og
+   `tests/testlogs/` er gitignora (stadfesta via `git check-ignore`) —
+   testkøyringane sine artefakt/loggar påverkar ikkje versjonskontroll.
+
+**Ikkje målt:** eit direkte "før"-tal for full 36-skjema-køyring med den
+**gamle** (ubatcha) arkitekturen. Éin-skjema-baselinen (285 s/skjema,
+målt både før og etter denne endringa) og den dokumenterte risikoen for
+ressurskonkurranse ved unbounded 36-vegs-parallellitet (jf.
+`batch-docs-publish-generering.md` sitt tilsvarande funn) gjer det
+sannsynleg at ei full gammal køyring ville teke minst like lang tid, mogleg
+vesentleg lengre — men dette er ikkje stadfesta med ei direkte måling, av
+omsyn til køyretid/ressursbruk ved å køyre heile 36-skjema-suiten to gonger
+i same økt. Dersom eit presist før/etter-tal er ønskt, kan det målast i eiga
+økt.
+
+**Attverande arbeid:** Kategori C (linkml-lint batching, mcp-validate-
+instance-modernisering til `schemaPath`) og Kategori D (`linkml-convert`-
+batching for convert-rdf/roundtrip-json/roundtrip-ttl, `linkml.validator
+.validate()`-batching for linkml-validate) er **ikkje** implementerte i
+denne økta — begge er detaljert i evalueringa over, klare til å
+gjennomførast som eiga oppfølgingsøkt. Denne specen vert difor **ikkje**
+flytta til `specs/done/` endå.
 
 ## Handlingsliste
 
@@ -234,6 +464,16 @@ er gjennomførte og den faktiske resterande testtida er kjend (kan vise seg
 - [x] Tiltak 3: vurdert om eigen oppfølgings-spec trengst etter at Tiltak
       1/2 sin arva gevinst i `make test` er målt — **konklusjon: ingen arva
       gevinst, Tiltak 3 står ved lag uendra** (sjå «Utført»)
+- [x] Tiltak 3: detaljert evaluering (baseline-måling, kategorisering av
+      alle 17 steg, API-kompatibilitetssjekk) — sjå «Tiltak 3» over
+- [x] Tiltak 3 Kategori A+B: `tests/test_make.sh` omstrukturert til
+      Fase A (batch-generering) + Fase B (per-skjema assert), verifisert
+      0 regresjonar mot full 36-skjema-køyring (sjå eiga «Utført»-seksjon)
+- [ ] Tiltak 3 Kategori C: `batch-lint.py`-utviding (`--ignore-warnings`) +
+      `mcp-validate-instance`-modernisering til `schemaPath` — ikkje starta
+- [ ] Tiltak 3 Kategori D: batching av `linkml-convert`-baserte steg
+      (convert-rdf, roundtrip-json, roundtrip-ttl) og `linkml-validate` via
+      `linkml.validator.validate()` — ikkje starta
 
 ## Utført (Tiltak 1 + 2 — 2026-08-09)
 
@@ -344,15 +584,17 @@ generator-kall på tvers av heile skjemalista testen dekkjer, ikkje per
 skjema) står difor ved lag som eit fullt ut naudsynt, ikkje valfritt,
 oppfølgingsarbeid dersom `make test` sin totaltid skal ned.
 
-Gjennomføring av Tiltak 3 er **ikkje** starta i denne økta (jf. spec sin
-eigen føresetnad om at det krev vidare design). Tilrår ein eigen,
-detaljert oppfølgings-spec når det er ønskt — same tilnærming som
-`effektiviser-generate-workflow-koyretid.md` og `effektiviser-mcp-
-linkml-validator-koyretid.md` brukte for tilsvarande omfang.
+**Oppdatering (same dag, seinare økt):** sjølve evalueringa vart fyrst
+fullført og lagt til i «Tiltak»-seksjonen over (baseline-måling,
+kategorisering av alle 17 steg, API-kompatibilitetssjekk, fase-
+rekkjefølgje) — og deretter **gjennomført for Kategori A+B** i ei tredje
+økt same dag. Sjå «Utført (Tiltak 3 Kategori A+B — 2026-08-09)» rett under
+«Tiltak»-seksjonen for fullt detaljert resultat (verifisering, målte tal,
+kjende avgrensingar). Kategori C+D står att.
 
-**Denne specen er difor ikkje flytta til `specs/done/`** — Tiltak 1 og 2 er
-fullførte og verifiserte, Tiltak 3 står att som identifisert, men
-ugjennomført, oppfølgingsarbeid.
+**Denne specen er difor framleis ikkje flytta til `specs/done/`** — Tiltak
+1, 2 og 3 Kategori A+B er fullførte og verifiserte, Tiltak 3 Kategori C+D
+står att som identifisert, men ugjennomført, oppfølgingsarbeid.
 
 ## Relaterte filer
 
