@@ -6,7 +6,7 @@ Alle kommandoar køyrer via containerar — ingen lokal Python-installasjon tren
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make check-prereqs` | Sjekkar at Podman, GNU make, user namespace og ledig diskplass er korrekt konfigurert | Skriv OK/FEIL per føresetnad til stdout; avsluttar med kode 1 ved feil |
+| `make check-prereqs` | Sjekkar at Git, Podman, GNU make, user namespace og ledig diskplass er korrekt konfigurert | Skriv OK/FEIL per føresetnad til stdout; avsluttar med kode 1 ved feil |
 
 ## Logging
 

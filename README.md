@@ -54,7 +54,7 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 
 > Her får du ei kjapp innføring i oppsett av lokalt miljø for å komme igang med datamodellering og begrepsarbeid.
 
-**Føresetnader:** linux eller windows med  WSL2, [Podman](https://podman.io/) (rootless) og GNU make.
+**Føresetnader:** linux eller windows med  WSL2, [Git](https://git-scm.com/), [Podman](https://podman.io/) (rootless) og GNU make.
 
 ```bash
 # Sjekk at alt er på plass

@@ -21,7 +21,7 @@ Vel rettleiinga som passar til det du skal gjere:
 Alle kommandoar køyrer i containerar via [Podman](https://podman.io/) — ingen
 lokal installasjon av Python eller LinkML-verktøy er nødvendig. Sjå
 ["Kom i gang"-seksjonen på framsida](../index.md#kom-i-gang) for full
-oppskrift på lokalt oppsett (WSL2, Podman, GNU make) og dei to typiske
+oppskrift på lokalt oppsett (WSL2, Git, Podman, GNU make) og dei to typiske
 løypene — datamodellering og begrepsmodellering — steg for steg.
 
 ## Sjå òg

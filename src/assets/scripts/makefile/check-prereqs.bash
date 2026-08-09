@@ -21,6 +21,13 @@ else
   fail "GNU make ikkje funne. Installer: sudo apt install make"
 fi
 
+# Git
+if command -v git &>/dev/null; then
+  ok "Git tilgjengeleg ($(git --version))"
+else
+  fail "Git ikkje funne. Installer: sudo apt install git"
+fi
+
 # Podman
 if command -v podman &>/dev/null; then
   ok "Podman tilgjengeleg ($(podman --version))"
