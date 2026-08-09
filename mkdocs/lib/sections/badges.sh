@@ -81,15 +81,15 @@ PYEOF
     local policy_encoded="${policy//-/_}"
 
     # Output badges
-    echo "[![Versjon](https://img.shields.io/badge/versjon-${version}-blue)]()"
-    echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
-    echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
-    [ -n "$license" ] && echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
-    if [ -n "$utgiver_navn" ]; then
+     if [ -n "$utgiver_navn" ]; then
         local utgiver_encoded="${utgiver_navn// /_}"
         utgiver_encoded="${utgiver_encoded//-/--}"
         echo "[![Utgiver](https://img.shields.io/badge/utgiver-${utgiver_encoded}-blue)]()"
     fi
+    [ -n "$license" ] && echo "[![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)]()"
+    echo "[![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})]()"
+    echo "[![Status](https://img.shields.io/badge/status-${status_label}-${status_color})]()"
+    echo "[![Versjon](https://img.shields.io/badge/versjon-${version}-blue)]()"
     local endringsdato_encoded="${endringsdato//-/--}"
     [ -n "$endringsdato" ] && echo "[![Endringsdato](https://img.shields.io/badge/endringsdato-${endringsdato_encoded}-blue)]()"
     echo ""
