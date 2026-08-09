@@ -23,11 +23,24 @@ kvarandre (som batch-generate.py sitt per-skjema try/except), og rapporterer
 difor eit fullstendig bilete — sjå spec «Utført» for detaljar.
 
 Bruk:
-  python3 batch-lint.py --config <sti-til-config.yaml> -- schema1.yaml schema2.yaml ...
+  python3 batch-lint.py --config <sti-til-config.yaml> [--ignore-warnings] -- schema1.yaml schema2.yaml ...
+
+--ignore-warnings speglar CLI-en sitt eige `--ignore-warnings`-flagg (nytta
+av tests/test_make.sh sin linkml-lint-test, sjå specs/backlog/batch-
+validate-lint-test-per-skjema.md, Tiltak 3 Kategori C): skjema med berre
+åtvaringar reknast ikkje som feil. Med dette flagget vert kvart skjema som
+faktisk feilar (reelle feil, ikkje åtvaringar) merkt med ein eigen
+`::error file=<skjema>::`-linje — same per-skjema-attribueringsformat som
+batch-generate.py — slik kallarar kan avgjere kva ENKELTSKJEMA som feila i
+ein batch, ikkje berre at NOKON gjorde det. Utan flagget er output uendra
+frå før (ingen ekstra `::error file=`-linjer for åtvaringar), for å halde
+`make lint` sin standardåtferd (og verifiserte CLI-identiske output, sjå
+spec «Utført», Tiltak 2) heilt uendra.
 
 Exit-kode (same semantikk som linkml sin eigen CLI, summert over alle
-skjema): 0 = ingen problem, 1 = berre åtvaringar, 2 = minst éin feil (eller
-eit skjema som ikkje kunne prosesserast i det heile, t.d. ugyldig YAML).
+skjema): 0 = ingen problem, 1 = berre åtvaringar (og ikkje --ignore-warnings),
+2 = minst éin feil (eller eit skjema som ikkje kunne prosesserast i det
+heile, t.d. ugyldig YAML).
 """
 
 from __future__ import annotations
@@ -45,6 +58,8 @@ def log_error(msg: str) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
+    parser.add_argument("--ignore-warnings", action="store_true",
+                         help="Skjema med berre åtvaringar reknast ikkje som feil (speglar CLI-flagget)")
     parser.add_argument("schemas", nargs="+")
     args = parser.parse_args()
 
@@ -65,22 +80,35 @@ def main() -> int:
     formatter.start_report()
     for schema in args.schemas:
         formatter.start_schema(schema)
+        schema_errors = 0
+        schema_warnings = 0
         try:
             for problem in linter.lint(schema):
                 if str(problem.level) is RuleLevel.error.text:
-                    error_count += 1
+                    schema_errors += 1
                 elif str(problem.level) is RuleLevel.warning.text:
-                    warning_count += 1
+                    schema_warnings += 1
                 formatter.handle_problem(problem)
         except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon, sjå batch-generate.py sitt tilsvarande mønster
             log_error(f"::error file={schema}::lint feila for {schema} — {exc}")
             schema_failed = True
+            formatter.end_schema()
+            continue
         formatter.end_schema()
+
+        # Ekstra ::error file=-attribuering finst berre i --ignore-warnings-
+        # modus (nytta av batcha Fase A-kall, sjå toppkommentar) — held
+        # standard make lint-output (utan flagget) heilt uendra frå Tiltak 2.
+        if args.ignore_warnings and schema_errors > 0:
+            log_error(f"::error file={schema}::lint feila for {schema} ({schema_errors} feil)")
+
+        error_count += schema_errors
+        warning_count += schema_warnings
     formatter.end_report()
 
     if error_count > 0 or schema_failed:
         return 2
-    if warning_count > 0:
+    if not args.ignore_warnings and warning_count > 0:
         return 1
     return 0
 

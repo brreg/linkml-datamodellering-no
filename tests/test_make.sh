@@ -47,6 +47,23 @@ schema_outdir() { echo "$GEN_DIR/$(schema_domain "$1")/$(schema_name "$1")"; }
 # schema for å bestemme målklasse) og gen-rdf frå eksempelfiler.
 lacks_tree_root() { [[ "$1" == "ap-no" || "$1" == "fair" ]]; }
 
+# Avgjer om eit skjema treng mcp-validate-instance-validering, og i så fall
+# kva skjema- og instansfil som skal brukast. Delt mellom Fase A (bygging av
+# batcha jobbliste) og test_mcp_validate_instance (skip-meldingar), slik at
+# begge stadene er garantert samde om kva som vert hoppa over — unngår at
+# skip-logikken driv frå kvarandre over tid.
+# Skriv "<skjema-å-validere-mot> <instansfil>" til stdout og returnerer 0
+# dersom skjemaet skal validerast; returnerer 1 (ingen output) elles.
+mcp_instance_job() {
+    local schema="$1" domain="$2" name="$3"
+    lacks_tree_root "$domain" && return 1
+    local example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+    [ -f "$example" ] || return 1
+    local validate_schema="$schema"
+    [ -f "tests/fixtures/$name-fixture.yaml" ] && validate_schema="tests/fixtures/$name-fixture.yaml"
+    echo "$validate_schema $example"
+}
+
 echo "test_make.sh — $(date)" > "$LOG"
 echo "LINKML_IMAGE: $LINKML_IMAGE" >> "$LOG"
 printf "Skjema (%d):\n" "${#SCHEMAS[@]}" >> "$LOG"
@@ -129,8 +146,7 @@ run_schema_tests() {
                                                                "examples/$domain/$name-eksempel.yaml" "$domain" "$name"
         _run_one "gen-proto ($name)"              test_gen_proto             "$schema" "$outdir/$name-schema.proto"
         _run_one "gen-plantuml ($name)"           test_gen_plantuml          "$schema" "$outdir/diagrams/$name.puml" "$outdir/diagrams/$name.svg"
-        _run_one "mcp-validate-instance ($name)"  test_mcp_validate_instance "$schema" \
-                                                               "examples/$domain/$name-eksempel.yaml" "$domain" "$name"
+        _run_one "mcp-validate-instance ($name)"  test_mcp_validate_instance "$schema" "$domain" "$name"
         _run_one "roundtrip-json ($name)"  test_roundtrip_json "$schema" "$example" "$domain" "$name"
         _run_one "roundtrip-ttl ($name)"   test_roundtrip_ttl  "$schema" "$example" "$domain" "$name"
     } >> "$tmplog" 2>&1 &
@@ -174,10 +190,14 @@ wait_for_tests() {
 # specs/backlog/batch-validate-lint-test-per-skjema.md, Tiltak 3 Kategori
 # A+B.
 #
-# Kategori C/D-steg (linkml-lint, mcp-validate-instance, convert-rdf,
-# roundtrip-json/roundtrip-ttl, linkml-validate) er IKKJE batcha her — dei
-# køyrer framleis éin gong per skjema i run_schema_tests() sin per-skjema-
-# kjede, uendra frå før.
+# Kategori C (linkml-lint, mcp-validate-instance) ER batcha her — sjå
+# run_phase_a_lint()/run_phase_a_mcp_instance() lenger nede, som brukar
+# batch-lint.py/batch-validate-instances.py i staden for
+# batch-generate.py-makroane over.
+#
+# Kategori D-steg (convert-rdf, roundtrip-json/roundtrip-ttl, linkml-
+# validate) er IKKJE batcha her — dei køyrer framleis éin gong per skjema
+# i run_schema_tests() sin per-skjema-kjede, uendra frå før.
 # ---------------------------------------------------------------------------
 declare -A PHASE_A_LOG
 
@@ -204,6 +224,84 @@ run_phase_a_step() {
     } >> "$LOG"
 }
 
+# Kategori C, steg 1: linkml-lint, batcha via batch-lint.py --ignore-
+# warnings (delt Linter/TerminalFormatter-sesjon for heile skjemalista).
+# Direkte podman-kall (ikkje via `make lint`) — speglar at testen alltid
+# har kalla `linkml lint` direkte med --ignore-warnings, ikkje via
+# Makefile-målet (som manglar dette flagget og har strengare standard-
+# semantikk, jf. Tiltak 2).
+run_phase_a_lint() {
+    local prefix="linkml-lint"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local logfile
+    logfile=$(mktemp "$LOGDIR/phase_a_lint_XXXXXX.log")
+    echo "→ Fase A: linkml-lint --ignore-warnings (${#SCHEMAS[@]} skjema) ..." >&3
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-lint.py \
+            --config src/assets/containers/.linkmllint.yaml --ignore-warnings -- "${SCHEMAS[@]}" \
+        > "$logfile" 2>&1 || true
+    PHASE_A_LOG[lint]="$logfile"
+    {
+        echo "========================================"
+        echo "FASE A: linkml-lint --ignore-warnings  ($(date '+%H:%M:%S'))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
+# Kategori C, steg 2: mcp-validate-instance, batcha via
+# batch-validate-instances.py (JSON-RPC-stdin-mekanismen frå
+# batch-flatten-and-validate.py, mot validate_linkml_instance-verktøyet).
+# Bruker schemaPath (lagt til i server.py saman med dette) i staden for den
+# gamle gen-linkml --mergeimports+schemaText-flyten — fjernar eit heilt
+# kontainarkall per skjema i tillegg til å batche sjølve MCP-kallet.
+declare -A PHASE_A_MCP_INDEX  # schema -> jobb-indeks (berre sett for skjema som faktisk vart validerte)
+PHASE_A_MCP_OUTDIR=""
+
+run_phase_a_mcp_instance() {
+    local prefix="mcp-validate-instance"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local jobs=()
+    local idx=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name job
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        job=$(mcp_instance_job "$schema" "$domain" "$name") || continue
+        local validate_schema example
+        read -r validate_schema example <<< "$job"
+        jobs+=("${validate_schema}=${example}")
+        PHASE_A_MCP_INDEX["$schema"]="$idx"
+        idx=$((idx + 1))
+    done
+    if [ "${#jobs[@]}" -eq 0 ]; then
+        return 0
+    fi
+    local outdir
+    outdir=$(mktemp -d "$LOGDIR/phase_a_mcp_XXXXXX")
+    PHASE_A_MCP_OUTDIR="$outdir"
+    echo "→ Fase A: mcp-validate-instance (${#jobs[@]} skjema) ..." >&3
+    {
+        echo "========================================"
+        echo "FASE A: mcp-validate-instance  ($(date '+%H:%M:%S'))"
+        echo "========================================"
+        REPO_ROOT="$REPO_ROOT" VALIDATOR_DIR="$REPO_ROOT/src/mcp-linkml-validator" MCP_IMAGE="$MCP_IMAGE" \
+            python3 src/mcp-linkml-validator/batch-validate-instances.py \
+                --output-dir "$outdir" "${jobs[@]}" 2>&1 || true
+    } >> "$LOG"
+}
+
 run_phase_a() {
     run_phase_a_step validate   validate           "validate"
     run_phase_a_step jsonld     gen-jsonld-context  "gen-jsonld"
@@ -216,13 +314,16 @@ run_phase_a() {
     run_phase_a_step owl        gen-owl             "gen-owl"
     run_phase_a_step proto      gen-proto           "gen-proto"
     run_phase_a_step plantuml   gen-plantuml        "gen-plantuml"
+    run_phase_a_lint
+    run_phase_a_mcp_instance
 }
 
 # Sjekk om eit gitt skjema feila i Fase A-batchen for ein gjeven generator.
-# batch-generate.py/batch-generate-instances.py skriv ::error file=<schema>::
-# for per-skjema-isolerte feil (sjå spec, Tiltak 1/2) — grep denne markøren
-# i staden for å stole på heile batchen sin exit-kode, sidan éitt skjema sin
-# feil elles ville sjå ut som at ALLE skjema i batchen feila.
+# batch-generate.py/batch-generate-instances.py/batch-lint.py (i
+# --ignore-warnings-modus) skriv ::error file=<schema>:: for per-skjema-
+# isolerte feil (sjå spec, Tiltak 1/2) — grep denne markøren i staden for å
+# stole på heile batchen sin exit-kode, sidan éitt skjema sin feil elles
+# ville sjå ut som at ALLE skjema i batchen feila.
 phase_a_check() {
     local key="$1" schema="$2"
     local logfile="${PHASE_A_LOG[$key]:-}"
@@ -234,6 +335,30 @@ phase_a_check() {
         return 1
     fi
     return 0
+}
+
+# Sjekk resultatet av mcp-validate-instance-batchen for eit gitt skjema.
+# Ulikt phase_a_check() (som grep-ar ein loggtekst) les denne resultat-
+# JSON-fila batch-validate-instances.py skreiv for dette skjemaet sin jobb.
+phase_a_mcp_check() {
+    local schema="$1"
+    local idx="${PHASE_A_MCP_INDEX[$schema]:-}"
+    [ -n "$idx" ] || return 0  # ikkje ein del av batchen — kallaren har alt avgjort å hoppe over
+    local resultfile="$PHASE_A_MCP_OUTDIR/$idx.json"
+    if [ ! -f "$resultfile" ]; then
+        echo "Manglar resultatfil for $schema: $resultfile"
+        return 1
+    fi
+    python3 -c "
+import json, sys
+d = json.load(open('$resultfile'))
+errors = [i for i in d.get('issues', []) if i['severity'] == 'error']
+if errors:
+    for e in errors:
+        print(f\"[ERROR] {e['target']}: {e['message']}\")
+    sys.exit(1)
+sys.exit(0)
+"
 }
 
 # ---------------------------------------------------------------------------
@@ -346,13 +471,7 @@ test_gen_owl() {
 }
 
 test_linkml_lint() {
-    local schema="$1"
-    podman run --rm \
-        -v "$REPO_ROOT:/work" \
-        -w /work \
-        -e PYTHONWARNINGS=ignore \
-        "$LINKML_IMAGE" \
-        linkml lint --ignore-warnings "$schema" || return 1
+    phase_a_check lint "$1" || return 1
 }
 
 test_linkml_validate() {
@@ -596,64 +715,17 @@ test_gen_plantuml() {
 }
 
 test_mcp_validate_instance() {
-    local schema="$1" example="$2" domain="$3" name="$4"
-    if lacks_tree_root "$domain"; then
-        echo "Hoppar over mcp-validate-instance for $domain (ingen tree_root)"
+    local schema="$1" domain="$2" name="$3"
+    local job
+    if ! job=$(mcp_instance_job "$schema" "$domain" "$name"); then
+        if lacks_tree_root "$domain"; then
+            echo "Hoppar over mcp-validate-instance for $domain (ingen tree_root)"
+        else
+            echo "Ingen eksempelfil: src/linkml/$domain/$name/examples/$name-eksempel.yaml (hoppar over)"
+        fi
         return 0
     fi
-    if [ ! -f "$example" ]; then
-        echo "Ingen eksempelfil: $example (hoppar over)"
-        return 0
-    fi
-    local validate_schema="$schema"
-    [ -f "tests/fixtures/$name-fixture.yaml" ] && validate_schema="tests/fixtures/$name-fixture.yaml"
-    local tmpflat
-    tmpflat=$(mktemp /tmp/mcp_flat_XXXXXX.yaml)
-    podman run --rm \
-        -v "$REPO_ROOT:/work" \
-        -w /work \
-        -e PYTHONWARNINGS=ignore \
-        "$LINKML_IMAGE" \
-        gen-linkml --mergeimports --format yaml "$validate_schema" \
-        > "$tmpflat" 2>/dev/null || { echo "gen-linkml feila for $validate_schema"; rm -f "$tmpflat"; return 1; }
-    python3 - "$REPO_ROOT" "$tmpflat" "$example" << 'PYEOF'
-import json, sys, subprocess
-repo_root, schema_path, instance_path = sys.argv[1], sys.argv[2], sys.argv[3]
-schema_text = open(schema_path).read()
-instance_text = open(instance_path).read()
-msgs = [
-    {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}},
-    {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {
-        "name": "validate_linkml_instance",
-        "arguments": {"schemaText": schema_text, "instanceText": instance_text},
-    }},
-]
-proc = subprocess.run(
-    ["podman", "run", "-i", "--rm",
-     "-v", f"{repo_root}/src/mcp-linkml-validator/server.py:/app/server.py:ro",
-     "-v", f"{repo_root}/src/mcp-linkml-validator/policies:/app/policies:ro",
-     "mcp-linkml-validator"],
-    input="\n".join(json.dumps(m) for m in msgs),
-    capture_output=True, text=True,
-)
-for line in proc.stdout.splitlines():
-    try:
-        r = json.loads(line)
-    except json.JSONDecodeError:
-        continue
-    if r.get("id") == 2:
-        d = json.loads(r["result"]["content"][0]["text"])
-        errors = [i for i in d.get("issues", []) if i["severity"] == "error"]
-        if errors:
-            for e in errors:
-                print(f"[ERROR] {e['target']}: {e['message']}")
-            sys.exit(1)
-        sys.exit(0)
-sys.exit(1)
-PYEOF
-    local rc=$?
-    rm -f "$tmpflat"
-    return $rc
+    phase_a_mcp_check "$schema" || return 1
 }
 
 test_roundtrip_json_schema() {

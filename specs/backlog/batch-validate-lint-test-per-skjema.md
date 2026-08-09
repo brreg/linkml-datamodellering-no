@@ -443,13 +443,132 @@ omsyn til køyretid/ressursbruk ved å køyre heile 36-skjema-suiten to gonger
 i same økt. Dersom eit presist før/etter-tal er ønskt, kan det målast i eiga
 økt.
 
-**Attverande arbeid:** Kategori C (linkml-lint batching, mcp-validate-
-instance-modernisering til `schemaPath`) og Kategori D (`linkml-convert`-
-batching for convert-rdf/roundtrip-json/roundtrip-ttl, `linkml.validator
-.validate()`-batching for linkml-validate) er **ikkje** implementerte i
-denne økta — begge er detaljert i evalueringa over, klare til å
-gjennomførast som eiga oppfølgingsøkt. Denne specen vert difor **ikkje**
-flytta til `specs/done/` endå.
+**Attverande arbeid (ved slutten av denne økta):** Kategori C (linkml-lint
+batching, mcp-validate-instance-modernisering til `schemaPath`) og
+Kategori D (`linkml-convert`-batching for convert-rdf/roundtrip-json/
+roundtrip-ttl, `linkml.validator.validate()`-batching for linkml-validate)
+var **ikkje** implementerte i denne økta — begge var detaljerte i
+evalueringa over, klare til å gjennomførast som eiga oppfølgingsøkt.
+**Kategori C er sidan gjennomført** (sjå «Utført (Tiltak 3 Kategori C —
+2026-08-09)» rett under) — Kategori D står framleis att.
+
+## Utført (Tiltak 3 Kategori C — 2026-08-09)
+
+Begge Kategori C-stega ferdigstilte: `linkml-lint` og `mcp-validate-
+instance` er no batcha på same måte som Kategori A/B (éin batch-kontainar
+for heile skjemalista i Fase A, `phase_a_check`/`phase_a_mcp_check` i
+Fase B for per-skjema-attribuering).
+
+### linkml-lint
+
+`batch-lint.py` (Tiltak 2) fekk eit nytt `--ignore-warnings`-flagg som
+speglar CLI-en sitt eige flagg — styrer **berre** exit-kode-utrekninga
+(skjema med berre åtvaringar reknast ikkje som feil), ingen endring i
+sjølve lint-logikken. Ny per-skjema `::error file=<skjema>::`-attribuering
+er **kun** aktiv i `--ignore-warnings`-modus, slik at `make lint` sin
+standardmodus (utan flagget) er **heilt uendra** frå Tiltak 2 sitt
+verifiserte, CLI-identiske output — stadfesta direkte (`ngr-adresse`,
+19 åtvaringar, identisk output og exit-kode 1 i standardmodus, exit-kode 0
+i `--ignore-warnings`-modus, begge samanlikna mot native CLI).
+
+Ny `run_phase_a_lint()` i `tests/test_make.sh` kallar `batch-lint.py
+--ignore-warnings` direkte via `podman run` (ikkje via `make lint`, sidan
+testen alltid har brukt `--ignore-warnings`-semantikk som `make lint` sjølv
+ikkje støttar) for heile skjemalista på éin gong.
+`test_linkml_lint()` er redusert til eitt `phase_a_check lint "$1"`-kall.
+
+### mcp-validate-instance
+
+**Server-sida (`src/mcp-linkml-validator/server.py`):**
+`validate_instance()` (bak `validate_linkml_instance`-verktøyet) fekk ein
+ny valfri `schema_path`-parameter, same mønster som `validate_schema()`
+alt har for `validate_linkml_schema` (bygg `SchemaView(schema_path)`,
+løys `target_class` frå `tree_root` automatisk). `TOOL_DEF_INSTANCE` fekk
+tilsvarande nytt `schemaPath`-felt, `required` endra frå
+`["schemaText", "instanceText"]` til berre `["instanceText"]` (validering
+av at minst eitt av `schemaText`/`schemaPath` er gjeve skjer no i
+`handle()`, same mønster som `validate_linkml_schema`). `schemaText`-vegen
+er **heilt uendra** — reint additivt.
+
+Dette fjernar den tidlegare `gen-linkml --mergeimports`-utflatinga
+`test_mcp_validate_instance` gjorde sjølv (éin ekstra kontainar per skjema)
+og opnar for å sende skjemaet som `schemaPath` — SchemaView løyser
+relative imports naturleg mot eit montert repo, same grunngjeving som
+`effektiviser-mcp-linkml-validator-koyretid.md` sitt Tiltak 2 alt
+etablerte for `validate_linkml_schema`.
+
+**Nytt batch-script** (`src/mcp-linkml-validator/batch-validate-
+instances.py`): same JSON-RPC-stdin-batching-mekanisme som
+`batch-flatten-and-validate.py` (éin `podman run` for N skjema+instans-par,
+kvart sendt som ei eiga `tools/call`-melding), men mot
+`validate_linkml_instance` i staden for `validate_linkml_schema` — reint
+instansvalidering, ingen policy-sjekkar.
+
+Ny `run_phase_a_mcp_instance()` og delt `mcp_instance_job()`-hjelpefunksjon
+(brukt av både Fase A sin jobb-bygging og `test_mcp_validate_instance()`
+sine skip-meldingar, for å garantere at begge alltid er samde om kva som
+vert hoppa over) i `tests/test_make.sh`. Resultat lesast per skjema frå
+JSON-filer batch-scriptet skreiv (`phase_a_mcp_check()`), i staden for
+`phase_a_check()` sin logg-grep (ulikt format enn dei andre batch-scripta).
+
+**Alvorleg, pre-eksisterande sti-bug oppdaga og retta (godkjent av brukar
+før retting, sidan det utvida oppgåva sitt omfang):**
+`test_mcp_validate_instance` (og, utanfor denne rettinga sitt omfang,
+òg `test_convert_rdf`/`test_linkml_validate` — Kategori D) sjekka
+eksempelfil-stien `examples/$domain/$name-eksempel.yaml` — men **ingen**
+toppnivå-katalog `examples/` finst nokon stad i repoet (dei ekte filene
+ligg i `src/linkml/$domain/$name/examples/$name-eksempel.yaml`). Stadfesta
+med `git show HEAD:tests/test_make.sh` at denne feilen fanst **før** noka
+endring i denne økta — testen har difor i praksis **alltid** teke
+«Ingen eksempelfil»-skip-greina og rapportert falsk OK, for **kvart
+einaste** skjema, i heile testen si levetid. Retta **berre** for
+`mcp-validate-instance` (i tråd med brukarval — Kategori D-funksjonane sin
+tilsvarande bug er **ikkje** rørt).
+
+**Målt/verifisert:**
+- `python3 -c "import ast; ast.parse(...)"` på alle tre endra/nye
+  Python-filer, `bash -n tests/test_make.sh` — alle OK.
+- `schemaPath` for `validate_linkml_instance` manuelt verifisert: gyldig
+  resultat (`valid: true`) for `samt-bu` + eksempeldata via schemaPath, og
+  stadfesta at det gamle `schemaText`-kallet (utan montert repo) framleis
+  feilar nøyaktig som dokumentert i koden sin eigen kommentar (relativ
+  import-oppløysing er kjend å vere broten for rå schemaText med imports —
+  dette er nettopp grunngjevinga for schemaPath, ikkje ein ny feil).
+  Manglar-begge-felt-feilen (`parse_error`) verifisert korrekt.
+- `make mcp-linkml-valider-modell-test` (28 testar): **alle grøne**, ingen
+  regresjon frå `validate_instance()`-signaturendringa.
+- `make mcp-linkml-valider-modell-smoke`: uendra respons.
+- `batch-validate-instances.py` testa direkte mot 2 skjema (`samt-bu`,
+  `ngr-adresse`) — begge `valid: true`, batcha i éin kontainar.
+- **Éin-skjema-modus** (`bash tests/test_make.sh
+  src/linkml/samt/samt-bu/samt-bu-schema.yaml`): 16 OK, 1 FEIL — same
+  einaste (urelaterte, pre-eksisterande) feil som før. Stadfesta i loggen
+  at `mcp-validate-instance` no **faktisk validerer** (Fase A-loggen viser
+  "Validerer 1 instans(ar) ... 0 ugyldige"), ikkje lenger berre eit stille
+  «Ingen eksempelfil»-hopp-over.
+- **Full køyring, alle 36 skjema:** **536 OK, 42 FEIL — nøyaktig same tal
+  som før Kategori C** (same 36 pre-eksisterande `build.yaml`-flagg-hòl frå
+  Kategori A/B-verifiseringa + same 6 `roundtrip-ttl`-feil, Kategori D,
+  urørt). **0 nye feil** frå at `mcp-validate-instance`/`linkml-lint` no
+  batchar OG (for mcp-validate-instance) faktisk køyrer for første gong:
+  Fase A-loggen stadfesta 20 skjema fekk ekte instansvalidering i éin
+  batcha kontainar (`→ Validerer 20 instans(ar) ... 0 ugyldige`), og
+  batcha `linkml-lint --ignore-warnings` fann ingen skjema med reelle feil
+  (berre åtvaringar, korrekt ignorert). Dette stadfestar både at
+  batchinga er korrekt OG at eksempeldataen i repoet faktisk er gyldig —
+  ikkje at testen framleis er tannlaus.
+- Ingen utilsikta repo-tilstandsendring: `git status` viser berre dei fire
+  intenderte filene (`server.py`, `batch-lint.py`,
+  `batch-validate-instances.py` (ny), `tests/test_make.sh`) som endra.
+
+**Ikkje gjort:** presist før/etter-tidsmål for Kategori C isolert (same
+avveging som for Kategori A/B — ei ekstra full 36-skjema-køyring berre for
+tidsmåling vart ikkje prioritert i denne økta).
+
+**Attverande arbeid:** Kategori D (convert-rdf, roundtrip-json,
+roundtrip-ttl via batcha `linkml-convert`; linkml-validate via
+`linkml.validator.validate()`) er framleis ikkje implementert. Denne
+specen vert difor **ikkje** flytta til `specs/done/` endå.
 
 ## Handlingsliste
 
@@ -469,8 +588,10 @@ flytta til `specs/done/` endå.
 - [x] Tiltak 3 Kategori A+B: `tests/test_make.sh` omstrukturert til
       Fase A (batch-generering) + Fase B (per-skjema assert), verifisert
       0 regresjonar mot full 36-skjema-køyring (sjå eiga «Utført»-seksjon)
-- [ ] Tiltak 3 Kategori C: `batch-lint.py`-utviding (`--ignore-warnings`) +
-      `mcp-validate-instance`-modernisering til `schemaPath` — ikkje starta
+- [x] Tiltak 3 Kategori C: `batch-lint.py`-utviding (`--ignore-warnings`) +
+      `mcp-validate-instance`-modernisering til `schemaPath`, begge batcha
+      og verifisert 0 regresjonar mot full 36-skjema-køyring — i tillegg
+      retta ein alvorleg, pre-eksisterande sti-bug (sjå eiga «Utført»)
 - [ ] Tiltak 3 Kategori D: batching av `linkml-convert`-baserte steg
       (convert-rdf, roundtrip-json, roundtrip-ttl) og `linkml-validate` via
       `linkml.validator.validate()` — ikkje starta

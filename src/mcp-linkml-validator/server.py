@@ -900,16 +900,26 @@ def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
 # ---------------------------------------------------------------------------
 
 def validate_instance(schema_text: str | None, instance_text: str, target_class: str | None = None,
-                       schema_obj=None) -> dict:
+                       schema_obj=None, schema_path: str | None = None) -> dict:
     """
-    Gjev anten `schema_text` (vert parsa til ein dict) eller `schema_obj` (eit
-    alt bygd `SchemaDefinition`, typisk `sv.schema` frå ein eksisterande
-    SchemaView). Merk: å sende ein rå skjemasti til `linkml.validator.
-    validate()` er **ikkje** trygt — verifisert empirisk at biblioteket då
-    reknar ut feil absolutt sti for relative importar (brukar CWD/objektnamn
-    som base i staden for skjemafila sin eigen katalog). Send difor alltid
-    eit alt oppløyst `SchemaDefinition`-objekt når skjemaet har imports som
-    må løysast frå filsystemet.
+    Gjev skjema anten som `schema_text` (rå YAML, vert parsa til ein dict),
+    `schema_obj` (eit alt bygd `SchemaDefinition`, typisk `sv.schema` frå
+    ein eksisterande SchemaView) eller `schema_path` (sti til ei skjemafil
+    som alt finst på disk, t.d. inne i eit montert repo) — berre éitt av dei
+    tre skal gjevast.
+
+    `schema_path` let SchemaView løyse relative imports naturleg mot
+    filsystemet, same grunngjeving som `validate_schema()` sin tilsvarande
+    parameter (sjå specs/backlog/effektiviser-mcp-linkml-validator-
+    koyretid.md, Tiltak 2, og specs/backlog/batch-validate-lint-test-per-
+    skjema.md, Tiltak 3 Kategori C).
+
+    Merk: å sende ein rå skjemasti til `linkml.validator.validate()` er
+    **ikkje** trygt — verifisert empirisk at biblioteket då reknar ut feil
+    absolutt sti for relative importar (brukar CWD/objektnamn som base i
+    staden for skjemafila sin eigen katalog). `schema_path` løyser difor
+    imports sjølv via `SchemaView` og sender det ferdig oppløyste
+    `SchemaDefinition`-objektet vidare, akkurat som `schema_obj`.
     """
     issues = []
 
@@ -926,6 +936,21 @@ def validate_instance(schema_text: str | None, instance_text: str, target_class:
     schema_for_validate: object
     if schema_obj is not None:
         schema_for_validate = schema_obj
+    elif schema_path is not None:
+        try:
+            from linkml_runtime.utils.schemaview import SchemaView
+            sv = SchemaView(schema_path)
+        except Exception as exc:
+            return {
+                "valid": False,
+                "errorCount": 1,
+                "warningCount": 0,
+                "issues": [issue("error", "parse_error", "schema", str(exc))],
+            }
+        schema_for_validate = sv.schema
+        if not target_class:
+            target_class = next(
+                (cname for cname, cls in (sv.schema.classes or {}).items() if cls.tree_root), None)
     else:
         try:
             schema_dict = yaml.safe_load(schema_text)
@@ -1030,11 +1055,20 @@ TOOL_DEF_INSTANCE = {
     ),
     "inputSchema": {
         "type": "object",
-        "required": ["schemaText", "instanceText"],
+        "required": ["instanceText"],
         "properties": {
             "schemaText": {
                 "type": "string",
-                "description": "LinkML-skjema i YAML-format.",
+                "description": (
+                    "LinkML-skjema i YAML-format. Bruk schemaPath i staden dersom skjemaet "
+                    "har relative imports og filsystemet er montert i kontainaren — SchemaView "
+                    "løyser då importar naturleg mot filsystemet. Anten schemaText eller "
+                    "schemaPath må oppgjevast, aldri begge."
+                ),
+            },
+            "schemaPath": {
+                "type": "string",
+                "description": "Sti til ei skjemafil som alt finst i kontainaren (t.d. eit montert repo).",
             },
             "instanceText": {
                 "type": "string",
@@ -1095,11 +1129,21 @@ def handle(msg: dict) -> dict | None:
             }
 
         if tool_name == "validate_linkml_instance":
-            result = validate_instance(
-                arguments.get("schemaText", ""),
-                arguments.get("instanceText", ""),
-                arguments.get("targetClass") or None,
-            )
+            instance_schema_text = arguments.get("schemaText") or None
+            instance_schema_path = arguments.get("schemaPath") or None
+            if instance_schema_text is None and instance_schema_path is None:
+                result = {
+                    "valid": False, "errorCount": 1, "warningCount": 0,
+                    "issues": [issue("error", "parse_error", "schema",
+                                      "Anten schemaText eller schemaPath må oppgjevast")],
+                }
+            else:
+                result = validate_instance(
+                    instance_schema_text,
+                    arguments.get("instanceText", ""),
+                    arguments.get("targetClass") or None,
+                    schema_path=instance_schema_path,
+                )
             return {
                 "jsonrpc": "2.0",
                 "id": msg_id,
