@@ -235,7 +235,7 @@ Dette repoet er ein **Proof of Concept** og har ingen garantert support-SLA:
 - Hjelper eksterne organisasjonar med onboarding og tekniske spørsmål
 
 **Katalogeigarleiing sitt ansvar:**
-- Vedlikeheld eigne domenemodeller og modellkatalog
+- Vedlikeheld eigne domenemodellar og modellkatalog
 - Triagerer og løyser issues som gjeld eigne modellar
 - Svarar på spørsmål om eigne modellar frå andre brukarar
 
@@ -259,7 +259,7 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 - Spørsmål og diskusjonar: Best-effort, når kapasitet er tilgjengeleg
 
 **Kva du MÅ gjere sjølv:**
-- Feilsøke problemer i eigne domenemodeller
+- Feilsøke problemer i eigne domenemodellar
 - Validere data før publisering (`make mcp-linkml-valider-modell SCHEMA=...` — brukar automatisk `validation_policy` frå build.yaml)
 - Teste genererte artefakter lokalt før push
 - Lese dokumentasjon og eksisterande issues før du rapporterer nye problem

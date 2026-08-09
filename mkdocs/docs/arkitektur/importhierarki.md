@@ -57,7 +57,7 @@ linkml:types
 
 ## FAIR-metadata
 
-FAIR-metadata kan importerast av alle domenemodeller for å legge til FAIR-prinsipp-støtte.
+FAIR-metadata kan importerast av alle domenemodellar for å legge til FAIR-prinsipp-støtte.
 
 ```
 linkml:types
@@ -109,11 +109,11 @@ linkml:types
 
 ---
 
-## Import på tvers av domenemodeller
+## Import på tvers av domenemodellar
 
-**Import mellom domenemodeller er tillate**, men krev varsomheit:
+**Import mellom domenemodellar er tillate**, men krev varsomheit:
 
-!!! warning "Låsing av versjon" **Alltid lås til ein konkret versjon** når du importerer ein domenemodell frå ein annan domenemodell. Dette er naudsynt fordi domenemodeller kan endre seg på måtar som bryt bakoverkompatibilitet (klasser/slots vert endra eller fjerna).
+!!! warning "Låsing av versjon" **Alltid lås til ein konkret versjon** når du importerer ein domenemodell frå ein annan domenemodell. Dette er naudsynt fordi domenemodellar kan endre seg på måtar som bryt bakoverkompatibilitet (klasser/slots vert endra eller fjerna).
 
 **Eksempel — korrekt versjonslåsing:**
 
@@ -126,7 +126,7 @@ imports:
 
 **Kvifor versjonslåse?**
 - **AP-NO/FINT/FAIR-skjema** følgjer standardar og endrar seg sjeldan — treng ikkje versjonslåsing
-- **Domenemodeller** (SAMT, NGR, oreg osv.) kan endre seg aktivt — versjonslåsing hindrar uventa brot
+- **Domenemodellar** (SAMT, NGR, oreg osv.) kan endre seg aktivt — versjonslåsing hindrar uventa brot
 
 **Alternativ til import:**
 - Dersom du berre treng ein eller to klasser, vurder å **kopiere klassedefinisjonane** i staden for å importere heile skjemaet

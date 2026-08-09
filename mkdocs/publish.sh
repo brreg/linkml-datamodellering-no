@@ -483,8 +483,8 @@ t4=$(date +%s%3N)
 
 {
 cat << 'STATIC'
-site_name:  Norske W3C-profiler og offentlige domenemodeller i LinkML-format
-site_description: Norske W3C-applikasjonsprofilar og offentlige domenemodeller i LinkML-format
+site_name:  Norske W3C-profiler og offentlige domenemodellar i LinkML-format
+site_description: Norske W3C-applikasjonsprofilar og offentlige domenemodellar i LinkML-format
 site_url: https://brreg.github.io/linkml-datamodellering-no
 docs_dir: docs
 copyright: >

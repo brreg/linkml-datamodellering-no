@@ -415,7 +415,8 @@
       "Bash(mv ny-org.md ny-domenemodell.md ny-begrepsmodell.md build-config.md kommandoar.md kom-i-gang/)",
       "Bash(mv arkitektur-oversikt.md importhierarki.md valideringsregler.md ap-no-arkitektur.md ekstern-bruk.md arkitektur/)",
       "Bash(mv publisering-oversikt.md publisering-begrep.md publisering-modell.md publisering/)",
-      "Bash(mv artefakt-generering.md index-md-struktur.md modellmanifest-generering.md readme-tabellgenerering.md monitorering.md automasjon/)"
+      "Bash(mv artefakt-generering.md index-md-struktur.md modellmanifest-generering.md readme-tabellgenerering.md monitorering.md automasjon/)",
+      "Bash(mount)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -86,8 +86,8 @@ Dersom data med `publish_external: true` må trekkjast tilbake:
 | Rolle | Ansvar | Kven |
 |---|---|---|
 | **Repo-administrator** | Godkjenner onboarding av nye org-ar, vedlikeheld felles infrastruktur (AP-NO-profilene, common-ap-no, fair-metadata, referanse, tooling, CI/CD), kan merge til `main` | GitHub-team hos repo-host |
-| **Katalogeigarleiing** | Eig og godkjenner endringar i eigen org sine domenemodeller, begrepskatalog og modellkatalog | Utpeikt person per org, registrert i `CODEOWNERS.md` |
-| **Domenemodell-eigar** | Eig og vedlikeheld spesifikke domenemodeller under `src/linkml/<domain>/` | Kvar domenemodell har ein eigar-org i `CODEOWNERS.md` |
+| **Katalogeigarleiing** | Eig og godkjenner endringar i eigen org sine domenemodellar, begrepskatalog og modellkatalog | Utpeikt person per org, registrert i `CODEOWNERS.md` |
+| **Domenemodell-eigar** | Eig og vedlikeheld spesifikke domenemodellar under `src/linkml/<domain>/` | Kvar domenemodell har ein eigar-org i `CODEOWNERS.md` |
 | **Bidragsytar** | Sender PR-ar, skriv modellar, rapporterer feil | Alle med write-tilgang |
 
 Kvar domenemodell har ein eigar-org i `CODEOWNERS.md`. Brotande endringar
@@ -96,7 +96,7 @@ i delte skjema (`ap-no/`, `common-ap-no`, `fair-metadata`) krev RFC-prosess: Git
 
 ---
 
-## Delt infrastruktur vs. domenemodeller
+## Delt infrastruktur vs. domenemodellar
 
 **Felles infrastruktur** (`src/linkml/ap-no/`, `src/linkml/fair/`, `src/linkml/referanse/`,
 `src/assets/`, CI/CD, Makefile, validator-policies):
@@ -109,7 +109,7 @@ Breaking changes krev RFC-prosess (sjå nedanfor).
 release-PR-ar utan ekstra review, sidan innholdet er avgrensa til det
 `release-please` genererer frå conventional commits.
 
-**Domenemodeller** (alt under `src/linkml/<domain>/` som ikkje er AP-NO):
+**Domenemodellar** (alt under `src/linkml/<domain>/` som ikkje er AP-NO):
 Endringar krev review frå **katalogeigarleiinga for den aktuelle org-en** (via GitHub CODEOWNERS).
 Repo-administrator kan override ved behov.
 
@@ -248,14 +248,14 @@ Repo-administrator gir tilgang til repoet etter at organisasjonen er godkjent (s
 Organisasjonen er ansvarleg for:
 - Å halde GitHub-teamet oppdatert med aktive medlemmar
 - Å varsle repo-administrator dersom kontaktinformasjon endrar seg
-- Å godkjenne PR-ar som endrar deira eigne domenemodeller (via `.github/CODEOWNERS`)
+- Å godkjenne PR-ar som endrar deira eigne domenemodellar (via `.github/CODEOWNERS`)
 
 ---
 
 ## RFC-prosess for breaking changes
 
 Ein endring i delt infrastruktur er «breaking» viss den krev endringar i eksisterande
-domenemodeller hjå registrerte org-ar. Prosess:
+domenemodellar hjå registrerte org-ar. Prosess:
 
 1. Opne eit GitHub Issue merka `RFC` og `breaking-change`
 2. Diskusjonsperiode på **14 dagar** (alle org-ar varsla via Issue-kommentar)
@@ -340,7 +340,7 @@ Ueinigheitar om endringar i felles infrastruktur:
 | Komponent | Ansvarleg for sikkerheit | Rapportering |
 |---|---|---|
 | Felles infrastruktur (CI/CD, containerar, AP-NO-profilar) | Repo-administrator | E-post til ave@brreg.no |
-| Domenemodeller (schema, datafiler) | Katalogeigarleiing per org | GitHub Issue (`bug` eller `data-quality`) |
+| Domenemodellar (schema, datafiler) | Katalogeigarleiing per org | GitHub Issue (`bug` eller `data-quality`) |
 | Personopplysningar i datafiler | Katalogeigarleiing per org | GitHub Issue + omgåande fjerning |
 | Publiserte artefakter på GitHub Pages | Repo-administrator (infrastruktur), Katalogeigarleiing (innhald) | Avhengig av type problem |
 
@@ -348,7 +348,7 @@ Ueinigheitar om endringar i felles infrastruktur:
 
 Kvar organisasjon er ansvarleg for:
 
-- **Datakvalitet:** Sikre at domenemodeller og datafiler ikkje inneheld feil eller manglande metadata
+- **Datakvalitet:** Sikre at domenemodellar og datafiler ikkje inneheld feil eller manglande metadata
 - **Personvern:** Ikkje legge inn personopplysningar (namn, e-post, fødselsnummer, osv.) i modellar eller datafiler
 - **Konfidensialitet:** Ikkje legge inn konfidensielle forretningsdata i offentlege modellar
 - **Rask respons:** Fjerne sensitive data omgåande dersom dei vert oppdaga
@@ -417,7 +417,7 @@ Når fleire organisasjonar brukar same repo kan det oppstå konfliktar om endrin
 
 ### Scenario 3: Breaking change i AP-NO-profil påverkar fleire org-ar
 
-**Døme:** `dcat-ap-no` må oppdaterast til ein ny versjon av DCAT-AP-EU-standarden. Oppgraderinga krev endringar i alle domenemodeller som importerer `dcat-ap-no`.
+**Døme:** `dcat-ap-no` må oppdaterast til ein ny versjon av DCAT-AP-EU-standarden. Oppgraderinga krev endringar i alle domenemodellar som importerer `dcat-ap-no`.
 
 **Prosess:**
 

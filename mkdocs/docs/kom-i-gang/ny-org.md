@@ -61,7 +61,7 @@ Fyll inn `TODO`-verdiane i datafila manuelt:
 - `har_del`-lista (vert automatisk synkronisert seinare av `update-modellkatalog`)
 - Namn på kontaktpunkt i `aktoerer`-lista
 
-## Steg 3 — Opprett domenemodeller
+## Steg 3 — Opprett domenemodellar
 
 ```bash
 make new-modell NAME=<modell> DOMAIN=<domain>
@@ -126,7 +126,7 @@ Sjå [Valideringsreglar](../arkitektur/valideringsregler.md) for fullstendig ove
 ## Steg 6 — Send pull request
 
 Lag ein PR mot `main` med:
-- Nye domenemodeller i `src/linkml/<domain>/`
+- Nye domenemodellar i `src/linkml/<domain>/`
 - Oppdatert `CODEOWNERS.md` (om ikkje gjort i steg 1)
 - Ny katalogstruktur i `src/linkml/modellkatalog/<alias>-modellkatalog/`
 
@@ -140,7 +140,7 @@ før PR-en kan mergast.
 ### Importere ap-no profil
 
 Alle AP-NO-profilar i `src/linkml/ap-no/` er felles infrastruktur og kan importerast
-av alle domenemodeller uavhengig av eigar-org:
+av alle domenemodellar uavhengig av eigar-org:
 
 ```yaml
 imports:

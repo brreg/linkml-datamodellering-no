@@ -8,7 +8,7 @@ for å skildre relasjonar mellom spesifikasjonar, profiler av desse og støttear
 `http://www.w3.org/ns/dx/prof/` (autorativt TTL: https://www.w3.org/TR/dx-prof/rdf/prof.ttl)
 
 Ein LinkML-modell av dx-prof gjer det mogleg å:
-- bruke dx-prof semantikk i LinkML-baserte skjema og domenemodeller
+- bruke dx-prof semantikk i LinkML-baserte skjema og domenemodellar
 - formelt skildre at t.d. `dcat-ap-no` er ein `prof:Profile` av DCAT
 - generere SHACL/OWL/JSON-Schema frå profil-registreringar
 

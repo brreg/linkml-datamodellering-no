@@ -25,7 +25,7 @@ flowchart TB
         APNO["ap-no/*<br/>dcat-ap-no, skos-ap-no,<br/>modelldcat-ap-no, cpsv-ap-no,<br/>dqv-ap-no, xkos-ap-no"]
         FAIR["fair/fair-metadata"]
         FINTCOMMON["fint/fint-common"]
-        DOMENE["domenemodeller<br/>ngr-*, oreg-*, fint-*, samt-bu<br/>(tree_root containerklasser)"]
+        DOMENE["domenemodellar<br/>ngr-*, oreg-*, fint-*, samt-bu<br/>(tree_root containerklasser)"]
         BEGREP["begrepskatalog/*<br/>SKOS-AP-NO-Begrep + data/*.yaml"]
         MODELLKAT["modellkatalog/*<br/>ModelDCAT-AP-NO"]
 

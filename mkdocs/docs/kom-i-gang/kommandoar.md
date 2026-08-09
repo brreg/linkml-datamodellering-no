@@ -62,7 +62,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `silver` | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
 | `gold` | Silver + FAIR-sjekkar F1-R1.3 (class_uri, lisens, proveniens m.m.) |
 
-`mcp-linkml-valider-modell` flattar automatisk ut relative importar med LinkML sitt `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
+`mcp-linkml-valider-modell` flattar automatisk ut relative importar med LinkML sitt `gen-linkml --mergeimports` før validering, slik at domenemodellar med fleire schema-lag fungerer utan tilpassing.
 
 ### Publiserings-Policyar
 

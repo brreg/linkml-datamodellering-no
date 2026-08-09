@@ -38,10 +38,10 @@ Eit norsk offentleg **datamesh** der:
   ╔═════════════════════════════════════════════════════════════════════╗
   ║  MODELLERINGSLAG                            ← dette repoet          ║
   ╠═════════════════════════════════════════════════════════════════════╣
-  ║  -> implementerer AP-NO-profiler og domenemodeller i LinkML         ║
+  ║  -> implementerer AP-NO-profiler og domenemodellar i LinkML         ║
   ║                                                                     ║
   ║  linkml-datamodellering-no                                          ║
-  ║  AP-NO som LinkML  ·  domenemodeller  ·  MCP-serverar  ·  CI/CD     ║
+  ║  AP-NO som LinkML  ·  domenemodellar  ·  MCP-serverar  ·  CI/CD     ║
   ║  bronze / silver / gold / felles-*-policy                           ║
   ╚═════════════════════════════════════════════════════════════════════╝
                                  ▲
@@ -92,9 +92,9 @@ Eit norsk offentleg **datamesh** der:
   ╔═════════════════════════════════════════════════════════════════════╗
   ║  MODELLERINGSLAG                                   ← dette repoet   ║
   ╠═════════════════════════════════════════════════════════════════════╣
-  ║  implementerer AP-NO-profiler og domenemodeller i LinkML            ║
+  ║  implementerer AP-NO-profiler og domenemodellar i LinkML            ║
   ║                                                                     ║
-  ║  AP-NO som LinkML  ·  domenemodeller  ·  MCP-serverar  ·  CI/CD     ║
+  ║  AP-NO som LinkML  ·  domenemodellar  ·  MCP-serverar  ·  CI/CD     ║
   ║  bronze / silver / gold / felles-*-policy                           ║
   ╚═════════════════════════════════════════════════════════════════════╝
                                         │
@@ -133,7 +133,7 @@ linkml-datamodellering-no
 │   modelldcat-ap-no, cpsv-ap-no,
 │   dqv-ap-no, xkos-ap-no
 │
-├── Domenemodeller (LinkML)          → konkrete informasjonsmodellar
+├── Domenemodellar (LinkML)          → konkrete informasjonsmodellar
 │   NGR, FINT, SAMT, BRREG
 │
 ├── MCP-serverar                     → KI-assistert modellering og validering
@@ -300,7 +300,7 @@ utviklast som eit bidrag til LinkML-prosjektet.
 | Matrikkelen WFS | Kartverket | SHACL-validering av WFS GML-respons mot `ngr-adresse`-skjema |
 | eFormidling | Digdir | Dokumenttypemodell for SBD-konvoluttar i LinkML |
 | NHN Grunndata | Norsk Helsenett | FHIR R4-profil generert frå LinkML (sektorspesifikt) |
-| INSPIRE / EuroVoc | EU | Europeisk harmonisering av domenemodeller |
+| INSPIRE / EuroVoc | EU | Europeisk harmonisering av domenemodellar |
 
 ---
 
@@ -325,7 +325,7 @@ utviklast som eit bidrag til LinkML-prosjektet.
 │                                                                 │             │
 │            linkml-datamodellering-no                            │             │
 │  ┌─────────────────────────────────────────────────────────┐   │             │
-│  │  AP-NO-profiler      Domenemodeller       MCP-serverar  │   │             │
+│  │  AP-NO-profiler      Domenemodellar       MCP-serverar  │   │             │
 │  │  dcat-ap-no          ngr, fint, samt      modell-utkast │   │             │
 │  │  skos-ap-no          kudaf, brreg         begrep-utkast │   │             │
 │  │  modelldcat-ap-no    altinn-xsd           validator     │   │             │

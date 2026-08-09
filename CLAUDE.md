@@ -49,7 +49,7 @@ Sjå [PRINCIPLES.md § 3](PRINCIPLES.md#3-modularitet-via-import-hierarki) og [m
 
 **Hovudpunkt:**
 - `common-ap-no-schema` importerer `linkml:types` — berre AP-NO-profilene importerer denne direkte
-- Domenemodeller importerer AP-NO-profilene (t.d. `dcat-ap-no-schema`), ikkje `common-ap-no-schema`
+- Domenemodellar importerer AP-NO-profilene (t.d. `dcat-ap-no-schema`), ikkje `common-ap-no-schema`
 - `fint-common-schema` er felles for alle FINT-modellar
 - `fair-metadata-schema` kan kombinerast med både AP-NO, FINT og oreg-skjema
 
@@ -326,7 +326,7 @@ Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til de 
 `LangString` (type `rdf:langString`) brukes for alle egenskaper som er definert som `rdf:langString` i spesifikasjonen (tittel, beskrivelse, nøkkelord osv.).
 
 ### Containerklasse
-Alle toppnivå domenemodeller skal ha éin containerklasse med `tree_root: true`. Containerklassen er inngangspunktet for validering og serialisering.
+Alle toppnivå domenemodellar skal ha éin containerklasse med `tree_root: true`. Containerklassen er inngangspunktet for validering og serialisering.
 
 Containerklassen brukar **`attributes:`** (ikkje `slots:`) for å referere til kvar klasse som kan serialiserast i tilhøyrande datafil:
 

@@ -33,7 +33,7 @@ Vi koordinerer ansvarleg offentleggjering saman med deg.
 
 **Ansvarleg:** Repo-administrator
 
-### Domenemodeller og data
+### Domenemodellar og data
 
 **IKKJE sikkerheitssårbarheiter, men datakvalitetsproblem:**
 
@@ -63,7 +63,7 @@ Vi koordinerer ansvarleg offentleggjering saman med deg.
 
 **Kvar organisasjon er ansvarleg for:**
 
-- Å ikkje legge inn personopplysningar (namn, e-post, fødselsnummer, osv.) i domenemodeller eller datafiler
+- Å ikkje legge inn personopplysningar (namn, e-post, fødselsnummer, osv.) i domenemodellar eller datafiler
 - Å ikkje legge inn konfidensielle forretningsdata i offentlege modellar
 - Å fjerne sensitive data omgåande dersom dei vert oppdaga
 

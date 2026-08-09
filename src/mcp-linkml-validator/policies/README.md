@@ -96,7 +96,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 ### silver
 
 Arvar bronse. Legg til livssyklusmetadata og krav frå DCAT-AP-NO og DQV-AP-NO
-for domenemodeller i norsk offentleg sektor, samt instanssjekkar for
+for domenemodellar i norsk offentleg sektor, samt instanssjekkar for
 kontrollerte vokabular.
 
 | Sjekk | Alvor | Digdir-regel | FAIR | Skildring |

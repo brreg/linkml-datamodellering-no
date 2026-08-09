@@ -196,10 +196,10 @@ fint-common           (berre FINT-domenemodellane importerer denne)
     ↓
 fint-administrasjon / fint-arkiv / …
 
-fair-metadata         (kan importerast av alle domenemodeller)
+fair-metadata         (kan importerast av alle domenemodellar)
 ```
 
-Domenemodeller importerer **AP-NO-profilane** — ikkje `common-ap-no` direkte. Dei arvar typar, subsets og slots frå AP-NO automatisk gjennom profilane.
+Domenemodellar importerer **AP-NO-profilane** — ikkje `common-ap-no` direkte. Dei arvar typar, subsets og slots frå AP-NO automatisk gjennom profilane.
 
 ---
 

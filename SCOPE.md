@@ -9,7 +9,7 @@
 `linkml-datamodellering-no` er eit **nasjonalt verktøyrepo** for informasjonsmodellering
 i offentleg sektor. Det kombinerer:
 
-- **Ferdiglagde LinkML-skjema** for norske AP-NO-profilene og domenemodeller
+- **Ferdiglagde LinkML-skjema** for norske AP-NO-profilene og domenemodellar
 - **Infrastruktur** for automatisk generering, validering og publisering av artefakter
 - **Verktøy** for å bootstrappe LinkML-modellering i andre repo
 
@@ -71,10 +71,10 @@ Ferdige LinkML-skjema for import og gjenbruk:
 |---|---|---|
 | AP-NO-profilene | `dcat-ap-no`, `dqv-ap-no`, `skos-ap-no`, `xkos-ap-no`, `cpsv-ap-no`, `modelldcat-ap-no` | Berre for import |
 | Felles basisklasar | `common-ap-no` | Berre for import av AP-NO-profilar |
-| FAIR-metadata | `fair-metadata` | Kan importerast av alle domenemodeller |
-| Nasjonale grunndata | `ngr-adresse`, `ngr-eiendom`, `ngr-person`, `ngr-virksomhet` | Fullstendige domenemodeller |
+| FAIR-metadata | `fair-metadata` | Kan importerast av alle domenemodellar |
+| Nasjonale grunndata | `ngr-adresse`, `ngr-eiendom`, `ngr-person`, `ngr-virksomhet` | Fullstendige domenemodellar |
 | FINT | `fint-common`, `fint-administrasjon`, `fint-arkiv`, `fint-okonomi`, `fint-personvern`, `fint-ressurs`, `fint-utdanning` | Arvar namgjeving frå FINT-spec |
-| Offentlege register | `enhetsregisteret-bvrinn`, `register-over-aksjeeiere` | Domenemodeller |
+| Offentlege register | `enhetsregisteret-bvrinn`, `register-over-aksjeeiere` | Domenemodellar |
 | Samhandling | `samt-bu` | Skular og barnehagar |
 | Begrepskatalog | `brreg-begrepskatalog` | Med produksjonsdata |
 | Modellkatalog | `brreg-modellkatalog`, `digdir-modellkatalog`, `kartverket-modellkatalog`, `ksdigital-modellkatalog`, `novari-modellkatalog`, `skatteetaten-modellkatalog` | Med produksjonsdata |

@@ -1,10 +1,10 @@
 # Generert frå CODEOWNERS.md (path_patterns-seksjonen per org).
-# Ikkje rediger mappeblokka for domenemodeller direkte — oppdater CODEOWNERS.md i staden.
+# Ikkje rediger mappeblokka for domenemodellar direkte — oppdater CODEOWNERS.md i staden.
 
 # Standardeigar for alt i repoet
 * @AudunVindenesEggeBR
 
-# --- Domenemodeller per org (frå CODEOWNERS.md) ---
+# --- Domenemodellar per org (frå CODEOWNERS.md) ---
 
 # brreg — Brønnøysundregistra
 /src/linkml/ngr/ngr-virksomhet/                   @AudunVindenesEggeBR

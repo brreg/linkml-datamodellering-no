@@ -27,7 +27,7 @@ Målet er å:
 2. Versjonere snapshotsa i git med dato og sjekksum
 3. Generere URI-lister og LinkML-enum-typar frå SKOS-data
 4. Bruke enumane til **dokumentasjon** (gyldige verdiar i portalen) og som
-   opt-in-validering i domenemodeller — **ikkje** i AP-NO-profilene
+   opt-in-validering i domenemodellar — **ikkje** i AP-NO-profilene
 
 **Prinsipp:** Pull, ikkje push. Repoet hentar frå eksterne kjelder — aldri omvendt.
 All nedlasting skjer i containrar (ingen lokal installasjon).
@@ -49,7 +49,7 @@ Det er umogleg å seie «dette datasettet vart validert mot Los v2.3» — berre
 DCAT-AP-NO seier at `dcat:theme` *kan* bruke Los — det er anbefalt, ikkje
 obligatorisk. Ein domenemodell for helsesektoren vil gjerne bruke eit
 sektorvokabular i tillegg. Los-validering i `dcat-ap-no-schema.yaml` ville
-ramme *alle* importerande domenemodeller feil.
+ramme *alle* importerande domenemodellar feil.
 
 **Vedteke val:** Enum-typar og validering er opt-in per domenemodell, ikkje
 innbakt i AP-NO-skjemaa.
@@ -91,7 +91,7 @@ generated/
     los/
       los-tema.yaml            ← generert liste: berre tema-URI-ar med prefLabel
       los-alle.yaml            ← generert liste: tema + undertema + ord
-      los-tema-enum.yaml       ← LinkML-enum: LosTema (importerbar i domenemodeller)
+      los-tema-enum.yaml       ← LinkML-enum: LosTema (importerbar i domenemodellar)
 ```
 
 **Kva som committast i git:**
@@ -122,7 +122,7 @@ id: https://data.norge.no/external/los-tema
 name: los-tema
 description: >-
   Gyldige Los-hovudtema (generert frå src/external/los/los.ttl,
-  snapshot 2026-06-19). Importerbar opt-in i domenemodeller.
+  snapshot 2026-06-19). Importerbar opt-in i domenemodellar.
 
 enums:
   LosTema:
@@ -137,7 +137,7 @@ enums:
       # ... alle ~80 hovudtema
 ```
 
-Domenemodeller som ynskjer Los-validering importerer denne fila og set
+Domenemodellar som ynskjer Los-validering importerer denne fila og set
 `tema.range: LosTema` i sin eigen `slot_usage`.
 
 ---

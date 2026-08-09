@@ -26,7 +26,7 @@
 
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
-* LinkML-[modellar](https://github.com/brreg/linkml-datamodellering-no/tree/main#skjema) for norske [W3C-applikasjonsprofilar](https://data.norge.no/showroom/overview) og offentlege domenemodeller for gjenbruk.
+* LinkML-[modellar](https://github.com/brreg/linkml-datamodellering-no/tree/main#skjema) for norske [W3C-applikasjonsprofilar](https://data.norge.no/showroom/overview) og offentlege domenemodellar for gjenbruk.
 * [mcp-linkml-modell-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-modell-utkast/README.md) for å generere utkast til nye informasjonsmodellar i LinkML format ihht [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626).
 * [mcp-linkml-begrep-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) for å generere utkast til nye begreper i LinkML format ihht [skos-ap-no standarden](https://data.norge.no/specification/skos-ap-no-begrep).
 * [mcp-linkml-validator](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md)  for å validere LinkML-skjemaer ihht [Felles modelleringsregler for offentlig forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029) og [FAIR prinsippa](https://www.go-fair.org/fair-principles/). Validatoren implementerer kvalitets-profilar (bronze, silver, gold), publiserings-profilar (felles begrepskatalog og felles datakatalog) og har støtte for egendefinerte profilar.
@@ -174,8 +174,8 @@ Domena ligg under `src/linkml/<domain>/`
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
 | [REFERANSE](referanse/) | Enkle eksempel på gyldige LinkML-modellar (referanseimplementasjonar) 
-| [FAIR](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
-| [AP-NO](ap-no/) | Norske W3C-applikasjonsprofilar — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| [FAIR](fair/) | **FAIR**-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodellar. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| [AP-NO](ap-no/) | Norske W3C-applikasjonsprofilar — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodellar. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
 | [NGR](ngr/) | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | [OREG](oreg/) | Offentlege register. |
 | [FINT](fint/) | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
@@ -222,7 +222,7 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 | [SAMT](samt/) | [samt-bu](samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no](https://docs.samt-bu.no/om/)
 <!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
 
-**AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodeller.
+**AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodellar.
 
 ---
 
