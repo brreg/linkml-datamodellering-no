@@ -3,6 +3,8 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
+source "$REPO_ROOT/mkdocs/lib/utils/python_container.sh"
+
 generate_quickstart() {
     local domain="$1"
     local schema="$2"
@@ -16,7 +18,7 @@ generate_quickstart() {
     # Les versjon frå skjemaet
     local version=""
     if [ -n "$schema_file" ]; then
-        version=$(python3 -c "import yaml, sys; d=yaml.safe_load(open('$schema_file')); print(d.get('version', ''))" 2>/dev/null || echo "")
+        version=$(run_python_container -c "import yaml, sys; d=yaml.safe_load(open('$(to_container_path "$schema_file")')); print(d.get('version', ''))" 2>/dev/null || echo "")
     fi
     local version_tag="${version:+${schema}-v$version}"
     local version_path="${version_tag:-main}"
@@ -28,7 +30,7 @@ generate_quickstart() {
 
     if [ -n "$schema_file" ]; then
         # Python-script for auto-deteksjon
-        read -r example_class example_var policy < <(python3 - "$schema_file" <<'PYEOF'
+        read -r example_class example_var policy < <(run_python_container - "$(to_container_path "$schema_file")" <<'PYEOF'
 import yaml
 import sys
 import os

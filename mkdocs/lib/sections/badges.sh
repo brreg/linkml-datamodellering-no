@@ -5,6 +5,7 @@ trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../utils/metadata_parsers.sh"
+source "$SCRIPT_DIR/../utils/python_container.sh"
 
 generate_badges() {
     local domain="$1"
@@ -23,7 +24,7 @@ generate_badges() {
     # Slå opp organisasjonsnamn i CODEOWNERS.md ved å matche org_uri mot utgiver-URI-en
     local utgiver_navn=""
     if [ -n "$utgiver_uri" ] && [ -f "$REPO_ROOT/CODEOWNERS.md" ]; then
-        utgiver_navn=$(python3 - "$utgiver_uri" "$REPO_ROOT/CODEOWNERS.md" <<'PYEOF' 2>/dev/null
+        utgiver_navn=$(run_python_container - "$utgiver_uri" "$(to_container_path "$REPO_ROOT/CODEOWNERS.md")" <<'PYEOF' 2>/dev/null
 import re
 import sys
 

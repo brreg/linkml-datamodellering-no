@@ -36,11 +36,10 @@ emit-github-validation-annotations.py utan endring.
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
-
-import yaml
 
 
 def log(msg: str) -> None:
@@ -85,14 +84,17 @@ def resolve_example_path(repo_root: Path, schema_rel: str, explicit_instance: st
     return example
 
 
+_TREE_ROOT_RE = re.compile(r"^\s+tree_root:\s*true\s*$", re.MULTILINE)
+
+
 def schema_has_tree_root(repo_root: Path, schema_rel: str) -> bool:
     """tree_root-klassen er alltid definert lokalt i skjemaet (aldri importert), jf.
-    CLAUDE.md sin konvensjon — treng difor ikkje løyse importar for å sjekke dette."""
-    schema = yaml.safe_load((repo_root / schema_rel).read_text(encoding="utf-8"))
-    return any(
-        isinstance(cls, dict) and cls.get("tree_root")
-        for cls in (schema.get("classes") or {}).values()
-    )
+    CLAUDE.md sin konvensjon — treng difor ikkje løyse importar for å sjekke dette.
+    Regex i staden for full YAML-parsing sidan dette er den einaste bruken av PyYAML
+    i scriptet — fjernar behovet for PyYAML på hosten (sjå
+    specs/backlog/nye-host-python-kall-batching.md)."""
+    text = (repo_root / schema_rel).read_text(encoding="utf-8")
+    return _TREE_ROOT_RE.search(text) is not None
 
 
 def build_tool_call(msg_id: int, container_schema_path: str, policy: str, instance_text: str | None) -> dict:

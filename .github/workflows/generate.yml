@@ -305,7 +305,10 @@ jobs:
               continue
             fi
 
-            version=$(python3 -c "import yaml; print(yaml.safe_load(open('$schema_file')).get('version', ''))" 2>/dev/null || echo "")
+            # Enkelt grep/sed-oppslag (ikkje python3/PyYAML) — version-feltet er
+            # alltid ein enkel skalarverdi (sitert eller usitert), aldri ei
+            # fleirlinje-YAML-verdi, jf. CONVENTIONS.md sitt semver-krav.
+            version=$(grep -m1 '^version:' "$schema_file" | sed -E 's/^version:[[:space:]]*"?([^"]*)"?[[:space:]]*$/\1/' || echo "")
 
             if [ -z "$version" ] || [ "$version" = "None" ]; then
               echo "  ⚠️  $schema_name: Manglar version-felt, hoppar over" >&2

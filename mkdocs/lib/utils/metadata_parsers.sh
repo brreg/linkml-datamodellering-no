@@ -2,6 +2,8 @@
 # Parsing av manifest, validation-policy, versjon osv.
 set -euo pipefail
 
+source "$REPO_ROOT/mkdocs/lib/utils/python_container.sh"
+
 # Les validation_policy/external_spec_url/external_spec_label frå build.yaml
 # i éin python3-prosess og cache dei i eksporterte variablar, i staden for
 # at get_validation_policy/get_external_spec_url/get_external_spec_label
@@ -20,10 +22,12 @@ load_manifest_cache() {
     # `$(...)`-kommandosubstitusjon strippar ALLE etterfølgjande linjeskift —
     # med reine verdi-linjer ville ein tom external_spec_label (vanlegast
     # tilfelle) kollapsa dei siste linjeskilja og brote opplesinga.
+    local container_manifest
+    container_manifest=$(to_container_path "$manifest")
     local result
-    result=$(python3 -c "
+    result=$(run_python_container -c "
 import yaml
-d = yaml.safe_load(open('$manifest')) or {}
+d = yaml.safe_load(open('$container_manifest')) or {}
 print('policy=' + str(d.get('validation_policy', 'bronze')))
 print('external_spec_url=' + str(d.get('external_spec_url', '')))
 print('external_spec_label=' + str(d.get('external_spec_label', '')))
@@ -51,8 +55,10 @@ get_validation_policy() {
         return
     fi
     [ ! -f "$manifest" ] && echo "bronze" && return
+    local container_manifest
+    container_manifest=$(to_container_path "$manifest")
     local policy
-    if policy=$(python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('validation_policy', 'bronze'))" 2>&1); then
+    if policy=$(run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('validation_policy', 'bronze'))" 2>&1); then
         echo "$policy"
     else
         echo "ÅTVARING: kunne ikkje lese validation_policy frå $manifest — bruker bronze ($policy)" >&2
@@ -73,7 +79,9 @@ get_external_spec_url() {
         return
     fi
     [ ! -f "$manifest" ] && return
-    python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_url', ''))" 2>/dev/null || echo ""
+    local container_manifest
+    container_manifest=$(to_container_path "$manifest")
+    run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('external_spec_url', ''))" 2>/dev/null || echo ""
 }
 
 get_external_spec_label() {
@@ -83,7 +91,9 @@ get_external_spec_label() {
         return
     fi
     [ ! -f "$manifest" ] && return
-    python3 -c "import yaml; print(yaml.safe_load(open('$manifest')).get('external_spec_label', ''))" 2>/dev/null || echo ""
+    local container_manifest
+    container_manifest=$(to_container_path "$manifest")
+    run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('external_spec_label', ''))" 2>/dev/null || echo ""
 }
 
 get_validation_json_path() {

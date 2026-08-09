@@ -3,6 +3,8 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
+source "$REPO_ROOT/mkdocs/lib/utils/python_container.sh"
+
 generate_contact_info() {
     local domain="$1"
     local schema="$2"
@@ -26,7 +28,7 @@ generate_contact_info() {
 
     # Ekstraher YAML-frontmatter frå CODEOWNERS.md
     # Parse YAML og match path mot path_patterns eller catalog_slug for kvar org
-    local org_data=$(python3 - "$schema_path" "$schema" "$codeowners_file" <<'PYEOF'
+    local org_data=$(run_python_container - "$schema_path" "$schema" "$(to_container_path "$codeowners_file")" <<'PYEOF'
 import sys
 import re
 import yaml
