@@ -359,7 +359,7 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
       verifisert mot CI-krava
 - [x] Tiltak 4: forundersøk avrotize sine CLI-/API-eigenskapar, batch
       `make gen-xsd` før skjematalet med `xsd: true` nærmar seg 10+
-- [ ] Tiltak 5: forundersøk AsyncAPI CLI sine multi-fil-eigenskapar, batch
+- [x] Tiltak 5: forundersøk AsyncAPI CLI sine multi-fil-eigenskapar, batch
       `make gen-asyncapi` sin valideringsfase før skjematalet med
       `asyncapi: true` nærmar seg 10+
 
@@ -456,24 +456,64 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - **Etter batching:** 1 kontainar for alle skjema (sekvensielt inni kontainaren)
 - **Gevinst:** Eliminert 3N-1 kontainarkall. For N=1 (dagens tilstand): 2 kontainarkall spart. For N=10 (forventa): 29 kontainarkall spart.
 
-### Resultat (alle tiltak 1-4)
+### Tiltak 5 — `make gen-asyncapi` (valideringsfase): batch `asyncapi validate`
+
+**Forundersøking:**
+- AsyncAPI CLI har **ikkje** multi-fil-støtte (éin fil om gongen)
+- `asyncapi-cli-local` (4.3 GB) har full `asyncapi` CLI, men er for stort
+- `asyncapi-cli-minimal` (296 MB) har `asyncapi-validate` som eigen kommando — tilstrekkeleg for validering
+
+**Strategi:**
+- Bruk `asyncapi-cli-minimal` (296 MB) i staden for `asyncapi-cli-local` (4.3 GB)
+- Køyr `asyncapi-validate` (ikkje `asyncapi validate`) sekvensielt for alle skjema inni **éin** delt kontainar
+- Amortiserer kontainar-oppstarten (~2,6-2,7 s) over N skjema
+- Same strategi som `gen-xsd` (Tiltak 4)
+
+**Endringar:**
+
+1. **Nytt script: `src/assets/scripts/makefile/batch-asyncapi-validate.sh`:**
+   - POSIX `sh`-kompatibelt
+   - Intern løkke over alle skjema med `asyncapi: true` i build.yaml
+   - Køyrer `asyncapi-validate` (eigen kommando i minimal-imaget) sekvensielt per skjema
+   - Timing per skjema (sekund-presisjon)
+
+2. **`make/10-generator-macros.mk` (run_gen_asyncapi_parallel):**
+   - Erstatta `run-parallel-gen.sh`-basert per-skjema-validering med éin `podman run` som kallar `batch-asyncapi-validate.sh`
+   - Éin kontainar for alle skjema i staden for N kontainarar
+   - Brukar `asyncapi-cli-minimal` (296 MB) i staden for `asyncapi-cli-local` (4.3 GB)
+
+**Verifisering:**
+- `make gen-asyncapi SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=DEBUG` — validerte samt-bu-asyncapi.yaml på 1s
+- `make domain-samt LOGLVL=DEBUG` — gen-asyncapi køyrte som del av pipeline
+- AsyncAPI-validering (`asyncapi-validate` frå minimal-image) returnerte forventa governance-info (3.1.0-anbefaling)
+- Image-storleik: 296 MB (minimal) vs 4.3 GB (local) — 93% mindre
+
+**Resultat ved N skjema:**
+- **Før batching:** N separate kontainarar (`asyncapi validate` × N)
+- **Etter batching:** 1 kontainar for alle skjema (sekvensielt inni kontainaren)
+- **Gevinst:** Eliminert N-1 kontainarkall. For N=1 (dagens tilstand): 0 kontainarkall spart (allereie optimal). For N=10 (forventa): 9 kontainarkall spart.
+
+### Resultat (alle tiltak 1-5)
 
 **Før batching:**
 - `convert-rdf`: 15 separate `linkml-convert`-kontainarar (éin per eksempelfil)
 - `convert-data`: 6 separate `linkml-convert`-kontainarar (éin per datafil)
 - `validate-examples`: N separate `linkml validate`-kontainarar (éin per skjema, parallellisert)
 - `gen-xsd`: 3N separate kontainarar (éin per skjema × 3 verktøy)
+- `gen-asyncapi` (validering): N separate kontainarar (`asyncapi validate` × N)
 
 **Etter batching:**
 - `convert-rdf`: 1 kontainar for alle 15 eksempelfiler
 - `convert-data`: 1 kontainar for alle 6 datafiler
 - `validate-examples`: 1 kontainar per domene (t.d. 4 filer i ngr, 6 filer i fint)
 - `gen-xsd`: 1 kontainar for alle N skjema (sekvensielt)
+- `gen-asyncapi` (validering): 1 kontainar for alle N skjema (sekvensielt)
 
 **Estimert gevinst:**
 - Tiltak 1+2: Eliminert 21 kontainarkall, amortisert `linkml_runtime`-import (~5-8s)
 - Tiltak 3: Eliminert N-1 kontainarkall per domene (t.d. 3 for ngr, 5 for fint)
-- Tiltak 4: Eliminert 3N-1 kontainarkall (2 ved N=1, 29 ved N=10)
+- Tiltak 4: Eliminert 3N-1 kontainarkall for gen-xsd (2 ved N=1, 29 ved N=10)
+- Tiltak 5: Eliminert N-1 kontainarkall for gen-asyncapi (0 ved N=1, 9 ved N=10)
 
 ## Relaterte filer
 
@@ -484,7 +524,8 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - `src/assets/scripts/makefile/convert-examples.sh` — delt discovery, alt TSV-klar
 - `src/assets/scripts/makefile/convert-data.sh` — ny delt discovery for datafiler (Tiltak 2)
 - `src/assets/scripts/makefile/batch-gen-xsd.sh` — ny batch-script for gen-xsd (Tiltak 4)
-- `src/assets/scripts/makefile/run-parallel-gen.sh` — delt per-skjema-orkestrering `gen-asyncapi` framleis bruker (gen-xsd brukar ikkje dette lenger)
+- `src/assets/scripts/makefile/batch-asyncapi-validate.sh` — ny batch-script for asyncapi-validering (Tiltak 5)
+- `src/assets/scripts/makefile/run-parallel-gen.sh` — ikkje lenger brukt av gen-xsd eller gen-asyncapi (begge batcha no)
 - `src/assets/scripts/makefile/batch-render-plantuml.sh` — presedens for "éin delt kontainar, N filer" (PlantUML multi-fil-CLI)
 - `src/assets/scripts/makefile/fix-xsd-dates.py` — reint Python, uproblematisk å batche (Tiltak 4)
 - `src/assets/scripts/makefile/batch-generate-instances.py` — `run_convert` (produksjon)

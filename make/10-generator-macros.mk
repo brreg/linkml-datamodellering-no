@@ -143,18 +143,20 @@ endef
 # gen-asyncapi (JSON Schema → AsyncAPI YAML → validate) — gata mot
 # build.yaml (asyncapi: true), krev gen-jsonschema.
 #
-# To fasar (sjå specs/backlog/effektiviser-generate-workflow-koyretid.md,
-# Tiltak 3): Fase A batchar sjølve genereringa (`gen-asyncapi.py`, reint
+# To fasar (sjå specs/backlog/evaluer-batching-resterande-kommandoar.md,
+# Tiltak 5): Fase A batchar sjølve genereringa (`gen-asyncapi.py`, reint
 # Python) for ALLE skjema til ÉIN kontainar. Fase B (`asyncapi validate`)
-# køyrer i eit heilt anna image (Node.js, ASYNCAPI_IMAGE) og er difor IKKJE
-# batcha — berre 1 skjema i heile repoet har asyncapi: true i dag, så det
-# finst ingenting å vinne på å batche denne delen no (jf. "Ikkje eit
-# tiltak: gen-xsd" i same spec for identisk grunngjeving).
+# køyrer no også batcha via `batch-asyncapi-validate.sh` i ÉIN Node.js-
+# kontainar for alle skjema (amortiserer kontainar-oppstart over N skjema).
 # ---------------------------------------------------------------------------
 define run_gen_asyncapi_parallel
 @$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator asyncapi -- $(1)
-@GEN_CMD='run_logged "asyncapi-validate $$domain/$$name" $(ASYNCAPI_RUN) validate /work/$$input' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator asyncapi-validate --flag asyncapi --check-suffix asyncapi.yaml -- $(1)
+@podman run --rm $(WORK_MOUNT) \
+	-e SUPPRESS_NO_CONFIG_WARNING=true \
+	-e GEN_DIR=/work/$(GEN_DIR) \
+	--entrypoint /bin/sh \
+	$(ASYNCAPI_IMAGE) \
+	/work/src/assets/scripts/makefile/batch-asyncapi-validate.sh $(1)
 endef
 
 # ---------------------------------------------------------------------------
