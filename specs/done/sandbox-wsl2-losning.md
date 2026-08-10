@@ -232,3 +232,27 @@ på henne, sidan dei ikkje er ein del av repoets bygg- eller valideringskjede.
 - Utan den eksakte feilmeldinga brukaren fekk, kan ein ikkje avgjere om tiltak 1 eller
   3 direkte adresserer *det spesifikke* problemet — begge bør likevel provast, sidan
   dei er billige å teste og dekkjer dei to mest sannsynlege forklaringane.
+
+## Utført
+
+Brukaren installerte og stadfesta `bubblewrap` og `socat` (tiltak 2), aktiverte `/sandbox`,
+og bad om empirisk verifisering av brukarkravet frå seksjonen ovanfor (repo skriveleg,
+alt anna sperra).
+
+- Testa skriving inni repoet, i foreldrekatalogen, i heimekatalogen og til øktas
+  scratchpad — sjå tabell i «Empirisk verifisering». Alle fire testane gav forventa
+  resultat: **brukarkravet er stadfesta oppfylt**, heilt utan ekstra
+  `sandbox.filesystem.allowWrite`-konfigurasjon
+- Dette avkrefta uvissepunkt 3 under «Brukarkrav»: skrivesperra fungerer korrekt sjølv
+  om repoet ligg på `/mnt/c` (9p/drvfs)
+- Oppdaga og undersøkte ein uventa, men ufarleg, biverknad: `/sandbox` vernar (nektar
+  lesing/skriving av) shell-/IDE-konfigurasjonsfiler og Claude Code sine eigne
+  kontrollplan-filer under `.claude/`, som gjev støy i `git status` medan sandkassa er
+  aktiv. Stadfesta at dette er eksplisitt `Permission denied` (ikkje ei stille
+  datalekkasje), og at `git add` på slike stiar feilar reint
+- Testartefaktar oppretta under verifiseringa (`sandbox-test-inside.txt` m.fl.) vart
+  sletta att — ingen varige endringar i repoet frå sjølve testinga
+
+Attverande punkt frå «Sannsynleg årsak» og «Attverande uvisse» gjeld framleis som
+generell bakgrunnskunnskap, men er ikkje lenger blokkerande — brukaren sitt konkrete
+krav er verifisert løyst.
