@@ -24,7 +24,7 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 | 4 | **Om denne modellen** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) | `lib/sections/description.sh:generate_description()` |
 | 5 | **Kom i gang** | Quickstart-guide med valideringskommando | `src/linkml/<domain>/quickstart.md` (valfri, med `{{SCHEMA}}`- og `{{SCHEMA_UNDERSCORE}}`-substitusjon). Fallback til hardkoda logikk dersom fila manglar. | `lib/sections/quickstart.sh:generate_quickstart()` |
 | 6 | **Eksempeldatafil** (valgfri) | YAML-eksempel (første 20 linjer) + lenke til full fil | Ekstraher frå `src/linkml/<domain>/<schema>/examples/<schema>-eksempel.yaml` | `lib/sections/example.sh:generate_example()` |
-| 7 | **Modellmetadata** | Tabell med name, title, description, versjon, lisens, utgiver, status, endringsdato, utgivelsesdato | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Metadata` | `lib/sections/metadata.sh:generate_metadata()` |
+| 7 | **Modellmetadata** | Tabell med name, title, description, versjon, lisens, utgiver, status, endringsdato, utgivelsesdato — **ordrette verdiar frå skjemaet, ikkje omsette til nynorsk** | Ekstraher frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) — seksjonen `## Metadata` | `lib/sections/metadata.sh:generate_metadata()` |
 | 8 | **Publiseringsinfo** (valgfri) | Infoboks dersom skjema er publisert til Felles Begrepskatalog | Syner dersom `src/linkml/<domain>/<schema>/published-uris.lock` finst | `lib/sections/publishing_info.sh:generate_publishing_info()` |
 | 9 | **Avhengigheiter** | Hierarkisk avhengigheitstre (direkte og transitive importar) | Generert frå `imports:`-seksjonen i skjemaet → kallar `mkdocs/lib/scripts/parse-dependency-tree.py` | `lib/sections/dependencies.sh:generate_dependencies()` |
 | 10 | **ER-diagram** | PlantUML SVG-diagram (filtrert versjon → kun lokale klasser) + lenke til full versjon | Kopiert frå `generated/<domain>/<schema>/diagrams/<schema>-filtered.svg` | `lib/sections/er_diagram.sh:generate_er_diagram()` |
@@ -222,6 +222,8 @@ generated/<domain>/<schema>/                        ← Mellomlagring (gen-doc, 
   ↓
 mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, ikkje rediger)
 ```
+
+**Viktig:** Modellmetadata-tabellen (name, title, description, versjon, lisens, utgiver, status, endringsdato, utgivelsesdato) skal vise verdiane **ordrette slik dei er skrivne i `<schema>-schema.yaml`** — ikkje omsetjast til nynorsk, sjølv om resten av dokumentasjonssida følgjer nynorsk-konvensjonen. Skjemaet er sannkjelde for alle metadataverdiar; redigering eller omsetjing av desse verdiane i dokumentasjonen ville bryte sannkjelde-prinsippet og skape inkonsistens mellom kjeldekode og publisert dokumentasjon.
 
 ## Relaterte filer
 

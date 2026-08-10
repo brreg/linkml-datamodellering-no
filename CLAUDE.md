@@ -261,6 +261,8 @@ Repoet nyttar to skriftspråk med klart skilde domene:
 
 Bokmål i modellering følgjer terminologien i norske offentlege standardar (DCAT-AP-NO, SKOS-AP-NO m.fl.) som er skrivne på bokmål. Unntaket er tekniske omgrep fastsette i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
 
+**Unntak for Modellmetadata-tabellen:** Modellmetadata-tabellen i genererte `index.md`-sider (name, title, description, versjon, lisens, utgiver, status, endringsdato, utgivelsesdato) skal vise verdiane **ordrette slik dei er skrivne i skjemaet** (som følgjer bokmål-konvensjonen) — ikkje omsetjast til nynorsk, sjølv om resten av dokumentasjonssida elles følgjer nynorsk. Skjemaet er sannkjelde for alle metadataverdiar; redigering eller omsetjing av desse verdiane i dokumentasjonen ville bryte sannkjelde-prinsippet.
+
 ### Slots, ikke attributes
 Alle domenemodellklassar modellerer eigenskapane sine som globale slots under `slots:` på toppnivå i skjemaet. Klasser refererer til slots via `slots:`-lista. Klassespesifikke innskrenkingar (`required`, `in_subset` o.l.) ligg i `slot_usage`.
 

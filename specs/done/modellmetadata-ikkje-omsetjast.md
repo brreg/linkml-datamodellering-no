@@ -14,9 +14,9 @@
 3. Ingen kodeendring i `index.md.jinja2` eller `metadata.sh` — begge hentar allereie verdiar direkte utan omsetjing; verifisert i forkant (0 avvik ved samanlikning skjema vs. generert index.md).
 
 **Handlingsliste:**
-- [ ] Oppdater CLAUDE.md § Skriftspråk med unntaket for Modellmetadata-tabellen
-- [ ] Oppdater `mkdocs/docs/automasjon/index-md-struktur.md` seksjon 7 med presisering om ordrette verdiar
-- [ ] Verifiser at ingen kodeendring er naudsynt (allereie gjort — sjå "Verifisert status" ovanfor)
+- [x] Oppdater CLAUDE.md § Skriftspråk med unntaket for Modellmetadata-tabellen
+- [x] Oppdater `mkdocs/docs/automasjon/index-md-struktur.md` seksjon 7 med presisering om ordrette verdiar
+- [x] Verifiser at ingen kodeendring er naudsynt (allereie gjort — sjå "Verifisert status" ovanfor)
 
 ## Tillegg: konkret avvik funne (feltnamnet sjølv)
 
@@ -31,3 +31,17 @@
 **Regenerert:** `make gen-docs` (alle skjema) + `make docs-publish` køyrt. Verifisert at feltnamnet no viser `Utgiver` i badge-rad og Modellmetadata-tabell for alle modellar (t.d. samt-bu). Attverande treff på "Utgjevar" i repoet er urelaterte: ein eigen slot `utgjevar` i `cpsv-ap-no-schema.yaml` (CPSV-AP-NO-domenemodellering, ikkje `annotations.utgiver`-feltet) og tekst i `policies/README.md` — begge utanfor scope for denne retting.
 
 **Status:** Det konkrete avviket (feltnamnet `Utgjevar` → `Utgiver`) er retta og verifisert. Den generelle, føre-var-regelen i "Planlagde steg" 1-2 (eksplisitt unntak i CLAUDE.md § Skriftspråk og index-md-struktur.md) står framleis ope — brukaren har bedt om å berre få specen, ikkje utføring, for den delen.
+
+## Utført
+
+Planlagde steg 1-2 fullført:
+
+1. **CLAUDE.md § Skriftspråk** — lagt til eksplisitt unntak etter bokmål/nynorsk-tabellen: "Modellmetadata-tabellen i genererte `index.md`-sider skal vise verdiane ordrette slik dei er skrivne i skjemaet (bokmål) — ikkje omsetjast til nynorsk, sjølv om resten av dokumentasjonssida elles følgjer nynorsk. Skjemaet er sannkjelde for alle metadataverdiar."
+
+2. **mkdocs/docs/automasjon/index-md-struktur.md** — utdjupa presisering i to stader:
+   - Seksjon 7-rada i tabellen: lagt til "ordrette verdiar frå skjemaet, ikkje omsette til nynorsk" i innhald-kolonnen
+   - § Sannkjelde-hierarki: nytt avsnitt etter diagrammet: "Modellmetadata-tabellen skal vise verdiane ordrette slik dei er skrivne i `<schema>-schema.yaml` — ikkje omsetjast til nynorsk […] Skjemaet er sannkjelde for alle metadataverdiar"
+
+**Ingen kodeendring naudsynt** — `index.md.jinja2` og `metadata.sh` hentar allereie verdiar direkte utan omsetjing (verifisert i forkant: 0 avvik skjema vs. generert index.md).
+
+Regelen er no handhevbar og synleg for framtidige økter.
