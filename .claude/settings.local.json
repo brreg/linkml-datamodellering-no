@@ -425,7 +425,9 @@
       "Bash(sed -i 's/\\\\$\\(SCHEMA_DIR\\)/SCHEMA_DIR/g; s/\\\\$\\(DOMAIN\\)/DOMAIN/g; s/\\\\$\\(PYTHON_RUN\\)/PYTHON_RUN/g; s/\\\\$\\(CLR_STEP\\)/CLR_STEP/g; s/\\\\$\\(CLR_RST\\)/CLR_RST/g; s/\\\\$\\(CLR_WARN\\)/CLR_WARN/g; s/\\\\$\\(LINKML_IMAGE\\)/LINKML_IMAGE/g' /tmp/ve_test.sh)",
       "Bash(LOGLVL=INFO make validate-examples DOMAIN=fair)",
       "mcp__linkml-begrep-utkast__skriv_begrep_fil",
-      "WebFetch(domain:api.github.com)"
+      "WebFetch(domain:api.github.com)",
+      "Bash(LOGLVL=DEBUG make gen-xsd DOMAIN=ap-no)",
+      "Bash(LOGLVL=DEBUG make -n gen-asyncapi DOMAIN=ap-no)"
     ]
   },
   "enableAllProjectMcpServers": true,

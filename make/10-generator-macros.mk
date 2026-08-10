@@ -130,12 +130,19 @@ endef
 # enkelt-quota — sjå specs/done/forenkle-make-laget.md).
 # ---------------------------------------------------------------------------
 define run_gen_xsd_parallel
-@podman run --rm \
-	-v "$(CURDIR):/work" -w /work \
-	-e GEN_DIR=/work/$(GEN_DIR) \
-	--entrypoint sh \
-	$(AVROTIZE_IMAGE) \
-	/work/src/assets/scripts/makefile/batch-gen-xsd.sh $(1)
+@eval "$$LOG_FUNCTIONS"; \
+matches=""; for s in $(1); do m=$$(dirname "$$s")/build.yaml; if [ -f "$$m" ] && grep -q "^  xsd: true" "$$m"; then matches="$$matches $$(basename "$$(dirname "$$s")")"; fi; done; \
+if [ -n "$$matches" ]; then \
+	log_debug "xsd (xsd: true) — køyrer:$$matches"; \
+	podman run --rm \
+		-v "$(CURDIR):/work" -w /work \
+		-e GEN_DIR=/work/$(GEN_DIR) \
+		--entrypoint sh \
+		$(AVROTIZE_IMAGE) \
+		/work/src/assets/scripts/makefile/batch-gen-xsd.sh $(1); \
+else \
+	log_debug "xsd (xsd: true) — køyrer: (ingen)"; \
+fi
 endef
 
 # ---------------------------------------------------------------------------
@@ -150,12 +157,19 @@ endef
 # ---------------------------------------------------------------------------
 define run_gen_asyncapi_parallel
 @$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator asyncapi -- $(1)
-@podman run --rm $(WORK_MOUNT) \
-	-e SUPPRESS_NO_CONFIG_WARNING=true \
-	-e GEN_DIR=/work/$(GEN_DIR) \
-	--entrypoint /bin/sh \
-	$(ASYNCAPI_IMAGE) \
-	/work/src/assets/scripts/makefile/batch-asyncapi-validate.sh $(1)
+@eval "$$LOG_FUNCTIONS"; \
+matches=""; for s in $(1); do m=$$(dirname "$$s")/build.yaml; if [ -f "$$m" ] && grep -q "^  asyncapi: true" "$$m"; then matches="$$matches $$(basename "$$(dirname "$$s")")"; fi; done; \
+if [ -n "$$matches" ]; then \
+	log_debug "asyncapi-validate (asyncapi: true) — køyrer:$$matches"; \
+	podman run --rm $(WORK_MOUNT) \
+		-e SUPPRESS_NO_CONFIG_WARNING=true \
+		-e GEN_DIR=/work/$(GEN_DIR) \
+		--entrypoint /bin/sh \
+		$(ASYNCAPI_IMAGE) \
+		/work/src/assets/scripts/makefile/batch-asyncapi-validate.sh $(1); \
+else \
+	log_debug "asyncapi-validate (asyncapi: true) — køyrer: (ingen)"; \
+fi
 endef
 
 # ---------------------------------------------------------------------------
