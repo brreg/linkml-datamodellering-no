@@ -357,7 +357,7 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - [x] Tiltak 2: `make convert-data` batcha
 - [x] Tiltak 3: `make validate-examples` batcha, feilrapportering
       verifisert mot CI-krava
-- [ ] Tiltak 4: forundersøk avrotize sine CLI-/API-eigenskapar, batch
+- [x] Tiltak 4: forundersøk avrotize sine CLI-/API-eigenskapar, batch
       `make gen-xsd` før skjematalet med `xsd: true` nærmar seg 10+
 - [ ] Tiltak 5: forundersøk AsyncAPI CLI sine multi-fil-eigenskapar, batch
       `make gen-asyncapi` sin valideringsfase før skjematalet med
@@ -422,21 +422,58 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - `make validate-examples DOMAIN=ap-no LOGLVL=DEBUG` — batcha 6 profiler med fixture-støtte (6.78s)
 - Feilrapportering verifisert: `::error file=<instance>::<melding>` matcher CI-format
 
-### Resultat
+### Tiltak 4 — `make gen-xsd`: batch avrotize-kjeda i éin kontainar
+
+**Forundersøking:**
+- Avrotize CLI-et har **ikkje** multi-fil-støtte (éin fil om gongen via `input` eller stdin)
+- Avrotize har **ikkje** eit dokumentert Python-API me kan importere direkte
+- Avrotize-imaget brukar `sh` (ikkje `bash`), så scriptet må vere POSIX-kompatibelt
+
+**Strategi:**
+- Køyr `avrotize j2a` / `avrotize a2x` / `fix-xsd-dates.py` sekvensielt for alle skjema inni **éin** delt avrotize-kontainar
+- Amortiserer kontainar-oppstarten (~2,6-2,7 s) over N skjema
+- `fix-xsd-dates.py` er reint Python og køyrer i same kontainar (entrypoint python3)
+
+**Endringar:**
+
+1. **Nytt script: `src/assets/scripts/makefile/batch-gen-xsd.sh`:**
+   - POSIX `sh`-kompatibelt (ikkje `bash`)
+   - Intern løkke over alle skjema med `xsd: true` i build.yaml
+   - Køyrer `avrotize j2a`, `avrotize a2x`, `fix-xsd-dates.py` sekvensielt per skjema
+   - Timing per skjema (sekund-presisjon, ikkje millisekund — `date +%s%3N` er ikkje POSIX)
+
+2. **`make/10-generator-macros.mk` (run_gen_xsd_parallel):**
+   - Erstatta `run-parallel-gen.sh`-basert per-skjema × 3 verktøy med éin `podman run` som kallar `batch-gen-xsd.sh`
+   - Éin kontainar for alle skjema i staden for N × 3 kontainarar
+
+**Verifisering:**
+- `make gen-xsd SCHEMA=src/linkml/samt/samt-bu/samt-bu-schema.yaml LOGLVL=DEBUG` — genererte `samt-bu-schema.xsd` på 1s
+- `make domain-samt LOGLVL=DEBUG` — gen-xsd køyrte som del av pipeline, 2s
+- XSD-fila verifisert (119KB, same storleik som før batching)
+
+**Resultat ved N skjema:**
+- **Før batching:** 3N separate kontainarar (`avrotize j2a` × N, `avrotize a2x` × N, `fix-xsd-dates.py` × N)
+- **Etter batching:** 1 kontainar for alle skjema (sekvensielt inni kontainaren)
+- **Gevinst:** Eliminert 3N-1 kontainarkall. For N=1 (dagens tilstand): 2 kontainarkall spart. For N=10 (forventa): 29 kontainarkall spart.
+
+### Resultat (alle tiltak 1-4)
 
 **Før batching:**
 - `convert-rdf`: 15 separate `linkml-convert`-kontainarar (éin per eksempelfil)
 - `convert-data`: 6 separate `linkml-convert`-kontainarar (éin per datafil)
 - `validate-examples`: N separate `linkml validate`-kontainarar (éin per skjema, parallellisert)
+- `gen-xsd`: 3N separate kontainarar (éin per skjema × 3 verktøy)
 
 **Etter batching:**
 - `convert-rdf`: 1 kontainar for alle 15 eksempelfiler
 - `convert-data`: 1 kontainar for alle 6 datafiler
 - `validate-examples`: 1 kontainar per domene (t.d. 4 filer i ngr, 6 filer i fint)
+- `gen-xsd`: 1 kontainar for alle N skjema (sekvensielt)
 
 **Estimert gevinst:**
 - Tiltak 1+2: Eliminert 21 kontainarkall, amortisert `linkml_runtime`-import (~5-8s)
-- Tiltak 3: Eliminert N-1 kontainarkall per domene (t.d. 3 kontainarkall spart for ngr, 5 for fint)
+- Tiltak 3: Eliminert N-1 kontainarkall per domene (t.d. 3 for ngr, 5 for fint)
+- Tiltak 4: Eliminert 3N-1 kontainarkall (2 ved N=1, 29 ved N=10)
 
 ## Relaterte filer
 
@@ -446,7 +483,8 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - `make/10-generator-macros.mk` — `run_gen_xsd_parallel`, `run_gen_asyncapi_parallel`
 - `src/assets/scripts/makefile/convert-examples.sh` — delt discovery, alt TSV-klar
 - `src/assets/scripts/makefile/convert-data.sh` — ny delt discovery for datafiler (Tiltak 2)
-- `src/assets/scripts/makefile/run-parallel-gen.sh` — delt per-skjema-orkestrering `gen-xsd`/`gen-asyncapi` framleis bruker
+- `src/assets/scripts/makefile/batch-gen-xsd.sh` — ny batch-script for gen-xsd (Tiltak 4)
+- `src/assets/scripts/makefile/run-parallel-gen.sh` — delt per-skjema-orkestrering `gen-asyncapi` framleis bruker (gen-xsd brukar ikkje dette lenger)
 - `src/assets/scripts/makefile/batch-render-plantuml.sh` — presedens for "éin delt kontainar, N filer" (PlantUML multi-fil-CLI)
 - `src/assets/scripts/makefile/fix-xsd-dates.py` — reint Python, uproblematisk å batche (Tiltak 4)
 - `src/assets/scripts/makefile/batch-generate-instances.py` — `run_convert` (produksjon)

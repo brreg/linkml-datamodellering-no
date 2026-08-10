@@ -131,12 +131,12 @@ endef
 # enkelt-quota — sjå specs/done/forenkle-make-laget.md).
 # ---------------------------------------------------------------------------
 define run_gen_xsd_parallel
-@GEN_CMD='namespace=$$(sed -n "s/^id: *//p" "$$s" | head -1) && \
-run_logged "gen-xsd/j2a $$domain/$$name" $(AVROTIZE_RUN) j2a /work/$$input --out /work/$$outdir/$$name.avsc && \
-run_logged "gen-xsd/a2x $$domain/$$name" $(AVROTIZE_RUN) a2x /work/$$outdir/$$name.avsc --namespace "$$namespace" --out /work/$$out && \
-run_logged "gen-xsd/fix-xsd-dates $$domain/$$name" podman run --rm --entrypoint python3 -v "$(CURDIR):/work" $(AVROTIZE_IMAGE) /work/src/assets/scripts/makefile/fix-xsd-dates.py /work/$$out /work/$$input && \
-rm -f "$$outdir/$$name.avsc"' \
-	bash src/assets/scripts/makefile/run-parallel-gen.sh --generator gen-xsd --flag xsd --check-suffix schema.json --out-suffix schema.xsd -- $(1)
+@podman run --rm \
+	-v "$(CURDIR):/work" -w /work \
+	-e GEN_DIR=/work/$(GEN_DIR) \
+	--entrypoint sh \
+	$(AVROTIZE_IMAGE) \
+	/work/src/assets/scripts/makefile/batch-gen-xsd.sh $(1)
 endef
 
 # ---------------------------------------------------------------------------
