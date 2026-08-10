@@ -351,10 +351,10 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 
 ## Handlingsliste
 
-- [ ] Avklar med brukar om Tiltak 1-5 skal implementerast, og i kva
+- [x] Avklar med brukar om Tiltak 1-5 skal implementerast, og i kva
       rekkjefølgje
-- [ ] Tiltak 1: `make convert-rdf` batcha
-- [ ] Tiltak 2: `make convert-data` batcha
+- [x] Tiltak 1: `make convert-rdf` batcha
+- [x] Tiltak 2: `make convert-data` batcha
 - [ ] Tiltak 3: `make validate-examples` batcha, feilrapportering
       verifisert mot CI-krava
 - [ ] Tiltak 4: forundersøk avrotize sine CLI-/API-eigenskapar, batch
@@ -363,6 +363,60 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
       `make gen-asyncapi` sin valideringsfase før skjematalet med
       `asyncapi: true` nærmar seg 10+
 
+## Utført
+
+### Tiltak 1 — `make convert-rdf`: byt til batcha `gen-linkml-convert`-mekanisme
+
+**Endringar:**
+
+1. **`Makefile` (linje 98-106):**
+   - Erstatta for-løkka med same `batch-generate-instances.py --generator convert`-kall som `gen-linkml-convert` bruker
+   - Byggjer jobs-TSV frå `convert-examples.sh` (utan domenefilter)
+   - Éin kontainar for alle eksempelfiler i staden for éin per fil
+
+**Verifisering:**
+- Testa `make convert-rdf LOGLVL=DEBUG` — batcha 15 eksempelfiler i éin kontainar
+- Timing per fil: 0.19s-1.58s (lågare enn før batching, sidan import-skatt er amortisert)
+
+### Tiltak 2 — `make convert-data`: ny delt discovery + same batch-mekanisme
+
+**Endringar:**
+
+1. **Nytt script: `src/assets/scripts/makefile/convert-data.sh`:**
+   - Finn datafiler (data/*/*.yaml) med `publish_external: true` i build.yaml
+   - Skriv same TSV-format som `convert-examples.sh`
+   - Brukar LOG_FUNCTIONS for debug-logging (same mønster som convert-examples.sh)
+
+2. **`Makefile` (linje 115-123):**
+   - Erstatta inline for-løkke med `convert-data.sh` + `batch-generate-instances.py --generator convert`
+   - Same batch-mekanisme som `convert-rdf`
+
+**Verifisering:**
+- Testa `make convert-data LOGLVL=DEBUG` — batcha 6 modellkatalogar i éin kontainar
+- Timing per fil: 1.52s-2.80s (lågare enn før batching)
+
+### Oppdatering av COMMANDS.md
+
+**`COMMANDS.md` (linje 239-240):**
+- Oppdatert "Batching"-kolonne for `convert-rdf` og `convert-data` frå "Ikkje batcha" til "Batcha"
+- Dokumentert batch-mekanisme: `batch-generate-instances.py --generator convert --jobs-tsv <fil>`, éin kontainar
+- Referert til `convert-examples.sh` og `convert-data.sh` som TSV-byggarar
+
+### Resultat
+
+**Før batching:**
+- `convert-rdf`: 15 separate `linkml-convert`-kontainarar (éin per eksempelfil)
+- `convert-data`: 6 separate `linkml-convert`-kontainarar (éin per datafil)
+
+**Etter batching:**
+- `convert-rdf`: 1 kontainar for alle 15 eksempelfiler
+- `convert-data`: 1 kontainar for alle 6 datafiler
+
+**Estimert gevinst:**
+- Eliminert 15 + 6 = 21 kontainarkall
+- Amortisert `linkml_runtime`-import (~5-8s) over alle filer
+- Lågare per-fil-timing (synleg i DEBUG-output)
+
 ## Relaterte filer
 
 - `Makefile` — `convert-rdf`, `convert-data`
@@ -370,6 +424,7 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - `make/40-validation.mk` — `validate-examples`, `mcp-linkml-valider-modell`
 - `make/10-generator-macros.mk` — `run_gen_xsd_parallel`, `run_gen_asyncapi_parallel`
 - `src/assets/scripts/makefile/convert-examples.sh` — delt discovery, alt TSV-klar
+- `src/assets/scripts/makefile/convert-data.sh` — ny delt discovery for datafiler (Tiltak 2)
 - `src/assets/scripts/makefile/run-parallel-gen.sh` — delt per-skjema-orkestrering `gen-xsd`/`gen-asyncapi` framleis bruker
 - `src/assets/scripts/makefile/batch-render-plantuml.sh` — presedens for "éin delt kontainar, N filer" (PlantUML multi-fil-CLI)
 - `src/assets/scripts/makefile/fix-xsd-dates.py` — reint Python, uproblematisk å batche (Tiltak 4)
@@ -377,4 +432,4 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - `src/assets/scripts/makefile/batch-convert.py` — meir generell test-variant (potensielt DRY-konsolidering)
 - `src/assets/scripts/makefile/batch-linkml-validate.py` — test-variant, klar for `validate-examples`-bruk
 - `specs/done/batch-validate-lint-test-per-skjema.md` — kjelde for API-kompatibilitetsfunna (`run_click()` vs. `sys.exit()`)
-- `COMMANDS.md` — § Batching, tabellane som treng oppdaterte celler dersom Tiltak 1-5 vert implementerte
+- `COMMANDS.md` — § Batching, tabellane oppdaterte for Tiltak 1-2

@@ -97,47 +97,25 @@ roundtrip-json-schema: ## Køyr JSON Schema roundtrip-testar [JSONSCHEMA=<sti>]
 
 convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
 	$(call print_header,convert-rdf)
-	@eval "$$LOG_FUNCTIONS"; \
-	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh | \
-	while IFS=$$'\t' read -r schema example out; do \
-		t0=$$(date +%s%3N); \
-		$(LINKML_RUN) linkml-convert \
-			--schema $$schema \
-			--output-format ttl \
-			--no-validate \
-			--output $$out \
-			$$example; \
-		t1=$$(date +%s%3N); \
-		ms=$$(( t1 - t0 )); \
-		log_info "$$(printf '$(CLR_STEP)→ linkml-convert  %s$(CLR_RST) (%d.%ds)' "$$example" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
-	done
+	@JOBS_TSV=$$(mktemp "$(GEN_DIR)/.convert-jobs.XXXXXX") && \
+	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh > "$$JOBS_TSV" && \
+	if [ -s "$$JOBS_TSV" ]; then \
+		$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator convert --jobs-tsv "$$JOBS_TSV"; rc=$$?; \
+	else \
+		rc=0; \
+	fi; \
+	rm -f "$$JOBS_TSV"; exit $$rc
 
 convert-data: ## Konverter datafiler (data/*/*.yaml) frå YAML til RDF/Turtle
 	$(call print_header,convert-data)
-	@eval "$$LOG_FUNCTIONS"; \
-	for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
-		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
-		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
-		catalog=$$(basename "$$datadir"); \
-		manifest="$$datadir/build.yaml"; \
-		[ -f "$$manifest" ] || continue; \
-		publish_external=$$(grep '^publish_external:' "$$manifest" | awk '{print $$2}'); \
-		[ "$$publish_external" = "true" ] || continue; \
-		datafile="$$datadir/$$catalog.yaml"; \
-		[ -f "$$datafile" ] || continue; \
-		schema=$(SCHEMA_DIR)/$$domain/$$model/$$model-schema.yaml; \
-		mkdir -p $(GEN_DIR)/$$domain/$$catalog; \
-		t0=$$(date +%s%3N); \
-		$(LINKML_RUN) linkml-convert \
-			--schema $$schema \
-			--output-format ttl \
-			--no-validate \
-			--output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl \
-			$$datafile; \
-		t1=$$(date +%s%3N); \
-		ms=$$(( t1 - t0 )); \
-		log_info "$$(printf '$(CLR_STEP)→ linkml-convert  %s$(CLR_RST) (%d.%ds)' "$$datafile" $$(( ms / 1000 )) $$(( ms % 1000 / 100 )))"; \
-	done
+	@JOBS_TSV=$$(mktemp "$(GEN_DIR)/.convert-data-jobs.XXXXXX") && \
+	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-data.sh > "$$JOBS_TSV" && \
+	if [ -s "$$JOBS_TSV" ]; then \
+		$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator convert --jobs-tsv "$$JOBS_TSV"; rc=$$?; \
+	else \
+		rc=0; \
+	fi; \
+	rm -f "$$JOBS_TSV"; exit $$rc
 
 clean: ## Slett alle genererte filer (generated/)
 	$(call print_header,clean)
