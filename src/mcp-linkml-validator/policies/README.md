@@ -51,9 +51,9 @@ Brukt for skjema der `publish_external: true` i manifest.
 
 | Nivå | Krav | Digdir-reglar | FAIR-prinsipp |
 |---|---|---|---|
-| `bronze` | Grunnleggande LinkML metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 6, 7, 8, 13 | F1, F2, F3 (warning), I1 (warning), R1.1 (warning), A2 (warning) |
-| `silver` | Bronze + AP-NO-konformitet og livssyklusmetadata | 1-4, 7-11, 13 | Bronze + R1.2, R1.3 |
-| `gold` | Silver + FAIR F1-R1.3: full semantisk interoperabilitet | 1-4, 7-11, 13 | F1-F4, I1-I2, R1.1-R1.3, A2 (alle error) |
+| [`bronze`](#bronze) | Grunnleggande LinkML metadata og modelleringskvalitet (dette repoets baseline) | 1, 2, 3, 4, 6, 7, 8, 13 | F1, F2, F3 (warning), I1 (warning), R1.1 (warning), A2 (warning) |
+| [`silver`](#silver) | Bronze + AP-NO-konformitet og livssyklusmetadata | 1-4, 7-11, 13 | Bronze + R1.2, R1.3 |
+| [`gold`](#gold) | Silver + FAIR F1-R1.3: full semantisk interoperabilitet | 1-4, 7-11, 13 | F1-F4, I1-I2, R1.1-R1.3, A2 (alle error) |
 
 Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `extends:`).
 
@@ -180,6 +180,11 @@ Domene-spesifikke policyer for publisering til nasjonale katalogar. Dei arvar `b
 og er meinte brukt i tillegg til medaljongnivåa — typisk i CI-pipelinen for skjema
 som har ein tilhøyrande datafil.
 
+| Policy | Krav | Målkatalog |
+|---|---|---|
+| [`felles-begrepskatalog`](#felles-begrepskatalog) | Bronse + SKOS-AP-NO-Begrep-konformitet for begrepskatalogskjema | [data.norge.no/concepts](https://data.norge.no/concepts) |
+| [`felles-datakatalog`](#felles-datakatalog) | Bronse + ModelDCAT-AP-NO-konformitet for modellkatalogskjema | [data.norge.no/models](https://data.norge.no/models) |
+
 ---
 
 ### felles-begrepskatalog
@@ -187,58 +192,42 @@ som har ein tilhøyrande datafil.
 For begrepskatalogskjema som publiserer til [data.norge.no/concepts](https://data.norge.no/concepts)
 via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/) for full rettleiing.
 
-**Import og prefiks:**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | Importerer `skos-ap-no-schema` | `schema_importerer_skos_ap_no` |
-| **error** | Deklarerer `skos:`-prefix | `schema_brukar_skos_prefix` |
-| **error** | Deklarerer `dct:`-prefix | `schema_brukar_dct_prefix` |
-
-**Containerklasse:**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | Container har attributt med range `Begrep` | `container_har_begrep` |
-| warning | Container har attributt med range `Samling` | `container_har_samling` |
-
-**`Begrep`-krav (obligatoriske per SKOS-AP-NO-Begrep):**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | `skos:prefLabel` | `begrep_har_anbefalt_term` |
-| **error** | `skos:definition` eller `euvoc:xlDefinition` | `begrep_har_definisjon` |
-| **error** | `dct:identifier` | `begrep_har_identifikator` |
-| **error** | `dct:publisher` | `begrep_har_utgjevar` |
-| **error** | `dcat:contactPoint` | `begrep_har_kontaktpunkt` |
-| warning | `dct:subject` | `begrep_har_fagomrade` |
-| warning | `dct:creator` | `begrep_har_ansvarleg_verksemd` |
-| warning | `euvoc:startDate` | `begrep_har_gyldig_fra` |
-| warning | `euvoc:endDate` | `begrep_har_gyldig_til` |
-| warning | `dct:created` | `begrep_har_opprettingsdato` |
-| warning | `dct:modified` | `begrep_har_endringsdato` |
-| warning | `skos:scopeNote` | `begrep_har_merknad` |
-| warning | `skos:altLabel` | `begrep_har_tillate_term` |
-
-**`Definisjon`-, `AssosiativRelasjon`-, `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav** er dokumenterte i [`policies/felles-begrepskatalog.yaml`](felles-begrepskatalog.yaml).
-
-**Tospråkskrav (SK5, SKOS-AP-NO v.2.0.15):**
-
-| Alvor | Krav | Kode | Merk |
+| Kategori | Krav | Alvor | Kode |
 |---|---|---|---|
-| warning | `anbefalt_term` (skos:prefLabel) har range `LangString` og `multivalued: true` | `begrep_anbefalt_term_er_multivalued_langstring` | Schemasjekk — sikrar at skjemaet **kan** innehalde tospråkverdiar |
-| warning | `har_definisjon` har minst éi Definisjon per språk (nb, nn) | `begrep_har_definisjon_pa_nb_og_nn` | Instanssjekk via ID-suffiks-konvensjon |
+| Import og prefiks | Importerer `skos-ap-no-schema` | **error** | `schema_importerer_skos_ap_no` |
+| Import og prefiks | Deklarerer `skos:`-prefix | **error** | `schema_brukar_skos_prefix` |
+| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` |
+| Containerklasse | Container har attributt med range `Begrep` | **error** | `container_har_begrep` |
+| Containerklasse | Container har attributt med range `Samling` | warning | `container_har_samling` |
+| `Begrep`-krav | `skos:prefLabel` | **error** | `begrep_har_anbefalt_term` |
+| `Begrep`-krav | `skos:definition` eller `euvoc:xlDefinition` | **error** | `begrep_har_definisjon` |
+| `Begrep`-krav | `dct:identifier` | **error** | `begrep_har_identifikator` |
+| `Begrep`-krav | `dct:publisher` | **error** | `begrep_har_utgjevar` |
+| `Begrep`-krav | `dcat:contactPoint` | **error** | `begrep_har_kontaktpunkt` |
+| `Begrep`-krav | `dct:subject` | warning | `begrep_har_fagomrade` |
+| `Begrep`-krav | `dct:creator` | warning | `begrep_har_ansvarleg_verksemd` |
+| `Begrep`-krav | `euvoc:startDate` | warning | `begrep_har_gyldig_fra` |
+| `Begrep`-krav | `euvoc:endDate` | warning | `begrep_har_gyldig_til` |
+| `Begrep`-krav | `dct:created` | warning | `begrep_har_opprettingsdato` |
+| `Begrep`-krav | `dct:modified` | warning | `begrep_har_endringsdato` |
+| `Begrep`-krav | `skos:scopeNote` | warning | `begrep_har_merknad` |
+| `Begrep`-krav | `skos:altLabel` | warning | `begrep_har_tillate_term` |
+| Tospråkskrav | `anbefalt_term` (skos:prefLabel) har range `LangString` og `multivalued: true` | warning | `begrep_anbefalt_term_er_multivalued_langstring` |
+| Tospråkskrav | `har_definisjon` har minst éi Definisjon per språk (nb, nn) | warning | `begrep_har_definisjon_pa_nb_og_nn` |
+| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` |
+
+`Begrep`-krava er obligatoriske per SKOS-AP-NO-Begrep. `Definisjon`-, `AssosiativRelasjon`-,
+`GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav er dokumenterte i
+[`policies/felles-begrepskatalog.yaml`](felles-begrepskatalog.yaml).
+
+**Om tospråkskravet (SK5, SKOS-AP-NO v.2.0.15):** `begrep_anbefalt_term_er_multivalued_langstring`
+er ein schemasjekk — sikrar at skjemaet **kan** innehalde tospråkverdiar.
+`begrep_har_definisjon_pa_nb_og_nn` er ein instanssjekk via ID-suffiks-konvensjon.
 
 **Avgrensing:** Tospråkskravet for `anbefalt_term` kan **ikkje** validerast i YAML-instansar
 pga. LinkML sin avgrensing (LangString bærer ikkje språk-tag per verdi i YAML — sjå
 `specs/bugs/langstring-rdflib-roundtrip.md`). Bruk RDF-validering (SHACL) eller manuell
 gjennomgang av `.ttl`-fila for å verifiere at både `@nb` og `@nn` er til stades.
-
-**Instanssjekk:**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | `utgjevar_er_kjend_org` |
 
 ---
 
@@ -247,53 +236,33 @@ gjennomgang av `.ttl`-fila for å verifiere at både `@nb` og `@nn` er til stade
 For modellkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
 via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/) for full rettleiing.
 
-**Import og prefiks:**
+| Kategori | Krav | Alvor | Kode |
+|---|---|---|---|
+| Import og prefiks | Importerer `modelldcat-ap-no-schema` | **error** | `schema_importerer_modelldcat_ap_no` |
+| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` |
+| Import og prefiks | Deklarerer `dcat:`-prefix | **error** | `schema_brukar_dcat_prefix` |
+| Containerklasse | Container har attributt med range `Modellkatalog` | **error** | `container_har_modellkatalog` |
+| Containerklasse | Container har attributt med range `Informasjonsmodell` | **error** | `container_har_informasjonsmodell` |
+| `Modellkatalog`-krav | `dct:title` | **error** | `modellkatalog_har_tittel` |
+| `Modellkatalog`-krav | `dct:description` | **error** | `modellkatalog_har_beskrivelse` |
+| `Modellkatalog`-krav | `dct:identifier` | **error** | `modellkatalog_har_identifikator` |
+| `Modellkatalog`-krav | `dct:publisher` | **error** | `modellkatalog_har_utgjevar` |
+| `Modellkatalog`-krav | `dcat:contactPoint` | **error** | `modellkatalog_har_kontaktpunkt` |
+| `Modellkatalog`-krav | `dct:hasPart` | **error** | `modellkatalog_har_del` |
+| `Modellkatalog`-krav | `dct:license` | warning | `modellkatalog_har_lisens` |
+| `Modellkatalog`-krav | `modelldcatno:model` | warning | `modellkatalog_har_modell` |
+| `Informasjonsmodell`-krav | `dct:title` | **error** | `informasjonsmodell_har_tittel` |
+| `Informasjonsmodell`-krav | `dct:publisher` | **error** | `informasjonsmodell_har_utgjevar` |
+| `Informasjonsmodell`-krav | `dct:description` | warning | `informasjonsmodell_har_beskrivelse` |
+| `Informasjonsmodell`-krav | `dct:identifier` | warning | `informasjonsmodell_har_identifikator` |
+| `Informasjonsmodell`-krav | `modelldcatno:informationModelIdentifier` | warning | `informasjonsmodell_har_modellidentifikator` |
+| `Informasjonsmodell`-krav | `dcat:contactPoint` | warning | `informasjonsmodell_har_kontaktpunkt` |
+| `Informasjonsmodell`-krav | `dct:license` | warning | `informasjonsmodell_har_lisens` |
+| `Informasjonsmodell`-krav | `dcat:theme` | warning | `informasjonsmodell_har_tema` |
+| `Informasjonsmodell`-krav | `modelldcatno:containsModelElement` | warning | `informasjonsmodell_har_modellelement` |
+| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` |
 
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | Importerer `modelldcat-ap-no-schema` | `schema_importerer_modelldcat_ap_no` |
-| **error** | Deklarerer `dct:`-prefix | `schema_brukar_dct_prefix` |
-| **error** | Deklarerer `dcat:`-prefix | `schema_brukar_dcat_prefix` |
-
-**Containerklasse:**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | Container har attributt med range `Modellkatalog` | `container_har_modellkatalog` |
-| **error** | Container har attributt med range `Informasjonsmodell` | `container_har_informasjonsmodell` |
-
-**`Modellkatalog`-krav (obligatoriske per ModelDCAT-AP-NO):**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | `dct:title` | `modellkatalog_har_tittel` |
-| **error** | `dct:description` | `modellkatalog_har_beskrivelse` |
-| **error** | `dct:identifier` | `modellkatalog_har_identifikator` |
-| **error** | `dct:publisher` | `modellkatalog_har_utgjevar` |
-| **error** | `dcat:contactPoint` | `modellkatalog_har_kontaktpunkt` |
-| **error** | `dct:hasPart` | `modellkatalog_har_del` |
-| warning | `dct:license` | `modellkatalog_har_lisens` |
-| warning | `modelldcatno:model` | `modellkatalog_har_modell` |
-
-**`Informasjonsmodell`-krav (obligatoriske per ModelDCAT-AP-NO):**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | `dct:title` | `informasjonsmodell_har_tittel` |
-| **error** | `dct:publisher` | `informasjonsmodell_har_utgjevar` |
-| warning | `dct:description` | `informasjonsmodell_har_beskrivelse` |
-| warning | `dct:identifier` | `informasjonsmodell_har_identifikator` |
-| warning | `modelldcatno:informationModelIdentifier` | `informasjonsmodell_har_modellidentifikator` |
-| warning | `dcat:contactPoint` | `informasjonsmodell_har_kontaktpunkt` |
-| warning | `dct:license` | `informasjonsmodell_har_lisens` |
-| warning | `dcat:theme` | `informasjonsmodell_har_tema` |
-| warning | `modelldcatno:containsModelElement` | `informasjonsmodell_har_modellelement` |
-
-**Instanssjekk:**
-
-| Alvor | Krav | Kode |
-|---|---|---|
-| **error** | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | `utgjevar_er_kjend_org` |
+`Modellkatalog`- og `Informasjonsmodell`-krava er obligatoriske per ModelDCAT-AP-NO.
 
 ---
 

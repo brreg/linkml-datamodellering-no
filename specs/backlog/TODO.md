@@ -107,10 +107,8 @@ Publiseringspolicyer må ha ein tabell tilsvarande "Nivå for skjemakvalitet" ta
 Kvar publiseringspolicy skal dokumenterast som ein tabell på tilsvarande måte som kvar av kvalitetspolicyane.
 
 
+Treng vi FAQ?
 
-skal vi fjærne parallellisering flagget?
-
-
-
+FINT modellane, Begrepskatalog modellane og Modellkatalog modellane sine index.md sider viser ikkje Entity-releationship diagram oversikta med tilhørande diagram.
 
 
