@@ -135,11 +135,15 @@ validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domain>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
-	declare -a PIDS=(); \
-	declare -a KEYS=(); \
+	JOBS_TSV=$$(mktemp "$(GEN_DIR)/.validate-examples-jobs.XXXXXX"); \
+	trap 'rm -f "$$JOBS_TSV"' EXIT; \
+	SCHEMA_LIST=$$(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
+	if [ -z "$$SCHEMA_LIST" ]; then \
+		log_info "Ingen skjema funne for DOMAIN=$(DOMAIN)"; \
+		exit 0; \
+	fi; \
 	while IFS= read -r schema; do \
 		name=$$(basename "$$schema" -schema.yaml); \
-		domain=$$(echo "$$schema" | cut -d/ -f3); \
 		example="$(SCHEMA_DIR)/$(DOMAIN)/$$name/examples/$$name-eksempel.yaml"; \
 		if [ ! -f "$$example" ]; then \
 			log_info "$(CLR_WARN)::warning file=$$schema::Ingen eksempelfil funne: $$example$(CLR_RST)"; \
@@ -155,47 +159,35 @@ ifdef DOMAIN
 				continue; \
 			fi; \
 		fi; \
-		( \
-			log_debug "[$$domain/$$name] Kommando: linkml validate --schema $$validate_schema $$example"; \
-			t0=$$(date +%s%3N); \
-			result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
-				$(LINKML_IMAGE) linkml validate --schema "$$validate_schema" "$$example" 2>&1); \
-			exit_code=$$?; \
-			t1=$$(date +%s%3N); \
-			ms=$$(( t1 - t0 )); \
-			log_debug "$$result"; \
-			log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s/%s$(CLR_RST) (%s)' "$$domain" "$$name" "$$(fmt_elapsed_ms $$ms)")"; \
-			has_error=false; \
-			if [ $$exit_code -ne 0 ]; then \
-				has_error=true; \
-				if echo "$$result" | grep -q "\[ERROR\]"; then \
-					echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
-						log_error "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
-					done; \
-				else \
-					log_error "::error file=$$example::Validering feila (exit code $$exit_code)"; \
-				fi; \
-			fi; \
-			if [ "$$has_error" = "true" ]; then \
-				result_json='{"valid":false,"error_count":1,"warning_count":0,"issues":[{"severity":"error","target":"examples","message":"Validation failed"}]}'; \
-			else \
-				result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
-			fi; \
-			run_logged "save-validation-log/examples $$domain/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-				--schema "$$schema" --type examples --result "$$result_json" < /dev/null; \
-			[ "$$has_error" = "true" ] && exit 1 || exit 0; \
-		) & \
-		PIDS+=($$!); \
-		KEYS+=("$$domain/$$name"); \
-	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
-		| grep -v common | sort); \
-	FAILED=0; \
-	for i in "$${!PIDS[@]}"; do \
-		if ! wait "$${PIDS[$$i]}"; then \
-			log_debug "validate-examples feila for $${KEYS[$$i]}"; \
-			FAILED=$$((FAILED + 1)); \
+		printf '%s\t%s\t%s\n' "$$schema" "$$validate_schema" "$$example" >> "$$JOBS_TSV"; \
+	done <<< "$$SCHEMA_LIST"; \
+	if [ ! -s "$$JOBS_TSV" ]; then \
+		log_info "Ingen eksempelfiler å validere for DOMAIN=$(DOMAIN)"; \
+		exit 0; \
+	fi; \
+	COUNT=$$(wc -l < "$$JOBS_TSV"); \
+	log_debug "Kommando: batch-linkml-validate.py --jobs-tsv ($$COUNT eksempelfiler, domain $(DOMAIN))"; \
+	t0=$$(date +%s%3N); \
+	if ! $(LINKML_RUN) python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "$$JOBS_TSV"; then \
+		FAILED=1; \
+	else \
+		FAILED=0; \
+	fi; \
+	t1=$$(date +%s%3N); \
+	ms=$$(( t1 - t0 )); \
+	log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s  (%d eksempelfiler, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
+	i=0; \
+	while IFS=$$'\t' read -r schema validate_schema example; do \
+		name=$$(basename "$$schema" -schema.yaml); \
+		if [ $$FAILED -eq 0 ]; then \
+			result_json='{"valid":true,"error_count":0,"warning_count":0,"issues":[]}'; \
+		else \
+			result_json='{"valid":false,"error_count":1,"warning_count":0,"issues":[{"severity":"error","target":"examples","message":"Validation failed"}]}'; \
 		fi; \
-	done; \
+		run_logged "save-validation-log/examples $(DOMAIN)/$$name" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
+			--schema "$$schema" --type examples --result "$$result_json" < /dev/null; \
+		i=$$((i + 1)); \
+	done < "$$JOBS_TSV"; \
 	exit $$FAILED
 else
 	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>"

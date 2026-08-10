@@ -1,13 +1,13 @@
 {
-  "domain": "ap-no",
+  "domain": "oreg",
   "result": {
     "error_count": 0,
     "issues": [],
     "valid": true,
     "warning_count": 0
   },
-  "schema": "dqv-ap-no",
-  "validated_at": "2026-08-10T07:42:06.771302+00:00",
+  "schema": "register-over-aksjeeiere",
+  "validated_at": "2026-08-10T07:41:46.376519+00:00",
   "validation_policy": "examples",
-  "version": "1.15.0"
+  "version": "1.7.0"
 }

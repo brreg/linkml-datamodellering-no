@@ -1,13 +1,13 @@
 {
-  "schema": "dcat-ap-no",
   "domain": "ap-no",
-  "version": "0.0.0-dev",
-  "validated_at": "2026-08-06T18:25:58.165321+00:00",
-  "validation_type": "examples",
   "result": {
-    "valid": true,
     "error_count": 0,
-    "warning_count": 0,
-    "issues": []
-  }
+    "issues": [],
+    "valid": true,
+    "warning_count": 0
+  },
+  "schema": "dcat-ap-no",
+  "validated_at": "2026-08-10T07:42:04.800502+00:00",
+  "validation_policy": "examples",
+  "version": "0.0.0-dev"
 }

@@ -82,14 +82,15 @@ def main() -> int:
             instance_obj = yaml.safe_load(Path(instance).read_text(encoding="utf-8"))
             report = lm_validate(instance_obj, sv.schema)
             if report.results:
-                messages = "; ".join(str(r.message) for r in report.results[:3])
-                log_error(f"::error file={key}::linkml-validate feila for {key} "
-                          f"({len(report.results)} problem) — {messages}")
+                # Skriv alle feilmeldingar, ikkje berre dei tre første
+                for r in report.results:
+                    # Format som matcher CLI-output: ::error file=<instance>::<melding>
+                    log_error(f"::error file={instance}::{r.message}")
                 failed += 1
             else:
                 log_info(f"→ linkml-validate  {key}")
         except Exception as exc:  # noqa: BLE001 — per-jobb isolasjon, sjå batch-generate.py sitt tilsvarande mønster
-            log_error(f"::error file={key}::linkml-validate feila for {key} — {exc}")
+            log_error(f"::error file={instance}::linkml-validate feila for {key} — {exc}")
             failed += 1
 
     return 1 if failed else 0

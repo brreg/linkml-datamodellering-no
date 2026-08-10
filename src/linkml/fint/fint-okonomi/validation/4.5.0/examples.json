@@ -1,13 +1,13 @@
 {
-  "schema": "fint-okonomi",
   "domain": "fint",
-  "version": "4.5.0",
-  "validated_at": "2026-08-06T18:23:12.924101+00:00",
-  "validation_type": "examples",
   "result": {
-    "valid": true,
     "error_count": 0,
-    "warning_count": 0,
-    "issues": []
-  }
+    "issues": [],
+    "valid": true,
+    "warning_count": 0
+  },
+  "schema": "fint-okonomi",
+  "validated_at": "2026-08-10T07:41:26.247439+00:00",
+  "validation_policy": "examples",
+  "version": "4.5.0"
 }

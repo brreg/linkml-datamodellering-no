@@ -1,13 +1,13 @@
 {
-  "schema": "cpsv-ap-no",
   "domain": "ap-no",
-  "version": "1.10.0",
-  "validated_at": "2026-08-06T18:25:43.727900+00:00",
-  "validation_type": "examples",
   "result": {
-    "valid": true,
     "error_count": 0,
-    "warning_count": 0,
-    "issues": []
-  }
+    "issues": [],
+    "valid": true,
+    "warning_count": 0
+  },
+  "schema": "cpsv-ap-no",
+  "validated_at": "2026-08-10T07:42:02.884180+00:00",
+  "validation_policy": "examples",
+  "version": "1.10.0"
 }

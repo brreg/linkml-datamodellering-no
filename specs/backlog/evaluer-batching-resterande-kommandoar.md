@@ -355,7 +355,7 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
       rekkjefølgje
 - [x] Tiltak 1: `make convert-rdf` batcha
 - [x] Tiltak 2: `make convert-data` batcha
-- [ ] Tiltak 3: `make validate-examples` batcha, feilrapportering
+- [x] Tiltak 3: `make validate-examples` batcha, feilrapportering
       verifisert mot CI-krava
 - [ ] Tiltak 4: forundersøk avrotize sine CLI-/API-eigenskapar, batch
       `make gen-xsd` før skjematalet med `xsd: true` nærmar seg 10+
@@ -402,20 +402,41 @@ skjematalet på 10+ faktisk er nådd, ikkje etterpå).
 - Dokumentert batch-mekanisme: `batch-generate-instances.py --generator convert --jobs-tsv <fil>`, éin kontainar
 - Referert til `convert-examples.sh` og `convert-data.sh` som TSV-byggarar
 
+### Tiltak 3 — `make validate-examples`: batch via `batch-linkml-validate.py`
+
+**Endringar:**
+
+1. **`make/40-validation.mk` (linje 134-203):**
+   - Erstatta parallelliserte bakgrunnsjobbar med batch-validering via `batch-linkml-validate.py`
+   - Byggjer jobs-TSV frå eksisterande discovery-/fixture-logikk (eksempel-YAML + fallback til tests/fixtures/)
+   - Éin kontainar for alle eksempelfiler i domenet i staden for éin per fil
+
+2. **`src/assets/scripts/makefile/batch-linkml-validate.py` (linje 67-95):**
+   - Oppdatert feilrapportering: skriv alle `report.results`-meldingar til stderr som `::error file=<instance>::<melding>`
+   - Endret frå `::error file={key}::` (skjema-sti) til `::error file={instance}::` (eksempelfil-sti)
+   - Matcher GitHub Actions-annotasjonsformat som CI forventar
+
+**Verifisering:**
+- `make validate-examples DOMAIN=ngr LOGLVL=DEBUG` — batcha 4 eksempelfiler i éin kontainar (4.42s)
+- `make validate-examples DOMAIN=fint LOGLVL=DEBUG` — batcha 6 eksempelfiler (6.01s)
+- `make validate-examples DOMAIN=ap-no LOGLVL=DEBUG` — batcha 6 profiler med fixture-støtte (6.78s)
+- Feilrapportering verifisert: `::error file=<instance>::<melding>` matcher CI-format
+
 ### Resultat
 
 **Før batching:**
 - `convert-rdf`: 15 separate `linkml-convert`-kontainarar (éin per eksempelfil)
 - `convert-data`: 6 separate `linkml-convert`-kontainarar (éin per datafil)
+- `validate-examples`: N separate `linkml validate`-kontainarar (éin per skjema, parallellisert)
 
 **Etter batching:**
 - `convert-rdf`: 1 kontainar for alle 15 eksempelfiler
 - `convert-data`: 1 kontainar for alle 6 datafiler
+- `validate-examples`: 1 kontainar per domene (t.d. 4 filer i ngr, 6 filer i fint)
 
 **Estimert gevinst:**
-- Eliminert 15 + 6 = 21 kontainarkall
-- Amortisert `linkml_runtime`-import (~5-8s) over alle filer
-- Lågare per-fil-timing (synleg i DEBUG-output)
+- Tiltak 1+2: Eliminert 21 kontainarkall, amortisert `linkml_runtime`-import (~5-8s)
+- Tiltak 3: Eliminert N-1 kontainarkall per domene (t.d. 3 kontainarkall spart for ngr, 5 for fint)
 
 ## Relaterte filer
 
