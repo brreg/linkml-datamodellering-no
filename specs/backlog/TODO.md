@@ -85,8 +85,6 @@ evaluer gap mot https://www.digdir.no/datadeling/slik-blir-du-en-god-datatilbyde
 
 evaluer gap mot https://data.norge.no/nb/docs skriv til ./specs
 
-evaluer gap mot https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-eget-hus/2716 skriv til ./specs
-
 
 
 
