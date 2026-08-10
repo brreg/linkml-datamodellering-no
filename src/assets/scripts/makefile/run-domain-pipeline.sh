@@ -6,11 +6,10 @@
 #
 # Kvart steg er eit rekursivt $(MAKE) <target> DOMAIN=<domene>-kall til eit
 # alt eksisterande, sjølvstendig verifisert gen-*-target (batch-generate.py/
-# batch-generate-instances.py/run-parallel-gen.sh gjer sjølve genererings-
-# arbeidet, uendra) — dette scriptet reimplementerer ingen podman- eller
-# genereringslogikk, berre fase-rekkjefølgje, samstundes-oppstart og
-# feilsamling (PID-array + wait, same mønster som
-# parallelliser-domene-validering.md).
+# batch-generate-instances.py gjer sjølve genereringsarbeidet, uendra) —
+# dette scriptet reimplementerer ingen podman- eller genereringslogikk,
+# berre fase-rekkjefølgje, samstundes-oppstart og feilsamling (PID-array +
+# wait, same mønster som parallelliser-domene-validering.md).
 #
 # Fase 1 (samstundes): alle grupper utan innbyrdes avhengigheit, inkl.
 #   gen-jsonschema sjølv (fase 2 ventar spesifikt på henne, ikkje på resten

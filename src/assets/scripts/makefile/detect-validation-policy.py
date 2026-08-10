@@ -5,31 +5,19 @@ Les build.yaml frå same katalog som skjemaet og emit policy til stdout.
 Returnerer 'bronze' som default dersom build.yaml ikkje finst eller manglar policy.
 """
 import sys
-import yaml
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.schema_meta import detect_policy  # noqa: E402
+
 
 def main():
     if len(sys.argv) < 2:
         print("Bruk: detect-validation-policy.py <schema>", file=sys.stderr)
         sys.exit(1)
 
-    schema_path = Path(sys.argv[1])
-    manifest_path = schema_path.parent / "build.yaml"
+    print(detect_policy(Path(sys.argv[1])))
 
-    if not manifest_path.exists():
-        print("bronze")
-        return
-
-    try:
-        with open(manifest_path, 'r', encoding='utf-8') as f:
-            manifest = yaml.safe_load(f)
-
-        policy = manifest.get('validation_policy', 'bronze')
-        print(policy)
-
-    except Exception as e:
-        print(f"ÅTVARING: klarte ikkje lese validation_policy frå {manifest_path} ({e}) — brukar bronze", file=sys.stderr)
-        print("bronze")
 
 if __name__ == '__main__':
     main()

@@ -2,7 +2,10 @@
 """Delte hjelpefunksjonar for å utleie metadata frå ein skjema-sti."""
 
 import re
+import sys
 from pathlib import Path
+
+from .yaml_io import load_yaml
 
 
 def get_domain_model(schema_path: Path) -> tuple[str, str]:
@@ -22,3 +25,23 @@ def get_version(schema_path: Path, fallback: str = "0.0.0") -> str:
     content = schema_path.read_text(encoding="utf-8")
     m = re.search(r'^version:\s*"([^"]+)"', content, re.MULTILINE)
     return m.group(1) if m else fallback
+
+
+def detect_policy(schema_path: Path) -> str:
+    """Les validation_policy frå build.yaml i same katalog som skjemaet.
+
+    Returnerer 'bronze' som default dersom build.yaml ikkje finst eller
+    manglar feltet.
+    """
+    manifest_path = schema_path.parent / "build.yaml"
+    if not manifest_path.exists():
+        return "bronze"
+    try:
+        manifest = load_yaml(manifest_path)
+        return manifest.get("validation_policy", "bronze")
+    except Exception as e:
+        print(
+            f"ÅTVARING: klarte ikkje lese validation_policy frå {manifest_path} ({e}) — brukar bronze",
+            file=sys.stderr,
+        )
+        return "bronze"

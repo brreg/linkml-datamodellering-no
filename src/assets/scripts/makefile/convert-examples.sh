@@ -9,8 +9,7 @@
 #   <skjema-sti>\t<eksempel-sti>\t<output-ttl-sti>
 # Køyrer discovery/filtrering FØR noko vert skrive til stdout, slik at éi
 # log_debug-deloverskrift ("linkml-convert (example_rdf: true) — køyrer:
-# …") kan skrivast først — same mønster og rekkjefølgje som
-# run-parallel-gen.sh, synleg berre på LOGLVL=DEBUG. Sjølve
+# …") kan skrivast først, synleg berre på LOGLVL=DEBUG. Sjølve
 # linkml-convert-kallet gjer kallaren (ikkje dette scriptet), sidan det
 # krev $(LINKML_RUN) sin podman-kontekst — den strengen inneheld sjølve
 # anførselsteikn (frå WORK_MOUNT) som berre er trygge å la shellen tolke

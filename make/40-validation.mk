@@ -220,13 +220,13 @@ _mcp-valider-modell-with-header:
 # specs/backlog/make-kommando-inkonsistens-audit.md, namnekonsistens 4) og
 # medvite utsett: å skrive om eit CI-kritisk script utan eksplisitt brukar-
 # godkjenning bryt CLAUDE.md sitt DRY-unntak for risikofylte omskrivingar.
-validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>] [PARALLEL=8]
-	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) $(PARALLEL) workers)))
+validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>]
+	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) batcha)))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@if [ -n "$(SCHEMA)" ]; then \
 	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py --schema $(SCHEMA); \
 	else \
-	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py --parallel $(PARALLEL); \
+	    $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/run-schema-validation.py; \
 	fi
 
 # ---------------------------------------------------------------------------

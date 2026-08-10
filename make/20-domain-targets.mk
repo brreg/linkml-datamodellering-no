@@ -58,7 +58,7 @@ _domain_pre_$(1) := $$(DOMAIN_PRE_$(1))
 
 .PHONY: domain-$(1)
 domain-$(1): $$(_domain_pre_$(1))
-	$$(call print_header,domain-$(1),$$(if $$(filter-out 1,$$(PARALLEL)),(PARALLEL=$$(PARALLEL))))
+	$$(call print_header,domain-$(1))
 	@MAKE="$$(MAKE)" GEN_DIR=$$(GEN_DIR) bash src/assets/scripts/makefile/run-domain-pipeline.sh $(1)
 endef
 

@@ -7,10 +7,10 @@
 # sitt «Funn»-avsnitt: 38 % reduksjon for berre 2 filer, JVM-/kontainar-
 # oppstarten amortiserer over alle filene i staden for å betalast per fil).
 #
-# Køyrer berre for skjema der Fase A (gen-plantuml + filter_plantuml.py,
-# framleis via run-parallel-gen.sh, uendra) alt har skrive .puml-filer —
-# sjekkar filnærvær direkte i staden for å duplisere build.yaml sin
-# plantuml:true-sjekk her (éin kjelde for gatinga: om fila finst).
+# Køyrer berre for skjema der Fase A (gen-plantuml via batch-generate.py +
+# filter_plantuml.py) alt har skrive .puml-filer — sjekkar filnærvær direkte
+# i staden for å duplisere build.yaml sin plantuml:true-sjekk her (éin
+# kjelde for gatinga: om fila finst).
 #
 # Bruk: PLANTUML_IMAGE=<image> bash batch-render-plantuml.sh schema1.yaml schema2.yaml ...
 set -euo pipefail

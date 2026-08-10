@@ -30,9 +30,6 @@ PYTHON_DOCKERFILE  := src/assets/containers/Dockerfile.python
 
 MCP_IMAGE          := mcp-linkml-validator
 
-# Parallellitet
-PARALLEL ?= 16
-
 # Valfrie parameter (kan overstyrast frå kommandolinje)
 INSTANCE ?=
 POLICY   ?=
@@ -66,8 +63,8 @@ log_error() {
 }
 # fmt_elapsed_ms <ms> — formaterer millisekund som "<sekund>.<hundredel>s"
 # (to desimaler, avkorta). Delt av all køyretids-logging i make-laget
-# (timed_run under, run-parallel-gen.sh, batch-render-plantuml.sh,
-# 40-validation.mk) — éin kjelde for elapsed-formatet, sjå
+# (timed_run under, batch-render-plantuml.sh, 40-validation.mk) — éin
+# kjelde for elapsed-formatet, sjå
 # specs/done/gjer-generator-debug-logging-mer-lesbar.md.
 fmt_elapsed_ms() {
   local ms="$$1"
@@ -123,13 +120,10 @@ run_logged() {
 endef
 export LOG_FUNCTIONS
 
-# Eksportert for src/assets/scripts/makefile/run-parallel-gen.sh (delt
-# orkestrering for parallell generering — sjå make/10-generator-macros.mk)
-# og for batch-generate.py/batch-generate-instances.py (les LOGLVL/CLR_STEP/
-# CLR_RST direkte frå os.environ — sjå make/01-containers.mk sin -e-vidareføring
-# av desse inn i LINKML_RUN/PYTHON_RUN-kontainerane)
+# Eksportert for batch-generate.py/batch-generate-instances.py (les LOGLVL/
+# CLR_STEP/CLR_RST direkte frå os.environ — sjå make/01-containers.mk sin
+# -e-vidareføring av desse inn i LINKML_RUN/PYTHON_RUN-kontainerane)
 export GEN_DIR
-export PARALLEL
 export LOGLVL
 export CLR_STEP
 export CLR_RST

@@ -108,8 +108,7 @@ def read_build_yaml_flag(schema: str, flag: str) -> bool:
 
 
 def filter_enabled(schemas: list[str], flag: str | None, generator: str) -> list[str]:
-    """Same filtreringssemantikk som run-parallel-gen.sh sin --flag: skjema
-    utan build.yaml eller utan `<flag>: true` vert hoppa over (ikkje feil)."""
+    """Skjema utan build.yaml eller utan `<flag>: true` vert hoppa over (ikkje feil)."""
     if flag is None:
         return list(schemas)
     enabled = [s for s in schemas if read_build_yaml_flag(s, flag)]

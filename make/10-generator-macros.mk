@@ -19,11 +19,10 @@
 # batch-generate-instances.py, SVG-rendering via batch-render-plantuml.sh)
 # — sjå Tiltak 2/3/4 i spec-fila for grunngjeving og enkeltsteg.
 #
-# gen-xsd køyrer framleis udelt via run-parallel-gen.sh (éin kontainar per
-# skjema × 3 verktøy) — berre 1 skjema i heile repoet har xsd: true, så det
-# finst ingenting å vinne på å batche (jf. «Ikkje eit tiltak: gen-xsd» i
-# spec-fila). `asyncapi validate` (i gen-asyncapi) er av same grunn framleis
-# udelt, sjølv om resten av gen-asyncapi/gen-openapi er batcha.
+# gen-xsd og `asyncapi validate` (i gen-asyncapi) er òg batcha til éin delt
+# kontainar kvar, sjå kommentarane ved run_gen_xsd_parallel/
+# run_gen_asyncapi_parallel under og
+# specs/done/evaluer-batching-resterande-kommandoar.md (Tiltak 4/5).
 # ==============================================================================
 
 # ---------------------------------------------------------------------------
@@ -77,7 +76,7 @@ endef
 # sjølve `gen-doc`-CLI-et (DocGenerator, Click-drive-invokering same
 # mønster som dei linkml-baserte generatorane i Tiltak 1 — skriv sjølv til
 # katalog via -d, ikkje stdout, jf. GeneratorSpec sin extra_argv_fn/post_fn
-# i batch-generate.py). Ingen run-parallel-gen.sh-fase att.
+# i batch-generate.py).
 # ---------------------------------------------------------------------------
 define run_gen_doc_parallel
 @$(PYTHON_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator docgen-examples -- $(1)
