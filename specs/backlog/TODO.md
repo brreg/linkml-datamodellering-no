@@ -83,7 +83,6 @@ evaluer gap mot https://www.digdir.no/datadeling/slik-kommer-du-i-gang-med-bruke
 
 evaluer gap mot https://www.digdir.no/datadeling/slik-blir-du-en-god-datatilbyder/2248 skriv til ./specs
 
-evaluer gap mot https://data.norge.no/nb/docs skriv til ./specs
 
 
 

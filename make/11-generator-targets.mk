@@ -38,6 +38,7 @@ $(eval $(call make_gen_target,gen-asyncapi,run_gen_asyncapi_parallel))
 $(eval $(call make_gen_target,gen-openapi,run_gen_openapi_parallel))
 $(eval $(call make_gen_target,gen-erdiagram,run_gen_erdiagram_parallel))
 $(eval $(call make_gen_target,gen-proto,run_gen_parallel,proto))
+$(eval $(call make_gen_target,gen-graphql,run_gen_parallel,graphql))
 $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 
 # ---------------------------------------------------------------------------
@@ -62,6 +63,7 @@ gen-asyncapi: ## Generer og valider AsyncAPI-spec, krev gen-jsonschema [SCHEMA=<
 gen-openapi: ## Generer og valider OpenAPI-spec, krev gen-jsonschema [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-erdiagram: ## Generer ER-diagram (Mermaid) [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-proto: ## Generer Protobuf-schema [SCHEMA=<sti>|DOMAIN=<domain>]
+gen-graphql: ## Generer GraphQL-skjema [SCHEMA=<sti>|DOMAIN=<domain>]
 gen-plantuml: ## Generer PlantUML-diagram, full og filtrert [SCHEMA=<sti>|DOMAIN=<domain>]
 
 # ---------------------------------------------------------------------------

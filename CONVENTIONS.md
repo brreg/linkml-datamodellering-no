@@ -245,6 +245,7 @@ generators:
   owl_flags: ""
   rdf: true
   protobuf: true
+  graphql: true
   erdiagram: true
   docs: true
   plantuml: true

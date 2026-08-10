@@ -130,6 +130,7 @@ generators:
   plantuml: true
   example_rdf: true
   openapi: true
+  graphql: true
 EOF
 
 DESCRIPTION_FILE="$SCHEMA_DIR/description.md"

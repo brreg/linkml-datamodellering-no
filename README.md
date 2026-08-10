@@ -246,6 +246,7 @@ Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/
 | JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` | [`gen-jsonschema`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-jsonschema) |
 | XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` | [`gen-xsd`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-xsd) |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` | [`gen-proto`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-proto) |
+| GraphQL-skjema | `<skjema>-schema.graphql` | Typedefinisjonar (SDL) for GraphQL-API | — | `graphql` | [`gen-graphql`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-graphql) |
 | AsyncAPI-spec | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` | [`gen-asyncapi`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-asyncapi) |
 | OpenAPI-spec | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` | [`gen-openapi`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-openapi) |
 | ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` | [`gen-erdiagram`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-erdiagram) |

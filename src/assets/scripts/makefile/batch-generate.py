@@ -36,7 +36,7 @@ Bruk:
   python3 batch-generate.py --generator <kind> -- schema1.yaml schema2.yaml ...
 
   <kind>: merge | jsonld-context | shacl | python | json-schema | owl | rdf | proto
-        | erdiagram | plantuml | doc
+        | graphql | erdiagram | plantuml | doc
 
 `erdiagram`/`plantuml`/`doc` batchar berre RÅ-genereringssteget (Fase A) —
 `erdiagram`/`plantuml` sine filter-etterhandsamingar (Fase B) er batcha
@@ -147,6 +147,7 @@ REGISTRY: dict[str, GeneratorSpec] = {
     ),
     "rdf": GeneratorSpec(module="linkml.generators.rdfgen", out_suffix="schema.ttl", flag="rdf"),
     "proto": GeneratorSpec(module="linkml.generators.protogen", out_suffix="schema.proto", flag="protobuf"),
+    "graphql": GeneratorSpec(module="linkml.generators.graphqlgen", out_suffix="schema.graphql", flag="graphql"),
     "erdiagram": GeneratorSpec(
         module="linkml.generators.erdiagramgen",
         out_suffix="erdiagram-raw.md",

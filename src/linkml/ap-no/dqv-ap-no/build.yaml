@@ -13,6 +13,7 @@ generators:
   owl: true
   rdf: true
   protobuf: false
+  graphql: false
   erdiagram: true
   docs: true
   plantuml: true

@@ -427,7 +427,9 @@
       "mcp__linkml-begrep-utkast__skriv_begrep_fil",
       "WebFetch(domain:api.github.com)",
       "Bash(LOGLVL=DEBUG make gen-xsd DOMAIN=ap-no)",
-      "Bash(LOGLVL=DEBUG make -n gen-asyncapi DOMAIN=ap-no)"
+      "Bash(LOGLVL=DEBUG make -n gen-asyncapi DOMAIN=ap-no)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:linkml.io)"
     ]
   },
   "enableAllProjectMcpServers": true,

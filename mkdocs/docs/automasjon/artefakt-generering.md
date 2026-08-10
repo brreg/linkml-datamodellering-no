@@ -21,7 +21,7 @@ kjem frå.
 flowchart LR
     SRC["src/linkml/&lt;domain&gt;/&lt;modell&gt;/<br/>*-schema.yaml + build.yaml"]
     GEN["make domain-&lt;domain&gt;<br/>(make/10-generator-macros.mk,<br/>make/11-generator-targets.mk)"]
-    ARTEFAKT["generated/&lt;domain&gt;/&lt;modell&gt;/<br/>TTL · JSON Schema · SHACL · OWL ·<br/>protobuf · OpenAPI · AsyncAPI ·<br/>PlantUML · gen-doc · ER-diagram"]
+    ARTEFAKT["generated/&lt;domain&gt;/&lt;modell&gt;/<br/>TTL · JSON Schema · SHACL · OWL ·<br/>protobuf · GraphQL · OpenAPI · AsyncAPI ·<br/>PlantUML · gen-doc · ER-diagram"]
     VALID["make/40-validation.mk<br/>mcp-linkml-validator<br/>(bronze/silver/gold/felles-*)"]
     PORTAL["mkdocs/publish.sh<br/>→ mkdocs/docs/&lt;domain&gt;/&lt;modell&gt;/"]
     PAGES["GitHub Pages"]
@@ -60,6 +60,7 @@ er oppgjeve. `<n>` = skjemanamn (filnamn utan `-schema.yaml`).
 | RDF/OWL-skjema | `rdf` | `gen-rdf` | `gen-rdf <schema>` | `<n>-schema.ttl` |
 | XSD | `xsd` (krev `json_schema`-output) | `gen-xsd` | 3 steg: avrotize `j2a` (JSON Schema → Avro), avrotize `a2x` (Avro → XSD, namespace frå `id:`), så `fix-xsd-dates.py` (rettar `date`/`date-time`-felt som avrotize elles gjer om til `xs:integer`/`xs:long`) | `<n>-schema.xsd` |
 | Protobuf | `protobuf` | `gen-proto` | `gen-proto <schema>` | `<n>-schema.proto` |
+| GraphQL | `graphql` | `gen-graphql` | `gen-graphql <schema>` | `<n>-schema.graphql` |
 | OpenAPI | `openapi` (krev `json_schema`) | `gen-openapi` | eigen `gen-openapi.py` (ikkje ein linkml-kommando — pakkar JSON Schema `$defs` inn i `components/schemas`, hentar `info.title/version/description` frå skjemaet), validert med `openapi-spec-validator` | `<n>-openapi.yaml` |
 | AsyncAPI | `asyncapi` (krev `json_schema`) | `gen-asyncapi` | eigen `gen-asyncapi.py` (same mønster som openapi), validert med `asyncapi validate` | `<n>-asyncapi.yaml` |
 | ER-diagram (Markdown) | `erdiagram` | `gen-erdiagram` | `gen-erdiagram --no-mergeimports <schema>` → `filter_container.awk` (fjernar containerklassen) → `filter_erdiagram.py` (fjernar importerte klassar) | `<n>-erdiagram-unfiltered.md`, `<n>-erdiagram.md` |
@@ -73,7 +74,7 @@ eksempel-splitting i gen-doc-steget, uavhengig av `docs`-flagget.
 
 ## 3. Kjeldesporing per artefakttype
 
-### 3.1 Dei reine LinkML-genererte artefakta (JSON-LD, SHACL, Python, JSON Schema, OWL, RDF, protobuf)
+### 3.1 Dei reine LinkML-genererte artefakta (JSON-LD, SHACL, Python, JSON Schema, OWL, RDF, protobuf, GraphQL)
 
 Desse har éi kjelde: sjølve `<modell>-schema.yaml` (inkludert alt han
 importerer, sidan `linkml gen-*` løyser importhierarkiet). Feltnamn,
@@ -227,8 +228,8 @@ Presiseringar frå kjeldelesing som ikkje står der:
   (§ 3.4), ikkje `publish.sh`.
 - **Artefaktabellen** i domene-`index.md` (`shapes.ttl`, `context.jsonld`,
   `schema.json`, `schema.xsd`, `openapi.yaml`, `asyncapi.yaml`,
-  `ontology.ttl`, `schema.ttl`, `model.py`, `schema.proto`, `erdiagram.md`,
-  `eksempel.ttl`) vert bygd ved å faktisk sjekke kva filer som finst på disk
+  `ontology.ttl`, `schema.ttl`, `model.py`, `schema.proto`, `schema.graphql`,
+  `erdiagram.md`, `eksempel.ttl`) vert bygd ved å faktisk sjekke kva filer som finst på disk
   per skjema — ikkje ut frå `build.yaml`-flagga direkte. Ein generator som
   er slått av i `build.yaml` vil difor rett og slett ikkje ha ei fil å
   liste, snarare enn å visast som "utilgjengeleg".

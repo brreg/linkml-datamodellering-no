@@ -13,7 +13,8 @@
 #
 # Fase 1 (samstundes): alle grupper utan innbyrdes avhengigheit, inkl.
 #   gen-jsonschema sjølv (fase 2 ventar spesifikt på henne, ikkje på resten
-#   av fase 1).
+#   av fase 1). Inkluderer gen-graphql (reint LinkML-generert, ingen
+#   JSON Schema-avhengigheit, same gruppe som gen-proto).
 # Fase 2 (samstundes, ventar på gen-jsonschema): gen-xsd/gen-openapi/
 #   gen-asyncapi les alle <name>-schema.json.
 # Fase 3 (ventar på ALT frå fase 1+2): gen-informasjonsmodell-instance sin
@@ -65,6 +66,7 @@ run_bg json-schema    "$MAKE" --no-print-directory gen-jsonschema DOMAIN="$domai
 run_bg owl            "$MAKE" --no-print-directory gen-owl DOMAIN="$domain"
 run_bg rdf            "$MAKE" --no-print-directory gen-rdf DOMAIN="$domain"
 run_bg proto          "$MAKE" --no-print-directory gen-proto DOMAIN="$domain"
+run_bg graphql        "$MAKE" --no-print-directory gen-graphql DOMAIN="$domain"
 run_bg linkml-convert "$MAKE" --no-print-directory gen-linkml-convert DOMAIN="$domain"
 run_bg docs           "$MAKE" --no-print-directory gen-docs DOMAIN="$domain"
 run_bg plantuml       "$MAKE" --no-print-directory gen-plantuml DOMAIN="$domain"

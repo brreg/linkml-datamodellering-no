@@ -150,6 +150,7 @@ def discover_artifacts(schema_path: Path) -> List[str]:
         '*.puml',
         '*-context.jsonld',
         '*.proto',
+        '*.graphql',
         '*-openapi.yaml'
     ]
 

@@ -32,7 +32,7 @@ source "$LIB_DIR/utils/formatters.sh"
 source "$LIB_DIR/utils/metadata_parsers.sh"
 
 # Rekkjefølgje på artefakter i tabellen (brukt både i artifacts.sh og domain/index.md-generering)
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json schema.xsd openapi.yaml asyncapi.yaml ontology.ttl schema.ttl model.py schema.proto schema.graphql erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
 # Hjelpefunksjonar (legacy — flytta til lib/)

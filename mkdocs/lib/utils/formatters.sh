@@ -29,6 +29,7 @@ artifact_label() {
         asyncapi.yaml)  echo "AsyncAPI 3.0" ;;
         model.py)       echo "Python-klasser" ;;
         schema.proto)   echo "Protobuf-skjema" ;;
+        schema.graphql) echo "GraphQL-skjema" ;;
         erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
         eksempel.ttl)   echo "Eksempeldata (Turtle)" ;;
         *)              echo "$1" ;;
