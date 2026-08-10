@@ -53,7 +53,8 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/generator.py:/app/generator.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/los_tema.py:/app/los_tema.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
-  -v "$(CURDIR):/repo:ro"
+  -v "$(CURDIR):/repo:ro" \
+  -v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"
 
 .PHONY: help test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \

@@ -605,6 +605,12 @@ def _handle_skriv_begrep_fil(msg_id, arguments: dict) -> dict:
             "id": msg_id,
             "error": {"code": -32602, "message": str(exc)},
         }
+    except OSError as exc:
+        return {
+            "jsonrpc": "2.0",
+            "id": msg_id,
+            "error": {"code": -32000, "message": f"Kunne ikkje skrive til {output_path}: {exc}"},
+        }
 
     # Returner relativ filsti (frå /repo-rota)
     relative_path = result_path.relative_to("/repo")

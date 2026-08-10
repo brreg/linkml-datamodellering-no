@@ -23,7 +23,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-begrep-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/generator.py:/app/generator.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/los_tema.py:/app/los_tema.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/profiles:/app/profiles:ro\" -v \"$REPO:/repo:ro\" mcp-linkml-begrep-utkast"
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-begrep-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/generator.py:/app/generator.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/los_tema.py:/app/los_tema.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/profiles:/app/profiles:ro\" -v \"$REPO:/repo:ro\" -v \"$REPO/src/linkml:/repo/src/linkml:rw\" mcp-linkml-begrep-utkast"
       ],
       "env": {}
     }

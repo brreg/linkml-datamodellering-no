@@ -95,13 +95,13 @@ fagomrade:
 
 ## Tiltak
 
-- [ ] Faktoriser `_generate_begrep_dict()` ut frå `opprett_begrep()` i `generator.py`
-- [ ] Legg til `skriv_begrep_til_fil()` i `generator.py`
-- [ ] Legg til `TOOL_SKRIV_BEGREP_FIL` i `server.py`
-- [ ] Legg til `_handle_skriv_begrep_fil()` i `server.py`
-- [ ] Oppdater `handle()`-funksjonen til å handtere `skriv_begrep_fil`-verktøyet
-- [ ] Oppdater README.md med ny seksjon om `skriv_begrep_fil`
-- [ ] Test at `skriv_begrep_fil` skriv korrekt fil til riktig katalog
+- [x] Faktoriser `_generate_begrep_dict()` ut frå `opprett_begrep()` i `generator.py`
+- [x] Legg til `skriv_begrep_til_fil()` i `generator.py`
+- [x] Legg til `TOOL_SKRIV_BEGREP_FIL` i `server.py`
+- [x] Legg til `_handle_skriv_begrep_fil()` i `server.py`
+- [x] Oppdater `handle()`-funksjonen til å handtere `skriv_begrep_fil`-verktøyet
+- [x] Oppdater README.md med ny seksjon om `skriv_begrep_fil`
+- [x] Test at `skriv_begrep_fil` skriv korrekt fil til riktig katalog
 
 ## Test
 
@@ -137,3 +137,30 @@ cat src/linkml/oreg/begrepssamling-foretaksregisteret/begrep/testbegrep.yaml
 
 - [ ] `collect-concepts.py`: samle definisjoner, organisasjonar, kontaktpunkt frå profil-metadata
 - [ ] `collect-concepts.py`: generer `definisjoner`-, `organisasjonar`- og `kontaktpunkt`-blokkar i aggregert begrepskatalog
+
+## Utført
+
+Kodetiltaka (`_generate_begrep_dict()`, `skriv_begrep_til_fil()`, `TOOL_SKRIV_BEGREP_FIL`,
+`_handle_skriv_begrep_fil()`, ruting i `handle()`) var alt implementerte frå tidlegare
+(commit `e2d7d952`). Denne økta fullførte dei to attverande tiltaka:
+
+- **README.md**: ny seksjon `skriv_begrep_fil` under «MCP-verktøy» med parametertabell,
+  eksempel-JSON-RPC-kall og eksempel-YAML-output (berre begreps-objektet, utan
+  `definisjoner`/`organisasjonar`/`kontaktpunkt`)
+- **Test**: køyrde testtiltaket frå spec-en og avdekte at `skriv_begrep_fil` **ikkje kunne
+  skrive fil** — både `Makefile` (`LINKML_BEGREP_RUN`) og `.mcp.json` monterte `/repo`
+  read-only (`:ro`), så alle skriveforsøk feila med `OSError: [Errno 30] Read-only file
+  system` og velta heile server-prosessen (ufanga unntak)
+
+**Rettingar for å få testen til å bestå:**
+
+- `Makefile`: lagt til eiga skriveleg mount `-v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"`
+  i `LINKML_BEGREP_RUN` — berre `src/linkml/` er skriveleg, resten av `/repo` er framleis
+  read-only
+- `.mcp.json`: same rw-mount lagt til for `linkml-begrep-utkast`-serveren
+- `server.py` (`_handle_skriv_begrep_fil`): lagt til `except OSError` som returnerer ein
+  JSON-RPC-feil i staden for å la unntaket velte serveren
+
+Testen (frå spec-en, `slug: testbegrep` i `oreg/begrepssamling-foretaksregisteret`) vart
+verifisert på nytt etter rettinga — fila vart skrive korrekt med forventa innhald, deretter
+sletta att (test-artefakt, ikkje reelt begrep).

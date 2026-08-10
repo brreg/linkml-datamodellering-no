@@ -44,6 +44,7 @@ make mcp-linkml-begrep-utkast-run
 | Verktøy | Skildring |
 |---|---|
 | `opprett_begrep` | Genererer ein komplett `BegrepContainer`-YAML-blokk frå strukturerte parametrar. Støttar profil, fleirspråkleg (nb/nn/en), kjeldetype og LOS-fagområde. |
+| `skriv_begrep_fil` | Genererer berre begreps-objektet og skriv det direkte til `src/linkml/<domain>/<begrepssamling>/begrep/<slug>.yaml`. |
 | `valider_begrep` | Validerer ei YAML-instansfil mot eit skos-ap-no-basert skjema (les skjema med importresolvering via `SchemaView`). |
 | `list_profiles` | Listar tilgjengelege profiler med namn og skildring. |
 | `list_los_tema` | Returnerer statisk liste over gyldige LOS-tema URI-ar (ingen nettverkskall). |
@@ -91,6 +92,49 @@ make mcp-linkml-begrep-utkast-run
 | `kjelde_tekst_nn` | string[] | Bibliografisk kjelde på nynorsk (fallback: nb) |
 | `kjelde_tekst_en` | string[] | Bibliografisk kjelde på engelsk |
 | `sja_ogsa_omgrep` | string[] | URI-ar til relaterte begreper |
+
+### `skriv_begrep_fil` — parametrar
+
+Same parametrar som `opprett_begrep` (sjå tabellane over), pluss to nye påkravde
+parametrar som styrer kvar fila vert skriven:
+
+| Parameter | Type | Skildring |
+|---|---|---|
+| `domain` | string | Domene, t.d. `oreg` |
+| `begrepssamling` | string | Begrepssamling-namn, t.d. `begrepssamling-foretaksregisteret` |
+
+Filstien vert bygd som `src/linkml/<domain>/<begrepssamling>/begrep/<slug>.yaml`
+(relativt til `/repo`). Mappa vert oppretta automatisk dersom han ikkje finst frå før.
+
+**Eksempel**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "skriv_begrep_fil",
+    "arguments": {
+      "domain": "oreg",
+      "begrepssamling": "begrepssamling-foretaksregisteret",
+      "profil": "brreg",
+      "slug": "testbegrep",
+      "anbefalt_term_nb": "testbegrep",
+      "definisjon_nb": "eit testbegrep",
+      "fagomrade_uri": "https://psi.norge.no/los/tema/naring"
+    }
+  }
+}
+```
+
+Returnerer filstien til den skrivne fila, t.d.
+`✓ Skrev begrep til: src/linkml/oreg/begrepssamling-foretaksregisteret/begrep/testbegrep.yaml`.
+
+**OBS:** I motsetnad til `opprett_begrep` inneheld ikkje output-fila `definisjoner`,
+`organisasjonar` eller `kontaktpunkt` — berre begreps-objektet (`id`, `anbefalt_term`,
+`har_definisjon`, `identifikator_literal`, `kontaktpunkt_vcard`, `utgjevar`, `fagomrade`).
+Desse aggregerast av `collect-concepts.py` frå profil-metadata (sjå COMMANDS.md).
 
 ### `valider_begrep` — parametrar
 
@@ -162,6 +206,26 @@ organisasjonar:
 
 kontaktpunkt:
   - id: https://begrep.brreg.no/kontakt/begrepsansvarleg
+```
+
+`skriv_begrep_fil` produserer i staden berre begreps-objektet, skrive direkte til
+`begrep/<slug>.yaml` i begrepssamlinga:
+
+```yaml
+# Generert av mcp-linkml-begrep-utkast
+id: https://begrep.brreg.no/foretaksnavn
+anbefalt_term:
+  - foretaksnavn
+  - føretaksnamn
+har_definisjon:
+  - https://begrep.brreg.no/def/foretaksnavn-nb
+  - https://begrep.brreg.no/def/foretaksnavn-nn
+identifikator_literal: https://begrep.brreg.no/foretaksnavn
+kontaktpunkt_vcard:
+  - https://begrep.brreg.no/kontakt/begrepsansvarleg
+utgjevar: https://data.norge.no/organizations/974760673
+fagomrade:
+  - https://psi.norge.no/los/tema/naringsliv
 ```
 
 Lim innhaldet inn i ei eksisterande instansfil under dei tilsvarande listene
