@@ -90,8 +90,6 @@ evaluer gap mot https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-e
 
 
 
-evaluer gap mot https://data.norge.no/nb/docs/sharing-data skriv til ./specs
-
 
 
 

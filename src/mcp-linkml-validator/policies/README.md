@@ -123,6 +123,8 @@ kontrollerte vokabular.
 | `Datasett` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Kontaktpunkt for datasettet |
 | `Datasett` har `dcat:theme` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Tema/kategori for datasettet (Los) |
 | `Datasett` har `dct:publisher` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, R1.2 | Utgjevar av datasettet |
+| `Datasett` har `dct:accessRights` | warning | — | — | Tilgangsnivå for datasettet — svarar til trafikklyssystemet (grøn/gul/raud) i Digdir sin veileder [«Orden i eget hus», steg 4](https://www.digdir.no/informasjonsforvaltning/steg-4-vurdere-tilgangsniva/2723) |
+| `Datasett` har `dcatap:applicableLegislation` | warning | — | — | Gjeldande lovgjeving (lovheimel) for tilgang til datasettet — same steg som over |
 | `Distribusjon` har `dcat:accessURL` | error | — | A1 | Tilgangsadresse til distribusjonen |
 | `Datatjeneste` har `dcat:endpointURL` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Endepunkt-URL for tenesta |
 | `Datatjeneste` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Kontaktpunkt for tenesta |
@@ -135,6 +137,14 @@ kontrollerte vokabular.
 | Instansverdiar er frå korrekt vokabular-domene (`gyldige_verdier`) **(krev `INSTANCE=`)** | error/warning | 8 — Maskinprosserbarheit | I1 | Kode: `instance_slot_invalid_vocabulary_domain`. Sjekkar at URI-ar startar med `gyldige_verdier`-domenet |
 
 Gyldige verdiar for `annotations.status`: `http://purl.org/adms/status/UnderDevelopment`, `Completed`, `Deprecated`, `Withdrawn`.
+
+> **Tilgangsnivå og Digdir sitt trafikklyssystem:** `dct:accessRights`-verdiane frå EU sitt
+> Access Right-vokabular (`PUBLIC`/`RESTRICTED`/`NON_PUBLIC`, sjå `tilgangsrettigheter`-sloten
+> i `dcat-ap-no-schema.yaml`) svarar funksjonelt til grøn/gul/raud i trafikklyssystemet frå
+> Digdir sin veileder [«Orden i eget hus», steg 4 — vurdere tilgangsnivå](https://www.digdir.no/informasjonsforvaltning/steg-4-vurdere-tilgangsniva/2723).
+> `dcatap:applicableLegislation` (`gjeldende_lovgivning`) svarar til lovheimel-kravet i same
+> steg. Desse checkane er sjekka via `datasett_tilgangsrettigheter` og `datasett_lovgivning`
+> ovanfor.
 
 Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-schema.yaml`
 (Digdir regel 10 og 8 — Maskinprosserbarheit via ModellDCAT-AP-NO).  
@@ -175,6 +185,8 @@ Arvar sølv og bronse. Implementerer gap til FAIR-prinsippa (Findable, Accessibl
 | `schema.annotations.oppdateringsfrekvens` til stades | error | 9 — Datering | R1.3 | URI frå EU sin Frequency Named Authority List — arva frå sølv, oppgradert til error |
 | `schema.annotations.status` til stades | error | 11 — Modellstatus | R1.3 | ADMS Status-URI for modellstatus — arva frå sølv, oppgradert til error |
 | `Distribusjon` har slot med `dct:license` | error | 7 — Tilgjengeleggjering | R1.1 | Lisens på distribusjonsnivå — arva frå sølv, oppgradert til error |
+| `Datasett` har `dct:accessRights` | error | — | — | Tilgangsnivå (trafikklyssystemet) — arva frå sølv, oppgradert til error |
+| `Datasett` har `dcatap:applicableLegislation` | error | — | — | Lovheimel for tilgang — arva frå sølv, oppgradert til error |
 | Containerklassen har attributt med range `Distribusjon` | error | — | — | Arva frå sølv, oppgradert til error |
 | Containerklassen har attributt med range `Datatjeneste` | error | — | — | Arva frå sølv, oppgradert til error |
 | Containerklassen har attributt med range `Kvalitetsdimensjon` | error | — | — | Arva frå sølv, oppgradert til error |

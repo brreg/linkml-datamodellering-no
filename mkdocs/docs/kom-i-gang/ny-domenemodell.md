@@ -5,6 +5,19 @@
     Denne rettleiinga viser korleis du oppretter ein ny domenemodell i repoet —
     frå filstruktur til RDF-eksport klar for Felles Datakatalog.
 
+!!! tip "Kor passar dette inn i «Orden i eget hus»?"
+
+    Dersom organisasjonen din følgjer Digdir sin veileder
+    [«Orden i eget hus»](https://www.digdir.no/informasjonsforvaltning/veileder-orden-i-eget-hus/2716),
+    dekkjer denne rettleiinga steg 3 (kartlegge — modellere datasett og begrep i LinkML),
+    steg 5 (beskrive — DCAT-AP-NO/SKOS-AP-NO-metadatafelt) og steg 6
+    (tilgjengeleggjere — pull-basert publisering til Felles datakatalog/begrepskatalog).
+    Steg 1 (planlegge), 2 (prioritere) og 4 (vurdere tilgangsnivå) er organisatoriske
+    avklaringar som bør vere gjorde i eiga verksemd før de startar her — sjå
+    [steg 1](https://www.digdir.no/informasjonsforvaltning/steg-1-planlegge/2718),
+    [steg 2](https://www.digdir.no/informasjonsforvaltning/steg-2-prioritere/2719) og
+    [steg 4](https://www.digdir.no/informasjonsforvaltning/steg-4-vurdere-tilgangsniva/2723).
+
 
 ## 0 — Sjekk føresetnader og bygg images (éin gong)
 

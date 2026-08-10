@@ -1163,7 +1163,10 @@ slots:
     slot_uri: dct:provenance
     range: string
     multivalued: true
-    description: Opphav og eigarskapshistorikk for ressursen.
+    description: >-
+      Opphav og eigarskapshistorikk for ressursen. Kan brukast til å skildre
+      kjeldetype (autoritativ/sjølvinnsamla eller avleidd/samanstilt frå andre
+      kjelder), jf. Digdir sin veileder «Orden i eget hus», steg 5 — beskrive.
     annotations:
       gyldige_verdier: dct:ProvenanceStatement
   ble_generert_ved:

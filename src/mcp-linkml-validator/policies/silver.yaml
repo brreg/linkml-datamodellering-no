@@ -186,6 +186,28 @@ checks:
     digdir_rule: 10
     fair_principle: R1.2
 
+  datasett_tilgangsrettigheter:
+    principle: DCAT-AP-NO
+    severity: warning
+    description: >
+      dcat:Dataset bør ha dct:accessRights (tilgangsrettar). Anbefalt, ikkje
+      obligatorisk, i DCAT-AP-NO 2. Svarar til trafikklyssystemet (grøn/gul/raud)
+      i Digdir sin veileder «Orden i eget hus», steg 4 — vurdere tilgangsnivå.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dct:accessRights
+
+  datasett_lovgivning:
+    principle: DCAT-AP-NO
+    severity: warning
+    description: >
+      dcat:Dataset bør ha dcatap:applicableLegislation (gjeldande lovgjeving).
+      Anbefalt, ikkje obligatorisk, i DCAT-AP-NO 2. Svarar til lovheimel-kravet
+      i Digdir sin veileder «Orden i eget hus», steg 4 — vurdere tilgangsnivå.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dcatap:applicableLegislation
+
   # ── Distribusjon (dcat:Distribution) ───────────────────────────────────────
 
   distribusjon_tilgangsurl:
