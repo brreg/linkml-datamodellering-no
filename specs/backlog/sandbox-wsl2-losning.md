@@ -10,9 +10,10 @@ og (c) kjende GitHub-issue om WSL2-samspel, samt rangerte tilrådingar.
 Dette gjeld Claude Code-verktøyet sjølv, ikkje LinkML-modellering — spesifikasjonen
 ligg likevel i `specs/backlog/` per den etablerte arbeidsflyten i `CLAUDE.md`.
 
-**Status:** reint undersøkings-/tilrådingsarbeid. Ingen filer i repoet er endra.
-Alle konkrete tiltak under krev at brukaren sjølv vel og utfører dei (miljøkonfigurasjon,
-ikkje repo-innhald).
+**Status:** `bubblewrap` og `socat` er no verifiserte installerte, og brukaren har aktivert
+`/sandbox` i denne økta. Sjå «Empirisk verifisering» nedanfor for testresultat — kravet om
+skriving avgrensa til repoet er stadfesta å fungere. Ingen filer i repoet er endra av
+undersøkingsarbeidet sjølv (testartefaktar oppretta under verifiseringa vart sletta att).
 
 ## Verifiserte miljøfunn (denne WSL2-instansen)
 
@@ -88,6 +89,102 @@ fakta er den mest sannsynlege forklaringa likevel ei kombinasjon av:
    tyder på at feilen brukaren såg truleg oppstod i eit miljø/på eit tidspunkt der
    avhengigheitene *var* til stades — elles ville `/sandbox` ha stoppa på
    "Dependencies"-fana før noko mount-forsøk vart gjort.
+
+## Brukarkrav: skriving avgrensa til repoet, sperra elles
+
+Brukaren ønskjer at Claude skal kunne skrive til `c:/dev/github/linkml-datamodellering-no`
+(dette repoet), men skal vere **sperra for skriving utanfor denne katalogen**. Spørsmålet
+er om `/sandbox` kan realisere nett dette.
+
+**Svar: ja, dette er i praksis standardåtferda til `/sandbox`** slik ho er dokumentert
+ovanfor under «Korleis `/sandbox` fungerer» — "skriving er avgrensa til arbeidskatalogen +
+øktas temp-katalog". Dersom Claude Code sin arbeidskatalog er sett til repo-rota (som han
+er i denne økta, jf. miljøseksjonen ovanfor), sperrar sandkassa automatisk skriving til alt
+anna enn repoet og den økt-spesifikke temp-katalogen (`/tmp/claude-.../scratchpad`) —
+ingen ekstra konfigurasjon er strengt naudsynt for grunnkravet.
+
+**For eksplisitt å feste dette** (t.d. dersom arbeidskatalogen kan variere, eller ein vil
+dokumentere avgrensinga eksplisitt i staden for å stole på implisitt "cwd"-åtferd), kan
+`sandbox.filesystem.allowWrite`/`denyWrite` setjast i `settings.json`:
+
+```json
+{
+  "sandbox": {
+    "filesystem": {
+      "allowWrite": ["/mnt/c/dev/github/linkml-datamodellering-no"]
+    }
+  }
+}
+```
+
+**Ikkje verifisert enno — treng avklaring før dette kan stolast på som handheva grense:**
+
+1. **Om `allowWrite` *legg til* eller *erstattar* standardlista** (arbeidskatalog + temp).
+   Dersom han erstattar, må temp-katalogen (naudsynt for Claude Code sin eigen drift,
+   t.d. scratchpad) leggjast til eksplisitt i same liste, elles kan verktøy som skriv
+   dit feile.
+2. **Avhengigheitene manglar framleis i denne økta** (`bubblewrap`, `socat` — jf.
+   miljøtabellen ovanfor). Sperra handhevast *ikkje* før desse er installerte — fram til
+   då er "sperra for skriving utanfor repoet" eit ønskt, ikkje eit verkeleg, tilstand.
+   Tiltak 2 under gjeld difor som forkrav for dette brukarkravet, ikkje berre for det
+   opphavlege feilsøkingsspørsmålet.
+3. **Repoet ligg på `/mnt/c` (9p/drvfs)**, filsystemtypen der dei kjende bwrap-mount-
+   issuea (#80212, bubblewrap#413) oppstår. Dette gjeld i utgangspunktet *skrivesperra*
+   utanfor repoet (som er det ein *vil* skal feile/nektast), ikkje skrivetilgangen
+   *innanfor* repoet — men bør stadfestast empirisk før ein stolar på grensa, sidan
+   same underliggjande mount-mekanisme handterer begge.
+
+**Tilråding:** installer `bubblewrap` + `socat` (tiltak 2 under), aktiver `/sandbox` med
+standardkonfigurasjon (ingen `allowWrite`/`denyWrite` naudsynt sidan arbeidskatalogen
+alt er repo-rota), og verifiser empirisk med eit lite testskript at (a) skriving til ei
+fil inni repoet lukkast, og (b) skriving til ei fil utanfor repoet (t.d. `/mnt/c/dev/`
+eller `~/`) vert nekta.
+
+## Empirisk verifisering (bwrap/socat installerte, `/sandbox` aktivert)
+
+Etter at brukaren stadfesta `bubblewrap` og `socat` installerte og aktiverte `/sandbox`
+("✓ Sandbox enabled with auto-allow for bash commands"), vart kravet frå førre seksjon
+testa direkte med Bash-verktøyet i denne økta.
+
+| Test | Sti | Resultat |
+|---|---|---|
+| Skriv inni repoet | `.../linkml-datamodellering-no/sandbox-test-inside.txt` | ✅ Lukkast |
+| Skriv i foreldrekatalogen | `/mnt/c/dev/sandbox-test-outside.txt` | ✅ Sperra — `Read-only file system` |
+| Skriv i heimekatalogen | `~/sandbox-test-home.txt` | ✅ Sperra — `Read-only file system` |
+| Skriv til øktas scratchpad (`/tmp/claude-.../scratchpad`) | — | ✅ Lukkast (naudsynt for normal drift) |
+
+**Konklusjon: brukarkravet er oppfylt.** Med arbeidskatalogen sett til repo-rota sperrar
+`/sandbox` skriving til alt anna enn repoet + øktas temp-katalog, heilt utan ekstra
+`sandbox.filesystem.allowWrite`-konfigurasjon. Dette avkreftar òg uvissepunkt 3 frå førre
+seksjon: sjølv om repoet ligg på `/mnt/c` (9p/drvfs), fungerer skrivesperra korrekt der.
+
+**Uventa biverknad oppdaga under testinga (ikkje ein tryggleiksfeil, men verdt å merke seg):**
+`git status` viser no fleire ekstra `??`-oppføringar i repo-rota og under `.claude/` —
+`.bashrc`, `.bash_profile`, `.zshrc`, `.zprofile`, `.profile`, `.gitconfig`, `.gitmodules`,
+`.idea`, `.vscode`, `.ripgreprc`, og under `.claude/`: `agents`, `commands`, `hooks`,
+`skills`, `routines`, `workflows`, `output-styles`, `launch.json`, `loop.md`,
+`scheduled_tasks.json`. Desse dukka **ikkje** opp i `git status` før `/sandbox` vart
+aktivert i denne økta.
+
+Undersøkt nærare: stiane viser seg som teikneiningar (`crw-rw-rw-`, eigar `nobody:nogroup`,
+major/minor `1,3` — same signatur som `/dev/null`) via `ls -la`, men både lesing (`cat`) og
+skriving gjev **`Permission denied`** — dette er altså **ikkje** ei stille datalekkasje eller
+eit maskert `/dev/null`-sluk som svelgjer skriving stille (det vart konkret testa: `echo >>`
+mot ein av desse stiane feila eksplisitt, ikkje stilt). `git add` på ein slik sti feilar òg
+eksplisitt (`can only add regular files...`), så det er ikkje risiko for utilsikta commit.
+
+Mest sannsynlege forklaring: `/sandbox` handhevar ei fast liste over verna stiar som dekkjer
+både vanlege shell-/IDE-konfigurasjonsfiler *og* Claude Code sine eigne kontrollplan-filer
+under `.claude/` (agentdefinisjonar, kommandoar, hooks, skills, rutinar, workflows,
+plansette oppgåver) — truleg med vilje, for å hindre at ein sandkassa (potensielt
+kompromittert) prosess kan lese eller skrive til desse og dermed rømme sandkassa via t.d.
+ein manipulert hook. `settings.json`, `settings.local.json`, `scheduled_tasks.lock` og
+`.mcp.json` var **framleis lesbare** i same test — dei er altså ikkje omfatta av same sperre.
+
+**Praktisk konsekvens:** ingen risiko for datatap eller sperra funksjonalitet er stadfesta,
+men brukaren bør vere merksam på at `git status` viser støy frå desse verna stiane medan
+`/sandbox` er aktivt, og heller bruke eksplisitte filnamn enn brei `git add -A`/`git add .`
+(alt anbefalt praksis i CLAUDE.md-arbeidsflyten for git).
 
 ## Tilrådde tiltak (rangert etter sannsynlegheit for å løyse problemet)
 
