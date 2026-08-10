@@ -14,14 +14,17 @@ direkte til data.norge.no — det følgjer "pull, ikkje push"-prinsippet.
 
 ```mermaid
 flowchart LR
-    A["src/linkml/modellkatalog/brreg-modellkatalog/\ndata/brreg-modellkatalog/\nbrreg-modellkatalog.yaml"] -->|make convert-data| B["generated/modellkatalog/\nbrreg-modellkatalog/\nbrreg-modellkatalog.ttl"]
-    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-modellkatalog.ttl"]
+    A["src/linkml/modellkatalog/<organisasjon>-modellkatalog/\ndata/<organisasjon>-modellkatalog/\n<organisasjon>-modellkatalog.yaml"] -->|make convert-data| B["generated/modellkatalog/\n<organisasjon>-modellkatalog/\n<organisasjon>-modellkatalog.ttl"]
+    B -->|GitHub Pages| C["brreg.github.io/\n.../<organisasjon>-modellkatalog.ttl"]
     C -->|Automatisk høsting| D["data.norge.no/\nmodels"]
 ```
 
-Katalogfila (`src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`) er eit register
+Katalogfila (`src/linkml/modellkatalog/<organisasjon>-modellkatalog/data/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog.yaml`) er eit register
 over dei publiserte informasjonsmodellane og vert konvertert til Turtle ved hjelp av
-`brreg-modellkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
+`<organisasjon>-modellkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
+
+`<organisasjon>` er ein generisk plasshaldar gjennom heile denne rettleiinga — for eit
+fullstendig, verkeleg eksempel, sjå `src/linkml/modellkatalog/brreg-modellkatalog/`.
 
 ## Slik fungerer det
 
@@ -48,7 +51,7 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 ## Dagleg arbeidsflyt — oppdatere katalogen
 
 Når du redigerer eksisterande oppføringer i
-`src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:
+`src/linkml/modellkatalog/<organisasjon>-modellkatalog/data/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog.yaml`:
 
 **1. Opprett ny git branch for  endringa**
 
@@ -56,9 +59,9 @@ Når du redigerer eksisterande oppføringer i
 
 ```yaml
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
+  - id: https://<organisasjon>.no/modellkatalogar/<organisasjon>-modellkatalog/<slug>
     tittel:
-      - "@value": "Nasjonale grunndata - Adresse"
+      - "@value": "<norsk tittel>"
         "@language": "nb"
     ...
 ```
@@ -67,9 +70,9 @@ informasjonsmodellar:
 
 ```bash
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
+  SCHEMA=src/linkml/modellkatalog/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
-  INSTANCE=src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml
+  INSTANCE=src/linkml/modellkatalog/<organisasjon>-modellkatalog/data/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog.yaml
 ```
 
 **4. Lag pullrequest til `main`:**
@@ -95,22 +98,22 @@ til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
 **2. Vel ein stabil URI-slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**3. Legg til i `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:**
+**3. Legg til i `src/linkml/modellkatalog/<organisasjon>-modellkatalog/data/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog.yaml`:**
 
 ```yaml
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>
+  - id: https://<organisasjon>.no/modellkatalogar/<organisasjon>-modellkatalog/<slug>
     tittel:
       - "@value": "<norsk tittel>"
         "@language": "nb"
     beskrivelse:
       - "@value": "<beskriving>"
         "@language": "nb"
-    utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>"
+    utgiver: https://data.norge.no/organizations/<orgnr>
+    identifikator_literal: "https://<organisasjon>.no/modellkatalogar/<organisasjon>-modellkatalog/<slug>"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/<domain>/<skjema>/"
     kontaktpunkt:
-      - https://brreg.no/kontakt/modellforvaltning
+      - https://<organisasjon>.no/kontakt/modellforvaltning
     tema:
       - https://psi.norge.no/los/tema/<los-tema>
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -123,8 +126,8 @@ informasjonsmodellar:
 **6. Etter stadfesta publisering** — legg til URI-en i lock-fila:
 
 ```bash
-echo "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>" >> \
-  src/linkml/modellkatalog/brreg-modellkatalog/published-uris.lock
+echo "https://<organisasjon>.no/modellkatalogar/<organisasjon>-modellkatalog/<slug>" >> \
+  src/linkml/modellkatalog/<organisasjon>-modellkatalog/published-uris.lock
 ```
 
 ---
@@ -140,7 +143,7 @@ Kvar `Informasjonsmodell` og `Modellkatalog` har ein permanent URI (`id:`-feltet
 
 ### URI-registeret (`published-uris.lock`)
 
-`src/linkml/modellkatalog/brreg-modellkatalog/published-uris.lock` sporar alle publiserte
+`src/linkml/modellkatalog/<organisasjon>-modellkatalog/published-uris.lock` sporar alle publiserte
 URI-ar. CI-pipelinen feilar ein PR dersom ei URI i lock-fila manglar frå katalogfila.
 
 ---
@@ -150,17 +153,17 @@ URI-ar. CI-pipelinen feilar ein PR dersom ei URI i lock-fila manglar frå katalo
 Registrering krev **ID-porten-innlogging** og **Altinn-rolle** for organisasjonen.
 
 **Steg 1** — Logg inn på [data.norge.no/publishing](https://data.norge.no/publishing)
-med ID-porten og verifiser at Registerenheten i Brønnøysund er synleg.
+med ID-porten og verifiser at Din organisasjon er synleg.
 
 **Steg 2** — Legg til ny datakjelde:
 
 | Felt | Verdi |
 |---|---|
-| **Utgjevar** | Registerenheten i Brønnøysund (974760673) |
+| **Utgjevar** | Din organisasjon (<orgnr>) |
 | **Katalogtype** | Informasjonsmodellar |
 | **Datakildentype** | ModelDCAT-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/<organisasjon>-modellkatalog/<organisasjon>-modellkatalog-eksempel.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 **Steg 3** — Klikk **«Høst»** for umiddelbar høsting. Verifiser på

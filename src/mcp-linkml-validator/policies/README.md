@@ -57,6 +57,14 @@ Brukt for skjema der `publish_external: true` i manifest.
 
 Kvart nivå arvar krava frå nivåa under (`silver` arvar `bronze` osv., via `extends:`).
 
+> **Merk — ikkje forveksle med data.norge.no sin kvalitetsskala:** Bronze/silver/gold
+> validerer **skjemakvaliteten** (strukturen i sjølve `.yaml`-skjemaet), ikkje dei hausta
+> metadataoppføringane. Data.norge.no skårar publiserte oppføringar på ein eigen
+> FAIR-basert prosentskala (Utmerket ≥75 %, God 50-75 %, Tilstrekkeleg 25-50 %, Dårleg <25 %)
+> — sjå [data.norge.no: Metadatakvalitet](https://data.norge.no/nb/docs/metadata-quality).
+> Eit skjema som validerer på `gold` her garanterer difor ikkje automatisk "Utmerket" hos
+> data.norge.no, sidan dei to skalaene måler ulike ting.
+
 ---
 
 ## Kvalitetspolicyer

@@ -12,8 +12,8 @@ Repoet publiserer SKOS/Turtle-filer til GitHub Pages som eit høstingsendepunkt.
 
 ```mermaid
 flowchart LR
-    A["src/linkml/begrepskatalog/\nbrreg-begrepskatalog/data/.../\nbrreg-begrepskatalog.yaml"] -->|make convert-data| B["generated/.../\nbrreg-begrepskatalog.ttl"]
-    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-begrepskatalog.ttl"]
+    A["src/linkml/begrepskatalog/\n<organisasjon>-begrepskatalog/data/.../\n<organisasjon>-begrepskatalog.yaml"] -->|make convert-data| B["generated/.../\n<organisasjon>-begrepskatalog.ttl"]
+    B -->|GitHub Pages| C["brreg.github.io/\n.../<organisasjon>-begrepskatalog.ttl"]
     C -->|Automatisk høsting| D["data.norge.no/\nconcepts"]
 ```
 
@@ -26,6 +26,9 @@ Repoet skil mellom to typar YAML-filer:
 
 Eksempelfiler skal **aldri** sendast til Felles Begrepskatalog. Berre filer
 under `data/` vert konverterte og publiserte.
+
+`<organisasjon>` er ein generisk plasshaldar gjennom heile denne rettleiinga — for eit
+fullstendig, verkeleg eksempel, sjå `src/linkml/begrepskatalog/brreg-begrepskatalog/`.
 
 ## Slik fungerer det
 
@@ -49,18 +52,18 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 
 ## Dagleg arbeidsflyt — redigere begrep
 
-Når du redigerer eksisterande begrep i `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:
+Når du redigerer eksisterande begrep i `src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml`:
 
 **1. Opprett ny git branch for  endringa**
 
 **2. Gjer endringa i datafila:**
 
 ```yaml
-# src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
+# src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
 begrep:
-  - id: https://begrep.brreg.no/foretaksnavn
+  - id: https://begrep.<organisasjon>.no/<slug>
     anbefalt_term:
-      - foretaksnavn
+      - <norsk term>
     ...
 ```
 
@@ -68,9 +71,9 @@ begrep:
 
 ```bash
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
+  INSTANCE=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
 ```
 
 Alle feil (`severity: error`) må rettast. Åtvaringar (`warning`) bør rettast,
@@ -99,24 +102,24 @@ til GitHub Pages. Felles Begrepskatalog høstar oppdateringa ved neste syklus.
 **2. Vel ein stabil slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**3. Legg til i `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml`:**
+**3. Legg til i `src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml`:**
 
 ```yaml
 begrep:
-  - id: https://begrep.brreg.no/<slug>
+  - id: https://begrep.<organisasjon>.no/<slug>
     anbefalt_term:
       - <norsk term>
     har_definisjon:
-      - https://begrep.brreg.no/def/<slug>-nb
-    identifikator_literal: "https://begrep.brreg.no/<slug>"
+      - https://begrep.<organisasjon>.no/def/<slug>-nb
+    identifikator_literal: "https://begrep.<organisasjon>.no/<slug>"
     kontaktpunkt_vcard:
-      - https://begrep.brreg.no/kontakt/begrepsansvarleg
-    utgjevar: https://data.norge.no/organizations/974760673
+      - https://begrep.<organisasjon>.no/kontakt/begrepsansvarleg
+    utgjevar: https://data.norge.no/organizations/<orgnr>
     fagomrade:
       - https://psi.norge.no/los/tema/<los-tema>
 
 definisjoner:
-  - id: https://begrep.brreg.no/def/<slug>-nb
+  - id: https://begrep.<organisasjon>.no/def/<slug>-nb
     tekst: <definisjonsteikst på bokmål>
     kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
 ```
@@ -125,9 +128,9 @@ definisjoner:
 
 ```bash
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml
+  INSTANCE=src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/data/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.yaml
 ```
 
 **5. Lag pullrequest til `main` og vent på publisering.**
@@ -135,8 +138,8 @@ make mcp-linkml-valider-modell \
 **6. Etter stadfesta publisering i Felles Begrepskatalog** — legg til URI-en i lock-fila:
 
 ```bash
-echo "https://begrep.brreg.no/<slug>" >> \
-  src/linkml/begrepskatalog/brreg-begrepskatalog/published-uris.lock
+echo "https://begrep.<organisasjon>.no/<slug>" >> \
+  src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/published-uris.lock
 ```
 
 ---
@@ -157,13 +160,13 @@ Felles Begrepskatalog høstar, knyter han metadataa til URI-en.
 
 ### URI-registeret (`published-uris.lock`)
 
-`src/linkml/begrepskatalog/brreg-begrepskatalog/published-uris.lock` sporar alle publiserte URI-ar:
+`src/linkml/begrepskatalog/<organisasjon>-begrepskatalog/published-uris.lock` sporar alle publiserte URI-ar:
 
 ```
-# Publiserte URI-ar for brreg-begrepskatalog — IKKJE endre eller slett eksisterande linjer.
+# Publiserte URI-ar for <organisasjon>-begrepskatalog — IKKJE endre eller slett eksisterande linjer.
 # Nye URI-ar leggast til nedst etter publisering.
-https://begrep.brreg.no/foretaksnavn
-https://begrep.brreg.no/nestleder
+https://begrep.<organisasjon>.no/<slug-1>
+https://begrep.<organisasjon>.no/<slug-2>
 ```
 
 CI-pipelinen feilar ein PR dersom ei URI i lock-fila manglar frå datafila —
@@ -201,7 +204,7 @@ og legg til ny datakjelde:
 | **Katalogtype** | Begreper |
 | **Datakildentype** | SKOS-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/din-org-begrepskatalog/din-org-begrepskatalog.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/<organisasjon>-begrepskatalog/<organisasjon>-begrepskatalog.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 **Steg 3** — Klikk **«Høst»** for umiddelbar høsting utan å vente på neste
@@ -251,7 +254,7 @@ validation_policy: felles-begrepskatalog
 ```
 
 **3.** Lag `src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml` med produksjonsdata.
-Bruk `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` som mal.
+Bruk det verkelege eksempelet `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` som mal.
 
 **4.** Lag ei tom lock-fil:
 

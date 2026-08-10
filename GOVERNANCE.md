@@ -152,6 +152,20 @@ organizations:
 - Repo-administrator gir GitHub-teamet (eller brukaren) write-tilgang til repoet
 - Test at teamet kan opprette ein PR og få automatisk review-forespørsel
 
+#### 4. Tilgang på data.norge.no (for publisering til Felles Begrepskatalog/Datakatalog)
+
+Dersom organisasjonen skal publisere data med `publish_external: true`, må dei
+**separat** skaffe tilgang til data.norge.no sitt publiseringsgrensesnitt —
+dette er uavhengig av GitHub-tilgangen i punkt 1-3:
+
+- Ein verksemdsadministrator må godkjenne bruksvilkåra for data.norge.no
+  første gong organisasjonen tek det i bruk
+- Tilgang skjer via Altinn (rolletildeling) og innlogging med ID-porten
+  (tryggleiksnivå 3)
+- Sjå [data.norge.no: Få tilgang og logge inn](https://data.norge.no/nb/docs/sharing-data/login-and-access)
+  for full rettleiing, og [Sjekkliste før registrering av høstingsendepunkt](mkdocs/docs/publisering/publisering-oversikt.md#felles-begrepskatalog--felles-datakatalog-manuell-koordinering)
+  for neste steg
+
 ### Krav
 
 Det er ingen formelle krav til organisasjonstype — både offentlege verksemder,

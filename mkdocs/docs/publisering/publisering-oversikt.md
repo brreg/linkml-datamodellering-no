@@ -115,8 +115,9 @@ Repoet **pusher ikkje** direkte til data.norge.no — det publiserer SKOS/Turtle
 **Kva må skje for at høsting skal fungere:**
 
 1. **Datafila må validere:** `make mcp-linkml-valider-modell SCHEMA=<skjema> POLICY=felles-begrepskatalog` (eller `felles-datakatalog`) gir null feil
-2. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen må registrere høstingsendepunktet på [admin.fellesdatakatalog.digdir.no](https://admin.fellesdatakatalog.digdir.no) (krev ID-porten-innlogging og Altinn-rolle)
-3. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer
+2. **Verksemdsadministrator godkjenner bruksvilkår på data.norge.no:** eingongssteg per organisasjon, uavhengig av registreringa i punkt 3 — sjå [Onboarding av ny organisasjon](../../../GOVERNANCE.md#onboarding-av-ny-organisasjon)
+3. **Koordinering med Digitaliseringsdirektoratet:** Organisasjonen registrerer høstingsendepunktet (krev ID-porten-innlogging og Altinn-rolle) — sjå §Registrering av høstingsendepunkt i [publisering-begrep.md](publisering-begrep.md#registrering-av-høstingsendepunkt-éin-gong) eller [publisering-modell.md](publisering-modell.md#registrering-av-høstingsendepunkt-éin-gong)
+4. **Høsting skjer eksternt:** Felles Begrepskatalog/Datakatalog høstar data frå GitHub Pages — repoet har ingen kontroll over når/om dette skjer. Endepunktet kan verifiserast på førehand, sjå [Verifisere at høstingsendepunkt er tilgjengelege eksternt](../automasjon/monitorering.md#verifisere-at-høstingsendepunkt-er-tilgjengelege-eksternt)
 
 **PoC-status:** Høsting til Felles Begrepskatalog/Datakatalog er ikkje aktivt i PoC-fasen. Data publisert med `publish_external: true` er testdata med avgrensa kvalitetsgaranti. Sjå [GOVERNANCE.md](../../../GOVERNANCE.md) for publiseringspolicy.
 
