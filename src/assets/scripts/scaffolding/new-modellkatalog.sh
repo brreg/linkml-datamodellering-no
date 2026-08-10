@@ -166,7 +166,7 @@ generators:
   protobuf: false
   erdiagram: true
   docs: true
-  plantuml: false
+  plantuml: true
   example_rdf: false
   openapi: true
 YAML

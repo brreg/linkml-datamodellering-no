@@ -8,7 +8,6 @@ Skjemaet finst òg i medaljong-variantar (`referansemodell-bronze`, `-silver`, `
 
 | Modell | Tilgjengelege artefakter |
 |--------|--------------------------|
-| [referansemodell](referansemodell/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
-| [referansemodell-bronze](referansemodell-bronze/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
-| [referansemodell-gold](referansemodell-gold/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
-| [referansemodell-silver](referansemodell-silver/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [referanse](referanse/index.md) | JSON-LD kontekst |
+| [referanse-schema.yaml](referanse-schema.yaml/index.md) | ER-diagram (Mermaid) |
+| [referansemodell](referansemodell/index.md) | ER-diagram (Mermaid) |

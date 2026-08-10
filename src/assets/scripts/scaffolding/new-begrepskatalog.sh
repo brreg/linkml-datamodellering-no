@@ -114,7 +114,7 @@ generators:
   protobuf: false
   erdiagram: true
   docs: true
-  plantuml: false
+  plantuml: true
   example_rdf: true
   openapi: true
 EOF
