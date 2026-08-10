@@ -1,7 +1,7 @@
 # Gap-analyse: repoet mot Digdir sin veileder "Slik blir du en god datatilbyder"
 
 **Opprett:** 2026-08-10
-**Status:** Kartlagt, verifisert mot primærkjelde — ikkje utført
+**Status:** Utført
 
 ## Bakgrunn
 
@@ -240,17 +240,31 @@ eit nytt artefakt-generator-arbeid.
 
 ## Handlingsliste
 
-- [ ] Legg til kryssreferanse-avsnitt i
+- [x] Legg til kryssreferanse-avsnitt i
       `mkdocs/docs/publisering/publisering-oversikt.md` som lenkjer til
       «Slik blir du en god datatilbyder»/«Sjekkliste for datatilbyder»,
       kartlegg kva repoet dekkjer (Steg 1-2) og peikar til
       `avvik-veileder-orden-i-eget-hus.md` for Steg 1-overlappen (Gap 1)
-- [ ] I same avsnitt: nemn at "autoritativ kjelde"-punktet er dekt av
+- [x] I same avsnitt: nemn at "autoritativ kjelde"-punktet er dekt av
       `eierskapshistorikk`/`dct:provenance` (Gap 2, ingen skjemaendring)
 - [x] Legg til `make gen-graphql` og `graphql`-flagg i `build.yaml`-
       manifestet (Gap 3) — utført som eiga sak, sjå
       `specs/done/gen-graphql-generator.md`
 
-Gap 1 og 2 er reint dokumentasjonsarbeid og kan gjerast saman. Gap 3 er
-eit separat, større spørsmål og bør ikkje blandast inn i same
-commit/spec-utføring.
+## Utført
+
+Utført 2026-08-10. Alle tre gap handsama.
+
+**Kva som vart gjort:**
+- `mkdocs/docs/publisering/publisering-oversikt.md`: ny `!!! tip`-boks
+  rett etter innleiingsboksen, same mønster som «Orden i eget hus»-boksen
+  i `ny-domenemodell.md`. Lenkjer til «Slik blir du en god datatilbyder»
+  og «Sjekkliste for datatilbyder», kartlegg dei tre punkta i Steg 2
+  repoet dekkjer (standardiserte grensesnitt via artefaktbiblioteket —
+  no inkl. GraphQL, publisering til data.norge.no via pull-arkitekturen,
+  autoritativ kjelde via `eierskapshistorikk`), og peikar Steg 1 til
+  `ny-domenemodell.md` sin «Orden i eget hus»-kryssreferanse og Steg 3-5
+  til at dei er organisatoriske/juridiske avklaringar utanfor scope
+  (Gap 1 og Gap 2)
+- Gap 3 (`gen-graphql`) utført som eiga sak, sjå
+  `specs/done/gen-graphql-generator.md`

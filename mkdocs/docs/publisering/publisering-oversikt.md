@@ -4,6 +4,35 @@
 
     Dette dokumentet viser arkitekturen for publiseringsflyt frå repoet til eksterne katalogar.
 
+!!! tip "Kor passar dette inn i «Slik blir du en god datatilbyder»?"
+
+    Dersom organisasjonen din følgjer Digdir sin veileder
+    [«Slik blir du en god datatilbyder»](https://www.digdir.no/datadeling/slik-blir-du-en-god-datatilbyder/2248)
+    og tilhøyrande [sjekkliste for datatilbyder](https://www.digdir.no/datadeling/sjekkliste-datatilbyder/2273),
+    dekkjer denne sida og repoet elles i stor grad **Steg 2** i sjekklista
+    (gjere data tilgjengeleg og klargjere for deling):
+
+    - **"Etablert standardiserte grensesnitt som muliggjør maskinell overføring av data"**
+      — dekt av repoet sitt artefaktbibliotek (JSON Schema, SHACL, OpenAPI,
+      AsyncAPI, Protobuf, GraphQL — sjå
+      [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#genererte-artefakter)
+      i README)
+    - **"Publisert datasett og API-ar på data.norge.no"** — dekt av
+      pull-arkitekturen skildra på denne sida (Felles Datakatalog/
+      Felles Begrepskatalog høstar frå GitHub Pages)
+    - **"Angitt om dataene er en autoritativ kilde"** — dekt av
+      `eierskapshistorikk`-slotens (`dct:provenance`) skildring i
+      `dcat-ap-no-schema.yaml`, som skil mellom autoritativ/sjølvinnsamla og
+      avleidd/samanstilt kjeldetype
+
+    **Steg 1** i sjekklista (holde orden i data og ansvar) overlappar med
+    Digdir sin systerveileder «Orden i eget hus» — sjå kryssreferansen i
+    [ny domenemodell](../kom-i-gang/ny-domenemodell.md). **Steg 3-5**
+    (lovheimel/behandlingsgrunnlag, avtalar, roller, tilgangsstyring,
+    risikovurdering, driftsrutinar) er organisatoriske og juridiske
+    avklaringar i den einskilde verksemda, utanfor dette repoet sitt
+    virkeområde.
+
 ---
 
 ## Publiseringsflyt til eksterne system
