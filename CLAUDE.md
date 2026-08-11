@@ -248,6 +248,33 @@ Når du redigerer Jinja2-templatear (t.d. `src/assets/templates/docgen/index.md.
 
 **Viktig:** Markdown-tabellar krev linjeskift mellom kvar rad, så **ALDRI** bruk `{%- endif -%}` direkte etter ei tabellinje — bruk `{% endif -%}` i staden.
 
+### Ankerlenkjer til overskrifter (heading-slugs)
+
+`mkdocs.yml` (heredoc-blokka i `publish.sh`) konfigurerer **ikkje** `toc`-utvidinga eksplisitt, så MkDocs/Python-Markdown brukar sin **default** slugify-funksjon (`markdown.extensions.toc.slugify`, `unicode=False`) til å generere `id`-attributtet ei overskrift får — og dermed kva `#anker` ei intern lenkje til overskrifta må bruke. Denne funksjonen er **ikkje** ei transkriberings-funksjon (ø → o, æ → ae) — han er reint ASCII-filtrerande:
+
+1. `unicodedata.normalize('NFKD', tekst)` — dekomponerer teikn som HAR ein eiga diakritisk NFKD-form
+2. `.encode('ascii', 'ignore').decode('ascii')` — **fjernar** alle attverande ikkje-ASCII-teikn (inkludert dei diakritiske merka NFKD nett skilde ut)
+3. `re.sub(r'[^\w\s-]', '', ...)` — fjernar attverande teiknsetjing (parentes, spørjeteikn, skråstrek, hermeteikn)
+4. Mellomrom → bindestrek, alt til små bokstavar
+
+**Konsekvens — to heilt ulike utfall for norske bokstavar:**
+
+| Bokstav | NFKD-dekomponerbar? | Utfall i slug | Eksempel |
+|---|---|---|---|
+| å, é, ö, ü m.fl. | Ja (bokstav + kombinerande merke) | Merket fjernast, **basisbokstaven står att** | `Skriftspråk` → `skriftsprak`, `éin` → `ein` |
+| æ, ø, ß | **Nei** (eiga, ikkje-samansett teikn) | **Heile bokstaven forsvinn** — ingen erstatning | `høstingsendepunkt` → `hstingsendepunkt`, `Æ Ø Å` → `a` (berre Å-en si `a` står att) |
+
+Dette er lett å gå i fella på nettopp fordi å oppfører seg annleis enn æ/ø — ei intuitiv, hand-skriven slug som transkriberer alle tre likt (t.d. `hoysting`/`hosting`) vert **feil**, og MkDocs sin lenkje-validator (`validation.links` i `mkdocs.yml`) fangar det først ved bygg, ikkje ved skriving.
+
+**Regel:** Skriv **aldri** ein `#anker`-verdi for ei overskrift med æ/ø/å/andre diakritiske teikn frå augemål åleine. Verifiser alltid mot faktisk generert `id`:
+
+```bash
+make docs-build
+grep -o 'id="[^"]*"' mkdocs/site/<sti-til-sida>/index.html
+```
+
+Gjeld berre interne lenkjer til overskrifter i **statisk** innhald i `mkdocs/docs/` (rettleiingssider) — genererte skjema-sider sine interne lenkjer (klasser, slots osv.) vert alt bygde frå faktiske `id`-ar av gen-doc-malen, ikkje handskrivne.
+
 ## Modelleringsprinsipper
 
 ### Skriftspråk
