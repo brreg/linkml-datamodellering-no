@@ -174,7 +174,18 @@ jobs:
         uses: actions/cache@v6
         with:
           path: generated/${{ matrix.domain }}/
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/**', 'Makefile') }}
+          # "infra"-delen listar EKSPLISITT dei .mk-filene som faktisk er i
+          # kallgrafen til `make domain-<domain>` (verifisert med grep — sjå
+          # specs/done/docs-only-endring-cache-miss-alle-domene.md), i staden
+          # for det breie `make/**` som tidlegare invaliderte cachen for ALLE
+          # domene ved reine docs-/mcp-/scaffolding-/tools-endringar (t.d.
+          # make/50-docs.mk). `make/80-images.mk` er med sidan
+          # .github/actions/pull-images fell tilbake til `make <target>`
+          # derifrå når ein GHCR-pull feilar. `make/50-docs.mk`,
+          # `make/60-mcp.mk`, `make/70-scaffolding.mk`, `make/90-tools.mk` og
+          # `make/91-modell-analyse.mk` er medvite utelatne — verifisert
+          # ikkje i kallgrafen.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
 
       - name: Oppgrader crun
         if: steps.cache-generated.outputs.cache-hit != 'true'

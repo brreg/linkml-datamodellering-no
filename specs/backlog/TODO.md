@@ -35,3 +35,6 @@ Kan vi klassifisere informasjonsmodellane i linkml-datamodellering-no repoet?
 ngr https://informasjonsforvaltning.github.io/nasjonale-grunndata/
 vs
 person og enhet https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018
+
+
+Kva brreg modellar kan vi teste ?
