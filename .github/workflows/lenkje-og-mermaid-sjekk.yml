@@ -1,0 +1,145 @@
+name: Lenkje- og mermaid-sjekk
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 6 * * 1' # Kvar måndag kl. 06:00 UTC
+
+jobs:
+  mermaid-render:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Trekk ut mermaid-blokker frå .md-filer
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/mermaid/blocks
+          manifest=/tmp/mermaid/manifest.tsv
+          : > "$manifest"
+
+          open_re='^```mermaid[[:space:]]*$'
+          close_re='^```[[:space:]]*$'
+
+          # git ls-files avgrensar til versjonskontrollerte filer — hoppar automatisk
+          # over generated/ og andre .gitignore-a byggoutput utan behov for eksplisitt filter
+          block_id=0
+          while IFS= read -r -d '' file; do
+            block=0
+            in_block=0
+            blockfile=""
+            while IFS= read -r line || [ -n "$line" ]; do
+              if [ "$in_block" -eq 0 ] && [[ "$line" =~ $open_re ]]; then
+                in_block=1
+                block=$((block + 1))
+                block_id=$((block_id + 1))
+                blockfile="/tmp/mermaid/blocks/block-${block_id}.mmd"
+                : > "$blockfile"
+                printf '%s\t%s\t%s\n' "$block_id" "$file" "$block" >> "$manifest"
+                continue
+              fi
+              if [ "$in_block" -eq 1 ] && [[ "$line" =~ $close_re ]]; then
+                in_block=0
+                continue
+              fi
+              if [ "$in_block" -eq 1 ]; then
+                printf '%s\n' "$line" >> "$blockfile"
+              fi
+            done < "$file"
+          done < <(git ls-files -z -- '*.md')
+
+          echo "Fann $block_id mermaid-blokker."
+
+      - name: Trekk inn mermaid-cli
+        run: podman pull docker.io/minlag/mermaid-cli:latest
+
+      - name: Rendra kvar mermaid-blokk
+        run: |
+          set -uo pipefail
+          manifest=/tmp/mermaid/manifest.tsv
+          report=mermaid-render-report.md
+          echo "| Fil | Diagram # | Status |" > "$report"
+          echo "|---|---|---|" >> "$report"
+
+          total=0
+          fail=0
+          if [ -s "$manifest" ]; then
+            while IFS=$'\t' read -r id src idx; do
+              total=$((total + 1))
+              blockfile="/tmp/mermaid/blocks/block-${id}.mmd"
+              logfile="/tmp/mermaid/blocks/block-${id}.log"
+              # --user 0:0 er naudsynt: mermaid-cli-biletet køyrer som uid 1001,
+              # men i podman rootless vert monterte filer eigd av "root" i
+              # containerens brukarnamnerom — 1001 manglar skrivetilgang utan dette
+              if podman run --rm --user 0:0 -v /tmp/mermaid/blocks:/data docker.io/minlag/mermaid-cli:latest \
+                   -i "/data/block-${id}.mmd" -o "/data/block-${id}.svg" \
+                   > "$logfile" 2>&1; then
+                echo "| $src | $idx | OK |" >> "$report"
+              else
+                fail=$((fail + 1))
+                echo "| $src | $idx | **FEIL** |" >> "$report"
+                message=$(tail -n 5 "$logfile" | tr '\n' ' ' | sed 's/"/'"'"'/g')
+                echo "::warning file=${src}::Mermaid-diagram nr. ${idx} rendrar ikkje: ${message}"
+              fi
+            done < "$manifest"
+          fi
+
+          {
+            echo ""
+            echo "**Totalt: ${total} diagram, ${fail} feila.**"
+          } >> "$report"
+
+          {
+            echo "## Mermaid-rendering"
+            cat "$report"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp mermaid-rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mermaid-render-report
+          path: mermaid-render-report.md
+          retention-days: 30
+
+  lenkjesjekk:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Trekk inn lychee
+        run: podman pull docker.io/lycheeverse/lychee:latest
+
+      - name: Sjekk lenkjer i dokumentasjon
+        run: |
+          set -uo pipefail
+          podman run --rm -v "$PWD:/repo:Z" -w /repo docker.io/lycheeverse/lychee:latest \
+            --config .github/lychee.toml \
+            --no-progress \
+            --format markdown \
+            --output lenkjesjekk-report.md \
+            '**/*.md' || true
+
+          if [ ! -f lenkjesjekk-report.md ]; then
+            echo "# Lenkjesjekk" > lenkjesjekk-report.md
+            echo "Ingen rapport vart generert (lychee feila før rapportering)." >> lenkjesjekk-report.md
+          fi
+
+          {
+            echo "## Lenkjesjekk"
+            cat lenkjesjekk-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp lenkjesjekk-rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lenkjesjekk-report
+          path: lenkjesjekk-report.md
+          retention-days: 30

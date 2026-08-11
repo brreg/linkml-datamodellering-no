@@ -1,0 +1,28 @@
+# Konfigurasjon for lychee (lenkjesjekk av .md-dokumentasjon).
+# Sjå specs/backlog/lenkje-og-mermaid-sjekk.md for bakgrunn.
+
+timeout = 20
+max_retries = 2
+retry_wait_time = 5
+
+# Byggoutput, ikkje kjeldekode — sjå CLAUDE.md § Katalogstruktur
+exclude_path = ["generated", "mkdocs/site"]
+
+# Godta redirect- og informasjonskodar i tillegg til 2xx
+accept = ["100..=103", "200..=299", "300..=399"]
+
+exclude_loopback = true
+
+exclude = [
+  # Plasshaldar-domene brukte i dokumentasjonseksempel
+  "^https?://(www\\.)?example\\.(com|org|net)",
+  "^https?://[^/]*\\.example\\.org",
+  "^https?://(www\\.|begrep\\.)?eksempel(org)?\\.no",
+  "^https?://[^/]*\\.eksempel\\.no",
+  # Malmarkørar i dokumentasjon, t.d. https://<org-domene>/... eller https://{domene}/...
+  "<[^>]*>",
+  "\\{[^}]*\\}",
+  # Lokale utviklingsadresser
+  "^https?://localhost",
+  "^https?://host\\.containers\\.internal",
+]

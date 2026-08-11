@@ -63,18 +63,17 @@ juster generering av plantuml og er diagram
 opprette slack kanal under digdir samarbeid?
 
 
-
-lag ein job som tester alle URL og URIer i repoet og logg html returkoden. 
-
 lag ein job som identifiserer alle klasser med liknande navn på tvers av modellar.
 
 lag ein job som identifiserar alle slots med liknande navn på tvers av modellar.
 
-lag ein job som sjekker om alle mermaid diagram faktisk rendrer
+lag ein job som tester alle IRIer i linkml modellar og loggar dei som ikkje resolver.
+
+lag ein workflow som sjekker om alle mermaid diagram faktisk rendrer og tester alle URL og URIer i repoet og logg html returkoden til dei som ikkje fungerer.
 
 alle linkml modellane er uoffisielle eksempelmodeller for å POCe modellering i LinkML. Evaluer om eg burde endra katalogstrukturen eller på ein anna måte dokumentert dette.
 
-verifiser at manifest.yaml filene har flag for alle tilgjengelige artifakttypar og at README.md dokumenter alle.
+
 
 
 
