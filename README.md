@@ -236,7 +236,7 @@ Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | build.yaml flag | Generator |
 |---|---|---|---|---|---|
-| Modellmetadata ihht ModellDCAT-AP-NO | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | — | — | [`gen-informasjonsmodell-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-informasjonsmodell-instance) |
+| Modellmetadata ihht ModellDCAT-AP-NO | `metadata/<skjema>-manifest.yaml` | ModelDCAT-AP-NO metadata for publisering til Felles Datakatalog | ✓ | — | [`gen-informasjonsmodell-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-informasjonsmodell-instance) |
 | JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` | [`gen-jsonld-context`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-jsonld-context) |
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` | [`gen-shacl`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-shacl) |
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` | [`gen-owl`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-owl) |
