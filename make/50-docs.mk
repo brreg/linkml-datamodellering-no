@@ -27,8 +27,9 @@ docs-serve: ## Køyr lokal MkDocs-server på :8000
 
 docs-build: ## Bygg statisk MkDocs-site til mkdocs/site/
 	$(call print_header,docs-build)
-	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
-	@$(DOCS_RUN) $(DOCS_IMAGE) build
+	@eval "$$LOG_FUNCTIONS"; \
+	mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"; \
+	timed_run "Bygg statisk MkDocs-site" $(DOCS_RUN) $(DOCS_IMAGE) build
 
 docs-publish: ## Publiser generated/ til mkdocs/docs/ og oppdater mkdocs.yml
 	$(call print_header,docs-publish)

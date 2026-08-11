@@ -173,11 +173,6 @@ for docs_domain_dir in "$DOCS"/*/; do
     fi
 done
 
-elapsed1_ms=$(( $(date +%s%3N) - t1 ))
-log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
-    $((elapsed1_ms / 1000)) \
-    $((elapsed1_ms % 1000 / 100)))"
-
 # Generer byggetidspunkt (ISO 8601 UTC), nødvendig for footer-en
 # write_index_from_readme() skriv rett under
 BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
@@ -187,9 +182,11 @@ BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
 # i Steg 1 sin opprydding) — flytta hit for å unngå unødig venting etter
 # det tunge parallelle skjema-arbeidet. Kvart kall tidtakast og loggast
 # individuelt via timed_run() (frå LOG_FUNCTIONS, make/00-settings.mk) i
-# staden for eit samla steg-tal. Sjå
+# staden for eit samla steg-tal. Inngår i Steg 1 sin samla tidtaking —
+# "✓ Steg 1 ferdig" loggast fyrst etter Steg 1.4/1.5 lenger ned, slik at
+# ho står som siste linje av Steg 1 rett før Steg 2-banneret. Sjå
 # specs/done/flytt-steg3-til-steg1-med-timing.md og
-# specs/backlog/flytt-readme-tabellar-inn-i-publish-sh.md.
+# specs/done/flytt-readme-tabellar-inn-i-publish-sh.md.
 #
 # README-tabellgenereringa må køyrast FØR write_index_from_readme, sidan
 # index.md vert kopiert direkte frå README.md — elles kopierer
@@ -370,6 +367,11 @@ for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
     # Behald komma-separering i SCHEMA_SUBMODELS-map
     SCHEMA_SUBMODELS["$key"]="$val"
 done
+
+elapsed1_ms=$(( $(date +%s%3N) - t1 ))
+log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
+    $((elapsed1_ms / 1000)) \
+    $((elapsed1_ms % 1000 / 100)))"
 
 # ---------------------------------------------------------------------------
 # Steg 2: Generer innhald per domene og skjema (parallelt)
@@ -582,9 +584,9 @@ STATIC
     done
 } > "$MKDOCS_YML"
 
+log_info "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"
+
 elapsed4_ms=$(( $(date +%s%3N) - t4 ))
 log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed4_ms / 1000)) \
     $((elapsed4_ms % 1000 / 100)))"
-
-log_info "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"
