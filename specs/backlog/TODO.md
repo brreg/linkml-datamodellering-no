@@ -9,12 +9,6 @@ automatisk publisere begreper til felles begrepskatalog (må testes)
 
 modellere generiske kodelister/kodeverk
 
-generate workflow skal ha en matrix job pr domene
-
-integrere mot custom schemaregistry (apicur.io). Avvist. Må utføres i eit anna repo.
-
-integrere mot custom datakatalog (gcp data catalog) Avvist. Må utføres i eit anna repo.
-
 validere br krav til metadata (har laga validering av Digdir krav til metadata)
 
 teste fra-magicdraw-xmi til-linkml-yaml til-magicdraw-xmi for å verifisere om vi kan produsere gyldig magicdraw xmi-fil
@@ -22,9 +16,6 @@ teste fra-magicdraw-xmi til-linkml-yaml til-magicdraw-xmi for å verifisere om v
 Eit av måla med dette repoet er å realisere Digdirs Rammeverk for informasjonsforvaltning som eit nasjonalt verktøy.
 Lag en spesifikasjon som kartlegger hvor godt dette repoet stemmer overens med Digdirs Rammeverk for informasjonsforvaltning:
 https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626
-
-
-
 
 opprette slack kanal under digdir samarbeid?
 
@@ -37,3 +28,10 @@ Treng vi FAQ?
 
 
 
+Korleis skal vi klassifisere informasjonsmodellar? https://data.norge.no/vocabulary/information-model-type
+
+Kan vi klassifisere informasjonsmodellane i linkml-datamodellering-no repoet?
+
+ngr https://informasjonsforvaltning.github.io/nasjonale-grunndata/
+vs
+person og enhet https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018
