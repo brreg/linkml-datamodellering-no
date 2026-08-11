@@ -293,6 +293,23 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | `make mcp-linkml-valider-modell-test` | Køyrer alle policy-testar for validator MCP-serveren. | Testresultat til stdout; avsluttar med kode 1 ved feil |
 | `make mcp-linkml-valider-modell-run` | Startar validator MCP-serveren interaktivt. Nyttig for manuell testing og feilsøking. | JSON-RPC på stdin/stdout |
 
+## Modell-analyse
+
+Informative rapportar på tvers av alle skjema — finn moglege navnekollisjonar
+og IRI-ar som ikkje resolverer. Feilar aldri (ikkje ein valideringspolicy);
+brukt av den vekentlege `.github/workflows/modell-analyse.yml`. Namne-
+samanlikninga brukar berre klasser/slots definerte lokalt i kvart skjema
+(ikkje namn arva via `imports`), og fuzzy string-likskap
+(`difflib.SequenceMatcher`) — juster terskel med `SIMILARITY_THRESHOLD`.
+
+| Kommando | Beskriving | Output |
+|---|---|---|
+| `make analyse-similar-classes-domain [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande namn innanfor same domene. | Markdown-tabell til stdout |
+| `make analyse-similar-classes-all [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande namn på tvers av alle domene. | Markdown-tabell til stdout |
+| `make analyse-similar-slots-domain [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande namn innanfor same domene. | Markdown-tabell til stdout |
+| `make analyse-similar-slots-all [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande namn på tvers av alle domene. | Markdown-tabell til stdout |
+| `make analyse-iri-resolution` | Testar HTTP-resolusjon for `id`/`default_prefix`/`prefixes`-IRI-ar i alle skjema, og innhaldsforhandling (`Accept: text/turtle`, `Accept-Language: nb`/`en`) for IRI-ar repoet sjølv eig (`id`/`default_prefix`). Krev nettverkstilgang. | Markdown-tabellar til stdout |
+
 ## Påskeegg: Gource-visualisering
 
 Krev `make build-docker-gource` éin gong (eller etter endringar i Dockerfile). Output-filer hamnar i `tmp/`.

@@ -34,6 +34,7 @@ include make/60-mcp.mk
 include make/70-scaffolding.mk
 include make/80-images.mk
 include make/90-tools.mk
+include make/91-modell-analyse.mk
 
 # ---------------------------------------------------------------------------
 # Top-level targets

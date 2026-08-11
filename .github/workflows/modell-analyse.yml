@@ -1,0 +1,152 @@
+name: Modell-analyse
+
+# Informative rapportar på tvers av alle skjema: liknande klasse-/slotnamn
+# og IRI-resolusjon. Feilar aldri CI — rapportane er innspel til manuell
+# gjennomgang, ikkje ein valideringspolicy. Sjå COMMANDS.md § Modell-analyse
+# for dei underliggande make-targeta.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 7 * * 1' # Kvar måndag kl. 07:00 UTC
+
+jobs:
+  similar-classes-domain:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn klasser med liknande namn (same domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-classes-domain > similar-classes-domain-report.md
+          {
+            echo "## Liknande klassenamn (same domene)"
+            cat similar-classes-domain-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: similar-classes-domain-report
+          path: similar-classes-domain-report.md
+          retention-days: 30
+
+  similar-classes-all:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn klasser med liknande namn (alle domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-classes-all > similar-classes-all-report.md
+          {
+            echo "## Liknande klassenamn (alle domene)"
+            cat similar-classes-all-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: similar-classes-all-report
+          path: similar-classes-all-report.md
+          retention-days: 30
+
+  similar-slots-domain:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn slots med liknande namn (same domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-slots-domain > similar-slots-domain-report.md
+          {
+            echo "## Liknande slotnamn (same domene)"
+            cat similar-slots-domain-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: similar-slots-domain-report
+          path: similar-slots-domain-report.md
+          retention-days: 30
+
+  similar-slots-all:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn slots med liknande namn (alle domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-slots-all > similar-slots-all-report.md
+          {
+            echo "## Liknande slotnamn (alle domene)"
+            cat similar-slots-all-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: similar-slots-all-report
+          path: similar-slots-all-report.md
+          retention-days: 30
+
+  iri-resolution:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Test IRI-resolusjon
+        run: |
+          set -uo pipefail
+          make analyse-iri-resolution > iri-resolution-report.md
+          {
+            echo "## IRI-resolusjonssjekk"
+            cat iri-resolution-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iri-resolution-report
+          path: iri-resolution-report.md
+          retention-days: 30
