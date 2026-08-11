@@ -182,12 +182,19 @@ log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
 # write_index_from_readme() skriv rett under
 BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
 
-# README→index.md og valideringsregler.md avheng ikkje av noko frå Steg 2
-# (statiske kjeldefiler, arkitektur/ er kvitelista i Steg 1 sin opprydding)
-# — flytta hit for å unngå unødig venting etter det tunge parallelle
-# skjema-arbeidet. Kvart kall tidtakast og loggast individuelt via
-# timed_run() (frå LOG_FUNCTIONS, make/00-settings.mk) i staden for eit
-# samla steg-tal. Sjå specs/backlog/flytt-steg3-til-steg1-med-timing.md.
+# README-tabellgenerering, README→index.md og valideringsregler.md avheng
+# ikkje av noko frå Steg 2 (statiske kjeldefiler, arkitektur/ er kvitelista
+# i Steg 1 sin opprydding) — flytta hit for å unngå unødig venting etter
+# det tunge parallelle skjema-arbeidet. Kvart kall tidtakast og loggast
+# individuelt via timed_run() (frå LOG_FUNCTIONS, make/00-settings.mk) i
+# staden for eit samla steg-tal. Sjå
+# specs/done/flytt-steg3-til-steg1-med-timing.md og
+# specs/backlog/flytt-readme-tabellar-inn-i-publish-sh.md.
+#
+# README-tabellgenereringa må køyrast FØR write_index_from_readme, sidan
+# index.md vert kopiert direkte frå README.md — elles kopierer
+# write_index_from_readme ein utdatert versjon av tabellane.
+timed_run "Oppdater README.md-tabellar" bash "$REPO_ROOT/src/assets/scripts/makefile/generate-readme-tables.sh" "$REPO_ROOT/README.md"
 timed_run "Generer index.md frå README.md" write_index_from_readme
 timed_run "Generer valideringsregler.md" generate_validation_docs
 
@@ -447,6 +454,8 @@ for domain in "${ALL_DOMAINS[@]}"; do
     } > "$DOCS/$domain/index.md"
 done
 
+log_info "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
+
 elapsed2_ms=$(( $(date +%s%3N) - t2 ))
 log_info "$(printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed2_ms / 1000)) \
@@ -578,5 +587,4 @@ log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed4_ms / 1000)) \
     $((elapsed4_ms % 1000 / 100)))"
 
-log_info "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
 log_info "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"
