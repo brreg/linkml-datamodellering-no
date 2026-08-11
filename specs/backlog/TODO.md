@@ -81,7 +81,7 @@ evaluer gap mot https://www.digdir.no/datadeling/nasjonale-grunndata/7575 skriv 
 
 evaluer gap mot https://www.digdir.no/datadeling/slik-kommer-du-i-gang-med-bruke-data-fra-andre/2255 skriv til ./specs
 
-evaluer gap mot https://www.digdir.no/datadeling/slik-blir-du-en-god-datatilbyder/2248 skriv til ./specs
+
 
 
 

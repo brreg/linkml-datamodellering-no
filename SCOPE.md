@@ -34,6 +34,12 @@ felles modellar saman.
 | Ein integrasjonsplattform | Repoet integrasjoner ikkje mot kjeldesystem, registre eller applikasjonar direkte. |
 | Eit verktøy for enkeltverksemder | Repo-et er eit *delt* monorepo. Verksemder med behov for full kontroll bør vurdere å bruke bootstrap-mekanismen og halde eigne modeller i eige repo. |
 
+**Leiter du etter data, ikkje modelleringsverktøy?** Dette repoet er bygd for
+*datatilbydar*-rolla (modellering og publisering av metadata). Skal du finne
+og ta i bruk andre sine data, sjå [data.norge.no](https://data.norge.no) sitt
+søk og Digdir sin guide
+[«Slik kommer du i gang med å bruke data fra andre»](https://www.digdir.no/datadeling/slik-kommer-du-i-gang-med-bruke-data-fra-andre/2255).
+
 ### Scope-avgrensingar for innhald
 
 - **AP-NO-profilene** og **fair-metadata** er berre meinte for *import*, ikkje for direkte
