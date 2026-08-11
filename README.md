@@ -48,6 +48,8 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
 
+**Spørsmål og idear:** Bruk [GitHub Discussions](https://github.com/brreg/linkml-datamodellering-no/discussions) for spørsmål, idear og erfaringsdeling — Issues er for bug-rapportar og konkrete endringsforslag.
+
 ---
 
 ## Kom i gang

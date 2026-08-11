@@ -215,7 +215,7 @@ Dette repoet er ein **Proof of Concept** og har ingen garantert support-SLA:
 - ❌ Ingen garantert feilretting innan bestemte tidsfrister
 - ❌ Ingen 24/7-support eller varslingssystem
 - ✅ Best-effort-support frå repo-administrator og bidragsytarar
-- ✅ Community-driven feilsøking via GitHub Issues og Discussions
+- ✅ Community-driven feilsøking via GitHub Issues og [Discussions](https://github.com/brreg/linkml-datamodellering-no/discussions)
 
 ### Rapportering av feil
 
@@ -242,7 +242,7 @@ Dette repoet er ein **Proof of Concept** og har ingen garantert support-SLA:
 **Bidragsytarar sitt ansvar:**
 - Rapporterer feil og forbetringsforslag via GitHub Issues
 - Sender PR-ar for feilrettingar og forbetringar
-- Hjelper andre brukarar i GitHub Discussions (dersom aktivert)
+- Hjelper andre brukarar i [GitHub Discussions](https://github.com/brreg/linkml-datamodellering-no/discussions)
 
 ### Kjende avgrensingar
 
@@ -269,5 +269,6 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 1. **Les dokumentasjonen først:** [brreg.github.io/linkml-datamodellering-no](https://brreg.github.io/linkml-datamodellering-no/)
 2. **Søk i eksisterande issues:** Nokon andre kan ha rapportert same problemet
 3. **Sjekk kjende avgrensingar:** [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md)
-4. **Opne ein ny issue:** Med merkelapp `bug`, `question` eller `data-quality`
-5. **Vær tolmodig:** Dette er ein PoC med avgrensa ressursar
+4. **Still spørsmål eller del idear:** Bruk [GitHub Discussions](https://github.com/brreg/linkml-datamodellering-no/discussions) for generelle spørsmål og forslag som ikkje er ein konkret bug
+5. **Opne ein ny issue:** Med merkelapp `bug`, `question` eller `data-quality`
+6. **Vær tolmodig:** Dette er ein PoC med avgrensa ressursar
