@@ -84,9 +84,10 @@ generate_dependencies() {
     local domain="$1"
     local schema="$2"
 
-    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
+    # Finn kjeldemappe for skjemaet via det pre-berekna oppslaget frå
+    # Steg 1.5 — sjå specs/backlog/batch-docs-publish-generering.md
     local schema_file
-    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    schema_file=$(lookup_schema_path "${schema}-schema") || schema_file=""
     local schema_path=""
     [ -n "$schema_file" ] && schema_path="$schema_file"
 

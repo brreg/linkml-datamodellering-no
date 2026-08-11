@@ -5,7 +5,6 @@ trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../utils/metadata_parsers.sh"
-source "$SCRIPT_DIR/../utils/python_container.sh"
 
 generate_badges() {
     local domain="$1"
@@ -21,29 +20,13 @@ generate_badges() {
     local endringsdato=$(grep "^| Endringsdato" "$gendoc_index" | sed 's/^| Endringsdato | \(.*\) |$/\1/' | head -1)
     local utgiver_uri=$(grep "^| Utgiver" "$gendoc_index" | sed -n 's/^| Utgiver | \[\(https:[^]]*\)\].*/\1/p' | head -1)
 
-    # Slå opp organisasjonsnamn i CODEOWNERS.md ved å matche org_uri mot utgiver-URI-en
+    # Slå opp organisasjonsnamn frå det pre-berekna
+    # ORG_URI_TO_NAME_SERIALIZED-registeret (CODEOWNERS.md parsa éin gong i
+    # publish.sh Steg 1.5) i staden for eit eige `podman run`-kall per
+    # skjema — sjå specs/backlog/reduser-podman-kall-docs-publish.md.
     local utgiver_navn=""
-    if [ -n "$utgiver_uri" ] && [ -f "$REPO_ROOT/CODEOWNERS.md" ]; then
-        utgiver_navn=$(run_python_container - "$utgiver_uri" "$(to_container_path "$REPO_ROOT/CODEOWNERS.md")" <<'PYEOF' 2>/dev/null
-import re
-import sys
-
-import yaml
-
-utgiver_uri, codeowners_file = sys.argv[1], sys.argv[2]
-
-with open(codeowners_file, "r") as f:
-    content = f.read()
-
-match = re.search(r'^```yaml\n(.*?)\n```', content, re.MULTILINE | re.DOTALL)
-if match:
-    data = yaml.safe_load(match.group(1))
-    for org in data.get('organizations', []):
-        if org.get('org_uri', '') == utgiver_uri:
-            print(org['name'])
-            break
-PYEOF
-) || utgiver_navn=""
+    if [ -n "$utgiver_uri" ]; then
+        utgiver_navn=$(lookup_org_name "$utgiver_uri") || utgiver_navn=""
     fi
 
     # Valideringsstatus

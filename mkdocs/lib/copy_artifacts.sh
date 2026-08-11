@@ -3,6 +3,8 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
+source "$REPO_ROOT/mkdocs/lib/utils/imported_schemas.sh"
+
 copy_schema_artifacts() {
     local domain="$1"
     local schema="$2"
@@ -16,10 +18,11 @@ copy_schema_artifacts() {
     # éin cp-prosess per fil) — sjå specs/backlog/batch-docs-publish-generering.md
     find "$schema_dir" -maxdepth 1 -type f -exec cp -t "$out" {} +
 
-    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet)
-    # Søk etter <schema>-schema.yaml i src/linkml/<domain>/*/
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet) via det
+    # pre-berekna oppslaget frå Steg 1.5 i staden for eit eige find-kall —
+    # sjå specs/backlog/batch-docs-publish-generering.md
     local schema_file
-    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    schema_file=$(lookup_schema_path "${schema}-schema") || schema_file=""
     local src_dir=""
     [ -n "$schema_file" ] && src_dir=$(dirname "$schema_file")
 

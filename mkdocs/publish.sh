@@ -26,6 +26,8 @@ log_step() {
 # Source lib-filer (refactored modulær struktur)
 # ---------------------------------------------------------------------------
 LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/lib" && pwd)"
+source "$LIB_DIR/utils/python_container.sh"
+source "$LIB_DIR/utils/imported_schemas.sh"
 source "$LIB_DIR/copy_artifacts.sh"
 source "$LIB_DIR/generate_index.sh"
 source "$LIB_DIR/utils/formatters.sh"
@@ -165,95 +167,12 @@ log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
 BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
 
 # ---------------------------------------------------------------------------
-# Steg 1.5: Bygg delmodell-map frå manifest-filer
+# Steg 1.4: Finn domene/skjema-struktur frå generated/
 # ---------------------------------------------------------------------------
-# Bruk assosiative arrays som må eksporterast manuelt til subshells
-declare -A SCHEMA_PARENT_MODEL_TMP=()
-declare -A SCHEMA_SUBMODELS_TMP=()
-
-for manifest_file in $(find "$REPO_ROOT/src/linkml" -name build.yaml); do
-    # Ekstraher domene og katalog frå manifest-stien
-    # manifest_file = /path/src/linkml/<domain>/<schema>/build.yaml
-    schema_dir=$(dirname "$manifest_file")
-    schema=$(basename "$schema_dir")
-    domain=$(basename "$(dirname "$schema_dir")")
-
-    # Les submodels-lista frå manifest (bruk komma som skiljetegn for å unngå konflikt med mellomrom i serialisering)
-    if ! submodels=$(run_python_container -c "import yaml, sys; d=yaml.safe_load(open('$(to_container_path "$manifest_file")')); print(','.join(d.get('submodels', [])))" 2>&1); then
-        echo "ÅTVARING: kunne ikkje lese submodels frå $manifest_file — hoppar over ($submodels)" >&2
-        submodels=""
-    fi
-
-    if [ -n "$submodels" ]; then
-        SCHEMA_SUBMODELS_TMP["$schema"]="$submodels"
-
-        # Bygg parent-map for kvar delmodell (submodels er komma-separert)
-        IFS=',' read -ra sub_array <<< "$submodels"
-        for sub in "${sub_array[@]}"; do
-            SCHEMA_PARENT_MODEL_TMP["$sub"]="$schema"
-        done
-    fi
-done
-
-# Serialiser map til miljøvariablar for eksport til subshells
-export SCHEMA_PARENT_MODEL_SERIALIZED=""
-for key in "${!SCHEMA_PARENT_MODEL_TMP[@]}"; do
-    SCHEMA_PARENT_MODEL_SERIALIZED+="$key=${SCHEMA_PARENT_MODEL_TMP[$key]} "
-done
-
-export SCHEMA_SUBMODELS_SERIALIZED=""
-for key in "${!SCHEMA_SUBMODELS_TMP[@]}"; do
-    SCHEMA_SUBMODELS_SERIALIZED+="$key=${SCHEMA_SUBMODELS_TMP[$key]} "
-done
-
-# Globalt oppslag skjemanamn → domene og → filsti, bygd éin gong for heile
-# repoet. Erstattar gjentekne whole-tree `find "$REPO_ROOT/src/linkml" -name
-# "<namn>-schema.yaml"`-kall i classes.sh/avhengigheiter.sh (kvart slikt
-# find-kall er dyrt på NTFS-monterte /mnt/c-filsystem under WSL2 — sjå
-# specs/backlog/batch-docs-publish-generering.md for profilering).
-# Filstien vert lagra direkte (ikkje rekonstruert frå katalogkonvensjonen)
-# fordi delmodell-skjema (t.d. dqv-core-schema.yaml) ligg i FORELDREskjemaet
-# sin katalog (dqv-ap-no/), ikkje i ein katalog oppkalla etter seg sjølv.
-declare -A SCHEMA_NAME_TO_DOMAIN_TMP=()
-declare -A SCHEMA_NAME_TO_PATH_TMP=()
-for schema_yaml in $(find "$REPO_ROOT/src/linkml" -name '*-schema.yaml'); do
-    schema_name=$(basename "$schema_yaml" .yaml)
-    domain=$(basename "$(dirname "$(dirname "$schema_yaml")")")
-    SCHEMA_NAME_TO_DOMAIN_TMP["$schema_name"]="$domain"
-    SCHEMA_NAME_TO_PATH_TMP["$schema_name"]="$schema_yaml"
-done
-
-export SCHEMA_NAME_TO_DOMAIN_SERIALIZED=""
-for key in "${!SCHEMA_NAME_TO_DOMAIN_TMP[@]}"; do
-    SCHEMA_NAME_TO_DOMAIN_SERIALIZED+="$key=${SCHEMA_NAME_TO_DOMAIN_TMP[$key]} "
-done
-
-export SCHEMA_NAME_TO_PATH_SERIALIZED=""
-for key in "${!SCHEMA_NAME_TO_PATH_TMP[@]}"; do
-    SCHEMA_NAME_TO_PATH_SERIALIZED+="$key=${SCHEMA_NAME_TO_PATH_TMP[$key]} "
-done
-
-# Bygg lokale map for bruk i hovudshell (nav-generering)
-declare -A SCHEMA_PARENT_MODEL=()
-declare -A SCHEMA_SUBMODELS=()
-for entry in $SCHEMA_PARENT_MODEL_SERIALIZED; do
-    key="${entry%%=*}"
-    val="${entry#*=}"
-    SCHEMA_PARENT_MODEL["$key"]="$val"
-done
-for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
-    key="${entry%%=*}"
-    val="${entry#*=}"
-    # Behald komma-separering i SCHEMA_SUBMODELS-map
-    SCHEMA_SUBMODELS["$key"]="$val"
-done
-
-# ---------------------------------------------------------------------------
-# Steg 2: Generer innhald per domene og skjema (parallelt)
-# ---------------------------------------------------------------------------
-log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
-t2=$(date +%s%3N)
-
+# Flytta hit frå (tidlegare) Steg 2 — denne enumereringa avheng berre av
+# $GEN, ikkje av noko bygd i Steg 1.5, og Steg 1.5 treng no
+# ALL_DOMAINS/DOMAIN_SCHEMA_LIST for å byggje input til det samla
+# metadata-kallet. Sjå specs/backlog/reduser-podman-kall-docs-publish.md.
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
@@ -296,6 +215,135 @@ done
 for domain in $(printf '%s\n' "${!DOMAIN_EXISTS[@]}" | sort); do
     ALL_DOMAINS+=("$domain")
 done
+
+# ---------------------------------------------------------------------------
+# Steg 1.5: Bygg delmodell-/metadata-oppslag
+# ---------------------------------------------------------------------------
+# Bruk assosiative arrays som må eksporterast manuelt til subshells
+declare -A SCHEMA_PARENT_MODEL_TMP=()
+declare -A SCHEMA_SUBMODELS_TMP=()
+
+# Globalt oppslag skjemanamn → domene og → filsti, bygd éin gong for heile
+# repoet. Erstattar gjentekne whole-tree `find "$REPO_ROOT/src/linkml" -name
+# "<namn>-schema.yaml"`-kall i classes.sh/avhengigheiter.sh (kvart slikt
+# find-kall er dyrt på NTFS-monterte /mnt/c-filsystem under WSL2 — sjå
+# specs/backlog/batch-docs-publish-generering.md for profilering).
+# Filstien vert lagra direkte (ikkje rekonstruert frå katalogkonvensjonen)
+# fordi delmodell-skjema (t.d. dqv-core-schema.yaml) ligg i FORELDREskjemaet
+# sin katalog (dqv-ap-no/), ikkje i ein katalog oppkalla etter seg sjølv.
+declare -A SCHEMA_NAME_TO_DOMAIN_TMP=()
+declare -A SCHEMA_NAME_TO_PATH_TMP=()
+for schema_yaml in $(find "$REPO_ROOT/src/linkml" -name '*-schema.yaml'); do
+    schema_name=$(basename "$schema_yaml" .yaml)
+    domain=$(basename "$(dirname "$(dirname "$schema_yaml")")")
+    SCHEMA_NAME_TO_DOMAIN_TMP["$schema_name"]="$domain"
+    SCHEMA_NAME_TO_PATH_TMP["$schema_name"]="$schema_yaml"
+done
+
+export SCHEMA_NAME_TO_DOMAIN_SERIALIZED=""
+for key in "${!SCHEMA_NAME_TO_DOMAIN_TMP[@]}"; do
+    SCHEMA_NAME_TO_DOMAIN_SERIALIZED+="$key=${SCHEMA_NAME_TO_DOMAIN_TMP[$key]} "
+done
+
+export SCHEMA_NAME_TO_PATH_SERIALIZED=""
+for key in "${!SCHEMA_NAME_TO_PATH_TMP[@]}"; do
+    SCHEMA_NAME_TO_PATH_SERIALIZED+="$key=${SCHEMA_NAME_TO_PATH_TMP[$key]} "
+done
+
+# Samla metadata-innhenting: EIN containerprosess (collect-schema-metadata.py)
+# for ALLE skjema, i staden for opptil ~211 separate `podman run`-kall (éin
+# per submodels-oppslag/skjema-felt) — kvart `podman run`-kall har ~2,7s
+# eigen container-oppstartskostnad, målt direkte. Sjå
+# specs/backlog/reduser-podman-kall-docs-publish.md for profilering og
+# grunngjeving.
+#
+# Input (stdin, éi linje per skjema i DOMAIN_SCHEMA_LIST): felt skilde med
+# \x1f — domain, schema, schema_file (container-sti, tom viss ikkje funnen),
+# manifest_path (container-sti, tom viss build.yaml ikkje finst).
+SCHEMA_METADATA_INPUT=""
+for domain in "${ALL_DOMAINS[@]}"; do
+    for schema in ${DOMAIN_SCHEMA_LIST[$domain]:-}; do
+        schema_file_path=$(lookup_schema_path "${schema}-schema") || schema_file_path=""
+        schema_file_container=""
+        [ -n "$schema_file_path" ] && schema_file_container=$(to_container_path "$schema_file_path")
+
+        manifest_path="$REPO_ROOT/src/linkml/${domain}/${schema}/build.yaml"
+        manifest_container=""
+        [ -f "$manifest_path" ] && manifest_container=$(to_container_path "$manifest_path")
+
+        SCHEMA_METADATA_INPUT+="${domain}$(printf '\x1f')${schema}$(printf '\x1f')${schema_file_container}$(printf '\x1f')${manifest_container}"$'\n'
+    done
+done
+
+COLLECT_OUTPUT=$(printf '%s' "$SCHEMA_METADATA_INPUT" | run_python_container /work/mkdocs/lib/scripts/collect-schema-metadata.py)
+
+# Splitt output i dei tre seksjonane scriptet skriv (### SUBMODELS /
+# ### SCHEMAS / ### ORGS), kvar linje felt-skilt med \x1f.
+SUBMODELS_SECTION=""
+SCHEMAS_SECTION=""
+ORGS_SECTION=""
+collect_mode=""
+while IFS= read -r collect_line; do
+    case "$collect_line" in
+        "### SUBMODELS") collect_mode="submodels"; continue ;;
+        "### SCHEMAS") collect_mode="schemas"; continue ;;
+        "### ORGS") collect_mode="orgs"; continue ;;
+    esac
+    case "$collect_mode" in
+        submodels) SUBMODELS_SECTION+="$collect_line"$'\n' ;;
+        schemas) SCHEMAS_SECTION+="$collect_line"$'\n' ;;
+        orgs) ORGS_SECTION+="$collect_line"$'\n' ;;
+    esac
+done <<< "$COLLECT_OUTPUT"
+
+# Bygg SCHEMA_SUBMODELS_TMP/SCHEMA_PARENT_MODEL_TMP frå SUBMODELS-seksjonen
+# (same semantikk som den tidlegare 41-kalls-sekvensielle løkka)
+while IFS=$'\x1f' read -r schema_key submodels_csv; do
+    [ -z "$schema_key" ] && continue
+    SCHEMA_SUBMODELS_TMP["$schema_key"]="$submodels_csv"
+    IFS=',' read -ra sub_array <<< "$submodels_csv"
+    for sub in "${sub_array[@]}"; do
+        SCHEMA_PARENT_MODEL_TMP["$sub"]="$schema_key"
+    done
+done <<< "$SUBMODELS_SECTION"
+
+# Eksporter per-skjema metadata og CODEOWNERS-org-registeret til subshells
+# — konsumert via lookup_schema_metadata_line()/lookup_org_name() i
+# mkdocs/lib/utils/imported_schemas.sh
+export SCHEMA_METADATA_SERIALIZED="$SCHEMAS_SECTION"
+export ORG_URI_TO_NAME_SERIALIZED="$ORGS_SECTION"
+
+# Serialiser delmodell-map til miljøvariablar for eksport til subshells
+export SCHEMA_PARENT_MODEL_SERIALIZED=""
+for key in "${!SCHEMA_PARENT_MODEL_TMP[@]}"; do
+    SCHEMA_PARENT_MODEL_SERIALIZED+="$key=${SCHEMA_PARENT_MODEL_TMP[$key]} "
+done
+
+export SCHEMA_SUBMODELS_SERIALIZED=""
+for key in "${!SCHEMA_SUBMODELS_TMP[@]}"; do
+    SCHEMA_SUBMODELS_SERIALIZED+="$key=${SCHEMA_SUBMODELS_TMP[$key]} "
+done
+
+# Bygg lokale map for bruk i hovudshell (nav-generering)
+declare -A SCHEMA_PARENT_MODEL=()
+declare -A SCHEMA_SUBMODELS=()
+for entry in $SCHEMA_PARENT_MODEL_SERIALIZED; do
+    key="${entry%%=*}"
+    val="${entry#*=}"
+    SCHEMA_PARENT_MODEL["$key"]="$val"
+done
+for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
+    key="${entry%%=*}"
+    val="${entry#*=}"
+    # Behald komma-separering i SCHEMA_SUBMODELS-map
+    SCHEMA_SUBMODELS["$key"]="$val"
+done
+
+# ---------------------------------------------------------------------------
+# Steg 2: Generer innhald per domene og skjema (parallelt)
+# ---------------------------------------------------------------------------
+log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
+t2=$(date +%s%3N)
 
 # Start alle skjemajobbar parallelt
 declare -a PIDS=()

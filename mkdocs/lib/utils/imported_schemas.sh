@@ -39,13 +39,47 @@ lookup_schema_path() {
     return 1
 }
 
+# Slå opp den samla metadata-lina (policy, versjon, tittel, quickstart,
+# CODEOWNERS-oppslag osv.) for eit domain/schema-par frå det pre-berekna
+# SCHEMA_METADATA_SERIALIZED-registeret (bygd i publish.sh Steg 1.5 via
+# collect-schema-metadata.py — EIN containerprosess for alle skjema, i
+# staden for opptil 5 separate `podman run`-kall per skjema. Sjå
+# specs/backlog/reduser-podman-kall-docs-publish.md).
+# Feltrekkjefølgje (skilt med \x1f): domain/schema, policy,
+# external_spec_url, external_spec_label, version, title, description,
+# example_class, example_var, quickstart_policy, codeowners_name,
+# codeowners_org_uri, codeowners_contact_uri.
+lookup_schema_metadata_line() {
+    local key="$1"
+    local line
+    while IFS= read -r line; do
+        case "$line" in
+            "$key"$'\x1f'*) printf '%s\n' "$line"; return 0 ;;
+        esac
+    done <<< "$SCHEMA_METADATA_SERIALIZED"
+    return 1
+}
+
+# Slå opp organisasjonsnamn for ein org_uri frå det pre-berekna
+# ORG_URI_TO_NAME_SERIALIZED-registeret (CODEOWNERS.md, parsa éin gong i
+# same container-kall som over).
+lookup_org_name() {
+    local org_uri="$1"
+    local uri name
+    while IFS=$'\x1f' read -r uri name; do
+        [ "$uri" = "$org_uri" ] && printf '%s\n' "$name" && return 0
+    done <<< "$ORG_URI_TO_NAME_SERIALIZED"
+    return 1
+}
+
 get_imported_schemas() {
     local domain="$1"
     local schema="$2"
 
-    # Finn schema-fil
+    # Finn schema-fil via det pre-berekna oppslaget (Steg 1.5) i staden
+    # for eit eige find-kall — sjå specs/backlog/batch-docs-publish-generering.md
     local schema_file
-    schema_file=$(find "$REPO_ROOT/src/linkml/$domain" -name "${schema}-schema.yaml" -type f 2>/dev/null | head -1)
+    schema_file=$(lookup_schema_path "${schema}-schema") || return 0
     [ -z "$schema_file" ] && return 0
 
     # Parse direkte importar

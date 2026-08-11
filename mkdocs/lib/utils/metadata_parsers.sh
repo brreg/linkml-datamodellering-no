@@ -2,50 +2,46 @@
 # Parsing av manifest, validation-policy, versjon osv.
 set -euo pipefail
 
-source "$REPO_ROOT/mkdocs/lib/utils/python_container.sh"
+source "$REPO_ROOT/mkdocs/lib/utils/imported_schemas.sh"
 
-# Les validation_policy/external_spec_url/external_spec_label frå build.yaml
-# i éin python3-prosess og cache dei i eksporterte variablar, i staden for
-# at get_validation_policy/get_external_spec_url/get_external_spec_label
-# kvar gjer sitt eige python3-kall mot same fil (opptil 5 kall per skjema
-# før denne endringa — sjå specs/backlog/batch-docs-publish-generering.md).
+# Slå opp domain/schema-nøkkel frå ein manifest-sti på forma
+# src/linkml/<domain>/<schema>/build.yaml — konvensjonen alle kallarar av
+# denne fila alt konstruerer manifest-stien etter.
+_manifest_schema_key() {
+    local manifest="$1"
+    local schema domain
+    schema=$(basename "$(dirname "$manifest")")
+    domain=$(basename "$(dirname "$(dirname "$manifest")")")
+    printf '%s/%s' "$domain" "$schema"
+}
+
+# Les validation_policy/external_spec_url/external_spec_label for eit
+# skjema frå det pre-berekna SCHEMA_METADATA_SERIALIZED-registeret (bygd i
+# publish.sh Steg 1.5 via collect-schema-metadata.py — EIN containerprosess
+# for alle skjema, i staden for at get_validation_policy/
+# get_external_spec_url/get_external_spec_label kvar gjorde sitt eige
+# `podman run`-kall mot same fil. Sjå
+# specs/backlog/reduser-podman-kall-docs-publish.md (tidlegare batcha til
+# éin python3-prosess PER skjema av batch-docs-publish-generering.md — no
+# batcha på nytt til éin prosess for ALLE skjema).
 load_manifest_cache() {
     local manifest="$1"
     export MANIFEST_CACHE_PATH="$manifest"
-    if [ ! -f "$manifest" ]; then
-        export MANIFEST_CACHE_POLICY="bronze"
-        export MANIFEST_CACHE_EXTERNAL_SPEC_URL=""
-        export MANIFEST_CACHE_EXTERNAL_SPEC_LABEL=""
-        return
-    fi
-    # Merk: `key=verdi`-format (ikkje reine verdi-linjer) er nødvendig sidan
-    # `$(...)`-kommandosubstitusjon strippar ALLE etterfølgjande linjeskift —
-    # med reine verdi-linjer ville ein tom external_spec_label (vanlegast
-    # tilfelle) kollapsa dei siste linjeskilja og brote opplesinga.
-    local container_manifest
-    container_manifest=$(to_container_path "$manifest")
-    local result
-    result=$(run_python_container -c "
-import yaml
-d = yaml.safe_load(open('$container_manifest')) or {}
-print('policy=' + str(d.get('validation_policy', 'bronze')))
-print('external_spec_url=' + str(d.get('external_spec_url', '')))
-print('external_spec_label=' + str(d.get('external_spec_label', '')))
-" 2>&1) || { echo "ÅTVARING: kunne ikkje lese $manifest — bruker default-verdiar ($result)" >&2; result=""; }
-
     export MANIFEST_CACHE_POLICY="bronze"
     export MANIFEST_CACHE_EXTERNAL_SPEC_URL=""
     export MANIFEST_CACHE_EXTERNAL_SPEC_LABEL=""
-    local key val
-    # Prosess-substitusjon (< <(...)) garanterer eit avsluttande linjeskift,
-    # slik at siste felt ikkje vert forkasta av `read` ved EOF utan newline.
-    while IFS='=' read -r key val; do
-        case "$key" in
-            policy) MANIFEST_CACHE_POLICY="$val" ;;
-            external_spec_url) MANIFEST_CACHE_EXTERNAL_SPEC_URL="$val" ;;
-            external_spec_label) MANIFEST_CACHE_EXTERNAL_SPEC_LABEL="$val" ;;
-        esac
-    done < <(printf '%s\n' "$result")
+    [ ! -f "$manifest" ] && return
+
+    local line
+    if ! line=$(lookup_schema_metadata_line "$(_manifest_schema_key "$manifest")"); then
+        echo "ÅTVARING: fann ingen pre-berekna metadata for $manifest — bruker default-verdiar" >&2
+        return
+    fi
+    local _key policy url label _rest
+    IFS=$'\x1f' read -r _key policy url label _rest <<< "$line"
+    MANIFEST_CACHE_POLICY="${policy:-bronze}"
+    MANIFEST_CACHE_EXTERNAL_SPEC_URL="$url"
+    MANIFEST_CACHE_EXTERNAL_SPEC_LABEL="$label"
 }
 
 get_validation_policy() {
@@ -55,13 +51,13 @@ get_validation_policy() {
         return
     fi
     [ ! -f "$manifest" ] && echo "bronze" && return
-    local container_manifest
-    container_manifest=$(to_container_path "$manifest")
-    local policy
-    if policy=$(run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('validation_policy', 'bronze'))" 2>&1); then
-        echo "$policy"
+    local line
+    if line=$(lookup_schema_metadata_line "$(_manifest_schema_key "$manifest")"); then
+        local _key policy _rest
+        IFS=$'\x1f' read -r _key policy _rest <<< "$line"
+        echo "${policy:-bronze}"
     else
-        echo "ÅTVARING: kunne ikkje lese validation_policy frå $manifest — bruker bronze ($policy)" >&2
+        echo "ÅTVARING: fann ingen pre-berekna metadata for $manifest — bruker bronze" >&2
         echo "bronze"
     fi
 }
@@ -79,9 +75,11 @@ get_external_spec_url() {
         return
     fi
     [ ! -f "$manifest" ] && return
-    local container_manifest
-    container_manifest=$(to_container_path "$manifest")
-    run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('external_spec_url', ''))" 2>/dev/null || echo ""
+    local line
+    line=$(lookup_schema_metadata_line "$(_manifest_schema_key "$manifest")") || return
+    local _key _policy url _rest
+    IFS=$'\x1f' read -r _key _policy url _rest <<< "$line"
+    echo "$url"
 }
 
 get_external_spec_label() {
@@ -91,9 +89,11 @@ get_external_spec_label() {
         return
     fi
     [ ! -f "$manifest" ] && return
-    local container_manifest
-    container_manifest=$(to_container_path "$manifest")
-    run_python_container -c "import yaml; print(yaml.safe_load(open('$container_manifest')).get('external_spec_label', ''))" 2>/dev/null || echo ""
+    local line
+    line=$(lookup_schema_metadata_line "$(_manifest_schema_key "$manifest")") || return
+    local _key _policy _url label _rest
+    IFS=$'\x1f' read -r _key _policy _url label _rest <<< "$line"
+    echo "$label"
 }
 
 get_validation_json_path() {

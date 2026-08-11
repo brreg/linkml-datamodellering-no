@@ -196,32 +196,32 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 <!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| [FAIR](src/linkml/fair/) | [fair-metadata](src/linkml/fair/fair-metadata/) | "FAIR-metadataoverbygning (FAIR-prinsippa)" | [www.go-fair.org](https://www.go-fair.org/fair-principles/)
-| [AP-NO](src/linkml/ap-no/) | [common-ap-no](src/linkml/ap-no/common-ap-no/) | Felles slot-definisjonar for alle AP-NO-profilar | 
-| [AP-NO](src/linkml/ap-no/) | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no](https://data.norge.no/specification/cpsv-ap-no)
-| [AP-NO](src/linkml/ap-no/) | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no](https://data.norge.no/specification/dcat-ap-no)
-| [AP-NO](src/linkml/ap-no/) | [dqv-ap-no](src/linkml/ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no](https://data.norge.no/specification/dqv-ap-no)
-| [AP-NO](src/linkml/ap-no/) | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no](https://data.norge.no/specification/modelldcat-ap-no)
-| [AP-NO](src/linkml/ap-no/) | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no](https://data.norge.no/specification/skos-ap-no-begrep)
-| [AP-NO](src/linkml/ap-no/) | [xkos-ap-no](src/linkml/ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no](https://data.norge.no/specification/xkos-ap-no)
-| [REFERANSE](src/linkml/referanse/) | [referansemodell-bronze](src/linkml/referanse/referansemodell-bronze/) | Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata (title, version), class_uri, identifier-slot, slot_uri og begrepsidentifikator på riktig format. | 
-| [REFERANSE](src/linkml/referanse/) | [referansemodell-gold](src/linkml/referanse/referansemodell-gold/) | Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss FAIR-metadata (title, version, prefiks, lisens, proveniens). | 
-| [REFERANSE](src/linkml/referanse/) | [referansemodell-silver](src/linkml/referanse/referansemodell-silver/) | Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse. | 
-| [REFERANSE](src/linkml/referanse/) | [referansemodell](src/linkml/referanse/referansemodell/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
-| [NGR](src/linkml/ngr/) | [ngr-adresse](src/linkml/ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
-| [NGR](src/linkml/ngr/) | [ngr-eiendom](src/linkml/ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
-| [NGR](src/linkml/ngr/) | [ngr-person](src/linkml/ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
-| [NGR](src/linkml/ngr/) | [ngr-virksomhet](src/linkml/ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
-| [OREG](src/linkml/oreg/) | [enhetsregisteret-bvrinn](src/linkml/oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
-| [OREG](src/linkml/oreg/) | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
-| [FINT](src/linkml/fint/) | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
-| [FINT](src/linkml/fint/) | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
-| [FINT](src/linkml/fint/) | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT | 
-| [FINT](src/linkml/fint/) | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
-| [FINT](src/linkml/fint/) | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
-| [FINT](src/linkml/fint/) | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
-| [FINT](src/linkml/fint/) | [fint-utdanning](src/linkml/fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
-| [SAMT](src/linkml/samt/) | [samt-bu](src/linkml/samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no](https://docs.samt-bu.no/om/)
+| [FAIR](fair/) | [fair-metadata](fair/fair-metadata/) | "FAIR-metadataoverbygning (FAIR-prinsippa)" | [www.go-fair.org](https://www.go-fair.org/fair-principles/)
+| [AP-NO](ap-no/) | [common-ap-no](ap-no/common-ap-no/) | Felles slot-definisjonar for alle AP-NO-profilar | 
+| [AP-NO](ap-no/) | [cpsv-ap-no](ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no](https://data.norge.no/specification/cpsv-ap-no)
+| [AP-NO](ap-no/) | [dcat-ap-no](ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no](https://data.norge.no/specification/dcat-ap-no)
+| [AP-NO](ap-no/) | [dqv-ap-no](ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no](https://data.norge.no/specification/dqv-ap-no)
+| [AP-NO](ap-no/) | [modelldcat-ap-no](ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no](https://data.norge.no/specification/modelldcat-ap-no)
+| [AP-NO](ap-no/) | [skos-ap-no](ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no](https://data.norge.no/specification/skos-ap-no-begrep)
+| [AP-NO](ap-no/) | [xkos-ap-no](ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no](https://data.norge.no/specification/xkos-ap-no)
+| [REFERANSE](referanse/) | [referansemodell-bronze](referanse/referansemodell-bronze/) | Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata (title, version), class_uri, identifier-slot, slot_uri og begrepsidentifikator på riktig format. | 
+| [REFERANSE](referanse/) | [referansemodell-gold](referanse/referansemodell-gold/) | Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss FAIR-metadata (title, version, prefiks, lisens, proveniens). | 
+| [REFERANSE](referanse/) | [referansemodell-silver](referanse/referansemodell-silver/) | Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse. | 
+| [REFERANSE](referanse/) | [referansemodell](referanse/referansemodell/) | Enkel eksempelmodell for å demonstrere gyldig LinkML-struktur | 
+| [NGR](ngr/) | [ngr-adresse](ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
+| [NGR](ngr/) | [ngr-eiendom](ngr/ngr-eiendom/) | Fast eigedom, matrikkeleining og bygning | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
+| [NGR](ngr/) | [ngr-person](ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
+| [NGR](ngr/) | [ngr-virksomhet](ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
+| [OREG](oreg/) | [enhetsregisteret-bvrinn](oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
+| [OREG](oreg/) | [register-over-aksjeeiere](oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
+| [FINT](fint/) | [fint-administrasjon](fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
+| [FINT](fint/) | [fint-arkiv](fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
+| [FINT](fint/) | [fint-common](fint/fint-common/) | Felles klassar for FINT | 
+| [FINT](fint/) | [fint-okonomi](fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
+| [FINT](fint/) | [fint-personvern](fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
+| [FINT](fint/) | [fint-ressurs](fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
+| [FINT](fint/) | [fint-utdanning](fint/fint-utdanning/) | Utdanning og skule | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
+| [SAMT](samt/) | [samt-bu](samt/samt-bu/) | Skular og barnehagar | [docs.samt-bu.no](https://docs.samt-bu.no/om/)
 <!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
 
 **AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodellar.
@@ -270,7 +270,7 @@ Begrepskatalogar ligg under `src/linkml/begrepskatalog/`
 <!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_begrepskatalog_table -->
 | Domene | Begrepskatalog | Organisasjon | Skildring | Generator |
 |---|---|---|---|---|
-| [begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/) | [brreg-begrepskatalog](src/linkml/begrepskatalog/brreg-begrepskatalog/) | Registerenheten i Brønnøysund | Begrepskatalog for Registerenheten i Brønnøysund sine begrep | [`gen-begrepskatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-begrepskatalog-instance) |
+| [begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/) | [brreg-begrepskatalog](begrepskatalog/brreg-begrepskatalog/) | Registerenheten i Brønnøysund | Begrepskatalog for Registerenheten i Brønnøysund sine begrep | [`gen-begrepskatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-begrepskatalog-instance) |
 <!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_begrepskatalog_table -->
 
 ---
@@ -284,12 +284,12 @@ Modellkatalogar ligg under `src/linkml/modellkatalog/`
 <!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_modellkatalog_table -->
 | Domene | Modellkatalog | Organisasjon | Skildring | Generator |
 |---|---|---|---|---|
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [brreg-modellkatalog](src/linkml/modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [digdir-modellkatalog](src/linkml/modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [kartverket-modellkatalog](src/linkml/modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [ksdigital-modellkatalog](src/linkml/modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [novari-modellkatalog](src/linkml/modellkatalog/novari-modellkatalog/) | Novari IKS | Modellkatalog for Novari IKS sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
-| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [skatteetaten-modellkatalog](src/linkml/modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [brreg-modellkatalog](modellkatalog/brreg-modellkatalog/) | Brønnøysundregistra | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [digdir-modellkatalog](modellkatalog/digdir-modellkatalog/) | Digitaliseringsdirektoratet | Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [kartverket-modellkatalog](modellkatalog/kartverket-modellkatalog/) | Kartverket | Modellkatalog for Kartverket sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [ksdigital-modellkatalog](modellkatalog/ksdigital-modellkatalog/) | KS Digital | Modellkatalog for KS Digital sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [novari-modellkatalog](modellkatalog/novari-modellkatalog/) | Novari IKS | Modellkatalog for Novari IKS sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
+| [modellkatalog](https://brreg.github.io/linkml-datamodellering-no/modellkatalog/) | [skatteetaten-modellkatalog](modellkatalog/skatteetaten-modellkatalog/) | Skatteetaten | Modellkatalog for Skatteetaten sine informasjonsmodellar | [`gen-modellkatalog-instance`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modellkatalog-instance) |
 <!-- END AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_modellkatalog_table -->
 
 ---

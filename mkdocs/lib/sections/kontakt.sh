@@ -3,12 +3,11 @@
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
-source "$REPO_ROOT/mkdocs/lib/utils/python_container.sh"
+source "$REPO_ROOT/mkdocs/lib/utils/imported_schemas.sh"
 
 generate_contact_info() {
     local domain="$1"
     local schema="$2"
-    local schema_path="src/linkml/${domain}/${schema}"
 
     echo ""
     echo "---"
@@ -18,71 +17,18 @@ generate_contact_info() {
     echo "> Her finn du informasjon om forvaltningsansvarleg, kontaktpunkt og kanal for feilrapportering eller forslag til forbetringar."
     echo ""
 
-    # Les CODEOWNERS.md for å finne eigar-org basert på path pattern
-    local codeowners_file="$REPO_ROOT/CODEOWNERS.md"
-    if [ ! -f "$codeowners_file" ]; then
-        echo "**Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)"
-        echo ""
-        return
+    # CODEOWNERS.md-matchinga (catalog_slug, deretter path_patterns) er
+    # alt gjort éin gong for alle skjema i publish.sh Steg 1.5
+    # (collect-schema-metadata.py) — slå opp resultatet i staden for å
+    # gjere eit eige `podman run`-kall med same matching-logikk per
+    # skjema. Sjå specs/backlog/reduser-podman-kall-docs-publish.md.
+    local line name="" org_uri="" contact_uri=""
+    if line=$(lookup_schema_metadata_line "$domain/$schema"); then
+        local _key _policy _url _label _version _title _desc _ec _ev _qp _rest
+        IFS=$'\x1f' read -r _key _policy _url _label _version _title _desc _ec _ev _qp name org_uri contact_uri _rest <<< "$line"
     fi
 
-    # Ekstraher YAML-frontmatter frå CODEOWNERS.md
-    # Parse YAML og match path mot path_patterns eller catalog_slug for kvar org
-    local org_data=$(run_python_container - "$schema_path" "$schema" "$(to_container_path "$codeowners_file")" <<'PYEOF'
-import sys
-import re
-import yaml
-
-schema_path = sys.argv[1]
-schema = sys.argv[2]
-codeowners_file = sys.argv[3]
-
-with open(codeowners_file, "r") as f:
-    content = f.read()
-
-# Ekstraher YAML-frontmatter (mellom første ``` og neste ```)
-match = re.search(r'^```yaml\n(.*?)\n```', content, re.MULTILINE | re.DOTALL)
-if not match:
-    sys.exit(1)
-
-yaml_content = match.group(1)
-data = yaml.safe_load(yaml_content)
-
-# Match schema_path mot path_patterns eller catalog_slug for kvar org
-for org in data.get('organizations', []):
-    # Prøv først å matche catalog_slug (for modellkatalogar)
-    if org.get('catalog_slug', '') == schema:
-        # Fann match på catalog_slug — print org-data som YAML
-        print(f"name: {org['name']}")
-        print(f"org_uri: {org['org_uri']}")
-        print(f"contact_uri: {org.get('contact_uri', '')}")
-        sys.exit(0)
-
-    # Dersom ikkje match på catalog_slug, prøv path_patterns
-    for pattern in org.get('path_patterns', []):
-        # Konverter glob-pattern til regex (enkel variant — berre ** og *)
-        # Bruk placeholder for å unngå at * i .* vert erstatta
-        regex_pattern = pattern.replace('**', '__DOUBLESTAR__').replace('*', '[^/]*').replace('__DOUBLESTAR__', '.*')
-        # Gjer /** valfri for å matche både "path" og "path/noko"
-        regex_pattern = re.sub(r'/\.\*$', r'(/.*)?', regex_pattern)
-        if re.search(regex_pattern, schema_path):
-            # Fann match — print org-data som YAML
-            print(f"name: {org['name']}")
-            print(f"org_uri: {org['org_uri']}")
-            print(f"contact_uri: {org.get('contact_uri', '')}")
-            sys.exit(0)
-
-# Ingen match funne
-sys.exit(1)
-PYEOF
-)
-
-    if [ $? -eq 0 ] && [ -n "$org_data" ]; then
-        # Ekstraher felt frå org_data
-        local name=$(echo "$org_data" | grep '^name:' | sed 's/^name: //')
-        local org_uri=$(echo "$org_data" | grep '^org_uri:' | sed 's/^org_uri: //')
-        local contact_uri=$(echo "$org_data" | grep '^contact_uri:' | sed 's/^contact_uri: //')
-
+    if [ -n "$name" ]; then
         echo "**Forvaltningsansvarleg:** [$name]($org_uri)"
         echo ""
         if [ -n "$contact_uri" ]; then
