@@ -51,7 +51,10 @@ generate_validation_docs() {
     local output="$DOCS/arkitektur/valideringsregler.md"
     local github_base="https://github.com/brreg/linkml-datamodellering-no/blob/main"
 
-    log_info "${CLR_STEP}→ Genererer valideringsregler.md frå policies/README.md${CLR_RST}"
+    # Ingen eigen før/etter-logging her — kalt via timed_run(), som alt
+    # loggar namn+tid ved suksess og namn+tid+kommando ved feil. Sjå
+    # specs/backlog/flytt-steg3-til-steg1-med-timing.md.
+    log_debug "→ Genererer $output frå $policies_readme"
 
     {
         cat <<'EOF'
@@ -68,8 +71,20 @@ EOF
             sed -E "s|\]\(([^)]+\.yaml)\)|]($github_base/src/mcp-linkml-validator/policies/\1)|g" | \
             sed -E "s|specs/done/([^)]+)|$github_base/specs/done/\1|g"
     } > "$output"
+}
 
-    log_info "${CLR_OK}✓ Genererte $output${CLR_RST}"
+# ---------------------------------------------------------------------------
+# Generer index.md frå README.md (+ footer med byggetidspunkt)
+# ---------------------------------------------------------------------------
+write_index_from_readme() {
+    cp "$REPO_ROOT/README.md" "$DOCS/index.md"
+
+    cat >> "$DOCS/index.md" <<EOF
+
+---
+
+_Portalen vart sist bygd: ${BUILD_TIMESTAMP}_
+EOF
 }
 
 # DEPRECATED: build_dependency_graph() er flytta til lib/sections/dependencies.sh
@@ -163,8 +178,18 @@ log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed1_ms / 1000)) \
     $((elapsed1_ms % 1000 / 100)))"
 
-# Generer byggetidspunkt (ISO 8601 UTC)
+# Generer byggetidspunkt (ISO 8601 UTC), nødvendig for footer-en
+# write_index_from_readme() skriv rett under
 BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
+
+# README→index.md og valideringsregler.md avheng ikkje av noko frå Steg 2
+# (statiske kjeldefiler, arkitektur/ er kvitelista i Steg 1 sin opprydding)
+# — flytta hit for å unngå unødig venting etter det tunge parallelle
+# skjema-arbeidet. Kvart kall tidtakast og loggast individuelt via
+# timed_run() (frå LOG_FUNCTIONS, make/00-settings.mk) i staden for eit
+# samla steg-tal. Sjå specs/backlog/flytt-steg3-til-steg1-med-timing.md.
+timed_run "Generer index.md frå README.md" write_index_from_readme
+timed_run "Generer valideringsregler.md" generate_validation_docs
 
 # ---------------------------------------------------------------------------
 # Steg 1.4: Finn domene/skjema-struktur frå generated/
@@ -428,36 +453,9 @@ log_info "$(printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed2_ms % 1000 / 100)))"
 
 # ---------------------------------------------------------------------------
-# Steg 3: Generer index.md frå README.md
+# Steg 3: Generer mkdocs.yml
 # ---------------------------------------------------------------------------
-log_step "Steg 3: Generer index.md frå README.md"
-t3=$(date +%s%3N)
-
-cp "$REPO_ROOT/README.md" "$DOCS/index.md"
-
-# Legg til footer med byggetidspunkt
-cat >> "$DOCS/index.md" <<EOF
-
----
-
-_Portalen vart sist bygd: ${BUILD_TIMESTAMP}_
-EOF
-
-# ---------------------------------------------------------------------------
-# Steg 3: Generer valideringsregler.md
-# ---------------------------------------------------------------------------
-log_step "Steg 3: Generer valideringsregler.md"
-generate_validation_docs
-
-elapsed3_ms=$(( $(date +%s%3N) - t3 ))
-log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
-    $((elapsed3_ms / 1000)) \
-    $((elapsed3_ms % 1000 / 100)))"
-
-# ---------------------------------------------------------------------------
-# Steg 4: Generer mkdocs.yml
-# ---------------------------------------------------------------------------
-log_step "Steg 4: Generer mkdocs.yml"
+log_step "Steg 3: Generer mkdocs.yml"
 t4=$(date +%s%3N)
 
 {
@@ -576,7 +574,7 @@ STATIC
 } > "$MKDOCS_YML"
 
 elapsed4_ms=$(( $(date +%s%3N) - t4 ))
-log_info "$(printf "${CLR_OK}✓ Steg 4 ferdig${CLR_RST} (%d.%ds)" \
+log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
     $((elapsed4_ms / 1000)) \
     $((elapsed4_ms % 1000 / 100)))"
 
