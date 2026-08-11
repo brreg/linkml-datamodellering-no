@@ -77,9 +77,6 @@ alle linkml modellane er uoffisielle eksempelmodeller for å POCe modellering i 
 verifiser at manifest.yaml filene har flag for alle tilgjengelige artifakttypar og at README.md dokumenter alle.
 
 
-evaluer gap mot https://www.digdir.no/datadeling/nasjonale-grunndata/7575 skriv til ./specs
-
-
 
 
 
