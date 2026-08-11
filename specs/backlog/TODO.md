@@ -79,7 +79,6 @@ verifiser at manifest.yaml filene har flag for alle tilgjengelige artifakttypar 
 
 evaluer gap mot https://www.digdir.no/datadeling/nasjonale-grunndata/7575 skriv til ./specs
 
-evaluer gap mot https://www.digdir.no/datadeling/slik-kommer-du-i-gang-med-bruke-data-fra-andre/2255 skriv til ./specs
 
 
 
