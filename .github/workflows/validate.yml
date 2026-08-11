@@ -95,27 +95,30 @@ jobs:
       - name: Bygg image-liste og tag-oppslag for validering (frå images.json)
         id: image-tags
         run: |
-          # Validering treng berre linkml-local + mcp-linkml-validator, ikkje
-          # generator-images (python-pytest/plantuml/avrotize/asyncapi) —
-          # filtrer images.json ned til desse to i staden for å hardkode
-          # dockerfile/make_target-metadata separat frå autoritativ kjelde
-          # (jf. generate.yml sitt tilsvarande steg, som treng alle 7).
-          NEEDED='["linkml-local","mcp-linkml-validator"]'
-          images=$(jq -c --argjson needed "$NEEDED" \
-            '[.[] | select(.name as $n | $needed | index($n)) | {name, make_target}]' \
+          # Validering treng alle always_required-images (jf. generate.yml sitt
+          # tilsvarande steg) — ikkje berre linkml-local + mcp-linkml-validator.
+          # python-pytest er også always_required: save-validation-log.py
+          # (kalla frå make validate-bronze/validate-data/validate-examples)
+          # køyrer i python-pytest-kontaineren. Denne lista vart tidlegare
+          # hardkoda til dei to andre og gløymde python-pytest — då prøvde
+          # PYTHON_RUN å pulle localhost/python-pytest:latest som eit ekte
+          # registry og feila. Slå opp always_required dynamisk i staden for
+          # å hardkode, jf. DRY-prinsippet i CLAUDE.md.
+          images=$(jq -c '[.[] | select(.always_required) | {name, make_target}]' \
             src/assets/containers/images.json)
           echo "images=$images" >> "$GITHUB_OUTPUT"
 
           # Same grunngjeving som generate.yml sitt "Bygg image-tag-oppslag"-
           # steg: hashFiles() finst berre som eit dollar-curly-uttrykk
           # evaluert her, ikkje kallbart frå bash/jq ved køyretid — difor
-          # den einaste staden desse to hashFiles()-kalla skal stå for
+          # den einaste staden desse tre hashFiles()-kalla skal stå for
           # validate.yml. Både ensure-images og validate-jobben slår opp
           # taggen herifrå i staden for å rekne han ut på nytt kvar for seg.
           cat > /tmp/image-tags.json << EOF
           {
             "linkml-local": "${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}",
-            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}"
+            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}",
+            "python-pytest": "${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
           }
           EOF
           echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
@@ -144,8 +147,8 @@ jobs:
       packages: write
     strategy:
       # Image-lista kjem frå src/assets/containers/images.json (autoritativ
-      # kjelde, filtrert til dei to linkml-local/mcp-linkml-validator i
-      # checkout-source sitt image-tags-steg) — ikkje hardkoda her lenger.
+      # kjelde, filtrert til always_required-images i checkout-source sitt
+      # image-tags-steg) — ikkje hardkoda her lenger.
       matrix:
         image: ${{ fromJson(needs.checkout-source.outputs.images) }}
       fail-fast: false

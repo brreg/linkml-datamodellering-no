@@ -23,6 +23,7 @@ imports:
 classes:
   BegrepContainer:
     tree_root: true
+    description: Samlar alle begrep, samlingar, definisjonar og relasjonar for begrepskatalogen.
     attributes:
       begrep:
         range: Begrep

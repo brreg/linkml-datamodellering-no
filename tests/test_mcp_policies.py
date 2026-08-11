@@ -682,6 +682,25 @@ default_prefix: ex
 """
         self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_i2"))
 
+    def test_fair_i2_transitivt_importert_standard_prefiks_godtatt(self):
+        # xsd: er ikkje deklarert lokalt, men kjem inn via linkml:types-importen —
+        # sjekken skal telje prefiks frå heile imports_closure, ikkje berre
+        # skjemaet sin eigen prefixes:-blokk (sjå server.py sin
+        # _check_schema_declares_standard_prefix).
+        schema = """\
+id: https://example.org/schema
+name: TestSchema
+title: Testtittel
+description: Testmodell
+version: "1.0"
+prefixes:
+  linkml: https://w3id.org/linkml/
+default_prefix: https://example.org/
+imports:
+  - linkml:types
+"""
+        self.assertFalse(has_error(validate_schema(schema, "gold"), "fair_i2"))
+
     def test_fair_r11_utan_lisensslot_gir_feil(self):
         schema = """\
 id: https://example.org/schema

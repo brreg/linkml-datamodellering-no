@@ -28,33 +28,7 @@ https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/
 
 opprette slack kanal under digdir samarbeid?
 
-
-lag ein workflow som inkluderar jobbane under:
-lag ein job som identifiserer alle klasser med liknande navn på tvers av modellar i samme domene.
-
-lag ein job som identifiserer alle klasser med liknande navn på tvers av modellar i alle domene.
-
-lag ein job som identifiserar alle slots med liknande navn på tvers av modellar i samme domene.
-
-lag ein job som identifiserar alle slots med liknande navn på tvers av modellar i alle domene.
-
-lag ein job som tester alle IRIer i linkml modellar og loggar dei som ikkje resolver.
-
-
-
 alle linkml modellane er uoffisielle eksempelmodeller for å POCe modellering i LinkML. Evaluer om eg burde endra katalogstrukturen eller på ein anna måte dokumentert dette.
-
-
-
-
-
-
-
-
-
-
-
-
 
 Modellere FINT Felles (mangler i dag)
 

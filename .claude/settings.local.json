@@ -429,7 +429,8 @@
       "Bash(LOGLVL=DEBUG make gen-xsd DOMAIN=ap-no)",
       "Bash(LOGLVL=DEBUG make -n gen-asyncapi DOMAIN=ap-no)",
       "WebFetch(domain:web.archive.org)",
-      "WebFetch(domain:linkml.io)"
+      "WebFetch(domain:linkml.io)",
+      "Bash(LOGLVL=DEBUG make validate-data DOMAIN=begrepskatalog)"
     ]
   },
   "enableAllProjectMcpServers": true,

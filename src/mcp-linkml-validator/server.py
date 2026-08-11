@@ -209,7 +209,13 @@ def _check_all_slots_have_slot_uri(sv, schema, config, issues):
 
 def _check_schema_declares_standard_prefix(sv, schema, config, issues):
     standard_prefixes = set(config.get("standard_prefixes", []))
-    declared = set(schema.prefixes.keys()) if schema.prefixes else set()
+    # sv.namespaces() slår berre saman prefiks frå schema_map, som ikkje er
+    # fylt med importerte skjema før imports_closure() er kalla — utan dette
+    # kallet ville sjekken berre sjå det lokale skjemaet sine eigne prefiks,
+    # og feilaktig krevje at t.d. skos:/dct: vert deklarert lokalt sjølv om
+    # dei alt kjem inn transitivt via eit importert AP-NO-skjema.
+    sv.imports_closure()
+    declared = set(sv.namespaces().keys())
     if not (declared & standard_prefixes):
         issues.append(issue(
             config["severity"], _fair_code(config), "schema",

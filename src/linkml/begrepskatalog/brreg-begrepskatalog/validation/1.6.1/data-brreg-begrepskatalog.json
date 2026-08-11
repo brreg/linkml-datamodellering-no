@@ -1,0 +1,13 @@
+{
+  "domain": "begrepskatalog",
+  "result": {
+    "errorCount": 0,
+    "issues": [],
+    "valid": true,
+    "warningCount": 0
+  },
+  "schema": "brreg-begrepskatalog",
+  "validated_at": "2026-08-11T12:08:01.977336+00:00",
+  "validation_policy": "data-brreg-begrepskatalog",
+  "version": "1.6.1"
+}
