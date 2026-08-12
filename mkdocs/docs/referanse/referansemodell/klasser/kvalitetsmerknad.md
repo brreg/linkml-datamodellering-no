@@ -18,11 +18,11 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 ```mermaid
  classDiagram
     class Kvalitetsmerknad
-    click Kvalitetsmerknad href "../Kvalitetsmerknad/"
+    click Kvalitetsmerknad href "../kvalitetsmerknad/"
       Kvalitetsmerknad <|-- Brukartilbakemelding
-        click Brukartilbakemelding href "../Brukartilbakemelding/"
+        click Brukartilbakemelding href "../brukartilbakemelding/"
       Kvalitetsmerknad <|-- Kvalitetssertifikat
-        click Kvalitetssertifikat href "../Kvalitetssertifikat/"
+        click Kvalitetssertifikat href "../kvalitetssertifikat/"
       
       Kvalitetsmerknad : er_i_kvalitetsdimensjon
         
@@ -31,7 +31,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "*" Kvalitetsdimensjon : er_i_kvalitetsdimensjon
-        click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+        click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
     
 
         
@@ -42,7 +42,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "1" DqvMotivasjon : er_motivert_av
-        click DqvMotivasjon href "../DqvMotivasjon/"
+        click DqvMotivasjon href "../dqvmotivasjon/"
     
 
         
@@ -53,7 +53,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "0..1" Uriorcurie : har_maal
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -64,7 +64,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "*" LangString : har_merknad
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -75,7 +75,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "*" Tekstdel : har_tekstdel
-        click Tekstdel href "../Tekstdel/"
+        click Tekstdel href "../tekstdel/"
     
 
         
@@ -86,7 +86,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
         
         Kvalitetsmerknad --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

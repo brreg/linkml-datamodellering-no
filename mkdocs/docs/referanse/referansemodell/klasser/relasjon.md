@@ -18,7 +18,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ```mermaid
  classDiagram
     class Relasjon
-    click Relasjon href "../Relasjon/"
+    click Relasjon href "../relasjon/"
       Relasjon : har_rolle
         
           
@@ -26,7 +26,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
         
         
         Relasjon --> "1" String : har_rolle
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
         
         
         Relasjon --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
         
         
         Relasjon --> "1" Uri : relasjon_til
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         

@@ -18,9 +18,9 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 ```mermaid
  classDiagram
     class Kvalitetsdimensjon
-    click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+    click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
       Kvalitetsdimensjon <|-- Kvalitetsdeldimensjon
-        click Kvalitetsdeldimensjon href "../Kvalitetsdeldimensjon/"
+        click Kvalitetsdeldimensjon href "../kvalitetsdeldimensjon/"
       
       Kvalitetsdimensjon : gjelder_standard
         
@@ -29,7 +29,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
         
         
         Kvalitetsdimensjon --> "*" Uriorcurie : gjelder_standard
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
         
         
         Kvalitetsdimensjon --> "*" LangString : har_anbefalt_term
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
         
         
         Kvalitetsdimensjon --> "*" LangString : har_kvalitetsdefinisjon
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
         
         
         Kvalitetsdimensjon --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

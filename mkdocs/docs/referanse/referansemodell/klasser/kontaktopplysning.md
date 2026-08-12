@@ -18,7 +18,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 ```mermaid
  classDiagram
     class Kontaktopplysning
-    click Kontaktopplysning href "../Kontaktopplysning/"
+    click Kontaktopplysning href "../kontaktopplysning/"
       Kontaktopplysning : har_epost
         
           
@@ -26,7 +26,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
         
         
         Kontaktopplysning --> "0..1" String : har_epost
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -37,7 +37,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
         
         
         Kontaktopplysning --> "0..1" String : har_kontaktside
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -48,7 +48,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
         
         
         Kontaktopplysning --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -59,7 +59,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
         
         
         Kontaktopplysning --> "1..*" LangString : navn_vcard
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         

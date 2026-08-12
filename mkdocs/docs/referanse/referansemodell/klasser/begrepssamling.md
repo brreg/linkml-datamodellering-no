@@ -18,7 +18,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 ```mermaid
  classDiagram
     class Begrepssamling
-    click Begrepssamling href "../Begrepssamling/"
+    click Begrepssamling href "../begrepssamling/"
       Begrepssamling : id
         
           
@@ -26,7 +26,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
         
         
         Begrepssamling --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

@@ -1230,6 +1230,79 @@ PYEOF
 }
 
 # ---------------------------------------------------------------------------
+# Regresjonstest: mermaid click-href-omskriving i copy_artifacts.sh
+# (sjå specs/backlog/mermaid-klikkbare-lenker-404.md). Køyrer mot ei fiktiv
+# fixture — treng ingen containerar og ingen ekte skjema.
+# ---------------------------------------------------------------------------
+test_copy_artifacts_click_href() {
+    local tmp
+    tmp=$(mktemp -d)
+
+    mkdir -p "$tmp/repo/src/linkml/fixturedomain/fixtureschema"
+    touch "$tmp/repo/src/linkml/fixturedomain/fixtureschema/fixtureschema-schema.yaml"
+    mkdir -p "$tmp/repo/generated/fixturedomain/fixtureschema/docs"
+
+    cat > "$tmp/repo/generated/fixturedomain/fixtureschema/docs/TestKlasse.md" <<'FIXTURE'
+# TestKlasse
+
+```mermaid
+classDiagram
+    class TestKlasse
+    click TestKlasse href "../TestKlasse/"
+    class AnnenKlasse
+    click AnnenKlasse href "../AnnenKlasse/"
+    class Uriorcurie
+    click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+```
+FIXTURE
+    cat > "$tmp/repo/generated/fixturedomain/fixtureschema/docs/AnnenKlasse.md" <<'FIXTURE'
+# AnnenKlasse
+FIXTURE
+
+    local out="$tmp/repo/mkdocs/docs/fixturedomain/fixtureschema"
+    mkdir -p "$out"
+
+    (
+        source "$REPO_ROOT/mkdocs/lib/copy_artifacts.sh"
+        REPO_ROOT="$tmp/repo"
+        copy_schema_artifacts "fixturedomain" "fixtureschema" \
+            "$tmp/repo/generated/fixturedomain/fixtureschema" "$out"
+    )
+    local rc=$?
+    if [ "$rc" -ne 0 ]; then
+        echo "copy_schema_artifacts feila (exit $rc)"
+        rm -rf "$tmp"
+        return 1
+    fi
+
+    local target="$out/klasser/testklasse.md"
+    if [ ! -f "$target" ]; then
+        echo "Manglar generert fil (lowercase-omdøyping feila): $target"
+        rm -rf "$tmp"
+        return 1
+    fi
+
+    # Kvar click-href skal vere "../<lowercase(namn)>/" — utleidd frå namnet
+    # i click-statementet, ikkje frå den opphavlege href-verdien (som for
+    # typar som Uriorcurie kan innehalde ein innbaka XSD-URI i staden for
+    # typenamnet).
+    local fail=0
+    while IFS= read -r line; do
+        local name href expected
+        name=$(echo "$line" | sed -E 's/click ([A-Za-z0-9_]+) href.*/\1/')
+        href=$(echo "$line" | sed -E 's/.*href "([^"]*)".*/\1/')
+        expected="../$(echo "$name" | tr '[:upper:]' '[:lower:]')/"
+        if [ "$href" != "$expected" ]; then
+            echo "Feil click-href for $name: fekk '$href', venta '$expected'"
+            fail=1
+        fi
+    done < <(grep -o 'click [A-Za-z0-9_]* href "[^"]*"' "$target")
+
+    rm -rf "$tmp"
+    [ "$fail" -eq 0 ]
+}
+
+# ---------------------------------------------------------------------------
 # JSON Schema roundtrip-testar (køyrer separat frå skjema-testar)
 # ---------------------------------------------------------------------------
 run_json_schema_tests() {
@@ -1273,12 +1346,30 @@ run_json_schema_tests() {
 }
 
 # ---------------------------------------------------------------------------
+# copy_artifacts.sh-testar (køyrer alltid — treng ingen skjemaliste/containarar)
+# ---------------------------------------------------------------------------
+run_copy_artifacts_tests() {
+    local tmplog
+    tmplog=$(mktemp /tmp/test_make_copyartifacts_XXXXXX.log)
+
+    {
+        _run_one "copy-artifacts-click-href" test_copy_artifacts_click_href
+    } >> "$tmplog" 2>&1 &
+
+    SCHEMA_PIDS+=($!)
+    SCHEMA_LOGS+=("$tmplog")
+}
+
+# ---------------------------------------------------------------------------
 # Start ein bakgrunnsprosess per skjema; testar per skjema køyrer sekvensielt
 # ---------------------------------------------------------------------------
 exec 3>&1
 
 # Køyr JSON Schema roundtrip-testar (dersom TEST_FILTER=roundtrip-json-schema)
 run_json_schema_tests "$SCHEMA_FILTER"
+
+# Køyr copy_artifacts.sh-testar (uavhengig av TEST_FILTER — rask, lokal sjekk)
+run_copy_artifacts_tests
 
 # Køyr vanlige skjema-testar (dersom TEST_FILTER != roundtrip-json-schema)
 if [[ "${TEST_FILTER:-}" != "roundtrip-json-schema" ]]; then

@@ -18,7 +18,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ```mermaid
  classDiagram
     class Aktoer
-    click Aktoer href "../Aktoer/"
+    click Aktoer href "../aktoer/"
       Aktoer : id
         
           
@@ -26,7 +26,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
         
         Aktoer --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -37,7 +37,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
         
         Aktoer --> "0..1" String : identifikator_literal
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -48,7 +48,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
         
         Aktoer --> "1..*" LangString : navn_aktoer
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -59,7 +59,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
         
         
         Aktoer --> "0..1" Konsept : type_concept
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         

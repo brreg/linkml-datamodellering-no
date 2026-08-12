@@ -516,14 +516,16 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-# gen-doc genererer interne lenkjer som ikkje alltid har tilsvarende .md-filer
-# (t.d. lowercase-alias for PascalCase-klassefiler på case-insensitive filsystem),
-# og systematiske fragment-lenkjer utan filnamn (t.d. ../../ap-no/dcat-ap-no/#classes
-# i staden for .../index.md#classes) som mkdocs ikkje kjenner att som interne lenkjer.
-# Desse åtvaringane er ikkje kritiske og vert undertrykka her.
+# gen-doc genererer systematiske fragment-lenkjer utan filnamn (t.d.
+# ../../ap-no/dcat-ap-no/#classes i staden for .../index.md#classes) som
+# mkdocs ikkje kjenner att som interne lenkjer. Denne åtvaringa er ikkje
+# kritisk og vert undertrykka her. Merk: dette dekkjer ikkje mermaid
+# click-hrefs (klikkbare lenkjer i klassediagram) — mkdocs sin
+# lenkje-validator ser berre rendra <a href>-element, ikkje rå tekst inni
+# fenced code-blokker, sjå specs/backlog/mermaid-klikkbare-lenker-404.md.
 validation:
   links:
-    not_found: ignore
+    not_found: warn
     unrecognized_links: ignore
   nav:
     omitted_files: ignore

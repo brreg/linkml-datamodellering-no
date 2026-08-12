@@ -20,15 +20,15 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 ```mermaid
  classDiagram
     class KatalogisertRessurs
-    click KatalogisertRessurs href "../KatalogisertRessurs/"
+    click KatalogisertRessurs href "../katalogisertressurs/"
       KatalogisertRessurs <|-- Datasett
-        click Datasett href "../Datasett/"
+        click Datasett href "../datasett/"
       KatalogisertRessurs <|-- Datasettserie
-        click Datasettserie href "../Datasettserie/"
+        click Datasettserie href "../datasettserie/"
       KatalogisertRessurs <|-- Datatjeneste
-        click Datatjeneste href "../Datatjeneste/"
+        click Datatjeneste href "../datatjeneste/"
       KatalogisertRessurs <|-- Katalog
-        click Katalog href "../Katalog/"
+        click Katalog href "../katalog/"
       
       KatalogisertRessurs : id
         
@@ -37,7 +37,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
         
         
         KatalogisertRessurs --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

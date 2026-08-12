@@ -18,7 +18,7 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 ```mermaid
  classDiagram
     class Lisensdokument
-    click Lisensdokument href "../Lisensdokument/"
+    click Lisensdokument href "../lisensdokument/"
       Lisensdokument : id
         
           
@@ -26,7 +26,7 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
         
         
         Lisensdokument --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
         
         
         Lisensdokument --> "0..1" Konsept : type_concept
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         

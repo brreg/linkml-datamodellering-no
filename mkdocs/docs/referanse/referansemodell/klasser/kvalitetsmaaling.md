@@ -18,7 +18,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 ```mermaid
  classDiagram
     class Kvalitetsmaaling
-    click Kvalitetsmaaling href "../Kvalitetsmaaling/"
+    click Kvalitetsmaaling href "../kvalitetsmaaling/"
       Kvalitetsmaaling : er_kvalitetsmaaling_av
         
           
@@ -26,7 +26,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "1" Kvalitetsmaal : er_kvalitetsmaaling_av
-        click Kvalitetsmaal href "../Kvalitetsmaal/"
+        click Kvalitetsmaal href "../kvalitetsmaal/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" Boolean : har_boolean_verdi
-        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+        click Boolean href "../boolean/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "*" LangString : har_merknad
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" Double : har_numerisk_verdi
-        click Double href "../http://www.w3.org/2001/XMLSchema#double/"
+        click Double href "../double/"
     
 
         
@@ -70,7 +70,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" String : har_tekst_verdi
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -81,7 +81,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

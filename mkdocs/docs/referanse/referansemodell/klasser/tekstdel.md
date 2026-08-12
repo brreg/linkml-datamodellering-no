@@ -18,7 +18,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 ```mermaid
  classDiagram
     class Tekstdel
-    click Tekstdel href "../Tekstdel/"
+    click Tekstdel href "../tekstdel/"
       Tekstdel : format
         
           
@@ -26,7 +26,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
         
         
         Tekstdel --> "0..1" Konsept : format
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -37,7 +37,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
         
         
         Tekstdel --> "1" String : har_verdi_tekstdel
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -48,7 +48,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
         
         
         Tekstdel --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -59,7 +59,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
         
         
         Tekstdel --> "*" Konsept : spraak
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         

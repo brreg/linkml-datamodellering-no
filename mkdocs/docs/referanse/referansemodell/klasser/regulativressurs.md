@@ -18,7 +18,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 ```mermaid
  classDiagram
     class RegulativRessurs
-    click RegulativRessurs href "../RegulativRessurs/"
+    click RegulativRessurs href "../regulativressurs/"
       RegulativRessurs : beskrivelse
         
           
@@ -26,7 +26,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -37,7 +37,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" Uri : har_referanse
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -48,7 +48,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -59,7 +59,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "0..1" String : identifikator_literal
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -70,7 +70,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" RegulativRessurs : relatert_regulativ_ressurs
-        click RegulativRessurs href "../RegulativRessurs/"
+        click RegulativRessurs href "../regulativressurs/"
     
 
         
@@ -81,7 +81,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" Konsept : spraak
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -92,7 +92,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -103,7 +103,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "0..1" Konsept : type_concept
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         

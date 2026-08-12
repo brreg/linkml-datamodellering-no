@@ -18,7 +18,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 ```mermaid
  classDiagram
     class Standard
-    click Standard href "../Standard/"
+    click Standard href "../standard/"
       Standard : har_merknad
         
           
@@ -26,7 +26,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "*" LangString : har_merknad
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "*" Uri : har_referanse
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "1..*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -70,7 +70,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "0..1" String : versjon
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         

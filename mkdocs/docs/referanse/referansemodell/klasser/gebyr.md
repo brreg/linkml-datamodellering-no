@@ -18,7 +18,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ```mermaid
  classDiagram
     class Gebyr
-    click Gebyr href "../Gebyr/"
+    click Gebyr href "../gebyr/"
       Gebyr : belop
         
           
@@ -26,7 +26,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "0..1" String : belop
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -37,7 +37,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -48,7 +48,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "*" Uri : dokumentasjon
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -59,7 +59,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -70,7 +70,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "0..1" Konsept : valuta
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         

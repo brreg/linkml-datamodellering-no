@@ -18,7 +18,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
 ```mermaid
  classDiagram
     class Ressurs
-    click Ressurs href "../Ressurs/"
+    click Ressurs href "../ressurs/"
       Ressurs : beskrivelse
         
           
@@ -26,7 +26,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "1..*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "0..1" Uriorcurie : utgjevar
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

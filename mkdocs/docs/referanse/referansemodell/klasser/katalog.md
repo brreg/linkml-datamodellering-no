@@ -18,9 +18,9 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ```mermaid
  classDiagram
     class Katalog
-    click Katalog href "../Katalog/"
+    click Katalog href "../katalog/"
       KatalogisertRessurs <|-- Katalog
-        click KatalogisertRessurs href "../KatalogisertRessurs/"
+        click KatalogisertRessurs href "../katalogisertressurs/"
       
       Katalog : beskrivelse
         
@@ -29,7 +29,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1..*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Datasett : datasett
-        click Datasett href "../Datasett/"
+        click Datasett href "../datasett/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Datatjeneste : datatjeneste
-        click Datatjeneste href "../Datatjeneste/"
+        click Datatjeneste href "../datatjeneste/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Konsept : dekningsomraade
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -73,7 +73,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Date : endringsdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         
@@ -84,7 +84,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" RegulativRessurs : gjeldende_lovgivning
-        click RegulativRessurs href "../RegulativRessurs/"
+        click RegulativRessurs href "../regulativressurs/"
     
 
         
@@ -95,7 +95,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Katalog : har_del
-        click Katalog href "../Katalog/"
+        click Katalog href "../katalog/"
     
 
         
@@ -106,7 +106,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Uri : heimeside
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -117,7 +117,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -128,7 +128,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" String : identifikator_literal
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -139,7 +139,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Katalogpost : katalogpost
-        click Katalogpost href "../Katalogpost/"
+        click Katalogpost href "../katalogpost/"
     
 
         
@@ -150,7 +150,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1..*" Kontaktopplysning : kontaktpunkt
-        click Kontaktopplysning href "../Kontaktopplysning/"
+        click Kontaktopplysning href "../kontaktopplysning/"
     
 
         
@@ -161,7 +161,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Lisensdokument : lisens
-        click Lisensdokument href "../Lisensdokument/"
+        click Lisensdokument href "../lisensdokument/"
     
 
         
@@ -172,7 +172,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Aktoer : produsent
-        click Aktoer href "../Aktoer/"
+        click Aktoer href "../aktoer/"
     
 
         
@@ -183,7 +183,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Rettighetserklaring : rettigheter
-        click Rettighetserklaring href "../Rettighetserklaring/"
+        click Rettighetserklaring href "../rettighetserklaring/"
     
 
         
@@ -194,7 +194,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Konsept : spraak
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -205,7 +205,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Begrepssamling : temaer
-        click Begrepssamling href "../Begrepssamling/"
+        click Begrepssamling href "../begrepssamling/"
     
 
         
@@ -216,7 +216,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Tidsrom : tidsrom
-        click Tidsrom href "../Tidsrom/"
+        click Tidsrom href "../tidsrom/"
     
 
         
@@ -227,7 +227,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1..*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -238,7 +238,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Katalog : underkatalog
-        click Katalog href "../Katalog/"
+        click Katalog href "../katalog/"
     
 
         
@@ -249,7 +249,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Date : utgivelsesdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         
@@ -260,7 +260,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1" Aktoer : utgiver
-        click Aktoer href "../Aktoer/"
+        click Aktoer href "../aktoer/"
     
 
         

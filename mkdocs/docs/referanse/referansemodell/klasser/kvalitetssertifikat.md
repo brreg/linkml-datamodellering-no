@@ -18,9 +18,9 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 ```mermaid
  classDiagram
     class Kvalitetssertifikat
-    click Kvalitetssertifikat href "../Kvalitetssertifikat/"
+    click Kvalitetssertifikat href "../kvalitetssertifikat/"
       Kvalitetsmerknad <|-- Kvalitetssertifikat
-        click Kvalitetsmerknad href "../Kvalitetsmerknad/"
+        click Kvalitetsmerknad href "../kvalitetsmerknad/"
       
       Kvalitetssertifikat : er_i_kvalitetsdimensjon
         
@@ -29,7 +29,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "*" Kvalitetsdimensjon : er_i_kvalitetsdimensjon
-        click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+        click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "1" DqvMotivasjon : er_motivert_av
-        click DqvMotivasjon href "../DqvMotivasjon/"
+        click DqvMotivasjon href "../dqvmotivasjon/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "0..1" Uriorcurie : har_maal
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "*" LangString : har_merknad
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -73,7 +73,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "*" Tekstdel : har_tekstdel
-        click Tekstdel href "../Tekstdel/"
+        click Tekstdel href "../tekstdel/"
     
 
         
@@ -84,7 +84,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
         
         
         Kvalitetssertifikat --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

@@ -18,7 +18,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ```mermaid
  classDiagram
     class Kvalitetsmaal
-    click Kvalitetsmaal href "../Kvalitetsmaal/"
+    click Kvalitetsmaal href "../kvalitetsmaal/"
       Kvalitetsmaal : er_i_kvalitetsdeldimensjon
         
           
@@ -26,7 +26,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
         
         Kvalitetsmaal --> "1" Kvalitetsdeldimensjon : er_i_kvalitetsdeldimensjon
-        click Kvalitetsdeldimensjon href "../Kvalitetsdeldimensjon/"
+        click Kvalitetsdeldimensjon href "../kvalitetsdeldimensjon/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
         
         Kvalitetsmaal --> "*" LangString : har_anbefalt_term
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
         
         Kvalitetsmaal --> "0..1" Uriorcurie : har_forventet_datatype
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
         
         Kvalitetsmaal --> "*" LangString : har_kvalitetsdefinisjon
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -70,7 +70,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
         
         Kvalitetsmaal --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

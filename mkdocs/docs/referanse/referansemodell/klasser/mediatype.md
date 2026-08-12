@@ -18,7 +18,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 ```mermaid
  classDiagram
     class Mediatype
-    click Mediatype href "../Mediatype/"
+    click Mediatype href "../mediatype/"
       Mediatype : id
         
           
@@ -26,7 +26,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
         
         
         Mediatype --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

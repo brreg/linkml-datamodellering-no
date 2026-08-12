@@ -18,9 +18,9 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ```mermaid
  classDiagram
     class Datasettserie
-    click Datasettserie href "../Datasettserie/"
+    click Datasettserie href "../datasettserie/"
       KatalogisertRessurs <|-- Datasettserie
-        click KatalogisertRessurs href "../KatalogisertRessurs/"
+        click KatalogisertRessurs href "../katalogisertressurs/"
       
       Datasettserie : beskrivelse
         
@@ -29,7 +29,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1..*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "*" Konsept : dekningsomraade
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Date : endringsdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Datasett : forste
-        click Datasett href "../Datasett/"
+        click Datasett href "../datasett/"
     
 
         
@@ -73,7 +73,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Konsept : frekvens
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -84,7 +84,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "*" RegulativRessurs : gjeldende_lovgivning
-        click RegulativRessurs href "../RegulativRessurs/"
+        click RegulativRessurs href "../regulativressurs/"
     
 
         
@@ -95,7 +95,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -106,7 +106,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1..*" Kontaktopplysning : kontaktpunkt
-        click Kontaktopplysning href "../Kontaktopplysning/"
+        click Kontaktopplysning href "../kontaktopplysning/"
     
 
         
@@ -117,7 +117,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Datasett : siste
-        click Datasett href "../Datasett/"
+        click Datasett href "../datasett/"
     
 
         
@@ -128,7 +128,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1..*" Konsept : tema
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -139,7 +139,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "*" Tidsrom : tidsrom
-        click Tidsrom href "../Tidsrom/"
+        click Tidsrom href "../tidsrom/"
     
 
         
@@ -150,7 +150,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1..*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -161,7 +161,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Date : utgivelsesdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         
@@ -172,7 +172,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1" Aktoer : utgiver
-        click Aktoer href "../Aktoer/"
+        click Aktoer href "../aktoer/"
     
 
         

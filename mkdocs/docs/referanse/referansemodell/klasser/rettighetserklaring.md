@@ -18,7 +18,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ```mermaid
  classDiagram
     class Rettighetserklaring
-    click Rettighetserklaring href "../Rettighetserklaring/"
+    click Rettighetserklaring href "../rettighetserklaring/"
       Rettighetserklaring : anvendelsesretningslinjer
         
           
@@ -26,7 +26,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : anvendelsesretningslinjer
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : jurisdiksjon
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : krediteringstekst
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -70,7 +70,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" Uri : krediteringsurl
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -81,7 +81,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" GYear : opphavsrettsaar
-        click GYear href "../GYear/"
+        click GYear href "../gyear/"
     
 
         
@@ -92,7 +92,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettserklaring
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -103,7 +103,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettsinnehaver
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         
@@ -114,7 +114,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettsnotis
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         

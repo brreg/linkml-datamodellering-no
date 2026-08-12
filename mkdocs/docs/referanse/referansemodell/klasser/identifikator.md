@@ -18,7 +18,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ```mermaid
  classDiagram
     class Identifikator
-    click Identifikator href "../Identifikator/"
+    click Identifikator href "../identifikator/"
       Identifikator : id
         
           
@@ -26,7 +26,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
         
         
         Identifikator --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -37,7 +37,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
         
         
         Identifikator --> "1" String : notasjon
-        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+        click String href "../string/"
     
 
         

@@ -18,9 +18,9 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 ```mermaid
  classDiagram
     class Brukartilbakemelding
-    click Brukartilbakemelding href "../Brukartilbakemelding/"
+    click Brukartilbakemelding href "../brukartilbakemelding/"
       Kvalitetsmerknad <|-- Brukartilbakemelding
-        click Kvalitetsmerknad href "../Kvalitetsmerknad/"
+        click Kvalitetsmerknad href "../kvalitetsmerknad/"
       
       Brukartilbakemelding : er_i_kvalitetsdimensjon
         
@@ -29,7 +29,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "*" Kvalitetsdimensjon : er_i_kvalitetsdimensjon
-        click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+        click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "1" DqvMotivasjon : er_motivert_av
-        click DqvMotivasjon href "../DqvMotivasjon/"
+        click DqvMotivasjon href "../dqvmotivasjon/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "0..1" Uriorcurie : har_maal
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "*" LangString : har_merknad
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -73,7 +73,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "*" Tekstdel : har_tekstdel
-        click Tekstdel href "../Tekstdel/"
+        click Tekstdel href "../tekstdel/"
     
 
         
@@ -84,7 +84,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
         
         
         Brukartilbakemelding --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

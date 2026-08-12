@@ -18,7 +18,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 ```mermaid
  classDiagram
     class Konsept
-    click Konsept href "../Konsept/"
+    click Konsept href "../konsept/"
       Konsept : id
         
           
@@ -26,7 +26,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
         
         Konsept --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

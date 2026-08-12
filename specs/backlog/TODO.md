@@ -37,4 +37,8 @@ vs
 person og enhet https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018
 
 
-Kva brreg modellar kan vi teste ?
+semic eu core vocabularies
+
+
+https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/
+https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/html/overview.jpg

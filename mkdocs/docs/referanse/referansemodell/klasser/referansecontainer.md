@@ -18,7 +18,7 @@ URI: [https://data.norge.no/linkml/referansemodell/ReferanseContainer](https://d
 ```mermaid
  classDiagram
     class ReferanseContainer
-    click ReferanseContainer href "../ReferanseContainer/"
+    click ReferanseContainer href "../referansecontainer/"
       ReferanseContainer : ressursar
         
           
@@ -26,7 +26,7 @@ URI: [https://data.norge.no/linkml/referansemodell/ReferanseContainer](https://d
         
         
         ReferanseContainer --> "*" Ressurs : ressursar
-        click Ressurs href "../Ressurs/"
+        click Ressurs href "../ressurs/"
     
 
         

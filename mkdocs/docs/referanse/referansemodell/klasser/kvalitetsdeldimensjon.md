@@ -18,9 +18,9 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ```mermaid
  classDiagram
     class Kvalitetsdeldimensjon
-    click Kvalitetsdeldimensjon href "../Kvalitetsdeldimensjon/"
+    click Kvalitetsdeldimensjon href "../kvalitetsdeldimensjon/"
       Kvalitetsdimensjon <|-- Kvalitetsdeldimensjon
-        click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+        click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
       
       Kvalitetsdeldimensjon : er_deldimensjon_av
         
@@ -29,7 +29,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
         
         Kvalitetsdeldimensjon --> "1" Kvalitetsdimensjon : er_deldimensjon_av
-        click Kvalitetsdimensjon href "../Kvalitetsdimensjon/"
+        click Kvalitetsdimensjon href "../kvalitetsdimensjon/"
     
 
         
@@ -40,7 +40,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
         
         Kvalitetsdeldimensjon --> "*" Uriorcurie : gjelder_standard
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -51,7 +51,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
         
         Kvalitetsdeldimensjon --> "*" LangString : har_anbefalt_term
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -62,7 +62,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
         
         Kvalitetsdeldimensjon --> "*" LangString : har_kvalitetsdefinisjon
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -73,7 +73,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
         
         Kvalitetsdeldimensjon --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         

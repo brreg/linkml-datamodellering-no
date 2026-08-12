@@ -105,6 +105,44 @@ jobs:
           path: mermaid-render-report.md
           retention-days: 30
 
+  mermaid-click-href-sjekk:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      # Evaluerer mermaid `click <Namn> href "..."`-direktiv i klassediagram
+      # på den publiserte portalen. Desse er usynlege for mkdocs sin eigen
+      # lenkje-validator (jf. validation.links i mkdocs.yml), sidan han berre
+      # ser rendra <a href>-element — ikkje rå tekst inni fenced code-blokker.
+      # Gjenbrukar den til ei kvar tid publiserte GitHub Pages-portalen
+      # (deploya av generate.yml) i staden for å byggje portalen på nytt her
+      # — sjå specs/backlog/mermaid-klikkbare-lenker-404.md.
+      - name: Evaluer mermaid click-hrefs i publisert portal
+        run: |
+          python3 mkdocs/lib/scripts/check-mermaid-click-hrefs.py \
+            https://brreg.github.io/linkml-datamodellering-no \
+            --concurrency 10 \
+            --report click-href-sjekk-report.md
+
+      - name: Skriv oppsummering
+        if: always()
+        run: |
+          {
+            echo "## Mermaid click-href-sjekk"
+            cat click-href-sjekk-report.md 2>/dev/null || echo "Ingen rapport generert (skriptet feila før rapportering)."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp click-href-rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: click-href-sjekk-report
+          path: click-href-sjekk-report.md
+          retention-days: 30
+
   lenkjesjekk:
     runs-on: ubuntu-22.04
     permissions:

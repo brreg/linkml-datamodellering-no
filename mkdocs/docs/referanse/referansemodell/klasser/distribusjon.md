@@ -18,7 +18,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 ```mermaid
  classDiagram
     class Distribusjon
-    click Distribusjon href "../Distribusjon/"
+    click Distribusjon href "../distribusjon/"
       Distribusjon : beskrivelse
         
           
@@ -26,7 +26,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" LangString : beskrivelse
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -37,7 +37,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Uri : dokumentasjon
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -48,7 +48,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Date : endringsdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         
@@ -59,7 +59,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" NonNegativeInteger : filstorrelse
-        click NonNegativeInteger href "../NonNegativeInteger/"
+        click NonNegativeInteger href "../nonnegativeinteger/"
     
 
         
@@ -70,7 +70,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Konsept : format
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -81,7 +81,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" RegulativRessurs : gjeldende_lovgivning
-        click RegulativRessurs href "../RegulativRessurs/"
+        click RegulativRessurs href "../regulativressurs/"
     
 
         
@@ -92,7 +92,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Standard : i_samsvar_med
-        click Standard href "../Standard/"
+        click Standard href "../standard/"
     
 
         
@@ -103,7 +103,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "1" Uriorcurie : id
-        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uriorcurie href "../uriorcurie/"
     
 
         
@@ -114,7 +114,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Mediatype : komprimeringsformat
-        click Mediatype href "../Mediatype/"
+        click Mediatype href "../mediatype/"
     
 
         
@@ -125,7 +125,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Lisensdokument : lisens
-        click Lisensdokument href "../Lisensdokument/"
+        click Lisensdokument href "../lisensdokument/"
     
 
         
@@ -136,7 +136,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Mediatype : medietype
-        click Mediatype href "../Mediatype/"
+        click Mediatype href "../mediatype/"
     
 
         
@@ -147,7 +147,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Uri : nedlastningslenke
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -158,7 +158,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Mediatype : pakkeformat
-        click Mediatype href "../Mediatype/"
+        click Mediatype href "../mediatype/"
     
 
         
@@ -169,7 +169,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Uri : policy
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -180,7 +180,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Rettighetserklaring : rettigheter
-        click Rettighetserklaring href "../Rettighetserklaring/"
+        click Rettighetserklaring href "../rettighetserklaring/"
     
 
         
@@ -191,7 +191,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Float : romlig_opplosning
-        click Float href "../http://www.w3.org/2001/XMLSchema#float/"
+        click Float href "../float/"
     
 
         
@@ -202,7 +202,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Sjekksum : sjekksum
-        click Sjekksum href "../Sjekksum/"
+        click Sjekksum href "../sjekksum/"
     
 
         
@@ -213,7 +213,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Konsept : spraak
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -224,7 +224,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Konsept : status
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -235,7 +235,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Duration : tidsopplosning
-        click Duration href "../Duration/"
+        click Duration href "../duration/"
     
 
         
@@ -246,7 +246,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "1..*" Uri : tilgangs_url
-        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+        click Uri href "../uri/"
     
 
         
@@ -257,7 +257,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Datatjeneste : tilgangstjeneste
-        click Datatjeneste href "../Datatjeneste/"
+        click Datatjeneste href "../datatjeneste/"
     
 
         
@@ -268,7 +268,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Konsept : tilgjengelighet
-        click Konsept href "../Konsept/"
+        click Konsept href "../konsept/"
     
 
         
@@ -279,7 +279,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" LangString : tittel
-        click LangString href "../LangString/"
+        click LangString href "../langstring/"
     
 
         
@@ -290,7 +290,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Date : utgivelsesdato
-        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+        click Date href "../date/"
     
 
         

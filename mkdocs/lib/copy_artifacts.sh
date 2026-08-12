@@ -65,5 +65,12 @@ copy_schema_artifacts() {
         # Oppdater alle interne .md-lenkjer til lowercase
         find "$out/klasser" -maxdepth 1 -name "*.md" \
             -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} +
+        # Oppdater mermaid click-hrefs til lowercase — href vert bygd på nytt
+        # frå namnet i click-statementet (ikkje frå den eksisterande
+        # href-verdien, som for typar som Uriorcurie kan innehalde ein
+        # innbaka XSD-URI i staden for typenamnet, sjå
+        # specs/backlog/mermaid-klikkbare-lenker-404.md)
+        find "$out/klasser" -maxdepth 1 -name "*.md" \
+            -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "[^"]*"|click \1 href "../\L\1\E/"|g' {} +
     fi
 }
