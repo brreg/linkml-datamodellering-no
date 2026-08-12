@@ -98,8 +98,9 @@ jobs:
           # Validering treng alle always_required-images (jf. generate.yml sitt
           # tilsvarande steg) — ikkje berre linkml-local + mcp-linkml-validator.
           # python-pytest er også always_required: save-validation-log.py
-          # (kalla frå make validate-bronze/validate-data/validate-examples)
-          # køyrer i python-pytest-kontaineren. Denne lista vart tidlegare
+          # (kalla frå make validate-data/validate-examples, begge CI-kalla
+          # per domene nedanfor) køyrer i python-pytest-kontaineren. Denne
+          # lista vart tidlegare
           # hardkoda til dei to andre og gløymde python-pytest — då prøvde
           # PYTHON_RUN å pulle localhost/python-pytest:latest som eit ekte
           # registry og feila. Slå opp always_required dynamisk i staden for
