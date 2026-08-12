@@ -33,7 +33,7 @@ jobs:
 
       - name: Last opp rapport
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: similar-classes-domain-report
           path: similar-classes-domain-report.md
@@ -61,7 +61,7 @@ jobs:
 
       - name: Last opp rapport
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: similar-classes-all-report
           path: similar-classes-all-report.md
@@ -89,7 +89,7 @@ jobs:
 
       - name: Last opp rapport
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: similar-slots-domain-report
           path: similar-slots-domain-report.md
@@ -117,7 +117,7 @@ jobs:
 
       - name: Last opp rapport
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: similar-slots-all-report
           path: similar-slots-all-report.md
@@ -145,7 +145,7 @@ jobs:
 
       - name: Last opp rapport
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: iri-resolution-report
           path: iri-resolution-report.md
