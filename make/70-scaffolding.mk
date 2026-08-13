@@ -3,6 +3,8 @@
 #
 # Scaffolding-target for å opprette nye modellar, katalogar og begrepssamlingar:
 # - new-modell: opprett ny domenemodell via mcp-linkml-modell-utkast
+# - remove-modell: fjern ein domenemodell etter tryggleikssjekkar (submodels-/
+#   imports-referansar, publish_external) — sjå specs/backlog/remove-modell.md
 # - new-modellkatalog: opprett ny modellkatalog for ein organisasjon
 # - new-begrepssamling: opprett ny begrepssamling i eit domene (gjeldande format,
 #   begrep/-katalog med éin fil per begrep — bruk denne for nye katalogar)
@@ -20,6 +22,11 @@ new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (NAME=
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell NAME=<namn> DOMAIN=<domene>"; exit 1; }
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
 	bash src/assets/scripts/scaffolding/new-modell.sh "$(NAME)" "$(DOMAIN)"
+
+remove-modell: ## Fjern ein domenemodell etter tryggleikssjekkar (NAME=<namn> DOMAIN=<domene>) [CONFIRM=1]
+	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make remove-modell NAME=<namn> DOMAIN=<domene> [CONFIRM=1]"; exit 1; }
+	bash src/assets/scripts/scaffolding/remove-modell.sh "$(NAME)" "$(DOMAIN)" $(if $(CONFIRM),--confirm)
 
 new-modellkatalog: ## Opprett katalogstruktur og boilerplate for ny organisasjonskatalog (NAME=<alias>)
 	@test -n "$(NAME)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modellkatalog NAME=<alias>"; exit 1; }

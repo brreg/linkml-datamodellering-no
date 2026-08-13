@@ -27,7 +27,7 @@ categories=(
     "Dokumentasjon|docs-"
     "Container images|build-docker-"
     "MCP-serverar|mcp-"
-    "Vedlikehald|(update-|new-|check-)"
+    "Vedlikehald|(update-|new-|remove-|check-)"
 )
 
 # Merk: ingen -h til grep — når fleire filer er gitt, prefikser grep kvar
