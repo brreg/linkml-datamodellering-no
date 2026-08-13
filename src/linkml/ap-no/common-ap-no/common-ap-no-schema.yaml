@@ -76,7 +76,9 @@ enums:
         description: Creative Commons Attribution 4.0 International
         meaning: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
       NLOD_2_0:
-        description: Norwegian Licence for Open Government Data 2.0
+        description: >-
+          Norwegian Licence for Open Government Data 2.0.
+          Norsk skildring: https://data.norge.no/nlod/no/2.0
         meaning: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
       CC_BYSA_4_0:
         description: Creative Commons Attribution-ShareAlike 4.0 International

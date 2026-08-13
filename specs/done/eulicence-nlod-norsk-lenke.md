@@ -170,8 +170,39 @@ ny enum-verdi, og ikkje endre `meaning:`.
 
 ## Handlingsliste
 
-- [ ] 1: Oppdater `NLOD_2_0` sin `description` i `common-ap-no-schema.yaml` med lenke til norsk skildring
-- [ ] 2: `make lint` + `make mcp-linkml-valider-modell` for `common-ap-no-schema.yaml`
-- [ ] 3: Verifiser generert dokumentasjonsside for `EULicence`
-- [ ] 4: Avklar versjoneringsbehov med brukar
-- [ ] 5: Flytt spec til `specs/done/` med `## Utført`-seksjon
+- [x] 1: Oppdater `NLOD_2_0` sin `description` i `common-ap-no-schema.yaml` med lenke til norsk skildring
+- [x] 2: `make lint` + `make mcp-linkml-valider-modell` for `common-ap-no-schema.yaml`
+- [x] 3: Verifiser generert dokumentasjonsside for `EULicence`
+- [x] 4: Avklar versjoneringsbehov med brukar
+- [x] 5: Flytt spec til `specs/done/` med `## Utført`-seksjon
+
+## Utført
+
+**1: `description`-endring.** Oppdatert `NLOD_2_0` sin `description` i
+`src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml` (linje 78-81) til
+ein fleirlinje-blokk (`>-`) som legg til «Norsk skildring:
+https://data.norge.no/nlod/no/2.0» etter den engelske teksten. `meaning:`
+(EU-Publications-Office-URI-en) er uendra.
+
+**2: Validering.** `make lint` gir dei same fire pre-eksisterande
+`canonical_prefixes`-åtvaringane som før endringa (urelatert, gjeld
+`adms`/`cv`/`dct`-prefiks). `make mcp-linkml-valider-modell` gir
+`"valid": true, "errorCount": 0`, med fem pre-eksisterande åtvaringar
+(`all_slots_have_slot_uri` for `id`, `all_classes_have_concept_ref` for
+`Lisensdokument`/`Mediatype`/`Konsept`/`Begrepssamling`) — ingen av desse
+kan ha samanheng med ei rein `description:`-tekstendring på ein
+enum-verdi, og talet er identisk med før endringa.
+
+**3: Generert dokumentasjon.** `make gen-docs SCHEMA=src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml`
+verifiserer at `generated/ap-no/common-ap-no/docs/EULicence.md` viser den
+nye skildringa korrekt i tabellrada for `NLOD_2_0`, med `meaning:`
+uendra. `generated/` er byggoutput (`.gitignore`-a) og krev ingen
+opprydding.
+
+**4: Versjonering.** `specs/done/conventional-commits-modellversjonering.md`
+linje 33 seier eksplisitt: `docs`-type → **ingen** versjonsbump for
+endringar i `description`-felt. Sidan denne endringa er nøyaktig det,
+skal `common-ap-no` sin `version:` **ikkje** bumpast. Commit-meldinga skal
+bruke `docs`-typen.
+
+**5: Flytting.** Denne fila vert flytta til `specs/done/` som siste steg.
