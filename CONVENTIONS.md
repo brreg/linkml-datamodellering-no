@@ -62,7 +62,7 @@ og per-schema-taggar for alle skjema som vart releaset.
 Versjonerte GitHub raw-URL-ar (brukt i quickstart-eksempel i dokumentasjonsportalen) 
 peikar til desse taggane, t.d.:
 ```
-https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema.yaml
+https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema
 ```
 
 **Manuell tagging (dersom nødvendig):**

@@ -1,0 +1,6 @@
+# Eksempel for oljefondregisteret
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+OljefondregisteretContainer:
+  oljefondregistereter:
+    - id: https://data.norge.no/oreg/oljefondregisteret/eksempel-1

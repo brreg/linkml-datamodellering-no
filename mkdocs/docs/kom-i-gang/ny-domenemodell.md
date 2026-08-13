@@ -73,6 +73,7 @@ default_range: string
 
 imports:
   - linkml:types
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov
 
 subsets:
   Obligatorisk:
@@ -83,7 +84,18 @@ subsets:
     description: Valfrie eigenskapar.
 
 classes:
-  tilskudd:                        # ← stub — gi eit norsk PascalCase-namn
+  TilskuddContainer:
+    description: TODO: beskriv containerklassen
+    tree_root: true
+    attributes:
+      tilskudder:
+        description: TODO: beskriv eigenskapen
+        range: Tilskudd
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+  Tilskudd:                        # ← stub — alt PascalCase, men gi han eit meir meiningsfullt namn
     description: TODO: beskriv klassen
     class_uri: tilskudd:tilskudd   # ← byt med faktisk vokabular-URI
     annotations:
@@ -91,38 +103,24 @@ classes:
     slots:
       - id
 
-  TilskuddContainer:
-    description: TODO: beskriv containerklassen
-    tree_root: true
-    attributes:
-      tilskudder:
-        description: TODO: beskriv eigenskapen
-        range: tilskudd
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-
-slots:
-  id:
-    description: Unik URI-identifikator for ressursen.
-    identifier: true
-    range: uriorcurie
-
-# TODO: Legg til domene-spesifikke imports etter 'linkml:types', t.d.:
-#   - ../../ap-no/dcat-ap-no/dcat-ap-no-schema
-# TODO: Gi stub-klassen eit meiningsfult norsk namn (PascalCase).
+# TODO: Gi stub-klassen eit meir meiningsfullt namn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.
 ```
+
+`id`-sloten er ikkje lokalt definert i utkastet — han vert arva frå
+`common-ap-no` sitt importerte, delte `id`-slot (`identifier: true`,
+`range: uriorcurie`).
+
 **Kva TODO-stubbane betyr**
 
 | Stubb | Kva som skal inn |
 |-------|-----------------|
 | `title: 'TODO: tittel for …'` | Norsk bokmål-tittel, t.d. `Tilskuddsregister` |
-| `class tilskudd` (ikkje PascalCase) | Gi klassen eit norsk PascalCase-namn, t.d. `Tilskudd` |
+| `class Tilskudd` (generisk namn) | Gi klassen eit meir meiningsfullt norsk namn, t.d. `Tilskuddsvedtak` (namnet er alt PascalCase) |
 | `class_uri: tilskudd:tilskudd` | Faktisk RDF-URI, t.d. `dcat:Dataset` eller eigen namespace |
 | `begrepsidentifikator: …/TODO` | URI frå [data.norge.no/concepts](https://data.norge.no/concepts) |
 | `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
-| `imports: [linkml:types]` | Legg til AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema` |
+| `common-ap-no`-importet (TODO-kommentar på importlina) | Byt til ein reell AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema`, dersom `common-ap-no` sine felles slots ikkje dekkjer behovet |
 | `license: creativecommons.org/…` | Endre til `https://data.norge.no/nlod/no/2.0` for offentlege data |
 
 `build.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](build-config.md) for feltliste.
@@ -136,9 +134,8 @@ slots:
 # Eksempel for tilskudd
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
-TilskuddContainer:
-  tilskudder:
-    - id: https://data.norge.no/eksempel/tilskudd/eksempel-1
+tilskudder:
+  - id: https://data.norge.no/eksempel/tilskudd/eksempel-1
 ```
 
 

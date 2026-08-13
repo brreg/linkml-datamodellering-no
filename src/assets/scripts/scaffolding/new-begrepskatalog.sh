@@ -123,8 +123,7 @@ cat > "$EXAMPLE_FILE" << EOF
 # Eksempel for $NAME
 # Generer YAML-blokker med: make mcp-linkml-begrep-utkast-run (sjå ny-begrepsmodell.md steg 4)
 ---
-BegrepContainer:
-  begrep: []
+begrep: []
 EOF
 
 cat > "$DESCRIPTION_FILE" << EOF

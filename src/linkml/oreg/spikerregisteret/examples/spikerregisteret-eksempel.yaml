@@ -1,6 +1,0 @@
-# Eksempel for spikerregisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-SpikerregisteretContainer:
-  spikerregistereter:
-    - id: https://data.norge.no/oreg/spikerregisteret/eksempel-1

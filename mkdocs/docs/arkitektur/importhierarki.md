@@ -121,7 +121,7 @@ linkml:types
 imports:
   - linkml:types
   - ../../ap-no/dcat-ap-no/dcat-ap-no-schema  # AP-NO-profil (stabil, relativ sti)
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.1.0/src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml  # domenemodell (versjonslåst via git tag)
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.1.0/src/linkml/ngr/ngr-adresse/ngr-adresse-schema  # domenemodell (versjonslåst via git tag)
 ```
 
 **Kvifor versjonslåse?**

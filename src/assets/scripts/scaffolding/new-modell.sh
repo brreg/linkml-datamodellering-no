@@ -16,6 +16,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 SCHEMA_DIR="$REPO_ROOT/src/linkml/$DOMAIN/$NAME"
 EXAMPLES_DIR="$SCHEMA_DIR/examples"
 SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"
+SCHEMA_FILE_REL="src/linkml/$DOMAIN/$NAME/$NAME-schema.yaml"
 EXAMPLE_FILE="$EXAMPLES_DIR/$NAME-eksempel.yaml"
 
 if [[ -d "$SCHEMA_DIR" ]]; then
@@ -75,39 +76,88 @@ fi
 mkdir -p "$SCHEMA_DIR"
 mkdir -p "$EXAMPLES_DIR"
 
-# Legg til kommentar om import og skriv skjema
-{
-    echo "$LINKML_YAML"
-    echo "# TODO: Legg til domene-spesifikke imports etter 'linkml:types', t.d.:"
-    echo "#   - ../../ap-no/dcat-ap-no/dcat-ap-no-schema"
-    echo "# TODO: Gi stub-klassen eit meiningsfult norsk namn (PascalCase)."
-    echo "# TODO: Legg til slots og slot_usage for eigenskapane i modellen."
-} > "$SCHEMA_FILE"
-
-# Ekstraher container-klassnamn og første slot-namn frå det genererte YAML-et
+# Transformer det genererte skjemaet (PascalCase stub-klassenamn, versjonslåst
+# common-ap-no-import i staden for lokal id-slot utan slot_uri — sjå
+# specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
+# $SCHEMA_FILE, og hent ut container-klassenamn/-slot for eksempelfila.
 read CONTAINER_CLASS CONTAINER_SLOT < <(python3 -c "
-import yaml, sys
-schema = yaml.safe_load('''$LINKML_YAML''')
-classes = schema.get('classes', {})
-container_name = '${SCHEMA_NAME}Container'
-container_slot = '${SCHEMA_NAME}er'
+import yaml
+
+raw = '''$LINKML_YAML'''
+lines = raw.splitlines(keepends=True)
+header_lines = []
+i = 0
+while i < len(lines):
+    line = lines[i]
+    header_lines.append(line)
+    i += 1
+    if line.strip() == '':
+        break
+header = ''.join(header_lines)
+body = ''.join(lines[i:])
+
+schema = yaml.safe_load(body)
+
+def to_pascal_case(name):
+    parts = name.replace('_', '-').split('-')
+    return ''.join(p.capitalize() for p in parts if p)
+
+classes = schema.get('classes') or {}
+container_name = None
+stub_name = None
 for cname, cdef in classes.items():
     if cdef.get('tree_root'):
         container_name = cname
-        attrs = cdef.get('attributes', {})
-        if attrs:
-            container_slot = list(attrs.keys())[0]
-        break
-print(container_name, container_slot)
-" 2>/dev/null || echo "${SCHEMA_NAME}Container ${SCHEMA_NAME}er")
+    else:
+        stub_name = cname
+
+if stub_name:
+    new_stub_name = to_pascal_case(stub_name)
+    if new_stub_name != stub_name:
+        classes[new_stub_name] = classes.pop(stub_name)
+        if container_name:
+            for slot_def in (classes[container_name].get('attributes') or {}).values():
+                if slot_def.get('range') == stub_name:
+                    slot_def['range'] = new_stub_name
+        stub_name = new_stub_name
+
+slots = schema.get('slots') or {}
+slots.pop('id', None)
+if slots:
+    schema['slots'] = slots
+else:
+    schema.pop('slots', None)
+
+container_slot = None
+if container_name:
+    attrs = classes[container_name].get('attributes') or {}
+    if attrs:
+        container_slot = list(attrs.keys())[0]
+
+body_out = yaml.dump(schema, allow_unicode=True, default_flow_style=False, sort_keys=False)
+body_out = body_out.replace(
+    '- linkml:types\n',
+    '- linkml:types\n'
+    '- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema'
+    '  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov\n',
+    1,
+)
+
+with open('$SCHEMA_FILE', 'w') as f:
+    f.write(header)
+    f.write(body_out)
+    f.write('# TODO: Gi stub-klassen eit meir meiningsfullt namn.\n')
+    f.write('# TODO: Legg til slots og slot_usage for eigenskapane i modellen.\n')
+
+print(container_name or '${SCHEMA_NAME}Container', container_slot or '${SCHEMA_NAME}er')
+")
 
 cat > "$EXAMPLE_FILE" << EOF
 # Eksempel for $NAME
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
-$CONTAINER_CLASS:
-  $CONTAINER_SLOT:
-    - id: $SCHEMA_ID/eksempel-1
+$CONTAINER_SLOT:
+  - id: $SCHEMA_ID/eksempel-1
 EOF
 
 MANIFEST_FILE="$SCHEMA_DIR/build.yaml"
@@ -157,7 +207,7 @@ make --no-print-directory update-valid-scopes
 
 echo ""
 echo "Neste steg:"
-echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"
-echo "  2. Legg til domene-spesifikke imports (sjå kommentar i skjemafila)"
+echo "  1. Gi stub-klassen eit meir meiningsfullt namn og legg til eigenskapar"
+echo "  2. Byt common-ap-no-importet til ein reell AP-NO-profil ved behov (sjå TODO-kommentar i skjemafila)"
 echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"
-echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE POLICY=bronze"
+echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE_REL POLICY=bronze"
