@@ -85,7 +85,7 @@ subsets:
 
 classes:
   TilskuddContainer:
-    description: TODO: beskriv containerklassen
+    description: containerklasse for serialisering av klasser i tilskudd modellen
     tree_root: true
     attributes:
       tilskudder:

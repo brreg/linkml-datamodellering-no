@@ -435,7 +435,7 @@ def convert(
                 "inlined_as_list": True,
             }
         classes_out[container_name] = {
-            "description": "TODO: beskriv containerklassen",
+            "description": f"containerklasse for serialisering av klasser i {schema_name} modellen",
             "tree_root":   True,
             "attributes":  attrs_dict,
         }

@@ -32,7 +32,7 @@ subsets:
     description: Valfrie eigenskapar.
 classes:
   VeteranbilregisteretContainer:
-    description: 'TODO: beskriv containerklassen'
+    description: 'containerklasse for serialisering av klasser i <name> modellen'
     tree_root: true
     attributes:
       veteranbilregistereter:
@@ -41,9 +41,9 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-  Veteranbilregisteret:
-    description: 'TODO: beskriv klassen'
-    class_uri: veteranbilregisteret:veteranbilregisteret
+  Veteranbil:
+    description: 'Kjøretøy som kvalifiserer som veteranbil (mininum 30 år gammelt)'
+    class_uri: veteranbilregisteret:veteranbil
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
