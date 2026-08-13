@@ -5,7 +5,7 @@ id: https://data.norge.no/ap-no/cpsv-ap-no
 name: cpsv-ap-no
 title: CPSV-AP-NO
 description: Offentlege tenester og hendingar
-version: "1.10.0"
+version: "1.10.1"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://data.norge.no/specification/cpsv-ap-no
