@@ -60,6 +60,8 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-12](bugs/valideringslogg-json-inkonsistent-skjema.md) | Tre skriveveger til `validation/<versjon>/<policy>.json` brukte ulike feltnamn (`validation_policy`/`validation_type`, med/utan `validated_at`) | `løyst` | `make/40-validation.mk` | alle skjema |
 | [BUG-13](bugs/mermaid-link-ekstern-uri-prefiks.md) | `DocGenerator.link_mermaid()` limer `../` framanfor absolutte eksterne URL-ar til importerte `linkml:types`-typar (`uri`, `uriorcurie`, `string`, `boolean`, `date`, `double`, `float`) | `upstream` | `linkml` | alle skjema med importerte, ikkje lokalt omdefinerte elementærtypar |
 | [BUG-14](bugs/mermaid-classdiagram-eitt-click-per-boks.md) | Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributtklikk i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten | `open` | `mermaid` | alle skjema/klassar med minst éin attributt i diagrammet |
+| [BUG-15](bugs/relativ-import-via-versjonslast-url.md) | `SchemaView.imports_closure()` kollapsar `https://` til `https:/` når han løyser relative importar i eit versjonslåst URL-importert skjema — feilar med `Unknown CURIE prefix: https` | `workaround` | `linkml-runtime` | alle skjema med versjonslåst URL-import av eit skjema som transitivt importerer ein AP-NO-profil |
+| [BUG-16](bugs/codeowners-frontmatter-format-mismatch.md) | `update-modellkatalog.py::load_org_registry()` forventa `---`-frontmatter, men CODEOWNERS.md brukar ```yaml`-fence — fann alltid 0 organisasjonar | `løyst` | `src/assets/scripts/makefile/update-modellkatalog.py` | `gen-modelldcat-elements`, `update-modellkatalog` |
 
 ## Statusforklaring
 

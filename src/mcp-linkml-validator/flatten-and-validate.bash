@@ -69,6 +69,10 @@ print('\n'.join(json.dumps(m) for m in msgs))
 import json, sys
 for line in sys.stdin:
     r = json.loads(line)
-    if r.get('id') == 2:
-        print(r['result']['content'][0]['text'])
+    if r.get('id') != 2:
+        continue
+    if 'error' in r:
+        print(f\"MCP-feil: {r['error'].get('message', r['error'])}\", file=sys.stderr)
+        sys.exit(1)
+    print(r['result']['content'][0]['text'])
 "

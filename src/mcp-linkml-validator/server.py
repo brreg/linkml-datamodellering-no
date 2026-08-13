@@ -8,6 +8,20 @@ import tempfile
 import yaml
 from pathlib import Path
 
+# Heile repoet er montert read-only på /repo (sjå flatten-and-validate.bash),
+# så det delte patch-modulet er tilgjengeleg utan å byggje det inn i imaget.
+# Sjå src/assets/scripts/utils/linkml_relative_import_patch.py for grunngjeving.
+sys.path.insert(0, "/repo/src/assets/scripts/utils")
+try:
+    import linkml_relative_import_patch
+    linkml_relative_import_patch.apply()
+except ImportError:
+    print(
+        "ÅTVARING: fann ikkje linkml_relative_import_patch (/repo ikkje montert?) — "
+        "versjonslåste importar med fleire nivå relative importar kan feile.",
+        file=sys.stderr,
+    )
+
 
 # ---------------------------------------------------------------------------
 # Hjelpefunksjonar

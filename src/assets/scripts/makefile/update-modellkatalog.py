@@ -18,8 +18,12 @@ import argparse
 import glob
 import os
 import sys
+from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
+from utils.codeowners import load_codeowners as _load_codeowners  # noqa: E402
 
 CODEOWNERS_PATH = "CODEOWNERS.md"
 CATALOG_DATA_TEMPLATE = "src/linkml/modellkatalog/{slug}/data/{slug}/{slug}.yaml"
@@ -39,17 +43,14 @@ ANNOTATION_FIELD_MAP = [
 
 
 def load_org_registry(codeowners_path=CODEOWNERS_PATH):
-    """Parse YAML frontmatter from CODEOWNERS.md. Returns dict keyed on org_uri."""
-    with open(codeowners_path, encoding="utf-8") as fh:
-        content = fh.read()
-    if not content.startswith("---"):
-        return {}
-    parts = content.split("---", 2)
-    if len(parts) < 3:
-        return {}
-    data = yaml.safe_load(parts[1]) or {}
-    orgs = data.get("organizations", [])
-    return {org["org_uri"]: org for org in orgs}
+    """Les organisasjonsregisteret frå CODEOWNERS.md. Returnerer dict nøkla på org_uri.
+
+    Delegerer til den delte parsaren i utils/codeowners.py (som forstår det
+    faktiske ```yaml ...```-fenceformatet CODEOWNERS.md brukar) i staden for
+    å parse `---`-frontmatter sjølv — sjå bugs/codeowners-frontmatter-format-mismatch.md.
+    """
+    orgs = _load_codeowners(Path(codeowners_path).resolve().parent)
+    return {org["org_uri"]: org for org in orgs if org.get("org_uri")}
 
 
 def load_release_manifest(path=RELEASE_MANIFEST_PATH):

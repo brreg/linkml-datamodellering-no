@@ -2,7 +2,6 @@
 # Migrer description og see_also i skjema frå hardkoda verdiar til skjemafiler
 # Brukar hardkoda verdiar frå generate-readme-tables.sh som kjelde
 
-set -euo pipefail
 
 # Hardkoda skildringar (frå generate-readme-tables.sh)
 declare -A DESCRIPTIONS=(

@@ -1,0 +1,63 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'blomsterregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/blomsterregisteret
+name: blomsterregisteret
+title: 'TODO: tittel for blomsterregisteret'
+description: Generert modell for 'blomsterregisteret'.
+version: 0.1.0
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-13'
+  utgivelsesdato: '2026-08-13'
+  status: http://purl.org/adms/status/UnderDevelopment
+prefixes:
+  linkml: https://w3id.org/linkml/
+  blomsterregisteret: https://data.norge.no/oreg/blomsterregisteret/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/blomsterregisteret/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+classes:
+  BlomsterregisteretContainer:
+    description: containerklasse for serialisering av klasser i blomsterregisteret
+      modellen
+    tree_root: true
+    attributes:
+      blomsterregistereter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Blomsterregisteret
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+  Blomsterregisteret:
+    description: 'TODO: beskriv klassen'
+    class_uri: blomsterregisteret:blomsterregisteret
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+slots:
+  kontaktpunkt:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+# TODO: Gi stub-klassen eit meir meiningsfullt namn.
+# TODO: Legg til slots og slot_usage for eigenskapane i modellen.

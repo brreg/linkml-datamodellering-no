@@ -39,8 +39,15 @@ import sys
 import yaml
 from linkml_runtime.utils.schemaview import SchemaView
 
-# Gjenbruk org-/skjemaoppslagslogikk frå update-modellkatalog.py (DRY-prinsippet i CLAUDE.md).
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Sjå src/assets/scripts/utils/linkml_relative_import_patch.py — fiksar ein
+# upstream-bug i SchemaView.imports_closure() for versjonslåste importar.
+sys.path.insert(0, os.path.join(os.path.dirname(_SCRIPT_DIR), "utils"))
+import linkml_relative_import_patch
+linkml_relative_import_patch.apply()
+
+# Gjenbruk org-/skjemaoppslagslogikk frå update-modellkatalog.py (DRY-prinsippet i CLAUDE.md).
 _spec = importlib.util.spec_from_file_location(
     "update_modellkatalog", os.path.join(_SCRIPT_DIR, "update-modellkatalog.py")
 )

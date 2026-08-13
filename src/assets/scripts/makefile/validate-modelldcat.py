@@ -9,6 +9,12 @@ import sys
 from pathlib import Path
 import yaml
 
+# Sjå src/assets/scripts/utils/linkml_relative_import_patch.py — fiksar ein
+# upstream-bug i SchemaView.imports_closure() for versjonslåste importar.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+import linkml_relative_import_patch
+linkml_relative_import_patch.apply()
+
 def validate_modelldcat(modelldcat_path: Path, schema_path: Path) -> bool:
     """
     Valider modelldcat.yaml mot modelldcat-katalog-schema.yaml.
