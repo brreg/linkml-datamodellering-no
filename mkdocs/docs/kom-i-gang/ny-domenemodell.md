@@ -55,7 +55,7 @@ name: tilskudd
 title: 'TODO: tittel for tilskudd'
 description: Generert modell for 'tilskudd'.
 version: 0.1.0
-license: https://creativecommons.org/licenses/by/4.0/
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 
 prefixes:
   linkml:   https://w3id.org/linkml/
@@ -121,7 +121,7 @@ classes:
 | `begrepsidentifikator: …/TODO` | URI frå [data.norge.no/concepts](https://data.norge.no/concepts) |
 | `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
 | `common-ap-no`-importet (TODO-kommentar på importlina) | Byt til ein reell AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema`, dersom `common-ap-no` sine felles slots ikkje dekkjer behovet |
-| `license: creativecommons.org/…` | Endre til `https://data.norge.no/nlod/no/2.0` for offentlege data |
+| `license: https://data.norge.no/nlod/no/2.0` | Alt sett til standard (NLOD 2.0) — byt berre dersom modellen krev ein annan lisens, sjå [gyldige lisensar](https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/) |
 
 `build.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](build-config.md) for feltliste.
 

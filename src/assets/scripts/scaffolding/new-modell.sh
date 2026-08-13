@@ -142,6 +142,12 @@ body_out = body_out.replace(
     '  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov\n',
     1,
 )
+body_out = body_out.replace(
+    'license: https://data.norge.no/nlod/no/2.0\n',
+    'license: https://data.norge.no/nlod/no/2.0'
+    '  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/\n',
+    1,
+)
 
 with open('$SCHEMA_FILE', 'w') as f:
     f.write(header)

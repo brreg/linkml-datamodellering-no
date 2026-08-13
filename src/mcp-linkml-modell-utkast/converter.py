@@ -286,7 +286,7 @@ def convert(
         or f"Generert modell for '{schema_name}'."
     )
     schema["version"] = "0.1.0"
-    schema["license"] = "https://creativecommons.org/licenses/by/4.0/"
+    schema["license"] = "https://data.norge.no/nlod/no/2.0"
 
     # ── Silver-annotasjonar frå profil ────────────────────────────────────────
     profile_annotations = profile.get("schema_annotations")
@@ -467,6 +467,14 @@ def convert(
         allow_unicode=True,
         default_flow_style=False,
         sort_keys=False,
+    )
+    # yaml.dump() kan ikkje uttrykkje ein inline-kommentar frå dict-et — sett
+    # han inn tekstbasert etter dumping i staden.
+    yaml_str = yaml_str.replace(
+        "license: https://data.norge.no/nlod/no/2.0\n",
+        "license: https://data.norge.no/nlod/no/2.0"
+        "  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/\n",
+        1,
     )
 
     header = (

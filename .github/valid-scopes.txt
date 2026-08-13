@@ -25,7 +25,6 @@ ngr-eiendom
 ngr-person
 ngr-virksomhet
 novari-modellkatalog
-oljefondregisteret
 referansemodell
 referansemodell-bronze
 referansemodell-gold
@@ -34,4 +33,5 @@ register-over-aksjeeiere
 samt-bu
 skatteetaten-modellkatalog
 skos-ap-no
+veteranbilregisteret
 xkos-ap-no

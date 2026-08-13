@@ -1,0 +1,52 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'veteranbilregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/veteranbilregisteret
+name: veteranbilregisteret
+title: 'veteranbilregisteret'
+description: Generert modell for 'veteranbilregisteret'.
+version: 0.1.0
+license: https://creativecommons.org/licenses/by/4.0/
+prefixes:
+  linkml: https://w3id.org/linkml/
+  veteranbilregisteret: https://data.norge.no/oreg/veteranbilregisteret/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/veteranbilregisteret/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+classes:
+  VeteranbilregisteretContainer:
+    description: 'TODO: beskriv containerklassen'
+    tree_root: true
+    attributes:
+      veteranbilregistereter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Veteranbilregisteret
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+  Veteranbilregisteret:
+    description: 'TODO: beskriv klassen'
+    class_uri: veteranbilregisteret:veteranbilregisteret
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+# TODO: Gi stub-klassen eit meir meiningsfullt namn.
+# TODO: Legg til slots og slot_usage for eigenskapane i modellen.

@@ -46,7 +46,7 @@ JSON Schema (fil)
 | `title` | Frå `schemaTitle`-argumentet, eller `TODO: tittel for <name>` |
 | `description` | Frå JSON Schema `description`, eller auto-generert |
 | `version` | `0.1.0` (bronze-krav) |
-| `license` | `https://creativecommons.org/licenses/by/4.0/` (endre ved behov) |
+| `license` | `https://data.norge.no/nlod/no/2.0` (endre ved behov — sjå [gyldige lisensar](https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/)) |
 | `annotations.*` | Berre i silver-profil: `utgiver`, `endringsdato`, `utgivelsesdato`, `status` med TODO-stubs |
 | `prefixes` | Standard vokabularprefiksar frå profilen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + schema-avleia prefiks |
 | `default_prefix` | Absolutt HTTPS-URI avleia frå `schemaId` (t.d. `https://data.norge.no/ngr/adresse/`) |
