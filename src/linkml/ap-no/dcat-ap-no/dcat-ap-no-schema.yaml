@@ -1060,7 +1060,7 @@ slots:
     slot_uri: dcat:theme
     range: Konsept
     multivalued: true
-    description: Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
+    description: Tema frå eit kontrollert vokabular. For norske offentlege datasett SKAL Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema for å søkje i Los-hierarkiet.
     annotations:
       gyldige_verdier: https://psi.norge.no/los/
       vokabular_krav: skal
@@ -1156,34 +1156,38 @@ slots:
   policy:
     slot_uri: odrl:hasPolicy
     range: uri
-    description: ODRL-policy som regulerer bruk av ressursen.
+    description: ODRL-policy som regulerer bruk av ressursen. Verdien KAN nyttast som eit strukturert alternativ til fritekst i dct:rights.
     annotations:
       gyldige_verdier: odrl:Policy
+      vokabular_krav: kan
   eierskapshistorikk:
     slot_uri: dct:provenance
     range: string
     multivalued: true
     description: >-
-      Opphav og eigarskapshistorikk for ressursen. Kan brukast til å skildre
+      Opphav og eigarskapshistorikk for ressursen. BØR brukast til å skildre
       kjeldetype (autoritativ/sjølvinnsamla eller avleidd/samanstilt frå andre
       kjelder), jf. Digdir sin veileder «Orden i eget hus», steg 5 — beskrive.
     annotations:
       gyldige_verdier: dct:ProvenanceStatement
+      vokabular_krav: bør
   ble_generert_ved:
     slot_uri: prov:wasGeneratedBy
     range: uri
-    description: Brukes til å referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det.
+    description: KAN brukes til å referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det.
     annotations:
       gyldige_verdier: URI til prov:Activity
+      vokabular_krav: kan
     multivalued: true
     domain: Datasett
   annen_ansvarlig_aktor:
     slot_uri: prov:qualifiedAttribution
     range: string
     multivalued: true
-    description: Kvalifisert attributering til ansvarleg aktør.
+    description: Kvalifisert attributering til ansvarleg aktør. Slik attributering KAN brukast for å skildre fleire aktørar med ulike roller.
     annotations:
       gyldige_verdier: prov:Attribution
+      vokabular_krav: kan
   annen_identifikator:
     slot_uri: adms:identifier
     range: Identifikator
