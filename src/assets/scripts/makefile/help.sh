@@ -61,7 +61,7 @@ for entry in "${categories[@]}"; do
         target="${line%%:*}"
         [ -n "${shown[$target]+x}" ] && continue
         if [[ "$target" =~ $pattern ]]; then
-            printf "  %s%-30s%s %s\n" "$CLR_STEP" "${target}:" "$CLR_RST" "${line#*## }"
+            printf "  %s%-32s%s %s\n" "$CLR_STEP" "${target}:" "$CLR_RST" "${line#*## }"
             shown[$target]=1
         fi
     done
