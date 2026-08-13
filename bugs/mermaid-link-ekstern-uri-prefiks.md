@@ -1,7 +1,7 @@
 # Bug: LinkML sin `DocGenerator.link_mermaid()` limer `../` framanfor absolutte eksterne URL-ar
 
 **ID:** BUG-13
-**Status:** `open`
+**Status:** `upstream`
 **Komponent:** `linkml` (`linkml/generators/docgen.py`, `DocGenerator.link_mermaid()`)
 **Oppdaga:** 2026-08-13
 
@@ -33,12 +33,15 @@ full utleiing og fleire eksempel (`adresse.md`, `rektor.md`).
 
 ## Berørte skjema
 
-Alle skjema som brukar minst éin elementær `linkml:types`-type (`string`,
-`uri`, `uriorcurie`, truleg `integer`/`boolean`/`float`/`date` også) på ein
-slot **utan** at typen er lokalt omdefinert i skjemaet sin eigen
-`types:`-blokk — stadfesta for `ap-no/cpsv-ap-no`, `samt/samt-bu` og
-`oreg/enhetsregisteret-bvrinn`, men rotårsaka er generisk i `gen-doc` og
-gjeld truleg praktisk talt alle domenemodellar i repoet.
+Alle skjema som brukar minst éin elementær `linkml:types`-type på ein slot
+**utan** at typen er lokalt omdefinert i skjemaet sin eigen `types:`-blokk —
+stadfesta for `ap-no/cpsv-ap-no` og `oreg/enhetsregisteret-bvrinn` (`string`,
+`uri`, `uriorcurie`) og for `samt/samt-bu` (`string`, `uriorcurie`,
+`boolean`, `date`, `double`, `float`), men rotårsaka er generisk i `gen-doc`
+og gjeld praktisk talt alle domenemodellar i repoet. Stadfesta ved ein fersk
+`make gen-docs`-køyring 2026-08-13 (rå `generated/<domain>/<schema>/docs/*.md`,
+før `copy_artifacts.sh` har rørt filene) at mønsteret held identisk for alle
+desse — ikkje berre dei tre opphavleg testa typane.
 
 ## Rot-årsak (stadfesta ved kjeldekodelesing)
 
@@ -88,25 +91,39 @@ utdataet.
 
 ## Workaround
 
-Ingen fullverdig workaround er på plass enno. `mkdocs/lib/copy_artifacts.sh`
-sin href-ombygging (`25bb4321`, opphavleg innført for eit anna,
-ikkje-relatert problem — sjå
-`specs/done/mermaid-klikkbare-lenker-404.md`) rettar riktignok den
-**syntaktiske** feilen (fjernar `../http://...`-forma), men gjer det ved å
-kaste bort den eksterne URL-en heilt og byggje ei ny, lokal
-`../<lowercase-typenamn>/`-lenkje frå click-namnet — som **alltid** 404-ar,
-sidan `gen-doc` (korrekt, jf. rot-årsak over) aldri genererer ei lokal side
-for desse typane. Nettoresultatet er framleis ei broten lenkje, berre av ein
-annan art (semantisk umogleg lokal 404 i staden for syntaktisk ugyldig
-ekstern URL).
+**Implementert 2026-08-13** i `mkdocs/lib/copy_artifacts.sh`
+(`copy_schema_artifacts()`), som to sekvensielle `sed`-passeringar over
+`click`-hrefane i staden for den tidlegare eine, blindt namnebaserte
+regelen frå `25bb4321`:
 
-Ein reell workaround (plan i
-`specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md`, steg
-3-4) må skilje på om den opphavlege href-verdien er ein absolutt URL eller
-ein lokal sti, og for absolutte URL-ar berre fjerne det feilaktige
-`../`-prefikset — ikkje rebygge lenkja frå click-namnet. Denne fila sin
-"Workaround"-seksjon vert oppdatert når fiksen er implementert, og
-`Status` endra til `upstream`.
+```bash
+# Steg 1: absolutte eksterne URL-ar — fjern feilaktig ../-prefiks og
+# avsluttande / (denne bugen), behald resten av URL-en uendra
+sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./(https?://[^"]+)/"|click \1 href "\2"|g'
+# Steg 2: attverande hrefar (framleis ../-prefiksa — eksterne URL-ar er det
+# ikkje lenger etter steg 1) — bygg om frå namnet, som før (25bb4321)
+sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./[^"]*"|click \1 href "../\L\1\E/"|g'
+```
+
+Rekkjefølgja er sjølvavgrensande: steg 1 fjernar `../`-prefikset frå
+eksterne URL-ar, så steg 2 sin uendra `\.\./`-føresetnad matchar berre
+attverande, genuint lokale hrefar — ingen betinga logikk/gren trengst.
+Verifisert både isolert (syntetisk fixture) og direkte mot reelle
+`generated/ap-no/cpsv-ap-no` og `generated/samt/samt-bu`: `offentligorganisasjon.md`,
+`adresse.md` og `rektor.md` har no `click Uri/Uriorcurie/String href
+"http://www.w3.org/2001/XMLSchema#..."` (reine, resolverbare URL-ar, HTTP
+2xx/3xx stadfesta direkte mot `w3.org`), medan lokale klasse-/slot-lenkjer
+(`../adresse/`, `../langstring/` osv.) er uendra korrekte.
+
+`mkdocs/lib/scripts/check-mermaid-click-hrefs.py` er samstundes oppdatert
+til å validere absolutte eksterne hrefar med eit direkte HTTP-oppslag mot
+målserveren (`check_external_url()`) i staden for å slå dei opp mot
+portalen sin eigen `sitemap.xml` (der dei aldri ville finnast), og
+`tests/test_make.sh::test_copy_artifacts_click_href` er utvida med ein
+eksplisitt forventingstabell som dekkjer både lokale og eksterne hrefar.
+
+Sjå `specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md`
+(steg 3-6) for full implementasjons- og verifiseringslogg.
 
 ## Løysing
 

@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """
 Evaluerer alle mermaid `click <Namn> href "..."`-direktiv i den publiserte
-mkdocs-portalen (klasse-/slot-sider) og stadfestar at kvar href peikar til
-ei side som faktisk finst i sitemap.xml (case-sensitivt, som på GitHub Pages).
+mkdocs-portalen (klasse-/slot-sider). Portal-interne hrefar vert stadfesta
+mot sitemap.xml (case-sensitivt, som på GitHub Pages); absolutte eksterne
+hrefar (t.d. XSD-typedefinisjonar hos w3.org, sjå BUG-13/
+bugs/mermaid-link-ekstern-uri-prefiks.md) vert i staden stadfesta med eit
+direkte HTTP-oppslag mot målet, sidan dei aldri kan finnast i vår eigen
+sitemap.
 
 Bakgrunn: mkdocs sin eigen lenkje-validator ser berre rendra <a href>-element,
 ikkje rå tekst inni fenced code-blokker — mermaid click-hrefs er difor
@@ -16,12 +20,13 @@ import argparse
 import html
 import re
 import sys
+import threading
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urljoin, urlsplit
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
 from utils.error_handler import log_error  # noqa: E402
@@ -30,6 +35,12 @@ SITEMAP_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 MERMAID_BLOCK_RE = re.compile(r'<pre class="mermaid">(.*?)</pre>', re.S)
 CLICK_RE = re.compile(r'click\s+(\S+)\s+href\s+"([^"]*)"')
 TIMEOUT_S = 15
+
+# Cache for eksterne URL-oppslag (BUG-13) — same eksterne URL (t.d. ein
+# XSD-typeanker) kan opptre i click-hrefar på svært mange sider, og bør
+# berre sjekkast éin gong per køyring.
+_EXTERNAL_LINK_CACHE: dict[str, bool] = {}
+_EXTERNAL_LINK_LOCK = threading.Lock()
 
 
 def normalize(url: str) -> str:
@@ -43,6 +54,29 @@ def normalize(url: str) -> str:
 def fetch(url: str) -> str:
     with urlopen(url, timeout=TIMEOUT_S) as resp:  # noqa: S310 — kjende, faste GitHub Pages-URLar
         return resp.read().decode("utf-8", errors="replace")
+
+
+def check_external_url(url: str) -> bool:
+    """Stadfest at ei ekstern absolutt URL faktisk resolverer (HTTP HEAD).
+
+    Nytta for hrefar som peikar utanfor vår eigen portal (t.d. XSD-typar,
+    BUG-13) — desse kan aldri finnast i vår eigen sitemap.xml, så dei må
+    verifiserast direkte mot målserveren i staden.
+    """
+    with _EXTERNAL_LINK_LOCK:
+        cached = _EXTERNAL_LINK_CACHE.get(url)
+    if cached is not None:
+        return cached
+    ok = True
+    try:
+        req = Request(url, method="HEAD")  # noqa: S310 — kjende eksterne vokabular-URL-ar
+        with urlopen(req, timeout=TIMEOUT_S) as resp:  # noqa: S310
+            ok = 200 <= resp.status < 400
+    except (URLError, TimeoutError, OSError):
+        ok = False
+    with _EXTERNAL_LINK_LOCK:
+        _EXTERNAL_LINK_CACHE[url] = ok
+    return ok
 
 
 def load_sitemap_urls(site_url: str) -> set[str]:
@@ -66,7 +100,7 @@ def load_sitemap_urls(site_url: str) -> set[str]:
     return urls
 
 
-def check_page(url: str, known_paths: set[str]) -> tuple[str, list[dict]]:
+def check_page(url: str, known_paths: set[str], site_netloc: str) -> tuple[str, list[dict]]:
     """Hent éi side, evaluer click-hrefs. Returnerer (url, [funn])."""
     findings = []
     try:
@@ -86,8 +120,14 @@ def check_page(url: str, known_paths: set[str]) -> tuple[str, list[dict]]:
     block = html.unescape(block_match.group(1))
     for click_match in CLICK_RE.finditer(block):
         name, href = click_match.group(1), click_match.group(2)
-        resolved = normalize(urljoin(url, href))
-        if resolved not in known_paths:
+        resolved = urljoin(url, href)
+        if urlsplit(resolved).netloc != site_netloc:
+            # Absolutt ekstern URL (t.d. XSD-typedefinisjon, BUG-13) — kan
+            # aldri finnast i vår eigen sitemap, valider mot målserveren.
+            if not check_external_url(resolved):
+                findings.append({"name": name, "href": href, "status": "EKSTERN LENKJE FEILA"})
+            continue
+        if normalize(resolved) not in known_paths:
             findings.append({"name": name, "href": href, "status": "IKKJE FUNNE"})
     return url, findings
 
@@ -102,6 +142,7 @@ def main() -> int:
     all_urls = load_sitemap_urls(args.site_url)
     known_paths = {normalize(u) for u in all_urls}
     class_pages = sorted(u for u in all_urls if "/klasser/" in u)
+    site_netloc = urlsplit(args.site_url).netloc
 
     print(f"Fann {len(all_urls)} sider i sitemap.xml, {len(class_pages)} klasse-/slot-sider å sjekke.")
 
@@ -110,7 +151,7 @@ def main() -> int:
     broken = 0
 
     with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
-        futures = {pool.submit(check_page, url, known_paths): url for url in class_pages}
+        futures = {pool.submit(check_page, url, known_paths, site_netloc): url for url in class_pages}
         for future in as_completed(futures):
             url, findings = future.result()
             for f in findings:

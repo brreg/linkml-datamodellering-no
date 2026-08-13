@@ -1253,6 +1253,8 @@ classDiagram
     click AnnenKlasse href "../AnnenKlasse/"
     class Uriorcurie
     click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    class String
+    click String href "../http://www.w3.org/2001/XMLSchema#string/"
 ```
 FIXTURE
     cat > "$tmp/repo/generated/fixturedomain/fixtureschema/docs/AnnenKlasse.md" <<'FIXTURE'
@@ -1282,17 +1284,31 @@ FIXTURE
         return 1
     fi
 
-    # Kvar click-href skal vere "../<lowercase(namn)>/" — utleidd frå namnet
-    # i click-statementet, ikkje frå den opphavlege href-verdien (som for
-    # typar som Uriorcurie kan innehalde ein innbaka XSD-URI i staden for
-    # typenamnet).
+    # Lokale klasse-/enum-/slot-/type-referansar skal vere
+    # "../<lowercase(namn)>/" — utleidd frå namnet i click-statementet, ikkje
+    # frå den opphavlege href-verdien (som kan vere feilkasa, sjå
+    # specs/done/mermaid-klikkbare-lenker-404.md). Eksterne linkml:types-typar
+    # (t.d. Uriorcurie, String) skal derimot bevare den absolutte XSD-URI-en
+    # LinkML sin eigen gen-doc genererte, berre med det feilaktige
+    # "../"-prefikset og den påklistra avsluttande "/" fjerna — IKKJE
+    # omskrivast til ei lokal lenkje (BUG-13, sjå
+    # specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md).
+    local -A expected_hrefs=(
+        [TestKlasse]="../testklasse/"
+        [AnnenKlasse]="../annenklasse/"
+        [Uriorcurie]="http://www.w3.org/2001/XMLSchema#anyURI"
+        [String]="http://www.w3.org/2001/XMLSchema#string"
+    )
     local fail=0
     while IFS= read -r line; do
         local name href expected
         name=$(echo "$line" | sed -E 's/click ([A-Za-z0-9_]+) href.*/\1/')
         href=$(echo "$line" | sed -E 's/.*href "([^"]*)".*/\1/')
-        expected="../$(echo "$name" | tr '[:upper:]' '[:lower:]')/"
-        if [ "$href" != "$expected" ]; then
+        expected="${expected_hrefs[$name]:-}"
+        if [ -z "$expected" ]; then
+            echo "Ukjend click-namn i fixture: $name"
+            fail=1
+        elif [ "$href" != "$expected" ]; then
             echo "Feil click-href for $name: fekk '$href', venta '$expected'"
             fail=1
         fi

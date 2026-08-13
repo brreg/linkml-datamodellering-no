@@ -65,12 +65,24 @@ copy_schema_artifacts() {
         # Oppdater alle interne .md-lenkjer til lowercase
         find "$out/klasser" -maxdepth 1 -name "*.md" \
             -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} +
-        # Oppdater mermaid click-hrefs til lowercase — href vert bygd på nytt
-        # frå namnet i click-statementet (ikkje frå den eksisterande
-        # href-verdien, som for typar som Uriorcurie kan innehalde ein
-        # innbaka XSD-URI i staden for typenamnet, sjå
-        # specs/backlog/mermaid-klikkbare-lenker-404.md)
+        # Oppdater mermaid click-hrefs i to steg (BUG-13, sjå
+        # specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md):
+        #
+        # Steg 1: for eksterne linkml:types-typar (t.d. Uriorcurie, String)
+        # limer LinkML sin eigen gen-doc (docgen.py:link_mermaid()) eit
+        # feilaktig "../"-prefiks og ein avsluttande "/" framanfor/etter ein
+        # elles gyldig, absolutt XSD-URI (t.d.
+        # "../http://www.w3.org/2001/XMLSchema#anyURI/"). Denne URI-en er
+        # det tilsikta, korrekte lenkjemålet — han skal bevarast uendra,
+        # berre med "../"-prefikset og den påklistra avsluttande "/" fjerna.
         find "$out/klasser" -maxdepth 1 -name "*.md" \
-            -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "[^"]*"|click \1 href "../\L\1\E/"|g' {} +
+            -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./(https?://[^"]+)/"|click \1 href "\2"|g' {} +
+        # Steg 2: for genuint lokale klasse-/enum-/slot-/type-referansar
+        # (href framleis prefiksa med "../" etter steg 1 — eksterne URL-ar
+        # er det ikkje lenger) vert href bygd på nytt frå namnet i
+        # click-statementet, ikkje frå den eksisterande href-verdien (som
+        # kan vere feilkasa, sjå specs/done/mermaid-klikkbare-lenker-404.md)
+        find "$out/klasser" -maxdepth 1 -name "*.md" \
+            -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./[^"]*"|click \1 href "../\L\1\E/"|g' {} +
     fi
 }
