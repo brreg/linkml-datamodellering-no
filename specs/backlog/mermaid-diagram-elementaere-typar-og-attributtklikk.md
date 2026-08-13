@@ -456,28 +456,53 @@ generere lokale stub-sider.**
    mitigeringsalternativ (a/b/c) under som til slutt vert vald. **Attverande:**
    oppdater BUG-14 sin "Workaround"-seksjon når eit alternativ er vald og
    implementert (steg 9).
-8. Avklar med brukaren kva for **mitigeringstilnærming** som er ønskt (fylles
-   inn i BUG-14 si "Workaround"-seksjon), sidan dette ikkje er ein rein
-   kodefeil i vårt repo:
+8. **Avklart med brukaren 2026-08-13: alternativ (a) er vald.** Dei tre
+   opphavlege alternativa var:
    - **(a) Aksepter som kjend avgrensing** — ingen mitigering utover
      BUG-14-dokumentasjonen frå steg 7, men legg til ei kort forklarande
      linje ved diagramma i mkdocs (eller i `mkdocs/docs/index.md` sine
      "Kjende avgrensingar") om at `## Eigenskapar`-tabellen under
-     diagrammet er fasiten for slot-spesifikke lenkjer.
-   - **(b) Fjern det misvisande visuelle inntrykket** — undersøk om
-     `gen-doc`-malen (eller eit post-prosesseringssteg) kan generere
-     diagram utan attributt-rader inni klasseboksen (kun klassenamn +
-     relasjonspiler til andre klassar/typar), slik at det ikkje ser ut som
-     kvar attributt-rad er individuelt klikkbar.
-   - **(c) Anna diagramtype/verktøy** som støttar per-medlem-click (t.d.
-     PlantUML, som repoet alt genererer parallelt via `make gen-plantuml`)
-     — vurder om PlantUML-diagrammet (som alt finst i `diagrams/`-katalogen)
-     kan promoterast som primærdiagram i staden for mermaid, eller om
-     PlantUML-diagrammet allereie har korrekte per-attributt-lenkjer og
-     berre treng betre synlegheit på sida.
-9. Implementer valt mitigeringstilnærming, oppdater BUG-14 sin
-   "Workaround"-seksjon tilsvarande, og verifiser (lokalt `make docs-build` +
-   stikkprøve på `adresse.md` og minst éi anna klasse-side).
+     diagrammet er fasiten for slot-spesifikke lenkjer. **← VALD**
+   - ~~(b) Fjern det misvisande visuelle inntrykket~~ — forkasta. Ville
+     kravd endring av `gen-doc`-malen eller eit eige post-prosesseringssteg
+     for å fjerne attributt-rader frå klasseboksen, ei større endring for eit
+     reint kosmetisk/UX-problem.
+   - ~~(c) Anna diagramtype/verktøy (PlantUML)~~ — forkasta. Ville kravd å
+     promotere PlantUML til primærdiagram i staden for mermaid portalomfattande,
+     langt utanfor omfanget til denne specen.
+   Grunngjeving for (a): dagens oppførsel er ei arkitektonisk avgrensing i
+   Mermaid sjølv (BUG-14), ikkje ein feil i dette repoet sin kode, og
+   `## Eigenskapar`-tabellen lenger nede på same side allereie gir korrekte
+   slot-spesifikke lenkjer — brukarar har difor eit fungerande alternativ
+   rett under diagrammet. Kostnaden ved (b)/(c) (malendring/verktøybyte)
+   står ikkje i forhold til eit rent visuelt/UX-problem med eit fungerande
+   arbeidsrundt alt til stades på sida.
+9. **Gjort 2026-08-13.** Lagt til ei `!!! note "Om diagrammet"`-admonition
+   (mkdocs-material admonition-syntaks, same mønster som alt i bruk i
+   `README.md`/`om.md`) rett etter mermaid-diagrammet i
+   `src/assets/templates/docgen/class_diagram.md.jinja2`, guarda på
+   `{%- if schemaview.class_induced_slots(element.name)|length > 0 %}` —
+   vises berre for klassar som faktisk har attributt-rader i eiga
+   diagramboks (der tvitydigheita finst), aldri for tomme klassar,
+   enum-/type-sider. Teksten forklarar at attributtklikk opnar same side som
+   klassenamnet (viser til BUG-14) og peikar til `## Eigenskapar`-tabellen
+   som fasit. Ingen endring i `mkdocs/docs/index.md` sine "Kjende
+   avgrensingar" — vurdert unødvendig sidan notatet no står direkte ved
+   kvart diagram, der lesaren faktisk møter tvitydigheita.
+
+   **Verifisert:** fersk `make gen-docs` for `cpsv-ap-no` og `samt-bu`
+   stadfestar notatet vert generert i rå output
+   (`generated/.../docs/OffentligOrganisasjon.md`, `Rektor.md`), kopiert
+   korrekt vidare av `copy_artifacts.sh` til `mkdocs/docs/.../klasser/*.md`,
+   og — via full `make docs-build` (378s, ingen feil eller åtvaringar
+   knytt til vår endring; dei ni eksisterande `nav`-åtvaringane er
+   førehandseksisterande og gjeld domene som ikkje vart regenererte i denne
+   økta) — rendrar korrekt som ein `<div class="admonition note">`-boks i
+   `mkdocs/site/ap-no/cpsv-ap-no/klasser/offentligorganisasjon/index.html`
+   og `mkdocs/site/samt/samt-bu/klasser/rektor/index.html`.
+
+   Oppdatert `bugs/mermaid-classdiagram-eitt-click-per-boks.md` sin
+   "Workaround"-seksjon tilsvarande.
 
 ## Handlingsliste
 
@@ -490,5 +515,5 @@ generere lokale stub-sider.**
 - [x] Verifiser fiks med reell `copy_schema_artifacts`-køyring og stikkprøve på `offentligorganisasjon.md`, `adresse.md` og `rektor.md` — gjort 2026-08-13 (full multi-domene `make docs-publish` ikkje køyrt, ikkje naudsynt for denne verifiseringa)
 - [x] Oppdater BUG-13 sin "Workaround"-seksjon og `Status` basert på implementert fiks — gjort 2026-08-13
 - [x] Opprett `bugs/mermaid-classdiagram-eitt-click-per-boks.md` som **BUG-14** (status `open`), legg til rad i `BUGS.md` — gjort 2026-08-13
-- [ ] Avklar mitigeringstilnærming (a/b/c) for Problem B med brukaren
-- [ ] Implementer valt mitigeringstilnærming for Problem B, oppdater BUG-14 sin "Workaround"-seksjon, og verifiser
+- [x] Avklar mitigeringstilnærming (a/b/c) for Problem B med brukaren — gjort 2026-08-13, alternativ **(a) Aksepter som kjend avgrensing** vald
+- [x] Implementer (a): legg til forklarande admonition ved diagramma (`class_diagram.md.jinja2`) om at `## Eigenskapar`-tabellen er fasiten, oppdater BUG-14 sin "Workaround"-seksjon, og verifiser — gjort 2026-08-13, verifisert med `make gen-docs` + `copy_artifacts.sh` + full `make docs-build`

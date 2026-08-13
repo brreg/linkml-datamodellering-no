@@ -55,25 +55,42 @@ BUG-13.
 
 ## Workaround
 
-Ingen intern mitigering er valt eller implementert enno. Alternativ under
-vurdering (jf.
-`specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md`,
-steg 8):
+**Avklart med brukaren 2026-08-13: alternativ (a) — aksepter som kjend
+avgrensing.** Ingen kodeendring for å fjerne eller omgå sjølve
+click-avgrensinga (jf. dei to forkasta alternativa under). Grunngjeving:
+dette er ei arkitektonisk avgrensing i Mermaid sjølv, ikkje ein feil i
+dette repoet sin kode, og `## Eigenskapar`-tabellen lenger nede på same
+side gir allereie korrekte slot-spesifikke lenkjer — brukarar har eit
+fungerande alternativ rett under diagrammet. Kostnaden ved (b)/(c) står
+ikkje i forhold til eit rent visuelt/UX-problem med eit fungerande
+arbeidsrundt alt til stades på sida.
 
-- **(a) Aksepter avgrensinga** — legg til ei kort forklarande linje ved
-  diagramma (eller i `mkdocs/docs/index.md` sine "Kjende avgrensingar") om
-  at `## Eigenskapar`-tabellen under diagrammet er fasiten for
-  slot-spesifikke lenkjer.
-- **(b) Fjern det misvisande visuelle inntrykket** — generer diagram utan
-  attributt-rader inni klasseboksen (kun klassenamn + relasjonspiler til
-  andre klassar/typar).
-- **(c) Anna diagramtype/verktøy** som støttar per-medlem-click, t.d.
-  PlantUML (som repoet alt genererer parallelt via `make gen-plantuml`) —
-  vurder om PlantUML-diagrammet kan promoterast som primærdiagram i staden
-  for mermaid.
+**Implementert 2026-08-13** i
+`src/assets/templates/docgen/class_diagram.md.jinja2`: ei
+`!!! note "Om diagrammet"`-admonition (mkdocs-material admonition-syntaks)
+vert no generert rett etter mermaid-diagrammet, guarda på
+`schemaview.class_induced_slots(element.name)|length > 0` slik at han berre
+vises for klassar som faktisk har attributt-rader i eiga diagramboks (der
+tvitydigheita finst). Teksten viser til denne bugen og peikar til
+`## Eigenskapar`-tabellen som fasit for slot-spesifikke lenkjer.
 
-Denne fila sin `Workaround`-seksjon vert oppdatert når eit alternativ er
-vald og implementert.
+Verifisert med fersk `make gen-docs` (`cpsv-ap-no`, `samt-bu`),
+`copy_artifacts.sh`-kopiering og full `make docs-build`: notatet rendrar
+korrekt som `<div class="admonition note">` i den bygde HTML-utdataen for
+`offentligorganisasjon.md` og `rektor.md`, utan feil eller åtvaringar.
+
+Sjå `specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md`,
+steg 9, for full detalj.
+
+Forkasta alternativ:
+
+- ~~(b) Fjern det misvisande visuelle inntrykket~~ — ville kravd endring av
+  `gen-doc`-malen eller eit eige post-prosesseringssteg for å fjerne
+  attributt-rader frå klasseboksen, ei større endring for eit reint
+  kosmetisk/UX-problem.
+- ~~(c) Anna diagramtype/verktøy (PlantUML)~~ — ville kravd å promotere
+  PlantUML til primærdiagram i staden for mermaid portalomfattande, langt
+  utanfor omfanget til denne bugen.
 
 ## Løysing
 
