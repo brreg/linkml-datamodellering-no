@@ -17,10 +17,11 @@ Dersom du importerer `dcat-ap-no-schema`:
 ```
 linkml:types
     └── common-ap-no-schema
-        └── dcat-ap-no-schema  ← du importerer dette
+        └── dqv-core-schema
+            └── dcat-ap-no-schema  ← du importerer dette
 ```
 
-...så får du automatisk med deg både `common-ap-no-schema` og `linkml:types` (alle avhengigheiter til venstre).
+...så får du automatisk med deg både `dqv-core-schema`, `common-ap-no-schema` og `linkml:types` (alle avhengigheiter til venstre).
 
 ---
 

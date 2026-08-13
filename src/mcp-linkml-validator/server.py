@@ -694,7 +694,6 @@ def _check_instance_controlled_vocabulary_pattern(sv, schema, instance, config, 
                     # Sjekk pattern
                     if not pattern.match(v):
                         # Alvorlegheit avheng av vokabular_krav
-                        severity = config["severity"]
                         if vokabular_krav == "skal":
                             severity = "error"
                         elif vokabular_krav == "bør":

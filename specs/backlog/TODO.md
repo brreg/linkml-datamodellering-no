@@ -45,3 +45,11 @@ https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/html/overview.
 
 
 konvertere fleire BRREG modellar
+
+
+oppdatere alle modellar med status UNDER_DEVELOPMENT
+
+
+erstatte namn med navn  
+
+lese CodeQL sine 22 åpne issues og lage fiks for kvar av dei.

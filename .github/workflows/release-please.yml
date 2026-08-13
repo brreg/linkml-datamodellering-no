@@ -56,6 +56,20 @@ jobs:
           # Hent berre første linje av commit-meldinga
           FIRST_LINE=$(echo "$COMMIT_MESSAGE" | head -n 1)
 
+          # 0. Aldri hopp over release-please sin eigen PR-merge-commit.
+          # Denne pushen er den einaste sjansen release-please-action får til
+          # å detektere at ei release-PR nettopp vart merga og fullføre
+          # tag-/release-oppretting — commit-meldinga ("Merge pull request
+          # #N from .../release-please--branches--main") matchar aldri
+          # feat/fix-mønstera under, og ei seinare, tilfeldig triggera
+          # køyring plukkar IKKJE opp den ferske merge-tilstanden retroaktivt.
+          # Sjå specs/done/release-please-merge-commit-skip-bug.md.
+          if echo "$FIRST_LINE" | grep -qE '^Merge pull request #[0-9]+ from .*/release-please--branches--main'; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "Siste commit er release-please sin eigen PR-merge — held fram"
+            exit 0
+          fi
+
           # 1. Hopp over ikkje-releasande typar (uavhengig av scope)
           if echo "$FIRST_LINE" | grep -qE '^(style|docs|chore|test|ci|build|perf|refactor)(\(.*\))?:'; then
             echo "skip=true" >> $GITHUB_OUTPUT

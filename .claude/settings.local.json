@@ -435,7 +435,9 @@
       "Bash(sed -n '/^generators:/,/^EOF/p' /mnt/c/dev/github/linkml-datamodellering-no/src/assets/scripts/scaffolding/new-modell.sh)",
       "Bash(sed -n '/^generators:/,/^```/p' /mnt/c/dev/github/linkml-datamodellering-no/CONVENTIONS.md)",
       "Bash(sed -i 's/^publish_external: false/publish_external: true/' src/linkml/oreg/testfjerning2/build.yaml)",
-      "Bash(echo \"---exit: $?---\")"
+      "Bash(echo \"---exit: $?---\")",
+      "WebFetch(domain:docs.github.com)",
+      "WebFetch(domain:github.blog)"
     ]
   },
   "enableAllProjectMcpServers": true,
