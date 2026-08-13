@@ -1,0 +1,51 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/register-over-aksjeeiere
+tittel:
+  nb: Aksje- og eigarskapsmodell
+  nn: Aksje- og eigarskapsmodell
+beskrivelse:
+  nb: Aksjeeigarar og eigedelar
+  nn: Aksjeeigarar og eigedelar
+versjonsnummer: 1.7.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-02'
+utgivelsesdato: '2024-01-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/
+kontaktpunkt:
+- id: https://brreg.no/kontakt/modellforvaltning
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
+inneholder_modellelement:
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksje
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier
+- https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost
+- https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte
+- https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling
+- https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt
+- https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse
+- https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag
+- https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse
+- https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd
+- https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital
+- https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml

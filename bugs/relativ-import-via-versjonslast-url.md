@@ -62,13 +62,17 @@ sjå full traceback og analyse i
 Monkeypatch av berre den buggy grenen i `imports_closure()` (bruk
 `urllib.parse.urljoin` når skjemanamnet inneheld `"://"`, elles uendra
 åtferd) — sjå `src/assets/scripts/utils/linkml_relative_import_patch.py`.
-Patchen er kalla frå dei fire stadene `SchemaView(...)` vert kalla direkte i
-repoet:
+Patchen er kalla frå dei fem stadene `SchemaView` vert bygd (direkte eller
+transitivt via `linkml.generators.*`) i repoet:
 
 - `src/mcp-linkml-validator/server.py`
 - `src/assets/scripts/makefile/batch-linkml-validate.py`
 - `src/assets/scripts/makefile/gen-modelldcat-elements.py`
 - `src/assets/scripts/makefile/validate-modelldcat.py`
+- `src/assets/scripts/makefile/batch-generate.py` (drivar for
+  `gen-linkml-merge`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-docs` m.fl.
+  — patchen vart gløymd her i første runde, oppdaga då `make domain-oreg`
+  feila i CI for eit skjema med versjonslåst URL-import)
 
 Patchen sjekkar sjølv om kjeldekoden til `imports_closure()` framleis
 inneheld den forventa buggy linja før han patchar — dersom `linkml_runtime`

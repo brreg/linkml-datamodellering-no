@@ -27,14 +27,7 @@ default_prefix: https://data.norge.no/oreg/blomsterregisteret/
 default_range: string
 imports:
 - linkml:types
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
-subsets:
-  Obligatorisk:
-    description: Obligatoriske eigenskapar.
-  Anbefalt:
-    description: Anbefalte eigenskapar.
-  Valgfri:
-    description: Valfrie eigenskapar.
+- ../../ap-no/dcat-ap-no/dcat-ap-no-schema
 classes:
   BlomsterregisteretContainer:
     description: containerklasse for serialisering av klasser i blomsterregisteret
@@ -54,10 +47,5 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-slots:
-  kontaktpunkt:
-    description: Kontaktinformasjon for ressursen.
-    slot_uri: dcat:contactPoint
-    range: uriorcurie
 # TODO: Gi stub-klassen eit meir meiningsfullt namn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.

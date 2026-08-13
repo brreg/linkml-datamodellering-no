@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Monkeypatch for ein kjend feil i linkml_runtime sin relative-import-oppløysing.
+"""Monkeypatch for ein kjend feil i linkml/linkml_runtime sin relative-import-oppløysing.
 
-`SchemaView.imports_closure()` løyser relative importar (`../foo`) i eit
-importert skjema ved å bruke `pathlib.Path`/`os.path.normpath` på skjemanamnet
-— verktøy laga for filsystem-stiar. Når skjemanamnet er ein full URL (t.d. eit
-versjonslåst `raw.githubusercontent.com`-import, sjå
+To UAVHENGIGE stader i linkml/linkml_runtime løyser relative importar
+(`../foo`) i eit importert skjema ved å bruke `pathlib.Path`/
+`os.path.normpath` på skjemanamnet — verktøy laga for filsystem-stiar. Når
+skjemanamnet er ein full URL (t.d. eit versjonslåst
+`raw.githubusercontent.com`-import, sjå
 mkdocs/docs/arkitektur/importhierarki.md § "Import på tvers av
 domenemodellar"), kollapsar `pathlib.Path` doble skråstrekar som ikkje står
 heilt fremst i strengen: `Path("https://host/a/b").parent` vert til
@@ -22,39 +23,53 @@ Denne patchen overstyrer berre resolusjonssteget for URL-baserte skjemanamn
 anna åtferd (lokale filsystem-stiar, CURIE-importar som `linkml:types`) er
 uendra kopi av upstream-koden.
 
-MERK: bind seg til den interne implementasjonen av
-`SchemaView.imports_closure()` i linkml_runtime>=1.11.1,<2.0.0 (pinna i
-src/assets/containers/Dockerfile.mcp-linkml). Må verifiserast på nytt ved
-oppgradering av linkml_runtime — sjå `_EXPECTED_SOURCE_MARKER` under.
+Dei to stadene:
+
+1. `linkml_runtime.utils.schemaview.SchemaView.imports_closure()` — brukt av
+   generatorar som byggjer på `SchemaView` direkte
+   (owlgen/shaclgen/jsonschemagen/docgen/linkmlgen, samt
+   mcp-linkml-validator).
+2. `linkml.utils.mergeutils.resolve_merged_imports()` — brukt av den eldre
+   `SchemaLoader`-baserte generator-familien
+   (pythongen/protogen/rdfgen/graphqlgen/plantumlgen/jsonldcontextgen, jf.
+   `uses_schemaloader = True` på desse generatorklassane). Same buggy
+   mønster (`Path(imported_from).parent / imp`), men i eit heilt anna modul
+   — ikkje dekt av fiksen i (1), oppdaga då `make domain-oreg` framleis
+   feila for pythongen/protogen/rdfgen/graphqlgen/plantumlgen/
+   jsonldcontextgen etter at (1) var patcha i `batch-generate.py`.
+
+MERK: bind seg til den interne implementasjonen i
+linkml==1.11.1 / linkml_runtime>=1.11.1,<2.0.0 (pinna i
+src/assets/containers/Dockerfile.linkml / Dockerfile.mcp-linkml). Må
+verifiserast på nytt ved oppgradering — sjå `_EXPECTED_SOURCE_MARKER_*` under.
 """
 
 import sys
 from functools import lru_cache
 from urllib.parse import urljoin
 
-# Ein bit av den originale, buggy koden — dersom denne ikkje lenger finst i
-# den installerte linkml_runtime-versjonen betyr det at upstream har endra
-# imports_closure(), og patchen må kontrollerast på nytt før han vert brukt.
-_EXPECTED_SOURCE_MARKER = "todo.append(os.path.normpath(str(Path(sn).parent / i)))"
+# Ein bit av den originale, buggy koden i SchemaView.imports_closure() —
+# dersom denne ikkje lenger finst i den installerte linkml_runtime-
+# versjonen betyr det at upstream har endra funksjonen, og patchen må
+# kontrollerast på nytt før han vert brukt.
+_EXPECTED_SOURCE_MARKER_SCHEMAVIEW = "todo.append(os.path.normpath(str(Path(sn).parent / i)))"
+
+# Tilsvarande for linkml.utils.mergeutils.resolve_merged_imports().
+_EXPECTED_SOURCE_MARKER_MERGEUTILS = "resolved_imp = os.path.normpath(str(Path(imported_from).parent / Path(imp)))"
 
 _patched = False
 
 
-def apply() -> None:
-    """Installer patchen. Trygt å kalle fleire gonger (idempotent)."""
-    global _patched
-    if _patched:
-        return
-
+def _apply_schemaview_patch() -> None:
     import inspect
 
     from linkml_runtime.utils import schemaview as sv_mod
 
     original_source = inspect.getsource(sv_mod.SchemaView.imports_closure)
-    if _EXPECTED_SOURCE_MARKER not in original_source:
+    if _EXPECTED_SOURCE_MARKER_SCHEMAVIEW not in original_source:
         print(
-            "ÅTVARING: linkml_relative_import_patch hoppar over patching — "
-            "SchemaView.imports_closure() sin kjeldekode har endra seg sidan "
+            "ÅTVARING: linkml_relative_import_patch hoppar over patching av "
+            "SchemaView.imports_closure() — kjeldekoden har endra seg sidan "
             "patchen vart skriven. Versjonslåste (raw.githubusercontent.com) "
             "importar av skjema med fleire nivå relative importar kan feile "
             "med 'Unknown CURIE prefix'. Sjå "
@@ -129,4 +144,71 @@ def apply() -> None:
         return closure
 
     sv_mod.SchemaView.imports_closure = patched_imports_closure
+
+
+def _apply_mergeutils_patch() -> None:
+    import inspect
+    import os
+    from pathlib import Path
+
+    from linkml.utils import mergeutils as mu_mod
+
+    original_source = inspect.getsource(mu_mod.resolve_merged_imports)
+    if _EXPECTED_SOURCE_MARKER_MERGEUTILS not in original_source:
+        print(
+            "ÅTVARING: linkml_relative_import_patch hoppar over patching av "
+            "mergeutils.resolve_merged_imports() — kjeldekoden har endra seg "
+            "sidan patchen vart skriven. Versjonslåste "
+            "(raw.githubusercontent.com) importar av skjema med fleire nivå "
+            "relative importar kan feile med 'Unknown CURIE prefix' for "
+            "SchemaLoader-baserte generatorar (python/proto/rdf/graphql/"
+            "plantuml/jsonld-context). Sjå "
+            "src/assets/scripts/utils/linkml_relative_import_patch.py.",
+            file=sys.stderr,
+        )
+        return
+
+    def patched_resolve_merged_imports(target, mergee, imported_from=None) -> None:
+        for imp in mergee.imports:
+            if imp is None:
+                continue
+
+            if imp in target.imports:
+                continue
+
+            elif mu_mod.urlparse(imp).scheme:
+                target.imports.append(imp)
+                continue
+
+            elif Path(imp).is_absolute():
+                target.imports.append(imp)
+                continue
+
+            elif imp.startswith("."):
+                if imported_from is None:
+                    mu_mod.logger.warning(f"Cannot resolve relative import: {imp}")
+                    target.imports.append(imp)
+                elif "://" in imported_from:
+                    # URL-basert skjemanamn — bruk urljoin (forstår
+                    # URL-schema/netloc korrekt) i staden for
+                    # pathlib/os.path (som kollapsar "//").
+                    target.imports.append(urljoin(imported_from, imp))
+                else:
+                    resolved_imp = os.path.normpath(str(Path(imported_from).parent / Path(imp)))
+                    target.imports.append(resolved_imp)
+
+            else:
+                target.imports.append(imp)
+
+    mu_mod.resolve_merged_imports = patched_resolve_merged_imports
+
+
+def apply() -> None:
+    """Installer begge patchane. Trygt å kalle fleire gonger (idempotent)."""
+    global _patched
+    if _patched:
+        return
+
+    _apply_schemaview_patch()
+    _apply_mergeutils_patch()
     _patched = True

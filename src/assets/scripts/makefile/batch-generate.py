@@ -63,6 +63,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+# Sjå src/assets/scripts/utils/linkml_relative_import_patch.py — fiksar ein
+# upstream-bug i SchemaView.imports_closure() for versjonslåste importar.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+import linkml_relative_import_patch
+linkml_relative_import_patch.apply()
+
 LOGLVL = os.environ.get("LOGLVL", "INFO")
 CLR_STEP = os.environ.get("CLR_STEP", "")
 CLR_OK = os.environ.get("CLR_OK", "")
