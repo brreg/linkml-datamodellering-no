@@ -1,4 +1,3 @@
-asfaltregisteret
 brreg-begrepskatalog
 brreg-modellkatalog
 common-ap-no
@@ -34,4 +33,5 @@ register-over-aksjeeiere
 samt-bu
 skatteetaten-modellkatalog
 skos-ap-no
+spikerregisteret
 xkos-ap-no

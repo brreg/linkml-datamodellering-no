@@ -21,6 +21,7 @@ external_spec_url: https://informasjonsforvaltning.github.io/cpsv-ap-no/  # lenk
 
 
 generators:
+  # Artefaktgeneratorer
   jsonld_context: true
   shacl: true
   shacl_flags: ""
@@ -30,12 +31,14 @@ generators:
   owl_flags: ""
   rdf: true
   protobuf: true
-  erdiagram: true
-  docs: true
-  plantuml: true
   example_rdf: true
   openapi: true
   graphql: true
+
+  # Dokumentasjonsgeneratorer
+  erdiagram: true
+  docs: true
+  plantuml: true
 ```
 
 ### Datafil-manifest (manglar `generators:`-seksjon)
@@ -153,6 +156,7 @@ publish_external: false
 validation_policy: silver
 
 generators:
+  # Artefaktgeneratorer
   jsonld_context: true
   shacl: true
   shacl_flags: ""
@@ -162,12 +166,14 @@ generators:
   owl_flags: ""
   rdf: true
   protobuf: true
-  erdiagram: true
-  docs: true
-  plantuml: true
   example_rdf: true
   openapi: true
   graphql: true
+
+  # Dokumentasjonsgeneratorer
+  erdiagram: true
+  docs: true
+  plantuml: true
 ```
 
 **FINT** (`rdf: false` pga. HTTP-feil ved JSON-LD-kontekstoppslag; SHACL- og OWL-flagg

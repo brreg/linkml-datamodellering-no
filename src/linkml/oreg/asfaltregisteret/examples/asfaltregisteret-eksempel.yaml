@@ -1,6 +1,0 @@
-# Eksempel for asfaltregisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-AsfaltregisteretContainer:
-  asfaltregistereter:
-    - id: https://data.norge.no/oreg/asfaltregisteret/eksempel-1

@@ -1,16 +1,16 @@
 # Generert av mcp-linkml-generator — dette er eit utkast.
-# Prefiks 'asfaltregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# Prefiks 'spikerregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
 # 'TODO'-felt må fyllast inn manuelt.
 
-id: https://data.norge.no/oreg/asfaltregisteret
-name: asfaltregisteret
-title: 'TODO: tittel for asfaltregisteret'
-description: Generert modell for 'asfaltregisteret'.
+id: https://data.norge.no/oreg/spikerregisteret
+name: spikerregisteret
+title: 'TODO: tittel for spikerregisteret'
+description: Generert modell for 'spikerregisteret'.
 version: 0.1.0
 license: https://creativecommons.org/licenses/by/4.0/
 prefixes:
   linkml: https://w3id.org/linkml/
-  asfaltregisteret: https://data.norge.no/oreg/asfaltregisteret/
+  spikerregisteret: https://data.norge.no/oreg/spikerregisteret/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
@@ -18,10 +18,11 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-default_prefix: https://data.norge.no/oreg/asfaltregisteret/
+default_prefix: https://data.norge.no/oreg/spikerregisteret/
 default_range: string
 imports:
-- linkml:types
+  - linkml:types
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml 
 subsets:
   Obligatorisk:
     description: Obligatoriske eigenskapar.
@@ -30,20 +31,20 @@ subsets:
   Valgfri:
     description: Valfrie eigenskapar.
 classes:
-  asfaltregisteret:
-    description: 'TODO: beskriv klassen'
-    class_uri: asfaltregisteret:asfaltregisteret
+  spiker:
+    description: 'En spiker som kan benyttes i spikring'
+    class_uri: spikerregisteret:spiker
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-  AsfaltregisteretContainer:
+  SpikerregisteretContainer:
     description: 'TODO: beskriv containerklassen'
     tree_root: true
     attributes:
-      asfaltregistereter:
+      spikerregistereter:
         description: 'TODO: beskriv eigenskapen'
-        range: asfaltregisteret
+        range: spikerregisteret
         multivalued: true
         inlined: true
         inlined_as_list: true

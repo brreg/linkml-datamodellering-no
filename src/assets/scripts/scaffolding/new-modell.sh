@@ -116,6 +116,7 @@ publish_external: false
 validation_policy: silver
 
 generators:
+  # Artefaktgeneratorer
   jsonld_context: true
   shacl: true
   shacl_flags: ""
@@ -125,12 +126,14 @@ generators:
   owl_flags: ""
   rdf: true
   protobuf: true
-  erdiagram: true
-  docs: true
-  plantuml: true
   example_rdf: true
   openapi: true
   graphql: true
+
+  # Dokumentasjonsgeneratorer
+  erdiagram: true
+  docs: true
+  plantuml: true
 EOF
 
 DESCRIPTION_FILE="$SCHEMA_DIR/description.md"

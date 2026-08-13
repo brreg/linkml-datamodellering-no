@@ -236,6 +236,7 @@ publish_external: false   # true for å publisere til ekstern katalog
 validation_policy: silver # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
 
 generators:
+  # Artefaktgeneratorer
   jsonld_context: true
   shacl: true
   shacl_flags: ""
@@ -245,11 +246,13 @@ generators:
   owl_flags: ""
   rdf: true
   protobuf: true
+  example_rdf: true
   graphql: true
+
+  # Dokumentasjonsgeneratorer
   erdiagram: true
   docs: true
   plantuml: true
-  example_rdf: true
 ```
 
 ### Per datafil (manglar `generators:`-seksjon)
