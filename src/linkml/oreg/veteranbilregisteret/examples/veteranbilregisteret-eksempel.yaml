@@ -1,5 +1,0 @@
-# Eksempel for veteranbilregisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-veteranbilregistereter:
-  - id: https://data.norge.no/oreg/veteranbilregisteret/eksempel-1

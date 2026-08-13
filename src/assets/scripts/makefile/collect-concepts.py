@@ -18,56 +18,12 @@ Køyrast av CI før generatorfasen.
 import sys
 from pathlib import Path
 import yaml
-import re
-import fnmatch
 from typing import Dict, List, Optional
 from collections import defaultdict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
 from utils.yaml_io import load_yaml, write_yaml  # noqa: E402
-
-
-def load_codeowners(repo_root: Path) -> List[Dict]:
-    """
-    Les YAML-frontmatter frå CODEOWNERS.md og returner liste av organisasjonar.
-    """
-    codeowners_path = repo_root / "CODEOWNERS.md"
-    if not codeowners_path.exists():
-        return []
-
-    with open(codeowners_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # Ekstraher YAML-frontmatter (mellom ```yaml og ```)
-    yaml_match = re.search(r"```yaml\n(.*?)\n```", content, re.DOTALL)
-    if not yaml_match:
-        return []
-
-    yaml_content = yaml_match.group(1)
-    data = yaml.safe_load(yaml_content)
-    return data.get("organizations", [])
-
-
-def find_owner_org(begrepssamling_path: Path, orgs: List[Dict]) -> Optional[Dict]:
-    """
-    Finn eigar-organisasjon basert på path-matching mot CODEOWNERS.md.
-
-    Args:
-        begrepssamling_path: Relativ sti til begrepssamlinga (t.d. src/linkml/oreg/begrepssamling-foretaksregisteret)
-        orgs: Liste av organisasjonar frå CODEOWNERS.md
-
-    Returns:
-        Matchande organisasjon-dict eller None
-    """
-    begrepssamling_str = str(begrepssamling_path)
-
-    for org in orgs:
-        for pattern in org.get("path_patterns", []):
-            # Konverter glob-pattern til fnmatch og match
-            if fnmatch.fnmatch(begrepssamling_str, pattern):
-                return org
-
-    return None
+from utils.codeowners import load_codeowners, find_owner_org  # noqa: E402
 
 
 def get_aggregation_metadata(begrepssamling_dir: Path, orgs: List[Dict]) -> Optional[Dict]:

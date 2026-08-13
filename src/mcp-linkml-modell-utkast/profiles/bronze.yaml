@@ -28,6 +28,10 @@ generation:
   # Legg til id-slot med identifier: true og range: uriorcurie på alle klasser
   add_id_slot: true
 
+  # Legg til ein global kontaktpunkt-slot (dcat:contactPoint, range: uriorcurie).
+  # Vert ikkje automatisk kopla til stub-klassen sin slots-liste.
+  add_kontaktpunkt_slot: true
+
   # Generer containerklasse med tree_root: true automatisk.
   # container_class_name: ""   # tom = utleid frå schemaName (t.d. 'bvr-innfelles' → 'BvrInnfellesContainer')
   add_container_class: true

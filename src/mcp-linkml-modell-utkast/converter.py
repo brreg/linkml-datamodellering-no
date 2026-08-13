@@ -311,6 +311,7 @@ def convert(
     classes_data = _collect_classes(json_schema, schema_name)
 
     add_id              = gen.get("add_id_slot", True)
+    add_kontaktpunkt    = gen.get("add_kontaktpunkt_slot", True)
     add_begrep_annotation = gen.get("add_begrep_annotation", True)
     begrep_base_uri     = gen.get("begrep_base_uri", "https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/")
     req_subset   = subsets_cfg.get("required_maps_to", "Obligatorisk")
@@ -446,6 +447,12 @@ def convert(
         slots_out["id"] = {
             "description": "Unik URI-identifikator for ressursen.",
             "identifier":  True,
+            "range":       "uriorcurie",
+        }
+    if add_kontaktpunkt:
+        slots_out["kontaktpunkt"] = {
+            "description": "Kontaktinformasjon for ressursen.",
+            "slot_uri":    "dcat:contactPoint",
             "range":       "uriorcurie",
         }
     slots_out.update(global_slots)

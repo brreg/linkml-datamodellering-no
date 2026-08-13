@@ -33,5 +33,4 @@ register-over-aksjeeiere
 samt-bu
 skatteetaten-modellkatalog
 skos-ap-no
-veteranbilregisteret
 xkos-ap-no

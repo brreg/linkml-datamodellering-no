@@ -45,6 +45,7 @@ print(json.dumps({
             'schemaId': '$SCHEMA_ID',
             'schemaName': '$SCHEMA_NAME',
             'schemaTitle': 'TODO: tittel for $NAME',
+            'profile': 'silver',
             'validate': False,
         }
     }
@@ -81,7 +82,13 @@ mkdir -p "$EXAMPLES_DIR"
 # specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
 # $SCHEMA_FILE, og hent ut container-klassenamn/-slot for eksempelfila.
 read CONTAINER_CLASS CONTAINER_SLOT < <(python3 -c "
+import sys
+import datetime
+from pathlib import Path
 import yaml
+
+sys.path.insert(0, '$REPO_ROOT/src/assets/scripts')
+from utils.codeowners import load_codeowners, find_owner_org
 
 raw = '''$LINKML_YAML'''
 lines = raw.splitlines(keepends=True)
@@ -128,6 +135,22 @@ if slots:
 else:
     schema.pop('slots', None)
 
+# Post-prosesser silver-annotasjonane (statiske TODO-placeholder frå
+# profiles/silver.yaml) til faktiske, dynamisk utleidde verdiar.
+annotations = schema.get('annotations') or {}
+if annotations:
+    model_path = Path('src/linkml/$DOMAIN/$NAME')
+    orgs = load_codeowners(Path('$REPO_ROOT'))
+    owner_org = find_owner_org(model_path, orgs)
+    if owner_org and owner_org.get('org_uri'):
+        annotations['utgiver'] = owner_org['org_uri']
+    else:
+        print(f'ÅTVARING: fann ingen eigar-organisasjon for {model_path} i CODEOWNERS.md — behandlar annotations.utgiver som TODO', file=sys.stderr)
+    today = datetime.date.today().isoformat()
+    annotations['endringsdato'] = today
+    annotations['utgivelsesdato'] = today
+    schema['annotations'] = annotations
+
 container_slot = None
 if container_name:
     attrs = classes[container_name].get('attributes') or {}
@@ -138,8 +161,8 @@ body_out = yaml.dump(schema, allow_unicode=True, default_flow_style=False, sort_
 body_out = body_out.replace(
     '- linkml:types\n',
     '- linkml:types\n'
-    '- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema'
-    '  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov\n',
+    '- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema'
+    '  # TODO: endre/legg til imports etter behov\n',
     1,
 )
 body_out = body_out.replace(

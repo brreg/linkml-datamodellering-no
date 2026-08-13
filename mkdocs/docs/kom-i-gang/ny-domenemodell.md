@@ -56,6 +56,11 @@ title: 'TODO: tittel for tilskudd'
 description: Generert modell for 'tilskudd'.
 version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/<orgnr>
+  endringsdato: '<dagens dato>'
+  utgivelsesdato: '<dagens dato>'
+  status: http://purl.org/adms/status/UnderDevelopment
 
 prefixes:
   linkml:   https://w3id.org/linkml/
@@ -103,13 +108,23 @@ classes:
     slots:
       - id
 
+slots:
+  kontaktpunkt:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+
 # TODO: Gi stub-klassen eit meir meiningsfullt namn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.
 ```
 
 `id`-sloten er ikkje lokalt definert i utkastet — han vert arva frå
 `common-ap-no` sitt importerte, delte `id`-slot (`identifier: true`,
-`range: uriorcurie`).
+`range: uriorcurie`). `kontaktpunkt`-sloten vert generert globalt, men er
+**ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
+(`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
+klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i
+klassar der det er relevant.
 
 **Kva TODO-stubbane betyr**
 
@@ -122,6 +137,9 @@ classes:
 | `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
 | `common-ap-no`-importet (TODO-kommentar på importlina) | Byt til ein reell AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema`, dersom `common-ap-no` sine felles slots ikkje dekkjer behovet |
 | `license: https://data.norge.no/nlod/no/2.0` | Alt sett til standard (NLOD 2.0) — byt berre dersom modellen krev ein annan lisens, sjå [gyldige lisensar](https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/) |
+| `annotations.utgiver` | Auto-utleidd frå `CODEOWNERS.md` sitt `path_patterns`-oppslag for `DOMAIN`. Vert `https://data.norge.no/organizations/TODO` dersom domenet ikkje har ein registrert eigar der (skript skriv ei åtvaring til stderr i så fall) |
+| `annotations.endringsdato`/`utgivelsesdato` | Sett til dagens dato automatisk — juster ved behov |
+| `annotations.status` | Alt sett til `UnderDevelopment` («Under utarbeidelse») — oppdater etter kvart som modellen modnar (sjå ADMS-status-tabellen i `CLAUDE.md`) |
 
 `build.yaml` og `description.md` vert òg oppretta med standardinnhald — sjå [Modellmanifest](build-config.md) for feltliste.
 
