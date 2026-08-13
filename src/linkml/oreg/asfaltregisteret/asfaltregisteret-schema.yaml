@@ -1,0 +1,58 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'asfaltregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/asfaltregisteret
+name: asfaltregisteret
+title: 'TODO: tittel for asfaltregisteret'
+description: Generert modell for 'asfaltregisteret'.
+version: 0.1.0
+license: https://creativecommons.org/licenses/by/4.0/
+prefixes:
+  linkml: https://w3id.org/linkml/
+  asfaltregisteret: https://data.norge.no/oreg/asfaltregisteret/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/asfaltregisteret/
+default_range: string
+imports:
+- linkml:types
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+classes:
+  asfaltregisteret:
+    description: 'TODO: beskriv klassen'
+    class_uri: asfaltregisteret:asfaltregisteret
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+  AsfaltregisteretContainer:
+    description: 'TODO: beskriv containerklassen'
+    tree_root: true
+    attributes:
+      asfaltregistereter:
+        description: 'TODO: beskriv eigenskapen'
+        range: asfaltregisteret
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+# TODO: Legg til domene-spesifikke imports etter 'linkml:types', t.d.:
+#   - ../../ap-no/dcat-ap-no/dcat-ap-no-schema
+# TODO: Gi stub-klassen eit meiningsfult norsk namn (PascalCase).
+# TODO: Legg til slots og slot_usage for eigenskapane i modellen.

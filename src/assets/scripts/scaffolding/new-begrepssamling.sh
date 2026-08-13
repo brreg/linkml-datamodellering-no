@@ -27,7 +27,7 @@ if [[ ! "$NAME" =~ ^begrepssamling- ]]; then
     exit 1
 fi
 
-REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 SCHEMA_DIR="$REPO_ROOT/src/linkml/$DOMAIN/$NAME"
 BEGREP_DIR="$SCHEMA_DIR/begrep"
 MANIFEST_FILE="$SCHEMA_DIR/build.yaml"

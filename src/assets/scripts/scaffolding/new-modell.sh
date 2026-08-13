@@ -12,7 +12,7 @@ if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     exit 1
 fi
 
-REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 SCHEMA_DIR="$REPO_ROOT/src/linkml/$DOMAIN/$NAME"
 EXAMPLES_DIR="$SCHEMA_DIR/examples"
 SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"

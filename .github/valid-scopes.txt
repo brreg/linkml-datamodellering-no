@@ -1,3 +1,4 @@
+asfaltregisteret
 brreg-begrepskatalog
 brreg-modellkatalog
 common-ap-no
@@ -25,6 +26,10 @@ ngr-eiendom
 ngr-person
 ngr-virksomhet
 novari-modellkatalog
+referansemodell
+referansemodell-bronze
+referansemodell-gold
+referansemodell-silver
 register-over-aksjeeiere
 samt-bu
 skatteetaten-modellkatalog
