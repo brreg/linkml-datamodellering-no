@@ -2,8 +2,22 @@
 
 **Kortnamn:** `mermaid-diagram-elementaere-typar-og-attributtklikk`
 **Eksempel:** `mkdocs/docs/ap-no/cpsv-ap-no/klasser/adresse.md`,
-`mkdocs/docs/samt/samt-bu/klasser/rektor.md`
-**Dato:** 2026-08-12
+`mkdocs/docs/samt/samt-bu/klasser/rektor.md`,
+`mkdocs/docs/ap-no/cpsv-ap-no/klasser/offentligorganisasjon.md` (`uri`-typen,
+sjå tillegg 2026-08-13)
+**Dato:** 2026-08-12 (oppdatert 2026-08-13)
+**Vedtak (2026-08-13):** både Problem A og Problem B skal dokumenterast som
+BUGS i `bugs/`/`BUGS.md` — begge har stadfesta rotårsak i eit **eksternt**
+verktøy (LinkML sin `docgen.py` for A, Mermaid sin `classDiagram`-syntaks for
+B), ikkje i dette repoet sin eigen kode, og fylgjer difor same mønster som
+BUG-6/BUG-7/BUG-9. Dette gjeld **uavhengig** av kva for intern
+workaround/mitigering som til slutt vert vald og implementert for kvart
+problem (jf. steg 3-4 for A og alternativ a/b/c for B under) — sjølve
+bug-dokumentasjonen er ikkje betinga av valet, berre "Workaround"-seksjonen
+i den enkelte bug-fila er det. Neste ledige ID-ar i `BUGS.md` sin indeks er
+**BUG-13** (Problem A) og **BUG-14** (Problem B) — stadfest at desse framleis
+er ledige når bug-filene faktisk vert oppretta, sidan andre bugs kan ha vorte
+lagt til i mellomtida.
 
 ---
 
@@ -87,6 +101,192 @@ Sidan gapet ser ut til å vere portalomfattande og systemisk (alle tre testa
 domene råka), er reell utbreiing truleg svært stor — full kartlegging er
 steg 5 under.
 
+**`uri` stadfesta som fjerde råka elementærtype, og stadfesta framleis 404 i
+gjeldande produksjon (2026-08-13):**
+`mkdocs/docs/ap-no/cpsv-ap-no/klasser/offentligorganisasjon.md` vart
+undersøkt som referansefil for klassen `OffentligOrganisasjon`
+(`heimeside`-sloten sin range er `uri`, `id`-sloten sin range er
+`uriorcurie`). Den **lokale disk-kopien** av denne fila (datert 2026-08-11
+22:52, altså **før** fiksen i `25bb4321` vart commit 2026-08-12 18:40) har
+den opphavlege, pre-fiks korrupsjonen:
+
+```
+click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+```
+
+Dette er **ikkje** ein gjeldande feil — det stadfestar at fila er ein
+utdatert lokal byggartefakt frå før `copy_artifacts.sh` sin
+href-ombygging vart innført. `mkdocs/docs/**/klasser/*.md` vart
+deregistrert frå git i `986a5630` (2026-06-14), så slike lokale filer kan
+liggje att uendra i mange veker/månadar og feilaktig sjå ut som ein
+gjeldande bug.
+
+Verifisert direkte mot **gjeldande produksjonsside**
+(`https://brreg.github.io/linkml-datamodellering-no/ap-no/cpsv-ap-no/klasser/offentligorganisasjon/`)
+at gjeldande scriptversjon **har fiksa nett denne korrupsjonen** — href vert
+no korrekt bygd frå click-namnet, ikkje frå ein innbaka XSD-URI:
+
+```
+click Uri href "../uri/"
+click Uriorcurie href "../uriorcurie/"
+click String href "../string/"
+```
+
+Men alle tre målsider **404-ar framleis** i produksjon (stadfesta
+2026-08-13 med direkte `curl`):
+
+```bash
+$ for p in uri uriorcurie string; do
+    curl -s -o /dev/null -w "%s -> HTTP %{http_code}\n" \
+      "https://brreg.github.io/linkml-datamodellering-no/ap-no/cpsv-ap-no/klasser/$p/"
+  done
+uri -> HTTP 404
+uriorcurie -> HTTP 404
+string -> HTTP 404
+```
+
+`sitemap.xml` har **null** treff for `klasser/uri/`, `klasser/uriorcurie/`
+eller `klasser/string/` på tvers av **heile** portalen (alle domene, ikkje
+berre `cpsv-ap-no`/`samt-bu`):
+
+```bash
+$ grep -oE "klasser/(uri|uriorcurie|string)/</loc>" sitemap.xml | sort | uniq -c
+# (ingen treff)
+```
+
+**Konklusjon (2026-08-13, tidlegare versjon — sjå korrigering under):**
+dette vart først vurdert som **same rotårsak** som Problem A over (importert,
+ikkje lokalt omdefinert `linkml:types`-type manglar eiga side), og
+href-korrupsjonen brukaren opphavleg mistenkte (`../` limt saman med ein
+absolutt XSD-URI) vart vurdert som **fullstendig retta** av
+`copy_artifacts.sh` sin href-ombygging (`25bb4321`), slik at det attverande
+symptomet ("lenkja er borte") vart forklart som utelukkande 404-en frå
+Problem A. **Denne konklusjonen er ufullstendig — sjå ny hovudhypotese
+under, som endrar kva "retta" faktisk betyr her.**
+
+**Ny hovudhypotese (2026-08-13) — `../http://www.w3.org/2001/XMLSchema#anyURI/`
+er den korrekte, tilsikta verdien frå `gen-doc`, og det er vårt eige
+`copy_artifacts.sh` som fjernar/øydelegg han:**
+
+Strippar ein `../`-prefikset frå href-en i den stale fila, resolverer resten
+til ein ekte, gyldig URL — `https://www.w3.org/2001/XMLSchema#anyURI` — som
+peikar til den faktiske W3C XSD-spesifikasjonen for typen. Dette er ikkje
+ein tilfeldig streng; det er nøyaktig slik LinkML sin eigen `DocGenerator`
+lenkjer til elementære typar som er importerte, ikkje lokalt omdefinerte.
+Stadfesta ved å lese kjeldekoden til den lokalt installerte `linkml`-pakken
+(`linkml==1.10.0rc4`,
+`site-packages/linkml/generators/docgen.py`):
+
+```python
+# docgen.py:537-543 — _is_external()
+def _is_external(self, element: Element) -> bool:
+    if element is None:
+        return False
+    if element.from_schema == "https://w3id.org/linkml/types" and not self.genmeta:
+        return True
+    else:
+        return False
+
+# docgen.py:480-481 — link(), for TypeDefinition-element som er "eksterne"
+if self._is_external(e):
+    return self.uri_link(e)
+    # → uri_link() returnerer f"[{curie}]({uri})", der `uri` er den fullt
+    #   ekspanderte URI-en, t.d. "http://www.w3.org/2001/XMLSchema#anyURI"
+
+# docgen.py:446-459 — link_mermaid(), brukt av class_diagram.md.jinja2
+def link_mermaid(self, e):
+    md_link = self.link(e)                       # "[xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI)"
+    if not md_link.endswith(")"):
+        return md_link
+    link = md_link.rsplit("(")[-1][:-1]           # "http://www.w3.org/2001/XMLSchema#anyURI"
+    link = link.removesuffix(".md")               # ingen endring (endar ikkje på .md)
+    return f"../{link}/"                          # "../http://www.w3.org/2001/XMLSchema#anyURI/"
+```
+
+`element.from_schema == "https://w3id.org/linkml/types"` er nøyaktig det
+same skiljet som vart identifisert i den (tidlegare) rotårsaksanalysen for
+Problem A ("lokalt definert vs. importert-uendra") — men det viser seg at
+LinkML **har** ei eiga, medvite grein for desse typane: dei skal lenkjast
+**eksternt** til W3C/XSD sin definisjon, ikkje til ei lokal side. `gen-doc`
+genererer altså **ikkje** eit hol her — han genererer eit fullverdig,
+meiningsfullt lenkjemål. Feilen ligg i `link_mermaid()` sitt siste steg:
+metoden føreset ukritisk at *alt* han pakkar ut frå ei markdown-lenkje er ein
+lokal, relativ filsti, og limer på `../` + `/` uansett — også når verdien
+alt er ein absolutt URL. Dette er ein **upstream LinkML-bug** i
+`link_mermaid()` (ikkje i vårt repo), og han produserer nettopp den nøyaktige
+strengen (`../http://www.w3.org/2001/XMLSchema#anyURI/`) me ser i den stale
+`offentligorganisasjon.md`-fila — **frå ein rein `make gen-doc`-køyring,
+før noko av vår eigen etterprosessering i `copy_artifacts.sh` har rørt ved
+han.**
+
+**Konsekvens for `copy_artifacts.sh` sin fiks (`25bb4321`):** sed-regelen
+
+```bash
+find "$out/klasser" -maxdepth 1 -name "*.md" \
+    -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "[^"]*"|click \1 href "../\L\1\E/"|g' {} +
+```
+
+bryr seg ikkje om kva den opphavlege href-verdien var — han byggjer **alltid**
+ei ny, lokal `../<namn-i-lowercase>/`-lenkje frå click-namnet åleine. For
+genuint lokale klasse-/enum-/slot-lenkjer er dette korrekt (og løyste den
+opphavlege feilkasusen i `mermaid-klikkbare-lenker-404.md`, der href-verdien
+var feilkasa, ikkje feil type). Men for eksterne `linkml:types`-typar
+**kastar denne regelen bort den ekte, fungerande eksterne URI-en** LinkML
+gav oss, og erstattar han med ei lenkje til ei lokal side som **strukturelt
+aldri kan finnast** (fordi `gen-doc` med vilje ikkje genererer ei slik side
+for desse typane — jf. `_is_external()` over). Med andre ord: fiksen bytta
+éin type feil (syntaktisk broten, men semantisk gjenkjennande URL) mot ein
+annan (syntaktisk gyldig, men semantisk umogleg lokal lenkje) — og gjorde
+det umogleg å attreise den opphavlege, korrekte informasjonen frå den
+rebygde href-en åleine.
+
+**Dette er no hovudhypotesen som skal utforskast vidare, i staden for at
+Problem A vert forklart utelukkande som "manglande lokal side":** den rette
+fiksen bør truleg **bevare** eksterne, absolutte URL-ar (berre fjerne det
+feilaktige `../`-prefikset LinkML sjølv legg til), og berre rebygge frå
+click-namnet for href-verdiar som faktisk var meint å vere lokale
+sti-referansar. Følgjeimplikasjonar som må handterast saman med ein slik
+fiks:
+
+- `mkdocs/lib/scripts/check-mermaid-click-hrefs.py` (frå `25bb4321`) sjekkar
+  i dag **alle** href-ar mot `known_paths` henta frå den lokale
+  `sitemap.xml` (`normalize()` + mengd-medlemskap, `check-mermaid-click-hrefs.py:35-40,89-91`)
+  — ei ekte ekstern absolutt-URL (t.d. `http://www.w3.org/2001/XMLSchema#anyURI`)
+  vil aldri finnast i `known_paths` og vert difor feilaktig flagga som
+  `IKKJE FUNNE`, sjølv om lenkja er fullt gyldig. Scriptet må utvidast til
+  å handtere absolutte `http(s)://`-hrefar annleis enn portal-interne
+  relative hrefar (t.d. eige HTTP-oppslag mot ekstern URL, eller ei
+  medviten kvitliste/skip for kjende eksterne vokabular-domene som
+  `w3.org`).
+- `tests/test_make.sh::test_copy_artifacts_click_href` (frå `25bb4321`,
+  sjå `tests/test_make.sh:1285-1299`) hardkodar i dag forventinga om at
+  **alle** click-hrefar (inkludert `Uriorcurie`) skal rebyggjast til
+  `../<lowercase-namn>/` — testfixturen sitt eige kommentar
+  (`tests/test_make.sh:1254-1255`) inneheld nettopp
+  `click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"` som
+  input. Denne assertion-en er den kodifiserte forma av den **no
+  reviderte** hypotesen, og må oppdaterast til å forvente at eksterne
+  URL-ar vert bevart (berre `../`-prefikset fjerna), ikkje omskrivne til
+  ei lokal lenkje.
+- `link_mermaid()`-oppførselen skal dokumenterast som **BUG-13** i `bugs/`
+  (jf. steg 2 og "Vedtak"-lina i toppen av specen) uavhengig av kva fiks som
+  vert vald her — sidan feilen ligg i `linkml`-pakken sin eigen `docgen.py`,
+  ikkje i noko fil i dette repoet. Vurder i tillegg å melde saka oppstraums
+  til LinkML (GitHub-issue) og lenkje til han frå bug-fila sitt
+  "Løysing"-avsnitt.
+
+**Ikkje enno verifisert:** ovanståande er stadfesta ved kjeldekodelesing av
+den lokalt installerte `linkml==1.10.0rc4`-pakken, **ikkje** ved å køyre
+`make gen-doc` i det faktiske container-miljøet repoet brukar i CI/lokalt
+(jf. "Aldri køyr podman/linkml-kommandoar direkte" i `CLAUDE.md` — berre via
+`make`-targets). Neste steg bør stadfeste at `generated/ap-no/cpsv-ap-no/docs/*.md`
+frå ein fersk `make gen-doc`-køyring inneheld nøyaktig
+`../http://www.w3.org/2001/XMLSchema#anyURI/` (eller tilsvarande for
+`string`/`uriorcurie`) **før** `copy_artifacts.sh` har rørt filene, for å
+utelukke at containerbiletet sin `linkml`-versjon skil seg frå den lokalt
+installerte og oppfører seg annleis.
+
 ### Problem B: attributtklikk i diagrammet peikar alltid til klassa sjølv, ikkje til sloten
 
 I same diagram er `Adresse : full_adresse`, `Adresse : id`, `Adresse : land`,
@@ -113,65 +313,110 @@ løysast med same slags sed-regel-fiks som Problem A og
 
 ### Problem A — 404 på elementære datatypar
 
+**Rekkjefølgja under følgjer den nye hovudhypotesen (2026-08-13, sjå
+Bakgrunn): at `gen-doc` med vilje lenkjer eksterne `linkml:types`-typar til
+W3C/XSD, og at det er vår eiga `copy_artifacts.sh`-etterprosessering som
+kastar bort denne lenkja. Steg 1-2 stadfestar hypotesen mot ein fersk
+container-køyring (ikkje berre lokal kjeldekodelesing); steg 3-6 implementerer
+og verifiserer ein fiks som **bevarer** eksterne URL-ar i staden for å
+generere lokale stub-sider.**
+
 1. Reproduser med ein **fersk** `make gen-doc SCHEMA=src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema.yaml`
    (ikkje stol på eksisterande filer i `generated/` — dei kan vere
-   utdaterte lokale rester, jf. funnet over) og stadfest at
-   `generated/ap-no/cpsv-ap-no/docs/` manglar `String.md`/`Uriorcurie.md`
-   (og eventuelt andre elementære typar brukt i skjemaet, t.d. `Boolean`,
-   `Integer`, `Date` dersom dei finst). Gjenta for `samt-bu` for å stadfeste
-   at same skjer der (produksjonsverifisert, men ikkje enno stadfesta med ein
-   fersk lokal `make gen-doc`-køyring).
-2. Stadfest hypotesen frå Bakgrunn-seksjonen: samanlikn `types:`-blokka i
-   `cpsv-ap-no-schema.yaml` (som har lokale typedefinisjonar `Duration`,
-   `GYear`, `NonNegativeInteger` — desse FÅR eigne sider) mot bruken av
-   `string`/`uriorcurie` (importerte, ikkje lokalt omdefinerte — desse FÅR
-   IKKJE eigne sider). Stadfest at dette mønsteret held for alle elementære
-   typar på tvers av fleire skjema, ikkje berre dei to testa her.
-3. Diagnostiser kvifor LinkML sin `DocGenerator` berre genererer
-   enkelttype-sider for lokalt omdefinerte typar, ikkje for typar brukt
-   uendra frå eit importert skjema (`linkml:types`) — sjekk om dette er
-   dokumentert, tilsikta åtferd i LinkML sin `gen-doc` (sjekk LinkML sin
-   GitHub-issue-tracker/dokumentasjon for "docgen types not generated" eller
-   tilsvarande), eller ein upstream-bug. Dokumenter funnet i `bugs/` dersom
-   det er ein stadfesta upstream-avgrensing/tilsikta åtferd (jf. mønsteret i
-   BUG-6/BUG-7).
-4. Vel og implementer fiks basert på funn i steg 3 — mest sannsynleg
-   alternativ gitt at dette er portalomfattande og systemisk: eit
-   post-prosesseringssteg i `copy_artifacts.sh` (eller eit nytt steg i
-   `publish.sh`) som genererer minimale stub-sider for alle elementære
-   `linkml:types`-typar som er referert i eit `click ... href`-direktiv, men
-   som ikkje har fått ei eiga side frå `gen-doc`. Alternativt (b) ei
-   skjemaendring som unngår føresetnaden, eller (c) ei anna løysing avdekt i
-   steg 3. Skal avklarast med brukaren før implementering dersom fleire
-   alternativ er aktuelle.
+   utdaterte lokale rester, jf. funnet over) og sjekk
+   `generated/ap-no/cpsv-ap-no/docs/*.md` (altså **før** `copy_artifacts.sh`
+   har rørt filene) for det rå `click`-direktivet for `string`, `uri` og
+   `uriorcurie`. **Forventa funn** (jf. kjeldekodesporing av
+   `linkml/generators/docgen.py:link_mermaid()` i Bakgrunn):
+   `click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"` — altså at
+   containerbiletet sin `linkml`-versjon oppfører seg likt den lokalt
+   installerte (`1.10.0rc4`) som vart brukt til kjeldekodesporinga. Gjenta
+   for `samt-bu` sitt `rektor`-diagram.
+2. Dersom steg 1 stadfestar hypotesen: dokumenter at dette **ikkje** er eit
+   hol i `gen-doc` (han genererer ingen side for `string`/`uri`/`uriorcurie`
+   fordi dei er meint å lenkjast eksternt til XSD, ikkje fordi han "gløymer"
+   dei), men ein **upstream-bug i `link_mermaid()`** som limer `../` framanpå
+   ein allereie absolutt URL. **Gjort 2026-08-13:** oppretta
+   `bugs/mermaid-link-ekstern-uri-prefiks.md` som **BUG-13** (status `open` —
+   vert `upstream` når intern workaround i steg 3-4 er implementert),
+   komponent `linkml` (`docgen.py:link_mermaid()`), etter malen frå
+   `bugs/avrotize-falsk-circular-dependency-warning.md` (BUG-9) — symptom,
+   rot-årsak (kjeldekodesitat frå Bakgrunn-seksjonen over), status på
+   workaround, og føreslått løysing (`link_mermaid()` manglar eit
+   `startswith(("http://", "https://"))`-sjekk før `../`-prefikset vert
+   limt på). Lagt til rad i `BUGS.md` sin indekstabell og i
+   "Generatorar"-lista. **Attverande:** oppdater BUG-13 sin
+   "Workaround"-seksjon og `Status` til `upstream` når fiksen i steg 3-4
+   under er implementert.
+3. Design fiks i `copy_artifacts.sh`: erstatt den blanke
+   navnebaserte sed-regelen med logikk som skil på om den **opphavlege**
+   href-verdien (før ombygging) er ein absolutt URL (`^https?://`) eller ein
+   lokal sti:
+   - **Absolutt URL** (typisk etter eit feilaktig `../`-prefiks limt på av
+     `link_mermaid()`, jf. steg 1-2): fjern berre det innleiande
+     `../`-prefikset og eit ev. avsluttande `/` limt til slutten av URL-en av
+     same feil — behald resten av URL-en uendra (ikkje lowercase, ikkje
+     namnebasert ombygging).
+   - **Lokal sti** (klasse/enum/slot-referansar, typar med eiga side): behald
+     dagens åtferd frå `25bb4321` (rebygg `../<lowercase-namn>/` frå
+     click-namnet) — dette løyste den opphavlege feilkasus-bugen i
+     `mermaid-klikkbare-lenker-404.md` og skal ikkje endrast for desse.
+   `sed` åleine er truleg for grovkorna for denne greina (treng betinga logikk
+   per match, ikkje berre eitt regex-erstatt) — vurder om steget bør
+   omskrivast i Python (fylgjer repoet sin konvensjon om `error_handler.log_error()`
+   for uventa unntak) eller om ei to-pass `sed`/`awk`-løysing er tilstrekkeleg.
+   Avklar med brukaren dersom fleire implementasjonsalternativ er aktuelle.
+4. Oppdater følgjeavhengige filer frå `25bb4321` som **kodifiserer den no
+   reviderte hypotesen** og vil feile/gi feil resultat med fiksen frå steg 3
+   utan justering:
+   - `mkdocs/lib/scripts/check-mermaid-click-hrefs.py`: handter absolutte
+     `http(s)://`-hrefar annleis enn portal-relative hrefar (ikkje slå opp
+     mot `known_paths` frå lokal `sitemap.xml` — anten eige HTTP-oppslag mot
+     den eksterne URL-en, eller ei medviten kvitliste for kjende eksterne
+     vokabular-domene som `w3.org`).
+   - `tests/test_make.sh::test_copy_artifacts_click_href`: oppdater
+     forventinga for `Uriorcurie`-fixturen (linje ~1254-1255,~1285-1299) til
+     å forvente at den eksterne URL-en vert bevart (`../`-prefikset fjerna),
+     ikkje omskrive til `../uriorcurie/`.
 5. Kartlegg full omfang **mot produksjonssida sitt `sitemap.xml`** (ikkje
-   lokale artefaktar) på tvers av **alle** domene/skjema — bruk
-   `check-mermaid-click-hrefs.py` (som alt hentar frå publisert portal) for
-   dette, eller ein tilsvarande grep mot `sitemap.xml` for kvart elementært
-   typenamn (`string`, `uriorcurie`, `integer`, `boolean`, `float`, `date`,
-   osv.) kombinert med `klasser/`-stien.
-6. Verifiser fiksen: `make docs-publish`, stadfest at
-   `mkdocs/docs/ap-no/cpsv-ap-no/klasser/string.md`,
-   `.../uriorcurie.md` og `mkdocs/docs/samt/samt-bu/klasser/string.md`,
-   `.../uriorcurie.md` finst og at `adresse.md` og `rektor.md` sine
-   `click`-lenkjer resolvar korrekt.
-7. Legg til regresjonstest i `tests/test_make.sh` som stadfestar at alle
-   `click <Namn> href`-mål i `klasser/*.md` faktisk har eit korresponderande
-   `.md`-filnamn i same katalog (utvidar/kompletterer den eksisterande
-   `test_copy_artifacts_click_href`-testen frå
-   `specs/done/mermaid-klikkbare-lenker-404.md`, som verifiserer href-format
-   men ikkje at målfila faktisk finst).
+   lokale artefaktar) på tvers av **alle** domene/skjema for elementærtypar
+   som framleis manglar eiga side etter fiksen (t.d. typar som *ikkje* er
+   `linkml:types`-eksterne, men likevel manglar side av andre grunnar) — bruk
+   `check-mermaid-click-hrefs.py` (oppdatert i steg 4) eller ein tilsvarande
+   grep mot `sitemap.xml`. **Delvis gjort 2026-08-13 (pre-fiks
+   baseline):** `grep -oE "klasser/(uri|uriorcurie|string)/</loc>"` mot heile
+   `sitemap.xml` gav null treff portalomfattande — dette er forventa å
+   **halde fram** å gi null treff etter fiksen, sidan desse tre no skal
+   lenkjast eksternt, ikkje lokalt. Attverande typar (`integer`, `boolean`,
+   `float`, `date` m.fl.) er enno ikkje sjekka, og kan i prinsippet vere ei
+   anna, ekte "manglar lokal side"-feilklasse dersom dei **ikkje** er
+   `linkml:types`-eksterne.
+6. Verifiser fiksen: `make docs-publish`, stadfest at `offentligorganisasjon.md`,
+   `adresse.md` og `rektor.md` sine `click Uri`/`click String`/`click Uriorcurie`-hrefar
+   no peikar til gyldige, resolverbare `https://www.w3.org/...`-URL-ar (ikkje
+   `../uri/` osv.), og at genuint lokale click-hrefar (klassar, enums) framleis
+   fungerer som før.
 
 ### Problem B — misvisande attributtklikk (avgrensing, ikkje enkel fiks)
 
-8. Avklar med brukaren kva for tilnærming som er ønskt, sidan dette ikkje er
-   ein rein kodefeil:
-   - **(a) Aksepter som kjend avgrensing** — dokumenter i `bugs/` med
-     forklaring om mermaid sin classDiagram-click-syntaks, og legg til ei
-     kort forklarande linje ved diagramma i mkdocs (eller i
-     `mkdocs/docs/index.md` sine "Kjende avgrensingar") om at
-     `## Eigenskapar`-tabellen under diagrammet er fasiten for
-     slot-spesifikke lenkjer.
+7. **Gjort 2026-08-13:** oppretta `bugs/mermaid-classdiagram-eitt-click-per-boks.md`
+   som **BUG-14** (status `open`, komponent `mermaid` (`classDiagram`-syntaks))
+   — symptom (klikk på ein medlemsrad utløyser same href som klassenamnet),
+   rot-årsak (Mermaid sin `classDiagram` støttar kun eitt `click`-mål per
+   klasseboks, ingen eigen click-mekanisme per medlemsrad — jf.
+   Bakgrunn-avsnittet over). Lagt til rad i `BUGS.md` sin indekstabell og i
+   "Generatorar"-lista. Bug-dokumentasjonen er gjort **uavhengig** av kva
+   mitigeringsalternativ (a/b/c) under som til slutt vert vald. **Attverande:**
+   oppdater BUG-14 sin "Workaround"-seksjon når eit alternativ er vald og
+   implementert (steg 9).
+8. Avklar med brukaren kva for **mitigeringstilnærming** som er ønskt (fylles
+   inn i BUG-14 si "Workaround"-seksjon), sidan dette ikkje er ein rein
+   kodefeil i vårt repo:
+   - **(a) Aksepter som kjend avgrensing** — ingen mitigering utover
+     BUG-14-dokumentasjonen frå steg 7, men legg til ei kort forklarande
+     linje ved diagramma i mkdocs (eller i `mkdocs/docs/index.md` sine
+     "Kjende avgrensingar") om at `## Eigenskapar`-tabellen under
+     diagrammet er fasiten for slot-spesifikke lenkjer.
    - **(b) Fjern det misvisande visuelle inntrykket** — undersøk om
      `gen-doc`-malen (eller eit post-prosesseringssteg) kan generere
      diagram utan attributt-rader inni klasseboksen (kun klassenamn +
@@ -183,17 +428,20 @@ løysast med same slags sed-regel-fiks som Problem A og
      kan promoterast som primærdiagram i staden for mermaid, eller om
      PlantUML-diagrammet allereie har korrekte per-attributt-lenkjer og
      berre treng betre synlegheit på sida.
-9. Implementer valt tilnærming og verifiser (lokalt `make docs-build` +
+9. Implementer valt mitigeringstilnærming, oppdater BUG-14 sin
+   "Workaround"-seksjon tilsvarande, og verifiser (lokalt `make docs-build` +
    stikkprøve på `adresse.md` og minst éi anna klasse-side).
 
 ## Handlingsliste
 
-- [ ] Reproduser Problem A med fersk `make gen-doc` for `cpsv-ap-no` OG `samt-bu` (ikkje lokale rester)
-- [ ] Stadfest hypotesen: lokalt omdefinert type → eiga side, importert-uendra type → ingen side
-- [ ] Diagnostiser om manglande enkelttype-sider er tilsikta LinkML-åtferd eller ein upstream-bug, dokumenter i `bugs/`
-- [ ] Vel og implementer fiks for Problem A (avklar alternativ med brukaren om usikkert)
-- [ ] Kartlegg fullt omfang av Problem A **mot produksjonssida sitt `sitemap.xml`** på tvers av alle domene/skjema
-- [ ] Verifiser fiks med `make docs-publish` og stikkprøve på `adresse.md` og `rektor.md`
-- [ ] Legg til/utvid regresjonstest i `tests/test_make.sh` for målfil-eksistens
-- [ ] Avklar tilnærming (a/b/c) for Problem B med brukaren
-- [ ] Implementer og verifiser valt tilnærming for Problem B
+- [ ] Reproduser Problem A med fersk `make gen-doc` for `cpsv-ap-no` OG `samt-bu` — stadfest at rå (pre-`copy_artifacts.sh`) output i `generated/.../docs/*.md` inneheld `click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"` (jf. kjeldekodespora `linkml/generators/docgen.py:link_mermaid()`)
+- [x] Opprett `bugs/mermaid-link-ekstern-uri-prefiks.md` som **BUG-13** (status `open` — vert `upstream` når intern workaround er implementert), legg til rad i `BUGS.md` — gjort 2026-08-13
+- [ ] Design og implementer fiks i `copy_artifacts.sh` som **bevarer** absolutte eksterne URL-ar (berre fjernar `../`-prefikset), og berre rebygger namnebasert for genuint lokale hrefar
+- [ ] Oppdater `check-mermaid-click-hrefs.py` til å handtere absolutte `http(s)://`-hrefar korrekt (ikkje slå opp mot lokal sitemap)
+- [ ] Oppdater `tests/test_make.sh::test_copy_artifacts_click_href` sin `Uriorcurie`-fixture-forventing til bevart ekstern URL
+- [ ] Kartlegg om attverande elementærtypar (`integer`, `boolean`, `float`, `date` m.fl.) er `linkml:types`-eksterne (→ same fiks) eller ei anna, ekte "manglar lokal side"-feilklasse
+- [ ] Verifiser fiks med `make docs-publish` og stikkprøve på `offentligorganisasjon.md`, `adresse.md` og `rektor.md`
+- [ ] Oppdater BUG-13 sin "Workaround"-seksjon basert på vald og implementert fiks
+- [x] Opprett `bugs/mermaid-classdiagram-eitt-click-per-boks.md` som **BUG-14** (status `open`), legg til rad i `BUGS.md` — gjort 2026-08-13
+- [ ] Avklar mitigeringstilnærming (a/b/c) for Problem B med brukaren
+- [ ] Implementer valt mitigeringstilnærming for Problem B, oppdater BUG-14 sin "Workaround"-seksjon, og verifiser

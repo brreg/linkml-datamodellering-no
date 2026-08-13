@@ -26,6 +26,8 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 - AsyncAPI-generering er eksperimentell og ikkje aktivert by default
 - **BUG-6, BUG-7**: Class/slot-override av importerte element krasjar eller korrumperer genererte artefakter
 - **BUG-9**: `gen-xsd` skriv ei ufarleg falsk "circular dependency"-åtvaring for containerklassar (reint støy, påverkar ikkje utdata)
+- **BUG-13**: `gen-doc` sitt mermaid-klassediagram limer `../` framanfor eksterne XSD-lenkjer for importerte elementærtypar, og gjer dei broten
+- **BUG-14**: Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributt-rader i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten
 
 ### Publisering
 - Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
@@ -56,6 +58,8 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-10](bugs/podman-interactive-stdin-konsumerer-while-lokke.md) | `podman run -i` (PYTHON_RUN) konsumerer stdin frå omsluttande `while read < <(...)`-løkke — kun første skjema/eksempel vart validert | `løyst` | `make/40-validation.mk` | `validate-examples`, `validate-bronze` (alle domene) |
 | [BUG-11](bugs/informasjonsmodell-instance-stale-metadata-sti.md) | `validate-informasjonsmodell-instance` peikar på utdatert sti `metadata/modelldcat.yaml` i staden for `metadata/<modell>-manifest.yaml` | `løyst` | `make/30-instances.mk` | alle skjema med Informasjonsmodell-generering (unntatt `dqv-ap-no`) |
 | [BUG-12](bugs/valideringslogg-json-inkonsistent-skjema.md) | Tre skriveveger til `validation/<versjon>/<policy>.json` brukte ulike feltnamn (`validation_policy`/`validation_type`, med/utan `validated_at`) | `løyst` | `make/40-validation.mk` | alle skjema |
+| [BUG-13](bugs/mermaid-link-ekstern-uri-prefiks.md) | `DocGenerator.link_mermaid()` limer `../` framanfor absolutte eksterne URL-ar til importerte `linkml:types`-typar (`uri`, `uriorcurie`, `string` m.fl.) | `open` | `linkml` | alle skjema med importerte, ikkje lokalt omdefinerte elementærtypar |
+| [BUG-14](bugs/mermaid-classdiagram-eitt-click-per-boks.md) | Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributtklikk i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten | `open` | `mermaid` | alle skjema/klassar med minst éin attributt i diagrammet |
 
 ## Statusforklaring
 
