@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.4.0...fint-common-v4.5.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+
+
+### Bug Fixes
+
+* **mkdocs:** aktiver plantuml-diagram for FINT, Begrepskatalog og Modellkatalog ([31881d6](https://github.com/brreg/linkml-datamodellering-no/commit/31881d6bdbb1660c29b9baaa4b14f7839e5f3364))
+
 ## [4.4.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.3.0...fint-common-v4.4.0) (2026-08-02)
 
 
