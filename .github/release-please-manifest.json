@@ -19,6 +19,6 @@
   "src/linkml/ngr/ngr-eiendom": "1.6.0",
   "src/linkml/ngr/ngr-person": "1.6.0",
   "src/linkml/ngr/ngr-virksomhet": "1.6.0",
-  "src/linkml/oreg/register-over-aksjeeiere": "1.7.0",
+  "src/linkml/oreg/register-over-aksjeeiere": "1.8.0",
   "src/linkml/samt/samt-bu": "1.10.0"
 }
