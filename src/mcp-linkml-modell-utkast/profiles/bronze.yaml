@@ -28,7 +28,9 @@ generation:
   # Legg til id-slot med identifier: true og range: uriorcurie på alle klasser
   add_id_slot: true
 
-  # Legg til ein global kontaktpunkt-slot (dcat:contactPoint, range: uriorcurie).
+  # Legg til ein global kontaktinformasjon-slot (dcat:contactPoint, range: uriorcurie).
+  # Generisk namn valt for å unngå kollisjon med det allereie importerte
+  # `kontaktpunkt`-slotet frå dcat-ap-no-schema (annan range/definisjon der).
   # Vert ikkje automatisk kopla til stub-klassen sin slots-liste.
   add_kontaktpunkt_slot: true
 

@@ -109,7 +109,7 @@ classes:
       - id
 
 slots:
-  kontaktpunkt:
+  kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
@@ -120,8 +120,10 @@ slots:
 
 `id`-sloten er ikkje lokalt definert i utkastet — han vert arva via
 `dcat-ap-no` sitt importerte `common-ap-no`-import, som har det delte
-`id`-slotet (`identifier: true`, `range: uriorcurie`). `kontaktpunkt`-sloten
-vert generert globalt, men er
+`id`-slotet (`identifier: true`, `range: uriorcurie`). `kontaktinformasjon`-sloten
+vert generert globalt med eit generisk namn (unngår kollisjon med det
+allereie importerte `kontaktpunkt`-slotet frå `dcat-ap-no`, som har ein
+annan `range`), men er
 **ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
 (`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
 klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i
