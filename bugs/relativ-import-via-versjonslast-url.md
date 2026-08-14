@@ -73,6 +73,15 @@ transitivt via `linkml.generators.*`) i repoet:
   `gen-linkml-merge`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-docs` m.fl.
   — patchen vart gløymd her i første runde, oppdaga då `make domain-oreg`
   feila i CI for eit skjema med versjonslåst URL-import)
+- `src/assets/scripts/makefile/batch-convert.py` (drivar for
+  `convert-rdf`/`roundtrip-json`/`roundtrip-ttl` via `linkml.converter.cli:cli`
+  — same type hol, oppdaga då `make roundtrip` feila med
+  `Unknown CURIE prefix: https` for eit scaffolda skjema med versjonslåst
+  URL-import, sjå `specs/done/fiks-ap-no-import-feil-new-modell.md`)
+- `src/assets/scripts/makefile/batch-lint.py` (drivar for `linkml-lint`,
+  brukar `Linter`/`TerminalFormatter` direkte — same type hol, oppdaga ved
+  full `make test`-køyring: `linkml-lint (lunchregisteret)` feila med
+  `Unknown CURIE prefix: https`)
 
 Patchen sjekkar sjølv om kjeldekoden til `imports_closure()` framleis
 inneheld den forventa buggy linja før han patchar — dersom `linkml_runtime`

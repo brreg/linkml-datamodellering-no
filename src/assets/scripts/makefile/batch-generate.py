@@ -63,6 +63,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+import yaml
+
 # Sjå src/assets/scripts/utils/linkml_relative_import_patch.py — fiksar ein
 # upstream-bug i SchemaView.imports_closure() for versjonslåste importar.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
@@ -104,6 +106,7 @@ class GeneratorSpec:
     extra_argv_fn: Callable[[str, str], list[str]] | None = None  # (domain, name) -> ekstra argv (kan ha biverknader, t.d. mkdir)
     post_fn: Callable[[str, str], None] | None = None  # (domain, name) -> None, køyrt etter vellukka run_click()
     out_subdir: str = ""  # t.d. "diagrams" for plantuml — tomt betyr $GEN_DIR/<domain>/<name>/ direkte
+    skip_if_versioned_import: bool = False  # sjå schema_has_versioned_import() — BUG-17
 
 
 def _doc_extra_argv(domain: str, name: str) -> list[str]:
@@ -151,7 +154,9 @@ REGISTRY: dict[str, GeneratorSpec] = {
             "--consolidate-cardinality-axioms",
         ],
     ),
-    "rdf": GeneratorSpec(module="linkml.generators.rdfgen", out_suffix="schema.ttl", flag="rdf"),
+    "rdf": GeneratorSpec(
+        module="linkml.generators.rdfgen", out_suffix="schema.ttl", flag="rdf", skip_if_versioned_import=True
+    ),
     "proto": GeneratorSpec(module="linkml.generators.protogen", out_suffix="schema.proto", flag="protobuf"),
     "graphql": GeneratorSpec(module="linkml.generators.graphqlgen", out_suffix="schema.graphql", flag="graphql"),
     "erdiagram": GeneratorSpec(
@@ -196,6 +201,16 @@ def read_build_yaml_extra_flags(schema: str, field_name: str) -> str:
     return m.group(1) if m else ""
 
 
+def schema_has_versioned_import(schema: str) -> bool:
+    """True dersom skjemaet sin imports:-liste inneheld eit versjonslåst URL-import.
+
+    RDFGenerator/JSONLDGenerator kan ikkje handtere slike importar — sjå
+    bugs/gen-rdf-manglar-stotte-for-versjonslaste-importar.md (BUG-17).
+    """
+    schema_dict = yaml.safe_load(Path(schema).read_text(encoding="utf-8")) or {}
+    return any("://" in str(imp) for imp in schema_dict.get("imports") or [])
+
+
 def run_click(cli_cmd, argv: list[str]) -> str:
     ctx = cli_cmd.make_context(cli_cmd.name, list(argv))
     buf = io.StringIO()
@@ -220,6 +235,16 @@ def main() -> int:
     enabled: list[str] = [
         s for s in args.schemas if spec.flag is None or read_build_yaml_flag(s, spec.flag)
     ]
+
+    if spec.skip_if_versioned_import:
+        skipped_versioned = [s for s in enabled if schema_has_versioned_import(s)]
+        enabled = [s for s in enabled if s not in skipped_versioned]
+        for s in skipped_versioned:
+            domain, name = schema_domain_name(s)
+            log_info(
+                f"HOPPAR OVER {args.generator} for {domain}/{name} — versjonslåst URL-import, "
+                "sjå bugs/gen-rdf-manglar-stotte-for-versjonslaste-importar.md (BUG-17)"
+            )
 
     flag_desc = f" ({spec.flag}: true)" if spec.flag else ""
     names = ", ".join(schema_domain_name(s)[1] for s in enabled)

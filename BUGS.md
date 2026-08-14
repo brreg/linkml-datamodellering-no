@@ -28,6 +28,7 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 - **BUG-9**: `gen-xsd` skriv ei ufarleg falsk "circular dependency"-åtvaring for containerklassar (reint støy, påverkar ikkje utdata)
 - **BUG-13**: `gen-doc` sitt mermaid-klassediagram limer `../` framanfor eksterne XSD-lenkjer for importerte elementærtypar, og gjer dei broten
 - **BUG-14**: Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributt-rader i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten
+- **BUG-17**: `gen-rdf` fetchar `<import>.context.jsonld` over nettverk for versjonslåste URL-importar og feilar med 404 — slike skjema vert automatisk hoppa over for rdf-generering
 
 ### Publisering
 - Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
@@ -62,6 +63,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-14](bugs/mermaid-classdiagram-eitt-click-per-boks.md) | Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributtklikk i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten | `open` | `mermaid` | alle skjema/klassar med minst éin attributt i diagrammet |
 | [BUG-15](bugs/relativ-import-via-versjonslast-url.md) | `SchemaView.imports_closure()` kollapsar `https://` til `https:/` når han løyser relative importar i eit versjonslåst URL-importert skjema — feilar med `Unknown CURIE prefix: https` | `workaround` | `linkml-runtime` | alle skjema med versjonslåst URL-import av eit skjema som transitivt importerer ein AP-NO-profil |
 | [BUG-16](bugs/codeowners-frontmatter-format-mismatch.md) | `update-modellkatalog.py::load_org_registry()` forventa `---`-frontmatter, men CODEOWNERS.md brukar ```yaml`-fence — fann alltid 0 organisasjonar | `løyst` | `src/assets/scripts/makefile/update-modellkatalog.py` | `gen-modelldcat-elements`, `update-modellkatalog` |
+| [BUG-17](bugs/gen-rdf-manglar-stotte-for-versjonslaste-importar.md) | `RDFGenerator`/`JSONLDGenerator` fetchar `<import>.context.jsonld` over nettverk for versjonslåste URL-importar — 404, sidan byggoutput aldri er committa | `workaround` | `linkml` | alle skjema med `rdf: true` og minst eitt versjonslåst URL-import |
 
 ## Statusforklaring
 
