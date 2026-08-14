@@ -243,15 +243,29 @@ def _build_argv(s: str, domain: str, name: str, spec: GeneratorSpec) -> list[str
     return argv
 
 
-# Sett i main() FØR ProcessPoolExecutor vert oppretta (berre for
-# spec.parallel=True-generatorar, t.d. doc/rdf — sjå GeneratorSpec.parallel).
-# Linux sin standard multiprocessing-startmetode er "fork": worker-prosessar
-# er ein copy-on-write-kopi av foreldreprosessen sitt minne på forke-
-# tidspunktet, så denne modul-globalen er alt sett i kvar worker utan at
-# sjølve Click Command-objektet (som ikkje er triviellt pickle-bart) nokon
-# gong må sendast over IPC-køen. Berre task-tuplane (str/list/GeneratorSpec
-# — alle pickle-bare) vert sendt til pool.map().
+# Sett i main() (sekvensiell sti) OG av _pool_init() i kvar worker-prosess
+# (parallell sti, sjå ProcessPoolExecutor(initializer=...) i main()).
+#
+# MERK: eit tidlegare forsøk stolte på at "fork"-startmetoden (Linux sin
+# tradisjonelle standard) automatisk ville la workers arve denne globalen
+# via copy-on-write-minne, sett FØR ProcessPoolExecutor vart oppretta —
+# dette virka lokalt, men feila i CI med
+# "'NoneType' object has no attribute 'make_context'" (_CLI_CMD framleis
+# None i workeren). Rotårsak: multiprocessing sin faktiske startmetode kan
+# ikkje takast for gjeve på tvers av miljø (spawn/forkserver gjev IKKJE
+# COW-arv — kvar worker startar med ein fresh modul-import, som køyrer
+# modul-nivå-koden på nytt, inkludert `_CLI_CMD = None`, utan å kalle
+# main() på nytt). Ein eksplisitt `initializer`-funksjon er den einaste
+# metoden ProcessPoolExecutor sjølv garanterer køyrer i KVAR worker
+# uavhengig av startmetode — difor brukt her i staden for implisitt
+# arv. Sjølve Click Command-objektet vert framleis aldri pickla/sendt over
+# IPC-køen (berre eit importerbart modulnamn, ein plain string).
 _CLI_CMD = None
+
+
+def _pool_init(module_name: str) -> None:
+    global _CLI_CMD
+    _CLI_CMD = importlib.import_module(module_name).cli
 
 
 def _generate_one(task: tuple[str, str, str, str, list[str], GeneratorSpec]) -> tuple[str, bool, str]:
@@ -331,7 +345,9 @@ def main() -> int:
         # under held seg til same, føreseielege skjema-rekkjefølgje som den
         # sekvensielle stien.
         max_workers = min(len(tasks), int(os.environ.get("BATCH_GENERATE_WORKERS", "6")))
-        with ProcessPoolExecutor(max_workers=max_workers) as pool:
+        with ProcessPoolExecutor(
+            max_workers=max_workers, initializer=_pool_init, initargs=(spec.module,)
+        ) as pool:
             for s, ok, message in pool.map(_generate_one, tasks):
                 if ok:
                     log_info(message)

@@ -263,3 +263,36 @@ maskina/skjemamengda — fleire workers gjev ikkje ytterlegare gevinst.
 Standardverdien (6) er difor behalden uendra; `BATCH_GENERATE_WORKERS` er
 no eksponert som miljøvariabel for framtidig ombruk/justering ved behov
 (t.d. på maskiner med vesentleg fleire/færre kjernar).
+
+### Regresjon oppdaga og retta etter commit — `_CLI_CMD`-arv via fork var ikkje portabel
+
+Etter at Del 2 vart committa (`1dcdb89a`), feila `make domain-referanse` i
+CI: `rdf`/`doc` feila for alle fire skjema med
+`'NoneType' object has no attribute 'make_context'` (elapsed 0.00s — feilar
+umiddelbart, før noko genereringsarbeid).
+
+**Rotårsak:** den opphavlege Del 2-implementasjonen sette `_CLI_CMD`
+(Click Command-objektet) som ein modul-global i hovudprosessen **før**
+`ProcessPoolExecutor` vart oppretta, og stolte på at Linux sin
+"fork"-startmetode ville la workers arve denne globalen automatisk via
+copy-on-write-minne. Dette virka i lokal podman-testing, men feila i CI —
+`multiprocessing` sin faktiske startmetode kan ikkje takast for gjeve på
+tvers av miljø. Stadfesta empirisk lokalt ved å tvinge
+`mp_context=multiprocessing.get_context("spawn")`: reproduserte identisk
+feil (`_CLI_CMD` framleis `None` i workeren, sidan spawn ikkje arvar
+foreldreprosessen sitt minne — kvar worker startar med ein fresh
+modul-import som køyrer `_CLI_CMD = None` på nytt, utan å kalle `main()`
+på nytt).
+
+**Fiks:** bytt til ein eksplisitt `ProcessPoolExecutor(initializer=...)` —
+den einaste metoden `concurrent.futures` sjølv garanterer køyrer i KVAR
+worker, uavhengig av startmetode. Ny funksjon `_pool_init(module_name)`
+importerer generator-modulen og set `_CLI_CMD` inni sjølve worker-prosessen
+(ikkje via implisitt arv). Berre eit pickle-bart modulnamn (`str`) vert
+sendt via `initargs`, aldri sjølve Command-objektet.
+
+**Verifisert:**
+- Same tvinga-spawn-test som reproduserte feilen, køyrd på nytt mot fiksen
+  — passerer no korrekt.
+- `make domain-referanse` (det faktiske, rapporterte feilande kommandoet)
+  køyrer no reint til slutt, exit code 0, ingen `[ERROR]`-linjer.
