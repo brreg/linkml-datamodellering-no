@@ -1,7 +1,7 @@
 {
   "src/linkml/ap-no/cpsv-ap-no": "1.10.1",
   "src/linkml/ap-no/dcat-ap-no": "2.13.0",
-  "src/linkml/ap-no/dqv-ap-no": "1.15.0",
+  "src/linkml/ap-no/dqv-ap-no": "1.16.0",
   "src/linkml/ap-no/modelldcat-ap-no": "1.14.0",
   "src/linkml/ap-no/skos-ap-no": "2.16.0",
   "src/linkml/begrepskatalog/brreg-begrepskatalog": "1.6.1",
