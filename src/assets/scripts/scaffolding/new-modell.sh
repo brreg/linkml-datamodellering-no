@@ -30,6 +30,15 @@ SCHEMA_ID="https://data.norge.no/$DOMAIN/$NAME"
 # LinkML name-felt: bindestrek er ikkje tillate, bruk understrek
 SCHEMA_NAME="${NAME//-/_}"
 
+# Les gjeldande dcat-ap-no-versjon frå manifestet (sannkjelda release-please
+# sjølv brukar) i staden for å hardkode tag-namnet — hardkoda versjonar går
+# stalig ved kvart dcat-ap-no-release og må rettast manuelt i etterkant.
+DCAT_AP_NO_VERSION=$(jq -r '."src/linkml/ap-no/dcat-ap-no"' "$REPO_ROOT/.github/release-please-manifest.json")
+if [[ -z "$DCAT_AP_NO_VERSION" || "$DCAT_AP_NO_VERSION" == "null" ]]; then
+    echo "Feil: fann ikkje dcat-ap-no-versjon i .github/release-please-manifest.json" >&2
+    exit 1
+fi
+
 echo "Genererer skjema via mcp-linkml-modell-utkast..."
 
 LINKML_YAML=$(printf '%s\n%s\n' \
@@ -161,7 +170,7 @@ body_out = yaml.dump(schema, allow_unicode=True, default_flow_style=False, sort_
 body_out = body_out.replace(
     '- linkml:types\n',
     '- linkml:types\n'
-    '- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema'
+    '- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v$DCAT_AP_NO_VERSION/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema'
     '  # TODO: endre/legg til imports etter behov\n',
     1,
 )

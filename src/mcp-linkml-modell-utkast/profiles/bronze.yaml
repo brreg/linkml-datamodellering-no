@@ -28,9 +28,13 @@ generation:
   # Legg til id-slot med identifier: true og range: uriorcurie på alle klasser
   add_id_slot: true
 
-  # Legg til ein global kontaktinformasjon-slot (dcat:contactPoint, range: uriorcurie).
-  # Generisk namn valt for å unngå kollisjon med det allereie importerte
-  # `kontaktpunkt`-slotet frå dcat-ap-no-schema (annan range/definisjon der).
+  # Legg til ein global <schema_name>_kontaktinformasjon-slot (dcat:contactPoint,
+  # range: uriorcurie). Namnet er prefiksa med skjemaet sitt eige, garantert
+  # unike schema_name — strukturelt kollisjonsfritt mot alle faste AP-NO-
+  # vokabularslot (t.d. det importerte `kontaktpunkt`-slotet frå
+  # dcat-ap-no-schema, som har ein annan range/definisjon). Eit reint
+  # generisk namn (utan prefiks) ville berre vore kollisjonsfritt så lenge
+  # ingen framtidig AP-NO-skjema tilfeldigvis brukte same namn.
   # Vert ikkje automatisk kopla til stub-klassen sin slots-liste.
   add_kontaktpunkt_slot: true
 

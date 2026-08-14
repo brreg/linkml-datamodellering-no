@@ -3,7 +3,6 @@ brreg-modellkatalog
 common-ap-no
 cpsv-ap-no
 dcat-ap-no
-designregisteret
 digdir-modellkatalog
 dqv-ap-no
 dqv-core
@@ -16,6 +15,7 @@ fint-okonomi
 fint-personvern
 fint-ressurs
 fint-utdanning
+kafferegisteret
 kartverket-modellkatalog
 ksdigital-modellkatalog
 modelldcat-ap-no

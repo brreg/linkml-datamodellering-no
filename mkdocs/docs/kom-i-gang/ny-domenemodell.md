@@ -109,7 +109,7 @@ classes:
       - id
 
 slots:
-  kontaktinformasjon:
+  tilskudd_kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
@@ -120,10 +120,12 @@ slots:
 
 `id`-sloten er ikkje lokalt definert i utkastet — han vert arva via
 `dcat-ap-no` sitt importerte `common-ap-no`-import, som har det delte
-`id`-slotet (`identifier: true`, `range: uriorcurie`). `kontaktinformasjon`-sloten
-vert generert globalt med eit generisk namn (unngår kollisjon med det
-allereie importerte `kontaktpunkt`-slotet frå `dcat-ap-no`, som har ein
-annan `range`), men er
+`id`-slotet (`identifier: true`, `range: uriorcurie`). `tilskudd_kontaktinformasjon`-sloten
+vert generert globalt, prefiksa med skjemaet sitt eige, unike namn
+(`tilskudd`) — strukturelt kollisjonsfritt mot alle faste AP-NO-vokabularslot
+(t.d. det importerte `kontaktpunkt`-slotet frå `dcat-ap-no`, som har ein
+annan `range`), sidan ingen AP-NO-profil nokon gong vil bruke akkurat ditt
+skjemanamn som prefiks. Sloten er
 **ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
 (`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
 klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i

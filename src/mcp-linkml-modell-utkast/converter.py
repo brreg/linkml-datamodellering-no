@@ -450,7 +450,7 @@ def convert(
             "range":       "uriorcurie",
         }
     if add_kontaktpunkt:
-        slots_out["kontaktinformasjon"] = {
+        slots_out[f"{schema_name}_kontaktinformasjon"] = {
             "description": "Kontaktinformasjon for ressursen.",
             "slot_uri":    "dcat:contactPoint",
             "range":       "uriorcurie",
