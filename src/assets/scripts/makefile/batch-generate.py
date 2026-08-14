@@ -344,7 +344,7 @@ def main() -> int:
         # straumen (uavhengig av fullføringsrekkjefølgje), så loggutskrifta
         # under held seg til same, føreseielege skjema-rekkjefølgje som den
         # sekvensielle stien.
-        max_workers = min(len(tasks), int(os.environ.get("BATCH_GENERATE_WORKERS", "6")))
+        max_workers = min(len(tasks), int(os.environ.get("BATCH_GENERATE_WORKERS", "8")))
         with ProcessPoolExecutor(
             max_workers=max_workers, initializer=_pool_init, initargs=(spec.module,)
         ) as pool:

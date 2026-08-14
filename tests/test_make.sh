@@ -435,6 +435,50 @@ run_phase_a_step() {
     } >> "$LOG"
 }
 
+# Som run_phase_a_step(), men deler SCHEMAS i to omtrent like store
+# halvdelar og køyrer "make $target" TO GONGER PARALLELT (kvar sin eigen
+# podman-kontainar), i staden for éin kontainar for heile lista. Held
+# phase_a_logfile()/phase_a_metafile()-grensesnittet under SAME $key
+# uendra (loggfilene vert slått saman etterpå) — phase_a_check()/
+# print_phase_a_summary() treng ingen endring. Sjå
+# specs/backlog/splitt-fase-a-batchar-gen-docs-plantuml-roundtrip-json.md.
+run_phase_a_step_split2() {
+    local key="$1" target="$2" prefix="$3"
+    if [[ -n "${TEST_FILTER:-}" ]] \
+        && [[ "$prefix" != "$TEST_FILTER"* ]] \
+        && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+        return 0
+    fi
+    local total mid
+    total="${#SCHEMAS[@]}"
+    mid=$(( (total + 1) / 2 ))
+    local -a half_a=("${SCHEMAS[@]:0:mid}")
+    local -a half_b=("${SCHEMAS[@]:mid}")
+    local logfile logfile_a logfile_b
+    logfile=$(phase_a_logfile "$key")
+    logfile_a="${logfile}.a"
+    logfile_b="${logfile}.b"
+    echo "→ Fase A: $target ($total skjema, 2 parallelle batchar) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
+    local -a split_pids=()
+    make "$target" SCHEMAS="${half_a[*]}" > "$logfile_a" 2>&1 & split_pids+=($!)
+    make "$target" SCHEMAS="${half_b[*]}" > "$logfile_b" 2>&1 & split_pids+=($!)
+    for pid in "${split_pids[@]}"; do
+        wait "$pid" || true
+    done
+    elapsed=$(( $(date +%s%3N) - t0 ))
+    cat "$logfile_a" "$logfile_b" > "$logfile"
+    rm -f "$logfile_a" "$logfile_b"
+    printf '%s\t%s\t%s\t%s\n' "$total" "$elapsed" "$target" "skjema" > "$(phase_a_metafile "$key")"
+    {
+        echo "========================================"
+        echo "FASE A: $target  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed")) — 2 parallelle batchar"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
 # Kategori C, steg 1: linkml-lint, batcha via batch-lint.py --ignore-
 # warnings (delt Linter/TerminalFormatter-sesjon for heile skjemalista).
 # Direkte podman-kall (ikkje via `make lint`) — speglar at testen alltid
@@ -561,6 +605,68 @@ _run_phase_a_convert_batch() {
     } >> "$LOG"
 }
 
+# Som _run_phase_a_convert_batch(), men deler jobs_tsv i to halvdelar ETTER
+# TAL UNIKE SKJEMA (kolonne 1) — IKKJE etter tal jobbrader — og køyrer
+# batch-convert.py TO GONGER PARALLELT. Kvart skjema sine jobbrader (som
+# kan referere KVARANDRE som input/output, sjå batch-convert.py sin
+# toppkommentar om skrive-før-les-avhengigheiter) held fram samla og i
+# UENDRA rekkjefølgje i SAME halvdel — splitting skjer difor på
+# skjemagrenser, aldri midt i eit skjema sin jobbrad-kjede. Sjå
+# specs/backlog/splitt-fase-a-batchar-gen-docs-plantuml-roundtrip-json.md.
+_run_phase_a_convert_batch_split2() {
+    local key="$1" jobs_tsv="$2" label="$3"
+    local logfile n
+    logfile=$(phase_a_logfile "$key")
+    n=$(wc -l < "$jobs_tsv")
+    echo "→ Fase A: $label ($n jobb(ar), 2 parallelle batchar) ..." >&3
+    local jobs_a jobs_b
+    jobs_a=$(mktemp "$LOGDIR/${key}_split_a_XXXXXX.tsv")
+    jobs_b=$(mktemp "$LOGDIR/${key}_split_b_XXXXXX.tsv")
+    awk -F'\t' -v out_a="$jobs_a" -v out_b="$jobs_b" '
+        !seen[$1] { seen[$1] = ++nschemas; order[nschemas] = $1 }
+        { lines[$1] = lines[$1] $0 "\n" }
+        END {
+            half = int((nschemas + 1) / 2)
+            for (i = 1; i <= nschemas; i++) {
+                s = order[i]
+                if (i <= half) printf "%s", lines[s] >> out_a
+                else printf "%s", lines[s] >> out_b
+            }
+        }
+    ' "$jobs_tsv"
+    local logfile_a logfile_b
+    logfile_a="${logfile}.a"
+    logfile_b="${logfile}.b"
+    local t0 elapsed
+    t0=$(date +%s%3N)
+    local -a split_pids=()
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_a" \
+        > "$logfile_a" 2>&1 & split_pids+=($!)
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_b" \
+        > "$logfile_b" 2>&1 & split_pids+=($!)
+    for pid in "${split_pids[@]}"; do
+        wait "$pid" || true
+    done
+    elapsed=$(( $(date +%s%3N) - t0 ))
+    cat "$logfile_a" "$logfile_b" > "$logfile"
+    rm -f "$logfile_a" "$logfile_b" "$jobs_a" "$jobs_b" "$jobs_tsv"
+    printf '%s\t%s\t%s\t%s\n' "$n" "$elapsed" "$label" "jobb(ar)" > "$(phase_a_metafile "$key")"
+    {
+        echo "========================================"
+        echo "FASE A: $label  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed")) — 2 parallelle batchar"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
 run_phase_a_convert_rdf() {
     local prefix="convert-rdf"
     if [[ -n "${TEST_FILTER:-}" ]] \
@@ -616,7 +722,7 @@ run_phase_a_roundtrip_json() {
         rm -f "$jobs_tsv"
         return 0
     fi
-    _run_phase_a_convert_batch roundtrip_json "$jobs_tsv" "roundtrip-json"
+    _run_phase_a_convert_batch_split2 roundtrip_json "$jobs_tsv" "roundtrip-json"
 }
 
 run_phase_a_roundtrip_ttl() {
@@ -826,6 +932,7 @@ run_phase_a() {
     # ville elles kunne lese ei fil frå EIN ANNAN, tidlegare køyring med
     # ein annan TEST_FILTER-verdi.
     rm -f "$LOGDIR"/phase_a_*.log
+    rm -f "$LOGDIR"/phase_a_*.log.a "$LOGDIR"/phase_a_*.log.b
     rm -f "$LOGDIR"/phase_a_*.meta
     rm -f "$(phase_a_mcp_indexfile)"
     rm -rf "$(phase_a_mcp_outdir)"
@@ -838,7 +945,7 @@ run_phase_a() {
     run_phase_a_step jsonschema gen-jsonschema      "gen-jsonschema" & PHASE_A_PIDS+=($!)
     run_phase_a_step rdf        gen-rdf             "gen-rdf"      & PHASE_A_PIDS+=($!)
     run_phase_a_step erdiagram  gen-erdiagram       "gen-erdiagram" & PHASE_A_PIDS+=($!)
-    run_phase_a_step docs       gen-docs            "gen-docs"     & PHASE_A_PIDS+=($!)
+    run_phase_a_step_split2 docs gen-docs            "gen-docs"     & PHASE_A_PIDS+=($!)
     run_phase_a_step shacl      gen-shacl           "gen-shacl"    & PHASE_A_PIDS+=($!)
     run_phase_a_step owl        gen-owl             "gen-owl"      & PHASE_A_PIDS+=($!)
     run_phase_a_step proto      gen-proto           "gen-proto"    & PHASE_A_PIDS+=($!)
