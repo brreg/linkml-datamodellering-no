@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.6.0...fair-metadata-v1.7.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/fair-metadata-v1.5.0...fair-metadata-v1.6.0) (2026-08-02)
 
 
