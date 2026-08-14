@@ -158,7 +158,7 @@ klassar der det er relevant.
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
 tilskudder:
-  - id: https://data.norge.no/eksempel/tilskudd/eksempel-1
+  - id: tilskudd:eksempel-1
 ```
 
 

@@ -16,7 +16,7 @@ Denne oversikta er skrive for tekniske brukarar og bidragsytarar. Dersom du berr
 Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 
 ### Validering og testing
-- **BUG-1, BUG-2, BUG-3**: Roundtrip-testing (YAML → TTL → YAML) fungerer ikkje for alle skjema pga. bugs i `linkml-runtime`
+- **BUG-1, BUG-2, BUG-3, BUG-19**: Roundtrip-testing (YAML → TTL → YAML) fungerer ikkje for alle skjema pga. bugs i `linkml-runtime`
 - Ingen automatisk validering mot eksterne API-ar (t.d. at Los-tema faktisk eksisterer)
 - Ingen automatisk sjekk for duplikate begrep eller modellar på tvers av katalogar
 
@@ -64,6 +64,8 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-15](bugs/relativ-import-via-versjonslast-url.md) | `SchemaView.imports_closure()` kollapsar `https://` til `https:/` når han løyser relative importar i eit versjonslåst URL-importert skjema — feilar med `Unknown CURIE prefix: https` | `workaround` | `linkml-runtime` | alle skjema med versjonslåst URL-import av eit skjema som transitivt importerer ein AP-NO-profil |
 | [BUG-16](bugs/codeowners-frontmatter-format-mismatch.md) | `update-modellkatalog.py::load_org_registry()` forventa `---`-frontmatter, men CODEOWNERS.md brukar ```yaml`-fence — fann alltid 0 organisasjonar | `løyst` | `src/assets/scripts/makefile/update-modellkatalog.py` | `gen-modelldcat-elements`, `update-modellkatalog` |
 | [BUG-17](bugs/gen-rdf-manglar-stotte-for-versjonslaste-importar.md) | `RDFGenerator`/`JSONLDGenerator` fetchar `<import>.context.jsonld` over nettverk for versjonslåste URL-importar — 404, sidan byggoutput aldri er committa | `workaround` | `linkml` | alle skjema med `rdf: true` og minst eitt versjonslåst URL-import |
+| [BUG-18](bugs/curie-id-ikkje-reekspandert-ttl-roundtrip.md) | `rdflib_loader` re-ekspanderer ikkje ein kompaktert CURIE til full URI for `uriorcurie`-identifikatorar ved TTL-roundtrip | `workaround` | `linkml-runtime` | skjema med identifikatorverdi (full URI) i eige namnerom |
+| [BUG-19](bugs/datetime-separator-rdflib-roundtrip.md) | `rdflib_loader` rekonstruerer `datetime`-verdiar med mellomrom i staden for `T`-separator ved TTL-roundtrip | `open` | `linkml-runtime` | `enhetsregisteret-bvrinn` (stadfesta), potensielt `fint-*` (maskert av BUG-3) |
 
 ## Statusforklaring
 

@@ -195,7 +195,7 @@ cat > "$EXAMPLE_FILE" << EOF
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
 $CONTAINER_SLOT:
-  - id: $SCHEMA_ID/eksempel-1
+  - id: ${SCHEMA_NAME}:eksempel-1
 EOF
 
 MANIFEST_FILE="$SCHEMA_DIR/build.yaml"
