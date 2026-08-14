@@ -12,7 +12,7 @@
   "src/linkml/fint/fint-okonomi": "4.5.0",
   "src/linkml/fint/fint-personvern": "4.5.0",
   "src/linkml/fint/fint-ressurs": "4.5.0",
-  "src/linkml/fint/fint-utdanning": "4.5.0",
+  "src/linkml/fint/fint-utdanning": "4.6.0",
   "src/linkml/modellkatalog/brreg-modellkatalog": "1.5.1",
   "src/linkml/referanse": "1.3.0",
   "src/linkml/ngr/ngr-adresse": "1.6.0",
