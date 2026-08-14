@@ -447,7 +447,9 @@
       "Bash(TEST_FILTER=roundtrip-ttl bash tests/test_make.sh \"src/linkml/samt/samt-bu/samt-bu-schema.yaml\")",
       "Bash(TEST_FILTER=gen-rdf bash tests/test_make.sh \"src/linkml/samt/samt-bu/samt-bu-schema.yaml\")",
       "Bash(export BATCH_GENERATE_WORKERS=10)",
-      "Bash(echo \"Exit code: $?\")"
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(LOGLVL=INFO make -n test)",
+      "Bash(LOGLVL=INFO make test SCHEMA=/nonexistent-schema.yaml)"
     ]
   },
   "enableAllProjectMcpServers": true,

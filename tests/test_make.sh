@@ -3,6 +3,15 @@
 # Krev at localhost/linkml-local:latest er bygd (make linkml-build-docker).
 set -euo pipefail
 
+# Delt logg-infrastruktur (log_debug/log_info/log_error/fmt_elapsed_ms/
+# timed_run/run_logged) — same mønster som run-domain-pipeline.sh og
+# mkdocs/publish.sh. LOG_FUNCTIONS/LOGLVL/CLR_*-variablane vert automatisk
+# arva som miljøvariablar når scriptet køyrer via ein make-recipe (dei er
+# export-erte i make/00-settings.mk) — :?-sjekken gjev ei tydeleg feilmelding
+# dersom scriptet nokon gong køyrer utanfor make.
+: "${LOG_FUNCTIONS:?miljøvariabelen LOG_FUNCTIONS må vere sett (eksportert frå make/00-settings.mk — køyr via make test/roundtrip, ikkje scriptet direkte)}"
+eval "$LOG_FUNCTIONS"
+
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
@@ -14,10 +23,6 @@ LOGDIR="tests/testlogs"
 LOG="$LOGDIR/test_make_$(date '+%Y%m%d_%H%M%S').log"
 mkdir -p "$LOGDIR"
 mkdir -p "$REPO_ROOT/tmp"
-
-CLR_OK=$(printf '\033[0;32m')
-CLR_ERR=$(printf '\033[0;31m')
-CLR_RST=$(printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Skjemaoppdaging — same logikk som Makefile SCHEMAS-variabelen
@@ -175,13 +180,19 @@ _run_one() {
     echo "========================================"
     echo "TEST: $tname  ($(date '+%H:%M:%S'))"
     echo "========================================"
-    if "$@" 2>&1; then
+    log_debug "→ $tname"
+    local t0 elapsed rc=0
+    t0=$(date +%s%3N)
+    "$@" 2>&1 || rc=$?
+    elapsed=$(( $(date +%s%3N) - t0 ))
+    if [ "$rc" -eq 0 ]; then
         printf " ${CLR_OK}OK${CLR_RST}\n" >&3
         echo "##RESULT:OK:$tname"
     else
         printf " ${CLR_ERR}FEIL${CLR_RST}\n" >&3
         echo "##RESULT:FAIL:$tname"
     fi
+    log_info "${CLR_STEP}→ ${tname}${CLR_RST} ($(fmt_elapsed_ms "$elapsed"))"
 }
 
 # Køyr alle testar for eit skjema sekvensielt (i ein bakgrunnsprosess)
@@ -291,10 +302,17 @@ run_phase_a_step() {
     local logfile
     logfile=$(phase_a_logfile "$key")
     echo "→ Fase A: $target (${#SCHEMAS[@]} skjema) ..." >&3
+    # Steg-nivå tidsmåling skriv til $LOG (ikkje via log_info/stderr direkte)
+    # sidan dette steget køyrer backgrounda UTAN ein omsluttande redirect
+    # (jf. run_phase_a(), Del 1) — direkte log_info her ville lekke live til
+    # terminalen og interleave med dei andre 16 samstundes Fase A-stega.
+    local t0 elapsed
+    t0=$(date +%s%3N)
     make "$target" SCHEMAS="${SCHEMAS[*]}" > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
     {
         echo "========================================"
-        echo "FASE A: $target  ($(date '+%H:%M:%S'))"
+        echo "FASE A: $target  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
         echo "========================================"
         cat "$logfile"
     } >> "$LOG"
@@ -316,6 +334,8 @@ run_phase_a_lint() {
     local logfile
     logfile=$(phase_a_logfile "lint")
     echo "→ Fase A: linkml-lint --ignore-warnings (${#SCHEMAS[@]} skjema) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
         -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
@@ -323,9 +343,10 @@ run_phase_a_lint() {
         python3 src/assets/scripts/makefile/batch-lint.py \
             --config src/assets/containers/.linkmllint.yaml --ignore-warnings -- "${SCHEMAS[@]}" \
         > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
     {
         echo "========================================"
-        echo "FASE A: linkml-lint --ignore-warnings  ($(date '+%H:%M:%S'))"
+        echo "FASE A: linkml-lint --ignore-warnings  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
         echo "========================================"
         cat "$logfile"
     } >> "$LOG"
@@ -376,13 +397,18 @@ run_phase_a_mcp_instance() {
     rm -rf "$outdir"
     mkdir -p "$outdir"
     echo "→ Fase A: mcp-validate-instance (${#jobs[@]} skjema) ..." >&3
+    local logfile t0 elapsed
+    logfile=$(phase_a_logfile "mcp_instance")
+    t0=$(date +%s%3N)
+    REPO_ROOT="$REPO_ROOT" VALIDATOR_DIR="$REPO_ROOT/src/mcp-linkml-validator" MCP_IMAGE="$MCP_IMAGE" \
+        python3 src/mcp-linkml-validator/batch-validate-instances.py \
+            --output-dir "$outdir" "${jobs[@]}" > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
     {
         echo "========================================"
-        echo "FASE A: mcp-validate-instance  ($(date '+%H:%M:%S'))"
+        echo "FASE A: mcp-validate-instance  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
         echo "========================================"
-        REPO_ROOT="$REPO_ROOT" VALIDATOR_DIR="$REPO_ROOT/src/mcp-linkml-validator" MCP_IMAGE="$MCP_IMAGE" \
-            python3 src/mcp-linkml-validator/batch-validate-instances.py \
-                --output-dir "$outdir" "${jobs[@]}" 2>&1 || true
+        cat "$logfile"
     } >> "$LOG"
 }
 
@@ -396,16 +422,19 @@ _run_phase_a_convert_batch() {
     local logfile
     logfile=$(phase_a_logfile "$key")
     echo "→ Fase A: $label ($(wc -l < "$jobs_tsv") jobb(ar)) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
         -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
         "$LINKML_IMAGE" \
         python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
     rm -f "$jobs_tsv"
     {
         echo "========================================"
-        echo "FASE A: $label  ($(date '+%H:%M:%S'))"
+        echo "FASE A: $label  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
         echo "========================================"
         cat "$logfile"
     } >> "$LOG"
@@ -523,16 +552,19 @@ run_phase_a_linkml_validate() {
     local logfile
     logfile=$(phase_a_logfile "linkml_validate")
     echo "→ Fase A: linkml-validate ($(wc -l < "$jobs_tsv") skjema) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
         -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
         "$LINKML_IMAGE" \
         python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
     rm -f "$jobs_tsv"
     {
         echo "========================================"
-        echo "FASE A: linkml-validate  ($(date '+%H:%M:%S'))"
+        echo "FASE A: linkml-validate  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
         echo "========================================"
         cat "$logfile"
     } >> "$LOG"

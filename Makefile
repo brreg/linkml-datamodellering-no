@@ -79,6 +79,13 @@ help: ## Vis oversikt over tilgjengelege make-target
 	@echo ""
 	@bash src/assets/scripts/makefile/help.sh $(MAKEFILE_LIST)
 
+# Standard LOGLVL for test-kommandoane er DEBUG (ikkje den globale
+# standarden INFO frå make/00-settings.mk) — testkall/tidsbruk skal vere
+# synleg utan at brukaren treng eksportere LOGLVL sjølv. Eksplisitt
+# LOGLVL=<verdi> på kommandolinja vinn framleis (origin-sjekk), sjå
+# specs/done/logging-test-make-debug-og-tidsbruk.md.
+test roundtrip roundtrip-json-schema: LOGLVL := $(if $(filter command line,$(origin LOGLVL)),$(LOGLVL),DEBUG)
+
 test: ## Køyr alle testar
 	$(call print_header,test)
 	bash tests/test_make.sh "$(SCHEMA)"
