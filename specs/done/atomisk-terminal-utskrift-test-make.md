@@ -73,6 +73,20 @@ Alle 5 tiltak gjennomførte og verifiserte:
    resultatsett som referansen, ingen regresjon.
 5. `bash -n tests/test_make.sh` — syntaks OK.
 
+### Tillegg: tidsbruk synleg direkte på `>&3`-linja
+
+Etter at atomisk skriving var på plass, bad brukaren om at kvar terminallinje
+òg skal vise tidsbruk direkte (t.d.
+`gen-jsonld (novari-modellkatalog)(2.03s)                    ... OK`), ikkje
+berre i den separate `log_info`-tidslinja frå
+`specs/done/logging-test-make-debug-og-tidsbruk.md` (som berre er synleg i
+`$LOG`, ikkje på levande terminal). Løyst ved å byggje ein eigen
+`label="${tname}($(fmt_elapsed_ms "$elapsed"))"` for `>&3`-visinga —
+`$tname` sjølv (brukt i `##RESULT:OK/FAIL:`-markørane og `TEST:`-header,
+lesen av `wait_for_tests()`) er uendra, berre den viste linja fekk
+tidsbruken lagt til. Verifisert med full `make test`: framleis **591 OK, 5
+feil**, 0 garbla linjer, tidsbruk synleg på kvar linje.
+
 ## Referanse
 
 - `tests/test_make.sh`, `_run_one()` og `run_schema_tests()`/`SCHEMA_PIDS` — kjelda til den pre-eksisterande per-skjema-parallellismen

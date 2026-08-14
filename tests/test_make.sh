@@ -12,6 +12,8 @@ set -euo pipefail
 : "${LOG_FUNCTIONS:?miljøvariabelen LOG_FUNCTIONS må vere sett (eksportert frå make/00-settings.mk — køyr via make test/roundtrip, ikkje scriptet direkte)}"
 eval "$LOG_FUNCTIONS"
 
+SCRIPT_T0=$(date +%s%3N)
+
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
@@ -45,7 +47,26 @@ else
 fi
 
 schema_domain() { echo "$1" | cut -d/ -f3; }
-schema_name()   { echo "$1" | cut -d/ -f4; }
+
+# Fila sin eigen, unike basisnamn (filnamn utan -schema.yaml) — identifiserer
+# DETTE skjemaet eintydig, sjølv når fleire skjema er samlokaliserte i same
+# katalog (t.d. ap-no/dqv-ap-no/{dqv-ap-no,dqv-core}-schema.yaml). Brukt for
+# genererte artefaktnamn/utdatakatalog og visingsnamn i testutskrifta.
+# Matchar batch-generate.py sin schema_domain_name(). Sjå
+# specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
+schema_name() {
+    local base
+    base=$(basename "$1" .yaml)
+    echo "${base%-schema}"
+}
+
+# Kjeldekatalognamnet (4. sti-komponent) — brukt KUN til å finne DELTE
+# per-katalog-ressursar (examples/<katalog>-eksempel.yaml,
+# tests/fixtures/<katalog>-fixture.yaml) når fleire skjema er samlokaliserte
+# (AP-NO-profilfamiliar). For dei aller fleste skjema (éin fil per katalog)
+# er dette identisk med schema_name().
+schema_dir_name() { echo "$1" | cut -d/ -f4; }
+
 schema_outdir() { echo "$GEN_DIR/$(schema_domain "$1")/$(schema_name "$1")"; }
 
 # ap-no og fair har ikkje tree_root — påverkar linkml-convert (treng fixture-
@@ -60,12 +81,18 @@ lacks_tree_root() { [[ "$1" == "ap-no" || "$1" == "fair" ]]; }
 # Skriv "<skjema-å-validere-mot> <instansfil>" til stdout og returnerer 0
 # dersom skjemaet skal validerast; returnerer 1 (ingen output) elles.
 mcp_instance_job() {
-    local schema="$1" domain="$2" name="$3"
+    local schema="$1" domain="$2"
     lacks_tree_root "$domain" && return 1
-    local example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+    # Eksempel-/fixture-filer er DELTE per kjeldekatalog (fleire skjema kan
+    # vere samlokaliserte, t.d. AP-NO-profilfamiliar) — bruk difor
+    # schema_dir_name(), ikkje schema_name(), her. Sjå
+    # specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
+    local dir_name
+    dir_name=$(schema_dir_name "$schema")
+    local example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
     [ -f "$example" ] || return 1
     local validate_schema="$schema"
-    [ -f "tests/fixtures/$name-fixture.yaml" ] && validate_schema="tests/fixtures/$name-fixture.yaml"
+    [ -f "tests/fixtures/$dir_name-fixture.yaml" ] && validate_schema="tests/fixtures/$dir_name-fixture.yaml"
     echo "$validate_schema $example"
 }
 
@@ -127,11 +154,14 @@ roundtrip_ttl_job() {
 # Attribueringsnøkkelen (brukt av phase_a_check) er alltid det ORIGINALE
 # skjemaet ($schema), aldri fixture-stien.
 linkml_validate_job() {
-    local schema="$1" domain="$2" name="$3" example="$4"
+    local schema="$1" domain="$2" example="$4"
     [ -f "$example" ] || return 1
     local validate_schema="$schema"
     if lacks_tree_root "$domain"; then
-        validate_schema="tests/fixtures/$name-fixture.yaml"
+        # Fixture-filer er DELTE per kjeldekatalog — bruk schema_dir_name(),
+        # ikkje det (no filnamn-baserte) $name-parameteret. Sjå
+        # specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
+        validate_schema="tests/fixtures/$(schema_dir_name "$schema")-fixture.yaml"
         [ -f "$validate_schema" ] || return 1
     fi
     echo "$validate_schema"
@@ -192,11 +222,12 @@ _run_one() {
     # "OK/FEIL"-kall ETTER (den tidlegare koden) let andre prosessar sitt
     # skriv lande i gapet mellom dei to — garbla, samanblanda linjer. Sjå
     # specs/done/atomisk-terminal-utskrift-test-make.md.
+    local label="${tname}($(fmt_elapsed_ms "$elapsed"))"
     if [ "$rc" -eq 0 ]; then
-        printf "  %-52s ... ${CLR_OK}OK${CLR_RST}\n" "$tname" >&3
+        printf "  %-52s ... ${CLR_OK}OK${CLR_RST}\n" "$label" >&3
         echo "##RESULT:OK:$tname"
     else
-        printf "  %-52s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$tname" >&3
+        printf "  %-52s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$label" >&3
         echo "##RESULT:FAIL:$tname"
     fi
     log_info "${CLR_STEP}→ ${tname}${CLR_RST} ($(fmt_elapsed_ms "$elapsed"))"
@@ -205,11 +236,15 @@ _run_one() {
 # Køyr alle testar for eit skjema sekvensielt (i ein bakgrunnsprosess)
 run_schema_tests() {
     local schema="$1"
-    local domain name outdir
+    local domain name outdir dir_name
     domain=$(schema_domain "$schema")
     name=$(schema_name "$schema")
     outdir=$(schema_outdir "$schema")
-    local example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+    # Eksempelfila er DELT per kjeldekatalog (fleire skjema kan vere
+    # samlokaliserte) — bruk schema_dir_name(), ikkje schema_name(). Sjå
+    # specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
+    dir_name=$(schema_dir_name "$schema")
+    local example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
     local tmplog
     tmplog=$(mktemp /tmp/test_make_schema_XXXXXX.log)
 
@@ -260,6 +295,7 @@ wait_for_tests() {
     done
     echo ""
     echo "Resultat: $pass OK, $fail feil"
+    echo "Total tidsbruk: $(fmt_elapsed_ms $(( $(date +%s%3N) - SCRIPT_T0 )))"
     echo "Sjå $LOG for detaljar"
     [ "$fail" -eq 0 ]
 }
@@ -389,7 +425,7 @@ run_phase_a_mcp_instance() {
         local domain name job
         domain=$(schema_domain "$schema")
         name=$(schema_name "$schema")
-        job=$(mcp_instance_job "$schema" "$domain" "$name") || continue
+        job=$(mcp_instance_job "$schema" "$domain") || continue
         local validate_schema example
         read -r validate_schema example <<< "$job"
         jobs+=("${validate_schema}=${example}")
@@ -458,10 +494,11 @@ run_phase_a_convert_rdf() {
     jobs_tsv=$(mktemp "$LOGDIR/phase_a_convert_rdf_jobs_XXXXXX.tsv")
     local has_jobs=0
     for schema in "${SCHEMAS[@]}"; do
-        local domain name example outdir
+        local domain name example outdir dir_name
         domain=$(schema_domain "$schema")
         name=$(schema_name "$schema")
-        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        dir_name=$(schema_dir_name "$schema")
+        example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
         outdir=$(schema_outdir "$schema")
         convert_rdf_job "$schema" "$domain" "$name" "$example" || continue
         printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "ttl" "$outdir/$name-eksempel.ttl" >> "$jobs_tsv"
@@ -485,10 +522,11 @@ run_phase_a_roundtrip_json() {
     jobs_tsv=$(mktemp "$LOGDIR/phase_a_roundtrip_json_jobs_XXXXXX.tsv")
     local has_jobs=0
     for schema in "${SCHEMAS[@]}"; do
-        local domain name example rtdir
+        local domain name example rtdir dir_name
         domain=$(schema_domain "$schema")
         name=$(schema_name "$schema")
-        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        dir_name=$(schema_dir_name "$schema")
+        example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
         roundtrip_json_job "$schema" "$domain" "$name" "$example" || continue
         rtdir="tmp/roundtrip-json/$name"
         printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "json" "$rtdir/a.json" >> "$jobs_tsv"
@@ -514,10 +552,11 @@ run_phase_a_roundtrip_ttl() {
     jobs_tsv=$(mktemp "$LOGDIR/phase_a_roundtrip_ttl_jobs_XXXXXX.tsv")
     local has_jobs=0
     for schema in "${SCHEMAS[@]}"; do
-        local domain name example rtdir
+        local domain name example rtdir dir_name
         domain=$(schema_domain "$schema")
         name=$(schema_name "$schema")
-        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        dir_name=$(schema_dir_name "$schema")
+        example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
         roundtrip_ttl_job "$schema" "$domain" "$name" "$example" || continue
         rtdir="tmp/roundtrip-ttl/$name"
         printf '%s\t%s\t%s\t%s\n' "$schema" "$example" "json" "$rtdir/a.json" >> "$jobs_tsv"
@@ -544,10 +583,11 @@ run_phase_a_linkml_validate() {
     jobs_tsv=$(mktemp "$LOGDIR/phase_a_linkml_validate_jobs_XXXXXX.tsv")
     local has_jobs=0
     for schema in "${SCHEMAS[@]}"; do
-        local domain name example validate_schema
+        local domain name example validate_schema dir_name
         domain=$(schema_domain "$schema")
         name=$(schema_name "$schema")
-        example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+        dir_name=$(schema_dir_name "$schema")
+        example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
         validate_schema=$(linkml_validate_job "$schema" "$domain" "$name" "$example") || continue
         printf '%s\t%s\t%s\n' "$schema" "$validate_schema" "$example" >> "$jobs_tsv"
         has_jobs=1
@@ -794,13 +834,15 @@ test_linkml_lint() {
 
 test_linkml_validate() {
     local schema="$1" domain="$2" name="$3"
-    local example="src/linkml/$domain/$name/examples/$name-eksempel.yaml"
+    local dir_name
+    dir_name=$(schema_dir_name "$schema")
+    local example="src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml"
     local validate_schema
     if ! validate_schema=$(linkml_validate_job "$schema" "$domain" "$name" "$example"); then
         if [ ! -f "$example" ]; then
             echo "Ingen eksempelfil: $example (hoppar over)"
         else
-            echo "Ingen fixture: tests/fixtures/$name-fixture.yaml (hoppar over)"
+            echo "Ingen fixture: tests/fixtures/$dir_name-fixture.yaml (hoppar over)"
         fi
         return 0
     fi
@@ -920,13 +962,15 @@ test_gen_plantuml() {
 }
 
 test_mcp_validate_instance() {
-    local schema="$1" domain="$2" name="$3"
+    local schema="$1" domain="$2"
     local job
-    if ! job=$(mcp_instance_job "$schema" "$domain" "$name"); then
+    if ! job=$(mcp_instance_job "$schema" "$domain"); then
         if lacks_tree_root "$domain"; then
             echo "Hoppar over mcp-validate-instance for $domain (ingen tree_root)"
         else
-            echo "Ingen eksempelfil: src/linkml/$domain/$name/examples/$name-eksempel.yaml (hoppar over)"
+            local dir_name
+            dir_name=$(schema_dir_name "$schema")
+            echo "Ingen eksempelfil: src/linkml/$domain/$dir_name/examples/$dir_name-eksempel.yaml (hoppar over)"
         fi
         return 0
     fi
