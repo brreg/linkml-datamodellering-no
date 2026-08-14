@@ -223,17 +223,22 @@ _run_one() {
     # "OK/FEIL"-kall ETTER (den tidlegare koden) let andre prosessar sitt
     # skriv lande i gapet mellom dei to — garbla, samanblanda linjer. Sjå
     # specs/done/atomisk-terminal-utskrift-test-make.md.
-    local label="${tname}($(fmt_elapsed_ms "$elapsed"))"
+    # Namn- og tidsbruk-delen er kvar sin eigen fast-breidde printf-
+    # kolonne (i staden for tidsbruken lagt inn i namne-strengen), slik at
+    # tidsbruken alltid startar i same kolonne på tvers av linjer —
+    # uavhengig av kor langt testnamnet/skjemanamnet er. Same mønster som
+    # print_phase_a_summary()/Fase B-oppsummeringa, sjå
+    # specs/done/fase-a-oppsummering-test-make.md.
+    local timing="($(fmt_elapsed_ms "$elapsed"))"
     # Tidsbruken vert lagt til RESULT-markøren (tab-skilt) slik
     # wait_for_tests() kan summere han per test-type til Fase B-
-    # oppsummeringa, utan å måtte parse den menneskelesbare $label-
-    # strengen. Sjå print_phase_a_summary()/specs/done/fase-a-oppsummering-
-    # test-make.md for det tilsvarande Fase A-mønsteret.
+    # oppsummeringa, utan å måtte parse den menneskelesbare terminal-
+    # linja.
     if [ "$rc" -eq 0 ]; then
-        printf "  %-52s ... ${CLR_OK}OK${CLR_RST}\n" "$label" >&3
+        printf "  %-52s %-11s ... ${CLR_OK}OK${CLR_RST}\n" "$tname" "$timing" >&3
         printf '##RESULT:OK:%s\t%s\n' "$tname" "$elapsed"
     else
-        printf "  %-52s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$label" >&3
+        printf "  %-52s %-11s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$tname" "$timing" >&3
         printf '##RESULT:FAIL:%s\t%s\n' "$tname" "$elapsed"
     fi
     log_info "${CLR_STEP}→ ${tname}${CLR_RST} ($(fmt_elapsed_ms "$elapsed"))"
@@ -350,7 +355,7 @@ wait_for_tests() {
     for type in "${phase_b_types[@]}"; do
         local n=$(( phase_b_ok[$type] + phase_b_fail[$type] ))
         local prefix="→ Fase B: $type ($n sjekkar) ..."
-        printf '%-58s %-11s OK: %-4s ERROR: %s\n' "$prefix" "($(fmt_elapsed_ms "${phase_b_elapsed[$type]}"))" "${phase_b_ok[$type]}" "${phase_b_fail[$type]}"
+        printf '%-58s %-11s %sOK:%s %-4s %sFEIL:%s %s\n' "$prefix" "($(fmt_elapsed_ms "${phase_b_elapsed[$type]}"))" "$CLR_OK" "$CLR_RST" "${phase_b_ok[$type]}" "$CLR_ERR" "$CLR_RST" "${phase_b_fail[$type]}"
         if [ -n "${phase_b_fail_names[$type]}" ]; then
             echo "    Feila: ${phase_b_fail_names[$type]}"
         fi
@@ -958,11 +963,12 @@ print_phase_a_summary() {
         fi
         ok=$(( n - error ))
         prefix="→ Fase A: $label ($n $unit) ..."
-        # Namn-, tidsbruk- og OK:/ERROR:-delen er kvar sin eigen fast-
+        # Namn-, tidsbruk- og OK:/FEIL:-delen er kvar sin eigen fast-
         # breidde printf-kolonne, slik at ALLE tre alltid startar i same
         # kolonne på tvers av linjer — uavhengig av kor langt steg-
-        # namnet/talet er.
-        printf '%-58s %-11s OK: %-4s ERROR: %s\n' "$prefix" "($(fmt_elapsed_ms "$elapsed"))" "$ok" "$error"
+        # namnet/talet er. Same fargar som OK/FEIL på dei live
+        # terminallinjene i _run_one() (CLR_OK/CLR_ERR).
+        printf '%-58s %-11s %sOK:%s %-4s %sFEIL:%s %s\n' "$prefix" "($(fmt_elapsed_ms "$elapsed"))" "$CLR_OK" "$CLR_RST" "$ok" "$CLR_ERR" "$CLR_RST" "$error"
         if [ -n "$error_names" ]; then
             # IKKJE `paste -sd ', '` — paste sin -d tolkar ein fleirteikn-
             # streng som EI LISTE av delskiljeteikn å SYKLE gjennom per

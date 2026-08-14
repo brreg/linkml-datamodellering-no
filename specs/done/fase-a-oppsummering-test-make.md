@@ -224,3 +224,27 @@ tidsbruken). Same mønster brukt for BÅDE Fase A og Fase B.
 regresjon. Alle tre kolonnar (namn, tidsbruk, OK:/ERROR:) står no synleg
 på line på tvers av alle linjer i begge oppsummeringsblokkene.
 `bash -n tests/test_make.sh` — syntaks OK.
+
+### 5. Fargar/namn samsvarande med dei live terminallinjene
+
+To oppfølgingsønske gjennomførte saman:
+
+- Tidsbruken på KVAR live terminallinje i `_run_one()` (t.d.
+  `gen-jsonld (novari-modellkatalog)(2.03s)  ... OK`) stod tidlegare inni
+  namne-strengen, med varierande kolonneposisjon avhengig av namnelengd
+  — same problem som oppsummeringa hadde FØR tillegg 4. Retta ved å
+  dele opp i to separate faste-breidde `printf`-felt (namn `%-52s`,
+  tidsbruk `%-11s`), same mønster som oppsummeringa.
+- Oppsummeringa (Fase A og B) brukte plein tekst `OK: N ERROR: M` utan
+  farge. Bad om at `OK` skal ha SAME grøne farge som dei live
+  terminallinjene sin `OK` (`CLR_OK`), og at `ERROR` skal verte
+  `FEIL` med SAME raude farge som terminallinjene sin `FEIL` (`CLR_ERR`)
+  — konsistent fargebruk/namngjeving på tvers av live linjer og
+  oppsummering. Løyst ved å pakke `OK:`/`FEIL:`-labelen i
+  `${CLR_OK}...${CLR_RST}`/`${CLR_ERR}...${CLR_RST}` i begge
+  `printf`-kalla (Fase A og Fase B).
+
+**Verifisering:** Full `make test` — **591 OK, 5 feil**, ingen
+regresjon. Stadfesta via `cat -A` at ANSI-kodane i oppsummeringa er
+identiske med dei `_run_one()` alt brukte (`\033[0;32m` for OK,
+`\033[0;31m` for FEIL). `bash -n tests/test_make.sh` — syntaks OK.
