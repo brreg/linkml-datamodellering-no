@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.16.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.15.0...dqv-ap-no-v1.16.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+* **make,ci:** fullført logging-rammeverk med DEBUG/INFO/ERROR-nivå ([9b72abe](https://github.com/brreg/linkml-datamodellering-no/commit/9b72abefbbe4747d120b3ef8681d0cc420f69740))
+* **make:** batch linkml-validate for validate-examples per domene ([a38f603](https://github.com/brreg/linkml-datamodellering-no/commit/a38f6030b61a6bf6c1230303112d148d2788281d))
+
+
+### Bug Fixes
+
+* **make:** rett stdin-konsumering i validate-bronze (BUG-10) ([91795ac](https://github.com/brreg/linkml-datamodellering-no/commit/91795ace2400341ba3ef052e4bb84cefe6e38215))
+* **make:** valider ap-no-eksempelfiler via fixture, rett stdin-konsumerings-bug ([27c3979](https://github.com/brreg/linkml-datamodellering-no/commit/27c3979820230b8161e31aaf645917733745a5d6))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.15.0](https://github.com/brreg/linkml-datamodellering-no/compare/dqv-ap-no-v1.14.0...dqv-ap-no-v1.15.0) (2026-08-02)
 
 
