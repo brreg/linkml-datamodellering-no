@@ -141,7 +141,7 @@ Import av AP-NO-profilene skjer via HTTP-URL til ein konkret release-tag:
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
 
 ### MCP-tenarar

@@ -1,21 +1,21 @@
 # Generert av mcp-linkml-generator — dette er eit utkast.
-# Prefiks 'blomsterregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# Prefiks 'plankeregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
 # 'TODO'-felt må fyllast inn manuelt.
 
-id: https://data.norge.no/oreg/blomsterregisteret
-name: blomsterregisteret
-title: 'TODO: tittel for blomsterregisteret'
-description: Generert modell for 'blomsterregisteret'.
+id: https://data.norge.no/oreg/plankeregisteret
+name: plankeregisteret
+title: 'TODO: tittel for plankeregisteret'
+description: Generert modell for 'plankeregisteret'.
 version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-13'
-  utgivelsesdato: '2026-08-13'
+  endringsdato: '2026-08-14'
+  utgivelsesdato: '2026-08-14'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
-  blomsterregisteret: https://data.norge.no/oreg/blomsterregisteret/
+  plankeregisteret: https://data.norge.no/oreg/plankeregisteret/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
@@ -23,29 +23,40 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-default_prefix: https://data.norge.no/oreg/blomsterregisteret/
+default_prefix: https://data.norge.no/oreg/plankeregisteret/
 default_range: string
 imports:
 - linkml:types
-- ../../ap-no/dcat-ap-no/dcat-ap-no-schema
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
 classes:
-  BlomsterregisteretContainer:
-    description: containerklasse for serialisering av klasser i blomsterregisteret
-      modellen
+  PlankeregisteretContainer:
+    description: containerklasse for serialisering av klasser i plankeregisteret modellen
     tree_root: true
     attributes:
-      blomsterregistereter:
+      plankeregistereter:
         description: 'TODO: beskriv eigenskapen'
-        range: Blomsterregisteret
+        range: Plankeregisteret
         multivalued: true
         inlined: true
         inlined_as_list: true
-  Blomsterregisteret:
+  Plankeregisteret:
     description: 'TODO: beskriv klassen'
-    class_uri: blomsterregisteret:blomsterregisteret
+    class_uri: plankeregisteret:plankeregisteret
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
+slots:
+  kontaktpunkt:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
 # TODO: Gi stub-klassen eit meir meiningsfullt namn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.

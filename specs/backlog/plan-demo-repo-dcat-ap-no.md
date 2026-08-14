@@ -54,12 +54,12 @@ Skjemaet importerer via HTTP-URL med ein konkret release-tag:
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 ```
 
 `linkml-datamodellering.yaml` i rota festar same versjon:
 ```yaml
-ap-no-version: v2.0.0
+ap-no-version: dcat-ap-no-v2.0.0
 ```
 
 Desse to må alltid vere i sync — Renovate kan automatisk oppgradere begge ved nye releases.
@@ -85,9 +85,10 @@ set opp. Ingen eigen CI-infrastruktur i demo-repoet.
    ```bash
    git clone git@github.com:brreg/linkml-datamodellering-demo.git
    cd linkml-datamodellering-demo
-   AP_NO_VERSION=v2.0.0 curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/bootstrap.sh | bash
+   curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh \
+     | AP_NO_VERSION=dcat-ap-no-v2.0.0 bash
    ```
-   Bootstrap-scriptet set `ap-no-version: v2.0.0` i `linkml-datamodellering.yaml` automatisk.
+   Bootstrap-scriptet set `ap-no-version: dcat-ap-no-v2.0.0` i `linkml-datamodellering.yaml` automatisk.
 
 3. Rediger `.github/workflows/linkml.yml` — bytt ut plasshaldaren med riktig stinamn:
    ```yaml
@@ -132,7 +133,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 
 subsets:
   Obligatorisk:
@@ -329,7 +330,7 @@ Legg til ein lenke og kort omtale av demo-repoet i dokumentasjonsportalen
 |---|---|---|
 | `ghcr.io/brreg/linkml-local` publisert på GHCR | ✓ Bekrefta | Tilgjengeleg per versjon-tag. |
 | `reusable-validate.yml` funksjonell | ✓ | Steg 6 kan ikkje gjennomførast om denne er broten. |
-| `dcat-ap-no-schema` tilgjengeleg via `raw.githubusercontent.com/v2.0.0/…` | ✓ | Stabil per release-tag. |
+| `dcat-ap-no-schema` tilgjengeleg via `raw.githubusercontent.com/dcat-ap-no-v2.0.0/…` | ✓ | Stabil per skjema-spesifikk release-tag. |
 | Repo-namn avklart | ✓ `brreg/linkml-datamodellering-demo` | — |
 
 ---

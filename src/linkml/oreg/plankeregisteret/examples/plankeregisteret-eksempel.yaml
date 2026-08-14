@@ -1,0 +1,5 @@
+# Eksempel for plankeregisteret
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+plankeregistereter:
+  - id: https://data.norge.no/oreg/plankeregisteret/eksempel-1

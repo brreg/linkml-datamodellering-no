@@ -1,5 +1,0 @@
-# Eksempel for blomsterregisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-blomsterregistereter:
-  - id: https://data.norge.no/oreg/blomsterregisteret/eksempel-1

@@ -1,4 +1,3 @@
-blomsterregisteret
 brreg-begrepskatalog
 brreg-modellkatalog
 common-ap-no
@@ -26,6 +25,7 @@ ngr-eiendom
 ngr-person
 ngr-virksomhet
 novari-modellkatalog
+plankeregisteret
 referansemodell
 referansemodell-bronze
 referansemodell-gold
