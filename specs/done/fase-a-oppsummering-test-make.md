@@ -143,3 +143,84 @@ Alle 11 tiltak gjennomførte og verifiserte:
     skriv `$logfile` grunna `TEST_FILTER` skriv heller ikkje `$metafile`,
     sidan begge skjer etter same `return 0`-tidleg-utgang i kvar
     funksjon).
+
+## Tillegg: kolonnejustering, Fase B-oppsummering og feila-skjema-liste
+
+Tre oppfølgingsønske frå brukaren, gjennomførte og verifiserte saman:
+
+### 1. OK:/ERROR: i same kolonne
+
+`OK: N`/`ERROR: M` starta i ulik kolonne per linje sidan steg-namn/
+tidsbruk har ulik lengd. Retta ved å byggje prefikset (`→ Fase A: <label>
+(<N> <unit>) ... (<tid>)`) som éin streng og skrive linja med
+`printf '%-68s OK: %-4s ERROR: %s\n' "$prefix" "$ok" "$error"` — 68 vart
+valt som litt margin over den lengste observerte prefikslengda
+(`linkml-lint --ignore-warnings`-linja, 64 teikn).
+
+### 2. Tilsvarande oppsummering for Fase B
+
+Same idé som Fase A, men per TEST-TYPE (t.d. `gen-jsonld`,
+`roundtrip-ttl`) på tvers av ALLE skjema, ikkje per skjema. Løyst ved å
+utvide `_run_one()` sin `##RESULT:OK:$tname`/`##RESULT:FAIL:$tname`-
+markør med tab-skilt tidsbruk (`##RESULT:OK:$tname\t$elapsed`), og la
+`wait_for_tests()` aggregere per type (type = `tname` utan
+`" (<skjemanamn>)"`-suffikset) i nye `phase_b_ok`/`phase_b_fail`/
+`phase_b_elapsed`-assosiative array, med `phase_b_types`-array for å
+halde på ELSTE-rekkjefølgja. Ny `=== Fase B — oppsummering ===`-blokk
+skriven rett før `"Resultat: ..."`-linja, same kolonnejusterte format
+som Fase A.
+
+### 3. Liste feila skjema per linje (når ERROR > 0)
+
+Bad om at oppsummeringa (både Fase A og B) skal liste KVA skjema som
+feila, ikkje berre kor mange. Løyst med ei ny, innrykka `    Feila: ...`-
+linje under kvar oppsummeringslinje med ERROR > 0:
+
+- **Fase A**: ny `phase_a_short_name()` (strippar filending +
+  `-schema`/`-eksempel`/`-shapes`/`-ontology`/`-context`-suffiks — meir
+  generell enn `schema_name()`, sidan ulike batch-script brukar ulik
+  filtype som `::error file=`-nøkkel: skjema-YAML, instans-YAML eller
+  TTL-artefakt) og `phase_a_error_names()` (unike, kortnamna
+  `::error file=`-kjelder frå loggfila). **mcp-validate-instance** brukar
+  IKKJE `::error file=`-konvensjonen (batch-validate-instances.py skriv
+  strukturerte JSON-resultatfiler i staden) — fekk eigen
+  `phase_a_mcp_error_names()` som les same indeksfil/resultatfiler som
+  `phase_a_mcp_check()`. Talet i `ERROR:`-kolonnen er framleis
+  linjetal/jobbrad-baserte (uendra semantikk mot N), IKKJE talet unike
+  namn i lista — eitt skjema kan ha fleire `::error file=`-linjer (t.d.
+  eit kjeda roundtrip-steg som feilar to gonger).
+- **Fase B**: skjemanamnet hentast direkte frå `tname` sin
+  parentes-del (`"roundtrip-ttl (fint-utdanning)"` →
+  `"fint-utdanning"`).
+- **Feil oppdaga og retta undervegs:** Fase A sin første variant brukte
+  `paste -sd ', ' -` for å slå saman namnelista — `paste` sin `-d` tolkar
+  ein fleirteikn-streng som EI LISTE av delskiljeteikn å SYKLE gjennom
+  per felt (ikkje eitt tofelts skiljeteikn), som gav feil, alternerande
+  utskrift (`fint-administrasjon,fint-okonomi fint-personvern,...`).
+  Retta ved å byggje strengen manuelt i ein bash-loop med `", "` som
+  skiljeteikn — same mønster som Fase B alt brukte korrekt.
+
+**Verifisering:** Full `make test` køyrt fleire gonger etter kvart steg
+(kolonnejustering åleine, så Fase B-oppsummering, så feila-skjema-liste
++ retting av `paste`-feilen) — **591 OK, 5 feil** i alle køyringar, ingen
+regresjon. Sluttresultatet viser konsekvent
+`Feila: fint-administrasjon, fint-okonomi, fint-personvern,
+fint-utdanning, samt-bu` for `roundtrip-ttl` i BÅDE Fase A- og
+Fase B-oppsummeringa, identisk med dei 5 kjende BUG-3-skjemaa.
+`bash -n tests/test_make.sh` — syntaks OK etter kvart steg.
+
+### 4. Tidsbruk i eiga, justert kolonne
+
+Bad om at tidsbruken (`(<sekund>.<hundredel>s)`) òg skal stå i same
+kolonne på tvers av linjer, ikkje berre OK:/ERROR:. Løyst ved å dele
+opp linja i TRE separate faste-breidde `printf`-felt i staden for éin:
+namn-delen (`%-58s`, utan tidsbruken lenger inne i prefikset),
+tidsbruk-delen (`%-11s`, t.d. `(44.89s)`) og OK:/ERROR:-delen (uendra).
+58 vart valt som litt margin over den lengste observerte namn-delen
+(`linkml-lint --ignore-warnings`-linja i Fase A, 55 teikn utan
+tidsbruken). Same mønster brukt for BÅDE Fase A og Fase B.
+
+**Verifisering:** Full `make test` — **591 OK, 5 feil**, ingen
+regresjon. Alle tre kolonnar (namn, tidsbruk, OK:/ERROR:) står no synleg
+på line på tvers av alle linjer i begge oppsummeringsblokkene.
+`bash -n tests/test_make.sh` — syntaks OK.

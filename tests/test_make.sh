@@ -19,6 +19,7 @@ cd "$REPO_ROOT"
 
 LINKML_IMAGE="localhost/linkml-local:latest"
 MCP_IMAGE="mcp-linkml-validator"
+PYTHON_IMAGE="localhost/python-pytest:latest"
 GEN_DIR="generated"
 SCHEMA_DIR="src/linkml"
 LOGDIR="tests/testlogs"
@@ -223,12 +224,17 @@ _run_one() {
     # skriv lande i gapet mellom dei to — garbla, samanblanda linjer. Sjå
     # specs/done/atomisk-terminal-utskrift-test-make.md.
     local label="${tname}($(fmt_elapsed_ms "$elapsed"))"
+    # Tidsbruken vert lagt til RESULT-markøren (tab-skilt) slik
+    # wait_for_tests() kan summere han per test-type til Fase B-
+    # oppsummeringa, utan å måtte parse den menneskelesbare $label-
+    # strengen. Sjå print_phase_a_summary()/specs/done/fase-a-oppsummering-
+    # test-make.md for det tilsvarande Fase A-mønsteret.
     if [ "$rc" -eq 0 ]; then
         printf "  %-52s ... ${CLR_OK}OK${CLR_RST}\n" "$label" >&3
-        echo "##RESULT:OK:$tname"
+        printf '##RESULT:OK:%s\t%s\n' "$tname" "$elapsed"
     else
         printf "  %-52s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$label" >&3
-        echo "##RESULT:FAIL:$tname"
+        printf '##RESULT:FAIL:%s\t%s\n' "$tname" "$elapsed"
     fi
     log_info "${CLR_STEP}→ ${tname}${CLR_RST} ($(fmt_elapsed_ms "$elapsed"))"
 }
@@ -257,7 +263,7 @@ run_schema_tests() {
         _run_one "gen-jsonschema ($name)"  test_gen_jsonschema "$schema" "$outdir/$name-schema.json"
         _run_one "gen-rdf ($name)"         test_gen_rdf        "$schema" "$outdir/$name-schema.ttl" "$domain"
         _run_one "gen-erdiagram ($name)"   test_gen_erdiagram  "$schema" "$outdir/$name-erdiagram.md"
-        _run_one "gen-docs ($name)"        test_gen_docs       "$schema" "$outdir/docs"
+        _run_one "gen-docs ($name)"        test_gen_docs       "$schema"
         _run_one "gen-shacl ($name)"       test_gen_shacl      "$schema" "$outdir/$name-shapes.ttl"
         _run_one "gen-owl ($name)"         test_gen_owl        "$schema" "$outdir/$name-ontology.ttl"
         _run_one "convert-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" "$example" "$domain"
@@ -276,24 +282,79 @@ run_schema_tests() {
 
 wait_for_tests() {
     local pass=0 fail=0
+    # Per test-type-tal (t.d. "gen-jsonld", "roundtrip-ttl") på tvers av
+    # ALLE skjema — grunnlaget for Fase B-oppsummeringa lenger nede.
+    # phase_b_types held rekkjefølgja typane vart ELSTE (fylgjer
+    # definisjonsrekkjefølgja i run_schema_tests(), sidan første skjema si
+    # loggfil vert lesen først og typane der følgjer _run_one()-kalla i
+    # rekkjefølgje).
+    local -a phase_b_types=()
+    local -A phase_b_ok=() phase_b_fail=() phase_b_elapsed=() phase_b_fail_names=()
     for i in "${!SCHEMA_PIDS[@]}"; do
         local pid="${SCHEMA_PIDS[$i]}"
         local tmplog="${SCHEMA_LOGS[$i]}"
         wait "$pid" || true  # always process log, uavhengig av exit-kode
         while IFS= read -r line; do
+            local rest ok_flag
             if [[ "$line" == "##RESULT:OK:"* ]]; then
                 pass=$((pass + 1))
+                rest="${line#"##RESULT:OK:"}"
+                ok_flag=1
             elif [[ "$line" == "##RESULT:FAIL:"* ]]; then
-                local tname="${line#"##RESULT:FAIL:"}"
+                rest="${line#"##RESULT:FAIL:"}"
                 fail=$((fail + 1))
+                ok_flag=0
+            else
+                continue
+            fi
+            local tname="${rest%%$'\t'*}" elapsed="${rest#*$'\t'}"
+            if [ "$ok_flag" -eq 0 ]; then
                 echo "--- output frå $tname ---" >&2
                 grep -A 25 "TEST: $tname " "$tmplog" | tail -25 >&2 || true
             fi
+            # Test-typen er tname utan "(<skjemanamn>)"-suffikset, t.d.
+            # "gen-jsonld (novari-modellkatalog)" → "gen-jsonld". Testar
+            # utan skjemanamn (t.d. "copy-artifacts-click-href") manglar
+            # " (" og vert difor sin eigen type uendra.
+            local type="${tname%% (*}"
+            if [[ -z "${phase_b_ok[$type]+x}" ]]; then
+                phase_b_types+=("$type")
+                phase_b_ok[$type]=0
+                phase_b_fail[$type]=0
+                phase_b_elapsed[$type]=0
+                phase_b_fail_names[$type]=""
+            fi
+            if [ "$ok_flag" -eq 1 ]; then
+                phase_b_ok[$type]=$(( phase_b_ok[$type] + 1 ))
+            else
+                phase_b_fail[$type]=$(( phase_b_fail[$type] + 1 ))
+                # Skjemanamnet er teksten i parentesen i tname, t.d.
+                # "roundtrip-ttl (fint-utdanning)" → "fint-utdanning".
+                # Testar utan " (" (t.d. "copy-artifacts-click-href") har
+                # ikkje eit skjemanamn å hente ut — hoppar over.
+                if [[ "$tname" == *" ("* ]]; then
+                    local schema_short="${tname#*(}"
+                    schema_short="${schema_short%)*}"
+                    phase_b_fail_names[$type]="${phase_b_fail_names[$type]:+${phase_b_fail_names[$type]}, }$schema_short"
+                fi
+            fi
+            phase_b_elapsed[$type]=$(( phase_b_elapsed[$type] + elapsed ))
         done < "$tmplog"
         sed 's/\x1b\[[0-9;]*m//g' "$tmplog" >> "$LOG"
         rm -f "$tmplog"
     done
     print_phase_a_summary
+    echo ""
+    echo "=== Fase B — oppsummering ==="
+    local type
+    for type in "${phase_b_types[@]}"; do
+        local n=$(( phase_b_ok[$type] + phase_b_fail[$type] ))
+        local prefix="→ Fase B: $type ($n sjekkar) ..."
+        printf '%-58s %-11s OK: %-4s ERROR: %s\n' "$prefix" "($(fmt_elapsed_ms "${phase_b_elapsed[$type]}"))" "${phase_b_ok[$type]}" "${phase_b_fail[$type]}"
+        if [ -n "${phase_b_fail_names[$type]}" ]; then
+            echo "    Feila: ${phase_b_fail_names[$type]}"
+        fi
+    done
     echo ""
     echo "Resultat: $pass OK, $fail feil"
     echo "Total tidsbruk: $(fmt_elapsed_ms $(( $(date +%s%3N) - SCRIPT_T0 )))"
@@ -691,6 +752,58 @@ run_phase_a_rdf_validity() {
     } >> "$LOG"
 }
 
+# Batchar .md-fil-gyldigheitssjekk for gen-docs (tidlegare éin bash-while-
+# løkke PER SKJEMA i test_gen_docs(), 60-225 separate find/grep-kall per
+# skjema — sjå specs/backlog/gjer-gen-docs-raskare-fase-b.md for måling).
+# MÅ køyrast sekvensielt ETTER gen-docs (les katalogen han produserer) —
+# kallast difor IKKJE i PHASE_A_PIDS-lista i run_phase_a(), men rett etter
+# at hovud-wait-løkka er ferdig. Reint stdlib-arbeid (ingen linkml-import),
+# køyrer difor i PYTHON_IMAGE (raskare oppstart enn LINKML_IMAGE), med
+# ThreadPoolExecutor internt i batch-skriptet for å overlappe I/O-ventetid
+# mellom filene i staden for å stable ho sekvensielt.
+run_phase_a_docs_validity() {
+    local jobs_list
+    jobs_list=$(mktemp "$LOGDIR/phase_a_docs_validity_jobs_XXXXXX.tsv")
+    local has_jobs=0
+    local prefix="gen-docs"
+    for schema in "${SCHEMAS[@]}"; do
+        if [[ -n "${TEST_FILTER:-}" ]] \
+            && [[ "$prefix" != "$TEST_FILTER"* ]] \
+            && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+            continue
+        fi
+        local outdir
+        outdir=$(schema_outdir "$schema")
+        printf '%s\t%s\n' "$schema" "$outdir/docs" >> "$jobs_list"
+        has_jobs=1
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_list"
+        return 0
+    fi
+    local logfile n
+    logfile=$(phase_a_logfile "docs_validity")
+    n=$(wc -l < "$jobs_list")
+    echo "→ Fase A: docs-validity ($n skjema) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$PYTHON_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-docs-validate.py --jobs-tsv "/work/$jobs_list" \
+        > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "$n" "$elapsed" "docs-validity" "skjema" > "$(phase_a_metafile "docs_validity")"
+    rm -f "$jobs_list"
+    {
+        echo "========================================"
+        echo "FASE A: docs-validity  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
 run_phase_a() {
     # Alle Fase A-steg er uavhengige (ingen les output frå eit anna steg i
     # denne lista — kvart tek berre kjeldeskjemaet/eksempelfila som input),
@@ -736,27 +849,87 @@ run_phase_a() {
         wait "$pid" || true  # feil vert oppdaga av Fase B via phase_a_check()/loggfil-innhald, ikkje via denne exit-koden
     done
 
-    # Sekvensielt, ETTER at gen-rdf/gen-shacl/gen-owl/convert-rdf er ferdige
-    # (les output-filene deira) — sjå funksjonen sin toppkommentar.
-    run_phase_a_rdf_validity
+    # Sekvensielt (som gruppe), ETTER at hovudstega over er ferdige — begge
+    # les output desse produserer (gen-rdf/gen-shacl/gen-owl/convert-rdf
+    # for rdf_validity, gen-docs for docs_validity). Dei to er uavhengige
+    # av KVARANDRE, så dei køyrer parallelt seg imellom.
+    local -a PHASE_A_POST_PIDS=()
+    run_phase_a_rdf_validity  & PHASE_A_POST_PIDS+=($!)
+    run_phase_a_docs_validity & PHASE_A_POST_PIDS+=($!)
+    for pid in "${PHASE_A_POST_PIDS[@]}"; do
+        wait "$pid" || true
+    done
 }
 
 # Same nøkkelrekkjefølgje som kalla i run_phase_a() over — brukt av
 # print_phase_a_summary() til å gjenskape Fase A-overskriftene i
 # opphavleg rekkjefølgje til slutt i køyringa.
-PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate rdf_validity)
+PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate rdf_validity docs_validity)
+
+# Kort, lesbart namn frå ein filsti brukt i eit ::error file=<sti>::-merke —
+# stripper kjend filending og kjende suffiks (-schema/-eksempel/-shapes/
+# -ontology/-context) slik at t.d. "src/linkml/fint/fint-utdanning/
+# fint-utdanning-schema.yaml" og "generated/fint/fint-utdanning/
+# fint-utdanning-eksempel.ttl" begge kortast til "fint-utdanning" i
+# feillistene under. Dei ulike batch-skripta brukar ulike filtypar som
+# nøkkel (skjema-YAML, instans-YAML, TTL-artefakt) — denne funksjonen er
+# difor meir generell enn schema_name() (som berre handterer skjema-YAML).
+phase_a_short_name() {
+    local base
+    base=$(basename "$1")
+    base="${base%.yaml}"; base="${base%.ttl}"; base="${base%.json}"
+    base="${base%-schema}"; base="${base%-eksempel}"
+    base="${base%-shapes}"; base="${base%-ontology}"; base="${base%-context}"
+    echo "$base"
+}
+
+# Unike, kortnamna kjelder til ::error file=<sti>::-merke i ei loggfil —
+# brukt til å liste KVA skjema/artefakt som feila i Fase A-oppsummeringa,
+# ikkje berre kor mange.
+phase_a_error_names() {
+    local logfile="$1"
+    sed -n 's/.*::error file=\([^:]*\)::.*/\1/p' "$logfile" | sort -u | while IFS= read -r f; do
+        phase_a_short_name "$f"
+    done
+}
+
+# mcp-validate-instance brukar IKKJE ::error file=-konvensjonen (batch-
+# validate-instances.py skriv strukturerte per-skjema JSON-resultatfiler i
+# staden, sjå phase_a_mcp_check()) — treng difor eiga utrekning av kva
+# skjema som feila, ved å lese SAME indeksfil/resultatfiler som
+# phase_a_mcp_check() brukar.
+phase_a_mcp_error_names() {
+    local indexfile outdir
+    indexfile=$(phase_a_mcp_indexfile)
+    [ -f "$indexfile" ] || return 0
+    outdir=$(phase_a_mcp_outdir)
+    while IFS=$'\t' read -r schema idx; do
+        local resultfile="$outdir/$idx.json"
+        [ -f "$resultfile" ] || continue
+        if ! python3 -c "
+import json, sys
+d = json.load(open('$resultfile'))
+errors = [i for i in d.get('issues', []) if i['severity'] == 'error']
+sys.exit(1 if errors else 0)
+" 2>/dev/null; then
+            phase_a_short_name "$schema"
+        fi
+    done < "$indexfile"
+}
 
 # Oppsummering til slutt i make test: gjentek kvar Fase A-overskrift saman
 # med samla tidsbruk (frå metafila, sjå phase_a_metafile()) og eit OK/
 # ERROR-tal (ERROR = talet på ::error file=-linjer i steget si loggfil —
-# same universelle markør alle fem batch-skripta brukar; OK = N - ERROR,
-# der N er det same talet steget alt viste i opningslinja si). Steg som
-# ikkje køyrde (TEST_FILTER, eller ingen jobbar å gjere) manglar loggfil
-# og vert hoppa over — same konvensjon som phase_a_check(). Sjå
-# specs/done/fase-a-oppsummering-test-make.md for grunngjeving, inkludert
-# den kjende avgrensinga for build.yaml-flagg-styrte generatorar (N er
-# kandidatlista, ikkje den faktisk aktiverte delmengda — same tal
-# opningslinja alt viser i dag).
+# same universelle markør dei fleste batch-skripta brukar, unntatt
+# mcp-validate-instance, sjå phase_a_mcp_error_names(); OK = N - ERROR,
+# der N er det same talet steget alt viste i opningslinja si). Når
+# ERROR > 0 vert dei feila skjema/artefakta lista på ei eiga, innrykka
+# linje under. Steg som ikkje køyrde (TEST_FILTER, eller ingen jobbar å
+# gjere) manglar loggfil og vert hoppa over — same konvensjon som
+# phase_a_check(). Sjå specs/done/fase-a-oppsummering-test-make.md for
+# grunngjeving, inkludert den kjende avgrensinga for build.yaml-flagg-
+# styrte generatorar (N er kandidatlista, ikkje den faktisk aktiverte
+# delmengda — same tal opningslinja alt viser i dag).
 print_phase_a_summary() {
     echo ""
     echo "=== Fase A — oppsummering ==="
@@ -767,11 +940,41 @@ print_phase_a_summary() {
         [ -f "$logfile" ] || continue
         metafile=$(phase_a_metafile "$key")
         [ -f "$metafile" ] || continue
-        local n elapsed label unit error ok
+        local n elapsed label unit error ok prefix error_names
         IFS=$'\t' read -r n elapsed label unit < "$metafile"
-        error=$(grep -c "::error file=" "$logfile" || true)
+        if [ "$key" = "mcp_instance" ]; then
+            # mcp-validate-instance: éin JSON-resultatfil per skjema, så
+            # talet på feila NAMN er òg det korrekte ERROR-talet (1:1).
+            error_names=$(phase_a_mcp_error_names)
+            error=$([ -z "$error_names" ] && echo 0 || echo "$error_names" | wc -l)
+        else
+            # Elles: ERROR-talet held fram å telje ::error file=-LINJER
+            # (kan vere fleire enn talet unike skjema, t.d. eit
+            # roundtrip-kall der same skjema feilar i to kjeda steg) — same
+            # semantikk som N (jobbrad-/skjematal), uendra frå før. Namne-
+            # lista er berre eit ekstra, deduplisert visingslag oppå dette.
+            error=$(grep -c "::error file=" "$logfile" || true)
+            error_names=$(phase_a_error_names "$logfile")
+        fi
         ok=$(( n - error ))
-        echo "→ Fase A: $label ($n $unit) ... ($(fmt_elapsed_ms "$elapsed")) OK: $ok ERROR: $error"
+        prefix="→ Fase A: $label ($n $unit) ..."
+        # Namn-, tidsbruk- og OK:/ERROR:-delen er kvar sin eigen fast-
+        # breidde printf-kolonne, slik at ALLE tre alltid startar i same
+        # kolonne på tvers av linjer — uavhengig av kor langt steg-
+        # namnet/talet er.
+        printf '%-58s %-11s OK: %-4s ERROR: %s\n' "$prefix" "($(fmt_elapsed_ms "$elapsed"))" "$ok" "$error"
+        if [ -n "$error_names" ]; then
+            # IKKJE `paste -sd ', '` — paste sin -d tolkar ein fleirteikn-
+            # streng som EI LISTE av delskiljeteikn å SYKLE gjennom per
+            # felt (t.d. "," så " " så "," ...), ikkje eitt tofelts skiljeteikn
+            # — gav feil, alternerande utskrift. Bygg strengen manuelt i
+            # staden, same mønster som phase_b_fail_names lenger nede.
+            local joined="" name
+            while IFS= read -r name; do
+                joined="${joined:+${joined}, }$name"
+            done <<< "$error_names"
+            echo "    Feila: $joined"
+        fi
     done
 }
 
@@ -899,16 +1102,13 @@ test_gen_erdiagram() {
 }
 
 test_gen_docs() {
-    local schema="$1" docsdir="$2"
+    local schema="$1"
     phase_a_check docs "$schema" || return 1
-    [ -d "$docsdir" ] || { echo "Katalog manglar: $docsdir"; return 1; }
-    local mdcount
-    mdcount=$(find "$docsdir" -name "*.md" | wc -l)
-    [ "$mdcount" -gt 0 ] || { echo "Ingen .md-filer i $docsdir"; return 1; }
-    while IFS= read -r f; do
-        [ -s "$f" ]       || { echo "Tom fil: $f"; return 1; }
-        grep -q '^#' "$f" || { echo "Manglar #-overskrift: $f"; return 1; }
-    done < <(find "$docsdir" -name "*.md")
+    # .md-fil-innhaldssjekken (katalog finst, ikkje-tom, #-overskrift) er
+    # batcha til Fase A sitt docs_validity-steg, sjå
+    # run_phase_a_docs_validity() og specs/backlog/gjer-gen-docs-raskare-
+    # fase-b.md — IKKJE lenger ei bash-while-løkke her.
+    phase_a_check docs_validity "$schema" || return 1
 }
 
 test_gen_shacl() {
