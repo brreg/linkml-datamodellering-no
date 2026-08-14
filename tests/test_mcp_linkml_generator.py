@@ -330,11 +330,12 @@ class TestConversion(unittest.TestCase):
         })
         self.assertEqual(schema["slots"]["tittel"]["slot_uri"], "test:tittel")
 
-    def test_subsets_er_alltid_med(self):
+    def test_subsets_vert_ikkje_lokalt_definert(self):
+        """Subset-namna vert berre referert via in_subset, aldri definert lokalt —
+        ei lokal subsets-blokk kolliderer med same namn importert frå
+        common-ap-no-schema.yaml (sjå specs/done/fjern-lokale-subsets-new-modell.md)."""
         schema, _ = _convert({"type": "object", "properties": {}}, schema_name="Tom")
-        self.assertIn("Obligatorisk", schema["subsets"])
-        self.assertIn("Anbefalt",     schema["subsets"])
-        self.assertIn("Valgfri",      schema["subsets"])
+        self.assertNotIn("subsets", schema)
 
     def test_ekstern_ref_gir_åtvaring(self):
         _, warnings = _convert({

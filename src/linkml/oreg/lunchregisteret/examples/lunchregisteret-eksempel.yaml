@@ -1,0 +1,5 @@
+# Eksempel for lunchregisteret
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+lunchregistereter:
+  - id: https://data.norge.no/oreg/lunchregisteret/eksempel-1

@@ -51,7 +51,7 @@ JSON Schema (fil)
 | `prefixes` | Standard vokabularprefiksar frå profilen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + schema-avleia prefiks |
 | `default_prefix` | Absolutt HTTPS-URI avleia frå `schemaId` (t.d. `https://data.norge.no/ngr/adresse/`) |
 | `imports` | `linkml:types` (standard) |
-| `subsets` | `Obligatorisk`, `Anbefalt`, `Valgfri` |
+| `subsets` | Ikkje definert lokalt — `Obligatorisk`/`Anbefalt`/`Valgfri` vert berre *referert* via `in_subset` og må finnast i importgrafen (t.d. via `common-ap-no-schema.yaml`) |
 | `slots.id` | Global `id`-slot med `identifier: true` og `range: uriorcurie` |
 | `slots.<prop>` | Ein global slot per eigeskap i JSON Schema, med `slot_uri: <prefix>:<prop>` |
 | `classes.<Klasse>` | Ein klasse per `$defs`-objekt. Har `class_uri`, `annotations.begrepsidentifikator: TODO` og `slot_usage` med `required`/`in_subset` |

@@ -15,9 +15,9 @@ fint-okonomi
 fint-personvern
 fint-ressurs
 fint-utdanning
-kafferegisteret
 kartverket-modellkatalog
 ksdigital-modellkatalog
+lunchregisteret
 modelldcat-ap-no
 modelldcat-katalog
 modelldcat-modell

@@ -300,13 +300,6 @@ def convert(
     schema["default_range"] = defaults.get("default_range", "string")
     schema["imports"]       = list(defaults.get("imports") or ["linkml:types"])
 
-    # ── Subsets ──────────────────────────────────────────────────────────────
-    schema["subsets"] = {
-        "Obligatorisk": {"description": "Obligatoriske eigenskapar."},
-        "Anbefalt":     {"description": "Anbefalte eigenskapar."},
-        "Valgfri":      {"description": "Valfrie eigenskapar."},
-    }
-
     # ── Samle klasseinformasjon ───────────────────────────────────────────────
     classes_data = _collect_classes(json_schema, schema_name)
 

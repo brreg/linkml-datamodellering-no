@@ -1,5 +1,0 @@
-# Eksempel for kafferegisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-kafferegistereter:
-  - id: https://data.norge.no/oreg/kafferegisteret/eksempel-1
