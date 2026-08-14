@@ -176,7 +176,6 @@ _run_one() {
     if [[ -n "${TEST_FILTER:-}" && "$tname" != ${TEST_FILTER}* ]]; then
         return 0
     fi
-    printf "  %-52s ..." "$tname" >&3
     echo "========================================"
     echo "TEST: $tname  ($(date '+%H:%M:%S'))"
     echo "========================================"
@@ -185,11 +184,19 @@ _run_one() {
     t0=$(date +%s%3N)
     "$@" 2>&1 || rc=$?
     elapsed=$(( $(date +%s%3N) - t0 ))
+    # Heile statuslinja (namn + "..." + OK/FEIL + linjeskift) skrivast som
+    # ÉIN printf — éin write()-syscall for ei linje av denne lengda er
+    # atomisk med omsyn til andre samstundes skjema sine skriv til same
+    # fildeskriptor (>&3), sidan mange skjema køyrer parallelt via
+    # SCHEMA_PIDS. Å splitte i eit "namn ..."-kall FØR testen og eit
+    # "OK/FEIL"-kall ETTER (den tidlegare koden) let andre prosessar sitt
+    # skriv lande i gapet mellom dei to — garbla, samanblanda linjer. Sjå
+    # specs/done/atomisk-terminal-utskrift-test-make.md.
     if [ "$rc" -eq 0 ]; then
-        printf " ${CLR_OK}OK${CLR_RST}\n" >&3
+        printf "  %-52s ... ${CLR_OK}OK${CLR_RST}\n" "$tname" >&3
         echo "##RESULT:OK:$tname"
     else
-        printf " ${CLR_ERR}FEIL${CLR_RST}\n" >&3
+        printf "  %-52s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$tname" >&3
         echo "##RESULT:FAIL:$tname"
     fi
     log_info "${CLR_STEP}→ ${tname}${CLR_RST} ($(fmt_elapsed_ms "$elapsed"))"
