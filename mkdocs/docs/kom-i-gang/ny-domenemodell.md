@@ -78,7 +78,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/common-ap-no-v1.0.0/src/linkml/ap-no/common-ap-no/common-ap-no-schema  # TODO: byt til ein reell AP-NO-profil (t.d. dcat-ap-no) etter behov
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.13.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
 
 subsets:
   Obligatorisk:
@@ -118,9 +118,10 @@ slots:
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.
 ```
 
-`id`-sloten er ikkje lokalt definert i utkastet — han vert arva frå
-`common-ap-no` sitt importerte, delte `id`-slot (`identifier: true`,
-`range: uriorcurie`). `kontaktpunkt`-sloten vert generert globalt, men er
+`id`-sloten er ikkje lokalt definert i utkastet — han vert arva via
+`dcat-ap-no` sitt importerte `common-ap-no`-import, som har det delte
+`id`-slotet (`identifier: true`, `range: uriorcurie`). `kontaktpunkt`-sloten
+vert generert globalt, men er
 **ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
 (`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
 klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i
@@ -135,7 +136,7 @@ klassar der det er relevant.
 | `class_uri: tilskudd:tilskudd` | Faktisk RDF-URI, t.d. `dcat:Dataset` eller eigen namespace |
 | `begrepsidentifikator: …/TODO` | URI frå [data.norge.no/concepts](https://data.norge.no/concepts) |
 | `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
-| `common-ap-no`-importet (TODO-kommentar på importlina) | Byt til ein reell AP-NO-profil, t.d. `../../ap-no/dcat-ap-no/dcat-ap-no-schema`, dersom `common-ap-no` sine felles slots ikkje dekkjer behovet |
+| `dcat-ap-no`-importet (TODO-kommentar på importlina) | `dcat-ap-no` er alt sett som standard AP-NO-profil, versjonslåst til ein konkret git-tag. Byt til ein annan profil eller legg til fleire imports dersom `dcat-ap-no` sine felles slots ikkje dekkjer behovet |
 | `license: https://data.norge.no/nlod/no/2.0` | Alt sett til standard (NLOD 2.0) — byt berre dersom modellen krev ein annan lisens, sjå [gyldige lisensar](https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/) |
 | `annotations.utgiver` | Auto-utleidd frå `CODEOWNERS.md` sitt `path_patterns`-oppslag for `DOMAIN`. Vert `https://data.norge.no/organizations/TODO` dersom domenet ikkje har ein registrert eigar der (skript skriv ei åtvaring til stderr i så fall) |
 | `annotations.endringsdato`/`utgivelsesdato` | Sett til dagens dato automatisk — juster ved behov |
