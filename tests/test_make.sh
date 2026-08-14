@@ -631,6 +631,66 @@ run_phase_a_linkml_validate() {
     } >> "$LOG"
 }
 
+# Batchar RDF-gyldigheitssjekk (tidlegare assert_rdf_valid(), som spann opp
+# éin ny podman-kontainar PER FIL — sjå
+# specs/backlog/optimaliser-make-test-basert-pa-logginnsikt.md, Tiltak 1)
+# for output-filene til gen-rdf/gen-shacl/gen-owl/convert-rdf, i éin
+# kontainar. MÅ køyrast sekvensielt ETTER dei fire stega over (les filer
+# DEI produserer) — kallast difor IKKJE i PHASE_A_PIDS-lista i run_phase_a(),
+# men rett etter at hovud-wait-løkka er ferdig.
+run_phase_a_rdf_validity() {
+    local jobs_list
+    jobs_list=$(mktemp "$LOGDIR/phase_a_rdf_validity_jobs_XXXXXX.txt")
+    local has_jobs=0
+    for schema in "${SCHEMAS[@]}"; do
+        local domain name outdir
+        domain=$(schema_domain "$schema")
+        name=$(schema_name "$schema")
+        outdir=$(schema_outdir "$schema")
+        local pair prefix f
+        for pair in "gen-rdf:$outdir/$name-schema.ttl" \
+                    "gen-shacl:$outdir/$name-shapes.ttl" \
+                    "gen-owl:$outdir/$name-ontology.ttl" \
+                    "convert-rdf:$outdir/$name-eksempel.ttl"; do
+            prefix="${pair%%:*}"
+            f="${pair#*:}"
+            if [[ -n "${TEST_FILTER:-}" ]] \
+                && [[ "$prefix" != "$TEST_FILTER"* ]] \
+                && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
+                continue
+            fi
+            [ -s "$f" ] || continue
+            printf '%s\n' "$f" >> "$jobs_list"
+            has_jobs=1
+        done
+    done
+    if [ "$has_jobs" -eq 0 ]; then
+        rm -f "$jobs_list"
+        return 0
+    fi
+    local logfile n
+    logfile=$(phase_a_logfile "rdf_validity")
+    n=$(wc -l < "$jobs_list")
+    echo "→ Fase A: rdf-validity ($n fil(er)) ..." >&3
+    local t0 elapsed
+    t0=$(date +%s%3N)
+    podman run --rm \
+        -v "$REPO_ROOT:/work" -w /work \
+        -e PYTHONWARNINGS=ignore -e HOME=/tmp --user root \
+        "$LINKML_IMAGE" \
+        python3 src/assets/scripts/makefile/batch-rdf-validate.py --files-list "/work/$jobs_list" \
+        > "$logfile" 2>&1 || true
+    elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "$n" "$elapsed" "rdf-validity" "fil(er)" > "$(phase_a_metafile "rdf_validity")"
+    rm -f "$jobs_list"
+    {
+        echo "========================================"
+        echo "FASE A: rdf-validity  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
+        echo "========================================"
+        cat "$logfile"
+    } >> "$LOG"
+}
+
 run_phase_a() {
     # Alle Fase A-steg er uavhengige (ingen les output frå eit anna steg i
     # denne lista — kvart tek berre kjeldeskjemaet/eksempelfila som input),
@@ -675,12 +735,16 @@ run_phase_a() {
     for pid in "${PHASE_A_PIDS[@]}"; do
         wait "$pid" || true  # feil vert oppdaga av Fase B via phase_a_check()/loggfil-innhald, ikkje via denne exit-koden
     done
+
+    # Sekvensielt, ETTER at gen-rdf/gen-shacl/gen-owl/convert-rdf er ferdige
+    # (les output-filene deira) — sjå funksjonen sin toppkommentar.
+    run_phase_a_rdf_validity
 }
 
 # Same nøkkelrekkjefølgje som kalla i run_phase_a() over — brukt av
 # print_phase_a_summary() til å gjenskape Fase A-overskriftene i
 # opphavleg rekkjefølgje til slutt i køyringa.
-PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate)
+PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate rdf_validity)
 
 # Oppsummering til slutt i make test: gjentek kvar Fase A-overskrift saman
 # med samla tidsbruk (frå metafila, sjå phase_a_metafile()) og eit OK/
@@ -776,22 +840,6 @@ assert_json_has_key() {
         || return 1
 }
 
-assert_rdf_valid() {
-    local f="$1"
-    podman run --rm \
-        -v "$REPO_ROOT:/work" \
-        -w /work \
-        -e PYTHONWARNINGS=ignore \
-        "$LINKML_IMAGE" \
-        python3 -c "
-import rdflib
-g = rdflib.Graph()
-g.parse('/work/$f')
-assert len(g) > 0, 'Graf er tom: $f'
-print('tripler:', len(g))
-"
-}
-
 # ---------------------------------------------------------------------------
 # Testfunksjonar — generiske, tar schema og outfile som argument
 # ---------------------------------------------------------------------------
@@ -839,7 +887,7 @@ test_gen_rdf() {
     esac
     phase_a_check rdf "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
+    phase_a_check rdf_validity "$outfile" || return 1
 }
 
 test_gen_erdiagram() {
@@ -867,14 +915,14 @@ test_gen_shacl() {
     local schema="$1" outfile="$2"
     phase_a_check shacl "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
+    phase_a_check rdf_validity "$outfile" || return 1
 }
 
 test_gen_owl() {
     local schema="$1" outfile="$2"
     phase_a_check owl "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
+    phase_a_check rdf_validity "$outfile" || return 1
 }
 
 test_linkml_lint() {
@@ -991,7 +1039,7 @@ test_convert_rdf() {
     fi
     phase_a_check convert_rdf "$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
+    phase_a_check rdf_validity "$outfile" || return 1
 }
 
 test_gen_proto() {

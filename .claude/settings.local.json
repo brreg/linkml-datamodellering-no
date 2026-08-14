@@ -449,7 +449,8 @@
       "Bash(export BATCH_GENERATE_WORKERS=10)",
       "Bash(echo \"Exit code: $?\")",
       "Bash(LOGLVL=INFO make -n test)",
-      "Bash(LOGLVL=INFO make test SCHEMA=/nonexistent-schema.yaml)"
+      "Bash(LOGLVL=INFO make test SCHEMA=/nonexistent-schema.yaml)",
+      "Bash(ps aux *)"
     ]
   },
   "enableAllProjectMcpServers": true,
