@@ -102,10 +102,11 @@ delar av `linkml-convert` sin CLI-logikk manuelt) foreslås gjort som eit
 eige, seinare steg — berre etter eksplisitt godkjenning, gitt
 kompleksiteten og risikoen for subtile semantikkavvik.
 
-## Utført (Tiltak 1)
+## Utført
 
-Tiltak 1 gjennomført og verifisert. Tiltak 2 står att i denne spec-fila —
-flyttast IKKJE til `specs/done/` før begge er utførte.
+Begge tiltak gjennomførte og verifiserte.
+
+### Tiltak 1
 
 1. Ny `src/assets/scripts/makefile/batch-rdf-validate.py` — validerer ei
    liste av filer (éin per linje) med `rdflib` i éin prosess, skriv
@@ -144,6 +145,63 @@ flyttast IKKJE til `specs/done/` før begge er utførte.
    100+) er difor verifisert, men ei absolutt før/etter-tidsmåling må
    gjerast på nytt på straumadapter for å talfeste den faktiske
    gevinsten.
+
+### Tiltak 2
+
+1. `src/assets/scripts/makefile/batch-convert.py` reimplementert: kallar
+   `PythonGenerator`, `SchemaView`, `get_loader`/`get_dumper`,
+   `infer_root_class`, `datautils._is_rdf_format` **direkte**, i staden
+   for `run_click(convert_cli, argv)`. Reimplementasjonen dekkjer BERRE
+   dei kodestigane som er nåbare med den faste argv-forma
+   `--schema <s> --output-format <f> --no-validate --output <o> <input>`
+   (stadfesta ved full gjennomlesing av `cli.callback` sin kjeldekode via
+   `inspect.getsource()` FØR reimplementasjonen vart skriven).
+2. **Første forsøk (feil, retta før commit):** cacha `(python_module, sv,
+   target_class)` saman per skjema. Ein manuell reproduksjon (3 skjema:
+   `brreg-modellkatalog`, `novari-modellkatalog`, `fint-utdanning`, alle
+   Kategori D-jobbtypar for kvart) synte ei NY feilmelding for
+   `brreg-modellkatalog`/`novari-modellkatalog` sin roundtrip-ttl:
+   `Modellkatalog.__init__() got an unexpected keyword argument
+   'tittel_literal'` + `Inconsistent URI to class map`. Målte
+   `PythonGenerator(schema).compile_module()` (~3,3s) mot
+   `SchemaView(schema)` (~0,014s) — SchemaView utgjer under 1 % av
+   kostnaden. Retta ved å cache **BERRE** `python_module` og byggje
+   `SchemaView`/`target_class` FERSKT per jobbrad (identisk med original
+   åtferd for desse to) — null grunn til å ta risikoen for eit
+   neglisjerbart tidstap.
+3. **Falsk alarm oppdaga og avvist:** Same feil dukka OPP ATT etter
+   retting nr. 2 (steg over) på nøyaktig same manuelle reproduksjon.
+   Mistanke om attverande feil vart undersøkt ved å køyre den HEILT
+   UENDRA (`git show HEAD:...`) originalskriptet mot NØYAKTIG same
+   jobbmengd — originalen feila IDENTISK (same feilmelding, same to
+   skjema). Rotårsak: den manuelle reproduksjonen batcha convert-rdf +
+   roundtrip-json + roundtrip-ttl for SAME skjema i ÉIN jobbliste/prosess
+   — noko produksjonskoden (`_run_phase_a_convert_batch()` i
+   `tests/test_make.sh`) ALDRI gjer (kvar steg-type får si EIGA,
+   separate `jobs_tsv`/podman-kontainar-køyring). Feilen er difor ein
+   pre-eksisterande, uendra eigenskap ved å blande steg-typar i éin
+   prosess (truleg global/prosess-nivå tilstand i linkml_runtime sin
+   RDFLib-lastar/dumpar), IKKJE ein regresjon frå dette tiltaket.
+4. **Verifisering (byte-for-byte, jf. Tiltak 4 i tabellen over):** Same
+   manuelle jobbmengd (3 skjema, 24 jobbrader) køyrt med både original-
+   og ny skriptversjon. Identisk filsett produsert, identisk feilsett (2
+   feila jobbar, same feilmeldingar), og **byte-for-byte identisk
+   innhald** i alle filer som lykkast (verifisert med `diff -q` per
+   fil).
+5. **Tidsmåling (kontrollert, same maskin-/yting-tilstand, rett
+   etter kvarandre):** original-skriptet mot ny skriptet på same
+   jobbmengd — `1m35.388s` → `0m29.409s` (**~3,24× raskare**, isolert
+   frå Fase A-parallelliseringa/straum-tilstand-støy elles i økta).
+6. `python3 -m py_compile batch-convert.py` — OK.
+7. Full `make test` (35 skjema): **591 OK, 5 feil** — identisk med
+   referansen, ingen regresjon. Samanlikna mot den IMMEDIATE FØREGÅANDE
+   køyringa (same batteridrift-tilstand, difor gyldig samanlikning):
+   `roundtrip-json` 233.73s → 153.16s, `roundtrip-ttl` 167.82s → 91.73s —
+   samsvarar med den isolerte ~3,24×-målinga.
+8. Ein tom fil (`src/assets/scripts/makefile/batch-convert-old.py`)
+   materialiserte seg i repoet frå eit mislukka podman bind-mount-forsøk
+   under manuell verifisering (kjent, tidlegare dokumentert
+   sandbox-artefakt) — fanga opp via `git status` og sletta før avslutning.
 
 ## Referanse
 
