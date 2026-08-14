@@ -443,7 +443,10 @@
       "Bash(TEST_FILTER=roundtrip bash tests/test_make.sh \"src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml\" \"src/linkml/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.yaml\")",
       "Bash(TEST_FILTER=roundtrip bash tests/test_make.sh \"src/linkml/oreg/lunchregisteret/lunchregisteret-schema.yaml\")",
       "Bash(tee /tmp/claude-1000/-mnt-c-dev-github-linkml-datamodellering-no/f980b971-d946-4dd3-98b8-36a5afc31ec2/scratchpad/make-test-run3.log)",
-      "Bash(TEST_FILTER=roundtrip bash tests/test_make.sh \"src/linkml/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.yaml\")"
+      "Bash(TEST_FILTER=roundtrip bash tests/test_make.sh \"src/linkml/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.yaml\")",
+      "Bash(TEST_FILTER=roundtrip-ttl bash tests/test_make.sh \"src/linkml/samt/samt-bu/samt-bu-schema.yaml\")",
+      "Bash(TEST_FILTER=gen-rdf bash tests/test_make.sh \"src/linkml/samt/samt-bu/samt-bu-schema.yaml\")",
+      "Bash(export BATCH_GENERATE_WORKERS=10)"
     ]
   },
   "enableAllProjectMcpServers": true,

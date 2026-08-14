@@ -59,6 +59,7 @@ import re
 import shlex
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -107,6 +108,7 @@ class GeneratorSpec:
     post_fn: Callable[[str, str], None] | None = None  # (domain, name) -> None, køyrt etter vellukka run_click()
     out_subdir: str = ""  # t.d. "diagrams" for plantuml — tomt betyr $GEN_DIR/<domain>/<name>/ direkte
     skip_if_versioned_import: bool = False  # sjå schema_has_versioned_import() — BUG-17
+    parallel: bool = False  # køyr per-skjema-lykka i eit ProcessPoolExecutor — sjå _generate_one()
 
 
 def _doc_extra_argv(domain: str, name: str) -> list[str]:
@@ -155,7 +157,11 @@ REGISTRY: dict[str, GeneratorSpec] = {
         ],
     ),
     "rdf": GeneratorSpec(
-        module="linkml.generators.rdfgen", out_suffix="schema.ttl", flag="rdf", skip_if_versioned_import=True
+        module="linkml.generators.rdfgen",
+        out_suffix="schema.ttl",
+        flag="rdf",
+        skip_if_versioned_import=True,
+        parallel=True,
     ),
     "proto": GeneratorSpec(module="linkml.generators.protogen", out_suffix="schema.proto", flag="protobuf"),
     "graphql": GeneratorSpec(module="linkml.generators.graphqlgen", out_suffix="schema.graphql", flag="graphql"),
@@ -174,6 +180,7 @@ REGISTRY: dict[str, GeneratorSpec] = {
         flag="docs",
         extra_argv_fn=_doc_extra_argv,
         post_fn=_doc_post,
+        parallel=True,
     ),
 }
 
@@ -224,6 +231,52 @@ def fmt_elapsed(seconds: float) -> str:
     return f"{ms // 1000}.{ms % 1000 // 10:02d}s"
 
 
+def _build_argv(s: str, domain: str, name: str, spec: GeneratorSpec) -> list[str]:
+    argv = [s]
+    if spec.extra_flags_field:
+        extra = read_build_yaml_extra_flags(s, spec.extra_flags_field)
+        argv += shlex.split(extra) if extra else list(spec.default_extra_argv)
+    elif spec.default_extra_argv:
+        argv += list(spec.default_extra_argv)
+    if spec.extra_argv_fn:
+        argv += spec.extra_argv_fn(domain, name)
+    return argv
+
+
+# Sett i main() FØR ProcessPoolExecutor vert oppretta (berre for
+# spec.parallel=True-generatorar, t.d. doc/rdf — sjå GeneratorSpec.parallel).
+# Linux sin standard multiprocessing-startmetode er "fork": worker-prosessar
+# er ein copy-on-write-kopi av foreldreprosessen sitt minne på forke-
+# tidspunktet, så denne modul-globalen er alt sett i kvar worker utan at
+# sjølve Click Command-objektet (som ikkje er triviellt pickle-bart) nokon
+# gong må sendast over IPC-køen. Berre task-tuplane (str/list/GeneratorSpec
+# — alle pickle-bare) vert sendt til pool.map().
+_CLI_CMD = None
+
+
+def _generate_one(task: tuple[str, str, str, str, list[str], GeneratorSpec]) -> tuple[str, bool, str]:
+    """Generer output for éitt skjema. Køyrer anten direkte (sekvensiell
+    sti) eller i eit ProcessPoolExecutor-worker-prosess (spec.parallel=True)
+    — sjå main(). Returnerer (schema, ok, loggmelding); kastar aldri, for
+    trygg bruk med pool.map().
+    """
+    generator_name, s, domain, name, argv, spec = task
+    t0 = time.time()
+    try:
+        output = run_click(_CLI_CMD, argv)
+        if spec.out_suffix:
+            outdir = Path(GEN_DIR) / domain / name / spec.out_subdir
+            outdir.mkdir(parents=True, exist_ok=True)
+            (outdir / f"{name}-{spec.out_suffix}").write_text(output, encoding="utf-8")
+        if spec.post_fn:
+            spec.post_fn(domain, name)
+    except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon, sjå spec Tiltak 1 steg 6
+        elapsed = time.time() - t0
+        return (s, False, f"::error file={s}::{generator_name} feila for {domain}/{name} ({fmt_elapsed(elapsed)}) — {exc}")
+    elapsed = time.time() - t0
+    return (s, True, f"{CLR_STEP}→ {generator_name}  {domain}/{name}{CLR_RST} ({fmt_elapsed(elapsed)})")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--generator", required=True, choices=sorted(REGISTRY))
@@ -255,36 +308,44 @@ def main() -> int:
         return 0
 
     module = importlib.import_module(spec.module)
-    cli_cmd = module.cli
+    global _CLI_CMD
+    _CLI_CMD = module.cli
 
-    failed = 0
+    tasks = []
     for s in enabled:
         domain, name = schema_domain_name(s)
-        argv = [s]
-        if spec.extra_flags_field:
-            extra = read_build_yaml_extra_flags(s, spec.extra_flags_field)
-            argv += shlex.split(extra) if extra else list(spec.default_extra_argv)
-        elif spec.default_extra_argv:
-            argv += list(spec.default_extra_argv)
-        if spec.extra_argv_fn:
-            argv += spec.extra_argv_fn(domain, name)
+        argv = _build_argv(s, domain, name, spec)
+        tasks.append((args.generator, s, domain, name, argv, spec))
 
-        t0 = time.time()
-        try:
-            output = run_click(cli_cmd, argv)
-            if spec.out_suffix:
-                outdir = Path(GEN_DIR) / domain / name / spec.out_subdir
-                outdir.mkdir(parents=True, exist_ok=True)
-                (outdir / f"{name}-{spec.out_suffix}").write_text(output, encoding="utf-8")
-            if spec.post_fn:
-                spec.post_fn(domain, name)
-        except Exception as exc:  # noqa: BLE001 — per-skjema isolasjon, sjå spec Tiltak 1 steg 6
-            elapsed = time.time() - t0
-            log_error(f"::error file={s}::{args.generator} feila for {domain}/{name} ({fmt_elapsed(elapsed)}) — {exc}")
-            failed += 1
-            continue
-        elapsed = time.time() - t0
-        log_info(f"{CLR_STEP}→ {args.generator}  {domain}/{name}{CLR_RST} ({fmt_elapsed(elapsed)})")
+    failed = 0
+    if spec.parallel and len(tasks) > 1:
+        # Sjå GeneratorSpec.parallel — per-skjema-arbeidet er CPU-bunde og
+        # uavhengig på tvers av skjema (ingen deler mutable tilstand), så
+        # det skalerer over fleire kjernar via eit ProcessPoolExecutor i
+        # staden for éin sekvensiell, éin-tråda lykke. Talet på workers er
+        # avgrensa (standard 6) sidan kvar ekstra worker har eiga
+        # fork-/schedulerings-kostnad — venta nær metningspunktet gjeve dei
+        # målte per-skjema-tidene (sjå specs/done/paralleliser-fase-a-test-make.md,
+        # Del 2). pool.map() bevarer rekkjefølgja frå `tasks` i resultat-
+        # straumen (uavhengig av fullføringsrekkjefølgje), så loggutskrifta
+        # under held seg til same, føreseielege skjema-rekkjefølgje som den
+        # sekvensielle stien.
+        max_workers = min(len(tasks), int(os.environ.get("BATCH_GENERATE_WORKERS", "6")))
+        with ProcessPoolExecutor(max_workers=max_workers) as pool:
+            for s, ok, message in pool.map(_generate_one, tasks):
+                if ok:
+                    log_info(message)
+                else:
+                    log_error(message)
+                    failed += 1
+    else:
+        for task in tasks:
+            s, ok, message = _generate_one(task)
+            if ok:
+                log_info(message)
+            else:
+                log_error(message)
+                failed += 1
 
     return 1 if failed else 0
 

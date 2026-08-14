@@ -16,6 +16,10 @@ WORK_MOUNT := -v "$(CURDIR):/work" -w /work
 # specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
 # CLR_OK fargelegg skjemanamna i "— køyrer: ..."-lista grønt (sjå
 # specs/done/farg-skjemanamn-i-koyrer-debug-linje.md)
+# -e BATCH_GENERATE_WORKERS: talet på ProcessPoolExecutor-workers for
+# spec.parallel=True-generatorane (doc/rdf) i batch-generate.py — les frå
+# os.environ, defaultar til 6 dersom usett (sjå
+# specs/done/paralleliser-fase-a-test-make.md, Del 2)
 LINKML_RUN := podman run --rm $(WORK_MOUNT) \
 	-e PYTHONWARNINGS=ignore \
 	-e HOME=/tmp \
@@ -23,6 +27,7 @@ LINKML_RUN := podman run --rm $(WORK_MOUNT) \
 	-e CLR_STEP \
 	-e CLR_RST \
 	-e CLR_OK \
+	-e BATCH_GENERATE_WORKERS \
 	--user root \
 	$(LINKML_IMAGE)
 

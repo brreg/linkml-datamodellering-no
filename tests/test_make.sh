@@ -268,7 +268,15 @@ wait_for_tests() {
 # (linkml-convert-kall) og batch-linkml-validate.py (linkml.validator
 # .validate()-API direkte).
 # ---------------------------------------------------------------------------
-declare -A PHASE_A_LOG
+# Fase A-steg køyrer samstundes (sjå run_phase_a()) — kvart steg sin
+# loggfil-sti må difor vere fast/føreseieleg (IKKJE mktemp-generert), sidan
+# phase_a_check()/phase_a_mcp_check() konstruerer stien direkte i staden for
+# å slå ho opp i eit array. Eit bash-array-oppslag ville ikkje fungert her:
+# variabeltilordningar i eit backgrounda underskal (`funksjon &`) går tapt
+# for foreldreskalet når jobben er ferdig, så eit array populert INNI eit
+# Fase A-steg kan ikkje lesast av Fase B etterpå. Filsystemet er den einaste
+# tilstanden som overlever backgrounding.
+phase_a_logfile() { echo "$LOGDIR/phase_a_$1.log"; }
 
 # Køyr eitt batcha make-mål for heile skjemalista.
 # $1=nøkkel (brukt av phase_a_check)  $2=make-target  $3=testnamn-prefiks
@@ -281,10 +289,9 @@ run_phase_a_step() {
         return 0
     fi
     local logfile
-    logfile=$(mktemp "$LOGDIR/phase_a_${key}_XXXXXX.log")
+    logfile=$(phase_a_logfile "$key")
     echo "→ Fase A: $target (${#SCHEMAS[@]} skjema) ..." >&3
     make "$target" SCHEMAS="${SCHEMAS[*]}" > "$logfile" 2>&1 || true
-    PHASE_A_LOG[$key]="$logfile"
     {
         echo "========================================"
         echo "FASE A: $target  ($(date '+%H:%M:%S'))"
@@ -307,7 +314,7 @@ run_phase_a_lint() {
         return 0
     fi
     local logfile
-    logfile=$(mktemp "$LOGDIR/phase_a_lint_XXXXXX.log")
+    logfile=$(phase_a_logfile "lint")
     echo "→ Fase A: linkml-lint --ignore-warnings (${#SCHEMAS[@]} skjema) ..." >&3
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
@@ -316,7 +323,6 @@ run_phase_a_lint() {
         python3 src/assets/scripts/makefile/batch-lint.py \
             --config src/assets/containers/.linkmllint.yaml --ignore-warnings -- "${SCHEMAS[@]}" \
         > "$logfile" 2>&1 || true
-    PHASE_A_LOG[lint]="$logfile"
     {
         echo "========================================"
         echo "FASE A: linkml-lint --ignore-warnings  ($(date '+%H:%M:%S'))"
@@ -331,8 +337,13 @@ run_phase_a_lint() {
 # Bruker schemaPath (lagt til i server.py saman med dette) i staden for den
 # gamle gen-linkml --mergeimports+schemaText-flyten — fjernar eit heilt
 # kontainarkall per skjema i tillegg til å batche sjølve MCP-kallet.
-declare -A PHASE_A_MCP_INDEX  # schema -> jobb-indeks (berre sett for skjema som faktisk vart validerte)
-PHASE_A_MCP_OUTDIR=""
+#
+# schema→jobb-indeks-koplinga (batch-validate-instances.py skriv resultat
+# som <idx>.json, 0-indeksert) vert skriven til ei fast indeksfil i staden
+# for eit bash-array — sjå phase_a_logfile()-kommentaren over for kvifor
+# (Fase A-steg køyrer no samstundes i eigne underskal, jf. run_phase_a()).
+phase_a_mcp_outdir() { echo "$LOGDIR/phase_a_mcp"; }
+phase_a_mcp_indexfile() { echo "$LOGDIR/phase_a_mcp_index.tsv"; }
 
 run_phase_a_mcp_instance() {
     local prefix="mcp-validate-instance"
@@ -341,6 +352,9 @@ run_phase_a_mcp_instance() {
         && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
         return 0
     fi
+    local indexfile
+    indexfile=$(phase_a_mcp_indexfile)
+    : > "$indexfile"
     local jobs=()
     local idx=0
     for schema in "${SCHEMAS[@]}"; do
@@ -351,15 +365,16 @@ run_phase_a_mcp_instance() {
         local validate_schema example
         read -r validate_schema example <<< "$job"
         jobs+=("${validate_schema}=${example}")
-        PHASE_A_MCP_INDEX["$schema"]="$idx"
+        printf '%s\t%s\n' "$schema" "$idx" >> "$indexfile"
         idx=$((idx + 1))
     done
     if [ "${#jobs[@]}" -eq 0 ]; then
         return 0
     fi
     local outdir
-    outdir=$(mktemp -d "$LOGDIR/phase_a_mcp_XXXXXX")
-    PHASE_A_MCP_OUTDIR="$outdir"
+    outdir=$(phase_a_mcp_outdir)
+    rm -rf "$outdir"
+    mkdir -p "$outdir"
     echo "→ Fase A: mcp-validate-instance (${#jobs[@]} skjema) ..." >&3
     {
         echo "========================================"
@@ -379,7 +394,7 @@ run_phase_a_mcp_instance() {
 _run_phase_a_convert_batch() {
     local key="$1" jobs_tsv="$2" label="$3"
     local logfile
-    logfile=$(mktemp "$LOGDIR/phase_a_${key}_XXXXXX.log")
+    logfile=$(phase_a_logfile "$key")
     echo "→ Fase A: $label ($(wc -l < "$jobs_tsv") jobb(ar)) ..." >&3
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
@@ -387,7 +402,6 @@ _run_phase_a_convert_batch() {
         "$LINKML_IMAGE" \
         python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
-    PHASE_A_LOG[$key]="$logfile"
     rm -f "$jobs_tsv"
     {
         echo "========================================"
@@ -507,7 +521,7 @@ run_phase_a_linkml_validate() {
         return 0
     fi
     local logfile
-    logfile=$(mktemp "$LOGDIR/phase_a_linkml_validate_XXXXXX.log")
+    logfile=$(phase_a_logfile "linkml_validate")
     echo "→ Fase A: linkml-validate ($(wc -l < "$jobs_tsv") skjema) ..." >&3
     podman run --rm \
         -v "$REPO_ROOT:/work" -w /work \
@@ -515,7 +529,6 @@ run_phase_a_linkml_validate() {
         "$LINKML_IMAGE" \
         python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
-    PHASE_A_LOG[linkml_validate]="$logfile"
     rm -f "$jobs_tsv"
     {
         echo "========================================"
@@ -526,23 +539,48 @@ run_phase_a_linkml_validate() {
 }
 
 run_phase_a() {
-    run_phase_a_step validate   validate           "validate"
-    run_phase_a_step jsonld     gen-jsonld-context  "gen-jsonld"
-    run_phase_a_step python     gen-python          "gen-python"
-    run_phase_a_step jsonschema gen-jsonschema      "gen-jsonschema"
-    run_phase_a_step rdf        gen-rdf             "gen-rdf"
-    run_phase_a_step erdiagram  gen-erdiagram       "gen-erdiagram"
-    run_phase_a_step docs       gen-docs            "gen-docs"
-    run_phase_a_step shacl      gen-shacl           "gen-shacl"
-    run_phase_a_step owl        gen-owl             "gen-owl"
-    run_phase_a_step proto      gen-proto           "gen-proto"
-    run_phase_a_step plantuml   gen-plantuml        "gen-plantuml"
-    run_phase_a_lint
-    run_phase_a_mcp_instance
-    run_phase_a_convert_rdf
-    run_phase_a_roundtrip_json
-    run_phase_a_roundtrip_ttl
-    run_phase_a_linkml_validate
+    # Alle Fase A-steg er uavhengige (ingen les output frå eit anna steg i
+    # denne lista — kvart tek berre kjeldeskjemaet/eksempelfila som input),
+    # så dei køyrer samstundes i staden for i sekvens. Same
+    # run_bg-liknande PID-array-mønster som SCHEMA_PIDS/wait_for_tests
+    # lenger opp i fila, og same grunnmønster som
+    # run-domain-pipeline.sh sin Fase 1 alt har verifisert i produksjon for
+    # den tilsvarande "ekte" genereringspipelinen. Sjå
+    # specs/done/paralleliser-fase-a-test-make.md.
+    #
+    # Rydd opp attverande Fase A-artefakt frå eit tidlegare skript-kall
+    # FØR nokon steg startar: loggfilnamna er no faste (ikkje mktemp), så
+    # phase_a_check()/phase_a_mcp_check() sin "[ -f ... ]"-sjekk (som
+    # skil "steget vart hoppa over via TEST_FILTER" frå "steget køyrde")
+    # ville elles kunne lese ei fil frå EIN ANNAN, tidlegare køyring med
+    # ein annan TEST_FILTER-verdi.
+    rm -f "$LOGDIR"/phase_a_*.log
+    rm -f "$(phase_a_mcp_indexfile)"
+    rm -rf "$(phase_a_mcp_outdir)"
+
+    local -a PHASE_A_PIDS=()
+
+    run_phase_a_step validate   validate           "validate"      & PHASE_A_PIDS+=($!)
+    run_phase_a_step jsonld     gen-jsonld-context  "gen-jsonld"    & PHASE_A_PIDS+=($!)
+    run_phase_a_step python     gen-python          "gen-python"   & PHASE_A_PIDS+=($!)
+    run_phase_a_step jsonschema gen-jsonschema      "gen-jsonschema" & PHASE_A_PIDS+=($!)
+    run_phase_a_step rdf        gen-rdf             "gen-rdf"      & PHASE_A_PIDS+=($!)
+    run_phase_a_step erdiagram  gen-erdiagram       "gen-erdiagram" & PHASE_A_PIDS+=($!)
+    run_phase_a_step docs       gen-docs            "gen-docs"     & PHASE_A_PIDS+=($!)
+    run_phase_a_step shacl      gen-shacl           "gen-shacl"    & PHASE_A_PIDS+=($!)
+    run_phase_a_step owl        gen-owl             "gen-owl"      & PHASE_A_PIDS+=($!)
+    run_phase_a_step proto      gen-proto           "gen-proto"    & PHASE_A_PIDS+=($!)
+    run_phase_a_step plantuml   gen-plantuml        "gen-plantuml" & PHASE_A_PIDS+=($!)
+    run_phase_a_lint                                                & PHASE_A_PIDS+=($!)
+    run_phase_a_mcp_instance                                        & PHASE_A_PIDS+=($!)
+    run_phase_a_convert_rdf                                         & PHASE_A_PIDS+=($!)
+    run_phase_a_roundtrip_json                                      & PHASE_A_PIDS+=($!)
+    run_phase_a_roundtrip_ttl                                       & PHASE_A_PIDS+=($!)
+    run_phase_a_linkml_validate                                     & PHASE_A_PIDS+=($!)
+
+    for pid in "${PHASE_A_PIDS[@]}"; do
+        wait "$pid" || true  # feil vert oppdaga av Fase B via phase_a_check()/loggfil-innhald, ikkje via denne exit-koden
+    done
 }
 
 # Sjekk om eit gitt skjema feila i Fase A-batchen for ein gjeven generator.
@@ -553,8 +591,9 @@ run_phase_a() {
 # ville sjå ut som at ALLE skjema i batchen feila.
 phase_a_check() {
     local key="$1" schema="$2"
-    local logfile="${PHASE_A_LOG[$key]:-}"
-    [ -n "$logfile" ] || return 0  # Fase A køyrde ikkje (TEST_FILTER) — _run_one hoppar uansett over kallaren
+    local logfile
+    logfile=$(phase_a_logfile "$key")
+    [ -f "$logfile" ] || return 0  # Fase A køyrde ikkje (TEST_FILTER) — _run_one hoppar uansett over kallaren
     local err
     err=$(grep "::error file=$schema::" "$logfile" 2>/dev/null || true)
     if [ -n "$err" ]; then
@@ -569,9 +608,13 @@ phase_a_check() {
 # JSON-fila batch-validate-instances.py skreiv for dette skjemaet sin jobb.
 phase_a_mcp_check() {
     local schema="$1"
-    local idx="${PHASE_A_MCP_INDEX[$schema]:-}"
+    local indexfile
+    indexfile=$(phase_a_mcp_indexfile)
+    [ -f "$indexfile" ] || return 0  # Fase A køyrde ikkje (TEST_FILTER)
+    local idx
+    idx=$(awk -F'\t' -v s="$schema" '$1 == s { print $2 }' "$indexfile")
     [ -n "$idx" ] || return 0  # ikkje ein del av batchen — kallaren har alt avgjort å hoppe over
-    local resultfile="$PHASE_A_MCP_OUTDIR/$idx.json"
+    local resultfile="$(phase_a_mcp_outdir)/$idx.json"
     if [ ! -f "$resultfile" ]; then
         echo "Manglar resultatfil for $schema: $resultfile"
         return 1
