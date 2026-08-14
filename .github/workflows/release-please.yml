@@ -116,73 +116,96 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
         run: |
-          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
-          BRANCH=$(gh pr view "$PR_NUMBER" --json headRefName -q .headRefName)
+          # `separate-pull-requests: true` gjer at release-please lagar éin PR
+          # per komponent — outputs.prs (fleirtal) er JSON-arrayen med ALLE
+          # av dei. Det eintalige outputs.pr fangar berre éin tilfeldig PR og
+          # må ikkje brukast her (jf. specs/done/fiks-release-please-multi-pr-bug.md).
+          PRS_JSON='${{ steps.release-please.outputs.prs }}'
 
-          echo "Sjekkar ut PR-branch: $BRANCH"
-          git fetch origin "$BRANCH"
-          git checkout "$BRANCH"
-
-          # Installer yq
+          # Installer yq (éin gong, brukt for kvar PR-branch under)
           sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           sudo chmod +x /usr/local/bin/yq
 
           # Hent dagens dato i ISO 8601-format
           TODAY=$(date -u +%Y-%m-%d)
 
-          # Les alle pakke-paths frå .github/release-please-manifest.json
-          jq -r 'keys[]' .github/release-please-manifest.json | while read pkg_path; do
-            # Hent versjon frå manifest
-            version=$(jq -r --arg path "$pkg_path" '.[$path]' .github/release-please-manifest.json)
+          echo "$PRS_JSON" | jq -c '.[]' | while read -r pr_json; do
+            PR_NUMBER=$(echo "$pr_json" | jq -r '.number')
+            BRANCH=$(echo "$pr_json" | jq -r '.headBranchName')
 
-            # Finn schema-fila i pakken
-            schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" 2>/dev/null | head -1)
+            echo "Sjekkar ut PR-branch: $BRANCH (PR #$PR_NUMBER)"
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
 
-            if [ -n "$schema" ] && [ -f "$schema" ]; then
-              # Les noverande versjon frå schema
-              current_version=$(yq eval '.version' "$schema" 2>/dev/null || echo "")
+            # Les alle pakke-paths frå .github/release-please-manifest.json
+            jq -r 'keys[]' .github/release-please-manifest.json | while read pkg_path; do
+              # Hent versjon frå manifest
+              version=$(jq -r --arg path "$pkg_path" '.[$path]' .github/release-please-manifest.json)
 
-              # Oppdater berre dersom versjon har endra seg
-              if [ "$current_version" != "\"$version\"" ] && [ "$current_version" != "$version" ]; then
-                echo "Oppdaterer $schema frå $current_version til $version"
+              # Finn schema-fila i pakken
+              schema=$(find "$pkg_path" -maxdepth 1 -name "*-schema.yaml" 2>/dev/null | head -1)
 
-                # Oppdater version, endringsdato og utgivelsesdato
-                yq eval -i ".version = \"$version\"" "$schema"
-                yq eval -i ".annotations.endringsdato = \"$TODAY\"" "$schema"
+              if [ -n "$schema" ] && [ -f "$schema" ]; then
+                # Les noverande versjon frå schema
+                current_version=$(yq eval '.version' "$schema" 2>/dev/null || echo "")
 
-                # Sett utgivelsesdato kun dersom den ikkje allereie er sett
-                current_issued=$(yq eval '.annotations.utgivelsesdato' "$schema" 2>/dev/null || echo "null")
-                if [ "$current_issued" = "null" ] || ! echo "$current_issued" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
-                  yq eval -i ".annotations.utgivelsesdato = \"$TODAY\"" "$schema"
+                # Oppdater berre dersom versjon har endra seg
+                if [ "$current_version" != "\"$version\"" ] && [ "$current_version" != "$version" ]; then
+                  echo "Oppdaterer $schema frå $current_version til $version"
+
+                  # Oppdater version, endringsdato og utgivelsesdato
+                  yq eval -i ".version = \"$version\"" "$schema"
+                  yq eval -i ".annotations.endringsdato = \"$TODAY\"" "$schema"
+
+                  # Sett utgivelsesdato kun dersom den ikkje allereie er sett
+                  current_issued=$(yq eval '.annotations.utgivelsesdato' "$schema" 2>/dev/null || echo "null")
+                  if [ "$current_issued" = "null" ] || ! echo "$current_issued" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+                    yq eval -i ".annotations.utgivelsesdato = \"$TODAY\"" "$schema"
+                  fi
                 fi
               fi
+            done
+
+            # Commit og push endringane til PR-branchen
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+
+            if ! git diff --staged --quiet; then
+              git commit -m "chore: oppdater schema-versjonar og datofelt [skip ci]"
+              git push origin "$BRANCH"
+              echo "Schema-filer oppdaterte og pusha til PR-branchen ($BRANCH)"
+            else
+              echo "Ingen endringar i schema-filer for $BRANCH — hoppar over commit"
             fi
           done
-
-          # Commit og push endringane til PR-branchen
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-
-          if ! git diff --staged --quiet; then
-            git commit -m "chore: oppdater schema-versjonar og datofelt [skip ci]"
-            git push origin "$BRANCH"
-            echo "Schema-filer oppdaterte og pusha til PR-branchen"
-          else
-            echo "Ingen endringar i schema-filer — hoppar over commit"
-          fi
 
       - name: Informer om release-PR og aktiver auto-merge
         if: ${{ steps.release-please.outputs.prs_created == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
         run: |
-          PR_NUMBER=$(echo '${{ steps.release-please.outputs.pr }}' | jq -r '.number')
-          echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
+          # Same grunngjeving som steget over: løkk over outputs.prs (fleirtal),
+          # ikkje det eintalige outputs.pr.
+          PRS_JSON='${{ steps.release-please.outputs.prs }}'
 
-          # Aktiver auto-merge (vert merga når alle checks passerer og PR er godkjent)
-          gh pr merge "$PR_NUMBER" --auto --squash
-          echo "Auto-merge aktivert — PR vert merga automatisk når alle checks passerer."
+          echo "$PRS_JSON" | jq -c '.[]' | while read -r pr_json; do
+            PR_NUMBER=$(echo "$pr_json" | jq -r '.number')
+            echo "::notice::Release-PR oppretta: https://github.com/${{ github.repository }}/pull/$PR_NUMBER"
+
+            # Aktiver auto-merge (vert merga når alle checks passerer og PR er godkjent).
+            # Eitt automatisk gjenforsøk med kort pause — GitHub kan bruke nokre
+            # sekund på å ferdigrekne mergeability rett etter PR-oppretting, som
+            # elles gir ein forbigåande "Pull Request is not mergeable"-feil.
+            if ! gh pr merge "$PR_NUMBER" --auto --squash 2>/tmp/merge-err-"$PR_NUMBER".log; then
+              sleep 5
+              if ! gh pr merge "$PR_NUMBER" --auto --squash 2>>/tmp/merge-err-"$PR_NUMBER".log; then
+                echo "::warning::Kunne ikkje aktivere auto-merge for PR #$PR_NUMBER: $(cat /tmp/merge-err-"$PR_NUMBER".log)"
+                continue
+              fi
+            fi
+            echo "Auto-merge aktivert for PR #$PR_NUMBER"
+          done
 
       - name: Checkout for artefakt-generering
         if: ${{ steps.release-please.outputs.releases_created == 'true' }}

@@ -3,6 +3,7 @@ brreg-modellkatalog
 common-ap-no
 cpsv-ap-no
 dcat-ap-no
+designregisteret
 digdir-modellkatalog
 dqv-ap-no
 dqv-core
@@ -25,7 +26,6 @@ ngr-eiendom
 ngr-person
 ngr-virksomhet
 novari-modellkatalog
-plankeregisteret
 referansemodell
 referansemodell-bronze
 referansemodell-gold

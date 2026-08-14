@@ -1,11 +1,11 @@
 # Generert av mcp-linkml-generator — dette er eit utkast.
-# Prefiks 'plankeregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# Prefiks 'designregisteret:' er ein placeholder — erstatt med ekte vokabular-URIar.
 # 'TODO'-felt må fyllast inn manuelt.
 
-id: https://data.norge.no/oreg/plankeregisteret
-name: plankeregisteret
-title: 'TODO: tittel for plankeregisteret'
-description: Generert modell for 'plankeregisteret'.
+id: https://data.norge.no/oreg/designregisteret
+name: designregisteret
+title: 'TODO: tittel for designregisteret'
+description: Generert modell for 'designregisteret'.
 version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
@@ -15,7 +15,7 @@ annotations:
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
-  plankeregisteret: https://data.norge.no/oreg/plankeregisteret/
+  designregisteret: https://data.norge.no/oreg/designregisteret/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
@@ -23,7 +23,7 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-default_prefix: https://data.norge.no/oreg/plankeregisteret/
+default_prefix: https://data.norge.no/oreg/designregisteret/
 default_range: string
 imports:
 - linkml:types
@@ -36,25 +36,25 @@ subsets:
   Valgfri:
     description: Valfrie eigenskapar.
 classes:
-  PlankeregisteretContainer:
-    description: containerklasse for serialisering av klasser i plankeregisteret modellen
+  DesignregisteretContainer:
+    description: containerklasse for serialisering av klasser i designregisteret modellen
     tree_root: true
     attributes:
-      plankeregistereter:
+      designregistereter:
         description: 'TODO: beskriv eigenskapen'
-        range: Plankeregisteret
+        range: Designregisteret
         multivalued: true
         inlined: true
         inlined_as_list: true
-  Plankeregisteret:
+  Designregisteret:
     description: 'TODO: beskriv klassen'
-    class_uri: plankeregisteret:plankeregisteret
+    class_uri: designregisteret:designregisteret
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
 slots:
-  kontaktpunkt:
+  kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie

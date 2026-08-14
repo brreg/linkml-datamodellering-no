@@ -437,7 +437,8 @@
       "Bash(sed -i 's/^publish_external: false/publish_external: true/' src/linkml/oreg/testfjerning2/build.yaml)",
       "Bash(echo \"---exit: $?---\")",
       "WebFetch(domain:docs.github.com)",
-      "WebFetch(domain:github.blog)"
+      "WebFetch(domain:github.blog)",
+      "WebFetch(domain:results-receiver.actions.githubusercontent.com)"
     ]
   },
   "enableAllProjectMcpServers": true,

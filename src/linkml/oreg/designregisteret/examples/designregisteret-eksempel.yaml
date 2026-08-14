@@ -1,0 +1,5 @@
+# Eksempel for designregisteret
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+designregistereter:
+  - id: https://data.norge.no/oreg/designregisteret/eksempel-1
