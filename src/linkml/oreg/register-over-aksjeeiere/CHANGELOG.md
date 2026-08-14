@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.7.0...register-over-aksjeeiere-v1.8.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+* **make:** batch linkml-validate for validate-examples per domene ([a38f603](https://github.com/brreg/linkml-datamodellering-no/commit/a38f6030b61a6bf6c1230303112d148d2788281d))
+
+
+### Bug Fixes
+
+* **oreg,mcp-validator:** rett generate-workflow-feil for blomsterregisteret ([1bd6f61](https://github.com/brreg/linkml-datamodellering-no/commit/1bd6f6183d0586fc13e21ccb81f9affce4e54992))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.6.0...register-over-aksjeeiere-v1.7.0) (2026-08-02)
 
 
