@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.10.1...cpsv-ap-no-v1.11.0) (2026-08-14)
+
+
+### Features
+
+* **ap-no:** fullført arkitektur-audit med krysssjekk, SK5-sjekk og CPSV-avvik utbetra ([89aa32e](https://github.com/brreg/linkml-datamodellering-no/commit/89aa32eb118396b8605e6194e88688e3dbde944a))
+* **ap-no:** legg til EU Access Rights, ADMS Publisher Type og DCT Frequency som enumerasjonar ([2fbc2d7](https://github.com/brreg/linkml-datamodellering-no/commit/2fbc2d7ff6ce1856c5ca426635882d46e2dd5d06))
+* **ap-no:** legg til maskinlesbare annotations for kontrollerte vokabular ([baa7cee](https://github.com/brreg/linkml-datamodellering-no/commit/baa7ceee52b14ac15535c8052f0d011b43d3e626))
+* **ap-no:** publiser common-ap-no i nav-meny og omdøp katalog ([9653abf](https://github.com/brreg/linkml-datamodellering-no/commit/9653abf7a46a7714b216e3d0f6e3ebb97efeabc9))
+* **asyncapi:** reduser image-storleik frå 4.43 GB til 296 MB ([0b61fa2](https://github.com/brreg/linkml-datamodellering-no/commit/0b61fa2c813b89f1fef0357e5fe119f75b6c1ccb))
+* **begrepskatalog:** begrep per fil, automatisk aggregering, nye verktøy og oppdatert dokumentasjon ([e2d7d95](https://github.com/brreg/linkml-datamodellering-no/commit/e2d7d9522971ad423c0f313d44a19780d23e4603))
+* **docgen:** fullstendig tabellradteljing, versjonerte imports og Subsets-kolonne ([de26c53](https://github.com/brreg/linkml-datamodellering-no/commit/de26c537241776f6ba6de670da52f1c6f6e8f6f8))
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+* **make,ci:** fullført logging-rammeverk med DEBUG/INFO/ERROR-nivå ([9b72abe](https://github.com/brreg/linkml-datamodellering-no/commit/9b72abefbbe4747d120b3ef8681d0cc420f69740))
+* **make:** batch linkml-validate for validate-examples per domene ([a38f603](https://github.com/brreg/linkml-datamodellering-no/commit/a38f6030b61a6bf6c1230303112d148d2788281d))
+* **metadata:** dynamisk README-generering frå skjema-metadata ([53def55](https://github.com/brreg/linkml-datamodellering-no/commit/53def559d46e92c604ff429b46be90381f907eaf))
+* **mkdocs:** Brønnøysund designsystem-tema og byggetidspunkt ([4a18238](https://github.com/brreg/linkml-datamodellering-no/commit/4a1823892275f79a242a195b2bb0243b4391d913))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse ([1d493cd](https://github.com/brreg/linkml-datamodellering-no/commit/1d493cdafb5c3991b3270b901503b7df70717f6c))
+* **mkdocs:** konfigurerbar lenke-tekst for offisiell referanse og description.md for alle modellar ([20d8bf8](https://github.com/brreg/linkml-datamodellering-no/commit/20d8bf8c0e3d5ed31c608ece6bf5d64d7802b9af))
+* **mkdocs:** konfigurerbare seksjons-kjelder i index.md ([122c704](https://github.com/brreg/linkml-datamodellering-no/commit/122c7047e78c3a54952d9c91910d62f53da682a3))
+* **modellmanifest:** autogenerer &lt;modell&gt;-manifest.yaml i make domain-* ([97fd24d](https://github.com/brreg/linkml-datamodellering-no/commit/97fd24de6b851e1807aa43d814ef77d58ac74b2d))
+* **validate-capture:** parallelliser validering av alle skjema ([7d9a0a2](https://github.com/brreg/linkml-datamodellering-no/commit/7d9a0a28797a918d887b6ff22303ac6d56204655))
+
+
+### Bug Fixes
+
+* **ap-no:** løys URI-konflikt i xkos-ap-no og endre merge-imports-namn ([834abab](https://github.com/brreg/linkml-datamodellering-no/commit/834abab9976890216fca522326429edf7f9b4933))
+* **cpsv-ap-no:** fjern duplikat lisens-slot som kolliderer med common-ap-no ([34a012e](https://github.com/brreg/linkml-datamodellering-no/commit/34a012e4a51a57cee06f217446aae6b8a5d520ca))
+* **dcat-ap-no:** komplett subset-verifisering mot DCAT-AP-NO-spesifikasjonen ([6d3b357](https://github.com/brreg/linkml-datamodellering-no/commit/6d3b3578f801fd7e122cf7177ab31700ed2040fc))
+* **make:** korriger trap-syntaks i parallelle generator-makroar ([2d18827](https://github.com/brreg/linkml-datamodellering-no/commit/2d18827aa0568bdd04b1fc54242b3ca739ffe25b))
+* **make:** rett stdin-konsumering i validate-bronze (BUG-10) ([91795ac](https://github.com/brreg/linkml-datamodellering-no/commit/91795ace2400341ba3ef052e4bb84cefe6e38215))
+* **make:** valider ap-no-eksempelfiler via fixture, rett stdin-konsumerings-bug ([27c3979](https://github.com/brreg/linkml-datamodellering-no/commit/27c3979820230b8161e31aaf645917733745a5d6))
+* **release-please:** korriger inverterte include-component-in-tag + cpsv-ap-no-versjonsavvik ([40b214f](https://github.com/brreg/linkml-datamodellering-no/commit/40b214fae9b65b5a61e5ba9e44954b24a8e2fd43))
+* **release:** synk schema-versjon med release-nummer automatisk ([1d20298](https://github.com/brreg/linkml-datamodellering-no/commit/1d20298b932da0e876795152aab61baf99611daf))
+* **validering:** bruk validation_policy konsekvent, fjern bronze-fallback, kopier validation-loggar ([cb816aa](https://github.com/brreg/linkml-datamodellering-no/commit/cb816aa383a4d89c9e21f7fe4696e674d535da01))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.10.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.9.0...cpsv-ap-no-v1.10.0) (2026-08-02)
 
 
