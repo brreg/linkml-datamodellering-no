@@ -293,6 +293,7 @@ wait_for_tests() {
         sed 's/\x1b\[[0-9;]*m//g' "$tmplog" >> "$LOG"
         rm -f "$tmplog"
     done
+    print_phase_a_summary
     echo ""
     echo "Resultat: $pass OK, $fail feil"
     echo "Total tidsbruk: $(fmt_elapsed_ms $(( $(date +%s%3N) - SCRIPT_T0 )))"
@@ -332,6 +333,12 @@ wait_for_tests() {
 # tilstanden som overlever backgrounding.
 phase_a_logfile() { echo "$LOGDIR/phase_a_$1.log"; }
 
+# Same faste-fil-mønster som phase_a_logfile() — held på (N, elapsed, label)
+# for kvart steg slik print_phase_a_summary() kan gjenskape opningslinja med
+# tal etterpå, sjølv om steget køyrde i eit anna underskal enn summary-
+# funksjonen. Sjå specs/done/fase-a-oppsummering-test-make.md.
+phase_a_metafile() { echo "$LOGDIR/phase_a_$1.meta"; }
+
 # Køyr eitt batcha make-mål for heile skjemalista.
 # $1=nøkkel (brukt av phase_a_check)  $2=make-target  $3=testnamn-prefiks
 # (for å respektere TEST_FILTER — same filtreringsregel som _run_one)
@@ -353,6 +360,7 @@ run_phase_a_step() {
     t0=$(date +%s%3N)
     make "$target" SCHEMAS="${SCHEMAS[*]}" > "$logfile" 2>&1 || true
     elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "${#SCHEMAS[@]}" "$elapsed" "$target" "skjema" > "$(phase_a_metafile "$key")"
     {
         echo "========================================"
         echo "FASE A: $target  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
@@ -387,6 +395,7 @@ run_phase_a_lint() {
             --config src/assets/containers/.linkmllint.yaml --ignore-warnings -- "${SCHEMAS[@]}" \
         > "$logfile" 2>&1 || true
     elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "${#SCHEMAS[@]}" "$elapsed" "linkml-lint --ignore-warnings" "skjema" > "$(phase_a_metafile "lint")"
     {
         echo "========================================"
         echo "FASE A: linkml-lint --ignore-warnings  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
@@ -447,6 +456,7 @@ run_phase_a_mcp_instance() {
         python3 src/mcp-linkml-validator/batch-validate-instances.py \
             --output-dir "$outdir" "${jobs[@]}" > "$logfile" 2>&1 || true
     elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "${#jobs[@]}" "$elapsed" "mcp-validate-instance" "skjema" > "$(phase_a_metafile "mcp_instance")"
     {
         echo "========================================"
         echo "FASE A: mcp-validate-instance  ($(date '+%H:%M:%S'), $(fmt_elapsed_ms "$elapsed"))"
@@ -462,9 +472,10 @@ run_phase_a_mcp_instance() {
 # heterogene jobbar.
 _run_phase_a_convert_batch() {
     local key="$1" jobs_tsv="$2" label="$3"
-    local logfile
+    local logfile n
     logfile=$(phase_a_logfile "$key")
-    echo "→ Fase A: $label ($(wc -l < "$jobs_tsv") jobb(ar)) ..." >&3
+    n=$(wc -l < "$jobs_tsv")
+    echo "→ Fase A: $label ($n jobb(ar)) ..." >&3
     local t0 elapsed
     t0=$(date +%s%3N)
     podman run --rm \
@@ -474,6 +485,7 @@ _run_phase_a_convert_batch() {
         python3 src/assets/scripts/makefile/batch-convert.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
     elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "$n" "$elapsed" "$label" "jobb(ar)" > "$(phase_a_metafile "$key")"
     rm -f "$jobs_tsv"
     {
         echo "========================================"
@@ -596,9 +608,10 @@ run_phase_a_linkml_validate() {
         rm -f "$jobs_tsv"
         return 0
     fi
-    local logfile
+    local logfile n
     logfile=$(phase_a_logfile "linkml_validate")
-    echo "→ Fase A: linkml-validate ($(wc -l < "$jobs_tsv") skjema) ..." >&3
+    n=$(wc -l < "$jobs_tsv")
+    echo "→ Fase A: linkml-validate ($n skjema) ..." >&3
     local t0 elapsed
     t0=$(date +%s%3N)
     podman run --rm \
@@ -608,6 +621,7 @@ run_phase_a_linkml_validate() {
         python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "/work/$jobs_tsv" \
         > "$logfile" 2>&1 || true
     elapsed=$(( $(date +%s%3N) - t0 ))
+    printf '%s\t%s\t%s\t%s\n' "$n" "$elapsed" "linkml-validate" "skjema" > "$(phase_a_metafile "linkml_validate")"
     rm -f "$jobs_tsv"
     {
         echo "========================================"
@@ -634,6 +648,7 @@ run_phase_a() {
     # ville elles kunne lese ei fil frå EIN ANNAN, tidlegare køyring med
     # ein annan TEST_FILTER-verdi.
     rm -f "$LOGDIR"/phase_a_*.log
+    rm -f "$LOGDIR"/phase_a_*.meta
     rm -f "$(phase_a_mcp_indexfile)"
     rm -rf "$(phase_a_mcp_outdir)"
 
@@ -659,6 +674,40 @@ run_phase_a() {
 
     for pid in "${PHASE_A_PIDS[@]}"; do
         wait "$pid" || true  # feil vert oppdaga av Fase B via phase_a_check()/loggfil-innhald, ikkje via denne exit-koden
+    done
+}
+
+# Same nøkkelrekkjefølgje som kalla i run_phase_a() over — brukt av
+# print_phase_a_summary() til å gjenskape Fase A-overskriftene i
+# opphavleg rekkjefølgje til slutt i køyringa.
+PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate)
+
+# Oppsummering til slutt i make test: gjentek kvar Fase A-overskrift saman
+# med samla tidsbruk (frå metafila, sjå phase_a_metafile()) og eit OK/
+# ERROR-tal (ERROR = talet på ::error file=-linjer i steget si loggfil —
+# same universelle markør alle fem batch-skripta brukar; OK = N - ERROR,
+# der N er det same talet steget alt viste i opningslinja si). Steg som
+# ikkje køyrde (TEST_FILTER, eller ingen jobbar å gjere) manglar loggfil
+# og vert hoppa over — same konvensjon som phase_a_check(). Sjå
+# specs/done/fase-a-oppsummering-test-make.md for grunngjeving, inkludert
+# den kjende avgrensinga for build.yaml-flagg-styrte generatorar (N er
+# kandidatlista, ikkje den faktisk aktiverte delmengda — same tal
+# opningslinja alt viser i dag).
+print_phase_a_summary() {
+    echo ""
+    echo "=== Fase A — oppsummering ==="
+    local key
+    for key in "${PHASE_A_KEYS[@]}"; do
+        local logfile metafile
+        logfile=$(phase_a_logfile "$key")
+        [ -f "$logfile" ] || continue
+        metafile=$(phase_a_metafile "$key")
+        [ -f "$metafile" ] || continue
+        local n elapsed label unit error ok
+        IFS=$'\t' read -r n elapsed label unit < "$metafile"
+        error=$(grep -c "::error file=" "$logfile" || true)
+        ok=$(( n - error ))
+        echo "→ Fase A: $label ($n $unit) ... ($(fmt_elapsed_ms "$elapsed")) OK: $ok ERROR: $error"
     done
 }
 
