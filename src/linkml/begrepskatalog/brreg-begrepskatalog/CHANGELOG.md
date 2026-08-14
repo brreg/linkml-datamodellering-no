@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.6.1...brreg-begrepskatalog-v1.7.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+
+
+### Bug Fixes
+
+* **fint,codeowners:** fjern owlgen-tvitydigheit i fint og CODEOWNERS-gap ([8319f57](https://github.com/brreg/linkml-datamodellering-no/commit/8319f57a65884a172e877c0b0a260efbbd0f9054))
+* **mkdocs:** aktiver plantuml-diagram for FINT, Begrepskatalog og Modellkatalog ([31881d6](https://github.com/brreg/linkml-datamodellering-no/commit/31881d6bdbb1660c29b9baaa4b14f7839e5f3364))
+* **validering:** tell importerte prefiks, fiks python-pytest i validate.yml, legg til nn-referansar ([41a89ab](https://github.com/brreg/linkml-datamodellering-no/commit/41a89abe89d5dfb47ee7a052bb2796416a75506d))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.6.1](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-begrepskatalog-v1.6.0...brreg-begrepskatalog-v1.6.1) (2026-08-02)
 
 
