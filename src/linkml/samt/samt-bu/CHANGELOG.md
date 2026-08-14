@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.10.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.9.0...samt-bu-v1.10.0) (2026-08-14)
+
+
+### Features
+
+* **generatorar:** legg til gen-graphql for GraphQL SDL-generering ([cb0a7bd](https://github.com/brreg/linkml-datamodellering-no/commit/cb0a7bd4c220dbee889df488bed0eaeb25960ce4))
+* **make,ci:** fullført logging-rammeverk med DEBUG/INFO/ERROR-nivå ([9b72abe](https://github.com/brreg/linkml-datamodellering-no/commit/9b72abefbbe4747d120b3ef8681d0cc420f69740))
+
+
+### Bug Fixes
+
+* **build-manifest:** legg til manglande generator-flagg i 11 build.yaml ([916d9df](https://github.com/brreg/linkml-datamodellering-no/commit/916d9df3205e7b1cb322eb8bdc8a59ce4d692a5b))
+* **mcp-linkml-validator:** vis reelle MCP-feil + patch relativ-import-bug for versjonslåste ([4773c74](https://github.com/brreg/linkml-datamodellering-no/commit/4773c7437e2ec01c649fba3890358f13d657a8b1))
+* **mkdocs:** rett inkonsistent valideringsbadge og -resultat ([9cb9fbb](https://github.com/brreg/linkml-datamodellering-no/commit/9cb9fbb7f5d2a82038a79a34e095a63e5c40d389))
+* **samt-bu:** description endring for å trigge release-please og generate workflowane. ([42ddec7](https://github.com/brreg/linkml-datamodellering-no/commit/42ddec7ed50d6729d8548cf21ea14c607a36d014))
+* **samt-bu:** rett ugyldig format/spraak-verdiar i eksempelfil ([982bbd1](https://github.com/brreg/linkml-datamodellering-no/commit/982bbd19e4e25e98291a6d881efa17d0959c564f))
+* **samt-bu:** trigger ny release-please køyring for å verifisere om det kun er samt-bu som får trigga ny versjon. ([6624bf8](https://github.com/brreg/linkml-datamodellering-no/commit/6624bf8d9168711d9b8da077c90b2c197366d845))
+* **validering:** bruk validation_policy konsekvent, fjern bronze-fallback, kopier validation-loggar ([cb816aa](https://github.com/brreg/linkml-datamodellering-no/commit/cb816aa383a4d89c9e21f7fe4696e674d535da01))
+
+
+### Performance Improvements
+
+* **mcp-linkml-validator:** parallelliser validate-examples, regenerer valideringsloggar ([fc67279](https://github.com/brreg/linkml-datamodellering-no/commit/fc672798d9b85870590a1bf7ea33fbca4181bf51))
+
 ## [1.9.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.8.0...samt-bu-v1.9.0) (2026-08-02)
 
 
