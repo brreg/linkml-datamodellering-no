@@ -51,7 +51,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Date : endringsdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
@@ -95,7 +95,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -161,7 +161,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
         
         Datasettserie --> "0..1" Date : utgivelsesdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
@@ -178,6 +178,13 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 
@@ -499,7 +506,7 @@ attributes:
         tag: sekundare_vokabular_krav
         value: kan
     description: Tema frå eit kontrollert vokabular. For norske offentlege datasett
-      skal Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
+      SKAL Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
       (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc
       kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande
       til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema

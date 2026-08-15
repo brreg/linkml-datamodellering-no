@@ -213,6 +213,7 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 | [NGR](ngr/) | [ngr-person](ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
 | [NGR](ngr/) | [ngr-virksomhet](ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
 | [OREG](oreg/) | [enhetsregisteret-bvrinn](oreg/enhetsregisteret-bvrinn/) | Berettigede, verger, rettighetshavere i næring (BVRiNN) | 
+| [OREG](oreg/) | [lunchregisteret](oreg/lunchregisteret/) | Generert modell for 'lunchregisteret'. | 
 | [OREG](oreg/) | [register-over-aksjeeiere](oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigedelar | 
 | [FINT](fint/) | [fint-administrasjon](fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
 | [FINT](fint/) | [fint-arkiv](fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)

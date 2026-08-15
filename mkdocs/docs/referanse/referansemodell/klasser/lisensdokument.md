@@ -26,7 +26,7 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
         
         
         Lisensdokument --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -43,6 +43,13 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

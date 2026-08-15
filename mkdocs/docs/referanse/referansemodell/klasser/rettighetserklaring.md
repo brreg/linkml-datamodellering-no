@@ -26,7 +26,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : anvendelsesretningslinjer
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -37,7 +37,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -48,7 +48,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : jurisdiksjon
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -59,7 +59,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : krediteringstekst
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -70,7 +70,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" Uri : krediteringsurl
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -92,7 +92,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettserklaring
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -103,7 +103,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettsinnehaver
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -114,12 +114,19 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
         
         
         Rettighetserklaring --> "0..1" String : opphavsrettsnotis
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

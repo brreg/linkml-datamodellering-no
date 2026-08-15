@@ -3,7 +3,7 @@
 # Slot: ble_generert_ved 
 
 
-_Brukes til å referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det._
+_KAN brukes til å referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det._
 
 
 
@@ -62,6 +62,7 @@ URI: [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy)
 | property | value |
 | --- | --- |
 | gyldige_verdier | URI til prov:Activity |
+| vokabular_krav | kan |
 
 
 
@@ -93,8 +94,11 @@ annotations:
   gyldige_verdier:
     tag: gyldige_verdier
     value: URI til prov:Activity
-description: Brukes til å referere til en aktivitet som genererte datasettet, eller
-  som gir forretningskontekst for oppretting av det.
+  vokabular_krav:
+    tag: vokabular_krav
+    value: kan
+description: KAN brukes til å referere til en aktivitet som genererte datasettet,
+  eller som gir forretningskontekst for oppretting av det.
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 domain: Datasett
 slot_uri: prov:wasGeneratedBy

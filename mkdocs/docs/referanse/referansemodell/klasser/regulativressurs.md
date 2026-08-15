@@ -37,7 +37,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "*" Uri : har_referanse
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -48,7 +48,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -59,7 +59,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
         
         RegulativRessurs --> "0..1" String : identifikator_literal
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -109,6 +109,13 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

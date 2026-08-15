@@ -14,7 +14,7 @@ URI: [https://data.norge.no/ap-no/common-ap-no/EULicence](https://data.norge.no/
 | --- | --- | --- |
 | CC0 | http://publications.europa.eu/resource/authority/licence/CC0 | Creative Commons Zero 1.0 Universal |
 | CC_BY_4_0 | http://publications.europa.eu/resource/authority/licence/CC_BY_4_0 | Creative Commons Attribution 4.0 International |
-| NLOD_2_0 | http://publications.europa.eu/resource/authority/licence/NLOD_2_0 | Norwegian Licence for Open Government Data 2.0 |
+| NLOD_2_0 | http://publications.europa.eu/resource/authority/licence/NLOD_2_0 | Norwegian Licence for Open Government Data 2.0. Norsk skildring: https://data.norge.no/nlod/no/2.0 |
 | CC_BYSA_4_0 | http://publications.europa.eu/resource/authority/licence/CC_BYSA_4_0 | Creative Commons Attribution-ShareAlike 4.0 International |
 | MIT | http://publications.europa.eu/resource/authority/licence/MIT | MIT License |
 | APACHE_2_0 | http://publications.europa.eu/resource/authority/licence/APACHE_2_0 | Apache License 2.0 |
@@ -67,7 +67,8 @@ permissible_values:
     meaning: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
   NLOD_2_0:
     text: NLOD_2_0
-    description: Norwegian Licence for Open Government Data 2.0
+    description: 'Norwegian Licence for Open Government Data 2.0. Norsk skildring:
+      https://data.norge.no/nlod/no/2.0'
     meaning: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
   CC_BYSA_4_0:
     text: CC_BYSA_4_0

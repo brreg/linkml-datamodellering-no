@@ -3,7 +3,7 @@
 # Slot: policy 
 
 
-_ODRL-policy som regulerer bruk av ressursen._
+_ODRL-policy som regulerer bruk av ressursen. Verdien KAN nyttast som eit strukturert alternativ til fritekst i dct:rights._
 
 
 
@@ -60,6 +60,7 @@ URI: [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy)
 | property | value |
 | --- | --- |
 | gyldige_verdier | odrl:Policy |
+| vokabular_krav | kan |
 
 
 
@@ -91,7 +92,11 @@ annotations:
   gyldige_verdier:
     tag: gyldige_verdier
     value: odrl:Policy
-description: ODRL-policy som regulerer bruk av ressursen.
+  vokabular_krav:
+    tag: vokabular_krav
+    value: kan
+description: ODRL-policy som regulerer bruk av ressursen. Verdien KAN nyttast som
+  eit strukturert alternativ til fritekst i dct:rights.
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_uri: odrl:hasPolicy
 domain_of:

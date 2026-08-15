@@ -26,7 +26,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "0..1" String : belop
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -48,7 +48,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "*" Uri : dokumentasjon
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -59,7 +59,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
         
         Gebyr --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -76,6 +76,13 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

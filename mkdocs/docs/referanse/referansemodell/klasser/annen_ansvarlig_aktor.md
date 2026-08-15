@@ -3,7 +3,7 @@
 # Slot: annen_ansvarlig_aktor 
 
 
-_Kvalifisert attributering til ansvarleg aktør._
+_Kvalifisert attributering til ansvarleg aktør. Slik attributering KAN brukast for å skildre fleire aktørar med ulike roller._
 
 
 
@@ -61,6 +61,7 @@ URI: [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution)
 | property | value |
 | --- | --- |
 | gyldige_verdier | prov:Attribution |
+| vokabular_krav | kan |
 
 
 
@@ -92,7 +93,11 @@ annotations:
   gyldige_verdier:
     tag: gyldige_verdier
     value: prov:Attribution
-description: Kvalifisert attributering til ansvarleg aktør.
+  vokabular_krav:
+    tag: vokabular_krav
+    value: kan
+description: Kvalifisert attributering til ansvarleg aktør. Slik attributering KAN
+  brukast for å skildre fleire aktørar med ulike roller.
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_uri: prov:qualifiedAttribution
 domain_of:

@@ -73,7 +73,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Date : endringsdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
@@ -106,7 +106,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "*" Uri : heimeside
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -117,7 +117,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -128,7 +128,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" String : identifikator_literal
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -249,7 +249,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
         
         Katalog --> "0..1" Date : utgivelsesdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
@@ -266,6 +266,13 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

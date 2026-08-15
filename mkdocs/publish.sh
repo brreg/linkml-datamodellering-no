@@ -69,7 +69,8 @@ generate_validation_docs() {
 EOF
         cat "$policies_readme" | \
             sed -E "s|\]\(([^)]+\.yaml)\)|]($github_base/src/mcp-linkml-validator/policies/\1)|g" | \
-            sed -E "s|specs/done/([^)]+)|$github_base/specs/done/\1|g"
+            sed -E "s|specs/done/([^)]+)|$github_base/specs/done/\1|g" | \
+            sed -E "s|\.\./\.\./\.\./([A-Z][A-Za-z-]*\.md)|$github_base/\1|g"
     } > "$output"
 }
 

@@ -37,7 +37,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Uri : dokumentasjon
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -48,7 +48,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Date : endringsdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
@@ -103,7 +103,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -147,7 +147,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Uri : nedlastningslenke
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -169,7 +169,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Uri : policy
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -191,7 +191,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "*" Float : romlig_opplosning
-        click Float href "../float/"
+        click Float href "http://www.w3.org/2001/XMLSchema#float"
     
 
         
@@ -246,7 +246,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "1..*" Uri : tilgangs_url
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -290,12 +290,19 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
         
         Distribusjon --> "0..1" Date : utgivelsesdato
-        click Date href "../date/"
+        click Date href "http://www.w3.org/2001/XMLSchema#date"
     
 
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 
@@ -339,7 +346,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | [medietype](medietype.md) | 0..1 <br/> [Mediatype](mediatype.md) | Medietype i samsvar med IANA-registeret. |
 | [nedlastningslenke](nedlastningslenke.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Direkte nedlastingslenke for distribusjonsfila. |
 | [pakkeformat](pakkeformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Pakkeformat brukt i distribusjonen. |
-| [policy](policy.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | ODRL-policy som regulerer bruk av ressursen. |
+| [policy](policy.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | ODRL-policy som regulerer bruk av ressursen. Verdien KAN nyttast som eit strukturert alternativ til fritekst i dct:rights. |
 | [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen. |
 | [sjekksum](sjekksum.md) | 0..1 <br/> [Sjekksum](sjekksum.md) | Sjekksum for distribusjonsfila. |
 | [spraak](spraak.md) | * <br/> [Konsept](konsept.md) | Språk brukt i ressursen. |
@@ -968,7 +975,11 @@ attributes:
       gyldige_verdier:
         tag: gyldige_verdier
         value: odrl:Policy
-    description: ODRL-policy som regulerer bruk av ressursen.
+      vokabular_krav:
+        tag: vokabular_krav
+        value: kan
+    description: ODRL-policy som regulerer bruk av ressursen. Verdien KAN nyttast
+      som eit strukturert alternativ til fritekst i dct:rights.
     in_subset:
     - Valgfri
     from_schema: https://data.norge.no/ap-no/dcat-ap-no

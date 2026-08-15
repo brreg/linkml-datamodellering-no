@@ -37,7 +37,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" Boolean : har_boolean_verdi
-        click Boolean href "../boolean/"
+        click Boolean href "http://www.w3.org/2001/XMLSchema#boolean"
     
 
         
@@ -59,7 +59,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" Double : har_numerisk_verdi
-        click Double href "../double/"
+        click Double href "http://www.w3.org/2001/XMLSchema#double"
     
 
         
@@ -70,7 +70,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "0..1" String : har_tekst_verdi
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -81,12 +81,19 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
         
         Kvalitetsmaaling --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

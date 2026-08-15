@@ -37,7 +37,7 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -59,12 +59,19 @@ URI: [dct:BibliographicResource](http://purl.org/dc/terms/BibliographicResource)
         
         
         Ressurs --> "0..1" Uriorcurie : utgjevar
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 

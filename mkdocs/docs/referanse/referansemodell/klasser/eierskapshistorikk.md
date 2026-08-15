@@ -3,7 +3,7 @@
 # Slot: eierskapshistorikk 
 
 
-_Opphav og eigarskapshistorikk for ressursen._
+_Opphav og eigarskapshistorikk for ressursen. BØR brukast til å skildre kjeldetype (autoritativ/sjølvinnsamla eller avleidd/samanstilt frå andre kjelder), jf. Digdir sin veileder «Orden i eget hus», steg 5 — beskrive._
 
 
 
@@ -61,6 +61,7 @@ URI: [dct:provenance](http://purl.org/dc/terms/provenance)
 | property | value |
 | --- | --- |
 | gyldige_verdier | dct:ProvenanceStatement |
+| vokabular_krav | bør |
 
 
 
@@ -92,7 +93,12 @@ annotations:
   gyldige_verdier:
     tag: gyldige_verdier
     value: dct:ProvenanceStatement
-description: Opphav og eigarskapshistorikk for ressursen.
+  vokabular_krav:
+    tag: vokabular_krav
+    value: bør
+description: Opphav og eigarskapshistorikk for ressursen. BØR brukast til å skildre
+  kjeldetype (autoritativ/sjølvinnsamla eller avleidd/samanstilt frå andre kjelder),
+  jf. Digdir sin veileder «Orden i eget hus», steg 5 — beskrive.
 from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_uri: dct:provenance
 domain_of:

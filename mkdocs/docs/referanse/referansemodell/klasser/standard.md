@@ -37,7 +37,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "*" Uri : har_referanse
-        click Uri href "../uri/"
+        click Uri href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -48,7 +48,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "1" Uriorcurie : id
-        click Uriorcurie href "../uriorcurie/"
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
     
 
         
@@ -70,12 +70,19 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
         
         Standard --> "0..1" String : versjon
-        click String href "../string/"
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
       
 ```
+
+!!! note "Om diagrammet"
+    Klikk på attributt-radene i klasseboksen ovanfor opnar same side som
+    klassenamnet — Mermaid sin `classDiagram`-syntaks støttar berre éin
+    klikkbar lenkje per klasseboks, ikkje éin per attributt (BUG-14).
+    `## Eigenskapar`-tabellen lenger nede på sida er fasiten for
+    slot-spesifikke lenkjer.
 
 
 
