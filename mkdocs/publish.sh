@@ -146,32 +146,37 @@ if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
     exit 1
 fi
 
-for domain_dir in "$GEN"/*/; do
-    [ -d "$domain_dir" ] || continue
-    # Hopp over tomme domene-katalogar (ingen skjema-underkatalogar)
-    schema_count=$(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
-    [ "$schema_count" -eq 0 ] && continue
-    domain=$(basename "$domain_dir")
-    # Åtvar om domenet finst i generated/ men ikkje i src/linkml/ (stale artefakter)
-    if [ ! -d "$REPO_ROOT/src/linkml/$domain" ]; then
-        log_info "${CLR_WARN}ÅTVARING: $domain finst i generated/ men ikkje i src/linkml/ — stale artefakter frå omdøypt domene?${CLR_RST}"
-    fi
-    find "${DOCS}/${domain}" -mindepth 1 -depth -delete 2>/dev/null || true
-    rmdir "${DOCS}/${domain}" 2>/dev/null || true
-done
+clean_previous_docs() {
+    for domain_dir in "$GEN"/*/; do
+        [ -d "$domain_dir" ] || continue
+        # Hopp over tomme domene-katalogar (ingen skjema-underkatalogar)
+        schema_count=$(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
+        [ "$schema_count" -eq 0 ] && continue
+        domain=$(basename "$domain_dir")
+        # Åtvar om domenet finst i generated/ men ikkje i src/linkml/ (stale artefakter)
+        if [ ! -d "$REPO_ROOT/src/linkml/$domain" ]; then
+            log_info "${CLR_WARN}ÅTVARING: $domain finst i generated/ men ikkje i src/linkml/ — stale artefakter frå omdøypt domene?${CLR_RST}"
+        fi
+        log_debug "→ Slettar $DOCS/$domain"
+        find "${DOCS}/${domain}" -mindepth 1 -depth -delete 2>/dev/null || true
+        rmdir "${DOCS}/${domain}" 2>/dev/null || true
+    done
 
-# Slett mkdocs/docs/$domain/ for domene som ikkje lenger finst i generated/
-for docs_domain_dir in "$DOCS"/*/; do
-    [ -d "$docs_domain_dir" ] || continue
-    domain=$(basename "$docs_domain_dir")
-    case "$domain" in
-        stylesheets|javascripts|kom-i-gang|arkitektur|publisering|automasjon) continue ;;
-    esac
-    if [ ! -d "$GEN/$domain" ]; then
-        log_info "Ryddar forsvunne domene: $domain"
-        rm -rf "$docs_domain_dir"
-    fi
-done
+    # Slett mkdocs/docs/$domain/ for domene som ikkje lenger finst i generated/
+    for docs_domain_dir in "$DOCS"/*/; do
+        [ -d "$docs_domain_dir" ] || continue
+        domain=$(basename "$docs_domain_dir")
+        case "$domain" in
+            stylesheets|javascripts|kom-i-gang|arkitektur|publisering|automasjon) continue ;;
+        esac
+        if [ ! -d "$GEN/$domain" ]; then
+            log_info "Ryddar forsvunne domene: $domain"
+            rm -rf "$docs_domain_dir"
+        fi
+    done
+}
+
+timed_run "Rens tidlegare genererte domene-katalogar" clean_previous_docs
 
 # Generer byggetidspunkt (ISO 8601 UTC), nødvendig for footer-en
 # write_index_from_readme() skriv rett under
