@@ -1,0 +1,58 @@
+name: 'Detekter påkrevde images for eit domene'
+description: >-
+  Analyserer build.yaml-flagga for alle skjema i eit domene og reknar ut
+  kva images (always_required frå images.json ∪ dei som er utløyste av
+  eit required_if_generator_flag-treff) full artefaktgenerering for
+  domenet treng. Trekt ut frå generate.yml sitt "Detekter påkrevde
+  images"-steg for å gjenbrukast av andre workflowar som også køyrer
+  make domain-<x> (t.d. lenkje-og-mermaid-sjekk.yml).
+inputs:
+  domain:
+    description: 'Domenenamn (t.d. ap-no, referanse)'
+    required: true
+outputs:
+  images:
+    description: 'JSON-array [{name, make_target}, ...] — same form som ./.github/actions/pull-images forventar'
+    value: ${{ steps.detect-images.outputs.images }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Detekter påkrevde images for ${{ inputs.domain }}
+      id: detect-images
+      shell: bash
+      run: |
+        echo "=== Analyserer kva images ${{ inputs.domain }} treng ==="
+        IMAGES_MANIFEST="src/assets/containers/images.json"
+
+        # Base images som alltid trengs (always_required i images.json)
+        mapfile -t REQUIRED_IMAGES < <(jq -r '.[] | select(.always_required) | .name' "$IMAGES_MANIFEST")
+
+        # Sjekk alle build.yaml i domenet mot dei betinga imaga
+        # (required_if_generator_flag i images.json)
+        for build_yaml in src/linkml/${{ inputs.domain }}/*/build.yaml; do
+          if [ ! -f "$build_yaml" ]; then
+            continue
+          fi
+
+          while IFS=$'\t' read -r img flag; do
+            if grep -q "^  $flag: true" "$build_yaml" 2>/dev/null; then
+              if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " $img " ]]; then
+                REQUIRED_IMAGES+=("$img")
+              fi
+            fi
+          done < <(jq -r '.[] | select(.required_if_generator_flag != null) | [.name, .required_if_generator_flag] | @tsv' "$IMAGES_MANIFEST")
+        done
+
+        echo "Påkrevde images:"
+        for img in "${REQUIRED_IMAGES[@]}"; do
+          echo "  - $img"
+        done
+
+        # Eksporter som JSON-array [{name, make_target}, ...] — same form
+        # som ./.github/actions/pull-images forventar, og same
+        # filtreringsidiom som validate.yml sitt checkout-source-steg
+        # brukar (select(.name as $n | ... | index($n))).
+        images_json=$(jq -c --argjson names "$(printf '%s\n' "${REQUIRED_IMAGES[@]}" | jq -R . | jq -s .)" \
+          '[.[] | select(.name as $n | $names | index($n))] | map({name, make_target})' \
+          "$IMAGES_MANIFEST")
+        echo "images=$images_json" >> "$GITHUB_OUTPUT"

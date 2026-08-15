@@ -1,0 +1,19 @@
+name: 'Logg inn på GHCR'
+description: >-
+  Loggar podman inn mot ghcr.io. Trekt ut sidan same eittlinjes
+  podman login-kommando fanst dupliserte i generate.yml (3x) og
+  validate.yml (2x) — éin kjelde hindrar at innloggingsmåten driv frå
+  kvarandre mellom workflowane.
+inputs:
+  github-token:
+    description: >-
+      GitHub-token med tilgang til GHCR (typisk secrets.GITHUB_TOKEN).
+      Composite actions har ikkje implisitt tilgang til secrets-context,
+      difor må kallaren sende han inn eksplisitt.
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Logg inn på GHCR
+      shell: bash
+      run: echo "${{ inputs.github-token }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin

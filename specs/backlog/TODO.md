@@ -52,10 +52,6 @@ oppdatere alle modellar med status UNDER_DEVELOPMENT
 
 erstatte namn med navn  
 
-lese CodeQL sine 22 åpne issues og lage fiks for kvar av dei.
-
-gjeninnfør absolutt versjonslåst import av dcat-ap-no i make new-modell
+lese CodeQL sine 23 åpne issues og lage fiks for kvar av dei.
 
 badges i readme
-
-kan vi optimalisere make test ytterligare basert på innsikt frå loggane?

@@ -55,30 +55,9 @@ jobs:
       - name: Oppdag domene
         id: discover
         uses: ./.github/actions/discover-domains
-      - name: Bygg image-tag-oppslag (autoritativ kjelde — src/assets/containers/images.json)
+      - name: Bygg image-tag-oppslag
         id: image-tags
-        run: |
-          # Namn/Dockerfile/make-target for kvart image kjem frå images.json —
-          # einaste staden dei skal skrivast. GHCR-tag-hashen må derimot
-          # framleis reknast ut med GitHub sin eigen hashFiles(), som berre
-          # finst som eit "dollar-curly"-uttrykk evaluert ved parse-tid (ikkje
-          # kallbar frå bash/jq ved køyretid) — difor er dette den EINASTE
-          # staden i heile workflowen desse hashFiles()-kalla skal stå.
-          # Både ensure-images og generate-jobben slår opp taggen herifrå,
-          # i staden for å rekne han ut på nytt kvar for seg (som før).
-          echo "images=$(jq -c . src/assets/containers/images.json)" >> "$GITHUB_OUTPUT"
-          cat > /tmp/image-tags.json << EOF
-          {
-            "linkml-local": "${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}",
-            "python-pytest": "${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}",
-            "avrotize-local": "${{ hashFiles('src/assets/containers/Dockerfile.avrotize') }}",
-            "asyncapi-cli-minimal": "${{ hashFiles('src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/container/asyncapi-validate.js') }}",
-            "plantuml": "${{ hashFiles('src/assets/containers/Dockerfile.plantuml') }}",
-            "mkdocs-local": "${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}",
-            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}"
-          }
-          EOF
-          echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
+        uses: ./.github/actions/compute-image-tags
       - uses: actions/upload-artifact@v7
         with:
           name: source
@@ -131,7 +110,9 @@ jobs:
         uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sikre ${{ matrix.image.name }} i GHCR
         uses: ./.github/actions/ensure-image
@@ -193,47 +174,16 @@ jobs:
 
       - name: Logg inn på GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Detekter påkrevde images for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         id: detect-images
-        run: |
-          echo "=== Analyserer kva images ${{ matrix.domain }} treng ==="
-          IMAGES_MANIFEST="src/assets/containers/images.json"
-
-          # Base images som alltid trengs (always_required i images.json)
-          mapfile -t REQUIRED_IMAGES < <(jq -r '.[] | select(.always_required) | .name' "$IMAGES_MANIFEST")
-
-          # Sjekk alle build.yaml i domenet mot dei betinga imaga
-          # (required_if_generator_flag i images.json)
-          for build_yaml in src/linkml/${{ matrix.domain }}/*/build.yaml; do
-            if [ ! -f "$build_yaml" ]; then
-              continue
-            fi
-
-            while IFS=$'\t' read -r img flag; do
-              if grep -q "^  $flag: true" "$build_yaml" 2>/dev/null; then
-                if [[ ! " ${REQUIRED_IMAGES[@]} " =~ " $img " ]]; then
-                  REQUIRED_IMAGES+=("$img")
-                fi
-              fi
-            done < <(jq -r '.[] | select(.required_if_generator_flag != null) | [.name, .required_if_generator_flag] | @tsv' "$IMAGES_MANIFEST")
-          done
-
-          echo "Påkrevde images:"
-          for img in "${REQUIRED_IMAGES[@]}"; do
-            echo "  - $img"
-          done
-
-          # Eksporter som JSON-array [{name, make_target}, ...] — same form
-          # som ./.github/actions/pull-images forventar, og same
-          # filtreringsidiom som validate.yml sitt checkout-source-steg
-          # brukar (select(.name as $n | ... | index($n))).
-          images_json=$(jq -c --argjson names "$(printf '%s\n' "${REQUIRED_IMAGES[@]}" | jq -R . | jq -s .)" \
-            '[.[] | select(.name as $n | $names | index($n))] | map({name, make_target})' \
-            "$IMAGES_MANIFEST")
-          echo "images=$images_json" >> $GITHUB_OUTPUT
+        uses: ./.github/actions/detect-required-images
+        with:
+          domain: ${{ matrix.domain }}
 
       - name: Last images inn i podman frå GHCR
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -357,40 +307,9 @@ jobs:
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        shell: bash
-        env:
-          LOGLVL: DEBUG
-        run: |
-          set -euo pipefail
-
-          # Pre-flight: logg alle skjema som skal genererast (kort sti, utan
-          # "src/linkml/<domain>/"-prefiks — sjå
-          # specs/done/kort-preflight-skjemaliste.md)
-          echo "=== ${{ matrix.domain }} skjema for artefakt generering ==="
-          find src/linkml/${{ matrix.domain }} -name "*-schema.yaml" -type f | sort | while read schema; do
-            echo "  - ${schema#src/linkml/${{ matrix.domain }}/}"
-          done
-          echo ""
-
-          # Køyr domene-target med retry-logikk for transiente podman-feil
-          retry_count=0
-          max_retries=2
-          while [ $retry_count -le $max_retries ]; do
-            if make domain-${{ matrix.domain }}; then
-              echo "✓ make domain-${{ matrix.domain }} fullført"
-              break
-            else
-              exit_code=$?
-              retry_count=$((retry_count + 1))
-              if [ $retry_count -le $max_retries ]; then
-                echo "::warning::make domain-${{ matrix.domain }} feila (forsøk $retry_count/$max_retries) — ventar 10s før retry"
-                sleep 10
-              else
-                echo "::error file=.github/workflows/generate.yml,line=239::make domain-${{ matrix.domain }} feila etter $max_retries retrys"
-                exit $exit_code
-              fi
-            fi
-          done
+        uses: ./.github/actions/generate-domain
+        with:
+          domain: ${{ matrix.domain }}
 
       - name: Logg genererte artefakter før upload
         run: |
@@ -430,23 +349,15 @@ jobs:
       - name: Oppgrader crun
         uses: ./.github/actions/upgrade-crun
 
-      - name: Last ned alle genererte artefakter
-        uses: actions/download-artifact@v8
+      - name: Slå saman genererte domene-artefakt til generated/
+        uses: ./.github/actions/merge-generated-artifacts
         with:
-          pattern: generated-*
-          path: generated-merged/
-
-      - name: Slå saman domene-artefakter til generated/
-        run: |
-          mkdir -p generated/
-          for domain in ${{ needs.checkout-source.outputs.domain_list }}; do
-            if [ -d "generated-merged/generated-$domain" ]; then
-              mv "generated-merged/generated-$domain" "generated/$domain"
-            fi
-          done
+          domain_list: ${{ needs.checkout-source.outputs.domain_list }}
 
       - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Last mkdocs-local og python-pytest frå GHCR (parallelt)
         # mkdocs/publish.sh (via mkdocs/lib/utils/python_container.sh) køyrer

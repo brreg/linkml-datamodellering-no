@@ -85,15 +85,18 @@ jobs:
     outputs:
       domains: ${{ steps.discover.outputs.domains }}
       domain_list: ${{ steps.discover.outputs.domain_list }}
-      images: ${{ steps.image-tags.outputs.images }}
+      images: ${{ steps.image-tags-filtered.outputs.images }}
       image_tags: ${{ steps.image-tags.outputs.image_tags }}
     steps:
       - uses: actions/checkout@v7
       - name: Oppdag domene
         id: discover
         uses: ./.github/actions/discover-domains
-      - name: Bygg image-liste og tag-oppslag for validering (frå images.json)
+      - name: Bygg image-tag-oppslag
         id: image-tags
+        uses: ./.github/actions/compute-image-tags
+      - name: Filtrer til always_required-images for validering
+        id: image-tags-filtered
         run: |
           # Validering treng alle always_required-images (jf. generate.yml sitt
           # tilsvarande steg) — ikkje berre linkml-local + mcp-linkml-validator.
@@ -104,25 +107,12 @@ jobs:
           # hardkoda til dei to andre og gløymde python-pytest — då prøvde
           # PYTHON_RUN å pulle localhost/python-pytest:latest som eit ekte
           # registry og feila. Slå opp always_required dynamisk i staden for
-          # å hardkode, jf. DRY-prinsippet i CLAUDE.md.
-          images=$(jq -c '[.[] | select(.always_required) | {name, make_target}]' \
-            src/assets/containers/images.json)
+          # å hardkode, jf. DRY-prinsippet i CLAUDE.md. `image_tags` treng
+          # derimot ikkje filtrerast — superset-outputen frå
+          # compute-image-tags er harmlaus å bruke direkte (ubrukte
+          # nøklar i eit JSON-oppslag kostar ingenting).
+          images=$(echo '${{ steps.image-tags.outputs.images }}' | jq -c '[.[] | select(.always_required) | {name, make_target}]')
           echo "images=$images" >> "$GITHUB_OUTPUT"
-
-          # Same grunngjeving som generate.yml sitt "Bygg image-tag-oppslag"-
-          # steg: hashFiles() finst berre som eit dollar-curly-uttrykk
-          # evaluert her, ikkje kallbart frå bash/jq ved køyretid — difor
-          # den einaste staden desse tre hashFiles()-kalla skal stå for
-          # validate.yml. Både ensure-images og validate-jobben slår opp
-          # taggen herifrå i staden for å rekne han ut på nytt kvar for seg.
-          cat > /tmp/image-tags.json << EOF
-          {
-            "linkml-local": "${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}",
-            "mcp-linkml-validator": "${{ hashFiles('src/assets/containers/Dockerfile.mcp-linkml') }}",
-            "python-pytest": "${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
-          }
-          EOF
-          echo "image_tags=$(jq -c . /tmp/image-tags.json)" >> "$GITHUB_OUTPUT"
       - name: Fjern gamle valideringsloggar før artifact-upload
         run: |
           # Ekskluder validation/-katalogar frå source-artifact
@@ -161,7 +151,9 @@ jobs:
         uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sikre ${{ matrix.image.name }} i GHCR
         uses: ./.github/actions/ensure-image
@@ -196,7 +188,9 @@ jobs:
 
       - name: Logg inn på GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Last images inn i podman frå GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'

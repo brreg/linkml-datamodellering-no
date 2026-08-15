@@ -1,0 +1,50 @@
+name: 'Generer alle artefakter for eit domene'
+description: >-
+  Køyrer make domain-<domain> med retry-logikk for transiente podman-feil
+  (typisk 2 forsøk ekstra med 10s ventetid). Krev at nødvendige images
+  alt er tilgjengelege lokalt (t.d. via ./.github/actions/pull-images) og
+  at podman/crun er sett opp. Trekt ut frå generate.yml sitt "Generer alle
+  artefakter"-steg for å gjenbrukast av andre workflowar som treng full
+  domenegenerering (t.d. lenkje-og-mermaid-sjekk.yml).
+inputs:
+  domain:
+    description: 'Domenenamn (t.d. ap-no, referanse)'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Generer alle artefakter for ${{ inputs.domain }}
+      shell: bash
+      env:
+        LOGLVL: DEBUG
+      run: |
+        set -euo pipefail
+
+        # Pre-flight: logg alle skjema som skal genererast (kort sti, utan
+        # "src/linkml/<domain>/"-prefiks — sjå
+        # specs/done/kort-preflight-skjemaliste.md)
+        echo "=== ${{ inputs.domain }} skjema for artefakt generering ==="
+        find src/linkml/${{ inputs.domain }} -name "*-schema.yaml" -type f | sort | while read schema; do
+          echo "  - ${schema#src/linkml/${{ inputs.domain }}/}"
+        done
+        echo ""
+
+        # Køyr domene-target med retry-logikk for transiente podman-feil
+        retry_count=0
+        max_retries=2
+        while [ $retry_count -le $max_retries ]; do
+          if make domain-${{ inputs.domain }}; then
+            echo "✓ make domain-${{ inputs.domain }} fullført"
+            break
+          else
+            exit_code=$?
+            retry_count=$((retry_count + 1))
+            if [ $retry_count -le $max_retries ]; then
+              echo "::warning::make domain-${{ inputs.domain }} feila (forsøk $retry_count/$max_retries) — ventar 10s før retry"
+              sleep 10
+            else
+              echo "::error::make domain-${{ inputs.domain }} feila etter $max_retries retrys"
+              exit $exit_code
+            fi
+          fi
+        done

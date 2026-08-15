@@ -1,0 +1,29 @@
+name: 'Slå saman genererte domene-artefakt til generated/'
+description: >-
+  Lastar ned alle generated-<domain>-artefakt (lasta opp av
+  ./.github/actions/generate-domain sin kallar, éin per domene) og slår
+  dei saman til éin generated/-katalog. Trekt ut frå generate.yml sin
+  publish-jobb for å gjenbrukast av andre workflowar som treng heile
+  generated/-treet samla (t.d. lenkje-og-mermaid-sjekk.yml).
+inputs:
+  domain_list:
+    description: 'Space-separert liste med domenenamn (t.d. "ap-no fair ngr")'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Last ned alle genererte artefakter
+      uses: actions/download-artifact@v8
+      with:
+        pattern: generated-*
+        path: generated-merged/
+
+    - name: Slå saman domene-artefakter til generated/
+      shell: bash
+      run: |
+        mkdir -p generated/
+        for domain in ${{ inputs.domain_list }}; do
+          if [ -d "generated-merged/generated-$domain" ]; then
+            mv "generated-merged/generated-$domain" "generated/$domain"
+          fi
+        done

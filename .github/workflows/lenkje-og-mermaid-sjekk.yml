@@ -3,9 +3,94 @@ name: Lenkje- og mermaid-sjekk
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 6 * * 1' # Kvar måndag kl. 06:00 UTC
+    - cron: '0 6 * * *' # Kvar natt kl. 06:00 UTC
 
 jobs:
+  checkout-source:
+    # Genererer generated/-innhaldet lenkjesjekk-jobben treng for å køyre
+    # make docs-publish/docs-build — utan dette ville lychee aldri sjå dei
+    # genererte per-domene-dokumentasjonssidene (dei er .gitignore-a, jf.
+    # spec-en). Sjølvstendig frå generate.yml (triggerar berre på push til
+    # main, ikkje eige schedule), men byggjer på dei same delte actionane
+    # som generate.yml no brukar — sjå
+    # specs/done/lenkjesjekk-dekk-genererte-sider-nattleg.md.
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    outputs:
+      domains: ${{ steps.discover.outputs.domains }}
+      domain_list: ${{ steps.discover.outputs.domain_list }}
+      image_tags: ${{ steps.image-tags.outputs.image_tags }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Oppdag domene
+        id: discover
+        uses: ./.github/actions/discover-domains
+      - name: Bygg image-tag-oppslag
+        id: image-tags
+        uses: ./.github/actions/compute-image-tags
+      - uses: actions/upload-artifact@v7
+        with:
+          name: source
+          path: |
+            src/
+            mkdocs/
+            .github/
+            Makefile
+            make/
+            README.md
+            CODEOWNERS.md
+          retention-days: 1
+          include-hidden-files: true
+
+  generate:
+    name: "generate / ${{ matrix.domain }}"
+    needs: [checkout-source]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+    strategy:
+      matrix:
+        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+      fail-fast: false
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
+          path: .
+
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
+
+      - name: Logg inn på GHCR
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detekter påkrevde images for ${{ matrix.domain }}
+        id: detect-images
+        uses: ./.github/actions/detect-required-images
+        with:
+          domain: ${{ matrix.domain }}
+
+      - name: Last images inn i podman frå GHCR
+        uses: ./.github/actions/pull-images
+        with:
+          images: ${{ steps.detect-images.outputs.images }}
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+
+      - name: Generer alle artefakter for ${{ matrix.domain }}
+        uses: ./.github/actions/generate-domain
+        with:
+          domain: ${{ matrix.domain }}
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: generated-${{ matrix.domain }}
+          path: generated/${{ matrix.domain }}/
+          retention-days: 1
+
   mermaid-render:
     runs-on: ubuntu-22.04
     permissions:
@@ -144,12 +229,60 @@ jobs:
           retention-days: 30
 
   lenkjesjekk:
+    needs: [checkout-source, generate]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+      packages: read
     steps:
+      # Full checkout (ikkje source-artifacten frå checkout-source) — lychee
+      # skal framleis dekkje ALLE .md-filer i repoet (spesifikasjonar,
+      # CONVENTIONS.md, GOVERNANCE.md m.fl.), ikkje berre det avgrensa
+      # filsettet checkout-source lastar opp for domenegenereringa.
       - name: Sjekk ut repo
         uses: actions/checkout@v7
+
+      - name: Slå saman genererte domene-artefakt til generated/
+        uses: ./.github/actions/merge-generated-artifacts
+        with:
+          domain_list: ${{ needs.checkout-source.outputs.domain_list }}
+
+      - name: Logg inn på GHCR
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Last mkdocs-local og python-pytest frå GHCR (parallelt)
+        uses: ./.github/actions/pull-images
+        with:
+          images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+
+      - name: Publiser og bygg dokumentasjonsportal
+        env:
+          LOGLVL: DEBUG
+        run: |
+          set -uo pipefail
+          if ! make docs-publish; then
+            echo "::error::make docs-publish feila"
+            exit 1
+          fi
+
+          make docs-build 2>&1 | tee docs-build.log
+          build_rc=${PIPESTATUS[0]}
+
+          {
+            echo "## MkDocs build-åtvaringar"
+            if grep -qE "WARNING|ERROR" docs-build.log; then
+              echo '```'
+              grep -E "WARNING|ERROR" docs-build.log
+              echo '```'
+            else
+              echo "Ingen WARNING/ERROR frå \`make docs-build\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit "$build_rc"
 
       - name: Trekk inn lychee
         run: podman pull docker.io/lycheeverse/lychee:latest
