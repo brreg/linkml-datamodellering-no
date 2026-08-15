@@ -207,6 +207,13 @@ timed_run "Generer valideringsregler.md" generate_validation_docs
 # $GEN, ikkje av noko bygd i Steg 1.5, og Steg 1.5 treng no
 # ALL_DOMAINS/DOMAIN_SCHEMA_LIST for å byggje input til det samla
 # metadata-kallet. Sjå specs/backlog/reduser-podman-kall-docs-publish.md.
+#
+# Tidteke som eige delsteg (manuell t/elapsed, ikkje timed_run) sidan
+# ALL_DOMAINS/DOMAIN_SCHEMA_LIST/DOMAIN_EXISTS må vere synlege i
+# hovudshell-scope etter blokka — ei `declare -a`/`declare -A` inni ein
+# bash-funksjon utan `-g` ville gjort desse lokale og usynlege for Steg
+# 1.5/2/3. Sjå specs/done/tidtaking-steg1-4-1-5-docs-publish.md.
+t1_4=$(date +%s%3N)
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
@@ -250,9 +257,19 @@ for domain in $(printf '%s\n' "${!DOMAIN_EXISTS[@]}" | sort); do
     ALL_DOMAINS+=("$domain")
 done
 
+elapsed1_4_ms=$(( $(date +%s%3N) - t1_4 ))
+log_info "$(printf "${CLR_STEP}→ Steg 1.4: Finn domene/skjema-struktur${CLR_RST} (%d.%ds)" \
+    $((elapsed1_4_ms / 1000)) \
+    $((elapsed1_4_ms % 1000 / 100)))"
+
 # ---------------------------------------------------------------------------
 # Steg 1.5: Bygg delmodell-/metadata-oppslag
 # ---------------------------------------------------------------------------
+# Same grunngjeving som Steg 1.4 for manuell t/elapsed i staden for
+# timed_run: SCHEMA_PARENT_MODEL/SCHEMA_SUBMODELS m.fl. må vere synlege i
+# hovudshell-scope for Steg 2/3.
+t1_5=$(date +%s%3N)
+
 # Bruk assosiative arrays som må eksporterast manuelt til subshells
 declare -A SCHEMA_PARENT_MODEL_TMP=()
 declare -A SCHEMA_SUBMODELS_TMP=()
@@ -372,6 +389,11 @@ for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
     # Behald komma-separering i SCHEMA_SUBMODELS-map
     SCHEMA_SUBMODELS["$key"]="$val"
 done
+
+elapsed1_5_ms=$(( $(date +%s%3N) - t1_5 ))
+log_info "$(printf "${CLR_STEP}→ Steg 1.5: Bygg delmodell-/metadata-oppslag${CLR_RST} (%d.%ds)" \
+    $((elapsed1_5_ms / 1000)) \
+    $((elapsed1_5_ms % 1000 / 100)))"
 
 elapsed1_ms=$(( $(date +%s%3N) - t1 ))
 log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
