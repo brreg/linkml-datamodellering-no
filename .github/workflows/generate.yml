@@ -448,22 +448,18 @@ jobs:
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Last mkdocs-local image frå GHCR
-        run: |
-          GHCR_TAG="ghcr.io/${{ github.repository_owner }}/mkdocs-local:${{ hashFiles('src/assets/containers/Dockerfile.mkdocs') }}"
-          echo "Lastar mkdocs-local frå GHCR: $GHCR_TAG"
-          podman pull "$GHCR_TAG"
-          podman tag "$GHCR_TAG" localhost/mkdocs-local:latest
-
-      - name: Last python-pytest image frå GHCR
+      - name: Last mkdocs-local og python-pytest frå GHCR (parallelt)
         # mkdocs/publish.sh (via mkdocs/lib/utils/python_container.sh) køyrer
-        # YAML-oppslag i denne kontaineren i staden for python3 direkte på
-        # runneren — sjå specs/done/nye-host-python-kall-batching.md (Funn 3).
-        run: |
-          GHCR_TAG="ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}"
-          echo "Lastar python-pytest frå GHCR: $GHCR_TAG"
-          podman pull "$GHCR_TAG"
-          podman tag "$GHCR_TAG" localhost/python-pytest:latest
+        # YAML-oppslag i python-pytest-kontaineren i staden for python3
+        # direkte på runneren — sjå
+        # specs/done/nye-host-python-kall-batching.md (Funn 3). Same
+        # ./.github/actions/pull-images-action og image_tags-kjelde
+        # (checkout-source) som resten av workflowen brukar — sjå
+        # specs/backlog/parallell-image-pull-publish-jobb.md.
+        uses: ./.github/actions/pull-images
+        with:
+          images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
