@@ -203,10 +203,10 @@ jobs:
     permissions:
       contents: read
     env:
-      # Sett låg concurrency for å unngå HTTP 429 (rate limiting) frå
-      # GitHub Pages-CDN-en ved samtidig henting av mange sider — sjå
-      # specs/backlog/mermaid-click-href-429-retry.md.
-      CLICK_HREF_SJEKK_CONCURRENCY: 1
+      # 5 er empirisk stadfesta trygt saman med retry/backoff-logikken i
+      # check-mermaid-click-hrefs.py (0 av 5757 sider feila i lokal
+      # verifisering) — sjå specs/done/mermaid-click-href-429-retry.md.
+      CLICK_HREF_SJEKK_CONCURRENCY: 5
     steps:
       - name: Sjekk ut repo
         uses: actions/checkout@v7

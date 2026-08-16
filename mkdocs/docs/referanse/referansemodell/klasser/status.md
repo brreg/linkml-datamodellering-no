@@ -63,7 +63,7 @@ URI: [adms:status](http://www.w3.org/ns/adms#status)
 | --- | --- |
 | gyldige_verdier | http://purl.org/adms/status/ |
 | vokabular_krav | skal |
-| vokabular_pattern | ^http://purl\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$ |
+| vokabular_pattern | `^http://purl\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$` |
 | enum_referanse | ADMSStatus |
 | enum_dekning | full |
 

@@ -63,7 +63,7 @@ URI: [dct:format](http://purl.org/dc/terms/format)
 | --- | --- |
 | gyldige_verdier | http://publications.europa.eu/resource/authority/file-type/ |
 | vokabular_krav | skal |
-| vokabular_pattern | ^http://publications\.europa\.eu/resource/authority/file-type/[A-Z_]+$ |
+| vokabular_pattern | `^http://publications\.europa\.eu/resource/authority/file-type/[A-Z_]+$` |
 | enum_referanse | EUFileType |
 | enum_dekning | delvis |
 

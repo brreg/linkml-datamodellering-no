@@ -62,7 +62,7 @@ URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
 | --- | --- |
 | gyldige_verdier | http://publications.europa.eu/resource/authority/planned-availability/ |
 | vokabular_krav | bør |
-| vokabular_pattern | ^http://publications\.europa\.eu/resource/authority/planned-availability/[A-Z_]+$ |
+| vokabular_pattern | `^http://publications\.europa\.eu/resource/authority/planned-availability/[A-Z_]+$` |
 
 
 

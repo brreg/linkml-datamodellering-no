@@ -17,7 +17,7 @@ URI: [https://data.norge.no/ap-no/common-ap-no/ADMSPublisherType](https://data.n
 | LOCAL_AUTHORITY | http://purl.org/adms/publishertype/LocalAuthority | Lokal styremakt |
 | SUPRANATIONAL_AUTHORITY | http://purl.org/adms/publishertype/SupraNationalAuthority | Overnasjonal styremakt |
 | ACADEMIA_SCIENTIFIC_ORGANISATION | http://purl.org/adms/publishertype/Academia-ScientificOrganisation | Akademisk/vitskapeleg organisasjon |
-| PRIVATE_INDIVIDUAL | http://purl.org/adms/publishertype/PrivateIndividual(s) | Privatperson |
+| PRIVATE_INDIVIDUAL | http://purl.org/adms/publishertype/PrivateIndividual | Privatperson |
 | INDUSTRY_CONSORTIUM | http://purl.org/adms/publishertype/IndustryConsortium | Industrikonsortium |
 | NON_GOVERNMENTAL_ORGANISATION | http://purl.org/adms/publishertype/NonGovernmentalOrganisation | Ikkje-offentleg organisasjon |
 | NON_PROFIT_ORGANISATION | http://purl.org/adms/publishertype/NonProfitOrganisation | Ideell organisasjon |
@@ -83,7 +83,7 @@ permissible_values:
   PRIVATE_INDIVIDUAL:
     text: PRIVATE_INDIVIDUAL
     description: Privatperson
-    meaning: http://purl.org/adms/publishertype/PrivateIndividual(s)
+    meaning: http://purl.org/adms/publishertype/PrivateIndividual
   INDUSTRY_CONSORTIUM:
     text: INDUSTRY_CONSORTIUM
     description: Industrikonsortium

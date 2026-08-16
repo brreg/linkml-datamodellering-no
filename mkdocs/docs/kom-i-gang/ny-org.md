@@ -200,6 +200,6 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 - Dersom to org-ar treng motstridige endringar i same AP-NO-profil må dette løysast gjennom RFC-prosess (sjå GOVERNANCE.md)
 - Konfliktløysingsmekanismar er ikkje fullt dokumenterte enno
 
-**Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+**Fullstendig oversikt:** Sjå [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md) for komplett liste over kjende bugs og workarounds.
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.

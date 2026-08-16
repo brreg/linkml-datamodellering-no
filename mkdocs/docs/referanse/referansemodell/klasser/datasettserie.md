@@ -507,7 +507,7 @@ attributes:
         value: kan
     description: Tema frå eit kontrollert vokabular. For norske offentlege datasett
       SKAL Los (https://psi.norge.no/los/) brukast som primærvokabular. Bruk hovudtema
-      (https://psi.norge.no/los/tema/<namn>) og eventuelt undertema i tillegg. EuroVoc
+      (`https://psi.norge.no/los/tema/<namn>`) og eventuelt undertema i tillegg. EuroVoc
       kan brukast som sekundærvokabular. Los har ~200 hovudtema og er for omfattande
       til å modellerast som enum. Bruk MCP-server mcp__linkml-begrep-utkast__list_los_tema
       for å søkje i Los-hierarkiet.

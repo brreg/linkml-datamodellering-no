@@ -320,7 +320,7 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 - `felles-begrepskatalog`-policy validerer metadata, men validerer ikkje at `anbefalt_term` er eit gyldigt norsk ord
 - Ingen automatisk sjekk for duplikate begrep på tvers av katalogar
 
-**Fullstendig oversikt:** Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for komplett liste over kjende bugs og workarounds.
+**Fullstendig oversikt:** Sjå [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md) for komplett liste over kjende bugs og workarounds.
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
 

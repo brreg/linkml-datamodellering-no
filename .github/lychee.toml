@@ -1,12 +1,17 @@
 # Konfigurasjon for lychee (lenkjesjekk av .md-dokumentasjon).
-# Sjå specs/backlog/lenkje-og-mermaid-sjekk.md for bakgrunn.
+# Sjå specs/done/lenkje-og-mermaid-sjekk.md for bakgrunn.
 
 timeout = 20
 max_retries = 2
 retry_wait_time = 5
 
-# Byggoutput, ikkje kjeldekode — sjå CLAUDE.md § Katalogstruktur
-exclude_path = ["generated", "mkdocs/site"]
+# Byggoutput, ikkje kjeldekode — sjå CLAUDE.md § Katalogstruktur.
+# specs/ er arkivert/planlagd spesifikasjonsdokumentasjon, aldri publisert
+# portalinnhald (jf. mkdocs.yml sin docs_dir) — arkiverte spesifikasjonar
+# (spesielt specs/done/) skal stå urørte (CLAUDE.md) og inneheld difor
+# naturleg utdaterte lenkjer som ikkje skal rettast der — sjå
+# specs/done/lenkjesjekk-3817-feil-evaluering.md.
+exclude_path = ["generated", "mkdocs/site", "specs"]
 
 # Godta redirect- og informasjonskodar i tillegg til 2xx
 accept = ["100..=103", "200..=299", "300..=399"]
@@ -25,6 +30,10 @@ exclude = [
   # Lokale utviklingsadresser
   "^https?://localhost",
   "^https?://host\\.containers\\.internal",
+  # Krev autentisering for uinnlogga oppslag (401 uansett kva sti/konsept
+  # som sjekkast, stadfesta både på rot og under /collections/...) —
+  # sjå specs/done/lenkjesjekk-3817-feil-evaluering.md
+  "^https://concept-catalog\\.fellesdatakatalog\\.digdir\\.no/",
 ]
 
 # purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i

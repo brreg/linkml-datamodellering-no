@@ -67,7 +67,7 @@ URI: [dct:language](http://purl.org/dc/terms/language)
 | --- | --- |
 | gyldige_verdier | http://publications.europa.eu/resource/authority/language/ |
 | vokabular_krav | skal |
-| vokabular_pattern | ^http://publications\.europa\.eu/resource/authority/language/[A-Z]{3}$ |
+| vokabular_pattern | `^http://publications\.europa\.eu/resource/authority/language/[A-Z]{3}$` |
 | enum_referanse | EULanguage |
 | enum_dekning | delvis |
 

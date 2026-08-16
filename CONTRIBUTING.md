@@ -246,7 +246,7 @@ Dette repoet er ein **Proof of Concept** og har ingen garantert support-SLA:
 
 ### Kjende avgrensingar
 
-Sjå [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md) for fullstendig liste over kjende bugs og workarounds.
+Sjå [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md) for fullstendig liste over kjende bugs og workarounds.
 
 Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp avgrensingar spesifikke for den arbeidsflyta.
 
@@ -268,7 +268,7 @@ Kvar rettleiing har òg ein "Kjende avgrensingar"-seksjon nedst som listar opp a
 
 1. **Les dokumentasjonen først:** [brreg.github.io/linkml-datamodellering-no](https://brreg.github.io/linkml-datamodellering-no/)
 2. **Søk i eksisterande issues:** Nokon andre kan ha rapportert same problemet
-3. **Sjekk kjende avgrensingar:** [specs/bugs/README.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/README.md)
+3. **Sjekk kjende avgrensingar:** [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md)
 4. **Still spørsmål eller del idear:** Bruk [GitHub Discussions](https://github.com/brreg/linkml-datamodellering-no/discussions) for generelle spørsmål og forslag som ikkje er ein konkret bug
 5. **Opne ein ny issue:** Med merkelapp `bug`, `question` eller `data-quality`
 6. **Vær tolmodig:** Dette er ein PoC med avgrensa ressursar

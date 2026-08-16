@@ -62,7 +62,7 @@ URI: [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity)
 | --- | --- |
 | gyldige_verdier | http://publications.europa.eu/resource/authority/frequency/ |
 | vokabular_krav | skal |
-| vokabular_pattern | ^http://publications\.europa\.eu/resource/authority/frequency/[A-Z_0-9]+$ |
+| vokabular_pattern | `^http://publications\.europa\.eu/resource/authority/frequency/[A-Z_0-9]+$` |
 | enum_referanse | DCTFrequency |
 | enum_dekning | full |
 

@@ -63,7 +63,7 @@ URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
 | --- | --- |
 | gyldige_verdier | http://publications.europa.eu/resource/authority/access-right/ |
 | vokabular_krav | skal |
-| vokabular_pattern | ^http://publications\.europa\.eu/resource/authority/access-right/(PUBLIC|RESTRICTED|NON_PUBLIC)$ |
+| vokabular_pattern | `^http://publications\.europa\.eu/resource/authority/access-right/(PUBLIC|RESTRICTED|NON_PUBLIC)$` |
 | enum_referanse | EUAccessRight |
 | enum_dekning | full |
 

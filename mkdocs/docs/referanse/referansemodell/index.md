@@ -1,11 +1,11 @@
 # referansemodell
 
-[![Utgiver](https://img.shields.io/badge/utgiver-Brønnøysundregistra-blue)]()
-[![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)]()
-[![Status](https://img.shields.io/badge/status-Under_utvikling-orange)]()
-[![Versjon](https://img.shields.io/badge/versjon-1.3.0-blue)]()
-[![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)]()
-[![Endringsdato](https://img.shields.io/badge/endringsdato-2026--07--30-blue)]()
+![Utgiver](https://img.shields.io/badge/utgiver-Brønnøysundregistra-blue)
+![Lisens](https://img.shields.io/badge/NLOD-2.0-blue)
+![Status](https://img.shields.io/badge/status-Under_utvikling-orange)
+![Versjon](https://img.shields.io/badge/versjon-1.3.0-blue)
+![Validering](https://img.shields.io/badge/bronze-ukjent-lightgrey)
+![Endringsdato](https://img.shields.io/badge/endringsdato-2026--07--30-blue)
 
 
 ## Om denne modellen
