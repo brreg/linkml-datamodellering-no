@@ -80,28 +80,71 @@ tilgjengelege cache uavhengig av eksakt nøkkel). `.lycheecache` lagt til
 (`workflow_dispatch`) for å samanlikne kald- mot varm-cache-tid, sjå
 "Steg" nedanfor.
 
-### 2. [Utført] Cache mkdocs/docs + mkdocs/site-bygget
+### 2. [Utført, oppfølgingsfiks implementert] Cache mkdocs/docs + mkdocs/site-bygget
 
 `actions/cache@v6` lagt til rundt `mkdocs/docs/` + `mkdocs/site/`,
-cache-key hasha på `generated/**` + eksplisitt fil-liste (`mkdocs/publish.sh`,
-`mkdocs/lib/**`, `README.md`, `src/mcp-linkml-validator/policies/README.md`,
+opphavleg cache-key hasha på `generated/**` + eksplisitt fil-liste
+(`mkdocs/publish.sh`, `mkdocs/lib/**`, `README.md`,
+`src/mcp-linkml-validator/policies/README.md`,
 `src/assets/scripts/makefile/generate-readme-tables.sh`, dei statiske
 rettleiingskatalogane `kom-i-gang/arkitektur/publisering/automasjon/
-stylesheets/javascripts`, `make/50-docs.mk`, `Makefile`) — same eksplisitte
-mønster som `generate.yml` (unngår at eit breitt `**`-mønster invaliderer
-cachen unødig, jf. `specs/done/docs-only-endring-cache-miss-alle-domene.md`).
-`make docs-publish`/`make docs-build` er no betinga på cache-miss
-(`if: steps.cache-docs.outputs.cache-hit != 'true'`); eit nytt steg «Hopp
-over bygg (cache-treff)» skriv ei kort forklarande linje til
-`$GITHUB_STEP_SUMMARY` på cache-treff, sidan «MkDocs
-build-åtvaringar»-seksjonen elles ikkje ville vorte fylt.
+stylesheets/javascripts`, `make/50-docs.mk`, `Makefile`).
+`make docs-publish`/`make docs-build` er betinga på cache-miss
+(`if: steps.cache-docs.outputs.cache-hit != 'true'`); eit steg «Hopp over
+bygg (cache-treff)» skriv ei kort forklarande linje til
+`$GITHUB_STEP_SUMMARY` på cache-treff.
+
+**Målt i praksis (2026-08-16, to påfølgjande køyringar
+[31942977488](https://github.com/brreg/linkml-datamodellering-no/actions/runs/31942977488)
+og
+[31943611776](https://github.com/brreg/linkml-datamodellering-no/actions/runs/31943611776)):
+cache-treff uteblir sjølv når `generate`-matrisa fekk cache-treff i alle 9
+domena.** Nedlasta og samanlikna `generated-fair`-artefakten frå begge
+køyringane direkte — root cause stadfesta:
+
+```diff
+- linkml:generation_date "2026-08-16T10:56:54"^^xsd:dateTime ;
++ linkml:generation_date "2026-08-16T10:13:35"^^xsd:dateTime ;
+```
+
+**LinkML sin eigen SHACL-generator bakar eit ferskt genereringstidsstempel
+(`linkml:generation_date`) rett inn i kvar `.ttl`-fil ved
+genereringstidspunktet** (same fil hadde òg ulik `sh:declare`-blankenode-
+rekkjefølgje mellom køyringane — klassisk RDF/Python-set-
+iterasjons-ikkje-determinisme). `generated/**` kan difor **aldri** vere
+byte-identisk mellom to separate genereringshendingar, sjølv når
+`src/linkml/`-kjelda er heilt uendra.
+
+Vidare stadfesta: dei to køyringane brukte to **ulike**
+genereringshendingar for `fair`-domenet — den fyrste (10:57) genererte
+friskt lokalt (før tiltak 3 var live), den andre (11:11) fekk cache-treff
+mot ein **eldre cache frå `generate.yml`** (stadfesta ved at ein
+`validation/`-underkatalog — som berre `generate.yml` sitt fullstendige
+generate-steg produserer, ikkje denne workflowen sin forenkla versjon —
+berre fanst i den andre artefakten). Tiltak 3 sin tilsikta bonus
+(cross-workflow cache-gjenbruk) **kolliderer** dermed med tiltak 2 sin
+nøkkel: to semantisk identiske, men tidsstempel-ulike
+genereringshendingar gjev ulik `hashFiles('generated/**')`.
+
+**Fiks:** Bytt cache-nøkkelen sin `generated/**`-del til i staden å hashe
+**kjeldefilene** (`src/linkml/**` for alle domene, same som tiltak 3 sin
+`generate`-cache brukar, berre utan domene-avgrensinga) + same infra-liste
+som før. Dette gjer cache-treff avhengig av "har kjelda endra seg", ikkje
+"er akkurat denne konkrete outputen byte-identisk" — sidan
+`generation_date`/blankenode-rekkjefølgje aldri finst i kjeldefilene, berre
+i det (ikkje-deterministiske) genererte outputet.
+
+```yaml
+key: v2-docs-${{ hashFiles('src/linkml/**') }}-infra-${{ hashFiles('mkdocs/publish.sh', 'mkdocs/lib/**', 'README.md', 'src/mcp-linkml-validator/policies/README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'mkdocs/docs/kom-i-gang/**', 'mkdocs/docs/arkitektur/**', 'mkdocs/docs/publisering/**', 'mkdocs/docs/automasjon/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'make/50-docs.mk', 'Makefile') }}
+```
+
+(`v2-` for å ikkje kollidere med gamle, no semantisk feilaktige
+`v1-docs-*`-cache-innslag.)
 
 **Viktig atterhald (uendra frå opphavleg vurdering):** `make docs-build` sin
 eigen mkdocs-validering køyrer **ikkje** på cache-treff — akseptabelt sidan
 uendra innhald pr. definisjon alt vart validert då cachen vart skriven,
 men eit medvite, dokumentert tradeoff.
-
-**Ikkje målt i praksis enno**, same grunngjeving som tiltak 1.
 
 ### 3. [Utført] Cache genererte artefakter i denne workflowen sin eigen `generate`-matrise
 
@@ -268,7 +311,14 @@ gevinst, sidan kompleksiteten er vesentleg høgare enn dei føregåande.
 - [x] Tiltak 1: lychee-cache (`cache`/`max_cache_age` + `actions/cache`)
 - [ ] Mål og dokumenter effekt av tiltak 1 (krev CI-køyring)
 - [x] Tiltak 2: cache mkdocs/docs + mkdocs/site, betinga bygg
-- [ ] Mål og dokumenter effekt av tiltak 2 (krev CI-køyring)
+- [x] Mål effekt av tiltak 2 i praksis — **stadfesta upåliteleg**:
+      `generation_date`-tidsstempel baka inn i genererte .ttl-filer av
+      LinkML sin SHACL-generator gjer `hashFiles('generated/**')`
+      ikkje-deterministisk på tvers av separate genereringshendingar
+- [x] Oppfølgingsfiks tiltak 2: bytt cache-nøkkel frå `generated/**` til
+      `src/linkml/**` (unngår avhengigheit av ikkje-deterministisk output),
+      `v1-docs-` → `v2-docs-`, `actionlint` stadfesta ingen `[expression]`-feil
+- [ ] Verifiser oppfølgingsfiksen i praksis (to påfølgjande CI-køyringar)
 - [x] Tiltak 3: cache `generate`-matrisa i lenkje-og-mermaid-sjekk.yml
       (same nøkkel-formel som generate.yml)
 - [ ] Mål og dokumenter effekt av tiltak 3 (krev CI-køyring)

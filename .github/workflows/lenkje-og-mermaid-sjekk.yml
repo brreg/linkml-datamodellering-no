@@ -347,17 +347,23 @@ jobs:
           path: |
             mkdocs/docs
             mkdocs/site
-          # generated/ (etter samanslåing over) er hovuddrivaren for
-          # innhaldet; "infra"-delen listar publish.sh sine eigne
-          # kjelder (mkdocs/lib/**, README.md → index.md,
-          # policies/README.md → valideringsregler.md) og dei statiske
-          # rettleiingskatalogane publish.sh medvite ikkje rører (jf.
-          # publish.sh line ~171 sin explicit continue-liste) — same
-          # eksplisitte fil-liste-prinsipp som generate.yml (unngår at eit
-          # breitt mønster invaliderer cachen ved urelaterte endringar, jf.
-          # specs/done/docs-only-endring-cache-miss-alle-domene.md). Sjå
-          # specs/backlog/lenkjesjekk-reduser-clock-time.md.
-          key: v1-docs-${{ hashFiles('generated/**') }}-infra-${{ hashFiles('mkdocs/publish.sh', 'mkdocs/lib/**', 'README.md', 'src/mcp-linkml-validator/policies/README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'mkdocs/docs/kom-i-gang/**', 'mkdocs/docs/arkitektur/**', 'mkdocs/docs/publisering/**', 'mkdocs/docs/automasjon/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'make/50-docs.mk', 'Makefile') }}
+          # Hashar KJELDA (src/linkml/**), ikkje det genererte outputet
+          # (generated/**) — LinkML sin SHACL-generator bakar eit ferskt
+          # linkml:generation_date-tidsstempel (+ ikkje-deterministisk
+          # blankenode-rekkjefølgje) inn i kvar .ttl-fil ved kvar
+          # genereringshending, så generated/**-hashen er aldri stabil
+          # mellom separate genereringar sjølv med uendra kjelde — stadfesta
+          # empirisk 2026-08-16, sjå
+          # specs/backlog/lenkjesjekk-reduser-clock-time.md § tiltak 2.
+          # "infra"-delen listar publish.sh sine eigne kjelder
+          # (mkdocs/lib/**, README.md → index.md, policies/README.md →
+          # valideringsregler.md) og dei statiske rettleiingskatalogane
+          # publish.sh medvite ikkje rører (jf. publish.sh line ~171 sin
+          # explicit continue-liste) — same eksplisitte fil-liste-prinsipp
+          # som generate.yml (unngår at eit breitt mønster invaliderer
+          # cachen ved urelaterte endringar, jf.
+          # specs/done/docs-only-endring-cache-miss-alle-domene.md).
+          key: v2-docs-${{ hashFiles('src/linkml/**') }}-infra-${{ hashFiles('mkdocs/publish.sh', 'mkdocs/lib/**', 'README.md', 'src/mcp-linkml-validator/policies/README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'mkdocs/docs/kom-i-gang/**', 'mkdocs/docs/arkitektur/**', 'mkdocs/docs/publisering/**', 'mkdocs/docs/automasjon/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'make/50-docs.mk', 'Makefile') }}
 
       - name: Publiser og bygg dokumentasjonsportal
         if: steps.cache-docs.outputs.cache-hit != 'true'
