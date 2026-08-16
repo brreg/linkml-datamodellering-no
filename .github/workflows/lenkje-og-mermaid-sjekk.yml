@@ -110,7 +110,11 @@ jobs:
           close_re='^```[[:space:]]*$'
 
           # git ls-files avgrensar til versjonskontrollerte filer — hoppar automatisk
-          # over generated/ og andre .gitignore-a byggoutput utan behov for eksplisitt filter
+          # over generated/ og andre .gitignore-a byggoutput utan behov for eksplisitt filter.
+          # :!specs/** ekskluderer arkiverte/planlagde spesifikasjonar — dei er aldri
+          # del av mkdocs/docs/ (den publiserte portalen) og inneheld naturleg
+          # kodeutdrag/utkast/plasshaldarar med ```mermaid-fencing som aldri var meint
+          # å rendrast åleine — sjå specs/done/mermaid-render-ekskluder-specs.md
           block_id=0
           while IFS= read -r -d '' file; do
             block=0
@@ -134,7 +138,7 @@ jobs:
                 printf '%s\n' "$line" >> "$blockfile"
               fi
             done < "$file"
-          done < <(git ls-files -z -- '*.md')
+          done < <(git ls-files -z -- '*.md' ':!specs/**')
 
           echo "Fann $block_id mermaid-blokker."
 
@@ -227,7 +231,7 @@ jobs:
           {
             echo "## Mermaid click-href-sjekk"
             cat click-href-sjekk-report.md 2>/dev/null || echo "Ingen rapport generert (skriptet feila før rapportering)."
-          } >> "$GITHUB_STEP_SUMMARY"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Last opp click-href-rapport
         if: always()
@@ -309,6 +313,19 @@ jobs:
           if [ ! -f lenkjesjekk-report.md ]; then
             echo "# Lenkjesjekk" > lenkjesjekk-report.md
             echo "Ingen rapport vart generert (lychee feila før rapportering)." >> lenkjesjekk-report.md
+          fi
+
+          # Rapporten kan vere svært stor (tusenvis av linjer) — logg berre
+          # lychee sin eigen kompakte "# Summary"-tabell til jobb-loggen, ikkje
+          # heile rapporten. Full liste over brotne lenkjer finst i Step
+          # Summary og i den opplasta artefakten.
+          echo ""
+          echo "== Lenkjesjekk: oppsummering =="
+          if grep -q '^# Summary' lenkjesjekk-report.md; then
+            awk '/^# Summary/{p=1} /^## Errors per input/{p=0} p' lenkjesjekk-report.md
+            echo "(Fullstendig liste over brotne lenkjer: sjå Step Summary eller opplasta artefakt 'lenkjesjekk-report')"
+          else
+            cat lenkjesjekk-report.md
           fi
 
           {
