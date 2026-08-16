@@ -103,7 +103,7 @@ men eit medvite, dokumentert tradeoff.
 
 **Ikkje målt i praksis enno**, same grunngjeving som tiltak 1.
 
-### 3. [Ny, ikkje implementert] Cache genererte artefakter i denne workflowen sin eigen `generate`-matrise
+### 3. [Utført] Cache genererte artefakter i denne workflowen sin eigen `generate`-matrise
 
 **Oppdaga under gjennomgang:** `lenkje-og-mermaid-sjekk.yml` har si **eiga**
 `generate`-jobb (line 46–92, matrisert per domene, kallar
@@ -138,7 +138,7 @@ kan starte — dette tiltaket ligg **utanfor** dei 454 sekunda målt i
   uendra — cache-treffet fyller `generated/${{ matrix.domain }}/` slik at
   opplastinga framleis har innhald å laste opp.
 
-### 4. [Ny, ikkje implementert] Legg til matrisert `ensure-images`-jobb med registry-basert caching
+### 4. [Utført] Legg til matrisert `ensure-images`-jobb med registry-basert caching
 
 **Oppdaga under vidare gjennomgang:** `generate.yml` har ein eigen,
 matrisert `ensure-images`-jobb (line 75–122) som køyrer **før**
@@ -168,10 +168,24 @@ på matrise-celler, i staden for éin gong.
   `generate.yml` line 75–122 (same matrise over
   `needs.checkout-source.outputs.images`, same `ensure-image`-composite-
   action-kall).
-- Legg til `ensure-images` i `needs:`-lista til både `generate`- og
-  `lenkjesjekk`-jobbane (dei pullar framleis sjølve via `pull-images`, men
-  no garantert mot eit GHCR som alt har det dei treng — fallback-grena i
-  `pull-images` bør då aldri triggast i normal drift).
+- Legg til `ensure-images` i `needs:`-lista til `generate`-jobben (`needs:
+  [ensure-images, checkout-source]`) — same mønster som `generate.yml`, som
+  **ikkje** legg `ensure-images` direkte i `publish` sitt `needs:` heller,
+  sidan avhengigheita alt er transitiv via `generate`. `lenkjesjekk` sitt
+  `needs: [checkout-source, generate]` er difor uendra.
+
+**Utvida med lychee-pulling (`docker.io/lycheeverse/lychee:latest`):** Lagt
+til som eit eige, ikkje-matrisert steg i `ensure-images`-jobben (køyrer per
+matrise-celle, men er ein billig ~2s pull som ikkje bidreg til kritisk
+sti sidan cellene køyrer parallelt) — flytta ut av eit eige seint steg i
+`lenkjesjekk`. **Merk:** sidan kvar jobb køyrer på eigen, isolert runner,
+overfører ikkje dette biletet til `lenkjesjekk` sin runner — `podman run`
+der pullar framleis sjølv om det manglar lokalt. Tiltaket er difor
+hovudsakleg ei arkitektonisk samling av "sikre image er klare"-arbeid på éin
+stad, ikkje ei målbar tidsoptimering for lychee spesifikt. Ei ekte
+tidsgevinst ville kravd ein delt overføringsmekanisme (t.d. `podman save` +
+`actions/cache` av tarball-en, eller spegling til vårt eige GHCR) — vurdert
+og medvite valt bort til fordel for den enklare, lågare-risiko varianten.
 
 ### 5. [Utført] Stram inn purl.org-throttlinga
 
@@ -231,24 +245,22 @@ gevinst, sidan kompleksiteten er vesentleg høgare enn dei føregåande.
 3. ~~Implementer tiltak 2 (docs-publish/docs-build-cache)~~ **[Utført]**
 4. Mål effekt av tiltak 2, tilsvarande steg 2, for "Publiser og bygg
    dokumentasjonsportal"-steget. **Ikkje gjort enno, same grunngjeving.**
-5. Implementer tiltak 3 (cache `generate`-matrisa i denne workflowen):
-   legg til `actions/cache@v6` med identisk key-formel som `generate.yml`,
-   gjer genereringssteget betinga.
+5. ~~Implementer tiltak 3 (cache `generate`-matrisa i denne workflowen)~~
+   **[Utført]**
 6. Mål effekt av tiltak 3 tilsvarande steg 2/4, for `generate`-jobben sin
-   eigen køyretid (ikkje del av dei 454 sekunda i "Bakgrunn").
-7. Implementer tiltak 4 (`ensure-images`-matrisejobb): legg til
-   `images`-output i `checkout-source`, kopier `ensure-images`-jobben
-   verbatim frå `generate.yml`, legg `ensure-images` til `needs:` for
-   `generate` og `lenkjesjekk`.
+   eigen køyretid (ikkje del av dei 454 sekunda i "Bakgrunn"). **Ikkje gjort
+   enno, krev CI-køyring.**
+7. ~~Implementer tiltak 4 (`ensure-images`-matrisejobb)~~ **[Utført]**
 8. Mål effekt av tiltak 4: vanskeleg å måle isolert i normal drift (sidan
    GHCR-images normalt alt finst frå ein tidlegare `generate.yml`-køyring),
    men stadfest at fallback-bygget i `pull-images` ikkje lenger triggast i
    ei normal nattleg køyring (sjekk loggen for "byggjer lokalt"-linjer —
-   skal ikkje finnast når `ensure-images` har køyrt fyrst).
+   skal ikkje finnast når `ensure-images` har køyrt fyrst). **Ikkje gjort
+   enno, krev CI-køyring.**
 9. ~~Implementer tiltak 5 (stram inn purl.org-throttling)~~ **[Utført,
    verifisert lokalt: 0 429-funn med concurrency=3/800ms]**
-10. `actionlint` etter kvar CI-endring (obligatorisk, jf. CLAUDE.md) —
-    **gjort for tiltak 1, 2 og 5; må gjerast på nytt etter tiltak 3 og 4.**
+10. ~~`actionlint` etter kvar CI-endring~~ **[Utført for tiltak 1, 2, 3, 4
+    og 5 — ingen `[expression]`-feil]**
 11. Vurder tiltak 6/7 som eiga oppfølging basert på målt gevinst frå 1–5.
 
 ## Handlingsliste
@@ -257,15 +269,14 @@ gevinst, sidan kompleksiteten er vesentleg høgare enn dei føregåande.
 - [ ] Mål og dokumenter effekt av tiltak 1 (krev CI-køyring)
 - [x] Tiltak 2: cache mkdocs/docs + mkdocs/site, betinga bygg
 - [ ] Mål og dokumenter effekt av tiltak 2 (krev CI-køyring)
-- [ ] Tiltak 3: cache `generate`-matrisa i lenkje-og-mermaid-sjekk.yml
+- [x] Tiltak 3: cache `generate`-matrisa i lenkje-og-mermaid-sjekk.yml
       (same nøkkel-formel som generate.yml)
 - [ ] Mål og dokumenter effekt av tiltak 3 (krev CI-køyring)
-- [ ] Tiltak 4: legg til `ensure-images`-matrisejobb (kopiert frå
+- [x] Tiltak 4: legg til `ensure-images`-matrisejobb (kopiert frå
       generate.yml) + `images`-output i checkout-source + `needs:`-oppdatering
 - [ ] Stadfest at `pull-images` sin fallback-bygg ikkje triggast etter
       tiltak 4 (krev CI-køyring)
 - [x] Tiltak 5: stram inn purl.org-throttling — verifisert 0 429-funn med
       `concurrency=3`/`request_interval=800ms`
-- [x] `actionlint` for tiltak 1, 2, 5
-- [ ] `actionlint` for tiltak 3 og 4
+- [x] `actionlint` for tiltak 1, 2, 3, 4, 5
 - [ ] Vurder tiltak 6/7 som oppfølging basert på målt gevinst

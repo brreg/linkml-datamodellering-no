@@ -20,6 +20,7 @@ jobs:
     outputs:
       domains: ${{ steps.discover.outputs.domains }}
       domain_list: ${{ steps.discover.outputs.domain_list }}
+      images: ${{ steps.image-tags.outputs.images }}
       image_tags: ${{ steps.image-tags.outputs.image_tags }}
     steps:
       - uses: actions/checkout@v7
@@ -43,16 +44,23 @@ jobs:
           retention-days: 1
           include-hidden-files: true
 
-  generate:
-    name: "generate / ${{ matrix.domain }}"
+  # Sikrar at kvart nødvendig image finst i GHCR (bygg + push berre viss det
+  # manglar, via skopeo-sjekk) FØR generate-matrisa treng dei — utan denne
+  # jobben fell kvar av dei ${{ ... }} matrise-cellene i generate tilbake til
+  # eit eige lokalt bygg viss eit image-tag manglar i GHCR, som i verste
+  # fall gjev duplisert byggjekostnad multiplisert med talet på celler. Same
+  # jobb som generate.yml (line 75–122) — sjå
+  # specs/backlog/lenkjesjekk-reduser-clock-time.md.
+  ensure-images:
+    name: "build-image / ${{ matrix.image.name }}"
     needs: [checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      packages: read
+      packages: write
     strategy:
       matrix:
-        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -68,19 +76,80 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Sikre ${{ matrix.image.name }} i GHCR
+        uses: ./.github/actions/ensure-image
+        with:
+          name: ${{ matrix.image.name }}
+          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
+          make_target: ${{ matrix.image.make_target }}
+
+      # lychee er eit tredjeparts, ferdigbygd image (docker.io) — ikkje eit
+      # av våre eigne images.json-image, difor ikkje via ensure-image
+      # (som byggjer+pushar til vårt eige GHCR). Samla likevel her, saman
+      # med resten av "sikre image er klare"-arbeidet, i staden for som eit
+      # eige seint steg midt i lenkjesjekk-jobben. Merk: kvar jobb køyrer på
+      # eigen runner, så dette overfører ikkje biletet til lenkjesjekk sin
+      # runner — `podman run` der pullar framleis sjølv om det manglar
+      # lokalt. Sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
+      - name: Trekk inn lychee
+        run: podman pull docker.io/lycheeverse/lychee:latest
+
+  generate:
+    name: "generate / ${{ matrix.domain }}"
+    needs: [ensure-images, checkout-source]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+    strategy:
+      matrix:
+        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+      fail-fast: false
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
+          path: .
+
+      - name: Cache genererte artefakter (${{ matrix.domain }})
+        id: cache-generated
+        uses: actions/cache@v6
+        with:
+          path: generated/${{ matrix.domain }}/
+          # Identisk nøkkel-formel som generate.yml (line 153–169) — deler
+          # dermed cache-innslag på tvers av workflowar i same repo, sidan
+          # GitHub Actions-cache ikkje er isolert per workflow. Sjå
+          # generate.yml for grunngjeving av den eksplisitte fil-lista, og
+          # specs/backlog/lenkjesjekk-reduser-clock-time.md for kvifor
+          # dette vart lagt til her.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
+
+      - name: Oppgrader crun
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: ./.github/actions/upgrade-crun
+
+      - name: Logg inn på GHCR
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Detekter påkrevde images for ${{ matrix.domain }}
+        if: steps.cache-generated.outputs.cache-hit != 'true'
         id: detect-images
         uses: ./.github/actions/detect-required-images
         with:
           domain: ${{ matrix.domain }}
 
       - name: Last images inn i podman frå GHCR
+        if: steps.cache-generated.outputs.cache-hit != 'true'
         uses: ./.github/actions/pull-images
         with:
           images: ${{ steps.detect-images.outputs.images }}
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
+        if: steps.cache-generated.outputs.cache-hit != 'true'
         uses: ./.github/actions/generate-domain
         with:
           domain: ${{ matrix.domain }}
@@ -337,9 +406,6 @@ jobs:
           key: lychee-cache-${{ github.run_id }}
           restore-keys: |
             lychee-cache-
-
-      - name: Trekk inn lychee
-        run: podman pull docker.io/lycheeverse/lychee:latest
 
       - name: Sjekk lenkjer i dokumentasjon
         run: |
