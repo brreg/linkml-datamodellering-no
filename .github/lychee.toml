@@ -83,6 +83,16 @@ exclude = [
   # mkdocs/docs/fint/). Sjå
   # specs/done/lenkjesjekk-fint-schema-fintlabs-no.md.
   "^https://schema\\.fintlabs\\.no/",
+  # NGR (Nasjonale grunndata)-modellane sitt term-nivå vokabularnamnerom
+  # (ngr:/ngre:/ngrp:/ngrv:-prefiksa, t.d. data.norge.no/vocabulary/ngr-adresse#)
+  # er stadfesta 404 — NGR-modellane er ikkje publiserte på data.norge.no.
+  # Avgrensa til ngr-prefikset (ikkje ei brei /vocabulary/-eksklusjon):
+  # data.norge.no/vocabulary/cccevno er eit separat, framleis ope/uavklara
+  # tilfelle (jf. specs/done/lenkjesjekk-runde2-verifisering.md kategori E).
+  # Merk: sjølve schema-ID-en (default_prefix, data.norge.no/ngr/<schema>/)
+  # er urelatert og fungerer korrekt — berre vokabularnamnerommet er
+  # ekskludert her. Sjå specs/done/lenkjesjekk-ngr-vocabulary-namespace.md.
+  "^https://data\\.norge\\.no/vocabulary/ngr-",
 ]
 
 # purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i
