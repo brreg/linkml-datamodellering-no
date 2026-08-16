@@ -167,7 +167,7 @@ jobs:
                 fail=$((fail + 1))
                 echo "| $src | $idx | **FEIL** |" >> "$report"
                 message=$(tail -n 5 "$logfile" | tr '\n' ' ' | sed 's/"/'"'"'/g')
-                echo "::warning file=${src}::Mermaid-diagram nr. ${idx} rendrar ikkje: ${message}"
+                echo "::warning file=${src}::${src} (diagram nr. ${idx}) rendrar ikkje: ${message}"
               fi
             done < "$manifest"
           fi
@@ -176,6 +176,10 @@ jobs:
             echo ""
             echo "**Totalt: ${total} diagram, ${fail} feila.**"
           } >> "$report"
+
+          echo ""
+          echo "== Mermaid-rendering: oppsummering =="
+          cat "$report"
 
           {
             echo "## Mermaid-rendering"
@@ -194,6 +198,11 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+    env:
+      # Sett låg concurrency for å unngå HTTP 429 (rate limiting) frå
+      # GitHub Pages-CDN-en ved samtidig henting av mange sider — sjå
+      # specs/backlog/mermaid-click-href-429-retry.md.
+      CLICK_HREF_SJEKK_CONCURRENCY: 1
     steps:
       - name: Sjekk ut repo
         uses: actions/checkout@v7
@@ -209,7 +218,7 @@ jobs:
         run: |
           python3 mkdocs/lib/scripts/check-mermaid-click-hrefs.py \
             https://brreg.github.io/linkml-datamodellering-no \
-            --concurrency 10 \
+            --concurrency "$CLICK_HREF_SJEKK_CONCURRENCY" \
             --report click-href-sjekk-report.md
 
       - name: Skriv oppsummering

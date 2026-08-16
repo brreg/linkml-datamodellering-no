@@ -52,6 +52,6 @@ oppdatere alle modellar med status UNDER_DEVELOPMENT
 
 erstatte namn med navn  
 
-lese CodeQL sine 23 åpne issues og lage fiks for kvar av dei.
+lese CodeQL sine 23 åpne issues og skriv spec med fiks for kvar gruppering
 
 badges i readme

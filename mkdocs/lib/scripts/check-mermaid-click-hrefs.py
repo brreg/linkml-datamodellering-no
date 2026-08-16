@@ -14,17 +14,26 @@ usynlege for `validation.links` i mkdocs.yml. Sjå
 specs/backlog/mermaid-klikkbare-lenker-404.md.
 
 Bruk: python3 check-mermaid-click-hrefs.py <site_url> [--concurrency N] [--report PATH]
+
+Alle HTTP-oppslag (sidehenting og eksterne HEAD-sjekkar) brukar automatisk
+eksponentiell backoff med jitter ved 429/5xx-svar eller nettverksfeil (opptil
+MAX_RETRIES forsøk), og respekterer ein evt. Retry-After-header frå
+429-svaret — sjå specs/backlog/mermaid-click-href-429-retry.md.
 """
 
 import argparse
 import html
+import random
 import re
 import sys
 import threading
+import time
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, urlopen
 
@@ -36,11 +45,79 @@ MERMAID_BLOCK_RE = re.compile(r'<pre class="mermaid">(.*?)</pre>', re.S)
 CLICK_RE = re.compile(r'click\s+(\S+)\s+href\s+"([^"]*)"')
 TIMEOUT_S = 15
 
+# Retry/backoff-konfigurasjon (429/5xx-handtering, sjå
+# specs/backlog/mermaid-click-href-429-retry.md).
+MAX_RETRIES = 5
+RETRY_BASE_DELAY_S = 1.0
+RETRY_MAX_DELAY_S = 30.0
+RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+
 # Cache for eksterne URL-oppslag (BUG-13) — same eksterne URL (t.d. ein
 # XSD-typeanker) kan opptre i click-hrefar på svært mange sider, og bør
 # berre sjekkast éin gong per køyring.
 _EXTERNAL_LINK_CACHE: dict[str, bool] = {}
 _EXTERNAL_LINK_LOCK = threading.Lock()
+
+
+def _parse_retry_after(header_value: str | None) -> float | None:
+    """Tolk ein Retry-After-header (sekund eller HTTP-dato-format).
+
+    Returnerer None dersom header manglar eller ikkje kan tolkast.
+    """
+    if not header_value:
+        return None
+    header_value = header_value.strip()
+    try:
+        return max(0.0, float(header_value))
+    except ValueError:
+        pass
+    try:
+        retry_at = parsedate_to_datetime(header_value)
+    except (TypeError, ValueError):
+        return None
+    if retry_at is None:
+        return None
+    if retry_at.tzinfo is None:
+        retry_at = retry_at.replace(tzinfo=timezone.utc)
+    return max(0.0, (retry_at - datetime.now(timezone.utc)).total_seconds())
+
+
+def _retry_delay(attempt: int, retry_after: float | None) -> float:
+    """Ventetid før neste forsøk: Retry-After når gyldig, elles eksponentiell
+    backoff (basis * 2^(attempt-1)) pluss jitter, avgrensa til RETRY_MAX_DELAY_S.
+    """
+    if retry_after is not None:
+        return min(retry_after, RETRY_MAX_DELAY_S)
+    backoff = RETRY_BASE_DELAY_S * (2 ** (attempt - 1))
+    jitter = random.uniform(0, RETRY_BASE_DELAY_S)
+    return min(backoff + jitter, RETRY_MAX_DELAY_S)
+
+
+def _urlopen_with_retry(req_or_url, *, timeout: float = TIMEOUT_S):
+    """urlopen() med eksponentiell backoff + jitter ved 429/5xx/nettverksfeil.
+
+    Respekterer ein evt. Retry-After-header frå 429-svaret. Kastar siste feil
+    vidare umiddelbart dersom han ikkje er retryable (t.d. 404), eller etter
+    MAX_RETRIES forsøk. Feilen som til slutt vert kasta, får eit
+    `.retry_attempts`-attributt som fortel kor mange forsøk som vart gjort.
+    """
+    last_exc: Exception
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return urlopen(req_or_url, timeout=timeout)  # noqa: S310 — kjende, faste URL-ar
+        except HTTPError as exc:
+            retryable = exc.code in RETRYABLE_STATUS
+            retry_after = _parse_retry_after(exc.headers.get("Retry-After")) if exc.headers else None
+            last_exc = exc
+        except (URLError, TimeoutError, OSError) as exc:
+            retryable = True
+            retry_after = None
+            last_exc = exc
+        last_exc.retry_attempts = attempt
+        if not retryable or attempt == MAX_RETRIES:
+            raise last_exc
+        time.sleep(_retry_delay(attempt, retry_after))
+    raise last_exc  # pragma: no cover — løkka raiser eller returnerer alltid før dette punktet
 
 
 def normalize(url: str) -> str:
@@ -52,7 +129,7 @@ def normalize(url: str) -> str:
 
 
 def fetch(url: str) -> str:
-    with urlopen(url, timeout=TIMEOUT_S) as resp:  # noqa: S310 — kjende, faste GitHub Pages-URLar
+    with _urlopen_with_retry(url) as resp:
         return resp.read().decode("utf-8", errors="replace")
 
 
@@ -70,7 +147,7 @@ def check_external_url(url: str) -> bool:
     ok = True
     try:
         req = Request(url, method="HEAD")  # noqa: S310 — kjende eksterne vokabular-URL-ar
-        with urlopen(req, timeout=TIMEOUT_S) as resp:  # noqa: S310
+        with _urlopen_with_retry(req) as resp:
             ok = 200 <= resp.status < 400
     except (URLError, TimeoutError, OSError):
         ok = False
@@ -106,10 +183,16 @@ def check_page(url: str, known_paths: set[str], site_netloc: str) -> tuple[str, 
     try:
         body = fetch(url)
     except (URLError, TimeoutError, OSError) as exc:
+        attempts = getattr(exc, "retry_attempts", 1)
+        status = (
+            f"HENTING FEILA ETTER {attempts} FORSØK: {exc}"
+            if attempts > 1
+            else f"HENTING FEILA: {exc}"
+        )
         findings.append({
             "name": None,
             "href": None,
-            "status": f"HENTING FEILA: {exc}",
+            "status": status,
         })
         return url, findings
 
@@ -135,7 +218,7 @@ def check_page(url: str, known_paths: set[str], site_netloc: str) -> tuple[str, 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("site_url", help="Bas-URL til publisert portal, t.d. https://brreg.github.io/linkml-datamodellering-no")
-    parser.add_argument("--concurrency", type=int, default=10)
+    parser.add_argument("--concurrency", type=int, default=5)
     parser.add_argument("--report", type=Path, default=None, help="Skriv markdown-rapport til denne fila")
     args = parser.parse_args()
 

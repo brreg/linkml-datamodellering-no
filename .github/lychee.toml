@@ -26,3 +26,10 @@ exclude = [
   "^https?://localhost",
   "^https?://host\\.containers\\.internal",
 ]
+
+# purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i
+# svært mange genererte sider og rate-limitar oss ved global concurrency —
+# sjå specs/backlog/lenkjesjekk-purl-org-429.md.
+[hosts."purl.org"]
+concurrency = 2
+request_interval = "1s"
