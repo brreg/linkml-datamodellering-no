@@ -41,6 +41,48 @@ exclude = [
   # som sjekkast, stadfesta både på rot og under /collections/...) —
   # sjå specs/done/lenkjesjekk-3817-feil-evaluering.md
   "^https://concept-catalog\\.fellesdatakatalog\\.digdir\\.no/",
+  # ADMS publishertype-termen "PrivateIndividual(s)" er den korrekte,
+  # kanoniske SKOS-notasjonen i sjølve ADMS-AP-vokabularet (stadfesta mot
+  # kjelde-RDF-en frå SEMICeu/ADMS-AP), men parentesane i URI-stien ser ut
+  # til å bryte ruteoppslaget hjå purl.org sin nye purl.archive.org-backend
+  # — stadfesta 404 med og utan URL-encoding, medan søskenterma utan
+  # parentes (Company, LocalAuthority m.fl.) løyser seg korrekt (200). Ikkje
+  # ei brei purl.org-eksklusjon: resten av purl.org/adms/-termane skal
+  # framleis sjekkast. Sjå specs/done/lenkjesjekk-runde2-verifisering.md
+  # kategori B.
+  "^https?://purl\\.org/adms/publishertype/PrivateIndividual",
+  # w3id.org sitt LinkML-alias for linkml:types (importert transitivt via
+  # common-ap-no-schema, jf. CLAUDE.md § Importhierarki — ikkje noko repoet
+  # sjølv skriv eller kan rette). Peikar via HTTP-redirect til
+  # linkml.io/linkml-model/types, som er ei "mike"-versjonsrouter-side som
+  # gjer redirecten vidare til reelt innhald via klientside JavaScript, ikkje
+  # HTTP — usynleg for alle ikkje-JS lenkjesjekkarar (stadfesta levande for
+  # nettlesarar, alltid 404 for curl/lychee). Sjå
+  # specs/done/lenkjesjekk-runde2-verifisering.md kategori C.
+  "^https://w3id\\.org/linkml/",
+  # CHANGELOG.md-compare-lenkjer er autogenererte av release-please.
+  # Stadfesta at nokre av dei refererte git-taggane manglar i repoet (t.d.
+  # dcat-ap-no-v2.7.0, dqv-ap-no-v1.8.0) — ein separat feil i
+  # release-please sin tag-opprettingslogikk, ikkje noko denne lenkja sjølv
+  # kan rette. Sjå specs/done/lenkjesjekk-runde2-verifisering.md
+  # kategori G for vidare gransking.
+  "^https://github\\.com/brreg/linkml-datamodellering-no/compare/",
+  # schema.fintlabs.no er default_prefix/fint:-namnerommet for alle
+  # FINT-domeneskjema (fint-administrasjon, fint-arkiv, fint-common,
+  # fint-okonomi, fint-personvern, fint-ressurs, fint-utdanning). Stadfesta
+  # bak eit kommersielt API-tilgangsgateway (Via-header identifiserer
+  # "Access Gateway") — 403 på rot/namnerom, 404 på alle testa termstiar,
+  # identisk resultat med tomt/text/html/application/json/text/turtle
+  # Accept-header (ikkje content negotiation, jf. xmlns.com/data.norge.no
+  # under). Null arkiverte Wayback-snapshot nokosinne, verken for rota
+  # eller enkeltoppslag — verten har aldri vore offentleg gjennomsøkbar.
+  # URI-ane sjølve er korrekte FINT-API-identifikatorar, berre ikkje
+  # offentleg browsable. Same feilklasse som concept-catalog- og
+  # purl.org-eksklusjonane over. Størst enkeltkjelde til gjenståande
+  # lenkjesjekk-feil identifisert (8330 lenkjeførekomstar, 934 filer i
+  # mkdocs/docs/fint/). Sjå
+  # specs/done/lenkjesjekk-fint-schema-fintlabs-no.md.
+  "^https://schema\\.fintlabs\\.no/",
 ]
 
 # purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i
@@ -51,3 +93,19 @@ exclude = [
 [hosts."purl.org"]
 concurrency = 3
 request_interval = "500ms"
+
+# Begge vertane under gjer ekte HTTP content negotiation og returnerer 404
+# for eit bart oppslag utan Accept-header (lychee sin standardåtferd),
+# sjølv om ressursen er fullt fungerande for ein nettlesar — stadfesta ved
+# manuell verifisering. Sjå
+# specs/done/lenkjesjekk-runde2-verifisering.md kategori D og F.
+[hosts."xmlns.com"]
+headers = { "accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" }
+
+# Testa mot alle path-typar verten brukast til i repoet (schema-ID-ar under
+# /ap-no/, /fint/ osb., /concepts/<uuid>, /organizations/<orgnr>) — same
+# Accept-header fungerer identisk (200) for alle, så trygt å setje globalt
+# for verten. /vocabulary/cccevno held fram med å vere eit ekte 404
+# uavhengig av header (sjå kategori E — ingen eksklusjon der, framleis ope).
+[hosts."data.norge.no"]
+headers = { "accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" }

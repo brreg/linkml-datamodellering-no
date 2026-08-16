@@ -450,7 +450,12 @@
       "Bash(echo \"Exit code: $?\")",
       "Bash(LOGLVL=INFO make -n test)",
       "Bash(LOGLVL=INFO make test SCHEMA=/nonexistent-schema.yaml)",
-      "Bash(ps aux *)"
+      "Bash(ps aux *)",
+      "WebFetch(domain:purl.org)",
+      "WebFetch(domain:purl.archive.org)",
+      "WebFetch(domain:w3id.org)",
+      "WebFetch(domain:linkml.github.io)",
+      "WebFetch(domain:xmlns.com)"
     ]
   },
   "enableAllProjectMcpServers": true,

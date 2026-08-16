@@ -211,7 +211,7 @@ enums:
         meaning: http://purl.org/adms/publishertype/Academia-ScientificOrganisation
       PRIVATE_INDIVIDUAL:
         description: Privatperson
-        meaning: http://purl.org/adms/publishertype/PrivateIndividual
+        meaning: http://purl.org/adms/publishertype/PrivateIndividual(s)
       INDUSTRY_CONSORTIUM:
         description: Industrikonsortium
         meaning: http://purl.org/adms/publishertype/IndustryConsortium

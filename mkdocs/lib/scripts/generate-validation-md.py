@@ -81,9 +81,9 @@ def main() -> None:
     # bronze/silver/gold/felles-*: ### <policy> → #<policy>
     # Anchor-namnet er identisk med policy-namnet
     # Bruk relativ path frå <domain>/<schema>/index.md til arkitektur/valideringsregler.md
-    # (to nivå opp, so inn i arkitektur/: ../../arkitektur/valideringsregler/)
+    # (to nivå opp, so inn i arkitektur/: ../../arkitektur/valideringsregler.md)
     anchor = policy
-    policy_link = f"[policy: {policy}](../../arkitektur/valideringsregler/#{anchor})"
+    policy_link = f"[policy: {policy}](../../arkitektur/valideringsregler.md#{anchor})"
 
     lines = [
         "",
