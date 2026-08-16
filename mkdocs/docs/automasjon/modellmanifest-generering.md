@@ -225,7 +225,7 @@ Dersom `gen-informasjonsmodell-instance` feiler for eit skjema:
 - Ugyldig URI-format i annotations
 - CODEOWNERS.md manglar YAML-frontmatter eller matchande organisasjon
 
-## Relaterte dokument
+## Relatert dokumentasjon
 
 - [specs/done/manifest-som-modelldcat-datafil.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/manifest-som-modelldcat-datafil.md) — Hovudspec for ModelDCAT-manifest-design
 - [specs/done/autogenerer-modellmanifest-i-domain-make.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/autogenerer-modellmanifest-i-domain-make.md) — Implementeringsspec (generering i domain-*)

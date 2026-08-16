@@ -50,4 +50,4 @@ exclude = [
 # stadfesta robust — sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
 [hosts."purl.org"]
 concurrency = 3
-request_interval = "800ms"
+request_interval = "500ms"

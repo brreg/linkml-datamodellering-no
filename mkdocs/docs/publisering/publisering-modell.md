@@ -210,10 +210,10 @@ make docs-publish
 
 ---
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Ny domenemodell](../kom-i-gang/ny-domenemodell.md) — opprette nytt skjema
 - [`felles-datakatalog.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/felles-datakatalog.yaml) — full policy-definisjon
-- [`specs/publisering-felles-datakatalog.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/publisering-felles-datakatalog.md) — teknisk spesifikasjon
+- [`specs/done/publisering-felles-datakatalog.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/publisering-felles-datakatalog.md) — teknisk spesifikasjon
 - [ModelDCAT-AP-NO-spesifikasjonen](https://data.norge.no/specification/modelldcat-ap-no)
 - [Felles Datakatalog — modellar](https://data.norge.no/models)

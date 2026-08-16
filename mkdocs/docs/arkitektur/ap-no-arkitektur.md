@@ -134,8 +134,8 @@ den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 **Forklaring SK5:** 
 - **`har_definisjon`** — instanssjekk implementert (`begrep_har_definisjon_pa_nb_og_nn` i `felles-begrepskatalog`-policy) via ID-suffiks-konvensjon
 - **`anbefalt_term`** — schemasjekk implementert (`begrep_anbefalt_term_er_multivalued_langstring`) som verifiserer at skjemaet har `range: LangString` og `multivalued: true`
-- **Avgrensing:** LangString-verdiar i YAML bærer ikkje språk-tag per verdi (sjå `specs/bugs/langstring-rdflib-roundtrip.md`), så instansvalidering av tospråkdekning må gjerast i RDF-fase (TTL + SHACL)
-- Sjå `specs/backlog/spraaktagging-langstring.md` for detaljar og framtidig SHACL-validering
+- **Avgrensing:** LangString-verdiar i YAML bærer ikkje språk-tag per verdi (sjå [`bugs/langstring-rdflib-roundtrip.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/langstring-rdflib-roundtrip.md)), så instansvalidering av tospråkdekning må gjerast i RDF-fase (TTL + SHACL)
+- Sjå [`specs/done/spraaktagging-langstring.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/spraaktagging-langstring.md) for detaljar og framtidig SHACL-validering
 
 ---
 
@@ -208,15 +208,15 @@ Særnorske bokstavar translittererast i klassenamn, slotnamn og URI-lokaldel:
 
 ---
 
-## Referansar
+## Relatert dokumentasjon
 
-- `specs/done/avvik-dcat-ap-no.md` — detaljert kartlegging DCAT-AP-NO
-- `specs/done/avvik-dqv-ap-no.md` — detaljert kartlegging DQV-AP-NO (DQ5 dokumentert)
-- `specs/done/avvik-skos-ap-no.md` — kartlegging SKOS-AP-NO (SK1-SK5)
-- `specs/done/avvik-xkos-ap-no.md` — kartlegging XKOS-AP-NO (XK1-XK7 utførte)
-- `specs/done/xkos-ap-no-resterande-avvik.md` — XKOS-AP-NO XK8-XK11 (utførte 2026-07-07)
-- `specs/done/avvik-modelldcat-ap-no.md` — kartlegging ModelDCAT-AP-NO (MC3, MC8 utførte)
-- `specs/done/avvik-cpsv-ap-no.md` — systematisk kartlegging CPSV-AP-NO (AVVIK 1-5 utførte 2026-07-27)
-- `specs/backlog/spraaktagging-langstring.md` — SK5 tospråkskrav (delvis løyst)
-- `specs/done/ap-no-arkitektur-audit-2026-07.md` — fullstendig audit av alle 6 AP-NO-skjema (juli 2026)
-- `specs/done/avvik-felles-modelleringsregler.md` — Digdir-modelleringsreglar
+- [`specs/done/avvik-dcat-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-dcat-ap-no.md) — detaljert kartlegging DCAT-AP-NO
+- [`specs/done/avvik-dqv-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-dqv-ap-no.md) — detaljert kartlegging DQV-AP-NO (DQ5 dokumentert)
+- [`specs/done/avvik-skos-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-skos-ap-no.md) — kartlegging SKOS-AP-NO (SK1-SK5)
+- [`specs/done/avvik-xkos-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-xkos-ap-no.md) — kartlegging XKOS-AP-NO (XK1-XK7 utførte)
+- [`specs/done/xkos-ap-no-resterande-avvik.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/xkos-ap-no-resterande-avvik.md) — XKOS-AP-NO XK8-XK11 (utførte 2026-07-07)
+- [`specs/done/avvik-modelldcat-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-modelldcat-ap-no.md) — kartlegging ModelDCAT-AP-NO (MC3, MC8 utførte)
+- [`specs/done/avvik-cpsv-ap-no.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-cpsv-ap-no.md) — systematisk kartlegging CPSV-AP-NO (AVVIK 1-5 utførte 2026-07-27)
+- [`specs/done/spraaktagging-langstring.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/spraaktagging-langstring.md) — SK5 tospråkskrav (delvis løyst)
+- [`specs/done/ap-no-arkitektur-audit-2026-07.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/ap-no-arkitektur-audit-2026-07.md) — fullstendig audit av alle 6 AP-NO-skjema (juli 2026)
+- [`specs/done/avvik-felles-modelleringsregler.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-felles-modelleringsregler.md) — Digdir-modelleringsreglar

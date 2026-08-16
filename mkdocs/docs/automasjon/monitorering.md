@@ -395,7 +395,7 @@ skjer *etter* at artefakter er publiserte til GitHub Pages.
 
 ---
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md) — rettleiing for begrepskatalogar
 - [Publiser til Felles Datakatalog](../publisering/publisering-modell.md) — rettleiing for modellkatalogar

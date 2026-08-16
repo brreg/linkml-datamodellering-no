@@ -12,7 +12,7 @@
 | [Publiser til Felles Begrepskatalog](publisering-begrep.md) | Korleis begrepsdefinisjonar vert konverterte til SKOS/Turtle og tilrettelagt for hausting til Felles Begrepskatalog. |
 | [Publiser til Felles Datakatalog](publisering-modell.md) | Korleis informasjonsmodellar vert skildra i ModelDCAT-AP-NO-format og tilrettelagt for hausting til Felles Datakatalog. |
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Arkitektur](../arkitektur/index.md) — importhierarki, valideringsreglar og strukturelle val bak skjemaa som vert publiserte
 - [Automasjon](../automasjon/index.md) — dei tekniske genereringsdetaljane bak kvart artefakt og kvar portalside, og korleis du overvakar automasjonen

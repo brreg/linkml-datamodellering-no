@@ -24,7 +24,7 @@ lokal installasjon av Python eller LinkML-verktøy er nødvendig. Sjå
 oppskrift på lokalt oppsett (WSL2, Git, Podman, GNU make) og dei to typiske
 løypene — datamodellering og begrepsmodellering — steg for steg.
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Arkitektur](../arkitektur/index.md) — korleis skjemaa heng saman
 - [Publisering](../publisering/index.md) — korleis genererte artefakt vert tilrettelagt for hausting til nasjonale katalogar

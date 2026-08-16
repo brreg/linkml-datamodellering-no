@@ -422,3 +422,9 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 **Fullstendig oversikt:** Sjå [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md) for komplett liste over kjende bugs og workarounds.
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
+
+## Relatert dokumentasjon
+
+- [Publiser til Felles Datakatalog](../publisering/publisering-modell.md) — pipeline og URI-stabilitet for det nye skjemaet
+- [Importhierarki](../arkitektur/importhierarki.md) — kva du kan importere frå og korleis
+- [Ny organisasjon](ny-org.md) — dersom domenemodellen høyrer til ein ny organisasjon

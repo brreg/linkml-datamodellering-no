@@ -326,10 +326,10 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 
 ---
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Ny begrepskatalog](../kom-i-gang/ny-begrepsmodell.md) — opprette nytt skjema
 - [`felles-begrepskatalog.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/policies/felles-begrepskatalog.yaml) — full policy-definisjon
-- [`specs/publisering-felles-begrepskatalog.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/publisering-felles-begrepskatalog.md) — teknisk spesifikasjon
+- [`specs/done/publisering-felles-begrepskatalog.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/publisering-felles-begrepskatalog.md) — teknisk spesifikasjon
 - [SKOS-AP-NO-Begrep-spesifikasjonen](https://informasjonsforvaltning.github.io/skos-ap-no-begrep/)
 - [Dele data — data.norge.no](https://data.norge.no/nb/docs/sharing-data)

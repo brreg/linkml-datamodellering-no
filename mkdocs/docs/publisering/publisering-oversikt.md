@@ -417,7 +417,7 @@ validation_policy: felles-begrepskatalog  # Valideringspolicy
 
 ---
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [publisering-begrep.md](publisering-begrep.md) — rettleiing for begrepskatalog
 - [publisering-modell.md](publisering-modell.md) — rettleiing for modellkatalog

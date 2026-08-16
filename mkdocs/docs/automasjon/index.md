@@ -15,7 +15,7 @@
 | [README-tabellgenerering](readme-tabellgenerering.md) | Korleis dei tre auto-genererte tabellane i `README.md` (domene, skjema, begrepskatalogar/modellkatalogar) vert haldne konsistente med `generated/`-strukturen. |
 | [Monitorering av automasjon](monitorering.md) | Korleis du overvakar at generering og publisering av artefakt fungerer som forventa — GitHub Actions-loggar, valideringsresultat og feilsøking. |
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Arkitekturoversikt](../arkitektur/arkitektur-oversikt.md) — den heilskaplege flyten desse sidene er detaljar av
 - [Kom i gang](../kom-i-gang/index.md) — praktiske steg-for-steg-rettleiingar

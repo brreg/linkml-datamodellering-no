@@ -203,3 +203,9 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 **Fullstendig oversikt:** Sjå [BUGS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/BUGS.md) for komplett liste over kjende bugs og workarounds.
 
 **Rapporter nye problem:** Opne eit [GitHub Issue](https://github.com/brreg/linkml-datamodellering-no/issues) med merkelappen `bug`.
+
+## Relatert dokumentasjon
+
+- [Ny domenemodell](ny-domenemodell.md) — opprette nytt skjema for den nye organisasjonen
+- [Ny begrepskatalog](ny-begrepsmodell.md) — opprette ny begrepskatalog for den nye organisasjonen
+- [GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md) — roller, eigarskap og RFC-prosess

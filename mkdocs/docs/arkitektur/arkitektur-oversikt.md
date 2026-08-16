@@ -247,7 +247,7 @@ flowchart BT
   - Alle desse koplingane er **pull**: ingen av konsumentane mottek push frå
     dette repoet, i tråd med "Pull, ikkje push"-prinsippet.
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Artefaktgenerering — kjelder og pipeline](../automasjon/artefakt-generering.md) — detaljert kjeldesporing for kvar automatisk generert artefakt
 - [Publiseringsoversikt](../publisering/publisering-oversikt.md) — "Pull, ikkje push"-prinsippet, kvar genererte filer endar, og steg-for-steg-flyt til data.norge.no

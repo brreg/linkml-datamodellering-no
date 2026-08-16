@@ -266,7 +266,7 @@ tolkar loggane frå begge workflowane — sjå
 | `Informasjonsmodell`/modellkatalog-oppføringar | `generate-informasjonsmodell.py` — sjå [Generering av modellmanifest](modellmanifest-generering.md) (§ 3.6) |
 | Kva artefakt-filer som er lenka i portalen | Faktiske filer på disk i `generated/<domain>/<modell>/`, ikkje `build.yaml`-flagga direkte (§ 4) |
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Arkitekturoversikt](../arkitektur/arkitektur-oversikt.md) — heilskapsbiletet: korleis denne pipelinen heng saman med MCP-serverar, CI og eksterne konsumentar
 - [Struktur for index.md](index-md-struktur.md) — djupdykk i seksjonane i kvart skjema sin publiserte side

@@ -275,6 +275,15 @@ grep -o 'id="[^"]*"' mkdocs/site/<sti-til-sida>/index.html
 
 Gjeld berre interne lenkjer til overskrifter i **statisk** innhald i `mkdocs/docs/` (rettleiingssider) — genererte skjema-sider sine interne lenkjer (klasser, slots osv.) vert alt bygde frå faktiske `id`-ar av gen-doc-malen, ikkje handskrivne.
 
+### Relative vs. absolutte lenkjer i portalinnhald
+
+Lenkjer i `.md`-filer skal følgje kor målet faktisk bur:
+
+- **Mål som er bygd inn i mkdocs-portalen** (finst under `mkdocs/docs/` etter `publish.sh` — anten statisk rettleiingsinnhald eller generert domene-/skjemainnhald) → bruk **relative lenkjer** (t.d. `../publisering/publisering-modell.md` eller `klasser/status.md`), aldri absolutte URL-ar til `brreg.github.io` eller GitHub. Relative lenkjer vert validerte av mkdocs sin eigen `validation.links` ved bygg (fangar broten interne referansar før publisering, jf. § Ankerlenkjer over) og fungerer korrekt både i lokal `mkdocs serve`-førehandsvising og på den publiserte portalen.
+- **Mål som ikkje er bygd for portalen** (t.d. `BUGS.md`, `specs/`, kjeldeskjema under `src/linkml/`, andre repo-filer utanfor `mkdocs/docs/`) → bruk **absolutt lenkje** til fila i GitHub-repoet (`https://github.com/brreg/linkml-datamodellering-no/blob/main/<sti>`). Desse måla har ingen portal-relativ sti i det heile, sidan dei aldri vert kopierte inn i `mkdocs/docs/`.
+
+Sjå `specs/done/lenkjesjekk-3817-feil-evaluering.md` for eit konkret eksempel på brotet denne regelen skal hindre: fleire rettleiingssider i `mkdocs/docs/` lenka til `specs/bugs/README.md` (ein sti som ikkje finst, og som uansett aldri ville vore ei gyldig relativ portallenkje sidan `specs/` ikkje er portalinnhald) i staden for korrekt absolutt lenkje til `BUGS.md`.
+
 ## Modelleringsprinsipper
 
 ### Skriftspråk

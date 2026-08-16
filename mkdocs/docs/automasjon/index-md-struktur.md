@@ -238,8 +238,8 @@ mkdocs/docs/<domain>/<schema>/index.md              ← OUTPUT (auto-generert, i
 - **`src/assets/scripts/makefile/filter_plantuml.py`** — filterer PlantUML-diagram til kun lokale klasser
 - **`src/assets/templates/docgen/index.md.jinja2`** — Jinja2-template for gen-doc (genererer `generated/<domain>/<schema>/docs/index.md`)
 
-## Sjå også
+## Relatert dokumentasjon
 
-- **`CLAUDE.md`** — normativ kjelde for modelleringsprinsipper
-- **`COMMANDS.md`** — fullstendig oversikt over make-targets
-- **`mkdocs/docs/kom-i-gang/ny-domenemodell.md`** — steg-for-steg-rettleiing for å lage ny modell
+- [`CLAUDE.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/CLAUDE.md) — normativ kjelde for modelleringsprinsipper
+- [`COMMANDS.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md) — fullstendig oversikt over make-targets
+- [Ny domenemodell](../kom-i-gang/ny-domenemodell.md) — steg-for-steg-rettleiing for å lage ny modell

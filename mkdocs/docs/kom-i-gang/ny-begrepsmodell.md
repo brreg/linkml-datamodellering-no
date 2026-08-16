@@ -252,9 +252,9 @@ sjå [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md).
 
 ---
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Begrep - domeneindeks](../begrepskatalog/index.md)
 - [Publiser til Felles Begrepskatalog](../publisering/publisering-begrep.md) — pipeline og URI-stabilitet
-- [`specs/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/begrep-modellering.md) — fullstendig teknisk spesifikasjon
+- [`specs/done/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/begrep-modellering.md) — fullstendig teknisk spesifikasjon
 - [`src/mcp-linkml-begrep-utkast/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) — dokumentasjon for MCP-serveren

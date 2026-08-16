@@ -14,7 +14,7 @@
 | [AP-NO arkitektur og avvik](ap-no-arkitektur.md) | Korleis AP-NO-skjemaa (DCAT, SKOS, CPSV, DQV m.fl.) er bygde opp i dette repoet, og kvar og kvifor dei medvite avvik frå spesifikasjonane. |
 | [Bruk frå eksternt repo](ekstern-bruk.md) | Korleis eit anna repo kan importere AP-NO-profilane og bruke repoet sine reusable GitHub Actions-workflowar utan å leve inni monorepoet. |
 
-## Sjå òg
+## Relatert dokumentasjon
 
 - [Kom i gang](../kom-i-gang/index.md) — praktiske steg-for-steg-rettleiingar for å ta i bruk repoet
 - [Publisering](../publisering/index.md) — korleis genererte artefakt vert tilrettelagt for hausting til nasjonale katalogar
