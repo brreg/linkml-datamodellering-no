@@ -5,6 +5,13 @@ timeout = 20
 max_retries = 2
 retry_wait_time = 5
 
+# Persistert lenkje-cache på tvers av CI-køyringar (via actions/cache i
+# lenkje-og-mermaid-sjekk.yml) — unngår å re-sjekke dei same ~10 000 unike
+# URL-ane kvar natt. 1 dag sikrar at nybrotne lenkjer framleis vert fanga
+# opp innan neste døgn — sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
+cache = true
+max_cache_age = "1d"
+
 # Byggoutput, ikkje kjeldekode — sjå CLAUDE.md § Katalogstruktur.
 # specs/ er arkivert/planlagd spesifikasjonsdokumentasjon, aldri publisert
 # portalinnhald (jf. mkdocs.yml sin docs_dir) — arkiverte spesifikasjonar
@@ -38,7 +45,9 @@ exclude = [
 
 # purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i
 # svært mange genererte sider og rate-limitar oss ved global concurrency —
-# sjå specs/backlog/lenkjesjekk-purl-org-429.md.
+# sjå specs/done/lenkjesjekk-purl-org-429.md. Verdiane er stramma inn frå
+# opphavleg konservative concurrency=2/1s etter at retry/backoff vart
+# stadfesta robust — sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
 [hosts."purl.org"]
-concurrency = 2
-request_interval = "1s"
+concurrency = 3
+request_interval = "800ms"

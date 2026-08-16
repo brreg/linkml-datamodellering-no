@@ -271,7 +271,27 @@ jobs:
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
+      - name: Cache publisert dokumentasjonsportal
+        id: cache-docs
+        uses: actions/cache@v6
+        with:
+          path: |
+            mkdocs/docs
+            mkdocs/site
+          # generated/ (etter samanslåing over) er hovuddrivaren for
+          # innhaldet; "infra"-delen listar publish.sh sine eigne
+          # kjelder (mkdocs/lib/**, README.md → index.md,
+          # policies/README.md → valideringsregler.md) og dei statiske
+          # rettleiingskatalogane publish.sh medvite ikkje rører (jf.
+          # publish.sh line ~171 sin explicit continue-liste) — same
+          # eksplisitte fil-liste-prinsipp som generate.yml (unngår at eit
+          # breitt mønster invaliderer cachen ved urelaterte endringar, jf.
+          # specs/done/docs-only-endring-cache-miss-alle-domene.md). Sjå
+          # specs/backlog/lenkjesjekk-reduser-clock-time.md.
+          key: v1-docs-${{ hashFiles('generated/**') }}-infra-${{ hashFiles('mkdocs/publish.sh', 'mkdocs/lib/**', 'README.md', 'src/mcp-linkml-validator/policies/README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'mkdocs/docs/kom-i-gang/**', 'mkdocs/docs/arkitektur/**', 'mkdocs/docs/publisering/**', 'mkdocs/docs/automasjon/**', 'mkdocs/docs/stylesheets/**', 'mkdocs/docs/javascripts/**', 'make/50-docs.mk', 'Makefile') }}
+
       - name: Publiser og bygg dokumentasjonsportal
+        if: steps.cache-docs.outputs.cache-hit != 'true'
         env:
           LOGLVL: DEBUG
         run: |
@@ -296,6 +316,27 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
           exit "$build_rc"
+
+      - name: Hopp over bygg (cache-treff)
+        if: steps.cache-docs.outputs.cache-hit == 'true'
+        run: |
+          echo "Cache-treff for mkdocs/docs + mkdocs/site (uendra generated/ og publish.sh-kjelder) — hoppar over docs-publish/docs-build."
+          {
+            echo "## MkDocs build-åtvaringar"
+            echo "Cache-treff — docs-publish/docs-build hoppa over sidan innhaldet er uendra. Byggjevarsel vart sist sjekka då cachen vart skriven."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Cache lychee sitt lenkje-cache
+        uses: actions/cache@v6
+        with:
+          path: .lycheecache
+          # Alltid unik nøkkel (run_id) → alltid ny cache lagra ved jobbslutt;
+          # restore-keys hentar siste tilgjengelege cache uavhengig av
+          # eksakt nøkkel, slik at kvar køyring byggjer vidare på førre —
+          # sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
+          key: lychee-cache-${{ github.run_id }}
+          restore-keys: |
+            lychee-cache-
 
       - name: Trekk inn lychee
         run: podman pull docker.io/lycheeverse/lychee:latest
