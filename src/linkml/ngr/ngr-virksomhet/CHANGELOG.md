@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-virksomhet-v1.7.0...ngr-virksomhet-v1.7.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* **lenkjesjekk:** rett resterande brotne lenkjer og ekskluder stadfesta upubliserte vokabular ([6cb82bf](https://github.com/brreg/linkml-datamodellering-no/commit/6cb82bfa54ceafaeaab625aae5dcfbaa8241eb2d))
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-virksomhet-v1.6.0...ngr-virksomhet-v1.7.0) (2026-08-14)
 
 

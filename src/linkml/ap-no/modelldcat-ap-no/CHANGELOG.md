@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.15.1](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.15.0...modelldcat-ap-no-v1.15.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* **ap-no,fint,fair,begrepskatalog:** sett status til UnderDevelopment i alle skjema ([2c6215e](https://github.com/brreg/linkml-datamodellering-no/commit/2c6215eac75b1e247f5f10ec355fe9b504c382af))
+* **ap-no,modellkatalog:** fullfør manglande badge-metadata (utgiver, lisens, endringsdato, utgivelsesdato) ([d9a700c](https://github.com/brreg/linkml-datamodellering-no/commit/d9a700ca64c8b7cd690832e2e5b8bc9e3ed6c4c6))
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [1.15.0](https://github.com/brreg/linkml-datamodellering-no/compare/modelldcat-ap-no-v1.14.0...modelldcat-ap-no-v1.15.0) (2026-08-14)
 
 

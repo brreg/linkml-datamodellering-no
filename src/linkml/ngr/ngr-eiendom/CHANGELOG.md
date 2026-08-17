@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.7.0...ngr-eiendom-v1.7.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.6.0...ngr-eiendom-v1.7.0) (2026-08-14)
 
 

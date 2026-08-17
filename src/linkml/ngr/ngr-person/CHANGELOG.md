@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v1.7.0...ngr-person-v2.0.0) (2026-08-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ngr-person:** slot_uri for slotet "navn" er endra frå ngrp:namn til ngrp:navn.
+
+### Bug Fixes
+
+* **ngr-person:** rett slot_uri frå ngrp:namn til ngrp:navn ([b9e87c2](https://github.com/brreg/linkml-datamodellering-no/commit/b9e87c2348fdbc0ee77f6bc5b77b067bbfe5ba71))
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v1.6.0...ngr-person-v1.7.0) (2026-08-14)
 
 
