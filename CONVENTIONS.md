@@ -14,6 +14,18 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 src/linkml/<domain>/<modell>/data/<datafil>/<datafil>.yaml
 ```
 
+**Éin modell per katalog:** Kvar `<modell>`-katalog svarar normalt til éin
+sjølvstendig modell med éitt `<modell>-schema.yaml`. Einaste dokumenterte
+unntaket er `submodels:`-feltet i `build.yaml` (sjå
+[build-config.md](mkdocs/docs/kom-i-gang/build-config.md#submodels-valfritt)),
+som lèt fleire skjema dele katalog med ein hovudmodell. Bruk er avgrensa til
+to tilfelle: sirkulær-import-unngåing (t.d. `dqv-core` mellom `dcat-ap-no` og
+`dqv-ap-no`) og logisk separasjon av spesifikasjonsdelar som følgjer den
+offisielle standarden sin eigen struktur (t.d. `modelldcat-modell` og
+`modelldcat-katalog`). Nye delmodellar bør berre opprettast når eitt av desse
+tilfella gjeld — ikkje som ei generell løysing for å gruppere relaterte
+modellar.
+
 ---
 
 ## Schema-metadata
