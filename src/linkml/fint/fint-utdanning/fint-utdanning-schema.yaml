@@ -2382,7 +2382,7 @@ slots:
   # navn:
   #   slot_uri: utd:navn
   #   range: string
-  #   description: Namn.
+  #   description: Navn.
 
   # beskrivelse:
   #   slot_uri: utd:beskrivelse
@@ -2448,15 +2448,15 @@ slots:
   domenenavn:
     slot_uri: utd:domenenavn
     range: string
-    description: Domenenamn for skulen.
+    description: Domenenavn for skulen.
   juridiskNavn:
     slot_uri: utd:juridiskNavn
     range: string
-    description: Juridisk namn på skulen.
+    description: Juridisk navn på skulen.
   # organisasjonsnavn:
   #   slot_uri: utd:organisasjonsnavn
   #   range: string
-  #   description: Organisasjonsnamn.
+  #   description: Organisasjonsnavn.
   skolenummer:
     slot_uri: utd:skolenummer
     range: Identifikator

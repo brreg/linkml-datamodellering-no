@@ -8,7 +8,7 @@
 ## Symptom
 
 I genererte klasse-/slot-sider (`mkdocs/docs/**/klasser/*.md`) sitt mermaid
-`classDiagram` peikar `click <Typenamn> href "..."`-direktiv for elementære
+`classDiagram` peikar `click <Typenavn> href "..."`-direktiv for elementære
 `linkml:types`-typar som er **importerte, ikkje lokalt omdefinerte** i
 skjemaet (t.d. `uri`, `uriorcurie`, `string`) til ei broten pseudo-relativ
 lenkje der ein absolutt ekstern URL har fått eit `../`-prefiks limt framanfor
@@ -93,7 +93,7 @@ utdataet.
 
 **Implementert 2026-08-13** i `mkdocs/lib/copy_artifacts.sh`
 (`copy_schema_artifacts()`), som to sekvensielle `sed`-passeringar over
-`click`-hrefane i staden for den tidlegare eine, blindt namnebaserte
+`click`-hrefane i staden for den tidlegare eine, blindt navnebaserte
 regelen frå `25bb4321`:
 
 ```bash
@@ -101,7 +101,7 @@ regelen frå `25bb4321`:
 # avsluttande / (denne bugen), behald resten av URL-en uendra
 sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./(https?://[^"]+)/"|click \1 href "\2"|g'
 # Steg 2: attverande hrefar (framleis ../-prefiksa — eksterne URL-ar er det
-# ikkje lenger etter steg 1) — bygg om frå namnet, som før (25bb4321)
+# ikkje lenger etter steg 1) — bygg om frå navnet, som før (25bb4321)
 sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./[^"]*"|click \1 href "../\L\1\E/"|g'
 ```
 

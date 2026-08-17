@@ -197,7 +197,7 @@ slots:
     slot_uri: adm:rolleNavn
     range: Identifikator
     inlined: true
-    description: Namn på rolla; unik identifikator.
+    description: Navn på rolla; unik identifikator.
   fullmakt:
     slot_uri: adm:fullmakt
     range: Fullmakt
@@ -222,15 +222,15 @@ slots:
   lokasjonsnavn:
     slot_uri: adm:lokasjonsnavn
     range: string
-    description: Namn som beskriv ein arbeidslokasjon.
+    description: Navn som beskriv ein arbeidslokasjon.
   kortnavn:
     slot_uri: adm:kortnavn
     range: string
-    description: Forkorta namn som beskriv organisasjonselementet.
+    description: Forkorta navn som beskriv organisasjonselementet.
   # navn:
-  #   slot_uri: adm:namn
+  #   slot_uri: adm:navn
   #   range: string
-  #   description: Namn på organisasjonselementet.
+  #   description: Navn på organisasjonselementet.
   organisasjonsId:
     slot_uri: adm:organisasjonsId
     range: Identifikator
@@ -272,11 +272,11 @@ slots:
     slot_uri: adm:brukernavn
     range: Identifikator
     inlined: true
-    description: Brukarnamn til den tilsette.
+    description: Brukarnavn til den tilsette.
   jobbtittel:
     slot_uri: adm:jobbtittel
     range: string
-    description: Namn som beskriv jobben eller stillinga.
+    description: Navn som beskriv jobben eller stillinga.
   # person:
   #   slot_uri: adm:person
   #   range: Person

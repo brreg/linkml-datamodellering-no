@@ -22,9 +22,9 @@ Legg til organisasjonen i YAML-frontmatter i `CODEOWNERS.md` (repo-rota).
 organizations:
   # ... eksisterande organisasjonar ...
   - alias: <alias>                          # kort nøkkel, t.d. digdir, ssb, kartverket
-    name: <Organisasjonsnamn>
+    name: <Organisasjonsnavn>
     org_uri: https://data.norge.no/organizations/<9-sifra orgnr>
-    catalog_slug: <alias>-modellkatalog     # mappenamn, t.d. digdir-modellkatalog
+    catalog_slug: <alias>-modellkatalog     # mappenavn, t.d. digdir-modellkatalog
     catalog_title: "<Org> - Modellkatalog"
     contact_uri: https://<org-domene>/kontakt/modellforvaltning
     github_team: "@<github-org>/<team>"
@@ -59,7 +59,7 @@ src/linkml/modellkatalog/<alias>-modellkatalog/
 Fyll inn `TODO`-verdiane i datafila manuelt:
 - `tittel` og `beskrivelse` på katalogen
 - `har_del`-lista (vert automatisk synkronisert seinare av `update-modellkatalog`)
-- Namn på kontaktpunkt i `aktoerer`-lista
+- Navn på kontaktpunkt i `aktoerer`-lista
 
 ## Steg 3 — Opprett domenemodellar
 

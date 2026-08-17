@@ -286,7 +286,7 @@ classes:
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/b298ea76-e465-4cb5-b54a-176e59374d37
 slots:
-  # --- Identifikator og namn ---
+  # --- Identifikator og navn ---
   # identifikator:
   #   identifier: true
   #   range: uriorcurie
@@ -294,7 +294,7 @@ slots:
   navn:
     slot_uri: samtbuskole:navn
     range: string
-    description: Namn på ressursen.
+    description: Navn på ressursen.
   # --- Metadata container slots (DCAT-AP-NO) ---
   # --- Domene container slots ---
   # --- Datatyper ---

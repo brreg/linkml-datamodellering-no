@@ -1,4 +1,4 @@
-# Bug: Duplikat globalt slot-namn i importerte skjema krasjar (slot-variant av BUG-6)
+# Bug: Duplikat globalt slot-navn i importerte skjema krasjar (slot-variant av BUG-6)
 
 **ID:** BUG-7
 **Status:** `workaround`
@@ -24,7 +24,7 @@ ValueError: Conflicting URIs (https://data.norge.no/ap-no/dcat-ap-no, https://da
 
 Same mekanisme som **BUG-6** (`dqv-standard-class-override.md`), men på
 **slot-nivå** i staden for klasse-nivå: `merge_dicts` kastar `ValueError` så
-snart eit slot-namn finst i meir enn eitt skjema i importgrafen med ulik
+snart eit slot-navn finst i meir enn eitt skjema i importgrafen med ulik
 `from_schema` — **uavhengig av om definisjonane er identiske**. Gjeld
 `gen-jsonld-context`, `gen-python`, `gen-rdf` og `linkml-convert` (alle
 SchemaLoader-baserte generatorar), og dermed òg `make roundtrip`.
@@ -35,7 +35,7 @@ To variantar av mønsteret blei funne i `modelldcat-ap-no`-importkjeda:
    `modelldcat-katalog-schema.yaml` definerte sin eigen `tema`, `lisens`,
    `har_del` og `erstatter` i `slots:`-blokka, samtidig som skjemaet
    importerer `dcat-ap-no-schema.yaml` som allereie definerer desse same
-   slot-namna (sidan MC8-refaktoreringa, commit `4b4bad4f`).
+   slot-navna (sidan MC8-refaktoreringa, commit `4b4bad4f`).
 2. **Kollisjon mellom to søsken-importerte skjema**: `begrep` var
    uavhengig definert i både `dcat-ap-no-schema.yaml` (`range: string`) og
    `modelldcat-modell-schema.yaml` (`range: Konsept`) — ingen av dei
@@ -61,15 +61,15 @@ Sjå `specs/done/fix-modellkatalog-slot-merge-konflikt.md` for full analyse,
 verifiseringssteg og diff.
 
 **Generell regel (utvidar regelen frå BUG-6):** unngå å redeklarere eit
-slot-namn (eller klassenamn) som allereie finst andre steder i importgrafen
+slot-navn (eller klassenavn) som allereie finst andre steder i importgrafen
 til skjemaet — uavhengig av om innhaldet er identisk eller ikkje. Dette
 gjeld både (a) lokal redeklarering i importøren av eit slot frå sine eigne
 importar, og (b) uavhengige søsken-skjema som begge blir importerte av eit
-tredje skjema og som tilfeldigvis deler eit slot-namn.
+tredje skjema og som tilfeldigvis deler eit slot-navn.
 
 ## Løysing
 
-Ingen upstream-fiks venta — same designval i LinkML som BUG-6 (namnekollisjon
+Ingen upstream-fiks venta — same designval i LinkML som BUG-6 (navnekollisjon
 i importgrafen = hard feil for SchemaLoader-baserte generatorar, uavhengig av
-innhald). Workaround (unngå duplikate namn) er permanent løysing for dette
+innhald). Workaround (unngå duplikate navn) er permanent løysing for dette
 repoet.

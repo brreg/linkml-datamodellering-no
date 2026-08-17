@@ -174,7 +174,7 @@ dette fangar opp utilsikta sletting av publiserte begrep.
 
 ### Deprekere eit begrep
 
-Dersom eit begrep faktisk må erstattast (feil namn, omdefiniering):
+Dersom eit begrep faktisk må erstattast (feil navn, omdefiniering):
 
 1. **Behald** det opphavlege begrepet i datafila — slett det ikkje
 2. Legg til `er_erstatta_av: <ny-uri>` på det gamle begrepet

@@ -1,6 +1,6 @@
 # Plan: CodeQL køyrer i to kopiar per commit
 
-**Kortnamn:** `codeql-dobbel-koyring`
+**Kortnavn:** `codeql-dobbel-koyring`
 **Dato:** 2026-08-10
 
 ---
@@ -11,7 +11,7 @@ Etter at eigen `.github/workflows/codeql.yml` vart lagt til og GitHub sin
 innebygde "default setup" for code scanning vart forsøkt avslått via `gh`
 CLI, køyrde CodeQL framleis i to kopiar for kvar commit.
 
-`gh workflow list --all` viste to aktive workflowar med namnet `CodeQL`:
+`gh workflow list --all` viste to aktive workflowar med navnet `CodeQL`:
 
 | ID | Path | Kjelde |
 |---|---|---|
@@ -49,7 +49,7 @@ med `Code Quality: Push on main` frå den dynamiske jobben ved sida av
    gh run list --workflow=codeql.yml --limit 5
    ```
    Stadfest at kun éin CodeQL-relatert køyring ("Analyser (...)"-jobbane frå
-   `codeql.yml`) trigger, og at det ikkje kjem noka ny køyring med namn
+   `codeql.yml`) trigger, og at det ikkje kjem noka ny køyring med navn
    "Code Quality: Push on main" (den dynamiske default-setup-jobben) etter
    tidspunktet default setup vart avslått.
 2. **Dersom framleis dobbelt** — sjekk på nytt at

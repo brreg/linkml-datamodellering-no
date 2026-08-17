@@ -142,7 +142,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 |---|---|---|
 | `make new-modell NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
 | `make new-modellkatalog NAME=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
-| `make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>` | Opprettar katalogstruktur for ei ny begrepssamling. Oppretter `begrep/`-mappe og `build.yaml` med aggregation-metadata. Døme: `make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret` | `src/linkml/<domain>/<begrepssamling-namn>/` |
+| `make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-navn>` | Opprettar katalogstruktur for ei ny begrepssamling. Oppretter `begrep/`-mappe og `build.yaml` med aggregation-metadata. Døme: `make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret` | `src/linkml/<domain>/<begrepssamling-navn>/` |
 | `make new-begrepskatalog NAME=<katalognavn>` | **Legacy**, ikkje ein alias for `make new-begrepssamling` — eige script, eigen monolittisk `BegrepContainer`-skjemastruktur. Bruk `make new-begrepssamling` for nye begrepssamlingar; dette targetet held fram fordi `brreg-begrepskatalog` alt nyttar formatet. | `src/linkml/begrepskatalog/<katalognavn>/` |
 
 ## Validering
@@ -297,17 +297,17 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 
 Informative rapportar på tvers av alle skjema — finn moglege navnekollisjonar
 og IRI-ar som ikkje resolverer. Feilar aldri (ikkje ein valideringspolicy);
-brukt av den vekentlege `.github/workflows/modell-analyse.yml`. Namne-
+brukt av den vekentlege `.github/workflows/modell-analyse.yml`. Navne-
 samanlikninga brukar berre klasser/slots definerte lokalt i kvart skjema
-(ikkje namn arva via `imports`), og fuzzy string-likskap
+(ikkje navn arva via `imports`), og fuzzy string-likskap
 (`difflib.SequenceMatcher`) — juster terskel med `SIMILARITY_THRESHOLD`.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make analyse-similar-classes-domain [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande namn innanfor same domene. | Markdown-tabell til stdout |
-| `make analyse-similar-classes-all [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande namn på tvers av alle domene. | Markdown-tabell til stdout |
-| `make analyse-similar-slots-domain [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande namn innanfor same domene. | Markdown-tabell til stdout |
-| `make analyse-similar-slots-all [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande namn på tvers av alle domene. | Markdown-tabell til stdout |
+| `make analyse-similar-classes-domain [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande navn innanfor same domene. | Markdown-tabell til stdout |
+| `make analyse-similar-classes-all [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande navn på tvers av alle domene. | Markdown-tabell til stdout |
+| `make analyse-similar-slots-domain [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande navn innanfor same domene. | Markdown-tabell til stdout |
+| `make analyse-similar-slots-all [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande navn på tvers av alle domene. | Markdown-tabell til stdout |
 | `make analyse-iri-resolution` | Testar HTTP-resolusjon for `id`/`default_prefix`/`prefixes`-IRI-ar i alle skjema, og innhaldsforhandling (`Accept: text/turtle`, `Accept-Language: nb`/`en`) for IRI-ar repoet sjølv eig (`id`/`default_prefix`). Kjende, avgjorde ikkje-resolvbare mønster (`schema.fintlabs.no`, `data.norge.no/vocabulary/ngr-*`, `example.org`-plasshaldarar) er utelatne frå resolusjonssjekken. Krev nettverkstilgang. | Markdown-tabellar til stdout |
 | `make analyse-sammendrag` | Les dei fem `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
 

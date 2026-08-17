@@ -1,4 +1,4 @@
-# Bug: To ulike skriveveger til valideringslogg-JSON med ulike feltnamn
+# Bug: To ulike skriveveger til valideringslogg-JSON med ulike feltnavn
 
 **ID:** BUG-12
 **Status:** `løyst`
@@ -20,7 +20,7 @@ inkompatible skjema avhengig av kva kodeveg som sist skreiv fila:
   `validation_policy`, og legg i tillegg til eit `validated_at`-tidsstempel
   (UTC ISO) (`save-validation-log.py:59-67`).
 
-Ein konsument som stolar blindt på eitt av feltnamna (t.d. alltid forventar
+Ein konsument som stolar blindt på eitt av feltnavna (t.d. alltid forventar
 `validation_policy` eller alltid forventar `validated_at`) vil få
 manglande/`None`-verdiar avhengig av kva veg som sist skreiv fila for det
 gjeldande skjemaet/versjonen.
@@ -45,7 +45,7 @@ defensivt:
   dersom feltet manglar).
 - Feil-/åtvaringstal lesast med
   `result.get("errorCount") or result.get("error_count")` (begge
-  nøkkelnamn-variantar).
+  nøkkelnavn-variantar).
 
 Ingen fiks er gjort ved kjelda (dei to skrivarane sjølve).
 
@@ -72,7 +72,7 @@ Oppdaga under arbeid med `mkdocs/docs/automasjon/artefakt-generering.md` § 3.5.
    `result`); `write_validation_log()` skriv det til fil.
 2. ✓ `save-validation-log.py`: brukar no den delte modulen i staden for å
    byggje `log_entry`/skrive fila sjølv. `validation_type` er framleis
-   parameter-/CLI-namnet (feltet dekkjer meir enn reine policy-namn, t.d.
+   parameter-/CLI-navnet (feltet dekkjer meir enn reine policy-navn, t.d.
    `examples`/`data-<catalog>`), men JSON-nøkkelen er no `validation_policy`
    som i dei to andre skrivarane. Fjerna no ubrukt `datetime`/`timezone`-import.
 3. ✓ `run-validation.sh`: Python-heredoc-en importerer no den delte modulen
@@ -82,12 +82,12 @@ Oppdaga under arbeid med `mkdocs/docs/automasjon/artefakt-generering.md` § 3.5.
 4. ✓ `validate-and-log.py` (`src/mcp-linkml-validator/`): omdøypte
    `validation_type` → `validation_policy` i JSON-output. Denne fila deler
    ikkje `sys.path` med resten av repoet (kun `server.py` og seg sjølv vert
-   kopiert inn i `Dockerfile.mcp-linkml`), så feltnamnet vart retta direkte
+   kopiert inn i `Dockerfile.mcp-linkml`), så feltnavnet vart retta direkte
    i staden for å trekkje inn den delte modulen.
 5. ✓ `mkdocs/lib/scripts/generate-validation-md.py` verifisert å ikkje
    trenge endring — han les allereie berre `version`, `validated_at` (med
    default), og `result.*`, og utleier policy frå `build.yaml` (aldri frå
-   JSON-feltet), så han var alt uavhengig av kva feltnamn skrivaren brukte.
+   JSON-feltet), så han var alt uavhengig av kva feltnavn skrivaren brukte.
 6. ✓ Verifisert manuelt: køyrde `save-validation-log.py` og den nye
    Python-blokka frå `run-validation.sh` mot same skjema (`ngr-adresse`) —
    begge produserer no identisk feltstruktur
@@ -95,6 +95,6 @@ Oppdaga under arbeid med `mkdocs/docs/automasjon/artefakt-generering.md` § 3.5.
    `bash -n` og `python3 -m py_compile` køyrt på alle endra filer.
 7. ✓ Ikkje migrert eksisterande, allereie committa `validation/**/*.json`
    (46 filer med gamalt `validation_type`-felt) — `generate-validation-md.py`
-   var alt uavhengig av feltnamnet, så dette er ikkje nødvendig; nye
+   var alt uavhengig av feltnavnet, så dette er ikkje nødvendig; nye
    valideringskøyringar skriv konsekvent format framover.
 8. ✓ Status oppdatert til `løyst`.

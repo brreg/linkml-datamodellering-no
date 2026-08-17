@@ -121,7 +121,7 @@ informasjonsmodeller:
 aktoerer:
 - id: https://www.kartverket.no/om-kartverket/kontakt-oss/
   navn_aktoer:
-  - 'TODO: namn på kontaktpunktet'
+  - 'TODO: navn på kontaktpunktet'
 - id: https://data.norge.no/organizations/971040238
   navn_aktoer:
   - Kartverket
@@ -158,7 +158,7 @@ objekttyper:
   tittel:
   - Adressenavn
   beskrivelse:
-  - Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av
+  - Offisielt navn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av
     kommunen og godkjent av Kartverket.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn/adressenavn_tekst
@@ -169,9 +169,9 @@ objekttyper:
   - Adresseomrade
   beskrivelse:
   - Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit
-    stadnamn.
+    stadnavn.
   har_egenskap:
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
   tittel:
   - Adressekode
@@ -215,7 +215,7 @@ objekttyper:
   - Eit norsk fylke.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/fylkesnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune
   tittel:
   - Kommune
@@ -223,7 +223,7 @@ objekttyper:
   - Ein norsk kommune.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/kommunenummer_kode
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed
   tittel:
   - Poststed
@@ -231,7 +231,7 @@ objekttyper:
   - Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/postnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets
   tittel:
   - Grunnkrets
@@ -239,7 +239,7 @@ objekttyper:
   - Ei grunnkrets - minste geografiske eining i statistisk inndeling.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/grunnkretsnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted
   tittel:
   - Tettsted
@@ -247,7 +247,7 @@ objekttyper:
   - Eit tettbygd område definert av SSB.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/tettstedsnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn
   tittel:
   - Kirkesokn
@@ -255,7 +255,7 @@ objekttyper:
   - Eit kyrkjesokn.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/kirkesoknnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets
   tittel:
   - Stemmekrets
@@ -263,7 +263,7 @@ objekttyper:
   - Ei stemmekrets brukt ved val.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/stemmekretsnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets
   tittel:
   - KommunalKrets
@@ -271,14 +271,14 @@ objekttyper:
   - Ein kommunal krets (administrativ inndeling definert av kommunen).
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/kretsnummer
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard
   tittel:
   - Svalbard
   beskrivelse:
   - Svalbard som særskild geografisk område.
   har_egenskap:
-  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/namn
+  - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/navn
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Postboks
   tittel:
   - Postboks
@@ -439,7 +439,7 @@ objekttyper:
   tittel:
   - Bruksnummer
   beskrivelse:
-  - Bruksnummer innanfor gardsnamnet.
+  - Bruksnummer innanfor gardsnavnet.
   har_egenskap:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Bruksnummer/bruksnummer_verdi
 - id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-eiendom/Festenummer
@@ -647,7 +647,7 @@ attributter:
   tittel:
   - adressetilleggsnavn
   beskrivelse:
-  - Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).
+  - Offisielt tilleggsnavn til vegadressa (t.d. gardsnavn, bruksnavn).
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -674,7 +674,7 @@ attributter:
   tittel:
   - postboksanleggsnavn
   beskrivelse:
-  - Namn på postboksanlegget (t.d. bedriftsnamn, institusjon).
+  - Navn på postboksanlegget (t.d. bedriftsnavn, institusjon).
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -683,16 +683,16 @@ attributter:
   tittel:
   - adressenavn_tekst
   beskrivelse:
-  - Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare).
+  - Tekstleg navn på vegen eller stadnavnet (locn:thoroughfare).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -787,11 +787,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Fylke/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -805,11 +805,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kommune/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -823,11 +823,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Poststed/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -841,11 +841,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Grunnkrets/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -859,11 +859,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Tettsted/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -877,11 +877,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Kirkesokn/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -895,11 +895,11 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Stemmekrets/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -913,20 +913,20 @@ attributter:
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/KommunalKrets/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
   - https://data.norge.no/modellkatalog/kartverket-modellkatalog/types/string
-- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/namn
+- id: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Svalbard/navn
   tittel:
-  - namn
+  - navn
   beskrivelse:
-  - Namn på det geografiske området eller adressekomponenten.
+  - Navn på det geografiske området eller adressekomponenten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -962,7 +962,7 @@ attributter:
   tittel:
   - bruksnummer_verdi
   beskrivelse:
-  - Bruksnummer innanfor gardsnamnet.
+  - Bruksnummer innanfor gardsnavnet.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -1079,7 +1079,7 @@ assosiasjoner:
   tittel:
   - adressenavn_ref
   beskrivelse:
-  - Adressenavn (vegnamn o.l.) for adressa.
+  - Adressenavn (vegnavn o.l.) for adressa.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressenavn
@@ -1159,7 +1159,7 @@ assosiasjoner:
   tittel:
   - adresseomrade_ref
   beskrivelse:
-  - Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+  - Adresseområdet dette adressenavnet eller adressekoden høyrer til.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade
@@ -1167,7 +1167,7 @@ assosiasjoner:
   tittel:
   - har_adressekode
   beskrivelse:
-  - Adressekode tilknytt dette adressenamnet.
+  - Adressekode tilknytt dette adressenavnet.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adressekode
@@ -1175,7 +1175,7 @@ assosiasjoner:
   tittel:
   - adresseomrade_ref
   beskrivelse:
-  - Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+  - Adresseområdet dette adressenavnet eller adressekoden høyrer til.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/kartverket-modellkatalog/ngr-adresse/Adresseomrade

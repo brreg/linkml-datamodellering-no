@@ -47,10 +47,9 @@ https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/html/overview.
 konvertere fleire BRREG modellar
 
 
-oppdatere alle modellar med status UNDER_DEVELOPMENT
-
-
-erstatte namn med navn  
-
+gå igjennom alle ferdiggenererte index.md filer for alle modellar og finn ut om alle modellar har alle 6 badges. Kartlegg avvik og foreslå tiltak. Skriv til /specs
 
 badges i readme
+
+
+evaluer organiseringa av fleire modellar i ein modellkatalog f.eks modelldcat-ap-no katalogen med 3 skjema og dqv-ap-no med 2 skjema. Dette bryter mot konvensjonen om ein modell pr modellkatalog. Evaluer om dette er greit eller om den spesialbehandlinga dette medfører fører til ekstra kompleksitet og muligheter for feil. Evaluer også om vi har behov for innføre eit 3. modellnivå i tillegg til domene og modell for å kunne gruppere bedre.

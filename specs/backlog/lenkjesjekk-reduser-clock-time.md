@@ -151,7 +151,7 @@ men eit medvite, dokumentert tradeoff.
 **Oppdaga under gjennomgang:** `lenkje-og-mermaid-sjekk.yml` har si **eiga**
 `generate`-jobb (line 46–92, matrisert per domene, kallar
 `./.github/actions/generate-domain` og lastar opp resultatet som
-artefakt) — **heilt separat** frå den identisk namngjevne og
+artefakt) — **heilt separat** frå den identisk navngjevne og
 identisk formåla `generate`-jobben i `generate.yml`. I motsetnad til
 `generate.yml` sin versjon (som cachar `generated/${{ matrix.domain }}/`,
 line 153–169) har **denne** `generate`-jobben inga cache i det heile —
@@ -250,7 +250,7 @@ Reint korrekt talet på feila lenkjer (~3300 att, ned frå 3836) påverkar
 klokketid direkte via `max_retries`/`retry_wait_time`-serialisering per
 vert. Kvar kategori-fiks frå oppfølgingsarbeidet nemnt i "Merk"-seksjonen i
 `specs/done/lenkjesjekk-3817-feil-evaluering.md` (t.d.
-`data.norge.no/concepts`-UUID-ane, `cccevno`-namneromma) gjev både betre
+`data.norge.no/concepts`-UUID-ane, `cccevno`-navneromma) gjev både betre
 rapportkvalitet **og** mindre klokketid, sidan færre lenkjer treng
 retry-ventetid. Diminishing returns samanlikna med tiltak 1–5, men reelt.
 

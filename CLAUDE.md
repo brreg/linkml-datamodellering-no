@@ -6,7 +6,7 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
 
 - **[SCOPE.md](SCOPE.md)** — kva repoet er, kva det ikkje er, kva som høyrer heime her, funksjonalitet
 - **[PRINCIPLES.md](PRINCIPLES.md)** — dei 6 grunnleggjande designprinsippa (pull vs push, containerisering, import-hierarki, lenking, slots vs attributes, skriftspråk)
-- **[CONVENTIONS.md](CONVENTIONS.md)** — namnekonvensjonar, manifestformat, commit-meldingar
+- **[CONVENTIONS.md](CONVENTIONS.md)** — navnekonvensjonar, manifestformat, commit-meldingar
 - **[GOVERNANCE.md](GOVERNANCE.md)** — roller, eigarskap, RFC-prosess, versjonspolitikk
 
 ## Arbeidsflyt
@@ -15,7 +15,7 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
 
 1. **Les tilbake instruksjonen** — skriv i 1-2 setningar kva du har forstått at brukaren vil ha gjort
 2. **Avklar antakelser** — dersom du må gjere val eller antakelser for å utføre instruksjonen, spør brukaren om desse før du startar arbeidet
-3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnamn>.md` med bakgrunn, nummererte steg og handlingsliste. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
+3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnavn>.md` med bakgrunn, nummererte steg og handlingsliste. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
 4. **Utfør arbeidet** — følg spesifikasjonen og oppdater han etter kvart steg
 5. **Avslutning** — når alle tiltak er utførte: (a) generer kompakt commit-melding, (b) legg til `## Utført`-seksjon i specen, (c) flytt specen til `specs/done/`
 
@@ -39,7 +39,7 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
   ```
   fix(mcp-modell-utkast): prioriter multivalued og primitive typar i slot-konfliktar
     - converter.py: prioriter multivalued over single-value, primitive over klasse-ref
-    - tests/test_make.sh: normaliser property-namn (bindestrek → underscore)
+    - tests/test_make.sh: normaliser property-navn (bindestrek → underscore)
     - specs/done/json-schema-roundtrip-test.md: alle tre testar passerer
   ```
 
@@ -292,7 +292,7 @@ Repoet nyttar to skriftspråk med klart skilde domene:
 
 | Domene | Språk | Gjeld |
 |---|---|---|
-| Modellering | **Norsk bokmål** | Klassenamn, slotnamn, skildringar og kommentarar i `.yaml`-skjema |
+| Modellering | **Norsk bokmål** | Klassenavn, slotnavn, skildringar og kommentarar i `.yaml`-skjema |
 | Dokumentasjon | **Nynorsk** | README-filer, mkdocs-sider, spesifikasjonar i `specs/` |
 
 Bokmål i modellering følgjer terminologien i norske offentlege standardar (DCAT-AP-NO, SKOS-AP-NO m.fl.) som er skrivne på bokmål. Unntaket er tekniske omgrep fastsette i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
@@ -372,15 +372,15 @@ Containerklassen brukar **`attributes:`** (ikkje `slots:`) for å referere til k
 Containerklasse:
   tree_root: true
   attributes:
-    datasett:          # attributtnamn i fleirtal
+    datasett:          # attributtnavn i fleirtal
       range: Datasett
       multivalued: true
       inlined: true
       inlined_as_list: true
 ```
 
-- Klassenamnet følgjer mønsteret **`<Domene>Container`** i PascalCase (t.d. `AdresseContainer`, `AksjeeierContainer`) — aldri berre `Containerklasse`
-- Attributtnamna skrives alltid i **fleirtal** (t.d. `datasett`, `katalogar`, `aktørar`)
+- Klassenavnet følgjer mønsteret **`<Domene>Container`** i PascalCase (t.d. `AdresseContainer`, `AksjeeierContainer`) — aldri berre `Containerklasse`
+- Attributtnavna skrives alltid i **fleirtal** (t.d. `datasett`, `katalogar`, `aktørar`)
 - `range` må peike på ein klasse definert i skjemaet eller importerte skjema
 - Ingen `slot_uri` — containerattributtar er strukturelle, ikkje semantiske
 - Containerklassen treng ikkje `class_uri` (unntatt frå kravet per bronze-policy)
@@ -393,7 +393,7 @@ Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppga
 
 `dcat:theme` (`tema`-sloten) skal bruke Los som primærvokabular:
 - Hovudoversikt: https://psi.norge.no/los/ — alle tema: https://psi.norge.no/los/ontologi/tema.html — temastruktur: https://psi.norge.no/los/struktur.html — ord: https://psi.norge.no/los/ontologi/ord.html
-- Hovudtema: `https://psi.norge.no/los/tema/<namn>`
+- Hovudtema: `https://psi.norge.no/los/tema/<navn>`
 - Undertema er lov å bruke i tillegg til hovudtemaet, ikkje i staden for det
 - Særnorske bokstavar translittererast i URI: æ → a (naring), ø → o, å → a
 - `/los/begrep/`-URI-ar finst ikkje — berre `/los/tema/`, `/los/ord/`, `/los/hendelse/`
@@ -402,7 +402,7 @@ Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppga
 ### Ny profil eller domenemodell
 Sjå `mkdocs/docs/kom-i-gang/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
-## Namngjeving
+## Navngjeving
 
 ### Teiknsett
 
@@ -470,7 +470,7 @@ concepts:                   # valfri — utelat for å publisere heile datafila
 
 CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar utan `build.yaml` vert validerte automatisk med `bronze`-policy.
 
-### Fil- og mappenamn
+### Fil- og mappenavn
 
 Alle filer nyttar **`kebab-case`**, alltid norsk eller domene-etablert forkortning:
 
@@ -483,7 +483,7 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 
 | Felt | Konvensjon | Eksempel |
 |---|---|---|
-| `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse` |
+| `name` | `kebab-case`, same som filnavnet utan `-schema.yaml` | `ngr-adresse` |
 | `id` | Absolutt HTTPS-URL | `https://data.norge.no/ngr/ngr-adresse` |
 | `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata - Adresse` |
 | `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse/` |
@@ -492,7 +492,7 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 
 ### Norske bokstavar i identifikatorar
 
-Særnorske bokstavar skal **translittererast** i alle identifikatorar — klassenamn, slotnamn, attributtnamn og URI-lokaldel:
+Særnorske bokstavar skal **translittererast** i alle identifikatorar — klassenavn, slotnavn, attributtnavn og URI-lokaldel:
 
 | Bokstav | Erstatning |
 |---|---|
@@ -516,7 +516,7 @@ classes:
     class_uri: ex:Aktør
 ```
 
-### Slotnamn
+### Slotnavn
 
 Hovudregel: **`snake_case`**, norsk bokmål (t.d. `kommunenummer_ref`, `adressenavn_tekst`).
 
@@ -561,7 +561,7 @@ https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/
 ### Silver-annotasjonar (Digdir-regel 9, 10, 11)
 
 Skjema med `validation_policy: silver` eller høgare skal ha desse annotasjonane.
-Nøkkelnamna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
+Nøkkelnavna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
 
 | Annotasjon | Svarar til | Verdiformat |
 |---|---|---|

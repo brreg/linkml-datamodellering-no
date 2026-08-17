@@ -2,8 +2,8 @@ version: 1
 description: >
   Bronze-profil for JSON Schema → LinkML-konvertering.
   Implementerer grunnkrava i bronze-policy: globale slots, lenking framfor inlining,
-  norske klassenamn, obligatorisk/anbefalt/valgfri-in_subset-markering (referert, ikkje lokalt
-  definert — subsetnamna må finnast i importgrafen) og containerklasse med tree_root.
+  norske klassenavn, obligatorisk/anbefalt/valgfri-in_subset-markering (referert, ikkje lokalt
+  definert — subsetnavna må finnast i importgrafen) og containerklasse med tree_root.
   Det genererte skjemaet passerer make mcp-linkml-valider-modell POLICY=bronze utan manuell redigering.
 
 naming:
@@ -30,12 +30,12 @@ generation:
   add_id_slot: true
 
   # Legg til ein global <schema_name>_kontaktinformasjon-slot (dcat:contactPoint,
-  # range: uriorcurie). Namnet er prefiksa med skjemaet sitt eige, garantert
+  # range: uriorcurie). Navnet er prefiksa med skjemaet sitt eige, garantert
   # unike schema_name — strukturelt kollisjonsfritt mot alle faste AP-NO-
   # vokabularslot (t.d. det importerte `kontaktpunkt`-slotet frå
   # dcat-ap-no-schema, som har ein annan range/definisjon). Eit reint
-  # generisk namn (utan prefiks) ville berre vore kollisjonsfritt så lenge
-  # ingen framtidig AP-NO-skjema tilfeldigvis brukte same namn.
+  # generisk navn (utan prefiks) ville berre vore kollisjonsfritt så lenge
+  # ingen framtidig AP-NO-skjema tilfeldigvis brukte same navn.
   # Vert ikkje automatisk kopla til stub-klassen sin slots-liste.
   add_kontaktpunkt_slot: true
 

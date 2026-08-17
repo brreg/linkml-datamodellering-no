@@ -44,8 +44,8 @@ søk og Digdir sin guide
 
 - **AP-NO-profilene** og **fair-metadata** er berre meinte for *import*, ikkje for direkte
   bruk som containerklasse-baserte skjema. Dei har inga `tree_root`-klasse.
-- **FINT-modellar** arvar namgjeving (camelCase, engelske attributtnamn) frå FINT API-spesifikasjonen.
-  Avvik frå namnekonvensjonen i dette repoet er eit bevisst val, ikkje ein feil.
+- **FINT-modellar** arvar namgjeving (camelCase, engelske attributtnavn) frå FINT API-spesifikasjonen.
+  Avvik frå navnekonvensjonen i dette repoet er eit bevisst val, ikkje ein feil.
 - **Produksjonsdata** kan berre liggje under `data/`-underkatalogar i skjema med
   `publish_external: true`. Eksempeldata (under `examples/`) er alltid illustrativt,
   ikkje normativt.
@@ -116,7 +116,7 @@ MCP-validator (`src/mcp-linkml-validator/`) med medaljong policy-nivå og publis
 
 | Policy | Krav | Brukstilfelle |
 |---|---|---|
-| `bronze` | Schema-ID, prefix, klassenamn, slotnamn, identifikatorar | Minimum for alle skjema |
+| `bronze` | Schema-ID, prefix, klassenavn, slotnavn, identifikatorar | Minimum for alle skjema |
 | `silver` | Bronze + utgjevar, status, endringsdato; DCAT-AP-NO-struktur | Skjema klare for publisering |
 | `gold` | Silver + begrepsbeskrivingar på alle klassar | Full semantisk kvalitet |
 | `felles-datakatalog` | Publiseringssjekkar for ModelDCAT-AP-NO | Skjema klare for at Felles datakatalog kan hente dei |
@@ -162,6 +162,6 @@ ER-diagram og HTML-dokumentasjon. Vert automatisk oppdatert ved push til `main`.
 ## Sjå også
 
 - [PRINCIPLES.md](PRINCIPLES.md) — designprinsipp for modellering
-- [CONVENTIONS.md](CONVENTIONS.md) — namnekonvensjonar og manifestformat
+- [CONVENTIONS.md](CONVENTIONS.md) — navnekonvensjonar og manifestformat
 - [GOVERNANCE.md](GOVERNANCE.md) — roller, eigarskap og bidragsprosess
 - [BUGS.md](BUGS.md) — kjende bugs og workarounds

@@ -273,10 +273,10 @@ checks:
 
   # ── Aktør (foaf:Agent) ──────────────────────────────────────────────────────
 
-  aktor_namn:
+  aktor_navn:
     principle: DCAT-AP-NO
     severity: error
-    description: foaf:Agent skal ha foaf:name (namn). Obligatorisk i DCAT-AP-NO 2.
+    description: foaf:Agent skal ha foaf:name (navn). Obligatorisk i DCAT-AP-NO 2.
     check: class_has_slot_with_uri
     class: Aktør
     slot_uri: foaf:name

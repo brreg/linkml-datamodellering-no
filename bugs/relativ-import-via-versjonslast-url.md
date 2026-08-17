@@ -32,7 +32,7 @@ if "/" in sn and ":" not in i:
     todo.append(os.path.normpath(str(Path(sn).parent / i)))
 ```
 
-`sn` er her namnet/nøkkelen på skjemaet som nett vart lasta. Når `sn` er ein
+`sn` er her navnet/nøkkelen på skjemaet som nett vart lasta. Når `sn` er ein
 full URL (t.d. `https://raw.githubusercontent.com/.../dcat-ap-no/dcat-ap-no-schema`)
 og det importerte skjemaet sjølv har ein relativ import (t.d.
 `dcat-ap-no-schema.yaml` sin `../dqv-ap-no/dqv-core-schema`), brukar koden
@@ -60,7 +60,7 @@ sjå full traceback og analyse i
 ## Workaround
 
 Monkeypatch av berre den buggy grenen i `imports_closure()` (bruk
-`urllib.parse.urljoin` når skjemanamnet inneheld `"://"`, elles uendra
+`urllib.parse.urljoin` når skjemanavnet inneheld `"://"`, elles uendra
 åtferd) — sjå `src/assets/scripts/utils/linkml_relative_import_patch.py`.
 Patchen er kalla frå dei fem stadene `SchemaView` vert bygd (direkte eller
 transitivt via `linkml.generators.*`) i repoet:
@@ -95,6 +95,6 @@ Må difor kontrollerast på nytt (og potensielt oppdaterast) ved kvar
 
 Ingen upstream-fiks venta enno. Feilen bør meldast til
 [linkml/linkml-runtime](https://github.com/linkml/linkml-runtime) (`SchemaView.imports_closure`
-brukar filsystem-semantikk på URL-baserte skjemanamn i staden for
+brukar filsystem-semantikk på URL-baserte skjemanavn i staden for
 `urllib.parse.urljoin`) — når/dersom upstream fiksar dette kan
 `linkml_relative_import_patch.py` fjernast og kallestadene ryddast opp.

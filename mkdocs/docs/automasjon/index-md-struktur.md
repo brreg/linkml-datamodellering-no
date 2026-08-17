@@ -18,7 +18,7 @@ Tabellen under viser kvar seksjon i `index.md`, kva innhaldet er, og kvar det kj
 
 | # | Seksjon | Innhald | Kjelde | Script/funksjon |
 |---|---|---|---|---|
-| 1 | **Hovudoverskrift** | `# <schema>` | Skjemanamn frå katalognamn | `lib/sections/header.sh:generate_header()` |
+| 1 | **Hovudoverskrift** | `# <schema>` | Skjemanavn frå katalognavn | `lib/sections/header.sh:generate_header()` |
 | 2 | **Badge-rad** | Versjon, status, validering, lisens | Parsa frå `generated/<domain>/<schema>/docs/index.md` (gen-doc) og `src/linkml/<domain>/<schema>/validation/<versjon>/<policy>.json` (valideringsresultat) | `lib/sections/badges.sh:generate_badges()` |
 | 3 | **Offisiell referanse** (valgfri) | Infoboks med lenke til ekstern spesifikasjon (t.d. Digdir) | `build.yaml` (`external_spec_url`-feltet, valfritt) | `lib/sections/external_reference.sh:generate_external_reference()` |
 | 4 | **Om denne modellen** (valgfri) | Brukarorientert introduksjonstekst | `src/linkml/<domain>/<schema>/description.md` (dersom den finst) | `lib/sections/description.sh:generate_description()` |
@@ -62,7 +62,7 @@ Avhengigheitstreet blir bygd i to steg:
    - Kall Python-scriptet `mkdocs/lib/scripts/parse-dependency-tree.py` for å bygge hierarkisk tre
 
 2. **`parse-dependency-tree.py`**
-   - Tar imot skjemanamn og direkte importar som argument
+   - Tar imot skjemanavn og direkte importar som argument
    - Byggjer transitivt avhengigheitstre ved å følgje importkjeda
    - Outputar ASCII-tre-diagram (t.d. `linkml:types → common-ap-no → dcat-ap-no`)
 
@@ -123,7 +123,7 @@ Valideringsresultata blir genererte av `mkdocs/lib/scripts/generate-validation-m
 3. **Format output:**
    - Statustabel (status, feiltal, åtvaringtal)
    - Nummererte lister for feil og åtvaringar (rein Markdown, ikkje `<details>`-blokkar)
-   - Kvar feil/åtvaring viser: regelnamn, affisert element, feilmelding
+   - Kvar feil/åtvaring viser: regelnavn, affisert element, feilmelding
 
 ### Generated artifacts (seksjon 16)
 
@@ -179,7 +179,7 @@ For å endre innhaldet i ein modell sin `index.md`:
 
 | Ønskt endring | Kvar du endrar |
 |---|---|
-| Hovudtittel | Ikkje redigerbar — auto-generert frå skjemanamn |
+| Hovudtittel | Ikkje redigerbar — auto-generert frå skjemanavn |
 | Badge-verdiar | Endre versjon/status/lisens i `src/linkml/<domain>/<schema>/<schema>-schema.yaml` (gen-doc parsar dette) |
 | Offisiell referanse | Legg til `external_spec_url` i `src/linkml/<domain>/<schema>/build.yaml` |
 | Introduksjonstekst | Opprett/rediger `src/linkml/<domain>/<schema>/description.md` |

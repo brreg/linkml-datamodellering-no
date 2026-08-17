@@ -64,7 +64,7 @@ slots:
   organisasjonsnavn:
     slot_uri: fint:organisasjonsnavn
     range: string
-    description: Namn på eining registrert i Einingsregisteret.
+    description: Navn på eining registrert i Einingsregisteret.
   organisasjonsnummer:
     slot_uri: fint:organisasjonsnummer
     range: Identifikator
@@ -78,7 +78,7 @@ slots:
   navn:
     slot_uri: fint:navn
     range: string
-    description: Hovudnamn for ressursen.
+    description: Hovudnavn for ressursen.
   passiv:
     slot_uri: fint:passiv
     range: boolean
@@ -92,7 +92,7 @@ slots:
   beskrivelse:
     slot_uri: fint:beskrivelse
     range: string
-    description: Beskriven namn eller omtale.
+    description: Beskriven navn eller omtale.
   start:
     slot_uri: fint:start
     range: datetime
@@ -105,20 +105,20 @@ slots:
   fornavn:
     slot_uri: fint:fornavn
     range: string
-    description: Fornamn til personen.
+    description: Fornavn til personen.
   mellomnavn:
     slot_uri: fint:mellomnavn
     range: string
-    description: Mellomnamn.
+    description: Mellomnavn.
   etternavn:
     slot_uri: fint:etternavn
     range: string
-    description: Etternamn til personen.
+    description: Etternavn til personen.
   # --- Kontaktinformasjon-feltar ---------------------------------------------
   epostadresse:
     slot_uri: fint:epostadresse
     range: string
-    description: Namngitt elektronisk adresse for mottak av e-post.
+    description: Navngitt elektronisk adresse for mottak av e-post.
   mobiltelefonnummer:
     slot_uri: fint:mobiltelefonnummer
     range: string
@@ -202,7 +202,7 @@ slots:
   valuta_navn:
     slot_uri: fint:valutaNavn
     range: string
-    description: Namn på valuta.
+    description: Navn på valuta.
   nummerkode:
     slot_uri: fint:nummerkode
     range: Identifikator
@@ -231,7 +231,7 @@ slots:
     slot_uri: fint:personNavn
     range: Personnavn
     inlined: true
-    description: Namn på personen.
+    description: Navn på personen.
   parorende:
     slot_uri: fint:parorende
     range: Kontaktperson
@@ -287,7 +287,7 @@ slots:
     slot_uri: fint:kontaktpersonNavn
     range: Personnavn
     inlined: true
-    description: Namn på kontaktpersonen.
+    description: Navn på kontaktpersonen.
   type:
     slot_uri: fint:type
     range: string
@@ -401,7 +401,7 @@ classes:
       start:
         required: true
   Personnavn:
-    description: Namn på ein person.
+    description: Navn på ein person.
     class_uri: fint:Personnavn
     slots:
       - fornavn

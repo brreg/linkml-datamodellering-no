@@ -252,8 +252,8 @@ for å sikre redundans ved ferie, sjukdom eller personalskifte.
 ### CODEOWNERS-konfigurasjon
 
 `github_team`-feltet i `CODEOWNERS.md` må peike på anten:
-- Eit GitHub-team: `"@organisasjon/teamnamn"`
-- Ein enkelt GitHub-brukar: `"@brukarnamn"`
+- Eit GitHub-team: `"@organisasjon/teamnavn"`
+- Ein enkelt GitHub-brukar: `"@brukarnavn"`
 
 Repo-administrator gir tilgang til repoet etter at organisasjonen er godkjent (sjå onboarding-prosess).
 
@@ -363,7 +363,7 @@ Ueinigheitar om endringar i felles infrastruktur:
 Kvar organisasjon er ansvarleg for:
 
 - **Datakvalitet:** Sikre at domenemodellar og datafiler ikkje inneheld feil eller manglande metadata
-- **Personvern:** Ikkje legge inn personopplysningar (namn, e-post, fødselsnummer, osv.) i modellar eller datafiler
+- **Personvern:** Ikkje legge inn personopplysningar (navn, e-post, fødselsnummer, osv.) i modellar eller datafiler
 - **Konfidensialitet:** Ikkje legge inn konfidensielle forretningsdata i offentlege modellar
 - **Rask respons:** Fjerne sensitive data omgåande dersom dei vert oppdaga
 

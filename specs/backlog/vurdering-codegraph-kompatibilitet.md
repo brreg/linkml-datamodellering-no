@@ -94,7 +94,7 @@ domenevurderinga for dei to andre verktøya.
 
 CodeGraph samlar anonym, lokalt aggregert bruksstatistikk (kva verktøy/kommandoar vert
 brukte, kva språk vert indekserte) og sender dette til eit offentleg ingest-endepunkt —
-**ikkje** kode, filstiar, symbolnamn, spørjingar eller IP-adresser, ifølgje
+**ikkje** kode, filstiar, symbolnavn, spørjingar eller IP-adresser, ifølgje
 `TELEMETRY.md`. Kan skruast av med `codegraph telemetry off`,
 `CODEGRAPH_TELEMETRY=0`, eller den generelle konvensjonen `DO_NOT_TRACK=1`. Dette bryt
 ikkje noko eksplisitt CLAUDE.md-prinsipp, men bør deaktiverast via miljøvariabel i
@@ -519,7 +519,7 @@ kodeendringar er gjort — dette er ei rein kartleggings-/vurderingsoppgåve.
 `engines`-krav via `gh api repos/colbymchenry/codegraph/contents/package.json`
 (`@colbymchenry/codegraph@1.5.0`, `node >=20.0.0 <25.0.0`), (2) gjennomgang av
 `make/60-mcp.mk`, `make/00-settings.mk`, `make/01-containers.mk` og root-`Makefile` for å
-kopiere dei eksisterande MCP-konvensjonane presist (variabelnamn, `podman run`-mønster med
+kopiere dei eksisterande MCP-konvensjonane presist (variabelnavn, `podman run`-mønster med
 delt `:ro`-repo-mount + smalare `:rw`-undermontering, `print_header`-bruk,
 `.PHONY`-registrering), og (3) samanlikning med `.mcp.json` sin eksisterande
 `bash -c`-wrapper-stil for dei tre andre serverane. Ingen filer er endra i repoet — heile

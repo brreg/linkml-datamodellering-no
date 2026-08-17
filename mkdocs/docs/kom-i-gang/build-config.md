@@ -104,10 +104,10 @@ external_spec_url: https://informasjonsforvaltning.github.io/dcat-ap-no/
 
 ### `external_spec_label` (valfritt)
 
-Lenke-tekst for den offisielle spesifikasjonen. Dersom utelatt, vert skjemanamnet brukt.
+Lenke-tekst for den offisielle spesifikasjonen. Dersom utelatt, vert skjemanavnet brukt.
 
 **Brukstilfelle:** Gje ein deskriptiv tittel til lenka i "Offisiell referanse"-boksen
-i staden for det korte skjemanamnet (t.d. "Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)"
+i staden for det korte skjemanavnet (t.d. "Spesifikasjon for tjeneste- og hendelsesbeskrivelser (CPSV-AP-NO)"
 i staden for "cpsv-ap-no").
 
 **Eksempel:**

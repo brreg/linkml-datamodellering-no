@@ -511,7 +511,7 @@ slots:
   navn:
     slot_uri: ngrv:navn
     range: string
-    description: Registrert namn på verksemda i Enhetsregisteret.
+    description: Registrert navn på verksemda i Enhetsregisteret.
   antall_ansatte:
     slot_uri: ngrv:antallAnsatte
     range: integer
@@ -610,7 +610,7 @@ slots:
   rolleinnehaver_navn:
     slot_uri: ngrv:rolleinnehaverNavn
     range: string
-    description: Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
+    description: Navn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
   # ---- Verdislots (dataeigenskapar) ----------------------------------------
   tilstandstype:
     slot_uri: ngrv:tilstandstype

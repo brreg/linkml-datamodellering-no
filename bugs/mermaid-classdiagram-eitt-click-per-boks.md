@@ -8,7 +8,7 @@
 ## Symptom
 
 I genererte klasse-/slot-sider (`mkdocs/docs/**/klasser/*.md`) sitt mermaid
-`classDiagram` er kvar klasse rendra som éin boks med klassenamnet øvst og
+`classDiagram` er kvar klasse rendra som éin boks med klassenavnet øvst og
 kvar eigenskap (slot) som ei medlemsrad under, t.d. for `Adresse`:
 
 ```
@@ -42,7 +42,7 @@ Alle skjema/klassar med minst éin attributt i det genererte mermaid
 ## Rot-årsak
 
 Mermaid sin `classDiagram`-syntaks har **ingen** eigen `click`-mekanisme for
-enkelte medlemsrader — kun eitt `click <Klassenamn> href "..."`-direktiv per
+enkelte medlemsrader — kun eitt `click <Klassenavn> href "..."`-direktiv per
 klasseboks, som gjeld heile boksen (tittel + medlemsliste) samla. Dette er
 ei grunnleggjande avgrensing i sjølve Mermaid-syntaksen, ikkje noko
 LinkML sin `gen-doc` eller dette repoet sin `copy_artifacts.sh` kan

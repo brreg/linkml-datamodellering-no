@@ -48,12 +48,12 @@ og `samt-bu-schema.yaml` (transitivt, via import av `dqv-ap-no-schema.yaml`).
 LinkML har to ulike kodepatar for import-merge:
 
 - **SchemaView-baserte generatorar** (json-schema, shacl, owl) behandlar ei
-  lokal redeklarering av eit importert klassenamn som ei **fullstendig
+  lokal redeklarering av eit importert klassenavn som ei **fullstendig
   erstatning** — den lokale definisjonen må derfor vere sjølvstendig komplett
   (inkludere alle slot frå originalen), elles tapast dei.
 - **SchemaLoader-baserte generatorar** (python, rdf, jsonld-context,
   linkml-convert) kallar `merge_schemas` → `merge_dicts`, som kastar
-  `ValueError` så snart to `ClassDefinition`-objekt med samme namn har ulik
+  `ValueError` så snart to `ClassDefinition`-objekt med samme navn har ulik
   `from_schema` — **uavhengig av** om slot-lista er komplett eller ikkje.
 
 Verifisert empirisk (i ein isolert testkopi, ikkje i repoet): å fylle ut heile

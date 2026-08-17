@@ -41,7 +41,7 @@ objekttypar:
     tittel:
       - "Vegadresse"
     beskrivelse:
-      - "Adresse der vegnamn, husnummer og eventuell bokstav inngår."
+      - "Adresse der vegnavn, husnummer og eventuell bokstav inngår."
     har_egenskap:
       - https://example.org/attributtar/adressekode
       - https://example.org/attributtar/adressenavn
@@ -72,7 +72,7 @@ attributtar:
     tittel:
       - "adressenavn"
     beskrivelse:
-      - "Namn på gate, veg, sti, plass eller område som er ført i matrikkelen."
+      - "Navn på gate, veg, sti, plass eller område som er ført i matrikkelen."
     nedre_multiplisitet: 1
     oevre_multiplisitet: "1"
 
@@ -159,7 +159,7 @@ kodeelement:
     anbefalt_kodetekst:
       - "Vegadresse"
     definisjon:
-      - "Adresse med vegnamn og husnummer."
+      - "Adresse med vegnavn og husnummer."
     i_kodeliste:
       - https://example.org/kodelister/adressetype
 
@@ -174,5 +174,5 @@ kodeelement:
 
 aktorar:
   - id: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827
-    namn_aktor:
+    navn_aktoer:
       - "Digitaliseringsdirektoratet"

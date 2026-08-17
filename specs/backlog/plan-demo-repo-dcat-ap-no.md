@@ -1,6 +1,6 @@
 # Plan: Demo-repo som bootstrapper LinkML frå dette repoet
 
-**Kortnamn:** `plan-demo-repo-dcat-ap-no`  
+**Kortnavn:** `plan-demo-repo-dcat-ap-no`  
 **Mål:** Lage eit offentleg tilgjengeleg demo-repo (`brreg/linkml-datamodellering-demo`) som viser korleis ein
 ekstern verksemnd bootstrappar LinkML-modellering frå `linkml-datamodellering-no` og lagar
 ein enkel domenemodell som inkluderer `dcat-ap-no`.
@@ -90,7 +90,7 @@ set opp. Ingen eigen CI-infrastruktur i demo-repoet.
    ```
    Bootstrap-scriptet set `ap-no-version: dcat-ap-no-v2.0.0` i `linkml-datamodellering.yaml` automatisk.
 
-3. Rediger `.github/workflows/linkml.yml` — bytt ut plasshaldaren med riktig stinamn:
+3. Rediger `.github/workflows/linkml.yml` — bytt ut plasshaldaren med riktig stinavn:
    ```yaml
    schema: src/linkml/kommunal/kommunal-datakatalog/kommunal-datakatalog-schema.yaml
    policy: bronze
@@ -331,7 +331,7 @@ Legg til ein lenke og kort omtale av demo-repoet i dokumentasjonsportalen
 | `ghcr.io/brreg/linkml-local` publisert på GHCR | ✓ Bekrefta | Tilgjengeleg per versjon-tag. |
 | `reusable-validate.yml` funksjonell | ✓ | Steg 6 kan ikkje gjennomførast om denne er broten. |
 | `dcat-ap-no-schema` tilgjengeleg via `raw.githubusercontent.com/dcat-ap-no-v2.0.0/…` | ✓ | Stabil per skjema-spesifikk release-tag. |
-| Repo-namn avklart | ✓ `brreg/linkml-datamodellering-demo` | — |
+| Repo-navn avklart | ✓ `brreg/linkml-datamodellering-demo` | — |
 
 ---
 

@@ -100,7 +100,7 @@ classes:
         inlined: true
         inlined_as_list: true
 
-  Tilskudd:                        # ← stub — alt PascalCase, men gi han eit meir meiningsfullt namn
+  Tilskudd:                        # ← stub — alt PascalCase, men gi han eit meir meiningsfullt navn
     description: TODO: beskriv klassen
     class_uri: tilskudd:tilskudd   # ← byt med faktisk vokabular-URI
     annotations:
@@ -114,18 +114,18 @@ slots:
     slot_uri: dcat:contactPoint
     range: uriorcurie
 
-# TODO: Gi stub-klassen eit meir meiningsfullt namn.
+# TODO: Gi stub-klassen eit meir meiningsfullt navn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.
 ```
 
 `id`-sloten er ikkje lokalt definert i utkastet — han vert arva via
 `dcat-ap-no` sitt importerte `common-ap-no`-import, som har det delte
 `id`-slotet (`identifier: true`, `range: uriorcurie`). `tilskudd_kontaktinformasjon`-sloten
-vert generert globalt, prefiksa med skjemaet sitt eige, unike namn
+vert generert globalt, prefiksa med skjemaet sitt eige, unike navn
 (`tilskudd`) — strukturelt kollisjonsfritt mot alle faste AP-NO-vokabularslot
 (t.d. det importerte `kontaktpunkt`-slotet frå `dcat-ap-no`, som har ein
 annan `range`), sidan ingen AP-NO-profil nokon gong vil bruke akkurat ditt
-skjemanamn som prefiks. Sloten er
+skjemanavn som prefiks. Sloten er
 **ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
 (`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
 klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i
@@ -136,7 +136,7 @@ klassar der det er relevant.
 | Stubb | Kva som skal inn |
 |-------|-----------------|
 | `title: 'TODO: tittel for …'` | Norsk bokmål-tittel, t.d. `Tilskuddsregister` |
-| `class Tilskudd` (generisk namn) | Gi klassen eit meir meiningsfullt norsk namn, t.d. `Tilskuddsvedtak` (namnet er alt PascalCase) |
+| `class Tilskudd` (generisk navn) | Gi klassen eit meir meiningsfullt norsk navn, t.d. `Tilskuddsvedtak` (navnet er alt PascalCase) |
 | `class_uri: tilskudd:tilskudd` | Faktisk RDF-URI, t.d. `dcat:Dataset` eller eigen namespace |
 | `begrepsidentifikator: …/TODO` | URI frå [data.norge.no/concepts](https://data.norge.no/concepts) |
 | `description: TODO: beskriv klassen` | Norsk skildring av kva klassen representerer |
@@ -277,7 +277,7 @@ Ved å importere ein AP-NO-profil arvar du automatisk alt frå `common-ap-no` �
 
 **Typar frå `common-ap-no`**
 
-| Namn | RDF-type | Bruk |
+| Navn | RDF-type | Bruk |
 |---|---|---|
 | `LangString` | `rdf:langString` | Fleirspråklege strenger (tittel, skildring …) |
 | `Duration` | `xsd:duration` | Varigheit, t.d. `PT15M` |
@@ -351,7 +351,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 
 ## Modelleringsprinsipp
 
-**Norsk bokmål** — alle klassenamn, slotnamn og skildringar skrivast på bokmål. Unntak: tekniske omgrep fastsett i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
+**Norsk bokmål** — alle klassenavn, slotnavn og skildringar skrivast på bokmål. Unntak: tekniske omgrep fastsett i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
 
 **Slots, ikkje attributes** — alle eigenskapar definerast som globale `slots:` på toppnivå, aldri som `attributes:` inne i ein klasse.
 
@@ -372,7 +372,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 [ ] license er sett til https://data.norge.no/nlod/no/2.0
 [ ] default_prefix er ein absolutt HTTPS-URI med avsluttande /
 [ ] Importerer AP-NO-profil(ar) — ikkje common-ap-no direkte
-[ ] Klasse- og slotnamn er på norsk bokmål
+[ ] Klasse- og slotnavn er på norsk bokmål
 [ ] Alle klasser (unntatt tree_root) har class_uri
 [ ] Alle globale slots har slot_uri
 [ ] make mcp-linkml-valider-modell POLICY=bronze gir 0 feil

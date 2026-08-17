@@ -376,7 +376,7 @@ informasjonsmodeller:
 aktoerer:
 - id: https://novari.no/kontakt
   navn_aktoer:
-  - 'TODO: namn på kontaktpunktet'
+  - 'TODO: navn på kontaktpunktet'
 - id: https://data.norge.no/organizations/985870714
   navn_aktoer:
   - Novari IKS
@@ -1282,7 +1282,7 @@ objekttyper:
   tittel:
   - JournalpostType
   beskrivelse:
-  - Namn på type journalpost.
+  - Navn på type journalpost.
   har_egenskap:
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/JournalpostType/kode
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/JournalpostType/navn
@@ -1322,7 +1322,7 @@ objekttyper:
   tittel:
   - Merknadstype
   beskrivelse:
-  - Namn på type merknad.
+  - Navn på type merknad.
   har_egenskap:
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/Merknadstype/kode
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/Merknadstype/navn
@@ -1447,7 +1447,7 @@ objekttyper:
   tittel:
   - Personnavn
   beskrivelse:
-  - Namn på ein person.
+  - Navn på ein person.
   har_egenskap:
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common/Personnavn/fornavn
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-common/Personnavn/mellomnavn
@@ -1902,7 +1902,7 @@ objekttyper:
   tittel:
   - Rettighet
   beskrivelse:
-  - Ei namngitt rettighet.
+  - Ei navngitt rettighet.
   har_egenskap:
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs/Rettighet/kode
   - https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs/Rettighet/navn
@@ -2781,7 +2781,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2817,7 +2817,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2853,7 +2853,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2889,7 +2889,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2925,7 +2925,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2961,7 +2961,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2997,7 +2997,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3033,7 +3033,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3078,7 +3078,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3114,7 +3114,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3150,7 +3150,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3195,7 +3195,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3231,7 +3231,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3267,7 +3267,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3303,7 +3303,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3339,7 +3339,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3375,7 +3375,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3411,7 +3411,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3447,7 +3447,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3483,7 +3483,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3519,7 +3519,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3573,7 +3573,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3654,7 +3654,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3744,7 +3744,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3843,7 +3843,7 @@ attributter:
   tittel:
   - rolleNavn
   beskrivelse:
-  - Namn på rolla; unik identifikator.
+  - Navn på rolla; unik identifikator.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   inneholder_objekttype:
@@ -3852,7 +3852,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3870,7 +3870,7 @@ attributter:
   tittel:
   - lokasjonsnavn
   beskrivelse:
-  - Namn som beskriv ein arbeidslokasjon.
+  - Navn som beskriv ein arbeidslokasjon.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3888,7 +3888,7 @@ attributter:
   tittel:
   - organisasjonsnavn
   beskrivelse:
-  - Namn på eining registrert i Einingsregisteret.
+  - Navn på eining registrert i Einingsregisteret.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3933,7 +3933,7 @@ attributter:
   tittel:
   - kortnavn
   beskrivelse:
-  - Forkorta namn som beskriv organisasjonselementet.
+  - Forkorta navn som beskriv organisasjonselementet.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3942,7 +3942,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -3978,7 +3978,7 @@ attributter:
   tittel:
   - organisasjonsnavn
   beskrivelse:
-  - Namn på eining registrert i Einingsregisteret.
+  - Navn på eining registrert i Einingsregisteret.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4050,7 +4050,7 @@ attributter:
   tittel:
   - brukernavn
   beskrivelse:
-  - Brukarnamn til den tilsette.
+  - Brukarnavn til den tilsette.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   inneholder_objekttype:
@@ -4059,7 +4059,7 @@ attributter:
   tittel:
   - jobbtittel
   beskrivelse:
-  - Namn som beskriv jobben eller stillinga.
+  - Navn som beskriv jobben eller stillinga.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4176,7 +4176,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4203,7 +4203,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4239,7 +4239,7 @@ attributter:
   tittel:
   - filnavn
   beskrivelse:
-  - Dokumentfilens namn.
+  - Dokumentfilens navn.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4365,7 +4365,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4374,7 +4374,7 @@ attributter:
   tittel:
   - forfatter
   beskrivelse:
-  - Namn på person eller organisasjon som skapte dokumentet.
+  - Navn på person eller organisasjon som skapte dokumentet.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '*'
   har_enkel_type:
@@ -4473,7 +4473,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4482,7 +4482,7 @@ attributter:
   tittel:
   - avsluttetAvNavn
   beskrivelse:
-  - Namn på person som avslutta/lukka arkivenheten.
+  - Navn på person som avslutta/lukka arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4500,7 +4500,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4518,7 +4518,7 @@ attributter:
   tittel:
   - opprettetAvNavn
   beskrivelse:
-  - Namn på person som oppretta/registrerte arkivenheten.
+  - Navn på person som oppretta/registrerte arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4536,7 +4536,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4545,7 +4545,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4599,7 +4599,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4680,7 +4680,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4689,7 +4689,7 @@ attributter:
   tittel:
   - personnavn
   beskrivelse:
-  - Namn på person (Personnavn-objekt).
+  - Navn på person (Personnavn-objekt).
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   inneholder_objekttype:
@@ -4770,7 +4770,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4851,7 +4851,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -4941,7 +4941,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5022,7 +5022,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5031,7 +5031,7 @@ attributter:
   tittel:
   - fartoyNavn
   beskrivelse:
-  - Fartøyets namn.
+  - Fartøyets navn.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5112,7 +5112,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5193,7 +5193,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5202,7 +5202,7 @@ attributter:
   tittel:
   - bygningsnavn
   beskrivelse:
-  - Bygningens namn.
+  - Bygningens navn.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5283,7 +5283,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5364,7 +5364,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5373,7 +5373,7 @@ attributter:
   tittel:
   - organisasjonsnavn
   beskrivelse:
-  - Namn på eining registrert i Einingsregisteret.
+  - Navn på eining registrert i Einingsregisteret.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5436,7 +5436,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5517,7 +5517,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5553,7 +5553,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5580,7 +5580,7 @@ attributter:
   tittel:
   - forfatter
   beskrivelse:
-  - Namn på person eller organisasjon som skapte dokumentet.
+  - Navn på person eller organisasjon som skapte dokumentet.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '*'
   har_enkel_type:
@@ -5634,7 +5634,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5715,7 +5715,7 @@ attributter:
   tittel:
   - tittel
   beskrivelse:
-  - Tittel eller namn på arkivenheten.
+  - Tittel eller navn på arkivenheten.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5760,7 +5760,7 @@ attributter:
   tittel:
   - korrespondansepartNavn
   beskrivelse:
-  - Namn på person eller organisasjon som er avsender eller mottakar.
+  - Navn på person eller organisasjon som er avsender eller mottakar.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5850,7 +5850,7 @@ attributter:
   tittel:
   - partNavn
   beskrivelse:
-  - Namn på verksemd eller person som er part.
+  - Navn på verksemd eller person som er part.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5868,7 +5868,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5904,7 +5904,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5940,7 +5940,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -5976,7 +5976,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6012,7 +6012,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6048,7 +6048,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6084,7 +6084,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6120,7 +6120,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6156,7 +6156,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6192,7 +6192,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6228,7 +6228,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6264,7 +6264,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6300,7 +6300,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6336,7 +6336,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6372,7 +6372,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6408,7 +6408,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6444,7 +6444,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6498,7 +6498,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6525,7 +6525,7 @@ attributter:
   tittel:
   - fornavn
   beskrivelse:
-  - Fornamn til personen.
+  - Fornavn til personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6534,7 +6534,7 @@ attributter:
   tittel:
   - mellomnavn
   beskrivelse:
-  - Mellomnamn.
+  - Mellomnavn.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6543,7 +6543,7 @@ attributter:
   tittel:
   - etternavn
   beskrivelse:
-  - Etternamn til personen.
+  - Etternavn til personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6552,7 +6552,7 @@ attributter:
   tittel:
   - epostadresse
   beskrivelse:
-  - Namngitt elektronisk adresse for mottak av e-post.
+  - Navngitt elektronisk adresse for mottak av e-post.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6678,7 +6678,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6714,7 +6714,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6750,7 +6750,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6786,7 +6786,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6822,7 +6822,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6858,7 +6858,7 @@ attributter:
   tittel:
   - valuta_navn
   beskrivelse:
-  - Namn på valuta.
+  - Navn på valuta.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -6912,7 +6912,7 @@ attributter:
   tittel:
   - person_navn
   beskrivelse:
-  - Namn på personen.
+  - Navn på personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   inneholder_objekttype:
@@ -6975,7 +6975,7 @@ attributter:
   tittel:
   - kontaktperson_navn
   beskrivelse:
-  - Namn på kontaktpersonen.
+  - Navn på kontaktpersonen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   inneholder_objekttype:
@@ -7020,7 +7020,7 @@ attributter:
   tittel:
   - organisasjonsnavn
   beskrivelse:
-  - Namn på eining registrert i Einingsregisteret.
+  - Navn på eining registrert i Einingsregisteret.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7092,7 +7092,7 @@ attributter:
   tittel:
   - mottaker
   beskrivelse:
-  - Namn på mottakar.
+  - Navn på mottakar.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7209,7 +7209,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7281,7 +7281,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7389,7 +7389,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7434,7 +7434,7 @@ attributter:
   tittel:
   - filnavn
   beskrivelse:
-  - Namn på bilagets fil.
+  - Navn på bilagets fil.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7497,7 +7497,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7506,7 +7506,7 @@ attributter:
   tittel:
   - enhet
   beskrivelse:
-  - Namn på mengdeeininga varen leverast i.
+  - Navn på mengdeeininga varen leverast i.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7560,7 +7560,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7605,7 +7605,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7686,7 +7686,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7713,7 +7713,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7749,7 +7749,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7776,7 +7776,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7785,7 +7785,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7803,7 +7803,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7812,7 +7812,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7902,7 +7902,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -7965,7 +7965,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8001,7 +8001,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8010,7 +8010,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8046,7 +8046,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8082,7 +8082,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8118,7 +8118,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8154,7 +8154,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8190,7 +8190,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8226,7 +8226,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8262,7 +8262,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8298,7 +8298,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8325,7 +8325,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8352,7 +8352,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8361,7 +8361,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8379,7 +8379,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8388,7 +8388,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8406,7 +8406,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8415,7 +8415,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8433,7 +8433,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8442,7 +8442,7 @@ attributter:
   tittel:
   - domenenavn
   beskrivelse:
-  - Domenenamn for skulen.
+  - Domenenavn for skulen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8451,7 +8451,7 @@ attributter:
   tittel:
   - juridiskNavn
   beskrivelse:
-  - Juridisk namn på skulen.
+  - Juridisk navn på skulen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8460,7 +8460,7 @@ attributter:
   tittel:
   - organisasjonsnavn
   beskrivelse:
-  - Namn på eining registrert i Einingsregisteret.
+  - Navn på eining registrert i Einingsregisteret.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8586,7 +8586,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8595,7 +8595,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8622,7 +8622,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8631,7 +8631,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8667,7 +8667,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8676,7 +8676,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8685,7 +8685,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8694,7 +8694,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8739,7 +8739,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8748,7 +8748,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8757,7 +8757,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8766,7 +8766,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8784,7 +8784,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8793,7 +8793,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8802,7 +8802,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8829,7 +8829,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8838,7 +8838,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8847,7 +8847,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8892,7 +8892,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -8901,7 +8901,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9243,7 +9243,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9279,7 +9279,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9315,7 +9315,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9351,7 +9351,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9387,7 +9387,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9423,7 +9423,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9459,7 +9459,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9495,7 +9495,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9531,7 +9531,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9567,7 +9567,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9603,7 +9603,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9648,7 +9648,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9684,7 +9684,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9720,7 +9720,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9756,7 +9756,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9765,7 +9765,7 @@ attributter:
   tittel:
   - beskrivelse
   beskrivelse:
-  - Beskriven namn eller omtale.
+  - Beskriven navn eller omtale.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9810,7 +9810,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9846,7 +9846,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9882,7 +9882,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9918,7 +9918,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9954,7 +9954,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -9990,7 +9990,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -10026,7 +10026,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Hovudnamn for ressursen.
+  - Hovudnavn for ressursen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -10910,7 +10910,7 @@ assosiasjoner:
   tittel:
   - journalposttype
   beskrivelse:
-  - Namn på type journalpost.
+  - Navn på type journalpost.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/JournalpostType
@@ -11534,7 +11534,7 @@ assosiasjoner:
   tittel:
   - dokumentType
   beskrivelse:
-  - Namn på type dokument.
+  - Navn på type dokument.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-arkiv/DokumentType
@@ -12062,7 +12062,7 @@ assosiasjoner:
   tittel:
   - produsent
   beskrivelse:
-  - Namn på produsenten av eininga.
+  - Navn på produsenten av eininga.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-ressurs/Produsent

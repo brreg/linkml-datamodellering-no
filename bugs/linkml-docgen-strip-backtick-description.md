@@ -9,16 +9,16 @@
 
 Eit `description:`-felt i kjeldeskjemaet som brukar backticks (kode-span) for
 å verne ein plassholdar-URL frå å verte tolka som ei ekte lenkje —
-t.d. `` `https://psi.norge.no/los/tema/<namn>` `` — mistar backtickane når
+t.d. `` `https://psi.norge.no/los/tema/<navn>` `` — mistar backtickane når
 `gen-doc` (via `make gen-doc`) genererer den tilhøyrande slot-/klasse-sida.
-Resultatet er bar prosa: `https://psi.norge.no/los/tema/<namn>`, utan
+Resultatet er bar prosa: `https://psi.norge.no/los/tema/<navn>`, utan
 kode-span-vern.
 
 Dette gjer at lenkjesjekk-verktøyet (lychee) sin bare-URL-detektor forsøker å
-følgje teksten som ei ekte lenkje. Sidan `<namn>` ikkje er eit gyldig
+følgje teksten som ei ekte lenkje. Sidan `<navn>` ikkje er eit gyldig
 URL-teikn, stoppar ekstraksjonen ved `<`, og lychee sjekkar den trunkerte
-`https://psi.norge.no/los/tema/` — som gjev eit reelt 404 (namnerommet krev
-eit temanamn etter skråstreken).
+`https://psi.norge.no/los/tema/` — som gjev eit reelt 404 (navnerommet krev
+eit temanavn etter skråstreken).
 
 ## Berørte skjema / sider
 
@@ -33,7 +33,7 @@ Kjeldeteksten i `src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml` (slot
 
 ```yaml
 description: >-
-  ... Bruk hovudtema (`https://psi.norge.no/los/tema/<namn>`) og eventuelt
+  ... Bruk hovudtema (`https://psi.norge.no/los/tema/<navn>`) og eventuelt
   undertema i tillegg. ...
 ```
 
@@ -58,8 +58,8 @@ Eksakt-treff-eksklusjon i `.github/lychee.toml`:
 "^https://psi\\.norge\\.no/los/tema/$"
 ```
 
-Denne dekkjer berre den trunkerte, alltid-ugyldige forma (temanamn manglar).
-Ho ekskluderer ikkje reelle `los/tema/<faktisk-namn>`-lenkjer andre stader i
+Denne dekkjer berre den trunkerte, alltid-ugyldige forma (temanavn manglar).
+Ho ekskluderer ikkje reelle `los/tema/<faktisk-navn>`-lenkjer andre stader i
 dokumentasjonen. Sjå
 `specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md` kategori D2 for
 full gransking og verifisering (`curl` mot verten, filsamanlikning kjelde vs.

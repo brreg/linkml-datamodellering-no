@@ -292,7 +292,7 @@ classes:
           - Anbefalt
   Samling:
     class_uri: skos:Collection
-    description: Ei namngitt samling av omgrep (skos:Collection).
+    description: Ei navngitt samling av omgrep (skos:Collection).
     slots:
       - id
       - identifikator_literal

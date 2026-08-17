@@ -47,10 +47,10 @@ To uavhengige grunnar til at URL-en aldri kan løyse seg for dette repoet:
    sin plassering (`src/linkml/...`), ei føresetnad som held for
    LinkML-prosjekt som publiserer byggoutput saman med kjeldekoden, men
    ikkje for dette repoet sitt skilje mellom kjeldekode og byggoutput.
-2. **Namngjeving:** Sjølv om ei fil fanst der, ville filnamnet uansett ikkje
-   matche — LinkML konstruerer alltid `<importnamn> + ".context.jsonld"`
+2. **Navngjeving:** Sjølv om ei fil fanst der, ville filnavnet uansett ikkje
+   matche — LinkML konstruerer alltid `<importnavn> + ".context.jsonld"`
    (**punktum** før "context"), medan `batch-generate.py` sin `REGISTRY`
-   (out_suffix `"context.jsonld"` kombinert med skjemanamn) alltid
+   (out_suffix `"context.jsonld"` kombinert med skjemanavn) alltid
    produserer `<schema>-context.jsonld` (**bindestrek** før "context") —
    t.d. `generated/ap-no/dcat-ap-no/dcat-ap-no-context.jsonld`.
 
@@ -69,7 +69,7 @@ sjå i staden BUG-15 for den feilen.
 `skip_if_versioned_import=True`. `main()` filtrerer skjema med minst eitt
 versjonslåst import (`schema_has_versioned_import()`, sjekkar `"://"` i
 `imports:`-lista) bort frå `gen-rdf`-køyringa **før** forsøk, og skriv ei
-tydeleg, ikkje-stille loggline (`HOPPAR OVER rdf for <domene>/<namn> — ...`)
+tydeleg, ikkje-stille loggline (`HOPPAR OVER rdf for <domene>/<navn> — ...`)
 i staden for å telje det som ein feil. Domenet/CI feilar difor ikkje lenger
 på dette — `schema.ttl` vert berre ikkje generert for slike skjema.
 `mkdocs/publish.sh` sin artefakttabell (linje 436-441) sjekkar alt
@@ -88,5 +88,5 @@ Ingen upstream-fiks venta. `JSONLDGenerator.end_schema()` sin
 at genererte artefakt vert publisert saman med kjeldekoden), ikkje ein bug
 i tradisjonell forstand — usannsynleg at upstream endrar standardåtferda.
 Dersom repoet i framtida vel å committe/publisere `.context.jsonld` for
-AP-NO-profilane på ein URL og med eit namn som matchar det LinkML
+AP-NO-profilane på ein URL og med eit navn som matchar det LinkML
 konstruerer, kan skip-logikken fjernast for dei aktuelle skjemaa.

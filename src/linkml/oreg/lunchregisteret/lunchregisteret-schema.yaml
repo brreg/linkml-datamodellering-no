@@ -51,5 +51,5 @@ slots:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
-# TODO: Gi stub-klassen eit meir meiningsfullt namn.
+# TODO: Gi stub-klassen eit meir meiningsfullt navn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.

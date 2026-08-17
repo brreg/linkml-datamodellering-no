@@ -1,10 +1,10 @@
-# Namnekonvensjonar og format
+# Navnekonvensjonar og format
 
-**Formål:** Referansedokument for namnekonvensjonar, manifestformat og commit-meldingar.
+**Formål:** Referansedokument for navnekonvensjonar, manifestformat og commit-meldingar.
 
 ---
 
-## Fil- og mappenamn
+## Fil- og mappenavn
 
 Alle filer og katalogar nyttar **`kebab-case`**, alltid norsk eller domene-etablert forkortning:
 
@@ -96,7 +96,7 @@ URI-ar er **persistente**: `id`-feltet skal ikkje endrast etter første publiser
 
 ---
 
-## Klassenamn
+## Klassenavn
 
 **PascalCase**, norsk bokmål. Særnorske bokstavar **translittererte**:
 
@@ -117,12 +117,12 @@ Aktør           # særnorsk bokstav i identifikator
 kommunalkatalog # ikkje PascalCase
 ```
 
-**Containerklassenamn** følgjer mønsteret `<Domene>Container` i PascalCase
+**Containerklassenavn** følgjer mønsteret `<Domene>Container` i PascalCase
 (t.d. `AdresseContainer`, `AksjeeierContainer`).
 
 ---
 
-## Slotnamn
+## Slotnavn
 
 **`snake_case`**, norsk bokmål. Unntak: FINT-skjema brukar `camelCase` (arva frå FINT-spec).
 
@@ -173,8 +173,8 @@ Conventional Commits-format: `<type>(<scope>): <skildring>`
 
 | Type | Bruksområde | Scope-krav | Utløyser release? |
 |---|---|---|---|
-| `feat(<modell>)` | Ny klasse, nytt slot | **Må** vere gyldig modellnamn | ✅ Ja |
-| `fix(<modell>)` | Rettjing av feil range, URI o.l. | **Må** vere gyldig modellnamn | ✅ Ja |
+| `feat(<modell>)` | Ny klasse, nytt slot | **Må** vere gyldig modellnavn | ✅ Ja |
+| `fix(<modell>)` | Rettjing av feil range, URI o.l. | **Må** vere gyldig modellnavn | ✅ Ja |
 | `feat` / `fix` | Bakoverkompatibilitet (utan scope) | - | ✅ Ja |
 | `docs` | Skildringar, README, portalinnhald | Valfri (t.d. `docs`, `docs(mkdocs)`) | ❌ Nei |
 | `refactor` | Omstrukturering utan semantisk endring | Valfri | ❌ Nei |
@@ -184,11 +184,11 @@ Conventional Commits-format: `<type>(<scope>): <skildring>`
 | `build` | Byggsystem-endringar | Valfri | ❌ Nei |
 | `perf` | Ytelsesforbetring | Valfri | ❌ Nei |
 | `style` | Formattering, whitespace | Valfri | ❌ Nei |
-| `feat!` / `fix!` | Brotande endring | **Må** vere gyldig modellnamn | ✅ Ja (major) |
+| `feat!` / `fix!` | Brotande endring | **Må** vere gyldig modellnavn | ✅ Ja (major) |
 
-**Gyldige modellnamn (scope):**
+**Gyldige modellnavn (scope):**
 
-Lista over gyldige modellnamn vert **automatisk generert** frå `src/linkml/*/*/*-schema.yaml` og lagra i `.github/valid-scopes.txt`.
+Lista over gyldige modellnavn vert **automatisk generert** frå `src/linkml/*/*/*-schema.yaml` og lagra i `.github/valid-scopes.txt`.
 
 - **Køyr `make update-valid-scopes`** for å regenerere lista manuelt
 - **`make new-modell`**, **`make new-modellkatalog`** og **`make new-begrepssamling`** oppdaterer lista automatisk
@@ -197,7 +197,7 @@ Lista over gyldige modellnamn vert **automatisk generert** frå `src/linkml/*/*/
 Sjå `.github/valid-scopes.txt` for fullstendig liste (32 modellar per 2026-07-27).
 
 **Viktig:** 
-- `feat(<modell>):` og `fix(<modell>):` **må** bruke gyldig modellnamn som scope — elles utløyser dei **ikkje** versjonering
+- `feat(<modell>):` og `fix(<modell>):` **må** bruke gyldig modellnavn som scope — elles utløyser dei **ikkje** versjonering
 - `docs`, `chore`, `test`, `ci`, `build`, `perf`, `refactor`, `style` utløyser **aldri** versjonering
 - For dokumentendringar: bruk `docs(<scope>):` eller `docs:` (ikkje `fix(docs):`)
 - For CI/CD-endringar: bruk `ci:` eller `chore(ci):` (ikkje `fix(ci):`)
@@ -291,7 +291,7 @@ generators:
 
 **Aggregation-metadata:**
 
-Organisasjonstilhøyrsle og begrepskatalog-namn vert automatisk utleidd frå
+Organisasjonstilhøyrsle og begrepskatalog-navn vert automatisk utleidd frå
 CODEOWNERS.md ved å matche begrepssamlinga sin sti mot `path_patterns` i
 YAML-frontmatter-blokka. Dersom ei begrepssamling ligg under `src/linkml/oreg/**`,
 vil `collect-concepts.py` finne at den høyrer til Brønnøysundregistra (`974760673`)
@@ -307,7 +307,7 @@ Fallback-orden:
 ```
 src/linkml/
   <domain>/
-    begrepssamling-<namn>/
+    begrepssamling-<navn>/
       build.yaml                    ← manifestfil med aggregation-metadata
       begrep/                       ← éin YAML-fil per begrep (frittstående)
         <begrep-id>.yaml
@@ -353,7 +353,7 @@ organisasjon og genererer ein begrepskatalog under `src/linkml/begrepskatalog/<o
 ## Silver-annotasjonar (Digdir-regel 9, 10, 11)
 
 Skjema som skal bruke `validation_policy: silver` eller høgare skal ha desse annotasjonane.
-Nøkkelnamna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
+Nøkkelnavna svarar til `Informasjonsmodell`-slotsa i `modelldcat-ap-no-schema.yaml`:
 
 | Annotasjon | Svarar til | Verdiformat |
 |---|---|---|
@@ -384,7 +384,7 @@ Slots som krev bruk av kontrollerte vokabular skal ha følgjande annotations:
 | `gyldige_verdier` | `uri` | Obligatorisk | URI til det primære kontrollerte vokabularet |
 | `vokabular_krav` | `skal` \| `bør` \| `kan` | Obligatorisk | Om bruk av vokabularet er obligatorisk, anbefalt eller valfri |
 | `vokabular_pattern` | `regex` | Valfri | Regex-mønster for å validere URI-format av instansverdiar |
-| `enum_referanse` | `EnumName` | Valfri | Namn på enum i same/importert skjema som dekkjer (delar av) vokabularet |
+| `enum_referanse` | `EnumName` | Valfri | Navn på enum i same/importert skjema som dekkjer (delar av) vokabularet |
 | `enum_dekning` | `full` \| `delvis` | Valfri | Om `enum_referanse` dekkjer heile vokabularet eller berre vanlegaste verdiar |
 | `sekundare_vokabular` | `uri` | Valfri | URI til sekundært/alternativt vokabular som kan brukast |
 | `sekundare_vokabular_krav` | `skal` \| `bør` \| `kan` | Valfri | Krav for sekundært vokabular |
@@ -435,7 +435,7 @@ tema:
   multivalued: true
   description: >-
     Tema frå eit kontrollert vokabular. For norske offentlege datasett skal Los
-    brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<namn>)
+    brukast som primærvokabular. Bruk hovudtema (https://psi.norge.no/los/tema/<navn>)
     og eventuelt undertema i tillegg. EuroVoc kan brukast som sekundærvokabular.
   annotations:
     gyldige_verdier: https://psi.norge.no/los/

@@ -14,7 +14,7 @@ linkml_runtime.MappingError: No pred for https://data.norge.no/fint/fint-adminis
 linkml_runtime.MappingError: No pred for https://data.norge.no/samt/samt-bu/id <class 'rdflib.term.URIRef'>
 ```
 
-`rdflib_loader` møter ein RDF-predikat med ein URI frå domene-prefiks-namnerommet
+`rdflib_loader` møter ein RDF-predikat med ein URI frå domene-prefiks-navnerommet
 (`default_prefix`-URI-ar) og klarer ikkje å mappa han tilbake til ein slot i skjemaet.
 
 ## Berørte skjema / testar
@@ -33,7 +33,7 @@ Merk: desse skjemaa er ikkje i skip-lista — dei køyrer og feiler.
 
 `rdflib_loader` brukar `slot_uri`-mappingane til å konvertere RDF-predikatar
 tilbake til slots. For slots som manglar eksplisitt `slot_uri`, genererer
-LinkML ein URI basert på `default_prefix` + slotnamn. Desse URI-ane endar opp
+LinkML ein URI basert på `default_prefix` + slotnavn. Desse URI-ane endar opp
 i TTL-fila, men `rdflib_loader` klarer ikkje å slå dei opp att i slot-registeret
 under deserialisering.
 

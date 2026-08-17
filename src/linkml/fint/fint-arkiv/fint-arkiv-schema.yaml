@@ -33,7 +33,7 @@ slots:
   tittel:
     slot_uri: ark:tittel
     range: string
-    description: Tittel eller namn på arkivenheten.
+    description: Tittel eller navn på arkivenheten.
   avsluttetDato:
     slot_uri: ark:avsluttetDato
     range: datetime
@@ -114,7 +114,7 @@ slots:
     slot_uri: ark:forfatter
     range: string
     multivalued: true
-    description: Namn på person eller organisasjon som skapte dokumentet.
+    description: Navn på person eller organisasjon som skapte dokumentet.
   # --- Saksmappe ------------------------------------------------------------
   journalpost:
     slot_uri: ark:journalpost
@@ -193,14 +193,14 @@ slots:
   # navn:
   #   slot_uri: ark:navn
   #   range: string
-  #   description: Namn på arkivenhet eller kodeverk-element.
+  #   description: Navn på arkivenhet eller kodeverk-element.
 
   # personnavn: Personnavn — brukt av Personalmappe (same slot_uri som navn, ulik range)
   personnavn:
     slot_uri: ark:personnavn
     range: Personnavn
     inlined: true
-    description: Namn på person (Personnavn-objekt).
+    description: Navn på person (Personnavn-objekt).
   organisasjonselement:
     slot_uri: ark:organisasjonselement
     range: uriorcurie
@@ -243,11 +243,11 @@ slots:
   avsluttetAvNavn:
     slot_uri: ark:avsluttetAvNavn
     range: string
-    description: Namn på person som avslutta/lukka arkivenheten.
+    description: Navn på person som avslutta/lukka arkivenheten.
   opprettetAvNavn:
     slot_uri: ark:opprettetAvNavn
     range: string
-    description: Namn på person som oppretta/registrerte arkivenheten.
+    description: Navn på person som oppretta/registrerte arkivenheten.
   # --- Tilgang --------------------------------------------------------------
   rolle:
     slot_uri: ark:rolle
@@ -261,7 +261,7 @@ slots:
   filnavn:
     slot_uri: ark:filnavn
     range: string
-    description: Dokumentfilens namn.
+    description: Dokumentfilens navn.
   format:
     slot_uri: ark:format
     range: string
@@ -315,7 +315,7 @@ slots:
   journalposttype:
     slot_uri: ark:journalposttype
     range: JournalpostType
-    description: Namn på type journalpost.
+    description: Navn på type journalpost.
   journalstatus:
     slot_uri: ark:journalstatus
     range: JournalStatus
@@ -347,7 +347,7 @@ slots:
   dokumentType:
     slot_uri: ark:dokumentType
     range: DokumentType
-    description: Namn på type dokument.
+    description: Navn på type dokument.
   tilknyttetRegistreringSom:
     slot_uri: ark:tilknyttetRegistreringSom
     range: TilknyttetRegistreringSom
@@ -413,7 +413,7 @@ slots:
   korrespondansepartNavn:
     slot_uri: ark:korrespondansepartNavn
     range: string
-    description: Namn på person eller organisasjon som er avsender eller mottakar.
+    description: Navn på person eller organisasjon som er avsender eller mottakar.
   # ark:organisasjonsnummer (string) — ulikt frå fint-common sin (fint:organisasjonsnummer, Identifikator).
   orgnummer:
     slot_uri: ark:organisasjonsnummer
@@ -426,7 +426,7 @@ slots:
   partNavn:
     slot_uri: ark:partNavn
     range: string
-    description: Namn på verksemd eller person som er part.
+    description: Navn på verksemd eller person som er part.
   partRolle:
     slot_uri: ark:partRolle
     range: PartRolle
@@ -502,7 +502,7 @@ slots:
   fartoyNavn:
     slot_uri: ark:fartoyNavn
     range: string
-    description: Fartøyets namn.
+    description: Fartøyets navn.
   kallesignal:
     slot_uri: ark:kallesignal
     range: string
@@ -510,7 +510,7 @@ slots:
   bygningsnavn:
     slot_uri: ark:bygningsnavn
     range: string
-    description: Bygningens namn.
+    description: Bygningens navn.
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
@@ -1588,7 +1588,7 @@ classes:
         in_subset:
           - Valgfri
   JournalpostType:
-    description: Namn på type journalpost.
+    description: Navn på type journalpost.
     class_uri: ark:JournalpostType
     slots:
       - id
@@ -1684,7 +1684,7 @@ classes:
         in_subset:
           - Valgfri
   Merknadstype:
-    description: Namn på type merknad.
+    description: Navn på type merknad.
     class_uri: ark:Merknadstype
     slots:
       - id

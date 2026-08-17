@@ -1,6 +1,6 @@
 # Plan: Nedlasting og versjonering av eksterne kodeverk for LinkML-modellering
 
-**Kortnamn:** `ekstern-kodeverk-versjonering`  
+**Kortnavn:** `ekstern-kodeverk-versjonering`  
 **Eksempel:** Los (https://psi.norge.no/los/all.rdf)  
 **Dato:** 2026-06-19  
 **Revidert:** 2026-06-19 (etter evalueringsrunde — sjå nedanfor)
@@ -126,7 +126,7 @@ description: >-
 
 enums:
   LosTema:
-    description: Los hovudtema — https://psi.norge.no/los/tema/<namn>
+    description: Los hovudtema — https://psi.norge.no/los/tema/<navn>
     permissible_values:
       arbeid:
         meaning: https://psi.norge.no/los/tema/arbeid
@@ -216,7 +216,7 @@ gen-external-los-enum:
 Sida viser:
 - Alle registrerte kjelder med nedlastingsdato og lenkje
 - Korleis ein oppdaterer eit kodeverk (`make download-external-los && make gen-external-los-enum`)
-- Ei tabell over gyldige Los-tema-URI-ar med norske namn (generert frå `los-tema.yaml`)
+- Ei tabell over gyldige Los-tema-URI-ar med norske navn (generert frå `los-tema.yaml`)
 - Korleis ein domenemodell importerer `los-tema-enum.yaml` for opt-in-validering
 
 ### EK5 — Samla oppdateringsflyt

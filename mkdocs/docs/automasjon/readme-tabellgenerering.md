@@ -40,7 +40,7 @@ Tabellane vert genererte av `src/assets/scripts/makefile/generate-readme-tables.
 - **Skildringar vert henta** frå `description:`-feltet i kvar skjemafil via `extract-schema-metadata.py` (linje 72)
 - **Dokumentasjonslenkjer vert henta** frå første URI i `see_also:`-lista via `extract-schema-metadata.py` (linje 75)
 
-Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, men inkluderer berre **hovudskjema** der filnamnet matcher katalognamnet (t.d. `modelldcat-ap-no/modelldcat-ap-no-schema.yaml` vert inkludert, men `modelldcat-ap-no/modelldcat-katalog-schema.yaml` vert hoppa over).
+Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, men inkluderer berre **hovudskjema** der filnavnet matcher katalognavnet (t.d. `modelldcat-ap-no/modelldcat-ap-no-schema.yaml` vert inkludert, men `modelldcat-ap-no/modelldcat-katalog-schema.yaml` vert hoppa over).
 
 **Domene som vert inkluderte:** fair, ap-no, referanse, ngr, oreg, fint, samt (linje 30)
 
@@ -74,7 +74,7 @@ name: folkeregisteret
 title: Folkeregisteret
 description: >-
   Personopplysningar frå Folkeregisteret ved Skatteetaten.
-  Inneheld namn, adresse, fødselsnummer og relasjonar.
+  Inneheld navn, adresse, fødselsnummer og relasjonar.
 see_also:
   - https://www.skatteetaten.no/person/folkeregisteret/
 ```
@@ -82,7 +82,7 @@ see_also:
 Resultatet vert:
 
 ```markdown
-| [oreg](oreg/) | [folkeregisteret](oreg/folkeregisteret/) | Personopplysningar frå Folkeregisteret ved Skatteetaten. Inneheld namn, adresse, fødselsnummer og relasjonar. | [skatteetaten.no](https://www.skatteetaten.no/person/folkeregisteret/) |
+| [oreg](oreg/) | [folkeregisteret](oreg/folkeregisteret/) | Personopplysningar frå Folkeregisteret ved Skatteetaten. Inneheld navn, adresse, fødselsnummer og relasjonar. | [skatteetaten.no](https://www.skatteetaten.no/person/folkeregisteret/) |
 ```
 
 ---
@@ -101,7 +101,7 @@ Resultatet vert:
 
 **100 % auto-generert:**
 - **Begrepskatalogfiler vert auto-oppdaga** frå `src/linkml/begrepskatalog/` (linje 102-123)
-- **Organisasjonsnamn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Begrepskatalog" (linje 107-114)
+- **Organisasjonsnavn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Begrepskatalog" (linje 107-114)
 
 ### Korleis legge til ny begrepskatalog
 
@@ -110,10 +110,10 @@ Resultatet vert:
 **Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml`:
 
 ```yaml
-title: "Organisasjonsnamn - Begrepskatalog"
+title: "Organisasjonsnavn - Begrepskatalog"
 ```
 
-Organisasjonsnamnet vert ekstraherast automatisk ved å fjerne " - Begrepskatalog" frå `title`.
+Organisasjonsnavnet vert ekstraherast automatisk ved å fjerne " - Begrepskatalog" frå `title`.
 
 **Steg 3:** Køyr `make readme-tables`
 
@@ -148,7 +148,7 @@ Resultatet vert:
 
 **100 % auto-generert:**
 - **Modellkatalogfiler vert auto-oppdaga** frå `src/linkml/modellkatalog/` (linje 134-155)
-- **Organisasjonsnamn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" (linje 138-146)
+- **Organisasjonsnavn vert ekstraherast** frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" (linje 138-146)
 
 ### Korleis legge til ny modellkatalog
 
@@ -157,10 +157,10 @@ Resultatet vert:
 **Steg 2:** Fyll inn `title:` i skjemafila `src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml`:
 
 ```yaml
-title: "Organisasjonsnamn - Modellkatalog"
+title: "Organisasjonsnavn - Modellkatalog"
 ```
 
-Organisasjonsnamnet vert ekstraherast automatisk ved å fjerne " - Modellkatalog" frå `title`.
+Organisasjonsnavnet vert ekstraherast automatisk ved å fjerne " - Modellkatalog" frå `title`.
 
 **Steg 3:** Køyr `make readme-tables`
 
@@ -247,7 +247,7 @@ berre kalla indirekte via `make docs-publish`.)
 **Sjekkliste:**
 
 1. **Er skjemafila på rett stad?** → Skal vere `src/linkml/<domene>/<skjema>/<skjema>-schema.yaml`
-2. **Matcher filnamnet katalognamnet?** → Filnamnet skal vere `<skjema>-schema.yaml` og katalogen skal heite `<skjema>`
+2. **Matcher filnavnet katalognavnet?** → Filnavnet skal vere `<skjema>-schema.yaml` og katalogen skal heite `<skjema>`
 3. **Er domenet i domene-rekkefølgja?** → Sjå linje 30 i `generate-readme-tables.sh`:
 
    ```bash
@@ -304,18 +304,18 @@ python3 src/assets/scripts/makefile/extract-schema-metadata.py \
   src/linkml/<domene>/<skjema>/<skjema>-schema.yaml see_also
 ```
 
-### Organisasjonsnamnet for modellkatalog/begrepskatalog er feil
+### Organisasjonsnavnet for modellkatalog/begrepskatalog er feil
 
-Organisasjonsnamnet vert ekstraherast frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" eller " - Begrepskatalog":
+Organisasjonsnavnet vert ekstraherast frå `title:`-feltet i skjemafila ved å fjerne " - Modellkatalog" eller " - Begrepskatalog":
 
 ```bash
 python3 src/assets/scripts/makefile/extract-schema-metadata.py \
   src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml title
 
-# Forventar: "Organisasjonsnamn - Modellkatalog"
+# Forventar: "Organisasjonsnavn - Modellkatalog"
 ```
 
-Dersom `title:` ikkje følgjer mønsteret, vert organisasjonsnamnet "Ukjend". Korriger `title:`-feltet i skjemafila:
+Dersom `title:` ikkje følgjer mønsteret, vert organisasjonsnavnet "Ukjend". Korriger `title:`-feltet i skjemafila:
 
 ```yaml
 # Riktig

@@ -14,8 +14,8 @@
 WARNING: Unable to resolve circular dependency in no.norge.data.samt_bu.samt::document_wrapper with dependencies: ['no.norge.data.samt_bu.samt.Kontaktlaerer']
 ```
 
-Namnet på klassen i meldinga er **ikkje deterministisk** — gjentekne køyringar
-mot identisk input namngir ulike klassar (`Kontaktlaerer`, `Distribusjon`,
+Navnet på klassen i meldinga er **ikkje deterministisk** — gjentekne køyringar
+mot identisk input navngir ulike klassar (`Kontaktlaerer`, `Distribusjon`,
 `Elev` er alle observerte på same skjema).
 
 Åtvaringa påverkar **ikkje** byggresultatet: `j2a`- og `a2x`-steget lukkast,
@@ -43,7 +43,7 @@ Stadfesta at dette **ikkje** er ei reell sirkulær avhengigheit:
    attributt i containerklassen sin `document_wrapper.root`-felt som ikkje
    vert løyst — ikkje fordi klassen faktisk avheng sirkulært av containeren,
    men fordi `swap_dependency_type()` berre matchar avhengigheiter der
-   `field['type']` er ein bar streng lik avhengigheitsnamnet. Multivalued
+   `field['type']` er ein bar streng lik avhengigheitsnavnet. Multivalued
    LinkML-attributtar (`inlined_as_list: true`) kompilerer til JSON Schema
    på forma:
    ```json
@@ -59,7 +59,7 @@ Stadfesta at dette **ikkje** er ei reell sirkulær avhengigheit:
    åtvaringa — sjølv om den refererte typen (t.d. `Elev`) alt er korrekt
    definert tidlegare i utdataet, og resultatet (`.avsc`/`.xsd`) er
    strukturelt gyldig.
-3. Kva klassenamn som hamnar i åtvaringsmeldinga varierer mellom køyringar
+3. Kva klassenavn som hamnar i åtvaringsmeldinga varierer mellom køyringar
    fordi rekkjefølgja typane vert prosesserte i ikkje er deterministisk
    (truleg `PYTHONHASHSEED`-avhengig set/dict-iterasjon i `avrotize`) — eit
    ekstra teikn på at dette er eit generisk verktøy-avgrensing, ikkje eit

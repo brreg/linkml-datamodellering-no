@@ -31,7 +31,7 @@ make mcp-linkml-begrep-utkast-run
       "slug": "foretaksnavn",
       "anbefalt_term_nb": "foretaksnavn",
       "anbefalt_term_nn": "føretaksnamn",
-      "definisjon_nb": "det offisielle namnet på ein næringsdrivande juridisk person og kjenneteiknet for eit enkeltpersonføretak",
+      "definisjon_nb": "det offisielle navnet på en næringsdrivende juridisk person og kjennetegnet for et enkeltpersonforetak",
       "kjelde_relasjon": "direct-from-source",
       "fagomrade_uri": "https://psi.norge.no/los/tema/naringsliv"
     }
@@ -46,7 +46,7 @@ make mcp-linkml-begrep-utkast-run
 | `opprett_begrep` | Genererer ein komplett `BegrepContainer`-YAML-blokk frå strukturerte parametrar. Støttar profil, fleirspråkleg (nb/nn/en), kjeldetype og LOS-fagområde. |
 | `skriv_begrep_fil` | Genererer berre begreps-objektet og skriv det direkte til `src/linkml/<domain>/<begrepssamling>/begrep/<slug>.yaml`. |
 | `valider_begrep` | Validerer ei YAML-instansfil mot eit skos-ap-no-basert skjema (les skjema med importresolvering via `SchemaView`). |
-| `list_profiles` | Listar tilgjengelege profiler med namn og skildring. |
+| `list_profiles` | Listar tilgjengelege profiler med navn og skildring. |
 | `list_los_tema` | Returnerer statisk liste over gyldige LOS-tema URI-ar (ingen nettverkskall). |
 
 ### `opprett_begrep` — parametrar
@@ -64,7 +64,7 @@ make mcp-linkml-begrep-utkast-run
 
 | Parameter | Type | Skildring |
 |---|---|---|
-| `profil` | string | Profilnamn (standard: `default`) |
+| `profil` | string | Profilnavn (standard: `default`) |
 | `base_uri` | string | Base-URI for organisasjonen, t.d. `https://begrep.brreg.no` |
 | `kjelde_relasjon` | enum | `direct-from-source` / `self-composed` / `derived-from-source` |
 | `utgjevar_uri` | string | URI til utgjevande organisasjon |
@@ -101,7 +101,7 @@ parametrar som styrer kvar fila vert skriven:
 | Parameter | Type | Skildring |
 |---|---|---|
 | `domain` | string | Domene, t.d. `oreg` |
-| `begrepssamling` | string | Begrepssamling-namn, t.d. `begrepssamling-foretaksregisteret` |
+| `begrepssamling` | string | Begrepssamling-navn, t.d. `begrepssamling-foretaksregisteret` |
 
 Filstien vert bygd som `src/linkml/<domain>/<begrepssamling>/begrep/<slug>.yaml`
 (relativt til `/repo`). Mappa vert oppretta automatisk dersom han ikkje finst frå før.
@@ -195,7 +195,7 @@ begrep:
 
 definisjoner:
   - id: https://begrep.brreg.no/def/foretaksnavn-nb
-    tekst: det offisielle namnet på ein næringsdrivande juridisk person ...
+    tekst: det offisielle navnet på en næringsdrivende juridisk person ...
     kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#direct-from-source
   - id: https://begrep.brreg.no/def/foretaksnavn-nn
     tekst: det offisielle namnet på ein næringsdrivande juridisk person ...
@@ -239,7 +239,7 @@ Profilen styrer standardverdiar og URI-mønster. Standard profil er `default`.
 make mcp-begrep-list-profiles
 ```
 
-Profilane ligg i `profiles/<namn>.yaml`:
+Profilane ligg i `profiles/<navn>.yaml`:
 
 | Nøkkel | Skildring |
 |---|---|

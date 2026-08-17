@@ -83,7 +83,7 @@ slots:
   mottaker:
     slot_uri: okn:mottaker
     range: string
-    description: Namn på mottakar.
+    description: Navn på mottakar.
   betalt:
     slot_uri: okn:betalt
     range: boolean
@@ -144,7 +144,7 @@ slots:
   # navn:
   #   slot_uri: okn:navn
   #   range: string
-  #   description: Namn på eining eller kodeverk-element.
+  #   description: Navn på eining eller kodeverk-element.
   organisasjonselement:
     slot_uri: okn:organisasjonselement
     range: uriorcurie
@@ -244,7 +244,7 @@ slots:
   filnavn:
     slot_uri: okn:filnavn
     range: string
-    description: Namn på bilagets fil.
+    description: Navn på bilagets fil.
   data:
     slot_uri: okn:data
     range: string
@@ -270,7 +270,7 @@ slots:
   enhet:
     slot_uri: okn:enhet
     range: string
-    description: Namn på mengdeeininga varen leverast i.
+    description: Navn på mengdeeininga varen leverast i.
   merverdiavgift:
     slot_uri: okn:merverdiavgift
     range: Merverdiavgift

@@ -72,7 +72,7 @@ informasjonsmodeller:
 aktoerer:
 - id: https://www.skatteetaten.no/kontakt/
   navn_aktoer:
-  - 'TODO: namn på kontaktpunktet'
+  - 'TODO: navn på kontaktpunktet'
 - id: https://data.norge.no/organizations/974761076
   navn_aktoer:
   - Skatteetaten
@@ -117,7 +117,7 @@ objekttyper:
   tittel:
   - Personnavn
   beskrivelse:
-  - Offisielt registrert namn på ein person i Folkeregisteret.
+  - Offisielt registrert navn på ein person i Folkeregisteret.
   har_egenskap:
   - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/fornavn
   - https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn/mellomnavn
@@ -390,7 +390,7 @@ attributter:
   tittel:
   - fornavn
   beskrivelse:
-  - Fornamn(et/a) til personen.
+  - Fornavn(et/a) til personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -399,7 +399,7 @@ attributter:
   tittel:
   - mellomnavn
   beskrivelse:
-  - Mellomnamn til personen.
+  - Mellomnavn til personen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -408,7 +408,7 @@ attributter:
   tittel:
   - etternavn
   beskrivelse:
-  - Etternamn til personen.
+  - Etternavn til personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -417,7 +417,7 @@ attributter:
   tittel:
   - forkortet_navn
   beskrivelse:
-  - Forkorta versjon av fullt namn.
+  - Forkorta versjon av fullt navn.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -696,7 +696,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Namn på person eller institusjon.
+  - Navn på person eller institusjon.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -949,7 +949,7 @@ assosiasjoner:
   tittel:
   - har_personnavn
   beskrivelse:
-  - Offisielt registrert namn på personen.
+  - Offisielt registrert navn på personen.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   refererer_til: https://data.norge.no/modellkatalog/skatteetaten-modellkatalog/ngr-person/Personnavn

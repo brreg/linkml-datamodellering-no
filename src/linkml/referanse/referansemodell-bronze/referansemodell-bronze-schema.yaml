@@ -75,7 +75,7 @@ slots:
   # bronze: slot_uri → all_slots_have_slot_uri (warning)
   # bronze: description → missing_recommended_metadata (warning)
   tittel:
-    description: Namn eller tittel på ressursen.
+    description: Navn eller tittel på ressursen.
     slot_uri: dct:title
     range: string
 

@@ -61,7 +61,7 @@ checks:
     severity: warning
     description: >
       Containerklassen bør ha eit attributt med range Samling.
-      Anbefalt for å organisere begrep i namngjeve samlingar (skos:Collection).
+      Anbefalt for å organisere begrep i navngjeve samlingar (skos:Collection).
     check: container_has_class
     class: Samling
 
@@ -303,7 +303,7 @@ checks:
   samling_har_tittel:
     severity: error
     description: >
-      Samling må ha dct:title (namn på samlinga). Obligatorisk i SKOS-AP-NO-Begrep.
+      Samling må ha dct:title (navn på samlinga). Obligatorisk i SKOS-AP-NO-Begrep.
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dct:title

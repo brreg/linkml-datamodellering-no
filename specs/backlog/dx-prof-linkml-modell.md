@@ -71,9 +71,9 @@ treng `prof:`-klasser vil importere dette skjemaet direkte.
 
 ## Steg 1 — Skriv `dx-prof-schema.yaml`
 
-### Namngjeving (bokmål, jf. CLAUDE.md)
+### Navngjeving (bokmål, jf. CLAUDE.md)
 
-| prof: | LinkML-klassenamn | LinkML-slotsnamn |
+| prof: | LinkML-klassenavn | LinkML-slotsnavn |
 |---|---|---|
 | Profile | Profil | — |
 | ResourceDescriptor | RessursBeskrivelse | — |
@@ -199,7 +199,7 @@ slots:
     slot_uri: prof:hasToken
     domain: Profil
     range: string
-    description: Føretrekt kortnamn for profilen, til bruk der URI ikkje kan nyttast.
+    description: Føretrekt kortnavn for profilen, til bruk der URI ikkje kan nyttast.
 ```
 
 ---

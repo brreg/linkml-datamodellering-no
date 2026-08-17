@@ -43,7 +43,7 @@ Skjema importerer frå eit klart hierarki — aldri på tvers eller nedover.
 
 | Domene | Språk |
 |---|---|
-| Modellering (klassenamn, slotnamn, skildringar i `.yaml`) | Norsk bokmål |
+| Modellering (klassenavn, slotnavn, skildringar i `.yaml`) | Norsk bokmål |
 | Dokumentasjon (README, mkdocs-sider, spesifikasjonar i `specs/`) | Nynorsk |
 
 **Grunngiving:** Bokmål i modellering følgjer terminologien i norske offentlege standardar
@@ -74,5 +74,5 @@ ekstern tilgjengelegheit og autentisering, og gjer det vanskeleg å vedlikehalde
 ## Sjå også
 
 - [SCOPE.md](SCOPE.md) — kva repoet er, kva det ikkje er, og kva som høyrer heime her
-- [CONVENTIONS.md](CONVENTIONS.md) — namnekonvensjonar og manifestformat
+- [CONVENTIONS.md](CONVENTIONS.md) — navnekonvensjonar og manifestformat
 - [CLAUDE.md](CLAUDE.md) — detaljerte arbeidsflytinstruksjonar for AI-assistentar

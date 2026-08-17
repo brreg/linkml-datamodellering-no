@@ -6,7 +6,7 @@ Noverande konvensjon: `ngr-adresse-schema.yaml`
 Ny konvensjon: `ngr-adresse.linkml.yaml`
 
 **For ny konvensjon:**
-- Filnamnet identifiserer teknologien tydleg utan at ein må opne fila. `.linkml.yaml`
+- Filnavnet identifiserer teknologien tydleg utan at ein må opne fila. `.linkml.yaml`
   er utydeleg — analogt med `*.test.ts`, `*.d.ts`, `*.spec.js`
 - `schema` er eit generisk ord — nesten alle datafiler er "skjema" av eit slag.
   `.linkml` er spesifikt.
@@ -105,7 +105,7 @@ Alle 17 importar er mellom skjema i `src/linkml/` og gjeld følgjande par:
 
 | Fil | Kva som endrar seg |
 |---|---|
-| `Makefile` | `find ... -name '*-schema.yaml'` → `'*.linkml.yaml'`; `basename "$s" -schema.yaml` → strip `.linkml.yaml`; alle hardkoda `$$profil-schema.yaml`-mønster; genererte filnamn (sjå nedanfor) |
+| `Makefile` | `find ... -name '*-schema.yaml'` → `'*.linkml.yaml'`; `basename "$s" -schema.yaml` → strip `.linkml.yaml`; alle hardkoda `$$profil-schema.yaml`-mønster; genererte filnavn (sjå nedanfor) |
 | `tests/test_make.sh` | `find ... -name '*-schema.yaml'`; `basename "$schema" -schema.yaml` |
 | `src/assets/scripts/scaffolding/new-modell.sh` | `SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"` → `$NAME.linkml.yaml` |
 | `src/assets/scripts/migreringsscript/migrate-all-containers.sh` | `basename ... -schema.yaml`; `find ... -name '*-schema*.yaml'` |
@@ -127,11 +127,11 @@ Alle 17 importar er mellom skjema i `src/linkml/` og gjeld følgjande par:
 Makefile genererer i dag `<name>-schema.ttl`, `<name>-schema.json`,
 `<name>-schema.proto`. Desse er under `generated/` og er ikkje sjekka inn.
 Med ny konvensjon bør dei heite `<name>.linkml.ttl` / `<name>.linkml.json` /
-`<name>.linkml.proto` — elles er filnamna misvisande. Alternativt kan ein
-beholde gamalt artefaktnamn og berre endre kjeldefilnamnet — dette er eit
+`<name>.linkml.proto` — elles er filnavna misvisande. Alternativt kan ein
+beholde gamalt artefaktnavn og berre endre kjeldefilnavnet — dette er eit
 separat val og har ingen ekstern effekt sidan generated/ ikkje er versjonskontrollert.
 
-**Tilråding:** Endre genererte artefaktnamn konsekvent (`.linkml.ttl` etc.)
+**Tilråding:** Endre genererte artefaktnavn konsekvent (`.linkml.ttl` etc.)
 for at `generated/` reflekterer kjeldestruktur.
 
 ---
@@ -140,14 +140,14 @@ for at `generated/` reflekterer kjeldestruktur.
 
 `CLAUDE.md` seier i dag:
 
-> `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse`
+> `name` | `kebab-case`, same som filnavnet utan `-schema.yaml` | `ngr-adresse`
 
 Oppdaterast til:
 
-> `name` | `kebab-case`, same som filnamnet utan `.linkml.yaml` | `ngr-adresse`
+> `name` | `kebab-case`, same som filnavnet utan `.linkml.yaml` | `ngr-adresse`
 
 `name:`-verdiane i dei 27 skjemafilene er *uendra* — dei sluttar allereie
-på modellnamnet utan suffiks.
+på modellnavnet utan suffiks.
 
 ---
 
@@ -202,7 +202,7 @@ Fire typar mønster:
 | `find ... -name '*-schema.yaml'` | `find ... -name '*.linkml.yaml'` |
 | `basename "$s" -schema.yaml` | Krev ny logikk: `basename "$s" .yaml \| sed 's/\.linkml$//'` |
 | `$$profil-schema.yaml` (dynamisk sti) | `$$profil.linkml.yaml` |
-| generert artefaktnamn (`-schema.ttl`) | `.linkml.ttl` (om ein vel konsistente artefaktnamn) |
+| generert artefaktnavn (`-schema.ttl`) | `.linkml.ttl` (om ein vel konsistente artefaktnavn) |
 
 ### Steg 3 — Oppdater test_make.sh
 
@@ -249,5 +249,5 @@ make domain-validate-bronze DOMAIN=fint
 | Import-sti ikkje oppdatert atomisk | Høg (16 filer) | Migrasjonsskript + test heile grafen umiddelbart |
 | `basename`-logikk i Makefile knekk `schema_name` | Medium | Dedikert teststeg etter Makefile-endring |
 | Ekstern repo-brot via GitHub Raw URL | Høg | Versjonsbump + migrasjonsrettleiing |
-| LinkML-verktøy som hardkoder `-schema` suffix internt | Lav | Ikkje observert i codebase; `gen-*` bryr seg ikkje om filnamn |
+| LinkML-verktøy som hardkoder `-schema` suffix internt | Lav | Ikkje observert i codebase; `gen-*` bryr seg ikkje om filnavn |
 | Referansar i `generated/` peikar på gamal fil | Ingen (generated/ ikkje versjonskontrollert) | Køyr `make clean && make <domain>` etter migrering |

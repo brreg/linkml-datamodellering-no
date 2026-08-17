@@ -84,7 +84,7 @@ slots:
 # navn:
 #   slot_uri: pvn:navn
 #   range: string
-#   description: Namn på ressursen.
+#   description: Navn på ressursen.
 
 # ---------------------------------------------------------------------------
 # Klasser

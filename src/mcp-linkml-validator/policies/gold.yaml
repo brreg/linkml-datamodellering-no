@@ -23,7 +23,7 @@ common_classes:
 
 # Oppgrader bronze-åtvarslane til feil på gullnivå.
 # _merge_policies slår saman checks frå parent og child med {**parent, **child},
-# slik at child-nøklar overstyrer parent-nøklar med same namn.
+# slik at child-nøklar overstyrer parent-nøklar med same navn.
 checks:
   all_classes_have_class_uri:
     severity: error
@@ -57,16 +57,16 @@ checks:
   class_names_pascal_case:
     severity: error
     description: >
-      Klassenamn skal starte med stor forbokstav (PascalCase). Følgjer
+      Klassenavn skal starte med stor forbokstav (PascalCase). Følgjer
       Digdir-regel 3 (Navne- og skrivekonvensjoner) og gjer klasser
-      skiljbare frå slot- og attributtnamn. Krev: ikkje berre anbefalt (bronze-nivå).
+      skiljbare frå slot- og attributtnavn. Krev: ikkje berre anbefalt (bronze-nivå).
     check: class_names_pascal_case
     digdir_rule: 3
 
   slot_names_snake_case:
     severity: error
     description: >
-      Slotnamn skal bruke liten forbokstav og understrek (snake_case): berre a-z,
+      Slotnavn skal bruke liten forbokstav og understrek (snake_case): berre a-z,
       0-9 og _ er tillate. Bindestreker er ikkje tillate — bruk samansette ord
       (t.d. epost, epostadresse) eller understrek. Følgjer Digdir-regel 3
       (Navne- og skrivekonvensjoner). Krev: ikkje berre anbefalt (bronze-nivå).

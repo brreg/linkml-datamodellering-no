@@ -224,7 +224,7 @@ slots:
     slot_uri: skos:prefLabel
     range: LangString
     multivalued: true
-    description: Føretrekt term/namn for dimensjonen eller målet.
+    description: Føretrekt term/navn for dimensjonen eller målet.
 
   har_kvalitetsdefinisjon:
     slot_uri: skos:definition

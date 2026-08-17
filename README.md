@@ -108,19 +108,19 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 > Bruk oppskrifta under for å komme igang med begrepsmodellering.
 
-> Bytt ut **`domene`**, **`begrepssamling-namn`** og **`organisasjon`** med dine aktuelle namn.
+> Bytt ut **`domene`**, **`begrepssamling-navn`** og **`organisasjon`** med dine aktuelle navn.
 
 ```bash
 # 1a. Opprett ny begrepssamling (filstruktur for begrep)
-make new-begrepssamling DOMAIN=domene NAME=begrepssamling-namn
+make new-begrepssamling DOMAIN=domene NAME=begrepssamling-navn
 
 # 1b. (om ønskjeleg) Generer begrepsutkast frå eksisterande tekst
 make mcp-linkml-begrep-utkast INPUT=<sti-til-tekstfil>
-# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling-namn/begrep/begrepnavn.yaml
+# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling-navn/begrep/begrepnavn.yaml
 ```
 ```bash
 # 2. Rediger begrep etter behov
-#    → src/linkml/domene/begrepssamling-namn/begrep/<begrep-slug>.yaml
+#    → src/linkml/domene/begrepssamling-navn/begrep/<begrep-slug>.yaml
 ```
 ```bash
 # 3. Aggreger til begrepskatalog
@@ -347,7 +347,7 @@ linkml-datamodellering-no/
 Dersom du skal bidra til repoet, les desse dokumenta:
 
 - **[PRINCIPLES.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/PRINCIPLES.md)** — designprinsipp for modellering
-- **[CONVENTIONS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONVENTIONS.md)** — namnekonvensjonar, manifestformat og commit-meldingar
+- **[CONVENTIONS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONVENTIONS.md)** — navnekonvensjonar, manifestformat og commit-meldingar
 - **[GOVERNANCE.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/GOVERNANCE.md)** — roller, eigarskap og RFC-prosess
 - **[CONTRIBUTING.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md)** — korleis bidra (PR-prosess, kodegjennomgang)
 - **[README-tabellgenerering](https://brreg.github.io/linkml-datamodellering-no/automasjon/readme-tabellgenerering/)** — korleis README-tabellane vert genererte

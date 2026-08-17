@@ -203,7 +203,7 @@ ikkje eigen containerklasse.
 
 ### Norsk translitterering i identifikatorar
 
-Særnorske bokstavar translittererast i klassenamn, slotnamn og URI-lokaldel:
+Særnorske bokstavar translittererast i klassenavn, slotnavn og URI-lokaldel:
 `æ→ae`, `ø→oe`, `å→aa`. Gjeld ikkje fritext-felt (`title`, `description`).
 
 ---

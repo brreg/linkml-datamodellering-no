@@ -39,7 +39,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for fullstendig forklaring av roller og mynd
 For fullstendig oversikt, sjå:
 - [SCOPE.md](SCOPE.md) — kva repoet er (og ikkje er), funksjonalitet
 - [PRINCIPLES.md](PRINCIPLES.md) — designprinsipp for modellering
-- [CONVENTIONS.md](CONVENTIONS.md) — namnekonvensjonar og manifestformat
+- [CONVENTIONS.md](CONVENTIONS.md) — navnekonvensjonar og manifestformat
 
 ## Modellkatalog
 
@@ -99,7 +99,7 @@ Etter merge må du opprette GitHub Release manuelt (krev repo-admin-tilgang).
 **Alternativ A: Via GitHub UI**
 
 1. Gå til [Releases](https://github.com/brreg/linkml-datamodellering-no/releases) → **Draft a new release**
-2. **Choose a tag:** Skriv tag-namn frå release-PR (t.d. `samt-bu-v1.0.4`) → **Create new tag on publish**
+2. **Choose a tag:** Skriv tag-navn frå release-PR (t.d. `samt-bu-v1.0.4`) → **Create new tag on publish**
 3. **Release title:** `samt-bu 1.0.4` (komponent + versjon)
 4. **Description:** Kopier frå `CHANGELOG.md` eller skriv manuelt
 5. **Publish release**
@@ -140,7 +140,7 @@ Repoet nyttar [Conventional Commits](https://www.conventionalcommits.org/)-forma
 | `chore` | — | CI, skript, manifest utan modellendringar |
 | `feat!` / `fix!` | MAJOR | Brotande endring (legg til `!` eller `BREAKING CHANGE:`-footer) |
 
-**Scope** er modellnamnet i kebab-case, same som katalognamnet under `src/linkml/`:
+**Scope** er modellnavnet i kebab-case, same som katalognavnet under `src/linkml/`:
 
 ```
 feat(ngr-adresse): legg til postnummer-slot
@@ -170,7 +170,7 @@ for metode og eksisterande klassifisering.
 
 ### Kva du IKKJE skal legge inn
 
-- ❌ **Personopplysningar:** Namn, e-postadresser, telefonnummer, fødselsnummer, personnummer
+- ❌ **Personopplysningar:** Navn, e-postadresser, telefonnummer, fødselsnummer, personnummer
 - ❌ **Konfidensielle data:** Interne forretningshemmelegheiter, ikkje-offentlege organisasjonsdata
 - ❌ **Testdata med verkelege verdiar:** Bruk syntetiske/fiktive verdiar i eksempelfiler
 - ❌ **Credentials:** Passord, API-nøklar, tokens (desse skal aldri vere i git)
@@ -179,7 +179,7 @@ for metode og eksisterande klassifisering.
 
 - ✅ **Offentlege organisasjons-URI-ar:** `https://data.norge.no/organizations/<orgnr>`
 - ✅ **Offentlege Los-tema:** `https://psi.norge.no/los/tema/naring`
-- ✅ **Syntetiske eksempeldata:** Fiktive namn som "Ola Nordmann", "Eksempel AS"
+- ✅ **Syntetiske eksempeldata:** Fiktive navn som "Ola Nordmann", "Eksempel AS"
 - ✅ **Offentlege standardar og vokabularar:** DCAT, SKOS, FOAF, osv.
 
 ### Dersom du oppdagar sensitive data

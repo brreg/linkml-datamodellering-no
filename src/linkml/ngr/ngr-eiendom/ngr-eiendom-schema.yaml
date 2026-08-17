@@ -362,7 +362,7 @@ classes:
           - Obligatorisk
   Bruksnummer:
     class_uri: ngre:Bruksnummer
-    description: Bruksnummer innanfor gardsnamnet.
+    description: Bruksnummer innanfor gardsnavnet.
     slots:
       - id
       - bruksnummer_verdi
@@ -905,7 +905,7 @@ slots:
   bruksnummer_verdi:
     slot_uri: ngre:bruksnummer
     range: integer
-    description: Bruksnummer innanfor gardsnamnet.
+    description: Bruksnummer innanfor gardsnavnet.
   festenummer_verdi:
     slot_uri: ngre:festenummer
     range: integer

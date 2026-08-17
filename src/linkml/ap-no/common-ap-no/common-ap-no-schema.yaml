@@ -376,7 +376,7 @@ slots:
     slot_uri: dct:title
     range: LangString
     multivalued: true
-    description: Namn/tittel på ressursen (dct:title).
+    description: Navn/tittel på ressursen (dct:title).
 
   beskrivelse:
     slot_uri: dct:description
@@ -504,7 +504,7 @@ slots:
     slot_uri: skos:prefLabel
     range: LangString
     multivalued: true
-    description: Føretrukke term/namn for ressursen (skos:prefLabel).
+    description: Føretrukke term/navn for ressursen (skos:prefLabel).
 
   versjonsmerknad:
     slot_uri: adms:versionNotes

@@ -15,7 +15,7 @@ TypeError: OffisiellAdresse.__init__() got an unexpected keyword argument 'har_a
 ```
 
 Feilen oppstår fordi `rdflib_loader` prøver å instansiere `OffisiellAdresse`
-med feil sett av argument-namn.
+med feil sett av argument-navn.
 
 I tillegg har `linkml-convert` ein relatert bug der `{id: curie}`-dicts med berre
 `id`-feltet (stub-objekt) vert feilaktig prosessert: `JsonObj` vert sendt som

@@ -201,7 +201,7 @@ har TBX-støtte. Sett som eige, avgrensa element i prioritert handlingsliste.
 
 Digdirs modell er ei **forenkla** referansemodell med 9 klassar (Aktør,
 Kontaktinformasjon, Identifikator, Person, Personnavn, Kjønn, Sivilstand,
-Enhet, Adresse-referanse) — kjernefelt for namn, kjønn, statsborgerskap,
+Enhet, Adresse-referanse) — kjernefelt for navn, kjønn, statsborgerskap,
 fødsel/død, sivilstand, organisasjonsnummer/-form.
 
 Repoet dekkjer domenet med to **fullverdige registermodellar** i staden for
@@ -210,7 +210,7 @@ Repoet dekkjer domenet med to **fullverdige registermodellar** i staden for
 | Digdir-klasse | Repoets motstykke | Merknad |
 |---|---|---|
 | Person | `ngr-person.Person` | Overgår Digdir-modellen — inkluderer identitetsgrunnlag, familierelasjonar, vergemål, folkeregisterstatus m.m. |
-| Personnavn | `ngr-person.Personnavn` | Same struktur (for-/mellom-/etternamn) |
+| Personnavn | `ngr-person.Personnavn` | Same struktur (for-/mellom-/etternavn) |
 | Kjønn (kodeliste) | `ngr-person.KjoennKode`-enum | Direkte samsvar |
 | Sivilstand (kodeliste) | `ngr-person.SivilstandType`-enum | Repoet har fleire verdiar (m.a. partnarskap-variantar) |
 | Adresse (referert) | `ngr-person.Bostedsadresse`/`Postadresse`/`Oppholdsadresse` | Tre spesialiserte typar i staden for éin generisk referanse |
@@ -276,7 +276,7 @@ brukaren prioriterer dei.
 
 Repoet realiserer kjernen i Digdirs rammeverk **sterkt**, og har gjort det
 gjennom systematisk, dokumentert kartleggingsarbeid over tid — 17 av 23
-namngjevne ressursar var alt kartlagde og i hovudsak utbetra før denne
+navngjevne ressursar var alt kartlagde og i hovudsak utbetra før denne
 spesifikasjonen. Dei to sterkast dekte pilarane er **Standarder og
 spesifikasjoner** (10/11 element kartlagt og i hovudsak utført, det siste
 delvis) og **Informasjonsmodellar** (begge tekniske ressursar — 15
@@ -311,7 +311,7 @@ noka tidlegare kartlegging, og er lista i prioritert handlingsliste over.
 Kartlegging fullført 2026-08-11. Dette er eit rein syntese-/analysedokument
 — ingen kodeendringar er gjort som del av denne spesifikasjonen. Resultat:
 
-- Bygd samla rammeverksdekning-tabell for alle 23 namngjevne ressursar +
+- Bygd samla rammeverksdekning-tabell for alle 23 navngjevne ressursar +
   4 kjerneprinsipp, med status og kryssreferanse til dei 17 eksisterande
   `avvik-*.md`-kartleggingane i `specs/done/` og den opne i `specs/backlog/`.
 - Skrive 7 nye delkartlegginger for dei rammeverkselementa som aldri før var

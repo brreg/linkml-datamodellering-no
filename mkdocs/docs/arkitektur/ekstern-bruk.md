@@ -216,7 +216,7 @@ podman run --rm \
   ghcr.io/brreg/linkml-local:latest \
   gen-linkml src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
 
-# Stilsjekk (namnekonvensjonar, URI-ar, obligatoriske felt)
+# Stilsjekk (navnekonvensjonar, URI-ar, obligatoriske felt)
 podman run --rm \
   -v "$(pwd):/work" -w /work \
   ghcr.io/brreg/linkml-local:latest \
@@ -235,7 +235,7 @@ Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap
     Dette repoet sin eigen lint-config
     ([`.linkmllint.yaml`](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/assets/containers/.linkmllint.yaml))
     slår av `standard_naming`-regelen (som elles forventar engelske
-    namnekonvensjonar, i konflikt med norsk bokmål-namngjeving). Utan denne
+    navnekonvensjonar, i konflikt med norsk bokmål-navngjeving). Utan denne
     configen brukar `linkml lint` sitt eige standardregelsett. For
     identisk åtferd med CI, hent configen og legg til `--config
     .linkmllint.yaml` i kallet over.

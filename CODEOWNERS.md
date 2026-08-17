@@ -108,7 +108,7 @@ Eigarskapet til ein domenemodell er definert av `annotations.utgiver`-feltet i s
 `https://data.norge.no/organizations/<orgnr>` og peiker på eigarorganisasjonen.
 
 `CODEOWNERS.md` treng **ikkje** liste individuelle modellar — berre
-organisasjonsnivå-metadata (katalognamn, kontaktpunkt, GitHub-team) som ikkje kan
+organisasjonsnivå-metadata (katalognavn, kontaktpunkt, GitHub-team) som ikkje kan
 leias ut frå skjemaet åleine.
 
 ```

@@ -17,7 +17,7 @@ ValueError: tittel must be supplied
 
 Dersom `required: true` er fjerna, kjem data tilbake som eit objekt der alle
 LangString-felt er `None` — det vil seie at den returnerte YAML-fila manglar
-alle titlar, namn og andre språkmerkte strengar.
+alle titlar, navn og andre språkmerkte strengar.
 
 ## Berørte skjema / testar
 
@@ -77,7 +77,7 @@ Berørte slots og klasser etter endringa:
 | `skos-ap-no` | `Begrep` | `anbefalt_term` |
 | `skos-ap-no` | `Definisjon` | `tekst` |
 | `skos-ap-no` | `Samling` | `tittel` |
-| `modelldcat-ap-no` | `Aktor` | `namn_aktor` |
+| `modelldcat-ap-no` | `Aktoer` | `navn_aktoer` |
 | `modelldcat-ap-no` | `Standard` | `tittel` |
 | `modelldcat-ap-no` | `Modellkatalog` | `tittel`, `beskrivelse` |
 | `modelldcat-ap-no` | `Informasjonsmodell` | `tittel` |

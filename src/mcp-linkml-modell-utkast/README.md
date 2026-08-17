@@ -96,7 +96,7 @@ make mcp-generate SCHEMA=tmp/modell.json PROFILE=bronze
 # List tilgjengelege profiler via MCP-verktøyet list_profiles
 ```
 
-Profilane ligg i `profiles/<namn>.yaml`. Profilen `silver` arvar `bronze` via `extends: bronze`.
+Profilane ligg i `profiles/<navn>.yaml`. Profilen `silver` arvar `bronze` via `extends: bronze`.
 
 | Konfig-nøkkel | Beskriving |
 |---|---|
@@ -136,7 +136,7 @@ Fyll inn korrekte verdiar og valider: `make mcp-linkml-valider-modell POLICY=sil
 | Verktøy | Skildring |
 |---|---|
 | `generate_linkml` | Genererer eit LinkML-skjema. Parametrar: `inputFormat` (`json-schema` eller `empty`), `inputContent` (JSON Schema som streng), `schemaId`, `schemaName`, `schemaTitle`, `profile`, `validate`. |
-| `list_profiles` | Listar tilgjengelege konverteringsprofiler med namn og skildring. |
+| `list_profiles` | Listar tilgjengelege konverteringsprofiler med navn og skildring. |
 
 ## NB! Etter generering — nødvendige tilpassingar
 
@@ -145,7 +145,7 @@ Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 1. **Erstatt placeholder-prefiksar** (`<schema_name>:`) med faktiske vokabular-URIar (`dct:`, `dcat:`, `skos:` o.l.)
 2. **Fyll inn `begrepsidentifikator`** — finn rett begrep på [data.norge.no/concepts](https://data.norge.no/concepts) og kopier URI-en, på forma `https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>`
 3. **Fyll inn `title`** — erstatt TODO-stubben med ein meiningsfull tittel
-4. **Juster klassenamn** til norsk bokmål om nødvendig
+4. **Juster klassenavn** til norsk bokmål om nødvendig
 5. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.
 6. **Fyll inn silver-annotasjonar** om skjemaet har `validation_policy: silver` eller høgare (berre silver-profil): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
 7. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:

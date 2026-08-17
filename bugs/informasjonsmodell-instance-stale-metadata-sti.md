@@ -27,11 +27,11 @@ framleis etter den gamle, delte stien `metadata/modelldcat.yaml`. Scriptet
 sin eigen docstring (`generate-informasjonsmodell.py:13`) er heller ikkje
 oppdatert og seier framleis "Skriv: metadata/modelldcat.yaml".
 
-Namnemønsteret vart altså endra frå éi delt fil (`modelldcat.yaml`) til éi
+Navnemønsteret vart altså endra frå éi delt fil (`modelldcat.yaml`) til éi
 fil per skjema (`<modell>-manifest.yaml`), utan at make-targetet eller
 docstringen vart oppdatert til å følgje med.
 
-Éin fil i repoet følgjer framleis det gamle namnemønsteret og gjer at
+Éin fil i repoet følgjer framleis det gamle navnemønsteret og gjer at
 targetet "tilfeldigvis" fungerer for akkurat det skjemaet:
 `src/linkml/ap-no/dqv-ap-no/metadata/modelldcat.yaml`.
 
@@ -52,7 +52,7 @@ publisering, men gjer targetet ubrukeleg som lokalt verifikasjonssteg.
 
 Retta stien i `make/30-instances.mk:72` til å utleie `<modell>-manifest.yaml`
 frå `SCHEMA` via `basename "$(SCHEMA)" -schema.yaml` (same utleiingsmønster
-som `generate-informasjonsmodell.py` sjølv brukar for output-filnamnet), og
+som `generate-informasjonsmodell.py` sjølv brukar for output-filnavnet), og
 oppdaterte docstringen i `generate-informasjonsmodell.py:13` til å seie
 `metadata/<modell>-manifest.yaml` i staden for `metadata/modelldcat.yaml`.
 

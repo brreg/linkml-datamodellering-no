@@ -1251,7 +1251,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Registrert namn på verksemda i Enhetsregisteret.
+  - Registrert navn på verksemda i Enhetsregisteret.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -1287,7 +1287,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Registrert namn på verksemda i Enhetsregisteret.
+  - Registrert navn på verksemda i Enhetsregisteret.
   nedre_multiplisitet: 1
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -1467,7 +1467,7 @@ attributter:
   tittel:
   - rolleinnehaver_navn
   beskrivelse:
-  - Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
+  - Navn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2632,7 +2632,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Namn på instansen.
+  - Navn på instansen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2659,7 +2659,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Namn på instansen.
+  - Navn på instansen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:
@@ -2677,7 +2677,7 @@ attributter:
   tittel:
   - navn
   beskrivelse:
-  - Namn på instansen.
+  - Navn på instansen.
   nedre_multiplisitet: 0
   oevre_multiplisitet: '1'
   har_enkel_type:

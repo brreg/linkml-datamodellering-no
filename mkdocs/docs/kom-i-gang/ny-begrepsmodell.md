@@ -17,7 +17,7 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 
 ## 1 — Scaffold
 
-**Namnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
+**Navnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
 
 ```bash
 make new-begrepskatalog NAME=<katalognavn>

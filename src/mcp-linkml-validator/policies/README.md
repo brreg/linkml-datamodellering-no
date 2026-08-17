@@ -9,10 +9,10 @@ Sjekkane i bronze-, silver- og gold-policyane realiserer både
 
 ## Digdir-reglar og FAIR-prinsipp — dekningsgrad
 
-| # | Namn | Kort skildring | Dekt av | FAIR |
+| # | Navn | Kort skildring | Dekt av | FAIR |
 |---|---|---|---|---|
-| 1 | **Forståelighet** | Namn og skildringar er forståelege for målgruppa | Bronze: `title` (error), `description` (warning) | F2 |
-| 2 | **Meiningsfullheit** | Namn speglar innhald og formål | Bronze: `title` (error) | F2 |
+| 1 | **Forståelighet** | Navn og skildringar er forståelege for målgruppa | Bronze: `title` (error), `description` (warning) | F2 |
+| 2 | **Meiningsfullheit** | Navn speglar innhald og formål | Bronze: `title` (error) | F2 |
 | 3 | **Navne- og skrivekonvensjoner** | PascalCase for klassar, snake_case/camelCase for eigenskapar | Bronze: `class_names_pascal_case`, `slot_names_snake_case` (warning) | — |
 | 4 | **Identifiserbarheit** | Persistente URI-ar for modell, element og eigenskapar | Bronze: `id`, `default_prefix` (HTTPS-URI) (error); `class_uri`, `slot_uri`, identifikator-slot (warning) | F1, F3 |
 | 5 | **Visualisering** | Modell tilgjengeleg med god visuell representasjon | *Ikkje evaluert* — ER-diagram vert generert av `make erdiagram`, men ikkje validert | — |
@@ -38,7 +38,7 @@ Policyfilene her er brukte til to ulike føremål:
 
 **Skjemakvalitet (bronze / silver / gold)**  
 Sjekkar at eit LinkML-skjema (`.yaml`-fila i `src/linkml/`) held eit visst
-kvalitetsnivå: metadata, namngjeving, URI-ar, begrepsreferansar osv.  
+kvalitetsnivå: metadata, navngjeving, URI-ar, begrepsreferansar osv.  
 Køyrast med `make mcp-linkml-valider-modell SCHEMA=... POLICY=bronze`.
 
 **Publiseringskonformitet (felles-datakatalog / felles-begrepskatalog)**  
@@ -77,23 +77,23 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 |---|---|---|---|---|
 | `schema.id` til stades | error | 4 — Identifiserbarheit | F1 | Persistent identifikator for skjemaet |
 | `schema.id` er HTTP(S)-URI | error | 4 — Identifiserbarheit | F1 | Sikrar at identifikatoren er ein oppløyseleg URI |
-| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart namn for skjemaet |
+| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart navn for skjemaet |
 | `schema.title` til stades | error | 1 — Forståelighet, 2 — Meiningsfullheit | F2 | Menneskelesbar tittel |
-| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnamnerom for lokale identifikatorar |
+| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnavnerom for lokale identifikatorar |
 | `schema.default_prefix` er absolutt HTTPS-URI med avsluttande `/` | error | 4 — Identifiserbarheit | — | Sikrar korrekt URI-konstruksjon for lokale ressursar |
 | `schema.description` til stades | warning | 1 — Forståelighet | F2 | Fritekstskildring av skjemaet sitt føremål |
 | `schema.version` til stades | warning | 9 — Datering | F4 | Versjonsnummer for sporbarheit |
 | `schema.license` til stades | warning | 7 — Tilgjengeleggjering | R1.1 | Lisens for gjenbruk av skjemaet |
 | Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | warning | 6 — Modularitet | — | Handterleg mengde modellelement per modul |
-| Alle klassenamn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for klasser |
-| Alle slotnamn er snake_case (berre `a-z`, `0-9`, `_` — **ikkje bindestreker**) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for eigenskapar |
+| Alle klassenavn startar med stor bokstav (PascalCase) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent navngjevingskonvensjon for klasser |
+| Alle slotnavn er snake_case (berre `a-z`, `0-9`, `_` — **ikkje bindestreker**) | warning | 3 — Navne- og skrivekonvensjoner | — | Konsistent navngjevingskonvensjon for eigenskapar |
 | Alle klasser (unntatt `tree_root`) har `class_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 | Mappar klassen til RDF-vokabular |
 | Alle globale slots har `slot_uri` | warning | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 | Mappar eigenskapen til RDF-vokabular |
 | Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 | Sikrar at instansar av klassen kan identifiserast unikt |
 | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 | Koplar modellelement til fagomgrep i begrepskatalog |
 | Slots med kontrollerte vokabular har korrekte annotations | warning | 8 — Maskinprosserbarheit | I1 | Sikrar maskinlesbar dokumentasjon av vokabularkrav |
 
-> **`snake_case`-format:** Slotnamn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
+> **`snake_case`-format:** Slotnavn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
 >
 > FINT-skjema er unntekne frå snake_case-sjekken — dei arvar camelCase frå FINT API-spesifikasjonen.
 
@@ -130,7 +130,7 @@ kontrollerte vokabular.
 | `Datatjeneste` har `dcat:contactPoint` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Kontaktpunkt for tenesta |
 | `Datatjeneste` har `dct:title` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Tittel på tenesta |
 | `Datatjeneste` har `dct:publisher` | error | 1 — Forståelighet, 2 — Meiningsfullheit, 10 — Ansvar | F2, A1, R1.2 | Utgjevar av tenesta |
-| `Aktør` har `foaf:name` | error | 1 — Forståelighet | F2 | Namn på aktøren |
+| `Aktør` har `foaf:name` | error | 1 — Forståelighet | F2 | Navn på aktøren |
 | Containerklassen (`tree_root`) har attributt med range `Katalog`, `Datasett`, `Kvalitetsmaal`, `Kvalitetsmaaling` | error | — | — | Sikrar at hovudklassene i DCAT-AP-NO/DQV-AP-NO er kopla til containeren |
 | Containerklassen har attributt med range `Distribusjon`, `Datatjeneste`, `Kvalitetsdimensjon`, `Kvalitetsmerknad` | warning | — | — | Sikrar at støtteklassene er kopla til containeren |
 | Instansverdiar for slots med `vokabular_pattern` matchar regex-mønsteret **(krev `INSTANCE=`)** | error/warning/info | 8 — Maskinprosserbarheit | I1 | Kode: `instance_slot_invalid_vocabulary_pattern`. Alvor avheng av `vokabular_krav`: **error** for `skal`, **warning** for `bør`, **info** for `kan` |
@@ -162,16 +162,16 @@ Arvar sølv og bronse. Implementerer gap til FAIR-prinsippa (Findable, Accessibl
 |---|---|---|---|---|
 | `schema.id` til stades | error | 4 — Identifiserbarheit | F1 | Persistent identifikator for skjemaet — arva frå bronse (allereie error) |
 | `schema.id` er HTTP(S)-URI | error | 4 — Identifiserbarheit | F1 | Sikrar at identifikatoren er ein oppløyseleg URI — arva frå bronse (allereie error) |
-| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart namn for skjemaet — arva frå bronse (allereie error) |
+| `schema.name` til stades | error | 1 — Forståelighet | — | Maskinlesbart navn for skjemaet — arva frå bronse (allereie error) |
 | `schema.title` til stades | error | 1 — Forståelighet, 2 — Meiningsfullheit | F2 | Tittel er del av rike metadata som gjer ressursen søkbar — arva frå bronse (allereie error) |
-| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnamnerom for lokale identifikatorar — arva frå bronse (allereie error) |
+| `schema.default_prefix` til stades | error | 4 — Identifiserbarheit | — | Standardnavnerom for lokale identifikatorar — arva frå bronse (allereie error) |
 | `schema.default_prefix` er absolutt HTTPS-URI med avsluttande `/` | error | 4 — Identifiserbarheit | — | Sikrar korrekt URI-konstruksjon — arva frå bronse (allereie error) |
 | `schema.description` til stades | error | 1 — Forståelighet | F2 | Fritekstskildring av skjemaet sitt føremål — arva frå bronse, oppgradert til error |
 | `schema.version` til stades | error | 9 — Datering | F4 | Versjonering støttar katalogregistrering og sporbarheit — arva frå bronse, oppgradert til error |
 | `schema.license` til stades | error | 7 — Tilgjengeleggjering | R1.1 | Lisens for gjenbruk av skjemaet — arva frå bronse, oppgradert til error |
 | Skjema har ikkje fleire enn 50 klasser (unntatt `tree_root`) | error | 6 — Modularitet | — | Handterleg mengde modellelement per modul — arva frå bronse, oppgradert til error |
-| Alle klassenamn startar med stor bokstav (PascalCase) | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for klasser — arva frå bronse, oppgradert til error |
-| Alle slotnamn er snake_case | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent namngjevingskonvensjon for eigenskapar — arva frå bronse, oppgradert til error |
+| Alle klassenavn startar med stor bokstav (PascalCase) | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent navngjevingskonvensjon for klasser — arva frå bronse, oppgradert til error |
+| Alle slotnavn er snake_case | error | 3 — Navne- og skrivekonvensjoner | — | Konsistent navngjevingskonvensjon for eigenskapar — arva frå bronse, oppgradert til error |
 | Alle klasser (unntatt `tree_root`) har `class_uri` | error | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | F3, I1 | Mappar klassen til RDF-vokabular — arva frå bronse, oppgradert til error |
 | Alle globale slots har `slot_uri` | error | 4 — Identifiserbarheit, 8 — Maskinprosserbarheit | I1 | Mappar eigenskapen til RDF-vokabular — arva frå bronse, oppgradert til error |
 | Alle klasser (unntatt `tree_root`) har identifikator-slot | error | 4 — Identifiserbarheit | F1 | Sikrar at instansar av klassen kan identifiserast unikt — arva frå bronse, oppgradert til error |

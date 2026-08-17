@@ -48,7 +48,7 @@ CLI-flagg-overstyringar (`shacl_flags`, `owl_flags`) via `--extra-flags-field`.
 ## 2. Per-artefakt-tabell
 
 Alle stiar er relative til `generated/<domain>/<modell>/` med mindre anna
-er oppgjeve. `<n>` = skjemanamn (filnamn utan `-schema.yaml`).
+er oppgjeve. `<n>` = skjemanavn (filnavn utan `-schema.yaml`).
 
 | Artefakt | `build.yaml`-flagg | Make-target | Kommando (i container) | Output |
 |---|---|---|---|---|
@@ -77,7 +77,7 @@ eksempel-splitting i gen-doc-steget, uavhengig av `docs`-flagget.
 ### 3.1 Dei reine LinkML-genererte artefakta (JSON-LD, SHACL, Python, JSON Schema, OWL, RDF, protobuf, GraphQL)
 
 Desse har éi kjelde: sjølve `<modell>-schema.yaml` (inkludert alt han
-importerer, sidan `linkml gen-*` løyser importhierarkiet). Feltnamn,
+importerer, sidan `linkml gen-*` løyser importhierarkiet). Feltnavn,
 `class_uri`/`slot_uri`, `required`, `range`, `multivalued` osv. mappar
 direkte over i tilsvarande konsept i målformatet. Container-klassen
 (`tree_root: true`) er alltid med i desse artefakta — dei filtrerer han
@@ -151,12 +151,12 @@ Alle tre skrivevegar til `validation/<versjon>/<policy>.json`
 modulen `src/assets/scripts/utils/validation_log.py`, som garanterer same
 feltsett i alle tilfelle: `{schema, domain, version, validation_policy,
 validated_at, result}`. Fram til dette vart retta skreiv dei tre vegane
-ulike feltnamn (`validation_policy` vs `validation_type`, med/utan
+ulike feltnavn (`validation_policy` vs `validation_type`, med/utan
 `validated_at`) — sjå
 [bugs/valideringslogg-json-inkonsistent-skjema.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/valideringslogg-json-inkonsistent-skjema.md)
 (BUG-12, `løyst`) for historikk. Eksisterande, allereie committa
 `validation/**/*.json`-filer frå før retting kan framleis ha det gamle
-feltnamnet — `mkdocs/lib/scripts/generate-validation-md.py` er uavhengig av
+feltnavnet — `mkdocs/lib/scripts/generate-validation-md.py` er uavhengig av
 dette (les `validated_at` med fallback, og utleier policy frå `build.yaml`,
 aldri frå JSON-feltet).
 
@@ -180,7 +180,7 @@ frå alle `begrepssamling-*`-katalogar.
 
 `30-instances.mk`-targetet `validate-informasjonsmodell-instance` utleier
 `<modell>-manifest.yaml`-stien direkte frå `SCHEMA` (same mønster som
-`generate-informasjonsmodell.py` sjølv brukar for filnamnet). Han refererte
+`generate-informasjonsmodell.py` sjølv brukar for filnavnet). Han refererte
 tidlegare til den gamle, delte stien `metadata/modelldcat.yaml` — sjå
 [bugs/informasjonsmodell-instance-stale-metadata-sti.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/informasjonsmodell-instance-stale-metadata-sti.md)
 (BUG-11, `løyst`) for historikk.
@@ -257,7 +257,7 @@ tolkar loggane frå begge workflowane — sjå
 
 | Du lurer på... | Kjelda er... |
 |---|---|
-| Klassenamn, slotnamn, `range`, `required` i eit generert format | `<modell>-schema.yaml` sine `classes:`/`slots:` (§ 3.1) |
+| Klassenavn, slotnavn, `range`, `required` i eit generert format | `<modell>-schema.yaml` sine `classes:`/`slots:` (§ 3.1) |
 | "Modellmetadata"-tabellen i portalen | `schema`-metadata + silver-annotasjonar, via gen-doc (§ 3.4, § 4) |
 | Kva klassar som vert vist i ER-diagram/PlantUML | Skjemaet sitt eige `classes:`-blokk, filtrert av `filter_erdiagram.py`/`filter_plantuml.py` (§ 3.3) |
 | "Valideringsresultat"-seksjonen | `validation/<versjon>/<policy>.json`, policy frå `build.yaml.validation_policy` (§ 3.5) |

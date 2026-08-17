@@ -9,7 +9,7 @@ Makefile er delt i 13 tematiske modular:
 | Modul | Føremål |
 |---|---|
 | `00-settings.mk` | Globale variablar (fargar, katalogar, parallellisering) |
-| `01-containers.mk` | Container-image-namn og køyre-kommandoar (LINKML_RUN, PYTHON_RUN, osv.) |
+| `01-containers.mk` | Container-image-navn og køyre-kommandoar (LINKML_RUN, PYTHON_RUN, osv.) |
 | `02-schema-discovery.mk` | Søk opp alle skjema og domene i `src/linkml/` |
 | `03-output.mk` | Logging-makroar (print_header, print_step) |
 | `10-generator-macros.mk` | Generelle makroar for å køyre LinkML-generatorar — dei linkml-baserte (merge, jsonld-context, shacl, python, json-schema, owl, rdf, proto, erdiagram, plantuml, doc) batchar N skjema inn i éin kontainar via `batch-generate.py`; python-etterhandsaming (erdiagram-filter, plantuml-filter, docgen-examples, openapi, asyncapi) batchar via `batch-generate-instances.py`; berre gen-xsd og `asyncapi validate` køyrer framleis udelt via `run-parallel-gen.sh` (éin aktivert skjema kvar, ingenting å vinne) |
@@ -70,10 +70,10 @@ make docs-publish
 
 ## Legge til ny modul
 
-1. Opprett `make/XX-namn.mk` med header-kommentar:
+1. Opprett `make/XX-navn.mk` med header-kommentar:
    ```makefile
    # ==============================================================================
-   # make/XX-namn.mk
+   # make/XX-navn.mk
    #
    # Føremål:
    #   <Kort skildring>
@@ -87,7 +87,7 @@ make docs-publish
    # ==============================================================================
    ```
 
-2. Legg til `include make/XX-namn.mk` i `Makefile` (i riktig rekkefølgje)
+2. Legg til `include make/XX-navn.mk` i `Makefile` (i riktig rekkefølgje)
 
 3. Legg til `##`-kommentarar på offentlege target:
    ```makefile
@@ -104,7 +104,7 @@ make docs-publish
 
 ## Konvensjonar
 
-- **Target-namn:** Bruk `kebab-case` (gen-docs, validate-instance)
+- **Target-navn:** Bruk `kebab-case` (gen-docs, validate-instance)
 - **Interne target:** Prefiks med `_` (_gource-render, _mcp-valider-modell-with-header)
 - **Logging:** Bruk `print_header`/`print_step` frå `03-output.mk` for overskrifter/steg, og
   `log_info`/`log_debug`/`log_error` frå `LOG_FUNCTIONS` (`00-settings.mk`) for status/feil —
@@ -123,7 +123,7 @@ make docs-publish
 - **Løysing:** Køyr `make build-docker-linkml` for å bygge LinkML-container
 
 **Problem:** `make help` viser ikkje mitt nye target
-- **Løysing:** Legg til `##`-kommentar etter target-namnet
+- **Løysing:** Legg til `##`-kommentar etter target-navnet
 
 **Problem:** Parallellisering feiler på Windows/WSL2
 - **Løysing:** Reduser `PARALLEL`: `make domain-ap-no PARALLEL=2`

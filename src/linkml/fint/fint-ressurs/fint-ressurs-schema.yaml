@@ -34,7 +34,7 @@ slots:
   # navn:
   #   slot_uri: res:navn
   #   range: string
-  #   description: Namn på ressursen eller kodeverk-elementet.
+  #   description: Navn på ressursen eller kodeverk-elementet.
   plattform:
     slot_uri: res:plattform
     range: Plattform
@@ -138,7 +138,7 @@ slots:
   produsent:
     slot_uri: res:produsent
     range: Produsent
-    description: Namn på produsenten av eininga.
+    description: Navn på produsenten av eininga.
   organisasjonsenhet:
     slot_uri: res:organisasjonsenhet
     range: uriorcurie
@@ -491,7 +491,7 @@ classes:
         in_subset:
           - Valgfri
   Rettighet:
-    description: Ei namngitt rettighet.
+    description: Ei navngitt rettighet.
     class_uri: res:Rettighet
     slots:
       - id

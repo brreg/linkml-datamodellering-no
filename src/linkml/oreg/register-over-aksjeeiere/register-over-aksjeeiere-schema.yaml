@@ -241,7 +241,7 @@ slots:
     identifier: true
     range: uriorcurie
   navn:
-    description: Namn på instansen.
+    description: Navn på instansen.
     range: string
     inlined: true
   beskrivelse:
