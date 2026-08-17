@@ -225,9 +225,9 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
     slots:
       - id
-      - namn
+      - navn
     slot_usage:
-      namn:
+      navn:
         required: true
         in_subset: [Obligatorisk]
 
@@ -272,7 +272,7 @@ slots:
     slot_uri: dct:identifier
 
   tittel:
-    description: Namn eller tittel.
+    description: Navn eller tittel.
     slot_uri: dct:title
     range: string
 
@@ -317,8 +317,8 @@ slots:
     slot_uri: dcat:endpointURL
     range: uriorcurie
 
-  namn:
-    description: Namn på aktøren.
+  navn:
+    description: Navn på aktøren.
     slot_uri: foaf:name
     range: string
 
