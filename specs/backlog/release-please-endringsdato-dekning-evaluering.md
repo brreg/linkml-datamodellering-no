@@ -179,11 +179,11 @@ akkurat slik dei gjorde fram til no.
 
 ## Tilråding
 
-| Kategori | Tilråding | Kompleksitet |
+| Kategori | Tilråding | Status |
 |---|---|---|
-| A — 9 manglande pakkar | Legg til manglande `packages`-oppføringar i `release-please-config.json` + startversjon i `-manifest.json`, éin per modell (same mønster som eksisterande pakkar) | Låg — reint config, ingen workflow-logikk-endring |
-| C — `referanse`-domenet | Splitt éin pakke (`src/linkml/referanse`) til fire (`.../referansemodell`, `.../referansemodell-bronze`, `.../referansemodell-silver`, `.../referansemodell-gold`), kvar med standard `<domain>/<modell>`-djupne | Låg — reint config, løyser depth-mismatchen fullstendig utan workflow-endring, og er meir korrekt sidan dei fire uansett er sjølvstendige modellar |
-| B — `submodels:`-katalogar | **Supersedert, sjå under** — i staden for å utvide workflow-logikken til å handtere fleire skjema per katalog, gjer dei tre submodels (`dqv-core`, `modelldcat-katalog`, `modelldcat-modell`) om til ordinære, sjølvstendige modellkatalogar (jf. `submodels-eigne-modellkatalogar-vurdering.md`) | Låg — same handsaming som Kategori A, ingen workflow-spesialkode naudsynt |
+| A — 9 manglande pakkar | Legg til manglande `packages`-oppføringar i `release-please-config.json` + startversjon i `-manifest.json`, éin per modell (same mønster som eksisterande pakkar) | ✓ Utført |
+| C — `referanse`-domenet | Splitt éin pakke (`src/linkml/referanse`) til fire (`.../referansemodell`, `.../referansemodell-bronze`, `.../referansemodell-silver`, `.../referansemodell-gold`), kvar med standard `<domain>/<modell>`-djupne | ✓ Utført |
+| B — `submodels:`-katalogar | Gjer dei tre submodels (`dqv-core`, `modelldcat-katalog`, `modelldcat-modell`) om til ordinære, sjølvstendige modellkatalogar (jf. `submodels-eigne-modellkatalogar-vurdering.md`) | ✓ Utført (tidlegare økt) |
 
 ## Avgjerder (avklart med brukar 2026-08-17)
 
@@ -199,41 +199,39 @@ sin eigen `find`-basert fil-oppdaging: "Oppdater schema-versjonar i
 release-PR", "Generer artefakter for releases" og "Opprett per-schema
 git-tags".
 
-### Konsekvens for scriptet — kva må utvidast
+### Konsekvens for scriptet — kva vart faktisk gjort
 
-Scriptet slik det står i dag (les tilbake, jf. Bakgrunn) er **ikkje**
-tilstrekkeleg til å dekkje "alle stader" utan endring:
+Punkta under var den opphavlege planen (`extra-files`-basert). Ved
+gjennomføring viste det seg at premissen for planen — at fleire skjema kunne
+dele éin `pkg_path`, eller at ein `pkg_path` kunne ligge djupare enn éitt
+skjema — **forsvann heilt** då Kategori B vart løyst
+(`specs/done/submodels-eigne-modellkatalogar-vurdering.md`) og Kategori C
+vart løyst ved å splitte `referanse` i fire (sjå under). Etter dei to
+fiksane følgjer **alle 37 pakkar** i `release-please-config.json` nøyaktig
+mønsteret `<pkg_path>/<basename(pkg_path)>-schema.yaml` — verifisert
+programmatisk mot heile config. Det gjer `extra-files` overflødig: skjemastien
+kan utleiast direkte frå `pkg_path` åleine, utan å søkje filsystemet eller
+halde ei separat fil-liste i config. Dette er enklare og meir DRY enn den
+opphavlege planen (ingen `extra-files`-duplisering i config, éin kjelde til
+sanning: katalogkonvensjonen sjølv), så scriptet vart bygd slik i staden:
 
-1. **Manglar versjons-oppdatering.** Scriptet oppdaterer i dag berre
-   `endringsdato`/`utgivelsesdato` — `version:`-feltet vert framleis sett av
-   den separate `yq eval -i ".version = ..."`-lina i inline-bashen. Skal
-   inline-bash fjernast heilt, må scriptet utvidast til også å skrive
-   `version:`.
-2. **Les berre `extra_files[0]`** — nøyaktig det same `head -1`-problemet som
-   inline-bashen har for Kategori B, berre flytta frå bash til Python. Må
-   endrast til å loope over **alle** oppføringar i `extra-files` for ein
-   pakke.
-3. **`extra-files` finst ikkje i dagens config.** Verken `release-please-config.json`
-   sine 22 eksisterande pakkar eller dei nye pakkane frå Kategori A/C har
-   `extra-files` sett i dag — scriptet ville i praksis logga "ÅTVARING: ingen
-   extra-files for ..." for absolutt alle pakkar slik config ser ut no.
-   `extra-files: [{"path": "<sti-til-skjema>"}]` må leggjast til eksplisitt
-   for kvar pakke som skal datoppdaterast av scriptet.
-4. **Artefakt- og tag-stega brukar `find` til noko meir enn datoar** — dei
-   skal finne *kva skjemafil som høyrer til pakken* for `make gen-*`-kall og
-   for å byggje `<schema>-v<version>`-tag-namn. Scriptet må difor eksponere
-   fil-oppdaginga si (t.d. eit `--list-schema-files <pkg_path>`-modus, eller
-   ein delt Python-funksjon som begge stega kallar) slik at desse to stega
-   òg kan slutte å bruke `find -maxdepth 1 ... | head -1` og i staden lese
-   frå same `extra-files`-kjelde som datosteget.
+1. **`version:`-oppdatering lagt til** i `update-schema-dates.py` (var berre
+   datoar før).
+2. **`extra_files[0]`-avgrensinga fell bort** — sidan kvar pakke no har
+   nøyaktig éin skjemafil, er "loop over fleire filer" ikkje lenger eit
+   reelt behov.
+3. **Ingen `extra-files` i config** — heile mekanismen er dropa. Scriptet
+   utleier stien direkte: `resolve_schema_path(pkg_path) = Path(pkg_path) /
+   f"{Path(pkg_path).name}-schema.yaml"`.
+4. **Artefakt- og tag-stega** kallar no scriptet med eit nytt
+   `--print-schema-path PKG_PATH`-flagg for å finne skjemafila si, i staden
+   for `find -maxdepth 1 ... | head -1`. Same kjelde til sanning som
+   datosteget, éin implementasjon.
 
-**Nytt gunstig biprodukt:** sidan `extra-files` peikar på ei eksplisitt fil,
-ikkje ei mappe + `-maxdepth 1`, forsvinn depth-mismatchen frå Kategori C
-(referanse) automatisk — uavhengig av om `referanse` vert verande éin pakke
-eller vert splitta til fire. Tilrådinga under held likevel fast på å splitte
-pakken, sidan dei fire referansemodellane uansett er sjølvstendige modellar
-(jf. Kategori C-funna) og bør ha kvar sin uavhengige versjonshistorikk, i
-tråd med prinsippet i svar på spørsmål 2.
+**Biverknad:** `yq` er ikkje lenger naudsynt nokon stad i `release-please.yml`
+(var berre brukt til versjon/dato-manipulasjon og til å lese versjon i
+tag-steget) — `sudo wget`-installasjonssteget er fjerna, og
+versjonslesinga i tag-steget brukar no ein enkel `grep`/`sed`-linje i staden.
 
 ## Kategori B — løyst: submodels vert eigne modellkatalogar
 
@@ -323,10 +321,11 @@ specen), er det eit eige, eksplisitt steg — ikkje gjort automatisk her.
       `release-please-config.json`/`-manifest.json` (startversjon = noverande
       `version:`-felt i kvart skjema). Ingen `extra-files`-spegling naudsynt —
       same handsaming som alle andre pakkar.
-- [ ] Kategori A: legg til 9 nye, sjølvstendige pakkar i `release-please-config.json` + `-manifest.json`
-- [ ] Kategori C: splitt `referanse`-pakken i 4 sjølvstendige pakkar, fjern den generiske `src/linkml/referanse`-oppføringa
-- [ ] Utvid `update-schema-dates.py`: skriv òg `version:` (ikkje berre datoar). Loop over `extra-files`-oppføringar er **ikkje lenger naudsynt** dersom Kategori B vert løyst via eigne modellkatalogar — kvar pakke har då nøyaktig éin skjemafil, som alle andre pakkar
-- [ ] Erstatt `find ... | head -1` i alle tre steg i `release-please.yml` ("Oppdater schema-versjonar", "Generer artefakter", "Opprett per-schema git-tags") med kall til det utvida scriptet
-- [ ] `actionlint` mot `release-please.yml` etter kvar endring (obligatorisk jf. CLAUDE.md)
-- [ ] Verifiser med ein reell release-PR at alle kategoriar (A, B, C) no får korrekt `version`/`endringsdato`/`utgivelsesdato`
-- [ ] Avklar med brukar om `modellkatalog-fleire-skjema-evaluering.md` skal få ei kort kryssreferanse til denne specen og til `submodels-eigne-modellkatalogar-vurdering.md` (valfritt, sjå vurdering over)
+- [x] Kategori A: la til 9 nye, sjølvstendige pakkar i `release-please-config.json` + `-manifest.json` (startversjon = noverande `version:`-felt i kvart skjema)
+- [x] Kategori C: splitta `referanse`-pakken i 4 sjølvstendige pakkar (`referansemodell` 1.3.0, `referansemodell-bronze/-silver/-gold` 1.0.0 kvar), fjerna den generiske `src/linkml/referanse`-oppføringa. Config/manifest verifisert programmatisk: alle 37 pakkar har no nøyaktig éin matchande skjemafil via `<pkg_path>/<basename>-schema.yaml`
+- [x] Utvida `update-schema-dates.py`: skriv no `version:` i tillegg til datoane. `extra-files` vart **ikkje** naudsynt (sjå "Konsekvens for scriptet" over) — skjemastien vert utleia direkte frå `pkg_path`, sidan alle pakkar no har nøyaktig éin skjemafil. Testa funksjonelt (dry-run + reell oppdatering + gjenoppretting) mot ein reell pakke (`samt-bu`) — verifisert korrekt `version`/`endringsdato`-oppdatering, `utgivelsesdato` uendra når alt fanst frå før
+- [x] La til `--print-schema-path PKG_PATH`-modus i scriptet, for gjenbruk i artefakt-/tag-stega
+- [x] Erstatta `find ... | head -1` i alle tre steg i `release-please.yml` ("Oppdater schema-versjonar", "Generer artefakter", "Opprett per-schema git-tags") med kall til scriptet. Fjerna `yq`-installasjonssteget (ikkje lenger brukt nokon stad i workflowen) — versjonslesing i tag-steget brukar no `grep`/`sed`
+- [x] `actionlint` mot `release-please.yml` — ingen `[expression]`-feil, berre pre-eksisterande `[shellcheck]`-stilråd (treng ikkje rettast, jf. CLAUDE.md)
+- [ ] Verifiser med ein reell release-PR at alle kategoriar (A, B, C) no får korrekt `version`/`endringsdato`/`utgivelsesdato` — **kan ikkje utførast av LLM**: krev ein reell `feat`/`fix`-commit pusha til `main` og ein fullført release-PR-syklus i CI. LLM skal aldri `git push` (CLAUDE.md). Neste reelle release vil vise om dette fungerer i praksis.
+- [ ] Avklar med brukar om `modellkatalog-fleire-skjema-evaluering.md` skal få ei kort kryssreferanse til denne specen og til `submodels-eigne-modellkatalogar-vurdering.md` (valfritt, sjå vurdering over) — ikkje avklart, `specs/done/` urørt

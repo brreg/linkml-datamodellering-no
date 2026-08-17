@@ -3,6 +3,10 @@
   "separate-pull-requests": false,
   "include-component-in-tag": true,
   "packages": {
+    "src/linkml/ap-no/common-ap-no": {
+      "component": "common-ap-no",
+      "release-type": "simple"
+    },
     "src/linkml/ap-no/cpsv-ap-no": {
       "component": "cpsv-ap-no",
       "release-type": "simple"
@@ -33,6 +37,10 @@
     },
     "src/linkml/ap-no/skos-ap-no": {
       "component": "skos-ap-no",
+      "release-type": "simple"
+    },
+    "src/linkml/ap-no/xkos-ap-no": {
+      "component": "xkos-ap-no",
       "release-type": "simple"
     },
     "src/linkml/begrepskatalog/brreg-begrepskatalog": {
@@ -75,8 +83,40 @@
       "component": "brreg-modellkatalog",
       "release-type": "simple"
     },
-    "src/linkml/referanse": {
-      "component": "referanse",
+    "src/linkml/modellkatalog/digdir-modellkatalog": {
+      "component": "digdir-modellkatalog",
+      "release-type": "simple"
+    },
+    "src/linkml/modellkatalog/kartverket-modellkatalog": {
+      "component": "kartverket-modellkatalog",
+      "release-type": "simple"
+    },
+    "src/linkml/modellkatalog/ksdigital-modellkatalog": {
+      "component": "ksdigital-modellkatalog",
+      "release-type": "simple"
+    },
+    "src/linkml/modellkatalog/novari-modellkatalog": {
+      "component": "novari-modellkatalog",
+      "release-type": "simple"
+    },
+    "src/linkml/modellkatalog/skatteetaten-modellkatalog": {
+      "component": "skatteetaten-modellkatalog",
+      "release-type": "simple"
+    },
+    "src/linkml/referanse/referansemodell": {
+      "component": "referansemodell",
+      "release-type": "simple"
+    },
+    "src/linkml/referanse/referansemodell-bronze": {
+      "component": "referansemodell-bronze",
+      "release-type": "simple"
+    },
+    "src/linkml/referanse/referansemodell-silver": {
+      "component": "referansemodell-silver",
+      "release-type": "simple"
+    },
+    "src/linkml/referanse/referansemodell-gold": {
+      "component": "referansemodell-gold",
       "release-type": "simple"
     },
     "src/linkml/ngr/ngr-adresse": {
@@ -97,6 +137,14 @@
     },
     "src/linkml/oreg/register-over-aksjeeiere": {
       "component": "register-over-aksjeeiere",
+      "release-type": "simple"
+    },
+    "src/linkml/oreg/enhetsregisteret-bvrinn": {
+      "component": "enhetsregisteret-bvrinn",
+      "release-type": "simple"
+    },
+    "src/linkml/oreg/lunchregisteret": {
+      "component": "lunchregisteret",
       "release-type": "simple"
     },
     "src/linkml/samt/samt-bu": {

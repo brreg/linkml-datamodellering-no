@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """
-Oppdaterer datoannotasjonar i skjema-YAML-filer etter ein release.
+Oppdaterer version og datoannotasjonar i skjema-YAML-filer etter ein release.
 
-- annotations.endringsdato: sett alltid til dagens dato
+- version: sett til verdien frå release-please-manifest.json, men berre
+  dersom han er endra (unngår unødvendige diff-ar)
+- annotations.endringsdato: sett til dagens dato når version endrar seg
 - annotations.utgivelsesdato: sett berre viss feltet manglar (første publisering)
+
+Skjemastien for kvar pakke vert utleia direkte frå pakke-stien i manifestet:
+<pkg_path>/<basename(pkg_path)>-schema.yaml — same mønster som CONVENTIONS.md
+§ "Fil- og mappenavn" krev for alle modellkatalogar. Krev difor ingen
+`extra-files`-konfigurasjon i release-please-config.json.
 
 Ingen eksterne avhengigheiter — berre Python stdlib.
 """
@@ -15,17 +22,25 @@ import sys
 from datetime import date
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
-from utils.release_helpers import find_released_packages  # noqa: E402
+
+def resolve_schema_path(pkg_path: str) -> Path:
+    """<pkg_path>/<basename(pkg_path)>-schema.yaml — konvensjonen for alle modellkatalogar."""
+    name = Path(pkg_path).name
+    return Path(pkg_path) / f"{name}-schema.yaml"
 
 
-def update_dates(schema_path: Path, today: str, dry_run: bool = False) -> bool:
-    content = schema_path.read_text(encoding="utf-8")
-    original = content
+def read_version(schema_path: Path) -> str | None:
+    match = re.search(r'^version:\s*"?([^"\n]+?)"?\s*$', schema_path.read_text(encoding="utf-8"), re.MULTILINE)
+    return match.group(1) if match else None
 
+
+def update_version(content: str, new_version: str) -> str:
+    return re.sub(r'^version:.*$', f'version: "{new_version}"', content, count=1, flags=re.MULTILINE)
+
+
+def update_dates(content: str, today: str) -> str:
     if not re.search(r"^annotations:", content, re.MULTILINE):
-        print(f"  HOPP OVER: ingen annotations-seksjon på toppnivå — {schema_path}", file=sys.stderr)
-        return False
+        return content
 
     if re.search(r"^  endringsdato:", content, re.MULTILINE):
         content = re.sub(
@@ -50,89 +65,65 @@ def update_dates(schema_path: Path, today: str, dry_run: bool = False) -> bool:
             flags=re.MULTILINE,
         )
 
-    if content == original:
-        print(f"  UENDRA: {schema_path}")
+    return content
+
+
+def sync_package(pkg_path: str, manifest_version: str, today: str, dry_run: bool) -> bool:
+    schema_path = resolve_schema_path(pkg_path)
+    if not schema_path.exists():
+        print(f"  ÅTVARING: {schema_path} finst ikkje ({pkg_path})", file=sys.stderr)
         return False
+
+    current_version = read_version(schema_path)
+    if current_version == manifest_version:
+        return False
+
+    content = schema_path.read_text(encoding="utf-8")
+    content = update_version(content, manifest_version)
+    content = update_dates(content, today)
+
+    prefix = "[dry-run] " if dry_run else ""
+    print(f"  {prefix}OPPDATERT: {schema_path} (version {current_version} → {manifest_version})")
 
     if not dry_run:
         schema_path.write_text(content, encoding="utf-8")
-
-    changed_fields = []
-    old_date = re.search(r'endringsdato:\s*"([^"]*)"', original)
-    if old_date and old_date.group(1) != today:
-        changed_fields.append(f"endringsdato {old_date.group(1)} → {today}")
-    elif not old_date:
-        changed_fields.append(f"endringsdato (ny) → {today}")
-    if not re.search(r"^  utgivelsesdato:", original, re.MULTILINE):
-        changed_fields.append(f"utgivelsesdato (ny) → {today}")
-
-    prefix = "[dry-run] " if dry_run else ""
-    print(f"  {prefix}OPPDATERT: {schema_path} ({', '.join(changed_fields)})")
     return True
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Oppdater datoannotasjonar etter release")
+    parser = argparse.ArgumentParser(description="Synkroniser version/endringsdato/utgivelsesdato frå release-please-manifest")
     parser.add_argument(
-        "--released-paths",
-        help="JSON-array med pakke-stiar frå release-please (valfri — les manifest-diff viss utelaten)",
+        "--manifest",
+        default=".github/release-please-manifest.json",
+        help="Sti til release-please-manifest.json",
     )
     parser.add_argument(
-        "--config",
-        default="release-please-config.json",
-        help="Sti til release-please-config.json",
+        "--print-schema-path",
+        metavar="PKG_PATH",
+        help="Skriv ut skjemastien for éin pakke og avslutt (brukt av artefakt-/tag-steg i release-please.yml)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Vis endringar utan å skrive")
     args = parser.parse_args()
 
-    today = date.today().isoformat()
-    config_path = Path(args.config)
-
-    try:
-        config = json.loads(config_path.read_text())
-    except Exception as e:
-        print(f"FEIL: kunne ikkje lese {config_path}: {e}", file=sys.stderr)
-        sys.exit(1)
-
-    if args.released_paths:
-        try:
-            released_paths = json.loads(args.released_paths)
-        except Exception as e:
-            print(f"FEIL: ugyldig JSON i --released-paths: {e}", file=sys.stderr)
+    if args.print_schema_path:
+        schema_path = resolve_schema_path(args.print_schema_path)
+        if not schema_path.exists():
+            print(f"FEIL: {schema_path} finst ikkje", file=sys.stderr)
             sys.exit(1)
-    else:
-        released_paths = find_released_packages(config)
-
-    if not released_paths:
-        print("Ingen pakkar releasja — ingenting å gjere.")
+        print(schema_path)
         return
 
-    print(f"Dato: {today}")
-    print(f"Releasja pakkar: {released_paths}")
+    manifest_path = Path(args.manifest)
+    try:
+        manifest = json.loads(manifest_path.read_text())
+    except Exception as e:
+        print(f"FEIL: kunne ikkje lese {manifest_path}: {e}", file=sys.stderr)
+        sys.exit(1)
 
+    today = date.today().isoformat()
     changed = 0
-    for pkg_path in released_paths:
-        pkg_config = config.get("packages", {}).get(pkg_path)
-        if not pkg_config:
-            print(f"  ÅTVARING: {pkg_path} ikkje funne i {config_path}", file=sys.stderr)
-            continue
-
-        extra_files = pkg_config.get("extra-files", [])
-        if not extra_files:
-            print(f"  ÅTVARING: ingen extra-files for {pkg_path}", file=sys.stderr)
-            continue
-
-        schema_rel = extra_files[0].get("path")
-        if not schema_rel:
-            continue
-
-        schema_path = Path(schema_rel)
-        if not schema_path.exists():
-            print(f"  ÅTVARING: fila finst ikkje: {schema_path}", file=sys.stderr)
-            continue
-
-        print(f"\n{pkg_path}:")
-        if update_dates(schema_path, today, dry_run=args.dry_run):
+    for pkg_path, version in manifest.items():
+        if sync_package(pkg_path, version, today, args.dry_run):
             changed += 1
 
     print(f"\n{changed} fil(ar) oppdatert.")
