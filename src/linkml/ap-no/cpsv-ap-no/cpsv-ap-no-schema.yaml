@@ -441,7 +441,7 @@ classes:
     class_uri: cv:PublicOrganisation
     description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
     slots:
-      - foretrekt_namn
+      - foretrekt_navn
       - dekningsomraade
       - heimeside
       - type_concept
@@ -450,7 +450,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-      foretrekt_namn:
+      foretrekt_navn:
         required: true
         in_subset:
           - Obligatorisk
@@ -923,11 +923,11 @@ slots:
     range: uriorcurie
     multivalued: true
     description: Tenester det kan oppstå behov for som følgje av hendinga.
-  foretrekt_namn:
+  foretrekt_navn:
     slot_uri: skos:prefLabel
     range: LangString
     multivalued: true
-    description: Føretrekt namn/term for organisasjonen.
+    description: Føretrekt navn/term for organisasjonen.
   adresse_ref:
     slot_uri: locn:address
     range: Adresse
