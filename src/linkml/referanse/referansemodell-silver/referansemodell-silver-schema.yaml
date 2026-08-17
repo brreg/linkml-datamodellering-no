@@ -209,7 +209,7 @@ classes:
         required: true
         in_subset: [Obligatorisk]
 
-  # silver: aktor_namn → error
+  # silver: aktor_navn → error
   Aktor:
     description: Ein aktør (person, organisasjon eller programvaresystem).
     class_uri: foaf:Agent
@@ -217,9 +217,9 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
     slots:
       - id
-      - namn
+      - navn
     slot_usage:
-      namn:
+      navn:
         required: true
         in_subset: [Obligatorisk]
 
@@ -271,7 +271,7 @@ slots:
   # Delt slot — Katalog, Datasett, Datatjeneste: silver katalog_tittel,
   #   datasett_tittel, datatjeneste_tittel (dct:title)
   tittel:
-    description: Namn eller tittel.
+    description: Navn eller tittel.
     slot_uri: dct:title
     range: string
 
@@ -326,9 +326,9 @@ slots:
     slot_uri: dcat:endpointURL
     range: uriorcurie
 
-  # Aktør: silver aktor_namn (foaf:name)
-  namn:
-    description: Namn på aktøren.
+  # Aktør: silver aktor_navn (foaf:name)
+  navn:
+    description: Navn på aktøren.
     slot_uri: foaf:name
     range: string
 
