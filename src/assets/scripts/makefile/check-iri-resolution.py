@@ -20,6 +20,7 @@ ikkje meint å opnast direkte i nettlesar.
 Ingen eksterne avhengigheiter utover pyyaml + stdlib urllib.
 """
 
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -32,6 +33,27 @@ import yaml
 SCHEMA_DIR = Path("src/linkml")
 TIMEOUT = 10
 USER_AGENT = "linkml-datamodellering-no-iri-check/1.0"
+
+# IRI-mønster som er stadfesta, avgjorde tilfelle av ikkje-resolvbare
+# identifikator-URI-ar — same mønster og grunngjeving som dei tilsvarande
+# .github/lychee.toml-eksklusjonane, delt her for å unngå at denne rapporten
+# re-flaggar spørsmål som alt er granska og avslutta:
+# - schema.fintlabs.no: portvakt-verna FINT-API-namnerom, aldri offentleg
+#   tilgjengeleg (specs/done/lenkjesjekk-fint-schema-fintlabs-no.md)
+# - data.norge.no/vocabulary/ngr-*: NGR-vokabularnamnerom, stadfesta at det
+#   ikkje er meint å vere resolvbart (specs/done/lenkjesjekk-ngr-vocabulary-namespace.md)
+# - example.org/*.example.org: RFC 2606-plasshaldardomene brukt medvite i
+#   referansemodellar og malskjema (specs/done/lenkje-og-mermaid-sjekk.md)
+KNOWN_UNRESOLVABLE_PATTERNS = [
+    re.compile(r"^https://schema\.fintlabs\.no/"),
+    re.compile(r"^https://data\.norge\.no/vocabulary/ngr-"),
+    re.compile(r"^https?://(www\.)?example\.(com|org|net)"),
+    re.compile(r"^https?://[^/]*\.example\.org"),
+]
+
+
+def is_known_unresolvable(iri: str) -> bool:
+    return any(p.match(iri) for p in KNOWN_UNRESOLVABLE_PATTERNS)
 
 
 def discover_schemas() -> list[Path]:
@@ -130,11 +152,20 @@ def print_resolution_report(schemas: list[Path], schema_data: dict[Path, dict]) 
         for iri in collect_iris(schema_data[schema]):
             referrers[iri].append(str(schema))
 
+    testable = {iri: refs for iri, refs in referrers.items() if not is_known_unresolvable(iri)}
+    skipped = len(referrers) - len(testable)
+
     print("# IRI-resolusjonssjekk\n")
-    print(f"Testar {len(referrers)} unike IRI-ar (id/default_prefix/prefixes) frå {len(schemas)} skjema.\n")
+    print(f"Testar {len(testable)} unike IRI-ar (id/default_prefix/prefixes) frå {len(schemas)} skjema.")
+    if skipped:
+        print(
+            f"({skipped} kjende, ikkje-resolvbare identifikator-URI-ar utelatne — "
+            "sjå KNOWN_UNRESOLVABLE_PATTERNS i check-iri-resolution.py.)"
+        )
+    print()
 
     failures = []
-    for iri in sorted(referrers):
+    for iri in sorted(testable):
         ok, detail = check_iri(iri)
         if not ok:
             failures.append((iri, detail))
@@ -146,10 +177,10 @@ def print_resolution_report(schemas: list[Path], schema_data: dict[Path, dict]) 
     print("| IRI | Feil | Referert av |")
     print("|---|---|---|")
     for iri, detail in failures:
-        schemas_str = ", ".join(sorted(set(referrers[iri])))
+        schemas_str = ", ".join(sorted(set(testable[iri])))
         print(f"| {iri} | {detail} | {schemas_str} |")
 
-    print(f"\n**{len(failures)} av {len(referrers)} IRI-ar resolverte ikkje.**\n")
+    print(f"\n**{len(failures)} av {len(testable)} IRI-ar resolverte ikkje.**\n")
 
 
 def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path, dict]) -> None:
@@ -193,6 +224,12 @@ def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path
         print(f"| {iri} | {label} | {detail} | {schemas_str} |")
 
     print(f"\n**{len(failures)} av {total} innhaldsforhandlingstestar feila.**")
+    if len(failures) == total:
+        print(
+            "\nAlle IRI-ar på data.norge.no manglar i dag innhaldsforhandling for heile "
+            "domenet (kjent, dokumentert infrastrukturgap — ikkje eit per-skjema-avvik). "
+            "Sjå specs/done/iri-resolusjon-innhaldsforhandling.md."
+        )
 
 
 def main() -> None:

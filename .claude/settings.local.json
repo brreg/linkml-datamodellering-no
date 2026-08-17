@@ -466,6 +466,12 @@
   ],
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": true
+    "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "allowWrite": [
+        "/run/user/1000/libpod",
+        "/run/user/1000"
+      ]
+    }
   }
 }

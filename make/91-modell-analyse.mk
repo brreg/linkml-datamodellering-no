@@ -12,13 +12,14 @@
 # Relaterte script:
 # - src/assets/scripts/makefile/find-similar-names.py
 # - src/assets/scripts/makefile/check-iri-resolution.py
+# - src/assets/scripts/makefile/summarise-modell-analyse.py
 # ==============================================================================
 
 SIMILARITY_THRESHOLD ?= 0.8
 
 .PHONY: analyse-similar-classes-domain analyse-similar-classes-all \
         analyse-similar-slots-domain analyse-similar-slots-all \
-        analyse-iri-resolution
+        analyse-iri-resolution analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande namn innanfor same domene [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
@@ -43,3 +44,7 @@ analyse-similar-slots-all: ## Finn slots med liknande namn på tvers av alle dom
 analyse-iri-resolution: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema resolverer over HTTP(S)
 	$(call print_header,analyse-iri-resolution) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py
+
+analyse-sammendrag: ## Les dei fem analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
+	$(call print_header,analyse-sammendrag) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/summarise-modell-analyse.py

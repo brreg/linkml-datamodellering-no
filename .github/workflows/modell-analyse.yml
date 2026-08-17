@@ -150,3 +150,36 @@ jobs:
           name: iri-resolution-report
           path: iri-resolution-report.md
           retention-days: 30
+
+  sammendrag:
+    needs:
+      - similar-classes-domain
+      - similar-classes-all
+      - similar-slots-domain
+      - similar-slots-all
+      - iri-resolution
+    if: always()
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Last ned alle rapportar
+        uses: actions/download-artifact@v7
+        with:
+          pattern: "*-report"
+          merge-multiple: true
+
+      - name: Generer sammendrag
+        run: |
+          set -uo pipefail
+          make analyse-sammendrag > sammendrag-report.md
+          {
+            echo "## Sammendrag"
+            cat sammendrag-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
