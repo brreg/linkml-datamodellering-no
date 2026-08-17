@@ -236,7 +236,7 @@ classes:
   Adressenavn:
     class_uri: ngr:Adressenavn
     description: >-
-      Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket.
+      Offisielt navn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket.
     slots:
       - id
       - adressenavn_tekst
@@ -258,10 +258,10 @@ classes:
   Adresseomrade:
     class_uri: ngr:Adresseomrade
     description: >-
-      Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn.
+      Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnavn.
     slots:
       - id
-      - namn
+      - navn
   Adressekode:
     class_uri: ngr:Adressekode
     description: Firesifra kommunal kode som identifiserer eit adressenavn.
@@ -342,7 +342,7 @@ classes:
     description: Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til.
     slots:
       - id
-      - namn
+      - navn
   Fylke:
     is_a: GeografiskOmrade
     class_uri: ngr:Fylke
@@ -455,7 +455,7 @@ slots:
   adressenavn_ref:
     slot_uri: ngr:harAdressenavn
     range: Adressenavn
-    description: Adressenavn (vegnamn o.l.) for adressa.
+    description: Adressenavn (vegnavn o.l.) for adressa.
   adressekode_ref:
     slot_uri: ngr:harAdressekode
     range: Adressekode
@@ -475,11 +475,11 @@ slots:
   adresseomrade_ref:
     slot_uri: ngr:harAdresseomrade
     range: Adresseomrade
-    description: Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+    description: Adresseområdet dette adressenavnet eller adressekoden høyrer til.
   har_adressekode:
     slot_uri: ngr:harAdressekode
     range: Adressekode
-    description: Adressekode tilknytt dette adressenamnet.
+    description: Adressekode tilknytt dette adressenavnet.
   geografisk_omrade:
     slot_uri: ngr:referererTilGeografiskOmrade
     range: GeografiskOmrade
@@ -509,19 +509,19 @@ slots:
   adressenavn_tekst:
     slot_uri: locn:thoroughfare
     range: string
-    description: "Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare)."
+    description: "Tekstleg navn på vegen eller stadnavnet (locn:thoroughfare)."
   adressetilleggsnavn:
     slot_uri: ngr:adressetilleggsnavn
     range: string
-    description: Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).
+    description: Offisielt tilleggsnavn til vegadressa (t.d. gardsnavn, bruksnavn).
   matrikkelnummer:
     slot_uri: ngr:matrikkelnummer
     range: string
     description: Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2).
-  namn:
-    slot_uri: ngr:namn
+  navn:
+    slot_uri: ngr:navn
     range: string
-    description: Namn på det geografiske området eller adressekomponenten.
+    description: Navn på det geografiske området eller adressekomponenten.
   kode:
     slot_uri: ngr:kode
     range: integer
@@ -529,7 +529,7 @@ slots:
   postboksanleggsnavn:
     slot_uri: ngr:postboksanleggsnavn
     range: string
-    description: Namn på postboksanlegget (t.d. bedriftsnamn, institusjon).
+    description: Navn på postboksanlegget (t.d. bedriftsnavn, institusjon).
   # ---- Kodar --------------------------------------------------------------
   kommunenummer_kode:
     slot_uri: ngr:kommunenummer

@@ -41,7 +41,7 @@ adressenavn:
 
 adresseomrader:
   - id: https://example.org/adresseomrade/oslo-sentrum
-    namn: Oslo sentrum
+    navn: Oslo sentrum
 
 adressekoder:
   - id: https://example.org/adressekode/13019
@@ -70,21 +70,21 @@ representasjonspunkt:
 
 kommunar:
   - id: https://example.org/kommune/0301
-    namn: Oslo
+    navn: Oslo
     kommunenummer_kode: "0301"
 
 poststeder:
   - id: https://example.org/poststed/0150
-    namn: Oslo
+    navn: Oslo
     postnummer: "0150"
 
   - id: https://example.org/poststed/0101
-    namn: Oslo
+    navn: Oslo
     postnummer: "0101"
 
 grunnkretsar:
   - id: https://example.org/grunnkrets/03010101
-    namn: Kvadraturen
+    navn: Kvadraturen
     grunnkretsnummer: "03010101"
 
 postboksar:
