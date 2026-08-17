@@ -419,7 +419,7 @@ classes:
   # ---------------------------------------------------------------------------
   Personnavn:
     class_uri: ngrp:Personnavn
-    description: Offisielt registrert namn på ein person i Folkeregisteret.
+    description: Offisielt registrert navn på ein person i Folkeregisteret.
     slots:
       - id
       - fornavn
@@ -975,7 +975,7 @@ slots:
   har_personnavn:
     slot_uri: ngrp:harPersonnavn
     range: Personnavn
-    description: Offisielt registrert namn på personen.
+    description: Offisielt registrert navn på personen.
   har_folkeregisteridentifikator:
     slot_uri: ngrp:harFolkeregisteridentifikator
     range: Folkeregisteridentifikator
@@ -1117,19 +1117,19 @@ slots:
   fornavn:
     slot_uri: ngrp:fornavn
     range: string
-    description: Fornamn(et/a) til personen.
+    description: Fornavn(et/a) til personen.
   mellomnavn:
     slot_uri: ngrp:mellomnavn
     range: string
-    description: Mellomnamn til personen.
+    description: Mellomnavn til personen.
   etternavn:
     slot_uri: ngrp:etternavn
     range: string
-    description: Etternamn til personen.
+    description: Etternavn til personen.
   forkortet_navn:
     slot_uri: ngrp:forkortetNavn
     range: string
-    description: Forkorta versjon av fullt namn.
+    description: Forkorta versjon av fullt navn.
   identifikatornummer:
     slot_uri: ngrp:identifikatornummer
     range: string
@@ -1207,9 +1207,9 @@ slots:
     range: string
     description: Stad for dødsfallet.
   navn:
-    slot_uri: ngrp:namn
+    slot_uri: ngrp:navn
     range: string
-    description: Namn på person eller institusjon.
+    description: Navn på person eller institusjon.
   telefonnummer:
     slot_uri: ngrp:telefonnummer
     range: string
