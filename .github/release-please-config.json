@@ -15,8 +15,20 @@
       "component": "dqv-ap-no",
       "release-type": "simple"
     },
+    "src/linkml/ap-no/dqv-core": {
+      "component": "dqv-core",
+      "release-type": "simple"
+    },
     "src/linkml/ap-no/modelldcat-ap-no": {
       "component": "modelldcat-ap-no",
+      "release-type": "simple"
+    },
+    "src/linkml/ap-no/modelldcat-katalog": {
+      "component": "modelldcat-katalog",
+      "release-type": "simple"
+    },
+    "src/linkml/ap-no/modelldcat-modell": {
+      "component": "modelldcat-modell",
       "release-type": "simple"
     },
     "src/linkml/ap-no/skos-ap-no": {

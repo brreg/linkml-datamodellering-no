@@ -14,17 +14,25 @@ src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml
 src/linkml/<domain>/<modell>/data/<datafil>/<datafil>.yaml
 ```
 
-**Éin modell per katalog:** Kvar `<modell>`-katalog svarar normalt til éin
-sjølvstendig modell med éitt `<modell>-schema.yaml`. Einaste dokumenterte
-unntaket er `submodels:`-feltet i `build.yaml` (sjå
-[build-config.md](mkdocs/docs/kom-i-gang/build-config.md#submodels-valfritt)),
-som lèt fleire skjema dele katalog med ein hovudmodell. Bruk er avgrensa til
-to tilfelle: sirkulær-import-unngåing (t.d. `dqv-core` mellom `dcat-ap-no` og
-`dqv-ap-no`) og logisk separasjon av spesifikasjonsdelar som følgjer den
-offisielle standarden sin eigen struktur (t.d. `modelldcat-modell` og
-`modelldcat-katalog`). Nye delmodellar bør berre opprettast når eitt av desse
-tilfella gjeld — ikkje som ei generell løysing for å gruppere relaterte
-modellar.
+**Éin modell per katalog:** Kvar `<modell>`-katalog svarar til éin
+sjølvstendig modell med éitt `<modell>-schema.yaml`. Dette gjeld no
+**unntaksfritt** — alle modellar, inkludert modellar som er nære knytte til
+kvarandre (t.d. delar av same eksterne spesifikasjon), får kvar sin eigen
+`<domain>/<modell>/`-katalog, sjølvstendig `build.yaml` og sjølvstendig
+release-please-pakke. Fysisk samlokalisering er ikkje naudsynt for å unngå
+sirkulær import — det er eksistensen av eit eige, importerbart skjema (med
+eigen `imports:`-liste) som løyser det, uavhengig av kvar fila fysisk ligg.
+Relasjonen mellom nært knytte modellar (t.d. `modelldcat-ap-no`,
+`modelldcat-katalog`, `modelldcat-modell`) vert i staden uttrykt gjennom
+`imports:`-grafen (synleg i mkdocs-portalens "Imports"-seksjon) og
+kryssreferansar i kvar modell sin `description.md`.
+
+`build.yaml` har framleis eit `submodels:`-felt (sjå
+[build-config.md](mkdocs/docs/kom-i-gang/build-config.md#submodels-valfritt-ikkje-i-aktiv-bruk))
+som **kan** dele katalog mellom fleire skjema, men feltet har i dag ingen
+aktive brukstilfelle — sjå
+`specs/backlog/submodels-eigne-modellkatalogar-vurdering.md` for grunngjevinga
+bak å fjerne dei tre tidlegare bruka.
 
 ---
 

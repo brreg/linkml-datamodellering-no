@@ -36,7 +36,7 @@ default_range: string
 imports:
   - linkml:types
   - ../common-ap-no/common-ap-no-schema
-  - ../dqv-ap-no/dqv-core-schema
+  - ../dqv-core/dqv-core-schema
 classes:
   KatalogisertRessurs:
     in_subset:

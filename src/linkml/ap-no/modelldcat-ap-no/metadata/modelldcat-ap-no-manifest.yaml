@@ -8,12 +8,12 @@ tittel:
 beskrivelse:
   nb: Informasjonsmodellar
   nn: Informasjonsmodellar
-versjonsnummer: 1.10.0
+versjonsnummer: 1.15.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
-endringsdato: '2026-07-10'
+endringsdato: '2026-08-14'
 utgivelsesdato: '2023-01-01'
-status: http://purl.org/adms/status/Completed
+status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/modelldcat-ap-no/
 er_i_samsvar_med:
 - id: https://data.norge.no/specification/modelldcat-ap-no
@@ -21,9 +21,6 @@ er_i_samsvar_med:
     nb: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
     nn: Spesifikasjon for beskrivelse av informasjonsmodeller (ModellDCAT-AP-NO)
   har_referanse: https://data.norge.no/specification/modelldcat-ap-no
-har_del:
-- https://data.norge.no/ap-no/modelldcat-ap-no/modelldcat-modell
-- https://data.norge.no/ap-no/modelldcat-ap-no/modelldcat-katalog
 kontaktpunkt:
 - id: https://www.digdir.no/om-oss/kontakt-oss/887
   navn_vcard:

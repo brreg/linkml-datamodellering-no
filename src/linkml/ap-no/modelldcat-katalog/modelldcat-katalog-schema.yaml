@@ -14,6 +14,8 @@ license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
   status: http://purl.org/adms/status/UnderDevelopment
+  endringsdato: "2026-08-02"
+  utgivelsesdato: "2026-07-27"
 
 prefixes:
   linkml:        https://w3id.org/linkml/
@@ -29,7 +31,7 @@ default_range: string
 imports:
   - linkml:types
   - ../common-ap-no/common-ap-no-schema
-  - ./modelldcat-modell-schema
+  - ../modelldcat-modell/modelldcat-modell-schema
   - ../dcat-ap-no/dcat-ap-no-schema
 
 # ---------------------------------------------------------------------------

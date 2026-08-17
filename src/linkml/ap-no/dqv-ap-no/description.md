@@ -5,8 +5,8 @@ Profilen dekkjer metadata for datakvalitet, inkludert kvalitetsmerknadar, kvalit
 **Typisk brukar:** Offentlege verksemder som skal annotere datasett med datakvalitetsinformasjon i [Felles datakatalog](https://data.norge.no), og utviklarar som implementerer DQV-AP-NO-kompatible system.
 
 
-**Skjemastruktur:** Profilen er delt i to filer for å unngå sirkulær import:
-- `dqv-ap-no-schema.yaml` — hovudskjema, narrowar `har_maal.range` til `KatalogisertRessurs`
-- `dqv-core-schema.yaml` — delmodell med kjerneklassar utan DCAT-avhengigheit
+**Skjemastruktur:** Profilen er delt i to sjølvstendige modellar for å unngå sirkulær import:
+- `dqv-ap-no` (dette skjemaet) — narrowar `har_maal.range` til `KatalogisertRessurs`
+- [`dqv-core`](../dqv-core/index.md) — kjerneklassar utan DCAT-avhengigheit, importert av både `dqv-ap-no` og `dcat-ap-no`
 
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dqv-ap-no.md` for dokumenterte avvik og grunngjevingar.

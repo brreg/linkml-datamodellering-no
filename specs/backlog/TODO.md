@@ -82,3 +82,15 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
 
 
   Confirmed — the earlier failure was the sandbox blocking podman's rootless namespace setup (newuidmap), not a real command failure.
+
+
+  odrl standard
+
+  Terje Sylversnes
+  Kjersti Steien følger opp etteer Jim
+
+  SIMPL prosjektet EU har lagt inn støtte for content negotiation i plattformen
+
+  DID
+
+   Container-verktøyet krev rettar sandboxen blokkerer (newuidmap: Operation not permitted).

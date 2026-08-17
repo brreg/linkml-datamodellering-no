@@ -53,7 +53,7 @@ generate_schema_table() {
 
     # Berre inkluder hovudskjema (der filnamn matcher katalognamn)
     # t.d. modelldcat-ap-no/modelldcat-ap-no-schema.yaml (OK)
-    # men ikkje modelldcat-ap-no/modelldcat-katalog-schema.yaml (hopp over)
+    # relevant for eit evt. framtidig submodels:-tilfelle (sjå build-config.md)
     [[ "$schema_basename" != "$schema_name" ]] && continue
 
     # Legg til skjema i domenet sin liste

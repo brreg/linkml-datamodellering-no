@@ -16,16 +16,17 @@ beskrivelse:
     via slot_usage.
 versjonsnummer: 1.0.0
 lisens: https://data.norge.no/nlod/no/2.0
-status: http://purl.org/adms/status/Completed
-heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
+utgiver: https://data.norge.no/organizations/991825827
+endringsdato: '2026-08-14'
+utgivelsesdato: '2026-08-17'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-core/
 er_i_samsvar_med:
 - id: https://informasjonsforvaltning.github.io/dqv-ap-no/
   tittel:
     nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
     nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
   har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
-har_del:
-- https://data.norge.no/ap-no/dqv-core/dqv-core
 kontaktpunkt:
 - id: https://www.digdir.no/om-oss/kontakt-oss/887
   navn_vcard:
@@ -42,11 +43,11 @@ inneholder_modellelement:
 - http://www.w3.org/ns/dqv#QualityMeasurement
 - http://www.w3.org/ns/oa#TextualBody
 finnes_i_format:
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-context.jsonld
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-ontology.ttl
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-openapi.yaml
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.json
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.proto
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-schema.ttl
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-ap-no/dqv-ap-no-shapes.ttl
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/ap-no/dqv-core/dqv-core-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/ap-no/dqv-core/dqv-core-schema.yaml

@@ -8,12 +8,12 @@ tittel:
 beskrivelse:
   nb: Datakvalitet
   nn: Datakvalitet
-versjonsnummer: 1.15.0
+versjonsnummer: 1.16.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/991825827
-endringsdato: '2026-08-02'
+endringsdato: '2026-08-14'
 utgivelsesdato: '2023-01-01'
-status: http://purl.org/adms/status/Completed
+status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/ap-no/dqv-ap-no/
 er_i_samsvar_med:
 - id: https://informasjonsforvaltning.github.io/dqv-ap-no/
@@ -21,8 +21,6 @@ er_i_samsvar_med:
     nb: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
     nn: DQV-AP-NO (Norsk applikasjonsprofil av DQV)
   har_referanse: https://informasjonsforvaltning.github.io/dqv-ap-no/
-har_del:
-- https://data.norge.no/ap-no/dqv-ap-no/dqv-core
 kontaktpunkt:
 - id: https://www.digdir.no/om-oss/kontakt-oss/887
   navn_vcard:

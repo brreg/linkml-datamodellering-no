@@ -62,31 +62,36 @@ CI skil dei to typane på om `generators:`-seksjonen er til stades.
 
 ## Felta i skjema-manifest
 
-### `submodels` (valfritt)
+### `submodels` (valfritt, ikkje i aktiv bruk)
 
-Liste over delmodellar som høyrer til denne hovudmodellen. Delmodellane må ligge i same 
-katalog som hovudmodellen sitt skjema (t.d. `src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml`).
+Liste over delmodellar som høyrer til denne hovudmodellen. Delmodellane må ligge i same
+katalog som hovudmodellen sitt skjema.
 
-Dokumentasjonsportalen (`make docs-publish`) vil:
+Dokumentasjonsportalen (`make docs-publish`) vil då:
 - Vise delmodellane som innrykka undermenypunkt under hovudmodellen i nav-menyen
 - Legg til "Delmodellar"-seksjon på hovudmodellen sin `index.md`
 - Legg til "Delmodell av"-boks på kvar delmodell sin `index.md`
 
-**Brukstilfelle:** Modellar som er splitta i fleire skjemaer for å handtere sirkulær import
-(t.d. `dqv-core` importert av `dcat-ap-no`, `dqv-ap-no` importerer `dcat-ap-no`) eller
-for å separere logiske komponentar (t.d. `modelldcat-modell` og `modelldcat-katalog`).
+**Brukstilfelle:** Modellar som er splitta i fleire skjemaer for å handtere sirkulær import,
+eller for å separere logiske komponentar som følgjer ein ekstern spesifikasjon sin eigen
+struktur.
+
+**Status (2026-08-17):** Feltet har for tida **ingen aktive brukstilfelle**. Dei tre
+tidlegare bruka (`dqv-core` under `dqv-ap-no`; `modelldcat-modell`/`modelldcat-katalog`
+under `modelldcat-ap-no`) vart gjorde om til ordinære, sjølvstendige modellkatalogar —
+sjå `specs/backlog/submodels-eigne-modellkatalogar-vurdering.md`. Grunngjevinga: fysisk
+samlokalisering var aldri det som løyste sirkulær-import-problemet (det var eksistensen
+av eit eige, importerbart skjema), og release-please sitt katalogbaserte
+pakke-omgrep kjenner ikkje `submodels:` — delte kataloger fekk difor aldri korrekt
+uavhengig versjonering/`endringsdato` (sjå
+`specs/backlog/release-please-endringsdato-dekning-evaluering.md`). Feltet er behalde
+som dokumentert mekanisme for eit eventuelt framtidig, faktisk sirkulær-import-tilfelle
+— ikkje sletta.
 
 **Eksempel:**
 ```yaml
 submodels:
-  - dqv-core
-```
-
-**Eksempel (fleire delmodellar):**
-```yaml
-submodels:
-  - modelldcat-modell
-  - modelldcat-katalog
+  - <delmodell-namn>
 ```
 
 ### `external_spec_url` (valfritt)

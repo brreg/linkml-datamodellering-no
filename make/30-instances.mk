@@ -78,7 +78,7 @@ validate-informasjonsmodell-instance: ## Valider generert ModelDCAT-metadata mot
 	log_info "$(CLR_STEP)Køyrer full LinkML-validering$(CLR_RST)"; \
 	$(LINKML_RUN) python3 /work/src/assets/scripts/makefile/validate-modelldcat.py \
 		"$$MODELLDCAT_YAML" \
-		/work/src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml
+		/work/src/linkml/ap-no/modelldcat-katalog/modelldcat-katalog-schema.yaml
 
 .PHONY: validate-modellkatalog-instance
 
