@@ -13,7 +13,7 @@ annotations:
   utgiver: https://data.norge.no/organizations/974760673
   endringsdato: "2026-08-14"
   utgivelsesdato: "2024-01-01"
-  status: http://purl.org/adms/status/Completed
+  status: http://purl.org/adms/status/UnderDevelopment
 default_prefix: https://data.norge.no/fair/
 default_range: string
 imports:

@@ -13,6 +13,7 @@ license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
+  status: http://purl.org/adms/status/UnderDevelopment
 
 prefixes:
   linkml:        https://w3id.org/linkml/
