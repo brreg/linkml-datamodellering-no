@@ -33,6 +33,9 @@ jobs:
       - name: Checkout for scope-sjekk
         if: github.event_name == 'push'
         uses: actions/checkout@v7
+        with:
+          # HEAD~1 må vere tilgjengeleg for filbasert diff-sjekk under.
+          fetch-depth: 2
 
       - name: Sjekk om siste commit skal trigge release-please
         id: check_commit_type
@@ -45,14 +48,6 @@ jobs:
           # script-injection (jf. actionlint sitt [expression]-funn).
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          # Les gyldige scopes frå auto-generert fil
-          if [ ! -f .github/valid-scopes.txt ]; then
-            echo "Feil: .github/valid-scopes.txt finst ikkje — køyr 'make update-valid-scopes'" >&2
-            exit 1
-          fi
-
-          VALID_SCOPES=$(cat .github/valid-scopes.txt | tr '\n' '|' | sed 's/|$//')
-
           # Hent berre første linje av commit-meldinga
           FIRST_LINE=$(echo "$COMMIT_MESSAGE" | head -n 1)
 
@@ -77,23 +72,32 @@ jobs:
             exit 0
           fi
 
-          # 2. Tillat feat/fix UTAN scope (bakoverkompatibilitet)
-          if echo "$FIRST_LINE" | grep -qE '^(feat|fix):'; then
-            echo "skip=false" >> $GITHUB_OUTPUT
-            echo "Siste commit er feat/fix utan scope — held fram"
+          # 2. feat/fix (uansett scope, fleire kommaseparerte scope, eller
+          #    ingen scope) — trigg berre dersom commiten faktisk endrar
+          #    minst éin *-schema.yaml. Scope-teksten vert IKKJE brukt til å
+          #    avgjere dette: release-please-action sjølv avgjer kva pakkar
+          #    som får versjonsbump basert på filstiar, ikkje commit-scope,
+          #    og kommaseparerte multi-scope-commits (t.d.
+          #    "fix(ap-no,fint,fair,begrepskatalog): ...") er eit etablert,
+          #    legitimt mønster i repoet som eit scope-kvitelist-regex
+          #    strukturelt aldri kan matche. Sjå
+          #    specs/backlog/release-please-skip-filter-for-strengt.md.
+          if echo "$FIRST_LINE" | grep -qE '^(feat|fix)(\(.*\))?:'; then
+            CHANGED_SCHEMAS=$(git diff --name-only HEAD~1 HEAD -- 'src/linkml/*/*/*-schema.yaml')
+            if [ -n "$CHANGED_SCHEMAS" ]; then
+              echo "skip=false" >> $GITHUB_OUTPUT
+              echo "Siste commit er feat/fix og endrar skjema:"
+              echo "$CHANGED_SCHEMAS"
+            else
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "Siste commit er feat/fix, men endrar ingen *-schema.yaml — hoppar over"
+            fi
             exit 0
           fi
 
-          # 3. Tillat feat/fix med gyldig modell-scope
-          if echo "$FIRST_LINE" | grep -qE "^(feat|fix)\(($VALID_SCOPES)\):"; then
-            echo "skip=false" >> $GITHUB_OUTPUT
-            echo "Siste commit er feat/fix med gyldig modell-scope — held fram"
-            exit 0
-          fi
-
-          # 4. Elles: hopp over (t.d. feat(docs), fix(docgen), feat(ci))
+          # 3. Elles: ikkje feat/fix — hopp over
           echo "skip=true" >> $GITHUB_OUTPUT
-          echo "Siste commit har ikkje gyldig modell-scope — hoppar over"
+          echo "Siste commit er ikkje feat/fix — hoppar over"
 
       - name: Checkout for release-please
         if: |
