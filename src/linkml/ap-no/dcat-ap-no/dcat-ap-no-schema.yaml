@@ -2,7 +2,7 @@ id: https://data.norge.no/ap-no/dcat-ap-no
 name: dcat-ap-no
 title: DCAT-AP-NO
 description: Datakatalogar og datasett
-version: 2.14.0
+version: "2.14.1"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://data.norge.no/specification/dcat-ap-no

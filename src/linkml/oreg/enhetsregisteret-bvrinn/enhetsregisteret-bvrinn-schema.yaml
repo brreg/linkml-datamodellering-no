@@ -5,13 +5,13 @@
 id: https://data.norge.no/oreg/enhetsregisteret-bvrinn
 name: enhetsregisteret-bvrinn
 title: Enhetsregisteret - BVINN
-version: "1.0.0"
+version: "1.1.0"
 license: https://data.norge.no/nlod/no/2.0
 description: Berettigede, verger, rettighetshavere i næring (BVRiNN)
 
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-08-17"
   utgivelsesdato: "2026-06-10"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
