@@ -16,10 +16,9 @@ try:
     import linkml_relative_import_patch
     linkml_relative_import_patch.apply()
 except ImportError:
-    print(
+    sys.stderr.write(
         "ÅTVARING: fann ikkje linkml_relative_import_patch (/repo ikkje montert?) — "
-        "versjonslåste importar med fleire nivå relative importar kan feile.",
-        file=sys.stderr,
+        "versjonslåste importar med fleire nivå relative importar kan feile.\n"
     )
 
 

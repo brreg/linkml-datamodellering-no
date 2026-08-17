@@ -37,13 +37,23 @@ jobs:
           if [ -z "$VERSION" ] && [ -f linkml-datamodellering.yaml ]; then
             VERSION=$(grep '^ap-no-version:' linkml-datamodellering.yaml | awk '{print $2}')
           fi
-          echo "version=${VERSION:-latest}" >> "$GITHUB_OUTPUT"
+          VERSION="${VERSION:-latest}"
+
+          # Tryggleik: avgrens checkout-ref til forventa, stabile verdiar.
+          # Tillat berre "latest" eller semver-taggar på forma vMAJOR.MINOR.PATCH.
+          if ! echo "$VERSION" | grep -Eq '^(latest|v[0-9]+\.[0-9]+\.[0-9]+)$'; then
+            echo "::error::Ugyldig versjon '$VERSION'. Tillatne verdiar er 'latest' eller semver-tag på forma vX.Y.Z."
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Hent validator-komponenter frå brreg/linkml-datamodellering-no
         uses: actions/checkout@v7
         with:
           repository: brreg/linkml-datamodellering-no
           ref: ${{ steps.config.outputs.version }}
+          persist-credentials: false
           sparse-checkout: |
             src/mcp-linkml-validator/server.py
             src/mcp-linkml-validator/policies

@@ -17,7 +17,6 @@ Køyrast av CI før generatorfasen.
 
 import sys
 from pathlib import Path
-import yaml
 from typing import Dict, List, Optional
 from collections import defaultdict
 

@@ -101,7 +101,7 @@ jobs:
           github.event_name == 'workflow_dispatch'
         uses: actions/checkout@v7
 
-      - uses: googleapis/release-please-action@v5
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5
         if: |
           (github.event_name == 'push' && steps.check_commit_type.outputs.skip != 'true') ||
           github.event_name == 'workflow_dispatch'

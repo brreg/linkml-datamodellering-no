@@ -20,7 +20,7 @@ Output:
 import sys
 import re
 from pathlib import Path
-from typing import Dict, List, Set, Optional
+from typing import Dict, List, Set
 
 
 def parse_hierarchy_blocks(md_content: str) -> Dict[str, Dict[str, List[str]]]:

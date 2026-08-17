@@ -22,16 +22,14 @@ def validate_modelldcat(modelldcat_path: Path, schema_path: Path) -> bool:
     Returnerer: True dersom validering passerer, False elles.
     """
     try:
-        from linkml_runtime.loaders.yaml_loader import YAMLLoader
         from linkml_runtime.utils.schemaview import SchemaView
 
         # 1. Last skjemaet
         print(f"Lastar skjema: {schema_path}")
-        schema_view = SchemaView(str(schema_path))
+        SchemaView(str(schema_path))
 
         # 2. Last instansen (Informasjonsmodell)
         print(f"Lastar instans: {modelldcat_path}")
-        loader = YAMLLoader()
 
         # Les data som dict først for å sjekke struktur
         with open(modelldcat_path, 'r', encoding='utf-8') as f:

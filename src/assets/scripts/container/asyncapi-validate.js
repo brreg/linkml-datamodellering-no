@@ -6,10 +6,10 @@ const yaml = require('js-yaml');
 async function validate(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
-    const doc = yaml.load(content);
+    yaml.load(content);
 
     const parser = new Parser();
-    const { document, diagnostics } = await parser.parse(content);
+    const { diagnostics } = await parser.parse(content);
 
     if (diagnostics.length > 0) {
       let hasErrors = false;

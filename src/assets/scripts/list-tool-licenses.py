@@ -7,7 +7,6 @@ finner berre *kva* verktøy som er i bruk og *kor* dei er referert.
 """
 
 import re
-import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -107,4 +106,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

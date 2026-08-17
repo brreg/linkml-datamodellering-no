@@ -16,7 +16,7 @@ from pathlib import Path
 
 # Importer validate_schema frå server.py
 sys.path.insert(0, str(Path(__file__).parent))
-from server import validate_schema, validate_instance
+from server import validate_schema
 
 
 def extract_metadata(schema_text: str, schema_path: str) -> dict:
@@ -30,10 +30,8 @@ def extract_metadata(schema_text: str, schema_path: str) -> dict:
         path_parts = Path(schema_path).parts
         if len(path_parts) >= 4 and path_parts[0] == "src" and path_parts[1] == "linkml":
             domain = path_parts[2]
-            model = path_parts[3]
         else:
             domain = ""
-            model = schema_name
 
         return {
             "schema": schema_name,

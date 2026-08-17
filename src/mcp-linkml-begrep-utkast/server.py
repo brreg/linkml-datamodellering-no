@@ -3,7 +3,6 @@
 
 import json
 import sys
-import tempfile
 import yaml
 from pathlib import Path
 

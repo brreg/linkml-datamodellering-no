@@ -63,6 +63,7 @@ jobs:
         with:
           repository: brreg/linkml-datamodellering-no
           ref: ${{ steps.config.outputs.version }}
+          persist-credentials: false
           sparse-checkout: |
             Makefile
             make

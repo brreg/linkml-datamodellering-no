@@ -12,7 +12,7 @@ i staden for berre oppdatere eksisterande felt.
 import sys
 from pathlib import Path
 import yaml
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 # Legg til repo-root i sys.path for å importere delte hjelpefunksjonar
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))

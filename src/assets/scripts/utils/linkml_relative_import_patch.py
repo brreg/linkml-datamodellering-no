@@ -57,8 +57,6 @@ _EXPECTED_SOURCE_MARKER_SCHEMAVIEW = "todo.append(os.path.normpath(str(Path(sn).
 # Tilsvarande for linkml.utils.mergeutils.resolve_merged_imports().
 _EXPECTED_SOURCE_MARKER_MERGEUTILS = "resolved_imp = os.path.normpath(str(Path(imported_from).parent / Path(imp)))"
 
-_patched = False
-
 
 def _apply_schemaview_patch() -> None:
     import inspect
@@ -203,12 +201,8 @@ def _apply_mergeutils_patch() -> None:
     mu_mod.resolve_merged_imports = patched_resolve_merged_imports
 
 
+@lru_cache(maxsize=1)
 def apply() -> None:
-    """Installer begge patchane. Trygt å kalle fleire gonger (idempotent)."""
-    global _patched
-    if _patched:
-        return
-
+    """Installer begge patchane. Trygt å kalle fleire gonger (cacha via lru_cache)."""
     _apply_schemaview_patch()
     _apply_mergeutils_patch()
-    _patched = True

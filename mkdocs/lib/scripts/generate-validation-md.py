@@ -9,10 +9,6 @@ import json
 import sys
 from pathlib import Path
 
-# Legg til repo-root i sys.path for å importere error_handler
-sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "assets" / "scripts"))
-from utils.error_handler import log_error
-
 try:
     import yaml
 except ImportError:

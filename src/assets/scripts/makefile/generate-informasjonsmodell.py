@@ -18,7 +18,6 @@ import os
 import configparser
 from pathlib import Path
 import yaml
-import glob
 from typing import Dict, List, Optional
 
 # Legg til repo-root i sys.path for å importere delte hjelpefunksjonar

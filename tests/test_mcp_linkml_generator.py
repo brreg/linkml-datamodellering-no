@@ -669,7 +669,7 @@ class TestListProfiles(unittest.TestCase):
 
     def test_bronze_har_ikkje_tom_description(self):
         bronze = next(p for p in self._profiles() if p["name"] == "bronze")
-        self.assertTrue(len(bronze["description"]) > 0)
+        self.assertGreater(len(bronze["description"]), 0)
 
 
 if __name__ == "__main__":
