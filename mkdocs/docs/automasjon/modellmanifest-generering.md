@@ -6,7 +6,7 @@
 
 ## Oversikt
 
-Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema formatert ihht [ModelDCAT-AP-NO](https://informasjonsforvaltning.github.io/modelldcat-ap-no/). Fila blir **automatisk generert** av `make domain-*` (via `gen-informasjonsmodell-instance`) og samlar metadata frå:
+Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema formatert ihht [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no). Fila blir **automatisk generert** av `make domain-*` (via `gen-informasjonsmodell-instance`) og samlar metadata frå:
 
 1. `<modell>-schema.yaml` (toppnivå-felt og annotations)
 2. `build.yaml` (heimeside, har_del)

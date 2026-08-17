@@ -223,20 +223,20 @@ python3 src/assets/scripts/makefile/extract-schema-metadata.py \
 
 ### Automatisk køyring
 
-GitHub Actions-workflowen `.github/workflows/update-readme.yml` køyrer `generate-readme-tables.sh` automatisk ved endringar i:
-- `src/linkml/**/*.yaml`
-- `src/assets/scripts/makefile/generate-readme-tables.sh`
-- `src/assets/scripts/makefile/extract-schema-metadata.py`
-
-Workflowen commitar og pushar oppdatert README.md direkte til same PR.
+`generate-readme-tables.sh` køyrer automatisk som del av `make docs-publish`
+(steget «Oppdater README.md-tabellar» i `mkdocs/publish.sh`) — ikkje som ein
+eigen frittståande workflow. `make docs-publish` vert kalla frå
+`.github/workflows/generate.yml` (push til `main`) og
+`.github/workflows/lenkje-og-mermaid-sjekk.yml` (natteleg schedule).
 
 ### Manuell køyring
 
 ```bash
-make readme-tables
+bash src/assets/scripts/makefile/generate-readme-tables.sh README.md
 ```
 
-Dette køyrer `src/assets/scripts/makefile/generate-readme-tables.sh README.md` og oppdaterer README.md i arbeidskatalogen.
+(Det finst ikkje eit eige `make readme-tables`-mål — scriptet vert normalt
+berre kalla indirekte via `make docs-publish`.)
 
 ---
 
@@ -334,8 +334,8 @@ title: "Brønnøysundregistra"
 | [`README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md) | Målfil for auto-genererte tabellar |
 | [`src/assets/scripts/makefile/generate-readme-tables.sh`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/assets/scripts/makefile/generate-readme-tables.sh) | Genereringsscript |
 | [`src/assets/scripts/makefile/extract-schema-metadata.py`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/assets/scripts/makefile/extract-schema-metadata.py) | Metadata-ekstraksjon frå YAML-skjema |
-| [`.github/workflows/update-readme.yml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/.github/workflows/update-readme.yml) | CI-workflow for automatisk oppdatering |
-| [`Makefile`](https://github.com/brreg/linkml-datamodellering-no/blob/main/Makefile) | `make readme-tables`-target |
+| [`mkdocs/publish.sh`](https://github.com/brreg/linkml-datamodellering-no/blob/main/mkdocs/publish.sh) | Kallar `generate-readme-tables.sh` som del av `make docs-publish` |
+| [`make/50-docs.mk`](https://github.com/brreg/linkml-datamodellering-no/blob/main/make/50-docs.mk) | `docs-publish`-målet |
 
 ---
 

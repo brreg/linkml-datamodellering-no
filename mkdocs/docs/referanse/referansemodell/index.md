@@ -297,7 +297,7 @@ Kjelde-datamodell i LinkML-format: [`referansemodell-schema.yaml`](https://githu
 
 **Forvaltningsansvarleg:** [Brønnøysundregistra](https://data.norge.no/organizations/974760673)
 
-**Kontakt:** [Brønnøysundregistra - Kontakt](https://brreg.no/kontakt/modellforvaltning)
+**Kontakt:** [Brønnøysundregistra - Kontakt](https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil)
 
 **Support:** [GitHub Issues](https://github.com/brreg/linkml-datamodellering-no/issues)
 

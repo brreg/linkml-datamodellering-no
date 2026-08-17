@@ -7,6 +7,10 @@ trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >
 generate_datamodell() {
     local domain="$1"
     local schema="$2"
+    # Delmodell-skjema (t.d. dqv-core, modelldcat-katalog) ligg fysisk i
+    # FORELDRE-skjemaet sin katalog, ikkje i ein katalog oppkalla etter seg
+    # sjølv — PARENT_MODEL er eksportert av publish.sh for slike skjema.
+    local source_dir="${PARENT_MODEL:-$schema}"
 
     cat <<EOF
 
@@ -14,7 +18,7 @@ generate_datamodell() {
 
 > Dette er den autoritative kjelda for modellen. Alle tabellar, diagram og artefakt på denne sida er genererte frå dette skjemaet.
 
-Kjelde-datamodell i LinkML-format: [\`$schema-schema.yaml\`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/$domain/$schema/$schema-schema.yaml)
+Kjelde-datamodell i LinkML-format: [\`$schema-schema.yaml\`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/$domain/$source_dir/$schema-schema.yaml)
 
 EOF
 }

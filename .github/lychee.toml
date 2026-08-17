@@ -18,7 +18,7 @@ max_cache_age = "1d"
 # (spesielt specs/done/) skal stå urørte (CLAUDE.md) og inneheld difor
 # naturleg utdaterte lenkjer som ikkje skal rettast der — sjå
 # specs/done/lenkjesjekk-3817-feil-evaluering.md.
-exclude_path = ["generated", "mkdocs/site", "specs"]
+exclude_path = ["generated", "mkdocs/site", "mkdocs/node_modules", "specs"]
 
 # Godta redirect- og informasjonskodar i tillegg til 2xx
 accept = ["100..=103", "200..=299", "300..=399"]
@@ -87,12 +87,53 @@ exclude = [
   # (ngr:/ngre:/ngrp:/ngrv:-prefiksa, t.d. data.norge.no/vocabulary/ngr-adresse#)
   # er stadfesta 404 — NGR-modellane er ikkje publiserte på data.norge.no.
   # Avgrensa til ngr-prefikset (ikkje ei brei /vocabulary/-eksklusjon):
-  # data.norge.no/vocabulary/cccevno er eit separat, framleis ope/uavklara
-  # tilfelle (jf. specs/done/lenkjesjekk-runde2-verifisering.md kategori E).
+  # data.norge.no/vocabulary/cccevno er eit separat tilfelle, no eksplisitt
+  # ekskludert nedanfor (jf. specs/done/lenkjesjekk-runde2-verifisering.md
+  # kategori E, avgjerda om varig eksklusjon vart teken i
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md).
   # Merk: sjølve schema-ID-en (default_prefix, data.norge.no/ngr/<schema>/)
   # er urelatert og fungerer korrekt — berre vokabularnamnerommet er
   # ekskludert her. Sjå specs/done/lenkjesjekk-ngr-vocabulary-namespace.md.
   "^https://data\\.norge\\.no/vocabulary/ngr-",
+  # CPSV-AP-NO sitt cccevno-vokabularnamnerom (t.d.
+  # data.norge.no/vocabulary/cccevno#isDescribedBy) — stadfesta reelt
+  # backend-404 (JSON {"detail": "Not Found"}) uavhengig av Accept-header,
+  # retesta to gonger. Same feilklasse som NGR-namnerommet over: namnerommet
+  # er ikkje publisert på data.norge.no. Sjå
+  # specs/done/lenkjesjekk-runde2-verifisering.md kategori E og
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C1.
+  "^https://data\\.norge\\.no/vocabulary/cccevno",
+  # SKOS-AP-NO/begrepskatalog sine skosno-vokabulartermar kilde-type og
+  # associative-relation-role — stadfesta reelt 404 (same backend-mønster
+  # som cccevno over), uavhengig av Accept-header. Avgrensa til dei to
+  # konkrete termane (ikkje ei brei /vocabulary/skosno/-eksklusjon — andre
+  # skosno-termar kan vere gyldige). Sjå
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C3.
+  "^https://data\\.norge\\.no/vocabulary/skosno/(kilde-type|associative-relation-role)",
+  # EU Publications Office sitt euvoc-ontologinamnerom (t.d.
+  # publications.europa.eu/ontology/euvoc#XlNote) — stadfesta reelt 404:
+  # 301-redirect til publications.europa.eu/resource/ontology/euvoc, som
+  # sjølv gjev 404, identisk med og utan nettlesar-Accept-header. Sjå
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C2.
+  "^https?://publications\\.europa\\.eu/ontology/euvoc",
+  # GoatCounter-analytics-endepunktet nemnt i monitorering.md — stadfesta
+  # reelt 400 Bad Request på ein bar rot-GET (uavhengig av Accept-header),
+  # truleg fordi endepunktet krev spesifikke query-parametrar/metode og
+  # ikkje er meint som ei browsable side. Berre denne eine URL-en, ikkje eit
+  # breitt brukt namnerom. Sjå
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C4.
+  "^https://brreg-linkml\\.goatcounter\\.com/$",
+  # LinkML gen-doc si eiga docgen-pipeline strippar backticks (kode-span)
+  # frå description-felt ved rendring til slot-/klasse-sider, slik at
+  # plassholdarsyntaksen `https://psi.norge.no/los/tema/<namn>` (korrekt
+  # verna med backticks i kjeldeskjemaet) endar opp som bar prosa i den
+  # genererte sida — lychee sin bare-URL-detektor stoppar då ved `<` og
+  # ekstraherer ein trunkert URL utan temanamn. Eksakt-treff (trailing
+  # slash utan suffiks) sidan reell bruk alltid har eit temanamn etter
+  # skråstreken. Rotårsak (LinkML-intern, ikkje vår eigen mal-kode) er
+  # dokumentert i bugs/linkml-docgen-strip-backtick-description.md. Sjå
+  # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori D2.
+  "^https://psi\\.norge\\.no/los/tema/$",
 ]
 
 # purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i

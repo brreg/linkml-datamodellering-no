@@ -455,7 +455,8 @@
       "WebFetch(domain:purl.archive.org)",
       "WebFetch(domain:w3id.org)",
       "WebFetch(domain:linkml.github.io)",
-      "WebFetch(domain:xmlns.com)"
+      "WebFetch(domain:xmlns.com)",
+      "WebFetch(domain:brreg-linkml.goatcounter.com)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -5,7 +5,7 @@ organizations:
     org_uri: https://data.norge.no/organizations/974760673
     catalog_slug: brreg-modellkatalog
     catalog_title: "Brønnøysundregistra - Modellkatalog"
-    contact_uri: https://brreg.no/kontakt/modellforvaltning
+    contact_uri: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
     github_team: "@AudunVindenesEggeBR"
     path_patterns:
       - src/linkml/referanse/**

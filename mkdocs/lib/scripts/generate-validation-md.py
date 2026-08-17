@@ -109,7 +109,7 @@ def main() -> None:
             target = issue.get("target", "")
             message = issue.get("message", "")
             lines.append(f"{idx}. **`{code}`** — `{target}`")
-            lines.append(f"   {message}")
+            lines.append(f"   `{message}`")
             lines.append("")
 
     if warnings:
@@ -123,7 +123,7 @@ def main() -> None:
             target = issue.get("target", "")
             message = issue.get("message", "")
             lines.append(f"{idx}. **`{code}`** — `{target}`")
-            lines.append(f"   {message}")
+            lines.append(f"   `{message}`")
             lines.append("")
 
     print("\n".join(lines))

@@ -8,7 +8,7 @@ modellkataloger:
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog
   utgiver: https://data.norge.no/organizations/974760673
   kontaktpunkt:
-  - https://brreg.no/kontakt/modellforvaltning
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   tema:
   - https://psi.norge.no/los/tema/naring
   - https://psi.norge.no/los/tema/naringsliv
@@ -40,7 +40,7 @@ informasjonsmodeller:
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/
   kontaktpunkt:
-  - https://brreg.no/kontakt/modellforvaltning
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   tema:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -79,7 +79,7 @@ informasjonsmodeller:
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/
   kontaktpunkt:
-  - https://brreg.no/kontakt/modellforvaltning
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   tema:
   - https://psi.norge.no/los/tema/naring
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -120,7 +120,7 @@ informasjonsmodeller:
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/fair/fair-metadata/
   kontaktpunkt:
-  - https://brreg.no/kontakt/modellforvaltning
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   tema:
   - https://psi.norge.no/los/tema/digitalisering
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -144,7 +144,7 @@ informasjonsmodeller:
   identifikator_literal: https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
   informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinn/
   kontaktpunkt:
-  - https://brreg.no/kontakt/modellforvaltning
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   tema:
   - https://psi.norge.no/los/tema/naringsliv
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
@@ -194,7 +194,7 @@ informasjonsmodeller:
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signering
   - https://brreg.no/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig
 aktoerer:
-- id: https://brreg.no/kontakt/modellforvaltning
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   navn_aktoer:
   - Registerenheten i Brønnøysund - Modellforvaltning
 - id: https://data.norge.no/organizations/974760673

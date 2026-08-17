@@ -29,6 +29,7 @@ Dette repoet er ein **Proof of Concept** og har fleire kjente avgrensingar:
 - **BUG-13**: `gen-doc` sitt mermaid-klassediagram limer `../` framanfor eksterne XSD-lenkjer for importerte elementærtypar, og gjer dei broten
 - **BUG-14**: Mermaid sin `classDiagram` støttar berre eitt `click`-mål per klasseboks — attributt-rader i diagrammet peikar difor alltid til klassa sjølv, ikkje til sloten
 - **BUG-17**: `gen-rdf` fetchar `<import>.context.jsonld` over nettverk for versjonslåste URL-importar og feilar med 404 — slike skjema vert automatisk hoppa over for rdf-generering
+- **BUG-20**: `gen-doc` strippar backticks (kode-span) frå `description`-felt, slik at backtick-verna plassholdar-URL-ar endar opp som bar prosa i genererte sider
 
 ### Publisering
 - Publisering til Felles Begrepskatalog/Datakatalog krev manuell koordinering med Digitaliseringsdirektoratet
@@ -66,6 +67,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-17](bugs/gen-rdf-manglar-stotte-for-versjonslaste-importar.md) | `RDFGenerator`/`JSONLDGenerator` fetchar `<import>.context.jsonld` over nettverk for versjonslåste URL-importar — 404, sidan byggoutput aldri er committa | `workaround` | `linkml` | alle skjema med `rdf: true` og minst eitt versjonslåst URL-import |
 | [BUG-18](bugs/curie-id-ikkje-reekspandert-ttl-roundtrip.md) | `rdflib_loader` re-ekspanderer ikkje ein kompaktert CURIE til full URI for `uriorcurie`-identifikatorar ved TTL-roundtrip | `workaround` | `linkml-runtime` | skjema med identifikatorverdi (full URI) i eige namnerom |
 | [BUG-19](bugs/datetime-separator-rdflib-roundtrip.md) | `rdflib_loader` rekonstruerer `datetime`-verdiar med mellomrom i staden for `T`-separator ved TTL-roundtrip | `open` | `linkml-runtime` | `enhetsregisteret-bvrinn` (stadfesta), potensielt `fint-*` (maskert av BUG-3) |
+| [BUG-20](bugs/linkml-docgen-strip-backtick-description.md) | `gen-doc` strippar backticks frå `description`-felt ved rendring til slot-/klasse-sider | `open` | `linkml` (docgen) | `dcat-ap-no` (stadfesta via `tema`-slot), truleg fleire skjema med backtick-verna eksempel-URL-ar i description |
 
 ## Statusforklaring
 

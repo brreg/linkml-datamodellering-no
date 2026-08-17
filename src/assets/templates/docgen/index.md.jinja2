@@ -35,7 +35,7 @@
 | Utgivelsesdato | {{ schema.annotations.utgivelsesdato.value }} |
 {% endif -%}
 {% if schema.imports -%}
-| Imports | {% for imp in schema.imports %}{{ imp }}{% if not loop.last %}<br>{% endif %}{% endfor %} |
+| Imports | {% for imp in schema.imports %}`{{ imp }}`{% if not loop.last %}<br>{% endif %}{% endfor %} |
 {% endif %}
 
 {% if include_top_level_diagram %}

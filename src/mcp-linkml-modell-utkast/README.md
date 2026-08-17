@@ -154,4 +154,4 @@ Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 make mcp-linkml-valider-modell SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
 ```
 
-Sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) for full rettleiing.
+Sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/kom-i-gang/ny-domenemodell/) for full rettleiing.

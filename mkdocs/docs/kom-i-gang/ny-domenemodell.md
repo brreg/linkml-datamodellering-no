@@ -178,7 +178,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json PROFILE=silver
 
 ## 2 — Rediger skjemaet
 
-Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) for eksempel på gyldig skjema med forklaringer.
+Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referansemodell/referansemodell-schema.yaml) for eksempel på gyldig skjema med forklaringer.
 
 Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
 
@@ -345,7 +345,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 
 ## Referanseskjema
 
-[`src/linkml/referanse/referanse-schema.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) er eit annotert eksempelskjema som viser alle hovudmønster brukte i dette repoet: containerklasse, globale slots, import frå AP-NO-profil, `class_uri`/`slot_uri`, `LangString` og `in_subset`. Bruk det som oppslagsverk når du startar eit nytt skjema.
+[`src/linkml/referanse/referansemodell/referansemodell-schema.yaml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referansemodell/referansemodell-schema.yaml) er eit annotert eksempelskjema som viser alle hovudmønster brukte i dette repoet: containerklasse, globale slots, import frå AP-NO-profil, `class_uri`/`slot_uri`, `LangString` og `in_subset`. Bruk det som oppslagsverk når du startar eit nytt skjema.
 
 ---
 
@@ -405,7 +405,7 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 
 ### Validering
 
-- **BUG-1**: `rdflib_loader` rekonstruerer ikkje `LangString`-verdiar korrekt frå TTL ved roundtrip-testing ([specs/bugs/langstring-rdflib-roundtrip.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/bugs/langstring-rdflib-roundtrip.md))
+- **BUG-1**: `rdflib_loader` rekonstruerer ikkje `LangString`-verdiar korrekt frå TTL ved roundtrip-testing ([bugs/langstring-rdflib-roundtrip.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/bugs/langstring-rdflib-roundtrip.md))
 - MCP-validator kjører berre bronze/silver/gold-policy — ingen automatisk validering mot eksterne API-ar enno
 
 ### Generatorar

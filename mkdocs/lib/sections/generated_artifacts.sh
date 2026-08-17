@@ -76,8 +76,11 @@ generate_artifacts_table() {
         echo "|----------|-----|"
         printf '%s' "$artifact_rows"
         if [ -n "$domain" ]; then
+            # Delmodell-skjema ligg fysisk i FORELDRE-skjemaet sin katalog —
+            # sjå tilsvarande kommentar i datamodell.sh.
+            local source_dir="${PARENT_MODEL:-$schema}"
             echo ""
-            echo "*Full byggekonfigurasjon: [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/$domain/$schema/build.yaml)*"
+            echo "*Full byggekonfigurasjon: [build.yaml](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/$domain/$source_dir/build.yaml)*"
         fi
     fi
 }

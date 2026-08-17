@@ -18,11 +18,11 @@ utgivelsesdato: '2026-07-09'
 status: http://purl.org/adms/status/Completed
 heimeside: https://brreg.github.io/linkml-datamodellering-no/begrepskatalog/brreg-begrepskatalog/
 kontaktpunkt:
-- id: https://brreg.no/kontakt/modellforvaltning
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   navn_vcard:
     nb: Brønnøysundregistra
     nn: Brønnøysundregistra
-  har_kontaktside: https://brreg.no/kontakt/modellforvaltning
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
 finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-context.jsonld
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-ontology.ttl

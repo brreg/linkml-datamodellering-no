@@ -67,8 +67,8 @@ make test SCHEMA=<sti>              # full suite (~3 min)
 | **AP-NO (alle)** | skip | skip | manglar `tree_root` |
 | **FAIR** | skip | skip | manglar `tree_root` |
 
-[BUG-1]: ../specs/bugs/langstring-rdflib-roundtrip.md
-[BUG-2]: ../specs/bugs/inlined-as-list-rdflib-roundtrip.md
-[BUG-3]: ../specs/bugs/mappingerror-rdflib-roundtrip.md
+[BUG-1]: ../bugs/langstring-rdflib-roundtrip.md
+[BUG-2]: ../bugs/inlined-as-list-rdflib-roundtrip.md
+[BUG-3]: ../bugs/mappingerror-rdflib-roundtrip.md
 
 **Tabellen skal haldast oppdatert** når skip-lista eller testresultata i `test_make.sh` endrar seg.
