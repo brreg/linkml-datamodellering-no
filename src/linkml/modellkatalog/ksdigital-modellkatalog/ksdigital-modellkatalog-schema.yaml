@@ -5,9 +5,13 @@ description: >-
   Modellkatalog for KS Digital sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
 version: "1.0.0"
+license: https://data.norge.no/nlod/no/2.0
 
 annotations:
+  utgiver: https://data.norge.no/organizations/971032146
   status: http://purl.org/adms/status/UnderDevelopment
+  endringsdato: "2026-08-17"
+  utgivelsesdato: "2026-08-17"
 
 prefixes:
   linkml:       https://w3id.org/linkml/

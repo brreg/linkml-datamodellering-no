@@ -52,4 +52,33 @@ gå igjennom alle ferdiggenererte index.md filer for alle modellar og finn ut om
 badges i readme
 
 
-evaluer organiseringa av fleire modellar i ein modellkatalog f.eks modelldcat-ap-no katalogen med 3 skjema og dqv-ap-no med 2 skjema. Dette bryter mot konvensjonen om ein modell pr modellkatalog. Evaluer om dette er greit eller om den spesialbehandlinga dette medfører fører til ekstra kompleksitet og muligheter for feil. Evaluer også om vi har behov for innføre eit 3. modellnivå i tillegg til domene og modell for å kunne gruppere bedre.
+Hei! Du gikk glipp av denne samtalen fordi det foregikk på Slack fredag:
+ 
+Da har jeg etter flere runder med prøving og feiling sammen med Zaher funnet ut årsaken. Feilen var egentlig ikke relatert til anyof og oneof i det hele tatt. Vi har nå testet og verifisert at skjema fungerer.
+Feil 1 — additionalProperties: false
+"additionalProperties": false er en boolean-schema. JsonSchema.Net gir den Keywords == null. Analysatoren kaller AsWorkList() uten null-sjekk og kaster:
+
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at JsonSchemaAnalyzer.IsValidSimpleTypeRestriction(JsonSchema) : line 692
+Dette er en reell bug i Altinns kode (manglende null-guard, jf. at HasSingleAllOf har den). Fikset i skjemaet ved å fjerne alle 26 forekomster.
+Feil 2 — egendefinerte x-nøkler
+
+
+Metamodell-konverteren har en whitelist og kaster på ukjente keywords:
+
+MetamodelConvertException: Keyword x-schema-id not processed!
+   at JsonSchemaToMetamodelConverter.ProcessKeyword() : line 203
+Gjaldt x-schema-id, x-major-version, x-dct-modified, x-adms-status, x-servicedomain. Skjult bak feil 1. Fikset ved å fjerne nøklene.
+Resultat etter begge fikser
+
+
+Kjørt mot Altinns faktiske kode: Validator: VALID og Metamodel conversion: OK. oneOf/anyOf beholdt uendret.
+ 
+Helland, Tore
+ 
+Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsningen våre (Altinn-skjema true/false) som parateter. Uansett, burde vi få Altinn til å gjøre endringer for hva som kan godtas, men det kan ta tid.
+ 
+
+
+
+  Confirmed — the earlier failure was the sandbox blocking podman's rootless namespace setup (newuidmap), not a real command failure.
