@@ -6,6 +6,21 @@ Samanliknar berre namn definerte lokalt i kvart skjema sin classes:/slots:-
 blokk (ikkje namn arva via imports) — elles ville importhierarkiet skapt
 støy av "duplikat" som i røynda er éin delt definisjon.
 
+For slots viser rapporten òg datatypen (`range:`) slik ho står skriven i
+slot-definisjonen — nyttig for å vurdere om eit likskapsfunn er eit reelt
+duplikat (same type) eller berre eit namnesamantreff (ulik type). Dette er
+ei medvite forenkling: LinkML sin fulle arve-/default_range-logikk
+(slot_usage-overstyring i klassar, skjemanivå-`default_range:` når
+`range:` manglar) vert ikkje løyst — eit slot utan eksplisitt `range:` vert
+vist som `(default)`. Full oppløysing ville kravd ein `SchemaView`-arvegraf
+per skjema, som endrar skriptet sin ytingsprofil monaleg (i dag reint
+`yaml.safe_load`, ingen LinkML-runtime).
+
+For klassar viser rapporten tilsvarande slotnamna til kvar identifisert
+klasse (frå `slots:`-lista og/eller `attributes:`-nøklane), slik at ein
+visuelt kan vurdere om eit namnetreff òg er strukturelt likt. Lange lister
+vert trunkerte til 12 slotnamn med eit «… (+N til)»-suffiks.
+
 Ingen eksterne avhengigheiter utover pyyaml (tilgjengeleg i python-pytest-
 containeren, jf. requirements-python-test.txt).
 """
@@ -20,7 +35,9 @@ import yaml
 SCHEMA_DIR = Path("src/linkml")
 
 
-def discover_schemas() -> list[Path]:
+def discover_schemas(domain: str | None = None) -> list[Path]:
+    if domain:
+        return sorted(SCHEMA_DIR.glob(f"{domain}/*/*-schema.yaml"))
     return sorted(SCHEMA_DIR.glob("*/*/*-schema.yaml"))
 
 
@@ -28,14 +45,26 @@ def schema_domain(path: Path) -> str:
     return path.relative_to(SCHEMA_DIR).parts[0]
 
 
-def load_names(path: Path, kind: str) -> list[str]:
+def class_slot_names(defn: dict) -> list[str]:
+    """Slotnamna ei klasse refererer, via slots: og/eller attributes:."""
+    defn = defn or {}
+    names = list(defn.get("slots") or [])
+    names += list((defn.get("attributes") or {}).keys())
+    return sorted(set(names))
+
+
+def load_entries(path: Path, kind: str) -> list[tuple[str, str | list[str] | None]]:
+    """Returnerer (namn, range) for slots, (namn, slotnamn-liste) for klassar."""
     try:
         data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as e:
         print(f"ÅTVARING: kunne ikkje parse {path}: {e}", file=sys.stderr)
         return []
     key = "classes" if kind == "class" else "slots"
-    return sorted((data.get(key) or {}).keys())
+    block = data.get(key) or {}
+    if kind == "slot":
+        return sorted((name, (defn or {}).get("range")) for name, defn in block.items())
+    return sorted((name, class_slot_names(defn)) for name, defn in block.items())
 
 
 def similarity(a: str, b: str) -> float:
@@ -46,6 +75,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--kind", choices=["class", "slot"], required=True)
     parser.add_argument("--scope", choices=["domain", "all"], required=True)
+    parser.add_argument("--domain", help="Avgrens til eitt domene (default: alle domene)")
     parser.add_argument(
         "--threshold",
         type=float,
@@ -54,24 +84,26 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    schemas = discover_schemas()
+    schemas = discover_schemas(args.domain)
     if not schemas:
-        print(f"FEIL: ingen skjema funne under {SCHEMA_DIR}", file=sys.stderr)
+        where = f" for domene {args.domain}" if args.domain else ""
+        print(f"FEIL: ingen skjema funne under {SCHEMA_DIR}{where}", file=sys.stderr)
         sys.exit(1)
 
-    entries: list[tuple[str, Path]] = []
+    entries: list[tuple[str, str | list[str] | None, Path]] = []
     for schema in schemas:
-        for name in load_names(schema, args.kind):
-            entries.append((name, schema))
+        for name, extra in load_entries(schema, args.kind):
+            entries.append((name, extra, schema))
 
     label = "klasser" if args.kind == "class" else "slots"
     scope_label = "same domene" if args.scope == "domain" else "alle domene"
-    print(f"# Liknande {label}namn ({scope_label}, terskel {args.threshold:.0%})\n")
+    domain_label = f", domene {args.domain}" if args.domain else ""
+    print(f"# Liknande {label}namn ({scope_label}{domain_label}, terskel {args.threshold:.0%})\n")
 
     matches = []
     seen_pairs = set()
-    for i, (name_a, schema_a) in enumerate(entries):
-        for name_b, schema_b in entries[i + 1 :]:
+    for i, (name_a, extra_a, schema_a) in enumerate(entries):
+        for name_b, extra_b, schema_b in entries[i + 1 :]:
             if schema_a == schema_b:
                 continue
             if args.scope == "domain" and schema_domain(schema_a) != schema_domain(schema_b):
@@ -83,18 +115,41 @@ def main() -> None:
             if pair_key in seen_pairs:
                 continue
             seen_pairs.add(pair_key)
-            matches.append((ratio, name_a, schema_a, name_b, schema_b))
+            matches.append((ratio, name_a, extra_a, schema_a, name_b, extra_b, schema_b))
 
     if not matches:
         print(f"Ingen {label} over terskelen vart funne ({len(entries)} {label} sjekka).")
         return
 
-    matches.sort(key=lambda m: (-m[0], m[1], m[3]))
+    matches.sort(key=lambda m: (-m[0], m[1], m[4]))
 
-    print("| Likskap | Namn A | Skjema A | Namn B | Skjema B |")
-    print("|---|---|---|---|---|")
-    for ratio, name_a, schema_a, name_b, schema_b in matches:
-        print(f"| {ratio:.0%} | `{name_a}` | {schema_a} | `{name_b}` | {schema_b} |")
+    def fmt_range(range_: str | None) -> str:
+        return f"`{range_}`" if range_ else "(default)"
+
+    def fmt_slots(names: list[str], limit: int = 12) -> str:
+        if not names:
+            return "(ingen)"
+        shown = names[:limit]
+        rest = len(names) - len(shown)
+        text = ", ".join(f"`{n}`" for n in shown)
+        return f"{text}, … (+{rest} til)" if rest > 0 else text
+
+    if args.kind == "slot":
+        print("| Likskap | Namn A | Type A | Skjema A | Namn B | Type B | Skjema B |")
+        print("|---|---|---|---|---|---|---|")
+        for ratio, name_a, range_a, schema_a, name_b, range_b, schema_b in matches:
+            print(
+                f"| {ratio:.0%} | `{name_a}` | {fmt_range(range_a)} | {schema_a} "
+                f"| `{name_b}` | {fmt_range(range_b)} | {schema_b} |"
+            )
+    else:
+        print("| Likskap | Namn A | Slots A | Skjema A | Namn B | Slots B | Skjema B |")
+        print("|---|---|---|---|---|---|---|")
+        for ratio, name_a, slots_a, schema_a, name_b, slots_b, schema_b in matches:
+            print(
+                f"| {ratio:.0%} | `{name_a}` | {fmt_slots(slots_a)} | {schema_a} "
+                f"| `{name_b}` | {fmt_slots(slots_b)} | {schema_b} |"
+            )
 
     print(f"\n**Totalt: {len(matches)} par funne blant {len(entries)} {label}.**")
 

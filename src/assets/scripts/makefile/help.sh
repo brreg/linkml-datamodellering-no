@@ -48,6 +48,7 @@ categories=(
     "Container images|build-docker-"
     "MCP-serverar|mcp-"
     "Vedlikehald|(update-|new-|remove-|check-)"
+    "Modell-analyse|analyse-"
 )
 
 # Merk: ingen -h til grep — når fleire filer er gitt, prefikser grep kvar

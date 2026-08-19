@@ -20,6 +20,7 @@ ikkje meint å opnast direkte i nettlesar.
 Ingen eksterne avhengigheiter utover pyyaml + stdlib urllib.
 """
 
+import argparse
 import re
 import sys
 import urllib.error
@@ -56,7 +57,9 @@ def is_known_unresolvable(iri: str) -> bool:
     return any(p.match(iri) for p in KNOWN_UNRESOLVABLE_PATTERNS)
 
 
-def discover_schemas() -> list[Path]:
+def discover_schemas(domain: str | None = None) -> list[Path]:
+    if domain:
+        return sorted(SCHEMA_DIR.glob(f"{domain}/*/*-schema.yaml"))
     return sorted(SCHEMA_DIR.glob("*/*/*-schema.yaml"))
 
 
@@ -233,9 +236,14 @@ def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path
 
 
 def main() -> None:
-    schemas = discover_schemas()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--domain", help="Avgrens til eitt domene (default: alle domene)")
+    args = parser.parse_args()
+
+    schemas = discover_schemas(args.domain)
     if not schemas:
-        print(f"FEIL: ingen skjema funne under {SCHEMA_DIR}", file=sys.stderr)
+        where = f" for domene {args.domain}" if args.domain else ""
+        print(f"FEIL: ingen skjema funne under {SCHEMA_DIR}{where}", file=sys.stderr)
         sys.exit(1)
 
     schema_data = {schema: load_schema(schema) for schema in schemas}

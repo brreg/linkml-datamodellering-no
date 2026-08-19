@@ -97,3 +97,24 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
 
 
    gjer ein analyse av all kildekode og identifiser bruk av inlining. Kom med forslag til konvensjon rundt inlining og forslag til korleis vi kan unngå inlining der det går utotver lesbarhet, testbarhet, logging (feilsluking) eller gjenbrukbarhet.
+
+   hamnar -> havner
+
+   slotsnamn -> slotnavn
+
+Demo:  
+make check-prereqs
+
+make new-modell DOMAIN=domene NAME=modellnavn
+
+make validate SCHEMA=src/linkml/oreg/
+
+make analyse-similar-classes-domain DOMAIN=ap-no
+
+make analyse-similar-slots-domain DOMAIN=ap-no
+
+make gen-informasjonsmodell-instance SCHEMA=src/linkml/oreg/
+
+
+make new-begrepssamling DOMAIN=domene NAME=begrepssamling-navn
+
