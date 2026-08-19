@@ -94,3 +94,6 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
   DID
 
    Container-verktøyet krev rettar sandboxen blokkerer (newuidmap: Operation not permitted).
+
+
+   gjer ein analyse av all kildekode og identifiser bruk av inlining. Kom med forslag til konvensjon rundt inlining og forslag til korleis vi kan unngå inlining der det går utotver lesbarhet, testbarhet, logging (feilsluking) eller gjenbrukbarhet.

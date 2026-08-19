@@ -148,6 +148,6 @@ Sjå [Ny organisasjon](mkdocs/docs/kom-i-gang/ny-org.md) for steg-for-steg-rettl
 
 Kort oppsummert:
 1. Legg til org i YAML-frontmatter over (PR til `main`)
-2. Køyr `make new-modellkatalog NAME=<alias>` for å opprette katalogstruktur
+2. Køyr `make new-modellkatalog ORG=<alias>` for å opprette katalogstruktur
 3. Legg til `annotations.utgiver` i skjemaa med org sin URI
 4. Køyr `make update-modellkatalog` for å synkronisere katalogen

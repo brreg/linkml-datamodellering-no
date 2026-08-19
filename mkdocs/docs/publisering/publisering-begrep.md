@@ -253,14 +253,14 @@ generators:
 validation_policy: felles-begrepskatalog
 ```
 
-**3.** Lag `src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml` med produksjonsdata.
+**3.** Lag `src/linkml/begrepskatalog/<katalog>/data/<katalog>/<katalog>.yaml` med produksjonsdata.
 Bruk det verkelege eksempelet `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` som mal.
 
 **4.** Lag ei tom lock-fil:
 
 ```bash
-cat > src/linkml/begrepskatalog/<katalognavn>/published-uris.lock << 'EOF'
-# Publiserte URI-ar for <katalognavn> — IKKJE endre eller slett eksisterande linjer.
+cat > src/linkml/begrepskatalog/<katalog>/published-uris.lock << 'EOF'
+# Publiserte URI-ar for <katalog> — IKKJE endre eller slett eksisterande linjer.
 # Nye URI-ar leggast til nedst etter publisering.
 EOF
 ```
@@ -269,9 +269,9 @@ EOF
 
 ```bash
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml
+  INSTANCE=src/linkml/begrepskatalog/<katalog>/data/<katalog>/<katalog>.yaml
 ```
 
 **6.** Registrer høstingsendepunktet (sjå §Registrering av høstingsendepunkt).

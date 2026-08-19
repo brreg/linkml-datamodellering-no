@@ -239,7 +239,7 @@ flowchart BT
     DCAT-AP-NO-metadata frå GitHub Pages. Repoet leverer altså data til KUDAF
     *indirekte*, via Felles Datakatalog som mellomlager/hub.
   - **Private datakatalogar, dataplattformer og API-gateway** i verksemder
-    kan hente skjemaartefaktar (SHACL, JSON Schema, JSON-LD-context, OWL)
+    kan hente skjemaartefakter (SHACL, JSON Schema, JSON-LD-context, OWL)
     direkte frå GitHub Pages, eller importere LinkML-skjema tag-versjonert
     via `raw.githubusercontent.com` — sjå Publiseringsoversikt sin seksjon
     "Private system som kan høste" for format- og bruksdetaljar per

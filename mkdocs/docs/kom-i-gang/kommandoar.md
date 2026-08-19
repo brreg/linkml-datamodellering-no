@@ -28,9 +28,9 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make new-modell NAME=<modell> DOMAIN=<domain>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
-| `make new-modellkatalog NAME=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
-| `make new-begrepskatalog NAME=<katalognavn>` | Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalognavn>/` |
+| `make new-modell DOMAIN=<domene> NAME=<modell>` | Opprettar katalogstruktur og boilerplate for ein ny LinkML-domenemodell.  | `src/linkml/<domain>/<modell>/<modell>-schema.yaml`<br>`src/linkml/<domain>/<modell>/examples/<modell>-eksempel.yaml` |
+| `make new-modellkatalog ORG=<alias>` | Opprettar katalogstruktur og boilerplate for ein ny organisasjonskatalog (modellkatalog + datakatalog). `<alias>` må vere registrert i `CODEOWNERS.md`-frontmatter med `catalog_slug`. | `src/linkml/modellkatalog/<catalog_slug>/` |
+| `make new-begrepskatalog NAME=<katalog>` | Opprettar katalogstruktur og boilerplate for ein ny begrepskatalog. | `src/linkml/begrepskatalog/<katalog>/` |
 
 ## Validering
 
@@ -48,9 +48,9 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make mcp-linkml-valider-modell SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå build.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
 | `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
 | `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
-| `make validate-bronze DOMAIN=<domain>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). **Ikkje brukt i CI** — CI validerer skjema direkte via `run-validation.sh` per manifest; dette er eit manuelt/lokalt batch-alternativ. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
-| `make validate-data DOMAIN=<domain>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
-| `make validate-examples DOMAIN=<domain>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
+| `make validate-bronze DOMAIN=<domene>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). **Ikkje brukt i CI** — CI validerer skjema direkte via `run-validation.sh` per manifest; dette er eit manuelt/lokalt batch-alternativ. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
+| `make validate-data DOMAIN=<domene>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
+| `make validate-examples DOMAIN=<domene>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
 | `make log-mcp-validate SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout |
 | `make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>` | Instansvalidering med full JSON-logg. Nyttig for debugging av valideringsfeil. | JSON-logg til stdout |
 
@@ -85,11 +85,8 @@ Kvar `domain-*` target køyrer følgjande steg for alle skjema i domenet:
 3. **Eksempelkonvertering**: Konverterer `*-eksempel.yaml` til RDF/Turtle (dersom `example_rdf: true`)
 4. **Modellmanifest** (parallelt): Genererer Informasjonsmodell-instans ihht ModelDCAT-AP-NO til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`
 
-**Parallellisering**: Alle `domain-*` targets støttar `PARALLEL` parameter (default: 8 jobbar).
-
-- `make domain-ap-no` — køyrer med 8 parallelle jobbar (default)
-- `make domain-ap-no PARALLEL=16` — køyrer med 16 parallelle jobbar
-- `make domain-ap-no PARALLEL=1` — køyrer sekvensielt (debugging)
+**Parallellisering**: Steg 2 og 4 vert fase-parallelliserte automatisk — ingen
+brukarstyrt jobb-tal.
 
 Parallell køyring viser timer per jobb: `→ gen-jsonld-context ap-no/dcat-ap-no (5.1s)`
 
@@ -108,7 +105,7 @@ Parallell køyring viser timer per jobb: `→ gen-jsonld-context ap-no/dcat-ap-n
 
 Alle `gen-*` targets støttar tre bruksmåtar:
 - **`make gen-<format>`** — generer for **alle** skjema
-- **`make gen-<format> DOMAIN=<domain>`** — generer for alle skjema i **eitt domene**
+- **`make gen-<format> DOMAIN=<domene>`** — generer for alle skjema i **eitt domene**
 - **`make gen-<format> SCHEMA=<sti>`** — generer for **eitt** spesifikt skjema
 
 | Kommando | Beskriving | Output |
@@ -142,7 +139,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 | <a id="gen-informasjonsmodell-instance"></a>`make gen-informasjonsmodell-instance SCHEMA=<sti>` | Genererer ModelDCAT-metadata-fil (`metadata/modelldcat.yaml`) for eit enkelt skjema. Samlar data frå 6 kjelder: schema.yaml (toppnivå + annotations), build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter, er_profil_av. Genererer inline Kontaktopplysning og Standard-instansar. | `src/linkml/<domain>/<modell>/metadata/modelldcat.yaml` |
 | <a id="validate-informasjonsmodell-instance"></a>`make validate-informasjonsmodell-instance SCHEMA=<sti>` | Validerer generert ModelDCAT-metadata mot modelldcat-katalog-schema.yaml med full LinkML-validering. Sjekkar YAML-struktur, obligatoriske felt, LangString-format og inline-instansar. Køyrer i LinkML-container for korrekt schema-oppløysing. **Convenience wrapper** for `make validate-instance` som auto-detekterer `metadata/modelldcat.yaml` og schema-sti. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
 | <a id="gen-modellkatalog-instance"></a>`make gen-modellkatalog-instance` | Genererer per-org modellkatalogar frå alle `metadata/modelldcat.yaml`-filer. Grupper Informasjonsmodell-instansar etter utgiver (frå CODEOWNERS.md) og genererer éi katalogfil per organisasjon for publisering til Felles datakatalog. Konverterer standard URI-ar (`https://data.norge.no/...`) til org-spesifikke URI-ar (`https://<org-domene>/modellkatalogar/<catalog_slug>/...`). **Erstatter:** `make update-modellkatalog` (deprecated). | `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` |
-| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<org-slug>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir-modellkatalog`. Validerer `src/linkml/modellkatalog/<org>/data/<org>/<org>.yaml` mot `src/linkml/modellkatalog/<org>/<org>-schema.yaml`. **Convenience wrapper** for `make validate-instance` som auto-konstruerer schema- og instans-stiar. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
+| <a id="validate-modellkatalog-instance"></a>`make validate-modellkatalog-instance ORG=<alias>` | Validerer generert modellkatalog-datafil mot org-spesifikt schema. Eksempel: `ORG=digdir`. `ORG=` er CODEOWNERS-aliasen (same form som `new-modellkatalog`/`gen-modelldcat-elements`), slått opp mot `catalog_slug`. Validerer `src/linkml/modellkatalog/<catalog_slug>/data/<catalog_slug>/<catalog_slug>.yaml` mot `src/linkml/modellkatalog/<catalog_slug>/<catalog_slug>-schema.yaml`. **Convenience wrapper** for `make validate-instance` som auto-konstruerer schema- og instans-stiar. | Pass/fail til stdout; avsluttar med kode 1 ved feil |
 
 ## Dokumentasjonsportal
 

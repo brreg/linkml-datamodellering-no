@@ -7,8 +7,13 @@
 # Merk: <name> kan vere forskjellig frå <dir> (t.d. dqv-core-schema.yaml i dqv-ap-no/).
 # ==============================================================================
 
-# Finn alle skjema automatisk
+# Finn alle skjema automatisk — hoppa over for reint help-kall, sjå
+# NEEDS_SCHEMA_DISCOVERY i Makefile
+ifneq ($(NEEDS_SCHEMA_DISCOVERY),)
 SCHEMAS := $(shell find $(SCHEMA_DIR) -mindepth 3 -maxdepth 3 -name '*-schema.yaml' | sort)
+else
+SCHEMAS :=
+endif
 
 # Hjelpefunksjonar for å ekstrahere metadata frå skjema-stiar
 # $1 = skjema-sti (t.d. src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)

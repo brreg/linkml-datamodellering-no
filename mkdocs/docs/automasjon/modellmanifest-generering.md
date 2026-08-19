@@ -46,7 +46,7 @@ Modellmanifestet er ein YAML-datafil som inneheld metadata om eit LinkML-skjema 
 ### Steg 1: `make domain-*` køyrer alle generatorar
 
 ```bash
-make domain-ap-no PARALLEL=16
+make domain-ap-no
 ```
 
 Dette køyrer (i rekkjefølgje):
@@ -77,15 +77,8 @@ Dette køyrer (i rekkjefølgje):
 
 ### Steg 3: Parallell køyring
 
-Manifestgenerering køyrer parallelt (same mønster som PlantUML-generering):
-
-```bash
-# Sekvensielt (debugging)
-make domain-ap-no PARALLEL=1
-
-# Parallelt (default: 16 jobbar)
-make domain-ap-no PARALLEL=16
-```
+Manifestgenerering køyrer fase-parallelt saman med dei andre stega i
+`domain-*`-pipelinen — automatisk, ingen brukarstyrt jobb-tal.
 
 Feilhandtering: Feil vert logga, men byggeprosessen stoppar ikkje (warning).
 

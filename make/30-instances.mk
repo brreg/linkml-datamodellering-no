@@ -32,7 +32,7 @@ endef
 
 .PHONY: gen-informasjonsmodell-instance
 
-gen-informasjonsmodell-instance: ## Generer ModelDCAT-metadata for skjema [SCHEMA=<sti>|DOMAIN=<domain>]
+gen-informasjonsmodell-instance: ## Generer ModelDCAT-metadata for skjema [DOMAIN=<domene>|SCHEMA=<sti>]
 ifdef SCHEMA
 	$(call print_header,gen-informasjonsmodell-instance,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN
@@ -82,16 +82,17 @@ validate-informasjonsmodell-instance: ## Valider generert ModelDCAT-metadata mot
 
 .PHONY: validate-modellkatalog-instance
 
-validate-modellkatalog-instance: ## Valider generert modellkatalog-datafil mot org-skjema (ORG=<org-slug>)
+validate-modellkatalog-instance: ## Valider generert modellkatalog-datafil mot org-skjema (ORG=<alias>)
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -z "$(ORG)" ]; then \
-		log_error "ORG parameter required. Bruk: make validate-modellkatalog-instance ORG=<org-slug> (eksempel: ORG=digdir-modellkatalog)"; \
+		log_error "ORG parameter required. Bruk: make validate-modellkatalog-instance ORG=<alias> (eksempel: ORG=digdir)"; \
 		exit 1; \
 	fi
 	$(call print_step,Validerer Modellkatalog-instans for $(ORG))
 	@eval "$$LOG_FUNCTIONS"; \
-	ORG_SCHEMA="src/linkml/modellkatalog/$(ORG)/$(ORG)-schema.yaml"; \
-	ORG_DATA="src/linkml/modellkatalog/$(ORG)/data/$(ORG)/$(ORG).yaml"; \
+	CATALOG_SLUG=$$(bash src/assets/scripts/scaffolding/resolve-catalog-slug.sh "$(ORG)") || exit 1; \
+	ORG_SCHEMA="src/linkml/modellkatalog/$$CATALOG_SLUG/$$CATALOG_SLUG-schema.yaml"; \
+	ORG_DATA="src/linkml/modellkatalog/$$CATALOG_SLUG/data/$$CATALOG_SLUG/$$CATALOG_SLUG.yaml"; \
 	if [ ! -f "$$ORG_SCHEMA" ]; then \
 		log_error "$$ORG_SCHEMA eksisterer ikkje"; \
 		exit 1; \

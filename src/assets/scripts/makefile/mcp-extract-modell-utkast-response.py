@@ -1,29 +1,28 @@
 #!/usr/bin/env python3
 """
-Skriv MCP-response til LinkML-skjemafil.
-Les JSON-RPC-responsar frå stdin, ekstraher generert LinkML og skriv til fil.
+Les JSON-RPC-responsar frå stdin, ekstraher generert LinkML-skjema frå
+generate_linkml-svaret, og skriv til stdout.
+
+Filskriving er kallaren sitt ansvar (Makefile-oppskrifter omdirigerer
+stdout til fil, new-modell.sh fangar opp resultatet i ein variabel for
+vidare post-prosessering).
 """
 import json
 import sys
-from pathlib import Path
+
 
 def main():
-    if len(sys.argv) < 2:
-        print("Bruk: mcp-write-modell-utkast-response.py <schema>", file=sys.stderr)
-        sys.exit(1)
-
-    schema_path = Path(sys.argv[1])
-    out_path = schema_path.parent / (schema_path.stem + '-schema.yaml')
-
-    # Les JSON-RPC-responsar frå stdin
     for line in sys.stdin:
+        line = line.strip()
+        if not line:
+            continue
+
         response = json.loads(line)
 
         # Hopp over meldingar som ikkje er frå generate_linkml-kallet
         if response.get('id') != 2:
             continue
 
-        # Ekstraher generert LinkML-skjema
         result = response.get('result', {})
         content = result.get('content', [])
         if not content:
@@ -40,9 +39,12 @@ def main():
             print("Feil: Ingen linkmlSchema i response", file=sys.stderr)
             sys.exit(1)
 
-        # Skriv til fil
-        out_path.write_text(linkml_schema, encoding='utf-8')
-        print(f"Skriv til: {out_path}")
+        sys.stdout.write(linkml_schema)
+        return
+
+    print("Feil: Ingen svar med id=2 funne i responsen", file=sys.stderr)
+    sys.exit(1)
+
 
 if __name__ == '__main__':
     main()

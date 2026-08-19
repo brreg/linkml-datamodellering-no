@@ -29,7 +29,7 @@ make build-docker-linkml && make build-docker-python && make build-docker-mcp-va
 ## 1a. — Scaffold
 
 ```bash
-make new-modell NAME=<modell> DOMAIN=<domain>
+make new-modell DOMAIN=<domene> NAME=<modell>
 ```
 
 Dette oppretter:
@@ -45,7 +45,7 @@ src/linkml/<domain>/<modell>/
 
 
 
-For `make new-modell NAME=tilskudd DOMAIN=eksempel` ser dei genererte filene slik ut:
+For `make new-modell DOMAIN=eksempel NAME=tilskudd` ser dei genererte filene slik ut:
 
 **`tilskudd-schema.yaml`**
 
@@ -217,8 +217,8 @@ make test SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml
 ## Slette ein modell
 
 ```bash
-make remove-modell NAME=<modell> DOMAIN=<domain>            # dry-run — viser sjekkar og filer, slettar ingenting
-make remove-modell NAME=<modell> DOMAIN=<domain> CONFIRM=1  # slettar for reelt
+make remove-modell DOMAIN=<domene> NAME=<modell>            # dry-run — viser sjekkar og filer, slettar ingenting
+make remove-modell DOMAIN=<domene> NAME=<modell> CONFIRM=1  # slettar for reelt
 ```
 
 Utan `CONFIRM=1` køyrer kommandoen berre sjekkane og viser kva som ville blitt

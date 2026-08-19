@@ -275,7 +275,7 @@ Det genererte YAML-innhaldet er eit utkast. Sjekk og fyll inn:
 
 - **`valider_begrep`** er eit rask syntakssjekk mot skjemaet. Køyr i tillegg:
   ```bash
-  make mcp-linkml-valider-modell SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml POLICY=bronze
+  make mcp-linkml-valider-modell SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml POLICY=bronze
   ```
 - **`list_los_tema`** er ein statisk liste kompilert inn i `los_tema.py`. Ved
   oppdatering av LOS må fila oppdaterast og containeren byggjast på nytt.

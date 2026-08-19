@@ -16,7 +16,7 @@ DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance
 # batching») i staden for å inline logikken direkte i domain_target.
 # ---------------------------------------------------------------------------
 .PHONY: gen-linkml-convert
-gen-linkml-convert: ## Konverter eksempelfiler til RDF/Turtle [DOMAIN=<domain>]
+gen-linkml-convert: ## Konverter eksempelfiler til RDF/Turtle [DOMAIN=<domene>]
 	$(call print_header,gen-linkml-convert,DOMAIN=$(DOMAIN))
 	@JOBS_TSV=$$(mktemp "$(GEN_DIR)/.convert-jobs.XXXXXX") && \
 	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(DOMAIN) > "$$JOBS_TSV" && \

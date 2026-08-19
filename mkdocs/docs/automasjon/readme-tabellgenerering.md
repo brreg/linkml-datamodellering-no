@@ -48,7 +48,7 @@ Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, 
 
 ### Korleis legge til nytt skjema
 
-**Steg 1:** Opprett skjemaet med `make new-modell NAME=<skjema> DOMAIN=<domene>`
+**Steg 1:** Opprett skjemaet med `make new-modell DOMAIN=<domene> NAME=<skjema>`
 
 **Steg 2:** Fyll inn `description:` og `see_also:` i skjemafila `src/linkml/<domene>/<skjema>/<skjema>-schema.yaml`:
 

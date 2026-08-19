@@ -8,14 +8,26 @@
 SHELL       := /bin/bash
 .SHELLFLAGS := -o pipefail -c
 
+# Hopp over skjemaoppdaging (find over src/linkml, config.mk-regenerering)
+# når einaste mål er `help` (eller ingen mål, som fell tilbake til
+# .DEFAULT_GOAL := help) — help.sh les ## -kommentarar direkte frå
+# $(MAKEFILE_LIST) og treng verken SCHEMAS, DOMAINS eller config.mk. På
+# 9p/DrvFs-monterte arbeidskopiar (WSL2 mot /mnt/c) sparer dette reelt
+# målbar tid per find-kall — sjå specs/done/make-help-treg-oppstart.md.
+_MAKE_GOALS             := $(or $(MAKECMDGOALS),help)
+NEEDS_SCHEMA_DISCOVERY  := $(filter-out help,$(_MAKE_GOALS))
+
 # Inkluder modular i rett rekkefølgje
 include make/00-settings.mk
 include make/01-containers.mk
 include make/02-schema-discovery.mk
 include make/03-output.mk
 
-# Inkluder generert konfigurasjon (valgfri)
+# Inkluder generert konfigurasjon (valgfri) — hoppa over for reint
+# help-kall, sjå NEEDS_SCHEMA_DISCOVERY ovanfor
+ifneq ($(NEEDS_SCHEMA_DISCOVERY),)
 -include config.mk
+endif
 
 # Inkluder generator-makroar
 include make/10-generator-macros.mk
@@ -76,6 +88,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 
 help: ## Vis oversikt over tilgjengelege make-target
 	@echo "$(CLR_HDR)Tilgjengelege make-target:$(CLR_RST)"
+	@echo "$(CLR_DBG)Konvensjon: $(CLR_RST)$(CLR_OK)(ARG=<verdi>)$(CLR_RST)$(CLR_DBG) = obligatorisk, $(CLR_RST)$(CLR_WARN)[ARG=<verdi>]$(CLR_RST)$(CLR_DBG) = valfri argument, $(CLR_RST)$(CLR_WARN)<sti>$(CLR_RST)$(CLR_DBG) = filsti relativt til repo-rota$(CLR_RST)"
 	@echo ""
 	@bash src/assets/scripts/makefile/help.sh $(MAKEFILE_LIST)
 
@@ -145,11 +158,16 @@ gen-modelldcat-elements: ## Generer ModelDCAT-AP-NO-modellelement [ORG=<alias>] 
 
 # ---------------------------------------------------------------------------
 # Per-model generator configuration — regenerated when any build.yaml changes.
+# Regelen er hoppa over for reint help-kall (sjå NEEDS_SCHEMA_DISCOVERY
+# ovanfor) — elles ville $(shell find ...) i prerequisite-lista køyre ved
+# kvar einaste `make`-oppstart, uavhengig av mål.
 # ---------------------------------------------------------------------------
+ifneq ($(NEEDS_SCHEMA_DISCOVERY),)
 config.mk: $(shell find src/linkml -name 'build.yaml')
 	@bash src/assets/scripts/makefile/gen-config.sh > config.mk
 
 gen-config: config.mk
+endif
 
 # ---------------------------------------------------------------------------
 # Per-domain targets – generated automatically in make/20-domain-targets.mk

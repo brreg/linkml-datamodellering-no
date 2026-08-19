@@ -51,26 +51,26 @@ $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 # genererings-logikken — Make tillèt fleire reglar for same target så lenge
 # berre éi av dei har ei oppskrift. Sjå specs/done/forenkle-make-laget.md.
 # ---------------------------------------------------------------------------
-gen-linkml-merge: ## Valider skjema (gen-linkml, fail-fast, ingen fil skriven) [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-jsonld-context: ## Generer JSON-LD context [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-shacl: ## Generer SHACL-shapes [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-python: ## Generer Python-klassar [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-jsonschema: ## Generer JSON Schema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-owl: ## Generer OWL-ontologi [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-rdf: ## Generer RDF/Turtle-skjemaserialisering [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-xsd: ## Generer XSD via avrotize, krev gen-jsonschema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-asyncapi: ## Generer og valider AsyncAPI-spec, krev gen-jsonschema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-openapi: ## Generer og valider OpenAPI-spec, krev gen-jsonschema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-erdiagram: ## Generer ER-diagram (Mermaid) [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-proto: ## Generer Protobuf-schema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-graphql: ## Generer GraphQL-skjema [SCHEMA=<sti>|DOMAIN=<domain>]
-gen-plantuml: ## Generer PlantUML-diagram, full og filtrert [SCHEMA=<sti>|DOMAIN=<domain>]
+gen-linkml-merge: ## Valider skjema (gen-linkml, fail-fast, ingen fil skriven) [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-jsonld-context: ## Generer JSON-LD context [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-shacl: ## Generer SHACL-shapes [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-python: ## Generer Python-klassar [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-jsonschema: ## Generer JSON Schema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-owl: ## Generer OWL-ontologi [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-rdf: ## Generer RDF/Turtle-skjemaserialisering [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-xsd: ## Generer XSD via avrotize, krev gen-jsonschema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-asyncapi: ## Generer og valider AsyncAPI-spec, krev gen-jsonschema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-openapi: ## Generer og valider OpenAPI-spec, krev gen-jsonschema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-erdiagram: ## Generer ER-diagram (Mermaid) [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-proto: ## Generer Protobuf-schema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-graphql: ## Generer GraphQL-skjema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-plantuml: ## Generer PlantUML-diagram, full og filtrert [DOMAIN=<domene>|SCHEMA=<sti>]
 
 # ---------------------------------------------------------------------------
 # gen-docs er spesiell (kallar to makroar)
 # ---------------------------------------------------------------------------
 .PHONY: gen-docs
-gen-docs: ## Generer dokumentasjon (gen-doc + gen-erdiagram) [SCHEMA=<sti>|DOMAIN=<domain>]
+gen-docs: ## Generer dokumentasjon (gen-doc + gen-erdiagram) [DOMAIN=<domene>|SCHEMA=<sti>]
 ifdef SCHEMA
 	$(call print_header,gen-docs,SCHEMA=$(SCHEMA))
 else ifdef DOMAIN

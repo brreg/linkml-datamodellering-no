@@ -1,0 +1,110 @@
+{
+  "domain": "samt",
+  "result": {
+    "errorCount": 8,
+    "issues": [
+      {
+        "code": "all_classes_have_class_uri",
+        "message": "Klasse 'Kontaktlaerer' manglar class_uri (formal ressursbeskrivelse)",
+        "severity": "warning",
+        "target": "class:Kontaktlaerer"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Fylke' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Fylke"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'PrivatVirksomhet' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:PrivatVirksomhet"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Basisgruppe' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Basisgruppe"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Elev' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Elev"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Rektor' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Rektor"
+      },
+      {
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "message": "schema.annotations.oppdateringsfrekvens manglar",
+        "severity": "warning",
+        "target": "schema"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Katalog'",
+        "severity": "error",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Kvalitetsmaal'",
+        "severity": "error",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'SamtBuContainer' manglar attributt med range 'Datatjeneste'",
+        "severity": "warning",
+        "target": "class:SamtBuContainer"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' passar ikkje vokabular_pattern ^http://purl\\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[0].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' er ikkje frå vokabular-domenet http://purl.org/adms/status/ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[0].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' passar ikkje vokabular_pattern ^http://purl\\.org/adms/status/(Completed|Deprecated|UnderDevelopment|Withdrawn)$ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[1].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'http://publications.europa.eu/resource/authority/distribution-status/COMPLETED' er ikkje frå vokabular-domenet http://purl.org/adms/status/ for slot 'status' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:datasettdistribusjoner[1].status"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_pattern",
+        "message": "'samtbuskole:no' passar ikkje vokabular_pattern ^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:gjeldende_lovgivninger[0].spraak"
+      },
+      {
+        "code": "instance_slot_invalid_vocabulary_domain",
+        "message": "'samtbuskole:no' er ikkje frå vokabular-domenet http://publications.europa.eu/resource/authority/language/ for slot 'spraak' (vokabular_krav: skal)",
+        "severity": "error",
+        "target": "instance:gjeldende_lovgivninger[0].spraak"
+      }
+    ],
+    "valid": false,
+    "warningCount": 8
+  },
+  "schema": "samt-bu",
+  "validated_at": "2026-08-19T09:04:10.292933+00:00",
+  "validation_policy": "silver",
+  "version": "1.10.0"
+}

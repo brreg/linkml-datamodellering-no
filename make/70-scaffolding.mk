@@ -17,26 +17,26 @@
 # - update-valid-scopes: generer .github/valid-scopes.txt frå alle skjema
 # ==============================================================================
 
-new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (NAME=<namn> DOMAIN=<domene>)
+new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (DOMAIN=<domene> NAME=<modell>)
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell NAME=<namn> DOMAIN=<domene>"; exit 1; }
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell DOMAIN=<domene> NAME=<modell>"; exit 1; }
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
 	bash src/assets/scripts/scaffolding/new-modell.sh "$(NAME)" "$(DOMAIN)"
 
-remove-modell: ## Fjern ein domenemodell etter tryggleikssjekkar (NAME=<namn> DOMAIN=<domene>) [CONFIRM=1]
+remove-modell: ## Fjern ein domenemodell etter tryggleikssjekkar (DOMAIN=<domene> NAME=<modell>) [CONFIRM=1]
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make remove-modell NAME=<namn> DOMAIN=<domene> [CONFIRM=1]"; exit 1; }
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make remove-modell DOMAIN=<domene> NAME=<modell> [CONFIRM=1]"; exit 1; }
 	bash src/assets/scripts/scaffolding/remove-modell.sh "$(NAME)" "$(DOMAIN)" $(if $(CONFIRM),--confirm)
 
-new-modellkatalog: ## Opprett katalogstruktur og boilerplate for ny organisasjonskatalog (NAME=<alias>)
-	@test -n "$(NAME)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modellkatalog NAME=<alias>"; exit 1; }
-	bash src/assets/scripts/scaffolding/new-modellkatalog.sh "$(NAME)"
+new-modellkatalog: ## Opprett katalogstruktur og boilerplate for ny organisasjonskatalog (ORG=<alias>)
+	@test -n "$(ORG)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modellkatalog ORG=<alias>"; exit 1; }
+	bash src/assets/scripts/scaffolding/new-modellkatalog.sh "$(ORG)"
 
-new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<domain> NAME=<begrepssamling-namn>)
+new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<domene> NAME=<begrepssamling>)
 	@test -n "$(DOMAIN)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1; }
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>"; exit 1; }
 	@test -n "$(NAME)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>"; exit 1; }
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>"; exit 1; }
 	bash src/assets/scripts/scaffolding/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
 
 # Legacy: scaffoldar det eldre, monolittiske BegrepContainer-skjemaformatet
@@ -46,9 +46,9 @@ new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<do
 # skjemastruktur, berre NAME som parameter (ikkje DOMAIN). Bruk
 # new-begrepssamling for nye begrepssamlingar; dette targetet held fram
 # fordi src/linkml/begrepskatalog/brreg-begrepskatalog alt nyttar formatet.
-new-begrepskatalog: ## Legacy scaffolding for monolittisk BegrepContainer-format (NAME=<katalognavn>)
+new-begrepskatalog: ## Legacy scaffolding for monolittisk BegrepContainer-format (NAME=<katalog>)
 	@test -n "$(NAME)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepskatalog NAME=<katalognavn>"; exit 1; }
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepskatalog NAME=<katalog>"; exit 1; }
 	bash src/assets/scripts/scaffolding/new-begrepskatalog.sh "$(NAME)"
 
 # Køyrer automatisk ved `make new-modell`, `make new-modellkatalog`, `make new-begrepssamling`

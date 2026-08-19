@@ -7,8 +7,8 @@ set -euo pipefail
 ALIAS="${1:-}"
 
 if [[ -z "$ALIAS" ]]; then
-    echo "Feil: NAME-alias er påkravd." >&2
-    echo "Bruk: make new-modellkatalog NAME=<alias>" >&2
+    echo "Feil: ORG-alias er påkravd." >&2
+    echo "Bruk: make new-modellkatalog ORG=<alias>" >&2
     exit 1
 fi
 
@@ -20,24 +20,23 @@ if [[ ! -f "$CODEOWNERS" ]]; then
     exit 1
 fi
 
-# Les org-metadata frå CODEOWNERS.md-frontmatter
-ORG_META=$(python3 - "$ALIAS" "$CODEOWNERS" << 'PYEOF'
+# Les org-metadata frå CODEOWNERS.md. Delegerer til den delte parsaren i
+# utils/codeowners.py (som forstår det faktiske ```yaml ...```-fenceformatet
+# CODEOWNERS.md brukar) i staden for å parse `---`-frontmatter sjølv — same
+# feil som BUG-16 (sjå bugs/codeowners-frontmatter-format-mismatch.md), her
+# retta i denne duplikaten under [[valider-modellkatalog-org-alias]].
+ORG_META=$(python3 - "$ALIAS" "$REPO_ROOT" << 'PYEOF'
 import shlex
-import sys, yaml
+import sys
+from pathlib import Path
 
 alias = sys.argv[1]
-path  = sys.argv[2]
+repo_root = Path(sys.argv[2])
 
-with open(path, encoding="utf-8") as f:
-    content = f.read()
+sys.path.insert(0, str(repo_root / "src" / "assets" / "scripts"))
+from utils.codeowners import load_codeowners  # noqa: E402
 
-if not content.startswith("---"):
-    print("FEIL: Ingen YAML-frontmatter i CODEOWNERS.md", file=sys.stderr)
-    sys.exit(1)
-
-parts = content.split("---", 2)
-data = yaml.safe_load(parts[1]) or {}
-orgs = {o["alias"]: o for o in data.get("organizations", [])}
+orgs = {o["alias"]: o for o in load_codeowners(repo_root)}
 
 if alias not in orgs:
     print(f"FEIL: Alias '{alias}' ikkje funne i CODEOWNERS.md. Legg til org i frontmatter fyrst.", file=sys.stderr)

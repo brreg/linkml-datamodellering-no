@@ -247,6 +247,6 @@ make config.mk
 
 ## Nye modellar
 
-`make new-modell NAME=... DOMAIN=...` oppretter ei standard `build.yaml` saman med
+`make new-modell DOMAIN=... NAME=...` oppretter ei standard `build.yaml` saman med
 skjemafila. Juster henne etterpå viss domenet krev det — til dømes for FINT-modellar
 der `rdf` og `example_rdf` skal vera `false`.

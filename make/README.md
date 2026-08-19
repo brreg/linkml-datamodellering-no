@@ -109,7 +109,6 @@ make docs-publish
 - **Logging:** Bruk `print_header`/`print_step` frå `03-output.mk` for overskrifter/steg, og
   `log_info`/`log_debug`/`log_error` frå `LOG_FUNCTIONS` (`00-settings.mk`) for status/feil —
   aldri rå `echo`/`printf` (jf. CLAUDE.md § «Ingen stille feil»)
-- **Parallellisering:** Bruk `$(PARALLEL)` frå `00-settings.mk` (default 8)
 - **Container-køyring:** Bruk `*_RUN`-variablar frå `01-containers.mk` (LINKML_RUN, PYTHON_RUN)
 - **Wrapper-target:** target som delegerer til eit anna target via eit rekursivt
   `$(MAKE) <target>`-kall (t.d. `mcp-linkml-valider-modell` → `_mcp-valider-modell-with-header`,
@@ -125,5 +124,3 @@ make docs-publish
 **Problem:** `make help` viser ikkje mitt nye target
 - **Løysing:** Legg til `##`-kommentar etter target-navnet
 
-**Problem:** Parallellisering feiler på Windows/WSL2
-- **Løysing:** Reduser `PARALLEL`: `make domain-ap-no PARALLEL=2`

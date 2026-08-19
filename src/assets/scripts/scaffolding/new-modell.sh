@@ -8,7 +8,7 @@ DOMAIN="${2:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make new-modell NAME=<namn> DOMAIN=<domene>" >&2
+    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<namn>" >&2
     exit 1
 fi
 
@@ -41,42 +41,23 @@ fi
 
 echo "Genererer skjema via mcp-linkml-modell-utkast..."
 
-LINKML_YAML=$(printf '%s\n%s\n' \
-    '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
-    "$(python3 -c "
-import json
-print(json.dumps({
-    'jsonrpc': '2.0', 'id': 2, 'method': 'tools/call',
-    'params': {
-        'name': 'generate_linkml',
-        'arguments': {
-            'inputFormat': 'empty',
-            'schemaId': '$SCHEMA_ID',
-            'schemaName': '$SCHEMA_NAME',
-            'schemaTitle': 'TODO: tittel for $NAME',
-            'profile': 'silver',
-            'validate': False,
-        }
-    }
-}))
-")" \
+REQUEST_SCRIPT="$REPO_ROOT/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py"
+RESPONSE_SCRIPT="$REPO_ROOT/src/assets/scripts/makefile/mcp-extract-modell-utkast-response.py"
+
+LINKML_YAML=$(python3 "$REQUEST_SCRIPT" \
+    --input-format empty \
+    --schema-id "$SCHEMA_ID" \
+    --schema-name "$SCHEMA_NAME" \
+    --schema-title "TODO: tittel for $NAME" \
+    --profile silver \
+    --no-validate \
   | podman run -i --rm \
       -v "$LINKML_GEN_DIR/server.py:/app/server.py:ro" \
       -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
       -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
       -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
       "$LINKML_GEN_IMAGE" \
-  | python3 -c "
-import json, sys
-for line in sys.stdin:
-    try:
-        obj = json.loads(line.strip())
-        if obj.get('id') == 2:
-            content = obj['result']['content'][0]['text']
-            print(json.loads(content)['linkmlSchema'])
-    except Exception:
-        pass
-")
+  | python3 "$RESPONSE_SCRIPT")
 
 if [[ -z "$LINKML_YAML" ]]; then
     echo "Feil: mcp-linkml-modell-utkast returnerte tomt svar." >&2

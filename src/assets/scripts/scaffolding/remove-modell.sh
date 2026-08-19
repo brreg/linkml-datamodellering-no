@@ -13,7 +13,7 @@ CONFIRM_FLAG="${3:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make remove-modell NAME=<namn> DOMAIN=<domene> [CONFIRM=1]" >&2
+    echo "Bruk: make remove-modell DOMAIN=<domene> NAME=<namn> [CONFIRM=1]" >&2
     exit 1
 fi
 
@@ -87,7 +87,7 @@ fi
 if [[ "$CONFIRM_FLAG" != "--confirm" ]]; then
     echo ""
     echo "Dette var ei førehandsvising (dry-run). Ingen filer er sletta."
-    echo "Køyr med CONFIRM=1 for å faktisk slette: make remove-modell NAME=$NAME DOMAIN=$DOMAIN CONFIRM=1"
+    echo "Køyr med CONFIRM=1 for å faktisk slette: make remove-modell DOMAIN=$DOMAIN NAME=$NAME CONFIRM=1"
     exit 0
 fi
 

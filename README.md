@@ -71,36 +71,36 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build && ma
 
 > Bruk oppskrifta under for å komme igang med datamodellering.
 
-> Bytt ut **`domene`** og **`modellnavn`** med dine aktuelle navn.
+> Bytt ut **`domene`** og **`modell`** med dine aktuelle navn.
 
 ```bash
 # 1. Lag eit nytt tomt LinkML-skjema (skjema + filstruktur)
-make new-modell NAME=modellnavn DOMAIN=domene
+make new-modell DOMAIN=domene NAME=modell
 
 # 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
 make mcp-linkml-modell-utkast SCHEMA=tmp/modellnavn.json
-# → genererer tmp/modellnavn-schema.yaml. Kopier til src/linkml/domain/modellnavn/
+# → genererer tmp/modell-schema.yaml. Kopier til src/linkml/domene/modell/
 ```
 ```bash
 # 2. Rediger modellfila etter behov
-#    → src/linkml/domain/modellnavn/modellnavn-schema.yaml
+#    → src/linkml/domene/modell/modell-schema.yaml
 ```
 ```bash
 # 3. Valider skjema
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml \
+  SCHEMA=src/linkml/domene/modell/modell-schema.yaml \
   POLICY=felles-datakatalog
 ```
 ```bash
 # 4. (om ønskjeleg) angi kva artefakter som skal genereres og publiseres i build.yaml
-# → src/linkml/domain/modellnavn/build.yaml
+# → src/linkml/domene/modell/build.yaml
 
 # 4b. Generer artefakter og publiser til dokumentasjonsportal
-make <domain> && make docs-publish && make docs-serve   # → http://localhost:8000
+make <domene> && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
-Nye skjema under `src/linkml/<domain>/<modellnavn>/` vert oppdaga automatisk.
+Nye skjema under `src/linkml/<domene>/<modell>/` vert oppdaga automatisk.
 
 For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/kom-i-gang/ny-domenemodell/) og [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering/publisering-modell/).
 
@@ -108,19 +108,19 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 > Bruk oppskrifta under for å komme igang med begrepsmodellering.
 
-> Bytt ut **`domene`**, **`begrepssamling-navn`** og **`organisasjon`** med dine aktuelle navn.
+> Bytt ut **`domene`**, **`begrepssamling`** og **`organisasjon`** med dine aktuelle navn.
 
 ```bash
 # 1a. Opprett ny begrepssamling (filstruktur for begrep)
-make new-begrepssamling DOMAIN=domene NAME=begrepssamling-navn
+make new-begrepssamling DOMAIN=domene NAME=begrepssamling
 
 # 1b. (om ønskjeleg) Generer begrepsutkast frå eksisterande tekst
 make mcp-linkml-begrep-utkast INPUT=<sti-til-tekstfil>
-# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling-navn/begrep/begrepnavn.yaml
+# → genererer begrepsutkast i tmp/ og kopier til src/linkml/domene/begrepssamling/begrep/begrepnavn.yaml
 ```
 ```bash
 # 2. Rediger begrep etter behov
-#    → src/linkml/domene/begrepssamling-navn/begrep/<begrep-slug>.yaml
+#    → src/linkml/domene/begrepssamling/begrep/<begrep-slug>.yaml
 ```
 ```bash
 # 3. Aggreger til begrepskatalog
@@ -140,7 +140,7 @@ make mcp-linkml-valider-modell \
 make begrepskatalog && make docs-publish && make docs-serve   # → http://localhost:8000
 ```
 
-Nye begrepssamlingar under `src/linkml/<domain>/<begrepssamling>/` vert oppdaga automatisk.
+Nye begrepssamlingar under `src/linkml/<domene>/<begrepssamling>/` vert oppdaga automatisk.
 
 For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/kom-i-gang/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering/publisering-begrep/).
 
@@ -171,7 +171,7 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 > Datamodellane er gruppert i domener.
 
-Domena ligg under `src/linkml/<domain>/`
+Domena ligg under `src/linkml/<domene>/`
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
@@ -191,7 +191,7 @@ Domena ligg under `src/linkml/<domain>/`
 
 > Det er eit skjema i LinkML format for kvar datamodell.
 
-Skjema ligg under `src/linkml/<domain>/<skjema>/`
+Skjema ligg under `src/linkml/<domene>/<modell>/`
 
 <!-- BEGIN AUTO-GENERATED: src/assets/scripts/makefile/generate-readme-tables.sh generate_schema_table -->
 | Domene | Skjema | Skildring | Dokumentasjon
@@ -236,9 +236,9 @@ Skjema ligg under `src/linkml/<domain>/<skjema>/`
 
 > Du kan generere artefakter fra LinkML skjemaet.
 
-Genererte artefakter ligg under `generated/<domain>/<skjema>/`.  
-Køyr `make <domain>` for å generere alle artefakter for eit domene.  
-Kvar modell kan slå av einskilde generatorar via `src/linkml/<domain>/<skjema>/build.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/kom-i-gang/build-config/) for detaljar.
+Genererte artefakter ligg under `generated/<domene>/<modell>/`.  
+Køyr `make <domene>` for å generere alle artefakter for eit domene.  
+Kvar modell kan slå av einskilde generatorar via `src/linkml/<domene>/<modell>/build.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/kom-i-gang/build-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | build.yaml flag | Generator |
 |---|---|---|---|---|---|
@@ -307,7 +307,7 @@ linkml-datamodellering-no/
 ├── src/
 │   ├── assets/                                    # Containere, skript og malar
 │   ├── linkml/                                    # Kilde for LinkML modeller (og begrepsinstanser)
-│   │   └── <domain>/
+│   │   └── <domene>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
 │   │           ├── build.yaml                     # Byggkonfigurasjon
@@ -331,7 +331,7 @@ linkml-datamodellering-no/
 ├── make/                                          # GNU Make filer for make kommandoar. Sjå COMMANDS.md for kommandoar.
 ├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
 │   └── docs/                                      # Den publiserte dokumentasjonsportalen
-│       └── <domain>/
+│       └── <domene>/
 │          └── <modell>/
 │               └── index.md                       # Hoveddokumentasjon for kvar datamodell (generert av publish.sh)
 └── specs/

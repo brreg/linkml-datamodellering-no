@@ -19,9 +19,9 @@
 # LinkML-validering
 # ---------------------------------------------------------------------------
 
-validate: ## Valider alle skjema (merge-imports) [SCHEMAS=<sti ...>]
-	$(call print_header,validate)
-	$(call run_gen_linkml_parallel,$(SCHEMAS))
+validate: ## Valider alle skjema (merge-imports) [SCHEMA=<sti>]
+	$(call print_header,validate,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
+	$(call run_gen_linkml_parallel,$(if $(SCHEMA),$(SCHEMA),$(SCHEMAS)))
 
 lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
@@ -38,7 +38,7 @@ validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>
 # Policy-validering (bronze/silver/gold/felles-*)
 # ---------------------------------------------------------------------------
 
-validate-bronze: ## Valider skjema med bronze-policy (DOMAIN=<domain>)
+validate-bronze: ## Valider skjema med bronze-policy (DOMAIN=<domene>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
@@ -71,11 +71,11 @@ ifdef DOMAIN
 	done <<< "$$SCHEMA_LIST"; \
 	exit $$FAILED
 else
-	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domain>"
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domene>"
 	@exit 1
 endif
 
-validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domain>)
+validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domene>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
@@ -127,11 +127,11 @@ ifdef DOMAIN
 	done < "$$JOBS_TSV"; \
 	exit $$FAILED
 else
-	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domain>"
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-data DOMAIN=<domene>"
 	@exit 1
 endif
 
-validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domain>)
+validate-examples: ## Valider eksempelfiler mot skjema (DOMAIN=<domene>)
 ifdef DOMAIN
 	@eval "$$LOG_FUNCTIONS"; \
 	set +e; \
@@ -190,7 +190,7 @@ ifdef DOMAIN
 	done < "$$JOBS_TSV"; \
 	exit $$FAILED
 else
-	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domain>"
+	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-examples DOMAIN=<domene>"
 	@exit 1
 endif
 
@@ -198,8 +198,8 @@ endif
 # MCP-validering
 # ---------------------------------------------------------------------------
 
-mcp-linkml-valider-modell: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<bronze|silver|gold>])
-	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-valider-modell SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1; }
+mcp-linkml-valider-modell: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<policy>])
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-valider-modell SCHEMA=<sti> [POLICY=gold]"; exit 1; }
 	@DETECTED_POLICY=$$($(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/detect-validation-policy.py "$(SCHEMA)" || echo "bronze"); \
 	POLICY_TO_USE="$${POLICY:-$$DETECTED_POLICY}"; \
 	$(MAKE) --no-print-directory _mcp-valider-modell-with-header SCHEMA=$(SCHEMA) POLICY=$$POLICY_TO_USE
@@ -234,14 +234,14 @@ validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>]
 # ---------------------------------------------------------------------------
 
 # Validerer og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/<policy>.json
-log-mcp-validate: ## Policy-validering med full JSON-logg (MANIFEST=<sti> eller SCHEMA=<sti> POLICY=<policy>)
+log-mcp-validate: ## Policy-validering med full JSON-logg (BUILDYAML=<sti>|SCHEMA=<sti> POLICY=<policy>)
 	@eval "$$LOG_FUNCTIONS"; \
-	if [ -n "$(MANIFEST)" ]; then \
-		bash src/assets/scripts/makefile/run-validation.sh --manifest $(MANIFEST); \
+	if [ -n "$(BUILDYAML)" ]; then \
+		bash src/assets/scripts/makefile/run-validation.sh --manifest $(BUILDYAML); \
 	elif [ -n "$(SCHEMA)" ] && [ -n "$(POLICY)" ]; then \
 		bash src/assets/scripts/makefile/run-validation.sh --schema $(SCHEMA) --policy $(POLICY); \
 	else \
-		log_error "Oppgi anten MANIFEST=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
+		log_error "Oppgi anten BUILDYAML=<sti> eller både SCHEMA=<sti> og POLICY=<policy>"; \
 		exit 1; \
 	fi
 

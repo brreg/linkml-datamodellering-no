@@ -64,9 +64,12 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast ## Køyr alle unit
 mcp-linkml-modell-utkast: ## Generer LinkML-skjemautkast frå JSON Schema (SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze])
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1; }
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
-		"$(SCHEMA)" "$(or $(FORMAT),json-schema)" "$(or $(PROFILE),bronze)" \
+		--input-format "$(or $(FORMAT),json-schema)" --input-file "$(SCHEMA)" \
+		--profile "$(or $(PROFILE),bronze)" \
 		| $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
-		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-write-modell-utkast-response.py "$(SCHEMA)"
+		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-extract-modell-utkast-response.py \
+		> "$(basename $(SCHEMA))-schema.yaml"
+	@echo "Skriv til: $(basename $(SCHEMA))-schema.yaml"
 	@# Automatisk roundtrip-test for JSON Schema
 	@eval "$$LOG_FUNCTIONS"; \
 	if echo "$(SCHEMA)" | grep -qE '\.(json|schema\.json)$$'; then \

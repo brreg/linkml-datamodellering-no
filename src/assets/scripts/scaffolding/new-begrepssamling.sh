@@ -8,14 +8,14 @@ NAME="${2:-}"
 
 if [[ -z "$DOMAIN" ]]; then
     echo "Feil: DOMAIN er påkravd." >&2
-    echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>" >&2
+    echo "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>" >&2
     echo "Døme: make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret" >&2
     exit 1
 fi
 
 if [[ -z "$NAME" ]]; then
     echo "Feil: NAME er påkravd." >&2
-    echo "Bruk: make new-begrepssamling DOMAIN=<domain> NAME=<begrepssamling-namn>" >&2
+    echo "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>" >&2
     echo "Døme: make new-begrepssamling DOMAIN=oreg NAME=begrepssamling-foretaksregisteret" >&2
     exit 1
 fi

@@ -9,11 +9,31 @@
 # Delt ut for å unngå å gjenta same grep|sed|awk-pipeline sju gonger inline
 # i Makefile (éin gong per kategori) — sjå specs/done/forenkle-make-laget.md.
 #
+# Kvart target vert vist på éi linje (sjå specs/done/make-help-argument-og-farge.md
+# og specs/done/make-help-eitt-linje-format.md):
+#   make <target> <argument-uttrykk> <skildring>
+# der "make <target>" og argument-uttrykket er farga (kopierbar kall-syntaks),
+# og skildringa dempa (hjelpetekst). Argument-uttrykket er ei avsluttande
+# "(...)"- eller "[...]"-gruppe (eller
+# fleire etter kvarandre) i `## `-skildringa som inneheld minst eitt "=" —
+# konvensjonen er at parentes ("(NAME=<namn>)") markerer obligatoriske
+# argument (farga grøn, CLR_OK), hakeparentes ("[SCHEMA=<sti>]") valfrie
+# (farga gul, CLR_WARN). Kvar gruppe fargeleggjast for seg — ei gruppe med
+# nøsta hakeparentes inni ein ytre parentes (t.d.
+# "(SCHEMA=<sti> [POLICY=<...>])") vert farga grøn i sin heilskap, sidan
+# ytre parentes er det avgjerande skiljet (gruppa vert ikkje token-parsa
+# vidare). Ei avsluttande gruppe UTAN "=" (t.d. "(1080p, høg kvalitet)")
+# er ei vanleg parentetisk merknad, ikkje eit argument, og vert verande i
+# skildringa.
+#
 # Bruk: help.sh <fil1> [fil2 ...]
 set -euo pipefail
 trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >&2; exit 1' ERR
 
 CLR_STEP=$'\033[0;36m'
+CLR_OK=$'\033[0;32m'
+CLR_WARN=$'\033[0;33m'
+CLR_DBG=$'\033[2m'
 CLR_RST=$'\033[0m'
 
 [ $# -gt 0 ] || { echo "help.sh: krev minst éi fil som argument" >&2; exit 1; }
@@ -46,6 +66,11 @@ mapfile -t lines < <(
         | sed -E 's/^([a-zA-Z_-]+):[^#]*## /\1: ## /'
 )
 
+# Halden i ein variabel (ikkje inline i [[ =~ ]]) sidan bash sin eigen
+# parser elles kan feiltolke dei ubalanserte/blanda parentesane og
+# hakeparentesane i mønsteret som shell-syntaks.
+arg_group_re='^(.*[^[:space:]])[[:space:]]+(\[[^]]*=[^]]*\]|\([^)]*=[^)]*\))$'
+
 declare -A shown=()
 first=true
 for entry in "${categories[@]}"; do
@@ -61,7 +86,35 @@ for entry in "${categories[@]}"; do
         target="${line%%:*}"
         [ -n "${shown[$target]+x}" ] && continue
         if [[ "$target" =~ $pattern ]]; then
-            printf "  %s%-32s%s %s\n" "$CLR_STEP" "${target}:" "$CLR_RST" "${line#*## }"
+            desc="${line#*## }"
+
+            # Skil ut avsluttande argument-gruppe(r) frå skildringa — kan
+            # vere fleire etter kvarandre, t.d. "(NAME=<n>) [CONFIRM=1]".
+            # Krev "=" i gruppa for å ikkje ta med vanlege parentetiske
+            # merknadar (sjå fil-toppkommentaren).
+            argexpr=""
+            while [[ "$desc" =~ $arg_group_re ]]; do
+                group="${BASH_REMATCH[2]}"
+                if [[ "$group" == \(* ]]; then
+                    group="${CLR_OK}${group}${CLR_RST}"
+                else
+                    group="${CLR_WARN}${group}${CLR_RST}"
+                fi
+                if [ -n "$argexpr" ]; then
+                    argexpr="$group $argexpr"
+                else
+                    argexpr="$group"
+                fi
+                desc="${BASH_REMATCH[1]}"
+            done
+
+            if [ -n "$argexpr" ]; then
+                printf "  %smake %s%s %s %s%s%s\n" \
+                    "$CLR_STEP" "$target" "$CLR_RST" "$argexpr" "$CLR_DBG" "$desc" "$CLR_RST"
+            else
+                printf "  %smake %s%s %s%s%s\n" \
+                    "$CLR_STEP" "$target" "$CLR_RST" "$CLR_DBG" "$desc" "$CLR_RST"
+            fi
             shown[$target]=1
         fi
     done

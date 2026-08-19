@@ -20,18 +20,18 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 **Navnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
 
 ```bash
-make new-begrepskatalog NAME=<katalognavn>
+make new-begrepskatalog NAME=<katalog>
 ```
 
 Dette oppretter:
 
 ```
-src/linkml/begrepskatalog/<katalognavn>/
-├── <katalognavn>-schema.yaml  ← skjema med BegrepContainer og import av skos-ap-no
+src/linkml/begrepskatalog/<katalog>/
+├── <katalog>-schema.yaml  ← skjema med BegrepContainer og import av skos-ap-no
 ├── build.yaml              ← publiserings- og generatorkonfig
 ├── description.md             ← valfri skildring, injiserast i portalen
 └── examples/
-    └── <katalognavn>-eksempel.yaml  ← tom BegrepContainer-stub
+    └── <katalog>-eksempel.yaml  ← tom BegrepContainer-stub
 ```
 
 Fyll deretter ut `title`, `description` og `utgiver` i skjemafila.
@@ -134,7 +134,7 @@ make mcp-linkml-begrep-utkast INPUT=tmp/mitt-begrep.json
 ```
 
 Resultatet er YAML-blokker som kan limast inn i instansfila
-(`src/linkml/begrepskatalog/<katalognavn>/examples/<katalognavn>-eksempel.yaml`):
+(`src/linkml/begrepskatalog/<katalog>/examples/<katalog>-eksempel.yaml`):
 
 ```yaml
 # Generert av mcp-linkml-begrep-utkast — legg til i instansfila di
@@ -189,7 +189,7 @@ for kvart kall. Sjå `profiles/brreg.yaml` som døme.
 
 # Full policy-validering — tilrådast før kvar commit:
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=bronze
 ```
 
@@ -205,7 +205,7 @@ make mcp-linkml-valider-modell \
 make domain-gen-examples DOMAIN=begrepskatalog
 ```
 
-Output: `generated/begrepskatalog/<katalognavn>/<katalognavn>-eksempel.ttl`
+Output: `generated/begrepskatalog/<katalog>/<katalog>-eksempel.ttl`
 
 Denne Turtle-fila er berre for lokal kontroll av at YAML-instansen vert korrekt
 serialisert. For publisering til Felles Begrepskatalog — sjå
@@ -225,15 +225,15 @@ automatisk opp nye skjema under `src/linkml/begrepskatalog/`. Pipelinen køyrer 
 
 Berre nødvendig for katalogar som skal publiserast til Felles Begrepskatalog.
 
-**1.** Lag `src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml` med stabile produksjons-URI-ar.
+**1.** Lag `src/linkml/begrepskatalog/<katalog>/data/<katalog>/<katalog>.yaml` med stabile produksjons-URI-ar.
 Bruk `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` som mal — same struktur som eksempelfila,
 men utan «under utvikling»-merknader og med permanente `id:`-verdiar.
 
 **2.** Lag ei tom URI-lock-fil:
 
 ```bash
-cat > src/linkml/begrepskatalog/<katalognavn>/published-uris.lock << 'EOF'
-# Publiserte URI-ar for <katalognavn> — IKKJE endre eller slett eksisterande linjer.
+cat > src/linkml/begrepskatalog/<katalog>/published-uris.lock << 'EOF'
+# Publiserte URI-ar for <katalog> — IKKJE endre eller slett eksisterande linjer.
 # Nye URI-ar leggast til nedst etter publisering.
 EOF
 ```
@@ -242,9 +242,9 @@ EOF
 
 ```bash
 make mcp-linkml-valider-modell \
-  SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml
+  INSTANCE=src/linkml/begrepskatalog/<katalog>/data/<katalog>/<katalog>.yaml
 ```
 
 For fullstendig rettleiing om registrering og URI-stabilitet:

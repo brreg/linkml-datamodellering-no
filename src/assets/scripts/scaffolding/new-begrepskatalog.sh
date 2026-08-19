@@ -7,7 +7,7 @@ NAME="${1:-}"
 
 if [[ -z "$NAME" ]]; then
     echo "Feil: NAME er påkravd." >&2
-    echo "Bruk: make new-begrepskatalog NAME=<katalognavn>" >&2
+    echo "Bruk: make new-begrepskatalog NAME=<katalog>" >&2
     exit 1
 fi
 

@@ -40,7 +40,7 @@ PR-en og gir GitHub-teamet write-tilgang til repoet (sjå `GOVERNANCE.md`).
 Etter godkjent PR, opprett katalogstrukturen:
 
 ```bash
-make new-modellkatalog NAME=<alias>
+make new-modellkatalog ORG=<alias>
 ```
 
 Dette oppretter:
@@ -64,7 +64,7 @@ Fyll inn `TODO`-verdiane i datafila manuelt:
 ## Steg 3 — Opprett domenemodellar
 
 ```bash
-make new-modell NAME=<modell> DOMAIN=<domain>
+make new-modell DOMAIN=<domene> NAME=<modell>
 ```
 
 Opne den genererte skjemafila og set `annotations.utgiver` til org-en sin URI:
