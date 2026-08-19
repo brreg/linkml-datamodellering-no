@@ -1,0 +1,5 @@
+# Eksempel for javazonetalk
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+javazonetalker:
+  - id: javazonetalk:eksempel-1

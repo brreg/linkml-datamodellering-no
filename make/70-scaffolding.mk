@@ -20,16 +20,19 @@
 new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (DOMAIN=<domene> NAME=<modell>)
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell DOMAIN=<domene> NAME=<modell>"; exit 1; }
+	$(call print_header,new-modell,DOMAIN=$(DOMAIN)  NAME=$(NAME))
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
 	bash src/assets/scripts/scaffolding/new-modell.sh "$(NAME)" "$(DOMAIN)"
 
 remove-modell: ## Fjern ein domenemodell etter tryggleikssjekkar (DOMAIN=<domene> NAME=<modell>) [CONFIRM=1]
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make remove-modell DOMAIN=<domene> NAME=<modell> [CONFIRM=1]"; exit 1; }
+	$(call print_header,remove-modell,DOMAIN=$(DOMAIN)  NAME=$(NAME))
 	bash src/assets/scripts/scaffolding/remove-modell.sh "$(NAME)" "$(DOMAIN)" $(if $(CONFIRM),--confirm)
 
 new-modellkatalog: ## Opprett katalogstruktur og boilerplate for ny organisasjonskatalog (ORG=<alias>)
 	@test -n "$(ORG)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modellkatalog ORG=<alias>"; exit 1; }
+	$(call print_header,new-modellkatalog,ORG=$(ORG))
 	bash src/assets/scripts/scaffolding/new-modellkatalog.sh "$(ORG)"
 
 new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<domene> NAME=<begrepssamling>)
@@ -37,6 +40,7 @@ new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<do
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>"; exit 1; }
 	@test -n "$(NAME)" || \
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>"; exit 1; }
+	$(call print_header,new-begrepssamling,DOMAIN=$(DOMAIN)  NAME=$(NAME))
 	bash src/assets/scripts/scaffolding/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
 
 # Legacy: scaffoldar det eldre, monolittiske BegrepContainer-skjemaformatet
@@ -49,6 +53,7 @@ new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<do
 new-begrepskatalog: ## Legacy scaffolding for monolittisk BegrepContainer-format (NAME=<katalog>)
 	@test -n "$(NAME)" || \
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepskatalog NAME=<katalog>"; exit 1; }
+	$(call print_header,new-begrepskatalog,NAME=$(NAME))
 	bash src/assets/scripts/scaffolding/new-begrepskatalog.sh "$(NAME)"
 
 # Køyrer automatisk ved `make new-modell`, `make new-modellkatalog`, `make new-begrepssamling`

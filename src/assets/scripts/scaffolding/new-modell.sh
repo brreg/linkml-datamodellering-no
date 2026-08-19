@@ -205,6 +205,11 @@ generators:
   plantuml: true
 EOF
 
+# Les valideringspolicy attende frå build.yaml (i staden for å hardkode
+# han på nytt her) — held «Neste steg»-eksempelet synkronisert dersom
+# build.yaml-malen over nokon gong endrar validation_policy-verdien.
+VALIDATION_POLICY=$(python3 -c "import yaml; print(yaml.safe_load(open('$MANIFEST_FILE')).get('validation_policy', 'bronze'))")
+
 DESCRIPTION_FILE="$SCHEMA_DIR/description.md"
 cat > "$DESCRIPTION_FILE" << EOF
 <!-- Valfri skildring av $NAME. Vert vist i portalen mellom ER-diagrammet og klasselista. -->
@@ -229,4 +234,4 @@ echo "Neste steg:"
 echo "  1. Gi stub-klassen eit meir meiningsfullt namn og legg til eigenskapar"
 echo "  2. Byt common-ap-no-importet til ein reell AP-NO-profil ved behov (sjå TODO-kommentar i skjemafila)"
 echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"
-echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE_REL POLICY=bronze"
+echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE_REL POLICY=$VALIDATION_POLICY"

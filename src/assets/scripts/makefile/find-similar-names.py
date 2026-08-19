@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Finn klasser eller slots med liknande namn på tvers av LinkML-skjema.
+Finn klasser eller slots med liknande navn på tvers av LinkML-skjema.
 
-Samanliknar berre namn definerte lokalt i kvart skjema sin classes:/slots:-
-blokk (ikkje namn arva via imports) — elles ville importhierarkiet skapt
+Samanliknar berre navn definerte lokalt i kvart skjema sin classes:/slots:-
+blokk (ikkje navn arva via imports) — elles ville importhierarkiet skapt
 støy av "duplikat" som i røynda er éin delt definisjon.
 
 For slots viser rapporten òg datatypen (`range:`) slik ho står skriven i
 slot-definisjonen — nyttig for å vurdere om eit likskapsfunn er eit reelt
-duplikat (same type) eller berre eit namnesamantreff (ulik type). Dette er
+duplikat (same type) eller berre eit navnesamantreff (ulik type). Dette er
 ei medvite forenkling: LinkML sin fulle arve-/default_range-logikk
 (slot_usage-overstyring i klassar, skjemanivå-`default_range:` når
 `range:` manglar) vert ikkje løyst — eit slot utan eksplisitt `range:` vert
@@ -16,10 +16,10 @@ vist som `(default)`. Full oppløysing ville kravd ein `SchemaView`-arvegraf
 per skjema, som endrar skriptet sin ytingsprofil monaleg (i dag reint
 `yaml.safe_load`, ingen LinkML-runtime).
 
-For klassar viser rapporten tilsvarande slotnamna til kvar identifisert
+For klassar viser rapporten tilsvarande slotnavna til kvar identifisert
 klasse (frå `slots:`-lista og/eller `attributes:`-nøklane), slik at ein
-visuelt kan vurdere om eit namnetreff òg er strukturelt likt. Lange lister
-vert trunkerte til 12 slotnamn med eit «… (+N til)»-suffiks.
+visuelt kan vurdere om eit navnetreff òg er strukturelt likt. Lange lister
+vert trunkerte til 12 slotnavn med eit «… (+N til)»-suffiks.
 
 Ingen eksterne avhengigheiter utover pyyaml (tilgjengeleg i python-pytest-
 containeren, jf. requirements-python-test.txt).
@@ -46,7 +46,7 @@ def schema_domain(path: Path) -> str:
 
 
 def class_slot_names(defn: dict) -> list[str]:
-    """Slotnamna ei klasse refererer, via slots: og/eller attributes:."""
+    """Slotnavna ei klasse refererer, via slots: og/eller attributes:."""
     defn = defn or {}
     names = list(defn.get("slots") or [])
     names += list((defn.get("attributes") or {}).keys())
@@ -54,7 +54,7 @@ def class_slot_names(defn: dict) -> list[str]:
 
 
 def load_entries(path: Path, kind: str) -> list[tuple[str, str | list[str] | None]]:
-    """Returnerer (namn, range) for slots, (namn, slotnamn-liste) for klassar."""
+    """Returnerer (navn, range) for slots, (navn, slotnavn-liste) for klassar."""
     try:
         data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as e:
@@ -96,9 +96,10 @@ def main() -> None:
             entries.append((name, extra, schema))
 
     label = "klasser" if args.kind == "class" else "slots"
+    name_label = "klassenavn" if args.kind == "class" else "slotnavn"
     scope_label = "same domene" if args.scope == "domain" else "alle domene"
     domain_label = f", domene {args.domain}" if args.domain else ""
-    print(f"# Liknande {label}namn ({scope_label}{domain_label}, terskel {args.threshold:.0%})\n")
+    print(f"# Liknande {name_label} ({scope_label}{domain_label}, terskel {args.threshold:.0%})\n")
 
     matches = []
     seen_pairs = set()
@@ -135,7 +136,7 @@ def main() -> None:
         return f"{text}, … (+{rest} til)" if rest > 0 else text
 
     if args.kind == "slot":
-        print("| Likskap | Namn A | Type A | Skjema A | Namn B | Type B | Skjema B |")
+        print("| Likskap | Slot A | Type A | Skjema A | Slot B | Type B | Skjema B |")
         print("|---|---|---|---|---|---|---|")
         for ratio, name_a, range_a, schema_a, name_b, range_b, schema_b in matches:
             print(
@@ -143,7 +144,7 @@ def main() -> None:
                 f"| `{name_b}` | {fmt_range(range_b)} | {schema_b} |"
             )
     else:
-        print("| Likskap | Namn A | Slots A | Skjema A | Namn B | Slots B | Skjema B |")
+        print("| Likskap | Klasse A | Slots A | Skjema A | Klasse B | Slots B | Skjema B |")
         print("|---|---|---|---|---|---|---|")
         for ratio, name_a, slots_a, schema_a, name_b, slots_b, schema_b in matches:
             print(
@@ -151,7 +152,7 @@ def main() -> None:
                 f"| `{name_b}` | {fmt_slots(slots_b)} | {schema_b} |"
             )
 
-    print(f"\n**Totalt: {len(matches)} par funne blant {len(entries)} {label}.**")
+    print(f"\n**Totalt: {len(matches)} par funne av {len(entries)} {label}.**")
 
 
 if __name__ == "__main__":

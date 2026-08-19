@@ -44,7 +44,7 @@ categories=(
     "Vanleg bruk|(test|roundtrip|clean|help)"
     "Generering (per domene eller skjema)|(gen-|domain-|convert-)"
     "Validering|(validate|lint)"
-    "Dokumentasjon|docs-"
+    "Dokumentasjonsportal|docs-"
     "Container images|build-docker-"
     "MCP-serverar|mcp-"
     "Vedlikehald|(update-|new-|remove-|check-)"

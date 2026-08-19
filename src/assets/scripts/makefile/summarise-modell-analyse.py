@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 SIMILAR_ZERO = re.compile(r"Ingen \S+ over terskelen vart funne \((\d+) \S+ sjekka\)\.")
-SIMILAR_FOUND = re.compile(r"\*\*Totalt: (\d+) par funne blant (\d+) \S+\.\*\*")
+SIMILAR_FOUND = re.compile(r"\*\*Totalt: (\d+) par funne av (\d+) \S+\.\*\*")
 
 IRI_TESTAR = re.compile(r"Testar (\d+) unike IRI-ar.*?frå \d+ skjema\.")
 IRI_ALL_OK = re.compile(r"Alle IRI-ar resolverte\.")
@@ -28,10 +28,10 @@ CN_FAILED = re.compile(r"\*\*(\d+) av (\d+) innhaldsforhandlingstestar feila\.\*
 
 # (etikett, rapportfil, parsefunksjon)
 CHECKS = [
-    ("Liknande klassenamn (same domene)", "similar-classes-domain-report.md", "similar"),
-    ("Liknande klassenamn (alle domene)", "similar-classes-all-report.md", "similar"),
-    ("Liknande slotnamn (same domene)", "similar-slots-domain-report.md", "similar"),
-    ("Liknande slotnamn (alle domene)", "similar-slots-all-report.md", "similar"),
+    ("Liknande klassenavn (same domene)", "similar-classes-domain-report.md", "similar"),
+    ("Liknande klassenavn (alle domene)", "similar-classes-all-report.md", "similar"),
+    ("Liknande slotnavn (same domene)", "similar-slots-domain-report.md", "similar"),
+    ("Liknande slotnavn (alle domene)", "similar-slots-all-report.md", "similar"),
     ("IRI-resolusjon", "iri-resolution-report.md", "iri"),
     ("Innhaldsforhandling", "iri-resolution-report.md", "content-negotiation"),
 ]

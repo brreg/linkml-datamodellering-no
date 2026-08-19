@@ -102,19 +102,8 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
 
    slotsnamn -> slotnavn
 
-Demo:  
-make check-prereqs
+kartlegg hvis vi har brukt PROFIL for å omtale validerings POLICY nokon plass.
 
-make new-modell DOMAIN=domene NAME=modellnavn
+*** make analyse-similar-slots-domain
 
-make validate SCHEMA=src/linkml/oreg/
-
-make analyse-similar-classes-domain DOMAIN=ap-no
-
-make analyse-similar-slots-domain DOMAIN=ap-no
-
-make gen-informasjonsmodell-instance SCHEMA=src/linkml/oreg/
-
-
-make new-begrepssamling DOMAIN=domene NAME=begrepssamling-navn
-
+  # Liknande slotsnamn (same domene, domene oreg, terskel 80%) 

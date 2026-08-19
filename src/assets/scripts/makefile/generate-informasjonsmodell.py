@@ -146,7 +146,6 @@ def discover_artifacts(schema_path: Path) -> List[str]:
         '*-schema.json',
         '*-ontology.ttl',
         '*-shapes.ttl',
-        '*.puml',
         '*-context.jsonld',
         '*.proto',
         '*.graphql',
@@ -156,6 +155,18 @@ def discover_artifacts(schema_path: Path) -> List[str]:
     for pattern in patterns:
         for file_path in generated_dir.glob(pattern):
             artifacts.append(base_url_generated + file_path.name)
+
+    # PlantUML-diagram vert skrivne til ein eigen diagrams/-underkatalog
+    # (batch-generate.py sin out_subdir="diagrams"), ikkje direkte i
+    # generated_dir — difor eiga handtering her i staden for berre
+    # '*.puml' i patterns-lista over, som aldri ville matcha noko.
+    # *-raw.puml er eit internt mellomsteg (filtrerast til *.puml/
+    # *-filtered.puml av filter_plantuml.py) og er difor ekskludert.
+    diagrams_dir = generated_dir / 'diagrams'
+    if diagrams_dir.exists():
+        for file_path in diagrams_dir.glob('*.puml'):
+            if not file_path.name.endswith('-raw.puml'):
+                artifacts.append(base_url_generated + f'diagrams/{file_path.name}')
 
     return sorted(artifacts)
 

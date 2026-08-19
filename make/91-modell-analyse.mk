@@ -1,7 +1,7 @@
 # ==============================================================================
 # make/91-modell-analyse.mk
 #
-# Analyse på tvers av skjema: liknande klasse-/slotnamn og IRI-resolusjon.
+# Analyse på tvers av skjema: liknande klasse-/slotnavn og IRI-resolusjon.
 # Brukt av .github/workflows/modell-analyse.yml (vekentleg, ikkje CI-
 # blokkerande — rapportane er informative, ikkje ein valideringspolicy).
 #
@@ -21,22 +21,22 @@ SIMILARITY_THRESHOLD ?= 0.8
         analyse-similar-slots-domain analyse-similar-slots-all \
         analyse-iri-resolution analyse-sammendrag
 
-analyse-similar-classes-domain: ## Finn klasser med liknande namn innanfor same domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
+analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind class --scope domain --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-similar-classes-all: ## Finn klasser med liknande namn på tvers av alle domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
+analyse-similar-classes-all: ## Finn klasser med liknande navn på tvers av alle domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-all) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind class --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-similar-slots-domain: ## Finn slots med liknande namn innanfor same domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
+analyse-similar-slots-domain: ## Finn slots med liknande navn innanfor same domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-slots-domain) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind slot --scope domain --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-similar-slots-all: ## Finn slots med liknande namn på tvers av alle domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
+analyse-similar-slots-all: ## Finn slots med liknande navn på tvers av alle domene [DOMAIN=<domene>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-slots-all) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind slot --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN))

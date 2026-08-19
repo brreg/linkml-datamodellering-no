@@ -1,0 +1,36 @@
+# Byggjesteg: hentar glow-binæren. curl/ca-certificates trengst berre her
+# — held dei ute av sluttbiletet (multi-stage) for å halde det mindre.
+FROM docker.io/library/ubuntu:22.04 AS glow-fetch
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+RUN curl -fsSL -o /tmp/glow.tar.gz \
+      https://github.com/charmbracelet/glow/releases/download/v3.0.0/glow_3.0.0_Linux_x86_64.tar.gz \
+    && tar -xzf /tmp/glow.tar.gz -C /tmp \
+    && chmod +x /tmp/glow_3.0.0_Linux_x86_64/glow
+
+FROM docker.io/library/ubuntu:22.04
+
+# C.UTF-8 er innebygd i glibc (krev ikkje "locales"-pakken/locale-gen).
+# Utan dette køyrer containeren i POSIX/C-locale, der verktøy som "boxes"
+# reknar breidd/padding byte-for-byte i staden for teikn-for-teikn — då
+# vert norske æøå (2-byte UTF-8-sekvensar) øydelagde eller borte.
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# figlet/toilet/cowsay/lolcat/boxes for terminalpynt i demo-scriptet —
+# reint valfritt "krydder", ikkje kjerne-genereringsverktøy (difor ikkje
+# registrert i src/assets/containers/images.json).
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    figlet toilet cowsay lolcat boxes \
+    && rm -rf /var/lib/apt/lists/*
+
+# cowsay og lolcat installerer til /usr/games/ (Debian/Ubuntu sin
+# "games"-FHS-konvensjon), som ikkje er i default $PATH i containeren.
+ENV PATH="/usr/games:${PATH}"
+
+# glow — rendrer markdown (t.d. tabellane frå analyse-similar-*-targeta)
+# pent i terminalen. Finst ikkje i Ubuntu sine apt-repo (stadfesta),
+# difor statisk binærfil frå GitHub Releases i staden (henta i
+# glow-fetch-steget over).
+COPY --from=glow-fetch /tmp/glow_3.0.0_Linux_x86_64/glow /usr/local/bin/glow

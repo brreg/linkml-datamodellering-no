@@ -1,0 +1,332 @@
+#!/usr/bin/env bash
+# Steg-for-steg demo-script for JavaZone-presentasjonen — sjå
+# specs/backlog/javazone-demo-plan.md for full kontekst og grunngjeving.
+#
+# Køyr FRÅ REPO-ROTA: bash src/assets/scripts/demo/javazone-demo-script.sh [DOMAIN=<domene>] [NAME=<navn>]
+#   Same ARG=verdi-stil som resten av repoet sine make-kommandoar.
+#   DOMAIN — default: oreg
+#   NAME   — default: javazonetalk
+# Kvart steg viser tittel + kommando, ventar på Enter, køyrer så kommandoen.
+# Steg utan kommando (steg 5) er reine pausar for live-redigering.
+#
+# Kommandolinjene er farga som i src/assets/scripts/makefile/help.sh:
+# CLR_STEP (cyan) for "make <target>", CLR_OK (grøn) for obligatoriske
+# argument, CLR_WARN (gul) for valfrie argument — same konvensjon som
+# "Konvensjon:"-linja i `make help`.
+#
+# Ikkje "set -e" — eit feila steg skal ikkje krasje heile demoen midt i
+# ein presentasjon; feilen vert vist, og du vel sjølv om du held fram.
+set -uo pipefail
+
+DOMAIN="oreg"
+NAME="javazonetalk"
+for arg in "$@"; do
+    case "$arg" in
+        DOMAIN=*) DOMAIN="${arg#DOMAIN=}" ;;
+        NAME=*) NAME="${arg#NAME=}" ;;
+        *)
+            echo "Feil: ukjent argument '$arg'." >&2
+            echo "Bruk: bash $0 [DOMAIN=<domene>] [NAME=<navn>]" >&2
+            exit 1
+            ;;
+    esac
+done
+SCHEMA="src/linkml/$DOMAIN/$NAME/$NAME-schema.yaml"
+
+CLR_STEP=$'\033[0;36m'
+CLR_OK=$'\033[0;32m'
+CLR_WARN=$'\033[0;33m'
+CLR_DBG=$'\033[2m'
+CLR_ERR=$'\033[0;31m'
+CLR_RST=$'\033[0m'
+
+if [ ! -f Makefile ]; then
+    echo "Feil: køyr dette scriptet frå repo-rota (der Makefile ligg)." >&2
+    exit 1
+fi
+
+# Repeterte øvingskøyringar med same DOMAIN/NAME feilar elles i steg 3
+# (new-modell) med "katalogen finst allereie") dersom du ikkje svarte
+# "j" på oppryddingsspørsmålet sist gong.
+if [ -d "src/linkml/$DOMAIN/$NAME" ]; then
+    echo "${CLR_WARN}src/linkml/$DOMAIN/$NAME finst frå ei tidlegare køyring.${CLR_RST}"
+    read -rp "Fjerne han før demoen startar? (j/N) " svar
+    if [[ "$svar" =~ ^[jJ]$ ]]; then
+        rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
+        make update-valid-scopes
+        echo "Rydda opp."
+    fi
+fi
+
+# Terminalpynt (figlet/toilet/cowsay/lolcat/boxes) — containerisert, ikkje
+# installert lokalt. Byggjer biletet lat, berre viss det manglar (same
+# mønster som resten av repoet sine make-target). Krev nettverk fyrste
+# gong (sjå offline-sjekklista i specs/backlog/javazone-demo-plan.md).
+FUN_IMAGE="localhost/demo-fun-tools"
+FUN_DOCKERFILE="$(dirname "$0")/Dockerfile.fun-tools"
+if ! podman image exists "$FUN_IMAGE" 2>/dev/null; then
+    echo "${CLR_DBG}Byggjer ${FUN_IMAGE} (figlet/toilet/cowsay/lolcat/boxes) — berre fyrste gong …${CLR_RST}"
+    podman build --format docker -f "$FUN_DOCKERFILE" -t "$FUN_IMAGE" "$(dirname "$FUN_DOCKERFILE")" \
+        || echo "${CLR_WARN}Klarte ikkje byggje ${FUN_IMAGE} — held fram utan terminalpynt.${CLR_RST}"
+fi
+fun() { podman run --rm -i "$FUN_IMAGE" "$@" 2>/dev/null; }
+
+# fun_width GOLV — breidd til figlet/glow -w. Aldri smalare enn GOLV,
+# sjølv om terminalen er smalare (elles bryt figlet-bannerteksten og
+# analyse-tabellane stygt midt i linja). Breiare dersom terminalen
+# faktisk er breiare enn GOLV (t.d. på storskjerm under demoen).
+fun_width() {
+    local floor="$1" cols
+    cols="$(tput cols 2>/dev/null || echo "$floor")"
+    if [ "$cols" -lt "$floor" ]; then
+        echo "$floor"
+    else
+        echo "$cols"
+    fi
+}
+
+# run_help — pipar make help gjennom less -R (-R for å tolke fargekodane
+# til help.sh i staden for å vise dei som rå escape-sekvensar, i motsetnad
+# til "more"). -F: hopp over pageringa heilt viss output alt er kort nok
+# til å få plass på éin skjerm. -X: ikkje tøm skjermen ved avslutning, så
+# du framleis ser output etter at less lukkar. Elles ventar less på 'q'
+# ved "(END)" — det er ikkje eit heng, berre less sin normale
+# avslutningsmekanisme, difor hintet under.
+# Eigen funksjon av same grunn som run_analyse_*: step() sin
+# eksekveringsmodell er direkte argv, ikkje shell-pipe.
+run_help() {
+    echo "${CLR_DBG}(trykk 'q' for å lukke less og halde fram i scriptet)${CLR_RST}"
+    make help | less -R -F -X
+}
+
+# run_validate — same less-pipe-mønster som run_help, for mcp-linkml-
+# valider-modell sitt (potensielt lange) valideringsresultat.
+run_validate() {
+    echo "${CLR_DBG}(trykk 'q' for å lukke less og halde fram i scriptet)${CLR_RST}"
+    make mcp-linkml-valider-modell SCHEMA="$SCHEMA" | less -R -F -X
+}
+
+# Pipar analyse-*-targeta sin markdown-tabell gjennom glow for pen
+# rendering — eigne funksjonar sidan step() sin eksekveringsmodell er
+# direkte argv (ikkje shell-pipe). Fell tilbake til rå make-output dersom
+# demo-fun-tools-biletet ikkje finst, slik at analyseresultatet aldri går
+# tapt berre fordi pynt-biletet manglar.
+run_analyse_classes() {
+    if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+        make analyse-similar-classes-domain DOMAIN="$DOMAIN" | fun glow -w "$(fun_width 140)" -
+    else
+        make analyse-similar-classes-domain DOMAIN="$DOMAIN"
+    fi
+}
+run_analyse_slots() {
+    if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+        make analyse-similar-slots-domain DOMAIN="$DOMAIN" | fun glow -w "$(fun_width 140)" -
+    else
+        make analyse-similar-slots-domain DOMAIN="$DOMAIN"
+    fi
+}
+
+# NB: figlet -w må ALDRI setjast breiare enn den faktiske terminalbreidda
+# (i motsetnad til glow-tabellane). Figlet-bokstavar er fleire linjer
+# høge — bryt den ekte terminalen ei figlet-linje midt i eit teikn (fordi
+# -w var breiare enn terminalen), vert det avbrotne stykket vist som om
+# det var neste rad, og bokstavane frå ulike rader flettar seg saman til
+# uleseleg rot. Difor "small"-fonten her (smalare per teikn) + rein
+# tput cols (aldri kunstig breiare), ikkje fun_width sitt golv.
+if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+    fun figlet -w "$(tput cols 2>/dev/null || echo 100)" "LinkML-datamodellering-no Demo" | fun lolcat -f
+fi
+
+echo "${CLR_DBG}DOMAIN=${DOMAIN} NAME=${NAME}${CLR_RST}"
+if [ "$DOMAIN" != "oreg" ] || [ "$NAME" != "javazonetalk" ]; then
+    echo "${CLR_WARN}Merk: demoen er verifisert med DOMAIN=oreg NAME=javazonetalk."
+    echo "Med andre verdiar — spesielt tipset i steg 5 om å bruke klassenavnet"
+    echo "'Aktivitet' — er det ikkje sikkert du får eit like tydeleg treff i"
+    echo "steg 7/8, sidan det tipset er tunt til at 'Aktivitet' alt finst i"
+    echo "oreg-domenet. Vurder eit anna navn som alt finst i ditt valde domene"
+    echo "(sjå 'make analyse-similar-classes-domain DOMAIN=${DOMAIN}' på"
+    echo "førehand for å finne eit godt kandidatnavn).${CLR_RST}"
+fi
+
+# print_heading VERKTOY TITTEL
+# Køyrer overskrifta gjennom eit valt "fun"-verktøy (til utprøving/pynt).
+# Fell tilbake til den vanlege farga overskrifta berre dersom
+# demo-fun-tools-biletet manglar — elles vert overskrifta vist éin gong,
+# ikkje dobbelt.
+# toilet: ingen -f (fontnavn) — apt-pakken "toilet" åleine har berre den
+# innebygde standardfonten, ekstra .tlf-fontar krev pakken "toilet-fonts"
+# som ikkje er installert. Eit ugyldig fontnavn feilar ikkje synleg (toilet
+# fell tilbake til degradert output), og feilen vert i tillegg svelgd av
+# fun() sin 2>/dev/null.
+print_heading() {
+    local tool="$1" title="$2"
+    echo ""
+    if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+        case "$tool" in
+            figlet) fun figlet "$title" ;;
+            toilet) fun toilet "$title" ;;
+            cowsay) echo "$title" | fun cowsay ;;
+            boxes)  echo "$title" | fun boxes ;;
+            lolcat) echo "$title" | fun lolcat -f ;;
+        esac
+    else
+        echo "${CLR_STEP}=== ${title} ===${CLR_RST}"
+    fi
+}
+
+# Demo-klokka startar her (ikkje ved scriptstart) — biletbygginga over
+# skjer normalt berre éin gong, utanfor sjølve presentasjonen, og skal
+# difor ikkje telje med i dei 10 minutta.
+DEMO_START=$(date +%s)
+
+# elapsed — MM:SS sidan DEMO_START, vist i kvart "Trykk Enter"-prompt
+# slik at du kan halde deg innanfor dei 10 minutta du har til demoen.
+elapsed() {
+    local diff=$(( $(date +%s) - DEMO_START ))
+    printf '%02d:%02d' "$(( diff / 60 ))" "$(( diff % 60 ))"
+}
+
+# prompt_enter [MELDING] — same "Trykk Enter"-prompt som før, med
+# elapsed-tid som prefiks.
+prompt_enter() {
+    read -rp "${CLR_DBG}[$(elapsed)]${CLR_RST} ${1:-Trykk Enter for å halde fram … }"
+}
+
+# step VERKTOY TITTEL FARGA-KOMMANDOLINJE [KOMMANDO ...]
+# FARGA-KOMMANDOLINJE er ferdig-farga tekst til vising (kan vere tom
+# streng), KOMMANDO er den faktiske argv-lista som vert køyrd.
+step() {
+    local tool="$1" title="$2" display="$3"
+    shift 3
+    print_heading "$tool" "$title"
+    if [ -n "$display" ]; then
+        echo ""
+        echo "\$ ${display}"
+    fi
+    prompt_enter
+    if [ "$#" -gt 0 ]; then
+        "$@" || echo "${CLR_ERR}(steget feila — sjå output over, avgjer sjølv om du held fram)${CLR_RST}"
+    fi
+}
+
+step boxes "1. Sjå tilgjengelege kommandoar" \
+    "${CLR_STEP}make help${CLR_RST} | less -R" \
+    run_help
+
+step boxes "2. Sjekk at miljøet er klart" \
+    "${CLR_STEP}make check-prereqs${CLR_RST}" \
+    make check-prereqs
+
+step boxes "3. Opprett ein ny, tom modell" \
+    "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST}" \
+    make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
+
+step boxes "4. Lint skjemaet" \
+    "${CLR_STEP}make lint${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    make lint SCHEMA="$SCHEMA"
+
+print_heading boxes "5. LIVE-REDIGERING"
+cat <<EOF
+
+Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — tre klasser,
+knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
+
+  Aktivitet:
+    description: Eit foredrag på ein konferanse.
+    class_uri: ${NAME}:Aktivitet
+    slots:
+    - id
+    - tittel
+    - foredragsholder_ref
+    - konferanse_ref
+
+  Foredragsholder:
+    description: Ein person som held eit foredrag.
+    class_uri: ${NAME}:Foredragsholder
+    slots:
+    - id
+    - navn
+    - organisasjon
+
+  Konferanse:
+    description: Konferansen ein aktivitet høyrer til.
+    class_uri: ${NAME}:Konferanse
+    slots:
+    - id
+    - tittel
+    - sted
+
+EOF
+
+prompt_enter
+
+cat <<EOF
+Lim inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
+common-ap-no-importen — dei fem andre er nye):
+
+  foredragsholder_ref:
+    description: Referanse til foredragshaldaren for aktiviteten.
+    range: Foredragsholder
+
+  konferanse_ref:
+    description: Referanse til konferansen aktiviteten høyrer til.
+    range: Konferanse
+
+  navn:
+    description: Navnet på foredragshaldaren.
+    range: string
+
+  organisasjon:
+    description: Organisasjonen foredragshaldaren representerer.
+    range: string
+
+  sted:
+    description: Staden konferansen vert halden.
+    range: string
+
+EOF
+read -rp "Trykk Enter når du er ferdig … "
+
+step boxes "6. Valider skjemaet" \
+    "${CLR_STEP}make mcp-linkml-valider-modell${CLR_RST} ${CLR_OK}SCHEMA=${SCHEMA}${CLR_RST} | less -R" \
+    run_validate
+
+step boxes "7. Finn liknande klassenavn på tvers av domenet" \
+    "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST}" \
+    run_analyse_classes
+
+step boxes "8. Finn liknande slotnavn på tvers av domenet" \
+    "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST}" \
+    run_analyse_slots
+
+step boxes "9. Generer JSON Schema frå den redigerte modellen" \
+    "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    make gen-jsonschema SCHEMA="$SCHEMA"
+
+step boxes "10. Generer PlantUML-diagram" \
+    "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    make gen-plantuml SCHEMA="$SCHEMA"
+
+step boxes "11. Generer ModelDCAT-metadata (finnes_i_format er no fylt ut)" \
+    "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
+
+#read -rp "Trykk Enter når du er ferdig … "
+
+echo ""
+#echo "${CLR_STEP}Demo ferdig.${CLR_RST}"
+if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+    fun figlet -w "$(tput cols 2>/dev/null || echo 100)" "LinkML-datamodellering-no Demo" | fun lolcat -f
+fi
+if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+    printf 'https://brreg.github.io/linkml-datamodellering-no/' \
+        | fun cowsay -n
+fi
+echo ""
+echo ""
+read -rp "Vil du rydde demofilene? (j/N) " svar
+ if [[ "$svar" =~ ^[jJ]$ ]]; then
+    rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
+    make update-valid-scopes
+     echo "Rydda opp."
+ fi

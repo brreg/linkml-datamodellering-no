@@ -1,5 +1,13 @@
-# Use the recommended rule set except for the standard_naming rule
+# Use the recommended rule set except for the standard_naming and
+# canonical_prefixes rules.
 extends: recommended
 rules:
   standard_naming:
+    level: disabled
+  # canonical_prefixes vil ha "dcterms" i staden for "dct" (og liknande
+  # for andre standardprefiks). CLAUDE.md sitt Standardprefiks-avsnitt
+  # mandaterer eksplisitt dct:/foaf:/skos:/vcard:/rdf:/rdfs:/owl:/xsd:/
+  # prov:/linkml: for heile repoet — brukt i 8 av 10 ap-no-skjema. Utan
+  # denne disablinga feilar `make lint` på nesten alle skjema i repoet.
+  canonical_prefixes:
     level: disabled

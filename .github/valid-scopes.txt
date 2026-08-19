@@ -15,6 +15,7 @@ fint-okonomi
 fint-personvern
 fint-ressurs
 fint-utdanning
+javazonetalk
 kartverket-modellkatalog
 ksdigital-modellkatalog
 lunchregisteret
