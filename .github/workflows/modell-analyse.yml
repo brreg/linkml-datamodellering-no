@@ -170,7 +170,7 @@ jobs:
         run: make build-docker-python
 
       - name: Last ned alle rapportar
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: "*-report"
           merge-multiple: true
