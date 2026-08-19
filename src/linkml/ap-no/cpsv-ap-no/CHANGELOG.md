@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.11.0...cpsv-ap-no-v2.0.0) (2026-08-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cpsv-ap-no:** slot "foretrekt_namn" er endra til "foretrekt_navn".
+
+### Bug Fixes
+
+* **ap-no,fint,fair,begrepskatalog:** sett status til UnderDevelopment i alle skjema ([2c6215e](https://github.com/brreg/linkml-datamodellering-no/commit/2c6215eac75b1e247f5f10ec355fe9b504c382af))
+* **cpsv-ap-no:** rett namn-slot til navn (bokmål-konvensjon) ([7dfe101](https://github.com/brreg/linkml-datamodellering-no/commit/7dfe10168a569c158143ac79cc00a5c6b35279cd))
+
 ## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/cpsv-ap-no-v1.10.1...cpsv-ap-no-v1.11.0) (2026-08-14)
 
 

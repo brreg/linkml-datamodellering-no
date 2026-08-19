@@ -4,7 +4,7 @@ title: Kartverket - Modellkatalog
 description: >-
   Modellkatalog for Kartverket sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
-version: "1.0.0"
+version: "1.1.0"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:

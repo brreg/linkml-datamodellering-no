@@ -3,7 +3,7 @@
 
 id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
-version: "1.7.0"
+version: "1.7.1"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom
@@ -11,7 +11,7 @@ title: Nasjonale grunndata - Eiendom
 description: Fast eigedom, matrikkeleining og bygning
 annotations:
   utgiver: https://data.norge.no/organizations/971040238
-  endringsdato: "2026-08-14"
+  endringsdato: "2026-08-17"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:

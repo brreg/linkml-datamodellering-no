@@ -1,13 +1,13 @@
 id: https://data.norge.no/ap-no/common-ap-no
 name: common-ap-no
 title: Common AP-NO
-version: "1.0.0"
+version: "1.1.0"
 license: https://data.norge.no/nlod/no/2.0
 description: Felles slot-definisjonar for alle AP-NO-profilar
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
-  endringsdato: "2026-06-10"
+  endringsdato: "2026-08-17"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
 

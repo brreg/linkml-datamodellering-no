@@ -21,7 +21,7 @@ title: Referansemodell - gullnivå
 description: >-
   Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss
   FAIR-metadata (title, version, prefiks, lisens, proveniens).
-version: "1.0.0"
+version: "2.0.0"
 
 imports:
   - linkml:types

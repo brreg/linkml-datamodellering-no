@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.6.1](https://github.com/brreg/linkml-datamodellering-no/compare/fint-administrasjon-v4.6.0...fint-administrasjon-v4.6.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* **ap-no,fint,fair,begrepskatalog:** sett status til UnderDevelopment i alle skjema ([2c6215e](https://github.com/brreg/linkml-datamodellering-no/commit/2c6215eac75b1e247f5f10ec355fe9b504c382af))
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [4.6.0](https://github.com/brreg/linkml-datamodellering-no/compare/fint-administrasjon-v4.5.1...fint-administrasjon-v4.6.0) (2026-08-14)
 
 

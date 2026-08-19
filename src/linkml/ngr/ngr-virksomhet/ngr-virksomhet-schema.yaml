@@ -3,7 +3,7 @@
 
 id: https://data.norge.no/ngr/ngr-virksomhet
 name: ngr-virksomhet
-version: "1.7.0"
+version: "1.7.1"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet
@@ -11,7 +11,7 @@ title: Nasjonale grunndata - Virksomhet
 description: Verksemder, roller og organisasjonsstruktur
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: "2026-08-14"
+  endringsdato: "2026-08-17"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:

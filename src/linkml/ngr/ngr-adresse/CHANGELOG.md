@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-adresse-v1.7.0...ngr-adresse-v2.0.0) (2026-08-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ngr-adresse:** slot "namn" er endra til "navn", slot_uri ngr:namn -> ngr:navn.
+
+### Bug Fixes
+
+* **ngr-adresse:** rett namn-slot til navn (bokmål-konvensjon) ([ca1b6e8](https://github.com/brreg/linkml-datamodellering-no/commit/ca1b6e8c06cdba1236a67ec44db244abf66704bd))
+* **scaffolding:** kollisjonsfri kontaktinformasjon-slot + dynamisk dcat-ap-no-versjon i new-modell ([f291dac](https://github.com/brreg/linkml-datamodellering-no/commit/f291dacd1ce17bffc8327cfabd571e3d3845af83))
+
 ## [1.7.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-adresse-v1.6.0...ngr-adresse-v1.7.0) (2026-08-14)
 
 

@@ -6,7 +6,7 @@ id: https://data.norge.no/oreg/lunchregisteret
 name: lunchregisteret
 title: 'TODO: tittel for lunchregisteret'
 description: Generert modell for 'lunchregisteret'.
-version: 0.1.0
+version: "0.1.1"
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
