@@ -18,7 +18,15 @@ max_cache_age = "1d"
 # (spesielt specs/done/) skal stå urørte (CLAUDE.md) og inneheld difor
 # naturleg utdaterte lenkjer som ikkje skal rettast der — sjå
 # specs/done/lenkjesjekk-3817-feil-evaluering.md.
-exclude_path = ["generated", "mkdocs/site", "mkdocs/node_modules", "specs"]
+# description.md (src/linkml/<domain>/<schema>/description.md) er
+# portaltekst som mkdocs/lib/sections/om_denne_modellen.sh skriv rått inn i
+# den genererte mkdocs/docs/<domain>/<schema>/index.md — relative lenkjer
+# til syskenskjema (t.d. ../dqv-core/index.md) er difor skrivne rette for
+# den bygde portal-plasseringa, ikkje for kjeldefila sin eigen katalog. Same
+# lenkjetekst vert framleis validert korrekt via den bygde
+# mkdocs/docs/**-kopien (ikkje ekskludert). Sjå
+# specs/done/lenkjesjekk-description-md-sysken-lenkjer.md.
+exclude_path = ["generated", "mkdocs/site", "mkdocs/node_modules", "specs", "description.md"]
 
 # Godta redirect- og informasjonskodar i tillegg til 2xx
 accept = ["100..=103", "200..=299", "300..=399"]

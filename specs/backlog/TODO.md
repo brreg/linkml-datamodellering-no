@@ -96,7 +96,7 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
 
 
 
-   gjer ein analyse av all kildekode og identifiser bruk av inlining. Kom med forslag til konvensjon rundt inlining og forslag til korleis vi kan unngå inlining der det går utotver lesbarhet, testbarhet, logging (feilsluking) eller gjenbrukbarhet.
+   gjer ein analyse av all kildekode (ikkje modeller) og identifiser bruk av inline-python, inline-shell og inline-json. Kom med forslag til konvensjon rundt inlining i kildekoden og forslag til korleis vi kan unngå inlining der det går utotver lesbarhet, testbarhet, logging (feilsluking) eller gjenbrukbarhet.
 
    gjer ein analyse av all kildekode og identifiser avvikshandtering som følge av avvik frå etablerte prinsipper. Evaluer om vi kan fjærne avvikshandteringa for å følge etablerte prinsipper meir konsistent.
 
