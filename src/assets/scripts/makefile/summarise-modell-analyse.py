@@ -20,8 +20,8 @@ SIMILAR_ZERO = re.compile(r"Ingen \S+ over terskelen vart funne \((\d+) \S+ sjek
 SIMILAR_FOUND = re.compile(r"\*\*Totalt: (\d+) par funne av (\d+) \S+\.\*\*")
 
 IRI_TESTAR = re.compile(r"Testar (\d+) unike IRI-ar.*?frå \d+ skjema\.")
-IRI_ALL_OK = re.compile(r"Alle IRI-ar resolverte\.")
-IRI_FAILED = re.compile(r"\*\*(\d+) av (\d+) IRI-ar resolverte ikkje\.\*\*")
+IRI_ALL_OK = re.compile(r"Alle IRI-ar let seg derefere\.")
+IRI_FAILED = re.compile(r"\*\*(\d+) av (\d+) IRI-ar let seg ikkje derefere\.\*\*")
 
 CN_ALL_OK = re.compile(r"Alle (\d+) innhaldsforhandlingstestar bestod\.")
 CN_FAILED = re.compile(r"\*\*(\d+) av (\d+) innhaldsforhandlingstestar feila\.\*\*")
@@ -32,7 +32,7 @@ CHECKS = [
     ("Liknande klassenavn (alle domene)", "similar-classes-all-report.md", "similar"),
     ("Liknande slotnavn (same domene)", "similar-slots-domain-report.md", "similar"),
     ("Liknande slotnavn (alle domene)", "similar-slots-all-report.md", "similar"),
-    ("IRI-resolusjon", "iri-resolution-report.md", "iri"),
+    ("IRI-dereferering", "iri-resolution-report.md", "iri"),
     ("Innhaldsforhandling", "iri-resolution-report.md", "content-negotiation"),
 ]
 

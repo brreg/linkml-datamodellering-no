@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Testar HTTP-resolusjon for IRI-ane i kvart skjema sitt id, default_prefix og
-prefixes-blokk. Loggar IRI-ar som ikkje resolverer saman med kva skjema som
-refererer dei. Testar i tillegg innhaldsforhandling (content negotiation) for
-IRI-ar repoet sjølv eig (id/default_prefix): om Accept: text/turtle gir RDF
-Turtle, og om Accept-Language: nb/en gir høvesvis norsk bokmål- og engelsk
+Testar IRI-dereferering (IRI resolution) for IRI-ane i kvart skjema sitt id,
+default_prefix og prefixes-blokk. Loggar IRI-ar som ikkje let seg derefere
+saman med kva skjema som refererer dei. Testar i tillegg innhaldsforhandling
+(content negotiation) for IRI-ar repoet sjølv eig (id/default_prefix): om
+Accept: text/turtle gir RDF Turtle, og om Accept-Language: nb/en gir
+høvesvis norsk bokmål- og engelsk
 representasjon (jf. avvik 4 i
 specs/backlog/avvik-peikarar-til-offentlege-ressursar.md). Feilar aldri
 (informativ rapport, ikkje blokkerande sjekk) — sjå
@@ -35,14 +36,14 @@ SCHEMA_DIR = Path("src/linkml")
 TIMEOUT = 10
 USER_AGENT = "linkml-datamodellering-no-iri-check/1.0"
 
-# IRI-mønster som er stadfesta, avgjorde tilfelle av ikkje-resolvbare
+# IRI-mønster som er stadfesta, avgjorde tilfelle av ikkje-dereferbare
 # identifikator-URI-ar — same mønster og grunngjeving som dei tilsvarande
 # .github/lychee.toml-eksklusjonane, delt her for å unngå at denne rapporten
 # re-flaggar spørsmål som alt er granska og avslutta:
 # - schema.fintlabs.no: portvakt-verna FINT-API-namnerom, aldri offentleg
 #   tilgjengeleg (specs/done/lenkjesjekk-fint-schema-fintlabs-no.md)
 # - data.norge.no/vocabulary/ngr-*: NGR-vokabularnamnerom, stadfesta at det
-#   ikkje er meint å vere resolvbart (specs/done/lenkjesjekk-ngr-vocabulary-namespace.md)
+#   ikkje er meint å vere dereferbart (specs/done/lenkjesjekk-ngr-vocabulary-namespace.md)
 # - example.org/*.example.org: RFC 2606-plasshaldardomene brukt medvite i
 #   referansemodellar og malskjema (specs/done/lenkje-og-mermaid-sjekk.md)
 KNOWN_UNRESOLVABLE_PATTERNS = [
@@ -158,11 +159,11 @@ def print_resolution_report(schemas: list[Path], schema_data: dict[Path, dict]) 
     testable = {iri: refs for iri, refs in referrers.items() if not is_known_unresolvable(iri)}
     skipped = len(referrers) - len(testable)
 
-    print("# IRI-resolusjonssjekk\n")
+    print("# IRI-dereferering (IRI resolution)\n")
     print(f"Testar {len(testable)} unike IRI-ar (id/default_prefix/prefixes) frå {len(schemas)} skjema.")
     if skipped:
         print(
-            f"({skipped} kjende, ikkje-resolvbare identifikator-URI-ar utelatne — "
+            f"({skipped} kjende, ikkje-dereferbare identifikator-URI-ar utelatne — "
             "sjå KNOWN_UNRESOLVABLE_PATTERNS i check-iri-resolution.py.)"
         )
     print()
@@ -174,7 +175,7 @@ def print_resolution_report(schemas: list[Path], schema_data: dict[Path, dict]) 
             failures.append((iri, detail))
 
     if not failures:
-        print("Alle IRI-ar resolverte.\n")
+        print("Alle IRI-ar let seg derefere.\n")
         return
 
     print("| IRI | Feil | Referert av |")
@@ -183,7 +184,7 @@ def print_resolution_report(schemas: list[Path], schema_data: dict[Path, dict]) 
         schemas_str = ", ".join(sorted(set(testable[iri])))
         print(f"| {iri} | {detail} | {schemas_str} |")
 
-    print(f"\n**{len(failures)} av {len(testable)} IRI-ar resolverte ikkje.**\n")
+    print(f"\n**{len(failures)} av {len(testable)} IRI-ar let seg ikkje derefere.**\n")
 
 
 def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path, dict]) -> None:

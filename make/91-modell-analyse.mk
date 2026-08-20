@@ -1,7 +1,8 @@
 # ==============================================================================
 # make/91-modell-analyse.mk
 #
-# Analyse på tvers av skjema: liknande klasse-/slotnavn og IRI-resolusjon.
+# Analyse på tvers av skjema: liknande klasse-/slotnavn og
+# IRI-dereferering (IRI resolution).
 # Brukt av .github/workflows/modell-analyse.yml (vekentleg, ikkje CI-
 # blokkerande — rapportane er informative, ikkje ein valideringspolicy).
 #
@@ -41,7 +42,7 @@ analyse-similar-slots-all: ## Finn slots med liknande navn på tvers av alle dom
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind slot --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(NAME),--name $(NAME))
 
-analyse-iri-resolution: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema resolverer over HTTP(S) [DOMAIN=<domene>]
+analyse-iri-resolution: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema let seg derefere over HTTP(S) [DOMAIN=<domene>]
 	$(call print_header,analyse-iri-resolution) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py $(if $(DOMAIN),--domain $(DOMAIN))
 

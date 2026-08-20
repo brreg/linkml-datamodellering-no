@@ -1,7 +1,7 @@
 name: Modell-analyse
 
 # Informative rapportar på tvers av alle skjema: liknande klasse-/slotnamn
-# og IRI-resolusjon. Feilar aldri CI — rapportane er innspel til manuell
+# og IRI-dereferering (IRI resolution). Feilar aldri CI — rapportane er innspel til manuell
 # gjennomgang, ikkje ein valideringspolicy. Sjå COMMANDS.md § Modell-analyse
 # for dei underliggande make-targeta.
 
@@ -134,12 +134,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Test IRI-resolusjon
+      - name: Test IRI-dereferering (IRI resolution)
         run: |
           set -uo pipefail
           make analyse-iri-resolution > iri-resolution-report.md
           {
-            echo "## IRI-resolusjonssjekk"
+            echo "## IRI-dereferering (IRI resolution)"
             cat iri-resolution-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
