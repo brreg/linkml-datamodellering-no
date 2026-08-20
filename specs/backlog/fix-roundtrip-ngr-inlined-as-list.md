@@ -35,49 +35,51 @@ er ein feil i `linkml-runtime`-biblioteket der loader ikkje handterer
 
 ## Status for upstream-fix
 
-Dette er eit kjend `linkml-runtime`-bug. Ei mogleg
-løysing frå vår side er å fjerne `inlined: true` / `inlined_as_list: true`
-frå container-attributtane og berre bruke URI-referansar. Men det vil endre
-serialiseringsformatet — container vil då berre innehalde ei liste av URI-ar,
-ikkje fulle objekt — og er ei semantic/design-endring som krev avklaring.
+Dette er eit kjend `linkml-runtime`-bug.
+
+**Avgjerd (2026-08-20, jf. `specs/done/inlining-konvensjon.md` R5):**
+containerklassen (`tree_root: true`) sitt bruk av `inlined`/`inlined_as_list`
+på attributta sine er ein **ufravikeleg regel** — containerattributt skal
+alltid inline sine attributt, uavhengig av om range-klassen har
+`identifier: true`. Containerklassen sitt føremål er nettopp å vere eit
+sjølvstendig, komplett eksportdokument, og det gjeld også for NGR. **Alternativ A
+er difor avvist:** container-attributtane i `ngr-adresse-schema.yaml`,
+`ngr-eiendom-schema.yaml` og `ngr-virksomhet-schema.yaml` skal **ikkje**
+endrast til URI-lister. **Alternativ B** (vente på ein upstream-fix i
+`linkml-runtime`) er den standande, endelege løysinga.
 
 ## Alternativ
 
-### Alternativ A: Endre container til URI-lister (anbefalt om riktig for domenet)
+### Alternativ A: Endre container til URI-lister — AVVIST
 
 ```yaml
-# Før
-offisielle_adresser:
-  range: OffisiellAdresse
-  multivalued: true
-  inlined: true
-  inlined_as_list: true
-
-# Etter
+# Vurdert, men avvist:
 offisielle_adresser:
   range: OffisiellAdresse
   multivalued: true
   # inlined: false er default når range har identifier: true
 ```
 
-Dette gjer at datafila kun inneheld URI-referansar på container-nivå, og
-kvar `OffisiellAdresse` vert eige objekt med eigen URI.
+Dette vart vurdert fordi det ville løyst BUG-2 direkte, men bryt regelen om
+at containerattributt alltid skal inline sine attributt (sjå
+`specs/done/inlining-konvensjon.md` R5). Container ville då berre
+innehalde URI-referansar, ikkje eit sjølvstendig, komplett eksportdokument —
+det motseier heile føremålet med `tree_root`-containerklassen.
 
-### Alternativ B: Vent på upstream-fix i linkml-runtime
+### Alternativ B: Vent på upstream-fix i linkml-runtime — VALT LØYSING
 
-Hald skip-betingelsen i `test_roundtrip_ttl` inntil linkml-runtime
-fiksar `rdflib_loader` for `inlined_as_list`-tilfeller.
+Hald skip-betingelsen i `test_roundtrip_ttl`/`test_convert_rdf` inntil
+linkml-runtime fiksar `rdflib_loader` for `inlined_as_list`-tilfeller med
+`identifier: true`. Tapet av roundtrip-testdekning for `ngr-adresse`,
+`ngr-eiendom` og `ngr-virksomhet` er akseptert som ein kjend, permanent
+grense i verktøykjeda inntil då.
 
 ## Prioritert tiltaksliste
 
-| # | Tiltak | Prioritet |
-|---|---|---|
-| 1 | Avklar med domeneeier om container-attributtar for NGR bør bruke URI-referansar eller fulle inline-objekt | Høg |
-| 2a | (Alt A) Fjern `inlined: true` og `inlined_as_list: true` frå alle container-attributtar i `ngr-adresse-schema.yaml`, `ngr-eiendom-schema.yaml`, `ngr-virksomhet-schema.yaml` | Medium |
-| 2b | (Alt A) Oppdater eksempeldatafilene tilsvarande | Medium |
-| 3 | (Alt A) Køyr `make test` og verifiser `roundtrip-ttl` passerer | Medium |
-| 4 | (Alt A) Fjern ngr-skjemaa frå skip-lista i `test_roundtrip_ttl` og `test_convert_rdf` | Medium |
-| 5 | (Alt B) Overvak linkml-runtime-issue og implementer fix når biblioteket er oppdatert | Lav |
+| # | Tiltak | Prioritet | Status |
+|---|---|---|---|
+| 1 | Overvak linkml-runtime-issue og implementer fix når biblioteket er oppdatert | Lav | Open |
+| 2 | Behald skip-betingelsane i `test_roundtrip_ttl`/`test_convert_rdf` og referansen til `bugs/inlined-as-list-rdflib-roundtrip.md` uendra | — | Utført (ingen kodeendring nødvendig — dette var alt gjeldande tilstand) |
 
 ## Referanse
 

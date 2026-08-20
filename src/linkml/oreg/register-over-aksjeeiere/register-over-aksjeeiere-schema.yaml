@@ -243,23 +243,18 @@ slots:
   navn:
     description: Navn på instansen.
     range: string
-    inlined: true
   beskrivelse:
     description: Tekstleg forklaring av instansen.
     range: string
-    inlined: true
   antall:
     description: Numerisk verdi.
     range: integer
-    inlined: true
   belop:
     description: Monetært beløp.
     range: decimal
-    inlined: true
   dato:
     description: Kalenderdato.
     range: date
-    inlined: true
   har_aksjekapital:
     description: Aksjekapital som høyrer til selskapet.
     domain: Aksjeselskap
@@ -267,7 +262,6 @@ slots:
   har_antall_aksjer:
     description: Tal aksjar.
     range: integer
-    inlined: true
   utsteder_aksje:
     description: Aksje utstedt av selskapet
     domain: Aksjeselskap
@@ -276,7 +270,6 @@ slots:
     description: Pålydande verdi for aksja.
     domain: Aksje
     range: decimal
-    inlined: true
   tilhorer_aksjeklasse:
     description: Klassen aksja høyrer til.
     domain: Aksje
@@ -307,7 +300,6 @@ slots:
   tidspunkt:
     description: Tidspunkt for utbytte/eierskapstransaksjon.
     range: date
-    inlined: true
   kan_vaere_aksjeoverdragelse:
     description: Aksjeoverdraging i transaksjonen.
     domain: Eierskapstransaksjon

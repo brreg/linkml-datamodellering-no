@@ -288,6 +288,38 @@ def _check_all_classes_have_identifier(sv, schema, config, issues):
             ))
 
 
+def _check_no_inlined_on_primitive_range(sv, schema, config, issues):
+    """`inlined`/`inlined_as_list` har berre effekt når `range` er ein klasse.
+    Sett på ein primitiv/type-range (string, integer, LangString osv.) vert
+    nøkkelen stille ignorert av alle generatorane — daud konfigurasjon som
+    ser ut som han gjer noko, men ikkje gjer det."""
+    code = "no_inlined_on_primitive_range"
+
+    def _check(inlined, inlined_as_list, range_name, target):
+        if not (inlined or inlined_as_list) or not range_name:
+            return
+        if sv.get_class(range_name) is not None:
+            return
+        issues.append(issue(
+            config["severity"], code, target,
+            f"'{target}' har inlined/inlined_as_list sett, men range '{range_name}' "
+            "er ikkje ein klasse — nøkkelen har ingen effekt",
+        ))
+
+    for sname, slot in (schema.slots or {}).items():
+        _check(slot.inlined, slot.inlined_as_list, slot.range, f"slot:{sname}")
+
+    for cname, cls in (schema.classes or {}).items():
+        for aname, attr in (cls.attributes or {}).items():
+            _check(attr.inlined, attr.inlined_as_list, attr.range,
+                   f"class:{cname} → attribute:{aname}")
+        for usage_name, usage in (cls.slot_usage or {}).items():
+            base_slot = sv.get_slot(usage_name)
+            range_name = usage.range or (base_slot.range if base_slot else None)
+            _check(usage.inlined, usage.inlined_as_list, range_name,
+                   f"class:{cname} → slot:{usage_name}")
+
+
 def _check_all_classes_have_concept_ref(sv, schema, config, issues):
     catalog_uri = config.get("concept_catalog_uri",
                              "https://concept-catalog.fellesdatakatalog.digdir.no/collections")
@@ -565,6 +597,7 @@ _CHECK_HANDLERS = {
     "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,
     "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
     "all_classes_have_identifier":     _check_all_classes_have_identifier,
+    "no_inlined_on_primitive_range":   _check_no_inlined_on_primitive_range,
     "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
     "class_has_slot_with_uri":            _check_class_has_slot_with_uri,
     "container_has_class":                _check_container_has_class,

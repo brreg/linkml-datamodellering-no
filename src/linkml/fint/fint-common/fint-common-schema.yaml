@@ -140,7 +140,6 @@ slots:
     slot_uri: fint:adresselinje
     range: string
     multivalued: true
-    inlined_as_list: true
     description: Adresseinformasjon.
   postnummer:
     slot_uri: fint:postnummer

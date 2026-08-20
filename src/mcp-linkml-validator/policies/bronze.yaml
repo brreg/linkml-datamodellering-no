@@ -130,6 +130,17 @@ checks:
     max_classes: 50
     digdir_rule: 6
 
+  no_inlined_on_primitive_range:
+    severity: warning
+    description: >
+      inlined/inlined_as_list bør berre setjast på slot/attributt der range er
+      ein klasse. På ein primitiv range (string, integer, LangString o.l.) har
+      nøkkelen ingen effekt — han vert stille ignorert av alle generatorane, og
+      framstår som daud, misvisande konfigurasjon.
+    check: no_inlined_on_primitive_range
+    digdir_rule: 8
+    fair_principle: I1
+
   all_classes_have_concept_ref:
     severity: warning
     description: >

@@ -54,7 +54,6 @@ slots:
     slot_uri: ark:part
     range: Part
     multivalued: true
-    inlined_as_list: true
     description: Partar til arkivenhet.
   merknad:
     slot_uri: ark:merknad
@@ -163,7 +162,6 @@ slots:
     slot_uri: ark:korrespondansepart
     range: Korrespondansepart
     multivalued: true
-    inlined_as_list: true
     description: Mottakar eller sendar av arkivdokument.
   nokkelord:
     slot_uri: ark:nokkelord
@@ -682,7 +680,6 @@ classes:
           - Valgfri
       klasse:
         multivalued: true
-        inlined_as_list: true
         in_subset:
           - Valgfri
       mappeId:
@@ -814,7 +811,6 @@ classes:
         in_subset:
           - Valgfri
       klasse:
-        inlined: true
         in_subset:
           - Valgfri
       korrespondansepart:
@@ -1057,7 +1053,6 @@ classes:
           - Valgfri
       klasse:
         multivalued: true
-        inlined_as_list: true
         required: true
         in_subset:
           - Obligatorisk
@@ -1378,6 +1373,7 @@ classes:
     description: Ein klasse i eit klassifikasjonssystem.
     class_uri: ark:Klasse
     slots:
+      - id
       - klasseId
       - rekkefoelge
       - skjerming
@@ -1406,6 +1402,7 @@ classes:
     description: Verksemd eller person som arkivskapar mottek eller sender arkivdokument til.
     class_uri: ark:Korrespondansepart
     slots:
+      - id
       - adresse
       - foedselsnummer
       - kontaktinformasjon
@@ -1469,6 +1466,7 @@ classes:
     description: Part til Mappe, Registrering eller Dokumentbeskrivelse.
     class_uri: ark:Part
     slots:
+      - id
       - adresse
       - foedselsnummer
       - kontaktinformasjon

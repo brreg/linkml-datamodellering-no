@@ -18,7 +18,7 @@ Sjekkane i bronze-, silver- og gold-policyane realiserer både
 | 5 | **Visualisering** | Modell tilgjengeleg med god visuell representasjon | *Ikkje evaluert* — ER-diagram vert generert av `make erdiagram`, men ikkje validert | — |
 | 6 | **Modularitet** | Handterleg mengde modellelement per modul | Bronze: `class_count_limit` — warning om skjemaet har fleire enn 50 klasser | — |
 | 7 | **Tilgjengeleggjering** | Modell fritt tilgjengeleg på nett med open lisens | Bronze: `license` (warning) | R1.1 |
-| 8 | **Maskinprosserbarheit** | Modell tilgjengeleg i opne, maskinlesbare format | Bronze: `class_uri`, `slot_uri` (indirekte, via regel 4-sjekken) | I1, I2 |
+| 8 | **Maskinprosserbarheit** | Modell tilgjengeleg i opne, maskinlesbare format | Bronze: `class_uri`, `slot_uri` (indirekte, via regel 4-sjekken); `no_inlined_on_primitive_range` (warning) | I1, I2 |
 | 9 | **Datering** | Modell er datert med publiserings-, endrings- og gyldigheitsdato | Bronze: `version` (warning); Silver: `annotations.endringsdato` (warning) | F4, R1.3 |
 | 10 | **Ansvar** | Eigarskap og innhaldsansvar for modellen er tydeleg | Silver: `annotations.utgiver` (warning) | R1.2 |
 | 11 | **Modellstatus** | Modellen har ein eksplisitt status (under utarbeiding, ferdig, forelda …) | Silver: `annotations.status` (warning) | R1.3 |
@@ -92,6 +92,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 | Alle klasser (unntatt `tree_root`) har identifikator-slot | warning | 4 — Identifiserbarheit | F1 | Sikrar at instansar av klassen kan identifiserast unikt |
 | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` | warning | 13 — Begreper | A2 | Koplar modellelement til fagomgrep i begrepskatalog |
 | Slots med kontrollerte vokabular har korrekte annotations | warning | 8 — Maskinprosserbarheit | I1 | Sikrar maskinlesbar dokumentasjon av vokabularkrav |
+| `inlined`/`inlined_as_list` er berre sett der range er ein klasse | warning | 8 — Maskinprosserbarheit | I1 | Fangar daud konfigurasjon — nøkkelen har ingen effekt på ein primitiv range |
 
 > **`snake_case`-format:** Slotnavn kan berre innehalde små bokstavar (`a-z`), tal (`0-9`) og understrek (`_`). **Bindestreker er ikkje tillate** — bruk samansette ord utan separasjon (t.d. `epost`, `epostadresse`) eller understrek (`mobilnummer_utgaar`).
 >

@@ -394,6 +394,8 @@ Containerklasse:
 - Ingen `slot_uri` — containerattributtar er strukturelle, ikkje semantiske
 - Containerklassen treng ikkje `class_uri` (unntatt frå kravet per bronze-policy)
 - AP-NO-modellar og fair-modellar skal ikkje ha eigen containerklasse
+- **Containerattributt skal alltid bruke `inlined`/`inlined_as_list`** — dette er ein ufravikeleg regel, også når `range`-klassen har `identifier: true`. Containerklassen sitt føremål er å vere eit sjølvstendig, komplett eksportdokument; dette gjeld ubunde av om target-klassen elles ville vore lenka (via URI) etter prinsippet "Lenking fremfor inlining" utanfor containeren. Sjå `specs/done/inlining-konvensjon.md` (R5) og `bugs/inlined-as-list-rdflib-roundtrip.md` (BUG-2) for grunngjeving og ein kjend, akseptert konsekvens av regelen.
+- **`range` på eit `inlined`/`inlined_as_list`-containerattributt skal alltid vere ein konkret klasse** — aldri ei abstrakt eller mixin-klasse med fleire konkrete subklassar delt i same liste. Bruk eige containerattributt per konkret subklasse i staden for éi delt, polymorf liste. Sjå `bugs/polymorphic-inlined-list-yaml-loader.md` (BUG-8) for konsekvensen av å bryte denne regelen (krasj i `linkml-convert`/`gen-rdf`, sjølv om `make validate-instance` godkjenner instansen).
 
 ### Endringer i koderepoet
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
