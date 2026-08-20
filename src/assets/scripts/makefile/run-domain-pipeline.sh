@@ -155,7 +155,7 @@ print_pipeline_summary() {
 # specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
 
 # --- Fase 1 — uavhengige grupper, inkl. gen-jsonschema ---------------------
-run_bg 1 merge          "$MAKE" --no-print-directory gen-linkml-merge DOMAIN="$domain"
+run_bg 1 merge          "$MAKE" --no-print-directory validate-linkml-merge DOMAIN="$domain"
 run_bg 1 jsonld-context "$MAKE" --no-print-directory gen-jsonld-context DOMAIN="$domain"
 run_bg 1 shacl          "$MAKE" --no-print-directory gen-shacl DOMAIN="$domain"
 run_bg 1 python         "$MAKE" --no-print-directory gen-python DOMAIN="$domain"
@@ -164,8 +164,8 @@ run_bg 1 owl            "$MAKE" --no-print-directory gen-owl DOMAIN="$domain"
 run_bg 1 rdf            "$MAKE" --no-print-directory gen-rdf DOMAIN="$domain"
 run_bg 1 proto          "$MAKE" --no-print-directory gen-proto DOMAIN="$domain"
 run_bg 1 graphql        "$MAKE" --no-print-directory gen-graphql DOMAIN="$domain"
-run_bg 1 linkml-convert "$MAKE" --no-print-directory gen-linkml-convert DOMAIN="$domain"
-run_bg 1 docs           "$MAKE" --no-print-directory gen-docs DOMAIN="$domain"
+run_bg 1 convert-instance-rdf "$MAKE" --no-print-directory convert-instance-rdf DOMAIN="$domain"
+run_bg 1 docs           "$MAKE" --no-print-directory gen-schema-docs DOMAIN="$domain"
 run_bg 1 plantuml       "$MAKE" --no-print-directory gen-plantuml DOMAIN="$domain"
 
 # Fase 2 avheng berre av gen-jsonschema (ikkje resten av fase 1) — vent på

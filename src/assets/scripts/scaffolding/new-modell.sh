@@ -227,7 +227,7 @@ echo "  $DESCRIPTION_FILE"
 echo ""
 echo "Oppdaterer .github/valid-scopes.txt..."
 cd "$REPO_ROOT"
-make --no-print-directory update-valid-scopes
+make --no-print-directory gen-valid-scopes
 
 echo ""
 echo "Neste steg:"

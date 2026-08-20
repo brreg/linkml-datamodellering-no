@@ -58,7 +58,7 @@ src/linkml/modellkatalog/<alias>-modellkatalog/
 
 Fyll inn `TODO`-verdiane i datafila manuelt:
 - `tittel` og `beskrivelse` på katalogen
-- `har_del`-lista (vert automatisk synkronisert seinare av `update-modellkatalog`)
+- `har_del`-lista (vert automatisk synkronisert seinare av `gen-modellkatalog-instance`, sjå Steg 4)
 - Navn på kontaktpunkt i `aktoerer`-lista
 
 ## Steg 3 — Opprett domenemodellar
@@ -82,15 +82,30 @@ Sjå [Ny domenemodell](ny-domenemodell.md) for full rettleiing om korleis ein mo
 
 ## Steg 4 — Synkroniser modellkatalog
 
-Etter at skjema har korrekt `annotations.utgiver`, synkroniser katalogdatafila:
+!!! warning "Endra frå `update-modellkatalog` til `gen-modellkatalog-instance`"
+
+    `make update-modellkatalog` (patcha berre utvalde felt i eksisterande
+    katalogoppføringar, og skreiv `TODO`-stubs for uregistrerte skjema) er
+    fjerna. `make gen-modellkatalog-instance` **regenererer heile
+    katalogfila frå botnen** ut frå kvart skjema sin genererte
+    Informasjonsmodell-instans — han skriv ikkje lenger `TODO`-stubs for
+    felt som `tema`/`lisens`/`kontaktpunkt` som manglar kjelde. Sjå
+    [spesifikasjonen for grunngjevinga](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/make-target-namn-vs-funksjon.md).
+    Verifiser at manuelt utfylte felt i eksisterande katalogoppføringar
+    framleis er korrekte etter fyrste køyring med den nye kommandoen.
+
+Etter at skjema har korrekt `annotations.utgiver`, generer
+Informasjonsmodell-instansen (dersom han ikkje alt finst, t.d. via
+`make domain-<domene>`) og synkroniser deretter katalogdatafila:
 
 ```bash
-make update-modellkatalog
+make gen-informasjonsmodell-instance SCHEMA=<sti-til-skjema>
+make gen-modellkatalog-instance
 ```
 
-Scriptet finn alle skjema med `annotations.utgiver` matchande org-URI, og
-oppretter nye stub-innslag i katalogdatafila for skjema som ikkje er registrerte enno.
-Stubs har `TODO`-verdiar for felt som `tema` og `lisens` — desse må fyllast inn manuelt.
+Kommandoen finn alle genererte Informasjonsmodell-instansar
+(`metadata/modelldcat.yaml`) med `utgiver` matchande org-URI, og bygger
+katalogdatafila for organisasjonen på nytt frå desse.
 
 **Konvensjon:** Modellkatalogen skal liste **alle** skjema org-en forvaltar — også
 modellar som ikkje er ferdige enno. Sett `annotations.status` til
@@ -99,11 +114,6 @@ maskinlesbare oversikta rettleiaren *Veileder for tilgjengeliggjøring av åpne 
 krev (jf. punkt 12 — «òg for data som ikkje er tilgjengelege enno»), så ufullstendige
 modellar skal vere synlege i katalogen med korrekt status, ikkje utelatne til dei er
 klare.
-
-For å køyre berre for éin org:
-```bash
-python3 src/assets/scripts/update-modellkatalog.py --org <alias>
-```
 
 ## Steg 5 — Valider
 
@@ -192,7 +202,7 @@ Følgjande avgrensingar gjeld i PoC-fasen:
 
 ### Automatisering
 
-- `make update-modellkatalog` genererer stubs for nye modellar, men fyll ikkje inn TODO-verdiar automatisk
+- `make gen-modellkatalog-instance` regenererer katalogfila frå Informasjonsmodell-instansar, men fyller ikkje inn felt utan kjelde (t.d. `tema`/`lisens`) automatisk
 - `.github/CODEOWNERS`-fila må oppdaterast manuelt basert på `CODEOWNERS.md` — ingen automatisk synkronisering enno
 
 ### Samhandling

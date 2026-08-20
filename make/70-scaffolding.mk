@@ -8,13 +8,14 @@
 # - new-modellkatalog: opprett ny modellkatalog for ein organisasjon
 # - new-begrepssamling: opprett ny begrepssamling i eit domene (gjeldande format,
 #   begrep/-katalog med éin fil per begrep — bruk denne for nye katalogar)
-# - new-begrepskatalog: legacy scaffolding for det eldre, monolittiske
-#   BegrepContainer-skjemaformatet (éin fil, direkte under
-#   src/linkml/begrepskatalog/<namn>/). IKKJE ein alias for new-begrepssamling
-#   — eige script, eigen skjemastruktur, andre parameter. Halden ved like
-#   fordi src/linkml/begrepskatalog/brreg-begrepskatalog framleis nyttar dette
-#   formatet.
-# - update-valid-scopes: generer .github/valid-scopes.txt frå alle skjema
+# - gen-valid-scopes: generer .github/valid-scopes.txt frå alle skjema
+#
+# Merk: `new-begrepskatalog` (legacy scaffolding for det eldre, monolittiske
+# BegrepContainer-skjemaformatet) er fjerna, jf.
+# specs/done/make-target-namn-vs-funksjon.md, Funn 9.
+# src/linkml/begrepskatalog/brreg-begrepskatalog nyttar framleis det gamle
+# formatet, men kan ikkje lenger scaffoldast på nytt via make — bruk han som
+# mal manuelt dersom eit nytt monolittisk skjema nokon gong trengst.
 # ==============================================================================
 
 new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (DOMAIN=<domene> NAME=<modell>)
@@ -43,21 +44,8 @@ new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<do
 	$(call print_header,new-begrepssamling,DOMAIN=$(DOMAIN)  NAME=$(NAME))
 	bash src/assets/scripts/scaffolding/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
 
-# Legacy: scaffoldar det eldre, monolittiske BegrepContainer-skjemaformatet
-# (éi skjemafil under src/linkml/begrepskatalog/<namn>/, i staden for ein
-# begrep/-katalog med éin fil per begrep). IKKJE ein alias for
-# new-begrepssamling — eige script (new-begrepskatalog.sh), eigen
-# skjemastruktur, berre NAME som parameter (ikkje DOMAIN). Bruk
-# new-begrepssamling for nye begrepssamlingar; dette targetet held fram
-# fordi src/linkml/begrepskatalog/brreg-begrepskatalog alt nyttar formatet.
-new-begrepskatalog: ## Legacy scaffolding for monolittisk BegrepContainer-format (NAME=<katalog>)
-	@test -n "$(NAME)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepskatalog NAME=<katalog>"; exit 1; }
-	$(call print_header,new-begrepskatalog,NAME=$(NAME))
-	bash src/assets/scripts/scaffolding/new-begrepskatalog.sh "$(NAME)"
-
 # Køyrer automatisk ved `make new-modell`, `make new-modellkatalog`, `make new-begrepssamling`
-update-valid-scopes: ## Generer .github/valid-scopes.txt frå alle *-schema.yaml-filer
+gen-valid-scopes: ## Generer .github/valid-scopes.txt frå alle *-schema.yaml-filer
 	@eval "$$LOG_FUNCTIONS"; \
 	log_info "Genererer .github/valid-scopes.txt..."; \
 	find src/linkml -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \

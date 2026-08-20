@@ -28,7 +28,7 @@ Bruk:
   <kind>: docgen-examples | openapi | asyncapi | informasjonsmodell
         | erdiagram-filter | plantuml-filter | convert
 
-`erdiagram-filter`/`plantuml-filter` er Fase B for gen-erdiagram/
+`erdiagram-filter`/`plantuml-filter` er Fase B for gen-erdiagram-mermaid/
 gen-plantuml (Fase A, rå-generering, er batcha i batch-generate.py) —
 filtrerer alt genererte `-raw`/`-unfiltered`-mellomfiler, importerer
 `filter_erdiagram.py`/`filter_plantuml.py` sine reine `process_file()`-
@@ -119,7 +119,7 @@ def filter_enabled(schemas: list[str], flag: str | None, generator: str) -> list
 
 
 def run_erdiagram_filter(schemas: list[str]) -> int:
-    """Fase B for gen-erdiagram: filtrer $name-erdiagram-unfiltered.md (skrive
+    """Fase B for gen-erdiagram-mermaid: filtrer $name-erdiagram-unfiltered.md (skrive
     av awk-steget mellom batch-generate.py sin "erdiagram"-kind og dette
     steget, jf. spec Tiltak 4) til den endelege $name-erdiagram.md."""
     schemas = filter_enabled(schemas, "erdiagram", "erdiagram-filter")

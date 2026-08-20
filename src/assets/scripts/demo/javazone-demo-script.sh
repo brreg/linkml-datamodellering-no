@@ -53,7 +53,7 @@ if [ -d "src/linkml/$DOMAIN/$NAME" ]; then
     read -rp "Fjerne han før demoen startar? (j/N) " svar
     if [[ "$svar" =~ ^[jJ]$ ]]; then
         rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
-        make update-valid-scopes
+        make gen-valid-scopes
         echo "Rydda opp."
     fi
 fi
@@ -327,6 +327,6 @@ echo ""
 read -rp "Vil du rydde demofilene? (j/N) " svar
  if [[ "$svar" =~ ^[jJ]$ ]]; then
     rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
-    make update-valid-scopes
+    make gen-valid-scopes
      echo "Rydda opp."
  fi

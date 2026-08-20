@@ -467,6 +467,7 @@
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
+    "excludedCommands": ["podman *"],
     "filesystem": {
       "allowWrite": [
         "/run/user/1000/libpod",

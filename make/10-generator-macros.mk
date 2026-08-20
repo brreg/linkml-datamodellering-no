@@ -14,7 +14,7 @@
 # brukar — spesifiser det IKKJE på nytt her). Sjå
 # specs/backlog/effektiviser-generate-workflow-koyretid.md (Tiltak 1).
 #
-# gen-doc, gen-erdiagram og gen-plantuml er delt i fleire batcha fasar
+# gen-doc, gen-erdiagram-mermaid og gen-plantuml er delt i fleire batcha fasar
 # (linkml-generering via batch-generate.py, python-etterhandsaming via
 # batch-generate-instances.py, SVG-rendering via batch-render-plantuml.sh)
 # — sjå Tiltak 2/3/4 i spec-fila for grunngjeving og enkeltsteg.
@@ -84,7 +84,7 @@ define run_gen_doc_parallel
 endef
 
 # ---------------------------------------------------------------------------
-# gen-erdiagram — gata mot build.yaml (erdiagram: true). Tre fasar (sjå
+# gen-erdiagram-mermaid — gata mot build.yaml (erdiagram: true). Tre fasar (sjå
 # specs/backlog/effektiviser-generate-workflow-koyretid.md, Tiltak 4):
 # Fase A batchar rå-genereringa (linkml, batch-generate.py). Fase A.5 er
 # awk-steget (Container-stripping) — køyrer framleis per skjema direkte på

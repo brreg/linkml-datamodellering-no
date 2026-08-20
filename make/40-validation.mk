@@ -5,7 +5,7 @@
 # - LinkML-validering (validate, lint, validate-instance)
 # - Bronze/policy-validering (validate-bronze, validate-data, validate-examples)
 # - MCP-validering (mcp-linkml-valider-modell, validate-capture)
-# - Logging av valideringsresultat (log-mcp-validate, log-validate-instance)
+# - Logging av valideringsresultat (validate-policy-logg, validate-instance-logg)
 #
 # Relaterte script:
 # - src/assets/scripts/makefile/detect-validation-policy.py
@@ -209,17 +209,20 @@ _mcp-valider-modell-with-header:
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
 	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
-# Merk namnekonsistens/overlapp med log-mcp-validate/log-validate-instance
+# Merk namnekonsistens/overlapp med validate-policy-logg/validate-instance-logg
 # under: begge skriv til same output-format (validation/<versjon>/<policy>.json),
 # men er ikkje duplikat i praksis. validate-capture (run-schema-validation.py)
 # er eit manuelt batch-verktøy avgrensa til release-please-config.json sine
-# "released packages" — ikkje brukt frå CI. log-mcp-validate/log-validate-
-# instance (run-validation.sh) er derimot kalla direkte frå
+# "released packages" — ikkje brukt frå CI. validate-policy-logg/validate-
+# instance-logg (run-validation.sh) er derimot kalla direkte frå
 # .github/workflows/{generate,validate}.yml for kvart einskild skjema/manifest
 # — CI-kritisk infrastruktur. Konsolidering vart difor vurdert (jf.
 # specs/backlog/make-kommando-inkonsistens-audit.md, namnekonsistens 4) og
 # medvite utsett: å skrive om eit CI-kritisk script utan eksplisitt brukar-
 # godkjenning bryt CLAUDE.md sitt DRY-unntak for risikofylte omskrivingar.
+# (Namna sjølve vart omdøypte 2026-08-20, jf.
+# specs/done/make-target-namn-vs-funksjon.md, Funn 7 — funksjonen og
+# CI-kritikaliteten er uendra.)
 validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>]
 	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) batcha)))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
@@ -234,7 +237,7 @@ validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>]
 # ---------------------------------------------------------------------------
 
 # Validerer og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/<policy>.json
-log-mcp-validate: ## Policy-validering med full JSON-logg (BUILDYAML=<sti>|SCHEMA=<sti> POLICY=<policy>)
+validate-policy-logg: ## Policy-validering med full JSON-logg (BUILDYAML=<sti>|SCHEMA=<sti> POLICY=<policy>)
 	@eval "$$LOG_FUNCTIONS"; \
 	if [ -n "$(BUILDYAML)" ]; then \
 		bash src/assets/scripts/makefile/run-validation.sh --manifest $(BUILDYAML); \
@@ -246,7 +249,7 @@ log-mcp-validate: ## Policy-validering med full JSON-logg (BUILDYAML=<sti>|SCHEM
 	fi
 
 # Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<namn>.json
-log-validate-instance: ## Instansvalidering med full JSON-logg (SCHEMA=<sti> INSTANCE=<sti>)
-	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
-	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make log-validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
+validate-instance-logg: ## Instansvalidering med full JSON-logg (SCHEMA=<sti> INSTANCE=<sti>)
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance-logg SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
+	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance-logg SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@bash src/assets/scripts/makefile/run-validation.sh --schema $(SCHEMA) --instance $(INSTANCE)

@@ -247,7 +247,7 @@ Kvar modell kan slå av einskilde generatorar via `src/linkml/<domene>/<modell>/
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` | [`gen-shacl`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-shacl) |
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` | [`gen-owl`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-owl) |
 | RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` | [`gen-rdf`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-rdf) |
-| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` | [`convert-rdf`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#convert-rdf) |
+| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` | [`convert-instance-rdf`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#convert-instance-rdf) |
 | Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` | [`gen-python`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-python) |
 | JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` | [`gen-jsonschema`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-jsonschema) |
 | XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` | [`gen-xsd`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-xsd) |
@@ -255,9 +255,9 @@ Kvar modell kan slå av einskilde generatorar via `src/linkml/<domene>/<modell>/
 | GraphQL-skjema | `<skjema>-schema.graphql` | Typedefinisjonar (SDL) for GraphQL-API | — | `graphql` | [`gen-graphql`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-graphql) |
 | AsyncAPI-spec | `<skjema>-asyncapi.yaml` | Asynkron meldingsutveksling (event-driven API) | — | `asyncapi` | [`gen-asyncapi`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-asyncapi) |
 | OpenAPI-spec | `<skjema>-openapi.yaml` | RESTful API-dokumentasjon (OpenAPI 3.1) | — | `openapi` | [`gen-openapi`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-openapi) |
-| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` | [`gen-erdiagram`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-erdiagram) |
+| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` | [`gen-erdiagram-mermaid`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-erdiagram-mermaid) |
 | Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` | [`gen-plantuml`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-plantuml) |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` | [`gen-docs`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-docs) |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` | [`gen-schema-docs`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-schema-docs) |
 | DQV-målingar | `dqv-measurements.ttl` | Datakvalitetsmålingar (kun datakatalog-modellar) | ✓ | — | [`gen-dqv-measurements`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-dqv-measurements) |
 | ModelDCAT-element | `modelldcat-elements.ttl` | Modellkatalog-element (kun modellkatalog-modellar) | ✓ | — | [`gen-modelldcat-elements`](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#gen-modelldcat-elements) |
 

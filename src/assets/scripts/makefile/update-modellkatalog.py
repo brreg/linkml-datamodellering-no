@@ -1,6 +1,16 @@
 """
 update-modellkatalog.py
 
+MERK: `make update-modellkatalog` er fjerna (sjå
+specs/done/make-target-namn-vs-funksjon.md, Funn 5) — `make
+gen-modellkatalog-instance` (generate-modellkatalog.py) er no den
+brukarvendte kommandoen for å synkronisere modellkatalogar. Denne fila
+finst framleis fordi gen-modelldcat-elements.py importerer
+org-/skjemaoppslagslogikken herifrå direkte (DRY-prinsippet i CLAUDE.md) —
+IKKJE slett henne utan å flytte den delte logikken til ein eigen
+utils-modul først. CLI-inngangen under er framleis brukbar direkte via
+`python3`, berre ikkje lenger eksponert som make-target.
+
 Les silver-annotasjonar frå alle skjema og oppdaterer Informasjonsmodell-innslag
 i per-org modellkatalogar. Eigarskapsregisteret vert lese frå CODEOWNERS.md.
 
@@ -12,7 +22,7 @@ Ikkje-oppdaterte felt (manuelt vedlikehaldne):
   (For nye skjema vert det oppretta ein stub med TODO-verdiar for desse.)
 
 Køyr frå repo-rota:
-    python3 src/assets/scripts/update-modellkatalog.py [--codeowners PATH] [--org ALIAS] [--dry-run]
+    python3 src/assets/scripts/makefile/update-modellkatalog.py [--codeowners PATH] [--org ALIAS] [--dry-run]
 """
 import argparse
 import glob

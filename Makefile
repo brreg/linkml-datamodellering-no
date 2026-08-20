@@ -70,7 +70,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"
 
 .PHONY: help test roundtrip validate lint validate-instance clean gen-config \
-		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
+		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram-mermaid convert-instance-rdf convert-data gen-schema-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-bronze validate-data validate-examples \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs build-docker-plantuml \
@@ -80,7 +80,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         mcp-linkml-begrep-utkast-run mcp-linkml-begrep-utkast-smoke mcp-linkml-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \
 		docs-serve docs-build docs-publish \
         check-published-uris check-prereqs \
-        update-modellkatalog gen-dqv-measurements gen-modelldcat-elements new-modellkatalog new-begrepskatalog \
+        gen-dqv-measurements gen-modelldcat-elements new-modellkatalog \
         validate-capture \
         build-docker-gource gource-preview gource-video _gource-render
 
@@ -117,10 +117,10 @@ roundtrip-json-schema: ## Køyr JSON Schema roundtrip-testar [JSONSCHEMA=<sti>]
 # Image-bygging, MCP, scaffolding og verktøy flytta til make/*.mk
 # ---------------------------------------------------------------------------
 
-convert-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle
-	$(call print_header,convert-rdf)
+convert-instance-rdf: ## Konverter eksempelfiler frå YAML til RDF/Turtle [DOMAIN=<domene>]
+	$(call print_header,convert-instance-rdf,$(if $(DOMAIN),DOMAIN=$(DOMAIN)))
 	@JOBS_TSV=$$(mktemp "$(GEN_DIR)/.convert-jobs.XXXXXX") && \
-	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh > "$$JOBS_TSV" && \
+	SCHEMA_DIR=$(SCHEMA_DIR) GEN_DIR=$(GEN_DIR) bash src/assets/scripts/makefile/convert-examples.sh $(DOMAIN) > "$$JOBS_TSV" && \
 	if [ -s "$$JOBS_TSV" ]; then \
 		$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate-instances.py --generator convert --jobs-tsv "$$JOBS_TSV"; rc=$$?; \
 	else \
@@ -143,9 +143,30 @@ clean: ## Slett alle genererte filer (generated/)
 	$(call print_header,clean)
 	rm -rf $(GEN_DIR)
 
-update-modellkatalog: ## Oppdater modellkatalog frå schema.annotations.*
-	$(call print_header,update-modellkatalog)
-	$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/update-modellkatalog.py
+check-published-uris: ## Sjekk at alle URI-ar i published-uris.lock framleis finst i tilhøyrande datafil
+	$(call print_header,check-published-uris)
+	@eval "$$LOG_FUNCTIONS"; \
+	failed=0; \
+	for lock in $$(find $(SCHEMA_DIR) -name 'published-uris.lock' 2>/dev/null); do \
+		model_dir=$$(dirname "$$lock"); \
+		model=$$(basename "$$model_dir"); \
+		domain=$$(basename "$$(dirname "$$model_dir")"); \
+		data_dir=$(SCHEMA_DIR)/$$domain/$$model/data/$$model; \
+		data=$$data_dir/$$model.yaml; \
+		if [ ! -f "$$data" ]; then \
+			log_info "Ingen datafil $$data for $$lock — hoppar over"; \
+			continue; \
+		fi; \
+		while IFS= read -r uri; do \
+			[ -z "$$uri" ] && continue; \
+			printf '%s' "$$uri" | grep -q '^#' && continue; \
+			if ! grep -qF "$$uri" "$$data"; then \
+				log_error "::error file=$$data::Publisert URI manglar frå datafila: $$uri"; \
+				failed=1; \
+			fi; \
+		done < "$$lock"; \
+	done; \
+	exit $$failed
 
 gen-dqv-measurements: ## Generer DQV-kvalitetsmålingar for datafiler
 	$(call print_header,gen-dqv-measurements)

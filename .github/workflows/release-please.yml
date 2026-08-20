@@ -204,7 +204,7 @@ jobs:
             make gen-shacl SCHEMA="$schema"
             make gen-owl SCHEMA="$schema"
             make gen-jsonld-context SCHEMA="$schema"
-            make gen-erdiagram SCHEMA="$schema"
+            make gen-erdiagram-mermaid SCHEMA="$schema"
           done
 
       - name: Last opp artefakter til GitHub Releases

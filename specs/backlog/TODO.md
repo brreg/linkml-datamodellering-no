@@ -93,19 +93,21 @@ Er det noe vi kan legge inn som valgfritt å filtrere vekk i genereringsløsning
 
   DID
 
-   Container-verktøyet krev rettar sandboxen blokkerer (newuidmap: Operation not permitted).
+
 
 
    gjer ein analyse av all kildekode og identifiser bruk av inlining. Kom med forslag til konvensjon rundt inlining og forslag til korleis vi kan unngå inlining der det går utotver lesbarhet, testbarhet, logging (feilsluking) eller gjenbrukbarhet.
+
+   gjer ein analyse av all kildekode og identifiser avvikshandtering som følge av avvik frå etablerte prinsipper. Evaluer om vi kan fjærne avvikshandteringa for å følge etablerte prinsipper meir konsistent.
+
+   gjer ein analyse av all kildekode og identifiser gjentakelsar som kan la seg kode en gang og gjenbrukes ihht DRY prinsippet
 
    hamnar -> havner
 
    slotsnamn -> slotnavn
 
-kartlegg hvis vi har brukt PROFIL for å omtale validerings POLICY nokon plass.
+kartlegg hvis vi har brukt begrepet PROFIL for å omtale validerings POLICY nokon plass.
 
-*** make analyse-similar-slots-domain
 
-  # Liknande slotsnamn (same domene, domene oreg, terskel 80%) 
 
-  undersøk makefile om vi har ubrukte eller legacy kommandoar
+

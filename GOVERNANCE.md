@@ -198,7 +198,7 @@ Modellane vert overførte til repo-administrator eller ein annan registrert orga
 1. Oppdater `annotations.utgiver` i alle skjema til ny eigar sin org-URI
 2. Oppdater `CODEOWNERS.md` — flytt modellar til ny eigar sin `path_patterns`
 3. Flytt modellar frå `src/linkml/<gamal-org>/` til `src/linkml/<ny-org>/`
-4. Oppdater modellkatalogar (`make update-modellkatalog`)
+4. Oppdater modellkatalogar (`make gen-modellkatalog-instance`)
 5. Deaktiver `publish_external` i datafiler (eller overfør til ny eigar)
 
 **Alternativ B: Slette modellar frå repoet**

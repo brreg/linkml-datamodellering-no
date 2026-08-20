@@ -263,7 +263,7 @@ Scriptet skriv til repoet tre stader:
 
 ```bash
 rm -rf src/linkml/oreg/javazonetalk generated/oreg/javazonetalk
-make update-valid-scopes
+make gen-valid-scopes
 ```
 
 ## Handlingsliste (brukaren sin eigen sjekkliste før demo-dagen)

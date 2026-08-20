@@ -148,7 +148,7 @@ Gyldige verdiar for `annotations.status`: `http://purl.org/adms/status/UnderDeve
 
 Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-schema.yaml`
 (Digdir regel 10 og 8 — Maskinprosserbarheit via ModellDCAT-AP-NO).  
-`make update-modellkatalog` genererer `Informasjonsmodell`-instansar for modellkatalogen frå desse annotasjonane.
+`make gen-informasjonsmodell-instance` genererer `Informasjonsmodell`-instansen for skjemaet frå desse annotasjonane; `make gen-modellkatalog-instance` aggregerer deretter alle slike instansar til per-org modellkatalogar.
 
 **Døme (instanssjekk):** Dersom `spraak`-slot har `vokabular_krav: skal` og `vokabular_pattern: "^http://publications\\.europa\\.eu/resource/authority/language/[A-Z]{3}$"`, så vil verdien `"http://example.com/NOB"` gje **error** (feil domene) og `"http://publications.europa.eu/resource/authority/language/NORSK"` gje **error** (feil pattern — skal vere 3-bokstavskode).
 

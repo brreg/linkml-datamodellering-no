@@ -58,7 +58,7 @@ Feilen er **isolert til `gen-rdf`** — stadfesta empirisk mot det same
 skjemaet at `gen-python`, `gen-jsonschema`, `gen-owl`, `gen-proto`,
 `gen-graphql`, `gen-jsonld-context`, `gen-shacl` og `gen-plantuml` genererer
 problemfritt for eit skjema med versjonslåst URL-import. `linkml-convert`
-(brukt av `make roundtrip`/`convert-rdf` via `batch-convert.py`) brukar ein
+(brukt av `make roundtrip`/`convert-instance-rdf` via `batch-convert.py`) brukar ein
 heilt annan kodeveg for RDF/TTL-output (`SchemaView` +
 `linkml_runtime`-dumparar, ikkje `RDFGenerator`) og er heller ikkje ramma —
 sjå i staden BUG-15 for den feilen.

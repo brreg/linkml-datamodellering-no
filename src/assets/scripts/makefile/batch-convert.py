@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Batch-konverter FLEIRE linkml-convert-kall i éin prosess, i staden for éin
-podman-kontainar per kall. Batchar convert-rdf og roundtrip-json/roundtrip-
+podman-kontainar per kall. Batchar convert-instance-rdf og roundtrip-json/roundtrip-
 ttl sine underliggande linkml-convert-kall (opptil 8 per skjema) frå
 tests/test_make.sh.
 

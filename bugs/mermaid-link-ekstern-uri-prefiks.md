@@ -39,7 +39,7 @@ stadfesta for `ap-no/cpsv-ap-no` og `oreg/enhetsregisteret-bvrinn` (`string`,
 `uri`, `uriorcurie`) og for `samt/samt-bu` (`string`, `uriorcurie`,
 `boolean`, `date`, `double`, `float`), men rotårsaka er generisk i `gen-doc`
 og gjeld praktisk talt alle domenemodellar i repoet. Stadfesta ved ein fersk
-`make gen-docs`-køyring 2026-08-13 (rå `generated/<domain>/<schema>/docs/*.md`,
+`make gen-schema-docs`-køyring 2026-08-13 (rå `generated/<domain>/<schema>/docs/*.md`,
 før `copy_artifacts.sh` har rørt filene) at mønsteret held identisk for alle
 desse — ikkje berre dei tre opphavleg testa typane.
 

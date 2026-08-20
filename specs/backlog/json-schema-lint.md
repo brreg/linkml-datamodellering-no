@@ -136,7 +136,7 @@ uavhengig av kor mange steg det no inneheld internt.
    - Injiser medvite eit ugyldig JSON Schema (t.d. `"type": "ikkje-ein-
      gyldig-type"` rett i den genererte `.json`-fila, midlertidig) og
      stadfest at `make gen-jsonschema` no faktisk feilar synleg
-   - `make gen-docs`/full domenepipeline framleis fungerer (Fase
+   - `make gen-schema-docs`/full domenepipeline framleis fungerer (Fase
      2-avhengige `gen-openapi`/`gen-asyncapi`/`gen-xsd` ventar framleis
      korrekt)
 7. Vurder om `COMMANDS.md`/mkdocs-kommandotabellane skildrar

@@ -237,11 +237,11 @@ echo "  $CATALOG_DIR/examples/$catalog_slug-eksempel.yaml"
 echo ""
 echo "Oppdaterer .github/valid-scopes.txt..."
 cd "$REPO_ROOT"
-make --no-print-directory update-valid-scopes
+make --no-print-directory gen-valid-scopes
 
 echo ""
 echo "Neste steg:"
 echo "  1. Fyll inn TODO-verdiar i datafila: $CATALOG_DIR/data/$catalog_slug/$catalog_slug.yaml"
 echo "  2. Legg til annotations.utgiver: $org_uri i skjemaa din org eig"
-echo "  3. make update-modellkatalog   # synkroniser katalogen med skjema-annotasjonar"
+echo "  3. make gen-modellkatalog-instance   # synkroniser katalogen med skjema-annotasjonar"
 echo "  4. make mcp-linkml-valider-modell SCHEMA=$CATALOG_DIR/$catalog_slug-schema.yaml POLICY=felles-datakatalog INSTANCE=$CATALOG_DIR/data/$catalog_slug/$catalog_slug.yaml"

@@ -50,9 +50,9 @@ files=("$@")
 # matchar begge mønstera, og fyrste treff vinn (sjå fil-toppkommentaren).
 categories=(
     "Vanleg bruk|^(help|test|roundtrip|roundtrip-json-schema|clean|check-prereqs)\$"
-    "Opprett og fjern modellar|(new-|remove-modell|update-valid-scopes)"
-    "Validering|(validate|lint)"
-    "Generering (per domene eller skjema)|(gen-|domain-|convert-|update-modellkatalog)"
+    "Opprett og fjern modellar|(new-|remove-modell|gen-valid-scopes)"
+    "Validering|(validate|lint|check-published-uris)"
+    "Generering (per domene eller skjema)|(gen-|domain-|convert-)"
     "Dokumentasjonsportal|docs-"
     "Modell-analyse|analyse-"
     "Container images|build-docker-"

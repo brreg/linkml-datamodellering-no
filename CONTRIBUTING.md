@@ -47,7 +47,7 @@ Kvar org skal liste **alle** sine skjema i sin modellkatalog
 (`src/linkml/modellkatalog/<alias>-modellkatalog/`), også utkast som ikkje er ferdige
 enno (`annotations.status: http://purl.org/adms/status/UnderDevelopment`). Sjå
 [Ny organisasjon](mkdocs/docs/kom-i-gang/ny-org.md) steg 4 for korleis katalogen synkroniseres med
-`make update-modellkatalog`.
+`make gen-modellkatalog-instance`.
 
 ## Generer artefakter lokalt
 

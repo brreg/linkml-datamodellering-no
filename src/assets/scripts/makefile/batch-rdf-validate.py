@@ -6,14 +6,14 @@ podman-kontainar per fil.
 Bakgrunn: `assert_rdf_valid()` i tests/test_make.sh spann tidlegare opp EIN
 NY podman-kontainar (full kontainar-oppstart + `import rdflib`, målt til
 ~2,5s) FOR KVART KALL — opptil 4 gonger per skjema (gen-rdf/gen-shacl/
-gen-owl/convert-rdf sine output-filer), over 100 separate kontainar-
+gen-owl/convert-instance-rdf sine output-filer), over 100 separate kontainar-
 oppstartar for ei full testkøyring. Same rotårsak/løysing som
 batch-generate.py m.fl.: amortiser importskatten over heile fillista i
 staden for å betale han på nytt per fil. Sjå
 specs/backlog/optimaliser-make-test-basert-pa-logginnsikt.md, Tiltak 1.
 
 Køyrer sekvensielt ETTER dei andre Fase A-stega (gen-rdf/gen-shacl/
-gen-owl/convert-rdf sine output-filer må vere ferdig skrivne FØR fillista
+gen-owl/convert-instance-rdf sine output-filer må vere ferdig skrivne FØR fillista
 vert bygd) — sjå tests/test_make.sh sin run_phase_a_rdf_validity().
 
 Bruk:
@@ -28,7 +28,7 @@ phase_a_check() i tests/test_make.sh. phase_a_check() sitt andre argument
 er berre den eksakte matchestrengen etter `::error file=`, ikkje
 nødvendigvis eit skjema — her vert han kalla med FILSTIEN (ikkje
 skjemastien), sidan éin skjema kan ha fleire RDF-filer som treng
-uavhengige resultat (rdf/shacl/owl/convert-rdf sjekkast separat av kvar
+uavhengige resultat (rdf/shacl/owl/convert-instance-rdf sjekkast separat av kvar
 sin Fase B-testfunksjon).
 """
 

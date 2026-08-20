@@ -31,12 +31,12 @@ Viktige script:
 
 | Script | Brukt av | Føremål |
 |---|---|---|
-| `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `gen-erdiagram`/`gen-plantuml` (rå-generering), `gen-docs` (sjølve gen-doc), `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
-| `batch-generate-instances.py` | `gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi` (generering), `gen-docs` (docgen-examples-fasen), `gen-erdiagram`/`gen-plantuml` (filter-fasen), `domain_target` (linkml-convert) | Batchar dei ikkje-linkml PYTHON_RUN-scripta (under) for N skjema i éin kontainar-prosess |
+| `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `gen-erdiagram-mermaid`/`gen-plantuml` (rå-generering), `gen-schema-docs` (sjølve gen-doc), `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
+| `batch-generate-instances.py` | `gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi` (generering), `gen-schema-docs` (docgen-examples-fasen), `gen-erdiagram-mermaid`/`gen-plantuml` (filter-fasen), `domain_target` (linkml-convert) | Batchar dei ikkje-linkml PYTHON_RUN-scripta (under) for N skjema i éin kontainar-prosess |
 | `batch-render-plantuml.sh` | `gen-plantuml` (SVG-render-fasen) | Batchar PlantUML SVG-rendering for N skjema sine `.puml`-filer i éitt `podman run`-kall |
 | `run-domain-pipeline.sh` | `domain-<domain>` | Fase-parallelliserer dei uavhengige gen-*-gruppene for eit domene (rekursive `$(MAKE)`-kall, PID-array + wait) |
 | `generate-informasjonsmodell.py` | `gen-informasjonsmodell-instance` (via `batch-generate-instances.py`) | Generer ModelDCAT-AP-NO-metadata frå schema.annotations |
-| `update-modellkatalog.py` | `update-modellkatalog` | Oppdater modellkatalog frå alle skjema |
+| `generate-modellkatalog.py` | `gen-modellkatalog-instance` | Aggreger Informasjonsmodell-instansar til per-org modellkatalogar |
 | `gen-dqv-measurements.py` | `gen-dqv-measurements` | Generer DQV-kvalitetsmålingar for datafiler |
 | `collect-concepts.py` | `gen-begrepskatalog-instance` | Samle begrep frå begrepssamlingar til begrepskatalogar |
 | `run-schema-validation.py` | `validate-capture` | Køyr MCP-validering parallelt med logging |
@@ -59,7 +59,7 @@ make test
 make domain-ap-no
 
 # Generer dokumentasjon for eit skjema
-make gen-docs SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
+make gen-schema-docs SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
 
 # Valider eit skjema med MCP-validator
 make mcp-linkml-valider-modell SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
@@ -104,7 +104,7 @@ make docs-publish
 
 ## Konvensjonar
 
-- **Target-navn:** Bruk `kebab-case` (gen-docs, validate-instance)
+- **Target-navn:** Bruk `kebab-case` (gen-schema-docs, validate-instance)
 - **Interne target:** Prefiks med `_` (_gource-render, _mcp-valider-modell-with-header)
 - **Logging:** Bruk `print_header`/`print_step` frå `03-output.mk` for overskrifter/steg, og
   `log_info`/`log_debug`/`log_error` frå `LOG_FUNCTIONS` (`00-settings.mk`) for status/feil —

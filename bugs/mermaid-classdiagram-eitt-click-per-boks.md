@@ -74,7 +74,7 @@ vises for klassar som faktisk har attributt-rader i eiga diagramboks (der
 tvitydigheita finst). Teksten viser til denne bugen og peikar til
 `## Eigenskapar`-tabellen som fasit for slot-spesifikke lenkjer.
 
-Verifisert med fersk `make gen-docs` (`cpsv-ap-no`, `samt-bu`),
+Verifisert med fersk `make gen-schema-docs` (`cpsv-ap-no`, `samt-bu`),
 `copy_artifacts.sh`-kopiering og full `make docs-build`: notatet rendrar
 korrekt som `<div class="admonition note">` i den bygde HTML-utdataen for
 `offentligorganisasjon.md` og `rektor.md`, utan feil eller åtvaringar.

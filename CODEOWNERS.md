@@ -80,7 +80,8 @@ Dette dokumentet er det autoritative registeret over kva organisasjon som eig kv
 domenemodell i dette repoet. Det tener to føremål:
 
 1. **Maskinleseleg eigarskapsregister** — YAML-frontmatter vert lese av
-   `src/assets/scripts/update-modellkatalog.py` for å opprette og oppdatere per-org
+   `src/assets/scripts/makefile/generate-modellkatalog.py` (`make gen-modellkatalog-instance`)
+   for å gruppere Informasjonsmodell-instansar etter utgiver og generere per-org
    modellkatalogar.
 2. **Dokumentasjon** — forklarer eigarskapsmodellen og er utgangspunkt for `.github/CODEOWNERS`.
 
@@ -150,4 +151,4 @@ Kort oppsummert:
 1. Legg til org i YAML-frontmatter over (PR til `main`)
 2. Køyr `make new-modellkatalog ORG=<alias>` for å opprette katalogstruktur
 3. Legg til `annotations.utgiver` i skjemaa med org sin URI
-4. Køyr `make update-modellkatalog` for å synkronisere katalogen
+4. Køyr `make gen-modellkatalog-instance` for å synkronisere katalogen

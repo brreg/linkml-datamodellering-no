@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Finn eksempelfiler (src/linkml/**/examples/*-eksempel.yaml) som skal
 # konverterast til RDF/Turtle med linkml-convert, filtrert mot
-# `example_rdf: false` i build.yaml. Delt av `make convert-rdf` (Makefile,
-# alle domene) og domain_target (make/20-domain-targets.mk, filtrert til
-# eitt domene via $1) — sjå specs/done/forenkle-make-laget.md.
+# `example_rdf: false` i build.yaml. Delt av `make convert-instance-rdf`
+# (Makefile) — utan `DOMAIN=` for alle skjema, med `DOMAIN=<domene>` for eitt
+# domene (kalla slik frå domain_target-pipelinen via $1) — sjå
+# specs/done/forenkle-make-laget.md.
 #
 # Skriv éi tab-separert linje per eksempelfil som skal konverterast:
 #   <skjema-sti>\t<eksempel-sti>\t<output-ttl-sti>

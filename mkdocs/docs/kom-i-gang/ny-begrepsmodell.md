@@ -1,5 +1,18 @@
 # Rettleiing: ny begrepskatalog
 
+!!! warning "Scaffolding-kommandoen er fjerna"
+
+    `make new-begrepskatalog` (scaffolding for det monolittiske
+    `BegrepContainer`-formatet denne sida skildrar) er fjerna, sjå
+    [spesifikasjonen for grunngjevinga](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/make-target-namn-vs-funksjon.md).
+    Bruk `make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>` for
+    nye begrepssamlingar (`begrep/`-katalog med éin fil per begrep) — sjå
+    [COMMANDS.md](https://github.com/brreg/linkml-datamodellering-no/blob/main/COMMANDS.md#ny-modellbegrepskatalogmodellkatalog).
+    Resten av denne sida er halden ved like som referanse for det eksisterande,
+    monolittiske formatet (`src/linkml/begrepskatalog/brreg-begrepskatalog`) —
+    scaffold eit nytt slikt skjema manuelt ved å kopiere den katalogen som mal
+    dersom det nokon gong trengst.
+
 !!! note "Beskrivelse"
 
     Denne rettleiinga viser korleis du oppretter ein ny begrepskatalog i repoet —
@@ -20,7 +33,9 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 **Navnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
 
 ```bash
-make new-begrepskatalog NAME=<katalog>
+# IKKJE lenger eit make-target — vist som referanse for filstrukturen
+# scriptet (no fjerna) genererte. Kopier src/linkml/begrepskatalog/
+# brreg-begrepskatalog/ som mal dersom eit nytt monolittisk skjema trengst.
 ```
 
 Dette oppretter:
@@ -36,7 +51,7 @@ src/linkml/begrepskatalog/<katalog>/
 
 Fyll deretter ut `title`, `description` og `utgiver` i skjemafila.
 
-For `make new-begrepskatalog NAME=test-begrep` ser dei genererte filene slik ut:
+Med `NAME=test-begrep` såg dei genererte filene slik ut:
 
 **`test-begrep-schema.yaml`**
 

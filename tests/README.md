@@ -14,11 +14,11 @@ Kvar skjema-køyring utfører 17 testar parallelt (generatorar, lint, roundtrip)
 | `gen-python` | Python-klasser vert generert |
 | `gen-jsonschema` | JSON Schema vert generert |
 | `gen-rdf` | RDF/TTL-skjema vert generert |
-| `gen-erdiagram` | ER-diagram vert generert |
-| `gen-docs` | HTML-dokumentasjon vert generert |
+| `gen-erdiagram-mermaid` | ER-diagram vert generert |
+| `gen-schema-docs` | HTML-dokumentasjon vert generert |
 | `gen-shacl` | SHACL-shapes vert generert |
 | `gen-owl` | OWL-ontologi vert generert |
-| `convert-rdf` | Eksempelfil kan konverterast til TTL |
+| `convert-instance-rdf` | Eksempelfil kan konverterast til TTL |
 | `linkml-lint` | Skjema følgjer LinkML best practices |
 | `linkml-validate` | Eksempelfil er gyldig mot skjema |
 | `gen-proto` | Protobuf-skjema vert generert |

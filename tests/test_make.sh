@@ -97,7 +97,7 @@ mcp_instance_job() {
     echo "$validate_schema $example"
 }
 
-# Delte "treng dette skjemaet steg X"-avgjerder for Kategori D (convert-rdf,
+# Delte "treng dette skjemaet steg X"-avgjerder for Kategori D (convert-instance-rdf,
 # roundtrip-json, roundtrip-ttl, linkml-validate) — same grunngjeving som
 # mcp_instance_job() over: delt mellom Fase A (jobbliste) og Fase B
 # (skip-meldingar) for å garantere samsvar.
@@ -267,11 +267,11 @@ run_schema_tests() {
         _run_one "gen-python ($name)"      test_gen_python     "$schema" "$outdir/$name-model.py"
         _run_one "gen-jsonschema ($name)"  test_gen_jsonschema "$schema" "$outdir/$name-schema.json"
         _run_one "gen-rdf ($name)"         test_gen_rdf        "$schema" "$outdir/$name-schema.ttl" "$domain"
-        _run_one "gen-erdiagram ($name)"   test_gen_erdiagram  "$schema" "$outdir/$name-erdiagram.md"
-        _run_one "gen-docs ($name)"        test_gen_docs       "$schema"
+        _run_one "gen-erdiagram-mermaid ($name)"   test_gen_erdiagram  "$schema" "$outdir/$name-erdiagram.md"
+        _run_one "gen-schema-docs ($name)"        test_gen_docs       "$schema"
         _run_one "gen-shacl ($name)"       test_gen_shacl      "$schema" "$outdir/$name-shapes.ttl"
         _run_one "gen-owl ($name)"         test_gen_owl        "$schema" "$outdir/$name-ontology.ttl"
-        _run_one "convert-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" "$example" "$domain"
+        _run_one "convert-instance-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" "$example" "$domain"
         _run_one "linkml-lint ($name)"     test_linkml_lint    "$schema"
         _run_one "linkml-validate ($name)" test_linkml_validate "$schema" "$domain" "$name"
         _run_one "gen-proto ($name)"              test_gen_proto             "$schema" "$outdir/$name-schema.proto"
@@ -382,7 +382,7 @@ wait_for_tests() {
 # batch-lint.py/batch-validate-instances.py i staden for
 # batch-generate.py-makroane over.
 #
-# Kategori D (convert-rdf, roundtrip-json/roundtrip-ttl, linkml-validate)
+# Kategori D (convert-instance-rdf, roundtrip-json/roundtrip-ttl, linkml-validate)
 # ER OGSÅ batcha her — sjå run_phase_a_convert_rdf()/
 # run_phase_a_roundtrip_json()/run_phase_a_roundtrip_ttl()/
 # run_phase_a_linkml_validate() lenger nede, som brukar batch-convert.py
@@ -441,7 +441,7 @@ run_phase_a_step() {
 # phase_a_logfile()/phase_a_metafile()-grensesnittet under SAME $key
 # uendra (loggfilene vert slått saman etterpå) — phase_a_check()/
 # print_phase_a_summary() treng ingen endring. Sjå
-# specs/backlog/splitt-fase-a-batchar-gen-docs-plantuml-roundtrip-json.md.
+# specs/backlog/splitt-fase-a-batchar-gen-schema-docs-plantuml-roundtrip-json.md.
 run_phase_a_step_split2() {
     local key="$1" target="$2" prefix="$3"
     if [[ -n "${TEST_FILTER:-}" ]] \
@@ -575,7 +575,7 @@ run_phase_a_mcp_instance() {
     } >> "$LOG"
 }
 
-# Kategori D: convert-rdf, roundtrip-json, roundtrip-ttl (alle batcha via
+# Kategori D: convert-instance-rdf, roundtrip-json, roundtrip-ttl (alle batcha via
 # batch-convert.py, sjå den fila sin toppkommentar for grunngjeving) og
 # linkml-validate (batcha via batch-linkml-validate.py). Same
 # jobbliste/TSV-mønster som batch-flatten-and-validate.py etablerte for
@@ -612,7 +612,7 @@ _run_phase_a_convert_batch() {
 # toppkommentar om skrive-før-les-avhengigheiter) held fram samla og i
 # UENDRA rekkjefølgje i SAME halvdel — splitting skjer difor på
 # skjemagrenser, aldri midt i eit skjema sin jobbrad-kjede. Sjå
-# specs/backlog/splitt-fase-a-batchar-gen-docs-plantuml-roundtrip-json.md.
+# specs/backlog/splitt-fase-a-batchar-gen-schema-docs-plantuml-roundtrip-json.md.
 _run_phase_a_convert_batch_split2() {
     local key="$1" jobs_tsv="$2" label="$3"
     local logfile n
@@ -668,7 +668,7 @@ _run_phase_a_convert_batch_split2() {
 }
 
 run_phase_a_convert_rdf() {
-    local prefix="convert-rdf"
+    local prefix="convert-instance-rdf"
     if [[ -n "${TEST_FILTER:-}" ]] \
         && [[ "$prefix" != "$TEST_FILTER"* ]] \
         && [[ "${prefix} (" != "$TEST_FILTER"* ]]; then
@@ -692,7 +692,7 @@ run_phase_a_convert_rdf() {
         rm -f "$jobs_tsv"
         return 0
     fi
-    _run_phase_a_convert_batch convert_rdf "$jobs_tsv" "convert-rdf"
+    _run_phase_a_convert_batch convert_rdf "$jobs_tsv" "convert-instance-rdf"
 }
 
 run_phase_a_roundtrip_json() {
@@ -806,7 +806,7 @@ run_phase_a_linkml_validate() {
 # Batchar RDF-gyldigheitssjekk (tidlegare assert_rdf_valid(), som spann opp
 # éin ny podman-kontainar PER FIL — sjå
 # specs/backlog/optimaliser-make-test-basert-pa-logginnsikt.md, Tiltak 1)
-# for output-filene til gen-rdf/gen-shacl/gen-owl/convert-rdf, i éin
+# for output-filene til gen-rdf/gen-shacl/gen-owl/convert-instance-rdf, i éin
 # kontainar. MÅ køyrast sekvensielt ETTER dei fire stega over (les filer
 # DEI produserer) — kallast difor IKKJE i PHASE_A_PIDS-lista i run_phase_a(),
 # men rett etter at hovud-wait-løkka er ferdig.
@@ -823,7 +823,7 @@ run_phase_a_rdf_validity() {
         for pair in "gen-rdf:$outdir/$name-schema.ttl" \
                     "gen-shacl:$outdir/$name-shapes.ttl" \
                     "gen-owl:$outdir/$name-ontology.ttl" \
-                    "convert-rdf:$outdir/$name-eksempel.ttl"; do
+                    "convert-instance-rdf:$outdir/$name-eksempel.ttl"; do
             prefix="${pair%%:*}"
             f="${pair#*:}"
             if [[ -n "${TEST_FILTER:-}" ]] \
@@ -863,10 +863,10 @@ run_phase_a_rdf_validity() {
     } >> "$LOG"
 }
 
-# Batchar .md-fil-gyldigheitssjekk for gen-docs (tidlegare éin bash-while-
+# Batchar .md-fil-gyldigheitssjekk for gen-schema-docs (tidlegare éin bash-while-
 # løkke PER SKJEMA i test_gen_docs(), 60-225 separate find/grep-kall per
-# skjema — sjå specs/backlog/gjer-gen-docs-raskare-fase-b.md for måling).
-# MÅ køyrast sekvensielt ETTER gen-docs (les katalogen han produserer) —
+# skjema — sjå specs/backlog/gjer-gen-schema-docs-raskare-fase-b.md for måling).
+# MÅ køyrast sekvensielt ETTER gen-schema-docs (les katalogen han produserer) —
 # kallast difor IKKJE i PHASE_A_PIDS-lista i run_phase_a(), men rett etter
 # at hovud-wait-løkka er ferdig. Reint stdlib-arbeid (ingen linkml-import),
 # køyrer difor i PYTHON_IMAGE (raskare oppstart enn LINKML_IMAGE), med
@@ -876,7 +876,7 @@ run_phase_a_docs_validity() {
     local jobs_list
     jobs_list=$(mktemp "$LOGDIR/phase_a_docs_validity_jobs_XXXXXX.tsv")
     local has_jobs=0
-    local prefix="gen-docs"
+    local prefix="gen-schema-docs"
     for schema in "${SCHEMAS[@]}"; do
         if [[ -n "${TEST_FILTER:-}" ]] \
             && [[ "$prefix" != "$TEST_FILTER"* ]] \
@@ -944,8 +944,8 @@ run_phase_a() {
     run_phase_a_step python     gen-python          "gen-python"   & PHASE_A_PIDS+=($!)
     run_phase_a_step jsonschema gen-jsonschema      "gen-jsonschema" & PHASE_A_PIDS+=($!)
     run_phase_a_step rdf        gen-rdf             "gen-rdf"      & PHASE_A_PIDS+=($!)
-    run_phase_a_step erdiagram  gen-erdiagram       "gen-erdiagram" & PHASE_A_PIDS+=($!)
-    run_phase_a_step_split2 docs gen-docs            "gen-docs"     & PHASE_A_PIDS+=($!)
+    run_phase_a_step erdiagram  gen-erdiagram-mermaid "gen-erdiagram-mermaid" & PHASE_A_PIDS+=($!)
+    run_phase_a_step_split2 docs gen-schema-docs      "gen-schema-docs"       & PHASE_A_PIDS+=($!)
     run_phase_a_step shacl      gen-shacl           "gen-shacl"    & PHASE_A_PIDS+=($!)
     run_phase_a_step owl        gen-owl             "gen-owl"      & PHASE_A_PIDS+=($!)
     run_phase_a_step proto      gen-proto           "gen-proto"    & PHASE_A_PIDS+=($!)
@@ -962,8 +962,8 @@ run_phase_a() {
     done
 
     # Sekvensielt (som gruppe), ETTER at hovudstega over er ferdige — begge
-    # les output desse produserer (gen-rdf/gen-shacl/gen-owl/convert-rdf
-    # for rdf_validity, gen-docs for docs_validity). Dei to er uavhengige
+    # les output desse produserer (gen-rdf/gen-shacl/gen-owl/convert-instance-rdf
+    # for rdf_validity, gen-schema-docs for docs_validity). Dei to er uavhengige
     # av KVARANDRE, så dei køyrer parallelt seg imellom.
     local -a PHASE_A_POST_PIDS=()
     run_phase_a_rdf_validity  & PHASE_A_POST_PIDS+=($!)
@@ -1219,7 +1219,7 @@ test_gen_docs() {
     phase_a_check docs "$schema" || return 1
     # .md-fil-innhaldssjekken (katalog finst, ikkje-tom, #-overskrift) er
     # batcha til Fase A sitt docs_validity-steg, sjå
-    # run_phase_a_docs_validity() og specs/backlog/gjer-gen-docs-raskare-
+    # run_phase_a_docs_validity() og specs/backlog/gjer-gen-schema-docs-raskare-
     # fase-b.md — IKKJE lenger ei bash-while-løkke her.
     phase_a_check docs_validity "$schema" || return 1
 }
@@ -1340,11 +1340,11 @@ test_convert_rdf() {
     if ! convert_rdf_job "$schema" "$domain" "$name" "$example"; then
         local build_yaml="$(dirname "$schema")/build.yaml"
         if lacks_tree_root "$domain"; then
-            echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
+            echo "Hoppar over convert-instance-rdf for $domain (ingen tree_root)"
         elif [ -f "$build_yaml" ] && grep -q "^  example_rdf: false" "$build_yaml"; then
-            echo "Hoppar over convert-rdf for $name (example_rdf: false)"
+            echo "Hoppar over convert-instance-rdf for $name (example_rdf: false)"
         elif [[ "$name" == "ngr-adresse" || "$name" == "ngr-eiendom" || "$name" == "ngr-virksomhet" ]]; then
-            echo "Hoppar over convert-rdf for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
+            echo "Hoppar over convert-instance-rdf for $name (BUG-2: linkml-runtime inlined_as_list-bug)"
         else
             echo "Ingen eksempelfil: $example (hoppar over)"
         fi

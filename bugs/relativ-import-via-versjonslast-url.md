@@ -70,11 +70,11 @@ transitivt via `linkml.generators.*`) i repoet:
 - `src/assets/scripts/makefile/gen-modelldcat-elements.py`
 - `src/assets/scripts/makefile/validate-modelldcat.py`
 - `src/assets/scripts/makefile/batch-generate.py` (drivar for
-  `gen-linkml-merge`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-docs` m.fl.
+  `validate-linkml-merge`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-schema-docs` m.fl.
   — patchen vart gløymd her i første runde, oppdaga då `make domain-oreg`
   feila i CI for eit skjema med versjonslåst URL-import)
 - `src/assets/scripts/makefile/batch-convert.py` (drivar for
-  `convert-rdf`/`roundtrip-json`/`roundtrip-ttl` via `linkml.converter.cli:cli`
+  `convert-instance-rdf`/`roundtrip-json`/`roundtrip-ttl` via `linkml.converter.cli:cli`
   — same type hol, oppdaga då `make roundtrip` feila med
   `Unknown CURIE prefix: https` for eit scaffolda skjema med versjonslåst
   URL-import, sjå `specs/done/fiks-ap-no-import-feil-new-modell.md`)

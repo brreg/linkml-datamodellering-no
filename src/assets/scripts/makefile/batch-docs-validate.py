@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Batch-valider FLEIRE gen-docs-output-katalogar (.md-filer) i éin prosess,
+Batch-valider FLEIRE gen-schema-docs-output-katalogar (.md-filer) i éin prosess,
 med parallelle filopningar via ein trådpool.
 
 Bakgrunn: `test_gen_docs()` i tests/test_make.sh sjekka tidlegare KVART
 .md-fil ÅLEINE (find + [ -s ] + grep -q '^#') i ein bash-while-løkke —
-gen-docs produserer 60-225+ .md-filer PER SKJEMA (éin per klasse/slot/
+gen-schema-docs produserer 60-225+ .md-filer PER SKJEMA (éin per klasse/slot/
 enum/type), så dette var 60-225 separate filopningar PER SKJEMA, 35
 gonger. Målt på eitt skjema (enhetsregisteret-bvrinn, 225 filer): 4,8s
 totalt, men berre ~1,15s var faktisk CPU-tid (user+sys) — resten var
