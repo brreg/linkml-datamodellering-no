@@ -193,7 +193,7 @@ def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path
         for iri in collect_own_iris(schema_data[schema]):
             referrers[iri].append(str(schema))
 
-    print("## Innhaldsforhandling\n")
+    print("## Innhaldsforhandling (Content negotiation)\n")
     print(
         f"Testar om repoet sine eigne IRI-ar (`id`/`default_prefix`, {len(referrers)} "
         f"unike IRI-ar) støttar innhaldsforhandling:\n"
