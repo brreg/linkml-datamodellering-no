@@ -113,16 +113,16 @@ run_validate() {
 # tapt berre fordi pynt-biletet manglar.
 run_analyse_classes() {
     if podman image exists "$FUN_IMAGE" 2>/dev/null; then
-        make analyse-similar-classes-domain DOMAIN="$DOMAIN" | fun glow -w "$(fun_width 140)" -
+        make analyse-similar-classes-domain DOMAIN="$DOMAIN" NAME="$NAME" | fun glow -w "$(fun_width 140)" -
     else
-        make analyse-similar-classes-domain DOMAIN="$DOMAIN"
+        make analyse-similar-classes-domain DOMAIN="$DOMAIN" NAME="$NAME"
     fi
 }
 run_analyse_slots() {
     if podman image exists "$FUN_IMAGE" 2>/dev/null; then
-        make analyse-similar-slots-domain DOMAIN="$DOMAIN" | fun glow -w "$(fun_width 140)" -
+        make analyse-similar-slots-domain DOMAIN="$DOMAIN" NAME="$NAME" | fun glow -w "$(fun_width 140)" -
     else
-        make analyse-similar-slots-domain DOMAIN="$DOMAIN"
+        make analyse-similar-slots-domain DOMAIN="$DOMAIN" NAME="$NAME"
     fi
 }
 
@@ -292,11 +292,11 @@ step boxes "6. Valider skjemaet" \
     run_validate
 
 step boxes "7. Finn liknande klassenavn på tvers av domenet" \
-    "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST}" \
+    "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_classes
 
 step boxes "8. Finn liknande slotnavn på tvers av domenet" \
-    "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST}" \
+    "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_slots
 
 step boxes "9. Generer JSON Schema frå den redigerte modellen" \

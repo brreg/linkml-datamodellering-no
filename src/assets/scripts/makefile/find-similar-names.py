@@ -71,11 +71,45 @@ def similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
+def resolve_name(name: str, domain: str | None) -> Path:
+    """Slår opp skjemastien for éin namngjeven modell (NAME=<modell>).
+
+    DOMAIN + NAME saman slår opp direkte (som new-modell/remove-modell).
+    NAME åleine søkjer på tvers av alle domene — feilar tydeleg dersom
+    modellnamnet ikkje finst, eller finst i meir enn eitt domene."""
+    if domain:
+        path = SCHEMA_DIR / domain / name / f"{name}-schema.yaml"
+        if not path.is_file():
+            print(f"FEIL: fann ikkje {path}", file=sys.stderr)
+            sys.exit(1)
+        return path
+    matches = sorted(SCHEMA_DIR.glob(f"*/{name}/{name}-schema.yaml"))
+    if not matches:
+        print(f"FEIL: fann ingen modell med namn '{name}' i {SCHEMA_DIR}", file=sys.stderr)
+        sys.exit(1)
+    if len(matches) > 1:
+        found = ", ".join(str(m) for m in matches)
+        print(
+            f"FEIL: fann fleire modellar med namn '{name}': {found} — presiser med DOMAIN=",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    return matches[0]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--kind", choices=["class", "slot"], required=True)
     parser.add_argument("--scope", choices=["domain", "all"], required=True)
     parser.add_argument("--domain", help="Avgrens til eitt domene (default: alle domene)")
+    parser.add_argument(
+        "--name",
+        help=(
+            "Avgrens til éin modell (NAME=<modell>) — samanliknar berre denne "
+            "modellen sine klassar/slots mot resten av kandidatane innanfor "
+            "scopet (same domene for --scope domain, heile repoet for --scope all)"
+        ),
+    )
     parser.add_argument(
         "--threshold",
         type=float,
@@ -83,6 +117,8 @@ def main() -> None:
         help="Fuzzy-likskapsterskel (0.0-1.0), default 0.8",
     )
     args = parser.parse_args()
+
+    target_path = resolve_name(args.name, args.domain) if args.name else None
 
     schemas = discover_schemas(args.domain)
     if not schemas:
@@ -99,24 +135,40 @@ def main() -> None:
     name_label = "klassenavn" if args.kind == "class" else "slotnavn"
     scope_label = "same domene" if args.scope == "domain" else "alle domene"
     domain_label = f", domene {args.domain}" if args.domain else ""
-    print(f"# Liknande {name_label} ({scope_label}{domain_label}, terskel {args.threshold:.0%})\n")
+    target_label = f"modell {schema_domain(target_path)}/{args.name}, " if target_path else ""
+    print(
+        f"# Liknande {name_label} ({target_label}{scope_label}{domain_label}, "
+        f"terskel {args.threshold:.0%})\n"
+    )
+
+    if target_path:
+        target_entries = [e for e in entries if e[2] == target_path]
+        other_entries = [e for e in entries if e[2] != target_path]
+        if not target_entries:
+            print(f"ÅTVARING: fann ingen {label} i {target_path}", file=sys.stderr)
+        pairs = ((a, b) for a in target_entries for b in other_entries)
+    else:
+        pairs = (
+            (entries[i], entries[j])
+            for i in range(len(entries))
+            for j in range(i + 1, len(entries))
+        )
 
     matches = []
     seen_pairs = set()
-    for i, (name_a, extra_a, schema_a) in enumerate(entries):
-        for name_b, extra_b, schema_b in entries[i + 1 :]:
-            if schema_a == schema_b:
-                continue
-            if args.scope == "domain" and schema_domain(schema_a) != schema_domain(schema_b):
-                continue
-            ratio = similarity(name_a, name_b)
-            if ratio < args.threshold:
-                continue
-            pair_key = tuple(sorted([f"{schema_a}:{name_a}", f"{schema_b}:{name_b}"]))
-            if pair_key in seen_pairs:
-                continue
-            seen_pairs.add(pair_key)
-            matches.append((ratio, name_a, extra_a, schema_a, name_b, extra_b, schema_b))
+    for (name_a, extra_a, schema_a), (name_b, extra_b, schema_b) in pairs:
+        if schema_a == schema_b:
+            continue
+        if args.scope == "domain" and schema_domain(schema_a) != schema_domain(schema_b):
+            continue
+        ratio = similarity(name_a, name_b)
+        if ratio < args.threshold:
+            continue
+        pair_key = tuple(sorted([f"{schema_a}:{name_a}", f"{schema_b}:{name_b}"]))
+        if pair_key in seen_pairs:
+            continue
+        seen_pairs.add(pair_key)
+        matches.append((ratio, name_a, extra_a, schema_a, name_b, extra_b, schema_b))
 
     if not matches:
         print(f"Ingen {label} over terskelen vart funne ({len(entries)} {label} sjekka).")

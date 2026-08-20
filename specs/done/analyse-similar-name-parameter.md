@@ -187,37 +187,68 @@ make analyse-similar-slots-all NAME=javazonetalk
 
 ## Handlingsliste
 
-1. [ ] Legg til `resolve_name(name, domain)` i `find-similar-names.py`
+1. [x] Legg til `resolve_name(name, domain)` i `find-similar-names.py`
    (sjå Namneoppløysing over) — eiga, testbar funksjon
-2. [ ] Legg til `--name`-CLI-flagg
-3. [ ] Endre hovudløkka til target×resten-samanlikning når `--name` er
+2. [x] Legg til `--name`-CLI-flagg
+3. [x] Endre hovudløkka til target×resten-samanlikning når `--name` er
    gitt (sjå Algoritme-endring), behald eksisterande full-pairwise-veg
    uendra når `--name` **ikkje** er gitt (bakoverkompatibelt — ingen
    endring i noverande bruk utan `NAME=`)
-4. [ ] Oppdater rapport-tittel-linja til å nemne modellen når `--name`
+4. [x] Oppdater rapport-tittel-linja til å nemne modellen når `--name`
    er aktiv
-5. [ ] Oppdater alle fire targeta i `make/91-modell-analyse.mk`
+5. [x] Oppdater alle fire targeta i `make/91-modell-analyse.mk`
    (`##`-kommentar + `--name`-vidaresending)
-6. [ ] Verifiser:
-   - `make analyse-similar-classes-domain NAME=javazonetalk` finn dei
-     same to treffa som i dag (`Aktivitet`/`Aktivitet`,
-     `TypeAktivitet`/`Aktivitet`) frå `enhetsregisteret-bvrinn` (same
-     domene, `oreg`), men **ikkje** noko anna urelatert klassepar
-     (stadfestar target×resten, ikkje full pairwise)
+6. [x] Verifiser:
+   - `make analyse-similar-classes-domain NAME=javazonetalk` finn same
+     treff som full-pairwise ville funne innanfor domenet, men **ikkje**
+     noko anna urelatert klassepar (stadfestar target×resten, ikkje full
+     pairwise) — stadfesta med 4 treff (t.d. `JavazonetalkContainer` mot
+     `GeneratedContainer`/`AksjeeierContainer`/`LunchregisteretContainer`,
+     `Javazonetalk` mot `Ansvarsandel`)
    - `make analyse-similar-classes-domain DOMAIN=oreg NAME=javazonetalk`
      gjev identisk resultat (eksplisitt DOMAIN skal ikkje endre noko når
-     namnet uansett er unikt)
+     namnet uansett er unikt) — stadfesta: same 4 treff, berre
+     "N klasser sjekka"-nemnaren skil seg (529 mot 63, sidan DOMAIN
+     avgrensar `discover_schemas()` sin kandidatpool, ikkje sjølve treffa)
    - `make analyse-similar-classes-all NAME=javazonetalk` finn **minst
-     dei same** treffa som `-domain`-varianten (same domene er alltid ein
-     delmengd av heile repoet), **pluss** eventuelle treff frå andre
-     domene enn `oreg` — stadfestar at `-all` faktisk søkjer breiare enn
-     `-domain` når `NAME=` er sett, ikkje identisk resultat i begge
-   - `NAME=finst-ikkje` gjev tydeleg feilmelding, ikkje traceback
-   - Eksisterande bruk **utan** `NAME=` (t.d. i
-     `javazone-demo-script.sh` sine steg 7/8) er heilt uendra
+     dei same** treffa som `-domain`-varianten, **pluss** treff frå andre
+     domene — stadfesta: 29 treff (mot 4 for `-domain`), inkl. treff frå
+     `ngr-virksomhet`, `fint-arkiv`, `modellkatalog-*` m.fl.
+   - `NAME=finst-ikkje` gjev tydeleg feilmelding
+     (`FEIL: fann ingen modell med namn 'finst-ikkje' i src/linkml`),
+     ikkje traceback — stadfesta
+   - Eksisterande bruk **utan** `NAME=` er heilt uendra — stadfesta
+     both direkte (`find-similar-names.py` utan `--name`, identisk
+     tittel-/tabellformat) og via `make -n analyse-similar-classes-domain
+     DOMAIN=oreg` (ingen `--name`-flagg i den genererte kommandolinja)
 7. [ ] Vurder om `javazone-demo-script.sh` sine steg 7/8
    (`analyse-similar-classes-domain`/`-slots-domain`) burde byte til
    `NAME=$NAME` no som parameteren finst — reduserer output frå "alle
    treff i domenet" til "berre treff for javazonetalk". **Ikkje** gjer
    dette som del av same endring utan å spørje brukaren fyrst — reint
-   opsjonelt oppfølgingssteg
+   opsjonelt oppfølgingssteg, ikkje utført
+
+## Utført
+
+- `src/assets/scripts/makefile/find-similar-names.py`: ny
+  `resolve_name(name, domain)`, nytt `--name`-flagg, hovudløkka bygg no
+  `target_entries × other_entries`-par når `--name` er gitt (elles
+  uendra full-pairwise), domene-scope-filteret (linje "if args.scope ==
+  domain...") står urørt inni løkka — verkar no berre på target×resten-
+  para. Rapporttittelen viser `modell <domain>/<name>` når aktiv.
+- `make/91-modell-analyse.mk`: alle fire `analyse-similar-*`-targeta har
+  no `[NAME=<modell>]` i `##`-kommentaren og `$(if $(NAME),--name
+  $(NAME))` vidaresendt.
+- **Verifisert** direkte med `python3 find-similar-names.py` (podman
+  rootless utilgjengeleg i verktøymiljøet, men scriptet krev ikkje
+  LinkML-runtime — reint `pyyaml`, difor testbart direkte): alle
+  scenario i handlingsliste punkt 6 stadfesta korrekte, inkludert at
+  `-all`-varianten faktisk finn eit strengt supersett av `-domain`
+  sine treff når `NAME=` er sett (29 mot 4 par).
+- **Verifisert** make-wiring med `make -n` (dry-run, ingen podman-kall):
+  `NAME=javazonetalk` gjev `--name javazonetalk` i den genererte
+  kommandolinja; utan `NAME` manglar `--name`-flagget heilt (ingen
+  regresjon).
+- Punkt 7 (bytte demo-scriptet sine steg 7/8 til `NAME=$NAME`) er **ikkje**
+  utført — ståande, opsjonelt oppfølgingsspørsmål til brukaren, som
+  spesifisert.
