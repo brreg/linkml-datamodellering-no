@@ -1,8 +1,8 @@
 version: 1
 extends: bronze
 description: >
-  Silver-policy for JSON Schema → LinkML-konvertering.
-  Arvar bronze-policyen og legg til schema_annotations med livssyklusmetadata
+  Silver-profil for JSON Schema → LinkML-konvertering.
+  Arvar bronze-profilen og legg til schema_annotations med livssyklusmetadata
   (Digdir-regel 9, 10, 11). Det genererte skjemaet vil passere
   make mcp-linkml-valider-modell POLICY=silver etter at TODO-verdiane er fylte inn.
 

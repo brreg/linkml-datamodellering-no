@@ -2,8 +2,8 @@
 """JSON Schema → LinkML-konvertering.
 
 Offentleg API:
-  load_profile(name)                          → dict
-  convert(json_schema, profile, ...)          → (yaml_str, warnings)
+  load_policy(name)                           → dict
+  convert(json_schema, policy, ...)           → (yaml_str, warnings)
 """
 
 import yaml
@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 # ---------------------------------------------------------------------------
-# Profil
+# Policy
 # ---------------------------------------------------------------------------
 
 def _deep_merge(base: dict, override: dict) -> dict:
@@ -25,14 +25,16 @@ def _deep_merge(base: dict, override: dict) -> dict:
     return result
 
 
-def load_profile(name: str) -> dict:
-    """Lastar ein namngitt profil frå profiles/-katalogen. Handterer 'extends:'-arv."""
-    profile_dir = Path(__file__).parent / "profiles"
-    with open(profile_dir / f"{name}.yaml", encoding="utf-8") as f:
+def load_policy(name: str) -> dict:
+    """Lastar ein namngitt policy frå policies/-katalogen. Handterer 'extends:'-arv."""
+    # Katalogen heiter framleis "profiles" fysisk på disk — sjå spec
+    # specs/backlog/erstatt-profil-med-policy.md for grunngjeving/oppfølging.
+    policy_dir = Path(__file__).parent / "profiles"
+    with open(policy_dir / f"{name}.yaml", encoding="utf-8") as f:
         data = yaml.safe_load(f) or {}
     parent_name = data.pop("extends", None)
     if parent_name:
-        parent = load_profile(parent_name)
+        parent = load_policy(parent_name)
         data = _deep_merge(parent, data)
     return data
 
@@ -95,19 +97,19 @@ def _resolve_ref(ref: str) -> str:
     return _sanitize_identifier(ref.split("/")[-1])
 
 
-def _resolve_type(prop: dict, profile: dict, warnings: list) -> dict:
+def _resolve_type(prop: dict, policy: dict, warnings: list) -> dict:
     """Omset ein JSON Schema-eigeskap til LinkML slot-attributtar.
 
     Returnerer ein dict med t.d. {'range': 'string', 'multivalued': True}.
     """
-    type_map = profile.get("type_mapping") or {}
-    fmt_map  = profile.get("format_mapping") or {}
+    type_map = policy.get("type_mapping") or {}
+    fmt_map  = policy.get("format_mapping") or {}
 
     # anyOf: nullable-mønster — filtrer bort null-typen
     if "anyOf" in prop:
         non_null = [s for s in prop["anyOf"] if s.get("type") != "null"]
         if len(non_null) == 1:
-            return _resolve_type(non_null[0], profile, warnings)
+            return _resolve_type(non_null[0], policy, warnings)
         if len(non_null) > 1:
             warnings.append(
                 "anyOf med fleire ikkje-null-typar er ikkje støtta — bruker range: string"
@@ -133,7 +135,7 @@ def _resolve_type(prop: dict, profile: dict, warnings: list) -> dict:
         result: dict = {"multivalued": True}
         items = prop.get("items") or {}
         if items:
-            result.update(_resolve_type(items, profile, warnings))
+            result.update(_resolve_type(items, policy, warnings))
         return result
 
     # null — ingen range
@@ -255,7 +257,7 @@ def _collect_classes(json_schema: dict, schema_name: str) -> dict:
 
 def convert(
     json_schema: dict,
-    profile: dict,
+    policy: dict,
     schema_id: str,
     schema_name: str,
     schema_title: str = "",
@@ -265,9 +267,9 @@ def convert(
     Returnerer (linkml_yaml_str, warnings).
     """
     warnings: list[str] = []
-    gen         = profile.get("generation") or {}
-    subsets_cfg = profile.get("subsets") or {}
-    std_prefixes = profile.get("standard_prefixes") or {}
+    gen         = policy.get("generation") or {}
+    subsets_cfg = policy.get("subsets") or {}
+    std_prefixes = policy.get("standard_prefixes") or {}
 
     # ── Prefiks ──────────────────────────────────────────────────────────────
     schema_uri  = schema_id.rstrip("/") + "/"
@@ -288,15 +290,15 @@ def convert(
     schema["version"] = "0.1.0"
     schema["license"] = "https://data.norge.no/nlod/no/2.0"
 
-    # ── Silver-annotasjonar frå profil ────────────────────────────────────────
-    profile_annotations = profile.get("schema_annotations")
-    if profile_annotations:
-        schema["annotations"] = dict(profile_annotations)
+    # ── Silver-annotasjonar frå policy ──────────────────────────────────────
+    policy_annotations = policy.get("schema_annotations")
+    if policy_annotations:
+        schema["annotations"] = dict(policy_annotations)
 
     schema["prefixes"]       = prefixes
     schema["default_prefix"] = schema_uri  # absolutt HTTPS-URI med avsluttande /
 
-    defaults = profile.get("schema_defaults") or {}
+    defaults = policy.get("schema_defaults") or {}
     schema["default_range"] = defaults.get("default_range", "string")
     schema["imports"]       = list(defaults.get("imports") or ["linkml:types"])
 
@@ -318,7 +320,7 @@ def convert(
             if prop_name == "id":
                 continue
             slot_name = _sanitize_slot_name(prop_name)
-            attrs     = _resolve_type(prop_def, profile, warnings)
+            attrs     = _resolve_type(prop_def, policy, warnings)
             new_range = attrs.get("range", "string")
 
             if slot_name in global_slots:

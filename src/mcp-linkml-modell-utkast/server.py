@@ -7,7 +7,9 @@ import yaml
 from pathlib import Path
 
 
-_PROFILES_DIR = Path(__file__).parent / "profiles"
+# Katalogen heiter framleis "profiles" fysisk på disk — sjå spec
+# specs/backlog/erstatt-profil-med-policy.md for grunngjeving/oppfølging.
+_POLICIES_DIR = Path(__file__).parent / "profiles"
 
 
 def send(obj: dict) -> None:
@@ -15,17 +17,17 @@ def send(obj: dict) -> None:
     sys.stdout.flush()
 
 
-def _list_profiles() -> list:
-    profiles = []
-    for path in sorted(_PROFILES_DIR.glob("*.yaml")):
+def _list_policies() -> list:
+    policies = []
+    for path in sorted(_POLICIES_DIR.glob("*.yaml")):
         try:
             with open(path, encoding="utf-8") as f:
                 data = yaml.safe_load(f) or {}
-            profiles.append({"name": path.stem, "description": data.get("description", "")})
+            policies.append({"name": path.stem, "description": data.get("description", "")})
         except Exception as e:
-            print(f"ÅTVARING: kunne ikkje lese profil {path} — {e}", file=sys.stderr)
-            profiles.append({"name": path.stem, "description": ""})
-    return profiles
+            print(f"ÅTVARING: kunne ikkje lese policy {path} — {e}", file=sys.stderr)
+            policies.append({"name": path.stem, "description": ""})
+    return policies
 
 
 # ---------------------------------------------------------------------------
@@ -68,9 +70,9 @@ TOOL_GENERATE = {
                 "description": "Tittel for skjemaet (valfri).",
                 "default": "",
             },
-            "profile": {
+            "policy": {
                 "type": "string",
-                "description": "Konverteringsprofil (default: 'bronze'). Tilgjengelege: 'bronze', 'silver'.",
+                "description": "Konverteringspolicy (default: 'bronze'). Tilgjengelege: 'bronze', 'silver'.",
                 "default": "bronze",
             },
             "validate": {
@@ -82,9 +84,9 @@ TOOL_GENERATE = {
     },
 }
 
-TOOL_LIST_PROFILES = {
-    "name": "list_profiles",
-    "description": "Listar tilgjengelege konverteringsprofiler.",
+TOOL_LIST_POLICIES = {
+    "name": "list_policies",
+    "description": "Listar tilgjengelege konverteringspolicyar.",
     "inputSchema": {
         "type": "object",
         "properties": {},
@@ -118,20 +120,20 @@ def handle(msg: dict) -> dict | None:
         return {
             "jsonrpc": "2.0",
             "id": msg_id,
-            "result": {"tools": [TOOL_GENERATE, TOOL_LIST_PROFILES]},
+            "result": {"tools": [TOOL_GENERATE, TOOL_LIST_POLICIES]},
         }
 
     if method == "tools/call":
         tool_name = (msg.get("params") or {}).get("name")
         arguments = (msg.get("params") or {}).get("arguments") or {}
 
-        if tool_name == "list_profiles":
+        if tool_name == "list_policies":
             return {
                 "jsonrpc": "2.0",
                 "id": msg_id,
                 "result": {
                     "content": [
-                        {"type": "text", "text": json.dumps(_list_profiles(), ensure_ascii=False)}
+                        {"type": "text", "text": json.dumps(_list_policies(), ensure_ascii=False)}
                     ]
                 },
             }
@@ -153,7 +155,7 @@ def handle(msg: dict) -> dict | None:
 
 
 def _handle_generate(msg_id, arguments: dict) -> dict:
-    from converter import load_profile, convert
+    from converter import load_policy, convert
     from validator import validate_generated
 
     input_format = arguments.get("inputFormat", "")
@@ -161,7 +163,7 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
     schema_id    = arguments.get("schemaId",    "https://example.org/schema")
     schema_name  = arguments.get("schemaName",  "schema")
     schema_title = arguments.get("schemaTitle", "")
-    profile_name = arguments.get("profile",     "bronze")
+    policy_name  = arguments.get("policy",      "bronze")
     do_validate  = arguments.get("validate",    True)
 
     valid_formats = {"json-schema", "empty"}
@@ -173,12 +175,12 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
         }
 
     try:
-        profile = load_profile(profile_name)
+        policy = load_policy(policy_name)
     except FileNotFoundError:
         return {
             "jsonrpc": "2.0",
             "id": msg_id,
-            "error": {"code": -32602, "message": f"Ukjend profil: '{profile_name}'"},
+            "error": {"code": -32602, "message": f"Ukjend policy: '{policy_name}'"},
         }
 
     if input_format == "json-schema":
@@ -194,7 +196,7 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
         json_schema = {"type": "object", "properties": {}}
 
     linkml_yaml, warnings = convert(
-        json_schema, profile,
+        json_schema, policy,
         schema_id=schema_id,
         schema_name=schema_name,
         schema_title=schema_title,

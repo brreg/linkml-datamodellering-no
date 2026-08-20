@@ -1,6 +1,6 @@
 version: 1
 description: >
-  Bronze-policy for JSON Schema → LinkML-konvertering.
+  Bronze-profil for JSON Schema → LinkML-konvertering.
   Implementerer grunnkrava i bronze-policy: globale slots, lenking framfor inlining,
   norske klassenavn, obligatorisk/anbefalt/valgfri-in_subset-markering (referert, ikkje lokalt
   definert — subsetnavna må finnast i importgrafen) og containerklasse med tree_root.

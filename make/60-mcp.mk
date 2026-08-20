@@ -61,11 +61,11 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast ## Køyr alle unit
 		$(LINKML_MOD_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-mcp-linkml-modell-utkast: ## Generer LinkML-skjemautkast frå JSON Schema (SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze])
-	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=bronze]"; exit 1; }
+mcp-linkml-modell-utkast: ## Generer LinkML-skjemautkast frå JSON Schema (SCHEMA=<sti> [FORMAT=json-schema] [POLICY=bronze])
+	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make mcp-linkml-modell-utkast SCHEMA=<sti> [FORMAT=json-schema] [POLICY=bronze]"; exit 1; }
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py \
 		--input-format "$(or $(FORMAT),json-schema)" --input-file "$(SCHEMA)" \
-		--profile "$(or $(PROFILE),bronze)" \
+		--policy "$(or $(POLICY),bronze)" \
 		| $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
 		| $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/mcp-extract-modell-utkast-response.py \
 		> "$(basename $(SCHEMA))-schema.yaml"

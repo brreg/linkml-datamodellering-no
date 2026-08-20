@@ -9,7 +9,7 @@ MCP-server for generering av LinkML-skjema frå JSON Schema (eller som tomt utka
 make mcp-generate SCHEMA=tmp/modell.json
 
 # Valfrie parametrar
-make mcp-generate SCHEMA=tmp/modell.json FORMAT=json-schema PROFILE=default
+make mcp-generate SCHEMA=tmp/modell.json FORMAT=json-schema POLICY=default
 ```
 
 Generert YAML-fil vert skriven til same katalog som inputfila (`tmp/modell-schema.yaml`).
@@ -47,8 +47,8 @@ JSON Schema (fil)
 | `description` | Frå JSON Schema `description`, eller auto-generert |
 | `version` | `0.1.0` (bronze-krav) |
 | `license` | `https://data.norge.no/nlod/no/2.0` (endre ved behov — sjå [gyldige lisensar](https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/)) |
-| `annotations.*` | Berre i silver-profil: `utgiver`, `endringsdato`, `utgivelsesdato`, `status` med TODO-stubs |
-| `prefixes` | Standard vokabularprefiksar frå profilen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + schema-avleia prefiks |
+| `annotations.*` | Berre i silver-policy: `utgiver`, `endringsdato`, `utgivelsesdato`, `status` med TODO-stubs |
+| `prefixes` | Standard vokabularprefiksar frå policyen (`dct`, `dcat`, `foaf`, `skos`, `xsd` m.fl.) + schema-avleia prefiks |
 | `default_prefix` | Absolutt HTTPS-URI avleia frå `schemaId` (t.d. `https://data.norge.no/ngr/adresse/`) |
 | `imports` | `linkml:types` (standard) |
 | `subsets` | Ikkje definert lokalt — `Obligatorisk`/`Anbefalt`/`Valgfri` vert berre *referert* via `in_subset` og må finnast i importgrafen (t.d. via `common-ap-no-schema.yaml`) |
@@ -86,17 +86,17 @@ Når `validate: true` (standard) køyrer to steg automatisk etter generering:
 
 **B — Dummy-datasett-validering:** Bygger eit minimalt datasett med plasshaldarverdiar for alle `required`-slots og `identifier`-slots, og validerer det mot containerklassen med `linkml.validator.validate`. Dette fangar opp type- og referansefeil som berre syner seg med faktiske data.
 
-## Profiler
+## Policyar
 
-Profiler styrer korleis konverteringa oppfører seg. Standard profil er `bronze`.
+Policyar styrer korleis konverteringa oppfører seg. Standard policy er `bronze`.
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json PROFILE=bronze
+make mcp-generate SCHEMA=tmp/modell.json POLICY=bronze
 
-# List tilgjengelege profiler via MCP-verktøyet list_profiles
+# List tilgjengelege policyar via MCP-verktøyet list_policies
 ```
 
-Profilane ligg i `profiles/<navn>.yaml`. Profilen `silver` arvar `bronze` via `extends: bronze`.
+Policyane ligg i `profiles/<navn>.yaml` (katalognavnet er eit attverande, ikkje enno omdøypt implementasjonsdetalj — sjå `specs/backlog/erstatt-profil-med-policy.md`). Policyen `silver` arvar `bronze` via `extends: bronze`.
 
 | Konfig-nøkkel | Beskriving |
 |---|---|
@@ -111,12 +111,12 @@ Profilane ligg i `profiles/<navn>.yaml`. Profilen `silver` arvar `bronze` via `e
 | `subsets.required_maps_to` | Subset for `required`-felt (standard: `Obligatorisk`) |
 | `subsets.non_required_default` | Subset for andre felt (standard: `Anbefalt`) |
 
-### Silver-profil
+### Silver-policy
 
-Bruk `PROFILE=silver` for å generere skjema med silver-annotasjonar (Digdir-regel 9, 10, 11):
+Bruk `POLICY=silver` for å generere skjema med silver-annotasjonar (Digdir-regel 9, 10, 11):
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json PROFILE=silver
+make mcp-generate SCHEMA=tmp/modell.json POLICY=silver
 ```
 
 Det genererte skjemaet vil innehalde ein `annotations:`-blokk med TODO-stubs:
@@ -135,8 +135,8 @@ Fyll inn korrekte verdiar og valider: `make mcp-linkml-valider-modell POLICY=sil
 
 | Verktøy | Skildring |
 |---|---|
-| `generate_linkml` | Genererer eit LinkML-skjema. Parametrar: `inputFormat` (`json-schema` eller `empty`), `inputContent` (JSON Schema som streng), `schemaId`, `schemaName`, `schemaTitle`, `profile`, `validate`. |
-| `list_profiles` | Listar tilgjengelege konverteringsprofiler med navn og skildring. |
+| `generate_linkml` | Genererer eit LinkML-skjema. Parametrar: `inputFormat` (`json-schema` eller `empty`), `inputContent` (JSON Schema som streng), `schemaId`, `schemaName`, `schemaTitle`, `policy`, `validate`. |
+| `list_policies` | Listar tilgjengelege konverteringspolicyar med navn og skildring. |
 
 ## NB! Etter generering — nødvendige tilpassingar
 
@@ -147,7 +147,7 @@ Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 3. **Fyll inn `title`** — erstatt TODO-stubben med ein meiningsfull tittel
 4. **Juster klassenavn** til norsk bokmål om nødvendig
 5. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.
-6. **Fyll inn silver-annotasjonar** om skjemaet har `validation_policy: silver` eller høgare (berre silver-profil): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
+6. **Fyll inn silver-annotasjonar** om skjemaet har `validation_policy: silver` eller høgare (berre silver-policy): `annotations.utgiver`, `annotations.endringsdato`, `annotations.utgivelsesdato`, `annotations.status` — sjå [CLAUDE.md § Silver-annotasjonar](../../CLAUDE.md).
 7. **Køyr bronze-validering** for å sjekke at grunnkrava er oppfylt:
 
 ```bash

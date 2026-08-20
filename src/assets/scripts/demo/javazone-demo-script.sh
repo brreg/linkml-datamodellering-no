@@ -307,26 +307,31 @@ step boxes "10. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
 
-step boxes "11. Generer ModelDCAT-metadata (finnes_i_format er no fylt ut)" \
+step boxes "11. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
 
 #read -rp "Trykk Enter når du er ferdig … "
-
+echo ""
+echo ""
 echo ""
 #echo "${CLR_STEP}Demo ferdig.${CLR_RST}"
 if podman image exists "$FUN_IMAGE" 2>/dev/null; then
     fun figlet -w "$(tput cols 2>/dev/null || echo 100)" "LinkML-datamodellering-no Demo" | fun lolcat -f
 fi
+echo ""
+echo ""
 if podman image exists "$FUN_IMAGE" 2>/dev/null; then
     printf 'https://brreg.github.io/linkml-datamodellering-no/' \
         | fun cowsay -n
 fi
 echo ""
 echo ""
-read -rp "Vil du rydde demofilene? (j/N) " svar
- if [[ "$svar" =~ ^[jJ]$ ]]; then
-    rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
-    make gen-valid-scopes
-     echo "Rydda opp."
- fi
+echo ""
+echo ""
+# read -rp "Vil du rydde demofilene? (j/N) " svar
+#  if [[ "$svar" =~ ^[jJ]$ ]]; then
+#     rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
+#     make gen-valid-scopes
+#      echo "Rydda opp."
+#  fi

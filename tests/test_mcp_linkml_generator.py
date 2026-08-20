@@ -17,7 +17,7 @@ import yaml
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-modell-utkast"))
-from converter import convert, load_profile
+from converter import convert, load_policy
 from validator import validate_generated
 from server import handle
 
@@ -26,8 +26,8 @@ from server import handle
 # Hjelpefunksjonar
 # ---------------------------------------------------------------------------
 
-def _profile() -> dict:
-    """Minimal testprofil — identisk med default.yaml-innhaldet."""
+def _policy() -> dict:
+    """Minimal testpolicy — identisk med default.yaml-innhaldet."""
     return {
         "naming": {"class_uri_prefix": "ex", "slot_uri_prefix": "ex"},
         "standard_prefixes": {"linkml": "https://w3id.org/linkml/"},
@@ -66,7 +66,7 @@ def _convert(json_schema: dict, schema_name: str = "test") -> tuple[dict, list[s
     """Konverterer og returnerer (parsed_schema_dict, warnings)."""
     yaml_str, warnings = convert(
         json_schema,
-        _profile(),
+        _policy(),
         schema_id="https://example.org/test",
         schema_name=schema_name,
     )
@@ -367,7 +367,7 @@ class TestGeneratedOutput(unittest.TestCase):
                     }
                 }
             },
-            _profile(),
+            _policy(),
             schema_id="https://example.org/test",
             schema_name="test",
         )
@@ -394,7 +394,7 @@ class TestGeneratedOutput(unittest.TestCase):
                     }
                 }
             },
-            _profile(),
+            _policy(),
             schema_id="https://example.org/test",
             schema_name="test",
             schema_title="Testmodell",
@@ -411,8 +411,8 @@ class TestGeneratedOutput(unittest.TestCase):
         finally:
             os.unlink(fname)
 
-    def test_load_profile_les_bronze(self):
-        p = load_profile("bronze")
+    def test_load_policy_les_bronze(self):
+        p = load_policy("bronze")
         self.assertEqual(p["version"], 1)
         self.assertIn("type_mapping", p)
         self.assertIn("format_mapping", p)
@@ -438,7 +438,7 @@ class TestValidation(unittest.TestCase):
                     }
                 }
             },
-            _profile(),
+            _policy(),
             schema_id="https://example.org/test",
             schema_name="test",
         )
@@ -515,7 +515,7 @@ class TestMCPProtocol(unittest.TestCase):
         resp = _call("tools/list")
         names = [t["name"] for t in resp["result"]["tools"]]
         self.assertIn("generate_linkml", names)
-        self.assertIn("list_profiles", names)
+        self.assertIn("list_policies", names)
 
     def test_ukjent_verktøy_gir_32602(self):
         resp = _call("tools/call", {"name": "ikkje_eit_verktøy", "arguments": {}})
@@ -577,7 +577,7 @@ class TestMCPProtocol(unittest.TestCase):
         result = json.loads(resp["result"]["content"][0]["text"])
         self.assertEqual([], result["lintIssues"])
 
-    def test_generate_med_ukjend_profil_gir_32602(self):
+    def test_generate_med_ukjend_policy_gir_32602(self):
         resp = _call("tools/call", {
             "name": "generate_linkml",
             "arguments": {
@@ -585,7 +585,7 @@ class TestMCPProtocol(unittest.TestCase):
                 "inputContent": "{}",
                 "schemaId":    "https://example.org/test",
                 "schemaName":  "test",
-                "profile":     "finnes-ikkje",
+                "policy":      "finnes-ikkje",
             },
         })
         self.assertEqual(resp["error"]["code"], -32602)
@@ -649,26 +649,26 @@ class TestMCPProtocol(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
-# TestListProfiles
+# TestListPolicies
 # ---------------------------------------------------------------------------
 
-class TestListProfiles(unittest.TestCase):
+class TestListPolicies(unittest.TestCase):
 
-    def _profiles(self) -> list:
-        resp = _call("tools/call", {"name": "list_profiles", "arguments": {}})
+    def _policies(self) -> list:
+        resp = _call("tools/call", {"name": "list_policies", "arguments": {}})
         return json.loads(resp["result"]["content"][0]["text"])
 
     def test_returnerer_minst_bronze(self):
-        names = [p["name"] for p in self._profiles()]
+        names = [p["name"] for p in self._policies()]
         self.assertIn("bronze", names)
 
-    def test_kvar_profil_har_name_og_description(self):
-        for p in self._profiles():
+    def test_kvar_policy_har_name_og_description(self):
+        for p in self._policies():
             self.assertIn("name", p)
             self.assertIn("description", p)
 
     def test_bronze_har_ikkje_tom_description(self):
-        bronze = next(p for p in self._profiles() if p["name"] == "bronze")
+        bronze = next(p for p in self._policies() if p["name"] == "bronze")
         self.assertGreater(len(bronze["description"]), 0)
 
 

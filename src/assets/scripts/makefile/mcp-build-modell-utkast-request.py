@@ -19,7 +19,7 @@ def main():
     parser.add_argument("--schema-id", default="https://example.org/generated")
     parser.add_argument("--schema-name", default="generated")
     parser.add_argument("--schema-title", default="")
-    parser.add_argument("--profile", default="bronze")
+    parser.add_argument("--policy", default="bronze")
     parser.add_argument("--no-validate", action="store_true", help="Slå av lint/dummy-validering (default: på)")
     args = parser.parse_args()
 
@@ -48,7 +48,7 @@ def main():
                     "schemaId": args.schema_id,
                     "schemaName": args.schema_name,
                     "schemaTitle": args.schema_title,
-                    "profile": args.profile,
+                    "policy": args.policy,
                     "validate": not args.no_validate,
                 },
             },

@@ -171,7 +171,7 @@ Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
 ```bash
 make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 # Silver-annotasjonar (utgiver, endringsdato, status) automatisk:
-make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json PROFILE=silver
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json POLICY=silver
 ```
 
 → genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer.
@@ -189,7 +189,7 @@ Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, sl
 For hurtig validering kan du linte skjemaet:
 `make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
-Lint + validering mot medaljong-profil:
+Lint + validering mot medaljongnivå:
 ```bash
 make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze
 make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=silver
