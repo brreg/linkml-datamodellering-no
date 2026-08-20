@@ -130,15 +130,45 @@ som berre er aktuelle i det augeblikket du lagar/fjernar noko.
 
 ## Handlingsliste
 
-1. [ ] Brukaren vel forslag A, B eller C (eller ein variant)
-2. [ ] Oppdater `categories`-lista i `src/assets/scripts/makefile/help.sh`
+1. [x] Brukaren vel forslag A, B eller C (eller ein variant) — **Forslag B**
+2. [x] Oppdater `categories`-lista i `src/assets/scripts/makefile/help.sh`
    etter valt forslag
-3. [ ] Verifiser med `make help` at alle target framleis vert viste,
+3. [x] Verifiser med `make help` at alle target framleis vert viste,
    ingen fell ut eller dupliserer seg mellom grupper
-4. [ ] `COMMANDS.md` (linje 62, 118, § «Vedlikehald» linje 247) og
+4. [x] `COMMANDS.md` (linje 62, 118, § «Vedlikehald» linje 247) og
    `mkdocs/docs/kom-i-gang/kommandoar.md` (§ «Vedlikehald» linje 135)
    har eigne, sjølvstendige seksjonar med namnet «Vedlikehald» —
    stadfesta ved grep. Uklart enno om desse skal spegle nye
    `help.sh`-gruppenamn 1:1, eller er sjølvstendige dokumentstrukturar
    som berre tilfeldigvis deler namn — avklar med brukaren før
    `COMMANDS.md`/mkdocs vert endra
+
+## Utført
+
+- **Forslag B** implementert i `src/assets/scripts/makefile/help.sh`:
+  - `Vanleg bruk`-mønsteret ankra (`^(help|test|roundtrip|roundtrip-json-schema|clean|check-prereqs)$`)
+    i staden for umarkert substring-match på `test` — dette var rotårsaka
+    til at `mcp-linkml-valider-modell-test`/`mcp-linkml-modell-utkast-test`
+    hamna feil (dei inneheld `test` som substring)
+  - `update-modellkatalog` lagt til `Generering`-mønsteret
+  - Ny kategori `Opprett og fjern modellar` (mønster
+    `(new-|remove-modell|update-valid-scopes)`) — erstattar `Vedlikehald`
+  - `mcp-linkml-valider-modell-test`/`mcp-linkml-modell-utkast-test`
+    hamnar no korrekt under `MCP-serverar` (biverknad av ankringsfiksen)
+  - Verifisert med `bash help.sh Makefile make/*.mk` — alle target vist,
+    ingen duplikat, ingen fall ut samanlikna med før (dei tre pre-eksisterande
+    hola `gource-preview`/`gource-video`/`print-domains`, urelatert til denne
+    endringa, er urørte)
+- **`COMMANDS.md`/`kommandoar.md` — ingen endring nødvendig.** Undersøkt
+  begge sine `### Vedlikehald`-subseksjonar (linje 247/135, under
+  `## Generering av artefakter`): dei inneheld katalog-/metadata-kommandoar
+  (`gen-informasjonsmodell-instance`, `validate-informasjonsmodell-instance`,
+  `gen-begrepskatalog-instance`, `gen-modellkatalog-instance`,
+  `validate-modellkatalog-instance`) — heilt urelatert til help.sh sin
+  `Vedlikehald`-kategori (verken den gamle eller nye). Referansane på
+  COMMANDS.md linje 62/118 peikar berre til denne same subseksjonen, ikkje
+  til scaffolding. Scaffolding-kommandoane (`new-modell` m.fl.) ligg alt
+  under si eiga, ukopla overskrift `## Ny modell/begrepskatalog/modellkatalog`
+  i begge dokumenta — som aldri brukte namnet «Vedlikehald». Brukaren
+  stadfesta: behald `### Vedlikehald`-subseksjonane urørte, ingen
+  scaffolding-referanse å rette.

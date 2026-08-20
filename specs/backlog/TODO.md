@@ -107,3 +107,5 @@ kartlegg hvis vi har brukt PROFIL for å omtale validerings POLICY nokon plass.
 *** make analyse-similar-slots-domain
 
   # Liknande slotsnamn (same domene, domene oreg, terskel 80%) 
+
+  undersøk makefile om vi har ubrukte eller legacy kommandoar

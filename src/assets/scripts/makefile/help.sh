@@ -39,16 +39,24 @@ CLR_RST=$'\033[0m'
 [ $# -gt 0 ] || { echo "help.sh: krev minst éi fil som argument" >&2; exit 1; }
 files=("$@")
 
-# (overskrift|grep -E-mønster for targetnamn) — i visingsrekkefølgje
+# (overskrift|grep -E-mønster for targetnamn) — i visingsrekkefølgje, som
+# også følgjer brukar-arbeidsflyten (opprett → valider → generer →
+# publiser → analyser), med infrastruktur-/verktøykategoriane sist.
+# Vanleg bruk-mønsteret er ankra (^...$, eksakt targetnamn) — dei andre
+# mønstera er umarkerte prefiks/substring-mønster. Ankringa er nødvendig
+# fordi "test" elles ville matche som substring i mcp-linkml-*-test og
+# stole dei frå MCP-serverar (sjå specs/done/help-gruppering-vanleg-bruk-vedlikehald.md).
+# Container images må stå før MCP-serverar — build-docker-mcp-*-target
+# matchar begge mønstera, og fyrste treff vinn (sjå fil-toppkommentaren).
 categories=(
-    "Vanleg bruk|(test|roundtrip|clean|help)"
-    "Generering (per domene eller skjema)|(gen-|domain-|convert-)"
+    "Vanleg bruk|^(help|test|roundtrip|roundtrip-json-schema|clean|check-prereqs)\$"
+    "Opprett og fjern modellar|(new-|remove-modell|update-valid-scopes)"
     "Validering|(validate|lint)"
+    "Generering (per domene eller skjema)|(gen-|domain-|convert-|update-modellkatalog)"
     "Dokumentasjonsportal|docs-"
+    "Modell-analyse|analyse-"
     "Container images|build-docker-"
     "MCP-serverar|mcp-"
-    "Vedlikehald|(update-|new-|remove-|check-)"
-    "Modell-analyse|analyse-"
 )
 
 # Merk: ingen -h til grep — når fleire filer er gitt, prefikser grep kvar
