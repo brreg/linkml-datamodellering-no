@@ -309,8 +309,9 @@ samanlikninga brukar berre klasser/slots definerte lokalt i kvart skjema
 | `make analyse-similar-classes-all [SIMILARITY_THRESHOLD=0.8]` | Finn klasser med liknande navn på tvers av alle domene. | Markdown-tabell til stdout |
 | `make analyse-similar-slots-domain [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande navn innanfor same domene. | Markdown-tabell til stdout |
 | `make analyse-similar-slots-all [SIMILARITY_THRESHOLD=0.8]` | Finn slots med liknande navn på tvers av alle domene. | Markdown-tabell til stdout |
-| `make analyse-iri-resolution` | Testar IRI-dereferering (IRI resolution) for `id`/`default_prefix`/`prefixes`-IRI-ar i alle skjema, og innhaldsforhandling (`Accept: text/turtle`, `Accept-Language: nb`/`en`) for IRI-ar repoet sjølv eig (`id`/`default_prefix`). Kjende, avgjorde ikkje-dereferbare mønster (`schema.fintlabs.no`, `data.norge.no/vocabulary/ngr-*`, `example.org`-plasshaldarar) er utelatne frå testen. Krev nettverkstilgang. | Markdown-tabellar til stdout |
-| `make analyse-sammendrag` | Les dei fem `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
+| `make analyse-iri-dereferering` | Testar IRI-dereferering (IRI resolution) for `id`/`default_prefix`/`prefixes`-IRI-ar i alle skjema. Kjende, avgjorde ikkje-dereferbare mønster (`schema.fintlabs.no`, `data.norge.no/vocabulary/ngr-*`, `example.org`-plasshaldarar) er utelatne frå testen. Krev nettverkstilgang. | Markdown-tabell til stdout |
+| `make analyse-innhaldsforhandling` | Testar innhaldsforhandling (`Accept: text/turtle`, `Accept-Language: nb`/`en`) for IRI-ar repoet sjølv eig (`id`/`default_prefix`). Krev nettverkstilgang. | Markdown-tabell til stdout |
+| `make analyse-sammendrag` | Les dei seks `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
 
 ## Påskeegg: Gource-visualisering
 

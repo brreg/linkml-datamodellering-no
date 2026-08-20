@@ -20,7 +20,7 @@ SIMILARITY_THRESHOLD ?= 0.8
 
 .PHONY: analyse-similar-classes-domain analyse-similar-classes-all \
         analyse-similar-slots-domain analyse-similar-slots-all \
-        analyse-iri-resolution analyse-sammendrag
+        analyse-iri-dereferering analyse-innhaldsforhandling analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
@@ -42,10 +42,14 @@ analyse-similar-slots-all: ## Finn slots med liknande navn på tvers av alle dom
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind slot --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(NAME),--name $(NAME))
 
-analyse-iri-resolution: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema let seg derefere over HTTP(S) [DOMAIN=<domene>]
-	$(call print_header,analyse-iri-resolution) 1>&2
-	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py $(if $(DOMAIN),--domain $(DOMAIN))
+analyse-iri-dereferering: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema let seg derefere over HTTP(S) [DOMAIN=<domene>]
+	$(call print_header,analyse-iri-dereferering) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py --check dereferering $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-sammendrag: ## Les dei fem analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
+analyse-innhaldsforhandling: ## Testar innhaldsforhandling (Accept: text/turtle, Accept-Language: nb/en) for id/default_prefix-IRI-ar repoet sjølv eig [DOMAIN=<domene>]
+	$(call print_header,analyse-innhaldsforhandling) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py --check innhaldsforhandling $(if $(DOMAIN),--domain $(DOMAIN))
+
+analyse-sammendrag: ## Les dei seks analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
 	$(call print_header,analyse-sammendrag) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/summarise-modell-analyse.py

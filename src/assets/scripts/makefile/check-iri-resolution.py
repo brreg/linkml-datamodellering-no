@@ -7,9 +7,12 @@ saman med kva skjema som refererer dei. Testar i tillegg innhaldsforhandling
 Accept: text/turtle gir RDF Turtle, og om Accept-Language: nb/en gir
 høvesvis norsk bokmål- og engelsk
 representasjon (jf. avvik 4 i
-specs/backlog/avvik-peikarar-til-offentlege-ressursar.md). Feilar aldri
-(informativ rapport, ikkje blokkerande sjekk) — sjå
-.github/workflows/modell-analyse.yml for korleis rapporten vert brukt.
+specs/backlog/avvik-peikarar-til-offentlege-ressursar.md). Dei to testane
+køyrer som separate GitHub Actions-jobbar (sjå
+.github/workflows/modell-analyse.yml) og vert difor valde med
+--check {dereferering,innhaldsforhandling} — kvart kall skriv berre éin av
+rapportseksjonane. Feilar aldri (informativ rapport, ikkje blokkerande
+sjekk).
 
 Innhaldsforhandlingstestane er avgrensa til id/default_prefix — ikkje
 prefixes til tredjeparts vokabular (dct:, xsd:, foaf: osv.) — sidan repoet
@@ -193,7 +196,7 @@ def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path
         for iri in collect_own_iris(schema_data[schema]):
             referrers[iri].append(str(schema))
 
-    print("## Innhaldsforhandling (Content negotiation)\n")
+    print("# Innhaldsforhandling (Content negotiation)\n")
     print(
         f"Testar om repoet sine eigne IRI-ar (`id`/`default_prefix`, {len(referrers)} "
         f"unike IRI-ar) støttar innhaldsforhandling:\n"
@@ -239,6 +242,12 @@ def print_content_negotiation_report(schemas: list[Path], schema_data: dict[Path
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--domain", help="Avgrens til eitt domene (default: alle domene)")
+    parser.add_argument(
+        "--check",
+        required=True,
+        choices=["dereferering", "innhaldsforhandling"],
+        help="Kva for éin av dei to testane som skal køyrast",
+    )
     args = parser.parse_args()
 
     schemas = discover_schemas(args.domain)
@@ -249,8 +258,10 @@ def main() -> None:
 
     schema_data = {schema: load_schema(schema) for schema in schemas}
 
-    print_resolution_report(schemas, schema_data)
-    print_content_negotiation_report(schemas, schema_data)
+    if args.check == "dereferering":
+        print_resolution_report(schemas, schema_data)
+    else:
+        print_content_negotiation_report(schemas, schema_data)
 
 
 if __name__ == "__main__":

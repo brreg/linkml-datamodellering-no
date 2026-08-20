@@ -123,7 +123,7 @@ jobs:
           path: similar-slots-all-report.md
           retention-days: 30
 
-  iri-resolution:
+  iri-dereferering:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -137,18 +137,46 @@ jobs:
       - name: Test IRI-dereferering (IRI resolution)
         run: |
           set -uo pipefail
-          make analyse-iri-resolution > iri-resolution-report.md
+          make analyse-iri-dereferering > iri-dereferering-report.md
           {
             echo "## IRI-dereferering (IRI resolution)"
-            cat iri-resolution-report.md
+            cat iri-dereferering-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Last opp rapport
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: iri-resolution-report
-          path: iri-resolution-report.md
+          name: iri-dereferering-report
+          path: iri-dereferering-report.md
+          retention-days: 30
+
+  innhaldsforhandling:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Test innhaldsforhandling (Content negotiation)
+        run: |
+          set -uo pipefail
+          make analyse-innhaldsforhandling > innhaldsforhandling-report.md
+          {
+            echo "## Innhaldsforhandling (Content negotiation)"
+            cat innhaldsforhandling-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: innhaldsforhandling-report
+          path: innhaldsforhandling-report.md
           retention-days: 30
 
   sammendrag:
@@ -157,7 +185,8 @@ jobs:
       - similar-classes-all
       - similar-slots-domain
       - similar-slots-all
-      - iri-resolution
+      - iri-dereferering
+      - innhaldsforhandling
     if: always()
     runs-on: ubuntu-22.04
     permissions:

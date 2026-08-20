@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Les dei fem rapportfilene frå analyse-similar-classes-domain,
+Les dei seks rapportfilene frå analyse-similar-classes-domain,
 analyse-similar-classes-all, analyse-similar-slots-domain,
-analyse-similar-slots-all og analyse-iri-resolution, trekker ut talet på
-funn/feil og talet sjekka frå kvar rapport sine oppsummeringslinjer, og
-skriv ein konsolidert sammendrag-tabell. Feilar aldri (informativ rapport)
-— manglande rapportfiler eller uventa format gjev "?" i tabellen, ikkje
-ein feilkode. Sjå .github/workflows/modell-analyse.yml for korleis
-rapporten vert brukt.
+analyse-similar-slots-all, analyse-iri-dereferering og
+analyse-innhaldsforhandling, trekker ut talet på funn/feil og talet sjekka
+frå kvar rapport sine oppsummeringslinjer, og skriv ein konsolidert
+sammendrag-tabell. Feilar aldri (informativ rapport) — manglande
+rapportfiler eller uventa format gjev "?" i tabellen, ikkje ein feilkode.
+Sjå .github/workflows/modell-analyse.yml for korleis rapporten vert brukt.
 
 Ingen eksterne avhengigheiter utover stdlib.
 """
@@ -32,8 +32,8 @@ CHECKS = [
     ("Liknande klassenavn (alle domene)", "similar-classes-all-report.md", "similar"),
     ("Liknande slotnavn (same domene)", "similar-slots-domain-report.md", "similar"),
     ("Liknande slotnavn (alle domene)", "similar-slots-all-report.md", "similar"),
-    ("IRI-dereferering", "iri-resolution-report.md", "iri"),
-    ("Innhaldsforhandling", "iri-resolution-report.md", "content-negotiation"),
+    ("IRI-dereferering", "iri-dereferering-report.md", "iri"),
+    ("Innhaldsforhandling", "innhaldsforhandling-report.md", "content-negotiation"),
 ]
 
 
