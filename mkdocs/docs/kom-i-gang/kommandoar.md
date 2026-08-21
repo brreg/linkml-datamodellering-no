@@ -44,11 +44,10 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make roundtrip-json-schema SCHEMA=<sti>` | Køyrer roundtrip-test spesifikt for JSON Schema-generering. Verifiserer at YAML → JSON Schema → YAML gjev same resultat. | Testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make test SCHEMA=<sti>` | Køyrer full testsuite (lint + validering + alle generatorar) for eitt skjema. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
 | `make test` | Linter alle skjemaer og validerer alle eksempelfiler i heile repoet. | Samla testrapport til stdout; avsluttar med kode 1 ved feil |
-| `make validate` | Validerer alle skjema mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
+| `make validate [DOMAIN=<domene>\|SCHEMA=<sti>]` | Validerer alle skjema (eller avgrensa til eit domene/eitt skjema) mot LinkML-metaskjemaet (strukturvalidering, ikkje policy). | Validerings-resultat per skjema til stdout |
 | `make mcp-linkml-valider-modell SCHEMA=<sti>` | Policy-validering mot `validation_policy` frå build.yaml. POLICY kan overstyres med `POLICY=<bronze\|silver\|gold\|felles-datakatalog\|felles-begrepskatalog>`. | Pass/fail per policy-regel til stdout |
 | `make validate-capture` | Generer valideringsresultat for alle skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-filer med valideringsresultat |
 | `make validate-capture SCHEMA=<sti>` | Generer valideringsresultat for eitt skjema og lagre til `src/linkml/<domain>/<modell>/validation/<version>/<policy>.json`. | JSON-fil med valideringsresultat |
-| `make validate-bronze DOMAIN=<domene>` | Validerer alle skjema i eit domene mot bronze-policy (basis skjemakvalitet). **Ikkje brukt i CI** — CI validerer skjema direkte via `run-validation.sh` per manifest; dette er eit manuelt/lokalt batch-alternativ. | Pass/fail per skjema til stdout; avsluttar med kode 1 ved feil |
 | `make validate-data DOMAIN=<domene>` | Validerer alle datafiler i `data/`-katalogar i eit domene mot deira `validation_policy` frå build.yaml. Brukt i CI per domene. | Pass/fail per datafil til stdout |
 | `make validate-examples DOMAIN=<domene>` | Validerer alle eksempelfiler i eit domene mot tilhøyrande skjema. Brukt i CI per domene. | Pass/fail per eksempelfil til stdout; avsluttar med kode 1 ved feil |
 | `make validate-policy-logg SCHEMA=<sti>` | Policy-validering med full JSON-logg. Nyttig for debugging av policy-reglar. | JSON-logg til stdout |

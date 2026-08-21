@@ -49,7 +49,7 @@ LINKML_YAML=$(python3 "$REQUEST_SCRIPT" \
     --schema-id "$SCHEMA_ID" \
     --schema-name "$SCHEMA_NAME" \
     --schema-title "TODO: tittel for $NAME" \
-    --profile silver \
+    --policy silver \
     --no-validate \
   | podman run -i --rm \
       -v "$LINKML_GEN_DIR/server.py:/app/server.py:ro" \

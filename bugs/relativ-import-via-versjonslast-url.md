@@ -70,7 +70,7 @@ transitivt via `linkml.generators.*`) i repoet:
 - `src/assets/scripts/makefile/gen-modelldcat-elements.py`
 - `src/assets/scripts/makefile/validate-modelldcat.py`
 - `src/assets/scripts/makefile/batch-generate.py` (drivar for
-  `validate-linkml-merge`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-schema-docs` m.fl.
+  `validate`/`gen-shacl`/`gen-jsonschema`/`gen-owl`/`gen-schema-docs` m.fl.
   — patchen vart gløymd her i første runde, oppdaga då `make domain-oreg`
   feila i CI for eit skjema med versjonslåst URL-import)
 - `src/assets/scripts/makefile/batch-convert.py` (drivar for

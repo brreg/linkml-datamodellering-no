@@ -166,7 +166,7 @@ print_heading() {
             figlet) fun figlet "$title" ;;
             toilet) fun toilet "$title" ;;
             cowsay) echo "$title" | fun cowsay ;;
-            boxes)  echo "$title" | fun boxes ;;
+            boxes)  echo "$title" | fun boxes -d stone ;;
             lolcat) echo "$title" | fun lolcat -f ;;
         esac
     else
@@ -208,37 +208,32 @@ step() {
         "$@" || echo "${CLR_ERR}(steget feila — sjå output over, avgjer sjølv om du held fram)${CLR_RST}"
     fi
 }
-
+echo ""
+echo ""
 step boxes "1. Sjå tilgjengelege kommandoar" \
     "${CLR_STEP}make help${CLR_RST} | less -R" \
     run_help
-
+echo ""
+echo ""
 step boxes "2. Sjekk at miljøet er klart" \
     "${CLR_STEP}make check-prereqs${CLR_RST}" \
     make check-prereqs
-
+echo ""
 step boxes "3. Opprett ein ny, tom modell" \
     "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST}" \
     make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
-
+echo ""
+echo ""
 step boxes "4. Lint skjemaet" \
     "${CLR_STEP}make lint${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make lint SCHEMA="$SCHEMA"
-
+echo ""
+echo ""
 print_heading boxes "5. LIVE-REDIGERING"
 cat <<EOF
 
-Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — tre klasser,
+Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — fem klasser,
 knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
-
-  Aktivitet:
-    description: Eit foredrag på ein konferanse.
-    class_uri: ${NAME}:Aktivitet
-    slots:
-    - id
-    - tittel
-    - foredragsholder_ref
-    - konferanse_ref
 
   Foredragsholder:
     description: Ein person som held eit foredrag.
@@ -255,6 +250,28 @@ knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
     - id
     - tittel
     - sted
+    - har_timeplaner
+
+  Foredrag:
+    description: Eit forslag til foredrag sendt inn til vurdering.
+    class_uri: ${NAME}:Foredrag
+    slots:
+    - id
+    - tittel
+    - lengde_i_minutt
+    - sammendrag
+    - malgruppe
+    - har_foredragsholdere
+    - innsendingsstatus
+
+  Timeplan:
+    description: Ei tidsplanoppføring som viser når og kor eit foredrag vert halde.
+    class_uri: ${NAME}:Timeplan
+    slots:
+    - id
+    - foredrag_tidsrom
+    - har_foredrag
+    - lokasjon
 
 EOF
 
@@ -262,15 +279,7 @@ prompt_enter
 
 cat <<EOF
 Lim inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
-common-ap-no-importen — dei fem andre er nye):
-
-  foredragsholder_ref:
-    description: Referanse til foredragshaldaren for aktiviteten.
-    range: Foredragsholder
-
-  konferanse_ref:
-    description: Referanse til konferansen aktiviteten høyrer til.
-    range: Konferanse
+common-ap-no-importen — dei fjorten andre er nye):
 
   navn:
     description: Navnet på foredragshaldaren.
@@ -284,29 +293,88 @@ common-ap-no-importen — dei fem andre er nye):
     description: Staden konferansen vert halden.
     range: string
 
+  lengde_i_minutt:
+    description: Lengda på foredraget, i minutt.
+    range: integer
+
+  sammendrag:
+    description: Eit samandrag av foredraget.
+    range: string
+
+  malgruppe:
+    description: Målgruppa foredraget rettar seg mot.
+    range: string
+
+  har_foredragsholdere:
+    description: Referanse til foredragshaldarane som har sendt inn foredraget.
+    range: Foredragsholder
+    multivalued: true
+
+  foredrag_tidsrom:
+    description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
+    range: string
+
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+
+  lokasjon:
+    description: Rommet eller salen foredraget vert halde i.
+    range: string
+
+  har_timeplaner:
+    description: Referanse til timeplanoppføringane for konferansen.
+    range: Timeplan
+    multivalued: true
+
+  innsendingsstatus:
+    description: Status for foredragsinnsendinga.
+    range: InnsendingStatus
+
 EOF
 read -rp "Trykk Enter når du er ferdig … "
 
+cat <<EOF
+Lim inn heilt til slutt i skjemaet (nytt toppnivå-felt '${CLR_DBG}enums:${CLR_RST}',
+same nivå som '${CLR_DBG}classes:${CLR_RST}' og '${CLR_DBG}slots:${CLR_RST}'):
+
+enums:
+  InnsendingStatus:
+    description: Status for ei foredragsinnsending.
+    permissible_values:
+      INNSENDT:
+        description: Innsendt
+      GODKJENT:
+        description: Godkjent
+      AVVIST:
+        description: Avvist
+EOF
+read -rp "Trykk Enter når du er ferdig … "
+echo ""
+echo ""
 step boxes "6. Valider skjemaet" \
     "${CLR_STEP}make mcp-linkml-valider-modell${CLR_RST} ${CLR_OK}SCHEMA=${SCHEMA}${CLR_RST} | less -R" \
     run_validate
-
+echo ""
+echo ""
 step boxes "7. Finn liknande klassenavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_classes
-
+echo ""
 step boxes "8. Finn liknande slotnavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_slots
-
+echo ""
 step boxes "9. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-jsonschema SCHEMA="$SCHEMA"
-
+echo ""
+echo ""
 step boxes "10. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
-
+echo ""
+echo ""
 step boxes "11. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"

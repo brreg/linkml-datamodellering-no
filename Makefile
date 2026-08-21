@@ -72,7 +72,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 .PHONY: help test roundtrip validate lint validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram-mermaid convert-instance-rdf convert-data gen-schema-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
-        validate-bronze validate-data validate-examples \
+        validate-data validate-examples \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs build-docker-plantuml \
         build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
         mcp-linkml-valider-modell-run mcp-linkml-valider-modell-smoke mcp-linkml-valider-modell-test mcp-linkml-valider-modell \

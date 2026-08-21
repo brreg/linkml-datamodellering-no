@@ -1,6 +1,6 @@
 make analyse-similar-slots-domain DOMAIN=ap-no
 *** make analyse-similar-slots-domain
-# Liknande slotsnamn (same domene, domene ap-no, terskel 80%)
+# Liknande slotnavn (same domene, domene ap-no, terskel 80%)
 
 | Likskap | Namn A | Type A | Skjema A | Namn B | Type B | Skjema B |
 |---|---|---|---|---|---|---|

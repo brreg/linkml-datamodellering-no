@@ -3,7 +3,7 @@
 #
 # Validering av skjema, eksempelfiler og datafiler:
 # - LinkML-validering (validate, lint, validate-instance)
-# - Bronze/policy-validering (validate-bronze, validate-data, validate-examples)
+# - Policy-validering (validate-data, validate-examples)
 # - MCP-validering (mcp-linkml-valider-modell, validate-capture)
 # - Logging av valideringsresultat (validate-policy-logg, validate-instance-logg)
 #
@@ -11,7 +11,6 @@
 # - src/assets/scripts/makefile/detect-validation-policy.py
 # - src/assets/scripts/makefile/run-schema-validation.py
 # - src/assets/scripts/makefile/save-validation-log.py
-# - src/assets/scripts/makefile/emit-github-validation-annotations.py
 # - src/assets/scripts/makefile/run-validation.sh
 # ==============================================================================
 
@@ -19,9 +18,15 @@
 # LinkML-validering
 # ---------------------------------------------------------------------------
 
-validate: ## Valider alle skjema (merge-imports) [SCHEMA=<sti>]
-	$(call print_header,validate,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
-	$(call run_gen_linkml_parallel,$(if $(SCHEMA),$(SCHEMA),$(SCHEMAS)))
+validate: ## Valider alle skjema (merge-imports, fail-fast, ingen fil skriven) [DOMAIN=<domene>|SCHEMA=<sti>]
+ifdef SCHEMA
+	$(call print_header,validate,SCHEMA=$(SCHEMA))
+else ifdef DOMAIN
+	$(call print_header,validate,DOMAIN=$(DOMAIN))
+else
+	$(call print_header,validate)
+endif
+	$(call run_gen_linkml_parallel,$(call get_target_schemas))
 
 lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
@@ -37,43 +42,6 @@ validate-instance: ## Valider instansfil mot skjema (SCHEMA=<sti> INSTANCE=<sti>
 # ---------------------------------------------------------------------------
 # Policy-validering (bronze/silver/gold/felles-*)
 # ---------------------------------------------------------------------------
-
-validate-bronze: ## Valider skjema med bronze-policy (DOMAIN=<domene>)
-ifdef DOMAIN
-	@eval "$$LOG_FUNCTIONS"; \
-	set +e; \
-	FAILED=0; \
-	SCHEMA_LIST=$$(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
-	if [ -z "$$SCHEMA_LIST" ]; then \
-		log_info "Ingen skjema funne for DOMAIN=$(DOMAIN)"; \
-		exit 0; \
-	fi; \
-	COUNT=$$(echo "$$SCHEMA_LIST" | wc -l); \
-	BATCH_DIR=$$(mktemp -d); \
-	trap 'rm -rf "$$BATCH_DIR"' EXIT; \
-	log_debug "Kommando: batch-flatten-and-validate.py --policy bronze ($$COUNT skjema, domain $(DOMAIN))"; \
-	t0=$$(date +%s%3N); \
-	run_logged "batch-flatten-and-validate/bronze $(DOMAIN)" python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --policy bronze \
-		--output-dir "$$BATCH_DIR" $$SCHEMA_LIST; \
-	t1=$$(date +%s%3N); \
-	ms=$$(( t1 - t0 )); \
-	log_info "$$(printf '$(CLR_STEP)→ validate-bronze  %s  (%d skjema, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
-	i=0; \
-	while IFS= read -r schema; do \
-		result=$$(cat "$$BATCH_DIR/$$i.json" 2>/dev/null || echo '{"valid":false,"errorCount":1,"warningCount":0,"issues":[{"severity":"error","code":"missing_batch_result","target":"schema","message":"Batch-resultat manglar"}]}'); \
-		log_debug "$$result"; \
-		run_logged "save-validation-log/bronze $$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/save-validation-log.py \
-			--schema "$$schema" --type bronze --result "$$result" < /dev/null; \
-		if ! SCHEMA="$$schema" $(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/emit-github-validation-annotations.py <<< "$$result"; then \
-			FAILED=$$((FAILED + 1)); \
-		fi; \
-		i=$$((i + 1)); \
-	done <<< "$$SCHEMA_LIST"; \
-	exit $$FAILED
-else
-	@log_error "FEIL: DOMAIN er påkravd. Bruk: make validate-bronze DOMAIN=<domene>"
-	@exit 1
-endif
 
 validate-data: ## Valider datafiler (data/*/*.yaml) med MCP-validator (DOMAIN=<domene>)
 ifdef DOMAIN

@@ -30,6 +30,17 @@ def issue(severity: str, code: str, target: str, message: str) -> dict:
     return {"severity": severity, "code": code, "target": target, "message": message}
 
 
+# Sorteringsrekkjefølge for issues i resultatet — errors først, så warnings,
+# så alt anna (t.d. "info" frå linter/instansvalidering). Stabil sort
+# (Python sin list.sort()) beheld original rekkjefølge innanfor same
+# alvorsgrad.
+_SEVERITY_SORT_ORDER = {"error": 0, "warning": 1}
+
+
+def _sort_issues_by_severity(issues: list[dict]) -> None:
+    issues.sort(key=lambda i: _SEVERITY_SORT_ORDER.get(i["severity"], 2))
+
+
 _POLICY_DIR = Path(__file__).parent / "policies"
 
 
@@ -936,6 +947,7 @@ def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
         if tmp_dir_ctx is not None:
             tmp_dir_ctx.cleanup()
 
+    _sort_issues_by_severity(issues)
     errors = [i for i in issues if i["severity"] == "error"]
     warnings = [i for i in issues if i["severity"] == "warning"]
     return {
@@ -1038,6 +1050,7 @@ def validate_instance(schema_text: str | None, instance_text: str, target_class:
     except Exception as exc:
         issues.append(issue("error", "validation_error", "instance", str(exc)))
 
+    _sort_issues_by_severity(issues)
     errors   = [i for i in issues if i["severity"] == "error"]
     warnings = [i for i in issues if i["severity"] == "warning"]
     return {

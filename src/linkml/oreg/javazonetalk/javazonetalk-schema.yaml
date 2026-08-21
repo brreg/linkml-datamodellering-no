@@ -10,8 +10,8 @@ version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-20'
-  utgivelsesdato: '2026-08-20'
+  endringsdato: '2026-08-21'
+  utgivelsesdato: '2026-08-21'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -46,10 +46,106 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
+  Foredragsholder:
+    description: Ein person som held eit foredrag.
+    class_uri: javazonetalk:Foredragsholder
+    slots:
+    - id
+    - navn
+    - organisasjon
+
+  Konferanse:
+    description: Konferansen ein aktivitet høyrer til.
+    class_uri: javazonetalk:Konferanse
+    slots:
+    - id
+    - tittel
+    - sted
+    - har_timeplaner
+
+  Foredrag:
+    description: Eit forslag til foredrag sendt inn til vurdering.
+    class_uri: javazonetalk:Foredrag
+    slots:
+    - id
+    - tittel
+    - lengde_i_minutt
+    - sammendrag
+    - malgruppe
+    - har_foredragsholdere
+    - innsendingsstatus
+
+  Timeplan:
+    description: Ei tidsplanoppføring som viser når og kor eit foredrag vert halde.
+    class_uri: javazonetalk:Timeplan
+    slots:
+    - id
+    - foredrag_tidsrom
+    - har_foredrag
+    - lokasjon
 slots:
   javazonetalk_kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
+  navn:
+    description: Navnet på foredragshaldaren.
+    range: string
+
+  organisasjon:
+    description: Organisasjonen foredragshaldaren representerer.
+    range: string
+
+  sted:
+    description: Staden konferansen vert halden.
+    range: string
+
+  lengde_i_minutt:
+    description: Lengda på foredraget, i minutt.
+    range: integer
+
+  sammendrag:
+    description: Eit samandrag av foredraget.
+    range: string
+
+  malgruppe:
+    description: Målgruppa foredraget rettar seg mot.
+    range: string
+
+  har_foredragsholdere:
+    description: Referanse til foredragshaldarane som har sendt inn foredraget.
+    range: Foredragsholder
+    multivalued: true
+
+  foredrag_tidsrom:
+    description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
+    range: string
+
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+
+  lokasjon:
+    description: Rommet eller salen foredraget vert halde i.
+    range: string
+
+  har_timeplaner:
+    description: Referanse til timeplanoppføringane for konferansen.
+    range: Timeplan
+    multivalued: true
+
+  innsendingsstatus:
+    description: Status for foredragsinnsendinga.
+    range: InnsendingStatus
+enums:
+  InnsendingStatus:
+    description: Status for ei foredragsinnsending.
+    permissible_values:
+      INNSENDT:
+        description: Innsendt
+      GODKJENT:
+        description: Godkjent
+      AVVIST:
+        description: Avvist
 # TODO: Gi stub-klassen eit meir meiningsfullt namn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.

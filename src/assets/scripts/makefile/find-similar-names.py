@@ -171,10 +171,13 @@ def main() -> None:
         matches.append((ratio, name_a, extra_a, schema_a, name_b, extra_b, schema_b))
 
     if not matches:
-        print(f"Ingen {label} over terskelen vart funne ({len(entries)} {label} sjekka).")
+        print(f"Ingen liknande {name_label} funne ({len(entries)} {label} sjekka).")
         return
 
     matches.sort(key=lambda m: (-m[0], m[1], m[4]))
+
+    def fmt_schema(path: Path) -> str:
+        return path.parent.name
 
     def fmt_range(range_: str | None) -> str:
         return f"`{range_}`" if range_ else "(default)"
@@ -192,16 +195,16 @@ def main() -> None:
         print("|---|---|---|---|---|---|---|")
         for ratio, name_a, range_a, schema_a, name_b, range_b, schema_b in matches:
             print(
-                f"| {ratio:.0%} | `{name_a}` | {fmt_range(range_a)} | {schema_a} "
-                f"| `{name_b}` | {fmt_range(range_b)} | {schema_b} |"
+                f"| {ratio:.0%} | `{name_a}` | {fmt_range(range_a)} | {fmt_schema(schema_a)} "
+                f"| `{name_b}` | {fmt_range(range_b)} | {fmt_schema(schema_b)} |"
             )
     else:
         print("| Likskap | Klasse A | Slots A | Skjema A | Klasse B | Slots B | Skjema B |")
         print("|---|---|---|---|---|---|---|")
         for ratio, name_a, slots_a, schema_a, name_b, slots_b, schema_b in matches:
             print(
-                f"| {ratio:.0%} | `{name_a}` | {fmt_slots(slots_a)} | {schema_a} "
-                f"| `{name_b}` | {fmt_slots(slots_b)} | {schema_b} |"
+                f"| {ratio:.0%} | `{name_a}` | {fmt_slots(slots_a)} | {fmt_schema(schema_a)} "
+                f"| `{name_b}` | {fmt_slots(slots_b)} | {fmt_schema(schema_b)} |"
             )
 
     print(f"\n**Totalt: {len(matches)} par funne av {len(entries)} {label}.**")

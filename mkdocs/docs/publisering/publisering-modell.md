@@ -178,7 +178,7 @@ Følgjande køyrer automatisk ved push til `main` når `src/linkml/modellkatalog
 
 | Jobb | Steg | Resultat ved feil |
 |---|---|---|
-| `validate` | `domain-validate-bronze` | Feiler viss skjemaet bryt bronsekrava |
+| `validate` | «Valider skjema mot validation_policy» | Feiler viss skjemaet bryt sin konfigurerte policy (bronze for modellkatalog-skjema) |
 | `validate` | `domain-validate-data` | Feiler viss katalogfila bryt `felles-datakatalog`-policyen |
 | `validate` | `check-published-uris` | Feiler viss ei URI i lock-fila manglar frå katalogfila |
 | `generate` | `domain-gen-data` | Publiserer ny `.ttl` til GitHub Pages |

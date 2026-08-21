@@ -19,7 +19,7 @@ DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance
 # specs/backlog/effektiviser-generate-workflow-koyretid.md,
 # «Parallellisering etter batching»):
 #
-#   Fase 1 (samstundes): validate-linkml-merge, gen-jsonld-context, gen-shacl,
+#   Fase 1 (samstundes): validate, gen-jsonld-context, gen-shacl,
 #     gen-python, gen-jsonschema, gen-owl, gen-rdf, gen-proto,
 #     convert-instance-rdf, gen-schema-docs (doc+erdiagram), gen-plantuml
 #   Fase 2 (samstundes, ventar på gen-jsonschema): gen-xsd, gen-openapi,

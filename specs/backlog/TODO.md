@@ -47,8 +47,6 @@ https://semiceu.github.io/Core-Business-Vocabulary/releases/2.3.0/html/overview.
 konvertere fleire BRREG modellar
 
 
-gå igjennom alle ferdiggenererte index.md filer for alle modellar og finn ut om alle modellar har alle 6 badges. Kartlegg avvik og foreslå tiltak. Skriv til /specs
-
 badges i readme?
 
 
@@ -73,8 +71,6 @@ badges i readme?
    gjer ein analyse av all kildekode og identifiser gjentakelsar som kan la seg kode en gang og gjenbrukes ihht DRY prinsippet
 
    hamnar -> havner
-
-   slotsnamn -> slotnavn
 
 
 

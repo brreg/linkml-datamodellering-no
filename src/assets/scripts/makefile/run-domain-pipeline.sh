@@ -155,7 +155,7 @@ print_pipeline_summary() {
 # specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
 
 # --- Fase 1 — uavhengige grupper, inkl. gen-jsonschema ---------------------
-run_bg 1 merge          "$MAKE" --no-print-directory validate-linkml-merge DOMAIN="$domain"
+run_bg 1 merge          "$MAKE" --no-print-directory validate DOMAIN="$domain"
 run_bg 1 jsonld-context "$MAKE" --no-print-directory gen-jsonld-context DOMAIN="$domain"
 run_bg 1 shacl          "$MAKE" --no-print-directory gen-shacl DOMAIN="$domain"
 run_bg 1 python         "$MAKE" --no-print-directory gen-python DOMAIN="$domain"

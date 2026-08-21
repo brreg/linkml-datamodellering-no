@@ -46,7 +46,7 @@ analyse-iri-dereferering: ## Testar at alle IRI-ar (id/default_prefix/prefixes) 
 	$(call print_header,analyse-iri-dereferering) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py --check dereferering $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-innhaldsforhandling: ## Testar innhaldsforhandling (Accept: text/turtle, Accept-Language: nb/en) for id/default_prefix-IRI-ar repoet sjølv eig [DOMAIN=<domene>]
+analyse-innhaldsforhandling: ## Testar innhaldsforhandling (Accept-header for format/språk) for id/default_prefix-IRI-ar repoet eig [DOMAIN=<domene>]
 	$(call print_header,analyse-innhaldsforhandling) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py --check innhaldsforhandling $(if $(DOMAIN),--domain $(DOMAIN))
 

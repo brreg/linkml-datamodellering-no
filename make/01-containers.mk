@@ -42,9 +42,8 @@ ASYNCAPI_RUN := podman run --rm $(WORK_MOUNT) \
 	$(ASYNCAPI_IMAGE)
 
 # Python container
-# -i: nokre kallarar pipar/heredoc-ar inn stdin (t.d. validate-bronze sin
-# emit-github-validation-annotations.py <<< "$$result", og
-# mcp-linkml-modell-utkast sin | mcp-extract-modell-utkast-response.py) —
+# -i: nokre kallarar pipar/heredoc-ar inn stdin (t.d. mcp-linkml-modell-utkast
+# sin | mcp-extract-modell-utkast-response.py) —
 # utan -i lèt ikkje podman noko stdin nå containeren, og scripta les tom
 # streng. Same mønster som MCP_RUN (make/60-mcp.mk) og LINKML_MOD_RUN
 # (Makefile) allereie brukar.

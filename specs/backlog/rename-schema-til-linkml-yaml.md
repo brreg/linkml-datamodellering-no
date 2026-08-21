@@ -236,8 +236,8 @@ find src tests -name '*-schema.yaml' | grep -v '^tmp/'
 bash tests/test_make.sh
 
 # Verifiser at import-grafen løyser seg:
-make domain-validate-bronze DOMAIN=ap-no
-make domain-validate-bronze DOMAIN=fint
+make validate DOMAIN=ap-no
+make validate DOMAIN=fint
 ```
 
 ---
