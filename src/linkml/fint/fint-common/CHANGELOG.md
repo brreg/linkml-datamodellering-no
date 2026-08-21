@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.5.2](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.5.1...fint-common-v4.5.2) (2026-08-20)
+
+
+### Bug Fixes
+
+* **inlining:** gjer container-inlining ufravikeleg, lenk Klasse/Part/Korrespondansepart ([f3ee148](https://github.com/brreg/linkml-datamodellering-no/commit/f3ee1488225021811e131672a4701101a1759244))
+
 ## [4.5.1](https://github.com/brreg/linkml-datamodellering-no/compare/fint-common-v4.5.0...fint-common-v4.5.1) (2026-08-17)
 
 

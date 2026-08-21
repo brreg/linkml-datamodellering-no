@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.8.1...register-over-aksjeeiere-v1.8.2) (2026-08-20)
+
+
+### Bug Fixes
+
+* **inlining:** gjer container-inlining ufravikeleg, lenk Klasse/Part/Korrespondansepart ([f3ee148](https://github.com/brreg/linkml-datamodellering-no/commit/f3ee1488225021811e131672a4701101a1759244))
+
 ## [1.8.1](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.8.0...register-over-aksjeeiere-v1.8.1) (2026-08-17)
 
 
