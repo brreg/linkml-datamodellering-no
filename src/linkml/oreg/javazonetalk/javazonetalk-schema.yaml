@@ -47,7 +47,7 @@ classes:
     slots:
     - id
   Foredragsholder:
-    description: Ein person som held eit foredrag.
+    description: Ein person som melder inn/held eit foredrag.
     class_uri: javazonetalk:Foredragsholder
     slots:
     - id
@@ -55,7 +55,7 @@ classes:
     - organisasjon
 
   Konferanse:
-    description: Konferansen ein aktivitet høyrer til.
+    description: Konferansen eit foredrag er meldt inn til.
     class_uri: javazonetalk:Konferanse
     slots:
     - id
@@ -66,6 +66,8 @@ classes:
   Foredrag:
     description: Eit forslag til foredrag sendt inn til vurdering.
     class_uri: javazonetalk:Foredrag
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
     - tittel
@@ -75,14 +77,33 @@ classes:
     - har_foredragsholdere
     - innsendingsstatus
 
+  Sesjon:
+    description: Ei tidsavgrensa økt der eit foredrag vert halde.
+    class_uri: javazonetalk:Sesjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tid_start
+    - tid_slutt
+    - har_foredrag
+    - har_sesjonslokale
+
   Timeplan:
-    description: Ei tidsplanoppføring som viser når og kor eit foredrag vert halde.
+    description: Ei tidsplanoppføring som viser alle foredrag pr dag.
     class_uri: javazonetalk:Timeplan
     slots:
     - id
-    - foredrag_tidsrom
-    - har_foredrag
-    - lokasjon
+    - dato
+    - har_sesjoner
+  
+  Sesjonslokale:
+    description: Eit rom eller sal der sesjonar vert haldne.
+    class_uri: javazonetalk:Sesjonslokale
+    slots:
+    - id
+    - navn
+    - antall_plasser
 slots:
   javazonetalk_kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
@@ -121,10 +142,6 @@ slots:
     description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
     range: string
 
-  har_foredrag:
-    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
-    range: Foredrag
-
   lokasjon:
     description: Rommet eller salen foredraget vert halde i.
     range: string
@@ -137,6 +154,38 @@ slots:
   innsendingsstatus:
     description: Status for foredragsinnsendinga.
     range: InnsendingStatus
+
+  antall_plasser:
+    description: Talet på sitjeplassar i sesjonslokalet.
+    range: integer
+  
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+    multivalued: true
+    slot_uri: javazonetalk:har_foredrag
+
+  tid_start:
+    description: Tidspunktet sesjonen startar.
+    range: datetime
+    slot_uri: javazonetalk:tid_start
+
+  tid_slutt:
+    description: Tidspunktet sesjonen sluttar.
+    range: datetime
+
+  har_sesjonslokale:
+    description: Referanse til sesjonslokalet timeplanen gjeld for.
+    range: Sesjonslokale
+
+  har_sesjoner:
+    description: Referanse til sesjonane i timeplanen.
+    range: Sesjon
+    multivalued: true
+
+  dato:
+    description: Dato for ei timeplan oppføring.
+    range: datetime
 enums:
   InnsendingStatus:
     description: Status for ei foredragsinnsending.

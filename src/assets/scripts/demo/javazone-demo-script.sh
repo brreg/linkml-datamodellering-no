@@ -232,11 +232,11 @@ echo ""
 print_heading boxes "5. LIVE-REDIGERING"
 cat <<EOF
 
-Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — fem klasser,
-knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
+Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — seks klasser,
+knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar:
 
   Foredragsholder:
-    description: Ein person som held eit foredrag.
+    description: Ein person som melder inn/held eit foredrag.
     class_uri: ${NAME}:Foredragsholder
     slots:
     - id
@@ -244,7 +244,7 @@ knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
     - organisasjon
 
   Konferanse:
-    description: Konferansen ein aktivitet høyrer til.
+    description: Konferansen eit foredrag er meldt inn til.
     class_uri: ${NAME}:Konferanse
     slots:
     - id
@@ -264,14 +264,31 @@ knytt saman, slik at ER-diagrammet i steg 10 viser reelle relasjonar:
     - har_foredragsholdere
     - innsendingsstatus
 
+  Sesjon:
+    description: Ei tidsavgrensa økt der eit foredrag vert halde.
+    class_uri: ${NAME}:Sesjon
+    slots:
+    - id
+    - tid_start
+    - tid_slutt
+    - har_foredrag
+    - har_sesjonslokale
+
   Timeplan:
-    description: Ei tidsplanoppføring som viser når og kor eit foredrag vert halde.
+    description: Ei tidsplanoppføring som viser alle foredrag pr dag.
     class_uri: ${NAME}:Timeplan
     slots:
     - id
-    - foredrag_tidsrom
-    - har_foredrag
-    - lokasjon
+    - dato
+    - har_sesjoner
+  
+  Sesjonslokale:
+    description: Eit rom eller sal der sesjonar vert haldne.
+    class_uri: ${NAME}:Sesjonslokale
+    slots:
+    - id
+    - navn
+    - antall_plasser
 
 EOF
 
@@ -279,7 +296,7 @@ prompt_enter
 
 cat <<EOF
 Lim inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
-common-ap-no-importen — dei fjorten andre er nye):
+common-ap-no-importen — dei atten andre er nye):
 
   navn:
     description: Navnet på foredragshaldaren.
@@ -314,10 +331,6 @@ common-ap-no-importen — dei fjorten andre er nye):
     description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
     range: string
 
-  har_foredrag:
-    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
-    range: Foredrag
-
   lokasjon:
     description: Rommet eller salen foredraget vert halde i.
     range: string
@@ -330,6 +343,36 @@ common-ap-no-importen — dei fjorten andre er nye):
   innsendingsstatus:
     description: Status for foredragsinnsendinga.
     range: InnsendingStatus
+
+  antall_plasser:
+    description: Talet på sitjeplassar i sesjonslokalet.
+    range: integer
+  
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+    multivalued: true
+
+  tid_start:
+    description: Tidspunktet sesjonen startar.
+    range: datetime
+
+  tid_slutt:
+    description: Tidspunktet sesjonen sluttar.
+    range: datetime
+
+  har_sesjonslokale:
+    description: Referanse til sesjonslokalet timeplanen gjeld for.
+    range: Sesjonslokale
+
+  har_sesjoner:
+    description: Referanse til sesjonane i timeplanen.
+    range: Sesjon
+    multivalued: true
+
+  dato:
+    description: Dato for ei timeplan oppføring.
+    range: datetime
 
 EOF
 read -rp "Trykk Enter når du er ferdig … "
@@ -349,6 +392,7 @@ enums:
       AVVIST:
         description: Avvist
 EOF
+echo ""
 read -rp "Trykk Enter når du er ferdig … "
 echo ""
 echo ""
@@ -357,25 +401,101 @@ step boxes "6. Valider skjemaet" \
     run_validate
 echo ""
 echo ""
-step boxes "7. Finn liknande klassenavn på tvers av domenet" \
+
+print_heading boxes "7. Adresser funn frå valideringa"
+cat <<EOF
+
+Steg 6 sin rapport har to slag funn:
+
+1. ${CLR_DBG}Strukturelle DCAT-AP-NO/DQV-AP-NO-krav${CLR_RST} frå silver-policyen
+   (containerklassen manglar attributt for Katalog/Datasett/Kvalitetsmaal/
+   Kvalitetsmaaling) — uavhengige av kva du limte inn i steg 5, og utanfor
+   denne demoen sitt scope (krev ein full DCAT-datasett-modell). Ikkje
+   noko å fikse no — nemn dei berre som forventa.
+
+2. ${CLR_DBG}To adresserbare bronse-funn${CLR_RST} frå klassane/slotsa i steg 5:
+   - annotations.begrepsidentifikator manglar på alle seks nye klassane
+   - slot_uri manglar på dei nye globale slotsa
+
+Erstatt '${CLR_DBG}Foredrag:${CLR_RST}' og '${CLR_DBG}Sesjon:${CLR_RST}' (limt inn i steg 5) med
+versjonane under — viser mønsteret for begrepsidentifikator, same retting
+gjeld for dei fire andre klassane:
+
+  Foredrag:
+    description: Eit forslag til foredrag sendt inn til vurdering.
+    class_uri: ${NAME}:Foredrag
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tittel
+    - lengde_i_minutt
+    - sammendrag
+    - malgruppe
+    - har_foredragsholdere
+    - innsendingsstatus
+
+  Sesjon:
+    description: Ei tidsavgrensa økt der eit foredrag vert halde.
+    class_uri: ${NAME}:Sesjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tid_start
+    - tid_slutt
+    - har_foredrag
+    - har_sesjonslokale
+
+EOF
+prompt_enter
+
+cat <<EOF
+Erstatt '${CLR_DBG}har_foredrag:${CLR_RST}' og '${CLR_DBG}tid_start:${CLR_RST}' (limt inn i steg 5)
+med versjonane under — viser mønsteret for slot_uri, same retting gjeld
+for dei attverande slotsa:
+
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+    multivalued: true
+    slot_uri: ${NAME}:har_foredrag
+
+  tid_start:
+    description: Tidspunktet sesjonen startar.
+    range: datetime
+    slot_uri: ${NAME}:tid_start
+
+EOF
+read -rp "Trykk Enter når du er ferdig … "
+echo ""
+echo ""
+step boxes "8. Valider skjemaet" \
+    "${CLR_STEP}make mcp-linkml-valider-modell${CLR_RST} ${CLR_OK}SCHEMA=${SCHEMA}${CLR_RST} | less -R" \
+    run_validate
+
+echo ""
+echo ""
+step boxes "9. Finn liknande klassenavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_classes
 echo ""
-step boxes "8. Finn liknande slotnavn på tvers av domenet" \
+step boxes "10. Finn liknande slotnavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_slots
 echo ""
-step boxes "9. Generer JSON Schema frå den redigerte modellen" \
+echo ""
+step boxes "11. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-jsonschema SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "10. Generer PlantUML-diagram" \
+step boxes "12. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "11. Generer ModelDCAT-metadata" \
+step boxes "13. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
 

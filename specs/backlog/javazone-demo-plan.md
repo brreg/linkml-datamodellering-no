@@ -219,6 +219,95 @@ var utilgjengeleg i verktøymiljøet på verifiseringstidspunktet). Køyr
 `make mcp-linkml-valider-modell SCHEMA=...` på det utvida skjemaet før
 sjølve demo-dagen for å stadfeste kollisjonsfritt fullt ut.
 
+### Steg 5 (utvida): Sesjon og Sesjonslokale
+
+`Sesjon` og `Sesjonslokale` vart opphavleg føreslått som eit eige nytt
+steg 9, men brukaren flytta klassane/slotsa inn i steg 5 sjølv — dei er
+no ein del av det same live-redigeringssteget som
+Foredragsholder/Konferanse/Foredrag/Timeplan, ikkje eit eige steg.
+
+`Timeplan` peika opphavleg direkte på **eitt** foredrag og ein
+lokasjonsstreng (`lokasjon`); ho samlar no i staden **fleire** `Sesjon`
+via `har_sesjoner`, kvar med eiga `tid_start`/`tid_slutt` og ein
+referanse til `Sesjonslokale` (`har_sesjonslokale`) — ei oversikt per
+sesjonslokale eller per konferansedag (`dato`), ikkje lenger éi rad per
+foredrag:
+
+```yaml
+  Timeplan:
+    description: Ei tidsplanoppføring som viser alle foredrag pr dag.
+    class_uri: javazonetalk:Timeplan
+    slots:
+    - id
+    - dato
+    - har_sesjoner
+
+  Sesjonslokale:
+    description: Eit rom eller sal der sesjonar vert haldne.
+    class_uri: javazonetalk:Sesjonslokale
+    slots:
+    - id
+    - navn
+    - antall_plasser
+
+  Sesjon:
+    description: Ei tidsavgrensa økt der eit foredrag vert halde.
+    class_uri: javazonetalk:Sesjon
+    slots:
+    - id
+    - tid_start
+    - tid_slutt
+    - har_foredrag
+    - har_sesjonslokale
+```
+
+`Sesjon` gjenbrukar `har_foredrag` (opphavleg definert for `Timeplan`)
+i staden for å definere ein ny slot — DRY-prinsippet i CLAUDE.md.
+
+**Bokmål-merknad:** brukaren sitt opphavlege forslag brukte stavemåten
+«antal_plasser» (nynorsk-influert) — retta til «antall_plasser» for å
+følgje CLAUDE.md sin regel om bokmål i modellering.
+
+### Steg 9 (nytt): Adresser funn frå valideringa
+
+Sett inn mellom steg 8 (`analyse-similar-slots-domain`) og
+`gen-jsonschema` (no steg 10 — steg 10-12 er tilsvarande skuva eitt
+hakk). I staden for endå ei runde live-redigering (opphavleg forslag)
+brukar steget steg 6 sin valideringsrapport som utgangspunkt: kva fann
+`mcp-linkml-valider-modell` i det ferdig-redigerte skjemaet, og korleis
+rettar du det, live.
+
+**Verifisert statisk** mot `src/mcp-linkml-validator/policies/bronze.yaml`
+og `silver.yaml` (podman rootless var utilgjengeleg i verktøymiljøet på
+verifiseringstidspunktet — same avgrensing som verifiseringa av
+Aktivitet/Foredragsholder/Konferanse-utvidinga over). To slag funn:
+
+1. **Strukturelle, urelaterte DCAT-AP-NO/DQV-AP-NO-krav** — silver-policyen
+   sine `container_katalog`/`container_datasett`/`container_kvalitetsmaal`/
+   `container_kvalitetsmaaling`-sjekkar er `severity: error` og **ubetinga**:
+   dei krev at containerklassen har attributt med range `Katalog`,
+   `Datasett`, `Kvalitetsmaal` og `Kvalitetsmaaling`, uavhengig av om
+   skjemaet faktisk modellerer eit datasett/kvalitetsmål-domene. Dette
+   skjemaet gjer ikkje det (det er ein reindyrka foredrag/timeplan-modell),
+   så desse fire feila vil stå att uansett kva som vert retta i steg 9 —
+   same konklusjon som i den opphavlege step-5-verifiseringa
+   ("dei einaste attverande feila var pre-eksisterande DCAT-krav frå
+   silver-profilen, urelatert til Aktivitet-klassa"). Steg 9 forklarer
+   dette til publikum, ikkje eit forsøk på å fikse det.
+2. **To faktiske, adresserbare bronse-funn** frå steg 5-innhaldet, begge
+   `severity: warning`:
+   - `all_classes_have_concept_ref` — `annotations.begrepsidentifikator`
+     manglar på alle seks nye klassane (ingen av dei limte inn i steg 5
+     har denne annotasjonen)
+   - `all_slots_have_slot_uri` — `slot_uri` manglar på alle dei nye
+     globale slotsa (ingen av dei har `slot_uri` sett)
+
+Steget viser retteinga for eit representativt utval — to klasser
+(`Foredrag`, `Sesjon`) for begrepsidentifikator, to slots (`har_foredrag`,
+`tid_start`) for slot_uri — og seier eksplisitt at same mønster gjeld
+resten, i staden for å lime inn alle seks klassane/atten slotsa (ville
+teke for mykje av dei 10 minutta).
+
 ### Fargelegging i scriptet
 
 Kommandolinjene i `javazone-demo-script.sh` er no farga etter same
@@ -226,8 +315,9 @@ konvensjon som `make help` (jf. `src/assets/scripts/makefile/help.sh`):
 `make <target>` i cyan (`CLR_STEP`), obligatoriske argument i grønt
 (`CLR_OK`), valfrie argument i gult (`CLR_WARN`). T.d. viser steg 3
 `DOMAIN`/`NAME` i grønt (begge obligatoriske for `new-modell`), medan
-steg 7-10 sitt `DOMAIN=`/`SCHEMA=` er gult (valfrie for dei respektive
-`analyse-*`/`gen-*`-targeta, sjølv om scriptet alltid oppgir dei).
+steg 7-8 og 10-12 sitt `DOMAIN=`/`SCHEMA=` er gult (valfrie for dei
+respektive `analyse-*`/`gen-*`-targeta, sjølv om scriptet alltid oppgir
+dei). Steg 9 (LIVE-REDIGERING 2) har, som steg 5, ingen kommandolinje.
 
 ## Offline-sjekkliste (køyr dagen før, medan nettverk er tilgjengeleg)
 

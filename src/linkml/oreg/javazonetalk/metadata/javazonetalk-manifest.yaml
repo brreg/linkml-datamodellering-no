@@ -26,7 +26,9 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/javazonetalk/Foredragsholder
 - https://data.norge.no/oreg/javazonetalk/Konferanse
 - https://data.norge.no/oreg/javazonetalk/Foredrag
+- https://data.norge.no/oreg/javazonetalk/Sesjon
 - https://data.norge.no/oreg/javazonetalk/Timeplan
+- https://data.norge.no/oreg/javazonetalk/Sesjonslokale
 finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk-filtered.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk.puml
