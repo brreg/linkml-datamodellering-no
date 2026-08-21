@@ -514,7 +514,9 @@ theme:
     - navigation.indexes
     - navigation.top
     - content.code.copy
-    - navigation.instant
+    # - navigation.instant  # mellombels av: test om dette er årsaka til at
+    #   TOC-aktiv-klasse-fiksen (toc-active-click-fix.js) ikkje verkar —
+    #   sjå specs/backlog/toc-aktivt-element-ved-klikk.md
     - toc.follow
   palette:
     - scheme: default
