@@ -1,5 +1,0 @@
-# Eksempel for lunchregisteret
-# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
----
-lunchregistereter:
-  - id: lunchregisteret:eksempel-1

@@ -18,7 +18,6 @@ fint-utdanning
 javazonetalk
 kartverket-modellkatalog
 ksdigital-modellkatalog
-lunchregisteret
 modelldcat-ap-no
 modelldcat-katalog
 modelldcat-modell

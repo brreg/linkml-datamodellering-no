@@ -529,6 +529,9 @@ extra_css:
   - stylesheets/brreg-material-overrides.css # Material-overrides
   - stylesheets/responsivt-design.css
 
+extra_javascript:
+  - javascripts/toc-active-click-fix.js # Umiddelbar aktiv-markering av TOC-lenkje ved klikk
+
 markdown_extensions:
   - admonition
   - tables
