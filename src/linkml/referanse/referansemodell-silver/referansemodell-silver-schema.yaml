@@ -11,6 +11,12 @@ description: >-
   Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss
   DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse.
 version: "2.0.0"
+license: https://data.norge.no/nlod/no/2.0
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  status: http://purl.org/adms/status/UnderDevelopment
+  endringsdato: "2026-08-23"
+  utgivelsesdato: "2026-08-23"
 
 imports:
   - linkml:types

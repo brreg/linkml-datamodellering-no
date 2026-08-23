@@ -1,0 +1,13 @@
+{
+  "domain": "referanse",
+  "result": {
+    "errorCount": 0,
+    "issues": [],
+    "valid": true,
+    "warningCount": 0
+  },
+  "schema": "referansemodell-bronze",
+  "validated_at": "2026-08-23T18:50:38.171091+00:00",
+  "validation_policy": "bronze",
+  "version": "1.1.0"
+}

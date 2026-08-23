@@ -136,9 +136,14 @@ Same linje er lagt til i `dqv-core-schema.yaml` og `modelldcat-modell-schema.yam
 
 **Status:** ✓ Løyst
 
-### T2 — Legg til `annotations.endringsdato` i `modelldcat-katalog` (Avvik 2)
+### T2 — Legg til `annotations.endringsdato` i `modelldcat-katalog` (Avvik 2) — ✓ UTFØRT
 
-**Fil:** `src/linkml/ap-no/modelldcat-ap-no/modelldcat-katalog-schema.yaml`
+Alt til stades ved oppfølging: `src/linkml/ap-no/modelldcat-katalog/modelldcat-katalog-schema.yaml`
+(katalogen er flytta ut av `modelldcat-ap-no/` sidan specen vart skriven) har no
+alle fire annotasjonsfelt (`utgiver`, `status`, `endringsdato`, `utgivelsesdato`).
+Ingen endring naudsynt — truleg løyst i same arbeidsøkt som T1/T7.
+
+**Status:** ✓ Stadfesta løyst
 
 ### T3 — Legg til `license` + `annotations.utgiver` + `annotations.endringsdato` i dei 5 org-modellkatalogane (Avvik 4-8) — ✓ UTFØRT
 
@@ -177,22 +182,50 @@ mot alle 5 etter denne endringa — framleis same 12 pre-eksisterande åtvaringa
 
 **Status:** ✓ Løyst — alle 5 org-modellkatalogar har no `license`, `utgiver` og `endringsdato`
 
-### T4 — Avklar om `referansemodell-{bronze,silver,gold}` skal ha fullstendige annotations (Avvik 9-11)
+### T4 — Avklar om `referansemodell-{bronze,silver,gold}` skal ha fullstendige annotations (Avvik 9-11) — ✓ UTFØRT
 
-Desse tre er bevisst minimale demo-skjema som viser **strukturelle** minstekrav
-per policy-nivå (`class_uri`, `slot_uri`, containerklasse osv.) — ikkje
-nødvendigvis meint å demonstrere metadata-krava. Men sidan CLAUDE.md § "Silver-
-annotasjonar (Digdir-regel 9, 10, 11)" eksplisitt seier at *"Skjema med
-`validation_policy: silver` eller høgare skal ha desse annotasjonane"*, og
-`referansemodell-silver`/`referansemodell-gold` sjølv deklarerer
-`validation_policy: silver`/`gold` i `build.yaml`, demonstrerer desse to
-skjemaa i praksis **ikkje** eit fullt gyldig silver/gold-skjema slik regelen
-krev. Dette bør avklarast — sjå Ope spørsmål under.
+Brukar avklarte (jf. Ope spørsmål 1): legg til annotations på alle tre.
+`license: https://data.norge.no/nlod/no/2.0` og `annotations` (`utgiver:
+974760673` — Brønnøysundregistra, jf. CODEOWNERS.md, same utgivar som
+`referanse/referansemodell`, `status: UnderDevelopment`, `endringsdato:
+"2026-08-23"`, `utgivelsesdato: "2026-08-23"`) er lagt til i alle tre
+skjema, etter mønster frå grunnskjemaet `referansemodell`.
 
-### T5 — Fiks tom Status-badge i `badges.sh` (Sidefunn 1)
+Verifisert etter endring:
+- `make lint` mot alle tre: same pre-eksisterande åtvaringar som før endringa
+  (manglande `description` på slots/subsets) — stadfesta uendra via
+  `git stash`-samanlikning, ingen nye.
+- `make roundtrip` mot alle tre: JSON og TTL OK.
+- `make mcp-linkml-valider-modell` mot alle tre:
+  - `referansemodell-bronze` (POLICY=bronze): 0 feil, 0 åtvaringar (var 1
+    åtvaring — manglande `license` — før endringa)
+  - `referansemodell-silver` (POLICY=silver): 0 feil, 4 åtvaringar (alle
+    urelaterte til annotations — manglande tilrådde slots på `Datasett`/
+    `Distribusjon`)
+  - `referansemodell-gold` (POLICY=gold): **4 feil** attverande — ingen av
+    dei nye. `schema_has_annotation_oppdateringsfrekvens` (eit femte
+    gold-spesifikt annotasjonsfelt, utanfor omfanget til T4/CLAUDE.md §
+    Silver-annotasjonar) og tre strukturelle `class_missing_required_slot`
+    (`Datasett` manglar `dct:accessRights`/`dcatap:applicableLegislation`,
+    `Distribusjon` manglar `dct:license`). Ingen valideringsfil fanst frå før
+    for gold (jf. Sidefunn 2) — dette er første gong policyen faktisk er
+    køyrd mot skjemaet, så dei fire feila er eit reelt, pre-eksisterande
+    strukturelt avvik, ikkje ein regresjon frå denne endringa. Utanfor
+    omfanget av T4 — flagga til brukar, ikkje retta her.
 
-Legg til guard rundt Status-badge-linja i `mkdocs/lib/sections/badges.sh` (line
-78), på same mønster som Utgiver/Lisens/Endringsdato:
+**Filer:**
+- `src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml` — `license` + `annotations` lagt til
+- `src/linkml/referanse/referansemodell-silver/referansemodell-silver-schema.yaml` — same
+- `src/linkml/referanse/referansemodell-gold/referansemodell-gold-schema.yaml` — same
+
+**Status:** ✓ Løyst (badge-fullstendigheit). Attverande gold-policy-avvik
+(oppdateringsfrekvens + 3 strukturelle slots) er eit separat, pre-eksisterande
+funn — sjå Ope spørsmål 4 (nytt).
+
+### T5 — Fiks tom Status-badge i `badges.sh` (Sidefunn 1) — ✓ UTFØRT
+
+Guard lagt til rundt Status-badge-linja i `mkdocs/lib/sections/badges.sh`
+(line 78), på same mønster som Utgiver/Lisens/Endringsdato:
 ```bash
 if [ -n "$status" ]; then
     echo "![Status](https://img.shields.io/badge/status-${status_label}-${status_color})"
@@ -200,7 +233,14 @@ else
     echo "![Status](https://img.shields.io/badge/status-ukjent-lightgrey)"
 fi
 ```
-Unngår at ein tom badge (`status--blue`) vert publisert.
+`bash -n` stadfesta gyldig syntaks. Merk: etter T4 er guarden i praksis ikkje
+lenger nåbar for dei tre `referansemodell-{bronze,silver,gold}`-skjemaa
+(dei har no `status` utfylt) — men fiksen er generelt gyldig for alle
+framtidige/andre skjema som manglar `annotations.status`.
+
+**Fil:** `mkdocs/lib/sections/badges.sh`
+
+**Status:** ✓ Løyst
 
 ### T7 — Legg til `annotations.utgivelsesdato` i skjema som har `annotations:` men manglar feltet — ✓ UTFØRT
 
@@ -241,23 +281,64 @@ dette, sidan dei er stadfesta uavhengig av byggtilstand.
 | # | Tiltak | Fil(ar) | Avhengigheit | Prioritet |
 |---|---|---|---|---|
 | 1 | T1: `annotations.utgiver` i `dqv-core`, `modelldcat-modell` | 2 skjemafiler | — | ✓ Utført |
-| 2 | T2: `annotations.endringsdato` i `modelldcat-katalog` | 1 skjemafil | — | Høg (triviell) |
+| 2 | T2: `annotations.endringsdato` i `modelldcat-katalog` | 1 skjemafil | — | ✓ Utført (alt til stades) |
 | 3 | T3: `license` + `utgiver` + `endringsdato` i 5 org-modellkatalogar | 5 skjemafiler | Stadfest orgnr for Novari (sjå Ope spørsmål) | ✓ Utført |
-| 4 | T5: Guard mot tom Status-badge i `badges.sh` | `mkdocs/lib/sections/badges.sh` | — | Middels |
-| 5 | T4: Avklar annotations i referansemodell-silver/-gold | 2-3 skjemafiler | Brukaravklaring | Middels |
-| 6 | T6: Stadfest Validering-"ukjent" mot publisert portal | — | Full CI-køyring | Låg (undersøking, ikkje kode) |
+| 4 | T5: Guard mot tom Status-badge i `badges.sh` | `mkdocs/lib/sections/badges.sh` | — | ✓ Utført |
+| 5 | T4: Avklar annotations i referansemodell-bronze/-silver/-gold | 3 skjemafiler | Brukaravklaring | ✓ Utført |
+| 6 | T6: Stadfest Validering-"ukjent" mot publisert portal | — | Full CI-køyring | Låg (undersøking, ikkje kode — ikkje utført) |
 
 ## Ope spørsmål (til brukar/dataeigar)
 
-1. **Referansemodell-silver/-gold:** Skal desse få ein minimal, gyldig
-   `annotations`-blokk (status, utgiver, endringsdato) slik at dei sjølve
-   demonstrerer eit fullstendig gyldig silver/gold-skjema — eller er tom
-   metadata eit bevisst designval for desse reine struktur-demoane, uavhengig av
-   at `build.yaml` deklarerer `validation_policy: silver`/`gold`?
+1. ~~**Referansemodell-silver/-gold:** Skal desse få ein minimal, gyldig
+   `annotations`-blokk...~~ — **Avklart:** Ja, legg til (sjå T4). Utført for
+   alle tre nivå (også bronze, for badge-konsistens).
 2. **Lisens for org-modellkatalogane:** Er NLOD 2.0 rett standardlisens for alle
    5 org-modellkatalogane (T3), eller har nokre av desse eksterne organisasjonane
    (Kartverket, Skatteetaten, KS Digital, Novari) eiga lisenspreferanse for eigen
-   modellkatalog?
+   modellkatalog? *(Ikkje avklart i denne økta — NLOD 2.0 vart lagt til som
+   repoets standardlisens, jf. T3.)*
 3. **Novari sitt orgnummer** (`985870714`) er eksplisitt merkt uverifisert i
    `CODEOWNERS.md` ("Verifiser orgnr mot Brønnøysundregistrene"). Bør
-   verifiserast før det vert brukt i T3.
+   verifiserast før det vert brukt i T3. *(Ikkje avklart i denne økta.)*
+4. **(Nytt, oppdaga under T4-utføring) `referansemodell-gold` består ikkje
+   sin eigen policy:** Første faktiske `POLICY=gold`-køyring mot skjemaet
+   (validering fanst ikkje frå før, jf. Sidefunn 2) gir 4 feil —
+   `schema_has_annotation_oppdateringsfrekvens` manglar, og `Datasett`/
+   `Distribusjon` manglar tre tilrådde/påkravde slots
+   (`dct:accessRights`, `dcatap:applicableLegislation`, `dct:license`). Skal
+   `referansemodell-gold` rettast opp til å faktisk bestå gold-policyen (som
+   `build.yaml` deklarerer), eller er dette akseptert som ein kjend, bevisst
+   avgrensa struktur-demo? Bør handterast som eiga spec dersom retting er
+   ønskt, sidan det krev nye slots/klassestruktur, ikkje berre metadata.
+
+## Utført
+
+Alle tiltak i kjerneomfanget (T1-T5, T7) er no utførte eller stadfesta
+allereie løyste. T2 og T1/T7 synte seg å alt vere retta i skjemaa ved
+oppfølging (truleg frå ei tidlegare, ikkje-spec-dokumentert økt). Denne økta
+sitt eige bidrag var:
+
+- **T4** (Ope spørsmål 1 avklart av brukar → "legg til"): `license` +
+  `annotations` (`utgiver`, `status`, `endringsdato`, `utgivelsesdato`) lagt
+  til i `referansemodell-bronze`, `-silver` og `-gold`. Verifisert med
+  `make lint` (ingen nye åtvaringar), `make roundtrip` (JSON+TTL OK) og
+  `make mcp-linkml-valider-modell` (bronze: 0→0 feil, silver: 0 feil, gold:
+  4 pre-eksisterande strukturelle feil — sjå Ope spørsmål 4, nytt).
+- **T5**: Guard mot tom Status-badge lagt til i `mkdocs/lib/sections/badges.sh`.
+
+**Ikkje utført i denne økta** (krev vidare avklaring/arbeid utanfor
+kjerneomfang):
+- **T6** — stadfesting av Validering-"ukjent" mot publisert portal (krev full
+  CI-køyring, reint undersøkingsarbeid).
+- **Ope spørsmål 2, 3** — lisenspreferanse for eksterne org-modellkatalogar
+  og verifisering av Novari sitt orgnummer.
+- **Ope spørsmål 4 (nytt)** — `referansemodell-gold` består ikkje sin eigen
+  gold-policy (strukturelt avvik, oppdaga under T4-verifisering). Krev eiga
+  spec dersom retting er ønskt.
+
+**Filer endra:**
+- `mkdocs/lib/sections/badges.sh` — Status-badge-guard (T5)
+- `src/linkml/referanse/referansemodell-bronze/referansemodell-bronze-schema.yaml` — `license` + `annotations` (T4)
+- `src/linkml/referanse/referansemodell-silver/referansemodell-silver-schema.yaml` — same
+- `src/linkml/referanse/referansemodell-gold/referansemodell-gold-schema.yaml` — same
+- `src/linkml/referanse/referansemodell-{bronze,silver,gold}/validation/*/`  — ferske valideringsresultat frå `make mcp-linkml-valider-modell`-køyringane over

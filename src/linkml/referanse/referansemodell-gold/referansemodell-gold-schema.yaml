@@ -22,6 +22,12 @@ description: >-
   Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss
   FAIR-metadata (title, version, prefiks, lisens, proveniens).
 version: "2.0.0"
+license: https://data.norge.no/nlod/no/2.0
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  status: http://purl.org/adms/status/UnderDevelopment
+  endringsdato: "2026-08-23"
+  utgivelsesdato: "2026-08-23"
 
 imports:
   - linkml:types

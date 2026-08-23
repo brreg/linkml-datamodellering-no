@@ -1,0 +1,38 @@
+{
+  "domain": "referanse",
+  "result": {
+    "errorCount": 0,
+    "issues": [
+      {
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "message": "schema.annotations.oppdateringsfrekvens manglar",
+        "severity": "warning",
+        "target": "schema"
+      },
+      {
+        "code": "class_missing_recommended_slot",
+        "message": "Klasse 'Datasett' manglar slot med dct:accessRights",
+        "severity": "warning",
+        "target": "class:Datasett"
+      },
+      {
+        "code": "class_missing_recommended_slot",
+        "message": "Klasse 'Datasett' manglar slot med dcatap:applicableLegislation",
+        "severity": "warning",
+        "target": "class:Datasett"
+      },
+      {
+        "code": "class_missing_recommended_slot",
+        "message": "Klasse 'Distribusjon' manglar slot med dct:license",
+        "severity": "warning",
+        "target": "class:Distribusjon"
+      }
+    ],
+    "valid": true,
+    "warningCount": 4
+  },
+  "schema": "referansemodell-silver",
+  "validated_at": "2026-08-23T18:49:41.316642+00:00",
+  "validation_policy": "silver",
+  "version": "2.0.0"
+}

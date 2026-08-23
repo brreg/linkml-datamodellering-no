@@ -224,11 +224,11 @@ step boxes "3. Opprett ein ny, tom modell" \
     make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
 echo ""
 echo ""
-step boxes "4. Lint skjemaet" \
-    "${CLR_STEP}make lint${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
-    make lint SCHEMA="$SCHEMA"
-echo ""
-echo ""
+# step boxes "4. Lint skjemaet" \
+#     "${CLR_STEP}make lint${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+#     make lint SCHEMA="$SCHEMA"
+# echo ""
+# echo ""
 print_heading boxes "5. LIVE-REDIGERING"
 cat <<EOF
 

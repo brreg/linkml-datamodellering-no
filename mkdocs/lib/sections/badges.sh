@@ -75,7 +75,11 @@ generate_badges() {
         echo "![Utgiver](https://img.shields.io/badge/utgiver-${utgiver_encoded}-blue)"
     fi
     [ -n "$license" ] && echo "![Lisens](https://img.shields.io/badge/NLOD-${license}-blue)"
-    echo "![Status](https://img.shields.io/badge/status-${status_label}-${status_color})"
+    if [ -n "$status" ]; then
+        echo "![Status](https://img.shields.io/badge/status-${status_label}-${status_color})"
+    else
+        echo "![Status](https://img.shields.io/badge/status-ukjent-lightgrey)"
+    fi
     echo "![Versjon](https://img.shields.io/badge/versjon-${version}-blue)"
     echo "![Validering](https://img.shields.io/badge/${policy_encoded}-${val_status_encoded}-${val_color})"
     local endringsdato_encoded="${endringsdato//-/--}"
