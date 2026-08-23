@@ -350,6 +350,78 @@ class TestConversion(unittest.TestCase):
         })
         self.assertTrue(any("Ekstern" in w for w in warnings))
 
+    def test_allof_med_ref_gir_is_a_klasse(self):
+        """Same mønster som Stedsadresse/GeografiskAdresse i
+        src/tmp/bvrstiftelsesdokument_lm_v0.schema.json — allOf som utvidar
+        ein foreldretype skal bli ei is_a-klasse, ikkje bli stille droppa."""
+        schema, warnings = _convert({
+            "$defs": {
+                "GeografiskAdresse": {
+                    "type": "object",
+                    "properties": {},
+                },
+                "Stedsadresse": {
+                    "allOf": [
+                        {"$ref": "#/$defs/GeografiskAdresse"},
+                        {
+                            "type": "object",
+                            "required": ["stedsnavn"],
+                            "properties": {"stedsnavn": {"type": "string"}},
+                        },
+                    ]
+                },
+                "AnnenAdresse": {
+                    "type": "object",
+                    "properties": {
+                        "stedsadresse": {"$ref": "#/$defs/Stedsadresse"},
+                    },
+                },
+            }
+        })
+        self.assertIn("Stedsadresse", schema["classes"])
+        self.assertEqual(schema["classes"]["Stedsadresse"]["is_a"], "GeografiskAdresse")
+        self.assertIn("stedsnavn", schema["classes"]["Stedsadresse"]["slots"])
+        self.assertNotIn("id", schema["classes"]["Stedsadresse"]["slots"])
+        self.assertEqual(schema["slots"]["stedsadresse"]["range"], "Stedsadresse")
+        self.assertEqual([], warnings)
+
+    def test_allof_med_fleire_ref_gir_åtvaring(self):
+        schema, warnings = _convert({
+            "$defs": {
+                "A": {"type": "object", "properties": {"a": {"type": "string"}}},
+                "B": {"type": "object", "properties": {"b": {"type": "string"}}},
+                "C": {
+                    "allOf": [
+                        {"$ref": "#/$defs/A"},
+                        {"$ref": "#/$defs/B"},
+                        {"type": "object", "properties": {"c": {"type": "string"}}},
+                    ]
+                },
+            }
+        })
+        self.assertIn("C", schema["classes"])
+        self.assertEqual(schema["classes"]["C"]["is_a"], "A")
+        self.assertTrue(any("Fleire $ref-foreldre" in w for w in warnings))
+        # B og C sine felt vert flata ut sidan berre A kan bli is_a
+        self.assertIn("b", schema["classes"]["C"]["slots"])
+        self.assertIn("c", schema["classes"]["C"]["slots"])
+
+    def test_allof_med_ref_til_ikkje_klasse_gir_åtvaring(self):
+        schema, warnings = _convert({
+            "$defs": {
+                "Kode": {"type": "string"},
+                "Ting": {
+                    "allOf": [
+                        {"$ref": "#/$defs/Kode"},
+                        {"type": "object", "properties": {"verdi": {"type": "string"}}},
+                    ]
+                },
+            }
+        })
+        self.assertIn("Ting", schema["classes"])
+        self.assertNotIn("is_a", schema["classes"]["Ting"])
+        self.assertTrue(any("peikar ikkje til ein klasse" in w for w in warnings))
+
 
 # ---------------------------------------------------------------------------
 # TestGeneratedOutput

@@ -21,7 +21,7 @@ JSON Schema (fil)
       │
       ▼
   converter.py
-  ├── Les $defs / definitions → klassar
+  ├── Les $defs / definitions → klassar (inkl. allOf-komponerte → is_a)
   ├── Omset JSON-typar til LinkML-ranges (type_mapping / format_mapping)
   ├── Handterer $ref, array, anyOf (nullable)
   ├── Lagar globale slots for alle eigenskapar
@@ -54,7 +54,7 @@ JSON Schema (fil)
 | `subsets` | Ikkje definert lokalt — `Obligatorisk`/`Anbefalt`/`Valgfri` vert berre *referert* via `in_subset` og må finnast i importgrafen (t.d. via `common-ap-no-schema.yaml`) |
 | `slots.id` | Global `id`-slot med `identifier: true` og `range: uriorcurie` |
 | `slots.<prop>` | Ein global slot per eigeskap i JSON Schema, med `slot_uri: <prefix>:<prop>` |
-| `classes.<Klasse>` | Ein klasse per `$defs`-objekt. Har `class_uri`, `annotations.begrepsidentifikator: TODO` og `slot_usage` med `required`/`in_subset` |
+| `classes.<Klasse>` | Ein klasse per `$defs`-objekt. Har `class_uri`, `annotations.begrepsidentifikator: TODO` og `slot_usage` med `required`/`in_subset`. Ein `allOf`-komponert def (sjå under) får i tillegg `is_a` |
 | `classes.<Name>Container` | `tree_root: true`, med `multivalued`/`inlined`/`inlined_as_list`-attributt per klasse |
 
 ### Typeomsetting
@@ -71,11 +71,13 @@ JSON Schema (fil)
 | array | `multivalued: true` + range frå `items` |
 | `$ref: #/$defs/Foo` | `range: Foo` |
 | `anyOf` (nullable) | range frå den ikkje-null-typen |
+| `allOf` på **definisjonsnivå** (`$defs.Foo: {allOf: [{$ref: Bar}, {properties: {...}}]}`) | `Foo` vert ein klasse med `is_a: Bar` + eigne felt frå dei øvrige `allOf`-medlemmene |
 
 ### Avgrensingar
 
 - `anyOf` med fleire ikkje-null-typar → `range: string` + advarsel
-- `oneOf` / `allOf` → `range: string` + advarsel
+- `oneOf` / `allOf` **på eigenskapsnivå** (éin enkelt property-verdi brukar `oneOf`/`allOf` i staden for `$ref`) → `range: string` + advarsel
+- `allOf` **på definisjonsnivå** vert støtta og mappa til `is_a` (sjå tabellen over), men berre éin `$ref`-forelder vert til `is_a` — finst det fleire `$ref`-medlemmer i same `allOf`, vert berre den første brukt som `is_a`, og felta frå dei resterande vert flata inn i klassen direkte (i staden for arva) + advarsel. Ein `$ref` som ikkje peikar til noko klasseaktig (t.d. ein primitiv type-def) vert ignorert + advarsel
 - Eksterne `$ref` (ikkje `#`-relative) → `range: string` + advarsel
 
 ## Validering av generert skjema

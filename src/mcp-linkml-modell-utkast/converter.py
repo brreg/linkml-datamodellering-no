@@ -220,26 +220,120 @@ def _collect_enums(json_schema: dict) -> dict:
     return enums_out
 
 
-def _collect_classes(json_schema: dict, schema_name: str) -> dict:
+def _is_class_like(defn: dict) -> bool:
+    """Avgjer om ein JSON Schema-def bør bli ei LinkML-klasse.
+
+    Ei def er klasseaktig om ho har ei objektform direkte på toppnivå
+    (`type: object` eller `properties`), eller komponerer ei slik form via
+    `allOf` (sjå `_merge_allof_members`).
+    """
+    return defn.get("type") == "object" or "properties" in defn or "allOf" in defn
+
+
+def _merge_allof_members(
+    defn: dict, all_defs: dict, warnings: list
+) -> tuple[dict, set, str | None]:
+    """Slår saman ein allOf-komponert definisjon til (properties, required, is_a).
+
+    JSON Schema sitt vanlege "utvid ein foreldretype"-mønster —
+    `allOf: [{"$ref": "#/$defs/Foo"}, {"type": "object", "properties": {...}}]`
+    — vert mappa til LinkML `is_a: Foo` pluss ein klasse med berre dei nye
+    eigne felta (forelderen sine felt vert arva, ikkje duplisert).
+
+    Skil mellom `allOf`-medlemmer som er ein lokal `$ref` til ei anna
+    klasseaktig def (potensiell `is_a`-forelder) og medlemmer som er eit
+    inline objektskjema (`properties`/`required` vert slått saman direkte
+    inn i klassen). LinkML `is_a` støttar berre éin forelder — finn konverteraren
+    fleire `$ref`-foreldre, vert berre den første brukt som `is_a`, medan
+    resten vert flata ut som eigne felt (éin-nivås oppslag, ikkje rekursivt)
+    saman med ei åtvaring. Same gjeld ein `$ref` som ikkje peikar til noko
+    klasseaktig (t.d. ein primitiv type-def) — han vert ignorert med åtvaring
+    i staden for å knekke konverteringa.
+    """
+    properties = dict(defn.get("properties") or {})
+    required = set(defn.get("required") or [])
+    ref_parents: list[tuple[str, str]] = []  # (rått namn, sanert namn)
+
+    for member in defn.get("allOf") or []:
+        if "$ref" in member:
+            ref = member["$ref"]
+            if not ref.startswith("#"):
+                warnings.append(
+                    f"Ekstern $ref '{ref}' i allOf er ikkje støtta — eigenskapane vert ignorert"
+                )
+            else:
+                raw_name = ref.split("/")[-1]
+                parent_defn = all_defs.get(raw_name)
+                if parent_defn is not None and _is_class_like(parent_defn):
+                    ref_parents.append((raw_name, _sanitize_identifier(raw_name)))
+                else:
+                    warnings.append(
+                        f"$ref '{ref}' i allOf peikar ikkje til ein klasse — eigenskapane vert ignorert"
+                    )
+        if "properties" in member:
+            properties.update(member["properties"])
+        if "required" in member:
+            required.update(member["required"])
+
+    is_a: str | None = None
+    if ref_parents:
+        is_a = ref_parents[0][1]
+        if len(ref_parents) > 1:
+            extra_names = ", ".join(p[1] for p in ref_parents[1:])
+            warnings.append(
+                f"Fleire $ref-foreldre i allOf ('{is_a}', {extra_names}) — "
+                f"berre '{is_a}' vert brukt som is_a, resten vert flata ut som eigne felt"
+            )
+            for raw_name, _sanitized in ref_parents[1:]:
+                extra_defn = all_defs.get(raw_name) or {}
+                properties.update(extra_defn.get("properties") or {})
+                required.update(extra_defn.get("required") or [])
+
+    return properties, required, is_a
+
+
+def _collect_classes(json_schema: dict, schema_name: str, warnings: list) -> dict:
     """Samlar klassedefinisjonar frå JSON Schema.
 
     Returnerer:
-      { klassnamn: {"properties": {...}, "required": set, "description": str} }
+      { klassnamn: {"properties": {...}, "required": set, "description": str,
+                     "is_a": str | None} }
 
     Strategi:
-    - Les frå '$defs' / 'definitions' — berre object-definisjonar
+    - Les frå '$defs' / 'definitions' — object-definisjonar (direkte
+      `type: object`/`properties`) og allOf-komponerte definisjonar
+      ("utvid ein foreldretype", sjå `_merge_allof_members`) vert begge klassar.
     - Om ingen $defs finst: bruk rot-properties som éin klasse kalla schema_name
     """
     classes: dict = {}
 
+    all_defs: dict = {}
     for defs_key in ("$defs", "definitions"):
-        for name, defn in (json_schema.get(defs_key) or {}).items():
-            if defn.get("type") == "object" or "properties" in defn:
-                classes[_sanitize_identifier(name)] = {
-                    "properties": dict(defn.get("properties") or {}),
-                    "required":   set(defn.get("required") or []),
-                    "description": defn.get("description") or "",
-                }
+        all_defs.update(json_schema.get(defs_key) or {})
+
+    for name, defn in all_defs.items():
+        has_direct_shape = defn.get("type") == "object" or "properties" in defn
+        has_allof = "allOf" in defn
+        if not (has_direct_shape or has_allof):
+            continue
+
+        if has_allof:
+            properties, required, is_a = _merge_allof_members(defn, all_defs, warnings)
+        else:
+            properties, required, is_a = (
+                dict(defn.get("properties") or {}),
+                set(defn.get("required") or []),
+                None,
+            )
+
+        entry: dict = {
+            "properties": properties,
+            "required": required,
+            "description": defn.get("description") or "",
+        }
+        if is_a:
+            entry["is_a"] = is_a
+        classes[_sanitize_identifier(name)] = entry
 
     if not classes and ("properties" in json_schema or json_schema.get("type") == "object"):
         classes[_sanitize_identifier(schema_name)] = {
@@ -303,7 +397,7 @@ def convert(
     schema["imports"]       = list(defaults.get("imports") or ["linkml:types"])
 
     # ── Samle klasseinformasjon ───────────────────────────────────────────────
-    classes_data = _collect_classes(json_schema, schema_name)
+    classes_data = _collect_classes(json_schema, schema_name, warnings)
 
     add_id              = gen.get("add_id_slot", True)
     add_kontaktpunkt    = gen.get("add_kontaktpunkt_slot", True)
@@ -386,14 +480,20 @@ def convert(
         props    = cls_data["properties"]
         required = cls_data["required"]
         desc     = cls_data["description"]
+        is_a     = cls_data.get("is_a")
 
         entry: dict = {}
         entry["description"] = desc or "TODO: beskriv klassen"
         entry["class_uri"] = f"{prefix_name}:{_transliterate(cls_name)}"
+        if is_a:
+            entry["is_a"] = is_a
         if add_begrep_annotation:
             entry["annotations"] = {"begrepsidentifikator": f"{begrep_base_uri}TODO"}
 
-        slot_names = (["id"] if add_id else []) + [_sanitize_slot_name(n) for n in props if n != "id"]
+        # is_a-klassar arvar 'id' (og andre slots) frå forelderen — skal ikkje
+        # deklarerast på nytt (sjå CLAUDE.md § "Slots, ikke attributes").
+        id_slot = [] if is_a else (["id"] if add_id else [])
+        slot_names = id_slot + [_sanitize_slot_name(n) for n in props if n != "id"]
         if slot_names:
             entry["slots"] = slot_names
 
