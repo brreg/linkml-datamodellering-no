@@ -345,6 +345,13 @@ jobs:
             else
               echo "::warning::analyse-similar-slots-domain feila for $schema_name"
             fi
+
+            if make analyse-similar-types-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
+                > "$target_dir/similar-types-domain-report.md"; then
+              echo "  ✓ $schema_name: similar-types-domain-report.md"
+            else
+              echo "::warning::analyse-similar-types-domain feila for $schema_name"
+            fi
           done
 
       - name: Generer alle artefakter for ${{ matrix.domain }}

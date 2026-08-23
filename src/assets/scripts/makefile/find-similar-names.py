@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Finn klasser eller slots med liknande navn på tvers av LinkML-skjema.
+Finn klasser, slots eller typar (types:) med liknande navn på tvers av
+LinkML-skjema.
 
-Samanliknar berre navn definerte lokalt i kvart skjema sin classes:/slots:-
-blokk (ikkje navn arva via imports) — elles ville importhierarkiet skapt
-støy av "duplikat" som i røynda er éin delt definisjon.
+Samanliknar berre navn definerte lokalt i kvart skjema sin
+classes:/slots:/types:-blokk (ikkje navn arva via imports) — elles ville
+importhierarkiet skapt støy av "duplikat" som i røynda er éin delt
+definisjon.
 
 For slots viser rapporten òg datatypen (`range:`) slik ho står skriven i
 slot-definisjonen — nyttig for å vurdere om eit likskapsfunn er eit reelt
@@ -15,6 +17,10 @@ ei medvite forenkling: LinkML sin fulle arve-/default_range-logikk
 vist som `(default)`. Full oppløysing ville kravd ein `SchemaView`-arvegraf
 per skjema, som endrar skriptet sin ytingsprofil monaleg (i dag reint
 `yaml.safe_load`, ingen LinkML-runtime).
+
+For typar (`--kind types`) viser rapporten tilsvarande `base:` (grunntypen
+scalar-typen er avleidd frå, t.d. `str`) — den strukturelle analogen til
+`range:` på eit slot.
 
 For klassar viser rapporten tilsvarande slotnavna til kvar identifisert
 klasse (frå `slots:`-lista og/eller `attributes:`-nøklane), slik at ein
@@ -54,17 +60,19 @@ def class_slot_names(defn: dict) -> list[str]:
 
 
 def load_entries(path: Path, kind: str) -> list[tuple[str, str | list[str] | None]]:
-    """Returnerer (navn, range) for slots, (navn, slotnavn-liste) for klassar."""
+    """Returnerer (navn, range) for slots, (navn, base) for typar,
+    (navn, slotnavn-liste) for klassar."""
     try:
         data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as e:
         print(f"ÅTVARING: kunne ikkje parse {path}: {e}", file=sys.stderr)
         return []
-    key = "classes" if kind == "class" else "slots"
+    key = {"class": "classes", "slot": "slots", "types": "types"}[kind]
     block = data.get(key) or {}
-    if kind == "slot":
-        return sorted((name, (defn or {}).get("range")) for name, defn in block.items())
-    return sorted((name, class_slot_names(defn)) for name, defn in block.items())
+    if kind == "class":
+        return sorted((name, class_slot_names(defn)) for name, defn in block.items())
+    field = "range" if kind == "slot" else "base"
+    return sorted((name, (defn or {}).get(field)) for name, defn in block.items())
 
 
 def similarity(a: str, b: str) -> float:
@@ -99,14 +107,14 @@ def resolve_name(name: str, domain: str | None) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--kind", choices=["class", "slot"], required=True)
+    parser.add_argument("--kind", choices=["class", "slot", "types"], required=True)
     parser.add_argument("--scope", choices=["domain", "all"], required=True)
     parser.add_argument("--domain", help="Avgrens til eitt domene (default: alle domene)")
     parser.add_argument(
         "--name",
         help=(
             "Avgrens til éin modell (NAME=<modell>) — samanliknar berre denne "
-            "modellen sine klassar/slots mot resten av kandidatane innanfor "
+            "modellen sine klassar/slots/typar mot resten av kandidatane innanfor "
             "scopet (same domene for --scope domain, heile repoet for --scope all)"
         ),
     )
@@ -131,8 +139,8 @@ def main() -> None:
         for name, extra in load_entries(schema, args.kind):
             entries.append((name, extra, schema))
 
-    label = "klasser" if args.kind == "class" else "slots"
-    name_label = "klassenavn" if args.kind == "class" else "slotnavn"
+    label = {"class": "klasser", "slot": "slots", "types": "typer"}[args.kind]
+    name_label = {"class": "klassenavn", "slot": "slotnavn", "types": "typenamn"}[args.kind]
     scope_label = "same domene" if args.scope == "domain" else "alle domene"
     domain_label = f", domene {args.domain}" if args.domain else ""
     target_label = f"modell {schema_domain(target_path)}/{args.name}, " if target_path else ""
@@ -190,8 +198,9 @@ def main() -> None:
         text = ", ".join(f"`{n}`" for n in shown)
         return f"{text}, … (+{rest} til)" if rest > 0 else text
 
-    if args.kind == "slot":
-        print("| Likskap | Slot A | Type A | Skjema A | Slot B | Type B | Skjema B |")
+    if args.kind in ("slot", "types"):
+        col_a, col_b = ("Slot", "Type") if args.kind == "slot" else ("Type", "Grunntype")
+        print(f"| Likskap | {col_a} A | {col_b} A | Skjema A | {col_a} B | {col_b} B | Skjema B |")
         print("|---|---|---|---|---|---|---|")
         for ratio, name_a, range_a, schema_a, name_b, range_b, schema_b in matches:
             print(

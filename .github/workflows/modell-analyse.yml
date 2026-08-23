@@ -123,6 +123,62 @@ jobs:
           path: similar-slots-all-report.md
           retention-days: 30
 
+  similar-types-domain:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn typar med liknande namn (same domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-types-domain > similar-types-domain-report.md
+          {
+            echo "## Liknande typenamn (same domene)"
+            cat similar-types-domain-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: similar-types-domain-report
+          path: similar-types-domain-report.md
+          retention-days: 30
+
+  similar-types-all:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Finn typar med liknande namn (alle domene)
+        run: |
+          set -uo pipefail
+          make analyse-similar-types-all > similar-types-all-report.md
+          {
+            echo "## Liknande typenamn (alle domene)"
+            cat similar-types-all-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: similar-types-all-report
+          path: similar-types-all-report.md
+          retention-days: 30
+
   iri-dereferering:
     runs-on: ubuntu-22.04
     permissions:
@@ -185,6 +241,8 @@ jobs:
       - similar-classes-all
       - similar-slots-domain
       - similar-slots-all
+      - similar-types-domain
+      - similar-types-all
       - iri-dereferering
       - innhaldsforhandling
     if: always()

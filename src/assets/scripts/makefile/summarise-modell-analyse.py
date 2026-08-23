@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Les dei seks rapportfilene frå analyse-similar-classes-domain,
+Les dei åtte rapportfilene frå analyse-similar-classes-domain,
 analyse-similar-classes-all, analyse-similar-slots-domain,
-analyse-similar-slots-all, analyse-iri-dereferering og
+analyse-similar-slots-all, analyse-similar-types-domain,
+analyse-similar-types-all, analyse-iri-dereferering og
 analyse-innhaldsforhandling, trekker ut talet på funn/feil og talet sjekka
 frå kvar rapport sine oppsummeringslinjer, og skriv ein konsolidert
 sammendrag-tabell. Feilar aldri (informativ rapport) — manglande
@@ -32,6 +33,8 @@ CHECKS = [
     ("Liknande klassenavn (alle domene)", "similar-classes-all-report.md", "similar"),
     ("Liknande slotnavn (same domene)", "similar-slots-domain-report.md", "similar"),
     ("Liknande slotnavn (alle domene)", "similar-slots-all-report.md", "similar"),
+    ("Liknande typenamn (same domene)", "similar-types-domain-report.md", "similar"),
+    ("Liknande typenamn (alle domene)", "similar-types-all-report.md", "similar"),
     ("IRI-dereferering", "iri-dereferering-report.md", "iri"),
     ("Innhaldsforhandling", "innhaldsforhandling-report.md", "content-negotiation"),
 ]
