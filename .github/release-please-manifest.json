@@ -27,7 +27,7 @@
   "src/linkml/ngr/ngr-person": "2.0.0",
   "src/linkml/oreg/register-over-aksjeeiere": "1.8.2",
   "src/linkml/oreg/enhetsregisteret-bvrinn": "1.1.0",
-  "src/linkml/oreg/lunchregisteret": "0.1.2",
+  "src/linkml/oreg/lunchregisteret": "0.2.0",
   "src/linkml/samt/samt-bu": "1.10.1",
   "src/linkml/ap-no/common-ap-no": "1.1.0",
   "src/linkml/ap-no/xkos-ap-no": "1.1.0",
