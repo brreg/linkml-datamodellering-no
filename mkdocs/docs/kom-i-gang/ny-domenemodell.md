@@ -165,8 +165,28 @@ tilskudder:
 
 ---
 
-## 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
-Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
+## 1b. (om ønskjeleg) Generer direkte frå eksisterande JSON Schema
+
+Har du eit JSON Schema eksportert frå eit anna system, kan `new-modell` generere
+skjemaet **direkte i den nye katalogstrukturen** i staden for det tomme
+stub-skjemaet frå steg 1a — med same etterbehandling (id/namn/tittel,
+`annotations.utgiver`/dato, versjonslåst import) og ei eksempeldatafil fylt med
+placeholder-verdiar for obligatoriske/identifikator-slots:
+
+```bash
+make new-modell DOMAIN=<domene> NAME=<modell> JSON_SCHEMA=<sti til json-schema>
+```
+
+Gå deretter vidare til [steg 2](#2-rediger-skjemaet) — klassenamn hentast frå JSON
+Schema sine `$defs`/`definitions`-namn og er som regel alt fornuftige, men
+skildringar, `slot_uri`/`class_uri` og eksempelverdiar er framleis TODO-markert
+og må gjennomgåast (sjå TODO-kommentarane øvst i det genererte skjemaet).
+
+## 1c. (alternativ) Generer frå JSON Schema i to steg, med inspeksjon undervegs
+
+Ønskjer du å sjå/justere den rå konverteringa før ho landar i `src/linkml/`
+(t.d. for eit stort eller uvanleg JSON Schema), kan du i staden bruke det gamle,
+manuelle trestegsmønsteret. Legg JSON Schema-fila i `tmp/`, t.d. `tmp/modell.json`:
 
 ```bash
 make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
@@ -174,7 +194,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json POLICY=silver
 ```
 
-→ genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer.
+→ genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer (merk: denne vegen gjer **ikkje** etterbehandlinga frå steg 1a/1b — id/namn/tittel/annotations/import må rettast manuelt etter kopiering, og eksempelfila må skrivast for hand).
 
 ## 2 — Rediger skjemaet
 

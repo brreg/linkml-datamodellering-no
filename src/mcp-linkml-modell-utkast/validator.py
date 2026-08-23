@@ -3,6 +3,11 @@
 
 Offentleg API:
   validate_generated(linkml_yaml: str) → dict
+
+Køyrt direkte (python3 validator.py <schema.yaml> [id-prefiks]) skriv modulen
+i staden ut eit minimalt dummy-eksempeldatasett for containerklassen i skjemaet,
+til bruk som startpunkt for examples/<modell>-eksempel.yaml. Gjenbruker same
+_build_dummy_data-logikk som dummy-valideringa over.
 """
 
 import sys
@@ -45,7 +50,11 @@ def _build_dummy_instance(sv, class_name: str) -> dict:
         for slot in sv.class_induced_slots(class_name):
             if slot.required or slot.identifier:
                 range_str = str(slot.range or "string")
-                instance[slot.name] = _placeholder(range_str)
+                # slot.name er ein SlotDefinitionName (linkml_runtime-metamodelltype,
+                # ikkje ein rein str) — cast eksplisitt slik at nøklane er trygge å
+                # yaml.dump()-e (utan casting fell PyYAML tilbake til
+                # !!python/object/new:-serialisering av nøkkelen).
+                instance[str(slot.name)] = _placeholder(range_str)
     except Exception as e:
         print(f"ÅTVARING: kunne ikkje byggje dummy-instans for {class_name} — {e}", file=sys.stderr)
     return instance
@@ -153,3 +162,68 @@ def validate_generated(linkml_yaml: str) -> dict:
                 "lint_issues": lint_issues,
                 "dummy_validation": {"skipped": f"Valideringsfeil: {exc}"},
             }
+
+
+# ---------------------------------------------------------------------------
+# CLI: skriv ut dummy-eksempeldata for containerklassen i eit LinkML-skjema
+# ---------------------------------------------------------------------------
+
+def _main() -> None:
+    """Bruk: python3 validator.py <schema.yaml> [id-prefiks]
+
+    Skriv YAML til stdout med éin dummy-instans per containerattributt.
+    Med id-prefiks (t.d. 'mittskjema:eksempel') vert identifikator-slot namngjeve
+    'id' erstatta med '<prefiks>-<løpenummer>' i staden for den generiske
+    placeholder-verdien frå _PLACEHOLDERS — konsistent med
+    <namn>:eksempel-N-konvensjonen i examples/<modell>-eksempel.yaml.
+    """
+    import yaml
+
+    # Skjema med versjonslåst URL-import (t.d. det new-modell.sh set inn for
+    # dcat-ap-no) treff BUG-15 (bugs/relativ-import-via-versjonslast-url.md)
+    # med mindre denne patchen er brukt før SchemaView vert bygd.
+    sys.path.insert(0, "/app/utils")
+    try:
+        import linkml_relative_import_patch
+        linkml_relative_import_patch.apply()
+    except ImportError:
+        print(
+            "ÅTVARING: fann ikkje linkml_relative_import_patch (/app/utils ikkje montert?) — "
+            "versjonslåste importar med fleire nivå relative importar kan feile.",
+            file=sys.stderr,
+        )
+
+    from linkml_runtime.utils.schemaview import SchemaView
+
+    if len(sys.argv) < 2:
+        print("Bruk: python3 validator.py <schema.yaml> [id-prefiks]", file=sys.stderr)
+        sys.exit(1)
+
+    schema_path = sys.argv[1]
+    id_prefix = sys.argv[2] if len(sys.argv) > 2 else None
+
+    sv = SchemaView(schema_path)
+    container_class = next(
+        (n for n, c in sv.all_classes().items() if c.tree_root),
+        None,
+    )
+    if not container_class:
+        print("Feil: fann ikkje containerklasse (tree_root: true) i skjemaet", file=sys.stderr)
+        sys.exit(1)
+
+    data = _build_dummy_data(sv, container_class)
+
+    if id_prefix:
+        counter = 1
+        for value in data.values():
+            instances = value if isinstance(value, list) else [value]
+            for instance in instances:
+                if "id" in instance:
+                    instance["id"] = f"{id_prefix}-{counter}"
+                    counter += 1
+
+    yaml.dump(data, sys.stdout, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+
+if __name__ == "__main__":
+    _main()

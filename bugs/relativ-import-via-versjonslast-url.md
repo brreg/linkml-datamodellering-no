@@ -82,6 +82,28 @@ transitivt via `linkml.generators.*`) i repoet:
   brukar `Linter`/`TerminalFormatter` direkte — same type hol, oppdaga ved
   full `make test`-køyring: `linkml-lint (lunchregisteret)` feila med
   `Unknown CURIE prefix: https`)
+- `src/mcp-linkml-modell-utkast/validator.py` sin CLI-inngang
+  (`python3 validator.py <schema.yaml>`, brukt av `new-modell.sh` til å
+  generere eksempeldata for `examples/<modell>-eksempel.yaml` — sjå
+  `specs/done/new-modell-json-schema-flagg.md`), monterer
+  `src/assets/scripts/utils/` inn i containeren og kallar
+  `linkml_relative_import_patch.apply()` før `SchemaView` vert bygd.
+
+**Ikkje patcha (kjend, ikkje ramma av denne spec-en sitt scope):**
+`make validate-instance` (`make/40-validation.mk`) kallar `linkml validate`
+som kompilert CLI-binær direkte (`$(LINKML_RUN) linkml validate --schema ...`),
+ikkje via eit Python-wrapper-skript slik dei andre køyrevegane over gjer —
+det finst difor ikkje noko naturleg stad å kalle `apply()` før CLI-en startar.
+Stadfesta empirisk (2026-08-23) at `make validate-instance` framleis feilar
+med `Unknown CURIE prefix: https` for **alle** `new-modell`-scaffolda skjema
+(både nye og tidlegare committa, t.d. `oreg/javazonetalk`) så lenge det
+versjonslåste `dcat-ap-no`-importet ikkje er bytt ut. Å patche denne krev å
+byte `linkml validate`-binærkallet ut med eit `python3 -c "..."`-kall som
+importerer patchen og deretter kallar `linkml.validator.cli:cli()`
+programmatisk (same mønster som `batch-convert.py`) — vurdert som eit eige,
+avgrensa endringsforslag utanfor scope for spec-en som oppdaga gapet. Bruk
+`make mcp-linkml-valider-modell SCHEMA=... POLICY=<nivå>` i mellomtida for
+skjema med det versjonslåste importet.
 
 Patchen sjekkar sjølv om kjeldekoden til `imports_closure()` framleis
 inneheld den forventa buggy linja før han patchar — dersom `linkml_runtime`

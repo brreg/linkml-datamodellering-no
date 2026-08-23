@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 # Opprettar filstruktur og boilerplate for ein ny LinkML-domenemodell.
-# Bruk: bash src/assets/scripts/scaffolding/new-modell.sh <name> <domain>
+# Bruk: bash src/assets/scripts/scaffolding/new-modell.sh <name> <domain> [json-schema-sti]
 set -euo pipefail
 
 NAME="${1:-}"
 DOMAIN="${2:-}"
+JSON_SCHEMA="${3:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<namn>" >&2
+    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<namn> [JSON_SCHEMA=<sti>]" >&2
+    exit 1
+fi
+
+if [[ -n "$JSON_SCHEMA" && ! -f "$JSON_SCHEMA" ]]; then
+    echo "Feil: JSON_SCHEMA-fila $JSON_SCHEMA finst ikkje." >&2
     exit 1
 fi
 
@@ -39,13 +45,22 @@ if [[ -z "$DCAT_AP_NO_VERSION" || "$DCAT_AP_NO_VERSION" == "null" ]]; then
     exit 1
 fi
 
-echo "Genererer skjema via mcp-linkml-modell-utkast..."
-
 REQUEST_SCRIPT="$REPO_ROOT/src/assets/scripts/makefile/mcp-build-modell-utkast-request.py"
 RESPONSE_SCRIPT="$REPO_ROOT/src/assets/scripts/makefile/mcp-extract-modell-utkast-response.py"
 
+if [[ -n "$JSON_SCHEMA" ]]; then
+    echo "Genererer skjema via mcp-linkml-modell-utkast frå JSON Schema ($JSON_SCHEMA)..."
+    INPUT_FORMAT=json-schema
+    INPUT_FILE_ARGS=(--input-file "$JSON_SCHEMA")
+else
+    echo "Genererer skjema via mcp-linkml-modell-utkast..."
+    INPUT_FORMAT=empty
+    INPUT_FILE_ARGS=()
+fi
+
 LINKML_YAML=$(python3 "$REQUEST_SCRIPT" \
-    --input-format empty \
+    --input-format "$INPUT_FORMAT" \
+    "${INPUT_FILE_ARGS[@]}" \
     --schema-id "$SCHEMA_ID" \
     --schema-name "$SCHEMA_NAME" \
     --schema-title "TODO: tittel for $NAME" \
@@ -67,9 +82,9 @@ fi
 mkdir -p "$SCHEMA_DIR"
 mkdir -p "$EXAMPLES_DIR"
 
-# Transformer det genererte skjemaet (PascalCase stub-klassenamn, versjonslåst
-# common-ap-no-import i staden for lokal id-slot utan slot_uri — sjå
-# specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
+# Transformer det genererte skjemaet (PascalCase klassenamn og containerklasse,
+# versjonslåst common-ap-no-import i staden for lokal id-slot utan slot_uri —
+# sjå specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
 # $SCHEMA_FILE, og hent ut container-klassenamn/-slot for eksempelfila.
 read CONTAINER_CLASS CONTAINER_SLOT < <(python3 -c "
 import sys
@@ -96,19 +111,28 @@ body = ''.join(lines[i:])
 schema = yaml.safe_load(body)
 
 def to_pascal_case(name):
+    # Kun store forbokstav per del (ikkje p.capitalize(), som lower-caser
+    # resten av kvar del) — elles vert alt PascalCase/camelCase namn utan
+    # '_'/'-' å splitte på (vanleg for JSON-schema-avleidde klassenamn, t.d.
+    # 'MeldingForEttersendingAvVedlegg') mangla til éin lowercase del når
+    # denne funksjonen vert brukt idempotent på alt som alt er korrekt kasa.
     parts = name.replace('_', '-').split('-')
-    return ''.join(p.capitalize() for p in parts if p)
+    return ''.join(p[:1].upper() + p[1:] for p in parts if p)
 
 classes = schema.get('classes') or {}
 container_name = None
-stub_name = None
+stub_names = []
 for cname, cdef in classes.items():
     if cdef.get('tree_root'):
         container_name = cname
     else:
-        stub_name = cname
+        stub_names.append(cname)
 
-if stub_name:
+# PascalCase-ar alle ikkje-container-klassar. For --input-format empty er dette
+# éin generisk stub-klasse; for --input-format json-schema er klassane som regel
+# alt PascalCase (MCP-konverteraren kasar dei frå JSON Schema-definisjonsnamna),
+# så steget er idempotent der og gjer ingenting.
+for stub_name in list(stub_names):
     new_stub_name = to_pascal_case(stub_name)
     if new_stub_name != stub_name:
         classes[new_stub_name] = classes.pop(stub_name)
@@ -116,7 +140,15 @@ if stub_name:
             for slot_def in (classes[container_name].get('attributes') or {}).values():
                 if slot_def.get('range') == stub_name:
                     slot_def['range'] = new_stub_name
-        stub_name = new_stub_name
+
+# PascalCase-ar containerklassen sitt namn (t.d. 'generatedContainer' eller
+# 'Enhetsregisteret_bvrContainer' → 'EnhetsregisteretBvrContainer'), i tråd med
+# <Domene>Container-konvensjonen i CLAUDE.md.
+if container_name:
+    new_container_name = to_pascal_case(container_name)
+    if new_container_name != container_name:
+        classes[new_container_name] = classes.pop(container_name)
+        container_name = new_container_name
 
 slots = schema.get('slots') or {}
 slots.pop('id', None)
@@ -165,19 +197,49 @@ body_out = body_out.replace(
 with open('$SCHEMA_FILE', 'w') as f:
     f.write(header)
     f.write(body_out)
-    f.write('# TODO: Gi stub-klassen eit meir meiningsfullt namn.\n')
-    f.write('# TODO: Legg til slots og slot_usage for eigenskapane i modellen.\n')
+    if '$INPUT_FORMAT' == 'json-schema':
+        f.write('# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.\n')
+        f.write('# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.\n')
+    else:
+        f.write('# TODO: Gi stub-klassen eit meir meiningsfullt namn.\n')
+        f.write('# TODO: Legg til slots og slot_usage for eigenskapane i modellen.\n')
 
 print(container_name or '${SCHEMA_NAME}Container', container_slot or '${SCHEMA_NAME}er')
 ")
 
-cat > "$EXAMPLE_FILE" << EOF
+echo ""
+echo "Genererer eksempeldata frå skjemaet..."
+# Monterer src/assets/scripts/utils/ slik at validator.py kan bruke
+# linkml_relative_import_patch (BUG-15/bugs/relativ-import-via-versjonslast-url.md)
+# — utan den feilar SchemaView på det versjonslåste dcat-ap-no-importet.
+EXAMPLE_DATA=$(podman run -i --rm \
+      -v "$LINKML_GEN_DIR/server.py:/app/server.py:ro" \
+      -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
+      -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
+      -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
+      -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
+      -v "$SCHEMA_FILE:/app/schema.yaml:ro" \
+      "$LINKML_GEN_IMAGE" \
+      python3 /app/validator.py /app/schema.yaml "${SCHEMA_NAME}:eksempel") || EXAMPLE_DATA=""
+
+if [[ -z "$EXAMPLE_DATA" ]]; then
+    echo "ÅTVARING: automatisk eksempelgenerering feila — skriv minimal stub i staden." >&2
+    cat > "$EXAMPLE_FILE" << EOF
 # Eksempel for $NAME
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
 ---
 $CONTAINER_SLOT:
   - id: ${SCHEMA_NAME}:eksempel-1
 EOF
+else
+    {
+        echo "# Eksempel for $NAME"
+        echo "# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med"
+        echo "# reelle verdiar før modellen er produksjonsklar."
+        echo "---"
+        echo "$EXAMPLE_DATA"
+    } > "$EXAMPLE_FILE"
+fi
 
 MANIFEST_FILE="$SCHEMA_DIR/build.yaml"
 cat > "$MANIFEST_FILE" << 'EOF'
@@ -231,7 +293,12 @@ make --no-print-directory gen-valid-scopes
 
 echo ""
 echo "Neste steg:"
-echo "  1. Gi stub-klassen eit meir meiningsfullt namn og legg til eigenskapar"
+if [[ "$INPUT_FORMAT" == "json-schema" ]]; then
+    echo "  1. Gjennomgå genererte klassenamn, skildringar og slot_uri (sjå TODO-kommentarar i skjemafila)"
+else
+    echo "  1. Gi stub-klassen eit meir meiningsfullt namn og legg til eigenskapar"
+fi
 echo "  2. Byt common-ap-no-importet til ein reell AP-NO-profil ved behov (sjå TODO-kommentar i skjemafila)"
 echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"
-echo "  4. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE_REL POLICY=$VALIDATION_POLICY"
+echo "  4. Rett opp placeholder-verdiane i $EXAMPLE_FILE med reelle verdiar"
+echo "  5. Valider: make mcp-linkml-valider-modell SCHEMA=$SCHEMA_FILE_REL POLICY=$VALIDATION_POLICY"
