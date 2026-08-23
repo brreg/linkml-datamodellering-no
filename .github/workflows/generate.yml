@@ -13,8 +13,13 @@ on:
     # Negative mønster (!...) ekskluderer filer som er verifisert IKKJE i
     # kallgrafen til denne workflowen sine make-mål (make domain-*,
     # make docs-publish, make docs-build) — sjå
-    # specs/done/generate-workflow-path-filtrering.md. Dei er kun brukte av
-    # modell-analyse.yml (vekentleg) eller scaffold-/migrerings-/PR-verktøy
+    # specs/done/generate-workflow-path-filtrering.md. Merk:
+    # find-similar-names.py og make/91-modell-analyse.mk er IKKJE lenger
+    # ekskludert — "generate"-jobben kallar dei no direkte for å generere
+    # ## Modellanalyse-seksjonen per skjema (sjå
+    # specs/done/modellanalyse-per-skjema-index-md.md). Dei attverande
+    # ekskluderte filene er kun brukte av modell-analyse.yml (vekentleg,
+    # nettverksavhengige IRI-sjekkar) eller scaffold-/migrerings-/PR-verktøy
     # som ikkje inngår i generate/publish-pipelinen.
     paths:
       - 'src/linkml/**'
@@ -22,12 +27,10 @@ on:
       - 'src/assets/templates/**'
       - 'src/assets/scripts/**'
       - '!src/assets/scripts/makefile/check-iri-resolution.py'
-      - '!src/assets/scripts/makefile/find-similar-names.py'
       - '!src/assets/scripts/migreringsscript/**'
       - '!src/assets/scripts/scaffolding/**'
       - '!src/assets/scripts/pr-linkml-interactive.bash'
       - 'make/**'
-      - '!make/91-modell-analyse.mk'
       - 'mkdocs/**'
       - 'README.md'
       - 'Makefile'
@@ -162,11 +165,15 @@ jobs:
           # domene ved reine docs-/mcp-/scaffolding-/tools-endringar (t.d.
           # make/50-docs.mk). `make/80-images.mk` er med sidan
           # .github/actions/pull-images fell tilbake til `make <target>`
-          # derifrå når ein GHCR-pull feilar. `make/50-docs.mk`,
-          # `make/60-mcp.mk`, `make/70-scaffolding.mk`, `make/90-tools.mk` og
-          # `make/91-modell-analyse.mk` er medvite utelatne — verifisert
-          # ikkje i kallgrafen.
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
+          # derifrå når ein GHCR-pull feilar. `make/91-modell-analyse.mk` er
+          # no òg med sidan «Køyr modellanalyse per skjema»-steget under
+          # kallar target derifrå (sjå
+          # specs/done/modellanalyse-per-skjema-index-md.md) —
+          # `src/assets/scripts/**` dekkjer allereie find-similar-names.py
+          # sidan han ligg under den globen. `make/50-docs.mk`,
+          # `make/60-mcp.mk`, `make/70-scaffolding.mk` og `make/90-tools.mk`
+          # er framleis medvite utelatne — verifisert ikkje i kallgrafen.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
 
       - name: Oppgrader crun
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -303,6 +310,41 @@ jobs:
             fi
 
             echo "  ✓ $schema_name v$version: $(find "$target_dir" -name '*.json' 2>/dev/null | wc -l) validerings-loggar kopierte"
+          done
+
+      - name: Køyr modellanalyse per skjema for ${{ matrix.domain }}
+        # Domene-scopa (ikkje cross-domain, ikkje nettverksavhengige
+        # IRI-sjekkar) — sjå specs/done/modellanalyse-per-skjema-index-md.md
+        # for grunngjeving. Ingen -e: éin skjemafeil skal ikkje stoppe resten
+        # av loopen — dette er ein informativ rapport, ikkje ei blokkerande
+        # sjekk (same prinsipp som modell-analyse.yml).
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        run: |
+          set -uo pipefail
+          echo "=== Køyrer modellanalyse per skjema for ${{ matrix.domain }} ==="
+
+          for schema_dir in src/linkml/${{ matrix.domain }}/*/; do
+            schema_name=$(basename "$schema_dir")
+            if [ ! -f "$schema_dir/${schema_name}-schema.yaml" ]; then
+              continue
+            fi
+
+            target_dir="generated/${{ matrix.domain }}/$schema_name/model-analyse"
+            mkdir -p "$target_dir"
+
+            if make analyse-similar-classes-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
+                > "$target_dir/similar-classes-domain-report.md"; then
+              echo "  ✓ $schema_name: similar-classes-domain-report.md"
+            else
+              echo "::warning::analyse-similar-classes-domain feila for $schema_name"
+            fi
+
+            if make analyse-similar-slots-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
+                > "$target_dir/similar-slots-domain-report.md"; then
+              echo "  ✓ $schema_name: similar-slots-domain-report.md"
+            else
+              echo "::warning::analyse-similar-slots-domain feila for $schema_name"
+            fi
           done
 
       - name: Generer alle artefakter for ${{ matrix.domain }}

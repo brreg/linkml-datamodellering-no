@@ -110,3 +110,17 @@ get_validation_json_path() {
     [ -z "$latest_version" ] && return
     echo "$gen_validation_dir/$latest_version/${policy}.json"
 }
+
+# generate.yml sitt «Køyr modellanalyse per skjema»-steg skriv
+# similar-classes-domain-report.md / similar-slots-domain-report.md hit —
+# sjå specs/done/modellanalyse-per-skjema-index-md.md. I motsetnad til
+# valideringsloggar er desse ikkje versjonslåste/committa (dei avheng av
+# resten av domenet sitt innhald, ikkje berre dette skjemaet), så det finst
+# berre éin, alltid-fersk katalog per skjema — ingen versjons-underkatalog.
+get_model_analyse_dir() {
+    local domain="$1"
+    local schema="$2"
+    local dir="$REPO_ROOT/generated/${domain}/${schema}/model-analyse"
+    [ -d "$dir" ] || return
+    echo "$dir"
+}

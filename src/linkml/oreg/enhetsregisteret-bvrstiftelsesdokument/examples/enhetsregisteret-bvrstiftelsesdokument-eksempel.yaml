@@ -15,7 +15,7 @@ stiftelsesdokumenter:
 stiftelsesutgifter:
 - id: enhetsregisteret_bvrstiftelsesdokument:eksempel-2
   beloep: dummy
-  beskrivelse: dummy
+  utgiftsbeskrivelse: dummy
   mottaker: dummy
 annenAktoerer:
 - id: enhetsregisteret_bvrstiftelsesdokument:eksempel-3

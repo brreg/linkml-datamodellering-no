@@ -298,6 +298,17 @@ brukt av den vekentlege `.github/workflows/modell-analyse.yml`. Navne-
 samanlikninga brukar berre klasser/slots definerte lokalt i kvart skjema
 (ikkje navn arva via `imports`), og fuzzy string-likskap
 (`difflib.SequenceMatcher`) — juster terskel med `SIMILARITY_THRESHOLD`.
+Avgrens til eitt domene med `DOMAIN=<domene>` eller éin modell med
+`NAME=<modell>` (kombiner med `DOMAIN=` for direkte oppslag, eller bruk
+`NAME=` åleine for søk på tvers av domene).
+
+`analyse-similar-classes-domain`/`analyse-similar-slots-domain` køyrer i
+tillegg automatisk **per skjema** i `.github/workflows/generate.yml` (steget
+«Køyr modellanalyse per skjema») — resultatet er synleg som
+`## Modellanalyse`-seksjonen i kvar modell sin dokumentasjonsside, rett etter
+`## Valideringsresultat`. Denne embedda seksjonen er avgrensa til domene-
+scopa, offline sjekkar (ikkje cross-domain, ikkje IRI-/nettverkssjekkar) —
+sjå `specs/done/modellanalyse-per-skjema-index-md.md` for grunngjeving.
 
 | Kommando | Beskriving | Output |
 |---|---|---|

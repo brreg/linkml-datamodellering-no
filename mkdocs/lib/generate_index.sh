@@ -62,6 +62,7 @@ generate_schema_index() {
         generate_classes_section "$klasse_src"
         generate_artifacts_table "$out" "$schema"
         generate_validation_results "$domain" "$schema"
+        generate_modell_analyse "$domain" "$schema"
         generate_changelog "$domain" "$schema"
         generate_contact_info "$domain" "$schema"
     } > "$out/index.md"

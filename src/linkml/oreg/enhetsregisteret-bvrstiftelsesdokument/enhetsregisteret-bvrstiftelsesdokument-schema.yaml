@@ -177,14 +177,14 @@ classes:
     slots:
     - id
     - beloep
-    - beskrivelse
+    - utgiftsbeskrivelse
     - mottaker
     slot_usage:
       beloep:
         required: true
         in_subset:
         - Obligatorisk
-      beskrivelse:
+      utgiftsbeskrivelse:
         required: true
         in_subset:
         - Obligatorisk
@@ -871,9 +871,9 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrstiftelsesdokument:beloep
     range: Beloep
-  beskrivelse:
+  utgiftsbeskrivelse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: enhetsregisteret_bvrstiftelsesdokument:beskrivelse
+    slot_uri: enhetsregisteret_bvrstiftelsesdokument:utgiftsbeskrivelse
     range: Tekst5000
   mottaker:
     description: 'TODO: beskriv eigenskapen'
