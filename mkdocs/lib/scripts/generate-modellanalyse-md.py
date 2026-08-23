@@ -68,7 +68,7 @@ def main() -> None:
         "klasse- og slotnamn mot andre skjema i same domene, og flaggar par "
         "med høg namnelikskap som eit mogleg duplikat- eller "
         "konsolideringssignal. Analysen er informativ, ikkje ein "
-        "valideringspolicy — han feilar aldri bygget.",
+        "valideringspolicy.",
     ]
 
     any_report_found = False
@@ -90,10 +90,9 @@ def main() -> None:
 
     lines += [
         "",
-        f"> IRI-dereferering, innhaldsforhandling og samanlikning på tvers av "
-        f"alle domene køyrer vekentleg i "
-        f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen, "
-        f"ikkje her.",
+        f"*For IRI-dereferering, innhaldsforhandling og samanlikning på tvers av *"
+        f"*alle domene sjå *"
+        f"*[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen. *",
     ]
 
     if not any_report_found:
