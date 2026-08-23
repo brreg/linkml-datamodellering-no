@@ -1,0 +1,26 @@
+id: https://example.org/check-import-duplicates-base-fixture
+name: check_import_duplicates_base_fixture
+title: Testfixture — grunnskjema for check-import-duplicates
+description: >-
+  Definerer eit slot og ein klasse som dei andre check-import-duplicates-*-fixture.yaml-filene
+  i denne test-serien importerer, direkte eller transitivt.
+
+default_prefix: https://example.org/check-import-duplicates-base-fixture/
+default_range: string
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+
+slots:
+  felles_slot:
+    description: Eit slot definert i grunnskjemaet.
+    range: string
+
+classes:
+  FellesKlasse:
+    description: Ein klasse definert i grunnskjemaet.
+    slots:
+      - felles_slot

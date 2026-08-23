@@ -1,0 +1,21 @@
+id: https://example.org/check-import-duplicates-direct-collision-fixture
+name: check_import_duplicates_direct_collision_fixture
+title: Testfixture — direkte kollisjon
+description: >-
+  Importerer grunnskjemaet, men redefinerer felles_slot lokalt med anna range. Skal gi
+  kollisjon mot eit direkte (førstenivå) import.
+
+default_prefix: https://example.org/check-import-duplicates-direct-collision-fixture/
+default_range: string
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+  - ./check-import-duplicates-base-fixture
+
+slots:
+  felles_slot:
+    description: Lokal redefinisjon som kolliderer med grunnskjemaet sitt felles_slot.
+    range: integer

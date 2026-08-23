@@ -1,0 +1,28 @@
+id: https://example.org/check-import-duplicates-no-collision-fixture
+name: check_import_duplicates_no_collision_fixture
+title: Testfixture — ingen kollisjon
+description: >-
+  Importerer grunnskjemaet og attgjenbruker felles_slot/FellesKlasse utan lokal redefinisjon
+  (legitim gjenbruk via import-hierarkiet). Skal IKKJE gi kollisjon.
+
+default_prefix: https://example.org/check-import-duplicates-no-collision-fixture/
+default_range: string
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+  - ./check-import-duplicates-base-fixture
+
+slots:
+  eige_slot:
+    description: Eit slot unikt for dette skjemaet.
+    range: string
+
+classes:
+  EigenKlasse:
+    description: Ein klasse unikt for dette skjemaet, som brukar det importerte slotet.
+    slots:
+      - felles_slot
+      - eige_slot

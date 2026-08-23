@@ -198,7 +198,7 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - versjon
+    - enhetsregisteret_bvrinnfelles_versjon
     - innsendertjenste
     - innsendingstidspunkt
     - maalformForTilbakemelding
@@ -210,7 +210,7 @@ classes:
     - gebyransvarlig
     - lenkeForEttersending
     slot_usage:
-      versjon:
+      enhetsregisteret_bvrinnfelles_versjon:
         required: true
         in_subset:
         - Obligatorisk
@@ -647,7 +647,7 @@ classes:
         required: true
         in_subset:
         - Obligatorisk
-  Kontaktopplysning:
+  EnhetsregisteretBvrinnfellesKontaktopplysning:
     description: 'TODO: beskriv klassen'
     class_uri: enhetsregisteret_bvrinnfelles:Kontaktopplysning
     annotations:
@@ -1150,10 +1150,10 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - beskrivelse
+    - enhetsregisteret_bvrinnfelles_beskrivelse
     - underenhet
     slot_usage:
-      beskrivelse:
+      enhetsregisteret_bvrinnfelles_beskrivelse:
         in_subset:
         - Anbefalt
       underenhet:
@@ -1348,7 +1348,7 @@ classes:
         inlined_as_list: true
       kontaktopplysninger:
         description: 'TODO: beskriv eigenskapen'
-        range: Kontaktopplysning
+        range: EnhetsregisteretBvrinnfellesKontaktopplysning
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -1519,7 +1519,7 @@ slots:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
-  versjon:
+  enhetsregisteret_bvrinnfelles_versjon:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:versjon
     range: Versjonsnummer
@@ -1630,7 +1630,7 @@ slots:
   kontaktopplysning:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:kontaktopplysning
-    range: Kontaktopplysning
+    range: EnhetsregisteretBvrinnfellesKontaktopplysning
   virksomhetsinformasjonUnderenhet:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:virksomhetsinformasjonUnderenhet
@@ -2036,7 +2036,7 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:hvilkeDeler
     range: DelerEierskifte
-  beskrivelse:
+  enhetsregisteret_bvrinnfelles_beskrivelse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:beskrivelse
     range: string

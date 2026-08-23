@@ -209,6 +209,12 @@ Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, sl
 For hurtig validering kan du linte skjemaet:
 `make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
+Legg du til nye slots/klassar eller nye `imports:` for hand (steg 2), sjekk
+òg at ingen av dei kolliderer med eit namn som alt finst i importkjeda —
+`make new-modell` gjer dette automatisk ved scaffolding, men det vert ikkje
+gjenteke automatisk ved seinare manuell redigering:
+`make check-import-duplicates SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
+
 Lint + validering mot medaljongnivå:
 ```bash
 make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml POLICY=bronze

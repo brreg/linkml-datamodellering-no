@@ -51,7 +51,7 @@ files=("$@")
 categories=(
     "Vanleg bruk|^(help|test|roundtrip|roundtrip-json-schema|clean|check-prereqs)\$"
     "Opprett og fjern modellar|(new-|remove-modell|gen-valid-scopes)"
-    "Validering|(validate|lint|check-published-uris)"
+    "Validering|(validate|lint|check-published-uris|check-import-duplicates)"
     "Generering (per domene eller skjema)|(gen-|domain-|convert-)"
     "Dokumentasjonsportal|docs-"
     "Modell-analyse|analyse-"

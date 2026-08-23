@@ -4,13 +4,13 @@
 ---
 innrapporteringer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-1
-  versjon: dummy
+  enhetsregisteret_bvrinnfelles_versjon: '1.0'
   innsendertjenste: dummy
-  innsendingstidspunkt: dummy
-  maalformForTilbakemelding: dummy
+  innsendingstidspunkt: '2024-01-01T00:00:00'
+  maalformForTilbakemelding: nob
   tjenestevariant: dummy
-  virksomhetsinformasjon: dummy
-  innsender: dummy
+  virksomhetsinformasjon: enhetsregisteret_bvrinnfelles:eksempel-2
+  innsender: enhetsregisteret_bvrinnfelles:eksempel-36
 virksomhetsinformasjonHovedenheter:
 - id: enhetsregisteret_bvrinnfelles:eksempel-2
   organisasjonsform: dummy
@@ -23,12 +23,12 @@ stedsadresseer:
 vegadresseer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-5
   adressenavn: dummy
-  nummer: dummy
+  nummer: enhetsregisteret_bvrinnfelles:eksempel-6
   kommunenummer: dummy
   postnummer: dummy
 adressenummerer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-6
-  nummer: dummy
+  nummer: enhetsregisteret_bvrinnfelles:eksempel-6
 varslingsadresseer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-7
 mobilnummerer:
@@ -55,7 +55,7 @@ beliggenhetsadresseer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-15
 aktiviteter:
 - id: enhetsregisteret_bvrinnfelles:eksempel-16
-  aktivitet: dummy
+  aktivitet: enhetsregisteret_bvrinnfelles:eksempel-17
 typeAktiviteter:
 - id: enhetsregisteret_bvrinnfelles:eksempel-17
   rekkefoelge: 0
@@ -68,8 +68,8 @@ rolletypegruppeer:
   rollegruppe: dummy
 rolleer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-20
-  rolletype: dummy
-  rolleinnehaver: dummy
+  rolletype: rolletype.dagligLeder
+  rolleinnehaver: enhetsregisteret_bvrinnfelles:eksempel-21
 rolleinnehaverer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-21
 ansvarsandeler:
@@ -88,10 +88,10 @@ prokuraer:
 prokurabestemmelseer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-27
   regel: dummy
-  rollesett: dummy
+  rollesett: enhetsregisteret_bvrinnfelles:eksempel-28
 rollesetter:
 - id: enhetsregisteret_bvrinnfelles:eksempel-28
-  rolletype: dummy
+  rolletype: rolletype.dagligLeder
 signaturberettigetEllerProkurister:
 - id: enhetsregisteret_bvrinnfelles:eksempel-29
 signaturretter:
@@ -99,15 +99,15 @@ signaturretter:
 signaturrettsbestemmelseer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-31
   regel: dummy
-  rollesett: dummy
+  rollesett: enhetsregisteret_bvrinnfelles:eksempel-28
 foretaksinformasjoner:
 - id: enhetsregisteret_bvrinnfelles:eksempel-32
 eierskifteAktiviteter:
 - id: enhetsregisteret_bvrinnfelles:eksempel-33
-  typeEierskifte: dummy
+  typeEierskifte: overtakelse
   organisasjonsnummerHovedenhet: dummy
   gjelderHeleAktiviteten: false
-  eierskiftedato: dummy
+  eierskiftedato: '2024-01-01'
 delerEierskifteer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-34
 matrikkelnummerer:
@@ -124,4 +124,4 @@ signeringer:
 - id: enhetsregisteret_bvrinnfelles:eksempel-38
 gebyransvarliger:
 - id: enhetsregisteret_bvrinnfelles:eksempel-39
-  gebyransvarligType: dummy
+  gebyransvarligType: virksomhetenSelv

@@ -1,0 +1,21 @@
+id: https://example.org/check-import-duplicates-transitive-collision-fixture
+name: check_import_duplicates_transitive_collision_fixture
+title: Testfixture — transitiv kollisjon
+description: >-
+  Importerer mellomskjemaet (som sjølv importerer grunnskjemaet), og redefinerer felles_slot
+  lokalt. Kollisjonen finst berre via den transitive importkjeda, ikkje eit direkte import.
+
+default_prefix: https://example.org/check-import-duplicates-transitive-collision-fixture/
+default_range: string
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+  - ./check-import-duplicates-middle-fixture
+
+slots:
+  felles_slot:
+    description: Lokal redefinisjon som kolliderer transitivt via mellomskjemaet.
+    range: integer

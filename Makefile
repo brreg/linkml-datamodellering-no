@@ -69,7 +69,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR):/repo:ro" \
   -v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"
 
-.PHONY: help test roundtrip validate lint validate-instance clean gen-config \
+.PHONY: help test roundtrip validate lint check-import-duplicates validate-instance clean gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram-mermaid convert-instance-rdf convert-data gen-schema-docs \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-data validate-examples \

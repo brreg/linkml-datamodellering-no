@@ -1,0 +1,16 @@
+id: https://example.org/check-import-duplicates-middle-fixture
+name: check_import_duplicates_middle_fixture
+title: Testfixture — mellomskjema for transitiv kollisjonstest
+description: >-
+  Importerer grunnskjemaet utan lokal redefinisjon. Brukt som mellomledd for å teste at
+  check-import-duplicates.py fangar kollisjonar som berre finst via ei transitiv importkjede.
+
+default_prefix: https://example.org/check-import-duplicates-middle-fixture/
+default_range: string
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+  - ./check-import-duplicates-base-fixture

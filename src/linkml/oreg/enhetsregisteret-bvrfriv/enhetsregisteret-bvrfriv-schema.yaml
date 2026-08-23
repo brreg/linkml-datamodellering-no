@@ -117,7 +117,7 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - versjon
+    - enhetsregisteret_bvrfriv_versjon
     - innsendertjeneste
     - innsendingstidspunkt
     - maalformForTilbakemelding
@@ -129,7 +129,7 @@ classes:
     - informasjonstype
     - lenkeForEttersending
     slot_usage:
-      versjon:
+      enhetsregisteret_bvrfriv_versjon:
         required: true
         in_subset:
         - Obligatorisk
@@ -456,7 +456,7 @@ slots:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
-  versjon:
+  enhetsregisteret_bvrfriv_versjon:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrfriv:versjon
     range: Versjonsnummer

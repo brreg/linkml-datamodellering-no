@@ -4,16 +4,16 @@
 ---
 innrapporteringFRIVer:
 - id: enhetsregisteret_bvrfriv:eksempel-1
-  versjon: dummy
+  enhetsregisteret_bvrfriv_versjon: '1.0'
   innsendertjeneste: dummy
-  innsendingstidspunkt: dummy
-  maalformForTilbakemelding: dummy
+  innsendingstidspunkt: '2024-01-01T00:00:00'
+  maalformForTilbakemelding: nob
   tjenestevariant: dummy
-  frivilligOrganisasjon: dummy
+  frivilligOrganisasjon: enhetsregisteret_bvrfriv:eksempel-5
   tjenestetype: dummy
 innsenderer:
 - id: enhetsregisteret_bvrfriv:eksempel-2
-  mobilnummer: dummy
+  mobilnummer: enhetsregisteret_bvrfriv:eksempel-3
   e_postadresse: dummy
 mobilnummerer:
 - id: enhetsregisteret_bvrfriv:eksempel-3

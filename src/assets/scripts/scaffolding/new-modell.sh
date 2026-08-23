@@ -305,6 +305,15 @@ echo "Oppdaterer .github/valid-scopes.txt..."
 cd "$REPO_ROOT"
 make --no-print-directory gen-valid-scopes
 
+# Sjekk at skjemaet ikkje kolliderer med namn frå importerte skjema (t.d.
+# eit lokalt slot med same namn som eit slot i common-ap-no/dcat-ap-no) —
+# sjå specs/done/oreg-scaffold-generering-feiler.md for kva som skjer om
+# dette ikkje vert fanga her: seks generatorsteg feilar seinare i CI med
+# ei kryptisk "Conflicting URIs"-feilmelding.
+echo ""
+echo "Sjekkar for namnekollisjonar mot importerte skjema..."
+make --no-print-directory check-import-duplicates SCHEMA="$SCHEMA_FILE_REL"
+
 # Lint det genererte skjemaet
 echo ""
 echo "Linter det genererte skjemaet..."

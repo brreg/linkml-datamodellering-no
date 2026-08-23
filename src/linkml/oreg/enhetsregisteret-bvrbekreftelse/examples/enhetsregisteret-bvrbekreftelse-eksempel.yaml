@@ -5,10 +5,10 @@
 bekreftelseer:
 - id: enhetsregisteret_bvrbekreftelse:eksempel-1
   navn: dummy
-  typeBekreftelse: dummy
+  typeBekreftelse: bekreftelse.oppdraget.regnskapsforer
 rolleer:
 - id: enhetsregisteret_bvrbekreftelse:eksempel-2
-  rolletype: dummy
+  rolletype: rolletype.dagligLeder
 virksomheter:
 - id: enhetsregisteret_bvrbekreftelse:eksempel-3
   virksomhetsidentifikator: dummy
@@ -18,9 +18,9 @@ personer:
   fulltNavn: dummy
 eierskifteAktiviteter:
 - id: enhetsregisteret_bvrbekreftelse:eksempel-5
-  typeEierskifte: dummy
+  typeEierskifte: overtakelse
   organisasjonsnummerHovedenhet: dummy
-  eierskiftedato: dummy
+  eierskiftedato: '2024-01-01'
   gjelderHeleAktiviteten: false
 delerEierskifteer:
 - id: enhetsregisteret_bvrbekreftelse:eksempel-6

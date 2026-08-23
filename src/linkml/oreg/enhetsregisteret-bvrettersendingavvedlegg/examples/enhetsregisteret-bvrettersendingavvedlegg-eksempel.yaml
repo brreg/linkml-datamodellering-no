@@ -6,6 +6,6 @@ meldingForEttersendingAvVedlegger:
 - id: enhetsregisteret_bvrettersendingavvedlegg:eksempel-1
   saksgrunnlagsId: dummy
   innsendertjeneste: dummy
-  innsender: dummy
+  innsender: enhetsregisteret_bvrettersendingavvedlegg:eksempel-2
 innsenderer:
 - id: enhetsregisteret_bvrettersendingavvedlegg:eksempel-2

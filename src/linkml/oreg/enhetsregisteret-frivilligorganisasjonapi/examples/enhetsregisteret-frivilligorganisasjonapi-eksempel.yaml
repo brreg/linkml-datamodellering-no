@@ -5,7 +5,7 @@
 frivilligOrganisasjoner:
 - id: enhetsregisteret_frivilligorganisasjonapi:eksempel-1
   organisasjonsnummer: dummy
-  regnskapsrapportering: dummy
+  regnskapsrapportering: enhetsregisteret_frivilligorganisasjonapi:eksempel-6
 icnpoKategorier:
 - id: enhetsregisteret_frivilligorganisasjonapi:eksempel-2
   kategori: dummy

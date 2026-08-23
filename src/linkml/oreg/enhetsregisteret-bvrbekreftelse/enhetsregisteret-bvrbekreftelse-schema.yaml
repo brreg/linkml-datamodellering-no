@@ -207,10 +207,10 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - beskrivelse
+    - enhetsregisteret_bvrbekreftelse_beskrivelse
     - underenhet
     slot_usage:
-      beskrivelse:
+      enhetsregisteret_bvrbekreftelse_beskrivelse:
         in_subset:
         - Anbefalt
       underenhet:
@@ -331,7 +331,7 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrbekreftelse:hvilkeDeler
     range: DelerEierskifte
-  beskrivelse:
+  enhetsregisteret_bvrbekreftelse_beskrivelse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrbekreftelse:beskrivelse
     range: string
