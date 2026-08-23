@@ -1,0 +1,351 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "BVRFRIV_lm_v1",
+  "required": [
+    "innrapporteringFRIV"
+  ],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    },
+    "innrapporteringFRIV": {
+      "$ref": "#/definitions/InnrapporteringFRIV"
+    }
+  },
+  "definitions": {
+    "InnrapporteringFRIV": {
+      "title": "InnrapporteringFRIV",
+      "type": "object",
+      "required": [
+        "id",
+        "versjon",
+        "innsendertjeneste",
+        "innsendingstidspunkt",
+        "maalformForTilbakemelding",
+        "tjenestevariant",
+        "frivilligOrganisasjon",
+        "tjenestetype"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "versjon": {
+          "$ref": "#/definitions/Versjonsnummer"
+        },
+        "innsendertjeneste": {
+          "$ref": "#/definitions/InnsendertjenesteType"
+        },
+        "innsendingstidspunkt": {
+          "$ref": "#/definitions/DatoKlokkeslett"
+        },
+        "maalformForTilbakemelding": {
+          "$ref": "#/definitions/Maalform"
+        },
+        "tjenestevariant": {
+          "$ref": "#/definitions/Tjenestevariant"
+        },
+        "innsender": {
+          "$ref": "#/definitions/Innsender"
+        },
+        "fagsystemReferanse": {
+          "$ref": "#/definitions/Fagsystemreferanse"
+        },
+        "frivilligOrganisasjon": {
+          "$ref": "#/definitions/FrivilligOrganisasjonInformasjon"
+        },
+        "tjenestetype": {
+          "$ref": "#/definitions/Tjenestetype"
+        },
+        "informasjonstype": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Informasjonstype"
+          }
+        },
+        "lenkeForEttersending": {
+          "$ref": "#/definitions/URL"
+        }
+      }
+    },
+    "Versjonsnummer": {
+      "type": "string",
+      "pattern": "^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)$",
+      "title": "Versjonsnummer"
+    },
+    "InnsendertjenesteType": {
+      "type": "string",
+      "title": "InnsendertjenesteType"
+    },
+    "DatoKlokkeslett": {
+      "type": "string",
+      "format": "date-time",
+      "title": "DatoKlokkeslett"
+    },
+    "Maalform": {
+      "title": "Målform",
+      "type": "string",
+      "enum": [
+        "nob",
+        "nno"
+      ]
+    },
+    "Tjenestevariant": {
+      "type": "string",
+      "title": "Tjenestevariant"
+    },
+    "Innsender": {
+      "title": "Innsender",
+      "type": "object",
+      "required": [
+        "mobilnummer",
+        "e-postadresse"
+      ],
+      "properties": {
+        "mobilnummer": {
+          "$ref": "#/definitions/Mobilnummer"
+        },
+        "e-postadresse": {
+          "$ref": "#/definitions/E-postadresse"
+        }
+      }
+    },
+    "Mobilnummer": {
+      "title": "Mobilnummer",
+      "type": "object",
+      "required": [
+        "nasjonaltNummer"
+      ],
+      "properties": {
+        "internasjonaltPrefiks": {
+          "$ref": "#/definitions/InternasjonaltPrefiks"
+        },
+        "nasjonaltNummer": {
+          "$ref": "#/definitions/NasjonaltNummer"
+        }
+      }
+    },
+    "InternasjonaltPrefiks": {
+      "type": "string",
+      "maxLength": 10,
+      "pattern": "^[\\d+() -]+$",
+      "title": "InternasjonaltPrefiks"
+    },
+    "NasjonaltNummer": {
+      "type": "string",
+      "pattern": "^[0-9]{5,15}$",
+      "maxLength": 25,
+      "title": "NasjonaltNummer"
+    },
+    "E-postadresse": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "maxLength": 150,
+      "title": "E-postadresse"
+    },
+    "Fagsystemreferanse": {
+      "title": "Fagsystemreferanse",
+      "type": "object",
+      "required": [
+        "fagsystemID",
+        "orgnrFagsystem",
+        "referanseFagsystem"
+      ],
+      "properties": {
+        "fagsystemID": {
+          "$ref": "#/definitions/FagsystemId"
+        },
+        "orgnrFagsystem": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "referanseFagsystem": {
+          "$ref": "#/definitions/Tekst50"
+        }
+      }
+    },
+    "FagsystemId": {
+      "type": "string",
+      "maxLength": 8,
+      "minLength": 1,
+      "title": "FagsystemId"
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "pattern": "^[2389][0-9]{8}$",
+      "title": "Organisasjonsnummer"
+    },
+    "Tekst50": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "title": "Tekst50"
+    },
+    "FrivilligOrganisasjonInformasjon": {
+      "title": "FrivilligOrganisasjonInformasjon",
+      "type": "object",
+      "properties": {
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "kontonummer": {
+          "$ref": "#/definitions/Kontonummer"
+        },
+        "icnpoKategori": {
+          "$ref": "#/definitions/IcnpoKategori"
+        },
+        "grasrotandel": {
+          "$ref": "#/definitions/Grasrotandel"
+        },
+        "rapporteringspliktRegnskap": {
+          "$ref": "#/definitions/RapporteringspliktRegnskap"
+        },
+        "vedtekter": {
+          "$ref": "#/definitions/Vedtekter"
+        },
+        "registreringsrett": {
+          "$ref": "#/definitions/Registreringsrett"
+        },
+        "kontonummerUtgaar": {
+          "type": "boolean"
+        },
+        "relasjon": {
+          "$ref": "#/definitions/Relasjonshandling"
+        }
+      }
+    },
+    "Kontonummer": {
+      "type": "string",
+      "title": "Kontonummer"
+    },
+    "IcnpoKategori": {
+      "title": "IcnpoKategori",
+      "type": "object",
+      "required": [
+        "kategori1"
+      ],
+      "properties": {
+        "kategori1": {
+          "$ref": "#/definitions/ICNPOKategori"
+        },
+        "kategori2": {
+          "$ref": "#/definitions/ICNPOKategori"
+        },
+        "kategori3": {
+          "$ref": "#/definitions/ICNPOKategori"
+        }
+      }
+    },
+    "ICNPOKategori": {
+      "type": "string",
+      "title": "ICNPOKategori"
+    },
+    "Grasrotandel": {
+      "title": "Grasrotandel",
+      "type": "object",
+      "required": [
+        "deltarI"
+      ],
+      "properties": {
+        "deltarI": {
+          "type": "boolean"
+        },
+        "drivesAllAktivitetLokaltEllerRegionalt": {
+          "type": "boolean"
+        },
+        "frivilligArbeidsinnsats": {
+          "type": "boolean"
+        },
+        "utfoererOppgaverForDetOffentlige": {
+          "type": "boolean"
+        },
+        "utfoererSykehuslignendeTjenester": {
+          "type": "boolean"
+        },
+        "erUngdomsorganisasjon": {
+          "type": "boolean"
+        },
+        "erElevEllerStudentorganisasjon": {
+          "type": "boolean"
+        }
+      }
+    },
+    "RapporteringspliktRegnskap": {
+      "title": "RapporteringspliktRegnskap",
+      "type": "object",
+      "required": [
+        "harPaatattSegRapporteringsplikt"
+      ],
+      "properties": {
+        "harPaatattSegRapporteringsplikt": {
+          "type": "boolean"
+        },
+        "avslutningsdatoRegnskapsperiode": {
+          "$ref": "#/definitions/DagMaaned"
+        }
+      }
+    },
+    "DagMaaned": {
+      "type": "string",
+      "title": "DagMåned"
+    },
+    "Vedtekter": {
+      "title": "Vedtekter",
+      "type": "object",
+      "properties": {
+        "frivilligRegistrerteVedtekter": {
+          "type": "boolean"
+        },
+        "skalOppdatereVedtekter": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Registreringsrett": {
+      "title": "Registreringsrett",
+      "type": "object",
+      "properties": {
+        "harOffentligFlertallIStyret": {
+          "type": "boolean"
+        },
+        "flertallAvAksjerEidAvOffentlig": {
+          "type": "boolean"
+        },
+        "utdelingUtelukkendeTilFrivillige": {
+          "type": "boolean"
+        },
+        "utdelingTilFysiskePersoner": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Relasjonshandling": {
+      "title": "Relasjonshandling",
+      "type": "string",
+      "enum": [
+        "meldeRelasjon",
+        "fjerneAlleRelasjoner"
+      ]
+    },
+    "Tjenestetype": {
+      "type": "string",
+      "title": "Tjenestetype"
+    },
+    "Informasjonstype": {
+      "type": "string",
+      "title": "Informasjonstype"
+    },
+    "URL": {
+      "type": "string",
+      "format": "uri",
+      "description": "Tester ikke på patterns siden lovlig patterns kan skifte.",
+      "maxLength": 150,
+      "title": "URL"
+    }
+  }
+}

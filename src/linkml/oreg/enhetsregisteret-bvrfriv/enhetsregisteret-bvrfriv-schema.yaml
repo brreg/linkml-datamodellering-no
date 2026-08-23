@@ -1,0 +1,641 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'enhetsregisteret_bvrfriv:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrfriv
+name: enhetsregisteret_bvrfriv
+title: 'TODO: tittel for enhetsregisteret-bvrfriv'
+description: Generert modell for 'enhetsregisteret_bvrfriv'.
+version: 0.1.0
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-23'
+  utgivelsesdato: '2026-08-23'
+  status: http://purl.org/adms/status/UnderDevelopment
+prefixes:
+  linkml: https://w3id.org/linkml/
+  enhetsregisteret_bvrfriv: https://data.norge.no/oreg/enhetsregisteret-bvrfriv/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrfriv/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+types:
+  Versjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^(\d+\.)?(\d+\.)?(\*|\d+)$
+  InnsendertjenesteType:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  DatoKlokkeslett:
+    uri: xsd:dateTime
+    base: str
+    description: 'TODO: beskriv typen'
+  Tjenestevariant:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  InternasjonaltPrefiks:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[\d+() -]+$
+  NasjonaltNummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[0-9]{5,15}$
+  E_postadresse:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+  FagsystemId:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Organisasjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[2389][0-9]{8}$
+  Tekst50:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Kontonummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  ICNPOKategori:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  DagMaaned:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Tjenestetype:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Informasjonstype:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  URL:
+    uri: xsd:anyURI
+    base: str
+    description: Tester ikke på patterns siden lovlig patterns kan skifte.
+enums:
+  Maalform:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      nob: {}
+      nno: {}
+  Relasjonshandling:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      meldeRelasjon: {}
+      fjerneAlleRelasjoner: {}
+classes:
+  InnrapporteringFRIV:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:InnrapporteringFRIV
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - versjon
+    - innsendertjeneste
+    - innsendingstidspunkt
+    - maalformForTilbakemelding
+    - tjenestevariant
+    - innsender
+    - fagsystemReferanse
+    - frivilligOrganisasjon
+    - tjenestetype
+    - informasjonstype
+    - lenkeForEttersending
+    slot_usage:
+      versjon:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innsendertjeneste:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innsendingstidspunkt:
+        required: true
+        in_subset:
+        - Obligatorisk
+      maalformForTilbakemelding:
+        required: true
+        in_subset:
+        - Obligatorisk
+      tjenestevariant:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innsender:
+        in_subset:
+        - Anbefalt
+      fagsystemReferanse:
+        in_subset:
+        - Anbefalt
+      frivilligOrganisasjon:
+        required: true
+        in_subset:
+        - Obligatorisk
+      tjenestetype:
+        required: true
+        in_subset:
+        - Obligatorisk
+      informasjonstype:
+        in_subset:
+        - Anbefalt
+      lenkeForEttersending:
+        in_subset:
+        - Anbefalt
+  Innsender:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Innsender
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - mobilnummer
+    - e_postadresse
+    slot_usage:
+      mobilnummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      e_postadresse:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Mobilnummer:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Mobilnummer
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - internasjonaltPrefiks
+    - nasjonaltNummer
+    slot_usage:
+      internasjonaltPrefiks:
+        in_subset:
+        - Anbefalt
+      nasjonaltNummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Fagsystemreferanse:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Fagsystemreferanse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - fagsystemID
+    - orgnrFagsystem
+    - referanseFagsystem
+    slot_usage:
+      fagsystemID:
+        required: true
+        in_subset:
+        - Obligatorisk
+      orgnrFagsystem:
+        required: true
+        in_subset:
+        - Obligatorisk
+      referanseFagsystem:
+        required: true
+        in_subset:
+        - Obligatorisk
+  FrivilligOrganisasjonInformasjon:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:FrivilligOrganisasjonInformasjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - organisasjonsnummer
+    - kontonummer
+    - icnpoKategori
+    - grasrotandel
+    - rapporteringspliktRegnskap
+    - vedtekter
+    - registreringsrett
+    - kontonummerUtgaar
+    - relasjon
+    slot_usage:
+      organisasjonsnummer:
+        in_subset:
+        - Anbefalt
+      kontonummer:
+        in_subset:
+        - Anbefalt
+      icnpoKategori:
+        in_subset:
+        - Anbefalt
+      grasrotandel:
+        in_subset:
+        - Anbefalt
+      rapporteringspliktRegnskap:
+        in_subset:
+        - Anbefalt
+      vedtekter:
+        in_subset:
+        - Anbefalt
+      registreringsrett:
+        in_subset:
+        - Anbefalt
+      kontonummerUtgaar:
+        in_subset:
+        - Anbefalt
+      relasjon:
+        in_subset:
+        - Anbefalt
+  IcnpoKategori:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:IcnpoKategori
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - kategori1
+    - kategori2
+    - kategori3
+    slot_usage:
+      kategori1:
+        required: true
+        in_subset:
+        - Obligatorisk
+      kategori2:
+        in_subset:
+        - Anbefalt
+      kategori3:
+        in_subset:
+        - Anbefalt
+  Grasrotandel:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Grasrotandel
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - deltarI
+    - drivesAllAktivitetLokaltEllerRegionalt
+    - frivilligArbeidsinnsats
+    - utfoererOppgaverForDetOffentlige
+    - utfoererSykehuslignendeTjenester
+    - erUngdomsorganisasjon
+    - erElevEllerStudentorganisasjon
+    slot_usage:
+      deltarI:
+        required: true
+        in_subset:
+        - Obligatorisk
+      drivesAllAktivitetLokaltEllerRegionalt:
+        in_subset:
+        - Anbefalt
+      frivilligArbeidsinnsats:
+        in_subset:
+        - Anbefalt
+      utfoererOppgaverForDetOffentlige:
+        in_subset:
+        - Anbefalt
+      utfoererSykehuslignendeTjenester:
+        in_subset:
+        - Anbefalt
+      erUngdomsorganisasjon:
+        in_subset:
+        - Anbefalt
+      erElevEllerStudentorganisasjon:
+        in_subset:
+        - Anbefalt
+  RapporteringspliktRegnskap:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:RapporteringspliktRegnskap
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - harPaatattSegRapporteringsplikt
+    - avslutningsdatoRegnskapsperiode
+    slot_usage:
+      harPaatattSegRapporteringsplikt:
+        required: true
+        in_subset:
+        - Obligatorisk
+      avslutningsdatoRegnskapsperiode:
+        in_subset:
+        - Anbefalt
+  Vedtekter:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Vedtekter
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - frivilligRegistrerteVedtekter
+    - skalOppdatereVedtekter
+    slot_usage:
+      frivilligRegistrerteVedtekter:
+        in_subset:
+        - Anbefalt
+      skalOppdatereVedtekter:
+        in_subset:
+        - Anbefalt
+  Registreringsrett:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrfriv:Registreringsrett
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - harOffentligFlertallIStyret
+    - flertallAvAksjerEidAvOffentlig
+    - utdelingUtelukkendeTilFrivillige
+    - utdelingTilFysiskePersoner
+    slot_usage:
+      harOffentligFlertallIStyret:
+        in_subset:
+        - Anbefalt
+      flertallAvAksjerEidAvOffentlig:
+        in_subset:
+        - Anbefalt
+      utdelingUtelukkendeTilFrivillige:
+        in_subset:
+        - Anbefalt
+      utdelingTilFysiskePersoner:
+        in_subset:
+        - Anbefalt
+  EnhetsregisteretBvrfrivContainer:
+    description: containerklasse for serialisering av klasser i enhetsregisteret_bvrfriv
+      modellen
+    tree_root: true
+    attributes:
+      innrapporteringFRIVer:
+        description: 'TODO: beskriv eigenskapen'
+        range: InnrapporteringFRIV
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      innsenderer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Innsender
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      mobilnummerer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Mobilnummer
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      fagsystemreferanseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Fagsystemreferanse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      frivilligOrganisasjonInformasjoner:
+        description: 'TODO: beskriv eigenskapen'
+        range: FrivilligOrganisasjonInformasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      icnpoKategorier:
+        description: 'TODO: beskriv eigenskapen'
+        range: IcnpoKategori
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      grasrotandeler:
+        description: 'TODO: beskriv eigenskapen'
+        range: Grasrotandel
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      rapporteringspliktRegnskaper:
+        description: 'TODO: beskriv eigenskapen'
+        range: RapporteringspliktRegnskap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      vedtekterer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Vedtekter
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      registreringsretter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Registreringsrett
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  enhetsregisteret_bvrfriv_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+  versjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:versjon
+    range: Versjonsnummer
+  innsendertjeneste:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:innsendertjeneste
+    range: InnsendertjenesteType
+  innsendingstidspunkt:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:innsendingstidspunkt
+    range: DatoKlokkeslett
+  maalformForTilbakemelding:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:maalformForTilbakemelding
+    range: Maalform
+  tjenestevariant:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:tjenestevariant
+    range: Tjenestevariant
+  innsender:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:innsender
+    range: Innsender
+  fagsystemReferanse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:fagsystemReferanse
+    range: Fagsystemreferanse
+  frivilligOrganisasjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:frivilligOrganisasjon
+    range: FrivilligOrganisasjonInformasjon
+  tjenestetype:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:tjenestetype
+    range: Tjenestetype
+  informasjonstype:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:informasjonstype
+    range: Informasjonstype
+    multivalued: true
+  lenkeForEttersending:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:lenkeForEttersending
+    range: URL
+  mobilnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:mobilnummer
+    range: Mobilnummer
+  e_postadresse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:e_postadresse
+    range: E_postadresse
+  internasjonaltPrefiks:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:internasjonaltPrefiks
+    range: InternasjonaltPrefiks
+  nasjonaltNummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:nasjonaltNummer
+    range: NasjonaltNummer
+  fagsystemID:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:fagsystemID
+    range: FagsystemId
+  orgnrFagsystem:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:orgnrFagsystem
+    range: Organisasjonsnummer
+  referanseFagsystem:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:referanseFagsystem
+    range: Tekst50
+  organisasjonsnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:organisasjonsnummer
+    range: Organisasjonsnummer
+  kontonummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:kontonummer
+    range: Kontonummer
+  icnpoKategori:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:icnpoKategori
+    range: IcnpoKategori
+  grasrotandel:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:grasrotandel
+    range: Grasrotandel
+  rapporteringspliktRegnskap:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:rapporteringspliktRegnskap
+    range: RapporteringspliktRegnskap
+  vedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:vedtekter
+    range: Vedtekter
+  registreringsrett:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:registreringsrett
+    range: Registreringsrett
+  kontonummerUtgaar:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:kontonummerUtgaar
+    range: boolean
+  relasjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:relasjon
+    range: Relasjonshandling
+  kategori1:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:kategori1
+    range: ICNPOKategori
+  kategori2:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:kategori2
+    range: ICNPOKategori
+  kategori3:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:kategori3
+    range: ICNPOKategori
+  deltarI:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:deltarI
+    range: boolean
+  drivesAllAktivitetLokaltEllerRegionalt:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:drivesAllAktivitetLokaltEllerRegionalt
+    range: boolean
+  frivilligArbeidsinnsats:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:frivilligArbeidsinnsats
+    range: boolean
+  utfoererOppgaverForDetOffentlige:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:utfoererOppgaverForDetOffentlige
+    range: boolean
+  utfoererSykehuslignendeTjenester:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:utfoererSykehuslignendeTjenester
+    range: boolean
+  erUngdomsorganisasjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:erUngdomsorganisasjon
+    range: boolean
+  erElevEllerStudentorganisasjon:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:erElevEllerStudentorganisasjon
+    range: boolean
+  harPaatattSegRapporteringsplikt:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:harPaatattSegRapporteringsplikt
+    range: boolean
+  avslutningsdatoRegnskapsperiode:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:avslutningsdatoRegnskapsperiode
+    range: DagMaaned
+  frivilligRegistrerteVedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:frivilligRegistrerteVedtekter
+    range: boolean
+  skalOppdatereVedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:skalOppdatereVedtekter
+    range: boolean
+  harOffentligFlertallIStyret:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:harOffentligFlertallIStyret
+    range: boolean
+  flertallAvAksjerEidAvOffentlig:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:flertallAvAksjerEidAvOffentlig
+    range: boolean
+  utdelingUtelukkendeTilFrivillige:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:utdelingUtelukkendeTilFrivillige
+    range: boolean
+  utdelingTilFysiskePersoner:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrfriv:utdelingTilFysiskePersoner
+    range: boolean
+# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

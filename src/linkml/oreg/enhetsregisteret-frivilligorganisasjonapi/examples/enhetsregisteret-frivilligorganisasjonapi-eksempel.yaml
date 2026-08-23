@@ -1,0 +1,32 @@
+# Eksempel for enhetsregisteret-frivilligorganisasjonapi
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+frivilligOrganisasjoner:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-1
+  organisasjonsnummer: dummy
+  regnskapsrapportering: dummy
+icnpoKategorier:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-2
+  kategori: dummy
+  icnpoNummer: dummy
+  rekkefoelge: 0
+vedtekterer:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-3
+grasrotandeler:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-4
+tidsperiodeer:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-5
+regnskapsrapporteringer:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-6
+sistInnsendteAArsregnskaper:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-7
+paategninger:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-8
+  identifikatorInformasjonstype: dummy
+  paategning: dummy
+virksomhetsrelasjoner:
+- id: enhetsregisteret_frivilligorganisasjonapi:eksempel-9
+  relasjonsrolleFra: dummy
+  relasjonsrolleTil: dummy
+  relasjonTil: dummy

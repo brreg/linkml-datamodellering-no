@@ -1,0 +1,132 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'enhetsregisteret_bvrettersendingavvedlegg:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg
+name: enhetsregisteret_bvrettersendingavvedlegg
+title: 'TODO: tittel for enhetsregisteret-bvrettersendingavvedlegg'
+description: Generert modell for 'enhetsregisteret_bvrettersendingavvedlegg'.
+version: 0.1.0
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-23'
+  utgivelsesdato: '2026-08-23'
+  status: http://purl.org/adms/status/UnderDevelopment
+prefixes:
+  linkml: https://w3id.org/linkml/
+  enhetsregisteret_bvrettersendingavvedlegg: https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+types:
+  UUID:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  InnsendertjenesteType:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  PersonMappingId:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Organisasjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[2389][0-9]{8}$
+classes:
+  MeldingForEttersendingAvVedlegg:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrettersendingavvedlegg:MeldingForEttersendingAvVedlegg
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - saksgrunnlagsId
+    - innsendertjeneste
+    - innsender
+    slot_usage:
+      saksgrunnlagsId:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innsendertjeneste:
+        required: true
+        in_subset:
+        - Obligatorisk
+      innsender:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Innsender:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrettersendingavvedlegg:Innsender
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - mappingId
+    - organisasjonsnummer
+    slot_usage:
+      mappingId:
+        in_subset:
+        - Anbefalt
+      organisasjonsnummer:
+        in_subset:
+        - Anbefalt
+  EnhetsregisteretBvrettersendingavvedleggContainer:
+    description: containerklasse for serialisering av klasser i enhetsregisteret_bvrettersendingavvedlegg
+      modellen
+    tree_root: true
+    attributes:
+      meldingForEttersendingAvVedlegger:
+        description: 'TODO: beskriv eigenskapen'
+        range: MeldingForEttersendingAvVedlegg
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      innsenderer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Innsender
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  enhetsregisteret_bvrettersendingavvedlegg_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+  saksgrunnlagsId:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrettersendingavvedlegg:saksgrunnlagsId
+    range: UUID
+  innsendertjeneste:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrettersendingavvedlegg:innsendertjeneste
+    range: InnsendertjenesteType
+  innsender:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrettersendingavvedlegg:innsender
+    range: Innsender
+  mappingId:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrettersendingavvedlegg:mappingId
+    range: PersonMappingId
+  organisasjonsnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrettersendingavvedlegg:organisasjonsnummer
+    range: Organisasjonsnummer
+# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

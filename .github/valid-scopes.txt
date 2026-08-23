@@ -12,6 +12,7 @@ enhetsregisteret-bvrfriv
 enhetsregisteret-bvrinn
 enhetsregisteret-bvrinnfelles
 enhetsregisteret-bvrstiftelsesdokument
+enhetsregisteret-frivilligorganisasjonapi
 fair-metadata
 fint-administrasjon
 fint-arkiv

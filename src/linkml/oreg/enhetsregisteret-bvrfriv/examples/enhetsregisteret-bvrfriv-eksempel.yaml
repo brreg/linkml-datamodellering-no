@@ -1,0 +1,40 @@
+# Eksempel for enhetsregisteret-bvrfriv
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+innrapporteringFRIVer:
+- id: enhetsregisteret_bvrfriv:eksempel-1
+  versjon: dummy
+  innsendertjeneste: dummy
+  innsendingstidspunkt: dummy
+  maalformForTilbakemelding: dummy
+  tjenestevariant: dummy
+  frivilligOrganisasjon: dummy
+  tjenestetype: dummy
+innsenderer:
+- id: enhetsregisteret_bvrfriv:eksempel-2
+  mobilnummer: dummy
+  e_postadresse: dummy
+mobilnummerer:
+- id: enhetsregisteret_bvrfriv:eksempel-3
+  nasjonaltNummer: dummy
+fagsystemreferanseer:
+- id: enhetsregisteret_bvrfriv:eksempel-4
+  fagsystemID: dummy
+  orgnrFagsystem: dummy
+  referanseFagsystem: dummy
+frivilligOrganisasjonInformasjoner:
+- id: enhetsregisteret_bvrfriv:eksempel-5
+icnpoKategorier:
+- id: enhetsregisteret_bvrfriv:eksempel-6
+  kategori1: dummy
+grasrotandeler:
+- id: enhetsregisteret_bvrfriv:eksempel-7
+  deltarI: false
+rapporteringspliktRegnskaper:
+- id: enhetsregisteret_bvrfriv:eksempel-8
+  harPaatattSegRapporteringsplikt: false
+vedtekterer:
+- id: enhetsregisteret_bvrfriv:eksempel-9
+registreringsretter:
+- id: enhetsregisteret_bvrfriv:eksempel-10

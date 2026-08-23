@@ -1,0 +1,26 @@
+# Eksempel for enhetsregisteret-bvrbekreftelse
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+bekreftelseer:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-1
+  navn: dummy
+  typeBekreftelse: dummy
+rolleer:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-2
+  rolletype: dummy
+virksomheter:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-3
+  virksomhetsidentifikator: dummy
+personer:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-4
+  personidentifikator: dummy
+  fulltNavn: dummy
+eierskifteAktiviteter:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-5
+  typeEierskifte: dummy
+  organisasjonsnummerHovedenhet: dummy
+  eierskiftedato: dummy
+  gjelderHeleAktiviteten: false
+delerEierskifteer:
+- id: enhetsregisteret_bvrbekreftelse:eksempel-6

@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "x-schema-id": "",
+  "x-major-version": "1",
+  "x-dct-modified": "2026-03-09T14:05:00+01:00",
+  "x-adms-status": "gjeldende",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "FrivilligOrganisasjonAPI_lm_v1",
+  "required": [],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    }
+  },
+  "definitions": {
+    "FrivilligOrganisasjon": {
+      "title": "FrivilligOrganisasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organisasjonsnummer",
+        "regnskapsrapportering"
+      ],
+      "properties": {
+        "icnpokategorier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IcnpoKategori"
+          },
+          "maxItems": 3
+        },
+        "vedtekter": {
+          "$ref": "#/definitions/Vedtekter"
+        },
+        "grasrotandel": {
+          "$ref": "#/definitions/Grasrotandel"
+        },
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "regnskapsrapportering": {
+          "$ref": "#/definitions/Regnskapsrapportering"
+        },
+        "frivilligOrganisasjonsstatus": {
+          "$ref": "#/definitions/FrivilligOrganisasjonsstatus"
+        },
+        "paategninger": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Paategning"
+          }
+        },
+        "kontonummer": {
+          "$ref": "#/definitions/Kontonummer"
+        },
+        "innfoertDato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "relasjoner": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Virksomhetsrelasjon"
+          }
+        },
+        "foersteGangInnfoert": {
+          "$ref": "#/definitions/Dato"
+        },
+        "slettetDato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "IcnpoKategori": {
+      "title": "IcnpoKategori",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kategori",
+        "icnpoNummer",
+        "rekkefoelge"
+      ],
+      "properties": {
+        "kategori": {
+          "$ref": "#/definitions/ICNPOKategori"
+        },
+        "icnpoNummer": {
+          "$ref": "#/definitions/ICNPOKategorinummer"
+        },
+        "navn": {
+          "type": "string"
+        },
+        "rekkefoelge": {
+          "type": "integer"
+        }
+      }
+    },
+    "ICNPOKategori": {
+      "type": "string",
+      "title": "ICNPOKategori"
+    },
+    "ICNPOKategorinummer": {
+      "type": "string",
+      "title": "ICNPOKategorinummer"
+    },
+    "Vedtekter": {
+      "title": "Vedtekter",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frivilligRegistrerteVedtekter": {
+          "type": "boolean"
+        },
+        "sistOppdaterteVedtekter": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Dato": {
+      "type": "string",
+      "format": "date",
+      "title": "Dato"
+    },
+    "Grasrotandel": {
+      "title": "Grasrotandel",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deltarI": {
+          "type": "boolean"
+        },
+        "utestengelsesperiode": {
+          "$ref": "#/definitions/Tidsperiode"
+        }
+      }
+    },
+    "Tidsperiode": {
+      "title": "Tidsperiode",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fraDato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "tilDato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "title": "Organisasjonsnummer"
+    },
+    "Regnskapsrapportering": {
+      "title": "Regnskapsrapportering",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "harPaatattSegRapporteringsplikt": {
+          "type": "boolean"
+        },
+        "avslutningsdatoForRegnskapsperiode": {
+          "$ref": "#/definitions/Dato"
+        },
+        "sistInnsendteAArsregnskap": {
+          "$ref": "#/definitions/SistInnsendteAArsregnskap"
+        }
+      }
+    },
+    "SistInnsendteAArsregnskap": {
+      "title": "SistInnsendteÅrsregnskap",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "regnskapsaar": {
+          "$ref": "#/definitions/AArstall"
+        },
+        "registreringsdato": {
+          "$ref": "#/definitions/Dato"
+        }
+      }
+    },
+    "AArstall": {
+      "type": "string",
+      "pattern": "^\\d{4}$",
+      "title": "Årstall"
+    },
+    "FrivilligOrganisasjonsstatus": {
+      "type": "string",
+      "title": "FrivilligOrganisasjonsstatus"
+    },
+    "Paategning": {
+      "title": "Påtegning",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identifikatorInformasjonstype",
+        "paategning"
+      ],
+      "properties": {
+        "identifikatorInformasjonstype": {
+          "$ref": "#/definitions/IdentifikatorInformasjonstype"
+        },
+        "paategning": {
+          "type": "string"
+        }
+      }
+    },
+    "IdentifikatorInformasjonstype": {
+      "type": "string",
+      "title": "IdentifikatorInformasjonstype"
+    },
+    "Kontonummer": {
+      "type": "string",
+      "title": "Kontonummer"
+    },
+    "Virksomhetsrelasjon": {
+      "title": "Virksomhetsrelasjon",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relasjonsrolleFra",
+        "relasjonsrolleTil",
+        "relasjonTil"
+      ],
+      "properties": {
+        "relasjonsrolleFra": {
+          "type": "string"
+        },
+        "relasjonsrolleTil": {
+          "type": "string"
+        },
+        "relasjonTil": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        }
+      }
+    }
+  }
+}

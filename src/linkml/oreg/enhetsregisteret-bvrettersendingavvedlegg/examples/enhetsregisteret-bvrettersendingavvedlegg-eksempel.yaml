@@ -1,0 +1,11 @@
+# Eksempel for enhetsregisteret-bvrettersendingavvedlegg
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+meldingForEttersendingAvVedlegger:
+- id: enhetsregisteret_bvrettersendingavvedlegg:eksempel-1
+  saksgrunnlagsId: dummy
+  innsendertjeneste: dummy
+  innsender: dummy
+innsenderer:
+- id: enhetsregisteret_bvrettersendingavvedlegg:eksempel-2

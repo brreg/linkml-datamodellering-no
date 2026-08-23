@@ -1,16 +1,21 @@
 # Generert av mcp-linkml-generator — dette er eit utkast.
-# Prefiks 'generated:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# Prefiks 'enhetsregisteret_bvrinnfelles:' er ein placeholder — erstatt med ekte vokabular-URIar.
 # 'TODO'-felt må fyllast inn manuelt.
 
-id: https://example.org/generated
-name: generated
-title: 'TODO: tittel for generated'
-description: Generert modell for 'generated'.
+id: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles
+name: enhetsregisteret_bvrinnfelles
+title: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
+description: Generert modell for 'enhetsregisteret_bvrinnfelles'.
 version: 0.1.0
-license: https://creativecommons.org/licenses/by/4.0/
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-23'
+  utgivelsesdato: '2026-08-23'
+  status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
-  generated: https://example.org/generated/
+  enhetsregisteret_bvrinnfelles: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
@@ -18,17 +23,11 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-default_prefix: https://example.org/generated/
+default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/
 default_range: string
 imports:
 - linkml:types
-subsets:
-  Obligatorisk:
-    description: Obligatoriske eigenskapar.
-  Anbefalt:
-    description: Anbefalte eigenskapar.
-  Valgfri:
-    description: Valfrie eigenskapar.
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
 types:
   Versjonsnummer:
     uri: xsd:string
@@ -194,7 +193,7 @@ enums:
 classes:
   Innrapportering:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Innrapportering
+    class_uri: enhetsregisteret_bvrinnfelles:Innrapportering
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -253,7 +252,7 @@ classes:
         - Anbefalt
   VirksomhetsinformasjonHovedenhet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:VirksomhetsinformasjonHovedenhet
+    class_uri: enhetsregisteret_bvrinnfelles:VirksomhetsinformasjonHovedenhet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -386,7 +385,7 @@ classes:
         - Anbefalt
   Forretningsadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Forretningsadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Forretningsadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -414,7 +413,7 @@ classes:
         - Anbefalt
   Stedsadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Stedsadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Stedsadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -436,7 +435,7 @@ classes:
         - Obligatorisk
   Vegadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Vegadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Vegadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -476,7 +475,7 @@ classes:
         - Obligatorisk
   Adressenummer:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Adressenummer
+    class_uri: enhetsregisteret_bvrinnfelles:Adressenummer
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -493,7 +492,7 @@ classes:
         - Anbefalt
   Varslingsadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Varslingsadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Varslingsadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -509,7 +508,7 @@ classes:
         - Anbefalt
   Mobilnummer:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Mobilnummer
+    class_uri: enhetsregisteret_bvrinnfelles:Mobilnummer
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -526,7 +525,7 @@ classes:
         - Obligatorisk
   Postadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Postadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Postadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -562,7 +561,7 @@ classes:
         - Anbefalt
   Postboksadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Postboksadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Postboksadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -589,7 +588,7 @@ classes:
         - Obligatorisk
   InternasjonalAdresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:InternasjonalAdresse
+    class_uri: enhetsregisteret_bvrinnfelles:InternasjonalAdresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -650,7 +649,7 @@ classes:
         - Obligatorisk
   Kontaktopplysning:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Kontaktopplysning
+    class_uri: enhetsregisteret_bvrinnfelles:Kontaktopplysning
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -690,7 +689,7 @@ classes:
         - Anbefalt
   Telefonnummer:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Telefonnummer
+    class_uri: enhetsregisteret_bvrinnfelles:Telefonnummer
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -707,7 +706,7 @@ classes:
         - Obligatorisk
   VirksomhetsinformasjonUnderenhet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:VirksomhetsinformasjonUnderenhet
+    class_uri: enhetsregisteret_bvrinnfelles:VirksomhetsinformasjonUnderenhet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -747,7 +746,7 @@ classes:
         - Anbefalt
   Beliggenhetsadresse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Beliggenhetsadresse
+    class_uri: enhetsregisteret_bvrinnfelles:Beliggenhetsadresse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -771,7 +770,7 @@ classes:
         - Anbefalt
   Aktivitet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Aktivitet
+    class_uri: enhetsregisteret_bvrinnfelles:Aktivitet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -788,7 +787,7 @@ classes:
         - Anbefalt
   TypeAktivitet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:TypeAktivitet
+    class_uri: enhetsregisteret_bvrinnfelles:TypeAktivitet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -810,7 +809,7 @@ classes:
         - Obligatorisk
   Omdanning:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Omdanning
+    class_uri: enhetsregisteret_bvrinnfelles:Omdanning
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -823,7 +822,7 @@ classes:
         - Obligatorisk
   Rolletypegruppe:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Rolletypegruppe
+    class_uri: enhetsregisteret_bvrinnfelles:Rolletypegruppe
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -856,7 +855,7 @@ classes:
         - Anbefalt
   Rolle:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Rolle
+    class_uri: enhetsregisteret_bvrinnfelles:Rolle
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -878,7 +877,7 @@ classes:
         - Obligatorisk
   Rolleinnehaver:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Rolleinnehaver
+    class_uri: enhetsregisteret_bvrinnfelles:Rolleinnehaver
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -914,7 +913,7 @@ classes:
         - Anbefalt
   Ansvarsandel:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Ansvarsandel
+    class_uri: enhetsregisteret_bvrinnfelles:Ansvarsandel
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -930,7 +929,7 @@ classes:
         - Anbefalt
   Broek:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Broek
+    class_uri: enhetsregisteret_bvrinnfelles:Broek
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -946,7 +945,7 @@ classes:
         - Anbefalt
   Virksomhet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Virksomhet
+    class_uri: enhetsregisteret_bvrinnfelles:Virksomhet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -963,7 +962,7 @@ classes:
         - Anbefalt
   Person:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Person
+    class_uri: enhetsregisteret_bvrinnfelles:Person
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -981,7 +980,7 @@ classes:
         - Obligatorisk
   Prokura:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Prokura
+    class_uri: enhetsregisteret_bvrinnfelles:Prokura
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1001,7 +1000,7 @@ classes:
         - Anbefalt
   Prokurabestemmelse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Prokurabestemmelse
+    class_uri: enhetsregisteret_bvrinnfelles:Prokurabestemmelse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1019,7 +1018,7 @@ classes:
         - Obligatorisk
   Rollesett:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Rollesett
+    class_uri: enhetsregisteret_bvrinnfelles:Rollesett
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1044,7 +1043,7 @@ classes:
         - Anbefalt
   SignaturberettigetEllerProkurist:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:SignaturberettigetEllerProkurist
+    class_uri: enhetsregisteret_bvrinnfelles:SignaturberettigetEllerProkurist
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1060,7 +1059,7 @@ classes:
         - Anbefalt
   Signaturrett:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Signaturrett
+    class_uri: enhetsregisteret_bvrinnfelles:Signaturrett
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1080,7 +1079,7 @@ classes:
         - Anbefalt
   Signaturrettsbestemmelse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Signaturrettsbestemmelse
+    class_uri: enhetsregisteret_bvrinnfelles:Signaturrettsbestemmelse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1098,7 +1097,7 @@ classes:
         - Obligatorisk
   Foretaksinformasjon:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Foretaksinformasjon
+    class_uri: enhetsregisteret_bvrinnfelles:Foretaksinformasjon
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1114,7 +1113,7 @@ classes:
         - Anbefalt
   EierskifteAktivitet:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:EierskifteAktivitet
+    class_uri: enhetsregisteret_bvrinnfelles:EierskifteAktivitet
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1146,7 +1145,7 @@ classes:
         - Anbefalt
   DelerEierskifte:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:DelerEierskifte
+    class_uri: enhetsregisteret_bvrinnfelles:DelerEierskifte
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1162,7 +1161,7 @@ classes:
         - Anbefalt
   Matrikkelnummer:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Matrikkelnummer
+    class_uri: enhetsregisteret_bvrinnfelles:Matrikkelnummer
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1186,7 +1185,7 @@ classes:
         - Anbefalt
   Innsender:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Innsender
+    class_uri: enhetsregisteret_bvrinnfelles:Innsender
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1215,7 +1214,7 @@ classes:
         - Obligatorisk
   Fagsystemreferanse:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Fagsystemreferanse
+    class_uri: enhetsregisteret_bvrinnfelles:Fagsystemreferanse
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1238,14 +1237,14 @@ classes:
         - Obligatorisk
   Signering:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Signering
+    class_uri: enhetsregisteret_bvrinnfelles:Signering
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
   Gebyransvarlig:
     description: 'TODO: beskriv klassen'
-    class_uri: generated:Gebyransvarlig
+    class_uri: enhetsregisteret_bvrinnfelles:Gebyransvarlig
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -1276,8 +1275,9 @@ classes:
       e_postadresse:
         in_subset:
         - Anbefalt
-  GeneratedContainer:
-    description: 'TODO: beskriv containerklassen'
+  EnhetsregisteretBvrinnfellesContainer:
+    description: containerklasse for serialisering av klasser i enhetsregisteret_bvrinnfelles
+      modellen
     tree_root: true
     attributes:
       innrapporteringer:
@@ -1515,568 +1515,571 @@ classes:
         inlined: true
         inlined_as_list: true
 slots:
-  id:
-    description: Unik URI-identifikator for ressursen.
-    identifier: true
+  enhetsregisteret_bvrinnfelles_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
     range: uriorcurie
   versjon:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:versjon
+    slot_uri: enhetsregisteret_bvrinnfelles:versjon
     range: Versjonsnummer
   innsendertjenste:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:innsendertjenste
+    slot_uri: enhetsregisteret_bvrinnfelles:innsendertjenste
     range: InnsendertjenesteType
   innsendingstidspunkt:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:innsendingstidspunkt
+    slot_uri: enhetsregisteret_bvrinnfelles:innsendingstidspunkt
     range: DatoKlokkeslett
   maalformForTilbakemelding:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:maalformForTilbakemelding
+    slot_uri: enhetsregisteret_bvrinnfelles:maalformForTilbakemelding
     range: Maalform
   tjenestevariant:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:tjenestevariant
+    slot_uri: enhetsregisteret_bvrinnfelles:tjenestevariant
     range: Tjenestevariant
   virksomhetsinformasjon:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:virksomhetsinformasjon
+    slot_uri: enhetsregisteret_bvrinnfelles:virksomhetsinformasjon
     range: VirksomhetsinformasjonHovedenhet
   innsender:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:innsender
+    slot_uri: enhetsregisteret_bvrinnfelles:innsender
     range: Innsender
   fagsystemReferanse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:fagsystemReferanse
+    slot_uri: enhetsregisteret_bvrinnfelles:fagsystemReferanse
     range: Fagsystemreferanse
   signering:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:signering
+    slot_uri: enhetsregisteret_bvrinnfelles:signering
     range: Signering
   gebyransvarlig:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:gebyransvarlig
+    slot_uri: enhetsregisteret_bvrinnfelles:gebyransvarlig
     range: Gebyransvarlig
   lenkeForEttersending:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:lenkeForEttersending
+    slot_uri: enhetsregisteret_bvrinnfelles:lenkeForEttersending
     range: URL
   organisasjonsform:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:organisasjonsform
+    slot_uri: enhetsregisteret_bvrinnfelles:organisasjonsform
     range: Organisasjonsform
   virksomhetstype:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:virksomhetstype
+    slot_uri: enhetsregisteret_bvrinnfelles:virksomhetstype
     range: Virksomhetstype
   organisasjonsnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:organisasjonsnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:organisasjonsnummer
     range: Organisasjonsnummer
   navn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:navn
-    range: Virksomhetsnavn
+    slot_uri: enhetsregisteret_bvrinnfelles:navn
+    range: string
   maalform:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:maalform
+    slot_uri: enhetsregisteret_bvrinnfelles:maalform
     range: Maalform
   oppfyllerKravTilNaeringsvirksomhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:oppfyllerKravTilNaeringsvirksomhet
+    slot_uri: enhetsregisteret_bvrinnfelles:oppfyllerKravTilNaeringsvirksomhet
     range: boolean
   venterAAFaaAnsatte:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:venterAAFaaAnsatte
+    slot_uri: enhetsregisteret_bvrinnfelles:venterAAFaaAnsatte
     range: boolean
   datoForAvtale:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:datoForAvtale
+    slot_uri: enhetsregisteret_bvrinnfelles:datoForAvtale
     range: Dato
   stiftelsesdato:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:stiftelsesdato
+    slot_uri: enhetsregisteret_bvrinnfelles:stiftelsesdato
     range: Dato
   vedtektsdato:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:vedtektsdato
+    slot_uri: enhetsregisteret_bvrinnfelles:vedtektsdato
     range: Dato
   formaal:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:formaal
+    slot_uri: enhetsregisteret_bvrinnfelles:formaal
     range: string
   harAnsvarsbegrensning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:harAnsvarsbegrensning
+    slot_uri: enhetsregisteret_bvrinnfelles:harAnsvarsbegrensning
     range: boolean
   ansvarsform:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:ansvarsform
+    slot_uri: enhetsregisteret_bvrinnfelles:ansvarsform
     range: Ansvarsform
   forretningsadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:forretningsadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:forretningsadresse
     range: Forretningsadresse
   varslingsadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:varslingsadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:varslingsadresse
     range: Varslingsadresse
   postadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:postadresse
     range: Postadresse
   kontaktopplysning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:kontaktopplysning
+    slot_uri: enhetsregisteret_bvrinnfelles:kontaktopplysning
     range: Kontaktopplysning
   virksomhetsinformasjonUnderenhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:virksomhetsinformasjonUnderenhet
+    slot_uri: enhetsregisteret_bvrinnfelles:virksomhetsinformasjonUnderenhet
     range: VirksomhetsinformasjonUnderenhet
     multivalued: true
   aktivitet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:aktivitet
-    range: Aktivitet
+    slot_uri: enhetsregisteret_bvrinnfelles:aktivitet
+    range: TypeAktivitet
+    multivalued: true
   omdanning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:omdanning
+    slot_uri: enhetsregisteret_bvrinnfelles:omdanning
     range: Omdanning
   rolletypegruppe:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rolletypegruppe
+    slot_uri: enhetsregisteret_bvrinnfelles:rolletypegruppe
     range: Rolletypegruppe
     multivalued: true
   prokura:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:prokura
+    slot_uri: enhetsregisteret_bvrinnfelles:prokura
     range: Prokura
   signaturrett:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:signaturrett
+    slot_uri: enhetsregisteret_bvrinnfelles:signaturrett
     range: Signaturrett
   meldtOpploesning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:meldtOpploesning
+    slot_uri: enhetsregisteret_bvrinnfelles:meldtOpploesning
     range: boolean
   meldtOmgjoeringAvOpploesning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:meldtOmgjoeringAvOpploesning
+    slot_uri: enhetsregisteret_bvrinnfelles:meldtOmgjoeringAvOpploesning
     range: boolean
   foretaksinformasjon:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:foretaksinformasjon
+    slot_uri: enhetsregisteret_bvrinnfelles:foretaksinformasjon
     range: Foretaksinformasjon
   eierskifte:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:eierskifte
+    slot_uri: enhetsregisteret_bvrinnfelles:eierskifte
     range: EierskifteAktivitet
     multivalued: true
   bekreftelseProtokollSletting:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bekreftelseProtokollSletting
+    slot_uri: enhetsregisteret_bvrinnfelles:bekreftelseProtokollSletting
     range: boolean
   matrikkelnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:matrikkelnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:matrikkelnummer
     range: Matrikkelnummer
     multivalued: true
   registrertITilknyttetRegister:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:registrertITilknyttetRegister
+    slot_uri: enhetsregisteret_bvrinnfelles:registrertITilknyttetRegister
     range: TilknyttetRegistertype
     multivalued: true
   bekreftelseProtokollOpploesningOgOmgjoering:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bekreftelseProtokollOpploesningOgOmgjoering
+    slot_uri: enhetsregisteret_bvrinnfelles:bekreftelseProtokollOpploesningOgOmgjoering
     range: boolean
   coNavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:coNavn
+    slot_uri: enhetsregisteret_bvrinnfelles:coNavn
     range: string
   vNavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:vNavn
+    slot_uri: enhetsregisteret_bvrinnfelles:vNavn
     range: string
   utgaar:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:utgaar
+    slot_uri: enhetsregisteret_bvrinnfelles:utgaar
     range: boolean
   stedsadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:stedsadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:stedsadresse
     range: Stedsadresse
   vegadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:vegadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:vegadresse
     range: Vegadresse
   stedsnavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:stedsnavn
+    slot_uri: enhetsregisteret_bvrinnfelles:stedsnavn
     range: string
   kommunenummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:kommunenummer
+    slot_uri: enhetsregisteret_bvrinnfelles:kommunenummer
     range: Kommunenummer
   postnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:postnummer
     range: Postnummer
   vegadresseId:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:vegadresseId
+    slot_uri: enhetsregisteret_bvrinnfelles:vegadresseId
     range: string
   adressenavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:adressenavn
+    slot_uri: enhetsregisteret_bvrinnfelles:adressenavn
     range: string
   bruksenhetsnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bruksenhetsnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:bruksenhetsnummer
     range: Bruksenhetsnummer
   nummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nummer
+    slot_uri: enhetsregisteret_bvrinnfelles:nummer
     range: Adressenummer
   adressetilleggsnavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:adressetilleggsnavn
+    slot_uri: enhetsregisteret_bvrinnfelles:adressetilleggsnavn
     range: string
   bokstav:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bokstav
+    slot_uri: enhetsregisteret_bvrinnfelles:bokstav
     range: Husbokstav
   mobilnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:mobilnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:mobilnummer
     range: Mobilnummer
   e_postadresse:
     description: The type of property E-postadresse (E-postadresse) has subclasses.
       Double-click on this comment to see the class hierarchy.
-    slot_uri: generated:e_postadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:e_postadresse
     range: E_postadresse
   internasjonaltPrefiks:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:internasjonaltPrefiks
+    slot_uri: enhetsregisteret_bvrinnfelles:internasjonaltPrefiks
     range: InternasjonaltPrefiks
   nasjonaltNummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nasjonaltNummer
+    slot_uri: enhetsregisteret_bvrinnfelles:nasjonaltNummer
     range: NasjonaltNummer
   postboksadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postboksadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:postboksadresse
     range: Postboksadresse
   internasjonalAdresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:internasjonalAdresse
+    slot_uri: enhetsregisteret_bvrinnfelles:internasjonalAdresse
     range: InternasjonalAdresse
   postboksnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postboksnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:postboksnummer
     range: Postboksnummer
   postboksanleggsnavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postboksanleggsnavn
+    slot_uri: enhetsregisteret_bvrinnfelles:postboksanleggsnavn
     range: string
   adressenummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:adressenummer
+    slot_uri: enhetsregisteret_bvrinnfelles:adressenummer
     range: string
   bygning:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bygning
+    slot_uri: enhetsregisteret_bvrinnfelles:bygning
     range: string
   etasjenummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:etasjenummer
+    slot_uri: enhetsregisteret_bvrinnfelles:etasjenummer
     range: string
   boenhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:boenhet
+    slot_uri: enhetsregisteret_bvrinnfelles:boenhet
     range: string
   postboks:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postboks
+    slot_uri: enhetsregisteret_bvrinnfelles:postboks
     range: string
   postkode:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:postkode
+    slot_uri: enhetsregisteret_bvrinnfelles:postkode
     range: string
   byEllerStedsnavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:byEllerStedsnavn
+    slot_uri: enhetsregisteret_bvrinnfelles:byEllerStedsnavn
     range: string
   region:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:region
+    slot_uri: enhetsregisteret_bvrinnfelles:region
     range: string
   distriktEllerBydel:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:distriktEllerBydel
+    slot_uri: enhetsregisteret_bvrinnfelles:distriktEllerBydel
     range: string
   friAdressetekst:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:friAdressetekst
+    slot_uri: enhetsregisteret_bvrinnfelles:friAdressetekst
     range: string
     multivalued: true
   adresseidentifikator:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:adresseidentifikator
+    slot_uri: enhetsregisteret_bvrinnfelles:adresseidentifikator
     range: string
   landkode:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:landkode
+    slot_uri: enhetsregisteret_bvrinnfelles:landkode
     range: Landkode
   nettadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nettadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:nettadresse
     range: URL
   mobilnummerUtgaar:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:mobilnummerUtgaar
+    slot_uri: enhetsregisteret_bvrinnfelles:mobilnummerUtgaar
     range: boolean
   e_postadresseUtgaar:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:e_postadresseUtgaar
+    slot_uri: enhetsregisteret_bvrinnfelles:e_postadresseUtgaar
     range: boolean
   nettadresseUtgaar:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nettadresseUtgaar
+    slot_uri: enhetsregisteret_bvrinnfelles:nettadresseUtgaar
     range: boolean
   telefonnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:telefonnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:telefonnummer
     range: Telefonnummer
   telefonnummerUtgaar:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:telefonnummerUtgaar
+    slot_uri: enhetsregisteret_bvrinnfelles:telefonnummerUtgaar
     range: boolean
   oppstartsdato:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:oppstartsdato
+    slot_uri: enhetsregisteret_bvrinnfelles:oppstartsdato
     range: Dato
   nedleggelsesdato:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nedleggelsesdato
+    slot_uri: enhetsregisteret_bvrinnfelles:nedleggelsesdato
     range: Dato
   beliggenhetsadresse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:beliggenhetsadresse
+    slot_uri: enhetsregisteret_bvrinnfelles:beliggenhetsadresse
     range: Beliggenhetsadresse
   datoGyldigFra:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:datoGyldigFra
+    slot_uri: enhetsregisteret_bvrinnfelles:datoGyldigFra
     range: Dato
   rekkefoelge:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rekkefoelge
+    slot_uri: enhetsregisteret_bvrinnfelles:rekkefoelge
     range: integer
   aktivitetskode:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:aktivitetskode
+    slot_uri: enhetsregisteret_bvrinnfelles:aktivitetskode
     range: Aktivitetskode
   tekst:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:tekst
+    slot_uri: enhetsregisteret_bvrinnfelles:tekst
     range: Tekst1000
   nyOrganisasjonsform:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nyOrganisasjonsform
+    slot_uri: enhetsregisteret_bvrinnfelles:nyOrganisasjonsform
     range: Organisasjonsform
   rollegruppe:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rollegruppe
+    slot_uri: enhetsregisteret_bvrinnfelles:rollegruppe
     range: Rolletypegruppe_2
   kjoennssammensetningAnsattvalgte:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:kjoennssammensetningAnsattvalgte
+    slot_uri: enhetsregisteret_bvrinnfelles:kjoennssammensetningAnsattvalgte
     range: boolean
   kjoennssammensetningStyre:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:kjoennssammensetningStyre
+    slot_uri: enhetsregisteret_bvrinnfelles:kjoennssammensetningStyre
     range: boolean
   rolle:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rolle
+    slot_uri: enhetsregisteret_bvrinnfelles:rolle
     range: Rolle
     multivalued: true
   bekreftelseProtokoll:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bekreftelseProtokoll
+    slot_uri: enhetsregisteret_bvrinnfelles:bekreftelseProtokoll
     range: boolean
   rolletype:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rolletype
+    slot_uri: enhetsregisteret_bvrinnfelles:rolletype
     range: Rolletype
   tildelerAvRolle:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:tildelerAvRolle
+    slot_uri: enhetsregisteret_bvrinnfelles:tildelerAvRolle
     range: PersonMappingId
   rolleinnehaver:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rolleinnehaver
+    slot_uri: enhetsregisteret_bvrinnfelles:rolleinnehaver
     range: Rolleinnehaver
   oenskerAAFratre:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:oenskerAAFratre
+    slot_uri: enhetsregisteret_bvrinnfelles:oenskerAAFratre
     range: boolean
   ansvarsandel:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:ansvarsandel
+    slot_uri: enhetsregisteret_bvrinnfelles:ansvarsandel
     range: Ansvarsandel
   avdelingskontor:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:avdelingskontor
+    slot_uri: enhetsregisteret_bvrinnfelles:avdelingskontor
     range: Organisasjonsnummer
   fratredenErVarslet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:fratredenErVarslet
+    slot_uri: enhetsregisteret_bvrinnfelles:fratredenErVarslet
     range: boolean
   valgtAv:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:valgtAv
+    slot_uri: enhetsregisteret_bvrinnfelles:valgtAv
     range: ValgtAv
   virksomhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:virksomhet
+    slot_uri: enhetsregisteret_bvrinnfelles:virksomhet
     range: Virksomhet
   person:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:person
+    slot_uri: enhetsregisteret_bvrinnfelles:person
     range: Person
   broek:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:broek
+    slot_uri: enhetsregisteret_bvrinnfelles:broek
     range: Broek
   prosent:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:prosent
+    slot_uri: enhetsregisteret_bvrinnfelles:prosent
     range: float
   teller:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:teller
+    slot_uri: enhetsregisteret_bvrinnfelles:teller
     range: integer
   nevner:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:nevner
+    slot_uri: enhetsregisteret_bvrinnfelles:nevner
     range: integer
   virksomhetsidentifikator:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:virksomhetsidentifikator
+    slot_uri: enhetsregisteret_bvrinnfelles:virksomhetsidentifikator
     range: Organisasjonsnummer
   mappingId:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:mappingId
+    slot_uri: enhetsregisteret_bvrinnfelles:mappingId
     range: PersonMappingId
   fulltNavn:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:fulltNavn
+    slot_uri: enhetsregisteret_bvrinnfelles:fulltNavn
     range: string
   prokurabestemmelse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:prokurabestemmelse
+    slot_uri: enhetsregisteret_bvrinnfelles:prokurabestemmelse
     range: Prokurabestemmelse
     multivalued: true
   regel:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:regel
+    slot_uri: enhetsregisteret_bvrinnfelles:regel
     range: SignaturrettEllerProkuraregel
   rollesett:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:rollesett
+    slot_uri: enhetsregisteret_bvrinnfelles:rollesett
     range: Rollesett
     multivalued: true
   signaturberettigetEllerProkurist:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:signaturberettigetEllerProkurist
+    slot_uri: enhetsregisteret_bvrinnfelles:signaturberettigetEllerProkurist
     range: SignaturberettigetEllerProkurist
     multivalued: true
   minsteMengdeangivelse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:minsteMengdeangivelse
+    slot_uri: enhetsregisteret_bvrinnfelles:minsteMengdeangivelse
     range: Mengdeangivelse
   minsteAntall:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:minsteAntall
+    slot_uri: enhetsregisteret_bvrinnfelles:minsteAntall
     range: integer
   signaturrettsbestemmelsse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:signaturrettsbestemmelsse
+    slot_uri: enhetsregisteret_bvrinnfelles:signaturrettsbestemmelsse
     range: Signaturrettsbestemmelse
     multivalued: true
   oenskesRegistrertIForetaksregisteret:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:oenskesRegistrertIForetaksregisteret
+    slot_uri: enhetsregisteret_bvrinnfelles:oenskesRegistrertIForetaksregisteret
     range: boolean
   oenskesSlettetIForetaksregisteret:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:oenskesSlettetIForetaksregisteret
+    slot_uri: enhetsregisteret_bvrinnfelles:oenskesSlettetIForetaksregisteret
     range: boolean
   typeEierskifte:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:typeEierskifte
+    slot_uri: enhetsregisteret_bvrinnfelles:typeEierskifte
     range: TypeEierskifte
   organisasjonsnummerHovedenhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:organisasjonsnummerHovedenhet
+    slot_uri: enhetsregisteret_bvrinnfelles:organisasjonsnummerHovedenhet
     range: Organisasjonsnummer
   gjelderHeleAktiviteten:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:gjelderHeleAktiviteten
+    slot_uri: enhetsregisteret_bvrinnfelles:gjelderHeleAktiviteten
     range: boolean
   eierskiftedato:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:eierskiftedato
+    slot_uri: enhetsregisteret_bvrinnfelles:eierskiftedato
     range: Dato
   hvilkeDeler:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:hvilkeDeler
+    slot_uri: enhetsregisteret_bvrinnfelles:hvilkeDeler
     range: DelerEierskifte
   beskrivelse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:beskrivelse
+    slot_uri: enhetsregisteret_bvrinnfelles:beskrivelse
     range: string
   underenhet:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:underenhet
+    slot_uri: enhetsregisteret_bvrinnfelles:underenhet
     range: Organisasjonsnummer
     multivalued: true
   gaardsnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:gaardsnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:gaardsnummer
     range: integer
   bruksnummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:bruksnummer
+    slot_uri: enhetsregisteret_bvrinnfelles:bruksnummer
     range: integer
   festenummer:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:festenummer
+    slot_uri: enhetsregisteret_bvrinnfelles:festenummer
     range: integer
   test:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:test
+    slot_uri: enhetsregisteret_bvrinnfelles:test
     range: string
   fagsystemID:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:fagsystemID
+    slot_uri: enhetsregisteret_bvrinnfelles:fagsystemID
     range: FagsystemId
   orgnrFagsystem:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:orgnrFagsystem
+    slot_uri: enhetsregisteret_bvrinnfelles:orgnrFagsystem
     range: Organisasjonsnummer
   referanseFagsystem:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:referanseFagsystem
+    slot_uri: enhetsregisteret_bvrinnfelles:referanseFagsystem
     range: Tekst50
   eksternFakturareferanse:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:eksternFakturareferanse
+    slot_uri: enhetsregisteret_bvrinnfelles:eksternFakturareferanse
     range: string
   gebyransvarligType:
     description: 'TODO: beskriv eigenskapen'
-    slot_uri: generated:gebyransvarligType
+    slot_uri: enhetsregisteret_bvrinnfelles:gebyransvarligType
     range: GebyransvarligType
+# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

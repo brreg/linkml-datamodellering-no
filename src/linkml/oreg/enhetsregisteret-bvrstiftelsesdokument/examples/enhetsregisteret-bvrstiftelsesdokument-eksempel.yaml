@@ -1,0 +1,105 @@
+# Eksempel for enhetsregisteret-bvrstiftelsesdokument
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+stiftelsesdokumenter:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-1
+  foretaksnavn: dummy
+  aksjekapital: dummy
+  aksjensPaalydendeBeloep: dummy
+  stifter: dummy
+  styrerolle: dummy
+  samletAksjeinnskudd: dummy
+  antallAksjerISelskapet: dummy
+  unnlateRevisjon: false
+stiftelsesutgifter:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-2
+  beloep: dummy
+  beskrivelse: dummy
+  mottaker: dummy
+annenAktoerer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-3
+  navn: dummy
+  adresse: dummy
+ustrukturertAdresseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-4
+  poststed: dummy
+  land: dummy
+poststeder:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-5
+  navn: dummy
+  postnummer: dummy
+revisorer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-6
+  rolletype: dummy
+  rolleinnehaver: dummy
+virksomheter:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-7
+  navn: dummy
+  organisasjonsnummer: dummy
+stifterer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-8
+  rolleinnehaver: dummy
+  aksjetegning: dummy
+  rolletype: dummy
+personer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-9
+  foedselsEllerDNummer: dummy
+  personnavn: dummy
+personnavner:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-10
+  fornavn: dummy
+  etternavn: dummy
+bostedsadresseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-11
+annenAdresseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-12
+stedsadresseer:
+- stedsnavn: dummy
+  poststed: dummy
+  id: enhetsregisteret_bvrstiftelsesdokument:eksempel-13
+geografiskAdresseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-14
+internasjonalAdresseer:
+- friAdressetekst1: dummy
+  landkode: dummy
+  id: enhetsregisteret_bvrstiftelsesdokument:eksempel-15
+vegadresseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-16
+aksjetegninger:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-17
+  tegningslinje: dummy
+tegningslinjeer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-18
+  aksjeinnskudd: dummy
+  antallAksjer: dummy
+annetInnskuddEnnPengerer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-19
+  vilkaar: dummy
+  antallAksjer: dummy
+akjserINorskeSelskaper:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-20
+  selskap: dummy
+  antall: dummy
+styrerolleer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-21
+  rolleinnehaver: dummy
+  rolletype: dummy
+samletAksjeinnskudder:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-22
+  beloep: dummy
+  innbetalingsfrist: dummy
+overdragelseTilSelskaper:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-23
+  vederlag: dummy
+  vilkaar: dummy
+  eiendel: dummy
+  motpart: dummy
+avtaleforpliktelseVedStiftelseer:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-24
+  vilkaar: dummy
+  motpart: dummy
+saerskiltRettighetEllerFordeler:
+- id: enhetsregisteret_bvrstiftelsesdokument:eksempel-25
+  vilkaar: dummy
+  motpart: dummy

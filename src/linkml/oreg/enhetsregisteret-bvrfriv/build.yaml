@@ -1,0 +1,22 @@
+publish_external: false
+validation_policy: silver
+
+generators:
+  # Artefaktgeneratorer
+  jsonld_context: true
+  shacl: true
+  shacl_flags: ""
+  python: true
+  json_schema: true
+  owl: true
+  owl_flags: ""
+  rdf: true
+  protobuf: true
+  example_rdf: true
+  openapi: true
+  graphql: true
+
+  # Dokumentasjonsgeneratorer
+  erdiagram: true
+  docs: true
+  plantuml: true

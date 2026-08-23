@@ -1,0 +1,250 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "BVRBekreftelse_lm_v1",
+  "required": [
+    "bekreftelse"
+  ],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    },
+    "bekreftelse": {
+      "$ref": "#/definitions/Bekreftelse"
+    }
+  },
+  "definitions": {
+    "Bekreftelse": {
+      "title": "Bekreftelse",
+      "type": "object",
+      "required": [
+        "navn",
+        "typeBekreftelse"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "rolle"
+          ],
+          "properties": {
+            "rolle": {
+              "$ref": "#/definitions/Rolle"
+            }
+          }
+        },
+        {
+          "required": [
+            "eierskifteAktivitet"
+          ],
+          "properties": {
+            "eierskifteAktivitet": {
+              "$ref": "#/definitions/EierskifteAktivitet"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "navn": {
+          "$ref": "#/definitions/Virksomhetsnavn"
+        },
+        "typeBekreftelse": {
+          "$ref": "#/definitions/TypeBekreftelse"
+        },
+        "rolle": {
+          "$ref": "#/definitions/Rolle"
+        },
+        "eierskifteAktivitet": {
+          "$ref": "#/definitions/EierskifteAktivitet"
+        }
+      }
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "pattern": "^[2389][0-9]{8}$",
+      "title": "Organisasjonsnummer"
+    },
+    "Virksomhetsnavn": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 175,
+      "title": "Virksomhetsnavn"
+    },
+    "TypeBekreftelse": {
+      "title": "TypeBekreftelse",
+      "type": "string",
+      "enum": [
+        "bekreftelse.oppdraget.regnskapsforer",
+        "bekreftelse.oppdraget.revisor",
+        "bekreftelse.overtakelse.aktivitet",
+        "bekreftelse.overdragelse.aktivitet"
+      ]
+    },
+    "Rolle": {
+      "title": "Rolle",
+      "type": "object",
+      "required": [
+        "rolletype"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "rolleinnehaverVirksomhet"
+          ],
+          "properties": {
+            "rolleinnehaverVirksomhet": {
+              "$ref": "#/definitions/Virksomhet"
+            }
+          }
+        },
+        {
+          "required": [
+            "rolleinnehaverPerson"
+          ],
+          "properties": {
+            "rolleinnehaverPerson": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "rolletype": {
+          "$ref": "#/definitions/Rolletype"
+        },
+        "rolleinnehaverVirksomhet": {
+          "$ref": "#/definitions/Virksomhet"
+        },
+        "rolleinnehaverPerson": {
+          "$ref": "#/definitions/Person"
+        }
+      }
+    },
+    "Rolletype": {
+      "title": "Rolletype",
+      "type": "string",
+      "enum": [
+        "rolletype.dagligLeder",
+        "rolletype.revisor",
+        "rolletype.prokurist",
+        "rolletype.signaturberettiget",
+        "rolletype.forretningsfoerer",
+        "rolletype.regnskapsfoerer",
+        "rolletype.innehaver",
+        "rolletype.bostyrer",
+        "rolletype.kontaktperson",
+        "rolletype.styreleder",
+        "rolletype.nestleder",
+        "rolletype.styremedlem",
+        "rolletype.varamedlem",
+        "rolletype.observatoer"
+      ]
+    },
+    "Virksomhet": {
+      "title": "Virksomhet",
+      "type": "object",
+      "required": [
+        "virksomhetsidentifikator"
+      ],
+      "properties": {
+        "virksomhetsidentifikator": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "navn": {
+          "type": "string"
+        }
+      }
+    },
+    "Person": {
+      "title": "Person",
+      "type": "object",
+      "required": [
+        "personidentifikator",
+        "fulltNavn"
+      ],
+      "properties": {
+        "personidentifikator": {
+          "$ref": "#/definitions/Foedselsnummer"
+        },
+        "fulltNavn": {
+          "type": "string"
+        }
+      }
+    },
+    "Foedselsnummer": {
+      "type": "string",
+      "pattern": "^[0-9]{11}$",
+      "minLength": 11,
+      "maxLength": 11,
+      "title": "Fødselsnummer"
+    },
+    "EierskifteAktivitet": {
+      "title": "EierskifteAktivitet",
+      "type": "object",
+      "required": [
+        "typeEierskifte",
+        "organisasjonsnummerHovedenhet",
+        "eierskiftedato",
+        "gjelderHeleAktiviteten"
+      ],
+      "properties": {
+        "typeEierskifte": {
+          "$ref": "#/definitions/TypeEierskifte"
+        },
+        "organisasjonsnummerHovedenhet": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        },
+        "organisasjonsnummerUnderenhet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Organisasjonsnummer"
+          }
+        },
+        "eierskiftedato": {
+          "$ref": "#/definitions/Dato"
+        },
+        "gjelderHeleAktiviteten": {
+          "type": "boolean"
+        },
+        "hvilkeDeler": {
+          "$ref": "#/definitions/DelerEierskifte"
+        }
+      }
+    },
+    "TypeEierskifte": {
+      "title": "TypeEierskifte",
+      "type": "string",
+      "enum": [
+        "overtakelse",
+        "overdragelse"
+      ]
+    },
+    "Dato": {
+      "type": "string",
+      "format": "date",
+      "title": "Dato"
+    },
+    "DelerEierskifte": {
+      "title": "DelerEierskifte",
+      "type": "object",
+      "properties": {
+        "beskrivelse": {
+          "type": "string"
+        },
+        "underenhet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Organisasjonsnummer"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,472 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'enhetsregisteret_frivilligorganisasjonapi:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi
+name: enhetsregisteret_frivilligorganisasjonapi
+title: 'TODO: tittel for enhetsregisteret-frivilligorganisasjonapi'
+description: Generert modell for 'enhetsregisteret_frivilligorganisasjonapi'.
+version: 0.1.0
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-23'
+  utgivelsesdato: '2026-08-23'
+  status: http://purl.org/adms/status/UnderDevelopment
+prefixes:
+  linkml: https://w3id.org/linkml/
+  enhetsregisteret_frivilligorganisasjonapi: https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+types:
+  ICNPOKategori:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  ICNPOKategorinummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Dato:
+    uri: xsd:date
+    base: str
+    description: 'TODO: beskriv typen'
+  Organisasjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  AArstall:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^\d{4}$
+  FrivilligOrganisasjonsstatus:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  IdentifikatorInformasjonstype:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Kontonummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+classes:
+  FrivilligOrganisasjon:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:FrivilligOrganisasjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - icnpokategorier
+    - vedtekter
+    - grasrotandel
+    - organisasjonsnummer
+    - regnskapsrapportering
+    - frivilligOrganisasjonsstatus
+    - paategninger
+    - kontonummer
+    - innfoertDato
+    - relasjoner
+    - foersteGangInnfoert
+    - slettetDato
+    slot_usage:
+      icnpokategorier:
+        in_subset:
+        - Anbefalt
+      vedtekter:
+        in_subset:
+        - Anbefalt
+      grasrotandel:
+        in_subset:
+        - Anbefalt
+      organisasjonsnummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      regnskapsrapportering:
+        required: true
+        in_subset:
+        - Obligatorisk
+      frivilligOrganisasjonsstatus:
+        in_subset:
+        - Anbefalt
+      paategninger:
+        in_subset:
+        - Anbefalt
+      kontonummer:
+        in_subset:
+        - Anbefalt
+      innfoertDato:
+        in_subset:
+        - Anbefalt
+      relasjoner:
+        in_subset:
+        - Anbefalt
+      foersteGangInnfoert:
+        in_subset:
+        - Anbefalt
+      slettetDato:
+        in_subset:
+        - Anbefalt
+  IcnpoKategori:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:IcnpoKategori
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - kategori
+    - icnpoNummer
+    - navn
+    - rekkefoelge
+    slot_usage:
+      kategori:
+        required: true
+        in_subset:
+        - Obligatorisk
+      icnpoNummer:
+        required: true
+        in_subset:
+        - Obligatorisk
+      navn:
+        in_subset:
+        - Anbefalt
+      rekkefoelge:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Vedtekter:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Vedtekter
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - frivilligRegistrerteVedtekter
+    - sistOppdaterteVedtekter
+    slot_usage:
+      frivilligRegistrerteVedtekter:
+        in_subset:
+        - Anbefalt
+      sistOppdaterteVedtekter:
+        in_subset:
+        - Anbefalt
+  Grasrotandel:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Grasrotandel
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - deltarI
+    - utestengelsesperiode
+    slot_usage:
+      deltarI:
+        in_subset:
+        - Anbefalt
+      utestengelsesperiode:
+        in_subset:
+        - Anbefalt
+  Tidsperiode:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Tidsperiode
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - fraDato
+    - tilDato
+    slot_usage:
+      fraDato:
+        in_subset:
+        - Anbefalt
+      tilDato:
+        in_subset:
+        - Anbefalt
+  Regnskapsrapportering:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Regnskapsrapportering
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - harPaatattSegRapporteringsplikt
+    - avslutningsdatoForRegnskapsperiode
+    - sistInnsendteAArsregnskap
+    slot_usage:
+      harPaatattSegRapporteringsplikt:
+        in_subset:
+        - Anbefalt
+      avslutningsdatoForRegnskapsperiode:
+        in_subset:
+        - Anbefalt
+      sistInnsendteAArsregnskap:
+        in_subset:
+        - Anbefalt
+  SistInnsendteAArsregnskap:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:SistInnsendteAArsregnskap
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - regnskapsaar
+    - registreringsdato
+    slot_usage:
+      regnskapsaar:
+        in_subset:
+        - Anbefalt
+      registreringsdato:
+        in_subset:
+        - Anbefalt
+  Paategning:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Paategning
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - identifikatorInformasjonstype
+    - paategning
+    slot_usage:
+      identifikatorInformasjonstype:
+        required: true
+        in_subset:
+        - Obligatorisk
+      paategning:
+        required: true
+        in_subset:
+        - Obligatorisk
+  Virksomhetsrelasjon:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_frivilligorganisasjonapi:Virksomhetsrelasjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - relasjonsrolleFra
+    - relasjonsrolleTil
+    - relasjonTil
+    slot_usage:
+      relasjonsrolleFra:
+        required: true
+        in_subset:
+        - Obligatorisk
+      relasjonsrolleTil:
+        required: true
+        in_subset:
+        - Obligatorisk
+      relasjonTil:
+        required: true
+        in_subset:
+        - Obligatorisk
+  EnhetsregisteretFrivilligorganisasjonapiContainer:
+    description: containerklasse for serialisering av klasser i enhetsregisteret_frivilligorganisasjonapi
+      modellen
+    tree_root: true
+    attributes:
+      frivilligOrganisasjoner:
+        description: 'TODO: beskriv eigenskapen'
+        range: FrivilligOrganisasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      icnpoKategorier:
+        description: 'TODO: beskriv eigenskapen'
+        range: IcnpoKategori
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      vedtekterer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Vedtekter
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      grasrotandeler:
+        description: 'TODO: beskriv eigenskapen'
+        range: Grasrotandel
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      tidsperiodeer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Tidsperiode
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      regnskapsrapporteringer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Regnskapsrapportering
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      sistInnsendteAArsregnskaper:
+        description: 'TODO: beskriv eigenskapen'
+        range: SistInnsendteAArsregnskap
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      paategninger:
+        description: 'TODO: beskriv eigenskapen'
+        range: Paategning
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      virksomhetsrelasjoner:
+        description: 'TODO: beskriv eigenskapen'
+        range: Virksomhetsrelasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  enhetsregisteret_frivilligorganisasjonapi_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+  icnpokategorier:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:icnpokategorier
+    range: IcnpoKategori
+    multivalued: true
+  vedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:vedtekter
+    range: Vedtekter
+  grasrotandel:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:grasrotandel
+    range: Grasrotandel
+  organisasjonsnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:organisasjonsnummer
+    range: Organisasjonsnummer
+  regnskapsrapportering:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:regnskapsrapportering
+    range: Regnskapsrapportering
+  frivilligOrganisasjonsstatus:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:frivilligOrganisasjonsstatus
+    range: FrivilligOrganisasjonsstatus
+  paategninger:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:paategninger
+    range: Paategning
+    multivalued: true
+  kontonummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:kontonummer
+    range: Kontonummer
+  innfoertDato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:innfoertDato
+    range: Dato
+  relasjoner:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:relasjoner
+    range: Virksomhetsrelasjon
+    multivalued: true
+  foersteGangInnfoert:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:foersteGangInnfoert
+    range: Dato
+  slettetDato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:slettetDato
+    range: Dato
+  kategori:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:kategori
+    range: ICNPOKategori
+  icnpoNummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:icnpoNummer
+    range: ICNPOKategorinummer
+  navn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:navn
+    range: string
+  rekkefoelge:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:rekkefoelge
+    range: integer
+  frivilligRegistrerteVedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:frivilligRegistrerteVedtekter
+    range: boolean
+  sistOppdaterteVedtekter:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:sistOppdaterteVedtekter
+    range: Dato
+  deltarI:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:deltarI
+    range: boolean
+  utestengelsesperiode:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:utestengelsesperiode
+    range: Tidsperiode
+  fraDato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:fraDato
+    range: Dato
+  tilDato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:tilDato
+    range: Dato
+  harPaatattSegRapporteringsplikt:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:harPaatattSegRapporteringsplikt
+    range: boolean
+  avslutningsdatoForRegnskapsperiode:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:avslutningsdatoForRegnskapsperiode
+    range: Dato
+  sistInnsendteAArsregnskap:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:sistInnsendteAArsregnskap
+    range: SistInnsendteAArsregnskap
+  regnskapsaar:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:regnskapsaar
+    range: AArstall
+  registreringsdato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:registreringsdato
+    range: Dato
+  identifikatorInformasjonstype:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:identifikatorInformasjonstype
+    range: IdentifikatorInformasjonstype
+  paategning:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:paategning
+    range: string
+  relasjonsrolleFra:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:relasjonsrolleFra
+    range: string
+  relasjonsrolleTil:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:relasjonsrolleTil
+    range: string
+  relasjonTil:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_frivilligorganisasjonapi:relasjonTil
+    range: Organisasjonsnummer
+# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "BVREttersendingAvVedlegg_lm_v1",
+  "required": [
+    "meldingForEttersendingAvVedlegg"
+  ],
+  "properties": {
+    "identifikatorForSkjema": {
+      "type": "string",
+      "description": "Navnerom/identifikator til skjemaet"
+    },
+    "versjonsnummerForSkjema": {
+      "type": "string",
+      "description": "Versjonsnummeret til skjemaet"
+    },
+    "meldingForEttersendingAvVedlegg": {
+      "$ref": "#/definitions/MeldingForEttersendingAvVedlegg"
+    }
+  },
+  "definitions": {
+    "MeldingForEttersendingAvVedlegg": {
+      "title": "MeldingForEttersendingAvVedlegg",
+      "type": "object",
+      "required": [
+        "saksgrunnlagsId",
+        "innsendertjeneste",
+        "innsender"
+      ],
+      "properties": {
+        "saksgrunnlagsId": {
+          "$ref": "#/definitions/UUID"
+        },
+        "innsendertjeneste": {
+          "$ref": "#/definitions/InnsendertjenesteType"
+        },
+        "innsender": {
+          "$ref": "#/definitions/Innsender"
+        }
+      }
+    },
+    "UUID": {
+      "type": "string",
+      "title": "UUID"
+    },
+    "InnsendertjenesteType": {
+      "type": "string",
+      "title": "InnsendertjenesteType"
+    },
+    "Innsender": {
+      "title": "Innsender",
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "mappingId"
+          ],
+          "properties": {
+            "mappingId": {
+              "$ref": "#/definitions/PersonMappingId"
+            }
+          }
+        },
+        {
+          "required": [
+            "organisasjonsnummer"
+          ],
+          "properties": {
+            "organisasjonsnummer": {
+              "$ref": "#/definitions/Organisasjonsnummer"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "mappingId": {
+          "$ref": "#/definitions/PersonMappingId"
+        },
+        "organisasjonsnummer": {
+          "$ref": "#/definitions/Organisasjonsnummer"
+        }
+      }
+    },
+    "PersonMappingId": {
+      "type": "string",
+      "title": "PersonMappingId"
+    },
+    "Organisasjonsnummer": {
+      "type": "string",
+      "pattern": "^[2389][0-9]{8}$",
+      "title": "Organisasjonsnummer"
+    }
+  }
+}

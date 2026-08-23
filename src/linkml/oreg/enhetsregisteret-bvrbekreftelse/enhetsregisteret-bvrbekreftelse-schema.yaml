@@ -1,0 +1,344 @@
+# Generert av mcp-linkml-generator — dette er eit utkast.
+# Prefiks 'enhetsregisteret_bvrbekreftelse:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'TODO'-felt må fyllast inn manuelt.
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse
+name: enhetsregisteret_bvrbekreftelse
+title: 'TODO: tittel for enhetsregisteret-bvrbekreftelse'
+description: Generert modell for 'enhetsregisteret_bvrbekreftelse'.
+version: 0.1.0
+license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: '2026-08-23'
+  utgivelsesdato: '2026-08-23'
+  status: http://purl.org/adms/status/UnderDevelopment
+prefixes:
+  linkml: https://w3id.org/linkml/
+  enhetsregisteret_bvrbekreftelse: https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/
+default_range: string
+imports:
+- linkml:types
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+types:
+  Organisasjonsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[2389][0-9]{8}$
+  Virksomhetsnavn:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+  Foedselsnummer:
+    uri: xsd:string
+    base: str
+    description: 'TODO: beskriv typen'
+    pattern: ^[0-9]{11}$
+  Dato:
+    uri: xsd:date
+    base: str
+    description: 'TODO: beskriv typen'
+enums:
+  TypeBekreftelse:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      bekreftelse.oppdraget.regnskapsforer: {}
+      bekreftelse.oppdraget.revisor: {}
+      bekreftelse.overtakelse.aktivitet: {}
+      bekreftelse.overdragelse.aktivitet: {}
+  Rolletype:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      rolletype.dagligLeder: {}
+      rolletype.revisor: {}
+      rolletype.prokurist: {}
+      rolletype.signaturberettiget: {}
+      rolletype.forretningsfoerer: {}
+      rolletype.regnskapsfoerer: {}
+      rolletype.innehaver: {}
+      rolletype.bostyrer: {}
+      rolletype.kontaktperson: {}
+      rolletype.styreleder: {}
+      rolletype.nestleder: {}
+      rolletype.styremedlem: {}
+      rolletype.varamedlem: {}
+      rolletype.observatoer: {}
+  TypeEierskifte:
+    description: 'TODO: beskriv enumet'
+    permissible_values:
+      overtakelse: {}
+      overdragelse: {}
+classes:
+  Bekreftelse:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:Bekreftelse
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - organisasjonsnummer
+    - navn
+    - typeBekreftelse
+    - rolle
+    - eierskifteAktivitet
+    slot_usage:
+      organisasjonsnummer:
+        in_subset:
+        - Anbefalt
+      navn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      typeBekreftelse:
+        required: true
+        in_subset:
+        - Obligatorisk
+      rolle:
+        in_subset:
+        - Anbefalt
+      eierskifteAktivitet:
+        in_subset:
+        - Anbefalt
+  Rolle:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:Rolle
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - rolletype
+    - rolleinnehaverVirksomhet
+    - rolleinnehaverPerson
+    slot_usage:
+      rolletype:
+        required: true
+        in_subset:
+        - Obligatorisk
+      rolleinnehaverVirksomhet:
+        in_subset:
+        - Anbefalt
+      rolleinnehaverPerson:
+        in_subset:
+        - Anbefalt
+  Virksomhet:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:Virksomhet
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - virksomhetsidentifikator
+    - navn
+    slot_usage:
+      virksomhetsidentifikator:
+        required: true
+        in_subset:
+        - Obligatorisk
+      navn:
+        in_subset:
+        - Anbefalt
+  Person:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:Person
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - personidentifikator
+    - fulltNavn
+    slot_usage:
+      personidentifikator:
+        required: true
+        in_subset:
+        - Obligatorisk
+      fulltNavn:
+        required: true
+        in_subset:
+        - Obligatorisk
+  EierskifteAktivitet:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:EierskifteAktivitet
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - typeEierskifte
+    - organisasjonsnummerHovedenhet
+    - organisasjonsnummerUnderenhet
+    - eierskiftedato
+    - gjelderHeleAktiviteten
+    - hvilkeDeler
+    slot_usage:
+      typeEierskifte:
+        required: true
+        in_subset:
+        - Obligatorisk
+      organisasjonsnummerHovedenhet:
+        required: true
+        in_subset:
+        - Obligatorisk
+      organisasjonsnummerUnderenhet:
+        in_subset:
+        - Anbefalt
+      eierskiftedato:
+        required: true
+        in_subset:
+        - Obligatorisk
+      gjelderHeleAktiviteten:
+        required: true
+        in_subset:
+        - Obligatorisk
+      hvilkeDeler:
+        in_subset:
+        - Anbefalt
+  DelerEierskifte:
+    description: 'TODO: beskriv klassen'
+    class_uri: enhetsregisteret_bvrbekreftelse:DelerEierskifte
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - beskrivelse
+    - underenhet
+    slot_usage:
+      beskrivelse:
+        in_subset:
+        - Anbefalt
+      underenhet:
+        in_subset:
+        - Anbefalt
+  EnhetsregisteretBvrbekreftelseContainer:
+    description: containerklasse for serialisering av klasser i enhetsregisteret_bvrbekreftelse
+      modellen
+    tree_root: true
+    attributes:
+      bekreftelseer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Bekreftelse
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      rolleer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Rolle
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      virksomheter:
+        description: 'TODO: beskriv eigenskapen'
+        range: Virksomhet
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      personer:
+        description: 'TODO: beskriv eigenskapen'
+        range: Person
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      eierskifteAktiviteter:
+        description: 'TODO: beskriv eigenskapen'
+        range: EierskifteAktivitet
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      delerEierskifteer:
+        description: 'TODO: beskriv eigenskapen'
+        range: DelerEierskifte
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  enhetsregisteret_bvrbekreftelse_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+  organisasjonsnummer:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:organisasjonsnummer
+    range: Organisasjonsnummer
+  navn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:navn
+    range: string
+  typeBekreftelse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:typeBekreftelse
+    range: TypeBekreftelse
+  rolle:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:rolle
+    range: Rolle
+  eierskifteAktivitet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:eierskifteAktivitet
+    range: EierskifteAktivitet
+  rolletype:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:rolletype
+    range: Rolletype
+  rolleinnehaverVirksomhet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:rolleinnehaverVirksomhet
+    range: Virksomhet
+  rolleinnehaverPerson:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:rolleinnehaverPerson
+    range: Person
+  virksomhetsidentifikator:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:virksomhetsidentifikator
+    range: Organisasjonsnummer
+  personidentifikator:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:personidentifikator
+    range: Foedselsnummer
+  fulltNavn:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:fulltNavn
+    range: string
+  typeEierskifte:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:typeEierskifte
+    range: TypeEierskifte
+  organisasjonsnummerHovedenhet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:organisasjonsnummerHovedenhet
+    range: Organisasjonsnummer
+  organisasjonsnummerUnderenhet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:organisasjonsnummerUnderenhet
+    range: Organisasjonsnummer
+    multivalued: true
+  eierskiftedato:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:eierskiftedato
+    range: Dato
+  gjelderHeleAktiviteten:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:gjelderHeleAktiviteten
+    range: boolean
+  hvilkeDeler:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:hvilkeDeler
+    range: DelerEierskifte
+  beskrivelse:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:beskrivelse
+    range: string
+  underenhet:
+    description: 'TODO: beskriv eigenskapen'
+    slot_uri: enhetsregisteret_bvrbekreftelse:underenhet
+    range: Organisasjonsnummer
+    multivalued: true
+# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

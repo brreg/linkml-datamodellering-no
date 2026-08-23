@@ -1,0 +1,127 @@
+# Eksempel for enhetsregisteret-bvrinnfelles
+# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
+# reelle verdiar før modellen er produksjonsklar.
+---
+innrapporteringer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-1
+  versjon: dummy
+  innsendertjenste: dummy
+  innsendingstidspunkt: dummy
+  maalformForTilbakemelding: dummy
+  tjenestevariant: dummy
+  virksomhetsinformasjon: dummy
+  innsender: dummy
+virksomhetsinformasjonHovedenheter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-2
+  organisasjonsform: dummy
+forretningsadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-3
+stedsadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-4
+  kommunenummer: dummy
+  postnummer: dummy
+vegadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-5
+  adressenavn: dummy
+  nummer: dummy
+  kommunenummer: dummy
+  postnummer: dummy
+adressenummerer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-6
+  nummer: dummy
+varslingsadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-7
+mobilnummerer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-8
+  nasjonaltNummer: dummy
+postadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-9
+postboksadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-10
+  postboksnummer: dummy
+  postnummer: dummy
+  kommunenummer: dummy
+internasjonalAdresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-11
+  landkode: dummy
+kontaktopplysninger:
+- id: enhetsregisteret_bvrinnfelles:eksempel-12
+telefonnummerer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-13
+  nasjonaltNummer: dummy
+virksomhetsinformasjonUnderenheter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-14
+beliggenhetsadresseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-15
+aktiviteter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-16
+  aktivitet: dummy
+typeAktiviteter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-17
+  rekkefoelge: 0
+  tekst: dummy
+omdanninger:
+- id: enhetsregisteret_bvrinnfelles:eksempel-18
+  nyOrganisasjonsform: dummy
+rolletypegruppeer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-19
+  rollegruppe: dummy
+rolleer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-20
+  rolletype: dummy
+  rolleinnehaver: dummy
+rolleinnehaverer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-21
+ansvarsandeler:
+- id: enhetsregisteret_bvrinnfelles:eksempel-22
+broeker:
+- id: enhetsregisteret_bvrinnfelles:eksempel-23
+virksomheter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-24
+  virksomhetsidentifikator: dummy
+personer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-25
+  mappingId: dummy
+  fulltNavn: dummy
+prokuraer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-26
+prokurabestemmelseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-27
+  regel: dummy
+  rollesett: dummy
+rollesetter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-28
+  rolletype: dummy
+signaturberettigetEllerProkurister:
+- id: enhetsregisteret_bvrinnfelles:eksempel-29
+signaturretter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-30
+signaturrettsbestemmelseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-31
+  regel: dummy
+  rollesett: dummy
+foretaksinformasjoner:
+- id: enhetsregisteret_bvrinnfelles:eksempel-32
+eierskifteAktiviteter:
+- id: enhetsregisteret_bvrinnfelles:eksempel-33
+  typeEierskifte: dummy
+  organisasjonsnummerHovedenhet: dummy
+  gjelderHeleAktiviteten: false
+  eierskiftedato: dummy
+delerEierskifteer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-34
+matrikkelnummerer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-35
+innsenderer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-36
+  test: dummy
+fagsystemreferanseer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-37
+  fagsystemID: dummy
+  orgnrFagsystem: dummy
+  referanseFagsystem: dummy
+signeringer:
+- id: enhetsregisteret_bvrinnfelles:eksempel-38
+gebyransvarliger:
+- id: enhetsregisteret_bvrinnfelles:eksempel-39
+  gebyransvarligType: dummy
