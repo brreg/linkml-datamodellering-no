@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-bronze-v1.1.0...referansemodell-bronze-v1.1.1) (2026-08-23)
+
+
+### Bug Fixes
+
+* **referanse:** legg til manglande annotations og status-badge-guard ([41595bc](https://github.com/brreg/linkml-datamodellering-no/commit/41595bcc95f72b01241a12e716365dcaea9834d7))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-bronze-v1.0.0...referansemodell-bronze-v1.1.0) (2026-08-17)
 
 
