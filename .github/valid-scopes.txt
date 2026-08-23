@@ -7,11 +7,7 @@ digdir-modellkatalog
 dqv-ap-no
 dqv-core
 enhetsregisteret-bvrbekreftelse
-enhetsregisteret-bvrettersendingavvedlegg
-enhetsregisteret-bvrfriv
 enhetsregisteret-bvrinn
-enhetsregisteret-bvrinnfelles
-enhetsregisteret-bvrstiftelsesdokument
 fair-metadata
 fint-administrasjon
 fint-arkiv

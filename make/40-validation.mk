@@ -175,7 +175,17 @@ mcp-linkml-valider-modell: ## MCP-validator for skjema (SCHEMA=<sti> [POLICY=<po
 _mcp-valider-modell-with-header:
 	$(call print_header,mcp-linkml-valider-modell,SCHEMA=$(SCHEMA)  POLICY=$(POLICY))
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-validator
-	@bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
+	@eval "$$LOG_FUNCTIONS"; \
+	LOG_PATH=$$(bash src/assets/scripts/makefile/run-validation.sh \
+	    --schema "$(SCHEMA)" --policy "$(POLICY)" \
+	    $(if $(INSTANCE),--instance "$(INSTANCE)") --quiet); \
+	EXIT_CODE=$$?; \
+	cat "$$LOG_PATH"; \
+	GEN_PATH=$$(echo "$$LOG_PATH" | sed 's#^src/linkml/#generated/#'); \
+	mkdir -p "$$(dirname "$$GEN_PATH")"; \
+	cp "$$LOG_PATH" "$$GEN_PATH"; \
+	log_info "Skrive til: $$LOG_PATH (og kopiert til $$GEN_PATH for lokal portalvising)"; \
+	exit $$EXIT_CODE
 
 # Merk namnekonsistens/overlapp med validate-policy-logg/validate-instance-logg
 # under: begge skriv til same output-format (validation/<versjon>/<policy>.json),

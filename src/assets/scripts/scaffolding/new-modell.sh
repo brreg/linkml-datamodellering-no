@@ -291,6 +291,11 @@ echo "Oppdaterer .github/valid-scopes.txt..."
 cd "$REPO_ROOT"
 make --no-print-directory gen-valid-scopes
 
+# Lint det genererte skjemaet
+echo ""
+echo "Linter det genererte skjemaet..."
+make --no-print-directory lint SCHEMA="$SCHEMA_FILE_REL"
+
 echo ""
 echo "Neste steg:"
 if [[ "$INPUT_FORMAT" == "json-schema" ]]; then

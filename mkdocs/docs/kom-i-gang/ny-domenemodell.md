@@ -224,6 +224,12 @@ make mcp-linkml-valider-modell SCHEMA=src/linkml/<domain>/<modell>/<modell>-sche
 
 Sjå [Valideringsreglar](../arkitektur/valideringsregler.md) for fullstendig oversikt over kva som vert sjekka på kvart nivå.
 
+`make mcp-linkml-valider-modell` skriv i tillegg resultatet til
+`src/linkml/<domain>/<modell>/validation/<versjon>/<policy>.json` og kopierer
+det til `generated/<domain>/<modell>/validation/<versjon>/<policy>.json` — ein
+lokal `make docs-serve`/`docs-build` (etter `make docs-publish`) vil difor
+vise valideringsresultatet med éin gong, utan noko ekstra steg.
+
 ## 4 — Full testsuite
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
 ```
