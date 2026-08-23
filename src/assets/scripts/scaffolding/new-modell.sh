@@ -82,6 +82,19 @@ fi
 mkdir -p "$SCHEMA_DIR"
 mkdir -p "$EXAMPLES_DIR"
 
+# Skriv LINKML_YAML til ei mellombels fil i staden for å interpolere han som
+# eit Python-strenglitteral (sjå
+# specs/done/fiks-syntaxwarning-json-schema-interpolasjon.md) — JSON-schema-
+# genererte skjema kan innehalde regex-mønster med bakover-skråstrekar
+# (t.d. \d, \.), og eit strenglitteral-interpolert innhald med slike teikn
+# gir anten ei SyntaxWarning (ukjende escape som \d) eller, verre, stille
+# feiltolking av gyldige Python-escape (\n, \t, \\ osv.) til faktiske
+# spesialteikn. Filinnhald gjennom open().read() er ikkje underlagt
+# strenglitteral-parsing i det heile.
+RAW_SCHEMA_TMP=$(mktemp)
+trap 'rm -f "$RAW_SCHEMA_TMP"' EXIT
+printf '%s' "$LINKML_YAML" > "$RAW_SCHEMA_TMP"
+
 # Transformer det genererte skjemaet (PascalCase klassenamn og containerklasse,
 # versjonslåst common-ap-no-import i staden for lokal id-slot utan slot_uri —
 # sjå specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
@@ -95,7 +108,8 @@ import yaml
 sys.path.insert(0, '$REPO_ROOT/src/assets/scripts')
 from utils.codeowners import load_codeowners, find_owner_org
 
-raw = '''$LINKML_YAML'''
+with open('$RAW_SCHEMA_TMP', encoding='utf-8') as f:
+    raw = f.read()
 lines = raw.splitlines(keepends=True)
 header_lines = []
 i = 0
