@@ -59,6 +59,22 @@ generate_artifacts_table() {
         artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
     fi
 
+    # Java-klassar (ligg i java/-underkatalog, éin fil per klasse/enum)
+    if [ -d "$out/java" ]; then
+        local java_links="" java_file
+        for java_file in "$out/java"/*.java; do
+            [ -f "$java_file" ] || continue
+            local base
+            base=$(basename "$java_file")
+            [ -n "$java_links" ] && java_links+=" · "
+            java_links+="[${base}](java/${base})"
+        done
+        if [ -n "$java_links" ]; then
+            has_artifact=true
+            artifact_rows+="| Java-klassar | ${java_links} |"$'\n'
+        fi
+    fi
+
 
     if $has_artifact; then
         # Tel antal rader (antal linjeskift i artifact_rows)

@@ -21,11 +21,24 @@ o.l. i publish.sh, ikkje JSON (unngår ei ny jq-avhengigheit på hosten).
 import os
 import re
 import sys
+from urllib.parse import urlparse
 
 import yaml
 
 REPO_ROOT = "/work"
 US = "\x1f"
+
+
+def java_package_from_id(schema_id):
+    """Reversert domenenotasjon frå skjemaet sin `id:`-URI, same algoritme
+    som `_java_package_from_id()` i
+    src/assets/scripts/makefile/batch-generate.py (to identiske
+    implementasjonar i separate skript/kontainarar — under DRY-terskelen
+    på tre, sjå CLAUDE.md)."""
+    parsed = urlparse(schema_id)
+    host_parts = [p for p in parsed.netloc.split(".") if p]
+    path_parts = [p.replace("-", "") for p in parsed.path.split("/") if p]
+    return ".".join(list(reversed(host_parts)) + path_parts)
 
 
 def read_yaml(path):
@@ -87,8 +100,8 @@ def detect_quickstart(schema):
 
 
 def read_schema_file(schema_file_path):
-    """version/title/description/example_class/example_var/quickstart_policy
-    — tom streng på manglande felt/fil, same som dei einskilde call-sites
+    """version/title/description/example_class/example_var/quickstart_policy/
+    java_package — tom streng på manglande felt/fil, same som dei einskilde call-sites
     sine fallback-tomme-strengar før (bash-sida legg på sine eigne
     fallback-verdiar etterpå, uendra).
 
@@ -103,18 +116,19 @@ def read_schema_file(schema_file_path):
     inkonsistens i genererte sider, ikkje ein ny bug. Sjå
     specs/backlog/reduser-podman-kall-docs-publish.md."""
     if not schema_file_path:
-        return "", "", "", "", "", "bronze"
+        return "", "", "", "", "", "bronze", ""
     try:
         d = read_yaml(schema_file_path)
     except Exception as e:
         print(f"ÅTVARING: kunne ikkje lese {schema_file_path} ({e})", file=sys.stderr)
-        return "", "", "", "", "", "bronze"
+        return "", "", "", "", "", "bronze", ""
 
     version = str(d.get("version", "") or "")
     title = str(d.get("title", d.get("name", "")) or "")
     description = str(d.get("description", "") or "")
     description_first_sentence = description.split(".")[0] if description else ""
     example_class, example_var = detect_quickstart(d)
+    java_package = java_package_from_id(str(d.get("id", "") or ""))
 
     quickstart_policy = "bronze"
     build_file = os.path.join(os.path.dirname(schema_file_path), "build.yaml")
@@ -126,7 +140,7 @@ def read_schema_file(schema_file_path):
             build_config = {}
         quickstart_policy = str(build_config.get("validation_policy", "bronze"))
 
-    return version, title, description_first_sentence, example_class, example_var, quickstart_policy
+    return version, title, description_first_sentence, example_class, example_var, quickstart_policy, java_package
 
 
 def path_pattern_to_regex(pattern):
@@ -203,13 +217,13 @@ def main():
             continue
         domain, schema, schema_file_path, manifest_path = line.split(US)
         policy, ext_url, ext_label = read_manifest(manifest_path)
-        version, title, desc, example_class, example_var, quickstart_policy = read_schema_file(schema_file_path)
+        version, title, desc, example_class, example_var, quickstart_policy, java_package = read_schema_file(schema_file_path)
         schema_path = f"src/linkml/{domain}/{schema}"
         co_name, co_org_uri, co_contact_uri = match_codeowners(orgs, schema_path, schema)
         print(US.join([
             f"{domain}/{schema}", policy, ext_url, ext_label,
             version, title, desc, example_class, example_var, quickstart_policy,
-            co_name, co_org_uri, co_contact_uri,
+            co_name, co_org_uri, co_contact_uri, java_package,
         ]))
 
     print("### ORGS")

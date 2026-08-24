@@ -6,6 +6,7 @@ generators:
   shacl: true
   shacl_flags: ""
   python: true
+  java: true
   json_schema: true
   owl: true
   owl_flags: ""

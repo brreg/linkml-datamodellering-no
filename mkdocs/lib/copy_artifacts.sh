@@ -49,6 +49,12 @@ copy_schema_artifacts() {
         find "$schema_dir/diagrams" -type f -exec cp -t "$out/diagrams" {} +
     fi
 
+    # Kopier genererte Java-klassar til java/-underkatalog
+    if [ -d "$schema_dir/java" ]; then
+        mkdir -p "$out/java"
+        find "$schema_dir/java" -type f -exec cp -t "$out/java" {} +
+    fi
+
     # Kopier gen-doc markdown-filer til klasser/-underkatalog
     if [ -d "$schema_dir/docs" ]; then
         find "$schema_dir/docs" -name "*.md" -exec cp -t "$out/klasser" {} +

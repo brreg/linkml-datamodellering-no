@@ -27,8 +27,8 @@
 
 # ---------------------------------------------------------------------------
 # Generisk batch-generator-makro — dekkar generatorar utan spesiell
-# etterhandsaming (jsonld-context, python, json-schema, proto), brukt av
-# både frittståande gen-*-target (make/11-generator-targets.mk) og
+# etterhandsaming (jsonld-context, python, json-schema, proto, java), brukt
+# av både frittståande gen-*-target (make/11-generator-targets.mk) og
 # domain_target (make/20-domain-targets.mk)
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=batch-generate.py generator-navn (jf. REGISTRY der)

@@ -61,6 +61,7 @@ er oppgjeve. `<n>` = skjemanavn (filnavn utan `-schema.yaml`).
 | XSD | `xsd` (krev `json_schema`-output) | `gen-xsd` | 3 steg: avrotize `j2a` (JSON Schema → Avro), avrotize `a2x` (Avro → XSD, namespace frå `id:`), så `fix-xsd-dates.py` (rettar `date`/`date-time`-felt som avrotize elles gjer om til `xs:integer`/`xs:long`) | `<n>-schema.xsd` |
 | Protobuf | `protobuf` | `gen-proto` | `gen-proto <schema>` | `<n>-schema.proto` |
 | GraphQL | `graphql` | `gen-graphql` | `gen-graphql <schema>` | `<n>-schema.graphql` |
+| Java-klassar | `java` | `gen-java` | `gen-java --output-directory java --package <pakke> <schema>` (pakke utleia frå skjemaet sin `id:`-URI, reversert domenenotasjon) | `java/<Klassenamn>.java` (éin fil per klasse/enum) |
 | OpenAPI | `openapi` (krev `json_schema`) | `gen-openapi` | eigen `gen-openapi.py` (ikkje ein linkml-kommando — pakkar JSON Schema `$defs` inn i `components/schemas`, hentar `info.title/version/description` frå skjemaet), validert med `openapi-spec-validator` | `<n>-openapi.yaml` |
 | AsyncAPI | `asyncapi` (krev `json_schema`) | `gen-asyncapi` | eigen `gen-asyncapi.py` (same mønster som openapi), validert med `asyncapi validate` | `<n>-asyncapi.yaml` |
 | ER-diagram (Markdown) | `erdiagram` | `gen-erdiagram-mermaid` | `gen-erdiagram --no-mergeimports <schema>` → `filter_container.awk` (fjernar containerklassen) → `filter_erdiagram.py` (fjernar importerte klassar) | `<n>-erdiagram-unfiltered.md`, `<n>-erdiagram.md` |

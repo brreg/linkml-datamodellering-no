@@ -20,8 +20,9 @@ DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance
 # «Parallellisering etter batching»):
 #
 #   Fase 1 (samstundes): validate, gen-jsonld-context, gen-shacl,
-#     gen-python, gen-jsonschema, gen-owl, gen-rdf, gen-proto,
-#     convert-instance-rdf, gen-schema-docs (doc+erdiagram), gen-plantuml
+#     gen-python, gen-jsonschema, gen-owl, gen-rdf, gen-proto, gen-graphql,
+#     gen-java, convert-instance-rdf, gen-schema-docs (doc+erdiagram),
+#     gen-plantuml
 #   Fase 2 (samstundes, ventar på gen-jsonschema): gen-xsd, gen-openapi,
 #     gen-asyncapi (alle les <name>-schema.json)
 #   Fase 3 (ventar på ALT): gen-informasjonsmodell-instance (les heile

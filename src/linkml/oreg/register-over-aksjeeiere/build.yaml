@@ -5,6 +5,7 @@ generators:
   jsonld_context: true
   shacl: true
   python: true
+  java: true
   json_schema: true
   owl: true
   rdf: true

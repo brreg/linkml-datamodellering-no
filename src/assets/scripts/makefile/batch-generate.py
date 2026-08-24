@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Batch-generer LinkML-artefakter (SHACL, OWL, Python, JSON Schema, RDF,
+Batch-generer LinkML-artefakter (SHACL, OWL, Python, Java, JSON Schema, RDF,
 Protobuf, JSON-LD-context, skjema-validering/merge) for FLEIRE skjema i éin
 prosess, i staden for éin podman-kontainar per skjema.
 
@@ -36,7 +36,7 @@ Bruk:
   python3 batch-generate.py --generator <kind> -- schema1.yaml schema2.yaml ...
 
   <kind>: merge | jsonld-context | shacl | python | json-schema | owl | rdf | proto
-        | graphql | erdiagram | plantuml | doc
+        | graphql | java | erdiagram | plantuml | doc
 
 `erdiagram`/`plantuml`/`doc` batchar berre RÅ-genereringssteget (Fase A) —
 `erdiagram`/`plantuml` sine filter-etterhandsamingar (Fase B) er batcha
@@ -63,6 +63,7 @@ from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
+from urllib.parse import urlparse
 
 import yaml
 
@@ -109,6 +110,27 @@ class GeneratorSpec:
     out_subdir: str = ""  # t.d. "diagrams" for plantuml — tomt betyr $GEN_DIR/<domain>/<name>/ direkte
     skip_if_versioned_import: bool = False  # sjå schema_has_versioned_import() — BUG-17
     parallel: bool = False  # køyr per-skjema-lykka i eit ProcessPoolExecutor — sjå _generate_one()
+
+
+def _java_package_from_id(schema_id: str) -> str:
+    """Reversert domenenotasjon frå skjemaet sin `id:`-URI, jf. standard
+    Java-package-konvensjon (example.com -> com.example).
+    `https://data.norge.no/samt/samt-bu` -> `no.norge.data.samt.samtbu`
+    (sti-segment får bindestrek fjerna, sidan Java-package ikkje tillet det).
+    """
+    parsed = urlparse(schema_id)
+    host_parts = [p for p in parsed.netloc.split(".") if p]
+    path_parts = [p.replace("-", "") for p in parsed.path.split("/") if p]
+    return ".".join(list(reversed(host_parts)) + path_parts)
+
+
+def _java_extra_argv(domain: str, name: str) -> list[str]:
+    outdir = Path(GEN_DIR) / domain / name / "java"
+    outdir.mkdir(parents=True, exist_ok=True)
+    schema_path = Path("src/linkml") / domain / name / f"{name}-schema.yaml"
+    schema_dict = yaml.safe_load(schema_path.read_text(encoding="utf-8")) or {}
+    package = _java_package_from_id(str(schema_dict.get("id", "")))
+    return ["--output-directory", str(outdir), "--package", package]
 
 
 def _doc_extra_argv(domain: str, name: str) -> list[str]:
@@ -165,6 +187,12 @@ REGISTRY: dict[str, GeneratorSpec] = {
     ),
     "proto": GeneratorSpec(module="linkml.generators.protogen", out_suffix="schema.proto", flag="protobuf"),
     "graphql": GeneratorSpec(module="linkml.generators.graphqlgen", out_suffix="schema.graphql", flag="graphql"),
+    "java": GeneratorSpec(
+        module="linkml.generators.javagen",
+        out_suffix=None,  # JavaGenerator.serialize() skriv sjølv .java-filer til --output-directory
+        flag="java",
+        extra_argv_fn=_java_extra_argv,
+    ),
     "erdiagram": GeneratorSpec(
         module="linkml.generators.erdiagramgen",
         out_suffix="erdiagram-raw.md",

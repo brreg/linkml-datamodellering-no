@@ -31,7 +31,7 @@ Viktige script:
 
 | Script | Brukt av | Føremål |
 |---|---|---|
-| `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `gen-erdiagram-mermaid`/`gen-plantuml` (rå-generering), `gen-schema-docs` (sjølve gen-doc), `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
+| `batch-generate.py` | `gen-shacl`, `gen-owl`, `gen-rdf`, `gen-python`, `gen-java`, `gen-jsonschema`, `gen-jsonld-context`, `gen-proto`, `gen-graphql`, `gen-erdiagram-mermaid`/`gen-plantuml` (rå-generering), `gen-schema-docs` (sjølve gen-doc), `domain_target` (merge) | Batch-generer linkml-baserte artefakt for N skjema i éin kontainar-prosess (Click-API direkte, ikkje CLI-subprosess per skjema) |
 | `batch-generate-instances.py` | `gen-informasjonsmodell-instance`, `gen-openapi`, `gen-asyncapi` (generering), `gen-schema-docs` (docgen-examples-fasen), `gen-erdiagram-mermaid`/`gen-plantuml` (filter-fasen), `domain_target` (linkml-convert) | Batchar dei ikkje-linkml PYTHON_RUN-scripta (under) for N skjema i éin kontainar-prosess |
 | `batch-render-plantuml.sh` | `gen-plantuml` (SVG-render-fasen) | Batchar PlantUML SVG-rendering for N skjema sine `.puml`-filer i éitt `podman run`-kall |
 | `run-domain-pipeline.sh` | `domain-<domain>` | Fase-parallelliserer dei uavhengige gen-*-gruppene for eit domene (rekursive `$(MAKE)`-kall, PID-array + wait) |

@@ -14,11 +14,11 @@ generate_quickstart() {
     # SCHEMA_METADATA_SERIALIZED-registeret (Steg 1.5) i staden for to
     # separate `podman run`-kall per skjema — sjå
     # specs/backlog/reduser-podman-kall-docs-publish.md.
-    local version="" example_class="" example_var="" policy="bronze"
+    local version="" example_class="" example_var="" policy="bronze" java_package=""
     local line
     if line=$(lookup_schema_metadata_line "$domain/$schema"); then
-        local _key _policy _url _label _title _desc quickstart_policy _rest
-        IFS=$'\x1f' read -r _key _policy _url _label version _title _desc example_class example_var quickstart_policy _rest <<< "$line"
+        local _key _policy _url _label _title _desc quickstart_policy _co_name _co_org_uri _co_contact_uri _rest
+        IFS=$'\x1f' read -r _key _policy _url _label version _title _desc example_class example_var quickstart_policy _co_name _co_org_uri _co_contact_uri java_package _rest <<< "$line"
         policy="$quickstart_policy"
     fi
     local version_tag="${version:+${schema}-v$version}"
@@ -28,6 +28,7 @@ generate_quickstart() {
     example_class="${example_class:-Container}"
     example_var="${example_var:-container}"
     policy="${policy:-bronze}"
+    java_package="${java_package:-com.example.model}"
 
     # Generer standard struktur (dynamisk, same for alle modellar)
     echo "## Kom i gang"
@@ -52,6 +53,33 @@ generate_quickstart() {
     echo "\`\`\`bash"
     echo "make validate-instance SCHEMA=src/linkml/$domain/$schema/$schema-schema.yaml INSTANCE=mine-data.yaml"
     echo "\`\`\`"
+    echo ""
+    echo "### Java-bruk"
+    echo ""
+    echo "\`\`\`xml"
+    echo "<!-- pom.xml -->"
+    echo "<dependency>"
+    echo "    <groupId>org.projectlombok</groupId>"
+    echo "    <artifactId>lombok</artifactId>"
+    echo "    <version>1.18.34</version>"
+    echo "</dependency>"
+    echo "<dependency>"
+    echo "    <groupId>com.fasterxml.jackson.dataformat</groupId>"
+    echo "    <artifactId>jackson-dataformat-yaml</artifactId>"
+    echo "    <version>2.17.2</version>"
+    echo "</dependency>"
+    echo "\`\`\`"
+    echo ""
+    echo "\`\`\`java"
+    echo "import java.io.File;"
+    echo "import com.fasterxml.jackson.databind.ObjectMapper;"
+    echo "import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;"
+    echo "import ${java_package}.$example_class;"
+    echo ""
+    echo "ObjectMapper mapper = new ObjectMapper(new YAMLFactory());"
+    echo "$example_class $example_var = mapper.readValue(new File(\"mine-data.yaml\"), $example_class.class);"
+    echo "\`\`\`"
+    echo ""
     echo ""
     echo "### Python-bruk"
     echo ""

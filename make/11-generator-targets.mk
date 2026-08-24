@@ -38,6 +38,7 @@ $(eval $(call make_gen_target,gen-openapi,run_gen_openapi_parallel))
 $(eval $(call make_gen_target,gen-erdiagram-mermaid,run_gen_erdiagram_parallel))
 $(eval $(call make_gen_target,gen-proto,run_gen_parallel,proto))
 $(eval $(call make_gen_target,gen-graphql,run_gen_parallel,graphql))
+$(eval $(call make_gen_target,gen-java,run_gen_parallel,java))
 $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 
 # ---------------------------------------------------------------------------
@@ -62,6 +63,7 @@ gen-openapi: ## Generer og valider OpenAPI-spec, krev gen-jsonschema [DOMAIN=<do
 gen-erdiagram-mermaid: ## Generer ER-diagram (Mermaid) [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-proto: ## Generer Protobuf-schema [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-graphql: ## Generer GraphQL-skjema [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-java: ## Generer Java-klassar [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-plantuml: ## Generer PlantUML-diagram, full og filtrert [DOMAIN=<domene>|SCHEMA=<sti>]
 
 # ---------------------------------------------------------------------------
