@@ -625,6 +625,7 @@ nav:
           - Importhierarki: arkitektur/importhierarki.md
           - Valideringsreglar: arkitektur/valideringsregler.md
           - AP-NO arkitektur og avvik: arkitektur/ap-no-arkitektur.md
+          - Standardetterleving: arkitektur/standardetterleving.md
           - Bruk frå eksternt repo: arkitektur/ekstern-bruk.md
       - Publisering:
           - publisering/index.md

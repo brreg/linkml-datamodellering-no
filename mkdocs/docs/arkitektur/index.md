@@ -12,6 +12,7 @@
 | [Importhierarki](importhierarki.md) | Det komplette importhierarkiet for alle skjema i repoet — kva som importerer kva, og kvifor. |
 | [Valideringsreglar](valideringsregler.md) | Bronse/sølv/gull-policyane og publiseringspolicyane — full sjekkliste med Digdir-regel- og FAIR-mapping. |
 | [AP-NO arkitektur og avvik](ap-no-arkitektur.md) | Korleis AP-NO-skjemaa (DCAT, SKOS, CPSV, DQV m.fl.) er bygde opp i dette repoet, og kvar og kvifor dei medvite avvik frå spesifikasjonane. |
+| [Standardetterleving](standardetterleving.md) | Kartlegging av korleis repoet realiserer og etterlever Digdirs Rammeverk for informasjonsforvaltning — veiledere, standardar/spesifikasjonar og felles informasjonsmodellar. |
 | [Bruk frå eksternt repo](ekstern-bruk.md) | Korleis eit anna repo kan importere AP-NO-profilane og bruke repoet sine reusable GitHub Actions-workflowar utan å leve inni monorepoet. |
 
 ## Relatert dokumentasjon
