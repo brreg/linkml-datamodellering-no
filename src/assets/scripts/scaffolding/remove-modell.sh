@@ -94,8 +94,3 @@ fi
 rm -rf "$SCHEMA_DIR"
 echo ""
 echo "Sletta: $SCHEMA_DIR"
-
-echo ""
-echo "Oppdaterer .github/valid-scopes.txt..."
-cd "$REPO_ROOT"
-make --no-print-directory gen-valid-scopes

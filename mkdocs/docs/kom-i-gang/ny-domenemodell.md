@@ -262,11 +262,9 @@ sletta. Kommandoen sjekkar:
 | Modellen sitt skjema vert importert av eit anna skjema | Blokkerande | Fjern importen frå det andre skjemaet før du prøver igjen |
 | `publish_external: true` og/eller `published-uris.lock` finst | Åtvaring | Eksterne katalogoppføringar vert **ikkje** automatisk fjerna — repoet pushar aldri. Vurder å deprekere i staden, sjå [publisering-begrep.md](../publisering/publisering-begrep.md) § «Deprekere eit begrep» |
 
-Etter vellykka sletting oppdaterer kommandoen automatisk
-`.github/valid-scopes.txt`. `generated/<domain>/<modell>/` og
-`mkdocs/docs/<domain>/<modell>/` er byggoutput og treng ingen manuell
-opprydding — dei forsvinn automatisk neste gong høvesvis generatorane og
-`make docs-publish` køyrer.
+`generated/<domain>/<modell>/` og `mkdocs/docs/<domain>/<modell>/` er
+byggoutput og treng ingen manuell opprydding — dei forsvinn automatisk neste
+gong høvesvis generatorane og `make docs-publish` køyrer.
 
 ---
 

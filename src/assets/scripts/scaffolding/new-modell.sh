@@ -299,11 +299,7 @@ echo "  $EXAMPLE_FILE"
 echo "  $MANIFEST_FILE"
 echo "  $DESCRIPTION_FILE"
 
-# Oppdater .github/valid-scopes.txt
-echo ""
-echo "Oppdaterer .github/valid-scopes.txt..."
 cd "$REPO_ROOT"
-make --no-print-directory gen-valid-scopes
 
 # Sjekk at skjemaet ikkje kolliderer med namn frå importerte skjema (t.d.
 # eit lokalt slot med same namn som eit slot i common-ap-no/dcat-ap-no) —

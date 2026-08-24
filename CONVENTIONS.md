@@ -193,9 +193,9 @@ Conventional Commits-format: `<type>(<scope>): <skildring>`
 
 | Type | Bruksområde | Scope-krav | Utløyser release? |
 |---|---|---|---|
-| `feat(<modell>)` | Ny klasse, nytt slot | **Må** vere gyldig modellnavn | ✅ Ja |
-| `fix(<modell>)` | Rettjing av feil range, URI o.l. | **Må** vere gyldig modellnavn | ✅ Ja |
-| `feat` / `fix` | Bakoverkompatibilitet (utan scope) | - | ✅ Ja |
+| `feat(<modell>)` | Ny klasse, nytt slot | Valfri — sjå «Kva avgjer om ein release vert utløyst» under | ✅ Ja, dersom commiten endrar minst éin `*-schema.yaml` |
+| `fix(<modell>)` | Rettjing av feil range, URI o.l. | Valfri — sjå under | ✅ Ja, dersom commiten endrar minst éin `*-schema.yaml` |
+| `feat` / `fix` | Utan scope, eller med fleire kommaseparerte scope (t.d. `fix(ap-no,fint):`) | Valfri — sjå under | ✅ Ja, dersom commiten endrar minst éin `*-schema.yaml` |
 | `docs` | Skildringar, README, portalinnhald | Valfri (t.d. `docs`, `docs(mkdocs)`) | ❌ Nei |
 | `refactor` | Omstrukturering utan semantisk endring | Valfri | ❌ Nei |
 | `chore` | CI, skript, manifest utan modellendringar | Valfri (t.d. `chore(ci)`) | ❌ Nei |
@@ -204,21 +204,24 @@ Conventional Commits-format: `<type>(<scope>): <skildring>`
 | `build` | Byggsystem-endringar | Valfri | ❌ Nei |
 | `perf` | Ytelsesforbetring | Valfri | ❌ Nei |
 | `style` | Formattering, whitespace | Valfri | ❌ Nei |
-| `feat!` / `fix!` | Brotande endring | **Må** vere gyldig modellnavn | ✅ Ja (major) |
+| `feat!` / `fix!` | Brotande endring | Valfri | ✅ Ja (major), dersom commiten endrar minst éin `*-schema.yaml` |
 
-**Gyldige modellnavn (scope):**
+**Kva avgjer om ein release vert utløyst:**
 
-Lista over gyldige modellnavn vert **automatisk generert** frå `src/linkml/*/*/*-schema.yaml` og lagra i `.github/valid-scopes.txt`.
+`.github/workflows/release-please.yml` (steget «Sjekk om siste commit skal
+trigge release-please») avgjer utelukkande på **type** og **faktisk endra
+filer** — ikkje på scope-teksten:
 
-- **Køyr `make gen-valid-scopes`** for å regenerere lista manuelt
-- **`make new-modell`**, **`make new-modellkatalog`** og **`make new-begrepssamling`** oppdaterer lista automatisk
-- Fila vert lest av `.github/workflows/release-please.yml` for å validere commit-scopes
+1. `style`/`docs`/`chore`/`test`/`ci`/`build`/`perf`/`refactor` hoppar alltid over, uavhengig av scope.
+2. `feat`/`fix` (og `feat!`/`fix!`) — uansett scope, fleire kommaseparerte scope, eller ingen scope — trigg berre dersom commiten faktisk endrar minst éin `src/linkml/*/*/*-schema.yaml`. `release-please-action` sjølv avgjer kva pakkar som får versjonsbump, basert på kva filstiar som endra seg.
 
-Sjå `.github/valid-scopes.txt` for fullstendig liste (32 modellar per 2026-07-27).
+Scope i `feat(<modell>)`/`fix(<modell>)` er dermed **berre for lesbarheit**
+(kva del av repoet endringa gjeld) — han vert ikkje validert mot noka liste
+av gyldige modellnavn. Sjå `specs/backlog/release-please-skip-filter-for-strengt.md`
+for grunngjeving og historikk.
 
-**Viktig:** 
-- `feat(<modell>):` og `fix(<modell>):` **må** bruke gyldig modellnavn som scope — elles utløyser dei **ikkje** versjonering
-- `docs`, `chore`, `test`, `ci`, `build`, `perf`, `refactor`, `style` utløyser **aldri** versjonering
+**Viktig:**
+- `docs`, `chore`, `test`, `ci`, `build`, `perf`, `refactor`, `style` utløyser **aldri** versjonering, uavhengig av om dei rører ei `*-schema.yaml`-fil
 - For dokumentendringar: bruk `docs(<scope>):` eller `docs:` (ikkje `fix(docs):`)
 - For CI/CD-endringar: bruk `ci:` eller `chore(ci):` (ikkje `fix(ci):`)
 - For dokumentgenerering (Jinja-templates, publish.sh): bruk `feat(docgen):` eller `fix(docgen):` (utløyser **ikkje** versjonering)

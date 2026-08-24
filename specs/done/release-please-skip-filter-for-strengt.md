@@ -104,12 +104,23 @@ fi
 echo "skip=true" >> $GITHUB_OUTPUT
 ```
 
-Dette gjer `.github/valid-scopes.txt` overflødig for denne gata (feltet er
-uansett generert dynamisk og kan framleis brukast som menneskeleg
-referansedokumentasjon over gyldige modellnamn, sjølv om det ikkje lenger
-handhevar noko programmatisk). Krev `fetch-depth: 2` på "Checkout for
-scope-sjekk"-steget for at `HEAD~1` skal vere tilgjengeleg (same mønster som
+Dette gjer `.github/valid-scopes.txt` overflødig for denne gata. Krev
+`fetch-depth: 2` på "Checkout for scope-sjekk"-steget for at `HEAD~1` skal
+vere tilgjengeleg (same mønster som
 `specs/done/auto-datoannotasjonar-release.md` brukte for same problem).
+
+**Stadfesta ubrukt for gating:** `grep` etter `valid-scopes` i
+`.github/workflows/*.yml` og alle script/make-mål viser at ingen workflow
+eller script **les** `.github/valid-scopes.txt` tilbake — filteret i
+`release-please.yml` er alt fiksa til å bruke filbasert sjekk (over) og
+refererer ikkje lenger til fila. Dei einaste attverande brukarane er
+`gen-valid-scopes`-målet (`make/70-scaffolding.mk`) som **genererer** fila,
+og scaffolding-skripta (`new-modell.sh`, `new-begrepssamling.sh`,
+`new-modellkatalog.sh`, `remove-modell.sh`) som kallar `make gen-valid-scopes`
+for å halde ho oppdatert. Sidan ho ikkje lenger handhevar noko programmatisk,
+skal generering av `.github/valid-scopes.txt` **fjernast** (målet i
+`70-scaffolding.mk`, dei fire scaffolding-kalla, og referansane i
+`help.sh`/`javazone-demo-script.sh`) — ikkje berre behaldast som referanse.
 
 **Regel 1 (skip ikkje-releasande typar: style/docs/chore/test/ci/build/perf/refactor)
 skal IKKJE endrast** — han er riktig og uavhengig av dette problemet.
@@ -145,5 +156,5 @@ Begge krev handling brukaren må ta sjølv (LLM skal aldri pushe/trigge CI).
 - [x] Legg til `fetch-depth: 2` på "Checkout for scope-sjekk"
 - [x] `actionlint` mot `release-please.yml` — ingen `[expression]`-feil, berre pre-eksisterande `[shellcheck]`-stilråd
 - [x] Verifisert lokalt mot 10 faktiske historiske commits (`git diff`-simulering av heile gate-logikken): alle 3 kjende feilklassifiseringar (`292d32d`, `d9a700ca`, `2c6215e`) gjev no korrekt `skip=false`; alle stadfesta korrekte skip (`91875312`, `6cb82bf`, `8b437b6`, `5802d13`) og korrekt type-skip (`refactor`-commiten `46792cdc`) er uendra
-- [ ] Vurder å fjerne/behalde `.github/valid-scopes.txt`-generering (allereie ubrukt for gating, men kan behaldast som referanse — ikkje kritisk)
+- [x] Fjern `.github/valid-scopes.txt`-generering (stadfesta ubrukt for gating): `gen-valid-scopes`-målet fjerna frå `make/70-scaffolding.mk`, kalla fjerna frå `new-modell.sh`/`new-begrepssamling.sh`/`new-modellkatalog.sh`/`remove-modell.sh`, referansane fjerna frå `help.sh` og `javazone-demo-script.sh` (aktiv linje + kommentert alternativ), `.github/valid-scopes.txt` sletta, og `CONVENTIONS.md`/`ny-domenemodell.md`/`javazone-demo-plan.md` oppdatert til å ikkje lenger referere fila. `CONVENTIONS.md` sin commit-tabell og «Viktig»-liste var i tillegg alt stale frå den tidlegare gate-fiksen (hevda framleis at scope **må** vere gyldig modellnavn) — retta til å reflektere den filbaserte sjekken
 - [ ] Brukar avgjer: manuelt `workflow_dispatch` no, eller vent på neste naturlege feat/fix-commit, for å fange opp dei 24 modellane frå `d9a700ca`/`2c6215e`/`292d32d`

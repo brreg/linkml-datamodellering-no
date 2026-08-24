@@ -349,11 +349,10 @@ minutt er stramt, og resten av demoen kretsar rundt kommandolinja.
 
 ## Opprydding etter demoen
 
-Scriptet skriv til repoet tre stader:
+Scriptet skriv til repoet to stader:
 
 ```bash
 rm -rf src/linkml/oreg/javazonetalk generated/oreg/javazonetalk
-make gen-valid-scopes
 ```
 
 ## Handlingsliste (brukaren sin eigen sjekkliste før demo-dagen)
