@@ -22,9 +22,10 @@ SIMILARITY_THRESHOLD ?= 0.8
 .PHONY: analyse-similar-classes-domain analyse-similar-classes-all \
         analyse-similar-slots-domain analyse-similar-slots-all \
         analyse-similar-types-domain analyse-similar-types-all \
+        analyse-similar-domene-batch analyse-similar-alle-domene-batch \
         analyse-ubrukte-slots analyse-ubrukte-enums \
         analyse-ubrukte-types analyse-ubrukte-subsets \
-        analyse-isolerte-klasser \
+        analyse-isolerte-klasser analyse-lokal-modellanalyse-domene \
         analyse-iri-dereferering analyse-innhaldsforhandling analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
@@ -57,6 +58,16 @@ analyse-similar-types-all: ## Finn typar (types:) med liknande navn på tvers av
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind types --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(NAME),--name $(NAME))
 
+analyse-similar-domene-batch: ## Skriv similar-classes/-slots/-types-domain-report.md for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated] [SIMILARITY_THRESHOLD=0.8]
+	$(call print_header,analyse-similar-domene-batch,DOMAIN=$(DOMAIN)) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
+	  --domain $(DOMAIN) --out-dir $(if $(OUT_DIR),$(OUT_DIR),generated) --threshold $(SIMILARITY_THRESHOLD)
+
+analyse-similar-alle-domene-batch: ## Skriv dei tre kombinerte similar-*-all-report.md-filene (--scope all), éin kontainar [OUT_DIR=<sti>] [SIMILARITY_THRESHOLD=0.8]
+	$(call print_header,analyse-similar-alle-domene-batch,OUT_DIR=$(OUT_DIR)) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
+	  --out-dir $(OUT_DIR) --threshold $(SIMILARITY_THRESHOLD)
+
 analyse-ubrukte-slots: ## Finn lokalt definerte slots som ikkje er brukt av nokon lokal klasse [SCHEMA=<sti>]
 	$(call print_header,analyse-ubrukte-slots,SCHEMA=$(SCHEMA)) 1>&2
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
@@ -81,6 +92,11 @@ analyse-isolerte-klasser: ## Finn lokale klassar utan referansar til/frå noka a
 	$(call print_header,analyse-isolerte-klasser,SCHEMA=$(SCHEMA)) 1>&2
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --kind class --schema $(SCHEMA)
+
+analyse-lokal-modellanalyse-domene: ## Skriv alle fem ubrukt-lokalt/isolerte-klassar-rapportane for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated]
+	$(call print_header,analyse-lokal-modellanalyse-domene,DOMAIN=$(DOMAIN)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --domain $(DOMAIN) --out-dir $(if $(OUT_DIR),$(OUT_DIR),generated)
 
 analyse-iri-dereferering: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema let seg derefere over HTTP(S) [DOMAIN=<domene>]
 	$(call print_header,analyse-iri-dereferering) 1>&2

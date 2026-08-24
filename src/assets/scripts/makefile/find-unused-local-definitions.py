@@ -30,9 +30,30 @@ andre lokale klassar tel som reell tilkopling for målklassane.
 Krev SchemaView (og dermed induced_slot()-arveoppløysing) — bruk
 LINKML_RUN, ikkje PYTHON_RUN (jf. check-import-duplicates.py).
 
-Bruk:
-  python3 find-unused-local-definitions.py --kind slot --schema <sti>
-  python3 find-unused-local-definitions.py --kind class --schema <sti>
+To bruksmåtar:
+
+1. Enkelt-sjekk, stdout (uendra sidan spec-en dette scriptet vart innført
+   i — brukt av `make analyse-ubrukte-*`/`analyse-isolerte-klasser`):
+     python3 find-unused-local-definitions.py --kind slot --schema <sti>
+
+2. Batch, fil-skriving (sjå
+   specs/backlog/effektiviser-modellanalyse-koyretid.md): bygg **eitt**
+   SchemaView per skjema og skriv alle fem kind-rapportane i éin
+   Python-prosess i staden for fem separate podman-kontainarar (kvar med
+   sin eigen ~0,9 s linkml_runtime-importskatt) — det er denne 5×
+   redundante import+SchemaView-kostnaden per skjema som gjorde
+   modellanalyse-steget til det klart tyngste steget i generate.yml:
+     python3 find-unused-local-definitions.py --domain <domene> --out-dir <sti>
+
+   Diskoverer alle skjema i domenet
+   (`src/linkml/<domene>/*/*-schema.yaml`), skriv
+   `<out-dir>/<domene>/<skjema>/model-analyse/<rapportnamn>.md` per
+   skjema — same filnamn og katalogstruktur som steg 1 sine fem separate
+   kall produserte, slik at `generate-modellanalyse-md.py`/
+   `mkdocs/publish.sh` ikkje treng endrast. Eitt skjema som feilar (t.d.
+   ugyldig import) stoppar ikkje resten av domenet — feilen vert logga
+   (`::warning::`) og løkka held fram, same prinsipp som
+   `check-import-duplicates.py`/`batch-lint.py`.
 
 Exit-kode: alltid 0 — informativ rapport, ikkje ein valideringspolicy
 (same prinsipp som find-similar-names.py).
@@ -59,6 +80,19 @@ KIND_LABELS = {
     "subset": "subsets",
     "class": "klassar",
 }
+
+# Rapportfilnamn — MÅ matche det .github/workflows/generate.yml (og
+# generate-modellanalyse-md.py sin REPORTS-liste) forventar under
+# generated/<domene>/<skjema>/model-analyse/.
+KIND_TO_REPORT_FILENAME = {
+    "slot": "ubrukte-slots-report.md",
+    "enum": "ubrukte-enums-report.md",
+    "type": "ubrukte-types-report.md",
+    "subset": "ubrukte-subsets-report.md",
+    "class": "isolerte-klasser-report.md",
+}
+
+ALL_KINDS = ("slot", "enum", "type", "subset", "class")
 
 
 def log_error(msg: str) -> None:
@@ -207,7 +241,21 @@ def find_isolated_classes(sv) -> list[tuple[str, str]]:
     return sorted(isolated)
 
 
-def render_report(kind: str, schema_path: str, items: list[tuple[str, str]], total: int) -> None:
+def compute_items_and_total(sv, kind: str) -> tuple[list[tuple[str, str]], int]:
+    """(items, total) for éin kind — delt av stdout-modus og batch-modus."""
+    if kind == "class":
+        return find_isolated_classes(sv), len(local_classes(sv, include_root=True))
+    items = find_unused(sv, kind)
+    local_names = {
+        "slot": sv.schema.slots or {},
+        "enum": sv.schema.enums or {},
+        "type": sv.schema.types or {},
+        "subset": sv.schema.subsets or {},
+    }[kind]
+    return items, len(local_names)
+
+
+def format_report(kind: str, schema_path: str, items: list[tuple[str, str]], total: int) -> str:
     label = KIND_LABELS[kind]
     if kind == "class":
         title = f"# Isolerte lokale klassar ({schema_path})"
@@ -218,28 +266,82 @@ def render_report(kind: str, schema_path: str, items: list[tuple[str, str]], tot
         empty_msg = f"Ingen ubrukte lokale {label} funne ({total} sjekka)."
         col_a = {"slot": "Slot", "enum": "Enum", "type": "Type", "subset": "Subset"}[kind]
 
-    print(f"{title}\n")
+    lines = [title, ""]
 
     if not items:
-        print(empty_msg)
-        return
+        lines.append(empty_msg)
+        return "\n".join(lines)
 
-    print(f"| {col_a} | Skildring |")
-    print("|---|---|")
+    lines.append(f"| {col_a} | Skildring |")
+    lines.append("|---|---|")
     for name, description in items:
-        print(f"| `{name}` | {description or '(inga skildring)'} |")
+        lines.append(f"| `{name}` | {description or '(inga skildring)'} |")
 
     if kind == "class":
-        print(f"\n**Totalt: {len(items)} isolerte klassar av {total} lokale klassar.**")
+        lines.append(f"\n**Totalt: {len(items)} isolerte klassar av {total} lokale klassar.**")
     else:
-        print(f"\n**Totalt: {len(items)} ubrukte lokale {label} av {total} sjekka.**")
+        lines.append(f"\n**Totalt: {len(items)} ubrukte lokale {label} av {total} sjekka.**")
+
+    return "\n".join(lines)
+
+
+def process_schema_all_kinds(schema_path: Path, out_dir: Path) -> bool:
+    """Byggjer eitt SchemaView for schema_path og skriv alle fem
+    kind-rapportane til out_dir. Returnerer False (loggar sjølv) viss
+    skjemaet ikkje kunne lastast — kallar avgjer sjølv om det skal stoppe
+    resten av ein batch eller halde fram."""
+    try:
+        from linkml_runtime import SchemaView
+
+        sv = SchemaView(str(schema_path))
+    except Exception as exc:  # noqa: BLE001 — same isolasjonsprinsipp som check-import-duplicates.py
+        log_error(f"klarte ikkje laste {schema_path} med SchemaView — {exc}")
+        return False
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for kind in ALL_KINDS:
+        items, total = compute_items_and_total(sv, kind)
+        report = format_report(kind, str(schema_path), items, total)
+        (out_dir / KIND_TO_REPORT_FILENAME[kind]).write_text(report + "\n", encoding="utf-8")
+    return True
+
+
+def process_domain(domain: str, base_dir: Path) -> None:
+    """Diskoverer alle skjema i domenet og skriv model-analyse/-rapportar
+    for kvart, i éin Python-prosess (éin linkml_runtime-import totalt, i
+    staden for éin per skjema × kind)."""
+    schemas = sorted(Path("src/linkml").glob(f"{domain}/*/*-schema.yaml"))
+    if not schemas:
+        print(f"ÅTVARING: fann ingen skjema for domene '{domain}'", file=sys.stderr)
+        return
+
+    for schema_path in schemas:
+        schema_name = schema_path.parent.name
+        out_dir = base_dir / domain / schema_name / "model-analyse"
+        if process_schema_all_kinds(schema_path, out_dir):
+            print(f"  ✓ {schema_name}: {len(ALL_KINDS)} lokal-modellanalyse-rapportar skrivne")
+        else:
+            print(f"::warning::lokal modellanalyse feila for {schema_name}")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--kind", choices=["slot", "enum", "type", "subset", "class"], required=True)
-    parser.add_argument("--schema", required=True, help="Sti til <modell>-schema.yaml")
+    parser.add_argument("--kind", choices=list(ALL_KINDS), help="Stdout-modus: éin kind for eitt skjema")
+    parser.add_argument("--schema", help="Stdout-modus: sti til <modell>-schema.yaml")
+    parser.add_argument("--domain", help="Batch-modus: skriv rapportar for alle skjema i domenet")
+    parser.add_argument("--out-dir", help="Batch-modus: rot-katalog rapportane vert skrivne under")
     args = parser.parse_args()
+
+    if args.domain:
+        if not args.out_dir:
+            parser.error("--domain krev --out-dir")
+        if args.kind or args.schema:
+            parser.error("--domain kan ikkje kombinerast med --kind/--schema")
+        process_domain(args.domain, Path(args.out_dir))
+        return 0
+
+    if not args.kind or not args.schema:
+        parser.error("krev anten --domain --out-dir, eller --kind --schema")
 
     schema_path = Path(args.schema)
     if not schema_path.is_file():
@@ -254,20 +356,8 @@ def main() -> int:
         log_error(f"klarte ikkje laste {schema_path} med SchemaView — {exc}")
         return 1
 
-    if args.kind == "class":
-        items = find_isolated_classes(sv)
-        total = len(local_classes(sv, include_root=True))
-    else:
-        items = find_unused(sv, args.kind)
-        local_names = {
-            "slot": sv.schema.slots or {},
-            "enum": sv.schema.enums or {},
-            "type": sv.schema.types or {},
-            "subset": sv.schema.subsets or {},
-        }[args.kind]
-        total = len(local_names)
-
-    render_report(args.kind, args.schema, items, total)
+    items, total = compute_items_and_total(sv, args.kind)
+    print(format_report(args.kind, args.schema, items, total))
     return 0
 
 

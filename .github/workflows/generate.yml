@@ -315,81 +315,36 @@ jobs:
       - name: Køyr modellanalyse per skjema for ${{ matrix.domain }}
         # Domene-scopa (ikkje cross-domain, ikkje nettverksavhengige
         # IRI-sjekkar) — sjå specs/done/modellanalyse-per-skjema-index-md.md
-        # for grunngjeving. Ingen -e: éin skjemafeil skal ikkje stoppe resten
-        # av loopen — dette er ein informativ rapport, ikkje ei blokkerande
-        # sjekk (same prinsipp som modell-analyse.yml).
+        # for grunngjeving. To batch-kall (éin LINKML_RUN, éin PYTHON_RUN,
+        # køyrde parallelt via &/wait) i staden for opptil 8×N sekvensielle
+        # `make`-kall (eitt per skjema × sjekk) — kvart kontainarkall betalte
+        # linkml-import-skatten (~1-2 s) på nytt, og
+        # analyse-similar-*-domain re-parsa i tillegg ALLE skjema i domenet
+        # for kvart kall (O(3N²) yaml-parsingar). Sjå
+        # specs/done/effektiviser-modellanalyse-koyretid.md. Ingen -e: éin
+        # skjemafeil skal ikkje stoppe resten — dette er ein informativ
+        # rapport, ikkje ei blokkerande sjekk (same prinsipp som
+        # modell-analyse.yml). Begge batch-scripta handterer per-skjema-feil
+        # internt (loggar og held fram), så desse to kalla feilar berre ved
+        # meir fundamentale problem (t.d. manglande kontainarbilete).
         if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           set -uo pipefail
           echo "=== Køyrer modellanalyse per skjema for ${{ matrix.domain }} ==="
 
-          for schema_dir in src/linkml/${{ matrix.domain }}/*/; do
-            schema_name=$(basename "$schema_dir")
-            if [ ! -f "$schema_dir/${schema_name}-schema.yaml" ]; then
-              continue
-            fi
+          make analyse-similar-domene-batch DOMAIN=${{ matrix.domain }} &
+          pid_similar=$!
 
-            target_dir="generated/${{ matrix.domain }}/$schema_name/model-analyse"
-            mkdir -p "$target_dir"
+          make analyse-lokal-modellanalyse-domene DOMAIN=${{ matrix.domain }} &
+          pid_lokal=$!
 
-            if make analyse-similar-classes-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
-                > "$target_dir/similar-classes-domain-report.md"; then
-              echo "  ✓ $schema_name: similar-classes-domain-report.md"
-            else
-              echo "::warning::analyse-similar-classes-domain feila for $schema_name"
-            fi
+          failed=0
+          wait "$pid_similar" || { echo "::warning::analyse-similar-domene-batch feila for ${{ matrix.domain }}"; failed=1; }
+          wait "$pid_lokal" || { echo "::warning::analyse-lokal-modellanalyse-domene feila for ${{ matrix.domain }}"; failed=1; }
 
-            if make analyse-similar-slots-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
-                > "$target_dir/similar-slots-domain-report.md"; then
-              echo "  ✓ $schema_name: similar-slots-domain-report.md"
-            else
-              echo "::warning::analyse-similar-slots-domain feila for $schema_name"
-            fi
-
-            if make analyse-similar-types-domain DOMAIN=${{ matrix.domain }} NAME="$schema_name" \
-                > "$target_dir/similar-types-domain-report.md"; then
-              echo "  ✓ $schema_name: similar-types-domain-report.md"
-            else
-              echo "::warning::analyse-similar-types-domain feila for $schema_name"
-            fi
-
-            schema_file="$schema_dir/${schema_name}-schema.yaml"
-
-            if make analyse-ubrukte-slots SCHEMA="$schema_file" \
-                > "$target_dir/ubrukte-slots-report.md"; then
-              echo "  ✓ $schema_name: ubrukte-slots-report.md"
-            else
-              echo "::warning::analyse-ubrukte-slots feila for $schema_name"
-            fi
-
-            if make analyse-ubrukte-enums SCHEMA="$schema_file" \
-                > "$target_dir/ubrukte-enums-report.md"; then
-              echo "  ✓ $schema_name: ubrukte-enums-report.md"
-            else
-              echo "::warning::analyse-ubrukte-enums feila for $schema_name"
-            fi
-
-            if make analyse-ubrukte-types SCHEMA="$schema_file" \
-                > "$target_dir/ubrukte-types-report.md"; then
-              echo "  ✓ $schema_name: ubrukte-types-report.md"
-            else
-              echo "::warning::analyse-ubrukte-types feila for $schema_name"
-            fi
-
-            if make analyse-ubrukte-subsets SCHEMA="$schema_file" \
-                > "$target_dir/ubrukte-subsets-report.md"; then
-              echo "  ✓ $schema_name: ubrukte-subsets-report.md"
-            else
-              echo "::warning::analyse-ubrukte-subsets feila for $schema_name"
-            fi
-
-            if make analyse-isolerte-klasser SCHEMA="$schema_file" \
-                > "$target_dir/isolerte-klasser-report.md"; then
-              echo "  ✓ $schema_name: isolerte-klasser-report.md"
-            else
-              echo "::warning::analyse-isolerte-klasser feila for $schema_name"
-            fi
-          done
+          if [ "$failed" -eq 0 ]; then
+            echo "✓ Modellanalyse fullført for ${{ matrix.domain }}"
+          fi
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -464,30 +419,17 @@ jobs:
         # ein fast, ikkje-domene-scopa katalog som mkdocs/publish.sh
         # publiserer som faste sider under mkdocs/docs/modellanalyse/ —
         # sjå specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md.
+        # Eitt batch-kall (alle tre kindar i éin prosess) i staden for tre
+        # separate — sjå specs/done/effektiviser-modellanalyse-koyretid.md.
         # Same ikkje-blokkerande feilhandtering som per-skjema-steget over.
         run: |
           set -uo pipefail
           echo "=== Køyrer modellanalyse på tvers av domene ==="
 
-          target_dir="generated/modell-analyse-tvers-domene"
-          mkdir -p "$target_dir"
-
-          if make analyse-similar-classes-all > "$target_dir/similar-classes-all-report.md"; then
-            echo "  ✓ similar-classes-all-report.md"
+          if make analyse-similar-alle-domene-batch OUT_DIR=generated/modell-analyse-tvers-domene; then
+            echo "✓ Modellanalyse på tvers av domene fullført"
           else
-            echo "::warning::analyse-similar-classes-all feila"
-          fi
-
-          if make analyse-similar-slots-all > "$target_dir/similar-slots-all-report.md"; then
-            echo "  ✓ similar-slots-all-report.md"
-          else
-            echo "::warning::analyse-similar-slots-all feila"
-          fi
-
-          if make analyse-similar-types-all > "$target_dir/similar-types-all-report.md"; then
-            echo "  ✓ similar-types-all-report.md"
-          else
-            echo "::warning::analyse-similar-types-all feila"
+            echo "::warning::analyse-similar-alle-domene-batch feila"
           fi
 
       - name: Publiser og bygg dokumentasjonsportal
