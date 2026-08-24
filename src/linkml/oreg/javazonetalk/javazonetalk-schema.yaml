@@ -33,19 +33,12 @@ classes:
     description: containerklasse for serialisering av klasser i javazonetalk modellen
     tree_root: true
     attributes:
-      javazonetalker:
-        description: 'TODO: beskriv eigenskapen'
-        range: Javazonetalk
+      foredragsholdere:
+        description: 'Foredragsholdere knytta til ein talk'
+        range: Foredragsholder
         multivalued: true
         inlined: true
         inlined_as_list: true
-  Javazonetalk:
-    description: 'TODO: beskriv klassen'
-    class_uri: javazonetalk:javazonetalk
-    annotations:
-      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
-    slots:
-    - id
   Foredragsholder:
     description: Ein person som melder inn/held eit foredrag.
     class_uri: javazonetalk:Foredragsholder
@@ -105,10 +98,6 @@ classes:
     - navn
     - antall_plasser
 slots:
-  javazonetalk_kontaktinformasjon:
-    description: Kontaktinformasjon for ressursen.
-    slot_uri: dcat:contactPoint
-    range: uriorcurie
   navn:
     description: Navnet på foredragshaldaren.
     range: string
@@ -137,14 +126,6 @@ slots:
     description: Referanse til foredragshaldarane som har sendt inn foredraget.
     range: Foredragsholder
     multivalued: true
-
-  foredrag_tidsrom:
-    description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
-    range: string
-
-  lokasjon:
-    description: Rommet eller salen foredraget vert halde i.
-    range: string
 
   har_timeplaner:
     description: Referanse til timeplanoppføringane for konferansen.

@@ -22,7 +22,6 @@ kontaktpunkt:
     nn: Brønnøysundregistra
   har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
 inneholder_modellelement:
-- https://data.norge.no/oreg/javazonetalk/javazonetalk
 - https://data.norge.no/oreg/javazonetalk/Foredragsholder
 - https://data.norge.no/oreg/javazonetalk/Konferanse
 - https://data.norge.no/oreg/javazonetalk/Foredrag
@@ -30,7 +29,5 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/javazonetalk/Timeplan
 - https://data.norge.no/oreg/javazonetalk/Sesjonslokale
 finnes_i_format:
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk-filtered.puml
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-schema.json
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/javazonetalk/javazonetalk-schema.yaml
