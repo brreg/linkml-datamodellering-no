@@ -70,8 +70,6 @@ badges i readme?
 
    gjer ein analyse av all kildekode og identifiser gjentakelsar som kan la seg kode en gang og gjenbrukes ihht DRY prinsippet
 
-   hamnar -> havner
-
 
 
 

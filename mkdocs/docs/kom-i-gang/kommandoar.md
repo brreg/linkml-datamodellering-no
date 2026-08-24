@@ -182,7 +182,7 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 
 ## Påskeegg: Gource-visualisering
 
-Krev `make build-docker-gource` éin gong (eller etter endringar i Dockerfile). Output-filer hamnar i `tmp/`.
+Krev `make build-docker-gource` éin gong (eller etter endringar i Dockerfile). Output-filer havner i `tmp/`.
 
 | Kommando | Beskriving | Output |
 |---|---|---|

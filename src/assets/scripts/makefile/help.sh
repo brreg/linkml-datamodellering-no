@@ -5,7 +5,7 @@
 # kategori-mønster som matchar eit targetnavn vinn (target vist i éin
 # kategori, aldri fleire, sjølv om navnet matchar fleire mønster — t.d.
 # build-docker-mcp-validator matchar både "build-docker-" og "mcp-", men
-# hamnar berre under "Container images" sidan det mønsteret kjem først).
+# havner berre under "Container images" sidan det mønsteret kjem først).
 # Delt ut for å unngå å gjenta same grep|sed|awk-pipeline sju gonger inline
 # i Makefile (éin gong per kategori) — sjå specs/done/forenkle-make-laget.md.
 #

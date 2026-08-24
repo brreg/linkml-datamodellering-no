@@ -59,7 +59,7 @@ Stadfesta at dette **ikkje** er ei reell sirkulær avhengigheit:
    åtvaringa — sjølv om den refererte typen (t.d. `Elev`) alt er korrekt
    definert tidlegare i utdataet, og resultatet (`.avsc`/`.xsd`) er
    strukturelt gyldig.
-3. Kva klassenavn som hamnar i åtvaringsmeldinga varierer mellom køyringar
+3. Kva klassenavn som havner i åtvaringsmeldinga varierer mellom køyringar
    fordi rekkjefølgja typane vert prosesserte i ikkje er deterministisk
    (truleg `PYTHONHASHSEED`-avhengig set/dict-iterasjon i `avrotize`) — eit
    ekstra teikn på at dette er eit generisk verktøy-avgrensing, ikkje eit

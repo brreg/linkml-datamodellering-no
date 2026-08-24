@@ -134,8 +134,9 @@ Bokmål i modellering følgjer terminologien i norske offentlege standardar (DCA
 |---|---|
 | namn | navn |
 | artefaktar | artefakter |
+| hamnar | havner |
 
-Desse er historiske, brukarstadfesta unntak — ikkje eit generelt skifte til bokmål. `specs/done/` er urørt (arkivert, jf. DRY-unntaket i innleiinga). Sjå `specs/done/erstatt-artefaktar-med-artefakter.md` og `specs/done/namn-navn-konsistens-make-help.md` for grunngjeving.
+Desse er historiske, brukarstadfesta unntak — ikkje eit generelt skifte til bokmål. `specs/done/` er urørt (arkivert, jf. DRY-unntaket i innleiinga). Sjå `specs/done/erstatt-artefaktar-med-artefakter.md`, `specs/done/namn-navn-konsistens-make-help.md` og `specs/done/erstatt-hamnar-med-havner.md` for grunngjeving.
 
 ### Endringer i koderepoet
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
