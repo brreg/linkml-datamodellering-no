@@ -502,9 +502,6 @@ jobs:
           name: source
           path: .
 
-      - name: Oppgrader crun
-        uses: ./.github/actions/upgrade-crun
-
       - name: Slå saman genererte domene-artefakt til generated/
         uses: ./.github/actions/merge-generated-artifacts
         with:
@@ -519,7 +516,33 @@ jobs:
           name: generated-modell-analyse-tvers-domene
           path: generated/modell-analyse-tvers-domene/
 
+      - name: Cache bygd site (mkdocs/site/)
+        id: cache-site
+        # Cachar det FERDIGBYGDE portal-resultatet (i staden for det
+        # verknadslause forsøket via mkdocs-build-cache-plugin, sjå
+        # specs/done/raskare-docs-build.md) — nøkla på INNDATAA som
+        # avgjer det renderte innhaldet (generated/, publish.sh-
+        # orkestreringa, statiske mkdocs-sider/tema, README.md), ikkje på
+        # OUTPUT-katalogen. mkdocs/publish.sh skriv eit ferskt
+        # "sist bygd"-tidsstempel inn i portalen kvar køyring, så eit
+        # output-hasha nøkkel ville aldri treffe — det var nett grunnen
+        # den gamle pluginen aldri fungerte. Denne workflowen sin
+        # `on.push.paths`-filter dekkjer ikkje `.github/workflows/**`, så
+        # reine CI-/workflow-tuning-køyringar (via workflow_dispatch) har
+        # typisk INGEN endring i desse inndataa og kan hoppe rett til
+        # deploy. Sjå specs/backlog/reduser-generate-workflow-under-5min.md
+        # (Tiltak 1) for grunngjeving og full inndata-kartlegging.
+        uses: actions/cache@v6
+        with:
+          path: mkdocs/site/
+          key: v1-site-${{ hashFiles('generated/**', 'mkdocs/publish.sh', 'mkdocs/lib/**', 'mkdocs/docs/**', 'mkdocs/overrides/**', 'src/assets/containers/Dockerfile.mkdocs', 'README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'src/mcp-linkml-validator/policies/README.md') }}
+
+      - name: Oppgrader crun
+        if: steps.cache-site.outputs.cache-hit != 'true'
+        uses: ./.github/actions/upgrade-crun
+
       - name: Logg inn på GHCR
+        if: steps.cache-site.outputs.cache-hit != 'true'
         uses: ./.github/actions/ghcr-login
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -532,12 +555,14 @@ jobs:
         # ./.github/actions/pull-images-action og image_tags-kjelde
         # (checkout-source) som resten av workflowen brukar — sjå
         # specs/backlog/parallell-image-pull-publish-jobb.md.
+        if: steps.cache-site.outputs.cache-hit != 'true'
         uses: ./.github/actions/pull-images
         with:
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Publiser og bygg dokumentasjonsportal
+        if: steps.cache-site.outputs.cache-hit != 'true'
         shell: bash
         env:
           LOGLVL: DEBUG
