@@ -14,7 +14,7 @@ og grunngjevinga i specs/backlog/effektiviser-mcp-linkml-validator-
 koyretid.md): send eit alt oppløyst `SchemaView(schema_path).schema`-
 objekt, ALDRI ein rå skjemasti eller instans-filsti, sidan
 `linkml.validator.validate()` elles anten reknar ut feil absolutt sti for
-relative importar (skjemaet) eller behandlar filstinamnet sjølv som
+relative importar (skjemaet) eller behandlar filstinavnet sjølv som
 instansdata (instansen — verifisert empirisk, `validate()` krev eit alt
 parsa objekt, ikkje ein filsti-streng). `target_class` treng ikkje
 oppgjevast eksplisitt — `validate()` finn `tree_root`-klassen automatisk

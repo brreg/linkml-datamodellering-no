@@ -40,7 +40,7 @@ Tabellane vert genererte av `src/assets/scripts/makefile/generate-readme-tables.
 - **Skildringar vert henta** frå `description:`-feltet i kvar skjemafil via `extract-schema-metadata.py` (linje 72)
 - **Dokumentasjonslenkjer vert henta** frå første URI i `see_also:`-lista via `extract-schema-metadata.py` (linje 75)
 
-Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, men inkluderer berre **hovudskjema** der filnavnet matcher katalognavnet (t.d. `modelldcat-ap-no/modelldcat-ap-no-schema.yaml` vert inkludert). Ein katalog der filnamn og katalognamn ikkje matchar (t.d. eit skjema plassert etter det no ubrukte `submodels:`-mønsteret, sjå `build-config.md`) ville vorte hoppa over.
+Scriptet finn alle `*-schema.yaml`-filer under `src/linkml/<domene>/<skjema>/`, men inkluderer berre **hovudskjema** der filnavnet matcher katalognavnet (t.d. `modelldcat-ap-no/modelldcat-ap-no-schema.yaml` vert inkludert). Ein katalog der filnavn og katalognavn ikkje matchar (t.d. eit skjema plassert etter det no ubrukte `submodels:`-mønsteret, sjå `build-config.md`) ville vorte hoppa over.
 
 **Domene som vert inkluderte:** fair, ap-no, referanse, ngr, oreg, fint, samt (linje 30)
 

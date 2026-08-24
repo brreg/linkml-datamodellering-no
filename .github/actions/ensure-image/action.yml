@@ -10,7 +10,7 @@ description: >-
   køyrer.
 inputs:
   name:
-    description: 'Image-namn (t.d. linkml-local)'
+    description: 'Image-navn (t.d. linkml-local)'
     required: true
   tag:
     description: 'Full GHCR-tag, t.d. ghcr.io/eigar/linkml-local:<hash>'

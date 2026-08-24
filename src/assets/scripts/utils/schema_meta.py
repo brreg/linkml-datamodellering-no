@@ -9,7 +9,7 @@ from .yaml_io import load_yaml
 
 
 def get_domain_model(schema_path: Path) -> tuple[str, str]:
-    """Utlei domain og modellnamn frå skjemastien."""
+    """Utlei domain og modellnavn frå skjemastien."""
     model = schema_path.parent.name
     domain = schema_path.parent.parent.name
     if domain == "linkml":

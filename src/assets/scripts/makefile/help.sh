@@ -2,8 +2,8 @@
 # Genererer den kategoriserte target-lista for `make help`. Les kvart
 # target sin `## `-hjelpetekst frå filene gitt som argument (Makefile sin
 # $(MAKEFILE_LIST)) og listar dei opp gruppert etter kategori — første
-# kategori-mønster som matchar eit targetnamn vinn (target vist i éin
-# kategori, aldri fleire, sjølv om namnet matchar fleire mønster — t.d.
+# kategori-mønster som matchar eit targetnavn vinn (target vist i éin
+# kategori, aldri fleire, sjølv om navnet matchar fleire mønster — t.d.
 # build-docker-mcp-validator matchar både "build-docker-" og "mcp-", men
 # hamnar berre under "Container images" sidan det mønsteret kjem først).
 # Delt ut for å unngå å gjenta same grep|sed|awk-pipeline sju gonger inline
@@ -16,7 +16,7 @@
 # og skildringa dempa (hjelpetekst). Argument-uttrykket er ei avsluttande
 # "(...)"- eller "[...]"-gruppe (eller
 # fleire etter kvarandre) i `## `-skildringa som inneheld minst eitt "=" —
-# konvensjonen er at parentes ("(NAME=<namn>)") markerer obligatoriske
+# konvensjonen er at parentes ("(NAME=<navn>)") markerer obligatoriske
 # argument (farga grøn, CLR_OK), hakeparentes ("[SCHEMA=<sti>]") valfrie
 # (farga gul, CLR_WARN). Kvar gruppe fargeleggjast for seg — ei gruppe med
 # nøsta hakeparentes inni ein ytre parentes (t.d.
@@ -39,10 +39,10 @@ CLR_RST=$'\033[0m'
 [ $# -gt 0 ] || { echo "help.sh: krev minst éi fil som argument" >&2; exit 1; }
 files=("$@")
 
-# (overskrift|grep -E-mønster for targetnamn) — i visingsrekkefølgje, som
+# (overskrift|grep -E-mønster for targetnavn) — i visingsrekkefølgje, som
 # også følgjer brukar-arbeidsflyten (opprett → valider → generer →
 # publiser → analyser), med infrastruktur-/verktøykategoriane sist.
-# Vanleg bruk-mønsteret er ankra (^...$, eksakt targetnamn) — dei andre
+# Vanleg bruk-mønsteret er ankra (^...$, eksakt targetnavn) — dei andre
 # mønstera er umarkerte prefiks/substring-mønster. Ankringa er nødvendig
 # fordi "test" elles ville matche som substring i mcp-linkml-*-test og
 # stole dei frå MCP-serverar (sjå specs/done/help-gruppering-vanleg-bruk-vedlikehald.md).
@@ -60,15 +60,15 @@ categories=(
 )
 
 # Merk: ingen -h til grep — når fleire filer er gitt, prefikser grep kvar
-# linje med "filnamn:", og det etterfølgjande sed-steget nyttar nettopp
-# dette (fjernar alt til og med FØRSTE kolon = filnamnet) for å få fram
-# sjølve "target: ## skildring"-linja. Med -h forsvinn filnamn-prefikset,
-# og sed ville i staden fjerne target-namnet.
+# linje med "filnavn:", og det etterfølgjande sed-steget nyttar nettopp
+# dette (fjernar alt til og med FØRSTE kolon = filnavnet) for å få fram
+# sjølve "target: ## skildring"-linja. Med -h forsvinn filnavn-prefikset,
+# og sed ville i staden fjerne target-navnet.
 #
 # Andre sed-steget strippar eventuelle Makefile-prerequisitar mellom
 # target-kolon og "## " (t.d. "gource-preview: build-docker-gource ## ..."
-# → "gource-preview: ## ...") slik at namnekolonna i output berre viser
-# target-namnet, ikkje prerequisitar.
+# → "gource-preview: ## ...") slik at navnekolonna i output berre viser
+# target-navnet, ikkje prerequisitar.
 mapfile -t lines < <(
     grep -E '^[a-zA-Z_-]+:.*?## .*$' "${files[@]}" \
         | sed 's/^[^:]*://' \

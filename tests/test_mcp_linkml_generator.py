@@ -85,16 +85,16 @@ class TestConversion(unittest.TestCase):
                 "Person": {
                     "type": "object",
                     "properties": {
-                        "namn": {"type": "string"},
+                        "navn": {"type": "string"},
                         "alder": {"type": "integer"},
                     },
-                    "required": ["namn"],
+                    "required": ["navn"],
                 }
             }
         })
         su = schema["classes"]["Person"]["slot_usage"]
-        self.assertEqual(su["namn"]["in_subset"], ["Obligatorisk"])
-        self.assertTrue(su["namn"]["required"])
+        self.assertEqual(su["navn"]["in_subset"], ["Obligatorisk"])
+        self.assertTrue(su["navn"]["required"])
         self.assertEqual(su["alder"]["in_subset"], ["Anbefalt"])
         self.assertNotIn("required", su["alder"])
 
@@ -110,7 +110,7 @@ class TestConversion(unittest.TestCase):
                 "Kunde": {
                     "type": "object",
                     "properties": {
-                        "namn": {"type": "string"},
+                        "navn": {"type": "string"},
                     },
                 },
             }
@@ -194,7 +194,7 @@ class TestConversion(unittest.TestCase):
             "$defs": {
                 "Ting": {
                     "type": "object",
-                    "properties": {"namn": {"type": "string"}},
+                    "properties": {"navn": {"type": "string"}},
                 }
             }
         })
@@ -221,7 +221,7 @@ class TestConversion(unittest.TestCase):
         self.assertEqual(schema["slots"]["id"]["range"], "uriorcurie")
         self.assertIn("id", schema["classes"]["Ting"]["slots"])
 
-    def test_slot_namns_kollisjon_gir_åtvaring_ikkje_exception(self):
+    def test_slot_navns_kollisjon_gir_åtvaring_ikkje_exception(self):
         schema, warnings = _convert({
             "$defs": {
                 "A": {
@@ -269,18 +269,18 @@ class TestConversion(unittest.TestCase):
             {
                 "type": "object",
                 "properties": {
-                    "namn": {"type": "string"},
+                    "navn": {"type": "string"},
                     "dato": {"type": "string", "format": "date"},
                 },
-                "required": ["namn"],
+                "required": ["navn"],
             },
             schema_name="MinModell",
         )
         self.assertIn("MinModell", schema["classes"])
-        self.assertIn("namn", schema["slots"])
+        self.assertIn("navn", schema["slots"])
         self.assertIn("dato", schema["slots"])
         su = schema["classes"]["MinModell"]["slot_usage"]
-        self.assertEqual(su["namn"]["in_subset"], ["Obligatorisk"])
+        self.assertEqual(su["navn"]["in_subset"], ["Obligatorisk"])
         self.assertEqual(su["dato"]["in_subset"], ["Anbefalt"])
 
     def test_tom_properties_gir_klasse_utan_slot_usage(self):
@@ -331,8 +331,8 @@ class TestConversion(unittest.TestCase):
         self.assertEqual(schema["slots"]["tittel"]["slot_uri"], "test:tittel")
 
     def test_subsets_vert_ikkje_lokalt_definert(self):
-        """Subset-namna vert berre referert via in_subset, aldri definert lokalt —
-        ei lokal subsets-blokk kolliderer med same namn importert frå
+        """Subset-navna vert berre referert via in_subset, aldri definert lokalt —
+        ei lokal subsets-blokk kolliderer med same navn importert frå
         common-ap-no-schema.yaml (sjå specs/done/fjern-lokale-subsets-new-modell.md)."""
         schema, _ = _convert({"type": "object", "properties": {}}, schema_name="Tom")
         self.assertNotIn("subsets", schema)
@@ -435,7 +435,7 @@ class TestGeneratedOutput(unittest.TestCase):
                 "$defs": {
                     "Ting": {
                         "type": "object",
-                        "properties": {"namn": {"type": "string"}},
+                        "properties": {"navn": {"type": "string"}},
                     }
                 }
             },
@@ -459,10 +459,10 @@ class TestGeneratedOutput(unittest.TestCase):
                         "type": "object",
                         "description": "Ein person.",
                         "properties": {
-                            "namn":  {"type": "string", "description": "Fullt namn."},
+                            "navn":  {"type": "string", "description": "Fullt navn."},
                             "alder": {"type": "integer"},
                         },
-                        "required": ["namn"],
+                        "required": ["navn"],
                     }
                 }
             },
@@ -479,7 +479,7 @@ class TestGeneratedOutput(unittest.TestCase):
         try:
             sv = SchemaView(fname)
             self.assertIn("Person", sv.all_classes())
-            self.assertIn("namn",   sv.all_slots())
+            self.assertIn("navn",   sv.all_slots())
         finally:
             os.unlink(fname)
 
@@ -504,9 +504,9 @@ class TestValidation(unittest.TestCase):
                     "Ting": {
                         "type": "object",
                         "properties": {
-                            "namn": {"type": "string"},
+                            "navn": {"type": "string"},
                         },
-                        "required": ["namn"],
+                        "required": ["navn"],
                     }
                 }
             },
@@ -602,7 +602,7 @@ class TestMCPProtocol(unittest.TestCase):
             "$defs": {
                 "Ting": {
                     "type": "object",
-                    "properties": {"namn": {"type": "string"}},
+                    "properties": {"navn": {"type": "string"}},
                 }
             }
         })

@@ -5,10 +5,10 @@ description: >-
   eksporterer resultatet som JSON-array og space-separert liste.
 outputs:
   domains:
-    description: 'JSON-array med domenenamn'
+    description: 'JSON-array med domenenavn'
     value: ${{ steps.discover.outputs.domains }}
   domain_list:
-    description: 'Space-separert liste med domenenamn'
+    description: 'Space-separert liste med domenenavn'
     value: ${{ steps.discover.outputs.domain_list }}
 runs:
   using: 'composite'

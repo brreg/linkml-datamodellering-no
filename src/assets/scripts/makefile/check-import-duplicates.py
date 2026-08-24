@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
 Sjekk at ingen skjema definerer eit topnivå-slot/klasse/type/enum/subset som
-kolliderer med eit element frå importkjeda (same namn, ulikt kjeldeskjema).
+kolliderer med eit element frå importkjeda (same navn, ulikt kjeldeskjema).
 
 Bakgrunn: sjå specs/done/oreg-scaffold-generering-feiler.md og
 specs/backlog/new-modell-dublettsjekk-mot-imports.md. Seks nye oreg-skjema
 definerte lokale slots/klassar (t.d. `beskrivelse`, `versjon`,
-`Kontaktopplysning`) med same namn som eit element alt importert via
+`Kontaktopplysning`) med same navn som eit element alt importert via
 dcat-ap-no-schema/common-ap-no-schema. LinkML sitt import-hierarki mergar
 IKKJE slike par til éitt element — dei kolliderer, og feilen dukkar først opp
 djupt inne i python/proto/graphql/jsonld-context/plantuml-generatorane med
 den kryptiske meldinga "Conflicting URIs (<skjema-a>, <skjema-b>) for item:
-<namn>", lenge etter at nokon kunne retta problemet enkelt.
+<navn>", lenge etter at nokon kunne retta problemet enkelt.
 
 Denne sjekken bruker `linkml.utils.schemaloader.SchemaLoader` direkte — same
 mekanisme desse generatorane alt bruker internt for å slå saman importkjeda
@@ -23,7 +23,7 @@ reimplementere import-oppløysing for hand. Kollisjonsfeilen kjem frå
         raise ValueError(f"Conflicting URIs ({source[k].from_schema}, "
                           f"{target[k].from_schema}) for item: {k}")
 
-— eit reint namne-basert sjekk (same namn frå to ulike skjema-kjelder), ikkje
+— eit reint navne-basert sjekk (same navn frå to ulike skjema-kjelder), ikkje
 ei samanlikning av faktiske slot_uri/class_uri-verdiar. Å kalle
 SchemaLoader(...).resolve() sjølv gjev difor 100 % åtferdsparitet med feilen
 sjekken skal fange, dekkjer types:/enums:/subsets: i tillegg til
@@ -70,9 +70,9 @@ def check_schema(schema_path: str) -> bool:
         if match:
             schema_a, schema_b, name = match.groups()
             log_error(
-                f"::error file={schema_path}::dublett-namn '{name}' finst i to skjema i "
+                f"::error file={schema_path}::dublett-navn '{name}' finst i to skjema i "
                 f"importkjeda ({schema_a} og {schema_b}) — gi det lokale elementet eit meir "
-                f"spesifikt namn (t.d. prefiks med modellnamnet, jf. "
+                f"spesifikt navn (t.d. prefiks med modellnavnet, jf. "
                 f"<modell>_kontaktinformasjon-mønsteret i oreg-skjema)"
             )
         else:

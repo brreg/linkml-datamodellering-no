@@ -91,7 +91,7 @@ som dokumentert mekanisme for eit eventuelt framtidig, faktisk sirkulær-import-
 **Eksempel:**
 ```yaml
 submodels:
-  - <delmodell-namn>
+  - <delmodell-navn>
 ```
 
 ### `external_spec_url` (valfritt)

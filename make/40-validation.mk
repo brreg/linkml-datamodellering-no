@@ -34,7 +34,7 @@ lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-lint.py \
 		--config src/assets/containers/.linkmllint.yaml -- $(if $(SCHEMA),$(SCHEMA),$(SCHEMAS))
 
-check-import-duplicates: ## Sjekk at lokale slots/klassar/typar/enum ikkje kolliderer med namn frå importerte skjema [DOMAIN=<domene>|SCHEMA=<sti>]
+check-import-duplicates: ## Sjekk at lokale slots/klassar/typar/enum ikkje kolliderer med navn frå importerte skjema [DOMAIN=<domene>|SCHEMA=<sti>]
 	$(call print_header,check-import-duplicates,$(if $(SCHEMA),SCHEMA=$(SCHEMA),$(if $(DOMAIN),DOMAIN=$(DOMAIN),(alle skjema))))
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/check-import-duplicates.py $(call get_target_schemas)
 
@@ -192,7 +192,7 @@ _mcp-valider-modell-with-header:
 	log_info "Skrive til: $$LOG_PATH (og kopiert til $$GEN_PATH for lokal portalvising)"; \
 	exit $$EXIT_CODE
 
-# Merk namnekonsistens/overlapp med validate-policy-logg/validate-instance-logg
+# Merk navnekonsistens/overlapp med validate-policy-logg/validate-instance-logg
 # under: begge skriv til same output-format (validation/<versjon>/<policy>.json),
 # men er ikkje duplikat i praksis. validate-capture (run-schema-validation.py)
 # er eit manuelt batch-verktøy avgrensa til release-please-config.json sine
@@ -200,11 +200,11 @@ _mcp-valider-modell-with-header:
 # instance-logg (run-validation.sh) er derimot kalla direkte frå
 # .github/workflows/{generate,validate}.yml for kvart einskild skjema/manifest
 # — CI-kritisk infrastruktur. Konsolidering vart difor vurdert (jf.
-# specs/backlog/make-kommando-inkonsistens-audit.md, namnekonsistens 4) og
+# specs/backlog/make-kommando-inkonsistens-audit.md, navnekonsistens 4) og
 # medvite utsett: å skrive om eit CI-kritisk script utan eksplisitt brukar-
 # godkjenning bryt CLAUDE.md sitt DRY-unntak for risikofylte omskrivingar.
-# (Namna sjølve vart omdøypte 2026-08-20, jf.
-# specs/done/make-target-namn-vs-funksjon.md, Funn 7 — funksjonen og
+# (Navna sjølve vart omdøypte 2026-08-20, jf.
+# specs/done/make-target-navn-vs-funksjon.md, Funn 7 — funksjonen og
 # CI-kritikaliteten er uendra.)
 validate-capture: ## MCP-validering med logging til validation/ [SCHEMA=<sti>]
 	$(call print_header,validate-capture,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema$(COMMA) batcha)))
@@ -231,7 +231,7 @@ validate-policy-logg: ## Policy-validering med full JSON-logg (BUILDYAML=<sti>|S
 		exit 1; \
 	fi
 
-# Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<namn>.json
+# Validerer instans og skriv logg til src/linkml/<domain>/<modell>/validation/<version>/instance-<navn>.json
 validate-instance-logg: ## Instansvalidering med full JSON-logg (SCHEMA=<sti> INSTANCE=<sti>)
 	@test -n "$(SCHEMA)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance-logg SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }
 	@test -n "$(INSTANCE)" || { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make validate-instance-logg SCHEMA=<sti> INSTANCE=<sti>"; exit 1; }

@@ -274,7 +274,7 @@ class TestBronze(unittest.TestCase):
         self.assertEqual(r["errorCount"], 0)
 
     def test_klasse_utan_description_gir_advarsel(self):
-        # id og name er alltid auto-populert av linkml-runtime frå filnamnet;
+        # id og name er alltid auto-populert av linkml-runtime frå filnavnet;
         # klasse-description er derimot ikkje auto-populert og er testbar.
         schema = """\
 id: https://example.org/schema

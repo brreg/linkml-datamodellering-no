@@ -20,7 +20,7 @@ def write_yaml(file_path: Path, data: Dict, generated_by: str, note: str = "") -
     Args:
         file_path: Sti til fila som skal skrivast
         data: Data som skal serialiserast
-        generated_by: Kallande script sitt filnamn (t.d. Path(__file__).name)
+        generated_by: Kallande script sitt filnavn (t.d. Path(__file__).name)
         note: Valfri ekstra forklaringslinje i header-kommentaren
     """
     file_path.parent.mkdir(parents=True, exist_ok=True)

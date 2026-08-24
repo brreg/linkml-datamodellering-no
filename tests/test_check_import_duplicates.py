@@ -32,18 +32,18 @@ def run_check(*schema_names: str) -> subprocess.CompletedProcess:
 
 class TestCheckImportDuplicates(unittest.TestCase):
     def test_no_collision_passes(self):
-        """Eit skjema som berre attgjenbruker eit importert slot/klasse-namn (utan lokal
+        """Eit skjema som berre attgjenbruker eit importert slot/klasse-navn (utan lokal
         redefinisjon) skal ikkje reknast som ein kollisjon."""
         result = run_check("check-import-duplicates-no-collision-fixture.yaml")
         self.assertEqual(result.returncode, 0, msg=result.stderr)
         self.assertNotIn("[ERROR]", result.stderr)
 
     def test_direct_collision_fails(self):
-        """Eit lokalt redefinert slot med same namn som eit direkte (førstenivå) import
+        """Eit lokalt redefinert slot med same navn som eit direkte (førstenivå) import
         skal fangast."""
         result = run_check("check-import-duplicates-direct-collision-fixture.yaml")
         self.assertEqual(result.returncode, 1)
-        self.assertIn("dublett-namn 'felles_slot'", result.stderr)
+        self.assertIn("dublett-navn 'felles_slot'", result.stderr)
         self.assertIn("check-import-duplicates-direct-collision-fixture.yaml", result.stderr)
 
     def test_transitive_collision_fails(self):
@@ -51,7 +51,7 @@ class TestCheckImportDuplicates(unittest.TestCase):
         B importerer C, A kolliderer med noko definert i C) skal òg fangast."""
         result = run_check("check-import-duplicates-transitive-collision-fixture.yaml")
         self.assertEqual(result.returncode, 1)
-        self.assertIn("dublett-namn 'felles_slot'", result.stderr)
+        self.assertIn("dublett-navn 'felles_slot'", result.stderr)
 
     def test_linkml_types_not_false_positive(self):
         """linkml:types (brukt av alle fixture-skjemaa via `range: string` osv.) skal

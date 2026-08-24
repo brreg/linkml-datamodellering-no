@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 # Generisk target-generator for gen-* targets
 # ---------------------------------------------------------------------------
-# $1=target-namn (t.d. gen-jsonschema)  $2=makro-namn (t.d. run_gen_parallel)  $3=ekstra argument til makroen
+# $1=target-navn (t.d. gen-jsonschema)  $2=makro-navn (t.d. run_gen_parallel)  $3=ekstra argument til makroen
 define make_gen_target
 .PHONY: $(1)
 $(1):

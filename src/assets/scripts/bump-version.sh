@@ -3,7 +3,7 @@
 # sidan siste versjonstagg for modellen. Lagar ny Git-tagg.
 #
 # Bruk:
-#   ./src/assets/scripts/bump-version.sh <modellnamn>
+#   ./src/assets/scripts/bump-version.sh <modellnavn>
 #   ./src/assets/scripts/bump-version.sh ngr-adresse
 #   ./src/assets/scripts/bump-version.sh ngr-adresse --dry-run
 
@@ -13,7 +13,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 usage() {
-  echo "Bruk: $(basename "$0") <modellnamn> [--dry-run]"
+  echo "Bruk: $(basename "$0") <modellnavn> [--dry-run]"
   echo ""
   echo "Eksempel:"
   echo "  $(basename "$0") ngr-adresse"

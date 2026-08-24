@@ -54,7 +54,7 @@ def detect_quickstart(schema):
     """Same logikk som heredocen i kom_i_gang.sh: finn container-klasse,
     representativ eksempel-klasse (Obligatorisk > Anbefalt > første ikkje-
     container-klasse > containerklassen sjølv), og eit snake_case
-    variabelnamn."""
+    variabelnavn."""
     classes = schema.get("classes", {}) or {}
 
     container_class = None
@@ -165,7 +165,7 @@ def load_codeowners_orgs(codeowners_path):
 def collect_submodels():
     """Gjenskaper Steg 1.5-løkka i publish.sh: gå gjennom ALLE build.yaml
     under src/linkml/ (skjema- OG datafil-manifest), nøkla på
-    katalognamnet (basename), same nøkkel som bash sin
+    katalognavnet (basename), same nøkkel som bash sin
     `schema=$(basename "$schema_dir")`."""
     import subprocess
 

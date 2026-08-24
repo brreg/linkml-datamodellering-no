@@ -231,7 +231,7 @@ jobs:
               logfile="/tmp/mermaid/blocks/block-${id}.log"
               # --user 0:0 er naudsynt: mermaid-cli-biletet køyrer som uid 1001,
               # men i podman rootless vert monterte filer eigd av "root" i
-              # containerens brukarnamnerom — 1001 manglar skrivetilgang utan dette
+              # containerens brukarnavnerom — 1001 manglar skrivetilgang utan dette
               if podman run --rm --user 0:0 -v /tmp/mermaid/blocks:/data docker.io/minlag/mermaid-cli:latest \
                    -i "/data/block-${id}.mmd" -o "/data/block-${id}.svg" \
                    > "$logfile" 2>&1; then
@@ -280,7 +280,7 @@ jobs:
       - name: Sjekk ut repo
         uses: actions/checkout@v7
 
-      # Evaluerer mermaid `click <Namn> href "..."`-direktiv i klassediagram
+      # Evaluerer mermaid `click <Navn> href "..."`-direktiv i klassediagram
       # på den publiserte portalen. Desse er usynlege for mkdocs sin eigen
       # lenkje-validator (jf. validation.links i mkdocs.yml), sidan han berre
       # ser rendra <a href>-element — ikkje rå tekst inni fenced code-blokker.

@@ -259,7 +259,7 @@ def _build_argv(s: str, domain: str, name: str, spec: GeneratorSpec) -> list[str
 # metoden ProcessPoolExecutor sjølv garanterer køyrer i KVAR worker
 # uavhengig av startmetode — difor brukt her i staden for implisitt
 # arv. Sjølve Click Command-objektet vert framleis aldri pickla/sendt over
-# IPC-køen (berre eit importerbart modulnamn, ein plain string).
+# IPC-køen (berre eit importerbart modulnavn, ein plain string).
 _CLI_CMD = None
 
 

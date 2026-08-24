@@ -110,18 +110,32 @@ run_validate() {
 # direkte argv (ikkje shell-pipe). Fell tilbake til rå make-output dersom
 # demo-fun-tools-biletet ikkje finst, slik at analyseresultatet aldri går
 # tapt berre fordi pynt-biletet manglar.
-run_analyse_classes() {
+run_analyse_similar_classes() {
     if podman image exists "$FUN_IMAGE" 2>/dev/null; then
         make analyse-similar-classes-domain DOMAIN="$DOMAIN" NAME="$NAME" | fun glow -w "$(fun_width 140)" -
     else
         make analyse-similar-classes-domain DOMAIN="$DOMAIN" NAME="$NAME"
     fi
 }
-run_analyse_slots() {
+run_analyse_similar_slots() {
     if podman image exists "$FUN_IMAGE" 2>/dev/null; then
         make analyse-similar-slots-domain DOMAIN="$DOMAIN" NAME="$NAME" | fun glow -w "$(fun_width 140)" -
     else
         make analyse-similar-slots-domain DOMAIN="$DOMAIN" NAME="$NAME"
+    fi
+}
+run_analyse_unused_slots() {
+    if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+        make analyse-ubrukte-slots SCHEMA="$SCHEMA" | fun glow -w "$(fun_width 140)" -
+    else
+        make analyse-ubrukte-slots SCHEMA="$SCHEMA"
+    fi
+}
+run_analyse_isolated_classes() {
+    if podman image exists "$FUN_IMAGE" 2>/dev/null; then
+        make analyse-isolerte-klasser SCHEMA="$SCHEMA" | fun glow -w "$(fun_width 140)" -
+    else
+        make analyse-isolerte-klasser SCHEMA="$SCHEMA"
     fi
 }
 
@@ -475,30 +489,40 @@ step boxes "8. Valider skjemaet" \
 
 echo ""
 echo ""
-step boxes "9. Finn liknande klassenavn på tvers av domenet" \
+step boxes "9. Finn isolerte klasser i modellen" \
+    "${CLR_STEP}make analyse-isolerte-klasser${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    run_analyse_isolated_classes
+echo ""
+echo ""
+step boxes "10. Finn ubrukte slots i modellen" \
+    "${CLR_STEP}analyse-ubrukte-slots${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
+    run_analyse_unused_slots
+echo ""
+
+step boxes "11. Finn liknande klassenavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
-    run_analyse_classes
+    run_analyse_similar_classes
 echo ""
-step boxes "10. Finn liknande slotnavn på tvers av domenet" \
+step boxes "12. Finn liknande slotnavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
-    run_analyse_slots
+    run_analyse_similar_slots
 echo ""
 echo ""
-step boxes "11. Generer JSON Schema frå den redigerte modellen" \
+step boxes "13. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-jsonschema SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "12. Generer PlantUML-diagram" \
+step boxes "14. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "13. Generer ModelDCAT-metadata" \
+step boxes "15. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
 
-#read -rp "Trykk Enter når du er ferdig … "
+read -rp "Trykk Enter når du er ferdig … "
 echo ""
 echo ""
 echo ""

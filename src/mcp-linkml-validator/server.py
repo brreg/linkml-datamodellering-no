@@ -193,7 +193,7 @@ def _check_class_names_pascal_case(sv, schema, config, issues):
         if not cname[0].isupper():
             issues.append(issue(
                 config["severity"], "class_names_pascal_case", f"class:{cname}",
-                f"Klassenamn '{cname}' skal starte med stor forbokstav (PascalCase)",
+                f"Klassenavn '{cname}' skal starte med stor forbokstav (PascalCase)",
             ))
 
 
@@ -207,7 +207,7 @@ def _check_slot_names_snake_case(sv, schema, config, issues):
         if not pattern.match(sname):
             issues.append(issue(
                 config["severity"], "slot_names_snake_case", f"slot:{sname}",
-                f"Slotnamn '{sname}' er ikkje snake_case (berre a-z, 0-9, _)",
+                f"Slotnavn '{sname}' er ikkje snake_case (berre a-z, 0-9, _)",
             ))
 
 
@@ -879,7 +879,7 @@ def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
         # 3) Instansvalidering — køyrer for alle policyer om instans er gjeven.
         # Gjenbruk sv.schema (alt bygd, med imports løyste) i staden for å
         # sende schema_path vidare til lm_validate(): linkml sin eigen
-        # sti-baserte import-oppløysing bruker CWD/objektnamn som base i
+        # sti-baserte import-oppløysing bruker CWD/objektnavn som base i
         # staden for skjemafila sin eigen katalog, og reknar difor ut feil
         # absolutt sti for relative importar (verifisert empirisk — feilar
         # med t.d. "/ap-no/..." i staden for "/repo/src/linkml/ap-no/...").
@@ -979,7 +979,7 @@ def validate_instance(schema_text: str | None, instance_text: str, target_class:
 
     Merk: å sende ein rå skjemasti til `linkml.validator.validate()` er
     **ikkje** trygt — verifisert empirisk at biblioteket då reknar ut feil
-    absolutt sti for relative importar (brukar CWD/objektnamn som base i
+    absolutt sti for relative importar (brukar CWD/objektnavn som base i
     staden for skjemafila sin eigen katalog). `schema_path` løyser difor
     imports sjølv via `SchemaView` og sender det ferdig oppløyste
     `SchemaDefinition`-objektet vidare, akkurat som `schema_obj`.
@@ -1095,7 +1095,7 @@ TOOL_DEF = {
             },
             "policy": {
                 "type": "string",
-                "description": "Policy-namn (default: 'bronze'). Tilgjengelege: 'bronze', 'silver', 'gold'.",
+                "description": "Policy-navn (default: 'bronze'). Tilgjengelege: 'bronze', 'silver', 'gold'.",
                 "default": "bronze",
             },
             "instanceText": {

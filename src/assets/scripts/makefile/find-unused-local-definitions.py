@@ -61,8 +61,8 @@ To bruksmåtar:
 
    Diskoverer alle skjema i domenet
    (`src/linkml/<domene>/*/*-schema.yaml`), skriv
-   `<out-dir>/<domene>/<skjema>/model-analyse/<rapportnamn>.md` per
-   skjema — same filnamn og katalogstruktur som steg 1 sine fem separate
+   `<out-dir>/<domene>/<skjema>/model-analyse/<rapportnavn>.md` per
+   skjema — same filnavn og katalogstruktur som steg 1 sine fem separate
    kall produserte, slik at `generate-modellanalyse-md.py`/
    `mkdocs/publish.sh` ikkje treng endrast. Eitt skjema som feilar (t.d.
    ugyldig import) stoppar ikkje resten av domenet — feilen vert logga
@@ -95,7 +95,7 @@ KIND_LABELS = {
     "class": "klassar",
 }
 
-# Rapportfilnamn — MÅ matche det .github/workflows/generate.yml (og
+# Rapportfilnavn — MÅ matche det .github/workflows/generate.yml (og
 # generate-modellanalyse-md.py sin REPORTS-liste) forventar under
 # generated/<domene>/<skjema>/model-analyse/.
 KIND_TO_REPORT_FILENAME = {
@@ -178,7 +178,7 @@ def subset_is_used(subset_name: str, classes: list) -> bool:
 
 
 def find_unused(sv, kind: str) -> list[tuple[str, str]]:
-    """Returnerer [(namn, skildring), ...] for lokalt DEFINERTE namn av
+    """Returnerer [(navn, skildring), ...] for lokalt DEFINERTE navn av
     denne kinden som ikkje er brukt av nokon lokal (ikkje-root) klasse."""
     classes = local_classes(sv, include_root=False)
     if kind == "slot":
@@ -211,7 +211,7 @@ def find_unused(sv, kind: str) -> list[tuple[str, str]]:
 
 
 def class_connections(sv, c) -> set[str]:
-    """Namna på alle andre lokale klassar denne klassa er tilkopla til,
+    """Navna på alle andre lokale klassar denne klassa er tilkopla til,
     via slot-/attributtrange (begge retningar via induced_slot) eller
     is_a/mixins."""
     local_names = {lc.name for lc in local_classes(sv, include_root=True)}

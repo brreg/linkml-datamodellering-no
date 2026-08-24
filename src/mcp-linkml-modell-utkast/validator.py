@@ -172,10 +172,10 @@ def _main() -> None:
     """Bruk: python3 validator.py <schema.yaml> [id-prefiks]
 
     Skriv YAML til stdout med éin dummy-instans per containerattributt.
-    Med id-prefiks (t.d. 'mittskjema:eksempel') vert identifikator-slot namngjeve
+    Med id-prefiks (t.d. 'mittskjema:eksempel') vert identifikator-slot navngjeve
     'id' erstatta med '<prefiks>-<løpenummer>' i staden for den generiske
     placeholder-verdien frå _PLACEHOLDERS — konsistent med
-    <namn>:eksempel-N-konvensjonen i examples/<modell>-eksempel.yaml.
+    <navn>:eksempel-N-konvensjonen i examples/<modell>-eksempel.yaml.
     """
     import yaml
 

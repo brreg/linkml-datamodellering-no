@@ -27,7 +27,7 @@ generate_description() {
     local external_label=""
     if [ -n "$external_spec" ]; then
         external_label=$(get_external_spec_label "$manifest")
-        [ -z "$external_label" ] && external_label="$schema"  # Fallback til skjemanamn
+        [ -z "$external_label" ] && external_label="$schema"  # Fallback til skjemanavn
     fi
 
     # Vis seksjonen dersom vi har referanse ELLER description.md

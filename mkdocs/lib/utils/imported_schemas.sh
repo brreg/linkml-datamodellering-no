@@ -2,7 +2,7 @@
 # Hent flat liste av alle importerte skjema (direkte og transitivt)
 set -euo pipefail
 
-# Slå opp domenet eit skjemanamn (t.d. "dcat-ap-no-schema") høyrer til, via
+# Slå opp domenet eit skjemanavn (t.d. "dcat-ap-no-schema") høyrer til, via
 # det føre-berekna oppslaget frå publish.sh Steg 1.5
 # (SCHEMA_NAME_TO_DOMAIN_SERIALIZED). Erstattar whole-tree `find`-kall som
 # tidlegare fanst duplisert i både classes.sh og avhengigheiter.sh — sjå
@@ -21,10 +21,10 @@ lookup_schema_domain() {
     return 1
 }
 
-# Slå opp full filsti for eit skjemanamn via same føre-berekna oppslag.
+# Slå opp full filsti for eit skjemanavn via same føre-berekna oppslag.
 # Nødvendig i tillegg til lookup_schema_domain(), sidan delmodell-skjema
 # (t.d. dqv-core-schema.yaml) ligg i foreldreskjemaet sin katalog — stien
-# kan difor IKKJE rekonstruerast frå domene+namn åleine.
+# kan difor IKKJE rekonstruerast frå domene+navn åleine.
 lookup_schema_path() {
     local schema_name="$1"
     local entry key val
@@ -60,7 +60,7 @@ lookup_schema_metadata_line() {
     return 1
 }
 
-# Slå opp organisasjonsnamn for ein org_uri frå det pre-berekna
+# Slå opp organisasjonsnavn for ein org_uri frå det pre-berekna
 # ORG_URI_TO_NAME_SERIALIZED-registeret (CODEOWNERS.md, parsa éin gong i
 # same container-kall som over).
 lookup_org_name() {

@@ -14,7 +14,7 @@ WORK_MOUNT := -v "$(CURDIR):/work" -w /work
 # os.environ — utan desse ser skriptet alltid LOGLVL=INFO og skriv aldri
 # DEBUG-deloverskrifta "<generator> for schemas: ..." (sjå
 # specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
-# CLR_OK fargelegg skjemanamna i "— køyrer: ..."-lista grønt (sjå
+# CLR_OK fargelegg skjemanavna i "— køyrer: ..."-lista grønt (sjå
 # specs/done/farg-skjemanamn-i-koyrer-debug-linje.md)
 # -e BATCH_GENERATE_WORKERS: talet på ProcessPoolExecutor-workers for
 # spec.parallel=True-generatorane (doc/rdf) i batch-generate.py — les frå

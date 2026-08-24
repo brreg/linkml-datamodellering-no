@@ -196,6 +196,5 @@ enums:
         description: Godkjent
       AVVIST:
         description: Avvist
-
-# TODO: Gi stub-klassen eit meir meiningsfullt namn.
+# TODO: Gi stub-klassen eit meir meiningsfullt navn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.

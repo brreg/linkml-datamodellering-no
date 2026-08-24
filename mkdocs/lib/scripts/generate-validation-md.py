@@ -75,7 +75,7 @@ def main() -> None:
     # Generer lenke til valideringspolicy
     # MkDocs genererer anker frå fullstendig overskriftstekst
     # bronze/silver/gold/felles-*: ### <policy> → #<policy>
-    # Anchor-namnet er identisk med policy-namnet
+    # Anchor-navnet er identisk med policy-navnet
     # Bruk relativ path frå <domain>/<schema>/index.md til arkitektur/valideringsregler.md
     # (to nivå opp, so inn i arkitektur/: ../../arkitektur/valideringsregler.md)
     anchor = policy

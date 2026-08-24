@@ -3,7 +3,7 @@
 Lagrar valideringsresultat frå validate.yml som JSON i src/linkml/<domain>/<model>/validation/.
 
 - Skriv til src/linkml/<domain>/<model>/validation/<version>/<type>.json
-- <type> er 'bronze', 'examples', 'data', eller policy-namn frå manifest
+- <type> er 'bronze', 'examples', 'data', eller policy-navn frå manifest
 - Versjonsnummer henta frå version:-feltet i skjemaet (fallback: 0.0.0-dev)
 
 Ingen eksterne avhengigheiter — berre Python stdlib.
@@ -26,7 +26,7 @@ from utils.validation_log import build_validation_log_entry, write_validation_lo
 
 
 def get_schema_name(schema_path: Path) -> str:
-    """Hent skjemanamn utan -schema.yaml-suffiks."""
+    """Hent skjemanavn utan -schema.yaml-suffiks."""
     return schema_path.stem.removesuffix("-schema")
 
 
@@ -60,7 +60,7 @@ def save_log(
     log_entry = build_validation_log_entry(schema_name, domain, version, validation_type, result)
 
     # Skriv til src/linkml/<domain>/<model>/validation/<version>/<type>.json
-    # Filnamn basert på validation_type (t.d. bronze.json, examples.json, data.json)
+    # Filnavn basert på validation_type (t.d. bronze.json, examples.json, data.json)
     log_file = output_dir / domain / model / "validation" / version / f"{validation_type}.json"
     write_validation_log(log_file, log_entry)
 

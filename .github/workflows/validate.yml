@@ -6,7 +6,7 @@ name: Validate
 #
 # Loggar vert lagra per versjon i src/linkml/<domain>/<model>/validation/<version>/:
 # - <policy>.json: skjema-validering mot validation_policy frå manifest.yaml
-# - instance-<namn>.json: eksempelfil-validering
+# - instance-<navn>.json: eksempelfil-validering
 
 on:
   schedule:
@@ -18,7 +18,7 @@ on:
       - 'src/mcp-linkml-validator/**'
 
 # Kansellerer utdaterte køyringar: ein ny push til same PR treng ikkje
-# fullføre valideringa av den førre pusheen. Event-namnet er med i gruppa
+# fullføre valideringa av den førre pusheen. Event-navnet er med i gruppa
 # slik at ei nattleg schedule-køyring aldri vert kansellert av ein PR (eller
 # omvendt) — dei har ulikt formål (nattleg drift-sjekk vs. PR-gate).
 concurrency:
@@ -36,7 +36,7 @@ jobs:
       - name: Krev version:-felt i alle publish_external-skjema
         run: |
           # BUG-fiks: dette søkte tidlegare etter "manifest.yaml", eit
-          # filnamn som vart bytt til "build.yaml" ein gong i repoet si
+          # filnavn som vart bytt til "build.yaml" ein gong i repoet si
           # historie utan at dette steget (eller README/CONTRIBUTING/
           # GOVERNANCE/COMMANDS.md) vart oppdatert. find fann difor 0
           # filer, løkka køyrde 0 gonger, og jobben returnerte alltid

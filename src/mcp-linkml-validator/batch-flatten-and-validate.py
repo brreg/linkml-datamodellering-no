@@ -26,7 +26,7 @@ Bruk:
 
   jobs.json: [{"schema": "sti", "policy": "bronze", "instance": "sti-eller-null"}, ...]
 
-Output: eitt resultat-JSON-fil per jobb i --output-dir, namngjeve <index>.json
+Output: eitt resultat-JSON-fil per jobb i --output-dir, navngjeve <index>.json
 (0-indeksert, same rekkjefølgje som jobbane vart oppgjevne). Innhaldet er
 identisk med det éin enkelt `flatten-and-validate.bash`-kall ville printa —
 kan sendast rett vidare til save-validation-log.py/

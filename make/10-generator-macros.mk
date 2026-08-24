@@ -31,7 +31,7 @@
 # både frittståande gen-*-target (make/11-generator-targets.mk) og
 # domain_target (make/20-domain-targets.mk)
 # ---------------------------------------------------------------------------
-# $1=schemas  $2=batch-generate.py generator-namn (jf. REGISTRY der)
+# $1=schemas  $2=batch-generate.py generator-navn (jf. REGISTRY der)
 define run_gen_parallel
 @$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-generate.py --generator $(2) -- $(1)
 endef
@@ -125,7 +125,7 @@ endef
 # ---------------------------------------------------------------------------
 # gen-xsd (JSON Schema → Avro → XSD via avrotize) — gata mot build.yaml
 # (xsd: true), krev at gen-jsonschema alt har køyrt (--check-suffix
-# schema.json). Namnerom hentast frå skjemaet sin `id:`-topplevel-nøkkel med
+# schema.json). Navnerom hentast frå skjemaet sin `id:`-topplevel-nøkkel med
 # sed (unngår awk/nøsta-anførselsteikn-problem inni GEN_CMD, som alt er
 # enkelt-quota — sjå specs/done/forenkle-make-laget.md).
 # ---------------------------------------------------------------------------

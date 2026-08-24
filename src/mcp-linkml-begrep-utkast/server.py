@@ -46,7 +46,7 @@ TOOL_OPPRETT_BEGREP = {
         "properties": {
             "profil": {
                 "type": "string",
-                "description": "Profilnamn (standard: 'default'). Profilen set standardverdiar for URI-mønster og org-spesifikke felt.",
+                "description": "Profilnavn (standard: 'default'). Profilen set standardverdiar for URI-mønster og org-spesifikke felt.",
                 "default": "default",
             },
             "base_uri": {
@@ -251,7 +251,7 @@ TOOL_VALIDER_BEGREP = {
 
 TOOL_LIST_PROFILES = {
     "name": "list_profiles",
-    "description": "Listar tilgjengelege profiler med namn og skildring.",
+    "description": "Listar tilgjengelege profiler med navn og skildring.",
     "inputSchema": {
         "type": "object",
         "properties": {},
@@ -260,7 +260,7 @@ TOOL_LIST_PROFILES = {
 
 TOOL_LIST_LOS_TEMA = {
     "name": "list_los_tema",
-    "description": "Listar gyldige LOS-tema URI-ar med norske namn (statisk liste, ingen nettverkskall).",
+    "description": "Listar gyldige LOS-tema URI-ar med norske navn (statisk liste, ingen nettverkskall).",
     "inputSchema": {
         "type": "object",
         "properties": {},
@@ -271,7 +271,7 @@ TOOL_SKRIV_BEGREP_FIL = {
     "name": "skriv_begrep_fil",
     "description": (
         "Genererer begreps-YAML og skriv direkte til begrepssamling-struktur. "
-        "Skriv til src/linkml/<domain>/begrepssamling-<namn>/begrep/<slug>.yaml. "
+        "Skriv til src/linkml/<domain>/begrepssamling-<navn>/begrep/<slug>.yaml. "
         "Returnerer filsti."
     ),
     "inputSchema": {
@@ -284,12 +284,12 @@ TOOL_SKRIV_BEGREP_FIL = {
             },
             "begrepssamling": {
                 "type": "string",
-                "description": "Begrepssamling-namn, t.d. 'begrepssamling-foretaksregisteret'",
+                "description": "Begrepssamling-navn, t.d. 'begrepssamling-foretaksregisteret'",
             },
             # Same parametrar som opprett_begrep
             "profil": {
                 "type": "string",
-                "description": "Profilnamn (standard: 'default').",
+                "description": "Profilnavn (standard: 'default').",
                 "default": "default",
             },
             "base_uri": {

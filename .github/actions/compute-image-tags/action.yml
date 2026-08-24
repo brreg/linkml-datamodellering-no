@@ -1,7 +1,7 @@
 name: 'Bygg image-tag-oppslag'
 description: >-
   Les src/assets/containers/images.json (autoritativ kjelde for
-  namn/Dockerfile/make-target per image) og reknar ut GHCR-tag-hashen for
+  navn/Dockerfile/make-target per image) og reknar ut GHCR-tag-hashen for
   ALLE image med GitHub sin eigen hashFiles(). hashFiles() finst berre som
   eit "dollar-curly"-uttrykk evaluert av runneren — ikkje kallbart frå
   bash/jq ved køyretid — difor er dette den einaste staden i repoet desse
@@ -14,7 +14,7 @@ outputs:
     description: 'Uendra passthrough av heile images.json som JSON-array'
     value: ${{ steps.image-tags.outputs.images }}
   image_tags:
-    description: 'JSON-map {namn: hash-tag} for ALLE image i images.json'
+    description: 'JSON-map {navn: hash-tag} for ALLE image i images.json'
     value: ${{ steps.image-tags.outputs.image_tags }}
 runs:
   using: 'composite'

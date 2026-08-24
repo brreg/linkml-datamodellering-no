@@ -49,10 +49,10 @@ fi
 
 schema_domain() { echo "$1" | cut -d/ -f3; }
 
-# Fila sin eigen, unike basisnamn (filnamn utan -schema.yaml) — identifiserer
+# Fila sin eigen, unike basisnavn (filnavn utan -schema.yaml) — identifiserer
 # DETTE skjemaet eintydig, sjølv når fleire skjema er samlokaliserte i same
 # katalog (t.d. ap-no/dqv-ap-no/{dqv-ap-no,dqv-core}-schema.yaml). Brukt for
-# genererte artefaktnamn/utdatakatalog og visingsnamn i testutskrifta.
+# genererte artefaktnavn/utdatakatalog og visingsnavn i testutskrifta.
 # Matchar batch-generate.py sin schema_domain_name(). Sjå
 # specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
 schema_name() {
@@ -61,7 +61,7 @@ schema_name() {
     echo "${base%-schema}"
 }
 
-# Kjeldekatalognamnet (4. sti-komponent) — brukt KUN til å finne DELTE
+# Kjeldekatalognavnet (4. sti-komponent) — brukt KUN til å finne DELTE
 # per-katalog-ressursar (examples/<katalog>-eksempel.yaml,
 # tests/fixtures/<katalog>-fixture.yaml) når fleire skjema er samlokaliserte
 # (AP-NO-profilfamiliar). For dei aller fleste skjema (éin fil per katalog)
@@ -160,7 +160,7 @@ linkml_validate_job() {
     local validate_schema="$schema"
     if lacks_tree_root "$domain"; then
         # Fixture-filer er DELTE per kjeldekatalog — bruk schema_dir_name(),
-        # ikkje det (no filnamn-baserte) $name-parameteret. Sjå
+        # ikkje det (no filnavn-baserte) $name-parameteret. Sjå
         # specs/done/fiks-schema-name-katalog-kollisjon-test-make.md.
         validate_schema="tests/fixtures/$(schema_dir_name "$schema")-fixture.yaml"
         [ -f "$validate_schema" ] || return 1
@@ -201,7 +201,7 @@ declare -a SCHEMA_PIDS=()
 declare -a SCHEMA_LOGS=()
 
 # Køyr ein enkelt test og skriv parseable RESULT-markørar til stdout.
-# Set TEST_FILTER=<prefiks> for å køyre berre testar med namn som startar med prefikset.
+# Set TEST_FILTER=<prefiks> for å køyre berre testar med navn som startar med prefikset.
 _run_one() {
     local tname="$1"; shift
     if [[ -n "${TEST_FILTER:-}" && "$tname" != ${TEST_FILTER}* ]]; then
@@ -215,18 +215,18 @@ _run_one() {
     t0=$(date +%s%3N)
     "$@" 2>&1 || rc=$?
     elapsed=$(( $(date +%s%3N) - t0 ))
-    # Heile statuslinja (namn + "..." + OK/FEIL + linjeskift) skrivast som
+    # Heile statuslinja (navn + "..." + OK/FEIL + linjeskift) skrivast som
     # ÉIN printf — éin write()-syscall for ei linje av denne lengda er
     # atomisk med omsyn til andre samstundes skjema sine skriv til same
     # fildeskriptor (>&3), sidan mange skjema køyrer parallelt via
-    # SCHEMA_PIDS. Å splitte i eit "namn ..."-kall FØR testen og eit
+    # SCHEMA_PIDS. Å splitte i eit "navn ..."-kall FØR testen og eit
     # "OK/FEIL"-kall ETTER (den tidlegare koden) let andre prosessar sitt
     # skriv lande i gapet mellom dei to — garbla, samanblanda linjer. Sjå
     # specs/done/atomisk-terminal-utskrift-test-make.md.
-    # Namn- og tidsbruk-delen er kvar sin eigen fast-breidde printf-
-    # kolonne (i staden for tidsbruken lagt inn i namne-strengen), slik at
+    # Navn- og tidsbruk-delen er kvar sin eigen fast-breidde printf-
+    # kolonne (i staden for tidsbruken lagt inn i navne-strengen), slik at
     # tidsbruken alltid startar i same kolonne på tvers av linjer —
-    # uavhengig av kor langt testnamnet/skjemanamnet er. Same mønster som
+    # uavhengig av kor langt testnavnet/skjemanavnet er. Same mønster som
     # print_phase_a_summary()/Fase B-oppsummeringa, sjå
     # specs/done/fase-a-oppsummering-test-make.md.
     local timing="($(fmt_elapsed_ms "$elapsed"))"
@@ -317,9 +317,9 @@ wait_for_tests() {
                 echo "--- output frå $tname ---" >&2
                 grep -A 25 "TEST: $tname " "$tmplog" | tail -25 >&2 || true
             fi
-            # Test-typen er tname utan "(<skjemanamn>)"-suffikset, t.d.
+            # Test-typen er tname utan "(<skjemanavn>)"-suffikset, t.d.
             # "gen-jsonld (novari-modellkatalog)" → "gen-jsonld". Testar
-            # utan skjemanamn (t.d. "copy-artifacts-click-href") manglar
+            # utan skjemanavn (t.d. "copy-artifacts-click-href") manglar
             # " (" og vert difor sin eigen type uendra.
             local type="${tname%% (*}"
             if [[ -z "${phase_b_ok[$type]+x}" ]]; then
@@ -333,10 +333,10 @@ wait_for_tests() {
                 phase_b_ok[$type]=$(( phase_b_ok[$type] + 1 ))
             else
                 phase_b_fail[$type]=$(( phase_b_fail[$type] + 1 ))
-                # Skjemanamnet er teksten i parentesen i tname, t.d.
+                # Skjemanavnet er teksten i parentesen i tname, t.d.
                 # "roundtrip-ttl (fint-utdanning)" → "fint-utdanning".
                 # Testar utan " (" (t.d. "copy-artifacts-click-href") har
-                # ikkje eit skjemanamn å hente ut — hoppar over.
+                # ikkje eit skjemanavn å hente ut — hoppar over.
                 if [[ "$tname" == *" ("* ]]; then
                     local schema_short="${tname#*(}"
                     schema_short="${schema_short%)*}"
@@ -406,7 +406,7 @@ phase_a_logfile() { echo "$LOGDIR/phase_a_$1.log"; }
 phase_a_metafile() { echo "$LOGDIR/phase_a_$1.meta"; }
 
 # Køyr eitt batcha make-mål for heile skjemalista.
-# $1=nøkkel (brukt av phase_a_check)  $2=make-target  $3=testnamn-prefiks
+# $1=nøkkel (brukt av phase_a_check)  $2=make-target  $3=testnavn-prefiks
 # (for å respektere TEST_FILTER — same filtreringsregel som _run_one)
 run_phase_a_step() {
     local key="$1" target="$2" prefix="$3"
@@ -926,7 +926,7 @@ run_phase_a() {
     # specs/done/paralleliser-fase-a-test-make.md.
     #
     # Rydd opp attverande Fase A-artefakt frå eit tidlegare skript-kall
-    # FØR nokon steg startar: loggfilnamna er no faste (ikkje mktemp), så
+    # FØR nokon steg startar: loggfilnavna er no faste (ikkje mktemp), så
     # phase_a_check()/phase_a_mcp_check() sin "[ -f ... ]"-sjekk (som
     # skil "steget vart hoppa over via TEST_FILTER" frå "steget køyrde")
     # ville elles kunne lese ei fil frå EIN ANNAN, tidlegare køyring med
@@ -978,7 +978,7 @@ run_phase_a() {
 # opphavleg rekkjefølgje til slutt i køyringa.
 PHASE_A_KEYS=(validate jsonld python jsonschema rdf erdiagram docs shacl owl proto plantuml lint mcp_instance convert_rdf roundtrip_json roundtrip_ttl linkml_validate rdf_validity docs_validity)
 
-# Kort, lesbart namn frå ein filsti brukt i eit ::error file=<sti>::-merke —
+# Kort, lesbart navn frå ein filsti brukt i eit ::error file=<sti>::-merke —
 # stripper kjend filending og kjende suffiks (-schema/-eksempel/-shapes/
 # -ontology/-context) slik at t.d. "src/linkml/fint/fint-utdanning/
 # fint-utdanning-schema.yaml" og "generated/fint/fint-utdanning/
@@ -995,7 +995,7 @@ phase_a_short_name() {
     echo "$base"
 }
 
-# Unike, kortnamna kjelder til ::error file=<sti>::-merke i ei loggfil —
+# Unike, kortnavna kjelder til ::error file=<sti>::-merke i ei loggfil —
 # brukt til å liste KVA skjema/artefakt som feila i Fase A-oppsummeringa,
 # ikkje berre kor mange.
 phase_a_error_names() {
@@ -1056,24 +1056,24 @@ print_phase_a_summary() {
         IFS=$'\t' read -r n elapsed label unit < "$metafile"
         if [ "$key" = "mcp_instance" ]; then
             # mcp-validate-instance: éin JSON-resultatfil per skjema, så
-            # talet på feila NAMN er òg det korrekte ERROR-talet (1:1).
+            # talet på feila NAVN er òg det korrekte ERROR-talet (1:1).
             error_names=$(phase_a_mcp_error_names)
             error=$([ -z "$error_names" ] && echo 0 || echo "$error_names" | wc -l)
         else
             # Elles: ERROR-talet held fram å telje ::error file=-LINJER
             # (kan vere fleire enn talet unike skjema, t.d. eit
             # roundtrip-kall der same skjema feilar i to kjeda steg) — same
-            # semantikk som N (jobbrad-/skjematal), uendra frå før. Namne-
+            # semantikk som N (jobbrad-/skjematal), uendra frå før. Navne-
             # lista er berre eit ekstra, deduplisert visingslag oppå dette.
             error=$(grep -c "::error file=" "$logfile" || true)
             error_names=$(phase_a_error_names "$logfile")
         fi
         ok=$(( n - error ))
         prefix="→ Fase A: $label ($n $unit) ..."
-        # Namn-, tidsbruk- og OK:/FEIL:-delen er kvar sin eigen fast-
+        # Navn-, tidsbruk- og OK:/FEIL:-delen er kvar sin eigen fast-
         # breidde printf-kolonne, slik at ALLE tre alltid startar i same
         # kolonne på tvers av linjer — uavhengig av kor langt steg-
-        # namnet/talet er. Same fargar som OK/FEIL på dei live
+        # navnet/talet er. Same fargar som OK/FEIL på dei live
         # terminallinjene i _run_one() (CLR_OK/CLR_ERR).
         printf '%-58s %-11s %sOK:%s %-4s %sFEIL:%s %s\n' "$prefix" "($(fmt_elapsed_ms "$elapsed"))" "$CLR_OK" "$CLR_RST" "$ok" "$CLR_ERR" "$CLR_RST" "$error"
         if [ -n "$error_names" ]; then
@@ -1637,7 +1637,7 @@ def schemas_equivalent(original, generated):
     orig_class_names = set(orig_classes.keys())
     gen_class_names = set(gen_classes.keys())
 
-    # Bygg ein mapping frå normaliserte namn (utan _\d+) til faktiske namn
+    # Bygg ein mapping frå normaliserte navn (utan _\d+) til faktiske navn
     # gen-json-schema kan normalisere Foo_2 → Foo2
     import re as _re
     def normalize_class_name(name):
@@ -1656,10 +1656,10 @@ def schemas_equivalent(original, generated):
         if 'allOf' in class_def or 'anyOf' in class_def or 'oneOf' in class_def:
             unsupported_classes.add(class_name)
         else:
-            # Sjekk om klassen finst med normalisert namn (t.d. Foo_2 → Foo2)
+            # Sjekk om klassen finst med normalisert navn (t.d. Foo_2 → Foo2)
             normalized = normalize_class_name(class_name)
             if normalized in gen_class_map:
-                # OK — finst med normalisert namn
+                # OK — finst med normalisert navn
                 print(f"  Info: Klasse '{class_name}' finst som '{gen_class_map[normalized]}' (normalisert)")
             else:
                 normalized_missing.add(class_name)
@@ -1697,7 +1697,7 @@ def schemas_equivalent(original, generated):
         orig_prop_names = set(orig_props.keys())
         gen_prop_names = set(gen_props.keys())
 
-        # Normaliser property-namn (bindestrek → underscore, same som _sanitize_slot_name)
+        # Normaliser property-navn (bindestrek → underscore, same som _sanitize_slot_name)
         def normalize_prop_name(name):
             return name.replace('-', '_')
 
@@ -1711,7 +1711,7 @@ def schemas_equivalent(original, generated):
             if prop_name not in gen_prop_names and normalized not in gen_prop_map:
                 missing_props.add(prop_name)
             elif prop_name != normalized and normalized in gen_prop_map:
-                # Property finst med normalisert namn
+                # Property finst med normalisert navn
                 normalized_props.add(prop_name)
 
         if normalized_props:
@@ -1738,7 +1738,7 @@ def schemas_equivalent(original, generated):
             if error:
                 return False, f"Klasse '{class_name}': {error}"
 
-        # Samanlikn required-felt (normaliser property-namn)
+        # Samanlikn required-felt (normaliser property-navn)
         orig_req = set(orig_class.get('required', []))
         gen_req = set(gen_class.get('required', []))
 
@@ -1750,7 +1750,7 @@ def schemas_equivalent(original, generated):
         extra_req = (gen_req - orig_req_normalized) - {'id'}
 
         if missing_req:
-            # Finn originale namn (før normalisering)
+            # Finn originale navn (før normalisering)
             missing_orig = {p for p in orig_req if normalize_prop_name(p) in missing_req}
             return False, f"Klasse '{class_name}': manglar required-felt {missing_orig}"
         if extra_req:
@@ -1837,7 +1837,7 @@ FIXTURE
     fi
 
     # Lokale klasse-/enum-/slot-/type-referansar skal vere
-    # "../<lowercase(namn)>/" — utleidd frå namnet i click-statementet, ikkje
+    # "../<lowercase(navn)>/" — utleidd frå navnet i click-statementet, ikkje
     # frå den opphavlege href-verdien (som kan vere feilkasa, sjå
     # specs/done/mermaid-klikkbare-lenker-404.md). Eksterne linkml:types-typar
     # (t.d. Uriorcurie, String) skal derimot bevare den absolutte XSD-URI-en
@@ -1858,7 +1858,7 @@ FIXTURE
         href=$(echo "$line" | sed -E 's/.*href "([^"]*)".*/\1/')
         expected="${expected_hrefs[$name]:-}"
         if [ -z "$expected" ]; then
-            echo "Ukjend click-namn i fixture: $name"
+            echo "Ukjend click-navn i fixture: $name"
             fail=1
         elif [ "$href" != "$expected" ]; then
             echo "Feil click-href for $name: fekk '$href', venta '$expected'"

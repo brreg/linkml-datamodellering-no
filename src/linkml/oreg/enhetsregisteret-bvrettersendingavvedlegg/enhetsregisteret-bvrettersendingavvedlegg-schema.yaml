@@ -128,5 +128,5 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrettersendingavvedlegg:organisasjonsnummer
     range: Organisasjonsnummer
-# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
+# TODO: Gjennomgå klassenavn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
 # TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

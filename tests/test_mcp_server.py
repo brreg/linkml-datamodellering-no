@@ -36,8 +36,8 @@ classes:
     class_uri: ex:Person
     tree_root: true
     attributes:
-      namn:
-        description: Personens namn
+      navn:
+        description: Personens navn
         range: string
 """
 
@@ -67,7 +67,7 @@ classes:
   Person:
     class_uri: ex:Person
     attributes:
-      namn:
+      navn:
         range: string
 """
 
@@ -94,8 +94,8 @@ classes:
     class_uri: ex:Ressurs
     tree_root: true
     attributes:
-      namn:
-        description: Namn på ressursen
+      navn:
+        description: Navn på ressursen
         slot_uri: dct:title
         range: string
 slots:

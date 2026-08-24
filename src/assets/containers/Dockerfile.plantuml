@@ -10,7 +10,7 @@
 # glyph-metrikkar enn Ubuntu sitt, som får AWT sin interne tekstlayout
 # (brukt til å plassere multiplisitetsetikettar på relasjonslinjer) til å
 # plassere etikettar opptil ~60px annleis i tette diagram — sjølv om
-# skrifttypenamnet er identisk ("DejaVu Sans"). Verifisert (2026-08-04) at
+# skrifttypenavnet er identisk ("DejaVu Sans"). Verifisert (2026-08-04) at
 # denne varianten gjev byte-identisk SVG-output mot upstream-imaget, både
 # for eit enkelt diagram og eit stort/tett diagram med mange relasjonar
 # (dcat-ap-no).

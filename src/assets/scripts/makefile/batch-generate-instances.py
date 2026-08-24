@@ -82,7 +82,7 @@ def fmt_elapsed(seconds: float) -> str:
 
 
 def _import_from_path(module_name: str, file_name: str):
-    """Importer eit script med bindestrek-i-namnet (t.d. gen-openapi.py) som modul.
+    """Importer eit script med bindestrek-i-navnet (t.d. gen-openapi.py) som modul.
     Registrerer modulen i sys.modules FØR exec_module() — obligatorisk for
     at @dataclass (brukt av batch-generate.py) skal fungere, sidan
     dataclasses sin interne typeoppløysing slår opp sys.modules[cls.__module__]."""

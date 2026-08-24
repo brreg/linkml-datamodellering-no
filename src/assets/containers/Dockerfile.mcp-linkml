@@ -1,6 +1,6 @@
 # Felles Dockerfile for dei tre mcp-linkml-*-serverane (validator, modell-utkast,
 # begrep-utkast). Deler builder/runtime-stega (identisk linkml/linkml-runtime/pyyaml-
-# installasjon) via namngjevne multi-stage-mål, bygde med `podman build --target <namn>`.
+# installasjon) via navngjevne multi-stage-mål, bygde med `podman build --target <navn>`.
 # Sidan dei delte laga får identisk digest på tvers av alle tre sluttbileta (same
 # instruksjonar => same innhald => same SHA256), kan podman/buildah sin cross-repo
 # blob-mount gjenbruke dei ved push til GHCR, utan behov for eit separat publisert

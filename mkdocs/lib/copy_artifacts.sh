@@ -18,7 +18,7 @@ copy_schema_artifacts() {
     # éin cp-prosess per fil) — sjå specs/backlog/batch-docs-publish-generering.md
     find "$schema_dir" -maxdepth 1 -type f -exec cp -t "$out" {} +
 
-    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-namnet) via det
+    # Finn kjeldemappe for skjemaet (kan vere ulik $schema-navnet) via det
     # pre-berekna oppslaget frå Steg 1.5 i staden for eit eige find-kall —
     # sjå specs/backlog/batch-docs-publish-generering.md
     local schema_file
@@ -79,7 +79,7 @@ copy_schema_artifacts() {
             -exec sed -i -E 's|click ([A-Za-z0-9_]+) href "\.\./(https?://[^"]+)/"|click \1 href "\2"|g' {} +
         # Steg 2: for genuint lokale klasse-/enum-/slot-/type-referansar
         # (href framleis prefiksa med "../" etter steg 1 — eksterne URL-ar
-        # er det ikkje lenger) vert href bygd på nytt frå namnet i
+        # er det ikkje lenger) vert href bygd på nytt frå navnet i
         # click-statementet, ikkje frå den eksisterande href-verdien (som
         # kan vere feilkasa, sjå specs/done/mermaid-klikkbare-lenker-404.md)
         find "$out/klasser" -maxdepth 1 -name "*.md" \

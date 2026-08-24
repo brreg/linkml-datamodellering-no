@@ -95,7 +95,7 @@ wait_job() {
     unset "PIDS[$key]"
 }
 
-# Skriv éi oppsummeringslinje for eitt steg — kolonnejustert namn/tidsbruk/
+# Skriv éi oppsummeringslinje for eitt steg — kolonnejustert navn/tidsbruk/
 # status, same visuelle mønster (breidder, fargar) som print_phase_a_summary()
 # i tests/test_make.sh.
 print_step_line() {

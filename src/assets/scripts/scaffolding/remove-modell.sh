@@ -13,7 +13,7 @@ CONFIRM_FLAG="${3:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make remove-modell DOMAIN=<domene> NAME=<namn> [CONFIRM=1]" >&2
+    echo "Bruk: make remove-modell DOMAIN=<domene> NAME=<navn> [CONFIRM=1]" >&2
     exit 1
 fi
 

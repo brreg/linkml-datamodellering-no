@@ -23,7 +23,7 @@ Bruk:
   kontainaren, så SchemaView løyser relative importar naturleg mot
   filsystemet.
 
-Output: éitt resultat-JSON-fil per jobb i --output-dir, namngjeve
+Output: éitt resultat-JSON-fil per jobb i --output-dir, navngjeve
 <index>.json (0-indeksert, same rekkjefølgje som jobbane vart oppgjevne).
 Innhaldet er identisk med det validate_linkml_instance-verktøyet returnerer.
 """

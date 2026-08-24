@@ -43,9 +43,9 @@ USER_AGENT = "linkml-datamodellering-no-iri-check/1.0"
 # identifikator-URI-ar — same mønster og grunngjeving som dei tilsvarande
 # .github/lychee.toml-eksklusjonane, delt her for å unngå at denne rapporten
 # re-flaggar spørsmål som alt er granska og avslutta:
-# - schema.fintlabs.no: portvakt-verna FINT-API-namnerom, aldri offentleg
+# - schema.fintlabs.no: portvakt-verna FINT-API-navnerom, aldri offentleg
 #   tilgjengeleg (specs/done/lenkjesjekk-fint-schema-fintlabs-no.md)
-# - data.norge.no/vocabulary/ngr-*: NGR-vokabularnamnerom, stadfesta at det
+# - data.norge.no/vocabulary/ngr-*: NGR-vokabularnavnerom, stadfesta at det
 #   ikkje er meint å vere dereferbart (specs/done/lenkjesjekk-ngr-vocabulary-namespace.md)
 # - example.org/*.example.org: RFC 2606-plasshaldardomene brukt medvite i
 #   referansemodellar og malskjema (specs/done/lenkje-og-mermaid-sjekk.md)

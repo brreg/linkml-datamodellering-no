@@ -21,7 +21,7 @@ endif
 # Ekstraher domene (3. komponent i stien)
 schema_domain = $(word 3,$(subst /, ,$(1)))
 
-# Ekstraher skjemanamn (katalognamn, ikkje filnamn)
+# Ekstraher skjemanavn (katalognavn, ikkje filnavn)
 schema_name = $(notdir $(patsubst %/,%,$(dir $(1))))
 
 # Generer output-katalog for eit skjema
@@ -34,7 +34,7 @@ schema_key = $(subst -,_,$(call schema_domain,$(1)))_$(subst -,_,$(call schema_n
 DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
 
 .PHONY: print-domains
-print-domains: ## Skriv ut alle oppdaga domenenamn, eitt per linje (brukt av CI for dynamisk matrise)
+print-domains: ## Skriv ut alle oppdaga domenenavn, eitt per linje (brukt av CI for dynamisk matrise)
 	@printf '%s\n' $(DOMAINS)
 
 # Hjelpefunksjon: bestem kva skjema som skal prosesserast basert på DOMAIN eller SCHEMA

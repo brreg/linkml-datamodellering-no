@@ -57,7 +57,7 @@ MODE="${1:-}"
 if [[ "$MODE" == "--schema" ]]; then
   SCHEMA_NAME="${2:-}"
   if [[ -z "$SCHEMA_NAME" ]]; then
-    echo "❌ Bruk: $0 --schema <skjema-namn>"
+    echo "❌ Bruk: $0 --schema <skjema-navn>"
     exit 1
   fi
   # Prøv først <domain>/<schema>/<schema>-schema.yaml, deretter <domain>/<schema>-schema.yaml (for referanse)
@@ -76,7 +76,7 @@ elif [[ "$MODE" == "--all" ]]; then
     sort)
 else
   echo "Bruk:"
-  echo "  $0 --schema <skjema-namn>   # Migrer eitt skjema"
+  echo "  $0 --schema <skjema-navn>   # Migrer eitt skjema"
   echo "  $0 --all                      # Migrer alle skjema"
   exit 0
 fi

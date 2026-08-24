@@ -2,7 +2,7 @@
 update-modellkatalog.py
 
 MERK: `make update-modellkatalog` er fjerna (sjå
-specs/done/make-target-namn-vs-funksjon.md, Funn 5) — `make
+specs/done/make-target-navn-vs-funksjon.md, Funn 5) — `make
 gen-modellkatalog-instance` (generate-modellkatalog.py) er no den
 brukarvendte kommandoen for å synkronisere modellkatalogar. Denne fila
 finst framleis fordi gen-modelldcat-elements.py importerer

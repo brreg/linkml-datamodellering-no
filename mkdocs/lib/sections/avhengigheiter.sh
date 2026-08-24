@@ -36,7 +36,7 @@ build_imported_models_links() {
             continue
         fi
 
-        # Parse domene/schema frå import-namn
+        # Parse domene/schema frå import-navn
         # imported kan vere t.d. "common-ap-no-schema", "dcat-ap-no-schema"
         # Fjern -schema-suffiks
         local imported_clean="${imported%-schema}"
@@ -97,7 +97,7 @@ generate_dependencies() {
     if [ -f "$schema_path" ]; then
         # Behald -schema-suffiks (ikkje strip det)
         imports=$(sed -n '/^imports:/,/^[a-z_]/p' "$schema_path" | grep -E "^[ ]*- " | sed 's/^[ ]*- //' | sed 's|^\.\./\.\./||' | sed 's|^\.\./||')
-        # Normaliser til skjemanamn (basename) for direkte-import-matching
+        # Normaliser til skjemanavn (basename) for direkte-import-matching
         direct_imports_normalized=$(echo "$imports" | tr ' ' '\n' | xargs -I {} basename {} | tr '\n' ' ')
     fi
 

@@ -20,7 +20,7 @@ generate_badges() {
     local endringsdato=$(grep "^| Endringsdato" "$gendoc_index" | sed 's/^| Endringsdato | \(.*\) |$/\1/' | head -1)
     local utgiver_uri=$(grep "^| Utgiver" "$gendoc_index" | sed -n 's/^| Utgiver | \[\(https:[^]]*\)\].*/\1/p' | head -1)
 
-    # Slå opp organisasjonsnamn frå det pre-berekna
+    # Slå opp organisasjonsnavn frå det pre-berekna
     # ORG_URI_TO_NAME_SERIALIZED-registeret (CODEOWNERS.md parsa éin gong i
     # publish.sh Steg 1.5) i staden for eit eige `podman run`-kall per
     # skjema — sjå specs/backlog/reduser-podman-kall-docs-publish.md.
@@ -52,7 +52,7 @@ generate_badges() {
         fi
     fi
 
-    # Normaliser status-namn
+    # Normaliser status-navn
     local status_label="$status"
     local status_color="blue"
     case "$status" in

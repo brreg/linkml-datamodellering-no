@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Delt hjelpefunksjon for å byggje og skrive valideringslogg-JSON.
 
-Konsoliderer feltnamna som `run-validation.sh` og `save-validation-log.py`
+Konsoliderer feltnavna som `run-validation.sh` og `save-validation-log.py`
 skriv til `validation/<versjon>/<policy>.json` (BUG-12: dei to skrivarane
-brukte tidlegare ulike feltnamn — `validation_policy` vs `validation_type`,
+brukte tidlegare ulike feltnavn — `validation_policy` vs `validation_type`,
 med/utan `validated_at`). Begge skal no gå via denne modulen slik at
 strukturen er identisk uansett kva kallstad som skreiv fila.
 """
@@ -21,9 +21,9 @@ def build_validation_log_entry(
     policy: str,
     result: Dict[str, Any],
 ) -> Dict[str, Any]:
-    """Bygg eit valideringslogg-objekt med konsistente feltnamn.
+    """Bygg eit valideringslogg-objekt med konsistente feltnavn.
 
-    `policy` er policy-namnet valideringa vart køyrd mot (bronze/silver/gold/
+    `policy` er policy-navnet valideringa vart køyrd mot (bronze/silver/gold/
     felles-datakatalog/felles-begrepskatalog), eller — for
     `save-validation-log.py` sine ikkje-policy-kategoriar — ei tilsvarande
     kategorietikett (t.d. `examples`, `data-<catalog>`).

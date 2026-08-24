@@ -22,7 +22,7 @@ make gen-informasjonsmodell-instance SCHEMA=src/linkml/oreg/
 
 Brukaren oppdaterte planen til å peike på den konkrete, nyoppretta
 skjemafila i staden. Andre runde stadfesta at heile den oppdaterte
-sekvensen fungerer, og fann eitt konkret forbetringsforslag: kva namn
+sekvensen fungerer, og fann eitt konkret forbetringsforslag: kva navn
 demo-klassen bør få for å gje eit sjølvoppdaga, personleg relevant funn i
 similarity-analysen (i staden for eit funn frå ein urelatert del av
 repoet).
@@ -50,15 +50,15 @@ gjev ei tydeleg feilmelding:
 bash src/assets/scripts/demo/javazone-demo-script.sh
 
 # ... eller med eigne verdiar (rekkjefølgje spelar inga rolle):
-bash src/assets/scripts/demo/javazone-demo-script.sh DOMAIN=<domain> NAME=<namn>
+bash src/assets/scripts/demo/javazone-demo-script.sh DOMAIN=<domain> NAME=<navn>
 ```
 
 Vel du eit anna domene enn `oreg`, skriv scriptet automatisk ut ei åtvaring
 om at «Aktivitet»-tipset i steg 5 (sjå under) var funne spesifikt for
 `oreg` — med eit anna domene bør du finne eit tilsvarande, alt-eksisterande
-klassenamn sjølv (t.d. ved å køyre
+klassenavn sjølv (t.d. ved å køyre
 `make analyse-similar-classes-domain DOMAIN=<domain>` på ein tom modell
-på førehand, eller berre sjå gjennom klassenamna i domenet sine skjema).
+på førehand, eller berre sjå gjennom klassenavna i domenet sine skjema).
 
 ## Det verifiserte demo-scriptet
 
@@ -89,10 +89,10 @@ make lint SCHEMA=src/linkml/oreg/javazonetalk/javazonetalk-schema.yaml
 # 6. Valider skjemaet — no med det utvida innhaldet frå steg 5 (~1 s)
 make mcp-linkml-valider-modell SCHEMA=src/linkml/oreg/javazonetalk/javazonetalk-schema.yaml
 
-# 7. Finn liknande klassenamn i domenet (~5 s)
+# 7. Finn liknande klassenavn i domenet (~5 s)
 make analyse-similar-classes-domain DOMAIN=oreg
 
-# 8. Finn liknande slotnamn i domenet (~5 s)
+# 8. Finn liknande slotnavn i domenet (~5 s)
 make analyse-similar-slots-domain DOMAIN=oreg
 
 # 9. Generer JSON Schema frå den redigerte modellen (~1 s)
@@ -109,28 +109,28 @@ make gen-informasjonsmodell-instance SCHEMA=src/linkml/oreg/javazonetalk/javazon
 køyrer på det ferske, uendra stub-skjemaet — rask, strukturell sjekk.
 Valider (steg 6) køyrer derimot **etter** at Aktivitet/Foredragsholder/
 Konferanse er limt inn, slik at den rikare policy-baserte valideringa
-(metadata, namnekonvensjonar, Digdir-reglar) faktisk har noko meiningsfullt
+(metadata, navnekonvensjonar, Digdir-reglar) faktisk har noko meiningsfullt
 å seie noko om, i staden for å validere eit tomt stub-skjema.
 
 Resten av dei 10 minutta går til prat, live-redigeringa i steg 5, og éin
 mkdocs-sidevising (sjå under).
 
-### Kvifor klassenamnet «Aktivitet» (steg 5)
+### Kvifor klassenavnet «Aktivitet» (steg 5)
 
 Testa begge alternativ direkte:
 
-| Namn | Resultat i `analyse-similar-classes-domain DOMAIN=oreg` |
+| Navn | Resultat i `analyse-similar-classes-domain DOMAIN=oreg` |
 |---|---|
-| Eit vilkårleg namn (t.d. «Foredrag») | Ingen treff — trygt, men ingenting å vise fram |
+| Eit vilkårleg navn (t.d. «Foredrag») | Ingen treff — trygt, men ingenting å vise fram |
 | **«Aktivitet»** | **To treff**, begge involverer klassen du nett har vist fram: |
 
 ```
-| Likskap | Namn A        | Slots A                         | Namn B      | Slots B                     |
+| Likskap | Navn A        | Slots A                         | Navn B      | Slots B                     |
 | 100%    | Aktivitet     | aktivitet, datoGyldigFra, id     | Aktivitet   | foredragsholder, id, tittel |
 | 82%     | TypeAktivitet | aktivitetskode, id, ..., tekst   | Aktivitet   | foredragsholder, id, tittel |
 ```
 
-Eit 100 %-namnetreff med **tydeleg ulikt** innhald (openbert ikkje eit
+Eit 100 %-navnetreff med **tydeleg ulikt** innhald (openbert ikkje eit
 reelt duplikat) pluss eit 82 %-fuzzy-treff — begge involverer noko
 tilskuarane nett har sett bli laga, i staden for eit abstrakt eksempel dei
 ikkje har kontekst for. `Aktivitet` finst frå før i
@@ -183,7 +183,7 @@ pluss fem nye slots under `slots:`:
     range: Konferanse
 
   navn:
-    description: Namnet på foredragshaldaren.
+    description: Navnet på foredragshaldaren.
     range: string
 
   organisasjon:
@@ -213,7 +213,7 @@ silver-profilen, urelatert til Aktivitet-klassa).
 `foredragsholder_ref` og `konferanse_ref` er stadfesta kollisjonsfrie
 mot heile den transitive import-kjeda `dcat-ap-no-schema` ->
 `common-ap-no-schema` + `dqv-core-schema` (statisk grep etter
-tilsvarande slot-/klassenamn — **ikkje** ein reell
+tilsvarande slot-/klassenavn — **ikkje** ein reell
 `mcp-linkml-valider-modell`-køyring denne gongen, sidan podman rootless
 var utilgjengeleg i verktøymiljøet på verifiseringstidspunktet). Køyr
 `make mcp-linkml-valider-modell SCHEMA=...` på det utvida skjemaet før

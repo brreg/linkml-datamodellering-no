@@ -26,7 +26,7 @@ def _deep_merge(base: dict, override: dict) -> dict:
 
 
 def load_policy(name: str) -> dict:
-    """Lastar ein namngitt policy frå policies/-katalogen. Handterer 'extends:'-arv."""
+    """Lastar ein navngitt policy frå policies/-katalogen. Handterer 'extends:'-arv."""
     # Katalogen heiter framleis "profiles" fysisk på disk — sjå spec
     # specs/backlog/erstatt-profil-med-policy.md for grunngjeving/oppfølging.
     policy_dir = Path(__file__).parent / "profiles"
@@ -44,11 +44,11 @@ def load_policy(name: str) -> dict:
 # ---------------------------------------------------------------------------
 
 def _to_plural(name: str, suffix: str = "er") -> str:
-    """Lagar container-slot-namn: lowercase første bokstav + suffiks.
+    """Lagar container-slot-navn: lowercase første bokstav + suffiks.
 
-    Bindestrekar vert erstatta med understrek for å gje gyldige attributtnamn.
+    Bindestrekar vert erstatta med understrek for å gje gyldige attributtnavn.
     Døme (suffix='er'): 'Person' → 'personers', 'Ting' → 'tinger'.
-    Dette er ein enkel heuristikk som gjev akseptable utkast-namn.
+    Dette er ein enkel heuristikk som gjev akseptable utkast-navn.
     """
     if not name:
         return name
@@ -67,12 +67,12 @@ def _transliterate(name: str) -> str:
 
 
 def _sanitize_slot_name(name: str) -> str:
-    """Gjer slotnamnet til ein gyldig identifikator: erstatter - med _."""
+    """Gjer slotnavnet til ein gyldig identifikator: erstatter - med _."""
     return name.replace("-", "_")
 
 
 def _sanitize_identifier(name: str) -> str:
-    """Gjer eit $defs-nøkkelnamn til ein gyldig LinkML/Python-identifikator.
+    """Gjer eit $defs-nøkkelnavn til ein gyldig LinkML/Python-identifikator.
 
     Translittererer særnorske bokstavar og erstattar bindestrek med understrek.
     Døme: 'E-postadresse' → 'E_postadresse'
@@ -90,7 +90,7 @@ def _to_pascal_case(name: str) -> str:
 
 
 def _resolve_ref(ref: str) -> str:
-    """Hentar klassenamnet frå ein lokal JSON Schema $ref.
+    """Hentar klassenavnet frå ein lokal JSON Schema $ref.
 
     '#/$defs/Foo' → 'Foo', '#/$defs/E-postadresse' → 'E_postadresse'
     """
@@ -252,7 +252,7 @@ def _merge_allof_members(
     """
     properties = dict(defn.get("properties") or {})
     required = set(defn.get("required") or [])
-    ref_parents: list[tuple[str, str]] = []  # (rått namn, sanert namn)
+    ref_parents: list[tuple[str, str]] = []  # (rått navn, sanert navn)
 
     for member in defn.get("allOf") or []:
         if "$ref" in member:
@@ -296,7 +296,7 @@ def _collect_classes(json_schema: dict, schema_name: str, warnings: list) -> dic
     """Samlar klassedefinisjonar frå JSON Schema.
 
     Returnerer:
-      { klassnamn: {"properties": {...}, "required": set, "description": str,
+      { klassnavn: {"properties": {...}, "required": set, "description": str,
                      "is_a": str | None} }
 
     Strategi:

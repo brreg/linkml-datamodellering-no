@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Validerer eit LinkML-skjema mot mcp-linkml-validator. Namnet er historisk —
+# Validerer eit LinkML-skjema mot mcp-linkml-validator. Navnet er historisk —
 # skriptet flatar ikkje lenger ut importar sjølv: heile repoet vert montert
 # inn i validator-kontainaren, og SchemaView løyser relative importar
 # naturleg mot filsystemet. Sjå specs/backlog/effektiviser-mcp-linkml-

@@ -73,7 +73,7 @@ if [ -n "$MANIFEST" ]; then
   fi
 
   # Finn schema-sti frå manifest (same katalog som build.yaml)
-  # Bruk namnekonvensjonen (<modell>-schema.yaml = katalognamnet, sjå
+  # Bruk navnekonvensjonen (<modell>-schema.yaml = katalognavnet, sjå
   # CONVENTIONS.md) i staden for `find | head -n1` — katalogar med fleire
   # *-schema.yaml-filer (t.d. modelldcat-ap-no, dqv-ap-no) ga elles eit
   # vilkårleg val som ikkje samsvarte med kva generate.yml sitt kopisteg

@@ -4,7 +4,7 @@ Samlar alle begrep frå begrepssamlingar og genererer begrepskatalog per organis
 
 For kvar organisasjon:
  1. Finn alle begrepssamlingar med aggregation.organization = <org-nr> (frå build.yaml eller CODEOWNERS.md)
- 2. Samle alle begrep-YAML-filer frå begrepssamling-<namn>/begrep/*.yaml
+ 2. Samle alle begrep-YAML-filer frå begrepssamling-<navn>/begrep/*.yaml
  3. Generer aggregert begrepskatalog.yaml i begrepskatalog/<org>-begrepskatalog/data/<org>-begrepskatalog/
 
 Fallback-orden for aggregation-metadata:

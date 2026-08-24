@@ -11,7 +11,7 @@ DOMAIN_PRE_begrepskatalog := gen-begrepskatalog-instance
 # ---------------------------------------------------------------------------
 # domain_target — generisk mal for domain-<domain> targets
 # ---------------------------------------------------------------------------
-# $1 = domain-namn (t.d. ap-no, begrepskatalog, oreg, ...)
+# $1 = domain-navn (t.d. ap-no, begrepskatalog, oreg, ...)
 #
 # Sjølve genereringspipelinen er delegert til
 # src/assets/scripts/makefile/run-domain-pipeline.sh, som fase-parallelliserer

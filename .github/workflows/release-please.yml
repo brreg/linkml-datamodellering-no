@@ -214,7 +214,7 @@ jobs:
         run: |
           # Iterer gjennom alle releases som vart oppretta
           echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r '.paths_released[]' | while read pkg_path; do
-            # Hent tag-namn frå release-please outputs
+            # Hent tag-navn frå release-please outputs
             tag_name=$(echo '${{ toJSON(steps.release-please.outputs) }}' | jq -r --arg path "$pkg_path" '.releases[$path].tag_name')
 
             # Finn genererte artefakter

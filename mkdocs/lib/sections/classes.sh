@@ -49,7 +49,7 @@ build_import_links() {
             continue
         fi
 
-        # Parse domene/schema frå import-namn
+        # Parse domene/schema frå import-navn
         # imported kan vere t.d. "common-ap-no-schema", "dcat-ap-no-schema"
         # Fjern -schema-suffiks
         local imported_clean="${imported%-schema}"

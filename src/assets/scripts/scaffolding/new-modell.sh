@@ -9,7 +9,7 @@ JSON_SCHEMA="${3:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<namn> [JSON_SCHEMA=<sti>]" >&2
+    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<navn> [JSON_SCHEMA=<sti>]" >&2
     exit 1
 fi
 
@@ -37,7 +37,7 @@ SCHEMA_ID="https://data.norge.no/$DOMAIN/$NAME"
 SCHEMA_NAME="${NAME//-/_}"
 
 # Les gjeldande dcat-ap-no-versjon frå manifestet (sannkjelda release-please
-# sjølv brukar) i staden for å hardkode tag-namnet — hardkoda versjonar går
+# sjølv brukar) i staden for å hardkode tag-navnet — hardkoda versjonar går
 # stalig ved kvart dcat-ap-no-release og må rettast manuelt i etterkant.
 DCAT_AP_NO_VERSION=$(jq -r '."src/linkml/ap-no/dcat-ap-no"' "$REPO_ROOT/.github/release-please-manifest.json")
 if [[ -z "$DCAT_AP_NO_VERSION" || "$DCAT_AP_NO_VERSION" == "null" ]]; then
@@ -95,10 +95,10 @@ RAW_SCHEMA_TMP=$(mktemp)
 trap 'rm -f "$RAW_SCHEMA_TMP"' EXIT
 printf '%s' "$LINKML_YAML" > "$RAW_SCHEMA_TMP"
 
-# Transformer det genererte skjemaet (PascalCase klassenamn og containerklasse,
+# Transformer det genererte skjemaet (PascalCase klassenavn og containerklasse,
 # versjonslåst common-ap-no-import i staden for lokal id-slot utan slot_uri —
 # sjå specs/done/new-modell-genererer-gyldig-eksempel.md), skriv resultatet til
-# $SCHEMA_FILE, og hent ut container-klassenamn/-slot for eksempelfila.
+# $SCHEMA_FILE, og hent ut container-klassenavn/-slot for eksempelfila.
 read CONTAINER_CLASS CONTAINER_SLOT < <(python3 -c "
 import sys
 import datetime
@@ -126,8 +126,8 @@ schema = yaml.safe_load(body)
 
 def to_pascal_case(name):
     # Kun store forbokstav per del (ikkje p.capitalize(), som lower-caser
-    # resten av kvar del) — elles vert alt PascalCase/camelCase namn utan
-    # '_'/'-' å splitte på (vanleg for JSON-schema-avleidde klassenamn, t.d.
+    # resten av kvar del) — elles vert alt PascalCase/camelCase navn utan
+    # '_'/'-' å splitte på (vanleg for JSON-schema-avleidde klassenavn, t.d.
     # 'MeldingForEttersendingAvVedlegg') mangla til éin lowercase del når
     # denne funksjonen vert brukt idempotent på alt som alt er korrekt kasa.
     parts = name.replace('_', '-').split('-')
@@ -144,7 +144,7 @@ for cname, cdef in classes.items():
 
 # PascalCase-ar alle ikkje-container-klassar. For --input-format empty er dette
 # éin generisk stub-klasse; for --input-format json-schema er klassane som regel
-# alt PascalCase (MCP-konverteraren kasar dei frå JSON Schema-definisjonsnamna),
+# alt PascalCase (MCP-konverteraren kasar dei frå JSON Schema-definisjonsnavna),
 # så steget er idempotent der og gjer ingenting.
 for stub_name in list(stub_names):
     new_stub_name = to_pascal_case(stub_name)
@@ -155,7 +155,7 @@ for stub_name in list(stub_names):
                 if slot_def.get('range') == stub_name:
                     slot_def['range'] = new_stub_name
 
-# PascalCase-ar containerklassen sitt namn (t.d. 'generatedContainer' eller
+# PascalCase-ar containerklassen sitt navn (t.d. 'generatedContainer' eller
 # 'Enhetsregisteret_bvrContainer' → 'EnhetsregisteretBvrContainer'), i tråd med
 # <Domene>Container-konvensjonen i CLAUDE.md.
 if container_name:
@@ -212,10 +212,10 @@ with open('$SCHEMA_FILE', 'w') as f:
     f.write(header)
     f.write(body_out)
     if '$INPUT_FORMAT' == 'json-schema':
-        f.write('# TODO: Gjennomgå klassenamn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.\n')
+        f.write('# TODO: Gjennomgå klassenavn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.\n')
         f.write('# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.\n')
     else:
-        f.write('# TODO: Gi stub-klassen eit meir meiningsfullt namn.\n')
+        f.write('# TODO: Gi stub-klassen eit meir meiningsfullt navn.\n')
         f.write('# TODO: Legg til slots og slot_usage for eigenskapane i modellen.\n')
 
 print(container_name or '${SCHEMA_NAME}Container', container_slot or '${SCHEMA_NAME}er')
@@ -301,13 +301,13 @@ echo "  $DESCRIPTION_FILE"
 
 cd "$REPO_ROOT"
 
-# Sjekk at skjemaet ikkje kolliderer med namn frå importerte skjema (t.d.
-# eit lokalt slot med same namn som eit slot i common-ap-no/dcat-ap-no) —
+# Sjekk at skjemaet ikkje kolliderer med navn frå importerte skjema (t.d.
+# eit lokalt slot med same navn som eit slot i common-ap-no/dcat-ap-no) —
 # sjå specs/done/oreg-scaffold-generering-feiler.md for kva som skjer om
 # dette ikkje vert fanga her: seks generatorsteg feilar seinare i CI med
 # ei kryptisk "Conflicting URIs"-feilmelding.
 echo ""
-echo "Sjekkar for namnekollisjonar mot importerte skjema..."
+echo "Sjekkar for navnekollisjonar mot importerte skjema..."
 make --no-print-directory check-import-duplicates SCHEMA="$SCHEMA_FILE_REL"
 
 # Lint det genererte skjemaet
@@ -318,9 +318,9 @@ make --no-print-directory lint SCHEMA="$SCHEMA_FILE_REL"
 echo ""
 echo "Neste steg:"
 if [[ "$INPUT_FORMAT" == "json-schema" ]]; then
-    echo "  1. Gjennomgå genererte klassenamn, skildringar og slot_uri (sjå TODO-kommentarar i skjemafila)"
+    echo "  1. Gjennomgå genererte klassenavn, skildringar og slot_uri (sjå TODO-kommentarar i skjemafila)"
 else
-    echo "  1. Gi stub-klassen eit meir meiningsfullt namn og legg til eigenskapar"
+    echo "  1. Gi stub-klassen eit meir meiningsfullt navn og legg til eigenskapar"
 fi
 echo "  2. Byt common-ap-no-importet til ein reell AP-NO-profil ved behov (sjå TODO-kommentar i skjemafila)"
 echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"

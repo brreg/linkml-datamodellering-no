@@ -1,7 +1,7 @@
 name: 'Last images inn i podman frå GHCR (parallelt)'
 description: >-
   Pullar ei liste med images frå GHCR parallelt, taggar dei lokalt som
-  localhost/<namn>:latest, og fell tilbake til lokalt bygg (make <target>)
+  localhost/<navn>:latest, og fell tilbake til lokalt bygg (make <target>)
   for kvart image som ikkje let seg pulle. Krev at podman alt er innlogga
   mot GHCR før dette steget køyrer.
 inputs:
@@ -9,7 +9,7 @@ inputs:
     description: 'JSON-array [{name, make_target}, ...]'
     required: true
   image_tags:
-    description: 'JSON-map {namn: hash-tag} for GHCR-taggar'
+    description: 'JSON-map {navn: hash-tag} for GHCR-taggar'
     required: true
 runs:
   using: 'composite'

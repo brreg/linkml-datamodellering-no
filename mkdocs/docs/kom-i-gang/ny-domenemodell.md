@@ -169,7 +169,7 @@ tilskudder:
 
 Har du eit JSON Schema eksportert frå eit anna system, kan `new-modell` generere
 skjemaet **direkte i den nye katalogstrukturen** i staden for det tomme
-stub-skjemaet frå steg 1a — med same etterbehandling (id/namn/tittel,
+stub-skjemaet frå steg 1a — med same etterbehandling (id/navn/tittel,
 `annotations.utgiver`/dato, versjonslåst import) og ei eksempeldatafil fylt med
 placeholder-verdiar for obligatoriske/identifikator-slots:
 
@@ -177,8 +177,8 @@ placeholder-verdiar for obligatoriske/identifikator-slots:
 make new-modell DOMAIN=<domene> NAME=<modell> JSON_SCHEMA=<sti til json-schema>
 ```
 
-Gå deretter vidare til [steg 2](#2-rediger-skjemaet) — klassenamn hentast frå JSON
-Schema sine `$defs`/`definitions`-namn og er som regel alt fornuftige, men
+Gå deretter vidare til [steg 2](#2-rediger-skjemaet) — klassenavn hentast frå JSON
+Schema sine `$defs`/`definitions`-navn og er som regel alt fornuftige, men
 skildringar, `slot_uri`/`class_uri` og eksempelverdiar er framleis TODO-markert
 og må gjennomgåast (sjå TODO-kommentarane øvst i det genererte skjemaet).
 
@@ -194,7 +194,7 @@ make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json POLICY=silver
 ```
 
-→ genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer (merk: denne vegen gjer **ikkje** etterbehandlinga frå steg 1a/1b — id/namn/tittel/annotations/import må rettast manuelt etter kopiering, og eksempelfila må skrivast for hand).
+→ genererer `tmp/modell-schema.yaml` og køyrer **automatisk roundtrip-test** for å verifisere at konverteringa er korrekt. Kopier til `src/linkml/<domain>/<modell>/<modell>-schema.yaml` om testen passerer (merk: denne vegen gjer **ikkje** etterbehandlinga frå steg 1a/1b — id/navn/tittel/annotations/import må rettast manuelt etter kopiering, og eksempelfila må skrivast for hand).
 
 ## 2 — Rediger skjemaet
 
@@ -210,7 +210,7 @@ For hurtig validering kan du linte skjemaet:
 `make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
 Legg du til nye slots/klassar eller nye `imports:` for hand (steg 2), sjekk
-òg at ingen av dei kolliderer med eit namn som alt finst i importkjeda —
+òg at ingen av dei kolliderer med eit navn som alt finst i importkjeda —
 `make new-modell` gjer dette automatisk ved scaffolding, men det vert ikkje
 gjenteke automatisk ved seinare manuell redigering:
 `make check-import-duplicates SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`

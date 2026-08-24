@@ -9,7 +9,7 @@ GEN_DIR    := generated
 SCHEMA_DIR := src/linkml
 MCP_DIR    := src/mcp-linkml-validator
 
-# Docker/Podman image-namn og Dockerfile-stiar
+# Docker/Podman image-navn og Dockerfile-stiar
 LINKML_IMAGE       := localhost/linkml-local:latest
 LINKML_DOCKERFILE  := src/assets/containers/Dockerfile.linkml
 

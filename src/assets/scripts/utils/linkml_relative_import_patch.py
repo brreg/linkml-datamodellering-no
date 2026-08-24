@@ -3,8 +3,8 @@
 
 To UAVHENGIGE stader i linkml/linkml_runtime løyser relative importar
 (`../foo`) i eit importert skjema ved å bruke `pathlib.Path`/
-`os.path.normpath` på skjemanamnet — verktøy laga for filsystem-stiar. Når
-skjemanamnet er ein full URL (t.d. eit versjonslåst
+`os.path.normpath` på skjemanavnet — verktøy laga for filsystem-stiar. Når
+skjemanavnet er ein full URL (t.d. eit versjonslåst
 `raw.githubusercontent.com`-import, sjå
 mkdocs/docs/arkitektur/importhierarki.md § "Import på tvers av
 domenemodellar"), kollapsar `pathlib.Path` doble skråstrekar som ikkje står
@@ -18,7 +18,7 @@ upåverka. Sjå fullstendig analyse i
 specs/backlog/mcp-validator-feilvising-og-relativ-import-bug.md og
 bugs/relativ-import-via-versjonslast-url.md.
 
-Denne patchen overstyrer berre resolusjonssteget for URL-baserte skjemanamn
+Denne patchen overstyrer berre resolusjonssteget for URL-baserte skjemanavn
 (bruker `urllib.parse.urljoin`, som korrekt forstår URL-schema/netloc) — all
 anna åtferd (lokale filsystem-stiar, CURIE-importar som `linkml:types`) er
 uendra kopi av upstream-koden.
@@ -106,7 +106,7 @@ def _apply_schemaview_patch() -> None:
                         continue
 
                     if "://" in sn and ":" not in i:
-                        # URL-basert skjemanamn — bruk urljoin (forstår
+                        # URL-basert skjemanavn — bruk urljoin (forstår
                         # URL-schema/netloc korrekt) i staden for
                         # pathlib/os.path (som kollapsar "//").
                         todo.append(urljoin(sn, i))
@@ -187,7 +187,7 @@ def _apply_mergeutils_patch() -> None:
                     mu_mod.logger.warning(f"Cannot resolve relative import: {imp}")
                     target.imports.append(imp)
                 elif "://" in imported_from:
-                    # URL-basert skjemanamn — bruk urljoin (forstår
+                    # URL-basert skjemanavn — bruk urljoin (forstår
                     # URL-schema/netloc korrekt) i staden for
                     # pathlib/os.path (som kollapsar "//").
                     target.imports.append(urljoin(imported_from, imp))

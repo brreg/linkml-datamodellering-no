@@ -100,7 +100,7 @@ def convert_to_org_uri(standard_uri: str, org_catalog_base: str) -> str:
         https://data.norge.no/ngr/ngr-virksomhet
         → https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
     """
-    # Ekstraher siste segment (modellnamn)
+    # Ekstraher siste segment (modellnavn)
     modell_name = standard_uri.rstrip('/').split('/')[-1]
     return f"{org_catalog_base}/{modell_name}"
 
@@ -175,7 +175,7 @@ def convert_informasjonsmodell_to_org_format(modell: Dict, org: Dict) -> Dict:
 
     # Modellelement — konverter URI-ar til org-spesifikke
     if 'inneholder_modellelement' in modell:
-        # Ekstraher klassenamn frå URI og konverter til org-format
+        # Ekstraher klassenavn frå URI og konverter til org-format
         modellelement = []
         for element_uri in modell['inneholder_modellelement']:
             class_name = element_uri.rstrip('/').split('/')[-1]

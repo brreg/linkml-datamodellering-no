@@ -78,7 +78,7 @@ def main():
     # Køyr validering
     result = validate_schema(schema_text, args.policy, instance_text)
 
-    # Bygg logg-objekt (same feltnamn som run-validation.sh/save-validation-log.py — BUG-12)
+    # Bygg logg-objekt (same feltnavn som run-validation.sh/save-validation-log.py — BUG-12)
     log_data = {
         "schema": metadata["schema"],
         "domain": metadata["domain"],

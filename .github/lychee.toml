@@ -75,11 +75,11 @@ exclude = [
   # kan rette. Sjå specs/done/lenkjesjekk-runde2-verifisering.md
   # kategori G for vidare gransking.
   "^https://github\\.com/brreg/linkml-datamodellering-no/compare/",
-  # schema.fintlabs.no er default_prefix/fint:-namnerommet for alle
+  # schema.fintlabs.no er default_prefix/fint:-navnerommet for alle
   # FINT-domeneskjema (fint-administrasjon, fint-arkiv, fint-common,
   # fint-okonomi, fint-personvern, fint-ressurs, fint-utdanning). Stadfesta
   # bak eit kommersielt API-tilgangsgateway (Via-header identifiserer
-  # "Access Gateway") — 403 på rot/namnerom, 404 på alle testa termstiar,
+  # "Access Gateway") — 403 på rot/navnerom, 404 på alle testa termstiar,
   # identisk resultat med tomt/text/html/application/json/text/turtle
   # Accept-header (ikkje content negotiation, jf. xmlns.com/data.norge.no
   # under). Null arkiverte Wayback-snapshot nokosinne, verken for rota
@@ -91,7 +91,7 @@ exclude = [
   # mkdocs/docs/fint/). Sjå
   # specs/done/lenkjesjekk-fint-schema-fintlabs-no.md.
   "^https://schema\\.fintlabs\\.no/",
-  # NGR (Nasjonale grunndata)-modellane sitt term-nivå vokabularnamnerom
+  # NGR (Nasjonale grunndata)-modellane sitt term-nivå vokabularnavnerom
   # (ngr:/ngre:/ngrp:/ngrv:-prefiksa, t.d. data.norge.no/vocabulary/ngr-adresse#)
   # er stadfesta 404 — NGR-modellane er ikkje publiserte på data.norge.no.
   # Avgrensa til ngr-prefikset (ikkje ei brei /vocabulary/-eksklusjon):
@@ -100,13 +100,13 @@ exclude = [
   # kategori E, avgjerda om varig eksklusjon vart teken i
   # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md).
   # Merk: sjølve schema-ID-en (default_prefix, data.norge.no/ngr/<schema>/)
-  # er urelatert og fungerer korrekt — berre vokabularnamnerommet er
+  # er urelatert og fungerer korrekt — berre vokabularnavnerommet er
   # ekskludert her. Sjå specs/done/lenkjesjekk-ngr-vocabulary-namespace.md.
   "^https://data\\.norge\\.no/vocabulary/ngr-",
-  # CPSV-AP-NO sitt cccevno-vokabularnamnerom (t.d.
+  # CPSV-AP-NO sitt cccevno-vokabularnavnerom (t.d.
   # data.norge.no/vocabulary/cccevno#isDescribedBy) — stadfesta reelt
   # backend-404 (JSON {"detail": "Not Found"}) uavhengig av Accept-header,
-  # retesta to gonger. Same feilklasse som NGR-namnerommet over: namnerommet
+  # retesta to gonger. Same feilklasse som NGR-navnerommet over: navnerommet
   # er ikkje publisert på data.norge.no. Sjå
   # specs/done/lenkjesjekk-runde2-verifisering.md kategori E og
   # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C1.
@@ -118,7 +118,7 @@ exclude = [
   # skosno-termar kan vere gyldige). Sjå
   # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C3.
   "^https://data\\.norge\\.no/vocabulary/skosno/(kilde-type|associative-relation-role)",
-  # EU Publications Office sitt euvoc-ontologinamnerom (t.d.
+  # EU Publications Office sitt euvoc-ontologinavnerom (t.d.
   # publications.europa.eu/ontology/euvoc#XlNote) — stadfesta reelt 404:
   # 301-redirect til publications.europa.eu/resource/ontology/euvoc, som
   # sjølv gjev 404, identisk med og utan nettlesar-Accept-header. Sjå
@@ -128,23 +128,23 @@ exclude = [
   # reelt 400 Bad Request på ein bar rot-GET (uavhengig av Accept-header),
   # truleg fordi endepunktet krev spesifikke query-parametrar/metode og
   # ikkje er meint som ei browsable side. Berre denne eine URL-en, ikkje eit
-  # breitt brukt namnerom. Sjå
+  # breitt brukt navnerom. Sjå
   # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori C4.
   "^https://brreg-linkml\\.goatcounter\\.com/$",
   # LinkML gen-doc si eiga docgen-pipeline strippar backticks (kode-span)
   # frå description-felt ved rendring til slot-/klasse-sider, slik at
-  # plassholdarsyntaksen `https://psi.norge.no/los/tema/<namn>` (korrekt
+  # plassholdarsyntaksen `https://psi.norge.no/los/tema/<navn>` (korrekt
   # verna med backticks i kjeldeskjemaet) endar opp som bar prosa i den
   # genererte sida — lychee sin bare-URL-detektor stoppar då ved `<` og
-  # ekstraherer ein trunkert URL utan temanamn. Eksakt-treff (trailing
-  # slash utan suffiks) sidan reell bruk alltid har eit temanamn etter
+  # ekstraherer ein trunkert URL utan temanavn. Eksakt-treff (trailing
+  # slash utan suffiks) sidan reell bruk alltid har eit temanavn etter
   # skråstreken. Rotårsak (LinkML-intern, ikkje vår eigen mal-kode) er
   # dokumentert i bugs/linkml-docgen-strip-backtick-description.md. Sjå
   # specs/done/lenkjesjekk-runde3-fiks-resterande-feil.md kategori D2.
   "^https://psi\\.norge\\.no/los/tema/$",
 ]
 
-# purl.org (dct:/adms:-namnerom, jf. CLAUDE.md § Standardprefix) opptrer i
+# purl.org (dct:/adms:-navnerom, jf. CLAUDE.md § Standardprefix) opptrer i
 # svært mange genererte sider og rate-limitar oss ved global concurrency —
 # sjå specs/done/lenkjesjekk-purl-org-429.md. Verdiane er stramma inn frå
 # opphavleg konservative concurrency=2/1s etter at retry/backoff vart

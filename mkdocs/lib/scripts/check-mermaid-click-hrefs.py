@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Evaluerer alle mermaid `click <Namn> href "..."`-direktiv i den publiserte
+Evaluerer alle mermaid `click <Navn> href "..."`-direktiv i den publiserte
 mkdocs-portalen (klasse-/slot-sider). Portal-interne hrefar vert stadfesta
 mot sitemap.xml (case-sensitivt, som på GitHub Pages); absolutte eksterne
 hrefar (t.d. XSD-typedefinisjonar hos w3.org, sjå BUG-13/
@@ -247,7 +247,7 @@ def main() -> int:
 
     if args.report:
         with args.report.open("w", encoding="utf-8") as fh:
-            fh.write("| Side | Click-namn | Href | Status |\n")
+            fh.write("| Side | Click-navn | Href | Status |\n")
             fh.write("|---|---|---|---|\n")
             for url, name, href, status in rows:
                 fh.write(f"| {url} | {name} | {href} | {status} |\n")

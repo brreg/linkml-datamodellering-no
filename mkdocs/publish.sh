@@ -52,7 +52,7 @@ generate_validation_docs() {
     local github_base="https://github.com/brreg/linkml-datamodellering-no/blob/main"
 
     # Ingen eigen før/etter-logging her — kalt via timed_run(), som alt
-    # loggar namn+tid ved suksess og namn+tid+kommando ved feil. Sjå
+    # loggar navn+tid ved suksess og navn+tid+kommando ved feil. Sjå
     # specs/backlog/flytt-steg3-til-steg1-med-timing.md.
     log_debug "→ Genererer $output frå $policies_readme"
 
@@ -89,9 +89,9 @@ generate_cross_domain_modellanalyse_docs() {
     mkdir -p "$out_dir"
 
     local -A files=(
-        [similar-classes-all-report.md]="liknande-klassenamn-alle-domene.md"
-        [similar-slots-all-report.md]="liknande-slotnamn-alle-domene.md"
-        [similar-types-all-report.md]="liknande-typenamn-alle-domene.md"
+        [similar-classes-all-report.md]="liknande-klassenavn-alle-domene.md"
+        [similar-slots-all-report.md]="liknande-slotnavn-alle-domene.md"
+        [similar-types-all-report.md]="liknande-typenavn-alle-domene.md"
     )
 
     local src_name dest
@@ -109,13 +109,13 @@ generate_cross_domain_modellanalyse_docs() {
     cat > "$out_dir/index.md" <<'EOF'
 # Modellanalyse på tvers av domene
 
-Desse sidene viser namnelikskaps-analysar køyrde på tvers av **alle**
+Desse sidene viser navnelikskaps-analysar køyrde på tvers av **alle**
 domene i repoet — til skilnad frå dei domene-scopa analysane som ligg
 under kvar enkelt modell sin `## Modellanalyse`-seksjon.
 
-- [Liknande klassenamn](liknande-klassenamn-alle-domene.md)
-- [Liknande slotnamn](liknande-slotnamn-alle-domene.md)
-- [Liknande typenamn](liknande-typenamn-alle-domene.md)
+- [Liknande klassenavn](liknande-klassenavn-alle-domene.md)
+- [Liknande slotnavn](liknande-slotnavn-alle-domene.md)
+- [Liknande typenavn](liknande-typenavn-alle-domene.md)
 EOF
 }
 
@@ -321,9 +321,9 @@ t1_5=$(date +%s%3N)
 declare -A SCHEMA_PARENT_MODEL_TMP=()
 declare -A SCHEMA_SUBMODELS_TMP=()
 
-# Globalt oppslag skjemanamn → domene og → filsti, bygd éin gong for heile
+# Globalt oppslag skjemanavn → domene og → filsti, bygd éin gong for heile
 # repoet. Erstattar gjentekne whole-tree `find "$REPO_ROOT/src/linkml" -name
-# "<namn>-schema.yaml"`-kall i classes.sh/avhengigheiter.sh (kvart slikt
+# "<navn>-schema.yaml"`-kall i classes.sh/avhengigheiter.sh (kvart slikt
 # find-kall er dyrt på NTFS-monterte /mnt/c-filsystem under WSL2 — sjå
 # specs/backlog/batch-docs-publish-generering.md for profilering).
 # Filstien vert lagra direkte (ikkje rekonstruert frå katalogkonvensjonen)
@@ -595,7 +595,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-# gen-doc genererer systematiske fragment-lenkjer utan filnamn (t.d.
+# gen-doc genererer systematiske fragment-lenkjer utan filnavn (t.d.
 # ../../ap-no/dcat-ap-no/#classes i staden for .../index.md#classes) som
 # mkdocs ikkje kjenner att som interne lenkjer. Denne åtvaringa er ikkje
 # kritisk og vert undertrykka her. Merk: dette dekkjer ikkje mermaid
@@ -640,9 +640,9 @@ nav:
           - Monitorering av automasjon: automasjon/monitorering.md
       - Modellanalyse:
           - modellanalyse/index.md
-          - Liknande klassenamn (alle domene): modellanalyse/liknande-klassenamn-alle-domene.md
-          - Liknande slotnamn (alle domene): modellanalyse/liknande-slotnamn-alle-domene.md
-          - Liknande typenamn (alle domene): modellanalyse/liknande-typenamn-alle-domene.md
+          - Liknande klassenavn (alle domene): modellanalyse/liknande-klassenavn-alle-domene.md
+          - Liknande slotnavn (alle domene): modellanalyse/liknande-slotnavn-alle-domene.md
+          - Liknande typenavn (alle domene): modellanalyse/liknande-typenavn-alle-domene.md
       - Om dette repoet: om.md
 STATIC
 

@@ -11,7 +11,7 @@
 #
 # Merk: `new-begrepskatalog` (legacy scaffolding for det eldre, monolittiske
 # BegrepContainer-skjemaformatet) er fjerna, jf.
-# specs/done/make-target-namn-vs-funksjon.md, Funn 9.
+# specs/done/make-target-navn-vs-funksjon.md, Funn 9.
 # src/linkml/begrepskatalog/brreg-begrepskatalog nyttar framleis det gamle
 # formatet, men kan ikkje lenger scaffoldast på nytt via make — bruk han som
 # mal manuelt dersom eit nytt monolittisk skjema nokon gong trengst.

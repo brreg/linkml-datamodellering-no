@@ -33,8 +33,8 @@ CHECKS = [
     ("Liknande klassenavn (alle domene)", "similar-classes-all-report.md", "similar"),
     ("Liknande slotnavn (same domene)", "similar-slots-domain-report.md", "similar"),
     ("Liknande slotnavn (alle domene)", "similar-slots-all-report.md", "similar"),
-    ("Liknande typenamn (same domene)", "similar-types-domain-report.md", "similar"),
-    ("Liknande typenamn (alle domene)", "similar-types-all-report.md", "similar"),
+    ("Liknande typenavn (same domene)", "similar-types-domain-report.md", "similar"),
+    ("Liknande typenavn (alle domene)", "similar-types-all-report.md", "similar"),
     ("IRI-dereferering", "iri-dereferering-report.md", "iri"),
     ("Innhaldsforhandling", "innhaldsforhandling-report.md", "content-negotiation"),
 ]

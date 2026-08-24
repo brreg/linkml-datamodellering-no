@@ -24,7 +24,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # Opprett temp-fil
 TEMP_README=$(mktemp)
 
-# --- Funksjon: Uppercase domenenamn for tabellvising ---
+# --- Funksjon: Uppercase domenenavn for tabellvising ---
 domain_short_label() {
   echo "$1" | tr '[:lower:]' '[:upper:]'
 }
@@ -51,7 +51,7 @@ generate_schema_table() {
     schema_name=$(basename "$schema_dir")
     schema_basename=$(basename "$schema_file" "-schema.yaml")
 
-    # Berre inkluder hovudskjema (der filnamn matcher katalognamn)
+    # Berre inkluder hovudskjema (der filnavn matcher katalognavn)
     # t.d. modelldcat-ap-no/modelldcat-ap-no-schema.yaml (OK)
     # relevant for eit evt. framtidig submodels:-tilfelle (sjå build-config.md)
     [[ "$schema_basename" != "$schema_name" ]] && continue
@@ -84,7 +84,7 @@ generate_schema_table() {
 
       # Format dokumentasjonslenkje dersom see_also finst
       if [[ -n "$see_also_uri" ]]; then
-        # Ekstraher domenenamn frå URI (t.d. data.norge.no, www.go-fair.org)
+        # Ekstraher domenenavn frå URI (t.d. data.norge.no, www.go-fair.org)
         doc_domain=$(echo "$see_also_uri" | sed -E 's|https?://([^/]+).*|\1|')
         doc_link="[$doc_domain]($see_also_uri)"
       else
@@ -117,7 +117,7 @@ generate_begrepskatalog_table() {
     schema_dir=$(dirname "$schema_file")
     schema_name=$(basename "$schema_dir")
 
-    # Hent title frå skjema, ekstraher organisasjonsnamn (før " - Begrepskatalog")
+    # Hent title frå skjema, ekstraher organisasjonsnavn (før " - Begrepskatalog")
     title=$(python3 "$extractor" "$schema_file" title)
     # Fjern " - Begrepskatalog" og alt etter det (inkl. eventuelle parentesar)
     org=$(echo "$title" | sed 's/ - Begrepskatalog.*//')
@@ -150,7 +150,7 @@ generate_modellkatalog_table() {
     schema_dir=$(dirname "$schema_file")
     schema_name=$(basename "$schema_dir")
 
-    # Hent title frå skjema, ekstraher organisasjonsnamn (før " - Modellkatalog")
+    # Hent title frå skjema, ekstraher organisasjonsnavn (før " - Modellkatalog")
     title=$(python3 "$extractor" "$schema_file" title)
     # Fjern " - Modellkatalog" og alt etter det (inkl. eventuelle parentesar)
     org=$(echo "$title" | sed 's/ - Modellkatalog.*//')

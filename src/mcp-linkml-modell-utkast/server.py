@@ -62,7 +62,7 @@ TOOL_GENERATE = {
             },
             "schemaName": {
                 "type": "string",
-                "description": "Kortnamn for skjemaet (name-felt i LinkML).",
+                "description": "Kortnavn for skjemaet (name-felt i LinkML).",
                 "default": "schema",
             },
             "schemaTitle": {

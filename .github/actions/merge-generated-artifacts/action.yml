@@ -9,7 +9,7 @@ description: >-
   generated/-treet samla (t.d. lenkje-og-mermaid-sjekk.yml).
 inputs:
   domain_list:
-    description: 'Space-separert liste med domenenamn (t.d. "ap-no fair ngr")'
+    description: 'Space-separert liste med domenenavn (t.d. "ap-no fair ngr")'
     required: true
 runs:
   using: 'composite'

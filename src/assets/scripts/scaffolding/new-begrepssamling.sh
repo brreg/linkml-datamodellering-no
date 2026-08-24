@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Opprettar filstruktur og boilerplate for ei ny begrepssamling.
-# Bruk: bash src/assets/scripts/new-begrepssamling.sh <domain> <begrepssamling-namn>
+# Bruk: bash src/assets/scripts/new-begrepssamling.sh <domain> <begrepssamling-navn>
 set -euo pipefail
 
 DOMAIN="${1:-}"

@@ -8,7 +8,7 @@ description: >-
   domenegenerering (t.d. lenkje-og-mermaid-sjekk.yml).
 inputs:
   domain:
-    description: 'Domenenamn (t.d. ap-no, referanse)'
+    description: 'Domenenavn (t.d. ap-no, referanse)'
     required: true
 runs:
   using: 'composite'

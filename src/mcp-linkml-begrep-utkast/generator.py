@@ -16,7 +16,7 @@ KJELDETYPAR = {
 
 
 def load_profile(name: str) -> dict:
-    """Lastar ein namngitt profil frå profiles/-katalogen."""
+    """Lastar ein navngitt profil frå profiles/-katalogen."""
     path = _PROFILES_DIR / f"{name}.yaml"
     with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f) or {}

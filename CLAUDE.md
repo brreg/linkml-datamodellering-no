@@ -153,4 +153,4 @@ LinkML-spesifikke modelleringsprinsipp (slots vs attributes, lenking fremfor inl
 - **Em-dash (U+2014, "—")** kan brukast i løpande prosa der typografisk
   distinksjon er ønskt, men bør unngåast i teknisk dokumentasjon.
 
-Katalogstruktur, manifestformat (`build.yaml`), fil-/mappenamn, schema-metadata, translitterering av norske bokstavar, slotnamnkonvensjonar, standardprefiks og silver-annotasjonar for LinkML-skjema lastar automatisk ved arbeid med filer under `src/linkml/`, sjå `.claude/rules/linkml-schema.md`.
+Katalogstruktur, manifestformat (`build.yaml`), fil-/mappenavn, schema-metadata, translitterering av norske bokstavar, slotnavnkonvensjonar, standardprefiks og silver-annotasjonar for LinkML-skjema lastar automatisk ved arbeid med filer under `src/linkml/`, sjå `.claude/rules/linkml-schema.md`.

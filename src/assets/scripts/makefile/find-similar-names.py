@@ -47,7 +47,7 @@ To bruksmåtar:
      python3 find-similar-names.py --domain <domene> --out-dir <sti>       # per-skjema domain-rapportar
      python3 find-similar-names.py --out-dir <sti>                        # eitt kombinert --scope all-sett
 
-   Filnamn/katalogstruktur matchar det dei tilsvarande enkelt-rapport-
+   Filnavn/katalogstruktur matchar det dei tilsvarande enkelt-rapport-
    kalla alt produserer i dag (`<out-dir>/<domene>/<skjema>/model-analyse/
    similar-<kind>-domain-report.md` for domene-modus,
    `<out-dir>/similar-<kind>-all-report.md` for scope all-modus), slik at
@@ -174,7 +174,7 @@ def build_report(
     til) — kallar legg til det sjølv (print(), eller '+ \"\\n\"' ved
     filskriving)."""
     label = {"class": "klasser", "slot": "slots", "types": "typer"}[kind]
-    name_label = {"class": "klassenavn", "slot": "slotnavn", "types": "typenamn"}[kind]
+    name_label = {"class": "klassenavn", "slot": "slotnavn", "types": "typenavn"}[kind]
     scope_label = "same domene" if scope == "domain" else "alle domene"
 
     lines = [
@@ -235,7 +235,7 @@ def write_domain_reports(domain: str, base_dir: Path, threshold: float) -> None:
 
 def write_all_reports(base_dir: Path, threshold: float) -> None:
     """Batch-modus: skriv dei tre kombinerte similar-<kind>-all-report.md
-    (--scope all, ingen domene-/namnefilter) i éin prosess i staden for
+    (--scope all, ingen domene-/navnefilter) i éin prosess i staden for
     tre separate kontainarkall."""
     schemas = discover_schemas(None)
     base_dir.mkdir(parents=True, exist_ok=True)
@@ -249,11 +249,11 @@ def write_all_reports(base_dir: Path, threshold: float) -> None:
 
 
 def resolve_name(name: str, domain: str | None) -> Path:
-    """Slår opp skjemastien for éin namngjeven modell (NAME=<modell>).
+    """Slår opp skjemastien for éin navngjeven modell (NAME=<modell>).
 
     DOMAIN + NAME saman slår opp direkte (som new-modell/remove-modell).
     NAME åleine søkjer på tvers av alle domene — feilar tydeleg dersom
-    modellnamnet ikkje finst, eller finst i meir enn eitt domene."""
+    modellnavnet ikkje finst, eller finst i meir enn eitt domene."""
     if domain:
         path = SCHEMA_DIR / domain / name / f"{name}-schema.yaml"
         if not path.is_file():
@@ -262,12 +262,12 @@ def resolve_name(name: str, domain: str | None) -> Path:
         return path
     matches = sorted(SCHEMA_DIR.glob(f"*/{name}/{name}-schema.yaml"))
     if not matches:
-        print(f"FEIL: fann ingen modell med namn '{name}' i {SCHEMA_DIR}", file=sys.stderr)
+        print(f"FEIL: fann ingen modell med navn '{name}' i {SCHEMA_DIR}", file=sys.stderr)
         sys.exit(1)
     if len(matches) > 1:
         found = ", ".join(str(m) for m in matches)
         print(
-            f"FEIL: fann fleire modellar med namn '{name}': {found} — presiser med DOMAIN=",
+            f"FEIL: fann fleire modellar med navn '{name}': {found} — presiser med DOMAIN=",
             file=sys.stderr,
         )
         sys.exit(1)

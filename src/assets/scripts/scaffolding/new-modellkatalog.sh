@@ -192,7 +192,7 @@ informasjonsmodeller: []
 aktoerer:
 - id: $contact_uri
   navn_aktoer:
-  - "TODO: namn på kontaktpunktet"
+  - "TODO: navn på kontaktpunktet"
 - id: $org_uri
   navn_aktoer:
   - $name
