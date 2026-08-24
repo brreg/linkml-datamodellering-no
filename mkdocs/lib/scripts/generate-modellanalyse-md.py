@@ -1,25 +1,35 @@
 #!/usr/bin/env python3
 """
-Genererer ein ## Modellanalyse-seksjon frå dei tre per-skjema
-modellanalyse-rapportane (similar-classes-domain-report.md,
-similar-slots-domain-report.md, similar-types-domain-report.md) til stdout.
+Genererer ein ## Modellanalyse-seksjon frå dei per-skjema
+modellanalyse-rapportane (similar-classes/-slots/-types-domain-report.md,
+ubrukte-slots/-enums/-types/-subsets-report.md,
+isolerte-klasser-report.md) til stdout.
 
 Rapportfilene vert skrivne av generate.yml sitt «Køyr modellanalyse per
 skjema»-steg (make analyse-similar-classes-domain/-slots-domain/-types-domain
-NAME=<skjema>) til generated/<domain>/<schema>/model-analyse/ — sjå
-specs/done/modellanalyse-per-skjema-index-md.md og
-specs/backlog/modellanalyse-liknande-typenamn.md. Dei er domene-scopa
-(ikkje cross-domain) og reint offline (ingen IRI-/nettverkssjekkar) — sjå
-den første spec-en for grunngjeving. IRI-dereferering, innhaldsforhandling
-og cross-domain-samanlikning køyrer framleis berre i den vekentlege
-modell-analyse.yml-workflowen; kvar underseksjon (og ein avsluttande,
-delt fotnote for IRI-/innhaldsforhandling-sjekkane) lenkar dit i staden
-for å duplisere dei.
+og make analyse-ubrukte-slots/-enums/-types/-subsets/analyse-isolerte-klasser
+NAME=<skjema>/SCHEMA=<sti>) til generated/<domain>/<schema>/model-analyse/ —
+sjå specs/done/modellanalyse-per-skjema-index-md.md,
+specs/backlog/modellanalyse-liknande-typenamn.md og
+specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md. Dei er
+domene-scopa/per-skjema-scopa (ikkje cross-domain) og reint offline
+(ingen IRI-/nettverkssjekkar) — sjå den fyrste spec-en for grunngjeving.
 
-Kvar rapportfil startar med si eiga "# Liknande ..."-overskrift (frå
-find-similar-names.py) — denne vert stroken og erstatta med ei eiga
-###-underoverskrift her, sidan rapporten vert nesta inn i denne sida sin
-eigen ## Modellanalyse-seksjon.
+Kvar rapportfil startar med si eiga "# ..."-overskrift (frå
+find-similar-names.py/find-unused-local-definitions.py) — denne vert
+stroken og erstatta med ei eiga ###-underoverskrift her, sidan rapporten
+vert nesta inn i denne sida sin eigen ## Modellanalyse-seksjon.
+
+Cross-domain-fotnote: fram til no enda kvar underseksjon med ei fast
+fotnote som peika til modell-analyse.yml-workflowen i GitHub Actions —
+ikkje til noka konkret fil. Dei tre similar-*-domain-analysane har no ein
+faktisk publisert cross-domain-motpart (--scope all, køyrd éin gong i
+generate.yml sin publish-jobb og publisert som statiske sider under
+mkdocs/docs/modellanalyse/ av mkdocs/publish.sh), så fotnota for desse
+lenkar no direkte til den sida i staden. Dei fem ubrukt-lokalt/isolert-
+analysane har inga meiningsfull cross-domain-form (dei er per definisjon
+per-skjema) og får difor ingen fotnote i det heile — sjå
+cross_domain_report_relpath=None per oppføring under.
 
 Bruk: python3 generate-modellanalyse-md.py <model-analyse-dir> <domain> <schema>
 """
@@ -27,11 +37,66 @@ Bruk: python3 generate-modellanalyse-md.py <model-analyse-dir> <domain> <schema>
 import sys
 from pathlib import Path
 
-# (rapportfil, ###-underoverskrift, objekttype brukt i per-seksjons-fotnoten)
+# (rapportfil, ###-overskrift, objekttype brukt i fotnoteteksten,
+#  relativ sti til cross-domain-sida frå mkdocs/docs/<domain>/<schema>/index.md
+#  (None = ingen cross-domain-ekvivalent, ingen fotnote), fotnote-lenkjetekst)
 REPORTS = [
-    ("similar-classes-domain-report.md", "Liknande klassenamn (same domene)", "klassenamn"),
-    ("similar-slots-domain-report.md", "Liknande slotnamn (same domene)", "slotnamn"),
-    ("similar-types-domain-report.md", "Liknande typenamn (same domene)", "typenamn"),
+    (
+        "similar-classes-domain-report.md",
+        "Liknande klassenamn (same domene)",
+        "klassenamn",
+        "../../modellanalyse/liknande-klassenamn-alle-domene.md",
+        "Analyse av klassenamn på tvers av alle domene",
+    ),
+    (
+        "similar-slots-domain-report.md",
+        "Liknande slotnamn (same domene)",
+        "slotnamn",
+        "../../modellanalyse/liknande-slotnamn-alle-domene.md",
+        "Analyse av slotnamn på tvers av alle domene",
+    ),
+    (
+        "similar-types-domain-report.md",
+        "Liknande typenamn (same domene)",
+        "typenamn",
+        "../../modellanalyse/liknande-typenamn-alle-domene.md",
+        "Analyse av typenamn på tvers av alle domene",
+    ),
+    (
+        "ubrukte-slots-report.md",
+        "Ubrukte lokale slots",
+        "ubrukte slots",
+        None,
+        None,
+    ),
+    (
+        "ubrukte-enums-report.md",
+        "Ubrukte lokale enumerations",
+        "ubrukte enumerations",
+        None,
+        None,
+    ),
+    (
+        "ubrukte-types-report.md",
+        "Ubrukte lokale types",
+        "ubrukte types",
+        None,
+        None,
+    ),
+    (
+        "ubrukte-subsets-report.md",
+        "Ubrukte lokale subsets",
+        "ubrukte subsets",
+        None,
+        None,
+    ),
+    (
+        "isolerte-klasser-report.md",
+        "Isolerte klassar",
+        "isolerte klassar",
+        None,
+        None,
+    ),
 ]
 
 MODELL_ANALYSE_WORKFLOW_URL = (
@@ -58,9 +123,10 @@ def main() -> None:
         sys.exit(1)
 
     analyse_dir = Path(sys.argv[1])
-    # domain/schema er ikkje brukt i sjølve formateringa i dag, men tekne imot
-    # for symmetri med generate-validation-md.py sitt grensesnitt og for
-    # framtidig bruk (t.d. lenkjer tilbake til skjemaet).
+    # domain/schema er ikkje brukt i sjølve formateringa i dag (cross-domain-
+    # relativstiane er faste — alle skjema-index.md ligg to nivå under
+    # mkdocs/docs/), men tekne imot for symmetri med generate-validation-md.py
+    # sitt grensesnitt og for framtidig bruk.
     _domain = sys.argv[2]
     _schema = sys.argv[3]
 
@@ -69,14 +135,15 @@ def main() -> None:
         "## Modellanalyse",
         "",
         "> Modellanalysen samanliknar dette skjemaet sine lokalt definerte "
-        "klasse-, slot- og typenamn mot andre skjema i same domene, og "
-        "flaggar par med høg namnelikskap som eit mogleg duplikat- eller "
-        "konsolideringssignal. Analysen er informativ, ikkje ein "
-        "valideringspolicy.",
+        "klasse-, slot- og typenamn mot andre skjema i same domene, flaggar "
+        "par med høg namnelikskap som eit mogleg duplikat- eller "
+        "konsolideringssignal, og fangar lokalt definerte slots, "
+        "enumerations, types, subsets og klassar som ikkje er i bruk lokalt "
+        "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",
     ]
 
     any_report_found = False
-    for filename, heading, objekttype in REPORTS:
+    for filename, heading, objekttype, cross_domain_relpath, cross_domain_label in REPORTS:
         report_path = analyse_dir / filename
         lines += ["", f"### {heading}", ""]
         if not report_path.is_file():
@@ -91,11 +158,12 @@ def main() -> None:
                 lines.append("*Rapport ikkje tilgjengeleg for denne bygginga.*")
             else:
                 lines.append(body)
-        lines += [
-            "",
-            f"*For fullstendig analyse av {objekttype} på tvers av domene sjå "
-            f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen.*",
-        ]
+        if cross_domain_relpath:
+            lines += [
+                "",
+                f"*For fullstendig analyse av {objekttype} på tvers av domene sjå "
+                f"[{cross_domain_label}]({cross_domain_relpath}).*",
+            ]
 
     lines += [
         "",

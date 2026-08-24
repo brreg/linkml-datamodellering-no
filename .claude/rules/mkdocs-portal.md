@@ -104,13 +104,13 @@ Når du redigerer Jinja2-templatear (t.d. `src/assets/templates/docgen/index.md.
 
 1. **Tabellar:** Ingen indentasjon på tabellrader, og korrekt `-`-plassering:
    ```jinja2
-   | Enumeration | Description | Defined in | Usage |
-   | --- | --- | --- | --- |
+   | Enumeration | Description | Defined in |
+   | --- | --- | --- |
    {% for enum_name in enums|sort -%}
    {%- set e = get_enum(enum_name) -%}
    {%- if e -%}
    {%- set origin = e.from_schema -%}
-   | {{ e.name }} | {{ e.description }} | {{ origin }} | {{ usage }} |
+   | {{ e.name }} | {{ e.description }} | {{ origin }} |
    {% endif -%}
    {%- endfor -%}
    ```

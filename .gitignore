@@ -17,6 +17,7 @@ mkdocs/docs/referanse/
 mkdocs/docs/samt/
 mkdocs/docs/index.md
 mkdocs/docs/arkitektur/valideringsregler.md
+mkdocs/docs/modellanalyse/
 mkdocs/mkdocs.yml
 tests/testlogs/
 __pycache__/

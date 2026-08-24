@@ -75,6 +75,51 @@ EOF
 }
 
 # ---------------------------------------------------------------------------
+# Generer modellanalyse/-sider frå dei tre --scope all-rapportane
+# (similar-classes/-slots/-types-all), køyrde éin gong per generate.yml-
+# køyring (sjå .github/workflows/generate.yml, steget "Køyr modellanalyse
+# på tvers av domene"). Gjer at kvart skjema sin per-objekttype-fotnote
+# under ## Modellanalyse (generate-modellanalyse-md.py) kan lenke til ei
+# ekte, stabil side i staden for GitHub Actions-workflowen — sjå
+# specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md.
+# ---------------------------------------------------------------------------
+generate_cross_domain_modellanalyse_docs() {
+    local src_dir="$GEN/modell-analyse-tvers-domene"
+    local out_dir="$DOCS/modellanalyse"
+    mkdir -p "$out_dir"
+
+    local -A files=(
+        [similar-classes-all-report.md]="liknande-klassenamn-alle-domene.md"
+        [similar-slots-all-report.md]="liknande-slotnamn-alle-domene.md"
+        [similar-types-all-report.md]="liknande-typenamn-alle-domene.md"
+    )
+
+    local src_name dest
+    for src_name in "${!files[@]}"; do
+        dest="$out_dir/${files[$src_name]}"
+        if [ -f "$src_dir/$src_name" ]; then
+            cp "$src_dir/$src_name" "$dest"
+        else
+            log_info "${CLR_WARN}ÅTVARING: $src_dir/$src_name finst ikkje — hoppar over${CLR_RST}"
+            printf '%s\n' "# Analyse ikkje tilgjengeleg" "" \
+                "Rapporten vart ikkje generert i denne bygginga." > "$dest"
+        fi
+    done
+
+    cat > "$out_dir/index.md" <<'EOF'
+# Modellanalyse på tvers av domene
+
+Desse sidene viser namnelikskaps-analysar køyrde på tvers av **alle**
+domene i repoet — til skilnad frå dei domene-scopa analysane som ligg
+under kvar enkelt modell sin `## Modellanalyse`-seksjon.
+
+- [Liknande klassenamn](liknande-klassenamn-alle-domene.md)
+- [Liknande slotnamn](liknande-slotnamn-alle-domene.md)
+- [Liknande typenamn](liknande-typenamn-alle-domene.md)
+EOF
+}
+
+# ---------------------------------------------------------------------------
 # Generer index.md frå README.md (+ footer med byggetidspunkt)
 # ---------------------------------------------------------------------------
 write_index_from_readme() {
@@ -168,7 +213,7 @@ clean_previous_docs() {
         [ -d "$docs_domain_dir" ] || continue
         domain=$(basename "$docs_domain_dir")
         case "$domain" in
-            stylesheets|javascripts|kom-i-gang|arkitektur|publisering|automasjon) continue ;;
+            stylesheets|javascripts|kom-i-gang|arkitektur|publisering|automasjon|modellanalyse) continue ;;
         esac
         if [ ! -d "$GEN/$domain" ]; then
             log_info "Ryddar forsvunne domene: $domain"
@@ -200,6 +245,7 @@ BUILD_TIMESTAMP=$(TZ="Europe/Oslo" date +"%Y-%m-%d %H:%M %Z")
 timed_run "Oppdater README.md-tabellar" bash "$REPO_ROOT/src/assets/scripts/makefile/generate-readme-tables.sh" "$REPO_ROOT/README.md"
 timed_run "Generer index.md frå README.md" write_index_from_readme
 timed_run "Generer valideringsregler.md" generate_validation_docs
+timed_run "Generer modellanalyse-tvers-domene-sider" generate_cross_domain_modellanalyse_docs
 
 # ---------------------------------------------------------------------------
 # Steg 1.4: Finn domene/skjema-struktur frå generated/
@@ -592,6 +638,11 @@ nav:
           - Generering av modellmanifest: automasjon/modellmanifest-generering.md
           - README-tabellgenerering: automasjon/readme-tabellgenerering.md
           - Monitorering av automasjon: automasjon/monitorering.md
+      - Modellanalyse:
+          - modellanalyse/index.md
+          - Liknande klassenamn (alle domene): modellanalyse/liknande-klassenamn-alle-domene.md
+          - Liknande slotnamn (alle domene): modellanalyse/liknande-slotnamn-alle-domene.md
+          - Liknande typenamn (alle domene): modellanalyse/liknande-typenamn-alle-domene.md
       - Om dette repoet: om.md
 STATIC
 

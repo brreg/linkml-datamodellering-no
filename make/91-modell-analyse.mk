@@ -12,6 +12,7 @@
 #
 # Relaterte script:
 # - src/assets/scripts/makefile/find-similar-names.py
+# - src/assets/scripts/makefile/find-unused-local-definitions.py
 # - src/assets/scripts/makefile/check-iri-resolution.py
 # - src/assets/scripts/makefile/summarise-modell-analyse.py
 # ==============================================================================
@@ -21,6 +22,9 @@ SIMILARITY_THRESHOLD ?= 0.8
 .PHONY: analyse-similar-classes-domain analyse-similar-classes-all \
         analyse-similar-slots-domain analyse-similar-slots-all \
         analyse-similar-types-domain analyse-similar-types-all \
+        analyse-ubrukte-slots analyse-ubrukte-enums \
+        analyse-ubrukte-types analyse-ubrukte-subsets \
+        analyse-isolerte-klasser \
         analyse-iri-dereferering analyse-innhaldsforhandling analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
@@ -52,6 +56,31 @@ analyse-similar-types-all: ## Finn typar (types:) med liknande navn på tvers av
 	$(call print_header,analyse-similar-types-all) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/find-similar-names.py \
 	  --kind types --scope all --threshold $(SIMILARITY_THRESHOLD) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(NAME),--name $(NAME))
+
+analyse-ubrukte-slots: ## Finn lokalt definerte slots som ikkje er brukt av nokon lokal klasse [SCHEMA=<sti>]
+	$(call print_header,analyse-ubrukte-slots,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind slot --schema $(SCHEMA)
+
+analyse-ubrukte-enums: ## Finn lokalt definerte enums som ikkje er brukt av nokon lokal klasse [SCHEMA=<sti>]
+	$(call print_header,analyse-ubrukte-enums,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind enum --schema $(SCHEMA)
+
+analyse-ubrukte-types: ## Finn lokalt definerte typar (types:) som ikkje er brukt av nokon lokal klasse [SCHEMA=<sti>]
+	$(call print_header,analyse-ubrukte-types,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind type --schema $(SCHEMA)
+
+analyse-ubrukte-subsets: ## Finn lokalt definerte subsets som ikkje er brukt av nokon lokal klasse [SCHEMA=<sti>]
+	$(call print_header,analyse-ubrukte-subsets,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind subset --schema $(SCHEMA)
+
+analyse-isolerte-klasser: ## Finn lokale klassar utan referansar til/frå noka anna lokal klasse [SCHEMA=<sti>]
+	$(call print_header,analyse-isolerte-klasser,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind class --schema $(SCHEMA)
 
 analyse-iri-dereferering: ## Testar at alle IRI-ar (id/default_prefix/prefixes) i skjema let seg derefere over HTTP(S) [DOMAIN=<domene>]
 	$(call print_header,analyse-iri-dereferering) 1>&2

@@ -352,6 +352,43 @@ jobs:
             else
               echo "::warning::analyse-similar-types-domain feila for $schema_name"
             fi
+
+            schema_file="$schema_dir/${schema_name}-schema.yaml"
+
+            if make analyse-ubrukte-slots SCHEMA="$schema_file" \
+                > "$target_dir/ubrukte-slots-report.md"; then
+              echo "  ✓ $schema_name: ubrukte-slots-report.md"
+            else
+              echo "::warning::analyse-ubrukte-slots feila for $schema_name"
+            fi
+
+            if make analyse-ubrukte-enums SCHEMA="$schema_file" \
+                > "$target_dir/ubrukte-enums-report.md"; then
+              echo "  ✓ $schema_name: ubrukte-enums-report.md"
+            else
+              echo "::warning::analyse-ubrukte-enums feila for $schema_name"
+            fi
+
+            if make analyse-ubrukte-types SCHEMA="$schema_file" \
+                > "$target_dir/ubrukte-types-report.md"; then
+              echo "  ✓ $schema_name: ubrukte-types-report.md"
+            else
+              echo "::warning::analyse-ubrukte-types feila for $schema_name"
+            fi
+
+            if make analyse-ubrukte-subsets SCHEMA="$schema_file" \
+                > "$target_dir/ubrukte-subsets-report.md"; then
+              echo "  ✓ $schema_name: ubrukte-subsets-report.md"
+            else
+              echo "::warning::analyse-ubrukte-subsets feila for $schema_name"
+            fi
+
+            if make analyse-isolerte-klasser SCHEMA="$schema_file" \
+                > "$target_dir/isolerte-klasser-report.md"; then
+              echo "  ✓ $schema_name: isolerte-klasser-report.md"
+            else
+              echo "::warning::analyse-isolerte-klasser feila for $schema_name"
+            fi
           done
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
@@ -420,6 +457,38 @@ jobs:
         with:
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+
+      - name: Køyr modellanalyse på tvers av domene
+        # Eingongs (ikkje per domene/skjema) — --scope all samanliknar på
+        # tvers av heile repoet, så treng berre køyrast éin gong. Skriv til
+        # ein fast, ikkje-domene-scopa katalog som mkdocs/publish.sh
+        # publiserer som faste sider under mkdocs/docs/modellanalyse/ —
+        # sjå specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md.
+        # Same ikkje-blokkerande feilhandtering som per-skjema-steget over.
+        run: |
+          set -uo pipefail
+          echo "=== Køyrer modellanalyse på tvers av domene ==="
+
+          target_dir="generated/modell-analyse-tvers-domene"
+          mkdir -p "$target_dir"
+
+          if make analyse-similar-classes-all > "$target_dir/similar-classes-all-report.md"; then
+            echo "  ✓ similar-classes-all-report.md"
+          else
+            echo "::warning::analyse-similar-classes-all feila"
+          fi
+
+          if make analyse-similar-slots-all > "$target_dir/similar-slots-all-report.md"; then
+            echo "  ✓ similar-slots-all-report.md"
+          else
+            echo "::warning::analyse-similar-slots-all feila"
+          fi
+
+          if make analyse-similar-types-all > "$target_dir/similar-types-all-report.md"; then
+            echo "  ✓ similar-types-all-report.md"
+          else
+            echo "::warning::analyse-similar-types-all feila"
+          fi
 
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
