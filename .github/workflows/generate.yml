@@ -124,6 +124,68 @@ jobs:
           tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
           make_target: ${{ matrix.image.make_target }}
 
+  modellanalyse-tvers-domene:
+    # Eiga jobb (i staden for eit steg i `publish`) slik at dei ~30-40 s
+    # dette steget tok tidlegare no overlappar med `generate`-matrisa i
+    # staden for å leggje seg attpå henne — `find-similar-names.py --scope
+    # all` les berre kjeldeskjemaa i `src/linkml/` (frå `source`-artefaktet),
+    # ikkje noko frå `generate`-matrisa sin `generated/`-output, så det finst
+    # ingen reell avhengigheit som tvingar denne til å vente på matrisa. Sjå
+    # specs/done/effektiviser-modellanalyse-koyretid.md (Tiltak 5-oppfølging,
+    # parallelliser mot heile `generate`-matrisa i staden for berre internt
+    # i `publish`-jobben).
+    needs: [ensure-images, checkout-source]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
+          path: .
+
+      - name: Oppgrader crun
+        uses: ./.github/actions/upgrade-crun
+
+      - name: Logg inn på GHCR
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Last python-pytest frå GHCR
+        uses: ./.github/actions/pull-images
+        with:
+          images: '[{"name":"python-pytest","make_target":"build-docker-python"}]'
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+
+      - name: Køyr modellanalyse på tvers av domene
+        # --scope all samanliknar på tvers av heile repoet, så treng berre
+        # køyrast éin gong (ikkje per domene/skjema). Skriv til ein fast,
+        # ikkje-domene-scopa katalog som mkdocs/publish.sh publiserer som
+        # faste sider under mkdocs/docs/modellanalyse/ — sjå
+        # specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md. Eitt
+        # batch-kall (alle tre kindar i éin prosess) — sjå
+        # specs/done/effektiviser-modellanalyse-koyretid.md. Ikkje
+        # -e: ein feil her skal ikkje stoppe resten av workflowen — dette er
+        # ein informativ rapport, ikkje ei blokkerande sjekk (same prinsipp
+        # som modell-analyse.yml).
+        run: |
+          set -uo pipefail
+          echo "=== Køyrer modellanalyse på tvers av domene ==="
+
+          if make analyse-similar-alle-domene-batch OUT_DIR=generated/modell-analyse-tvers-domene; then
+            echo "✓ Modellanalyse på tvers av domene fullført"
+          else
+            echo "::warning::analyse-similar-alle-domene-batch feila"
+          fi
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: generated-modell-analyse-tvers-domene
+          path: generated/modell-analyse-tvers-domene/
+          retention-days: 1
+
   generate:
     name: "generate / ${{ matrix.domain }}"
     needs: [ensure-images, checkout-source]
@@ -372,7 +434,7 @@ jobs:
           retention-days: 1
 
   publish:
-    needs: [generate, checkout-source]
+    needs: [generate, checkout-source, modellanalyse-tvers-domene]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -395,6 +457,15 @@ jobs:
         with:
           domain_list: ${{ needs.checkout-source.outputs.domain_list }}
 
+      - name: Last ned modellanalyse-tvers-domene-artefakt
+        # Produsert av den parallelle modellanalyse-tvers-domene-jobben
+        # (køyrde samstundes med generate-matrisa, ikkje etterpå) — sjå
+        # specs/done/effektiviser-modellanalyse-koyretid.md.
+        uses: actions/download-artifact@v8
+        with:
+          name: generated-modell-analyse-tvers-domene
+          path: generated/modell-analyse-tvers-domene/
+
       - name: Logg inn på GHCR
         uses: ./.github/actions/ghcr-login
         with:
@@ -412,25 +483,6 @@ jobs:
         with:
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
-
-      - name: Køyr modellanalyse på tvers av domene
-        # Eingongs (ikkje per domene/skjema) — --scope all samanliknar på
-        # tvers av heile repoet, så treng berre køyrast éin gong. Skriv til
-        # ein fast, ikkje-domene-scopa katalog som mkdocs/publish.sh
-        # publiserer som faste sider under mkdocs/docs/modellanalyse/ —
-        # sjå specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md.
-        # Eitt batch-kall (alle tre kindar i éin prosess) i staden for tre
-        # separate — sjå specs/done/effektiviser-modellanalyse-koyretid.md.
-        # Same ikkje-blokkerande feilhandtering som per-skjema-steget over.
-        run: |
-          set -uo pipefail
-          echo "=== Køyrer modellanalyse på tvers av domene ==="
-
-          if make analyse-similar-alle-domene-batch OUT_DIR=generated/modell-analyse-tvers-domene; then
-            echo "✓ Modellanalyse på tvers av domene fullført"
-          else
-            echo "::warning::analyse-similar-alle-domene-batch feila"
-          fi
 
       - name: Publiser og bygg dokumentasjonsportal
         shell: bash
