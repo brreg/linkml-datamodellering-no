@@ -42,6 +42,6 @@ def write_validation_log(log_path: Path, entry: Dict[str, Any]) -> None:
     """Skriv valideringslogg-objektet til fil (opprettar overordna katalogar)."""
     log_path.parent.mkdir(parents=True, exist_ok=True)
     log_path.write_text(
-        json.dumps(entry, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        json.dumps(entry, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
