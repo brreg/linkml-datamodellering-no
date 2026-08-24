@@ -3,18 +3,18 @@ validation_policy: silver
 external_spec_url: https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/
 
 generators:
-  jsonld_context: true
+  jsonld_context: false
   shacl: true
-  python: true
+  python: false
   json_schema: true
   owl: true
   rdf: true
-  protobuf: true
+  protobuf: false
   graphql: false
   erdiagram: true
   docs: true
   plantuml: true
-  example_rdf: true
-  xsd: false
-  openapi: true
+  example_rdf: false
+  xsd: true
+  openapi: false
   asyncapi: false

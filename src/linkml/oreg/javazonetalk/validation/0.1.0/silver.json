@@ -1,0 +1,188 @@
+{
+  "domain": "oreg",
+  "result": {
+    "errorCount": 4,
+    "issues": [
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Katalog'",
+        "severity": "error",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Datasett'",
+        "severity": "error",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Kvalitetsmaal'",
+        "severity": "error",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_required_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Kvalitetsmaaling'",
+        "severity": "error",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'navn' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:navn"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'organisasjon' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:organisasjon"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'sted' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:sted"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'lengde_i_minutt' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:lengde_i_minutt"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'sammendrag' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:sammendrag"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'malgruppe' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:malgruppe"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'har_foredragsholdere' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:har_foredragsholdere"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'foredrag_tidsrom' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:foredrag_tidsrom"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'lokasjon' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:lokasjon"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'har_timeplaner' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:har_timeplaner"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'innsendingsstatus' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:innsendingsstatus"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'antall_plasser' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:antall_plasser"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'tid_slutt' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:tid_slutt"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'har_sesjonslokale' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:har_sesjonslokale"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'har_sesjoner' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:har_sesjoner"
+      },
+      {
+        "code": "all_slots_have_slot_uri",
+        "message": "Slot 'dato' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+        "severity": "warning",
+        "target": "slot:dato"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Foredragsholder' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Foredragsholder"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Konferanse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Konferanse"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Timeplan' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Timeplan"
+      },
+      {
+        "code": "all_classes_have_concept_ref",
+        "message": "Klasse 'Sesjonslokale' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections",
+        "severity": "warning",
+        "target": "class:Sesjonslokale"
+      },
+      {
+        "code": "schema_has_annotation_oppdateringsfrekvens",
+        "message": "schema.annotations.oppdateringsfrekvens manglar",
+        "severity": "warning",
+        "target": "schema"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Distribusjon'",
+        "severity": "warning",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Datatjeneste'",
+        "severity": "warning",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Kvalitetsdimensjon'",
+        "severity": "warning",
+        "target": "class:JavazonetalkContainer"
+      },
+      {
+        "code": "container_missing_recommended_class",
+        "message": "Container 'JavazonetalkContainer' manglar attributt med range 'Kvalitetsmerknad'",
+        "severity": "warning",
+        "target": "class:JavazonetalkContainer"
+      }
+    ],
+    "valid": false,
+    "warningCount": 25
+  },
+  "schema": "javazonetalk",
+  "validated_at": "2026-08-24T10:51:23.782711+00:00",
+  "validation_policy": "silver",
+  "version": "0.1.0"
+}

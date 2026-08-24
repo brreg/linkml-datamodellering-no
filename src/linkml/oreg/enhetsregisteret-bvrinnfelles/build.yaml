@@ -3,18 +3,20 @@ validation_policy: silver
 
 generators:
   # Artefaktgeneratorer
-  jsonld_context: true
+  jsonld_context: false
   shacl: true
   shacl_flags: ""
-  python: true
+  python: false
   json_schema: true
   owl: true
   owl_flags: ""
   rdf: true
-  protobuf: true
-  example_rdf: true
-  openapi: true
-  graphql: true
+  protobuf: false
+  example_rdf: false
+  openapi: false
+  graphql: false
+  xsd: true
+  asyncapi: false
 
   # Dokumentasjonsgeneratorer
   erdiagram: true

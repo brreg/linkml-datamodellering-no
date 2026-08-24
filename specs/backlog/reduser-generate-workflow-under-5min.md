@@ -112,15 +112,122 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
    på køyringar med reelle skjema-/malendringar, sidan desse per
    definisjon endrar `generated/**` og dermed cache-nøkkelen.
 
-2. **Undersøk kvifor `generate / oreg` er lengste domene-jobb** (~90 s,
-   kritisk sti i pre-publish-fasen). Domenet har 9 `build.yaml` (færre
-   enn `ap-no` sine 10, som er ~30 s raskare) — talet på
-   genererte format/generator-flagg per skjema ser ut til å vege meir enn
-   talet på skjema. Profiler kva `gen-*`-steg som dominerer for oreg
-   (t.d. via `LOGLVL=DEBUG`/`timed_run`-utskrift i
-   `generate-domain`-actionen), og vurder om domenet kan delast i to
-   matrise-einingar for betre balansering. Meir uviss gevinst enn tiltak
-   1 (anslag 20-40 s), krev eiga profilering før konkret forslag.
+2. **`generate / oreg` profilert (køyring 32716167174).** Henta direkte frå
+   CI-jobbloggane (`gh api .../actions/jobs/<id>/logs`) for alle 9
+   `generate / <domain>`-jobbar, inkludert `run-domain-pipeline.sh` sitt
+   eige `print_pipeline_summary()`-steg-for-steg-oppsett (Fase 1/2/3, sjå
+   `src/assets/scripts/makefile/run-domain-pipeline.sh`).
+
+   **Jobb-nivå-breakdown, `oreg` (91 s total) mot `ap-no` (62 s total,
+   nest-tregaste av dei "normale" domena):**
+
+   | Delsteg | `oreg` | `ap-no` | Diff |
+   |---|---|---|---|
+   | download-artifact + oppsett | ~4 s | ~4 s | ~0 |
+   | pull-images (parallelt) | 8,3 s | 7,4 s | +0,9 s |
+   | **`generate-domain` (run-domain-pipeline.sh)** | **62,25 s** | **40,4 s** | **+21,9 s** |
+   | upload-artifact (`generated-oreg`) | 10,2 s | 4,1 s | +6,1 s |
+
+   `generate-domain`-steget (sjølve genereringspipelinen) og
+   `upload-artifact` (meir output å laste opp) står for heile
+   differansen — nedlasting/pull-images er identisk mellom domena.
+
+   **Internt i `generate-domain` (Fase 1, 12 parallelle batch-kall på same
+   runner), `oreg` mot `ap-no`:**
+
+   | Steg | `oreg` | `ap-no` | `fint` (7 skjema, tregaste "normale" domene) |
+   |---|---|---|---|
+   | merge (validate) | **58,96 s** | 36,61 s | 40,19 s |
+   | docs | **60,13 s** | 38,85 s | 45,59 s |
+   | python | **58,87 s** | 8,21 s | 10,71 s |
+   | plantuml | **55,33 s** | 36,59 s | 42,08 s |
+   | owl | 51,25 s | 32,36 s | 35,22 s |
+   | jsonld-context | 47,76 s | 8,17 s | 10,20 s |
+   | proto | 43,04 s | 6,44 s | 10,15 s |
+   | shacl | 43,06 s | 30,00 s | 10,10 s |
+   | graphql | 41,88 s | 6,33 s | 10,68 s |
+   | rdf | 37,43 s | 30,15 s | 34,93 s |
+   | json-schema | 36,32 s | 6,23 s | 26,53 s |
+   | Fase 2: openapi | 21,08 s | 3,85 s | 6,91 s |
+
+   **To samverkande rotårsaker:**
+
+   a) **Fleire aktive generatorar per skjema.** Samanlikna
+      `generators:`-blokka i alle `build.yaml` på tvers av domene: 8 av
+      `oreg` sine 9 skjema har 13 av 15 generatorar aktiverte
+      (`jsonld_context`, `shacl`, `python`, `json_schema`, `owl`, `rdf`,
+      `protobuf`, `example_rdf`, `openapi`, `graphql`, `erdiagram`,
+      `docs`, `plantuml` — berre `xsd`/`asyncapi` av). `ap-no` sine 10
+      skjema har typisk berre 6-7 aktive (`shacl`, `owl`, `rdf`,
+      `erdiagram`, `docs`, `plantuml`) — resten (`python`,
+      `json_schema`, `jsonld_context`, `protobuf`, `graphql`, `openapi`
+      m.fl.) er av. Dette forklarar kvifor steg som `python`,
+      `jsonld-context`, `proto` og `graphql` er 4-8× tregare for `oreg`
+      enn `ap-no` (reelt generatorarbeid mot reint nær-augeblikkeleg
+      containeroppstart-golv når generatoren er av for alle skjema i
+      domenet).
+   b) **Iboende skjemakompleksitet, uavhengig av generatorflagg.**
+      `merge`-steget (`make validate`, ei rein LinkML-importvalidering
+      som køyrer **uansett** kva generatorar som er aktiverte) er
+      `oreg` sitt klart tregaste Fase 1-steg (58,96 s) — høgare enn
+      **alle** andre domene, sjølv `ap-no` med fleire skjema (10 mot 8
+      aktive i `oreg`). Dette peikar på at sjølve skjemaa i `oreg`
+      (Brønnøysundregistera sine sentrale registermodellar —
+      `enhetsregisteret-bvr*`-familien, `register-over-aksjeeiere`) er
+      individuelt større/meir komplekse (fleire klassar/slots/importar)
+      enn typiske AP-NO-profilskjema, ikkje berre at fleire
+      generatorflagg er sette.
+   c) **Ingen throttling av dei 12 parallelle Fase 1-batch-kalla.**
+      `run-domain-pipeline.sh` startar alle 12 steg samstundes som
+      bakgrunnsprosessar på éin GitHub-hosta runnar (typisk 4 delte
+      vCPU). Sidan `oreg` har reelt arbeid i **nesten alle** 12 steg
+      (mot `ap-no`, der 5-6 steg er nær-augeblikkelege no-op-kall), gjev
+      dette **CPU-metting**: alle steg for `oreg` tek 36-60 s kvar,
+      sjølv `merge` (generatorflagg-uavhengig) — eit teikn på at steg
+      konkurrerer om avgrensa CPU-kapasitet i staden for å køyre reelt
+      parallelt.
+
+   **Konkret forslag (ikkje implementert):** Del `oreg` sine 9
+   `build.yaml` i to matrise-einingar (t.d. basert på faktisk
+   generator-arbeidsmengd, ikkje berre skjematal — flytt dei 4-5
+   tyngste `enhetsregisteret-bvr*`-skjemaa til ei eiga gruppe). Kvar
+   gruppe får då sin **eigen** GitHub-runnar (eigne 4 vCPU) i staden for
+   å dele éin, som bør redusere CPU-mettinga frå (c) og bringe kvar
+   halvdel ned mot `fint`/`modellkatalog`-nivå (~45-55 s pipeline +
+   ~15-20 s oppsett/upload ≈ 60-75 s per gruppe, køyrde parallelt).
+   **Estimert gevinst: ~20-30 s** på kritisk sti (pre-publish-fasen sitt
+   lengste domene ville då vore `fint`/`modellkatalog` i staden for
+   `oreg`).
+
+   **Kompleksitet/kostnad, ikkje vurdert som verdt det no:** ei slik
+   deling krev å utvide `discover-domains`-actionen (som i dag
+   returnerer éin liste med domenenamn brukt identisk av **både**
+   `generate`- og `valider-og-analyser`-matrisene, cache-nøklane i
+   `generate`-jobben, `merge-generated-artifacts`, OG
+   `mkdocs/publish.sh` sin nav-genereringslogikk som forventar éin
+   mkdocs-sidekatalog per domene) til å støtte eit "sub-domene"-omgrep
+   som framleis produserer éin samla `generated/oreg/`-katalog og éi
+   samla `mkdocs/docs/oreg/`-sidegruppe etter samanslåing. Dette er ei
+   djupare, meir invasiv arkitekturendring enn tiltak 1/3 — påverkar eit
+   grunnleggjande, fleire-stader-brukt konsept (domene = matrise-eining =
+   cache-eining = nav-eining), ikkje eit isolert steg. Tilrådinga er å
+   **ikkje** implementere dette no, men behalde denne profileringa slik
+   at forslaget er klart til å hentast fram dersom tiltak 1 åleine ikkje
+   er nok i praksis (særleg for køyringar med reelt innhaldsendring, der
+   tiltak 1 sin site-cache ikkje hjelper — sjå "Realistisk forventa
+   resultat").
+
+   **Beslekta, separat gjennomført tiltak (ikkje del av denne specen):**
+   Rotårsak (a) over (fleire aktive generatorar per skjema) er sidan
+   redusert direkte for dei 7 `enhetsregisteret-*`-modellane — talet på
+   aktive generatorar for desse er kutta frå 13 til 8
+   (`json_schema`, `xsd`, `erdiagram`, `docs`, `plantuml`, `owl`, `shacl`,
+   `rdf`), etter eksplisitt brukarinstruks, ikkje som ei direkte
+   oppfølging av splittingsforslaget. Sjå commit-historikken for
+   `src/linkml/oreg/enhetsregisteret-*/build.yaml` — dette reduserer
+   truleg noko av gapet mot `ap-no`/`fint` for Fase 1-steg som `python`,
+   `jsonld-context`, `proto`, `graphql` og `openapi` (no av for desse
+   7 modellane), men er ikkje målt i CI enno.
 
 3. **Fjern ubrukt `mkdocs-kroki-plugin`** frå
    `src/assets/containers/Dockerfile.mkdocs` — installert via `pip`, men
@@ -165,12 +272,13 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
   ~**140-160 s** (pre-publish 123 s + minimal publish-overhead ~20-30 s)
   — godt under 5 min.
 - **Køyringar med reell skjema-/malendring**: tiltak 1 gjev null gevinst
-  (cache bommar korrekt). Med tiltak 2+3 realistisk anslag **~330-350 s**
-  — framleis over 5 min-målet. Å kome under 5 min for **alle** køyringar
-  (inkludert reelle innhaldsendringar) krev truleg tiltak 4
-  (søk-innsnevring) eller ein meir djuptgåande arkitekturendring (tiltak
-  5) — begge eksplisitt sett på vent inntil tiltak 1-3 er implementerte
-  og målte i praksis.
+  (cache bommar korrekt). Med tiltak 3 (implementert) og tiltak 2 (profilert,
+  **ikkje** implementert — sjå kompleksitetsvurderinga over) realistisk
+  anslag **~305-330 s** dersom tiltak 2 seinare vert implementert, elles
+  uendra ~330-350 s. Framleis over/nær 5 min-målet. Å kome trygt under
+  5 min for **alle** køyringar (inkludert reelle innhaldsendringar) krev
+  truleg tiltak 4 (søk-innsnevring) eller ein meir djuptgåande
+  arkitekturendring (tiltak 5) — begge eksplisitt sett på vent.
 
 ## Akseptansekriterium
 
@@ -183,9 +291,10 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
 - [ ] Tiltak 1: verifisert at cache-bom framleis produserer korrekt
       `mkdocs/site/`-innhald (via CI-logg etter ei innhaldsendrande køyring)
       — **krev faktisk CI-køyring**, ikkje verifisert enno
-- [ ] Tiltak 2: profilering av `generate / oreg` dokumentert, med
-      konkret vidare forslag (eller grunngjeving for kvifor ingen
-      splitting er verdt det) — **ikkje implementert enno**
+- [x] Tiltak 2: profilering av `generate / oreg` dokumentert (CI-jobbloggar
+      for alle 9 domene, Fase 1/2-steg-for-steg), konkret splittingsforslag
+      og kompleksitetsvurdering skriven — **sjølve splittinga ikkje
+      implementert**, tilrådd venta til tiltak 1 er målt i praksis
 - [x] Tiltak 3: `mkdocs-kroki-plugin` fjerna, `make build-docker-mkdocs`
       verifiserer feilfri rebuild
 - [ ] CI-tidsbruk før/etter målt og dokumentert i "Utført" — **krev
@@ -209,7 +318,7 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
   `specs/done/effektiviser-modellanalyse-koyretid.md` — tidlegare
   jobb-splitting/parallellisering same workflow
 
-## Utført (delvis — tiltak 1 og 3)
+## Utført (delvis — tiltak 1, 2 (profilering), 3)
 
 **Tiltak 1 (site-cache):**
 - `.github/workflows/generate.yml`, `publish`-jobben: lagt til steget
@@ -249,8 +358,32 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
   utanfor standard-allowlista): bygde `localhost/mkdocs-local:latest` på
   nytt, feilfritt.
 
+**Tiltak 2 (profilering av `generate / oreg`):**
+- Henta CI-jobbloggane for alle 9 `generate / <domain>`-jobbar frå
+  køyring 32716167174 (`gh api repos/{owner}/{repo}/actions/jobs/<id>/logs`
+  — `gh run view --log` returnerte tomt for matrisejobbar, truleg pga.
+  loggstorleik/paginering) og trekte ut `run-domain-pipeline.sh` sin
+  `print_pipeline_summary()`-blokk (Fase 1/2-steg-for-steg-tid) for kvar.
+- Kryssjekka `generators:`-blokka i alle `build.yaml` på tvers av alle 9
+  domene (`grep -A20 "^generators:"`) for å stadfeste at `oreg` har
+  vesentleg fleire aktive generatorar per skjema enn andre domene.
+- Identifiserte tre samverkande rotårsaker (fleire aktive generatorar,
+  iboende skjemakompleksitet stadfesta via det generatorflagg-uavhengige
+  `merge`/`validate`-steget, og CPU-metting frå 12 throttling-lause
+  parallelle batch-kall) — sjå fullt utfylt "Tiltak 2" over.
+- Skreiv eit konkret, men **ikkje implementert**, forslag (del `oreg` i to
+  matrise-einingar) med eit eksplisitt kompleksitets-/kostnadsresonnement
+  (`discover-domains` er brukt som sannkjelde av 4+ andre delar av
+  pipelinen — `generate`- og `valider-og-analyser`-matrisene, cache-nøklar,
+  `merge-generated-artifacts`, mkdocs nav-generering — så ei splitting
+  krev å utvide dette konseptet, ikkje berre leggje til éin jobb).
+- **Ikkje implementert:** sjølve splittinga av `oreg`-domenet. Tilrådd
+  venta til tiltak 1 sin faktiske CI-gevinst er stadfesta (sjå
+  "Realistisk forventa resultat").
+
 **Attverande (ikkje implementert):**
-- Tiltak 2 (profilering/splitting av `generate / oreg`) — ikkje starta.
+- Tiltak 2 (sjølve splittinga av `generate / oreg`) — profilert og
+  konkretisert, men medvite venta (sjå over).
 - CI-tidsbruk før/etter for tiltak 1 — krev ei faktisk workflow-køyring.
 
 Specen vert verande i `specs/backlog/` til tiltak 2 er vurdert/utført og
