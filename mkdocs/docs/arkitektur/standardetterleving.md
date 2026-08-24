@@ -51,7 +51,7 @@ tiltak · ⚪ kartlagt, avgrensa/ingen teknisk relevans for eit delt verktøyrep
 
 | Ressurs | Status | Vurdering |
 |---|---|---|
-| [Ni designprinsipper for informasjonsmodellar](https://www.digdir.no/informasjonsforvaltning/ni-designprinsipper-informasjonsmodeller/2569) | ✅ | I hovudsak utført. |
+| [Ni designprinsipper for informasjonsmodellar](https://www.digdir.no/informasjonsforvaltning/prinsipper-informasjonsmodeller/3030) | ✅ | I hovudsak utført. |
 | [Felles modelleringsregler for offentleg forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029) (15 reglar) | ✅ | Alle 15 reglar dekt av MCP-validatoren. Full sjekkliste med regel- og FAIR-mapping: [Valideringsreglar](valideringsregler.md). |
 | [Person og Enhet — felles informasjonsmodell](https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018) | ⚪ | Sterkt samsvar i sak (alle kjernefelt representerte, oftast med større presisjon), men ingen 1:1-mapping — repoet sine `ngr-person`/`enhetsregisteret-bvrinn` er kjeldeautoritative registermodellar, ikkje ei forenkling. Tilsikta avvik, ikkje eit gap. |
 | [Adresse — felles informasjonsmodell](https://www.digdir.no/informasjonsforvaltning/adresse-felles-informasjonsmodell/2019) | ⚪ | Sterkt strukturelt og semantisk samsvar med `ngr-adresse` (same autoritative kjelde: Kartverket/Matrikkelen/Posten). Eitt mindre presisjonsavvik, sjå gap-liste under. |
