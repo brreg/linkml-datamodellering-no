@@ -1,6 +1,6 @@
 name: Modell-analyse
 
-# Informative rapportar på tvers av alle skjema: liknande klasse-/slotnamn
+# Informative rapportar på tvers av alle skjema: liknande klasse-/slotnavn
 # og IRI-dereferering (IRI resolution). Feilar aldri CI — rapportane er innspel til manuell
 # gjennomgang, ikkje ein valideringspolicy. Sjå COMMANDS.md § Modell-analyse
 # for dei underliggande make-targeta.
@@ -22,12 +22,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn klasser med liknande namn (same domene)
+      - name: Finn klasser med liknande navn (same domene)
         run: |
           set -uo pipefail
           make analyse-similar-classes-domain > similar-classes-domain-report.md
           {
-            echo "## Liknande klassenamn (same domene)"
+            echo "## Liknande klassenavn"
             cat similar-classes-domain-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -50,12 +50,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn klasser med liknande namn (alle domene)
+      - name: Finn klasser med liknande navn (alle domene)
         run: |
           set -uo pipefail
           make analyse-similar-classes-all > similar-classes-all-report.md
           {
-            echo "## Liknande klassenamn (alle domene)"
+            echo "## Liknande klassenavn (alle domene)"
             cat similar-classes-all-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -78,12 +78,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn slots med liknande namn (same domene)
+      - name: Finn slots med liknande navn (same domene)
         run: |
           set -uo pipefail
           make analyse-similar-slots-domain > similar-slots-domain-report.md
           {
-            echo "## Liknande slotnamn (same domene)"
+            echo "## Liknande slotnavn (same domene)"
             cat similar-slots-domain-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -106,12 +106,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn slots med liknande namn (alle domene)
+      - name: Finn slots med liknande navn (alle domene)
         run: |
           set -uo pipefail
           make analyse-similar-slots-all > similar-slots-all-report.md
           {
-            echo "## Liknande slotnamn (alle domene)"
+            echo "## Liknande slotnavn (alle domene)"
             cat similar-slots-all-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -134,12 +134,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn typar med liknande namn (same domene)
+      - name: Finn typar med liknande navn (same domene)
         run: |
           set -uo pipefail
           make analyse-similar-types-domain > similar-types-domain-report.md
           {
-            echo "## Liknande typenamn (same domene)"
+            echo "## Liknande typenavn (same domene)"
             cat similar-types-domain-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -162,12 +162,12 @@ jobs:
       - name: Bygg python-container
         run: make build-docker-python
 
-      - name: Finn typar med liknande namn (alle domene)
+      - name: Finn typar med liknande navn (alle domene)
         run: |
           set -uo pipefail
           make analyse-similar-types-all > similar-types-all-report.md
           {
-            echo "## Liknande typenamn (alle domene)"
+            echo "## Liknande typenavn (alle domene)"
             cat similar-types-all-report.md
           } >> "$GITHUB_STEP_SUMMARY"
 

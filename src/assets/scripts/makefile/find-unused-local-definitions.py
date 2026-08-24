@@ -20,12 +20,26 @@ dei fire *_is_used()-funksjonane under, som kvar viser til den
 tilsvarande linja i index.md.jinja2 dei erstattar.
 
 --kind class er ein heilt ny, femte analyse (ikkje ein port — Classes-
-tabellen har ingen Usage-kolonne i dag): finn lokale klassar som er
-isolerte, dvs. ikkje har NOKA tilkopling (via slot-/attributtrange, eller
+tabellen har ingen Usage-kolonne i dag): finn lokale klassar som ikkje er
+reelt integrerte i modellgrafen (via slot-/attributtrange, eller
 is_a/mixins) til noka anna lokal klasse. Containerklassen (tree_root)
 reknast alltid som tilkopla resten (ho er modellen sitt inngangspunkt) og
-vert difor aldri sjølv rapportert som isolert, men referansane hennar til
-andre lokale klassar tel som reell tilkopling for målklassane.
+vert difor aldri sjølv rapportert som isolert — men i motsetnad til andre
+klassar tel IKKJE containeren sine EIGNE referansar til andre lokale
+klassar som reell tilkopling for måla. To kategoriar vert difor skilde:
+
+- **Heilt isolert** — ingen tilkopling i det heile, ikkje eingong via
+  containerklassen.
+- **Kun tilkopla via containerklassen** — containeren refererer klassen
+  (ho er eit registrert inngangspunkt), men ho har elles ingen tilkopling
+  til/frå noka anna lokal klasse. Fangar klassar som er registrerte som
+  container-attributt, men aldri faktisk vovne inn i resten av
+  modellgrafen (t.d. eit ufullstendig scaffold eller feilplassert
+  attributt).
+
+Ei klasse med minst éi REELL (ikkje-container) tilkopling — anten
+utgåande til, eller innkomande frå, ei anna lokal klasse — vert aldri
+flagga, sjølv om ho i tillegg er referert av containeren.
 
 Krev SchemaView (og dermed induced_slot()-arveoppløysing) — bruk
 LINKML_RUN, ikkje PYTHON_RUN (jf. check-import-duplicates.py).
@@ -216,15 +230,26 @@ def class_connections(sv, c) -> set[str]:
     return connected
 
 
-def find_isolated_classes(sv) -> list[tuple[str, str]]:
-    """Finn lokale klassar (utanom containerklassen) som ikkje har NOKA
-    tilkopling til noka anna lokal klasse. Ein klasse vert rekna som
-    tilkopla dersom ho anten sjølv koplar seg til ei anna lokal klasse,
-    eller ei anna lokal klasse (inkl. containeren) koplar seg til henne."""
-    all_local = local_classes(sv, include_root=True)
-    connected_names: set[str] = set()
+REASON_ISOLATED = "Heilt isolert"
+REASON_CONTAINER_ONLY = "Kun tilkopla via containerklassen"
 
+
+def find_isolated_classes(sv) -> list[tuple[str, str, str]]:
+    """Finn lokale klassar (utanom containerklassen) som ikkje har NOKA
+    REELL tilkopling til noka anna lokal klasse. Ein klasse vert rekna som
+    reelt tilkopla dersom ho anten sjølv koplar seg til ei anna lokal
+    klasse, eller ei anna IKKJE-container lokal klasse koplar seg til
+    henne. Containerklassen sine EIGNE utgåande koplingar tel ikkje som
+    reell tilkopling for måla — dei sporsast separat (`container_targets`)
+    for å skilje "heilt isolert" frå "kun tilkopla via containerklassen"."""
+    all_local = local_classes(sv, include_root=True)
+    container = next((c for c in all_local if c.tree_root), None)
+    container_targets = class_connections(sv, container) if container else set()
+
+    connected_names: set[str] = set()
     for c in all_local:
+        if c.tree_root:
+            continue  # containeren sine eigne mål tel ikkje som reell tilkopling
         targets = class_connections(sv, c)
         if targets:
             connected_names.add(c.name)
@@ -237,11 +262,12 @@ def find_isolated_classes(sv) -> list[tuple[str, str]]:
         if c.name in connected_names:
             continue
         description = (c.description or "").strip()
-        isolated.append((c.name, description))
+        reason = REASON_CONTAINER_ONLY if c.name in container_targets else REASON_ISOLATED
+        isolated.append((c.name, description, reason))
     return sorted(isolated)
 
 
-def compute_items_and_total(sv, kind: str) -> tuple[list[tuple[str, str]], int]:
+def compute_items_and_total(sv, kind: str) -> tuple[list[tuple], int]:
     """(items, total) for éin kind — delt av stdout-modus og batch-modus."""
     if kind == "class":
         return find_isolated_classes(sv), len(local_classes(sv, include_root=True))
@@ -255,7 +281,7 @@ def compute_items_and_total(sv, kind: str) -> tuple[list[tuple[str, str]], int]:
     return items, len(local_names)
 
 
-def format_report(kind: str, schema_path: str, items: list[tuple[str, str]], total: int) -> str:
+def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -> str:
     label = KIND_LABELS[kind]
     if kind == "class":
         title = f"# Isolerte lokale klassar ({schema_path})"
@@ -272,14 +298,23 @@ def format_report(kind: str, schema_path: str, items: list[tuple[str, str]], tot
         lines.append(empty_msg)
         return "\n".join(lines)
 
-    lines.append(f"| {col_a} | Skildring |")
-    lines.append("|---|---|")
-    for name, description in items:
-        lines.append(f"| `{name}` | {description or '(inga skildring)'} |")
-
     if kind == "class":
-        lines.append(f"\n**Totalt: {len(items)} isolerte klassar av {total} lokale klassar.**")
+        lines.append(f"| {col_a} | Grunn | Skildring |")
+        lines.append("|---|---|---|")
+        for name, description, reason in items:
+            lines.append(f"| `{name}` | {reason} | {description or '(inga skildring)'} |")
+        n_container_only = sum(1 for _, _, reason in items if reason == REASON_CONTAINER_ONLY)
+        n_isolated = len(items) - n_container_only
+        lines.append(
+            f"\n**Totalt: {len(items)} isolerte/underintegrerte klassar av {total} "
+            f"lokale klassar** ({n_isolated} heilt isolert, "
+            f"{n_container_only} kun tilkopla via containerklassen)."
+        )
     else:
+        lines.append(f"| {col_a} | Skildring |")
+        lines.append("|---|---|")
+        for name, description in items:
+            lines.append(f"| `{name}` | {description or '(inga skildring)'} |")
         lines.append(f"\n**Totalt: {len(items)} ubrukte lokale {label} av {total} sjekka.**")
 
     return "\n".join(lines)

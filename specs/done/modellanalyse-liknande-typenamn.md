@@ -51,8 +51,8 @@ types:
 ```
 
 `base` er type-blokka sin strukturelle analog til `range` på eit slot —
-begge fortel kva den fuzzy-matcha namnelikskapen faktisk representerer
-(same grunntype vs. berre eit namnesamantreff).
+begge fortel kva den fuzzy-matcha navnelikskapen faktisk representerer
+(same grunntype vs. berre eit navnesamantreff).
 
 ## Avklart med brukar
 
@@ -75,7 +75,7 @@ arkitektur**, berre ein tredje `--kind`-verdi kopla gjennom dei same laga.
 - `main()`: legg `"types"` til `label`/`name_label`-oppslaget (`"typer"` /
   `"typenamn"`)
 - Tabell-utskrift: `slot` og `types` deler same kolonnestruktur
-  (namn/grunntype/skjema × 2) — berre kolonneoverskriftene skil seg
+  (navn/grunntype/skjema × 2) — berre kolonneoverskriftene skil seg
   (`Slot`/`Type` vs. `Type`/`Grunntype`, for å unngå at ordet «Type» tyder
   to ulike ting i same tabell)
 - Oppdater modulens docstring til å nemne `types:` i tillegg til
@@ -117,8 +117,8 @@ Legg begge til i `sammendrag`-jobbens `needs:`-liste.
 Legg to nye rader til `CHECKS`:
 
 ```python
-("Liknande typenamn (same domene)", "similar-types-domain-report.md", "similar"),
-("Liknande typenamn (alle domene)", "similar-types-all-report.md", "similar"),
+("Liknande typenavn (same domene)", "similar-types-domain-report.md", "similar"),
+("Liknande typenavn (alle domene)", "similar-types-all-report.md", "similar"),
 ```
 
 Oppdater docstringen sitt «dei seks rapportfilene» → «dei åtte
@@ -133,7 +133,7 @@ Legg til dei to nye targeta i target-tabellen, same rad-format som
 
 `## Modellanalyse`-seksjonen i kvar modell sin genererte `index.md`
 (jf. `specs/done/modellanalyse-per-skjema-index-md.md`) viser i dag dei to
-`domain`-scopa sjekkane for klasse- og slotnamn, køyrt per skjema med
+`domain`-scopa sjekkane for klasse- og slotnavn, køyrt per skjema med
 `NAME=<skjema>` og skrive til `generated/<domain>/<schema>/model-analyse/`.
 Same cache-korrektheitsgrunngjeving frå den arkiverte spec-en gjeld
 uendra for `types` — berre `domain`-scope (aldri `all`) skal embeddast
@@ -165,9 +165,9 @@ Konkret, to endringar i det etablerte per-skjema-laget:
 
   ```python
   REPORTS = [
-      ("similar-classes-domain-report.md", "Liknande klassenamn (same domene)", "klassenamn"),
-      ("similar-slots-domain-report.md", "Liknande slotnamn (same domene)", "slotnamn"),
-      ("similar-types-domain-report.md", "Liknande typenamn (same domene)", "typenamn"),
+      ("similar-classes-domain-report.md", "Liknande klassenavn (same domene)", "klassenavn"),
+      ("similar-slots-domain-report.md", "Liknande slotnavn (same domene)", "slotnavn"),
+      ("similar-types-domain-report.md", "Liknande typenavn (same domene)", "typenavn"),
   ]
   ```
 
@@ -200,8 +200,8 @@ lines += [
 ]
 ```
 
-Brukaren ønskjer i staden at **kvar `###`-underseksjon** (klassenamn,
-slotnamn, typenamn) får sin **eigen** kursiv fotnote som peikar til den
+Brukaren ønskjer i staden at **kvar `###`-underseksjon** (klassenavn,
+slotnavn, typenavn) får sin **eigen** kursiv fotnote som peikar til den
 vekentlege, tverrgåande `modell-analyse.yml`-workflowen for akkurat den
 objekttypen — ikkje éin delt fotnote nedst for alle tre. Endringa gjeld
 difor **alle tre** `REPORTS`-oppføringane (klasse/slot var alt der; ikkje
@@ -279,7 +279,7 @@ følgjer denne etablerte, konsekvente forma — «på tvers av domene», ikkje
    `analyse-similar-classes-domain`/`analyse-similar-slots-domain`.
 7. Test lokalt: `make analyse-similar-types-domain` og
    `make analyse-similar-types-all` (evt. avgrensa med `DOMAIN=oreg`) —
-   stadfest at rapporten finn kjende namnelikskapar mellom dei 8 skjemaa
+   stadfest at rapporten finn kjende navnelikskapar mellom dei 8 skjemaa
    sine `types:`-blokker (t.d. samanlikn `Versjonsnummer` på tvers av
    `enhetsregisteret-bvr*`-skjemaa), og at `--kind class`/`--kind slot`
    framleis fungerer uendra (regresjonssjekk på delt kode).
@@ -302,12 +302,12 @@ følgjer denne etablerte, konsekvente forma — «på tvers av domene», ikkje
     NAME=enhetsregisteret-bvrinn` og legg resultatet i
     `generated/oreg/enhetsregisteret-bvrinn/model-analyse/similar-types-domain-report.md`,
     køyr så `generate_modell_analyse` direkte og stadfest at
-    «### Liknande typenamn (same domene)» dukkar opp korrekt under
+    «### Liknande typenavn (same domene)» dukkar opp korrekt under
     `## Modellanalyse` — både for eit skjema med `types:`-funn og for eit
     skjema utan nokon `types:`-blokk (t.d.
     `enhetsregisteret-bvrbekreftelse`, forvent «Ingen typer over terskelen
     vart funne»-fallback, ikkje ein feil). Stadfest samstundes at **alle
-    tre** `###`-underseksjonar (klassenamn, slotnamn, typenamn) kvar har si
+    tre** `###`-underseksjonar (klassenavn, slotnavn, typenavn) kvar har si
     eiga «For fullstendig analyse av `<objekttype>` på tvers av domene
     sjå …»-fotnote rett under seg, og at éi innsnevra
     IRI-dereferering/innhaldsforhandling-fotnote framleis står nedst i
@@ -354,7 +354,7 @@ undervegs.
    `::warning::`-mønster som dei to eksisterande. `actionlint` køyrt på
    nytt mot endra `generate.yml` — ingen funn.
 10. `REPORTS`-lista i `generate-modellanalyse-md.py` omforma til
-    3-tuppel (`filnamn`, `###-overskrift`, `objekttype`) for alle tre
+    3-tuppel (`filnavn`, `###-overskrift`, `objekttype`) for alle tre
     radene (klasse/slot/types). Loopen skriv no éi
     «*For fullstendig analyse av `<objekttype>` på tvers av domene sjå
     …*»-fotnote per `###`-underseksjon (uavhengig av om rapportfila
@@ -362,7 +362,7 @@ undervegs.
     innsnevra til å berre dekkje IRI-dereferering/innhaldsforhandling
     (flytta til etter loopen, ikkje lenger nemner cross-domain-
     samanlikning sidan det no er dekt av per-seksjons-fotnotane).
-    Intro-sitatblokka oppdatert til å nemne «klasse-, slot- og typenamn».
+    Intro-sitatblokka oppdatert til å nemne «klasse-, slot- og typenavn».
 11. Testa per-skjema-laget lokalt: genererte reelle rapportfiler
     (`analyse-similar-classes-domain`/`-slots-domain`/`-types-domain`,
     DOMAIN=oreg NAME=enhetsregisteret-bvrinn) i
@@ -377,7 +377,7 @@ undervegs.
     grep før testen; `register-over-aksjeeiere` har korkje `types:`,
     `similar-classes-domain-report.md` eller `similar-slots-domain-report.md`
     i testoppsettet) — stadfesta korrekt «Rapport ikkje tilgjengeleg for
-    denne bygginga»-fallback for klasse/slot og «Ingen liknande typenamn
+    denne bygginga»-fallback for klasse/slot og «Ingen liknande typenavn
     funne»-fallback for types, alle med korrekt per-seksjons-fotnote.
     Testfilene i `generated/oreg/{enhetsregisteret-bvrinn,
     register-over-aksjeeiere}/model-analyse/` sletta att etter

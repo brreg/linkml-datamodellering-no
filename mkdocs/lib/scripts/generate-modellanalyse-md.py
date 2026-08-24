@@ -32,7 +32,7 @@ per-skjema) og får difor ingen fotnote i det heile — sjå
 cross_domain_report_relpath=None per oppføring under.
 
 Funntal i overskrifta: kvar underoverskrift viser talet på funn i
-parentes ("### Liknande klassenamn (same domene) (3)"), etter same
+parentes ("### Liknande klassenavn (same domene) (3)"), etter same
 mønster som ### Slots (13) lenger oppe på sida. Talet vert utleidd
 generisk frå rapportkroppen (talet på `|`-tabellrader minus header-/
 skiljerad) i staden for parsa frå kvar rapport sin eigen menneskelesbare
@@ -52,24 +52,24 @@ from pathlib import Path
 REPORTS = [
     (
         "similar-classes-domain-report.md",
-        "Liknande klassenamn (same domene)",
-        "klassenamn",
+        "Liknande klassenavn (same domene)",
+        "klassenavn",
         "../../modellanalyse/liknande-klassenamn-alle-domene.md",
-        "Analyse av klassenamn på tvers av alle domene",
+        "Analyse av klassenavn på tvers av alle domene",
     ),
     (
         "similar-slots-domain-report.md",
-        "Liknande slotnamn (same domene)",
-        "slotnamn",
+        "Liknande slotnavn (same domene)",
+        "slotnavn",
         "../../modellanalyse/liknande-slotnamn-alle-domene.md",
-        "Analyse av slotnamn på tvers av alle domene",
+        "Analyse av slotnavn på tvers av alle domene",
     ),
     (
         "similar-types-domain-report.md",
-        "Liknande typenamn (same domene)",
-        "typenamn",
+        "Liknande typenavn (same domene)",
+        "typenavn",
         "../../modellanalyse/liknande-typenamn-alle-domene.md",
-        "Analyse av typenamn på tvers av alle domene",
+        "Analyse av typenavn på tvers av alle domene",
     ),
     (
         "ubrukte-slots-report.md",
@@ -154,8 +154,8 @@ def main() -> None:
         "## Modellanalyse",
         "",
         "> Modellanalysen samanliknar dette skjemaet sine lokalt definerte "
-        "klasse-, slot- og typenamn mot andre skjema i same domene, flaggar "
-        "par med høg namnelikskap som eit mogleg duplikat- eller "
+        "klasse-, slot- og typenavn mot andre skjema i same domene, flaggar "
+        "par med høg navnelikskap som eit mogleg duplikat- eller "
         "konsolideringssignal, og fangar lokalt definerte slots, "
         "enumerations, types, subsets og klassar som ikkje er i bruk lokalt "
         "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",

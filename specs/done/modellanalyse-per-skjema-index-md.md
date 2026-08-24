@@ -34,7 +34,7 @@ valideringspolicy).
 
 **Viktig, alt implementert:** `find-similar-names.py` (klasse-/slot-likskap)
 støttar allereie eit `--name <modell>`-flagg (kombinert med valfri
-`--domain`) som avgrensar samanlikninga til éin namngjeven modell mot resten
+`--domain`) som avgrensar samanlikninga til éin navngjeven modell mot resten
 av kandidatane i scopet. Per-skjema-køyring av **desse to** analysane er
 altså allereie mogleg lokalt i dag: `make analyse-similar-classes-domain
 DOMAIN=oreg NAME=enhetsregisteret-bvrstiftelsesdokument`. Det som manglar er
@@ -75,7 +75,7 @@ er malen å kopiere:
 «Kopier valideringsloggar til generated/»). Dei er determinstiske gitt
 skjema+eksempeldata, og verdt å arkivere.
 
-Modellanalyse-rapportar (liknande namn, IRI-dereferering) er **ikkje**
+Modellanalyse-rapportar (liknande navn, IRI-dereferering) er **ikkje**
 determinstiske gitt berre det eine skjemaet — dei avheng av resten av
 repoet (andre skjema i same domene) og, for IRI-sjekkane, av ekstern
 nettverkstilstand. Dei bør difor **ikkje** committast per skjema slik
@@ -96,9 +96,9 @@ ER-diagram-SVG-ar, gen-doc-markdown osv.).
   `--scope domain`-analyse avheng berre av skjema **innanfor same domene**
   — konsistent med cache-nøkkelen. Ein `--scope all`-analyse (på tvers av
   alle domene) ville avhengt av **andre** domene sitt innhald, som cache-
-  nøkkelen ikkje fangar opp: endrar domene B eit klassenamn, ville domene A
+  nøkkelen ikkje fangar opp: endrar domene B eit klassenavn, ville domene A
   sin cacha `generated/`-katalog halde fram med å vise eit utdatert
-  «liknande klassenamn i domene B»-funn heilt til domene A sjølv får ei
+  «liknande klassenavn i domene B»-funn heilt til domene A sjølv får ei
   skjemaendring. Dette er ikkje berre unøyaktig — det er ein reell
   cache-korrektheitsbug. `--scope all` bør difor **ikkje** embeddast per
   skjema; han høyrer heime i den vekentlege, ucacha, heile-repo-jobben han
@@ -215,8 +215,8 @@ Same to-lags mønster som `## Valideringsresultat`:
 - **`mkdocs/lib/scripts/generate-modellanalyse-md.py`** — tek
   `generated/<domain>/<schema>/model-analyse/`-katalogen (eller dei to
   konkrete rapportfilene) som input, skriv éi samla `## Modellanalyse`-blokk
-  med `###`-underoverskrifter (`### Liknande klassenamn (same domene)`,
-  `### Liknande slotnamn (same domene)`) og ei kort forklarande innleiing
+  med `###`-underoverskrifter (`### Liknande klassenavn (same domene)`,
+  `### Liknande slotnavn (same domene)`) og ei kort forklarande innleiing
   (i tråd med korleis `valideringsresultat.sh` sin fallback-tekst forklarer
   kva seksjonen viser). Legg til ei linje som peikar til den vekentlege
   `modell-analyse.yml`-køyringa for IRI-dereferering, innhaldsforhandling og
@@ -312,7 +312,7 @@ Alle ni steg gjennomførte som planlagt.
    **Avvik frå plan:** `find-similar-names.py` trong **ikkje** leggjast til
    eksplisitt — han er alt dekt av det breie `src/assets/scripts/**`-mønsteret
    som allereie står i hash-lista, sidan han ligg under den globen. Berre
-   `.mk`-fila (som listar eksplisitte `make/*.mk`-filnamn, ikkje ein glob)
+   `.mk`-fila (som listar eksplisitte `make/*.mk`-filnavn, ikkje ein glob)
    trong leggjast til.
 3. `!src/assets/scripts/makefile/find-similar-names.py` og
    `!make/91-modell-analyse.mk` fjerna frå `on.push.paths`.
