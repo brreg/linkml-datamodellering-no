@@ -16,7 +16,8 @@
 
 ## Målsetting
 
-  Dette repoet har som mål å realisere dei delane av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog i henhold til nasjonale veiledere og standarder. Det er tenkt som eit felles repo for nasjonale begreps- og datamodeller inkludert felles verktøy. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
+  Dette repoet har som mål å realisere deler av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog i henhold til nasjonale veiledere og standarder. Sjå [Standardetterleving](https://brreg.github.io/linkml-datamodellering-no/arkitektur/standardetterleving/) for detaljar.  
+  Det er tenkt som eit felles verktøykasse for arbeid med begreps- og datamodeller. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
 ---
 
