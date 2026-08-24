@@ -146,6 +146,18 @@ def _doc_extra_argv(domain: str, name: str) -> list[str]:
     ]
 
 
+def _java_post(domain: str, name: str) -> None:
+    """Slett .java-fila generert for containerklassen (tree_root: true) —
+    containerklassen er eit LinkML-serialiseringsankerpunkt, ikkje ein
+    Java-relevant klasse, jf. .claude/rules/linkml-schema.md § Containerklasse."""
+    schema_path = Path("src/linkml") / domain / name / f"{name}-schema.yaml"
+    schema_dict = yaml.safe_load(schema_path.read_text(encoding="utf-8")) or {}
+    for class_name, class_def in (schema_dict.get("classes") or {}).items():
+        if isinstance(class_def, dict) and class_def.get("tree_root"):
+            java_file = Path(GEN_DIR) / domain / name / "java" / f"{class_name}.java"
+            java_file.unlink(missing_ok=True)
+
+
 def _doc_post(domain: str, name: str) -> None:
     """Same opprydding som sed -i "/Container/d" — fjern Container-referansar frå index.md."""
     index_path = Path(GEN_DIR) / domain / name / "docs" / "index.md"
@@ -191,7 +203,9 @@ REGISTRY: dict[str, GeneratorSpec] = {
         module="linkml.generators.javagen",
         out_suffix=None,  # JavaGenerator.serialize() skriv sjølv .java-filer til --output-directory
         flag="java",
+        default_extra_argv=["--true-enums"],
         extra_argv_fn=_java_extra_argv,
+        post_fn=_java_post,
     ),
     "erdiagram": GeneratorSpec(
         module="linkml.generators.erdiagramgen",
