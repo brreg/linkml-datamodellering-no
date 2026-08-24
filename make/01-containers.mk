@@ -16,6 +16,9 @@ WORK_MOUNT := -v "$(CURDIR):/work" -w /work
 # specs/done/gjenopprett-debug-logging-fjern-make-directory-stoy.md).
 # CLR_OK fargelegg skjemanavna i "— køyrer: ..."-lista grønt (sjå
 # specs/done/farg-skjemanamn-i-koyrer-debug-linje.md)
+# -e CLR_ERR: brukt av check-import-duplicates.py til å fargeleggje den
+# negative oppsummeringslinja raudt (sjå
+# specs/backlog/betre-output-lint-og-import-duplicates.md)
 # -e BATCH_GENERATE_WORKERS: talet på ProcessPoolExecutor-workers for
 # spec.parallel=True-generatorane (doc/rdf) i batch-generate.py — les frå
 # os.environ, defaultar til 6 dersom usett (sjå
@@ -27,6 +30,7 @@ LINKML_RUN := podman run --rm $(WORK_MOUNT) \
 	-e CLR_STEP \
 	-e CLR_RST \
 	-e CLR_OK \
+	-e CLR_ERR \
 	-e BATCH_GENERATE_WORKERS \
 	--user root \
 	$(LINKML_IMAGE)

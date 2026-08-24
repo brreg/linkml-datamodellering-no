@@ -40,6 +40,7 @@ skjema som ikkje kunne lastast av annan grunn).
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import sys
 from pathlib import Path
@@ -54,9 +55,22 @@ linkml_relative_import_patch.apply()
 
 _CONFLICT_RE = re.compile(r"^Conflicting URIs \((.+), (.+)\) for item: (.+)$")
 
+# Vidareførte frå Makefile via LINKML_RUN (make/01-containers.mk), same
+# mønster som batch-generate.py — sjå
+# specs/backlog/betre-output-lint-og-import-duplicates.md.
+LOGLVL = os.environ.get("LOGLVL", "INFO")
+CLR_OK = os.environ.get("CLR_OK", "")
+CLR_ERR = os.environ.get("CLR_ERR", "")
+CLR_RST = os.environ.get("CLR_RST", "")
+
 
 def log_error(msg: str) -> None:
     print(f"[ERROR] {msg}", file=sys.stderr)
+
+
+def log_info(msg: str) -> None:
+    if LOGLVL != "ERROR":
+        print(msg)
 
 
 def check_schema(schema_path: str) -> bool:
@@ -92,12 +106,18 @@ def main() -> int:
     parser.add_argument("schemas", nargs="+", help="Skjema-stiar (repo-relative) som skal sjekkast")
     args = parser.parse_args()
 
-    failed = False
+    total = len(args.schemas)
+    failed_count = 0
     for schema in args.schemas:
         if not check_schema(schema):
-            failed = True
+            failed_count += 1
 
-    return 1 if failed else 0
+    if failed_count == 0:
+        log_info(f"{CLR_OK}✓{CLR_RST} Ingen import-kollisjonar funne ({total} skjema sjekka)")
+        return 0
+
+    log_error(f"{CLR_ERR}✖{CLR_RST} {failed_count} av {total} skjema har import-kollisjonar")
+    return 1
 
 
 if __name__ == "__main__":
