@@ -204,12 +204,43 @@ testnamna og konkluderer med totaltalet.
       rapportar finst, inkl. alle tre `similar-*-domain-report.md`) —
       bekrefta rett rekkjefølge og overskriftstekst for alle åtte
       (inkl. "(same domene)" fjerna), funntal i parentes uendra
-- [ ] Legg fram for brukar og vent på godkjenning før Fase 2
+- [x] Legg fram for brukar og vent på godkjenning før Fase 2 — brukar
+      godkjente Fase 1-resultatet og valde å **ikkje** gå vidare med Fase 2
 
-**Fase 2 (etter godkjenning av Fase 1):**
-- [ ] Innfør to-pass-struktur i `main()`: bygg `(heading, count, body, ...)`-
-      liste, rekn ut `all_zero`, filtrer/skriv i pass 2
-- [ ] Skriv nytt samandragsavsnitt for alt-0-funn-tilfellet (nynorsk)
-- [ ] Verifiser mot `generated/samt/samt-bu/model-analyse` (alt-0-funn-sti)
-- [ ] Verifiser mot `generated/ap-no/dcat-ap-no/model-analyse` (filtrering +
-      rekkjefølge med eitt reelt funn)
+**Fase 2 — droppa etter brukarønske, ikkje utført:**
+- [ ] ~~Innfør to-pass-struktur i `main()`: bygg `(heading, count, body,
+      ...)`-liste, rekn ut `all_zero`, filtrer/skriv i pass 2~~
+- [ ] ~~Skriv nytt samandragsavsnitt for alt-0-funn-tilfellet (nynorsk)~~
+- [ ] ~~Verifiser mot `generated/samt/samt-bu/model-analyse`
+      (alt-0-funn-sti)~~
+- [ ] ~~Verifiser mot `generated/ap-no/dcat-ap-no/model-analyse`
+      (filtrering + rekkjefølge med eitt reelt funn)~~
+
+## Utført
+
+Kun **Fase 1** vart utført. Brukaren stadfesta at Modellanalyse-
+seksjonen skal stå slik han vart etter Fase 1 — punkt 2 (skjul
+deloverskrifter med 0 funn) og punkt 3 (alt-0-funn-samandrag) i
+"Brukaren ønskjer" over vart **ikkje** realisert og er ikkje planlagt
+vidare.
+
+Endringar i `mkdocs/lib/scripts/generate-modellanalyse-md.py`
+(`REPORTS`-lista, linje 52–109):
+- Ny rekkjefølge: Isolerte klassar → Ubrukte slots → Ubrukte types →
+  Ubrukte enumerations → Ubrukte subsets → Liknande klassenavn →
+  Liknande slotnavn → Liknande typenavn
+- "Ubrukte lokale X" → "Ubrukte X" (fire overskrifter)
+- "Liknande X (same domene)" → "Liknande X" (tre overskrifter)
+- Alle åtte deloverskrifter vert framleis alltid viste, uavhengig av
+  funntal — filtreringslogikk (Fase 2) vart ikkje innført
+
+Verifisert med direkte scriptkøyring (`python3
+generate-modellanalyse-md.py <dir> <domain> <schema>`, utan
+`make`/podman) mot `generated/ap-no/dcat-ap-no/model-analyse` (eitt
+reelt funn i Ubrukte slots, tre "Liknande ..."-rapportar manglar) og
+`generated/samt/samt-bu/model-analyse` (alle åtte rapportar finst, alle
+0 funn) — rett rekkjefølge og overskriftstekst i begge, eksisterande
+funntal-i-parentes og manglande-rapport-fallback uendra.
+
+Ingen testar måtte oppdaterast (ingen eksisterande test dekkjer denne
+pipelinen).

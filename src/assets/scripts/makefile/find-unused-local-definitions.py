@@ -285,11 +285,11 @@ def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -
     label = KIND_LABELS[kind]
     if kind == "class":
         title = f"# Isolerte lokale klassar ({schema_path})"
-        empty_msg = f"Ingen isolerte lokale klassar funne ({total} lokale klassar sjekka)."
+        empty_msg = f"Ingen isolerte lokale klassar funne ({total} klasser sjekka)."
         col_a = "Klasse"
     else:
         title = f"# Ubrukte lokale {label} ({schema_path})"
-        empty_msg = f"Ingen ubrukte lokale {label} funne ({total} sjekka)."
+        empty_msg = f"Ingen ubrukte lokale {label} funne ({total} {label} sjekka)."
         col_a = {"slot": "Slot", "enum": "Enum", "type": "Type", "subset": "Subset"}[kind]
 
     lines = [title, ""]

@@ -159,6 +159,9 @@ def main() -> None:
         "konsolideringssignal, og fangar lokalt definerte slots, "
         "enumerations, types, subsets og klassar som ikkje er i bruk lokalt "
         "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",
+        "",
+        f"*For IRI-dereferering og innhaldsforhandling sjå "
+        f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen.*",
     ]
 
     any_report_found = False
@@ -187,12 +190,6 @@ def main() -> None:
                 f"*For fullstendig analyse av {objekttype} på tvers av domene sjå "
                 f"[{cross_domain_label}]({cross_domain_relpath}).*",
             ]
-
-    lines += [
-        "",
-        f"*For IRI-dereferering og innhaldsforhandling sjå "
-        f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen.*",
-    ]
 
     if not any_report_found:
         print(f"ÅTVARING: ingen modellanalyse-rapportar funne i {analyse_dir}", file=sys.stderr)
