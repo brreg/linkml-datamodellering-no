@@ -31,6 +31,15 @@ analysane har inga meiningsfull cross-domain-form (dei er per definisjon
 per-skjema) og får difor ingen fotnote i det heile — sjå
 cross_domain_report_relpath=None per oppføring under.
 
+Funntal i overskrifta: kvar underoverskrift viser talet på funn i
+parentes ("### Liknande klassenamn (same domene) (3)"), etter same
+mønster som ### Slots (13) lenger oppe på sida. Talet vert utleidd
+generisk frå rapportkroppen (talet på `|`-tabellrader minus header-/
+skiljerad) i staden for parsa frå kvar rapport sin eigen menneskelesbare
+"Totalt: ..."-linje — sjå count_table_rows(). Manglande/uleseleg
+rapportfil får ingen parentes (ikkje "(0)", som ville sett ut som eit
+stadfesta nullfunn).
+
 Bruk: python3 generate-modellanalyse-md.py <model-analyse-dir> <domain> <schema>
 """
 
@@ -114,6 +123,16 @@ def strip_own_heading(text: str) -> str:
     return "\n".join(lines).rstrip("\n")
 
 
+def count_table_rows(body: str) -> int:
+    """Talet på funn i rapporten: talet på `|`-tabellrader i body, minus
+    header- og skiljerad. 0 når rapporten ikkje har nokon tabell (ingen
+    funn) — sjå moduldocstring § "Funntal i overskrifta"."""
+    pipe_lines = [line for line in body.splitlines() if line.strip().startswith("|")]
+    if len(pipe_lines) < 2:
+        return 0
+    return len(pipe_lines) - 2
+
+
 def main() -> None:
     if len(sys.argv) < 4:
         print(
@@ -145,19 +164,23 @@ def main() -> None:
     any_report_found = False
     for filename, heading, objekttype, cross_domain_relpath, cross_domain_label in REPORTS:
         report_path = analyse_dir / filename
-        lines += ["", f"### {heading}", ""]
+        body = None
         if not report_path.is_file():
             print(f"ÅTVARING: fann ikkje {report_path}", file=sys.stderr)
-            lines.append("*Rapport ikkje tilgjengeleg for denne bygginga.*")
         else:
             any_report_found = True
             try:
                 body = strip_own_heading(report_path.read_text(encoding="utf-8"))
             except Exception as e:
                 print(f"ÅTVARING: klarte ikkje lese {report_path}: {e}", file=sys.stderr)
-                lines.append("*Rapport ikkje tilgjengeleg for denne bygginga.*")
-            else:
-                lines.append(body)
+
+        if body is None:
+            lines += ["", f"### {heading}", ""]
+            lines.append("*Rapport ikkje tilgjengeleg for denne bygginga.*")
+        else:
+            lines += ["", f"### {heading} ({count_table_rows(body)})", ""]
+            lines.append(body)
+
         if cross_domain_relpath:
             lines += [
                 "",
