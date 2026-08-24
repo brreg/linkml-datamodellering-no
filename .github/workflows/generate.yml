@@ -186,13 +186,24 @@ jobs:
           path: generated/modell-analyse-tvers-domene/
           retention-days: 1
 
-  generate:
-    name: "generate / ${{ matrix.domain }}"
+  valider-og-analyser:
+    name: "valider-og-analyser / ${{ matrix.domain }}"
+    # Domene-intern validering + modellanalyse, flytta ut av `generate`-
+    # jobben til si eiga jobb (same domene-matrise, same startpunkt) slik
+    # at dei ~35 s dei til saman tok som eit sekvensielt for-steg framfor
+    # "Generer alle artefakter" no i staden overlappar med den (fleire
+    # minutt lange) artefaktgenereringa der. Ikkje cacha (jf.
+    # modellanalyse-tvers-domene-jobben) — 35 s er billeg nok til at
+    # cache-koordinering mellom to jobbar ikkje er verdt kompleksiteten.
+    # Validering er ei hard byggjesperre (exit 1 ved feil) — `publish`
+    # sin needs-graf blokkerer heile bygget dersom denne jobben feilar
+    # for noko domene (ei matrise-jobb er éi logisk eining i needs-grafen,
+    # inga ekstra logikk trengst) — sjå
+    # specs/done/splitt-validering-modellanalyse-eigen-jobb.md.
     needs: [ensure-images, checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      actions: write
       packages: read
     strategy:
       matrix:
@@ -204,61 +215,23 @@ jobs:
           name: source
           path: .
 
-      - name: Logg artifact-innhald (${{ matrix.domain }})
-        run: |
-          echo "=== Artifact-innhald etter download ==="
-          ls -lah src/linkml/${{ matrix.domain }}/ 2>/dev/null || echo "src/linkml/${{ matrix.domain }}/ finst ikkje"
-          echo ""
-          echo "=== Skjema i domenet ==="
-          find src/linkml/${{ matrix.domain }} -name "*-schema.yaml" 2>/dev/null || echo "Ingen skjema funne"
-          echo ""
-          echo "=== Disk-bruk ==="
-          df -h
-
-      - name: Cache genererte artefakter (${{ matrix.domain }})
-        id: cache-generated
-        uses: actions/cache@v6
-        with:
-          path: generated/${{ matrix.domain }}/
-          # "infra"-delen listar EKSPLISITT dei .mk-filene som faktisk er i
-          # kallgrafen til `make domain-<domain>` (verifisert med grep — sjå
-          # specs/done/docs-only-endring-cache-miss-alle-domene.md), i staden
-          # for det breie `make/**` som tidlegare invaliderte cachen for ALLE
-          # domene ved reine docs-/mcp-/scaffolding-/tools-endringar (t.d.
-          # make/50-docs.mk). `make/80-images.mk` er med sidan
-          # .github/actions/pull-images fell tilbake til `make <target>`
-          # derifrå når ein GHCR-pull feilar. `make/91-modell-analyse.mk` er
-          # no òg med sidan «Køyr modellanalyse per skjema»-steget under
-          # kallar target derifrå (sjå
-          # specs/done/modellanalyse-per-skjema-index-md.md) —
-          # `src/assets/scripts/**` dekkjer allereie find-similar-names.py
-          # sidan han ligg under den globen. `make/50-docs.mk`,
-          # `make/60-mcp.mk`, `make/70-scaffolding.mk` og `make/90-tools.mk`
-          # er framleis medvite utelatne — verifisert ikkje i kallgrafen.
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
-
       - name: Oppgrader crun
-        if: steps.cache-generated.outputs.cache-hit != 'true'
         uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
-        if: steps.cache-generated.outputs.cache-hit != 'true'
         uses: ./.github/actions/ghcr-login
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Detekter påkrevde images for ${{ matrix.domain }}
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        id: detect-images
-        uses: ./.github/actions/detect-required-images
-        with:
-          domain: ${{ matrix.domain }}
-
       - name: Last images inn i podman frå GHCR
-        if: steps.cache-generated.outputs.cache-hit != 'true'
+        # Statisk liste — linkml-local/python-pytest/mcp-linkml-validator
+        # er alt always_required i images.json (validering+modellanalyse
+        # sine einaste avhengigheiter, uavhengig av domenet sine
+        # generator-flagg) — treng difor ikkje detect-required-images
+        # (som er laga for gen-domain sine valfrie generator-avhengige image).
         uses: ./.github/actions/pull-images
         with:
-          images: ${{ steps.detect-images.outputs.images }}
+          images: '[{"name":"linkml-local","make_target":"build-docker-linkml"},{"name":"python-pytest","make_target":"build-docker-python"},{"name":"mcp-linkml-validator","make_target":"build-docker-mcp-validator"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Valider alle skjema for ${{ matrix.domain }}
@@ -270,7 +243,6 @@ jobs:
         # Feilar difor bygget ved reell valideringsfeil i staden for å
         # svelgje feilkoden — sjå ikkje på dette som dobbeltarbeid og fjern
         # det ikkje utan å løyse [skip ci]-gapet på annan måte fyrst.
-        if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -330,7 +302,6 @@ jobs:
           echo "✓ Validering fullført for ${{ matrix.domain }}"
 
       - name: Kopier valideringsloggar til generated/
-        if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           echo "=== Kopierer valideringsloggar til generated/ ==="
 
@@ -389,7 +360,6 @@ jobs:
         # modell-analyse.yml). Begge batch-scripta handterer per-skjema-feil
         # internt (loggar og held fram), så desse to kalla feilar berre ved
         # meir fundamentale problem (t.d. manglande kontainarbilete).
-        if: steps.cache-generated.outputs.cache-hit != 'true'
         run: |
           set -uo pipefail
           echo "=== Køyrer modellanalyse per skjema for ${{ matrix.domain }} ==="
@@ -407,6 +377,89 @@ jobs:
           if [ "$failed" -eq 0 ]; then
             echo "✓ Modellanalyse fullført for ${{ matrix.domain }}"
           fi
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: generated-${{ matrix.domain }}-checks
+          path: generated/${{ matrix.domain }}/
+          retention-days: 1
+
+  generate:
+    name: "generate / ${{ matrix.domain }}"
+    needs: [ensure-images, checkout-source]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      actions: write
+      packages: read
+    strategy:
+      matrix:
+        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+      fail-fast: false
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
+          path: .
+
+      - name: Logg artifact-innhald (${{ matrix.domain }})
+        run: |
+          echo "=== Artifact-innhald etter download ==="
+          ls -lah src/linkml/${{ matrix.domain }}/ 2>/dev/null || echo "src/linkml/${{ matrix.domain }}/ finst ikkje"
+          echo ""
+          echo "=== Skjema i domenet ==="
+          find src/linkml/${{ matrix.domain }} -name "*-schema.yaml" 2>/dev/null || echo "Ingen skjema funne"
+          echo ""
+          echo "=== Disk-bruk ==="
+          df -h
+
+      - name: Cache genererte artefakter (${{ matrix.domain }})
+        id: cache-generated
+        uses: actions/cache@v6
+        with:
+          path: generated/${{ matrix.domain }}/
+          # "infra"-delen listar EKSPLISITT dei .mk-filene som faktisk er i
+          # kallgrafen til `make domain-<domain>` (verifisert med grep — sjå
+          # specs/done/docs-only-endring-cache-miss-alle-domene.md), i staden
+          # for det breie `make/**` som tidlegare invaliderte cachen for ALLE
+          # domene ved reine docs-/mcp-/scaffolding-/tools-endringar (t.d.
+          # make/50-docs.mk). `make/80-images.mk` er med sidan
+          # .github/actions/pull-images fell tilbake til `make <target>`
+          # derifrå når ein GHCR-pull feilar. `make/40-validation.mk` er med
+          # sidan `run-domain-pipeline.sh` sin Fase 1 kallar `make validate`
+          # (grunnleggjande LinkML-import-sjekk — IKKJE den same som
+          # policy-valideringa `valider-og-analyser`-jobben gjer, sjå
+          # specs/done/splitt-validering-modellanalyse-eigen-jobb.md).
+          # `make/91-modell-analyse.mk` er IKKJE lenger med her — den
+          # domene-scopa modellanalysen som brukte target derifrå er flytta
+          # til `valider-og-analyser`-jobben (uncacha der). `make/50-docs.mk`,
+          # `make/60-mcp.mk`, `make/70-scaffolding.mk` og `make/90-tools.mk`
+          # er framleis medvite utelatne — verifisert ikkje i kallgrafen.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
+
+      - name: Oppgrader crun
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: ./.github/actions/upgrade-crun
+
+      - name: Logg inn på GHCR
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: ./.github/actions/ghcr-login
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detekter påkrevde images for ${{ matrix.domain }}
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        id: detect-images
+        uses: ./.github/actions/detect-required-images
+        with:
+          domain: ${{ matrix.domain }}
+
+      - name: Last images inn i podman frå GHCR
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: ./.github/actions/pull-images
+        with:
+          images: ${{ steps.detect-images.outputs.images }}
+          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -434,7 +487,7 @@ jobs:
           retention-days: 1
 
   publish:
-    needs: [generate, checkout-source, modellanalyse-tvers-domene]
+    needs: [generate, valider-og-analyser, checkout-source, modellanalyse-tvers-domene]
     runs-on: ubuntu-22.04
     permissions:
       contents: read

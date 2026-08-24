@@ -1,9 +1,11 @@
 name: 'Slå saman genererte domene-artefakt til generated/'
 description: >-
   Lastar ned alle generated-<domain>-artefakt (lasta opp av
-  ./.github/actions/generate-domain sin kallar, éin per domene) og slår
-  dei saman til éin generated/-katalog. Trekt ut frå generate.yml sin
-  publish-jobb for å gjenbrukast av andre workflowar som treng heile
+  ./.github/actions/generate-domain sin kallar, éin per domene) OG
+  generated-<domain>-checks-artefakt (lasta opp av valider-og-analyser-
+  jobben, sjå specs/done/splitt-validering-modellanalyse-eigen-jobb.md),
+  og slår dei saman til éin generated/-katalog. Trekt ut frå generate.yml
+  sin publish-jobb for å gjenbrukast av andre workflowar som treng heile
   generated/-treet samla (t.d. lenkje-og-mermaid-sjekk.yml).
 inputs:
   domain_list:
@@ -25,5 +27,15 @@ runs:
         for domain in ${{ inputs.domain_list }}; do
           if [ -d "generated-merged/generated-$domain" ]; then
             mv "generated-merged/generated-$domain" "generated/$domain"
+          fi
+          # generated-<domain>-checks (validering + domene-scopa
+          # modellanalyse, frå valider-og-analyser-jobben) skriv til
+          # ikkje-overlappande underkatalogar (*/validation/,
+          # */model-analyse/) samanlikna med generate-jobben sitt
+          # generated-<domain> — trygt å kopiere/slå saman inn i same
+          # katalog i staden for å flytte.
+          if [ -d "generated-merged/generated-$domain-checks" ]; then
+            mkdir -p "generated/$domain"
+            cp -r "generated-merged/generated-$domain-checks/." "generated/$domain/"
           fi
         done
