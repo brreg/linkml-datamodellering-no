@@ -61,11 +61,11 @@ er oppgjeve. `<n>` = skjemanavn (filnavn utan `-schema.yaml`).
 | XSD | `xsd` (krev `json_schema`-output) | `gen-xsd` | 3 steg: avrotize `j2a` (JSON Schema → Avro), avrotize `a2x` (Avro → XSD, namespace frå `id:`), så `fix-xsd-dates.py` (rettar `date`/`date-time`-felt som avrotize elles gjer om til `xs:integer`/`xs:long`) | `<n>-schema.xsd` |
 | Protobuf | `protobuf` | `gen-proto` | `gen-proto <schema>` | `<n>-schema.proto` |
 | GraphQL | `graphql` | `gen-graphql` | `gen-graphql <schema>` | `<n>-schema.graphql` |
-| Java-klassar | `java` | `gen-java` | `gen-java --output-directory java --package <pakke> <schema>` (pakke utleia frå skjemaet sin `id:`-URI, reversert domenenotasjon) | `java/<Klassenamn>.java` (éin fil per klasse/enum) |
+| Java-klasser | `java` | `gen-java` | `gen-java --output-directory java --package <pakke> <schema>` (pakke utleia frå skjemaet sin `id:`-URI, reversert domenenotasjon) | `java/<Klassenamn>.java` (éin fil per klasse/enum) |
 | OpenAPI | `openapi` (krev `json_schema`) | `gen-openapi` | eigen `gen-openapi.py` (ikkje ein linkml-kommando — pakkar JSON Schema `$defs` inn i `components/schemas`, hentar `info.title/version/description` frå skjemaet), validert med `openapi-spec-validator` | `<n>-openapi.yaml` |
 | AsyncAPI | `asyncapi` (krev `json_schema`) | `gen-asyncapi` | eigen `gen-asyncapi.py` (same mønster som openapi), validert med `asyncapi validate` | `<n>-asyncapi.yaml` |
-| ER-diagram (Markdown) | `erdiagram` | `gen-erdiagram-mermaid` | `gen-erdiagram --no-mergeimports <schema>` → `filter_container.awk` (fjernar containerklassen) → `filter_erdiagram.py` (fjernar importerte klassar) | `<n>-erdiagram-unfiltered.md`, `<n>-erdiagram.md` |
-| PlantUML-diagram | `plantuml` | `gen-plantuml` | `gen-plantuml <schema>` → `filter_plantuml.py` i to modus (`filtered` = kun lokale klassar, `full` = alle unntatt containerklassen) → PlantUML-container rendrar SVG | `diagrams/<n>-raw.puml`, `diagrams/<n>-filtered.puml(+.svg)`, `diagrams/<n>.puml(+.svg)` |
+| ER-diagram (Markdown) | `erdiagram` | `gen-erdiagram-mermaid` | `gen-erdiagram --no-mergeimports <schema>` → `filter_container.awk` (fjernar containerklassen) → `filter_erdiagram.py` (fjernar importerte klasser) | `<n>-erdiagram-unfiltered.md`, `<n>-erdiagram.md` |
+| PlantUML-diagram | `plantuml` | `gen-plantuml` | `gen-plantuml <schema>` → `filter_plantuml.py` i to modus (`filtered` = kun lokale klasser, `full` = alle unntatt containerklassen) → PlantUML-container rendrar SVG | `diagrams/<n>-raw.puml`, `diagrams/<n>-filtered.puml(+.svg)`, `diagrams/<n>.puml(+.svg)` |
 | gen-doc (klassedokumentasjon) | `docs` | del av `gen-schema-docs` | `gen-docgen-examples.py` (splittar eksempelfila per klasseinstans) → `gen-doc --template-directory src/assets/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory ... <schema>` → `sed -i "/Container/d" docs/index.md` | `docgen-examples/*.yaml`, `docs/*.md` (éin per klasse/slot/enum/type/subset + `docs/index.md`) |
 | RDF-eksempeldata | `example_rdf` (default `true`) | innebygd i `domain_target`, ikkje eige gen-target | `linkml-convert --schema <schema> --output-format ttl --no-validate --output ... <eksempelfil>` | `<n>-eksempel.ttl` |
 | Informasjonsmodell-instans | *(ingen `build.yaml`-gate — køyrer alltid)* | `gen-informasjonsmodell-instance` | eigen `generate-informasjonsmodell.py <schema>` | `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml` |
@@ -107,14 +107,14 @@ direkte — dei krev at `json_schema: true` også er sett, og
 ### 3.3 ER-diagram og PlantUML
 
 Begge køyrer `linkml gen-erdiagram`/`gen-plantuml` fyrst (rå output med
-*alle* klassar, inkludert importerte og containerklassen), og filtrerer
+*alle* klasser, inkludert importerte og containerklassen), og filtrerer
 so i eit eige Python/awk-steg:
 
-- **Filtrert versjon** (`*-filtered.md`/`*-filtered.puml`): berre klassar
+- **Filtrert versjon** (`*-filtered.md`/`*-filtered.puml`): berre klasser
   definerte lokalt i skjemaet sitt `classes:`-blokk. Dette er versjonen
   portalen viser som standard.
-- **Full versjon** (`*.puml`): alle klassar unntatt containerklassen,
-  inkludert importerte klassar frå t.d. `dcat-ap-no`. Lenka som "(full)"
+- **Full versjon** (`*.puml`): alle klasser unntatt containerklassen,
+  inkludert importerte klasser frå t.d. `dcat-ap-no`. Lenka som "(full)"
   frå portalen.
 
 Filtreringslogikken les altså **skjemaet sitt eige `classes:`-nøklar**
@@ -166,7 +166,7 @@ aldri frå JSON-feltet).
 `generate-informasjonsmodell.py` byggjer éin `Informasjonsmodell`-instans
 per skjema (skriven til `src/linkml/<domain>/<modell>/metadata/<modell>-manifest.yaml`).
 Kjeldene for kvart felt (`schema.yaml`, `build.yaml`, `CODEOWNERS.md`,
-lokale klassar, genererte artefakter) er dokumenterte i full detalj i
+lokale klasser, genererte artefakter) er dokumenterte i full detalj i
 [Generering av modellmanifest](modellmanifest-generering.md) — ikkje
 gjenteke her.
 
@@ -260,7 +260,7 @@ tolkar loggane frå begge workflowane — sjå
 |---|---|
 | Klassenavn, slotnavn, `range`, `required` i eit generert format | `<modell>-schema.yaml` sine `classes:`/`slots:` (§ 3.1) |
 | "Modellmetadata"-tabellen i portalen | `schema`-metadata + silver-annotasjonar, via gen-doc (§ 3.4, § 4) |
-| Kva klassar som vert vist i ER-diagram/PlantUML | Skjemaet sitt eige `classes:`-blokk, filtrert av `filter_erdiagram.py`/`filter_plantuml.py` (§ 3.3) |
+| Kva klasser som vert vist i ER-diagram/PlantUML | Skjemaet sitt eige `classes:`-blokk, filtrert av `filter_erdiagram.py`/`filter_plantuml.py` (§ 3.3) |
 | "Valideringsresultat"-seksjonen | `validation/<versjon>/<policy>.json`, policy frå `build.yaml.validation_policy` (§ 3.5) |
 | "Versjonslog"-seksjonen | `CHANGELOG.md`, skriven av release-please, ikkje av make-pipelinen (§ 3.7) |
 | "Publisert til"-kolonna | Eksistens av `published-uris.lock`, manuelt vedlikehalden (§ 3.8) |

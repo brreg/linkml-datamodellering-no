@@ -157,7 +157,7 @@ def main() -> None:
         "klasse-, slot- og typenavn mot andre skjema i same domene, flaggar "
         "par med høg navnelikskap som eit mogleg duplikat- eller "
         "konsolideringssignal, og fangar lokalt definerte slots, "
-        "enumerations, types, subsets og klassar som ikkje er i bruk lokalt "
+        "enumerations, types, subsets og klasser som ikkje er i bruk lokalt "
         "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",
         "",
         f"*For IRI-dereferering og innhaldsforhandling sjå "

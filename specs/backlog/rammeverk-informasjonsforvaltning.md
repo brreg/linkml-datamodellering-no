@@ -80,7 +80,7 @@ resultatet, presentert nedanfor.
 | DCAT-AP-NO | ✅ Kartlagt, utført | `specs/done/avvik-dcat-ap-no.md` |
 | SKOS-AP-NO Begrep | ✅ Kartlagt, i hovudsak utført | `specs/done/avvik-skos-ap-no.md` |
 | Termlosen (omgrepsanalyse) | ✅ Kartlagt, i hovudsak utført | `specs/done/avvik-termlosen.md` |
-| Forvaltningsstandard for begrepsharmonisering/-differensiering | ⚪ Kartlagt no (§ nedanfor) — samsvar via SKOS-AP-NO sine relasjonsklassar | Ny, sjå under |
+| Forvaltningsstandard for begrepsharmonisering/-differensiering | ⚪ Kartlagt no (§ nedanfor) — samsvar via SKOS-AP-NO sine relasjonsklasser | Ny, sjå under |
 | TBX-basert tilgjengeliggjøring (TBX-AP-NO) | ⚪ Kartlagt no (§ nedanfor) — **reelt gap identifisert** | Ny, sjå under |
 | Retningslinjer ved tilgjengeliggjøring av offentlege data | ✅ Kartlagt, utført | `specs/done/avvik-retningslinjer-apne-data.md` |
 | DQV-AP-NO | ✅ Kartlagt, løyst | `specs/done/avvik-dqv-ap-no.md` |
@@ -199,7 +199,7 @@ har TBX-støtte. Sett som eige, avgrensa element i prioritert handlingsliste.
 
 **Kjelde:** [digdir.no/.../person-og-enhet-felles-informasjonsmodell/2018](https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018)
 
-Digdirs modell er ei **forenkla** referansemodell med 9 klassar (Aktør,
+Digdirs modell er ei **forenkla** referansemodell med 9 klasser (Aktør,
 Kontaktinformasjon, Identifikator, Person, Personnavn, Kjønn, Sivilstand,
 Enhet, Adresse-referanse) — kjernefelt for navn, kjønn, statsborgerskap,
 fødsel/død, sivilstand, organisasjonsnummer/-form.
@@ -241,7 +241,7 @@ Repoets `ngr-adresse-schema.yaml`: `GeografiskAdresse` (abstrakt) →
 veg- og matrikkeladresse-felt i éin klasse med valfrie felt per variant
 (`adressenavn_ref`+`husnummer_ref` for vegadresse,
 `matrikkelnummer` for matrikkeladresse) i staden for Digdirs to separate
-underklassar. `Poststed` finst som eiga `GeografiskOmrade`-underklasse og
+underklasser. `Poststed` finst som eiga `GeografiskOmrade`-underklasse og
 samsvarer direkte. `Representasjonspunkt` tilsvarar Digdirs `Punkt`.
 
 **Vurdering:** Sterkt strukturelt og semantisk samsvar — venta, sidan begge

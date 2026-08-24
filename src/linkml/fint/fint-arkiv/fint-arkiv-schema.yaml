@@ -187,7 +187,7 @@ slots:
     description: Person som arkiverte arkivenheten.
   # --- AdministrativEnhet / Personalmappe -----------------------------------
 
-  # navn: string — brukt av AdministrativEnhet og alle kodeverk-klassar
+  # navn: string — brukt av AdministrativEnhet og alle kodeverk-klasser
   # navn:
   #   slot_uri: ark:navn
   #   range: string
@@ -517,7 +517,7 @@ classes:
     tree_root: true
     description: Rotcontainer for FINT Arkiv-instansar.
     attributes:
-      # arkiv.noark - Hauptklassar
+      # arkiv.noark - Hauptklasser
       arkivdelar:
         range: Arkivdel
         multivalued: true
@@ -650,7 +650,7 @@ classes:
         range: Variantformat
         multivalued: true
         inlined_as_list: true
-  # --- arkiv.noark: abstrakte basisklassar ------------------------------------
+  # --- arkiv.noark: abstrakte basisklasser ------------------------------------
   Mappe:
     abstract: true
     description: Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer saman.
@@ -864,7 +864,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-  # --- arkiv.noark: Hauptklassar --------------------------------------------
+  # --- arkiv.noark: Hauptklasser --------------------------------------------
   AdministrativEnhet:
     description: Administrativ eining med ansvar for saksbehandling.
     class_uri: ark:AdministrativEnhet

@@ -147,7 +147,7 @@ informasjonsmodeller:
   tittel:
   - FINT Felles typar
   beskrivelse:
-  - 'Felles datatypar, basisklassar, kodeverk og hovudklassar som er delt mellom alle
+  - 'Felles datatypar, basisklasser, kodeverk og hovudklasser som er delt mellom alle
     FINT-domenemodellane (Administrasjon, Utdanning, Økonomi, Arkiv).
 
     '

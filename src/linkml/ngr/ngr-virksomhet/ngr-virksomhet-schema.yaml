@@ -92,7 +92,7 @@ classes:
   VirksomhetContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klasser; referansar mellom objekt brukar URI-lenking.
     attributes:
       underenheter:
         range: Underenhet

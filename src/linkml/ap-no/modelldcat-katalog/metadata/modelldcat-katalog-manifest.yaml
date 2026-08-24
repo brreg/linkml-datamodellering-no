@@ -7,11 +7,11 @@ tittel:
   nn: ModelDCAT-AP-NO - Katalogdel
 beskrivelse:
   nb: 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
-    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    hjelpeklasser (Lisensdokument, Dokument). Klasser som er felles med DCAT-AP-NO
     (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
     import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
   nn: 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
-    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    hjelpeklasser (Lisensdokument, Dokument). Klasser som er felles med DCAT-AP-NO
     (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
     import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
 versjonsnummer: 1.0.0

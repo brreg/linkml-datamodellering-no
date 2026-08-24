@@ -8,7 +8,7 @@ paths:
 ## Modelleringsprinsipper
 
 ### Slots, ikke attributes
-Alle domenemodellklassar modellerer eigenskapane sine som globale slots under `slots:` på toppnivå i skjemaet. Klasser refererer til slots via `slots:`-lista. Klassespesifikke innskrenkingar (`required`, `in_subset` o.l.) ligg i `slot_usage`.
+Alle domenemodellklasser modellerer eigenskapane sine som globale slots under `slots:` på toppnivå i skjemaet. Klasser refererer til slots via `slots:`-lista. Klassespesifikke innskrenkingar (`required`, `in_subset` o.l.) ligg i `slot_usage`.
 
 **Unntaket er containerklassen** (`tree_root: true`): her skal kvar klasse-referanse modellerast som eit inline `attribute` direkte under containerklassen — ikkje som ein global slot. Containerklassen er eit serialiseringsankerpunkt, ikkje ein semantisk klasse, og attributtane hennar treng ikkje `slot_uri`.
 
@@ -94,7 +94,7 @@ Containerklasse:
 - Containerklassen treng ikkje `class_uri` (unntatt frå kravet per bronze-policy)
 - AP-NO-modellar og fair-modellar skal ikkje ha eigen containerklasse
 - **Containerattributt skal alltid bruke `inlined`/`inlined_as_list`** — dette er ein ufravikeleg regel, også når `range`-klassen har `identifier: true`. Containerklassen sitt føremål er å vere eit sjølvstendig, komplett eksportdokument; dette gjeld ubunde av om target-klassen elles ville vore lenka (via URI) etter prinsippet "Lenking fremfor inlining" utanfor containeren. Sjå `specs/done/inlining-konvensjon.md` (R5) og `bugs/inlined-as-list-rdflib-roundtrip.md` (BUG-2) for grunngjeving og ein kjend, akseptert konsekvens av regelen.
-- **`range` på eit `inlined`/`inlined_as_list`-containerattributt skal alltid vere ein konkret klasse** — aldri ei abstrakt eller mixin-klasse med fleire konkrete subklassar delt i same liste. Bruk eige containerattributt per konkret subklasse i staden for éi delt, polymorf liste. Sjå `bugs/polymorphic-inlined-list-yaml-loader.md` (BUG-8) for konsekvensen av å bryte denne regelen (krasj i `linkml-convert`/`gen-rdf`, sjølv om `make validate-instance` godkjenner instansen).
+- **`range` på eit `inlined`/`inlined_as_list`-containerattributt skal alltid vere ein konkret klasse** — aldri ei abstrakt eller mixin-klasse med fleire konkrete subklasser delt i same liste. Bruk eige containerattributt per konkret subklasse i staden for éi delt, polymorf liste. Sjå `bugs/polymorphic-inlined-list-yaml-loader.md` (BUG-8) for konsekvensen av å bryte denne regelen (krasj i `linkml-convert`/`gen-rdf`, sjølv om `make validate-instance` godkjenner instansen).
 
 ### Los-tema i datasett og katalogar
 

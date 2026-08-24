@@ -226,7 +226,7 @@ Data mesh / data lakehouse-plattformar kan høste metadata for:
 - SHACL shapes (`.ttl`)
 - JSON Schema (`.json`)
 - OWL ontologi (`.ttl`)
-- Python-klassar (`.py`)
+- Python-klasser (`.py`)
 - Protobuf (`.proto`)
 - Dokumentasjon (`docs/`)
 - PlantUML-diagram (`.puml`, `.svg`)

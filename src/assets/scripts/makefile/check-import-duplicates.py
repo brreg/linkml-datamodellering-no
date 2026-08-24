@@ -5,7 +5,7 @@ kolliderer med eit element frå importkjeda (same navn, ulikt kjeldeskjema).
 
 Bakgrunn: sjå specs/done/oreg-scaffold-generering-feiler.md og
 specs/backlog/new-modell-dublettsjekk-mot-imports.md. Seks nye oreg-skjema
-definerte lokale slots/klassar (t.d. `beskrivelse`, `versjon`,
+definerte lokale slots/klasser (t.d. `beskrivelse`, `versjon`,
 `Kontaktopplysning`) med same navn som eit element alt importert via
 dcat-ap-no-schema/common-ap-no-schema. LinkML sitt import-hierarki mergar
 IKKJE slike par til éitt element — dei kolliderer, og feilen dukkar først opp

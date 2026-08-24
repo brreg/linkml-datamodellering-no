@@ -60,7 +60,7 @@ classes:
   AdresseContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klasser; referansar mellom objekt brukar URI-lenking.
     attributes:
       offisielleAdresser:
         range: OffisiellAdresse
@@ -141,7 +141,7 @@ classes:
     abstract: true
     class_uri: locn:Address
     description: >-
-      Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse og Postboksadresse.
+      Abstrakt basisklasse for norske adressar. Konkrete subklasser er OffisiellAdresse og Postboksadresse.
     slots:
       - id
   # ---------------------------------------------------------------------------
@@ -411,7 +411,7 @@ classes:
     class_uri: ngr:Svalbard
     description: Svalbard som særskild geografisk område.
   # ---------------------------------------------------------------------------
-  # Postboksklassar
+  # Postboksklasser
   # ---------------------------------------------------------------------------
   Postboks:
     class_uri: ngr:Postboks
@@ -425,7 +425,7 @@ classes:
         in_subset:
           - Obligatorisk
   # ---------------------------------------------------------------------------
-  # Referanseklassar (forvaltast av eksterne kjelder)
+  # Referanseklasser (forvaltast av eksterne kjelder)
   # ---------------------------------------------------------------------------
   Bygning:
     class_uri: ngr:Bygning

@@ -28,7 +28,7 @@ ho skulle vore individuelt klikkbar til si eiga side (t.d.
 `full_adresse.md`). `## Eigenskapar`-tabellen lenger nede på same side
 lenkjer derimot korrekt til kvar enkelt slot-side.
 
-Gjeld systematisk for **alle** klassar med minst éin attributt i heile
+Gjeld systematisk for **alle** klasser med minst éin attributt i heile
 portalen, ikkje berre `Adresse` — verifisert også for `Rektor`
 (`mkdocs/docs/samt/samt-bu/klasser/rektor.md`). Sjå
 `specs/backlog/mermaid-diagram-elementaere-typar-og-attributtklikk.md`
@@ -36,7 +36,7 @@ portalen, ikkje berre `Adresse` — verifisert også for `Rektor`
 
 ## Berørte skjema
 
-Alle skjema/klassar med minst éin attributt i det genererte mermaid
+Alle skjema/klasser med minst éin attributt i det genererte mermaid
 `classDiagram`-et — i praksis alle domenemodellar i repoet.
 
 ## Rot-årsak
@@ -70,7 +70,7 @@ arbeidsrundt alt til stades på sida.
 `!!! note "Om diagrammet"`-admonition (mkdocs-material admonition-syntaks)
 vert no generert rett etter mermaid-diagrammet, guarda på
 `schemaview.class_induced_slots(element.name)|length > 0` slik at han berre
-vises for klassar som faktisk har attributt-rader i eiga diagramboks (der
+vises for klasser som faktisk har attributt-rader i eiga diagramboks (der
 tvitydigheita finst). Teksten viser til denne bugen og peikar til
 `## Eigenskapar`-tabellen som fasit for slot-spesifikke lenkjer.
 

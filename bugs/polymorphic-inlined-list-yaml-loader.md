@@ -9,7 +9,7 @@
 
 Eit containerattributt med `range:` sett til ei **abstrakt** basisklasse
 (t.d. `Egenskap` i `modelldcat-modell-schema.yaml`) og `inlined_as_list: true`,
-der dei faktiske listeelementa er instansar av **konkrete subklassar**
+der dei faktiske listeelementa er instansar av **konkrete subklasser**
 (`Attributt`, `Assosiasjon` — felt som berre finst på subklassen, t.d.
 `refererer_til` på `Assosiasjon`), krasjar ved lasting:
 
@@ -31,7 +31,7 @@ keyword-argument og feilar identisk (`unexpected keyword argument '@type'`).
 
 `linkml.validator.validate()` (jsonschema-basert, brukt av
 `make validate-instance` og `mcp-linkml-valider-modell`) validerer derimot **korrekt** —
-generert JSON Schema brukar `anyOf` over alle subklassar av range-klassa, og
+generert JSON Schema brukar `anyOf` over alle subklasser av range-klassa, og
 strukturell matching (utan `@type`) lykkast så lenge subklasseformene er
 strukturelt unike. Dette gjev eit **falskt positivt** signal: ein instans kan
 validere feilfritt med `make validate-instance`/`mcp-linkml-valider-modell`, men likevel
@@ -42,7 +42,7 @@ krasje hardt ved `linkml-convert`/`gen-rdf`/python-dataclass-lasting.
 To ulike kodepatar i `linkml`/`linkml-runtime`, igjen (jf. BUG-6/BUG-7):
 
 - **JSON Schema-generatoren** (`JsonSchemaGenerator`) ekspanderer range til
-  `anyOf` over range-klassa og alle kjente subklassar — polymorfi er støtta
+  `anyOf` over range-klassa og alle kjente subklasser — polymorfi er støtta
   på **skjemanivå**.
 - **YAML/SchemaLoader-basert objektlasting** (`yamlutils._normalize_inlined`,
   brukt av `yaml_loader`, `linkml-convert`, og dermed indirekte
@@ -61,7 +61,7 @@ SchemaLoader/YAML-baserte kodepatar (ikkje polymorfi-medvitne).
 
 Ingen generell workaround for å bevare éin delt, polymorf liste. Den einaste
 verifiserte løysinga er å **unngå polymorf inlining heilt**: gje konkrete
-subklassar (`Attributt`, `Assosiasjon`, `Objekttype`, …) **eigne, ikkje-delte
+subklasser (`Attributt`, `Assosiasjon`, `Objekttype`, …) **eigne, ikkje-delte
 containerattributt** (t.d. `attributter: range: Attributt`,
 `assosiasjoner: range: Assosiasjon`, i staden for éin delt
 `egenskaper: range: Egenskap`). Dette unngår at YAML-lastaren må gjette

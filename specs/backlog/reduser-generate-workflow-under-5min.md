@@ -174,7 +174,7 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
       aktive i `oreg`). Dette peikar på at sjølve skjemaa i `oreg`
       (Brønnøysundregistera sine sentrale registermodellar —
       `enhetsregisteret-bvr*`-familien, `register-over-aksjeeiere`) er
-      individuelt større/meir komplekse (fleire klassar/slots/importar)
+      individuelt større/meir komplekse (fleire klasser/slots/importar)
       enn typiske AP-NO-profilskjema, ikkje berre at fleire
       generatorflagg er sette.
    c) **Ingen throttling av dei 12 parallelle Fase 1-batch-kalla.**

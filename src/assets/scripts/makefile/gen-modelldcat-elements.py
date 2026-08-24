@@ -79,7 +79,7 @@ def transliterate_uri_segment(value):
 
 
 def as_langstring_list(value):
-    """str() sikrar at linkml sine NamedElement-subklassar av str (ClassDefinitionName,
+    """str() sikrar at linkml sine NamedElement-subklasser av str (ClassDefinitionName,
     SlotDefinitionName, EnumDefinitionName) blir vanlege Python-strenger — elles
     feiler yaml.dump med ein userialiserbar !!python/object/new-tag."""
     return [str(value)] if value else None

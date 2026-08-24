@@ -29,7 +29,7 @@ prefixes:
 slots:
   # --- Container-eksklusive lister (felles frå fint-common) ------------------
 
-  # --- Lønn (Lonn og subklassar) ---------------------------------------------
+  # --- Lønn (Lonn og subklasser) ---------------------------------------------
   anvist:
     slot_uri: adm:anvist
     range: datetime
@@ -393,7 +393,7 @@ classes:
     tree_root: true
     description: Rotcontainer for FINT Administrasjon-instansar.
     attributes:
-      # Felles hovudklassar
+      # Felles hovudklasser
       personar:
         range: Person
         multivalued: true
@@ -431,7 +431,7 @@ classes:
         range: Valuta
         multivalued: true
         inlined_as_list: true
-      # Domenehovudklassar
+      # Domenehovudklasser
       personalressursar:
         range: Personalressurs
         multivalued: true

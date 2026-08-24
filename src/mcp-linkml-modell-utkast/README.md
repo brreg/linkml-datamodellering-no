@@ -21,7 +21,7 @@ JSON Schema (fil)
       │
       ▼
   converter.py
-  ├── Les $defs / definitions → klassar (inkl. allOf-komponerte → is_a)
+  ├── Les $defs / definitions → klasser (inkl. allOf-komponerte → is_a)
   ├── Omset JSON-typar til LinkML-ranges (type_mapping / format_mapping)
   ├── Handterer $ref, array, anyOf (nullable)
   ├── Lagar globale slots for alle eigenskapar

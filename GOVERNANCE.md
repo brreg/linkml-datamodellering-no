@@ -299,7 +299,7 @@ slot_usage:
 ## Konsekvens
 - **Berørte org-ar:** Alle som importerer dcat-ap-no (Kartverket, Skatteetaten, osv.)
 - **Breaking:** Ja — eksisterande modellar utan `dct:publisher` vil feile validering
-- **Migreringsarbeid:** Kvar org må legge til `dct:publisher` i sine Datasett-klassar
+- **Migreringsarbeid:** Kvar org må legge til `dct:publisher` i sine Datasett-klasser
 
 ## Tidslinje
 - **Diskusjonsfrist:** 14 dagar (til 2026-07-15)

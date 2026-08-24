@@ -82,7 +82,7 @@ Delt lag for alle AP-NO-profilene. Definerer:
 
 ---
 
-### `dqv-core` — DQV-kjerneklassar (bridge-fil)
+### `dqv-core` — DQV-kjerneklasser (bridge-fil)
 
 **Fil:** `src/linkml/ap-no/dqv-ap-no/dqv-core-schema.yaml`  
 **Opphav:** Oppretta som løysing på sirkulær import (MC11)
@@ -91,7 +91,7 @@ Denne fila er ikkje ei eiga AP-NO-profil — det er eit arkitektonisk lag for å
 den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 
 **Inneheld:**
-- Alle DQV-kjerneklassar: `Kvalitetsdimensjon`, `Kvalitetsdeldimensjon`,
+- Alle DQV-kjerneklasser: `Kvalitetsdimensjon`, `Kvalitetsdeldimensjon`,
   `Kvalitetsmaal`, `Kvalitetsmerknad`, `Brukartilbakemelding`,
   `Kvalitetssertifikat`, `Kvalitetsmaaling`, `Tekstdel`
 - Alle DQV-slots: `har_kvalitetsmerknad`, `har_kvalitetsmaaling`, `har_maal`, m.fl.
@@ -160,11 +160,11 @@ den sirkulære avhengigheita mellom `dcat-ap-no` og `dqv-ap-no`.
 **Arkitektonisk val:**
 
 Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
-- `modelldcat-modell-schema` — alle Modellelement-klassane (27 klassar)
+- `modelldcat-modell-schema` — alle Modellelement-klassane (27 klasser)
 - `modelldcat-katalog-schema` — Modellkatalog, Informasjonsmodell, Dokument
 - `modelldcat-ap-no-schema` — pass-through for bakoverkompatibilitet
 
-`modelldcat-katalog` importerer `dcat-ap-no` og gjenbrukar hjelpeklassar (`Aktoer`, `Kontaktopplysning`, `Standard`, `Tidsrom`).
+`modelldcat-katalog` importerer `dcat-ap-no` og gjenbrukar hjelpeklasser (`Aktoer`, `Kontaktopplysning`, `Standard`, `Tidsrom`).
 
 **Kjente avvik:** Ingen.
 
@@ -177,7 +177,7 @@ Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
 
 **Status:** Systematisk avvikskartlegging gjennomført 2026-07-27 — 5 avvik identifiserte og **alle utbetra same dag**.
 
-**Resultat:** 19 av 19 klassar korrekt implementerte. Sjå `specs/done/avvik-cpsv-ap-no.md` for detaljar.
+**Resultat:** 19 av 19 klasser korrekt implementerte. Sjå `specs/done/avvik-cpsv-ap-no.md` for detaljar.
 
 ---
 
@@ -185,9 +185,9 @@ Skjemaet er delt i to filer for å matche spesifikasjonsstrukturen:
 
 ### Lenking framfor inlining
 
-Alle klasser med identitet (alle unntatt reine hjelpeklassar som `LangString`)
+Alle klasser med identitet (alle unntatt reine hjelpeklasser som `LangString`)
 har eit `id`-slot med `identifier: true` og `range: uriorcurie`. Referansar til
-andre klassar er **ikkje** `inlined: true` — dei er URI-referansar i datafiler.
+andre klasser er **ikkje** `inlined: true` — dei er URI-referansar i datafiler.
 
 ### `slot_usage` for obligatorisk/anbefalt/valgfri
 

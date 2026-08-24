@@ -128,8 +128,8 @@ annan `range`), sidan ingen AP-NO-profil nokon gong vil bruke akkurat ditt
 skjemanavn som prefiks. Sloten er
 **ikkje** automatisk lagt til i stub-klassen sin `slots:`-liste
 (`dcat:contactPoint` høyrer typisk til datasett-/distribusjonsliknande
-klassar, ikkje naudsynleg det generiske domenestubbet) — legg han til i
-klassar der det er relevant.
+klasser, ikkje naudsynleg det generiske domenestubbet) — legg han til i
+klasser der det er relevant.
 
 **Kva TODO-stubbane betyr**
 
@@ -209,7 +209,7 @@ Opne `src/linkml/<domain>/<modell>/<modell>-schema.yaml` og legg til klasser, sl
 For hurtig validering kan du linte skjemaet:
 `make lint SCHEMA=src/linkml/<domain>/<modell>/<modell>-schema.yaml`
 
-Legg du til nye slots/klassar eller nye `imports:` for hand (steg 2), sjekk
+Legg du til nye slots/klasser eller nye `imports:` for hand (steg 2), sjekk
 òg at ingen av dei kolliderer med eit navn som alt finst i importkjeda —
 `make new-modell` gjer dette automatisk ved scaffolding, men det vert ikkje
 gjenteke automatisk ved seinare manuell redigering:
@@ -387,7 +387,7 @@ domenetype (standard, FINT, AP-NO/FAIR).
 
 **Lenking framfor inlining** — klasser som kan opptre sjølvstendig får `id`-slot med `identifier: true`. Referansar til slike klasser skal *ikkje* ha `inlined: true`.
 
-**Eksplisitte URI-ar** — alle klasser skal ha `class_uri` (unntatt `tree_root`-containerklassar). Alle slots skal ha `slot_uri`.
+**Eksplisitte URI-ar** — alle klasser skal ha `class_uri` (unntatt `tree_root`-containerklasser). Alle slots skal ha `slot_uri`.
 
 **`slot_usage` for klassespesifikke innskrenkingar** — `required: true` og `in_subset:` setjast i `slot_usage` på klassen, ikkje i den globale slotdefinisjonen.
 

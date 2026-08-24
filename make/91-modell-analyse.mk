@@ -88,12 +88,12 @@ analyse-ubrukte-subsets: ## Finn lokalt definerte subsets som ikkje er brukt av 
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --kind subset --schema $(SCHEMA)
 
-analyse-isolerte-klasser: ## Finn lokale klassar utan referansar til/frå noka anna lokal klasse [SCHEMA=<sti>]
+analyse-isolerte-klasser: ## Finn lokale klasser utan referansar til/frå noka anna lokal klasse [SCHEMA=<sti>]
 	$(call print_header,analyse-isolerte-klasser,SCHEMA=$(SCHEMA)) 1>&2
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --kind class --schema $(SCHEMA)
 
-analyse-lokal-modellanalyse-domene: ## Skriv alle fem ubrukt-lokalt/isolerte-klassar-rapportane for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated]
+analyse-lokal-modellanalyse-domene: ## Skriv alle fem ubrukt-lokalt/isolerte-klasser-rapportane for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated]
 	$(call print_header,analyse-lokal-modellanalyse-domene,DOMAIN=$(DOMAIN)) 1>&2
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --domain $(DOMAIN) --out-dir $(if $(OUT_DIR),$(OUT_DIR),generated)

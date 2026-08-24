@@ -348,7 +348,7 @@ classes:
           - Anbefalt
 
   # -------------------------------------------------------------------------
-  # Støtteklassar
+  # Støtteklasser
   # -------------------------------------------------------------------------
 
   # Aktoer (foaf:Agent) og Tidsrom (dct:PeriodOfTime) er importert frå dcat-ap-no-schema.yaml

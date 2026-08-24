@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Finn lokalt definerte slots, enums, types eller subsets som ALDRI vert
-brukt av ein lokal klasse i same skjema, eller lokale klassar som er
+brukt av ein lokal klasse i same skjema, eller lokale klasser som er
 heilt isolerte (ingen referansar til/frå nokon annan lokal klasse).
 
 Bakgrunn: sjå specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md.
@@ -20,19 +20,19 @@ dei fire *_is_used()-funksjonane under, som kvar viser til den
 tilsvarande linja i index.md.jinja2 dei erstattar.
 
 --kind class er ein heilt ny, femte analyse (ikkje ein port — Classes-
-tabellen har ingen Usage-kolonne i dag): finn lokale klassar som ikkje er
+tabellen har ingen Usage-kolonne i dag): finn lokale klasser som ikkje er
 reelt integrerte i modellgrafen (via slot-/attributtrange, eller
 is_a/mixins) til noka anna lokal klasse. Containerklassen (tree_root)
 reknast alltid som tilkopla resten (ho er modellen sitt inngangspunkt) og
 vert difor aldri sjølv rapportert som isolert — men i motsetnad til andre
-klassar tel IKKJE containeren sine EIGNE referansar til andre lokale
-klassar som reell tilkopling for måla. To kategoriar vert difor skilde:
+klasser tel IKKJE containeren sine EIGNE referansar til andre lokale
+klasser som reell tilkopling for måla. To kategoriar vert difor skilde:
 
 - **Heilt isolert** — ingen tilkopling i det heile, ikkje eingong via
   containerklassen.
 - **Kun tilkopla via containerklassen** — containeren refererer klassen
   (ho er eit registrert inngangspunkt), men ho har elles ingen tilkopling
-  til/frå noka anna lokal klasse. Fangar klassar som er registrerte som
+  til/frå noka anna lokal klasse. Fangar klasser som er registrerte som
   container-attributt, men aldri faktisk vovne inn i resten av
   modellgrafen (t.d. eit ufullstendig scaffold eller feilplassert
   attributt).
@@ -92,7 +92,7 @@ KIND_LABELS = {
     "enum": "enums",
     "type": "typar",
     "subset": "subsets",
-    "class": "klassar",
+    "class": "klasser",
 }
 
 # Rapportfilnavn — MÅ matche det .github/workflows/generate.yml (og
@@ -114,7 +114,7 @@ def log_error(msg: str) -> None:
 
 
 def local_classes(sv, include_root: bool = True) -> list:
-    """Klassar (ClassDefinition) definerte lokalt i sv.schema sjølv.
+    """Klasser (ClassDefinition) definerte lokalt i sv.schema sjølv.
 
     Portar filteret schemaview.all_classes() + c_origin == schema.id frå
     index.md.jinja2 (t.d. line 161-164 for slots)."""
@@ -211,7 +211,7 @@ def find_unused(sv, kind: str) -> list[tuple[str, str]]:
 
 
 def class_connections(sv, c) -> set[str]:
-    """Navna på alle andre lokale klassar denne klassa er tilkopla til,
+    """Navna på alle andre lokale klasser denne klassa er tilkopla til,
     via slot-/attributtrange (begge retningar via induced_slot) eller
     is_a/mixins."""
     local_names = {lc.name for lc in local_classes(sv, include_root=True)}
@@ -235,7 +235,7 @@ REASON_CONTAINER_ONLY = "Kun tilkopla via containerklassen"
 
 
 def find_isolated_classes(sv) -> list[tuple[str, str, str]]:
-    """Finn lokale klassar (utanom containerklassen) som ikkje har NOKA
+    """Finn lokale klasser (utanom containerklassen) som ikkje har NOKA
     REELL tilkopling til noka anna lokal klasse. Ein klasse vert rekna som
     reelt tilkopla dersom ho anten sjølv koplar seg til ei anna lokal
     klasse, eller ei anna IKKJE-container lokal klasse koplar seg til
@@ -284,8 +284,8 @@ def compute_items_and_total(sv, kind: str) -> tuple[list[tuple], int]:
 def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -> str:
     label = KIND_LABELS[kind]
     if kind == "class":
-        title = f"# Isolerte lokale klassar ({schema_path})"
-        empty_msg = f"Ingen isolerte lokale klassar funne ({total} klasser sjekka)."
+        title = f"# Isolerte lokale klasser ({schema_path})"
+        empty_msg = f"Ingen isolerte lokale klasser funne ({total} klasser sjekka)."
         col_a = "Klasse"
     else:
         title = f"# Ubrukte lokale {label} ({schema_path})"
@@ -306,8 +306,8 @@ def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -
         n_container_only = sum(1 for _, _, reason in items if reason == REASON_CONTAINER_ONLY)
         n_isolated = len(items) - n_container_only
         lines.append(
-            f"\n**Totalt: {len(items)} isolerte/underintegrerte klassar av {total} "
-            f"lokale klassar** ({n_isolated} heilt isolert, "
+            f"\n**Totalt: {len(items)} isolerte/underintegrerte klasser av {total} "
+            f"lokale klasser** ({n_isolated} heilt isolert, "
             f"{n_container_only} kun tilkopla via containerklassen)."
         )
     else:

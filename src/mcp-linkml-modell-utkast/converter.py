@@ -302,7 +302,7 @@ def _collect_classes(json_schema: dict, schema_name: str, warnings: list) -> dic
     Strategi:
     - Les frå '$defs' / 'definitions' — object-definisjonar (direkte
       `type: object`/`properties`) og allOf-komponerte definisjonar
-      ("utvid ein foreldretype", sjå `_merge_allof_members`) vert begge klassar.
+      ("utvid ein foreldretype", sjå `_merge_allof_members`) vert begge klasser.
     - Om ingen $defs finst: bruk rot-properties som éin klasse kalla schema_name
     """
     classes: dict = {}
@@ -490,7 +490,7 @@ def convert(
         if add_begrep_annotation:
             entry["annotations"] = {"begrepsidentifikator": f"{begrep_base_uri}TODO"}
 
-        # is_a-klassar arvar 'id' (og andre slots) frå forelderen — skal ikkje
+        # is_a-klasser arvar 'id' (og andre slots) frå forelderen — skal ikkje
         # deklarerast på nytt (sjå CLAUDE.md § "Slots, ikke attributes").
         id_slot = [] if is_a else (["id"] if add_id else [])
         slot_names = id_slot + [_sanitize_slot_name(n) for n in props if n != "id"]

@@ -56,7 +56,7 @@ classes:
   EiendomContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klasser; referansar mellom objekt brukar URI-lenking.
     attributes:
       fasteEiendommer:
         range: FastEiendom
@@ -151,7 +151,7 @@ classes:
         multivalued: true
         inlined_as_list: true
   # ---------------------------------------------------------------------------
-  # Hovudklassar - Domene eiendom
+  # Hovudklasser - Domene eiendom
   # ---------------------------------------------------------------------------
   FastEiendom:
     class_uri: ngre:FastEiendom

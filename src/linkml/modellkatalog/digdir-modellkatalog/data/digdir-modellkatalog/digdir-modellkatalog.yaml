@@ -30,7 +30,7 @@ informasjonsmodeller:
   tittel:
   - Common AP-NO
   beskrivelse:
-  - Felles typar, subsets, klassar og slots som går igjen i alle norske W3C-applikasjonsprofilar
+  - Felles typar, subsets, klasser og slots som går igjen i alle norske W3C-applikasjonsprofilar
     (AP-NO). Importerast av dei einskilde profilane.
   utgiver: https://data.norge.no/organizations/991825827
   identifikator_literal: https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/common-ap-no
@@ -159,7 +159,7 @@ informasjonsmodeller:
   - ModelDCAT-AP-NO - Katalogdel
   beskrivelse:
   - 'Katalogklasser frå ModelDCAT-AP-NO: Modellkatalog, Informasjonsmodell og modelldcat-spesifikke
-    hjelpeklassar (Lisensdokument, Dokument). Klassar som er felles med DCAT-AP-NO
+    hjelpeklasser (Lisensdokument, Dokument). Klasser som er felles med DCAT-AP-NO
     (Aktoer, Kontaktopplysning, Standard, Tidsrom, KatalogisertRessurs) er arvde via
     import av dcat-ap-no-schema. Basert på https://data.norge.no/specification/modelldcat-ap-no#Egenskaper-katalogdel'
   utgiver: https://data.norge.no/organizations/991825827

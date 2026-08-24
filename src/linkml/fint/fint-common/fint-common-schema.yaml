@@ -4,7 +4,7 @@
 id: https://data.norge.no/fint/fint-common
 name: fint-common
 title: FINT Felles typar
-description: Felles klassar for FINT
+description: Felles klasser for FINT
 version: "4.5.2"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
@@ -306,7 +306,7 @@ slots:
 # Klasser
 # ---------------------------------------------------------------------------
 classes:
-  # --- Abstrakte basisklassar ------------------------------------------------
+  # --- Abstrakte basisklasser ------------------------------------------------
   Aktoer:
     description: Abstrakt base for person eller eining vi samhandlar med.
     class_uri: fint:Aktoer
@@ -494,7 +494,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-  # --- Hovudklassar ----------------------------------------------------------
+  # --- Hovudklasser ----------------------------------------------------------
   Person:
     is_a: Aktoer
     description: Fysiske private personar.

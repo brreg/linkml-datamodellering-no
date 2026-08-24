@@ -21,7 +21,7 @@ generate_er_diagram() {
         echo ""
         echo "## Entity-relationship diagram"
         echo ""
-        echo "> ER-diagrammet viser struktur og relasjonar mellom dei lokale klassane i modellen. Importerte klassar er som standard filtrerte bort for å gjere diagrammet enklare å lese."
+        echo "> ER-diagrammet viser struktur og relasjonar mellom dei lokale klassane i modellen. Importerte klasser er som standard filtrerte bort for å gjere diagrammet enklare å lese."
         echo ""
 
         if [ "$filesize" -lt 1000 ]; then
@@ -42,7 +42,7 @@ generate_er_diagram() {
         echo ""
         echo "## Entity-relationship diagram"
         echo ""
-        echo "> ER-diagrammet viser struktur og relasjonar mellom dei lokale klassane i modellen. Importerte klassar er som standard filtrerte bort for å gjere diagrammet enklare å lese."
+        echo "> ER-diagrammet viser struktur og relasjonar mellom dei lokale klassane i modellen. Importerte klasser er som standard filtrerte bort for å gjere diagrammet enklare å lese."
         echo ""
         echo "[![ER-diagram]($plantuml_full)]($plantuml_full)"
         echo ""

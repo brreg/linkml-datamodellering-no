@@ -48,7 +48,7 @@ classes:
         inlined: true
         inlined_as_list: true
 
-  # bronze — alle fire krav for domenemodellklassar:
+  # bronze — alle fire krav for domenemodellklasser:
   #   class_uri       → all_classes_have_class_uri (warning)
   #   description     → missing_recommended_metadata (warning)
   #   begrepsidentifikator → all_classes_have_concept_ref (warning)

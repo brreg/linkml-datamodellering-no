@@ -97,7 +97,7 @@ Køyr `make <domain>` for å generere alle artefakter for eit domene. Kvar gener
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
 | RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
 | Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
-| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
+| Python-klasser | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
 | JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
 | XSD-skjema | `<skjema>-schema.xsd` | XML Schema for XML-basert integrasjon | — | `xsd` |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
@@ -118,7 +118,7 @@ MCP-validator (`src/mcp-linkml-validator/`) med medaljong policy-nivå og publis
 |---|---|---|
 | `bronze` | Schema-ID, prefix, klassenavn, slotnavn, identifikatorar | Minimum for alle skjema |
 | `silver` | Bronze + utgjevar, status, endringsdato; DCAT-AP-NO-struktur | Skjema klare for publisering |
-| `gold` | Silver + begrepsbeskrivingar på alle klassar | Full semantisk kvalitet |
+| `gold` | Silver + begrepsbeskrivingar på alle klasser | Full semantisk kvalitet |
 | `felles-datakatalog` | Publiseringssjekkar for ModelDCAT-AP-NO | Skjema klare for at Felles datakatalog kan hente dei |
 | `felles-begrepskatalog` | Publiseringssjekkar for SKOS-AP-NO | Omgrep klare for at Felles begrepskatalog kan hente dei |
 

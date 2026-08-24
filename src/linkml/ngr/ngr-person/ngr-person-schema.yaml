@@ -145,7 +145,7 @@ classes:
   PersonContainer:
     tree_root: true
     description: >-
-      Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+      Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klasser; referansar mellom objekt brukar URI-lenking.
     attributes:
       personar:
         range: Person
@@ -445,7 +445,7 @@ classes:
     abstract: true
     class_uri: ngrp:Folkeregisteridentifikator
     description: >-
-      Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er Fødselsnummer og D-nummer.
+      Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklasser er Fødselsnummer og D-nummer.
     slots:
       - id
       - identifikatornummer
@@ -1100,7 +1100,7 @@ slots:
     slot_uri: ngrp:harValgtSpraak
     range: SpraakForElektroniskKommunikasjon
     description: Føretrekt språk for elektronisk kommunikasjon valt av personen.
-  # ---- Relasjonar i underklassar --------------------------------------------
+  # ---- Relasjonar i underklasser --------------------------------------------
   er_av_type_person:
     slot_uri: ngrp:erAvTypePerson
     range: Person

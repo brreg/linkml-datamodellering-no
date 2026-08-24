@@ -142,7 +142,7 @@ for cname, cdef in classes.items():
     else:
         stub_names.append(cname)
 
-# PascalCase-ar alle ikkje-container-klassar. For --input-format empty er dette
+# PascalCase-ar alle ikkje-container-klasser. For --input-format empty er dette
 # éin generisk stub-klasse; for --input-format json-schema er klassane som regel
 # alt PascalCase (MCP-konverteraren kasar dei frå JSON Schema-definisjonsnavna),
 # så steget er idempotent der og gjer ingenting.

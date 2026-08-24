@@ -81,7 +81,7 @@ korrekt aldri ei eiga side for desse typane. Feilen ligg utelukkande i siste
 steget av `link_mermaid()`: metoden hentar URL-en ut av den markdown-lenkja
 `link()` returnerte og limer på `../` + avsluttande `/` **ukritisk**, utan å
 sjekke om verdien alt er ein absolutt URL (`http://`/`https://`). For lokale
-element (klassar, enum, slots, lokalt omdefinerte typar) er denne
+element (klasser, enum, slots, lokalt omdefinerte typar) er denne
 antakinga korrekt — der er verdien alltid ein relativ filsti. For eksterne
 `linkml:types`-typar er ho feil, og øydelegg ein elles gyldig ekstern lenkje.
 

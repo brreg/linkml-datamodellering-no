@@ -7,7 +7,7 @@
 
 ## Symptom
 
-`TypeError` ved TTL→YAML for containerklassar der range-klassen har
+`TypeError` ved TTL→YAML for containerklasser der range-klassen har
 `identifier: true` og container-attributten er `inlined_as_list: true`:
 
 ```

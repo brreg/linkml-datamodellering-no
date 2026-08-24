@@ -268,7 +268,7 @@ def main():
 
     kept_global = set(container_slot_list) - slots_to_delete
     if kept_global:
-        print(f"  Beheld som globale slots (brukt av andre klassar): {sorted(kept_global)}")
+        print(f"  Beheld som globale slots (brukt av andre klasser): {sorted(kept_global)}")
 
     # Utfør migrasjonen
     new_content = migrate_content(content, container_name, regular_slots, slots_to_delete)

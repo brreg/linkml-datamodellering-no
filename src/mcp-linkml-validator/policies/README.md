@@ -13,7 +13,7 @@ Sjekkane i bronze-, silver- og gold-policyane realiserer både
 |---|---|---|---|---|
 | 1 | **Forståelighet** | Navn og skildringar er forståelege for målgruppa | Bronze: `title` (error), `description` (warning) | F2 |
 | 2 | **Meiningsfullheit** | Navn speglar innhald og formål | Bronze: `title` (error) | F2 |
-| 3 | **Navne- og skrivekonvensjoner** | PascalCase for klassar, snake_case/camelCase for eigenskapar | Bronze: `class_names_pascal_case`, `slot_names_snake_case` (warning) | — |
+| 3 | **Navne- og skrivekonvensjoner** | PascalCase for klasser, snake_case/camelCase for eigenskapar | Bronze: `class_names_pascal_case`, `slot_names_snake_case` (warning) | — |
 | 4 | **Identifiserbarheit** | Persistente URI-ar for modell, element og eigenskapar | Bronze: `id`, `default_prefix` (HTTPS-URI) (error); `class_uri`, `slot_uri`, identifikator-slot (warning) | F1, F3 |
 | 5 | **Visualisering** | Modell tilgjengeleg med god visuell representasjon | *Ikkje evaluert* — ER-diagram vert generert av `make erdiagram`, men ikkje validert | — |
 | 6 | **Modularitet** | Handterleg mengde modellelement per modul | Bronze: `class_count_limit` — warning om skjemaet har fleire enn 50 klasser | — |

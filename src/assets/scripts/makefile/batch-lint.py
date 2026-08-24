@@ -9,7 +9,7 @@ kontainar. `linkml lint` sin eigen CLI-kommando (linkml.linter.cli.main)
 kallar `sys.exit()` direkte i funksjonskroppen, så han kan IKKJE gjenbrukast
 via same `run_click()`-mønster som batch-generate.py (ein `SystemExit` etter
 første skjema ville drepe heile batchen). I staden nyttar dette skriptet
-`Linter`- og `TerminalFormatter`-klassane direkte — same klassar CLI-en
+`Linter`- og `TerminalFormatter`-klassane direkte — same klasser CLI-en
 sjølv byggjer på — og let éin `Linter`-instans og éin formatter-sesjon dekkje
 alle skjema, nøyaktig slik CLI-en alt gjer når `SCHEMA`-argumentet er ein
 katalog (sjå `get_yaml_files()` i linkml.linter.cli).

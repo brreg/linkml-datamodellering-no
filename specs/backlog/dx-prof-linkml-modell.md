@@ -309,7 +309,7 @@ LinkML `gen-owl` vil avvike frå prof.ttl på desse punktane, som er *forventa o
 |---|---|
 | Ekstra LinkML-metadata (linkml:, owl:imports) | LinkML-generert boilerplate |
 | `skos:definition` → `rdfs:comment` | LinkML mappar `description:` til `rdfs:comment` |
-| Klassar utan `owl:Class`-eksplisitt-deklarasjon (mixin) | LinkML brukar eigne OWL-mønster |
+| Klasser utan `owl:Class`-eksplisitt-deklarasjon (mixin) | LinkML brukar eigne OWL-mønster |
 | Domene/range uttrykt som `owl:Restriction` | LinkML-konvensjon for slot constraints |
 | `dc:contributor`, `dct:creator` metadata manglar | Bibliografisk metadata — ikkje modellert |
 

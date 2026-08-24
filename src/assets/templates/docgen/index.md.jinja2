@@ -61,9 +61,9 @@
 {%- endfor -%}
 ### Classes ({{ ns_total_classes.count }})
 
-> Classes viser klassar som er definerte lokalt i {{ schema.name }} modellen. 
-> Klassar frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klassar og kan inngå i valideringsresultat og diagram.  
-> Klassar grupperes i Obligatorisk, Anbefalt, Valgfri og Andre (uklassifisert).
+> Classes viser klasser som er definerte lokalt i {{ schema.name }} modellen. 
+> Klasser frå importerte modellar er ikkje inkluderte i teljinga, men kan vere refererte frå lokale klasser og kan inngå i valideringsresultat og diagram.  
+> Klasser grupperes i Obligatorisk, Anbefalt, Valgfri og Andre (uklassifisert).
 {%- if gen.hierarchical_class_view -%}
 
 | Class | Description |
@@ -145,7 +145,7 @@
 {%- endfor -%}
 ### Slots ({{ ns_used_slots.names|length }})
 
-> Slots viser **eigenskapar** som er definert i eller brukt av lokale klassar i modellen.  
+> Slots viser **eigenskapar** som er definert i eller brukt av lokale klasser i modellen.  
 > Eigenskapar grupperes i "Verdiar" som inneheld data, og "Refransar" som refererer til andre klasser.  
 > *Defined in* kolonna angir kildeskjemaet for eigenskapen.
 

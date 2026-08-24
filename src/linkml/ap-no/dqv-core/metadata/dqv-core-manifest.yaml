@@ -3,14 +3,14 @@
 
 id: https://data.norge.no/ap-no/dqv-core
 tittel:
-  nb: DQV-AP-NO - Kjerneklassar (utan DCAT-avhengigheit)
-  nn: DQV-AP-NO - Kjerneklassar (utan DCAT-avhengigheit)
+  nb: DQV-AP-NO - Kjerneklasser (utan DCAT-avhengigheit)
+  nn: DQV-AP-NO - Kjerneklasser (utan DCAT-avhengigheit)
 beskrivelse:
-  nb: DQV-kjerneklassar og -slots utan referanse til dcat-ap-no. Denne fila vert importert
+  nb: DQV-kjerneklasser og -slots utan referanse til dcat-ap-no. Denne fila vert importert
     av dcat-ap-no for å gje tilgang til Kvalitetsmerknad og Kvalitetsmaaling på Datasett,
     utan å skape sirkulær import. dqv-ap-no importerer dcat-ap-no og narrowar har_maal.range
     via slot_usage.
-  nn: DQV-kjerneklassar og -slots utan referanse til dcat-ap-no. Denne fila vert importert
+  nn: DQV-kjerneklasser og -slots utan referanse til dcat-ap-no. Denne fila vert importert
     av dcat-ap-no for å gje tilgang til Kvalitetsmerknad og Kvalitetsmaaling på Datasett,
     utan å skape sirkulær import. dqv-ap-no importerer dcat-ap-no og narrowar har_maal.range
     via slot_usage.

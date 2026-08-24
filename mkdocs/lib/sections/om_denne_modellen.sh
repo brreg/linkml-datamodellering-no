@@ -37,7 +37,7 @@ generate_description() {
     echo ""
 
     # Vis standard ingress
-    echo "> Denne sida dokumenterer LinkML-modellen $schema, inkludert klassar, eigenskapar, datatypar, valideringsresultat og genererte artefakter. Informasjonen er generert automatisk frå skjemaet og tilhøyrande byggeproses."
+    echo "> Denne sida dokumenterer LinkML-modellen $schema, inkludert klasser, eigenskapar, datatypar, valideringsresultat og genererte artefakter. Informasjonen er generert automatisk frå skjemaet og tilhøyrande byggeproses."
     echo ""
 
     # Vis offisiell referanse etter ingress (dersom den finst)

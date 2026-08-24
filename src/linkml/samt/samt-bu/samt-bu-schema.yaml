@@ -47,7 +47,7 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        description: Organisasjonar som kan refereres til frå andre klassar i datasamlinga.
+        description: Organisasjonar som kan refereres til frå andre klasser i datasamlinga.
       gjeldende_lovgivninger:
         range: RegulativRessurs
         multivalued: true
@@ -89,7 +89,7 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-        description: Grupper (aktørar) som kan refereres til frå andre klassar.
+        description: Grupper (aktørar) som kan refereres til frå andre klasser.
       standarder:
         range: Standard
         multivalued: true

@@ -7,6 +7,6 @@ Profilen dekkjer metadata for datakvalitet, inkludert kvalitetsmerknadar, kvalit
 
 **Skjemastruktur:** Profilen er delt i to sjølvstendige modellar for å unngå sirkulær import:
 - `dqv-ap-no` (dette skjemaet) — narrowar `har_maal.range` til `KatalogisertRessurs`
-- [`dqv-core`](../dqv-core/index.md) — kjerneklassar utan DCAT-avhengigheit, importert av både `dqv-ap-no` og `dcat-ap-no`
+- [`dqv-core`](../dqv-core/index.md) — kjerneklasser utan DCAT-avhengigheit, importert av både `dqv-ap-no` og `dcat-ap-no`
 
 **Avvik frå spesifikasjonen:** Sjå `specs/done/avvik-dqv-ap-no.md` for dokumenterte avvik og grunngjevingar.

@@ -2547,7 +2547,7 @@ slots:
   #   range: string
   #   description: Type.
 
-  # Gruppe-basisklassar
+  # Gruppe-basisklasser
   klasse:
     slot_uri: utd:klasse
     range: Klasse
@@ -2602,7 +2602,7 @@ slots:
     slot_uri: utd:undervisningsgruppe
     range: Undervisningsgruppe
     description: Undervisningsgruppe.
-  # Vurdering (abstrakte basisklassar)
+  # Vurdering (abstrakte basisklasser)
   kommentar:
     slot_uri: utd:kommentar
     range: string

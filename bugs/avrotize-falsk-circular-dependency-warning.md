@@ -15,7 +15,7 @@ WARNING: Unable to resolve circular dependency in no.norge.data.samt_bu.samt::do
 ```
 
 Navnet på klassen i meldinga er **ikkje deterministisk** — gjentekne køyringar
-mot identisk input navngir ulike klassar (`Kontaktlaerer`, `Distribusjon`,
+mot identisk input navngir ulike klasser (`Kontaktlaerer`, `Distribusjon`,
 `Elev` er alle observerte på same skjema).
 
 Åtvaringa påverkar **ikkje** byggresultatet: `j2a`- og `a2x`-steget lukkast,

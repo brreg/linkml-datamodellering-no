@@ -2,7 +2,7 @@ id: https://data.norge.no/ap-no/modelldcat-ap-no/modell
 name: modelldcat-modell
 title: ModelDCAT-AP-NO - Modelldel
 description: >-
-  Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste, Egenskap og alle subklassar, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel
+  Modellelement-klasser frå ModelDCAT-AP-NO: Objekttype, Datatype, Kodeliste, Egenskap og alle subklasser, samt Kodeelement. Basert på https://data.norge.no/specification/modelldcat-ap-no#Modeldel
 version: "1.14.0"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
@@ -61,7 +61,7 @@ classes:
       tilhoerer_modul:
         in_subset:
           - Valgfri
-  # ---- Subklassar av Modellelement -----------------------------------------
+  # ---- Subklasser av Modellelement -----------------------------------------
   Objekttype:
     in_subset:
       - Metadata
@@ -174,7 +174,7 @@ classes:
       utgjor_symmetrisk_relasjon_med:
         in_subset:
           - Valgfri
-  # ---- Subklassar av Eigenskap ---------------------------------------------
+  # ---- Subklasser av Eigenskap ---------------------------------------------
   Attributt:
     in_subset:
       - Metadata

@@ -53,7 +53,7 @@ $(eval $(call make_gen_target,gen-plantuml,run_gen_plantuml_parallel))
 # ---------------------------------------------------------------------------
 gen-jsonld-context: ## Generer JSON-LD context [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-shacl: ## Generer SHACL-shapes [DOMAIN=<domene>|SCHEMA=<sti>]
-gen-python: ## Generer Python-klassar [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-python: ## Generer Python-klasser [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-jsonschema: ## Generer JSON Schema [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-owl: ## Generer OWL-ontologi [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-rdf: ## Generer RDF/Turtle-skjemaserialisering [DOMAIN=<domene>|SCHEMA=<sti>]
@@ -63,7 +63,7 @@ gen-openapi: ## Generer og valider OpenAPI-spec, krev gen-jsonschema [DOMAIN=<do
 gen-erdiagram-mermaid: ## Generer ER-diagram (Mermaid) [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-proto: ## Generer Protobuf-schema [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-graphql: ## Generer GraphQL-skjema [DOMAIN=<domene>|SCHEMA=<sti>]
-gen-java: ## Generer Java-klassar [DOMAIN=<domene>|SCHEMA=<sti>]
+gen-java: ## Generer Java-klasser [DOMAIN=<domene>|SCHEMA=<sti>]
 gen-plantuml: ## Generer PlantUML-diagram, full og filtrert [DOMAIN=<domene>|SCHEMA=<sti>]
 
 # ---------------------------------------------------------------------------

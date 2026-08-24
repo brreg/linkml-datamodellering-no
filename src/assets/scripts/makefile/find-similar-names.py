@@ -12,7 +12,7 @@ For slots viser rapporten òg datatypen (`range:`) slik ho står skriven i
 slot-definisjonen — nyttig for å vurdere om eit likskapsfunn er eit reelt
 duplikat (same type) eller berre eit navnesamantreff (ulik type). Dette er
 ei medvite forenkling: LinkML sin fulle arve-/default_range-logikk
-(slot_usage-overstyring i klassar, skjemanivå-`default_range:` når
+(slot_usage-overstyring i klasser, skjemanivå-`default_range:` når
 `range:` manglar) vert ikkje løyst — eit slot utan eksplisitt `range:` vert
 vist som `(default)`. Full oppløysing ville kravd ein `SchemaView`-arvegraf
 per skjema, som endrar skriptet sin ytingsprofil monaleg (i dag reint
@@ -22,7 +22,7 @@ For typar (`--kind types`) viser rapporten tilsvarande `base:` (grunntypen
 scalar-typen er avleidd frå, t.d. `str`) — den strukturelle analogen til
 `range:` på eit slot.
 
-For klassar viser rapporten tilsvarande slotnavna til kvar identifisert
+For klasser viser rapporten tilsvarande slotnavna til kvar identifisert
 klasse (frå `slots:`-lista og/eller `attributes:`-nøklane), slik at ein
 visuelt kan vurdere om eit navnetreff òg er strukturelt likt. Lange lister
 vert trunkerte til 12 slotnavn med eit «… (+N til)»-suffiks.
@@ -84,7 +84,7 @@ def class_slot_names(defn: dict) -> list[str]:
 
 def load_entries(path: Path, kind: str) -> list[tuple[str, str | list[str] | None]]:
     """Returnerer (navn, range) for slots, (navn, base) for typar,
-    (navn, slotnavn-liste) for klassar."""
+    (navn, slotnavn-liste) for klasser."""
     try:
         data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as e:
@@ -283,7 +283,7 @@ def main() -> None:
         "--name",
         help=(
             "Avgrens til éin modell (NAME=<modell>) — samanliknar berre denne "
-            "modellen sine klassar/slots/typar mot resten av kandidatane innanfor "
+            "modellen sine klasser/slots/typar mot resten av kandidatane innanfor "
             "scopet (same domene for --scope domain, heile repoet for --scope all)"
         ),
     )

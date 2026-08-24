@@ -39,7 +39,7 @@ imports:
 # Klasser
 # ---------------------------------------------------------------------------
 classes:
-  # ---- Hjelpeklassar -------------------------------------------------------
+  # ---- Hjelpeklasser -------------------------------------------------------
   Organisasjon:
     class_uri: org:Organization
     description: Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.
@@ -50,7 +50,7 @@ classes:
     description: Kontaktinformasjon (vCard) for omgrepseigaren.
     slots:
       - id
-  # ---- Hovudklassar --------------------------------------------------------
+  # ---- Hovudklasser --------------------------------------------------------
   Begrep:
     class_uri: skos:Concept
     description: Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).

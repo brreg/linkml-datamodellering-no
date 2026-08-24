@@ -59,7 +59,7 @@ generate_artifacts_table() {
         artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
     fi
 
-    # Java-klassar (ligg i java/-underkatalog, éin fil per klasse/enum)
+    # Java-klasser (ligg i java/-underkatalog, éin fil per klasse/enum)
     if [ -d "$out/java" ]; then
         local java_links="" java_file
         for java_file in "$out/java"/*.java; do
@@ -71,7 +71,7 @@ generate_artifacts_table() {
         done
         if [ -n "$java_links" ]; then
             has_artifact=true
-            artifact_rows+="| Java-klassar | ${java_links} |"$'\n'
+            artifact_rows+="| Java-klasser | ${java_links} |"$'\n'
         fi
     fi
 

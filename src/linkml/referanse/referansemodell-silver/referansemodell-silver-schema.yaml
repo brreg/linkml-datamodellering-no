@@ -9,7 +9,7 @@ name: referansemodell-silver
 title: Referansemodell - sølvnivå
 description: >-
   Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss
-  DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse.
+  DCAT-AP-NO og DQV-AP-NO-klasser med påkravde slots og containerklasse.
 version: "2.0.1"
 license: https://data.norge.no/nlod/no/2.0
 annotations:

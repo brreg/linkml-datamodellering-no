@@ -4,7 +4,7 @@
 
 ---
 
-## 1. Slots, ikkje attributes (for domeneklassar)
+## 1. Slots, ikkje attributes (for domeneklasser)
 
 Alle domeneklasseeigeskapar vert modellerte som globale slots. Klassespesifikke
 innskrenkingar ligg i `slot_usage`. Containerklassen (`tree_root: true`) er unntaket:
