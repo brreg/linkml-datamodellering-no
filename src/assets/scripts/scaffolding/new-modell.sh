@@ -248,8 +248,10 @@ EOF
 else
     {
         echo "# Eksempel for $NAME"
-        echo "# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med"
-        echo "# reelle verdiar før modellen er produksjonsklar."
+        echo "# Alle slots er fylt med genererte placeholder-verdiar (dummy, 0, 2024-01-01,"
+        echo "# 'Eksempelverdi for <slot>' osv.), inkl. kryssreferansar mellom instansane."
+        echo "# Desse må erstattast med reelle verdiar før modellen er produksjonsklar — nokre"
+        echo "# kan òg bryte pattern-/verdiavgrensingar som ikkje er tilfredsstilte generisk."
         echo "---"
         echo "$EXAMPLE_DATA"
     } > "$EXAMPLE_FILE"

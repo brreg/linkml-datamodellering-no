@@ -1,0 +1,242 @@
+kontaktpunkter:
+- id: samt-bu:eksempel-1
+  navn_vcard:
+  - Eksempelverdi for navn_vcard
+  har_epost: dummy
+  har_kontaktside: dummy
+utgivere:
+- id: samt-bu:eksempel-2
+  navn_aktoer:
+  - Eksempelverdi for navn_aktoer
+  identifikator_literal: dummy
+  type_concept: ex:konsept-1
+organisasjoner:
+- id: samt-bu:eksempel-3
+  navn_aktoer:
+  - Eksempelverdi for navn_aktoer
+  identifikator_literal: dummy
+  type_concept: ex:konsept-1
+gjeldende_lovgivninger:
+- id: samt-bu:eksempel-4
+  beskrivelse:
+  - Eksempelverdi for beskrivelse
+  identifikator_literal: dummy
+  har_referanse:
+  - https://example.org/dummy
+  spraak:
+  - ex:konsept-1
+  tittel:
+  - Eksempelverdi for tittel
+  type_concept: ex:konsept-1
+  relatert_regulativ_ressurs:
+  - samt-bu:eksempel-4
+datasettdistribusjoner:
+- id: samt-bu:eksempel-5
+  tilgangs_url:
+  - https://example.org/dummy
+  beskrivelse:
+  - Eksempelverdi for beskrivelse
+  format: ex:konsept-1
+  lisens: ex:lisensdokument-1
+  status: ex:konsept-1
+  tilgjengelighet: ex:konsept-1
+  dokumentasjon:
+  - https://example.org/dummy
+  endringsdato: '2024-01-01'
+  filstorrelse: 0
+  gjeldende_lovgivning:
+  - samt-bu:eksempel-4
+  i_samsvar_med:
+  - samt-bu:eksempel-11
+  komprimeringsformat: ex:mediatype-1
+  medietype: ex:mediatype-1
+  nedlastningslenke:
+  - https://example.org/dummy
+  pakkeformat: ex:mediatype-1
+  policy: https://example.org/dummy
+  rettigheter: ex:rettighetserklaring-1
+  sjekksum: ex:sjekksum-1
+  spraak:
+  - ex:konsept-1
+  tidsopplosning: Eksempelverdi for tidsopplosning
+  tilgangstjeneste:
+  - ex:datatjeneste-1
+  tittel:
+  - Eksempelverdi for tittel
+  utgivelsesdato: '2024-01-01'
+  romlig_opplosning:
+  - 0.0
+dataset_metadata:
+- id: samt-bu:eksempel-6
+  beskrivelse:
+  - Eksempelverdi for beskrivelse
+  kontaktpunkt:
+  - samt-bu:eksempel-1
+  tema:
+  - ex:konsept-1
+  tittel:
+  - Eksempelverdi for tittel
+  utgiver: samt-bu:eksempel-2
+  begrep:
+  - ex:konsept-1
+  ble_generert_ved:
+  - https://example.org/dummy
+  datasettdistribusjon:
+  - samt-bu:eksempel-5
+  dekningsomraade:
+  - ex:konsept-1
+  gjeldende_lovgivning:
+  - samt-bu:eksempel-4
+  nokkelord:
+  - Eksempelverdi for nokkelord
+  tidsrom:
+  - samt-bu:eksempel-13
+  tilgangsrettigheter:
+  - ex:konsept-1
+  annen_ansvarlig_aktor:
+  - dummy
+  annen_identifikator:
+  - ex:identifikator-1
+  annen_spesifikk_relasjon:
+  - ex:relasjon-1
+  dokumentasjon:
+  - https://example.org/dummy
+  eierskapshistorikk:
+  - dummy
+  eksempeldata:
+  - samt-bu:eksempel-5
+  endringsdato: '2024-01-01'
+  identifikator_literal: dummy
+  i_samsvar_med:
+  - samt-bu:eksempel-11
+  i_serie:
+  - ex:datasettserie-1
+  kilde_datasett:
+  - samt-bu:eksempel-6
+  landingsside:
+  - https://example.org/dummy
+  produsent: samt-bu:eksempel-2
+  relatert_ressurs:
+  - https://example.org/dummy
+  spraak:
+  - ex:konsept-1
+  type_concept: ex:konsept-1
+  utgivelsesdato: '2024-01-01'
+  versjon: dummy
+  versjonsmerknad:
+  - Eksempelverdi for versjonsmerknad
+  frekvens: ex:konsept-1
+  romlig_opplosning:
+  - 0.0
+  tidsopplosning: Eksempelverdi for tidsopplosning
+  har_gebyr:
+  - ex:gebyr-1
+  erstatter:
+  - samt-bu:eksempel-6
+  forrige_versjon: samt-bu:eksempel-6
+  har_versjon:
+  - samt-bu:eksempel-6
+  er_referert_av:
+  - https://example.org/dummy
+  har_kvalitetsmerknad:
+  - samt-bu:eksempel-7
+  har_kvalitetsmaaling:
+  - samt-bu:eksempel-9
+kvalitetsmerknader:
+- id: samt-bu:eksempel-7
+  er_motivert_av: assessing
+  er_i_kvalitetsdimensjon:
+  - samt-bu:eksempel-12
+  har_tekstdel:
+  - samt-bu:eksempel-14
+  har_merknad:
+  - Eksempelverdi for har_merknad
+  har_maal: ex:dummy-1
+brukertilbakemeldinger:
+- id: samt-bu:eksempel-8
+  er_motivert_av: assessing
+  er_i_kvalitetsdimensjon:
+  - samt-bu:eksempel-12
+  har_tekstdel:
+  - samt-bu:eksempel-14
+  har_merknad:
+  - Eksempelverdi for har_merknad
+  har_maal: ex:dummy-1
+kvalitetsmaalinger:
+- id: samt-bu:eksempel-9
+  er_kvalitetsmaaling_av: ex:kvalitetsmaal-1
+  har_boolean_verdi: false
+  har_numerisk_verdi: 0.0
+  har_tekst_verdi: dummy
+  har_merknad:
+  - Eksempelverdi for har_merknad
+grupper:
+- id: samt-bu:eksempel-10
+  navn_aktoer:
+  - Eksempelverdi for navn_aktoer
+  identifikator_literal: dummy
+  type_concept: ex:konsept-1
+standarder:
+- id: samt-bu:eksempel-11
+  tittel:
+  - Eksempelverdi for tittel
+  har_referanse:
+  - https://example.org/dummy
+  har_merknad:
+  - Eksempelverdi for har_merknad
+  versjon: dummy
+kvalitetsdimensjoner:
+- id: samt-bu:eksempel-12
+  har_anbefalt_term:
+  - Eksempelverdi for har_anbefalt_term
+  har_kvalitetsdefinisjon:
+  - Eksempelverdi for har_kvalitetsdefinisjon
+  gjelder_standard:
+  - ex:dummy-1
+tidsromer:
+- id: samt-bu:eksempel-13
+  startdato: '2024-01-01'
+  sluttdato: '2024-01-01'
+  begynnelse: '2024-01-01T00:00:00Z'
+  slutt: '2024-01-01T00:00:00Z'
+tekstdeler:
+- id: samt-bu:eksempel-14
+  har_verdi_tekstdel: dummy
+  format: ex:konsept-1
+  spraak:
+  - ex:konsept-1
+skoler:
+- id: samt-bu:eksempel-15
+  navn: dummy
+  har_skoleeier: ex:skoleeier-1
+kommuner:
+- kommunenummer: dummy
+  id: samt-bu:eksempel-16
+  navn: dummy
+fylker:
+- fylkesnummer: dummy
+  id: samt-bu:eksempel-17
+  navn: dummy
+private_virksomheter:
+- organisasjonsnummer: dummy
+  id: samt-bu:eksempel-18
+  navn: dummy
+basisgrupper:
+- id: samt-bu:eksempel-19
+  navn: dummy
+  trinniva: dummy
+  del_av_skole: samt-bu:eksempel-15
+elever:
+- horer_til_basisgruppe: samt-bu:eksempel-19
+  id: samt-bu:eksempel-20
+  navn: dummy
+rektorer:
+- enhetsleder_for: samt-bu:eksempel-15
+  id: samt-bu:eksempel-21
+  navn: dummy
+kontaktlaerere:
+- tilknyttet_basisgruppe: samt-bu:eksempel-19
+  har_saerlig_ansvar_for: samt-bu:eksempel-20
+  jobber_paa_skole: samt-bu:eksempel-15
+  id: samt-bu:eksempel-22
+  navn: dummy

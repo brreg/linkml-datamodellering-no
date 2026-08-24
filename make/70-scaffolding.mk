@@ -8,6 +8,9 @@
 # - new-modellkatalog: opprett ny modellkatalog for ein organisasjon
 # - new-begrepssamling: opprett ny begrepssamling i eit domene (gjeldande format,
 #   begrep/-katalog med éin fil per begrep — bruk denne for nye katalogar)
+# - gen-eksempeldata: generer rikt syntetisk eksempeldatasett frå eit
+#   eksisterande skjema (manuell bruk — same generator som new-modell nyttar
+#   internt) — sjå specs/done/gen-eksempeldata-fra-skjema.md
 #
 # Merk: `new-begrepskatalog` (legacy scaffolding for det eldre, monolittiske
 # BegrepContainer-skjemaformatet) er fjerna, jf.
@@ -42,3 +45,10 @@ new-begrepssamling: ## Opprett katalogstruktur for ny begrepssamling (DOMAIN=<do
 	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-begrepssamling DOMAIN=<domene> NAME=<begrepssamling>"; exit 1; }
 	$(call print_header,new-begrepssamling,DOMAIN=$(DOMAIN)  NAME=$(NAME))
 	bash src/assets/scripts/scaffolding/new-begrepssamling.sh "$(DOMAIN)" "$(NAME)"
+
+gen-eksempeldata: ## Generer rikt syntetisk eksempeldatasett frå eit skjema (SCHEMA=<sti> [OUT=<sti>] [ID_PREFIX=<prefiks>] [OVERWRITE=1])
+	@test -n "$(SCHEMA)" || \
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make gen-eksempeldata SCHEMA=<sti> [OUT=<sti>] [ID_PREFIX=<prefiks>] [OVERWRITE=1]"; exit 1; }
+	$(call print_header,gen-eksempeldata,SCHEMA=$(SCHEMA)$(if $(OUT),  OUT=$(OUT)))
+	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
+	bash src/assets/scripts/makefile/gen-eksempeldata.sh "$(SCHEMA)" "$(OUT)" "$(ID_PREFIX)" "$(OVERWRITE)"

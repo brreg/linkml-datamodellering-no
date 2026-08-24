@@ -52,8 +52,8 @@ from pathlib import Path
 REPORTS = [
     (
         "isolerte-klasser-report.md",
-        "Isolerte klassar",
-        "isolerte klassar",
+        "Isolerte klasser",
+        "isolerte klasser",
         None,
         None,
     ),
