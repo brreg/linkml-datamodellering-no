@@ -3,7 +3,7 @@
 
 id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
-version: "2.0.0"
+version: "2.1.0"
 license: https://data.norge.no/nlod/no/2.0
 see_also:
   - https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
@@ -11,7 +11,7 @@ title: Nasjonale grunndata - Adresse
 description: Adresse
 annotations:
   utgiver: https://data.norge.no/organizations/971040238
-  endringsdato: "2026-08-17"
+  endringsdato: "2026-08-25"
   utgivelsesdato: "2023-01-01"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
