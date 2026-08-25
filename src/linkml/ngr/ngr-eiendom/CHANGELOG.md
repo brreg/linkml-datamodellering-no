@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.7.1...ngr-eiendom-v1.8.0) (2026-08-25)
+
+
+### Features
+
+* **gen-java:** legg til make gen-java og Java-bruk-seksjon i Kom i gang ([74396fc](https://github.com/brreg/linkml-datamodellering-no/commit/74396fcfb1531244e32d27599bf09353381e3fb1))
+
 ## [1.7.1](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.7.0...ngr-eiendom-v1.7.1) (2026-08-17)
 
 

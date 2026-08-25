@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v2.0.0...ngr-person-v2.1.0) (2026-08-25)
+
+
+### Features
+
+* **gen-java:** legg til make gen-java og Java-bruk-seksjon i Kom i gang ([74396fc](https://github.com/brreg/linkml-datamodellering-no/commit/74396fcfb1531244e32d27599bf09353381e3fb1))
+
 ## [2.0.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v1.7.0...ngr-person-v2.0.0) (2026-08-17)
 
 
