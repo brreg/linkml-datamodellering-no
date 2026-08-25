@@ -7,7 +7,12 @@
 #   DOMAIN — default: oreg
 #   NAME   — default: javazonetalk
 # Kvart steg viser tittel + kommando, ventar på Enter, køyrer så kommandoen.
-# Steg utan kommando (steg 5) er reine pausar for live-redigering.
+# Steg 4 og 6 har ingen enkelt kommando — dei set i staden inn kjende,
+# ferdigskrivne YAML-blokkar direkte i $SCHEMA (ingen manuell copy-paste)
+# og viser resultatet som ein "git diff --no-index", éin pause per del,
+# same "Enter"-mønster som resten av steg-funksjonane. Sjå
+# specs/backlog/javazone-demo-auto-innsetjing.md for grunngjeving og
+# teknisk tilnærming.
 #
 # Kommandolinjene er farga som i src/assets/scripts/makefile/help.sh:
 # CLR_STEP (cyan) for "make <target>", CLR_OK (grøn) for obligatoriske
@@ -33,6 +38,15 @@ for arg in "$@"; do
 done
 SCHEMA="src/linkml/$DOMAIN/$NAME/$NAME-schema.yaml"
 
+# TRAILING_MARKER — den siste kommentarlinja `new-modell.sh` alltid
+# skriv til eit ferskt skjema (sjå
+# src/assets/scripts/scaffolding/new-modell.sh), rett etter slots-
+# seksjonen. Fungerer som eit stabilt, garantert unikt ankerpunkt for
+# steg 4 sine slots-/enums-innsetjingar (sjå insert_before_line under) —
+# uavhengig av DOMAIN/NAME, sidan teksten er identisk for alle nye
+# modellar.
+TRAILING_MARKER="# TODO: Gi stub-klassen eit meir meiningsfullt navn."
+
 CLR_STEP=$'\033[0;36m'
 CLR_OK=$'\033[0;32m'
 CLR_WARN=$'\033[0;33m'
@@ -50,7 +64,7 @@ fi
 # "j" på oppryddingsspørsmålet sist gong.
 if [ -d "src/linkml/$DOMAIN/$NAME" ]; then
     echo "${CLR_WARN}src/linkml/$DOMAIN/$NAME finst frå ei tidlegare køyring.${CLR_RST}"
-    read -rp "Fjerne han før demoen startar? (j/N) " svar
+    read -rp "Fjerne eksisterande modell før demoen startar? (j/N) " svar
     if [[ "$svar" =~ ^[jJ]$ ]]; then
         rm -rf "src/linkml/$DOMAIN/$NAME" "generated/$DOMAIN/$NAME"
         echo "Rydda opp."
@@ -105,6 +119,110 @@ run_validate() {
     make mcp-linkml-valider-modell SCHEMA="$SCHEMA" | less -R -F -X
 }
 
+# insert_before_line SCHEMA ANKERLINJE INNHALD
+# Set inn INNHALD (kan vere fleire linjer) rett før den fyrste linja i
+# SCHEMA som er eksakt lik ANKERLINJE. Reint tekstbasert (ingen
+# YAML-parsing) — trygt her sidan både innhaldet og målplasseringa er
+# statisk kjend på førehand (scriptet sitt eige, ferdigskrivne innhald,
+# ikkje brukargenerert). Sjå
+# specs/backlog/javazone-demo-auto-innsetjing.md.
+insert_before_line() {
+    local schema="$1" anchor="$2" content="$3" line
+    line=$(grep -n -F -x -m1 "$anchor" "$schema" | cut -d: -f1)
+    if [ -z "$line" ]; then
+        echo "${CLR_ERR}Fann ikkje ankerlinja '${anchor}' i ${schema}${CLR_RST}" >&2
+        return 1
+    fi
+    awk -v line="$line" -v content="$content" '
+        NR == line { print content }
+        { print }
+    ' "$schema" > "${schema}.tmp" && mv "${schema}.tmp" "$schema"
+}
+
+# block_end_line SCHEMA STARTLINJE
+# Finn siste linjenummer i blokka som startar på STARTLINJE: skann
+# framover til neste linje på same 2-mellomrom-innrykk (neste
+# klasse-/slot-nøkkel, t.d. "  Sesjon:") eller neste 0-innrykk
+# toppnivåfelt (t.d. "slots:"), og returner linja rett før. Går til
+# filslutt dersom ingen av delane finst (siste blokk i fila).
+block_end_line() {
+    local schema="$1" start="$2"
+    awk -v start="$start" '
+        NR > start && (/^[A-Za-z]/ || /^  [A-Za-z0-9_]+:/) { print NR - 1; found = 1; exit }
+        END { if (!found) print NR }
+    ' "$schema"
+}
+
+# replace_block SCHEMA NOKKELLINJE NYTT-INNHALD
+# Byter ut heile blokka som startar på NOKKELLINJE (t.d. "  Foredrag:")
+# med NYTT-INNHALD. Brukt av steg 6 for å erstatte blokkar scriptet
+# sjølv sette inn i steg 4 — trygg reinstreng-basert erstatting sidan
+# innhaldet er deterministisk (skrive av scriptet, ikkje av brukaren),
+# ikkje generell YAML-parsing.
+replace_block() {
+    local schema="$1" key_line="$2" content="$3" start end
+    start=$(grep -n -F -x -m1 "$key_line" "$schema" | cut -d: -f1)
+    if [ -z "$start" ]; then
+        echo "${CLR_ERR}Fann ikkje blokka '${key_line}' i ${schema}${CLR_RST}" >&2
+        return 1
+    fi
+    end=$(block_end_line "$schema" "$start")
+    awk -v start="$start" -v end="$end" -v content="$content" '
+        NR == start { print content; next }
+        NR > start && NR <= end { next }
+        { print }
+    ' "$schema" > "${schema}.tmp" && mv "${schema}.tmp" "$schema"
+}
+
+# show_diff FØR ETTER — same less-pipe-mønster som run_help/run_validate.
+show_diff() {
+    local before="$1" after="$2"
+    echo "${CLR_DBG}(trykk 'q' for å lukke less og halde fram i scriptet)${CLR_RST}"
+    # ASCII-prefiks ("for"/"etter", ikkje "før") — git sin core.quotepath
+    # escapar ikkje-ASCII-teikn i filsti-labelen (t.d. "ø" -> "f\303\270r/…"),
+    # som gjer diff-headeren uleseleg.
+    git diff --no-index --color=always --src-prefix=for/ --dst-prefix=etter/ \
+        -- "$before" "$after" | less -R -F -X
+}
+
+# do_insert ANKERLINJE INNHALD
+# Ventar på Enter, set så INNHALD inn i $SCHEMA rett før ANKERLINJE
+# (insert_before_line), og viser resultatet som diff (show_diff). Brukt
+# av steg 4 — éin pause per del, som før, men utan manuell copy-paste.
+do_insert() {
+    local anchor="$1" content="$2" before
+    prompt_enter
+    before="$(mktemp)"
+    cp "$SCHEMA" "$before"
+    if insert_before_line "$SCHEMA" "$anchor" "$content"; then
+        show_diff "$before" "$SCHEMA"
+    else
+        echo "${CLR_ERR}(innsetjing feila — sjå output over, avgjer sjølv om du held fram)${CLR_RST}"
+    fi
+    rm -f "$before"
+}
+
+# do_replace NOKKELLINJE1 INNHALD1 [NOKKELLINJE2 INNHALD2 ...]
+# Same mønster som do_insert, men byter ut éin eller fleire kjende
+# blokkar (replace_block) i staden for å setje inn nytt innhald. Brukt
+# av steg 6 — begge erstattingane i éin del vert vist i same diff.
+do_replace() {
+    local before ok=1
+    prompt_enter
+    before="$(mktemp)"
+    cp "$SCHEMA" "$before"
+    while [ "$#" -ge 2 ]; do
+        replace_block "$SCHEMA" "$1" "$2" || ok=0
+        shift 2
+    done
+    if [ "$ok" -eq 1 ]; then
+        show_diff "$before" "$SCHEMA"
+    else
+        echo "${CLR_ERR}(erstatting feila — sjå output over, avgjer sjølv om du held fram)${CLR_RST}"
+    fi
+    rm -f "$before"
+}
+
 # Pipar analyse-*-targeta sin markdown-tabell gjennom glow for pen
 # rendering — eigne funksjonar sidan step() sin eksekveringsmodell er
 # direkte argv (ikkje shell-pipe). Fell tilbake til rå make-output dersom
@@ -153,13 +271,33 @@ fi
 echo "${CLR_DBG}DOMAIN=${DOMAIN} NAME=${NAME}${CLR_RST}"
 if [ "$DOMAIN" != "oreg" ] || [ "$NAME" != "javazonetalk" ]; then
     echo "${CLR_WARN}Merk: demoen er verifisert med DOMAIN=oreg NAME=javazonetalk."
-    echo "Med andre verdiar — spesielt tipset i steg 5 om å bruke klassenavnet"
+    echo "Med andre verdiar — spesielt tipset i steg 4 om å bruke klassenavnet"
     echo "'Aktivitet' — er det ikkje sikkert du får eit like tydeleg treff i"
-    echo "steg 7/8, sidan det tipset er tunt til at 'Aktivitet' alt finst i"
+    echo "steg 6/7, sidan det tipset er tunt til at 'Aktivitet' alt finst i"
     echo "oreg-domenet. Vurder eit anna navn som alt finst i ditt valde domene"
     echo "(sjå 'make analyse-similar-classes-domain DOMAIN=${DOMAIN}' på"
     echo "førehand for å finne eit godt kandidatnavn).${CLR_RST}"
 fi
+
+# color_box_frame — fargar berre ramma i "boxes -d stone"-output, ikkje
+# teksten inni. "stone"-designet (sjå /etc/boxes/boxes-config i
+# demo-fun-tools-biletet) har eit fast, enkelt oppsett — topp-/botnlinje
+# er reint "+---+", innhaldslinja er "| tittel |" med 1 mellomrom
+# padding — så det held å fargeleggje heile topp-/botnlinja og berre
+# fyrste/siste teikn (border-"|") på innhaldslinja, resten står att
+# ufarga. Skulle formatet ein gong endre seg (ny boxes-versjon/design),
+# fell dette trygt tilbake til å skrive linja ufarga via siste { print }.
+color_box_frame() {
+    awk -v c="$CLR_STEP" -v r="$CLR_RST" '
+        /^\+-*\+$/ { print c $0 r; next }
+        /^\|.*\|$/ {
+            n = length($0)
+            print c substr($0, 1, 1) r substr($0, 2, n - 2) c substr($0, n, 1) r
+            next
+        }
+        { print }
+    '
+}
 
 # print_heading VERKTOY TITTEL
 # Køyrer overskrifta gjennom eit valt "fun"-verktøy (til utprøving/pynt).
@@ -179,7 +317,7 @@ print_heading() {
             figlet) fun figlet "$title" ;;
             toilet) fun toilet "$title" ;;
             cowsay) echo "$title" | fun cowsay ;;
-            boxes)  echo "$title" | fun boxes -d stone ;;
+            boxes)  echo "$title" | fun boxes -d stone | color_box_frame ;;
             lolcat) echo "$title" | fun lolcat -f ;;
         esac
     else
@@ -237,17 +375,12 @@ step boxes "3. Opprett ein ny, tom modell" \
     make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
 echo ""
 echo ""
-# step boxes "4. Lint skjemaet" \
-#     "${CLR_STEP}make lint${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
-#     make lint SCHEMA="$SCHEMA"
-# echo ""
-# echo ""
-print_heading boxes "5. LIVE-REDIGERING"
-cat <<EOF
+read -rp "Trykk Enter når du er ferdig … "
+echo ""
+echo ""
+print_heading boxes "4a. Rediger klasser"
 
-Lim inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — seks klasser,
-knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar:
-
+classes_content=$(cat <<EOF
   Foredragsholder:
     description: Ein person som melder inn/held eit foredrag.
     class_uri: ${NAME}:Foredragsholder
@@ -294,7 +427,7 @@ knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar:
     - id
     - dato
     - har_sesjoner
-  
+
   Sesjonslokale:
     description: Eit rom eller sal der sesjonar vert haldne.
     class_uri: ${NAME}:Sesjonslokale
@@ -302,15 +435,21 @@ knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar:
     - id
     - navn
     - antall_plasser
+EOF
+)
+cat <<EOF
+
+Set inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — seks klasser,
+knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar
+(scriptet set dei inn automatisk, diffen vert vist etterpå):
 
 EOF
 
-prompt_enter
+do_insert "slots:" "$classes_content"
 
-cat <<EOF
-Lim inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
-common-ap-no-importen — dei atten andre er nye):
+print_heading boxes "4. Rediger slots"
 
+slots_content=$(cat <<EOF
   navn:
     description: Navnet på foredragshaldaren.
     range: string
@@ -360,7 +499,7 @@ common-ap-no-importen — dei atten andre er nye):
   antall_plasser:
     description: Talet på sitjeplassar i sesjonslokalet.
     range: integer
-  
+
   har_foredrag:
     description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
     range: Foredrag
@@ -386,14 +525,20 @@ common-ap-no-importen — dei atten andre er nye):
   dato:
     description: Dato for ei timeplan oppføring.
     range: datetime
+EOF
+)
+cat <<EOF
+Set inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
+common-ap-no-importen — dei atten andre er nye, sett inn automatisk,
+diffen vert vist etterpå):
 
 EOF
-read -rp "Trykk Enter når du er ferdig … "
 
-cat <<EOF
-Lim inn heilt til slutt i skjemaet (nytt toppnivå-felt '${CLR_DBG}enums:${CLR_RST}',
-same nivå som '${CLR_DBG}classes:${CLR_RST}' og '${CLR_DBG}slots:${CLR_RST}'):
+do_insert "$TRAILING_MARKER" "$slots_content"
 
+print_heading boxes "4. Rediger enumerations"
+
+enums_content=$(cat <<EOF
 enums:
   InnsendingStatus:
     description: Status for ei foredragsinnsending.
@@ -405,35 +550,46 @@ enums:
       AVVIST:
         description: Avvist
 EOF
+)
+cat <<EOF
+Set inn heilt til slutt i skjemaet (nytt toppnivå-felt '${CLR_DBG}enums:${CLR_RST}',
+same nivå som '${CLR_DBG}classes:${CLR_RST}' og '${CLR_DBG}slots:${CLR_RST}',
+diffen vert vist etterpå):
+
+EOF
+
+do_insert "$TRAILING_MARKER" "$enums_content"
 echo ""
-read -rp "Trykk Enter når du er ferdig … "
 echo ""
-echo ""
-step boxes "6. Valider skjemaet" \
+step boxes "5. Valider skjemaet" \
     "${CLR_STEP}make mcp-linkml-valider-modell${CLR_RST} ${CLR_OK}SCHEMA=${SCHEMA}${CLR_RST} | less -R" \
     run_validate
 echo ""
 echo ""
 
-print_heading boxes "7. Adresser funn frå valideringa"
+print_heading boxes "6. Adresser funn frå valideringa"
 cat <<EOF
 
-Steg 6 sin rapport har to slag funn:
+Steg 5 sin rapport har to slag funn:
 
 1. ${CLR_DBG}Strukturelle DCAT-AP-NO/DQV-AP-NO-krav${CLR_RST} frå silver-policyen
    (containerklassen manglar attributt for Katalog/Datasett/Kvalitetsmaal/
-   Kvalitetsmaaling) — uavhengige av kva du limte inn i steg 5, og utanfor
+   Kvalitetsmaaling) — uavhengige av kva som vart sett inn i steg 4, og utanfor
    denne demoen sitt scope (krev ein full DCAT-datasett-modell). Ikkje
    noko å fikse no — nemn dei berre som forventa.
 
-2. ${CLR_DBG}To adresserbare bronse-funn${CLR_RST} frå klassane/slotsa i steg 5:
+2. ${CLR_DBG}To adresserbare bronse-funn${CLR_RST} frå klassane/slotsa i steg 4:
    - annotations.begrepsidentifikator manglar på alle seks nye klassane
    - slot_uri manglar på dei nye globale slotsa
 
-Erstatt '${CLR_DBG}Foredrag:${CLR_RST}' og '${CLR_DBG}Sesjon:${CLR_RST}' (limt inn i steg 5) med
-versjonane under — viser mønsteret for begrepsidentifikator, same retting
-gjeld for dei fire andre klassane:
+Scriptet byter automatisk ut '${CLR_DBG}Foredrag:${CLR_RST}'/'${CLR_DBG}Sesjon:${CLR_RST}'
+(begrepsidentifikator) og '${CLR_DBG}har_foredrag:${CLR_RST}'/'${CLR_DBG}tid_start:${CLR_RST}'
+(slot_uri) i éin omgang — viser mønsteret for begge funna, same retting
+gjeld for dei fire andre klassane og resten av dei nye slotsa. Diffen
+vert vist etterpå:
 
+EOF
+new_foredrag=$(cat <<EOF
   Foredrag:
     description: Eit forslag til foredrag sendt inn til vurdering.
     class_uri: ${NAME}:Foredrag
@@ -447,7 +603,9 @@ gjeld for dei fire andre klassane:
     - malgruppe
     - har_foredragsholdere
     - innsendingsstatus
-
+EOF
+)
+new_sesjon=$(cat <<EOF
   Sesjon:
     description: Ei tidsavgrensa økt der eit foredrag vert halde.
     class_uri: ${NAME}:Sesjon
@@ -459,66 +617,63 @@ gjeld for dei fire andre klassane:
     - tid_slutt
     - har_foredrag
     - har_sesjonslokale
-
 EOF
-prompt_enter
-
-cat <<EOF
-Erstatt '${CLR_DBG}har_foredrag:${CLR_RST}' og '${CLR_DBG}tid_start:${CLR_RST}' (limt inn i steg 5)
-med versjonane under — viser mønsteret for slot_uri, same retting gjeld
-for dei attverande slotsa:
-
+)
+new_har_foredrag=$(cat <<EOF
   har_foredrag:
     description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
     range: Foredrag
     multivalued: true
     slot_uri: ${NAME}:har_foredrag
-
+EOF
+)
+new_tid_start=$(cat <<EOF
   tid_start:
     description: Tidspunktet sesjonen startar.
     range: datetime
     slot_uri: ${NAME}:tid_start
-
 EOF
-read -rp "Trykk Enter når du er ferdig … "
+)
+do_replace "  Foredrag:" "$new_foredrag" "  Sesjon:" "$new_sesjon" \
+    "  har_foredrag:" "$new_har_foredrag" "  tid_start:" "$new_tid_start"
 echo ""
 echo ""
-step boxes "8. Valider skjemaet" \
+step boxes "7. Valider skjemaet" \
     "${CLR_STEP}make mcp-linkml-valider-modell${CLR_RST} ${CLR_OK}SCHEMA=${SCHEMA}${CLR_RST} | less -R" \
     run_validate
 
 echo ""
 echo ""
-step boxes "9. Finn isolerte klasser i modellen" \
+step boxes "8. Finn isolerte klasser i modellen" \
     "${CLR_STEP}make analyse-isolerte-klasser${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     run_analyse_isolated_classes
 echo ""
 echo ""
-step boxes "10. Finn ubrukte slots i modellen" \
+step boxes "9. Finn ubrukte slots i modellen" \
     "${CLR_STEP}analyse-ubrukte-slots${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     run_analyse_unused_slots
 echo ""
 
-step boxes "11. Finn liknande klassenavn på tvers av domenet" \
+step boxes "10. Finn liknande klassenavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_similar_classes
 echo ""
-step boxes "12. Finn liknande slotnavn på tvers av domenet" \
+step boxes "11. Finn liknande slotnavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_similar_slots
 echo ""
 echo ""
-step boxes "13. Generer JSON Schema frå den redigerte modellen" \
+step boxes "12. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-jsonschema SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "14. Generer PlantUML-diagram" \
+step boxes "13. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "15. Generer ModelDCAT-metadata" \
+step boxes "14. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
 

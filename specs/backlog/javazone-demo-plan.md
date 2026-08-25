@@ -138,6 +138,14 @@ ikkje har kontekst for. `Aktivitet` finst frå før i
 
 ### Ferdig kopierbar klassedefinisjon (steg 5)
 
+**Oppdatert:** steg 5 og 7 set no innhaldet inn i `$SCHEMA` **automatisk**
+(ikkje lenger manuell copy-paste) og viser resultatet som ein
+`git diff --no-index` — sjå
+[javazone-demo-auto-innsetjing.md](javazone-demo-auto-innsetjing.md) for
+grunngjeving og teknisk tilnærming. Skildringa under av *innhaldet* som
+vert sett inn er framleis korrekt, berre "lim inn" bør lesast som "vert
+sett inn automatisk".
+
 `javazone-demo-script.sh` skriv no ut ein komplett klassedefinisjon i
 steg 5, klar til å lime rett inn — ingen live-skriving naudsynt. Tre
 klasser, knytt saman via referansar, slik at PlantUML-diagrammet i steg

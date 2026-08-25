@@ -10,8 +10,8 @@ version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-24'
-  utgivelsesdato: '2026-08-24'
+  endringsdato: '2026-08-25'
+  utgivelsesdato: '2026-08-25'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -33,12 +33,19 @@ classes:
     description: containerklasse for serialisering av klasser i javazonetalk modellen
     tree_root: true
     attributes:
-      foredragsholdere:
-        description: 'Foredragsholdere knytta til ein talk'
-        range: Foredragsholder
+      javazonetalker:
+        description: 'TODO: beskriv eigenskapen'
+        range: Javazonetalk
         multivalued: true
         inlined: true
         inlined_as_list: true
+  Javazonetalk:
+    description: 'TODO: beskriv klassen'
+    class_uri: javazonetalk:javazonetalk
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
   Foredragsholder:
     description: Ein person som melder inn/held eit foredrag.
     class_uri: javazonetalk:Foredragsholder
@@ -69,7 +76,6 @@ classes:
     - malgruppe
     - har_foredragsholdere
     - innsendingsstatus
-
   Sesjon:
     description: Ei tidsavgrensa økt der eit foredrag vert halde.
     class_uri: javazonetalk:Sesjon
@@ -81,7 +87,6 @@ classes:
     - tid_slutt
     - har_foredrag
     - har_sesjonslokale
-
   Timeplan:
     description: Ei tidsplanoppføring som viser alle foredrag pr dag.
     class_uri: javazonetalk:Timeplan
@@ -89,7 +94,7 @@ classes:
     - id
     - dato
     - har_sesjoner
-  
+
   Sesjonslokale:
     description: Eit rom eller sal der sesjonar vert haldne.
     class_uri: javazonetalk:Sesjonslokale
@@ -98,6 +103,10 @@ classes:
     - navn
     - antall_plasser
 slots:
+  javazonetalk_kontaktinformasjon:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
   navn:
     description: Navnet på foredragshaldaren.
     range: string
@@ -127,6 +136,14 @@ slots:
     range: Foredragsholder
     multivalued: true
 
+  foredrag_tidsrom:
+    description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
+    range: string
+
+  lokasjon:
+    description: Rommet eller salen foredraget vert halde i.
+    range: string
+
   har_timeplaner:
     description: Referanse til timeplanoppføringane for konferansen.
     range: Timeplan
@@ -139,18 +156,16 @@ slots:
   antall_plasser:
     description: Talet på sitjeplassar i sesjonslokalet.
     range: integer
-  
+
   har_foredrag:
     description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
     range: Foredrag
     multivalued: true
     slot_uri: javazonetalk:har_foredrag
-
   tid_start:
     description: Tidspunktet sesjonen startar.
     range: datetime
     slot_uri: javazonetalk:tid_start
-
   tid_slutt:
     description: Tidspunktet sesjonen sluttar.
     range: datetime
