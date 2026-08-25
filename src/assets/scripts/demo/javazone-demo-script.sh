@@ -373,11 +373,11 @@ echo ""
 step boxes "3. Opprett ein ny, tom modell" \
     "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST}" \
     make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
-echo ""
-echo ""
-read -rp "Trykk Enter når du er ferdig … "
-echo ""
-echo ""
+# echo ""
+# echo ""
+# read -rp "Trykk Enter når du er ferdig … "
+ echo ""
+ echo ""
 print_heading boxes "4a. Rediger klasser"
 
 classes_content=$(cat <<EOF
@@ -446,7 +446,8 @@ knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar
 EOF
 
 do_insert "slots:" "$classes_content"
-
+ echo ""
+ echo ""
 print_heading boxes "4. Rediger slots"
 
 slots_content=$(cat <<EOF
@@ -535,7 +536,8 @@ diffen vert vist etterpå):
 EOF
 
 do_insert "$TRAILING_MARKER" "$slots_content"
-
+echo ""
+echo ""
 print_heading boxes "4. Rediger enumerations"
 
 enums_content=$(cat <<EOF
@@ -648,7 +650,6 @@ step boxes "8. Finn isolerte klasser i modellen" \
     "${CLR_STEP}make analyse-isolerte-klasser${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     run_analyse_isolated_classes
 echo ""
-echo ""
 step boxes "9. Finn ubrukte slots i modellen" \
     "${CLR_STEP}analyse-ubrukte-slots${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     run_analyse_unused_slots
@@ -661,7 +662,6 @@ echo ""
 step boxes "11. Finn liknande slotnavn på tvers av domenet" \
     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
     run_analyse_similar_slots
-echo ""
 echo ""
 step boxes "12. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
