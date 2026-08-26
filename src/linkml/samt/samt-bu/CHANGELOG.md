@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.10.1...samt-bu-v1.11.0) (2026-08-25)
+
+
+### Features
+
+* **gen-java:** legg til make gen-java og Java-bruk-seksjon i Kom i gang ([74396fc](https://github.com/brreg/linkml-datamodellering-no/commit/74396fcfb1531244e32d27599bf09353381e3fb1))
+
 ## [1.10.1](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.10.0...samt-bu-v1.10.1) (2026-08-17)
 
 
