@@ -142,26 +142,25 @@ def main() -> None:
         sys.exit(1)
 
     analyse_dir = Path(sys.argv[1])
-    # domain/schema er ikkje brukt i sjølve formateringa i dag (cross-domain-
-    # relativstiane er faste — alle skjema-index.md ligg to nivå under
-    # mkdocs/docs/), men tekne imot for symmetri med generate-validation-md.py
-    # sitt grensesnitt og for framtidig bruk.
-    _domain = sys.argv[2]
-    _schema = sys.argv[3]
+    # sys.argv[2] (domain) og sys.argv[3] (schema) er ikkje i bruk sjølve
+    # formateringa i dag (cross-domain-relativstiane er faste — alle
+    # skjema-index.md ligg to nivå under mkdocs/docs/), men tekne imot for
+    # symmetri med generate-validation-md.py sitt grensesnitt og for
+    # framtidig bruk.
 
     lines = [
         "",
         "## Modellanalyse",
         "",
         "> Modellanalysen samanliknar dette skjemaet sine lokalt definerte "
-        "klasse-, slot- og typenavn mot andre skjema i same domene, flaggar "
-        "par med høg navnelikskap som eit mogleg duplikat- eller "
-        "konsolideringssignal, og fangar lokalt definerte slots, "
-        "enumerations, types, subsets og klasser som ikkje er i bruk lokalt "
-        "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",
+        + "klasse-, slot- og typenavn mot andre skjema i same domene, flaggar "
+        + "par med høg navnelikskap som eit mogleg duplikat- eller "
+        + "konsolideringssignal, og fangar lokalt definerte slots, "
+        + "enumerations, types, subsets og klasser som ikkje er i bruk lokalt "
+        + "i modellen. Analysen er informativ, ikkje ein valideringspolicy.",
         "",
         f"*For IRI-dereferering og innhaldsforhandling sjå "
-        f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen.*",
+        + f"[Modell-analyse]({MODELL_ANALYSE_WORKFLOW_URL})-workflowen.*",
     ]
 
     any_report_found = False

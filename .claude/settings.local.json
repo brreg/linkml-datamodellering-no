@@ -456,7 +456,9 @@
       "WebFetch(domain:w3id.org)",
       "WebFetch(domain:linkml.github.io)",
       "WebFetch(domain:xmlns.com)",
-      "WebFetch(domain:brreg-linkml.goatcounter.com)"
+      "WebFetch(domain:brreg-linkml.goatcounter.com)",
+      "Bash(env)",
+      "Bash(gh auth *)"
     ]
   },
   "enableAllProjectMcpServers": true,
@@ -467,12 +469,14 @@
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
-    "excludedCommands": ["podman *"],
     "filesystem": {
       "allowWrite": [
         "/run/user/1000/libpod",
         "/run/user/1000"
       ]
-    }
+    },
+    "excludedCommands": [
+      "podman *"
+    ]
   }
 }
