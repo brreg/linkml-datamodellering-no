@@ -367,8 +367,8 @@ step boxes "1. Sjå tilgjengelege kommandoar" \
 echo ""
 echo ""
 step boxes "2. Sjekk at miljøet er klart" \
-    "${CLR_STEP}make check-prereqs${CLR_RST}" \
-    make check-prereqs
+    "${CLR_STEP}bash src/assets/scripts/makefile/check-prereqs.bash${CLR_RST}" \
+    bash src/assets/scripts/makefile/check-prereqs.bash
 echo ""
 step boxes "3. Opprett ein ny, tom modell" \
     "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST}" \

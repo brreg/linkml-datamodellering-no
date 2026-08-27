@@ -35,7 +35,7 @@ fi
 if command -v podman &>/dev/null; then
   ok "Podman tilgjengeleg ($(podman --version))"
 else
-  fail "Podman ikkje funne. Sjå: https://podman.io/getting-started/installation"
+  fail "Podman ikkje funne. Installer: sudo apt-get update && sudo apt-get -y install podman"
 fi
 
 # Podman rootless
