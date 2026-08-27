@@ -46,10 +46,151 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
+  Foredragsholder:
+    description: Ein person som melder inn/held eit foredrag.
+    class_uri: javazonetalk:Foredragsholder
+    slots:
+    - id
+    - navn
+    - organisasjon
+
+  Konferanse:
+    description: Konferansen eit foredrag er meldt inn til.
+    class_uri: javazonetalk:Konferanse
+    slots:
+    - id
+    - tittel
+    - sted
+    - har_timeplaner
+
+  Foredrag:
+    description: Eit forslag til foredrag sendt inn til vurdering.
+    class_uri: javazonetalk:Foredrag
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tittel
+    - lengde_i_minutt
+    - sammendrag
+    - malgruppe
+    - har_foredragsholdere
+    - innsendingsstatus
+  Sesjon:
+    description: Ei tidsavgrensa økt der eit foredrag vert halde.
+    class_uri: javazonetalk:Sesjon
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+    slots:
+    - id
+    - tid_start
+    - tid_slutt
+    - har_foredrag
+    - har_sesjonslokale
+  Timeplan:
+    description: Ei tidsplanoppføring som viser alle foredrag pr dag.
+    class_uri: javazonetalk:Timeplan
+    slots:
+    - id
+    - dato
+    - har_sesjoner
+
+  Sesjonslokale:
+    description: Eit rom eller sal der sesjonar vert haldne.
+    class_uri: javazonetalk:Sesjonslokale
+    slots:
+    - id
+    - navn
+    - antall_plasser
 slots:
   javazonetalk_kontaktinformasjon:
     description: Kontaktinformasjon for ressursen.
     slot_uri: dcat:contactPoint
     range: uriorcurie
+  navn:
+    description: Navnet på foredragshaldaren.
+    range: string
+
+  organisasjon:
+    description: Organisasjonen foredragshaldaren representerer.
+    range: string
+
+  sted:
+    description: Staden konferansen vert halden.
+    range: string
+
+  lengde_i_minutt:
+    description: Lengda på foredraget, i minutt.
+    range: integer
+
+  sammendrag:
+    description: Eit samandrag av foredraget.
+    range: string
+
+  malgruppe:
+    description: Målgruppa foredraget rettar seg mot.
+    range: string
+
+  har_foredragsholdere:
+    description: Referanse til foredragshaldarane som har sendt inn foredraget.
+    range: Foredragsholder
+    multivalued: true
+
+  foredrag_tidsrom:
+    description: Tidsrommet foredraget vert halde i, t.d. "10:00-10:30".
+    range: string
+
+  lokasjon:
+    description: Rommet eller salen foredraget vert halde i.
+    range: string
+
+  har_timeplaner:
+    description: Referanse til timeplanoppføringane for konferansen.
+    range: Timeplan
+    multivalued: true
+
+  innsendingsstatus:
+    description: Status for foredragsinnsendinga.
+    range: InnsendingStatus
+
+  antall_plasser:
+    description: Talet på sitjeplassar i sesjonslokalet.
+    range: integer
+
+  har_foredrag:
+    description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
+    range: Foredrag
+    multivalued: true
+    slot_uri: javazonetalk:har_foredrag
+  tid_start:
+    description: Tidspunktet sesjonen startar.
+    range: datetime
+    slot_uri: javazonetalk:tid_start
+  tid_slutt:
+    description: Tidspunktet sesjonen sluttar.
+    range: datetime
+
+  har_sesjonslokale:
+    description: Referanse til sesjonslokalet timeplanen gjeld for.
+    range: Sesjonslokale
+
+  har_sesjoner:
+    description: Referanse til sesjonane i timeplanen.
+    range: Sesjon
+    multivalued: true
+
+  dato:
+    description: Dato for ei timeplan oppføring.
+    range: datetime
+enums:
+  InnsendingStatus:
+    description: Status for ei foredragsinnsending.
+    permissible_values:
+      INNSENDT:
+        description: Innsendt
+      GODKJENT:
+        description: Godkjent
+      AVVIST:
+        description: Avvist
 # TODO: Gi stub-klassen eit meir meiningsfullt navn.
 # TODO: Legg til slots og slot_usage for eigenskapane i modellen.
