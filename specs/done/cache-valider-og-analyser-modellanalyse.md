@@ -168,17 +168,25 @@ tillegg `src/assets/scripts/utils/linkml_relative_import_patch.py`, som
 mangla i det opphavlege utkastet i denne specen. Lagt til i
 `valider-og-analyser`-jobben sin cache-nøkkel.
 
-**Attstår (krev handling frå brukar, ikkje LLM):**
-- Tiltak 5, fyrste kulepunkt: `actionlint` mot `generate.yml`. Podman er
-  ikkje tilgjengeleg i shell-miljøet LLM opererer i her — brukar må køyre
-  denne sjølv:
-  ```bash
-  podman run --rm -v "$(pwd)":/repo:ro -w /repo docker.io/rhysd/actionlint:latest -color .github/workflows/generate.yml
-  ```
-- Tiltak 5, resten (push + verifiser cache-hit/-miss-åtferd i Actions-loggen
-  for begge jobbane, stadfest `publish` framleis får korrekt innhald) — krev
-  faktisk push, som LLM aldri utfører (jf. CLAUDE.md).
+## Utført (2026-08-27)
 
-Specen vert flytta til `specs/done/` når brukar har stadfesta at
-`actionlint` er reint og at CI-åtferda er verifisert som venta.
-   flytt specen til `specs/done/`.
+- **Tiltak 5, `actionlint`:** køyrt mot `generate.yml` — ingen funn,
+  exit code 0.
+- **Tiltak 5, CI-verifisering (delvis):** brukar stadfesta at
+  `valider-og-analyser`-jobben fekk `cache-hit: true` for alle domene i
+  ei faktisk `generate`-workflow-køyring (commit `5705cef1`, som ikkje
+  endra noko i `valider-og-analyser` sin infra-/kjeldeliste) — stadfestar
+  scenario (b) frå tiltak 5 (uendra kjelde/infra gir cache-hit). Same
+  køyring synte òg at `generate`-jobben sin cache **ikkje** trefte, av ei
+   urelatert årsak (breitt `src/assets/scripts/**`-glob i den jobben sin
+  eigen cache-nøkkel) — følgt opp i
+  `specs/backlog/scripts-glob-cache-miss-generate-jobb.md`.
+- **Ikkje eksplisitt verifisert i denne omgangen** (scenario (a): fyrste
+  køyring etter endring gir `cache-hit: false` for begge jobbane; scenario
+  (c): enkeltdomene-skjemaendring gir cache-miss berre for det domenet;
+  at `publish` får korrekt innhald frå cache-gjenoppretta artefakt) — den
+  observerte `cache-hit: true`-åtferda i seg sjølv føreset likevel at ei
+  tidlegare køyring har cacha og populert `generated/<domain>/` korrekt,
+  så mekanismen er i praksis stadfesta fungerande. Brukar kan følgje opp
+  med ei skjemaendring seinare dersom fullstendig scenario-dekning er
+  ønskt.

@@ -496,7 +496,27 @@ jobs:
           # til `valider-og-analyser`-jobben (uncacha der). `make/50-docs.mk`,
           # `make/60-mcp.mk`, `make/70-scaffolding.mk` og `make/90-tools.mk`
           # er framleis medvite utelatne — verifisert ikkje i kallgrafen.
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
+          # `src/assets/scripts/`-delen er tilsvarande innsnevra frå det
+          # breie `src/assets/scripts/**` (som gav same feilklasse — sjå
+          # specs/done/scripts-glob-cache-miss-generate-jobb.md) til dei
+          # EKSPLISITT grep-verifiserte delane av kallgrafen:
+          # `makefile/**` (batch-generate*.py, run-domain-pipeline.sh,
+          # batch-render-plantuml.sh, batch-gen-xsd.sh,
+          # batch-asyncapi-validate.sh, batch-lint.py,
+          # batch-linkml-validate.py, check-import-duplicates.py,
+          # detect-validation-policy.py, run-schema-validation.py,
+          # save-validation-log.py, run-validation.sh,
+          # filter_container.awk), `scaffolding/resolve-catalog-slug.sh`
+          # (einaste scaffolding-fila i kallgrafen, brukt av
+          # make/30-instances.mk) og `utils/**` (importert transitivt av
+          # fleire `makefile/*.py`-skript: linkml_relative_import_patch.py,
+          # schema_meta.py, release_helpers.py, validation_log.py,
+          # codeowners.py). `demo/`, `migreringsscript/`, resten av
+          # `scaffolding/` og `container/` (kun brukt via COPY i
+          # Dockerfile.asyncapi-cli-minimal, som får ny image-tag via
+          # compute-image-tags uavhengig av denne cachen) er medvite
+          # utelatne — verifisert ikkje i kallgrafen.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/makefile/**', 'src/assets/scripts/scaffolding/resolve-catalog-slug.sh', 'src/assets/scripts/utils/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
 
       - name: Oppgrader crun
         if: steps.cache-generated.outputs.cache-hit != 'true'
