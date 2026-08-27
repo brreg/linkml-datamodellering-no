@@ -145,21 +145,45 @@ jobs:
           name: source
           path: .
 
+      - name: Cache modellanalyse på tvers av domene
+        # Nøkla på heile src/linkml/** (ikkje domene-scopa) sidan --scope
+        # all les alle skjema i repoet — denne jobben har difor IKKJE det
+        # kryss-domene-import-hòlet domene-scopa cache i generate/
+        # valider-og-analyser-jobbane har (sjå
+        # specs/done/cache-valider-og-analyser-modellanalyse.md). "infra"-
+        # delen listar EKSPLISITT dei filene som faktisk er i kallgrafen til
+        # `make analyse-similar-alle-domene-batch` (verifisert med grep):
+        # find-similar-names.py sjølv, make/91-modell-analyse.mk (målet),
+        # make/00-settings.mk (print_header/LOGLVL), make/01-containers.mk
+        # (PYTHON_RUN — einaste kontaineren målet brukar),
+        # Dockerfile.python (python-pytest-imaget), make/80-images.mk
+        # (.github/actions/pull-images fell tilbake til `make <target>`
+        # ved GHCR-pull-feil) og Makefile (include-rot).
+        id: cache-modellanalyse-tvers
+        uses: actions/cache@v6
+        with:
+          path: generated/modell-analyse-tvers-domene/
+          key: v1-modellanalyse-tvers-domene-${{ hashFiles('src/linkml/**') }}-infra-${{ hashFiles('src/assets/scripts/makefile/find-similar-names.py', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
+
       - name: Oppgrader crun
+        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
         uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
+        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
         uses: ./.github/actions/ghcr-login
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Last python-pytest frå GHCR
+        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
         uses: ./.github/actions/pull-images
         with:
           images: '[{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Køyr modellanalyse på tvers av domene
+        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
         # --scope all samanliknar på tvers av heile repoet, så treng berre
         # køyrast éin gong (ikkje per domene/skjema). Skriv til ein fast,
         # ikkje-domene-scopa katalog som mkdocs/publish.sh publiserer som
@@ -192,14 +216,15 @@ jobs:
     # jobben til si eiga jobb (same domene-matrise, same startpunkt) slik
     # at dei ~35 s dei til saman tok som eit sekvensielt for-steg framfor
     # "Generer alle artefakter" no i staden overlappar med den (fleire
-    # minutt lange) artefaktgenereringa der. Ikkje cacha (jf.
-    # modellanalyse-tvers-domene-jobben) — 35 s er billeg nok til at
-    # cache-koordinering mellom to jobbar ikkje er verdt kompleksiteten.
+    # minutt lange) artefaktgenereringa der.
     # Validering er ei hard byggjesperre (exit 1 ved feil) — `publish`
     # sin needs-graf blokkerer heile bygget dersom denne jobben feilar
     # for noko domene (ei matrise-jobb er éi logisk eining i needs-grafen,
     # inga ekstra logikk trengst) — sjå
     # specs/done/splitt-validering-modellanalyse-eigen-jobb.md.
+    # Cacha (jf. Cache-steget under) sidan denne planen sitt vedtak om å
+    # ikkje cache vart reversert — sjå
+    # specs/done/cache-valider-og-analyser-modellanalyse.md.
     needs: [ensure-images, checkout-source]
     runs-on: ubuntu-22.04
     permissions:
@@ -215,15 +240,48 @@ jobs:
           name: source
           path: .
 
+      - name: Cache validering og modellanalyse (${{ matrix.domain }})
+        # Domene-scopa kjeldehash, same avgrensing (og same kjende
+        # kryss-domene-import-hòl) som `generate`-jobben sin cache — sjå
+        # kommentaren der (linje ~421-437) og
+        # specs/done/cache-valider-og-analyser-modellanalyse.md. "infra"-
+        # delen listar EKSPLISITT dei filene som faktisk er i kallgrafen
+        # til stega under (verifisert med grep):
+        # - run-validation.sh kallar flatten-and-validate.bash direkte via
+        #   `bash` (ingen `make`-kall i denne kallgrafen — difor er
+        #   make/40-validation.mk IKKJE relevant her, i motsetnad til i
+        #   generate-jobben sin `make validate`-bruk)
+        # - flatten-and-validate.bash monterer server.py og heile
+        #   policies/-katalogen inn i mcp-linkml-validator-kontaineren
+        # - validation_log.py (delt loggstruktur, BUG-12)
+        # - dei to analyse-*-domene-batch-måla → make/91-modell-analyse.mk,
+        #   PYTHON_RUN/LINKML_RUN frå make/01-containers.mk,
+        #   print_header/LOGLVL frå make/00-settings.mk
+        # - find-unused-local-definitions.py (LINKML_RUN) importerer i
+        #   tillegg linkml_relative_import_patch.py — utan denne i "infra"-
+        #   hashen ville ei retting der (t.d. av BUG-x i bugs/) gitt eit
+        #   stille cache-hit i staden for reell re-køyring
+        # - dei tre statisk pulla images sine Dockerfile
+        # - make/80-images.mk (pull-images fell tilbake til `make <target>`
+        #   ved GHCR-pull-feil)
+        id: cache-valider
+        uses: actions/cache@v6
+        with:
+          path: generated/${{ matrix.domain }}/
+          key: v1-valider-og-analyser-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/scripts/makefile/run-validation.sh', 'src/assets/scripts/makefile/find-similar-names.py', 'src/assets/scripts/makefile/find-unused-local-definitions.py', 'src/assets/scripts/utils/validation_log.py', 'src/assets/scripts/utils/linkml_relative_import_patch.py', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.mcp-linkml', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
+
       - name: Oppgrader crun
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         uses: ./.github/actions/upgrade-crun
 
       - name: Logg inn på GHCR
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         uses: ./.github/actions/ghcr-login
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Last images inn i podman frå GHCR
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         # Statisk liste — linkml-local/python-pytest/mcp-linkml-validator
         # er alt always_required i images.json (validering+modellanalyse
         # sine einaste avhengigheiter, uavhengig av domenet sine
@@ -235,6 +293,7 @@ jobs:
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
       - name: Valider alle skjema for ${{ matrix.domain }}
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         # Einaste kontrollen mot innhaldet ETTER release-please sin
         # [skip ci]-versjonsbump (sjå release-please.yml, steget "Oppdater
         # schema-versjonar i release-PR") — validate.yml validerer aldri
@@ -302,6 +361,7 @@ jobs:
           echo "✓ Validering fullført for ${{ matrix.domain }}"
 
       - name: Kopier valideringsloggar til generated/
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         run: |
           echo "=== Kopierer valideringsloggar til generated/ ==="
 
@@ -346,6 +406,7 @@ jobs:
           done
 
       - name: Køyr modellanalyse per skjema for ${{ matrix.domain }}
+        if: steps.cache-valider.outputs.cache-hit != 'true'
         # Domene-scopa (ikkje cross-domain, ikkje nettverksavhengige
         # IRI-sjekkar) — sjå specs/done/modellanalyse-per-skjema-index-md.md
         # for grunngjeving. To batch-kall (éin LINKML_RUN, éin PYTHON_RUN,

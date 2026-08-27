@@ -458,7 +458,11 @@
       "WebFetch(domain:xmlns.com)",
       "WebFetch(domain:brreg-linkml.goatcounter.com)",
       "Bash(env)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(command -v podman)",
+      "Bash(find / -maxdepth 5 -iname \"podman\" -type f)",
+      "Bash(dpkg -l)",
+      "Bash(wsl.exe -l)"
     ]
   },
   "enableAllProjectMcpServers": true,
