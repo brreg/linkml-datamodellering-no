@@ -8,6 +8,8 @@
 # - build-docker-asyncapi: AsyncAPI CLI-container (validering av AsyncAPI-spec)
 # - build-docker-plantuml: PlantUML-container (generering av diagram)
 # - build-docker-gource: Gource-container (git-historikk-visualisering)
+# - build-docker-all: bygg alle image over, pluss mkdocs- og MCP-image
+#   (definerte i høvesvis make/50-docs.mk og make/60-mcp.mk)
 #
 # Targeta er skrivne ut kvar for seg (ikkje generert via $(eval $(call ...)),
 # slik domain_target i make/20-domain-targets.mk gjer) fordi `make help`
@@ -50,3 +52,5 @@ build-docker-plantuml: ## Bygg PlantUML container-image
 build-docker-gource: ## Bygg Gource container-image
 	$(call print_header,build-docker-gource)
 	$(call docker_build,$(GOURCE_DOCKERFILE),$(GOURCE_IMAGE),)
+
+build-docker-all: build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-plantuml build-docker-gource build-docker-mkdocs build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast ## Bygg alle container-image i repoet

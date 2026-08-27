@@ -74,7 +74,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         gen-proto gen-plantuml gen-xsd gen-asyncapi gen-openapi \
         validate-data validate-examples \
         build-docker-linkml build-docker-python build-docker-avrotize build-docker-asyncapi build-docker-mkdocs build-docker-plantuml \
-        build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource \
+        build-docker-mcp-validator build-docker-mcp-modell-utkast build-docker-mcp-begrep-utkast build-docker-gource build-docker-all \
         mcp-linkml-valider-modell-run mcp-linkml-valider-modell-smoke mcp-linkml-valider-modell-test mcp-linkml-valider-modell \
         mcp-linkml-modell-utkast-run mcp-linkml-modell-utkast-smoke mcp-linkml-modell-utkast-test mcp-linkml-modell-utkast new-modell \
         mcp-linkml-begrep-utkast-run mcp-linkml-begrep-utkast-smoke mcp-linkml-begrep-utkast-list-profiles mcp-linkml-begrep-utkast \

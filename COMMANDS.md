@@ -133,6 +133,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 
 | Kommando | Beskriving | Output |
 |---|---|---|
+| `make build-docker-all` | Byggjer alle container-image i repoet (alle radene under, pluss `build-docker-gource`). | Alle image over |
 | `make build-docker-linkml` | Byggjer container-image for artefaktgenerering og validering. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/linkml-local:latest` |
 | `make build-docker-mkdocs` | Byggjer container-image for dokumentasjonsportalen. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/mkdocs-local:latest` |
 | `make build-docker-python` | Byggjer container-image for Python-testar. Berre nødvendig ved første bruk eller etter endringar i Dockerfile. | Image `localhost/python-pytest:latest` |
