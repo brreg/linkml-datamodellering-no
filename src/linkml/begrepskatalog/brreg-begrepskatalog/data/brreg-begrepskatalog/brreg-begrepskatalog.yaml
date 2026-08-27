@@ -57,3 +57,27 @@ begrep:
   fagomrade:
   - https://psi.norge.no/los/tema/naring
   - https://psi.norge.no/los/tema/naringsliv
+samlingar:
+- id: https://begrep.brreg.no/samlingar/registerbegrep-2025
+  identifikator_literal: https://begrep.brreg.no/samlingar/registerbegrep-2025
+  tittel:
+  - Registerenheten i Brønnøysund - begrepskatalog 2025
+  - Registereininga i Brønnøysund - omgrepskatalog 2025
+  kontaktpunkt_vcard:
+  - https://begrep.brreg.no/kontakt/begrepsansvarleg
+  utgjevar: https://data.norge.no/organizations/974760673
+  beskrivelse:
+  - Begreper knytt til Enhetsregisteret, Foretaksregisteret og registerforvaltning.
+  - Omgrep knytte til Einingsregisteret, Føretaksregisteret og registerforvaltning.
+  medlem:
+  - https://begrep.brreg.no/foretaksnavn
+  - https://begrep.brreg.no/nestleder
+  - https://begrep.brreg.no/aksjeklasser
+  har_kvalitetsmaaling:
+  - https://begrep.brreg.no/samlingar/registerbegrep-2025/dqv/fullstendighet
+kvalitetsmaalingar:
+- id: https://begrep.brreg.no/samlingar/registerbegrep-2025/dqv/fullstendighet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
+  har_numerisk_verdi: 0.0
+  har_merknad:
+  - 0 av 3 begrep (0.0 %) manglar verdi for definisjon.

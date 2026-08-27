@@ -114,8 +114,11 @@ def generate_begrepskatalog(org_nr: str, catalog_name: str, begrepssamlingar: Li
         begrep_list = collect_begrep_from_samling(samling_dir.parent)
         all_begrep.extend(begrep_list)
 
-    # Skriv til fil
-    data = {"begrep": all_begrep}
+    # Skriv til fil — bevar eksisterande toppnivånøklar (t.d. samlingar,
+    # kvalitetsmaalingar) som denne funksjonen ikkje sjølv genererer.
+    existing_data = load_yaml(catalog_file) if catalog_file.exists() else {}
+    preserved = {k: v for k, v in existing_data.items() if k != "begrep"}
+    data = {"begrep": all_begrep, **preserved}
     write_yaml(
         catalog_file, data,
         generated_by=Path(__file__).name,

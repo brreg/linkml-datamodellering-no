@@ -205,12 +205,12 @@ kvalitetsmaalingar:
   er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
   har_numerisk_verdi: 0.0
   har_merknad:
-  - 0 av 2 informasjonsmodellar (0.0 %) manglar verdi for lisens.
+  - 0 av 4 informasjonsmodellar (0.0 %) manglar verdi for lisens.
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/dqv/aktualitet
   er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001
-  har_tekst_verdi: P1D
+  har_tekst_verdi: P78D
   har_merknad:
-  - Eldste endringsdato blant informasjonsmodellar er 1 dag(ar) gammal.
+  - Eldste endringsdato blant informasjonsmodellar er 78 dag(ar) gammal.
 objekttyper:
 - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/fair-metadata/FAIRMetadata
   tittel:

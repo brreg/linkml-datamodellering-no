@@ -18,6 +18,9 @@ modellkataloger:
   spraak:
   - http://publications.europa.eu/resource/authority/language/NOB
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  har_kvalitetsmaaling:
+  - https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/dqv/aktualitet
+  - https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/dqv/fullstendighet
 informasjonsmodeller:
 - id: https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/samt-bu
   tittel:
@@ -46,3 +49,14 @@ informasjonsmodeller:
   - https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/samt-bu/Elev
   - https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/samt-bu/Rektor
   - https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/samt-bu/Kontaktlaerer
+kvalitetsmaalingar:
+- id: https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/dqv/fullstendighet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
+  har_numerisk_verdi: 0.0
+  har_merknad:
+  - 0 av 1 informasjonsmodellar (0.0 %) manglar verdi for lisens.
+- id: https://data.norge.no/organizations/971032146/modellkatalogar/ksdigital-modellkatalog/dqv/aktualitet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001
+  har_tekst_verdi: P48D
+  har_merknad:
+  - Eldste endringsdato blant informasjonsmodellar er 48 dag(ar) gammal.

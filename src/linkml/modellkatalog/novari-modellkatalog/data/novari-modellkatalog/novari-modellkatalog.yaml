@@ -27,6 +27,9 @@ modellkataloger:
   spraak:
   - http://publications.europa.eu/resource/authority/language/NOB
   lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  har_kvalitetsmaaling:
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/dqv/aktualitet
+  - https://data.norge.no/modellkatalog/novari-modellkatalog/dqv/fullstendighet
 informasjonsmodeller:
 - id: https://data.norge.no/modellkatalog/novari-modellkatalog/fint-administrasjon
   tittel:
@@ -13666,3 +13669,14 @@ enkeltyper:
 - id: https://data.norge.no/modellkatalog/novari-modellkatalog/types/float
   tittel:
   - float
+kvalitetsmaalingar:
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/dqv/fullstendighet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004
+  har_numerisk_verdi: 0.0
+  har_merknad:
+  - 0 av 7 informasjonsmodellar (0.0 %) manglar verdi for lisens.
+- id: https://data.norge.no/modellkatalog/novari-modellkatalog/dqv/aktualitet
+  er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001
+  har_tekst_verdi: P78D
+  har_merknad:
+  - Eldste endringsdato blant informasjonsmodellar er 78 dag(ar) gammal.

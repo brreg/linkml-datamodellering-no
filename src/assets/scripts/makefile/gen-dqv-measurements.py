@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Reknar ut DQV-kvalitetsmålingar (fullstendighet, aktualitet) for datafiler med
-data_policy: felles-begrepskatalog eller felles-datakatalog, og skriv
+validation_policy: felles-begrepskatalog eller felles-datakatalog, og skriv
 dqv:hasQualityMeasurement-referansar attende til datafila.
 
 Skriver attende med målretta tekstendringar (ikkje full YAML-dump), slik at
@@ -31,7 +31,7 @@ from utils.yaml_io import load_yaml  # noqa: E402
 METRIC_COMPLETENESS = "https://data.norge.no/vocabulary/quality-metric#qm-completeness-1004"
 METRIC_CURRENTNESS = "https://data.norge.no/vocabulary/quality-metric#qm-currentness-1001"
 
-# Per data_policy: korleis datafila er strukturert og kva som skal målast.
+# Per validation_policy: korleis datafila er strukturert og kva som skal målast.
 PROFILES = {
     "felles-begrepskatalog": {
         "items_key": "begrep",
@@ -53,7 +53,7 @@ PROFILES = {
 
 
 def find_data_manifests(root="src/linkml"):
-    """Finn alle datafil-manifest (build.yaml med data_policy, utan generators:)."""
+    """Finn alle datafil-manifest (build.yaml med validation_policy, utan generators:)."""
     for path in sorted(glob.glob(f"{root}/*/*/data/*/build.yaml")):
         yield Path(path)
 
@@ -223,9 +223,13 @@ def main(argv=None):
     changed = 0
     for manifest_path in find_data_manifests():
         manifest = load_yaml(manifest_path)
-        policy = manifest.get("data_policy")
+        policy = manifest.get("validation_policy")
         profile = PROFILES.get(policy)
         if not profile:
+            print(
+                f"  HOPP OVER {manifest_path}: ukjend/manglande validation_policy {policy!r}",
+                file=sys.stderr,
+            )
             continue
         if process_datafile(manifest_path, profile, today, args.dry_run):
             changed += 1

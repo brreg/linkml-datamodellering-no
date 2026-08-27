@@ -290,8 +290,18 @@ def main():
             # Generer katalog
             katalog_data = generate_modellkatalog_for_org(org, modeller)
 
-            # Skriv til fil
+            # Bevar DQV-kvalitetsmålingar frå ei eksisterande fil — denne
+            # funksjonen genererer dei ikkje sjølv (sjå gen-dqv-measurements.py).
             output_path = Path(f"src/linkml/modellkatalog/{catalog_slug}/data/{catalog_slug}/{catalog_slug}.yaml")
+            if output_path.exists():
+                existing_data = load_yaml(output_path)
+                if "kvalitetsmaalingar" in existing_data:
+                    katalog_data["kvalitetsmaalingar"] = existing_data["kvalitetsmaalingar"]
+                existing_refs = (existing_data.get("modellkataloger") or [{}])[0].get("har_kvalitetsmaaling")
+                if existing_refs:
+                    katalog_data["modellkataloger"][0]["har_kvalitetsmaaling"] = existing_refs
+
+            # Skriv til fil
             write_yaml(
                 output_path, katalog_data,
                 generated_by=Path(__file__).name,
