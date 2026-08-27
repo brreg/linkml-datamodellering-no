@@ -1,8 +1,0 @@
-# Eksempel for javazonetalk
-# Alle slots er fylt med genererte placeholder-verdiar (dummy, 0, 2024-01-01,
-# 'Eksempelverdi for <slot>' osv.), inkl. kryssreferansar mellom instansane.
-# Desse må erstattast med reelle verdiar før modellen er produksjonsklar — nokre
-# kan òg bryte pattern-/verdiavgrensingar som ikkje er tilfredsstilte generisk.
----
-javazonetalker:
-- id: javazonetalk:eksempel-1

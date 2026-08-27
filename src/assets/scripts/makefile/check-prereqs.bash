@@ -31,6 +31,13 @@ else
   fail "Git ikkje funne. Installer: sudo apt install git"
 fi
 
+# jq
+if command -v jq &>/dev/null; then
+  ok "jq tilgjengeleg ($(jq --version))"
+else
+  fail "jq ikkje funne. Installer: sudo apt-get update && sudo apt-get -y install jq"
+fi
+
 # Podman
 if command -v podman &>/dev/null; then
   ok "Podman tilgjengeleg ($(podman --version))"
