@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Sjekkar at alle føresetnader for lokal utvikling er oppfylte.
+# Designa for å køyrast standalone (bash check-prereqs.bash), utan at
+# make/podman er installerte frå før — ikkje legg til ei reell
+# make-avhengigheit (t.d. $(MAKE)-kall) i dette scriptet.
 set -euo pipefail
 
 OK=0

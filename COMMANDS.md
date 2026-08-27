@@ -8,6 +8,12 @@ Alle kommandoar køyrer via containerar — ingen lokal Python-installasjon tren
 |---|---|---|
 | `make check-prereqs` | Sjekkar at Git, Podman, GNU make, user namespace og ledig diskplass er korrekt konfigurert | Skriv OK/FEIL per føresetnad til stdout; avsluttar med kode 1 ved feil |
 
+`check-prereqs`-targetet er berre eit tynt wrapper-lag rundt
+`src/assets/scripts/makefile/check-prereqs.bash`, som ikkje sjølv krev
+`make` eller `podman` for å køyrast. På ein heilt ny maskin utan desse
+installerte, køyr scriptet direkte i staden: `bash
+src/assets/scripts/makefile/check-prereqs.bash`.
+
 ## Logging
 
 Alle `make`-kommandoar støttar `LOGLVL`-variabelen for å styre detaljnivå:

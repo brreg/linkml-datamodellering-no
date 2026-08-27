@@ -60,7 +60,11 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 **Føresetnader:** linux eller windows med  [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install), [Git](https://git-scm.com/), [Podman](https://podman.io/) (rootless) og [GNU make](https://www.gnu.org/software/make/).
 
 ```bash
-# Sjekk at alt er på plass
+# Steg 1 — før du har installert make/podman: køyr sjekkescriptet direkte
+bash src/assets/scripts/makefile/check-prereqs.bash
+```
+```bash
+# Når make er stadfesta installert kan du bruke make-targetet i staden
 make check-prereqs
 ```
 ```bash
