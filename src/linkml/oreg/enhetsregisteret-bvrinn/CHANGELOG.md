@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.1...enhetsregisteret-bvrinn-v1.1.2) (2026-08-28)
+
+
+### Bug Fixes
+
+* **make:** bytt vegg-klokke til monotonisk tidtaking i byggesystemet ([afe90d0](https://github.com/brreg/linkml-datamodellering-no/commit/afe90d0b723abe1b0ccaee958d7a836e6d8548b3))
+
 ## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.0...enhetsregisteret-bvrinn-v1.1.1) (2026-08-28)
 
 
