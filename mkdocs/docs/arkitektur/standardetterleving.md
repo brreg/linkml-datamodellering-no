@@ -80,15 +80,20 @@ tiltak · ⚪ kartlagt, avgrensa/ingen teknisk relevans for eit delt verktøyrep
 | 7 | ~~Nøkkelnamn-mismatch, manglande `samlingar`-container og manglande `kvalitetsmaalingar`-attributt i DQV-verktøykjeda~~ | Beskrivelse av kvalitet på datasett | **Lukka** |
 | 8 | Vurder å faktorisere `ModellkatalogContainer` (nær-identisk på tvers av 6 modellkatalog-skjema) til eit delt importert basisskjema (DRY) | Ni designprinsipper (P7 Modularitet) | Låg — funksjonelt ufarleg, reint vedlikehaldspoeng |
 | 9 | ~~Dei 6 modellkatalog-datafilene var utdaterte, og generatorane hadde eit namnemønster-avvik (`<schema>#Klasse` vs. `<schema>/Klasse`) som ville skapt daude referansar ved regenerering~~ | [`modellkatalog-datadrift-undersokt.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/modellkatalog-datadrift-undersokt.md) | **Lukka — org_uri-basert URI er no fasit for alle 6 org** |
-| 10 | `digdir-modellkatalog.yaml` har 3 daude `inneholder_modellelement`-referansar til ei `katalog`-informasjonsmodell-oppføring utan tilhøyrande skjema i `gen-modelldcat-elements.py` (funne under gap 9-arbeidet, uavhengig av URI-migreringa) | ModelDCAT-AP-NO / modellkatalog | Låg — datakvalitetsfeil, ikkje strukturelt |
+| 10 | ~~`digdir-modellkatalog.yaml` hadde 3 daude `inneholder_modellelement`-referansar (id/name-mismatch for `modelldcat-katalog`/`modelldcat-modell`)~~ | [`fiks-digdir-katalog-referanse.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/fiks-digdir-katalog-referanse.md) | **Lukka** |
+| 11 | 6 `oreg`-skjema (`enhetsregisteret_bvrbekreftelse`, `-bvrettersendingavvedlegg`, `-bvrfriv`, `-bvrinnfelles`, `-bvrstiftelsesdokument`, `-frivilligorganisasjonapi`) manglar `metadata/*-manifest.yaml` heilt, og er difor ikkje med i `brreg-modellkatalog.yaml` sin `informasjonsmodeller`-liste sjølv om dei høyrer til brreg | [`fiks-digdir-katalog-referanse.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/fiks-digdir-katalog-referanse.md) | Middels — 6 skjema usynlege i modellkatalogen |
 
-Gap 1, 2, 5, 6 og 10 er reelle, avgrensa utvidingspunkt eller feil; gap 3 og 4
+Gap 1, 2, 5, 6 og 11 er reelle, avgrensa utvidingspunkt eller feil; gap 3 og 4
 er presisjonsfiksar utan funksjonell konsekvens. Gap 7 (nøkkelnamn-mismatch i
 `gen-dqv-measurements.py`, manglande `samlingar`-container i
 `brreg-begrepskatalog.yaml`, og manglande `kvalitetsmaalingar`-attributt i 5
-modellkatalog-skjema) og gap 9 (modellkatalog-datadrift og URI-policy) er
+modellkatalog-skjema), gap 9 (modellkatalog-datadrift og URI-policy) og
+gap 10 (id/name-mismatch for `modelldcat-katalog`/`modelldcat-modell`) er
 lukka — sjå `specs/done/fiks-dqv-measurements-data-policy-nokkel.md`,
-`specs/done/fiks-dqv-gap-7a-7b.md` og `specs/done/modellkatalog-datadrift-undersokt.md`.
+`specs/done/fiks-dqv-gap-7a-7b.md`, `specs/done/modellkatalog-datadrift-undersokt.md`
+og `specs/done/fiks-digdir-katalog-referanse.md`. Gap 11 vart avdekt som eit
+biprodukt av gap 9/10-arbeidet (orphan-element frå 6 skjema utan metadata,
+funne og rydda opp, men det underliggande manglande-metadata-gapet står att).
 Gap 8 er eit nytt, lågt prioritert
 vedlikehaldspoeng avdekt undervegs i den fiksen.
 

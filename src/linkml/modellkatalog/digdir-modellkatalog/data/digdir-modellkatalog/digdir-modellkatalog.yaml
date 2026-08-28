@@ -200,9 +200,9 @@ informasjonsmodeller:
   versjonsnummer: 1.0.0
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   inneholder_modellelement:
-  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/katalog/Document
-  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/katalog/dcat#Catalog
-  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/katalog/modelldcatno#InformationModel
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-katalog/Dokument
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-katalog/Modellkatalog
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-katalog/Informasjonsmodell
 - id: https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modell
   tittel:
   - ModelDCAT-AP-NO - Modelldel
@@ -220,6 +220,32 @@ informasjonsmodeller:
   endringsdato: '2026-08-02'
   versjonsnummer: 1.14.0
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+  inneholder_modellelement:
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Objekttype
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Rotobjekttype
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Datatype
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Enkeltype
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Kodeliste
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Modul
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Attributt
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Assosiasjon
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Rolle
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Spesialisering
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Komposisjon
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Realisering
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Abstraksjon
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Avhengighet
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Samling
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Valg
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Alle
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/NoenAv
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Note
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Begrensningsregel
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Og
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Eller
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/EntenEller
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Ikke
+  - https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/modelldcat-modell/Kodeelement
 - id: https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog/skos-ap-no
   tittel:
   - SKOS-AP-NO

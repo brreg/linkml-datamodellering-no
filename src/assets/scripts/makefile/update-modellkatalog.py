@@ -133,7 +133,17 @@ def find_catalog_data(org):
 
 
 def entry_name(entry):
-    """Derive schema name from catalog entry id (last path segment)."""
+    """Derive schema name (LinkML 'name:' field / katalogmappenamn) frå
+    'informasjonsmodellidentifikator' (mkdocs-URL, .../<domain>/<modell>/),
+    som alltid samsvarar med katalogmappa. Fell tilbake til entry sin eigen
+    id (siste path-segment) når feltet manglar — det samsvarar oftast, men
+    ikkje alltid, med schema-namnet: nokre schema (t.d. modelldcat-katalog,
+    modelldcat-modell) har eit kortare alias som siste segment i sjølve
+    id-en ('katalog'/'modell'), noko som elles gjer join mot schema["name"]
+    stille feil (sjå specs/done/fiks-digdir-katalog-referanse.md)."""
+    identifikator = entry.get("informasjonsmodellidentifikator")
+    if identifikator:
+        return identifikator.rstrip("/").split("/")[-1]
     return (entry.get("id") or "").rstrip("/").split("/")[-1]
 
 
