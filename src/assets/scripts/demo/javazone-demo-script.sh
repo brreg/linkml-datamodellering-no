@@ -448,8 +448,8 @@ EOF
 do_insert "slots:" "$classes_content"
  echo ""
  echo ""
-print_heading boxes "4. Rediger slots"
-
+print_heading boxes "4b. Rediger slots"
+echo ""
 slots_content=$(cat <<EOF
   navn:
     description: Navnet på foredragshaldaren.
@@ -538,8 +538,8 @@ EOF
 do_insert "$TRAILING_MARKER" "$slots_content"
 echo ""
 echo ""
-print_heading boxes "4. Rediger enumerations"
-
+print_heading boxes "4c. Rediger enumerations"
+echo ""
 enums_content=$(cat <<EOF
 enums:
   InnsendingStatus:

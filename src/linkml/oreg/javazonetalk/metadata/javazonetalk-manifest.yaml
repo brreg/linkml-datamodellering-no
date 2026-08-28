@@ -32,11 +32,5 @@ inneholder_modellelement:
 finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk-filtered.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/diagrams/javazonetalk.puml
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-context.jsonld
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-ontology.ttl
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-openapi.yaml
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-schema.graphql
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-schema.json
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-schema.proto
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/javazonetalk/javazonetalk-shapes.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/javazonetalk/javazonetalk-schema.yaml
