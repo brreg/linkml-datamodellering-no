@@ -27,6 +27,9 @@ JSON Schema (fil)
   ├── Lagar globale slots for alle eigenskapar
   ├── Legg til id-slot (identifier: true, range: uriorcurie)
   ├── Legg til slot_usage med required og in_subset per klasse
+  ├── Slår opp class_uri mot ei kjeldeverifisert vokabultabell (EU/W3C) —
+  │   eksakt treff vert sett automatisk, tvetydige treff vert kommentert
+  │   som TODO, ingen treff fell tilbake til lokalt prefiks
   └── Genererer Containerklasse (tree_root: true) med attributt per klasse
       │
       ▼
@@ -55,6 +58,7 @@ JSON Schema (fil)
 | `slots.id` | Global `id`-slot med `identifier: true` og `range: uriorcurie` |
 | `slots.<prop>` | Ein global slot per eigeskap i JSON Schema, med `slot_uri: <prefix>:<prop>` |
 | `classes.<Klasse>` | Ein klasse per `$defs`-objekt. Har `class_uri`, `annotations.begrepsidentifikator: TODO` og `slot_usage` med `required`/`in_subset`. Ein `allOf`-komponert def (sjå under) får i tillegg `is_a` |
+| `classes.<Klasse>.class_uri` | Slår opp klassenamnet mot ei kjeldeverifisert vokabultabell (EU Core-vokabular, W3C `org:`/`foaf:`/`vcard:`/`time:` m.fl., sjå `_EKSTERN_CLASS_URI_KANDIDATAR` i `converter.py`). **Eksakt treff** vert sett automatisk (t.d. `Virksomhet` → `rov:RegisteredOrganization`), med naudsynt prefiks lagt til i `prefixes`. **Tvetydig treff** (fleire kandidatar, t.d. `Person` → `person:Person`/`foaf:Person`) behelder det lokale placeholder-prefikset og får ein `# TODO: vurder ekstern class_uri-kandidat: ...`-kommentar i YAML-teksten. **Ingen treff** fell tilbake til det lokale placeholder-prefikset, uendra frå før |
 | `classes.<Name>Container` | `tree_root: true`, med `multivalued`/`inlined`/`inlined_as_list`-attributt per klasse |
 
 ### Typeomsetting
@@ -144,8 +148,8 @@ Fyll inn korrekte verdiar og valider: `make mcp-linkml-valider-modell POLICY=sil
 
 Det genererte skjemaet er eit **utkast** og krev manuell tilpassing:
 
-1. **Erstatt placeholder-prefiksar** (`<schema_name>:`) med faktiske vokabular-URIar (`dct:`, `dcat:`, `skos:` o.l.)
-2. **Fyll inn `begrepsidentifikator`** — finn rett begrep på [data.norge.no/concepts](https://data.norge.no/concepts) og kopier URI-en, på forma `https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>`
+1. **Erstatt attverande placeholder-prefiksar** (`<schema_name>:`) med faktiske vokabular-URIar (`dct:`, `dcat:`, `skos:` o.l.). Klassar med eit kjeldeverifisert eksakt vokabultreff har alt fått `class_uri` sett automatisk (sjå tabellen over) — klassar med ein `# TODO: vurder ekstern class_uri-kandidat: ...`-kommentar treng eit medvite val mellom kandidatane
+2. **Fyll inn `begrepsidentifikator`** — bruk `sok_begrepskatalog`-verktøyet i `mcp-linkml-begrep-utkast` (term = klassenamnet) for kandidatar, eller søk manuelt på [data.norge.no/concepts](https://data.norge.no/concepts), og kopier URI-en, på forma `https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>`. Vel aldri ein kandidat automatisk
 3. **Fyll inn `title`** — erstatt TODO-stubben med ein meiningsfull tittel
 4. **Juster klassenavn** til norsk bokmål om nødvendig
 5. **Importer AP-NO-profil** om skjemaet skal følgje DCAT-AP-NO, DQV-AP-NO o.l.

@@ -6,6 +6,7 @@ Offentleg API:
   convert(json_schema, policy, ...)           → (yaml_str, warnings)
 """
 
+import re
 import yaml
 from pathlib import Path
 
@@ -87,6 +88,80 @@ def _to_pascal_case(name: str) -> str:
     """
     parts = name.replace("_", "-").split("-")
     return "".join(p.capitalize() for p in parts if p)
+
+
+# ---------------------------------------------------------------------------
+# Ekstern class_uri-oppslag
+# ---------------------------------------------------------------------------
+#
+# Statisk, kjeldeverifisert tabell — ikkje eit generelt vokabularoppslag.
+# Kvar oppføring er henta direkte frå dei 24 klassane som fekk stadfesta,
+# presise eksterne class_uri-ekvivalentar i
+# specs/done/undersokelse-class-uri-kryssreferansar.md (Fase 3), og følgjer
+# konvensjonsregelen «ekstern ekvivalent er føretrekt bruk av class_uri» i
+# .claude/rules/linkml-schema.md. Nøklane er klassenamn (transliterert,
+# lowercase). Éin kandidat = eksakt treff, sett automatisk. Fleire kandidatar
+# = tvetydig — skal IKKJE veljast automatisk, sjå `_lookup_ekstern_class_uri`.
+#
+# DRY-vurdering (jf. spec mcp-modell-utkast-ekstern-class-uri.md, punkt 4):
+# denne tabellen deler medvite INGEN kode med
+# src/mcp-linkml-begrep-utkast/concept_search.py. Dei to søkjer mot
+# fundamentalt ulike kjelder — concept_search.py gjer levande SPARQL/REST-kall
+# mot ein dynamisk, veksande nasjonal katalog (Felles Begrepskatalog), medan
+# denne tabellen er eit fast, lite sett med allereie kjeldeverifiserte
+# W3C/EU-vokabulartermar. Det finst ingen felles HTTP-/søkjelogikk å trekkje
+# ut i eit delt hjelpebibliotek.
+_EKSTERN_CLASS_URI_KANDIDATAR: dict[str, list[tuple[str, str, str]]] = {
+    # klassenamn (lowercase) -> [(prefix, lokalt namn, namespace-URI), ...]
+    "virksomhet":           [("rov", "RegisteredOrganization", "http://www.w3.org/ns/regorg#")],
+    "hovedenhet":           [("rov", "RegisteredOrganization", "http://www.w3.org/ns/regorg#")],
+    "geografiskadresse":    [("locn", "Address", "http://www.w3.org/ns/locn#")],
+    "representasjonspunkt": [("locn", "Geometry", "http://www.w3.org/ns/locn#")],
+    "kontaktopplysning":    [("vcard", "Kind", "http://www.w3.org/2006/vcard/ns#")],
+    "tidsperiode":          [("dct", "PeriodOfTime", "http://purl.org/dc/terms/")],
+    "tidspunkt":            [("time", "Instant", "http://www.w3.org/2006/time#")],
+    "underenhet":           [("org", "OrganizationalUnit", "http://www.w3.org/ns/org#")],
+    "rolleivirksomhet":     [("org", "Post", "http://www.w3.org/ns/org#")],
+    "person": [
+        ("person", "Person", "http://www.w3.org/ns/person#"),
+        ("foaf", "Person", "http://xmlns.com/foaf/0.1/"),
+    ],
+}
+
+
+def _lookup_ekstern_class_uri(cls_name: str) -> dict | None:
+    """Søkjer klassenamnet mot den kjeldeverifiserte vokabultabellen.
+
+    Returnerer None (ingen kandidat — behald lokalt class_uri, korrekt
+    fallback), eller ein dict:
+    - {'confidence': 'exact', 'class_uri': 'rov:RegisteredOrganization', ...}
+      når nøyaktig éin kandidat finst — trygt å setje automatisk.
+    - {'confidence': 'moderate', 'options': [...]} når fleire kandidatar
+      finst — for tvetydig til å velje automatisk, må markerast med TODO.
+    """
+    candidates = _EKSTERN_CLASS_URI_KANDIDATAR.get(_transliterate(cls_name).lower())
+    if not candidates:
+        return None
+    if len(candidates) == 1:
+        prefix, local, uri = candidates[0]
+        return {"confidence": "exact", "class_uri": f"{prefix}:{local}", "prefix": prefix, "uri": uri}
+    return {"confidence": "moderate", "options": [f"{prefix}:{local}" for prefix, local, _uri in candidates]}
+
+
+def _register_prefix(prefixes: dict, prefix: str, uri: str, warnings: list) -> None:
+    """Legg ein ekstern vokabularprefiks til `prefixes`, med kollisjonsvern.
+
+    Overskriv aldri eit alt deklarert prefiks med ein annan URI — logg
+    heller ei åtvaring (jf. CLAUDE.md § «Ingen stille feil»).
+    """
+    existing = prefixes.get(prefix)
+    if existing is None:
+        prefixes[prefix] = uri
+    elif existing != uri:
+        warnings.append(
+            f"Prefikset '{prefix}' er alt definert som '{existing}' — "
+            f"kan ikkje leggje til ekstern class_uri-kandidat med URI '{uri}'"
+        )
 
 
 def _resolve_ref(ref: str) -> str:
@@ -475,6 +550,9 @@ def convert(
 
     # ── Bygg klasse-oppføringane ──────────────────────────────────────────────
     classes_out: dict = {}
+    # klassenamn -> (lokal class_uri-verdi, kommentar-tekst) for klasser med
+    # tvetydige eksterne kandidatar — kommenterast inn i YAML-teksten etter dumping.
+    ekstern_todo: dict[str, tuple[str, str]] = {}
 
     for cls_name, cls_data in classes_data.items():
         props    = cls_data["properties"]
@@ -482,9 +560,28 @@ def convert(
         desc     = cls_data["description"]
         is_a     = cls_data.get("is_a")
 
+        local_class_uri = f"{prefix_name}:{_transliterate(cls_name)}"
+        ekstern = _lookup_ekstern_class_uri(cls_name)
+
         entry: dict = {}
         entry["description"] = desc or "TODO: beskriv klassen"
-        entry["class_uri"] = f"{prefix_name}:{_transliterate(cls_name)}"
+        if ekstern and ekstern["confidence"] == "exact":
+            entry["class_uri"] = ekstern["class_uri"]
+            _register_prefix(prefixes, ekstern["prefix"], ekstern["uri"], warnings)
+            warnings.append(
+                f"Klasse '{cls_name}': class_uri sett til ekstern ekvivalent "
+                f"'{ekstern['class_uri']}' — stadfest at han passar klassen si skildring"
+            )
+        else:
+            entry["class_uri"] = local_class_uri
+            if ekstern and ekstern["confidence"] == "moderate":
+                candidate_str = ", ".join(ekstern["options"])
+                ekstern_todo[cls_name] = (local_class_uri, candidate_str)
+                warnings.append(
+                    f"Klasse '{cls_name}': fleire moglege eksterne class_uri-kandidatar "
+                    f"({candidate_str}) — for tvetydig til å velje automatisk, sjå "
+                    f"TODO-kommentar i generert skjema"
+                )
         if is_a:
             entry["is_a"] = is_a
         if add_begrep_annotation:
@@ -579,9 +676,30 @@ def convert(
         1,
     )
 
+    # Klasser med tvetydige eksterne class_uri-kandidatar (sjå ekstern_todo
+    # over) — kommenter kandidatane inn rett under den (behaldne) lokale
+    # class_uri-linja, éin gong per klasse, i staden for å velje automatisk.
+    for cls_name, (local_class_uri, candidate_str) in ekstern_todo.items():
+        pattern = re.compile(rf"^([ \t]*)class_uri: {re.escape(local_class_uri)}\n", re.MULTILINE)
+        yaml_str = pattern.sub(
+            lambda m: (
+                f"{m.group(0)}{m.group(1)}"
+                f"# TODO: vurder ekstern class_uri-kandidat: {candidate_str}\n"
+            ),
+            yaml_str,
+            count=1,
+        )
+
     header = (
         "# Generert av mcp-linkml-generator — dette er eit utkast.\n"
         f"# Prefiks '{prefix_name}:' er ein placeholder — erstatt med ekte vokabular-URIar.\n"
-        "# 'TODO'-felt må fyllast inn manuelt.\n\n"
+        "# 'TODO'-felt må fyllast inn manuelt.\n"
     )
+    if add_begrep_annotation and classes_out:
+        header += (
+            "# annotations.begrepsidentifikator: TODO per klasse — søk med "
+            'sok_begrepskatalog(term="<Klassenavn>") (verktøy i mcp-linkml-begrep-utkast) '
+            "for kandidatar før du fyller inn verdien manuelt, vel aldri automatisk.\n"
+        )
+    header += "\n"
     return header + yaml_str, warnings

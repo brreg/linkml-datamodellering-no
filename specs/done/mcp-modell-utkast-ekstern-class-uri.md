@@ -79,4 +79,64 @@ Dette er ein spec/plan, ikkje ei utføring. Ingen kode i
 
 ## Utført
 
-_(fyllast ut når fiksen er implementert)_
+Implementert 2026-08-28 i `src/mcp-linkml-modell-utkast/converter.py`.
+
+**Punkt 1–3 (ekstern class_uri-oppslag):** ny modul-konstant
+`_EKSTERN_CLASS_URI_KANDIDATAR` — ei statisk, kjeldeverifisert tabell henta
+direkte frå dei 24 klassane som fekk stadfesta eksterne ekvivalentar i
+`specs/done/undersokelse-class-uri-kryssreferansar.md` (Fase 3): `Virksomhet`/
+`Hovedenhet` → `rov:RegisteredOrganization`, `GeografiskAdresse` →
+`locn:Address`, `Representasjonspunkt` → `locn:Geometry`,
+`Kontaktopplysning` → `vcard:Kind`, `Tidsperiode` → `dct:PeriodOfTime`,
+`Tidspunkt` → `time:Instant`, `Underenhet` → `org:OrganizationalUnit`,
+`RolleIVirksomhet` → `org:Post`, `Person` → `person:Person`/`foaf:Person`
+(tvetydig, sjå under). Ny funksjon `_lookup_ekstern_class_uri(cls_name)`
+slår opp klassenamnet (case-insensitivt, transliterert):
+
+- **Eksakt treff (éin kandidat):** `class_uri` sett automatisk til den
+  eksterne verdien, naudsynt prefiks lagt til i skjemaet sin `prefixes:`
+  via ny `_register_prefix()` (kollisjonsvern: overskriv aldri eit alt
+  deklarert prefiks med annan URI), og ei forklarande åtvaring lagt til.
+- **Tvetydig treff (fleire kandidatar, t.d. `Person`):** lokalt
+  placeholder-`class_uri` behalde uendra, kandidatane kommentert inn i
+  YAML-teksten rett under linja (`# TODO: vurder ekstern
+  class_uri-kandidat: person:Person, foaf:Person`), sett inn tekstbasert
+  etter `yaml.dump()` (same mønster som lisens-kommentaren) sidan PyYAML
+  ikkje kan uttrykkje per-nøkkel-kommentarar frå eit dict.
+- **Ingen treff:** uendra åtferd — lokalt prefiks, korrekt tilsikta fallback.
+
+Verifisert manuelt via `podman run` mot ein testfil med `Person` (tvetydig),
+`Virksomhet` (eksakt) og eit oppdikta `Diktverk` (ingen treff) — sjå
+transkript i arbeidsøkta. Output stadfesta alle tre grenene.
+
+**Punkt 4 (DRY-vurdering):** medvite **ikkje** delt kode med
+`src/mcp-linkml-begrep-utkast/concept_search.py` — dokumentert i ein
+kommentar over `_EKSTERN_CLASS_URI_KANDIDATAR`. Grunngjeving: dei to
+søkjer mot fundamentalt ulike kjelder (statisk, fast W3C/EU-vokabultabell
+vs. levande SPARQL/REST-søk mot ein dynamisk nasjonal katalog) — det finst
+ingen felles HTTP-/søkjelogikk å trekkje ut.
+
+**Punkt 5 (begrepsidentifikator-generering):** vurderte, men implementerte
+**ikkje**, eit direkte kall frå `converter.py` til `sok_begrepskatalog`
+(som krev levande nettverkstilgang). `convert()` er ein rein, synkron
+funksjon dekt av eit offline unit-testsuite (`tests/test_mcp_linkml_generator.py`)
+— eit nettverksavhengig kall per klasse ville gjort generering
+sein/ikkje-deterministisk og kravd mocking i testane, og dei to MCP-serverane
+køyrer i separate containerar utan delt prosessrom. I staden: ei generisk
+påminning lagt til i skjema-headeren («søk med
+`sok_begrepskatalog(term="<Klassenavn>")` ... før du fyller inn verdien
+manuelt») når `add_begrep_annotation` er på og skjemaet har klassar — kopla
+saman dei to verktøya for operatøren (menneskeleg eller LLM-styrt) utan å
+endre `convert()` sin reine, testbare karakter.
+
+**Testar:** tre nye einingstestar lagt til
+`tests/test_mcp_linkml_generator.py` (`test_ekstern_class_uri_*`) som
+dekkjer eksakt/tvetydig/ingen-treff-grenene, pluss ein test for
+header-påminninga. `test_allof_med_ref_gir_is_a_klasse` oppdatert til å
+stadfeste den nye `GeografiskAdresse` → `locn:Address`-åtferda i staden for
+å krevje ei tom åtvaringsliste. `make mcp-linkml-modell-utkast-test`: 51/51
+grøne (47 eksisterande + 4 nye).
+
+**Rekkjefølgje:** utført etter at Fase 1 i
+`plan-konsekvent-begrepsidentifikator.md` (`sok_begrepskatalog`-verktøyet)
+var ferdig, slik den opphavlege specen føresette.

@@ -383,7 +383,11 @@ class TestConversion(unittest.TestCase):
         self.assertIn("stedsnavn", schema["classes"]["Stedsadresse"]["slots"])
         self.assertNotIn("id", schema["classes"]["Stedsadresse"]["slots"])
         self.assertEqual(schema["slots"]["stedsadresse"]["range"], "Stedsadresse")
-        self.assertEqual([], warnings)
+        # GeografiskAdresse har éin kjeldeverifisert ekstern class_uri-kandidat
+        # (sjå _EKSTERN_CLASS_URI_KANDIDATAR) — vert sett automatisk, med åtvaring.
+        self.assertEqual(schema["classes"]["GeografiskAdresse"]["class_uri"], "locn:Address")
+        allof_warnings = [w for w in warnings if "class_uri" not in w]
+        self.assertEqual([], allof_warnings)
 
     def test_allof_med_fleire_ref_gir_åtvaring(self):
         schema, warnings = _convert({
@@ -405,6 +409,42 @@ class TestConversion(unittest.TestCase):
         # B og C sine felt vert flata ut sidan berre A kan bli is_a
         self.assertIn("b", schema["classes"]["C"]["slots"])
         self.assertIn("c", schema["classes"]["C"]["slots"])
+
+    def test_ekstern_class_uri_eksakt_treff_vert_sett_automatisk(self):
+        """'Virksomhet' har éin kjeldeverifisert ekstern kandidat
+        (rov:RegisteredOrganization, sjå _EKSTERN_CLASS_URI_KANDIDATAR) —
+        skal setjast automatisk, ikkje det lokale prefikset."""
+        schema, warnings = _convert({
+            "$defs": {"Virksomhet": {"type": "object", "properties": {}}}
+        })
+        self.assertEqual(schema["classes"]["Virksomhet"]["class_uri"], "rov:RegisteredOrganization")
+        self.assertEqual(schema["prefixes"]["rov"], "http://www.w3.org/ns/regorg#")
+        self.assertTrue(any("Virksomhet" in w and "rov:RegisteredOrganization" in w for w in warnings))
+
+    def test_ekstern_class_uri_tvetydig_treff_behelder_lokalt_med_todo(self):
+        """'Person' har to kjeldeverifiserte kandidatar (person:Person og
+        foaf:Person) — for tvetydig til å veljast automatisk. Lokalt
+        class_uri skal behaldast, med ein TODO-kommentar i rå YAML-teksten."""
+        yaml_str, warnings = convert(
+            {"$defs": {"Person": {"type": "object", "properties": {}}}},
+            _policy(),
+            schema_id="https://example.org/test",
+            schema_name="test",
+        )
+        schema = yaml.safe_load(yaml_str)
+        self.assertEqual(schema["classes"]["Person"]["class_uri"], "test:Person")
+        self.assertIn(
+            "# TODO: vurder ekstern class_uri-kandidat: person:Person, foaf:Person",
+            yaml_str,
+        )
+        self.assertTrue(any("Person" in w and "tvetydig" in w for w in warnings))
+
+    def test_ekstern_class_uri_ingen_treff_behelder_lokalt(self):
+        schema, warnings = _convert({
+            "$defs": {"HeilPaadikta": {"type": "object", "properties": {}}}
+        })
+        self.assertEqual(schema["classes"]["HeilPaadikta"]["class_uri"], "test:HeilPaadikta")
+        self.assertFalse(any("class_uri" in w for w in warnings))
 
     def test_allof_med_ref_til_ikkje_klasse_gir_åtvaring(self):
         schema, warnings = _convert({
@@ -482,6 +522,16 @@ class TestGeneratedOutput(unittest.TestCase):
             self.assertIn("navn",   sv.all_slots())
         finally:
             os.unlink(fname)
+
+    def test_header_minner_om_sok_begrepskatalog_naar_begrep_annotasjon_er_pa(self):
+        yaml_str, _ = convert(
+            {"$defs": {"Ting": {"type": "object", "properties": {}}}},
+            _policy(),
+            schema_id="https://example.org/test",
+            schema_name="test",
+        )
+        self.assertIn("sok_begrepskatalog", yaml_str)
+        self.assertIn("mcp-linkml-begrep-utkast", yaml_str)
 
     def test_load_policy_les_bronze(self):
         p = load_policy("bronze")
