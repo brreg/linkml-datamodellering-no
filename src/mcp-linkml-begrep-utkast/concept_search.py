@@ -77,6 +77,12 @@ def _exact_label_match(term: str) -> list:
         "  { ?s skos:prefLabel ?label } UNION { ?s skos:altLabel ?label }\n"
         '  FILTER(LANG(?label) = "nb")\n'
         f'  FILTER(LCASE(STR(?label)) = "{term_escaped}")\n'
+        # Avgrens til Felles Begrepskatalog sine faktiske konsept-URI-ar.
+        # Den harvesta grafen inneheld òg andre ressursar med skos:prefLabel
+        # (LOS-ord under psi.norge.no/los/ord/, "subjects"-taggar under
+        # catalog-admin-service.fellesdatakatalog.digdir.no) som IKKJE er
+        # gyldige begrepsidentifikator-mål.
+        '  FILTER(STRSTARTS(STR(?s), "https://concept-catalog.fellesdatakatalog.digdir.no/"))\n'
         "} LIMIT 10"
     )
     bindings = _sparql_query(query)

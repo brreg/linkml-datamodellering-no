@@ -131,14 +131,23 @@ treff, aldri tvinge fram svake treff», jf. `class_uri`-gjennomgangen):
 - Manglande `term`-parameter → korrekt `-32602`-feil.
 - `make mcp-linkml-begrep-utkast-smoke` — grøn.
 
-### Fase 2 — Køyr søkjefasen, produser gap-liste (eg kan gjere dette)
+### Fase 2 — Køyr søkjefasen, produser gap-liste — **✅ utført 2026-08-28**
 
-Med verktøyet frå fase 1: gå gjennom dei 463 klassane (prioritert rekkjefølgje,
-sjå under) og produser ei liste delt i to:
+Køyrde `concept_search.py` sitt eksakt-namnetreff-steg mot alle 326 klassar
+som manglar `begrepsidentifikator` og har ei reell skildring (dei
+resterande 137 av 463 er anten alt løyste, sjå Prioritet 1, eller manglar
+skildring heilt og er difor ikkje søkbare enno). Full gap-liste, metode og
+avgrensingar (inkl. ein datakvalitetsfeil oppdaga og retta i
+`concept_search.py` undervegs — sjå detaljar der) er skrivne til
+[`begrepsidentifikator-gap-liste-fase2.md`](begrepsidentifikator-gap-liste-fase2.md):
 
-- **Treff funne** — kandidat-URI + kor sikkert treffet er, klar for
-  menneskeleg stadfesting
-- **Ingen treff** — treng ny registrering (fase 4)
+- **121 treff** (39 utan tvetydigheit, 53 med fleire kandidatar som krev
+  eit medvite val — vel aldri automatisk) — klar for Fase 3.
+- **205 ingen treff** — kandidatar for Fase 4 (nyregistrering).
+- **130 ikkje søkte** — manglar reell skildring, treng det først.
+- Fritekstsøk-fallback vart medvite **ikkje** køyrd i bulk (for støyete til
+  å vere nyttig utan menneskeleg vurdering per treff) — tilgjengeleg
+  individuelt via `sok_begrepskatalog` for enkeltklassar i Fase 3/4.
 
 ### Fase 3 — Menneskeleg stadfesting av treff (menneskeleg, per organisasjon)
 
@@ -231,19 +240,19 @@ kandidatsøk når det eksakte oppslaget ikkje gir treff.
 |---|---|
 | Fase 0: avklar org-samling | Menneskeleg (repo-eigar/kontakt per org) |
 | Fase 1: byggje søkjeverktøy | Eg (kodeendring) — **✅ utført** |
-| Fase 2: køyr søk, lag gap-liste | Eg (les-operasjon mot offentleg API) |
+| Fase 2: køyr søk, lag gap-liste | Eg (les-operasjon mot offentleg API) — **✅ utført** |
 | Fase 3: stadfest treff | Menneskeleg (begrepsansvarleg per org) |
 | Fase 4: registrer nye konsept | Menneskeleg (begrepsansvarleg per org, ID-porten) |
 | Fase 5: skriv URI attende, valider | Eg (kodeendring) |
 
 ## Ikkje gjort i denne specen
 
-Prioritet 2-4 (dei resterande ~455 klassane) er ikkje starta. `PrivatVirksomhet`
-i `samt-bu` treng framleis ei menneskeleg Fase 4-registrering. Fase 0
-(avklar org-samling-status per organisasjon) er ikkje gjennomført. Fase 2
-(køyr `sok_begrepskatalog` systematisk over alle 463 klassane og produser
-ei fullstendig gap-liste) er ikkje gjort — verktøyet frå Fase 1 er bygd og
-verifisert, men berre brukt manuelt for dei 5 `samt-bu`-klassane så langt.
+Fase 3 (menneskeleg stadfesting av dei 121 treffa) og Fase 4 (nyregistrering
+for dei 205 utan treff, inkl. `PrivatVirksomhet` frå Prioritet 1) er ikkje
+starta. Fase 0 (avklar org-samling-status per organisasjon) er ikkje
+gjennomført. Dei 130 klassane utan reell skildring er ikkje søkte — dei
+treng skildring først. Individuelt fritekstsøk for klassar utan eksakt
+treff (205 + 130) er heller ikkje gjort i bulk.
 
 ## Utført
 
@@ -267,3 +276,13 @@ presise `begrepsidentifikator`-URI-ar via offentlege, uautentiserte
 lese-API-ar (fritekstsøk + SPARQL-oppslag mot Felles Begrepskatalog), skrivne
 inn og validerte. `PrivatVirksomhet` fann ikkje noko presist treff og
 attstår til menneskeleg nyregistrering (Fase 4).
+
+**Fase 2 utført 2026-08-28:** batch-søk (`_exact_label_match`) køyrt mot
+alle 326 søkbare klassar. Undervegs vart ein reell datakvalitetsfeil
+oppdaga og retta i `concept_search.py` — den harvesta SPARQL-grafa
+inneheldt namnetreff frå andre vokabular enn Felles Begrepskatalog
+(LOS-ord, interne "subjects"-taggar), som feilaktig ville gitt 17 ugyldige
+`begrepsidentifikator`-kandidatar. Etter fiksen: 121 treff (53 med fleire
+kandidatar, krev medvite val), 205 utan treff, 130 ikkje søkte (manglar
+skildring). Full gap-liste i eigen fil,
+`specs/backlog/begrepsidentifikator-gap-liste-fase2.md`.
