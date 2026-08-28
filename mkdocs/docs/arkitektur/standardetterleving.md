@@ -51,8 +51,8 @@ tiltak · ⚪ kartlagt, avgrensa/ingen teknisk relevans for eit delt verktøyrep
 
 | Ressurs | Status | Vurdering |
 |---|---|---|
-| [Ni designprinsipper for informasjonsmodellar](https://www.digdir.no/informasjonsforvaltning/prinsipper-informasjonsmodeller/3030) | ✅ | 7 av 9 prinsipp fullt dekt. To attverande punkt: `begrepsidentifikator` manglar konsekvent på domenemodell-klassar utanfor `oreg/*` (P3 Terminologi, sjå gap 5), og ingen eksplisitt `owl:sameAs`/kryssreferanse for semantisk overlappande klassar på tvers av NGR/DCAT/FINT (P6 Gjenbruk, sjå gap 6, låg prioritet). FINT-skjema over 50-klassegrensa (P7) er eit akseptert avvik, ikkje eit gap. Full prinsipp-for-prinsipp-vurdering: [`avvik-prinsipper-informasjonsmodeller.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-prinsipper-informasjonsmodeller.md). |
-| [Felles modelleringsregler for offentleg forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029) (15 reglar) | ✅ | Alle 15 reglar er adresserte av MCP-validatoren — 11 med automatisk bronse/sølv-sjekk, 4 (Visualisering, Sammenhenger, Gjenbruk, Datatyper) via verktøy/konvensjon/manuell gjennomgang. Faktisk etterleving varierer: `begrepsidentifikator` (regel 13) manglar på 30/43 skjema (sjå gap 5 under). Full sjekkliste: [Valideringsreglar](valideringsregler.md). |
+| [Ni designprinsipper for informasjonsmodellar](https://www.digdir.no/informasjonsforvaltning/prinsipper-informasjonsmodeller/3030) | ✅ | 7 av 9 prinsipp fullt dekt. To attverande punkt: `begrepsidentifikator` manglar konsekvent på domenemodell-klassar utanfor `oreg/*` (P3 Terminologi, sjå gap 4), og ingen eksplisitt `owl:sameAs`/kryssreferanse for semantisk overlappande klassar på tvers av NGR/DCAT/FINT (P6 Gjenbruk, sjå gap 5, låg prioritet). FINT-skjema over 50-klassegrensa (P7) er eit akseptert avvik, ikkje eit gap. Full prinsipp-for-prinsipp-vurdering: [`avvik-prinsipper-informasjonsmodeller.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/avvik-prinsipper-informasjonsmodeller.md). |
+| [Felles modelleringsregler for offentleg forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029) (15 reglar) | ✅ | Alle 15 reglar er adresserte av MCP-validatoren — 11 med automatisk bronse/sølv-sjekk, 4 (Visualisering, Sammenhenger, Gjenbruk, Datatyper) via verktøy/konvensjon/manuell gjennomgang. Faktisk etterleving varierer: `begrepsidentifikator` (regel 13) manglar på 30/43 skjema (sjå gap 4 under). Full sjekkliste: [Valideringsreglar](valideringsregler.md). |
 | [Person og Enhet — felles informasjonsmodell](https://www.digdir.no/informasjonsforvaltning/person-og-enhet-felles-informasjonsmodell/2018) | ⚪ | Sterkt samsvar i sak (alle kjernefelt representerte, oftast med større presisjon), men ingen 1:1-mapping — repoet sine `ngr-person`/`enhetsregisteret-bvrinn` er kjeldeautoritative registermodellar, ikkje ei forenkling. Tilsikta avvik, ikkje eit gap. |
 | [Adresse — felles informasjonsmodell](https://www.digdir.no/informasjonsforvaltning/adresse-felles-informasjonsmodell/2019) | ✅ | Sterkt strukturelt og semantisk samsvar med `ngr-adresse` (same autoritative kjelde: Kartverket/Matrikkelen/Posten). Tidlegare presisjonsavvik (`Representasjonspunkt` brukte lokalt `class_uri` i staden for ein standard geometrivokabular-URI) er retta til `locn:Geometry` som del av den fulle `class_uri`-gjennomgangen — sjå [`undersokelse-class-uri-kryssreferansar.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/undersokelse-class-uri-kryssreferansar.md). |
 
@@ -73,32 +73,20 @@ tiltak · ⚪ kartlagt, avgrensa/ingen teknisk relevans for eit delt verktøyrep
 |---|---|---|---|
 | 1 | Løys 4 opne punkt: `begrep.brreg.no`- og `brreg.no/modellkatalogar/`-URI-ar løyser ikkje opp, schema-ID-ar manglar content negotiation (HTML i staden for RDF), ingen dokumentert URI-konstruksjonspolicy | [Standarder for URI-peikarar](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/backlog/avvik-peikarar-til-offentlege-ressursar.md) | Ope frå før |
 | 2 | Vurder TBX-eksport for `brreg-begrepskatalog` | TBX-AP-NO | Middels — reelt, men valfritt format |
-| 3 | ~~Bruk ein standard geometrivokabular-URI på `Representasjonspunkt` i `ngr-adresse-schema.yaml` i staden for det lokale `ngr:`-prefikset~~ | Adresse — felles informasjonsmodell | **Lukka** |
-| 4 | Dokumenter kryssreferanse til Digdirs Person/Enhet-modell i `description.md` for `ngr-person`/`enhetsregisteret-bvrinn` | Person og Enhet — felles informasjonsmodell | Låg — dokumentasjon |
-| 5 | Legg til `annotations.begrepsidentifikator` på nøkkelklassar i `ngr-*`, `fint-*` og AP-NO-profilane (finst i dag berre i `oreg/*` og `samt-bu`, 13/43 skjema totalt) | Ni designprinsipper (P3) / Felles modelleringsregler (regel 13) | Middels — krev begrepskatalog-avklaring per klasse |
-| 6 | Dokumenter `owl:sameAs`/`skos:exactMatch`-kryssreferanse for semantisk overlappande klassar (t.d. NGR `Virksomhet`/DCAT `Aktor`/FINT-tilsvarande) | Ni designprinsipper (P6 Gjenbruk og utveksling) | Låg — relevant fyrst ved konkret modell-integrasjon |
-| 7 | ~~Nøkkelnamn-mismatch, manglande `samlingar`-container og manglande `kvalitetsmaalingar`-attributt i DQV-verktøykjeda~~ | Beskrivelse av kvalitet på datasett | **Lukka** |
-| 8 | Vurder å faktorisere `ModellkatalogContainer` (nær-identisk på tvers av 6 modellkatalog-skjema) til eit delt importert basisskjema (DRY) | Ni designprinsipper (P7 Modularitet) | Låg — funksjonelt ufarleg, reint vedlikehaldspoeng |
-| 9 | ~~Dei 6 modellkatalog-datafilene var utdaterte, og generatorane hadde eit namnemønster-avvik (`<schema>#Klasse` vs. `<schema>/Klasse`) som ville skapt daude referansar ved regenerering~~ | [`modellkatalog-datadrift-undersokt.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/modellkatalog-datadrift-undersokt.md) | **Lukka — org_uri-basert URI er no fasit for alle 6 org** |
-| 10 | ~~`digdir-modellkatalog.yaml` hadde 3 daude `inneholder_modellelement`-referansar (id/name-mismatch for `modelldcat-katalog`/`modelldcat-modell`)~~ | [`fiks-digdir-katalog-referanse.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/fiks-digdir-katalog-referanse.md) | **Lukka** |
-| 11 | 6 `oreg`-skjema (`enhetsregisteret_bvrbekreftelse`, `-bvrettersendingavvedlegg`, `-bvrfriv`, `-bvrinnfelles`, `-bvrstiftelsesdokument`, `-frivilligorganisasjonapi`) manglar `metadata/*-manifest.yaml` heilt, og er difor ikkje med i `brreg-modellkatalog.yaml` sin `informasjonsmodeller`-liste sjølv om dei høyrer til brreg | [`fiks-digdir-katalog-referanse.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/fiks-digdir-katalog-referanse.md) | Middels — 6 skjema usynlege i modellkatalogen |
+| 3 | Dokumenter kryssreferanse til Digdirs Person/Enhet-modell i `description.md` for `ngr-person`/`enhetsregisteret-bvrinn` | Person og Enhet — felles informasjonsmodell | Låg — dokumentasjon |
+| 4 | Legg til `annotations.begrepsidentifikator` på nøkkelklassar i `ngr-*`, `fint-*` og AP-NO-profilane. Søkjeverktøy (`sok_begrepskatalog`) og Fase 2-batchsøk er utført: 121 kandidattreff funne av 326 søkbare klassar (av 463 totalt i omfang) — attståande er Fase 3 (menneskeleg stadfesting av kandidatane) og Fase 4 (nyregistrering for dei 205 utan treff + 130 utan skildring) | Ni designprinsipper (P3) / Felles modelleringsregler (regel 13) — [`plan-konsekvent-begrepsidentifikator.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/backlog/plan-konsekvent-begrepsidentifikator.md), [gap-liste Fase 2](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/backlog/begrepsidentifikator-gap-liste-fase2.md) | Middels — verktøy og kartlegging klart, ventar på menneskeleg stadfesting per klasse |
+| 5 | Dokumenter `owl:sameAs`/`skos:exactMatch`-kryssreferanse for semantisk overlappande klassar (t.d. NGR `Virksomhet`/DCAT `Aktor`/FINT-tilsvarande) | Ni designprinsipper (P6 Gjenbruk og utveksling) | Låg — relevant fyrst ved konkret modell-integrasjon |
+| 6 | 6 `oreg`-skjema (`enhetsregisteret-bvrbekreftelse`, `-bvrettersendingavvedlegg`, `-bvrfriv`, `-bvrinnfelles`, `-bvrstiftelsesdokument`, `-frivilligorganisasjonapi`) har no fått `metadata/*-manifest.yaml` generert av CI, men er enno ikkje med i `brreg-modellkatalog.yaml` sin `informasjonsmodeller`-liste — krev berre ny CI-regenerering av modellkatalog-data, ikkje ei kodeendring | [`fiks-digdir-katalog-referanse.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/done/fiks-digdir-katalog-referanse.md) | Låg — rotårsak (manglande manifest) er retta, berre regenerering står att |
 
-Gap 1, 2, 5, 6 og 11 er reelle, avgrensa utvidingspunkt eller feil; gap 4 er
-ein presisjonsfiks utan funksjonell konsekvens. Gap 3 (`Representasjonspunkt`
-sin `class_uri`), gap 7 (nøkkelnamn-mismatch i `gen-dqv-measurements.py`,
-manglande `samlingar`-container i `brreg-begrepskatalog.yaml`, og manglande
-`kvalitetsmaalingar`-attributt i 5 modellkatalog-skjema), gap 9
-(modellkatalog-datadrift og URI-policy) og gap 10 (id/name-mismatch for
-`modelldcat-katalog`/`modelldcat-modell`) er lukka — sjå
-`specs/done/fiks-dqv-measurements-data-policy-nokkel.md`,
-`specs/done/fiks-dqv-gap-7a-7b.md`, `specs/done/modellkatalog-datadrift-undersokt.md`,
-`specs/done/fiks-digdir-katalog-referanse.md` og
-`specs/done/undersokelse-class-uri-kryssreferansar.md`. Gap 11 vart avdekt
-som eit biprodukt av gap 9/10-arbeidet (orphan-element frå 6 skjema utan
-metadata,
-funne og rydda opp, men det underliggande manglande-metadata-gapet står att).
-Gap 8 er eit nytt, lågt prioritert
-vedlikehaldspoeng avdekt undervegs i den fiksen.
+Gap 1, 2, 4 og 5 er reelle, avgrensa utvidingspunkt eller feil; gap 3 er ein
+presisjonsfiks utan funksjonell konsekvens. Gap 4 (begrepsidentifikator) har
+gått frå «ikkje starta» til «verktøy bygd og kartlegging utført» — sjå
+`specs/backlog/plan-konsekvent-begrepsidentifikator.md` for full
+fasebeskriving. Gap 6 (oreg-manifest) har gått frå «manifest manglar heilt»
+til «manifest finst, men modellkatalog-data er ikkje regenerert» — det
+underliggande datadrift-arbeidet er skildra i
+`specs/done/modellkatalog-datadrift-undersokt.md` og
+`specs/done/fiks-digdir-katalog-referanse.md`.
 
 ---
 

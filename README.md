@@ -17,7 +17,7 @@
 ## Målsetting
 
   Dette repoet har som mål å realisere deler av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog i henhold til nasjonale veiledere og standarder. Sjå [Standardetterleving](https://brreg.github.io/linkml-datamodellering-no/arkitektur/standardetterleving/) for detaljar.  
-  Det er tenkt som eit felles verktøykasse for arbeid med begreps- og datamodeller. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
+  Det er tenkt som eit felles verktøykasse for arbeid med begrep og datamodeller. Både modeller og verktøy kan benyttes lokalt i andre git-repoer. 
 
 ---
 
@@ -31,6 +31,7 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 * [mcp-linkml-modell-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-modell-utkast/README.md) for å generere utkast til nye informasjonsmodellar i LinkML format ihht [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626).
 * [mcp-linkml-begrep-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) for å generere utkast til nye begreper i LinkML format ihht [skos-ap-no standarden](https://data.norge.no/specification/skos-ap-no-begrep).
 * [mcp-linkml-validator](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md)  for å validere LinkML-skjemaer ihht [Felles modelleringsregler for offentlig forvaltning](https://www.digdir.no/informasjonsforvaltning/felles-modelleringsregler-offentlig-forvaltning/3029) og [FAIR prinsippa](https://www.go-fair.org/fair-principles/). Validatoren implementerer kvalitets-policyar (bronze, silver, gold), publiserings-policyar (felles begrepskatalog og felles datakatalog) og har støtte for egendefinerte policyar.
+* [Modellanalyser](https://brreg.github.io/linkml-datamodellering-no/modellanalyse/) til hjelp med å finne avvik og oppfølgingspunkt i enkeltmodeller og på tvers av modeller.
 * LinkML-[generatorar](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md#genererte-artefakter) for å produsere artefakter i andre format frå LinkML-skjemaer.
 * Github Actions [pipelines](https://github.com/brreg/linkml-datamodellering-no/actions) for å automatisk generere, validere og publisere artefakter frå LinkML-skjemaer.
 * Guide for å publisere begreper til [felles begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering/publisering-begrep/) ihht [skos-ap-no standarden](https://data.norge.no/specification/skos-ap-no-begrep).
