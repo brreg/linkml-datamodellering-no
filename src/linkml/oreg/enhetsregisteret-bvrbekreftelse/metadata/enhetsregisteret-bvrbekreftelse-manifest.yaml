@@ -1,0 +1,37 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse
+tittel:
+  nb: 'TODO: tittel for enhetsregisteret-bvrbekreftelse'
+  nn: 'TODO: tittel for enhetsregisteret-bvrbekreftelse'
+beskrivelse:
+  nb: Generert modell for 'enhetsregisteret_bvrbekreftelse'.
+  nn: Generert modell for 'enhetsregisteret_bvrbekreftelse'.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-23'
+utgivelsesdato: '2026-08-23'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrbekreftelse/
+kontaktpunkt:
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+inneholder_modellelement:
+- https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/Bekreftelse
+- https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/Rolle
+- http://www.w3.org/ns/regorg#RegisteredOrganization
+- http://xmlns.com/foaf/0.1/Person
+- https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/EierskifteAktivitet
+- https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/DelerEierskifte
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrbekreftelse/diagrams/enhetsregisteret-bvrbekreftelse-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrbekreftelse/diagrams/enhetsregisteret-bvrbekreftelse.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrbekreftelse/enhetsregisteret-bvrbekreftelse-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrbekreftelse/enhetsregisteret-bvrbekreftelse-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrbekreftelse/enhetsregisteret-bvrbekreftelse-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrbekreftelse/enhetsregisteret-bvrbekreftelse-schema.yaml

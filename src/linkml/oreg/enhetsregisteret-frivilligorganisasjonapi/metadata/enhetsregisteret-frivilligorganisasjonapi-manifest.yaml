@@ -1,0 +1,40 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi
+tittel:
+  nb: 'TODO: tittel for enhetsregisteret-frivilligorganisasjonapi'
+  nn: 'TODO: tittel for enhetsregisteret-frivilligorganisasjonapi'
+beskrivelse:
+  nb: Generert modell for 'enhetsregisteret_frivilligorganisasjonapi'.
+  nn: Generert modell for 'enhetsregisteret_frivilligorganisasjonapi'.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-23'
+utgivelsesdato: '2026-08-23'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-frivilligorganisasjonapi/
+kontaktpunkt:
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+inneholder_modellelement:
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/FrivilligOrganisasjon
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/IcnpoKategori
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/Vedtekter
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/Grasrotandel
+- http://purl.org/dc/terms/PeriodOfTime
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/Regnskapsrapportering
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/SistInnsendteAArsregnskap
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/Paategning
+- https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjonapi/Virksomhetsrelasjon
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-frivilligorganisasjonapi/diagrams/enhetsregisteret-frivilligorganisasjonapi-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-frivilligorganisasjonapi/diagrams/enhetsregisteret-frivilligorganisasjonapi.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-frivilligorganisasjonapi/enhetsregisteret-frivilligorganisasjonapi-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-frivilligorganisasjonapi/enhetsregisteret-frivilligorganisasjonapi-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-frivilligorganisasjonapi/enhetsregisteret-frivilligorganisasjonapi-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-frivilligorganisasjonapi/enhetsregisteret-frivilligorganisasjonapi-schema.yaml

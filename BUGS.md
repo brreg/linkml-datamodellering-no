@@ -68,6 +68,7 @@ Sjå [GOVERNANCE.md](GOVERNANCE.md) for kva stabilitet og support du kan forvent
 | [BUG-18](bugs/curie-id-ikkje-reekspandert-ttl-roundtrip.md) | `rdflib_loader` re-ekspanderer ikkje ein kompaktert CURIE til full URI for `uriorcurie`-identifikatorar ved TTL-roundtrip | `workaround` | `linkml-runtime` | skjema med identifikatorverdi (full URI) i eige navnerom |
 | [BUG-19](bugs/datetime-separator-rdflib-roundtrip.md) | `rdflib_loader` rekonstruerer `datetime`-verdiar med mellomrom i staden for `T`-separator ved TTL-roundtrip | `open` | `linkml-runtime` | `enhetsregisteret-bvrinn` (stadfesta), potensielt `fint-*` (maskert av BUG-3) |
 | [BUG-20](bugs/linkml-docgen-strip-backtick-description.md) | `gen-doc` strippar backticks frå `description`-felt ved rendring til slot-/klasse-sider | `open` | `linkml` (docgen) | `dcat-ap-no` (stadfesta via `tema`-slot), truleg fleire skjema med backtick-verna eksempel-URL-ar i description |
+| [BUG-21](bugs/monotonisk-tidtaking-make.md) | `date +%s%3N`-basert elapsed-tidtaking er vegg-klokke-basert og kan gi absurd store tal ved klokkehopp (t.d. WSL2-drift ved dvale/oppvakning) | `løyst` | `make/00-settings.mk`, `make/40-validation.mk`, `batch-render-plantuml.sh`, `run-domain-pipeline.sh` | alle make-targets med elapsed-tidtaking |
 
 ## Statusforklaring
 

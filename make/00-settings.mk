@@ -70,13 +70,25 @@ fmt_elapsed_ms() {
   local ms="$$1"
   printf '%d.%02ds' $$(( ms / 1000 )) $$(( ms % 1000 / 10 ))
 }
+# now_ms — monotonisk tid i millisekund, henta frå /proc/uptime. Brukast for
+# ALL elapsed-tidtaking i byggesystemet i staden for `date +%s%3N`, som er
+# vegg-klokke-basert og kan gi absurd store elapsed-tal dersom systemklokka
+# hoppar mellom start og slutt (t.d. WSL2-klokkedrift ved dvale/oppvakning
+# av vertsmaskinen) — sjå bugs/monotonisk-tidtaking-make.md (BUG-21).
+now_ms() {
+  local up sec frac
+  read -r up _ < /proc/uptime
+  sec=$${up%.*}
+  frac=$${up#*.}
+  printf '%d' $$(( sec * 1000 + 10#$$frac * 10 ))
+}
 timed_run() {
   local label="$$1"; shift
-  local start=$$(date +%s%3N)
+  local start=$$(now_ms)
   log_debug "→ $$label: $$*"
   "$$@"
   local exit_code=$$?
-  local elapsed=$$(( $$(date +%s%3N) - start ))
+  local elapsed=$$(( $$(now_ms) - start ))
   if [ $$exit_code -eq 0 ]; then
     log_info "$$(printf '$(CLR_STEP)→ %s$(CLR_RST) (%s)' "$$label" "$$(fmt_elapsed_ms $$elapsed)")"
   else

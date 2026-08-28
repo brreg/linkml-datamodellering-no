@@ -1,0 +1,56 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument
+tittel:
+  nb: 'TODO: tittel for enhetsregisteret-bvrstiftelsesdokument'
+  nn: 'TODO: tittel for enhetsregisteret-bvrstiftelsesdokument'
+beskrivelse:
+  nb: Generert modell for 'enhetsregisteret_bvrstiftelsesdokument'.
+  nn: Generert modell for 'enhetsregisteret_bvrstiftelsesdokument'.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-23'
+utgivelsesdato: '2026-08-23'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrstiftelsesdokument/
+kontaktpunkt:
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+inneholder_modellelement:
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Stiftelsesdokument
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Stiftelsesutgift
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/AnnenAktoer
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/UstrukturertAdresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Poststed
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Revisor
+- http://www.w3.org/ns/regorg#RegisteredOrganization
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Stifter
+- http://xmlns.com/foaf/0.1/Person
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Personnavn
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Bostedsadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/AnnenAdresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Stedsadresse
+- http://www.w3.org/ns/locn#Address
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/InternasjonalAdresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Vegadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Aksjetegning
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Tegningslinje
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/AnnetInnskuddEnnPenger
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/AkjserINorskeSelskap
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/Styrerolle
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/SamletAksjeinnskudd
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/OverdragelseTilSelskap
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/AvtaleforpliktelseVedStiftelse
+- https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokument/SaerskiltRettighetEllerFordel
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrstiftelsesdokument/diagrams/enhetsregisteret-bvrstiftelsesdokument-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrstiftelsesdokument/diagrams/enhetsregisteret-bvrstiftelsesdokument.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrstiftelsesdokument/enhetsregisteret-bvrstiftelsesdokument-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrstiftelsesdokument/enhetsregisteret-bvrstiftelsesdokument-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrstiftelsesdokument/enhetsregisteret-bvrstiftelsesdokument-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrstiftelsesdokument/enhetsregisteret-bvrstiftelsesdokument-schema.yaml

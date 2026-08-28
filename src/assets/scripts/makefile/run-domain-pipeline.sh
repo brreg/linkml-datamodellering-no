@@ -37,9 +37,9 @@ trap 'echo "ERROR in ${BASH_SOURCE[0]}:${LINENO} — command: ${BASH_COMMAND}" >
 : "${GEN_DIR:?miljøvariabelen GEN_DIR må vere sett}"
 
 domain="$1"
-PIPELINE_T0=$(date +%s%3N)
 
 eval "$LOG_FUNCTIONS"
+PIPELINE_T0=$(now_ms)
 
 declare -A PIDS
 declare -A ELAPSED_MS OK_FLAG ELAPSED_FILES
@@ -67,13 +67,13 @@ run_bg() {
     elapsedfile=$(mktemp "${TMPDIR:-/tmp}/domain-pipeline-elapsed-XXXXXX")
     ELAPSED_FILES[$key]="$elapsedfile"
     (
-        t0=$(date +%s%3N)
+        t0=$(now_ms)
         # if/then/else (ikkje "$@" || rc=$?") slik at linja ETTER alltid
         # køyrer sjølv om "$@" feilar — set -euo pipefail er aktivt (arva
         # av subskalet), og eit ikkje-null steg midt i eit vanleg kommando-
         # kall ville elles avslutta subskalet FØR elapsed vart skriven.
         if "$@"; then rc=0; else rc=$?; fi
-        echo "$(( $(date +%s%3N) - t0 ))" > "$elapsedfile"
+        echo "$(( $(now_ms) - t0 ))" > "$elapsedfile"
         exit "$rc"
     ) &
     PIDS[$key]=$!
@@ -145,7 +145,7 @@ print_pipeline_summary() {
     fi
     echo ""
     echo "Resultat: domain-${domain}: $((total_steps - FAILED)) OK, $FAILED feil"
-    echo "Total tidsbruk: $(fmt_elapsed_ms $(( $(date +%s%3N) - PIPELINE_T0 )))"
+    echo "Total tidsbruk: $(fmt_elapsed_ms $(( $(now_ms) - PIPELINE_T0 )))"
 }
 
 # --no-print-directory: utan dette skrur GNU Make automatisk på
@@ -190,10 +190,10 @@ if [ "$FAILED" -gt 0 ]; then
 fi
 
 # --- Fase 3 — treng ALT (finnes_i_format-lista skannar heile generated/) ---
-INFOMODELL_T0=$(date +%s%3N)
+INFOMODELL_T0=$(now_ms)
 rc=0
 "$MAKE" --no-print-directory gen-informasjonsmodell-instance DOMAIN="$domain" || rc=$?
-INFOMODELL_ELAPSED_MS=$(( $(date +%s%3N) - INFOMODELL_T0 ))
+INFOMODELL_ELAPSED_MS=$(( $(now_ms) - INFOMODELL_T0 ))
 if [ "$rc" -ne 0 ]; then
     log_error "::error::domain-${domain}/informasjonsmodell-instance feila"
     FAILED=$((FAILED + 1))

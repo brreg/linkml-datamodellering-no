@@ -1,0 +1,70 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles
+tittel:
+  nb: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
+  nn: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
+beskrivelse:
+  nb: Generert modell for 'enhetsregisteret_bvrinnfelles'.
+  nn: Generert modell for 'enhetsregisteret_bvrinnfelles'.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-23'
+utgivelsesdato: '2026-08-23'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinnfelles/
+kontaktpunkt:
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+inneholder_modellelement:
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Innrapportering
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/VirksomhetsinformasjonHovedenhet
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Forretningsadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Stedsadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Vegadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Adressenummer
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Varslingsadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Mobilnummer
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Postadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Postboksadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/InternasjonalAdresse
+- http://www.w3.org/2006/vcard/ns#Kind
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Telefonnummer
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/VirksomhetsinformasjonUnderenhet
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Beliggenhetsadresse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Aktivitet
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/TypeAktivitet
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Omdanning
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Rolletypegruppe
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Rolle
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Rolleinnehaver
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Ansvarsandel
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Broek
+- http://www.w3.org/ns/regorg#RegisteredOrganization
+- http://xmlns.com/foaf/0.1/Person
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Prokura
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Prokurabestemmelse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Rollesett
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/SignaturberettigetEllerProkurist
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Signaturrett
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Signaturrettsbestemmelse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Foretaksinformasjon
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/EierskifteAktivitet
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/DelerEierskifte
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Matrikkelnummer
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Innsender
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Fagsystemreferanse
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Signering
+- https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/Gebyransvarlig
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/diagrams/enhetsregisteret-bvrinnfelles-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/diagrams/enhetsregisteret-bvrinnfelles.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.yaml

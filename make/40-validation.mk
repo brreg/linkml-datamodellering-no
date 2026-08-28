@@ -79,10 +79,10 @@ ifdef DOMAIN
 	done; \
 	COUNT=$$(wc -l < "$$JOBS_TSV"); \
 	log_debug "Kommando: batch-flatten-and-validate.py --jobs-tsv ($$COUNT datafiler, domain $(DOMAIN))"; \
-	t0=$$(date +%s%3N); \
+	t0=$$(now_ms); \
 	run_logged "batch-flatten-and-validate/data $(DOMAIN)" python3 src/mcp-linkml-validator/batch-flatten-and-validate.py --jobs-tsv "$$JOBS_TSV" \
 		--output-dir "$$BATCH_DIR"; \
-	t1=$$(date +%s%3N); \
+	t1=$$(now_ms); \
 	ms=$$(( t1 - t0 )); \
 	log_info "$$(printf '$(CLR_STEP)→ validate-data  %s  (%d datafiler, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
 	i=0; \
@@ -140,13 +140,13 @@ ifdef DOMAIN
 	fi; \
 	COUNT=$$(wc -l < "$$JOBS_TSV"); \
 	log_debug "Kommando: batch-linkml-validate.py --jobs-tsv ($$COUNT eksempelfiler, domain $(DOMAIN))"; \
-	t0=$$(date +%s%3N); \
+	t0=$$(now_ms); \
 	if ! $(LINKML_RUN) python3 src/assets/scripts/makefile/batch-linkml-validate.py --jobs-tsv "$$JOBS_TSV"; then \
 		FAILED=1; \
 	else \
 		FAILED=0; \
 	fi; \
-	t1=$$(date +%s%3N); \
+	t1=$$(now_ms); \
 	ms=$$(( t1 - t0 )); \
 	log_info "$$(printf '$(CLR_STEP)→ validate-examples  %s  (%d eksempelfiler, batcha)$(CLR_RST) (%s)' "$(DOMAIN)" "$$COUNT" "$$(fmt_elapsed_ms $$ms)")"; \
 	i=0; \

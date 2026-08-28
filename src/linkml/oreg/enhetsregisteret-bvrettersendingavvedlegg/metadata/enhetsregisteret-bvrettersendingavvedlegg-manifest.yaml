@@ -1,0 +1,33 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg
+tittel:
+  nb: 'TODO: tittel for enhetsregisteret-bvrettersendingavvedlegg'
+  nn: 'TODO: tittel for enhetsregisteret-bvrettersendingavvedlegg'
+beskrivelse:
+  nb: Generert modell for 'enhetsregisteret_bvrettersendingavvedlegg'.
+  nn: Generert modell for 'enhetsregisteret_bvrettersendingavvedlegg'.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-23'
+utgivelsesdato: '2026-08-23'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrettersendingavvedlegg/
+kontaktpunkt:
+- id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  navn_vcard:
+    nb: Brønnøysundregistra
+    nn: Brønnøysundregistra
+  har_kontaktside: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+inneholder_modellelement:
+- https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg/MeldingForEttersendingAvVedlegg
+- https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavvedlegg/Innsender
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrettersendingavvedlegg/diagrams/enhetsregisteret-bvrettersendingavvedlegg-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrettersendingavvedlegg/diagrams/enhetsregisteret-bvrettersendingavvedlegg.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrettersendingavvedlegg/enhetsregisteret-bvrettersendingavvedlegg-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrettersendingavvedlegg/enhetsregisteret-bvrettersendingavvedlegg-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrettersendingavvedlegg/enhetsregisteret-bvrettersendingavvedlegg-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrettersendingavvedlegg/enhetsregisteret-bvrettersendingavvedlegg-schema.yaml

@@ -1,6 +1,7 @@
 # Generert av mcp-linkml-generator — dette er eit utkast.
 # Prefiks 'javazonetalk:' er ein placeholder — erstatt med ekte vokabular-URIar.
 # 'TODO'-felt må fyllast inn manuelt.
+# annotations.begrepsidentifikator: TODO per klasse — søk med sok_begrepskatalog(term="<Klassenavn>") (verktøy i mcp-linkml-begrep-utkast) for kandidatar før du fyller inn verdien manuelt, vel aldri automatisk.
 
 id: https://data.norge.no/oreg/javazonetalk
 name: javazonetalk
@@ -10,8 +11,8 @@ version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-27'
-  utgivelsesdato: '2026-08-27'
+  endringsdato: '2026-08-28'
+  utgivelsesdato: '2026-08-28'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/

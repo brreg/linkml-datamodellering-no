@@ -34,8 +34,8 @@ if [ "${#files[@]}" -eq 0 ]; then
     exit 0
 fi
 
-t0=$(date +%s%3N)
+t0=$(now_ms)
 podman run --rm -v "$PWD:/work" -w /work "$PLANTUML_IMAGE" -tsvg "${files[@]}" > /dev/null
-t1=$(date +%s%3N)
+t1=$(now_ms)
 ms=$(( t1 - t0 ))
 log_info "$(printf '%s→ gen-plantuml-svg  batch (%d fil(er))%s (%s)' "$CLR_STEP" "${#files[@]}" "$CLR_RST" "$(fmt_elapsed_ms "$ms")")"

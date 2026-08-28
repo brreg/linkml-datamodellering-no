@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: Berettigede, verger, rettighetshavere i næring (BVRiNN)
   nn: Berettigede, verger, rettighetshavere i næring (BVRiNN)
-versjonsnummer: 1.0.0
+versjonsnummer: 1.1.1
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-06-10'
+endringsdato: '2026-08-28'
 utgivelsesdato: '2026-06-10'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinn/
@@ -39,7 +39,7 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Postadresse
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Postboksadresse
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/InternasjonalAdresse
-- https://data.norge.no/oreg/enhetsregisteret-bvrinn/Kontaktopplysning
+- http://www.w3.org/2006/vcard/ns#Kind
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Telefonnummer
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Beliggenhetsadresse
@@ -51,8 +51,8 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Rolleinnehaver
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Ansvarsandel
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Broek
-- https://data.norge.no/oreg/enhetsregisteret-bvrinn/Virksomhet
-- https://data.norge.no/oreg/enhetsregisteret-bvrinn/Person
+- http://www.w3.org/ns/regorg#RegisteredOrganization
+- http://xmlns.com/foaf/0.1/Person
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Prokura
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Prokurabestemmelse
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Rollesett
@@ -68,11 +68,10 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Signering
 - https://data.norge.no/oreg/enhetsregisteret-bvrinn/Gebyransvarlig
 finnes_i_format:
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/diagrams/enhetsregisteret-bvrinn-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/diagrams/enhetsregisteret-bvrinn.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-ontology.ttl
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-openapi.yaml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.json
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.proto
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-shapes.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.yaml

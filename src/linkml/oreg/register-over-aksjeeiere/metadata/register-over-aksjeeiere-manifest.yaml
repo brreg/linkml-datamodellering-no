@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: Aksjeeigarar og eigedelar
   nn: Aksjeeigarar og eigedelar
-versjonsnummer: 1.7.0
+versjonsnummer: 1.9.1
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-08-02'
+endringsdato: '2026-08-28'
 utgivelsesdato: '2024-01-01'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/
@@ -32,7 +32,7 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost
 - https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte
 - https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling
-- https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt
+- http://www.w3.org/2006/time#Instant
 - https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon
 - https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse
 - https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag
@@ -41,6 +41,8 @@ inneholder_modellelement:
 - https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital
 - https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs
 finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/diagrams/register-over-aksjeeiere-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/diagrams/register-over-aksjeeiere.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-context.jsonld
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-ontology.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/register-over-aksjeeiere/register-over-aksjeeiere-openapi.yaml
