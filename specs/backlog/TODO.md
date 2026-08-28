@@ -70,6 +70,6 @@ badges i readme?
 
    gjer ein analyse av all kildekode og identifiser gjentakelsar som kan la seg kode en gang og gjenbrukes ihht DRY prinsippet
 
-
+oppdater make mcp-linkml-modell-utkast SCHEMA=<sti> til å finne class_uri frå eksterne kilder.
 
 

@@ -267,6 +267,35 @@ TOOL_LIST_LOS_TEMA = {
     },
 }
 
+TOOL_SOK_BEGREPSKATALOG = {
+    "name": "sok_begrepskatalog",
+    "description": (
+        "Søkjer i Felles Begrepskatalog (den nasjonale konseptkatalogen på "
+        "data.norge.no) etter eit eksisterande, registrert begrep som "
+        "matchar eit klassenamn/omgrep. Brukast til å finne kandidatar for "
+        "annotations.begrepsidentifikator FØR ein vurderer å registrere eit "
+        "nytt begrep. Krev nettverkstilgang (kallar to offentlege, "
+        "uautentiserte lese-API-ar hjå Digdir). Returnerer ALDRI eit "
+        "automatisk valt svar — kandidatane må stadfestast av eit menneske "
+        "mot klassen si eiga skildring før dei vert brukte."
+    ),
+    "inputSchema": {
+        "type": "object",
+        "required": ["term"],
+        "properties": {
+            "term": {
+                "type": "string",
+                "description": "Klassenamn eller kjernebegrep å søkje etter, t.d. 'kommune' eller 'basisgruppe'.",
+            },
+            "maks_treff": {
+                "type": "integer",
+                "description": "Maksimalt tal kandidatar å returnere.",
+                "default": 5,
+            },
+        },
+    },
+}
+
 TOOL_SKRIV_BEGREP_FIL = {
     "name": "skriv_begrep_fil",
     "description": (
@@ -387,6 +416,7 @@ def handle(msg: dict) -> dict | None:
                     TOOL_VALIDER_BEGREP,
                     TOOL_LIST_PROFILES,
                     TOOL_LIST_LOS_TEMA,
+                    TOOL_SOK_BEGREPSKATALOG,
                 ]
             },
         }
@@ -418,6 +448,9 @@ def handle(msg: dict) -> dict | None:
         if tool_name == "valider_begrep":
             return _handle_valider_begrep(msg_id, arguments)
 
+        if tool_name == "sok_begrepskatalog":
+            return _handle_sok_begrepskatalog(msg_id, arguments)
+
         return {
             "jsonrpc": "2.0",
             "id": msg_id,
@@ -429,6 +462,17 @@ def handle(msg: dict) -> dict | None:
         "id": msg_id,
         "error": {"code": -32601, "message": f"Metode ikkje funnen: {method}"},
     }
+
+
+def _handle_sok_begrepskatalog(msg_id, arguments: dict) -> dict:
+    term = arguments.get("term")
+    if not term:
+        return _param_error(msg_id, "term")
+
+    from concept_search import sok_begrep
+
+    result = sok_begrep(term, maks_treff=arguments.get("maks_treff") or 5)
+    return _ok(msg_id, result)
 
 
 def _handle_list_los_tema(msg_id) -> dict:

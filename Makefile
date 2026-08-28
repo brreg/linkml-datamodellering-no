@@ -65,6 +65,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/generator.py:/app/generator.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/los_tema.py:/app/los_tema.py:ro" \
+  -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/concept_search.py:/app/concept_search.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro" \
   -v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"

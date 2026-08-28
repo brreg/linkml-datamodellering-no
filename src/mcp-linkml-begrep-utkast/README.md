@@ -48,6 +48,58 @@ make mcp-linkml-begrep-utkast-run
 | `valider_begrep` | Validerer ei YAML-instansfil mot eit skos-ap-no-basert skjema (les skjema med importresolvering via `SchemaView`). |
 | `list_profiles` | Listar tilgjengelege profiler med navn og skildring. |
 | `list_los_tema` | Returnerer statisk liste over gyldige LOS-tema URI-ar (ingen nettverkskall). |
+| `sok_begrepskatalog` | Søkjer i **Felles Begrepskatalog** (nasjonal konseptkatalog, ikkje repoet sin eigen lokale `begrep.brreg.no`-katalog) etter eit eksisterande begrep som matchar eit klassenamn. Brukast til å finne kandidatar for `annotations.begrepsidentifikator`. Krev nettverkstilgang. |
+
+### `sok_begrepskatalog` — parametrar
+
+| Parameter | Type | Skildring |
+|---|---|---|
+| `term` | string | **Påkravd.** Klassenamn eller kjernebegrep å søkje etter, t.d. `kommune` eller `basisgruppe`. |
+| `maks_treff` | integer | Maksimalt tal kandidatar å returnere (standard: 5). |
+
+Søkjer først eksakt namnetreff (`skos:prefLabel`/`skos:altLabel`) via SPARQL
+mot `sparql.fellesdatakatalog.digdir.no` — vesentleg meir treffsikkert enn
+fritekstsøk for å stadfeste eit presist namnetreff. Fell tilbake til
+fritekstsøk mot `search.api.fellesdatakatalog.digdir.no/search/concepts`
+berre dersom ingen eksakt treff finst.
+
+**Returnerer aldri eit automatisk valt svar.** Kvar kandidat har `uri`,
+`term`, `definisjon` og (for fritekstsøk) `organisasjon` — stadfest alltid
+definisjonen mot klassen si eiga skildring før `uri`-en vert brukt som
+`begrepsidentifikator`. Finn verktøyet ingen god kandidat, må eit nytt
+begrep registrerast av eit menneske (krev ID-porten-innlogging hjå
+organisasjonen si eiga samling — sjå
+`specs/backlog/plan-konsekvent-begrepsidentifikator.md`, Fase 4).
+
+**Eksempel**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "sok_begrepskatalog",
+    "arguments": {"term": "kommune"}
+  }
+}
+```
+
+```json
+{
+  "term_sokt": "kommune",
+  "metode": "eksakt",
+  "kandidatar": [
+    {
+      "uri": "https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/20b2e0f1-9fe1-11e5-a9f8-e4115b280940",
+      "term": "kommune",
+      "definisjon": "område som utgjør en egen politisk og administrativ enhet underlagt staten, men med et visst selvstyre",
+      "match_type": "eksakt"
+    }
+  ],
+  "merknad": "Presist namnetreff funne ... vel aldri automatisk."
+}
+```
 
 ### `opprett_begrep` — parametrar
 
@@ -281,3 +333,8 @@ Det genererte YAML-innhaldet er eit utkast. Sjekk og fyll inn:
   oppdatering av LOS må fila oppdaterast og containeren byggjast på nytt.
 - **`mcp-linkml-validator`** sin skjema-policy-validering gjeld framleis og er
   uendra — `valider_begrep` erstattar han ikkje.
+- **`sok_begrepskatalog`** krev utgåande nettverkstilgang frå containeren
+  (to offentlege Digdir-API-ar, ingen autentisering). Fritekstsøket rangerer
+  ikkje alltid det mest grunnleggjande omgrepet øvst — stol primært på
+  `metode: "eksakt"`-treff, og les `definisjon`-feltet nøye ved
+  `metode: "fritekst"`-treff før eit `uri` vert teke i bruk.

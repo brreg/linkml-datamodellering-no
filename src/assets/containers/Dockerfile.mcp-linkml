@@ -33,7 +33,7 @@ USER mcp
 CMD ["python", "server.py"]
 
 FROM base-runtime AS begrep-utkast
-COPY src/mcp-linkml-begrep-utkast/server.py src/mcp-linkml-begrep-utkast/generator.py src/mcp-linkml-begrep-utkast/los_tema.py ./
+COPY src/mcp-linkml-begrep-utkast/server.py src/mcp-linkml-begrep-utkast/generator.py src/mcp-linkml-begrep-utkast/los_tema.py src/mcp-linkml-begrep-utkast/concept_search.py ./
 COPY src/mcp-linkml-begrep-utkast/profiles/ profiles/
 RUN adduser -D mcp
 USER mcp

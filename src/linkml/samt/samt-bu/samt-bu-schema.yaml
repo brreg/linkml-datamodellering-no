@@ -217,6 +217,8 @@ classes:
     is_a: Skoleeier
     slots:
       - fylkesnummer
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/974761076/concepts/20b2e0f0-9fe1-11e5-a9f8-e4115b280940
   PrivatVirksomhet:
     class_uri: samtbuskole:PrivatVirksomhet
     description: Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon som produserer varer eller tjenester.
@@ -239,6 +241,8 @@ classes:
       - navn
       - trinniva
       - del_av_skole
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/3d7b34e4-37e3-4983-9d9b-c3adca56d6fa
   Person:
     class_uri: samtbuskole:Person
     description: Eit menneske individ
@@ -262,6 +266,8 @@ classes:
     is_a: Person
     slots:
       - horer_til_basisgruppe
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/e6bfeb15-5a47-4e68-83cd-03b0710f89d6
   Rektor:
     in_subset:
       - Obligatorisk
@@ -270,6 +276,8 @@ classes:
     is_a: Person
     slots:
       - enhetsleder_for
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/29a768dc-ff38-4332-ac32-2aa0f1a7cb71
   Kontaktlaerer:
     in_subset:
       - Anbefalt
