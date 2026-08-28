@@ -21,6 +21,8 @@ prefixes:
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
   skos: http://www.w3.org/2004/02/skos/core#
+  rov: http://www.w3.org/ns/regorg#
+  vcard: http://www.w3.org/2006/vcard/ns#
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -657,7 +659,7 @@ classes:
         - Obligatorisk
   Kontaktopplysning:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_bvrinn:Kontaktopplysning
+    class_uri: vcard:Kind
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -953,7 +955,7 @@ classes:
         - Anbefalt
   Virksomhet:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_bvrinn:Virksomhet
+    class_uri: rov:RegisteredOrganization
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -970,7 +972,7 @@ classes:
         - Anbefalt
   Person:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_bvrinn:Person
+    class_uri: foaf:Person
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:

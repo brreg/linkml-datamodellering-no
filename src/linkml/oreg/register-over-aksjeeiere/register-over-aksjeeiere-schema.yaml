@@ -16,6 +16,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   aksje: https://data.norge.no/oreg/register-over-aksjeeiere/
   schema: http://schema.org/
+  time: http://www.w3.org/2006/time#
 default_prefix: https://data.norge.no/oreg/register-over-aksjeeiere/
 default_range: string
 imports:
@@ -121,6 +122,7 @@ classes:
         #################################
   Aksjeselskap:
     description: Selskap som utsteder aksjar og har aksjekapital.
+    class_uri: aksje:Aksjeselskap
     slots:
       - identifikator
       - navn
@@ -128,6 +130,7 @@ classes:
       - utsteder_aksje
   Aksjekapital:
     description: Den registrerte aksjekapitalen i eit aksjeselskap.
+    class_uri: aksje:Aksjekapital
     slots:
       - identifikator
       - har_antall_aksjer
@@ -137,6 +140,7 @@ classes:
   #     - antall
   Aksje:
     description: Ei enkelt aksje utstedt av eit aksjeselskap.
+    class_uri: aksje:Aksje
     slots:
       - identifikator
       - har_palydende_belop
@@ -147,28 +151,33 @@ classes:
   #     - belop
   Aksjeklasse:
     description: Klasse aksjar høyrer til, med eigne rettigheiter.
+    class_uri: aksje:Aksjeklasse
     slots:
       - identifikator
       - navn
   Aksjeeierrettighet:
     description: Rettigheiter knytt til aksjar, til dømes stemmerett.
+    class_uri: aksje:Aksjeeierrettighet
     slots:
       - identifikator
       - beskrivelse
       - gjelder_aksjer_i_aksjeklasse
   Aksjeeier:
     description: Person eller organisasjon som eig aksjar.
+    class_uri: aksje:Aksjeeier
     slots:
       - identifikator
       - navn
       - har_eierposisjon
   Eierposisjon:
     description: Eierens samla posisjon i eit selskap.
+    class_uri: aksje:Eierposisjon
     slots:
       - identifikator
       - gjelder_aksjepost
   Aksjepost:
     description: Samling aksjar eigd av ein aksjeeigar.
+    class_uri: aksje:Aksjepost
     slots:
       - identifikator
       - har_antall_aksjer
@@ -178,6 +187,7 @@ classes:
       #################################
   Utbytte:
     description: Utbytte knytt til ein eigarposisjon.
+    class_uri: aksje:Utbytte
     slots:
       - identifikator
       - tidspunkt
@@ -185,11 +195,13 @@ classes:
       - er_basert_paa_eierposisjon
   Utdeling:
     description: Konkret utdeling av verdiar til aksjeeigarar.
+    class_uri: aksje:Utdeling
     slots:
       - identifikator
       - belop
   Tidspunkt:
     description: Tidspunkt for ei hending.
+    class_uri: time:Instant
     slots:
       - dato
       #################################
@@ -197,6 +209,7 @@ classes:
       #################################
   Eierskapstransaksjon:
     description: Transaksjon som påverkar eigarskap i selskapet.
+    class_uri: aksje:Eierskapstransaksjon
     slots:
       - identifikator
       - tidspunkt
@@ -205,31 +218,37 @@ classes:
       - paavirker_eierposisjon
   Aksjeoverdragelse:
     description: Overdraging av aksjar mellom partar.
+    class_uri: aksje:Aksjeoverdragelse
     slots:
       - identifikator
       - kan_ha_vederlag
   Vederlag:
     description: Vederlag knytt til ei aksjeoverdraging.
+    class_uri: aksje:Vederlag
     slots:
       - identifikator
       - belop
   Selskapshendelse:
     description: Hending som påverkar selskapet sitt eigarskap eller kapital.
+    class_uri: aksje:Selskapshendelse
     slots:
       - identifikator
       - kan_ha_aksjeinnskudd
   Aksjeinnskudd:
     description: Innskot knytt til aksjar i samband med selskapshending.
+    class_uri: aksje:Aksjeinnskudd
     slots:
       - identifikator
       - gjelder_innbetalt_aksjekapital
       - gjelder_innbetalt_overkurs
   InnbetaltAksjekapital:
     description: Innbetalt aksjekapital.
+    class_uri: aksje:InnbetaltAksjekapital
     slots:
       - belop
   InnbetaltOverkurs:
     description: Innbetalt overkurs utover pålydande.
+    class_uri: aksje:InnbetaltOverkurs
     slots:
       - belop
 #################################

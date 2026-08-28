@@ -273,6 +273,7 @@ classes:
   Kontaktlaerer:
     in_subset:
       - Anbefalt
+    class_uri: samtbuskole:Kontaktlaerer
     description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane i basisgruppa
     close_mappings:
       - schema:Teacher

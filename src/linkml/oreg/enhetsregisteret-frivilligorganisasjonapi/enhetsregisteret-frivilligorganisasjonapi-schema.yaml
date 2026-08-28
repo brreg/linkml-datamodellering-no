@@ -182,7 +182,7 @@ classes:
         - Anbefalt
   Tidsperiode:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_frivilligorganisasjonapi:Tidsperiode
+    class_uri: dct:PeriodOfTime
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:

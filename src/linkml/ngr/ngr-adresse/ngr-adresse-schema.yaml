@@ -313,7 +313,7 @@ classes:
         in_subset:
           - Obligatorisk
   Representasjonspunkt:
-    class_uri: ngr:Representasjonspunkt
+    class_uri: locn:Geometry
     description: >-
       Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa.
     slots:

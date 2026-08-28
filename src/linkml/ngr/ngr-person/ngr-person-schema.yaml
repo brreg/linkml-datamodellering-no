@@ -17,6 +17,8 @@ annotations:
 prefixes:
   linkml: https://w3id.org/linkml/
   ngrp: https://data.norge.no/vocabulary/ngr-person#
+  locn: http://www.w3.org/ns/locn#
+  person: http://www.w3.org/ns/person#
   xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-person/
 default_range: string
@@ -279,7 +281,7 @@ classes:
   # Hovudklasse
   # ---------------------------------------------------------------------------
   Person:
-    class_uri: ngrp:Person
+    class_uri: person:Person
     description: >-
       Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person.
     slots:
@@ -814,7 +816,7 @@ classes:
   # ---------------------------------------------------------------------------
   GeografiskAdresse:
     abstract: true
-    class_uri: ngrp:GeografiskAdresse
+    class_uri: locn:Address
     description: >-
       Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.
     slots:

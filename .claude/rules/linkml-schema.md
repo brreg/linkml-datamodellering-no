@@ -63,7 +63,31 @@ Alle klasser som kan opptre selvstendig får et `id`-slot med `identifier: true`
 Norske bokmålsnavn brukes for alle klasser (f.eks. `Datasett`, `Katalog`, `Distribusjon`). Hjelpeklasser for W3C-vokabulartermer kan bruke kortere engelske navn (`Begrep`, `Spraak`, `Mediatype`).
 
 ### Slot-uri og class-uri
-Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til de korrekte RDF-vokabularene (dcat:, dct:, foaf:, vcard: osv.). `tree_root`-containerklasser er unntatt fra kravet om `class_uri`.
+Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til dei korrekte RDF-vokabulara (dcat:, dct:, foaf:, vcard: osv.). `tree_root`-containerklasser er unntatt frå kravet om `class_uri`.
+
+**Ekstern ekvivalent er føretrekt bruk av `class_uri`.** Finst det ein etablert,
+publisert ekstern ontologi-term som klassen semantisk svarar til (W3C DCAT/DCT/
+FOAF/SKOS/VCard/ORG/PROV, EU sine kjernevokabular — Core Business Vocabulary
+`m8g:`/`rov:`, Core Location Vocabulary `locn:`, Core Person Vocabulary — schema.org,
+eller domenespesifikke standardar som ModelDCAT-AP-NO/`dcatno:`, DQV/`dqv:`,
+FINT sitt API-namnerom `schema.fintlabs.no` o.l.), skal `class_uri` peike dit.
+Berre når **ingen** rimeleg ekstern ekvivalent finst, brukast skjemaet sitt
+eige lokale prefiks (matchar `default_prefix`) som fallback.
+
+Grunngjeving: LinkML sin eigen metamodell-definisjon av `class_uri` seier
+«The URI may come from any namespace» — lokalt prefiks er difor teknisk
+gyldig, men LinkML genererer alt automatisk ein lokal URI frå `default_prefix`
+når `class_uri` er utelaten. Eit eksplisitt lokalt `class_uri` gir difor
+**inga ny RDF-semantikk** utover kva LinkML uansett ville generert — verdien
+av å setje `class_uri` eksplisitt ligg i å *overstyre* fallback-en med ei
+ekte, ekstern mapping. Sjå `specs/done/undersokelse-class-uri-kryssreferansar.md`
+for grunnlaget for denne regelen.
+
+Ynskjer du å uttrykkje ein **lausare**, ikkje-forpliktande semantisk likskap
+til eit eksternt omgrep utan å gjere klassen "til" det omgrepet (t.d. når
+det eksterne omgrepet er nærskyldt, men ikkje presist nok til å vere
+`class_uri`), bruk `exact_mappings`/`close_mappings` i staden for — desse
+to felta har ulikt føremål og skal ikkje blandast saman.
 
 ### Obligatorisk/anbefalt/valgfri
 `slot_usage` med `in_subset` brukes for å markere om en egenskap er `Obligatorisk`, `Anbefalt` eller `Valgfri` i henhold til spesifikasjonen. `required: true` settes kun på obligatoriske egenskaper.

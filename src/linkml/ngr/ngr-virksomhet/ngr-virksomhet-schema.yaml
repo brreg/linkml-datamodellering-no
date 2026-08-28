@@ -17,6 +17,10 @@ annotations:
 prefixes:
   linkml: https://w3id.org/linkml/
   ngrv: https://data.norge.no/vocabulary/ngr-virksomhet#
+  locn: http://www.w3.org/ns/locn#
+  person: http://www.w3.org/ns/person#
+  rov: http://www.w3.org/ns/regorg#
+  org: http://www.w3.org/ns/org#
   xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-virksomhet/
 default_range: string
@@ -213,7 +217,7 @@ classes:
           - Valgfri
   Underenhet:
     is_a: Virksomhet
-    class_uri: ngrv:Underenhet
+    class_uri: org:OrganizationalUnit
     description: >-
       Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
     slots:
@@ -238,7 +242,7 @@ classes:
           - Valgfri
   Hovedenhet:
     is_a: Virksomhet
-    class_uri: ngrv:Hovedenhet
+    class_uri: rov:RegisteredOrganization
     description: >-
       Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
     slots:
@@ -408,7 +412,7 @@ classes:
         in_subset:
           - Obligatorisk
   RolleIVirksomhet:
-    class_uri: ngrv:RolleIVirksomhet
+    class_uri: org:Post
     description: >-
       Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle kan ha éin eller fleire rolleinnehavarar.
     slots:
@@ -467,7 +471,7 @@ classes:
   # ---------------------------------------------------------------------------
   GeografiskAdresse:
     abstract: true
-    class_uri: ngrv:GeografiskAdresse
+    class_uri: locn:Address
     description: >-
       Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister.
     slots:
@@ -490,7 +494,7 @@ classes:
   # Stub-klasse for anna domene
   # ---------------------------------------------------------------------------
   Person:
-    class_uri: ngrv:Person
+    class_uri: person:Person
     description: >-
       Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret. Enhetsregisteret nyttar kopi av data frå Folkeregisteret.
     slots:

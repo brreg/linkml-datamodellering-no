@@ -17,6 +17,9 @@ annotations:
 prefixes:
   linkml: https://w3id.org/linkml/
   ngre: https://data.norge.no/vocabulary/ngr-eiendom#
+  locn: http://www.w3.org/ns/locn#
+  person: http://www.w3.org/ns/person#
+  rov: http://www.w3.org/ns/regorg#
   xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: https://data.norge.no/ngr/ngr-eiendom/
 default_range: string
@@ -442,7 +445,7 @@ classes:
         in_subset:
           - Obligatorisk
   Representasjonspunkt:
-    class_uri: ngre:Representasjonspunkt
+    class_uri: locn:Geometry
     description: Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen.
     slots:
       - id
@@ -684,12 +687,12 @@ classes:
     slots:
       - id
   Person:
-    class_uri: ngre:Person
+    class_uri: person:Person
     description: Ein fysisk person. Tilhøyrer Domene person.
     slots:
       - id
   Hovedenhet:
-    class_uri: ngre:Hovedenhet
+    class_uri: rov:RegisteredOrganization
     description: >-
       Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar. Tilhøyrer Domene virksomhet.
     slots:

@@ -20,6 +20,8 @@ prefixes:
   dcat: http://www.w3.org/ns/dcat#
   foaf: http://xmlns.com/foaf/0.1/
   skos: http://www.w3.org/2004/02/skos/core#
+  rov: http://www.w3.org/ns/regorg#
+  locn: http://www.w3.org/ns/locn#
   xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -278,7 +280,7 @@ classes:
         - Obligatorisk
   Virksomhet:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_bvrstiftelsesdokument:Virksomhet
+    class_uri: rov:RegisteredOrganization
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -331,7 +333,7 @@ classes:
         - Obligatorisk
   Person:
     description: 'Definisjon: menneske slik det opptrer i en sosial sammenheng.'
-    class_uri: enhetsregisteret_bvrstiftelsesdokument:Person
+    class_uri: foaf:Person
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
@@ -428,7 +430,7 @@ classes:
         - Obligatorisk
   GeografiskAdresse:
     description: 'TODO: beskriv klassen'
-    class_uri: enhetsregisteret_bvrstiftelsesdokument:GeografiskAdresse
+    class_uri: locn:Address
     annotations:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
