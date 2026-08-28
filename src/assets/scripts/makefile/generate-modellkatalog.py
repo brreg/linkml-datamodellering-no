@@ -115,7 +115,11 @@ def convert_informasjonsmodell_to_org_format(modell: Dict, org: Dict) -> Dict:
     - Legg til informasjonsmodellidentifikator (heimeside)
     - Legg til type_concept: LogicalDataModel
     - Konverter tittel/beskrivelse frå LangString {nb, nn} til liste [string]
-    - Behald kontaktpunkt, er_i_samsvar_med, inneholder_modellelement som dei er
+    - Behald kontaktpunkt, er_i_samsvar_med som dei er
+
+    NB: set IKKJE 'inneholder_modellelement' — det feltet eig
+    gen-modelldcat-elements.py fullt ut (må matche id-mønsteret han brukar
+    på 'objekttyper'). main() bevarer eksisterande verdi frå datafila.
     """
     catalog_slug = org.get('catalog_slug')
     org_domain = org.get('org_uri', 'https://example.org').replace('https://', '').replace('http://', '')
@@ -172,16 +176,6 @@ def convert_informasjonsmodell_to_org_format(modell: Dict, org: Dict) -> Dict:
 
     # Type (alltid LogicalDataModel for LinkML-skjema)
     org_modell['type_concept'] = 'https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel'
-
-    # Modellelement — konverter URI-ar til org-spesifikke
-    if 'inneholder_modellelement' in modell:
-        # Ekstraher klassenavn frå URI og konverter til org-format
-        modellelement = []
-        for element_uri in modell['inneholder_modellelement']:
-            class_name = element_uri.rstrip('/').split('/')[-1]
-            org_element_uri = f"{new_id}/{class_name}"
-            modellelement.append(org_element_uri)
-        org_modell['inneholder_modellelement'] = modellelement
 
     return org_modell
 
@@ -290,16 +284,42 @@ def main():
             # Generer katalog
             katalog_data = generate_modellkatalog_for_org(org, modeller)
 
-            # Bevar DQV-kvalitetsmålingar frå ei eksisterande fil — denne
-            # funksjonen genererer dei ikkje sjølv (sjå gen-dqv-measurements.py).
+            # Denne funksjonen eig berre 'modellkataloger'/'informasjonsmodeller'.
+            # Bevar alle andre toppnivånøklar frå ei eksisterande fil uendra —
+            # dei er sette av andre generatorar (t.d. gen-modelldcat-elements.py:
+            # objekttyper/attributter/assosiasjoner/kodelister/kodeelementer/
+            # enkeltyper, gen-dqv-measurements.py: kvalitetsmaalingar) eller
+            # vedlikehaldne for hand (t.d. aktoerer).
             output_path = Path(f"src/linkml/modellkatalog/{catalog_slug}/data/{catalog_slug}/{catalog_slug}.yaml")
             if output_path.exists():
                 existing_data = load_yaml(output_path)
-                if "kvalitetsmaalingar" in existing_data:
-                    katalog_data["kvalitetsmaalingar"] = existing_data["kvalitetsmaalingar"]
-                existing_refs = (existing_data.get("modellkataloger") or [{}])[0].get("har_kvalitetsmaaling")
-                if existing_refs:
-                    katalog_data["modellkataloger"][0]["har_kvalitetsmaaling"] = existing_refs
+                for key, value in existing_data.items():
+                    if key not in ("modellkataloger", "informasjonsmodeller"):
+                        katalog_data[key] = value
+
+                # Bevar felt på modellkatalog-oppføringa som denne funksjonen
+                # ikkje sjølv set (t.d. tema/temaer — manuelt vedlikehaldne,
+                # sjå update-modellkatalog.py; har_kvalitetsmaaling — sett av
+                # gen-dqv-measurements.py).
+                existing_modellkatalog = (existing_data.get("modellkataloger") or [{}])[0]
+                new_modellkatalog = katalog_data["modellkataloger"][0]
+                for key, value in existing_modellkatalog.items():
+                    if key not in new_modellkatalog:
+                        new_modellkatalog[key] = value
+
+                # Bevar 'inneholder_modellelement' per informasjonsmodell —
+                # feltet eig gen-modelldcat-elements.py, matcha på skjemanamnet
+                # (siste URI-segment), som er stabilt sjølv om catalog_base
+                # (org-URI-prefikset) endrar seg.
+                existing_by_schema = {
+                    (im.get("id") or "").rstrip("/").split("/")[-1]: im
+                    for im in (existing_data.get("informasjonsmodeller") or [])
+                }
+                for im in katalog_data["informasjonsmodeller"]:
+                    schema_name = (im.get("id") or "").rstrip("/").split("/")[-1]
+                    old_im = existing_by_schema.get(schema_name)
+                    if old_im and "inneholder_modellelement" in old_im:
+                        im["inneholder_modellelement"] = old_im["inneholder_modellelement"]
 
             # Skriv til fil
             write_yaml(

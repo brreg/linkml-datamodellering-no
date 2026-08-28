@@ -250,10 +250,15 @@ def build_for_schema(sv, catalog_base, schema_name):
 
 
 def replace_schema_scoped(existing_list, catalog_base, schema_name, new_entries):
-    """Fjern alle eksisterande element under <catalog_base>/<schema_name>/... for DENNE
-    skjema-køyringa, og legg til dei nyleg genererte."""
-    prefix = f"{catalog_base}/{schema_name}/"
-    kept = [e for e in existing_list if not (e.get("id") or "").startswith(prefix)]
+    """Fjern alle eksisterande element for DENNE skjema-køyringa, og legg til
+    dei nyleg genererte.
+
+    Identifiserer gamle element på skjemanamnet som eit path-segment i id-en
+    (.../<schema_name>/...), IKKJE på gjeldande catalog_base-prefiks — dersom
+    catalog_base (org-URI-basisen) endrar seg mellom køyringar, skal gamle
+    element for same skjema likevel bli fjerna, ikkje verte att som orphanar."""
+    marker = f"/{schema_name}/"
+    kept = [e for e in existing_list if marker not in (e.get("id") or "")]
     return kept + new_entries
 
 
