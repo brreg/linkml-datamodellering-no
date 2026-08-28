@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.0...enhetsregisteret-bvrinn-v1.1.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **class-uri:** rett 24 klassar til eksterne vokabularekvivalentar ([2becb35](https://github.com/brreg/linkml-datamodellering-no/commit/2becb35defec6f9024a75bf1168c175ae36000be))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.0.0...enhetsregisteret-bvrinn-v1.1.0) (2026-08-17)
 
 

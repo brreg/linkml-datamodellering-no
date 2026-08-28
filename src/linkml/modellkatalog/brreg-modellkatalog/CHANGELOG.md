@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.2](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.6.1...brreg-modellkatalog-v1.6.2) (2026-08-28)
+
+
+### Bug Fixes
+
+* **modellkatalog:** rett id/name-mismatch for modelldcat-katalog/-modell ([5d98f7c](https://github.com/brreg/linkml-datamodellering-no/commit/5d98f7c1b2979642e304d3ec9e28b55b1467b790))
+* **modellkatalog:** synkroniser modellkatalog-data til org_uri-basert URI ([e818079](https://github.com/brreg/linkml-datamodellering-no/commit/e8180795e7850b7821dc42fe1665e03c8d97b957))
+
 ## [1.6.1](https://github.com/brreg/linkml-datamodellering-no/compare/brreg-modellkatalog-v1.6.0...brreg-modellkatalog-v1.6.1) (2026-08-17)
 
 

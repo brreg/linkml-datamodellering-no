@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.8.0...ngr-eiendom-v1.8.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **class-uri:** rett 24 klassar til eksterne vokabularekvivalentar ([2becb35](https://github.com/brreg/linkml-datamodellering-no/commit/2becb35defec6f9024a75bf1168c175ae36000be))
+
 ## [1.8.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-eiendom-v1.7.1...ngr-eiendom-v1.8.0) (2026-08-25)
 
 
