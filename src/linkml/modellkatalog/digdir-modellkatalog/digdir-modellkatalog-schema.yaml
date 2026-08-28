@@ -4,13 +4,13 @@ title: Digitaliseringsdirektoratet - Modellkatalog
 description: >-
   Modellkatalog for Digitaliseringsdirektoratet sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
-version: "1.1.0"
+version: "1.1.1"
 license: https://data.norge.no/nlod/no/2.0
 
 annotations:
   utgiver: https://data.norge.no/organizations/991825827
   status: http://purl.org/adms/status/UnderDevelopment
-  endringsdato: "2026-08-17"
+  endringsdato: "2026-08-28"
   utgivelsesdato: "2026-08-17"
 
 prefixes:
