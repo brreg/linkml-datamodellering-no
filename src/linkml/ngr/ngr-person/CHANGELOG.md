@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v2.1.0...ngr-person-v2.1.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **class-uri:** rett 24 klassar til eksterne vokabularekvivalentar ([2becb35](https://github.com/brreg/linkml-datamodellering-no/commit/2becb35defec6f9024a75bf1168c175ae36000be))
+
 ## [2.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/ngr-person-v2.0.0...ngr-person-v2.1.0) (2026-08-25)
 
 

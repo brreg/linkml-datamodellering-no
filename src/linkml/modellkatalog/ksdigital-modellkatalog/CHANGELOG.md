@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/ksdigital-modellkatalog-v1.1.0...ksdigital-modellkatalog-v1.1.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* **modellkatalog:** synkroniser modellkatalog-data til org_uri-basert URI ([e818079](https://github.com/brreg/linkml-datamodellering-no/commit/e8180795e7850b7821dc42fe1665e03c8d97b957))
+
 ## [1.1.0](https://github.com/brreg/linkml-datamodellering-no/compare/ksdigital-modellkatalog-v1.0.0...ksdigital-modellkatalog-v1.1.0) (2026-08-17)
 
 

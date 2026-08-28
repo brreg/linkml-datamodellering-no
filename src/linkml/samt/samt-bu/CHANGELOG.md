@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.11.0...samt-bu-v1.12.0) (2026-08-28)
+
+
+### Features
+
+* **mcp-begrep-utkast:** legg til sok_begrepskatalog-verktøy ([825af84](https://github.com/brreg/linkml-datamodellering-no/commit/825af847415fe1de8568294ecf41c95656c5c0da))
+
+
+### Bug Fixes
+
+* **class-uri:** rett 24 klassar til eksterne vokabularekvivalentar ([2becb35](https://github.com/brreg/linkml-datamodellering-no/commit/2becb35defec6f9024a75bf1168c175ae36000be))
+
 ## [1.11.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.10.1...samt-bu-v1.11.0) (2026-08-25)
 
 
