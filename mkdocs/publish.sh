@@ -144,7 +144,7 @@ process_schema() {
     local schema_dir="$GEN/$domain/$schema"
     local out="$DOCS/$domain/$schema"
     local t0
-    t0=$(date +%s%3N)
+    t0=$(now_ms)
 
     # Steg 2a: Kopier artefakter
     copy_schema_artifacts "$domain" "$schema" "$schema_dir" "$out"
@@ -174,18 +174,17 @@ process_schema() {
     generate_schema_index "$domain" "$schema" "$schema_dir" "$out"
     unset PARENT_MODEL SUBMODELS
 
-    local elapsed_ms=$(( $(date +%s%3N) - t0 ))
-    log_info "$(printf "${CLR_STEP}  → %s/%s${CLR_RST} (%d.%ds)" \
+    local elapsed_ms=$(( $(now_ms) - t0 ))
+    log_info "$(printf "${CLR_STEP}  → %s/%s${CLR_RST} (%s)" \
         "$domain" "$schema" \
-        $((elapsed_ms / 1000)) \
-        $((elapsed_ms % 1000 / 100)))"
+        "$(fmt_elapsed_ms "$elapsed_ms")")"
 }
 
 # ---------------------------------------------------------------------------
 # Steg 1: Rens tidlegare genererte domene-katalogar frå docs/
 # ---------------------------------------------------------------------------
 log_step "Steg 1: Rens tidlegare genererte domene-katalogar frå docs/"
-t1=$(date +%s%3N)
+t1=$(now_ms)
 
 if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
     log_error "Ingen genererte artefakter funne i $GEN. Køyr make <domain> fyrst."
@@ -260,7 +259,7 @@ timed_run "Generer modellanalyse-tvers-domene-sider" generate_cross_domain_model
 # hovudshell-scope etter blokka — ei `declare -a`/`declare -A` inni ein
 # bash-funksjon utan `-g` ville gjort desse lokale og usynlege for Steg
 # 1.5/2/3. Sjå specs/done/tidtaking-steg1-4-1-5-docs-publish.md.
-t1_4=$(date +%s%3N)
+t1_4=$(now_ms)
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
@@ -304,10 +303,9 @@ for domain in $(printf '%s\n' "${!DOMAIN_EXISTS[@]}" | sort); do
     ALL_DOMAINS+=("$domain")
 done
 
-elapsed1_4_ms=$(( $(date +%s%3N) - t1_4 ))
-log_info "$(printf "${CLR_STEP}→ Steg 1.4: Finn domene/skjema-struktur${CLR_RST} (%d.%ds)" \
-    $((elapsed1_4_ms / 1000)) \
-    $((elapsed1_4_ms % 1000 / 100)))"
+elapsed1_4_ms=$(( $(now_ms) - t1_4 ))
+log_info "$(printf "${CLR_STEP}→ Steg 1.4: Finn domene/skjema-struktur${CLR_RST} (%s)" \
+    "$(fmt_elapsed_ms "$elapsed1_4_ms")")"
 
 # ---------------------------------------------------------------------------
 # Steg 1.5: Bygg delmodell-/metadata-oppslag
@@ -315,7 +313,7 @@ log_info "$(printf "${CLR_STEP}→ Steg 1.4: Finn domene/skjema-struktur${CLR_RS
 # Same grunngjeving som Steg 1.4 for manuell t/elapsed i staden for
 # timed_run: SCHEMA_PARENT_MODEL/SCHEMA_SUBMODELS m.fl. må vere synlege i
 # hovudshell-scope for Steg 2/3.
-t1_5=$(date +%s%3N)
+t1_5=$(now_ms)
 
 # Bruk assosiative arrays som må eksporterast manuelt til subshells
 declare -A SCHEMA_PARENT_MODEL_TMP=()
@@ -437,21 +435,19 @@ for entry in $SCHEMA_SUBMODELS_SERIALIZED; do
     SCHEMA_SUBMODELS["$key"]="$val"
 done
 
-elapsed1_5_ms=$(( $(date +%s%3N) - t1_5 ))
-log_info "$(printf "${CLR_STEP}→ Steg 1.5: Bygg delmodell-/metadata-oppslag${CLR_RST} (%d.%ds)" \
-    $((elapsed1_5_ms / 1000)) \
-    $((elapsed1_5_ms % 1000 / 100)))"
+elapsed1_5_ms=$(( $(now_ms) - t1_5 ))
+log_info "$(printf "${CLR_STEP}→ Steg 1.5: Bygg delmodell-/metadata-oppslag${CLR_RST} (%s)" \
+    "$(fmt_elapsed_ms "$elapsed1_5_ms")")"
 
-elapsed1_ms=$(( $(date +%s%3N) - t1 ))
-log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%d.%ds)" \
-    $((elapsed1_ms / 1000)) \
-    $((elapsed1_ms % 1000 / 100)))"
+elapsed1_ms=$(( $(now_ms) - t1 ))
+log_info "$(printf "${CLR_OK}✓ Steg 1 ferdig${CLR_RST} (%s)" \
+    "$(fmt_elapsed_ms "$elapsed1_ms")")"
 
 # ---------------------------------------------------------------------------
 # Steg 2: Generer innhald per domene og skjema (parallelt)
 # ---------------------------------------------------------------------------
 log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
-t2=$(date +%s%3N)
+t2=$(now_ms)
 
 # Start alle skjemajobbar parallelt
 declare -a PIDS=()
@@ -532,16 +528,15 @@ done
 
 log_info "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
 
-elapsed2_ms=$(( $(date +%s%3N) - t2 ))
-log_info "$(printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%d.%ds)" \
-    $((elapsed2_ms / 1000)) \
-    $((elapsed2_ms % 1000 / 100)))"
+elapsed2_ms=$(( $(now_ms) - t2 ))
+log_info "$(printf "${CLR_OK}✓ Steg 2 ferdig${CLR_RST} (%s)" \
+    "$(fmt_elapsed_ms "$elapsed2_ms")")"
 
 # ---------------------------------------------------------------------------
 # Steg 3: Generer mkdocs.yml
 # ---------------------------------------------------------------------------
 log_step "Steg 3: Generer mkdocs.yml"
-t4=$(date +%s%3N)
+t4=$(now_ms)
 
 {
 cat << 'STATIC'
@@ -673,7 +668,6 @@ STATIC
 
 log_info "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"
 
-elapsed4_ms=$(( $(date +%s%3N) - t4 ))
-log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%d.%ds)" \
-    $((elapsed4_ms / 1000)) \
-    $((elapsed4_ms % 1000 / 100)))"
+elapsed4_ms=$(( $(now_ms) - t4 ))
+log_info "$(printf "${CLR_OK}✓ Steg 3 ferdig${CLR_RST} (%s)" \
+    "$(fmt_elapsed_ms "$elapsed4_ms")")"

@@ -144,7 +144,7 @@ Gyldige verdiar for `annotations.status`: `http://purl.org/adms/status/UnderDeve
 > i `dcat-ap-no-schema.yaml`) svarar funksjonelt til grøn/gul/raud i trafikklyssystemet frå
 > Digdir sin veileder [«Orden i eget hus», steg 4 — vurdere tilgangsnivå](https://www.digdir.no/informasjonsforvaltning/steg-4-vurdere-tilgangsniva/2723).
 > `dcatap:applicableLegislation` (`gjeldende_lovgivning`) svarar til lovheimel-kravet i same
-> steg. Desse checkane er sjekka via `datasett_tilgangsrettigheter` og `datasett_lovgivning`
+> steg. Desse er sjekka via `datasett_tilgangsrettigheter` og `datasett_lovgivning`
 > ovanfor.
 
 Annotasjonsnøklane svarar til `Informasjonsmodell`-slots i `modelldcat-ap-no-schema.yaml`

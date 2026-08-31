@@ -14,6 +14,8 @@
     
     **For eksterne organisasjonar:** Les [for bidragsytarar](#for-bidragsytarar) for forventningar til stabilitet og ansvar.
 
+---
+
 ## Målsetting
 
   Dette repoet har som mål å realisere deler av [Rammeverk for informasjonsforvaltning](https://www.digdir.no/informasjonsforvaltning/rammeverk-informasjonsforvaltning/3626) som går på begrepsmodellering, informasjonsmodellering, metadata og publisering til felles begrepskatalog og datakatalog i henhold til nasjonale veiledere og standarder. Sjå [Standardetterleving](https://brreg.github.io/linkml-datamodellering-no/arkitektur/standardetterleving/) for detaljar.  
