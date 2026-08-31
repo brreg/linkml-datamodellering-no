@@ -962,6 +962,13 @@ def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
                         f"Manglar obligatorisk metadata: {field}",
                     ))
             for field in recommended_fields:
+                # Eit felt som alt er required for same scope skal ikkje i
+                # tillegg gje ei recommended-åtvaring — elles får eitt
+                # manglande felt både ein error og ein warning samstundes
+                # (sjå specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md,
+                # Funn B5).
+                if field in required_fields:
+                    continue
                 if not getattr(obj, field, None):
                     issues.append(issue(
                         "warning", "missing_recommended_metadata", obj_label,

@@ -98,8 +98,8 @@ checks:
     check: class_has_slot_with_uri
     class: Katalog
     slot_uri: dct:description
-    digdir_rule: 1, 2
-    fair_principle: F2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   katalog_kontaktpunkt:
     principle: DCAT-AP-NO
@@ -108,7 +108,8 @@ checks:
     check: class_has_slot_with_uri
     class: Katalog
     slot_uri: dcat:contactPoint
-    digdir_rule: 10
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   katalog_tittel:
     principle: DCAT-AP-NO
@@ -117,8 +118,8 @@ checks:
     check: class_has_slot_with_uri
     class: Katalog
     slot_uri: dct:title
-    digdir_rule: 1, 2
-    fair_principle: F2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   katalog_utgiver:
     principle: DCAT-AP-NO
@@ -127,8 +128,8 @@ checks:
     check: class_has_slot_with_uri
     class: Katalog
     slot_uri: dct:publisher
-    digdir_rule: 10
-    fair_principle: R1.2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   # ── Katalogpost (dcat:CatalogRecord) ───────────────────────────────────────
 
@@ -149,6 +150,8 @@ checks:
     check: class_has_slot_with_uri
     class: Katalogpost
     slot_uri: foaf:primaryTopic
+    digdir_rule: 9
+    fair_principle: R1.3
 
   # ── Datasett (dcat:Dataset) ─────────────────────────────────────────────────
 
@@ -159,8 +162,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datasett
     slot_uri: dct:description
-    digdir_rule: 1, 2
-    fair_principle: F2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   datasett_kontaktpunkt:
     principle: DCAT-AP-NO
@@ -169,7 +172,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datasett
     slot_uri: dcat:contactPoint
-    digdir_rule: 10
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   datasett_tema:
     principle: DCAT-AP-NO
@@ -178,6 +182,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datasett
     slot_uri: dcat:theme
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   datasett_tittel:
     principle: DCAT-AP-NO
@@ -186,8 +192,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datasett
     slot_uri: dct:title
-    digdir_rule: 1, 2
-    fair_principle: F2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   datasett_utgiver:
     principle: DCAT-AP-NO
@@ -196,8 +202,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datasett
     slot_uri: dct:publisher
-    digdir_rule: 10
-    fair_principle: R1.2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, R1.2
 
   datasett_tilgangsrettigheter:
     principle: DCAT-AP-NO
@@ -253,7 +259,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datatjeneste
     slot_uri: dcat:endpointURL
-    fair_principle: A1
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, A1, R1.2
 
   datatjeneste_kontaktpunkt:
     principle: DCAT-AP-NO
@@ -262,7 +269,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datatjeneste
     slot_uri: dcat:contactPoint
-    digdir_rule: 10
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, A1, R1.2
 
   datatjeneste_tittel:
     principle: DCAT-AP-NO
@@ -271,8 +279,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datatjeneste
     slot_uri: dct:title
-    digdir_rule: 1, 2
-    fair_principle: F2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, A1, R1.2
 
   datatjeneste_utgiver:
     principle: DCAT-AP-NO
@@ -281,8 +289,8 @@ checks:
     check: class_has_slot_with_uri
     class: Datatjeneste
     slot_uri: dct:publisher
-    digdir_rule: 10
-    fair_principle: R1.2
+    digdir_rule: 1, 2, 10
+    fair_principle: F2, A1, R1.2
 
   # ── Aktør (foaf:Agent) ──────────────────────────────────────────────────────
 

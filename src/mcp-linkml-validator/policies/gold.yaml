@@ -7,9 +7,19 @@ description: >
   Arvar sølvlaget (ap-no) og bronselaget (default).
   Alle brot gir feil — gullstatus er krevjande å oppnå.
 
-# Standard felt-sjekkar (lik default)
+# Standard felt-sjekkar (lik default). version og schema-scope description
+# er lagt til her (oppgradert frå bronse sin recommended-liste) for å
+# krevje dei som error på gullnivå — jf. Funn B5/B2 i
+# specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md (README sin
+# gull-tabell hevda alt at schema.description var error her, men koden gav
+# framleis berre warning før denne retten). Sidan _check()-closuren i
+# server.py hoppar over eit recommended-felt som alt er required for same
+# scope (Funn B5 Alternativ 1), gjev dette berre éin error og ikkje eit
+# dobbeltsignal, sjølv om begge framleis står i bronze.yaml sin
+# recommended-liste òg. class-/slot-scope description er framleis berre
+# anbefalt (warning) på gullnivå — ingen tabellrad hevdar noko anna for dei.
 required:
-  schema: [id, name]
+  schema: [id, name, version, description]
   class: []
   slot: []
 
@@ -115,6 +125,18 @@ checks:
     digdir_rule: 13
     fair_principle: A2
 
+  no_inlined_on_primitive_range:
+    severity: error
+    description: >
+      inlined/inlined_as_list skal berre setjast på slot/attributt der range er
+      ein klasse. På ein primitiv range (string, integer, LangString o.l.) har
+      nøkkelen ingen effekt — han vert stille ignorert av alle generatorane, og
+      framstår som daud, misvisande konfigurasjon. Krev: ikkje berre anbefalt
+      (bronze-nivå).
+    check: no_inlined_on_primitive_range
+    digdir_rule: 8
+    fair_principle: I1
+
   controlled_vocabulary_annotations:
     severity: error
     description: >
@@ -124,6 +146,8 @@ checks:
       maskinlesbar dokumentasjon av vokabularkrav. Krev: ikkje berre anbefalt
       (bronze-nivå).
     check: controlled_vocabulary_annotations
+    digdir_rule: 8
+    fair_principle: I1
 
   schema_has_annotation_utgiver:
     severity: error
@@ -298,32 +322,14 @@ checks:
 #
 # Merk: F1 (schema_id_is_http_uri), F3 (all_classes_have_class_uri) og
 # I1 (all_slots_have_slot_uri) er flytta til bronze.yaml og arva herifrå.
-# Dei er oppgradert til error via checks-blokka ovanfor.
+# Dei er oppgradert til error via checks-blokka ovanfor. F2 (schema.title)
+# og F4 (schema.version) dekkjast tilsvarande av required:-lista øvst i
+# denne fila (title er alt required frå bronse; version er lagt til her på
+# gullnivå) — dei hadde tidlegare eigne f2_title/f4_version-oppføringar her
+# som dupliserte required/recommended-mekanismen og gav dobbel rapportering
+# for same manglande felt (sjå
+# specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md, Funn B1/B2).
 fair_checks:
-
-  # F — Findable
-
-  f2_title:
-    principle: F2
-    severity: error
-    description: >
-      schema.title skal vere sett. Tittel er ein del av rike metadata
-      som gjer ressursen søkbar i katalogar.
-    check: schema_field_present
-    field: title
-    digdir_rule: 1, 2
-    fair_principle: F2
-
-  f4_version:
-    principle: F4
-    severity: error
-    description: >
-      schema.version skal vere sett. Versjonering støttar katalogregistrering
-      og sporbarheit av endringar over tid.
-    check: schema_field_present
-    field: version
-    digdir_rule: 9
-    fair_principle: F4
 
   # I — Interoperable
 
@@ -359,6 +365,11 @@ fair_checks:
     description: >
       Skjemaet skal ha ein slot for proveniensinformasjon — opphav, opphavar
       eller utgjevar. Proveniens er viktig for tillit til og gjenbruk av data.
+      Merk: for AP-NO-konforme skjema er dette allereie automatisk dekt av
+      dei obligatoriske dct:publisher-krava på Katalog/Datasett/Datatjeneste
+      (silver.yaml), sidan dct:publisher er med i match_any_uri under —
+      denne sjekken har difor berre reell tilleggsverdi for skjema utanfor
+      AP-NO-domenemønsteret (ingen Katalog/Datasett/Datatjeneste-klassar).
     check: schema_has_slot_with_uri
     match_any_uri:
       - prov:wasAttributedTo

@@ -1,5 +1,18 @@
 version: 1
 
+# NB: required:/recommended: har FAST alvorsgrad (error/warning) og støttar
+# IKKJE progresjon mellom policy-nivå (t.d. warning på bronse -> error på
+# gull) — i motsetnad til checks:-mekanismen, som overstyrer per nøkkelnavn
+# via _merge_policies(). Eit felt som skal kunne endre alvorsgrad på eit
+# høgare nivå (som license/default_prefix) skal difor uttrykkjast som ein
+# eigen checks:-oppføring (schema_field_present), IKKJE leggjast her.
+# Legg heller ALDRI same felt i required OG recommended samstundes (verken
+# i same fil eller på tvers av arva nivå) — det gjev både ein error og ein
+# warning for éin og same manglande verdi. Sjå
+# specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md (Funn B5) og
+# specs/backlog/konsolider-feltnaervaer-sjekk-i-checks-mekanismen.md for
+# grunngjeving og plan for å konsolidere dette til éin mekanisme.
+
 # Felt som MÅ vere til stades (severity: error)
 required:
   schema:
@@ -161,6 +174,8 @@ checks:
       SKAL/BØR/KAN-formulering som matcher vokabular_krav. Sikrar konsistent og
       maskinlesbar dokumentasjon av vokabularkrav.
     check: controlled_vocabulary_annotations
+    digdir_rule: 8
+    fair_principle: I1
 
   schema_har_erdiagram_aktivert:
     severity: warning

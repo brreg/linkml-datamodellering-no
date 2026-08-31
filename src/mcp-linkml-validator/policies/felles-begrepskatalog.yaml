@@ -13,7 +13,12 @@ required:
   slot: []
 
 recommended:
-  schema: [description, title, version]
+  # title og version er IKKJE lista her sjølv om dei er nyttige metadata —
+  # begge er alt `required` via arva bronze.yaml-liste. Å liste dei her òg
+  # ville gitt både ein error (required) og ein warning (recommended) for
+  # same manglande felt (sjå specs/done/full-gjennomgang-policy-alvorsgrad-
+  # og-overlapp.md, Funn B5).
+  schema: [description]
   class: []
   slot: []
 

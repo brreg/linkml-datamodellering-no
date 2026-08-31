@@ -14,7 +14,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-validator"))
-from server import validate_schema, _check_instance_slot_uri_pattern
+from server import validate_schema, _check_instance_slot_uri_pattern, load_policy
 
 
 # ── Hjelpefunksjonar ─────────────────────────────────────────────────────────
@@ -677,6 +677,11 @@ default_prefix: ex
         self.assertTrue(has_error(validate_schema(schema, "gold"), "schema_id_is_http_uri"))
 
     def test_fair_f2_schema_utan_title_gir_feil(self):
+        # title er obligatorisk via bronse sin required:-liste (arva til gull) —
+        # den tidlegare separate f2_title-fair_check vart fjerna sidan han
+        # dupliserte dette (sjå specs/done/full-gjennomgang-policy-alvorsgrad-
+        # og-overlapp.md, Funn B1). Koden er difor missing_required_metadata,
+        # ikkje fair_f2.
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -686,7 +691,7 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_f2"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "missing_required_metadata"))
 
     def test_fair_f3_klasse_utan_class_uri_gir_feil(self):
         schema = """\
@@ -716,6 +721,11 @@ slots:
         self.assertTrue(has_error(validate_schema(schema, "gold"), "all_classes_have_class_uri"))
 
     def test_fair_f4_schema_utan_version_gir_feil(self):
+        # version er oppgradert til required på gullnivå (sjå gold.yaml) —
+        # den tidlegare separate f4_version-fair_check vart fjerna sidan han
+        # dupliserte dette med motstridande alvorsgrad (sjå
+        # specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md,
+        # Funn B2). Koden er difor missing_required_metadata, ikkje fair_f4.
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -726,7 +736,7 @@ prefixes:
   ex: https://example.org/
 default_prefix: ex
 """
-        self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_f4"))
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "missing_required_metadata"))
 
     def test_fair_i1_slot_utan_slot_uri_gir_feil(self):
         schema = """\
@@ -1071,6 +1081,42 @@ slots:
         issues = self._run_check(instance, config)
         self.assertTrue(
             any(i["code"] == "instance_slot_unknown_value" and i["target"] == "instance:utgjevar" for i in issues)
+        )
+
+
+# ── Policy-koherens ──────────────────────────────────────────────────────────
+
+class TestPolicyKoherens(unittest.TestCase):
+    """Programmatisk koherens-sjekk (jf.
+    specs/done/full-gjennomgang-policy-alvorsgrad-og-overlapp.md, Funn A1):
+    kvar warning-sjekk i den merga sølv-policyen (bronse+sølv) skal ha ei
+    tilsvarande error-oppføring i gull.yaml sin checks:, sidan gull sin
+    eigen dokumenterte intensjon er at «alle brot gir feil». Feilar dersom
+    ein framtidig ny bronse-/sølv-warning vert innført utan tilsvarande
+    gull-oppgradering.
+
+    _TILSIKTA_UNNTAK let ein eksplisitt, grunngjeven sjekk unntakast frå
+    kravet (ingen slike finst per no — alle 24 kjende warning-sjekkar er
+    oppgraderte)."""
+
+    _TILSIKTA_UNNTAK: set = set()
+
+    def test_alle_arva_advarslar_er_oppgraderte_til_error_i_gull(self):
+        silver = load_policy("silver")
+        gold = load_policy("gold")
+        silver_warnings = {
+            name for name, cfg in (silver.get("checks") or {}).items()
+            if cfg.get("severity") == "warning"
+        }
+        gold_checks = gold.get("checks") or {}
+        ikkje_oppgraderte = [
+            name for name in sorted(silver_warnings - self._TILSIKTA_UNNTAK)
+            if (gold_checks.get(name) or {}).get("severity") != "error"
+        ]
+        self.assertEqual(
+            ikkje_oppgraderte, [],
+            "Følgjande warning-sjekkar i bronse/sølv manglar ei tilsvarande "
+            f"error-oppføring i gold.yaml sin checks: {ikkje_oppgraderte}",
         )
 
 
