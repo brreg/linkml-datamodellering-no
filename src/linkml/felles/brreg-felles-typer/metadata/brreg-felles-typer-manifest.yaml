@@ -1,0 +1,31 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-typer
+tittel:
+  nb: BRREG felles typer
+  nn: BRREG felles typer
+beskrivelse:
+  nb: Gjenbrukbare primitivtypar utleia frå Brønnøysundregistrene (BR) sin interne
+    Løsningstypekatalog_v1 (MagicDraw/XMI). Skjemaet er den felles kjelda for typar
+    som elles vart lokalt (og inkonsistent) redefinert i kvart av dei sju enhetsregisteret-*-skjemaa,
+    jf. specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md. Berre denne
+    kjeldekatalogen ("Løsningsmodell"-laget hos BR) er brukt her — BRReferansemodell_v3
+    sitt eige, arva typelag i Strukturtypekatalog_v1 er eit separat, ikkje-importert
+    lag (sjå nemnde spec, Funn 3).
+  nn: Gjenbrukbare primitivtypar utleia frå Brønnøysundregistrene (BR) sin interne
+    Løsningstypekatalog_v1 (MagicDraw/XMI). Skjemaet er den felles kjelda for typar
+    som elles vart lokalt (og inkonsistent) redefinert i kvart av dei sju enhetsregisteret-*-skjemaa,
+    jf. specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md. Berre denne
+    kjeldekatalogen ("Løsningsmodell"-laget hos BR) er brukt her — BRReferansemodell_v3
+    sitt eige, arva typelag i Strukturtypekatalog_v1 er eit separat, ikkje-importert
+    lag (sjå nemnde spec, Funn 3).
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-31'
+utgivelsesdato: '2026-08-31'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-typer/
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-typer/brreg-felles-typer-schema.yaml

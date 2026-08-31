@@ -1,0 +1,54 @@
+@prefix brreg_felles_tid: <https://data.norge.no/felles/brreg-felles-tid/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dct:PeriodOfTime a sh:NodeShape ;
+    rdfs:comment "Ei tidsperiode avgrensa av ein frå- og til-dato." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Startdatoen for tidsperioden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_tid:fraDato ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_tid:id ],
+        [ sh:datatype xsd:date ;
+            sh:description "Sluttdatoen for tidsperioden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_tid:tilDato ] ;
+    sh:targetClass dct:PeriodOfTime .
+
+brreg_felles_tid:TidsperiodeDatoKlokkeslett a sh:NodeShape ;
+    rdfs:comment "Ei tidsperiode avgrensa av frå- og til-tidspunkt (dato og klokkeslett)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:description "Slutt-tidspunktet (dato og klokkeslett) for tidsperioden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_tid:til ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_tid:id ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Start-tidspunktet (dato og klokkeslett) for tidsperioden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_tid:fra ] ;
+    sh:targetClass brreg_felles_tid:TidsperiodeDatoKlokkeslett .
+
+

@@ -1,0 +1,134 @@
+@prefix brreg_felles_tid: <https://data.norge.no/felles/brreg-felles-tid/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+xsd:base64Binary a rdfs:Datatype .
+
+xsd:decimal a rdfs:Datatype .
+
+xsd:gYear a rdfs:Datatype .
+
+xsd:gYearMonth a rdfs:Datatype .
+
+xsd:hexBinary a rdfs:Datatype .
+
+xsd:integer a rdfs:Datatype .
+
+xsd:long a rdfs:Datatype .
+
+xsd:negativeInteger a rdfs:Datatype .
+
+xsd:nonNegativeInteger a rdfs:Datatype .
+
+xsd:nonPositiveInteger a rdfs:Datatype .
+
+xsd:positiveInteger a rdfs:Datatype .
+
+xsd:short a rdfs:Datatype .
+
+xsd:token a rdfs:Datatype .
+
+<https://data.norge.no/felles/brreg-felles-tid.owl.ttl> a owl:Ontology ;
+    rdfs:label "brreg-felles-tid" ;
+    dct:license "https://data.norge.no/nlod/no/2.0" ;
+    dct:title "BRREG felles tid" ;
+    pav:version "0.1.0" ;
+    skos:definition "Gjenbrukbare tidsperiode-klassar utleia frå Brønnøysundregistrene (BR) sin interne Strukturtypekatalog_v1 (MagicDraw/XMI), pakken \"Komplekstyper\" (Tidsperiode, TidsperiodeDatoKlokkeslett). Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på." ;
+    brreg_felles_tid:endringsdato "2026-08-31" ;
+    brreg_felles_tid:status "http://purl.org/adms/status/UnderDevelopment" ;
+    brreg_felles_tid:utgivelsesdato "2026-08-31" ;
+    brreg_felles_tid:utgiver "https://data.norge.no/organizations/974760673" .
+
+brreg_felles_tid:Tidsperiode a owl:Class ;
+    rdfs:label "Tidsperiode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_tid:til_dato ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_tid:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_tid:fra_dato ] ;
+    skos:definition "Ei tidsperiode avgrensa av ein frå- og til-dato." ;
+    skos:exactMatch dct:PeriodOfTime ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+xsd:anyURI a rdfs:Datatype .
+
+brreg_felles_tid:TidsperiodeDatoKlokkeslett a owl:Class ;
+    rdfs:label "TidsperiodeDatoKlokkeslett" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_tid:fra ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_tid:til ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_tid:id ] ;
+    skos:definition "Ei tidsperiode avgrensa av frå- og til-tidspunkt (dato og klokkeslett)." ;
+    skos:exactMatch brreg_felles_tid:TidsperiodeDatoKlokkeslett ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+brreg_felles_tid:fra a owl:DatatypeProperty ;
+    rdfs:label "fra" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Start-tidspunktet (dato og klokkeslett) for tidsperioden." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+brreg_felles_tid:fra_dato a owl:DatatypeProperty ;
+    rdfs:label "fra_dato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Startdatoen for tidsperioden." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+brreg_felles_tid:til a owl:DatatypeProperty ;
+    rdfs:label "til" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Slutt-tidspunktet (dato og klokkeslett) for tidsperioden." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+brreg_felles_tid:til_dato a owl:DatatypeProperty ;
+    rdfs:label "til_dato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Sluttdatoen for tidsperioden." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+xsd:dateTime a rdfs:Datatype .
+
+brreg_felles_tid:id a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
+
+xsd:string a rdfs:Datatype ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[A-Z]{3}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[2389][0-9]{8}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ] .
+
+

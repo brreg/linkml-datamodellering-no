@@ -210,10 +210,12 @@ kommandokøyringar.
 | `make domain-ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler (parallelt) | `generated/ap-no/` |
 | `make domain-begrepskatalog` | Valider + generer alle artefakter for begrepskatalogmodellane | `generated/begrepskatalog/` |
 | `make domain-fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
+| `make domain-felles` | Valider + generer alle artefakter for FELLES-felleskomponentane | `generated/felles/` |
 | `make domain-fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |
 | `make domain-modellkatalog` | Valider + generer alle artefakter for modellkatalogmodellane | `generated/modellkatalog/` |
 | `make domain-ngr` | Valider + generer alle artefakter for NGR-modellane | `generated/ngr/` |
 | `make domain-oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
+| `make domain-referanse` | Valider + generer alle artefakter for referansemodellane | `generated/referanse/` |
 | `make domain-samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
 
 ### Enkeltartefakter

@@ -1,0 +1,15 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "TidsperiodeDatoKlokkeslett" [[{Ei tidsperiode avgrensa av frå- og til-tidspunkt (dato og klokkeslett).}]] {
+    {field} id : uriorcurie  
+    {field} fra : DateTime  
+    {field} til : DateTime  
+}
+class "Tidsperiode" [[{Ei tidsperiode avgrensa av ein frå- og til-dato.}]] {
+    {field} id : uriorcurie  
+    {field} fra_dato : date  
+    {field} til_dato : date  
+}
+@enduml

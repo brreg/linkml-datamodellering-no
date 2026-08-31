@@ -1,0 +1,33 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-tid
+tittel:
+  nb: BRREG felles tid
+  nn: BRREG felles tid
+beskrivelse:
+  nb: Gjenbrukbare tidsperiode-klassar utleia frå Brønnøysundregistrene (BR) sin interne
+    Strukturtypekatalog_v1 (MagicDraw/XMI), pakken "Komplekstyper" (Tidsperiode, TidsperiodeDatoKlokkeslett).
+    Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+  nn: Gjenbrukbare tidsperiode-klassar utleia frå Brønnøysundregistrene (BR) sin interne
+    Strukturtypekatalog_v1 (MagicDraw/XMI), pakken "Komplekstyper" (Tidsperiode, TidsperiodeDatoKlokkeslett).
+    Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-31'
+utgivelsesdato: '2026-08-31'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-tid/
+inneholder_modellelement:
+- http://purl.org/dc/terms/PeriodOfTime
+- https://data.norge.no/felles/brreg-felles-tid/TidsperiodeDatoKlokkeslett
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-tid/brreg-felles-tid-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-tid/brreg-felles-tid-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-tid/brreg-felles-tid-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-tid/diagrams/brreg-felles-tid-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-tid/diagrams/brreg-felles-tid.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-tid/brreg-felles-tid-schema.yaml

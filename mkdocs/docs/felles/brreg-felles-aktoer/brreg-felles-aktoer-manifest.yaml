@@ -1,0 +1,47 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-aktoer
+tittel:
+  nb: BRREG felles aktør
+  nn: BRREG felles aktør
+beskrivelse:
+  nb: Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå
+    Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken
+    "Aktør", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn,
+    Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige
+    av. Importerer brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå
+    specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode
+    og avklaringane denne modellen byggjer på.
+  nn: Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå
+    Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken
+    "Aktør", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn,
+    Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige
+    av. Importerer brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå
+    specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode
+    og avklaringane denne modellen byggjer på.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-31'
+utgivelsesdato: '2026-08-31'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-aktoer/
+inneholder_modellelement:
+- http://xmlns.com/foaf/0.1/Agent
+- http://www.w3.org/ns/regorg#RegisteredOrganization
+- http://xmlns.com/foaf/0.1/Person
+- https://data.norge.no/felles/brreg-felles-aktoer/Kontaktinformasjon
+- https://data.norge.no/felles/brreg-felles-aktoer/Rolle
+- https://data.norge.no/felles/brreg-felles-aktoer/Rolletypegruppe
+- https://data.norge.no/felles/brreg-felles-aktoer/Relasjon
+- https://data.norge.no/felles/brreg-felles-aktoer/Personnavn
+- https://data.norge.no/felles/brreg-felles-aktoer/Personidentifikator
+- https://data.norge.no/felles/brreg-felles-aktoer/Virksomhetsidentifikator
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-aktoer/brreg-felles-aktoer-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-aktoer/brreg-felles-aktoer-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-aktoer/brreg-felles-aktoer-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-aktoer/diagrams/brreg-felles-aktoer-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-aktoer/diagrams/brreg-felles-aktoer.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-aktoer/brreg-felles-aktoer-schema.yaml

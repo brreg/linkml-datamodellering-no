@@ -1,0 +1,1152 @@
+@prefix brreg_felles_aktoer: <https://data.norge.no/felles/brreg-felles-aktoer/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rov:RegisteredOrganization a sh:NodeShape ;
+    rdfs:comment "Ei verksemd registrert i Einingsregisteret." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <http://www.w3.org/ns/locn#Address> ;
+            sh:description "Geografisk adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path brreg_felles_aktoer:geografiskAdresse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på verksemda." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:virksomhetsnavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:class brreg_felles_aktoer:Rolle ;
+            sh:description "Roller aktøren har." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path brreg_felles_aktoer:rolle ],
+        [ sh:class brreg_felles_aktoer:Virksomhetsidentifikator ;
+            sh:description "Identifikatoren for verksemda." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_aktoer:virksomhetsidentifikator ],
+        [ sh:class brreg_felles_aktoer:Kontaktinformasjon ;
+            sh:description "Kontaktinformasjon for aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path brreg_felles_aktoer:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Statusen til verksemda." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_aktoer:virksomhetsstatus ],
+        [ sh:datatype xsd:string ;
+            sh:description "Organisasjonsnummeret til verksemda." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:organisasjonsnummer ;
+            sh:pattern "^[2389][0-9]{8}$" ],
+        [ sh:class brreg_felles_aktoer:Relasjon ;
+            sh:description "Relasjonar aktøren har til andre aktørar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path brreg_felles_aktoer:relasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+            sh:description "Digital adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path brreg_felles_aktoer:digitalAdresse ] ;
+    sh:targetClass rov:RegisteredOrganization .
+
+foaf:Person a sh:NodeShape ;
+    rdfs:comment "Ein fysisk person." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class brreg_felles_aktoer:Personidentifikator ;
+            sh:description "Identifikatoren for personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:personidentifikator ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+            sh:description "Digital adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path brreg_felles_aktoer:digitalAdresse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:class brreg_felles_aktoer:Rolle ;
+            sh:description "Roller aktøren har." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path brreg_felles_aktoer:rolle ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fødselsnummeret eller D-nummeret til personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:foedselEllerDNummer ;
+            sh:pattern "^[0-9]{11}$" ],
+        [ sh:class brreg_felles_aktoer:Personnavn ;
+            sh:description "Namnet på personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_aktoer:personnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Statusen til personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_aktoer:personstatus ],
+        [ sh:datatype xsd:string ;
+            sh:description "Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:class brreg_felles_aktoer:Kontaktinformasjon ;
+            sh:description "Kontaktinformasjon for aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path brreg_felles_aktoer:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Statsborgarskapet til personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_aktoer:statsborgerskap ],
+        [ sh:class <http://www.w3.org/ns/locn#Address> ;
+            sh:description "Geografisk adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path brreg_felles_aktoer:geografiskAdresse ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_aktoer:brPersonId ],
+        [ sh:class brreg_felles_aktoer:Relasjon ;
+            sh:description "Relasjonar aktøren har til andre aktørar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path brreg_felles_aktoer:relasjon ] ;
+    sh:targetClass foaf:Person .
+
+<https://data.norge.no/felles/brreg-felles-adresse/EPostadresse> a sh:NodeShape ;
+    rdfs:comment "Ei e-postadresse, delt opp i brukarnamn og domenenavn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Domenenamnet i adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/domenenavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Brukarnamnet (lokaldelen) i e-postadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brukernavn> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/EPostadresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/IPAdresse> a sh:NodeShape ;
+    rdfs:comment "Ei IP-adresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "IP-nummeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/ipNummer> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/IPAdresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse> a sh:NodeShape ;
+    rdfs:comment "Ei adresse i eit anna land enn Noreg, i fri form." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Utanlandsk postkode (ikkje norsk postnummer)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/postkode> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bygningsnamn eller -nummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/bygning> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Heile adressa som fritekst, når ho ikkje kan strukturerast i felta over." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/friAdressetekst> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Landet adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/landkode> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på vegen/gata/staden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressenavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Postboksnummer (utanlandsk format)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/postboks> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Distrikt eller bydel." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/distriktEllerBydel> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen, sidan format varierer mellom land)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Region, delstat eller provins." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/region> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bueining/leilegheitsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/boenhet> ],
+        [ sh:datatype xsd:string ;
+            sh:description "By- eller stadnamn." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/byEllerStedsnavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Etasjenummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/etasjenummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse> a sh:NodeShape ;
+    rdfs:comment "Ei matrikkeladresse (knytt til eit matrikkelnummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> ;
+            sh:description "Matrikkelnummeret adressa er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Undernummer for seksjonert eigedom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/undernummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for matrikkeladressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks> a sh:NodeShape ;
+    rdfs:comment "Ei digital meldingsboks (t.d. Altinn)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Kva type digital meldingsboks dette er (t.d. Altinn)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer> a sh:NodeShape ;
+    rdfs:comment "Eit mobiltelefonnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/prefiksMedNasjonalKode> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Telefonnummeret utan landkode/prefiks." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/nasjonaltNummer> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Nettadresse> a sh:NodeShape ;
+    rdfs:comment "Ei nettadresse (protokoll, domenenavn og filsti)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Domenenamnet i adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/domenenavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Protokollen for nettadressa, t.d. https." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/protokoll> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Filstien i nettadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/filsti> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Nettadresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse> a sh:NodeShape ;
+    rdfs:comment "Ei postboksadresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på anlegget/institusjonen postboksen høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Kommune> ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Poststed> ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nummeret på postboksen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/postboksnummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse> a sh:NodeShape ;
+    rdfs:comment "Ei stadfesta adresse utan vegadresse (t.d. i utmark)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Kommune> ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Poststed> ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på staden (for adresser utan vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/stedsnavn> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer> a sh:NodeShape ;
+    rdfs:comment "Eit fasttelefonnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Telefonnummeret utan landkode/prefiks." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/nasjonaltNummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/prefiksMedNasjonalKode> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Vegadresse> a sh:NodeShape ;
+    rdfs:comment "Ei vegadresse (adressenavn + adressenummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> ;
+            sh:description "Husnummer og eventuell husbokstav i vegadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressenummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Fylke> ;
+            sh:description "Fylket adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/fylke> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Kommune> ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Forkorta versjon av adressenamnet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kortAdressenavn> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for vegadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/vegadresseId> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/Poststed> ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på vegen/gata/staden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/adressenavn> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Vegadresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> a sh:NodeShape ;
+    rdfs:comment "Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Husnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/nummer> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Husbokstaven, dersom adressa har ein." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/bokstav> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Fylke> a sh:NodeShape ;
+    rdfs:comment "Eit norsk fylke." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Fylkesnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på fylket." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Fylke> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> a sh:NodeShape ;
+    rdfs:comment "Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Festenummer i matrikkelen (for festetomter)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/festenummer> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Bruksnummer i matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/bruksnummer> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Gårdsnummer i matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommunenummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommunenummer> ;
+            sh:pattern "^[0-9]{4}$" ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> .
+
+brreg_felles_aktoer:Personidentifikator a sh:NodeShape ;
+    rdfs:comment "Ein identifikator for ein person, med ein type som seier kva slag identifikator det er." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdien til identifikatoren." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:verdi ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:description "Kva slag personidentifikator dette er." ;
+            sh:in ( "foedselsnummer" "d_nummer" "utenlandsk_personidentifikator" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:personidentifikatorType ] ;
+    sh:targetClass brreg_felles_aktoer:Personidentifikator .
+
+brreg_felles_aktoer:Personnavn a sh:NodeShape ;
+    rdfs:comment "Fullt namn på ein person, delt opp i for-, mellom- og etternamn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Etternamnet til personen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_aktoer:etternavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fornamnet til personen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:fornavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Mellomnamnet til personen, dersom personen har det." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:mellomnavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass brreg_felles_aktoer:Personnavn .
+
+brreg_felles_aktoer:Rolletypegruppe a sh:NodeShape ;
+    rdfs:comment "Ei gruppering av rolletypar (t.d. \"styre\")." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:class brreg_felles_aktoer:Rolle ;
+            sh:description "Roller aktøren har." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:rolle ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass brreg_felles_aktoer:Rolletypegruppe .
+
+brreg_felles_aktoer:Virksomhetsidentifikator a sh:NodeShape ;
+    rdfs:comment "Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdien til identifikatoren." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:verdi ],
+        [ sh:description "Kva slag verksemdsidentifikator dette er." ;
+            sh:in ( "organisasjonsnummer" "utenlandsk_virksomhetsidentifikator" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:virksomhetsidentifikatorType ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass brreg_felles_aktoer:Virksomhetsidentifikator .
+
+foaf:Agent a sh:NodeShape ;
+    rdfs:comment "Ein aktør — person eller verksemd. Abstrakt basisklasse for Virksomhet og Person." ;
+    sh:closed true ;
+    sh:ignoredProperties ( brreg_felles_aktoer:personstatus brreg_felles_aktoer:brPersonId brreg_felles_aktoer:organisasjonsnummer brreg_felles_aktoer:personidentifikator brreg_felles_aktoer:statsborgerskap brreg_felles_aktoer:foedselEllerDNummer brreg_felles_aktoer:virksomhetsnavn brreg_felles_aktoer:virksomhetsstatus rdf:type brreg_felles_aktoer:personnavn brreg_felles_aktoer:virksomhetsidentifikator ) ;
+    sh:property [ sh:class brreg_felles_aktoer:Rolle ;
+            sh:description "Roller aktøren har." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_aktoer:rolle ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+            sh:description "Digital adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path brreg_felles_aktoer:digitalAdresse ],
+        [ sh:class <http://www.w3.org/ns/locn#Address> ;
+            sh:description "Geografisk adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:geografiskAdresse ],
+        [ sh:class brreg_felles_aktoer:Kontaktinformasjon ;
+            sh:description "Kontaktinformasjon for aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:kontaktinformasjon ],
+        [ sh:class brreg_felles_aktoer:Relasjon ;
+            sh:description "Relasjonar aktøren har til andre aktørar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path brreg_felles_aktoer:relasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass foaf:Agent .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Kommune> a sh:NodeShape ;
+    rdfs:comment "Ein norsk kommune." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Kommunenummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommunenummer> ;
+            sh:pattern "^[0-9]{4}$" ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på kommunen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/kommunenavn> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Kommune> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Poststed> a sh:NodeShape ;
+    rdfs:comment "Eit poststed knytt til eit postnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Namnet på ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/navn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Postnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/postnummer> ;
+            sh:pattern "^[0-9]{4}$" ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/Poststed> .
+
+brreg_felles_aktoer:Relasjon a sh:NodeShape ;
+    rdfs:comment "Ein relasjon mellom to aktørar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:class foaf:Agent ;
+            sh:description "Aktøren relasjonen gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:aktoer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    sh:targetClass brreg_felles_aktoer:Relasjon .
+
+brreg_felles_aktoer:Kontaktinformasjon a sh:NodeShape ;
+    rdfs:comment "Kontaktinformasjon (digital og/eller geografisk adresse) for ein aktør." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <http://www.w3.org/ns/locn#Address> ;
+            sh:description "Geografisk adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:geografiskAdresse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+            sh:description "Digital adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_aktoer:digitalAdresse ] ;
+    sh:targetClass brreg_felles_aktoer:Kontaktinformasjon .
+
+brreg_felles_aktoer:Rolle a sh:NodeShape ;
+    rdfs:comment "Ei rolle ein aktør har overfor ein annan aktør (t.d. styreleiar, revisor)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class brreg_felles_aktoer:Kontaktinformasjon ;
+            sh:description "Kontaktinformasjon for aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_aktoer:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ sh:class brreg_felles_aktoer:Rolletypegruppe ;
+            sh:description "Rolletypegruppa rolla høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_aktoer:rolletypegruppe ],
+        [ sh:class <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+            sh:description "Digital adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path brreg_felles_aktoer:digitalAdresse ],
+        [ sh:class foaf:Agent ;
+            sh:description "Aktøren som innehar rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path brreg_felles_aktoer:rolleinnehaver ],
+        [ sh:class <http://www.w3.org/ns/locn#Address> ;
+            sh:description "Geografisk adresse knytt til aktøren/rolla." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path brreg_felles_aktoer:geografiskAdresse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    sh:targetClass brreg_felles_aktoer:Rolle .
+
+<http://www.w3.org/ns/locn#Address> a sh:NodeShape ;
+    rdfs:comment "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under." ;
+    sh:closed true ;
+    sh:ignoredProperties ( <https://data.norge.no/felles/brreg-felles-adresse/adressenavn> <https://data.norge.no/felles/brreg-felles-adresse/byEllerStedsnavn> <https://data.norge.no/felles/brreg-felles-adresse/etasjenummer> <https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator> <https://data.norge.no/felles/brreg-felles-adresse/fylke> <https://data.norge.no/felles/brreg-felles-adresse/postboksnummer> <https://data.norge.no/felles/brreg-felles-adresse/stedsnavn> <https://data.norge.no/felles/brreg-felles-adresse/landkode> <https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId> <https://data.norge.no/felles/brreg-felles-adresse/adressenummer> <https://data.norge.no/felles/brreg-felles-adresse/undernummer> <https://data.norge.no/felles/brreg-felles-adresse/vegadresseId> <https://data.norge.no/felles/brreg-felles-adresse/region> <https://data.norge.no/felles/brreg-felles-adresse/kommune> <https://data.norge.no/felles/brreg-felles-adresse/kortAdressenavn> <https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> <https://data.norge.no/felles/brreg-felles-adresse/postboks> <https://data.norge.no/felles/brreg-felles-adresse/boenhet> <https://data.norge.no/felles/brreg-felles-adresse/distriktEllerBydel> <https://data.norge.no/felles/brreg-felles-adresse/friAdressetekst> <https://data.norge.no/felles/brreg-felles-adresse/postkode> <https://data.norge.no/felles/brreg-felles-adresse/poststed> <https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> <https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst> <https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer> <https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn> <https://data.norge.no/felles/brreg-felles-adresse/bygning> rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/brAdresseId> ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/coNavn> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    sh:targetClass <http://www.w3.org/ns/locn#Address> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> a sh:NodeShape ;
+    rdfs:comment "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under." ;
+    sh:closed true ;
+    sh:ignoredProperties ( <https://data.norge.no/felles/brreg-felles-adresse/domenenavn> <https://data.norge.no/felles/brreg-felles-adresse/filsti> <https://data.norge.no/felles/brreg-felles-adresse/protokoll> <https://data.norge.no/felles/brreg-felles-adresse/brukernavn> <https://data.norge.no/felles/brreg-felles-adresse/nasjonaltNummer> <https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype> <https://data.norge.no/felles/brreg-felles-adresse/ipNummer> <https://data.norge.no/felles/brreg-felles-adresse/prefiksMedNasjonalKode> rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    sh:targetClass <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> .
+
+

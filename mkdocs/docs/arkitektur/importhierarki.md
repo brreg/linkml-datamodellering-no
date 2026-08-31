@@ -91,6 +91,26 @@ linkml:types
 
 ---
 
+## FELLES-hierarki
+
+FELLES-domenet inneheld gjenbrukbare felleskomponentar (adresse, aktør, tid, typer) utleia frå Brønnøysundregistrene (BR) sine interne referansemodellar. Kan importerast av domenemodellar, t.d. OREG sine enhetsregisteret-*-modellar.
+
+```
+linkml:types
+    └── brreg-felles-typer-schema
+        ├── brreg-felles-tid-schema
+        └── brreg-felles-adresse-schema
+            └── brreg-felles-aktoer-schema
+```
+
+**Reglane:**
+- `brreg-felles-typer-schema` er det einaste FELLES-skjemaet som importerer direkte frå `linkml:types`
+- `brreg-felles-tid-schema` og `brreg-felles-adresse-schema` importerer `brreg-felles-typer-schema` for gjenbrukbare primitivtypar
+- `brreg-felles-aktoer-schema` importerer `brreg-felles-adresse-schema` (og får dermed også `brreg-felles-typer-schema`) for `GeografiskAdresse`/`DigitalAdresse`
+- Domenemodellar (t.d. OREG sine enhetsregisteret-*-modellar) importerer eitt eller fleire FELLES-skjema direkte, avhengig av kva klassar dei treng
+
+---
+
 ## Domenemodell-skjema
 
 Domenemodell-skjema (t.d. SAMT, NGR) importerer AP-NO-profilene.

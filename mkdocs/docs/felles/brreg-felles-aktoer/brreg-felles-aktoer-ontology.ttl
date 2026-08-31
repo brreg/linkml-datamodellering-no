@@ -1,0 +1,1086 @@
+@prefix brreg_felles_aktoer: <https://data.norge.no/felles/brreg-felles-aktoer/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+xsd:base64Binary a rdfs:Datatype .
+
+xsd:dateTime a rdfs:Datatype .
+
+xsd:decimal a rdfs:Datatype .
+
+xsd:gYear a rdfs:Datatype .
+
+xsd:gYearMonth a rdfs:Datatype .
+
+xsd:hexBinary a rdfs:Datatype .
+
+xsd:long a rdfs:Datatype .
+
+xsd:negativeInteger a rdfs:Datatype .
+
+xsd:nonNegativeInteger a rdfs:Datatype .
+
+xsd:nonPositiveInteger a rdfs:Datatype .
+
+xsd:positiveInteger a rdfs:Datatype .
+
+xsd:short a rdfs:Datatype .
+
+xsd:token a rdfs:Datatype .
+
+<https://data.norge.no/felles/brreg-felles-aktoer.owl.ttl> a owl:Ontology ;
+    rdfs:label "brreg-felles-aktoer" ;
+    dcterms:license "https://data.norge.no/nlod/no/2.0" ;
+    dcterms:title "BRREG felles aktør" ;
+    pav:version "0.1.0" ;
+    skos:definition "Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken \"Aktør\", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på." ;
+    brreg_felles_aktoer:endringsdato "2026-08-31" ;
+    brreg_felles_aktoer:status "http://purl.org/adms/status/UnderDevelopment" ;
+    brreg_felles_aktoer:utgivelsesdato "2026-08-31" ;
+    brreg_felles_aktoer:utgiver "https://data.norge.no/organizations/974760673" .
+
+brreg_felles_aktoer:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:statsborgerskap ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:personstatus ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:br_person_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:personnavn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:personidentifikator ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:foedsel_eller_d_nummer ],
+        brreg_felles_aktoer:Aktoer ;
+    skos:definition "Ein fysisk person." ;
+    skos:exactMatch foaf:Person ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Virksomhet a owl:Class ;
+    rdfs:label "Virksomhet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:organisasjonsnummer ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:virksomhetsnavn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:virksomhetsstatus ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:virksomhetsidentifikator ],
+        brreg_felles_aktoer:Aktoer ;
+    skos:definition "Ei verksemd registrert i Einingsregisteret." ;
+    skos:exactMatch rov:RegisteredOrganization ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:relasjon a owl:ObjectProperty ;
+    rdfs:label "relasjon" ;
+    rdfs:range brreg_felles_aktoer:Relasjon ;
+    skos:definition "Relasjonar aktøren har til andre aktørar." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:rolle a owl:ObjectProperty ;
+    rdfs:label "rolle" ;
+    rdfs:range brreg_felles_aktoer:Rolle ;
+    skos:definition "Roller aktøren har." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+xsd:anyURI a rdfs:Datatype .
+
+<https://data.norge.no/felles/brreg-felles-adresse/EPostadresse> a owl:Class ;
+    rdfs:label "EPostadresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/domenenavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/brukernavn> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Ei e-postadresse, delt opp i brukarnamn og domenenavn." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/EPostadresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/IPAdresse> a owl:Class ;
+    rdfs:label "IPAdresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/ip_nummer> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Ei IP-adresse." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/IPAdresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse> a owl:Class ;
+    rdfs:label "InternasjonalAdresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/etasjenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/distrikt_eller_bydel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/by_eller_stedsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressenavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressenummer_tekst> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/fri_adressetekst> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/postboks> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/landkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/postkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/boenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/bygning> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/region> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Ei adresse i eit anna land enn Noreg, i fri form." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse> a owl:Class ;
+    rdfs:label "Matrikkeladresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresse_id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/undernummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Ei matrikkeladresse (knytt til eit matrikkelnummer)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks> a owl:Class ;
+    rdfs:label "Meldingsboks" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Ei digital meldingsboks (t.d. Altinn)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer> a owl:Class ;
+    rdfs:label "Mobiltelefonnummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/prefiks_med_nasjonal_kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/nasjonalt_nummer> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Eit mobiltelefonnummer." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Nettadresse> a owl:Class ;
+    rdfs:label "Nettadresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/filsti> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/protokoll> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/domenenavn> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Ei nettadresse (protokoll, domenenavn og filsti)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Nettadresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse> a owl:Class ;
+    rdfs:label "Postboksadresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/postboksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Ei postboksadresse." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse> a owl:Class ;
+    rdfs:label "Stedsadresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/stedsnavn> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Ei stadfesta adresse utan vegadresse (t.d. i utmark)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer> a owl:Class ;
+    rdfs:label "Telefonnummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/nasjonalt_nummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/prefiks_med_nasjonal_kode> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Eit fasttelefonnummer." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Vegadresse> a owl:Class ;
+    rdfs:label "Vegadresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kort_adressenavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressenavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/fylke> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/vegadresse_id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/adressenummer> ],
+        <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Ei vegadresse (adressenavn + adressenummer)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Vegadresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator> a owl:DatatypeProperty ;
+    rdfs:label "adresseidentifikator" ;
+    rdfs:range xsd:string ;
+    skos:definition "Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/adressenummer> a owl:ObjectProperty ;
+    rdfs:label "adressenummer" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> ;
+    skos:definition "Husnummer og eventuell husbokstav i vegadressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/adressenummer_tekst> a owl:DatatypeProperty ;
+    rdfs:label "adressenummer_tekst" ;
+    rdfs:range xsd:string ;
+    skos:definition "Adressenummer som fritekst (for utanlandske adresser med anna format enn norsk husnummer/husbokstav)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn> a owl:DatatypeProperty ;
+    rdfs:label "anleggsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på anlegget/institusjonen postboksen høyrer til." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/boenhet> a owl:DatatypeProperty ;
+    rdfs:label "boenhet" ;
+    rdfs:range xsd:string ;
+    skos:definition "Bueining/leilegheitsnummer." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/bokstav> a owl:DatatypeProperty ;
+    rdfs:label "bokstav" ;
+    rdfs:range xsd:string ;
+    skos:definition "Husbokstaven, dersom adressa har ein." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/br_adresse_id> a owl:DatatypeProperty ;
+    rdfs:label "br_adresse_id" ;
+    rdfs:range xsd:string ;
+    skos:definition "BR sin interne identifikator for adressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/brukernavn> a owl:DatatypeProperty ;
+    rdfs:label "brukernavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Brukarnamnet (lokaldelen) i e-postadressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/bruksnummer> a owl:DatatypeProperty ;
+    rdfs:label "bruksnummer" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Bruksnummer i matrikkelen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/by_eller_stedsnavn> a owl:DatatypeProperty ;
+    rdfs:label "by_eller_stedsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "By- eller stadnamn." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/bygning> a owl:DatatypeProperty ;
+    rdfs:label "bygning" ;
+    rdfs:range xsd:string ;
+    skos:definition "Bygningsnamn eller -nummer." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/co_navn> a owl:DatatypeProperty ;
+    rdfs:label "co_navn" ;
+    rdfs:range xsd:string ;
+    skos:definition "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/distrikt_eller_bydel> a owl:DatatypeProperty ;
+    rdfs:label "distrikt_eller_bydel" ;
+    rdfs:range xsd:string ;
+    skos:definition "Distrikt eller bydel." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/etasjenummer> a owl:DatatypeProperty ;
+    rdfs:label "etasjenummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Etasjenummer." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/festenummer> a owl:DatatypeProperty ;
+    rdfs:label "festenummer" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Festenummer i matrikkelen (for festetomter)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/filsti> a owl:DatatypeProperty ;
+    rdfs:label "filsti" ;
+    rdfs:range xsd:string ;
+    skos:definition "Filstien i nettadressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/fri_adressetekst> a owl:DatatypeProperty ;
+    rdfs:label "fri_adressetekst" ;
+    rdfs:range xsd:string ;
+    skos:definition "Heile adressa som fritekst, når ho ikkje kan strukturerast i felta over." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/fylke> a owl:ObjectProperty ;
+    rdfs:label "fylke" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/Fylke> ;
+    skos:definition "Fylket adressa ligg i." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn> a owl:DatatypeProperty ;
+    rdfs:label "fylkesnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på fylket." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer> a owl:DatatypeProperty ;
+    rdfs:label "fylkesnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fylkesnummeret." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer> a owl:DatatypeProperty ;
+    rdfs:label "gaardsnummer" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Gårdsnummer i matrikkelen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/ip_nummer> a owl:DatatypeProperty ;
+    rdfs:label "ip_nummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "IP-nummeret." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/kommunenavn> a owl:DatatypeProperty ;
+    rdfs:label "kommunenavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på kommunen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/kort_adressenavn> a owl:DatatypeProperty ;
+    rdfs:label "kort_adressenavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Forkorta versjon av adressenamnet." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/landkode> a owl:DatatypeProperty ;
+    rdfs:label "landkode" ;
+    rdfs:range xsd:string ;
+    skos:definition "Landet adressa ligg i." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresse_id> a owl:DatatypeProperty ;
+    rdfs:label "matrikkeladresse_id" ;
+    rdfs:range xsd:string ;
+    skos:definition "BR sin interne identifikator for matrikkeladressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer> a owl:ObjectProperty ;
+    rdfs:label "matrikkelnummer" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> ;
+    skos:definition "Matrikkelnummeret adressa er knytt til." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype> a owl:DatatypeProperty ;
+    rdfs:label "meldingsbokstype" ;
+    rdfs:range xsd:string ;
+    skos:definition "Kva type digital meldingsboks dette er (t.d. Altinn)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/navn> a owl:DatatypeProperty ;
+    rdfs:label "navn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på ressursen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/nummer> a owl:DatatypeProperty ;
+    rdfs:label "nummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Husnummeret." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/postboks> a owl:DatatypeProperty ;
+    rdfs:label "postboks" ;
+    rdfs:range xsd:string ;
+    skos:definition "Postboksnummer (utanlandsk format)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/postboksnummer> a owl:DatatypeProperty ;
+    rdfs:label "postboksnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Nummeret på postboksen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/postkode> a owl:DatatypeProperty ;
+    rdfs:label "postkode" ;
+    rdfs:range xsd:string ;
+    skos:definition "Utanlandsk postkode (ikkje norsk postnummer)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/postnummer> a owl:DatatypeProperty ;
+    rdfs:label "postnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Postnummeret." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/protokoll> a owl:DatatypeProperty ;
+    rdfs:label "protokoll" ;
+    rdfs:range xsd:string ;
+    skos:definition "Protokollen for nettadressa, t.d. https." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/region> a owl:DatatypeProperty ;
+    rdfs:label "region" ;
+    rdfs:range xsd:string ;
+    skos:definition "Region, delstat eller provins." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer> a owl:DatatypeProperty ;
+    rdfs:label "seksjonsnummer" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/stedsnavn> a owl:DatatypeProperty ;
+    rdfs:label "stedsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på staden (for adresser utan vegadresse)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/undernummer> a owl:DatatypeProperty ;
+    rdfs:label "undernummer" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Undernummer for seksjonert eigedom." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/vegadresse_id> a owl:DatatypeProperty ;
+    rdfs:label "vegadresse_id" ;
+    rdfs:range xsd:string ;
+    skos:definition "BR sin interne identifikator for vegadressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+brreg_felles_aktoer:aktoer a owl:ObjectProperty ;
+    rdfs:label "aktoer" ;
+    rdfs:range brreg_felles_aktoer:Aktoer ;
+    skos:definition "Aktøren relasjonen gjeld." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:br_person_id a owl:DatatypeProperty ;
+    rdfs:label "br_person_id" ;
+    rdfs:range xsd:string ;
+    skos:definition "BR sin interne identifikator for personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:etternavn a owl:DatatypeProperty ;
+    rdfs:label "etternavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Etternamnet til personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:foedsel_eller_d_nummer a owl:DatatypeProperty ;
+    rdfs:label "foedsel_eller_d_nummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fødselsnummeret eller D-nummeret til personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:fornavn a owl:DatatypeProperty ;
+    rdfs:label "fornavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fornamnet til personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:mellomnavn a owl:DatatypeProperty ;
+    rdfs:label "mellomnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Mellomnamnet til personen, dersom personen har det." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:organisasjonsnummer a owl:DatatypeProperty ;
+    rdfs:label "organisasjonsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Organisasjonsnummeret til verksemda." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:personidentifikator a owl:ObjectProperty ;
+    rdfs:label "personidentifikator" ;
+    rdfs:range brreg_felles_aktoer:Personidentifikator ;
+    skos:definition "Identifikatoren for personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:personidentifikator_type a owl:ObjectProperty ;
+    rdfs:label "personidentifikator_type" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType> ;
+    skos:definition "Kva slag personidentifikator dette er." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:personnavn a owl:ObjectProperty ;
+    rdfs:label "personnavn" ;
+    rdfs:range brreg_felles_aktoer:Personnavn ;
+    skos:definition "Namnet på personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:personstatus a owl:DatatypeProperty ;
+    rdfs:label "personstatus" ;
+    rdfs:range xsd:string ;
+    skos:definition "Statusen til personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:rolleinnehaver a owl:ObjectProperty ;
+    rdfs:label "rolleinnehaver" ;
+    rdfs:range brreg_felles_aktoer:Aktoer ;
+    skos:definition "Aktøren som innehar rolla." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:rolletypegruppe a owl:ObjectProperty ;
+    rdfs:label "rolletypegruppe" ;
+    rdfs:range brreg_felles_aktoer:Rolletypegruppe ;
+    skos:definition "Rolletypegruppa rolla høyrer til." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:statsborgerskap a owl:DatatypeProperty ;
+    rdfs:label "statsborgerskap" ;
+    rdfs:range xsd:string ;
+    skos:definition "Statsborgarskapet til personen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:virksomhetsidentifikator a owl:ObjectProperty ;
+    rdfs:label "virksomhetsidentifikator" ;
+    rdfs:range brreg_felles_aktoer:Virksomhetsidentifikator ;
+    skos:definition "Identifikatoren for verksemda." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:virksomhetsidentifikator_type a owl:ObjectProperty ;
+    rdfs:label "virksomhetsidentifikator_type" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType> ;
+    skos:definition "Kva slag verksemdsidentifikator dette er." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:virksomhetsnavn a owl:DatatypeProperty ;
+    rdfs:label "virksomhetsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på verksemda." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:virksomhetsstatus a owl:DatatypeProperty ;
+    rdfs:label "virksomhetsstatus" ;
+    rdfs:range xsd:string ;
+    skos:definition "Statusen til verksemda." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> a owl:Class ;
+    rdfs:label "Adressenummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/nummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/bokstav> ] ;
+    skos:definition "Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Adressenummer> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Fylke> a owl:Class ;
+    rdfs:label "Fylke" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer> ] ;
+    skos:definition "Eit norsk fylke." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Fylke> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Kommune> a owl:Class ;
+    rdfs:label "Kommune" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommunenavn> ] ;
+    skos:definition "Ein norsk kommune." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Kommune> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> a owl:Class ;
+    rdfs:label "Matrikkelnummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/festenummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/kommunenummer> ] ;
+    skos:definition "Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer)." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/Poststed> a owl:Class ;
+    rdfs:label "Poststed" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/navn> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/postnummer> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    skos:definition "Eit poststed knytt til eit postnummer." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/Poststed> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/adressenavn> a owl:DatatypeProperty ;
+    rdfs:label "adressenavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namnet på vegen/gata/staden." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn> a owl:DatatypeProperty ;
+    rdfs:label "adressetilleggsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer> a owl:DatatypeProperty ;
+    rdfs:label "bruksenhetsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/domenenavn> a owl:DatatypeProperty ;
+    rdfs:label "domenenavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Domenenamnet i adressa." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/identifikator> a owl:DatatypeProperty ;
+    rdfs:label "identifikator" ;
+    rdfs:range xsd:string ;
+    skos:definition "Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt)." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/kommunenummer> a owl:DatatypeProperty ;
+    rdfs:label "kommunenummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Kommunenummeret." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/nasjonalt_nummer> a owl:DatatypeProperty ;
+    rdfs:label "nasjonalt_nummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Telefonnummeret utan landkode/prefiks." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/prefiks_med_nasjonal_kode> a owl:DatatypeProperty ;
+    rdfs:label "prefiks_med_nasjonal_kode" ;
+    rdfs:range xsd:string ;
+    skos:definition "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#d_nummer> a owl:Class ;
+    rdfs:label "d_nummer" ;
+    rdfs:subClassOf <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType> ;
+    skos:definition "Norsk D-nummer." .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#foedselsnummer> a owl:Class ;
+    rdfs:label "foedselsnummer" ;
+    rdfs:subClassOf <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType> ;
+    skos:definition "Norsk fødselsnummer." .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#utenlandsk_personidentifikator> a owl:Class ;
+    rdfs:label "utenlandsk_personidentifikator" ;
+    rdfs:subClassOf <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType> ;
+    skos:definition "Utanlandsk personidentifikator." .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#organisasjonsnummer> a owl:Class ;
+    rdfs:label "organisasjonsnummer" ;
+    rdfs:subClassOf <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType> ;
+    skos:definition "Norsk organisasjonsnummer." .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#utenlandsk_virksomhetsidentifikator> a owl:Class ;
+    rdfs:label "utenlandsk_virksomhetsidentifikator" ;
+    rdfs:subClassOf <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType> ;
+    skos:definition "Utanlandsk verksemdsidentifikator." .
+
+brreg_felles_aktoer:Kontaktinformasjon a owl:Class ;
+    rdfs:label "Kontaktinformasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:digital_adresse ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:geografisk_adresse ] ;
+    skos:definition "Kontaktinformasjon (digital og/eller geografisk adresse) for ein aktør." ;
+    skos:exactMatch brreg_felles_aktoer:Kontaktinformasjon ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Personidentifikator a owl:Class ;
+    rdfs:label "Personidentifikator" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:verdi ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:personidentifikator_type ] ;
+    skos:definition "Ein identifikator for ein person, med ein type som seier kva slag identifikator det er." ;
+    skos:exactMatch brreg_felles_aktoer:Personidentifikator ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Personnavn a owl:Class ;
+    rdfs:label "Personnavn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:mellomnavn ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:fornavn ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:etternavn ] ;
+    skos:definition "Fullt namn på ein person, delt opp i for-, mellom- og etternamn." ;
+    skos:exactMatch brreg_felles_aktoer:Personnavn ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Relasjon a owl:Class ;
+    rdfs:label "Relasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:aktoer ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    skos:definition "Ein relasjon mellom to aktørar." ;
+    skos:exactMatch brreg_felles_aktoer:Relasjon ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Rolle a owl:Class ;
+    rdfs:label "Rolle" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:digital_adresse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:geografisk_adresse ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:kontaktinformasjon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:rolletypegruppe ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:rolleinnehaver ] ;
+    skos:definition "Ei rolle ein aktør har overfor ein annan aktør (t.d. styreleiar, revisor)." ;
+    skos:exactMatch brreg_felles_aktoer:Rolle ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Rolletypegruppe a owl:Class ;
+    rdfs:label "Rolletypegruppe" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    skos:definition "Ei gruppering av rolletypar (t.d. \"styre\")." ;
+    skos:exactMatch brreg_felles_aktoer:Rolletypegruppe ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:Virksomhetsidentifikator a owl:Class ;
+    rdfs:label "Virksomhetsidentifikator" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:virksomhetsidentifikator_type ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:verdi ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    skos:definition "Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er." ;
+    skos:exactMatch brreg_felles_aktoer:Virksomhetsidentifikator ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:kontaktinformasjon a owl:ObjectProperty ;
+    rdfs:label "kontaktinformasjon" ;
+    rdfs:range brreg_felles_aktoer:Kontaktinformasjon ;
+    skos:definition "Kontaktinformasjon for aktøren/rolla." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:verdi a owl:DatatypeProperty ;
+    rdfs:label "verdi" ;
+    rdfs:range xsd:string ;
+    skos:definition "Verdien til identifikatoren." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/kommune> a owl:ObjectProperty ;
+    rdfs:label "kommune" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/Kommune> ;
+    skos:definition "Kommunen adressa ligg i." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/poststed> a owl:ObjectProperty ;
+    rdfs:label "poststed" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/Poststed> ;
+    skos:definition "Poststedet adressa høyrer til." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType> a owl:Class ;
+    rdfs:label "VirksomhetsidentifikatorType" ;
+    owl:unionOf ( <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#organisasjonsnummer> <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#utenlandsk_virksomhetsidentifikator> ) ;
+    skos:definition "Kva slag verksemdsidentifikator ein Virksomhetsidentifikator inneheld." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> ;
+    linkml:permissible_values <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#organisasjonsnummer>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/:VirksomhetsidentifikatorType#utenlandsk_virksomhetsidentifikator> .
+
+brreg_felles_aktoer:digital_adresse a owl:ObjectProperty ;
+    rdfs:label "digital_adresse" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:definition "Digital adresse knytt til aktøren/rolla." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+brreg_felles_aktoer:geografisk_adresse a owl:ObjectProperty ;
+    rdfs:label "geografisk_adresse" ;
+    rdfs:range <https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> ;
+    skos:definition "Geografisk adresse knytt til aktøren/rolla." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType> a owl:Class ;
+    rdfs:label "PersonidentifikatorType" ;
+    owl:unionOf ( <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#foedselsnummer> <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#d_nummer> <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#utenlandsk_personidentifikator> ) ;
+    skos:definition "Kva slag personidentifikator ein Personidentifikator inneheld." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> ;
+    linkml:permissible_values <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#d_nummer>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#foedselsnummer>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/:PersonidentifikatorType#utenlandsk_personidentifikator> .
+
+brreg_felles_aktoer:Aktoer a owl:Class ;
+    rdfs:label "Aktoer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:geografisk_adresse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:kontaktinformasjon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_aktoer:digital_adresse ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ] ;
+    skos:definition "Ein aktør — person eller verksemd. Abstrakt basisklasse for Virksomhet og Person." ;
+    skos:exactMatch foaf:Agent ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-aktoer> .
+
+xsd:integer a rdfs:Datatype .
+
+<https://data.norge.no/felles/brreg-felles-adresse/type> a owl:DatatypeProperty ;
+    rdfs:label "type" ;
+    rdfs:range xsd:string ;
+    skos:definition "Diskriminator for kva slag adresse dette er." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse> a owl:Class ;
+    rdfs:label "GeografiskAdresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/type> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/br_adresse_id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/co_navn> ] ;
+    skos:definition "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under." ;
+    skos:exactMatch <http://www.w3.org/ns/locn#Address> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> a owl:Class ;
+    rdfs:label "DigitalAdresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/identifikator> ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/felles/brreg-felles-adresse/type> ] ;
+    skos:definition "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under." ;
+    skos:exactMatch <https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse> ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+<https://data.norge.no/felles/brreg-felles-adresse/id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/felles/brreg-felles-adresse> .
+
+xsd:string a rdfs:Datatype ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[A-Z]{3}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[2389][0-9]{8}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ] .
+
+

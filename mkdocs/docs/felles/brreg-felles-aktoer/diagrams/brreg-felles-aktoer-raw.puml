@@ -1,0 +1,229 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Virksomhet" [[{Ei verksemd registrert i Einingsregisteret.}]] {
+    {field} virksomhetsnavn : Virksomhetsnavn  
+    {field} organisasjonsnummer : Organisasjonsnummer  
+    {field} virksomhetsstatus : Virksomhetsstatus  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+}
+class "Virksomhetsidentifikator" [[{Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er.}]] {
+    {field} id : uriorcurie  
+    {field} verdi : string  
+    {field} virksomhetsidentifikator_type : VirksomhetsidentifikatorType  
+}
+"Virksomhet" --> "0..1" "Virksomhetsidentifikator" : "virksomhetsidentifikator"
+class "Aktoer" [[{Ein aktør — person eller verksemd. Abstrakt basisklasse for Virksomhet og Person.}]] {
+    {field} id : uriorcurie  
+    {field} identifikator : string  
+}
+"Aktoer" ^-- "Virksomhet"
+class "Rolletypegruppe" [[{Ei gruppering av rolletypar (t.d. "styre").}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Rolle" [[{Ei rolle ein aktør har overfor ein annan aktør (t.d. styreleiar, revisor).}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+"Rolletypegruppe" --> "0..*" "Rolle" : "rolle"
+"Rolle" --> "0..1" "Rolletypegruppe" : "rolletypegruppe"
+class "DigitalAdresse" [[{Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under.}]] {
+    {field} id : uriorcurie  
+    {field} identifikator : string  
+    {field} type : string  
+}
+class "GeografiskAdresse" [[{Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under.}]] {
+    {field} id : uriorcurie  
+    {field} br_adresse_id : string  
+    {field} co_navn : string  
+    {field} type : string  
+}
+class "Kontaktinformasjon" [[{Kontaktinformasjon (digital og/eller geografisk adresse) for ein aktør.}]] {
+    {field} id : uriorcurie  
+}
+"Rolle" --> "0..1" "DigitalAdresse" : "digital_adresse"
+"Rolle" --> "0..1" "GeografiskAdresse" : "geografisk_adresse"
+"Rolle" --> "0..1" "Aktoer" : "rolleinnehaver"
+"Rolle" --> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" --> "0..*" "Rolle" : "rolle"
+class "Relasjon" [[{Ein relasjon mellom to aktørar.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+"Relasjon" --> "0..1" "Aktoer" : "aktoer"
+"Aktoer" --> "0..*" "Relasjon" : "relasjon"
+class "Postboksadresse" [[{Ei postboksadresse.}]] {
+    {field} postboksnummer : Postboksnummer  
+    {field} anleggsnavn : string  
+    {field} id(i) : uriorcurie  
+    {field} br_adresse_id(i) : string  
+    {field} co_navn(i) : string  
+    {field} type(i) : string  
+}
+class "Poststed" [[{Eit poststed knytt til eit postnummer.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} postnummer : Postnummer  
+}
+class "Stedsadresse" [[{Ei stadfesta adresse utan vegadresse (t.d. i utmark).}]] {
+    {field} stedsnavn : string  
+    {field} id(i) : uriorcurie  
+    {field} br_adresse_id(i) : string  
+    {field} co_navn(i) : string  
+    {field} type(i) : string  
+}
+class "Vegadresse" [[{Ei vegadresse (adressenavn + adressenummer).}]] {
+    {field} vegadresse_id : string  
+    {field} bruksenhetsnummer : Bruksenhetsnummer  
+    {field} adressenavn : string  
+    {field} kort_adressenavn : string  
+    {field} adressetilleggsnavn : string  
+    {field} id(i) : uriorcurie  
+    {field} br_adresse_id(i) : string  
+    {field} co_navn(i) : string  
+    {field} type(i) : string  
+}
+"Postboksadresse" --> "0..1" "Poststed" : "poststed"
+"Stedsadresse" --> "0..1" "Poststed" : "poststed"
+"Vegadresse" --> "0..1" "Poststed" : "poststed"
+class "Fylke" [[{Eit norsk fylke.}]] {
+    {field} id : uriorcurie  
+    {field} fylkesnummer : Fylkesnummer  
+    {field} fylkesnavn : string  
+}
+class "Kommune" [[{Ein norsk kommune.}]] {
+    {field} id : uriorcurie  
+    {field} kommunenummer : Kommunenummer  
+    {field} kommunenavn : string  
+}
+class "Adressenummer" [[{Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse.}]] {
+    {field} id : uriorcurie  
+    {field} nummer : Husnummer  
+    {field} bokstav : Husbokstav  
+}
+"Vegadresse" --> "0..1" "Fylke" : "fylke"
+"Vegadresse" --> "0..1" "Kommune" : "kommune"
+"Vegadresse" --> "0..1" "Adressenummer" : "adressenummer"
+"GeografiskAdresse" ^-- "Vegadresse"
+"Stedsadresse" --> "0..1" "Kommune" : "kommune"
+"GeografiskAdresse" ^-- "Stedsadresse"
+"Postboksadresse" --> "0..1" "Kommune" : "kommune"
+"GeografiskAdresse" ^-- "Postboksadresse"
+class "Person" [[{Ein fysisk person.}]] {
+    {field} br_person_id : BRPersonId  
+    {field} foedsel_eller_d_nummer : Foedselsnummer  
+    {field} personstatus : PersonstatusType  
+    {field} statsborgerskap : Landkode  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+}
+class "Personnavn" [[{Fullt namn på ein person, delt opp i for-, mellom- og etternamn.}]] {
+    {field} id : uriorcurie  
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+"Person" --> "0..1" "Personnavn" : "personnavn"
+class "Personidentifikator" [[{Ein identifikator for ein person, med ein type som seier kva slag identifikator det er.}]] {
+    {field} id : uriorcurie  
+    {field} verdi : string  
+    {field} personidentifikator_type : PersonidentifikatorType  
+}
+"Person" --> "0..1" "Personidentifikator" : "personidentifikator"
+"Aktoer" ^-- "Person"
+class "Matrikkeladresse" [[{Ei matrikkeladresse (knytt til eit matrikkelnummer).}]] {
+    {field} matrikkeladresse_id : string  
+    {field} bruksenhetsnummer : Bruksenhetsnummer  
+    {field} adressetilleggsnavn : string  
+    {field} undernummer : integer  
+    {field} id(i) : uriorcurie  
+    {field} br_adresse_id(i) : string  
+    {field} co_navn(i) : string  
+    {field} type(i) : string  
+}
+class "Matrikkelnummer" [[{Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer).}]] {
+    {field} id : uriorcurie  
+    {field} kommunenummer : Kommunenummer  
+    {field} gaardsnummer : integer  
+    {field} bruksnummer : integer  
+    {field} festenummer : integer  
+    {field} seksjonsnummer : integer  
+}
+"Matrikkeladresse" --> "0..1" "Matrikkelnummer" : "matrikkelnummer"
+"GeografiskAdresse" ^-- "Matrikkeladresse"
+"Kontaktinformasjon" --> "0..1" "GeografiskAdresse" : "geografisk_adresse"
+"Kontaktinformasjon" --> "0..1" "DigitalAdresse" : "digital_adresse"
+"Aktoer" --> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+class "InternasjonalAdresse" [[{Ei adresse i eit anna land enn Noreg, i fri form.}]] {
+    {field} adressenavn : string  
+    {field} adressenummer_tekst : string  
+    {field} bygning : string  
+    {field} etasjenummer : string  
+    {field} boenhet : string  
+    {field} postboks : string  
+    {field} postkode : string  
+    {field} by_eller_stedsnavn : string  
+    {field} region : string  
+    {field} distrikt_eller_bydel : string  
+    {field} landkode : Landkode  
+    {field} fri_adressetekst : string  
+    {field} adresseidentifikator : string  
+    {field} id(i) : uriorcurie  
+    {field} br_adresse_id(i) : string  
+    {field} co_navn(i) : string  
+    {field} type(i) : string  
+}
+"Aktoer" --> "0..1" "GeografiskAdresse" : "geografisk_adresse"
+"GeografiskAdresse" ^-- "InternasjonalAdresse"
+class "Telefonnummer" [[{Eit fasttelefonnummer.}]] {
+    {field} prefiks_med_nasjonal_kode : PrefiksMedNasjonalKode  
+    {field} nasjonalt_nummer : NasjonaltNummer  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Nettadresse" [[{Ei nettadresse (protokoll, domenenavn og filsti).}]] {
+    {field} protokoll : string  
+    {field} domenenavn : string  
+    {field} filsti : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Mobiltelefonnummer" [[{Eit mobiltelefonnummer.}]] {
+    {field} prefiks_med_nasjonal_kode : PrefiksMedNasjonalKode  
+    {field} nasjonalt_nummer : NasjonaltNummer  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Meldingsboks" [[{Ei digital meldingsboks (t.d. Altinn).}]] {
+    {field} meldingsbokstype : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "IPAdresse" [[{Ei IP-adresse.}]] {
+    {field} ip_nummer : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "EPostadresse" [[{Ei e-postadresse, delt opp i brukarnamn og domenenavn.}]] {
+    {field} domenenavn : string  
+    {field} brukernavn : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+"Aktoer" --> "0..1" "DigitalAdresse" : "digital_adresse"
+"DigitalAdresse" ^-- "Telefonnummer"
+"DigitalAdresse" ^-- "Nettadresse"
+"DigitalAdresse" ^-- "Mobiltelefonnummer"
+"DigitalAdresse" ^-- "Meldingsboks"
+"DigitalAdresse" ^-- "IPAdresse"
+"DigitalAdresse" ^-- "EPostadresse"
+@enduml

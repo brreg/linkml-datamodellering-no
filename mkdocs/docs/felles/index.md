@@ -8,5 +8,7 @@ Domenet inneheld fire modellar: `brreg-felles-typer` (gjenbrukbare primitivtypar
 
 | Modell | Tilgjengelege artefakter |
 |--------|--------------------------|
-| [brreg-felles-adresse](brreg-felles-adresse/index.md) | - |
-| [brreg-felles-typer](brreg-felles-typer/index.md) | - |
+| [brreg-felles-adresse](brreg-felles-adresse/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [brreg-felles-aktoer](brreg-felles-aktoer/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [brreg-felles-tid](brreg-felles-tid/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [brreg-felles-typer](brreg-felles-typer/index.md) | ER-diagram (Mermaid) |

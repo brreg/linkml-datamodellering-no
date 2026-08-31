@@ -1,0 +1,65 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-adresse
+tittel:
+  nb: BRREG felles adresse
+  nn: BRREG felles adresse
+beskrivelse:
+  nb: 'Gjenbrukbare adresseklassar utleia frå Brønnøysundregistrene (BR) sin interne
+    BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" — eit geografisk adressehierarki
+    (GeografiskAdresse) og eit digitalt adressehierarki (DigitalAdresse), pluss dei
+    adresse-relaterte komplekstypane frå Strukturtypekatalog_v1 (Poststed, Kommune,
+    Fylke, Matrikkelnummer, Adressenummer) som adressehierarkiet er avhengig av. Sjå
+    specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode
+    og avklaringane denne modellen byggjer på.
+
+    BR sin eigen `Nettadresse`-undertype "Aksesspunkt" er medvite utelaten her: feltet
+    `aksesspunktoperatoer` peikar til `Virksomhet` (definert i brreg-felles-aktoer,
+    som importerer denne modellen) og ville gjort importgrafen sirkulær. Sjå nemnde
+    spec § Funn 4.'
+  nn: 'Gjenbrukbare adresseklassar utleia frå Brønnøysundregistrene (BR) sin interne
+    BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" — eit geografisk adressehierarki
+    (GeografiskAdresse) og eit digitalt adressehierarki (DigitalAdresse), pluss dei
+    adresse-relaterte komplekstypane frå Strukturtypekatalog_v1 (Poststed, Kommune,
+    Fylke, Matrikkelnummer, Adressenummer) som adressehierarkiet er avhengig av. Sjå
+    specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode
+    og avklaringane denne modellen byggjer på.
+
+    BR sin eigen `Nettadresse`-undertype "Aksesspunkt" er medvite utelaten her: feltet
+    `aksesspunktoperatoer` peikar til `Virksomhet` (definert i brreg-felles-aktoer,
+    som importerer denne modellen) og ville gjort importgrafen sirkulær. Sjå nemnde
+    spec § Funn 4.'
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-08-31'
+utgivelsesdato: '2026-08-31'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-adresse/
+inneholder_modellelement:
+- http://www.w3.org/ns/locn#Address
+- https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse
+- https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse
+- https://data.norge.no/felles/brreg-felles-adresse/Vegadresse
+- https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse
+- https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse
+- https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse
+- https://data.norge.no/felles/brreg-felles-adresse/IPAdresse
+- https://data.norge.no/felles/brreg-felles-adresse/EPostadresse
+- https://data.norge.no/felles/brreg-felles-adresse/Nettadresse
+- https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks
+- https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer
+- https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer
+- https://data.norge.no/felles/brreg-felles-adresse/Poststed
+- https://data.norge.no/felles/brreg-felles-adresse/Kommune
+- https://data.norge.no/felles/brreg-felles-adresse/Fylke
+- https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer
+- https://data.norge.no/felles/brreg-felles-adresse/Adressenummer
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-adresse/brreg-felles-adresse-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-adresse/brreg-felles-adresse-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-adresse/brreg-felles-adresse-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-adresse/diagrams/brreg-felles-adresse-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-adresse/diagrams/brreg-felles-adresse.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-adresse/brreg-felles-adresse-schema.yaml

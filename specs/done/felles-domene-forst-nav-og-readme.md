@@ -95,3 +95,34 @@ mønster som dei andre domena (`REFERANSE - Referansemodellar` osv.).
 Utan dette fall `felles` gjennom til default-casen (berre uppercasa
 domenenamn, ingen " - "-forklaring). Verifisert i regenerert
 `mkdocs/mkdocs.yml`: `- 'FELLES - Fellesmodellar':`.
+
+**Oppfølging 3:** Importhierarki-treet i "Avhengigheiter"-seksjonen på
+FELLES-modellsidene (og OREG-modellar som importerer FELLES) vart teikna
+flatt i staden for hierarkisk (`parse-dependency-tree.py` logga
+`WARN ... ingen filtrert tre fann veg ... fell tilbake til flat
+importliste`). Årsak: `mkdocs/docs/arkitektur/importhierarki.md`
+mangla ein `## FELLES-hierarki`-seksjon — parse-dependency-tree.py
+finn berre stiar til eit skjema sine transitive imports via dei
+eksplisitte `## <domene>-hierarki`-blokkene i den fila (jf.
+AP-NO-hierarki, FINT-hierarki). Fiksa ved å leggje til
+`## FELLES-hierarki` med korrekt ASCII-tre basert på faktiske
+`imports:` i dei fire skjemaa (`brreg-felles-typer-schema` importerer
+`linkml:types` direkte; `brreg-felles-tid-schema` og
+`brreg-felles-adresse-schema` importerer `brreg-felles-typer-schema`;
+`brreg-felles-aktoer-schema` importerer `brreg-felles-adresse-schema`),
+same mønster/reglar-format som AP-NO-/FINT-seksjonane. Verifisert:
+WARN-meldingane er borte frå `make docs-publish`-output, og
+`mkdocs/docs/felles/brreg-felles-adresse/index.md`,
+`.../brreg-felles-aktoer/index.md` og
+`mkdocs/docs/oreg/enhetsregisteret-bvrinnfelles/index.md` viser no
+korrekt nesta `└──`-tre med "direkte import"/"transitiv import"-merking.
+
+**Oppfølging 4:** `COMMANDS.md` § "Domenepipeline" (tabellen over
+`domain-*`-targets) mangla rader for `make domain-felles` og
+`make domain-referanse`. Sjølve targeta finst alt (generert dynamisk
+frå schema discovery via `DOMAINS`-variabelen i
+`make/02-schema-discovery.mk` og `make/20-domain-targets.mk`) — berre
+dokumentasjonen mangla. Lagt til begge rader alfabetisk
+(`domain-felles` mellom `domain-fair`/`domain-fint`, `domain-referanse`
+mellom `domain-oreg`/`domain-samt`). Kryssjekka mot alle 10 domene i
+`src/linkml/` — tabellen dekkjer no alle.

@@ -1,0 +1,68 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Virksomhet" [[{Ei verksemd registrert i Einingsregisteret.}]] {
+    {field} virksomhetsnavn : Virksomhetsnavn  
+    {field} organisasjonsnummer : Organisasjonsnummer  
+    {field} virksomhetsstatus : Virksomhetsstatus  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+}
+class "Virksomhetsidentifikator" [[{Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er.}]] {
+    {field} id : uriorcurie  
+    {field} verdi : string  
+    {field} virksomhetsidentifikator_type : VirksomhetsidentifikatorType  
+}
+"Virksomhet" --> "0..1" "Virksomhetsidentifikator" : "virksomhetsidentifikator"
+class "Aktoer" [[{Ein aktør — person eller verksemd. Abstrakt basisklasse for Virksomhet og Person.}]] {
+    {field} id : uriorcurie  
+    {field} identifikator : string  
+}
+"Aktoer" ^-- "Virksomhet"
+class "Rolletypegruppe" [[{Ei gruppering av rolletypar (t.d. "styre").}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Rolle" [[{Ei rolle ein aktør har overfor ein annan aktør (t.d. styreleiar, revisor).}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+"Rolletypegruppe" --> "0..*" "Rolle" : "rolle"
+"Rolle" --> "0..1" "Rolletypegruppe" : "rolletypegruppe"
+class "Kontaktinformasjon" [[{Kontaktinformasjon (digital og/eller geografisk adresse) for ein aktør.}]] {
+    {field} id : uriorcurie  
+}
+"Rolle" --> "0..1" "Aktoer" : "rolleinnehaver"
+"Rolle" --> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" --> "0..*" "Rolle" : "rolle"
+class "Relasjon" [[{Ein relasjon mellom to aktørar.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+"Relasjon" --> "0..1" "Aktoer" : "aktoer"
+"Aktoer" --> "0..*" "Relasjon" : "relasjon"
+class "Person" [[{Ein fysisk person.}]] {
+    {field} br_person_id : BRPersonId  
+    {field} foedsel_eller_d_nummer : Foedselsnummer  
+    {field} personstatus : PersonstatusType  
+    {field} statsborgerskap : Landkode  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+}
+class "Personnavn" [[{Fullt namn på ein person, delt opp i for-, mellom- og etternamn.}]] {
+    {field} id : uriorcurie  
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+"Person" --> "0..1" "Personnavn" : "personnavn"
+class "Personidentifikator" [[{Ein identifikator for ein person, med ein type som seier kva slag identifikator det er.}]] {
+    {field} id : uriorcurie  
+    {field} verdi : string  
+    {field} personidentifikator_type : PersonidentifikatorType  
+}
+"Person" --> "0..1" "Personidentifikator" : "personidentifikator"
+"Aktoer" ^-- "Person"
+"Aktoer" --> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+@enduml
