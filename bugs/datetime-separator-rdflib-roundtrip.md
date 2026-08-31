@@ -7,7 +7,10 @@
 
 ## Symptom
 
-`roundtrip-ttl (enhetsregisteret-bvrinn)` feilar:
+`roundtrip-ttl (enhetsregisteret-bvrinnfelles)` feilar (skjemaet heitte
+`enhetsregisteret-bvrinn` då dette buget vart oppdaga — sjå
+`specs/done/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` for
+omdøypinga):
 
 ```
 ROUNDTRIP-AVVIK (yaml→ttl→yaml→json):
@@ -44,8 +47,8 @@ strengrepresentasjonen av ein typa literal ved deserialisering.
 
 ## Berørte skjema
 
-Stadfesta: `enhetsregisteret-bvrinn` (einaste skjema der roundtrip-ttl når
-fram til denne samanlikninga med eit populert `datetime`-felt — andre
+Stadfesta: `enhetsregisteret-bvrinnfelles` (einaste skjema der roundtrip-ttl
+når fram til denne samanlikninga med eit populert `datetime`-felt — andre
 skjema med `range: datetime`-slots, som `fint-administrasjon`/`fint-okonomi`/
 `fint-personvern`/`fint-utdanning`, krasjar tidlegare i pipelinen med
 BUG-3 sin `MappingError`, så det er ukjent om dei **òg** ville trigga denne

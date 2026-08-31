@@ -1,3 +1,6 @@
+# Generert av CI frå generate-modellkatalog.py — ikkje rediger manuelt
+# Samlar alle Informasjonsmodell-instansar per organisasjon frå metadata/*-manifest.yaml
+
 modellkataloger:
 - id: https://data.norge.no/organizations/991825827/modellkatalogar/digdir-modellkatalog
   tittel:

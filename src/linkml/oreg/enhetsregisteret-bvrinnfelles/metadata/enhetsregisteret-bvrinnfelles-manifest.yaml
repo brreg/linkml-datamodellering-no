@@ -3,18 +3,24 @@
 
 id: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles
 tittel:
-  nb: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
-  nn: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
+  nb: Enhetsregisteret - BVINN
+  nn: Enhetsregisteret - BVINN
 beskrivelse:
-  nb: Generert modell for 'enhetsregisteret_bvrinnfelles'.
-  nn: Generert modell for 'enhetsregisteret_bvrinnfelles'.
-versjonsnummer: 0.1.0
+  nb: Berettigede, verger, rettighetshavere i næring (BVRiNN)
+  nn: Berettigede, verger, rettighetshavere i næring (BVRiNN)
+versjonsnummer: 1.1.2
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-08-23'
-utgivelsesdato: '2026-08-23'
+endringsdato: '2026-08-31'
+utgivelsesdato: '2026-06-10'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinnfelles/
+er_i_samsvar_med:
+- id: https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/
+  tittel:
+    nb: Enhetsregisteret - BVINN
+    nn: Enhetsregisteret - BVINN
+  har_referanse: https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/
 kontaktpunkt:
 - id: https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   navn_vcard:

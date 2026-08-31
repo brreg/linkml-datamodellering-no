@@ -26,7 +26,7 @@
   "src/linkml/ngr/ngr-virksomhet": "1.8.1",
   "src/linkml/ngr/ngr-person": "2.1.1",
   "src/linkml/oreg/register-over-aksjeeiere": "1.9.2",
-  "src/linkml/oreg/enhetsregisteret-bvrinn": "1.1.2",
+  "src/linkml/oreg/enhetsregisteret-bvrinnfelles": "1.1.2",
   "src/linkml/oreg/lunchregisteret": "0.2.0",
   "src/linkml/samt/samt-bu": "1.12.0",
   "src/linkml/ap-no/common-ap-no": "1.1.0",

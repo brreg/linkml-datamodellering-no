@@ -1,127 +1,80 @@
-# Eksempel for enhetsregisteret-bvrinnfelles
-# Genererte placeholder-verdiar (dummy, 0, 2024-01-01 osv.) må erstattast med
-# reelle verdiar før modellen er produksjonsklar.
----
 innrapporteringer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-1
-  enhetsregisteret_bvrinnfelles_versjon: '1.0'
-  innsendertjenste: dummy
-  innsendingstidspunkt: '2024-01-01T00:00:00'
-  maalformForTilbakemelding: nob
-  tjenestevariant: dummy
-  virksomhetsinformasjon: enhetsregisteret_bvrinnfelles:eksempel-2
-  innsender: enhetsregisteret_bvrinnfelles:eksempel-36
+  - id: https://example.org/innrapportering/1
+    versjon: "1.0.0"
+    innsendertjenste: stiftelse
+    innsendingstidspunkt: "2026-07-04T10:30:00"
+    maalformForTilbakemelding: nob
+    tjenestevariant: test
+    virksomhetsinformasjon: https://example.org/virksomhetsinformasjon/1
+    innsender: https://example.org/innsender/1
+
 virksomhetsinformasjonHovedenheter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-2
-  organisasjonsform: dummy
+  - id: https://example.org/virksomhetsinformasjon/1
+    organisasjonsform: AS
+    navn: Eksempel AS
+    maalform: nob
+    stiftelsesdato: "2026-01-01"
+    forretningsadresse: https://example.org/forretningsadresse/1
+    postadresse: https://example.org/postadresse/1
+    rolletypegruppe:
+      - https://example.org/rolletypegruppe/1
+
 forretningsadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-3
-stedsadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-4
-  kommunenummer: dummy
-  postnummer: dummy
-vegadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-5
-  adressenavn: dummy
-  nummer: enhetsregisteret_bvrinnfelles:eksempel-6
-  kommunenummer: dummy
-  postnummer: dummy
-adressenummerer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-6
-  nummer: enhetsregisteret_bvrinnfelles:eksempel-6
-varslingsadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-7
-mobilnummerer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-8
-  nasjonaltNummer: dummy
+  - id: https://example.org/forretningsadresse/1
+    vegadresse: https://example.org/vegadresse/1
+
 postadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-9
-postboksadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-10
-  postboksnummer: dummy
-  postnummer: dummy
-  kommunenummer: dummy
-internasjonalAdresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-11
-  landkode: dummy
-kontaktopplysninger:
-- id: enhetsregisteret_bvrinnfelles:eksempel-12
-telefonnummerer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-13
-  nasjonaltNummer: dummy
-virksomhetsinformasjonUnderenheter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-14
-beliggenhetsadresseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-15
-aktiviteter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-16
-  aktivitet: enhetsregisteret_bvrinnfelles:eksempel-17
-typeAktiviteter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-17
-  rekkefoelge: 0
-  tekst: dummy
-omdanninger:
-- id: enhetsregisteret_bvrinnfelles:eksempel-18
-  nyOrganisasjonsform: dummy
+  - id: https://example.org/postadresse/1
+    vegadresse: https://example.org/vegadresse/2
+
+vegadresseer:
+  - id: https://example.org/vegadresse/1
+    adressenavn: Eksempelgata
+    nummer: https://example.org/adressenummer/1
+    kommunenummer: "0301"
+    postnummer: "0010"
+  - id: https://example.org/vegadresse/2
+    adressenavn: Postboks
+    nummer: https://example.org/adressenummer/2
+    kommunenummer: "0301"
+    postnummer: "0010"
+
+adressenummerer:
+  - id: https://example.org/adressenummer/1
+    nummer: "42"
+  - id: https://example.org/adressenummer/2
+    nummer: "123"
+
 rolletypegruppeer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-19
-  rollegruppe: dummy
+  - id: https://example.org/rolletypegruppe/1
+    rollegruppe: styre
+    rolle:
+      - https://example.org/rolle/1
+
 rolleer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-20
-  rolletype: rolletype.dagligLeder
-  rolleinnehaver: enhetsregisteret_bvrinnfelles:eksempel-21
+  - id: https://example.org/rolle/1
+    rolletype: rolletype.styreleder
+    rolleinnehaver: https://example.org/rolleinnehaver/1
+
 rolleinnehaverer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-21
-ansvarsandeler:
-- id: enhetsregisteret_bvrinnfelles:eksempel-22
-broeker:
-- id: enhetsregisteret_bvrinnfelles:eksempel-23
-virksomheter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-24
-  virksomhetsidentifikator: dummy
+  - id: https://example.org/rolleinnehaver/1
+    person: https://example.org/person/1
+
 personer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-25
-  mappingId: dummy
-  fulltNavn: dummy
-prokuraer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-26
-prokurabestemmelseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-27
-  regel: dummy
-  rollesett: enhetsregisteret_bvrinnfelles:eksempel-28
-rollesetter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-28
-  rolletype: rolletype.dagligLeder
-signaturberettigetEllerProkurister:
-- id: enhetsregisteret_bvrinnfelles:eksempel-29
-signaturretter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-30
-signaturrettsbestemmelseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-31
-  regel: dummy
-  rollesett: enhetsregisteret_bvrinnfelles:eksempel-28
-foretaksinformasjoner:
-- id: enhetsregisteret_bvrinnfelles:eksempel-32
-eierskifteAktiviteter:
-- id: enhetsregisteret_bvrinnfelles:eksempel-33
-  typeEierskifte: overtakelse
-  organisasjonsnummerHovedenhet: dummy
-  gjelderHeleAktiviteten: false
-  eierskiftedato: '2024-01-01'
-delerEierskifteer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-34
-matrikkelnummerer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-35
+  - id: https://example.org/person/1
+    mappingId: person-1
+    fulltNavn: Kari Nordmann
+  - id: https://example.org/person/2
+    mappingId: person-2
+    fulltNavn: Ola Nordmann
+
 innsenderer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-36
-  test: dummy
-fagsystemreferanseer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-37
-  fagsystemID: dummy
-  orgnrFagsystem: dummy
-  referanseFagsystem: dummy
-signeringer:
-- id: enhetsregisteret_bvrinnfelles:eksempel-38
-gebyransvarliger:
-- id: enhetsregisteret_bvrinnfelles:eksempel-39
-  gebyransvarligType: virksomhetenSelv
+  - id: https://example.org/innsender/1
+    test: "true"
+    person: https://example.org/person/2
+    e_postadresse: ola.nordmann@example.org
+    mobilnummer: https://example.org/mobilnummer/1
+
+mobilnummerer:
+  - id: https://example.org/mobilnummer/1
+    nasjonaltNummer: "98765432"

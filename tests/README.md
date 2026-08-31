@@ -59,7 +59,7 @@ make test SCHEMA=<sti>              # full suite (~3 min)
 | **SAMT** | | | |
 | `samt-bu` | ✓ | FEIL | MappingError: No pred for samt-uri ([BUG-3]) |
 | **Offentlege register** | | | |
-| `enhetsregisteret-bvrinn` | ✓ | ✓ | |
+| `enhetsregisteret-bvrinnfelles` | ✓ | ✓ | |
 | `register-over-aksjeeiere` | ✓ | ✓ | |
 | **Begrepskatalog** | | | |
 | `brreg-begrepskatalog` | ✓ | skip ([BUG-1]) | LangString forsvinn i TTL |

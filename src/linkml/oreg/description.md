@@ -1,4 +1,4 @@
-OREG-domenet (Offentlege register) inneheld tidlege, utforskande domenemodellar for norske register: `enhetsregisteret-bvrinn` (Enhetsregisteret) og `register-over-aksjeeiere` (Aksjeeigarregisteret).
+OREG-domenet (Offentlege register) inneheld tidlege, utforskande domenemodellar for norske register: `enhetsregisteret-bvrinnfelles` (Enhetsregisteret) og `register-over-aksjeeiere` (Aksjeeigarregisteret).
 
 Modellane er proof-of-concept- og forretningsobjektmodellar — dei er ikkje like modne som NGR-modellane, men brukast til å utforske LinkML-basert registermodellering.
 

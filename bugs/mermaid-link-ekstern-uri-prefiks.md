@@ -35,7 +35,7 @@ full utleiing og fleire eksempel (`adresse.md`, `rektor.md`).
 
 Alle skjema som brukar minst éin elementær `linkml:types`-type på ein slot
 **utan** at typen er lokalt omdefinert i skjemaet sin eigen `types:`-blokk —
-stadfesta for `ap-no/cpsv-ap-no` og `oreg/enhetsregisteret-bvrinn` (`string`,
+stadfesta for `ap-no/cpsv-ap-no` og `oreg/enhetsregisteret-bvrinnfelles` (`string`,
 `uri`, `uriorcurie`) og for `samt/samt-bu` (`string`, `uriorcurie`,
 `boolean`, `date`, `double`, `float`), men rotårsaka er generisk i `gen-doc`
 og gjeld praktisk talt alle domenemodellar i repoet. Stadfesta ved ein fersk

@@ -57,7 +57,7 @@ nesten utelukkande metadata). Dette er sannsynlegvis eit uforløyst
 scaffolding-resultat, men er **heilt uavhengig av** BR-katalogane (§ Funn
 2-4). Brukaren har bestemt (avklaring 31.08.2026, punkt 8) at saneringa
 av dette høyrer heime i ein **eigen spec** —
-sjå `specs/backlog/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` for
+sjå `specs/done/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` for
 full utgreiing og handlingsliste. Resten av denne specen handterer berre
 BR-katalog-avleidde felles-modellar.
 
@@ -426,7 +426,7 @@ implementering (steg 1-9) kan starte:
 7. **Kjeldefiler i `src/tmp/`:** vert liggjande der — inga flytting til
    `docs/kjeldemateriale/` eller liknande.
 8. **`bvrinn`/`bvrinnfelles`-duplikatet:** utskilt til eigen spec —
-   `specs/backlog/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md`.
+   `specs/done/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md`.
 9. **`UUID`/`GUID`:** `brreg-felles-typer` brukar `UUID` konsekvent
    (Strukturtypekatalog sin `GUID` er ikkje teken med, sidan
    `brreg-felles-struktur-typer` er droppa, jf. punkt 3).
@@ -457,7 +457,7 @@ implementering (steg 1-9) kan starte:
 - `src/tmp/BRProfilV2.xml`, `src/tmp/BRReferansemodell_v3.xml`,
   `src/tmp/Løsningstypekatalog_v1.xml`, `src/tmp/Strukturtypekatalog_v1.xml`
   — kjeldemateriale, vert liggjande i `src/tmp/` (avklaring punkt 7)
-- `specs/backlog/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` —
+- `specs/done/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` —
   utskilt spec for Funn 1 (avklaring punkt 8)
 - `specs/done/make-new-modell-xmi-input-utgreiing.md` — utskilt spec
   for XML/XMI-input-utgreiinga (avklaring punkt 11)
@@ -535,7 +535,7 @@ nytt når nettverkstilgangen i miljøet er stabil.
 
 **Ikkje utført i denne omgangen** (krev brukarstadfesting før dei kan
 utførast, jf. dei to utskilte spesifikasjonane):
-- `specs/backlog/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` — steg 1
+- `specs/done/enhetsregisteret-bvrinn-bvrinnfelles-duplikat.md` — steg 1
   der (avklar kjend bruk av `bvrinnfelles`) er ikkje gjort, sidan det kan
   leie til sletting av eit heilt skjema — ei destruktiv handling som krev
   eksplisitt brukarstadfesting.

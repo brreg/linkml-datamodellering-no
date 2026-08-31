@@ -134,7 +134,7 @@ Endringar i felles infrastruktur krev godkjenning frå repo-administrator (sjå 
 
 | Alias | Organisasjon | Org-URI | Katalog | Modellar |
 |---|---|---|---|---|
-| `brreg` | Brønnøysundregistra | `https://data.norge.no/organizations/974760673` | `brreg-modellkatalog` | `ngr-virksomhet`, `oreg/enhetsregisteret-bvrinn`, `oreg/register-over-aksjeeiere` |
+| `brreg` | Brønnøysundregistra | `https://data.norge.no/organizations/974760673` | `brreg-modellkatalog` | `ngr-virksomhet`, `oreg/enhetsregisteret-bvrinnfelles`, `oreg/register-over-aksjeeiere` |
 | `digdir` | Digitaliseringsdirektoratet | `https://data.norge.no/organizations/991825827` | `digdir-modellkatalog` | `ap-no/**` |
 | `novari` | Novari IKS | `https://data.norge.no/organizations/985870714`¹ | `novari-modellkatalog` | `fint/**` |
 | `ksdigital` | KS Digital | `https://data.norge.no/organizations/971032146` | `ksdigital-modellkatalog` | `samt/**` |

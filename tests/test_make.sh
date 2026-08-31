@@ -142,7 +142,7 @@ roundtrip_ttl_job() {
     # BUG-19: rdflib_loader rekonstruerer datetime-verdiar med mellomrom i
     # staden for T-separator. Sjå bugs/datetime-separator-rdflib-roundtrip.md
     case "$name" in
-        enhetsregisteret-bvrinn) return 1 ;;
+        enhetsregisteret-bvrinnfelles) return 1 ;;
     esac
     [ -f "$example" ] || return 1
     return 0
@@ -1300,7 +1300,7 @@ test_roundtrip_ttl() {
                 "$name" == "ksdigital-modellkatalog" || "$name" == "skatteetaten-modellkatalog" || \
                 "$name" == "kartverket-modellkatalog" ]]; then
             echo "Hoppar over roundtrip-ttl for $name (BUG-1: linkml-runtime LangString-bug)"
-        elif [[ "$name" == "enhetsregisteret-bvrinn" ]]; then
+        elif [[ "$name" == "enhetsregisteret-bvrinnfelles" ]]; then
             echo "Hoppar over roundtrip-ttl for $name (BUG-19: linkml-runtime datetime-separator-bug)"
         else
             echo "Ingen eksempelfil: $example (hoppar over)"

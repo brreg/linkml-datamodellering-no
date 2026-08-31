@@ -139,8 +139,8 @@
       "component": "register-over-aksjeeiere",
       "release-type": "simple"
     },
-    "src/linkml/oreg/enhetsregisteret-bvrinn": {
-      "component": "enhetsregisteret-bvrinn",
+    "src/linkml/oreg/enhetsregisteret-bvrinnfelles": {
+      "component": "enhetsregisteret-bvrinnfelles",
       "release-type": "simple"
     },
     "src/linkml/oreg/lunchregisteret": {

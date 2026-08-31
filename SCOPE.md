@@ -80,7 +80,7 @@ Ferdige LinkML-skjema for import og gjenbruk:
 | FAIR-metadata | `fair-metadata` | Kan importerast av alle domenemodellar |
 | Nasjonale grunndata | `ngr-adresse`, `ngr-eiendom`, `ngr-person`, `ngr-virksomhet` | Fullstendige domenemodellar |
 | FINT | `fint-common`, `fint-administrasjon`, `fint-arkiv`, `fint-okonomi`, `fint-personvern`, `fint-ressurs`, `fint-utdanning` | Arvar namgjeving frå FINT-spec |
-| Offentlege register | `enhetsregisteret-bvrinn`, `register-over-aksjeeiere` | Domenemodellar |
+| Offentlege register | `enhetsregisteret-bvrinnfelles`, `register-over-aksjeeiere` | Domenemodellar |
 | Samhandling | `samt-bu` | Skular og barnehagar |
 | Begrepskatalog | `brreg-begrepskatalog` | Med produksjonsdata |
 | Modellkatalog | `brreg-modellkatalog`, `digdir-modellkatalog`, `kartverket-modellkatalog`, `ksdigital-modellkatalog`, `novari-modellkatalog`, `skatteetaten-modellkatalog` | Med produksjonsdata |

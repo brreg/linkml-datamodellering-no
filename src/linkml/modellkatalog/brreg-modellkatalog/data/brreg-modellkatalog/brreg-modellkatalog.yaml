@@ -17,7 +17,12 @@ modellkataloger:
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/fair-metadata
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/brreg-modellkatalog
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrbekreftelse
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrettersendingavvedlegg
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrfriv
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinnfelles
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrstiftelsesdokument
+  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-frivilligorganisasjonapi
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/javazonetalk
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/referansemodell
@@ -124,62 +129,102 @@ informasjonsmodeller:
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Forretningsadresse
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Beliggenhetsadresse
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/ngr-virksomhet/Person
-- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrbekreftelse
+  tittel:
+  - 'TODO: tittel for enhetsregisteret-bvrbekreftelse'
+  beskrivelse:
+  - Generert modell for 'enhetsregisteret_bvrbekreftelse'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrbekreftelse
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrbekreftelse/
+  kontaktpunkt:
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  lisens: https://data.norge.no/nlod/no/2.0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: '2026-08-23'
+  endringsdato: '2026-08-23'
+  versjonsnummer: 0.1.0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrettersendingavvedlegg
+  tittel:
+  - 'TODO: tittel for enhetsregisteret-bvrettersendingavvedlegg'
+  beskrivelse:
+  - Generert modell for 'enhetsregisteret_bvrettersendingavvedlegg'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrettersendingavvedlegg
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrettersendingavvedlegg/
+  kontaktpunkt:
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  lisens: https://data.norge.no/nlod/no/2.0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: '2026-08-23'
+  endringsdato: '2026-08-23'
+  versjonsnummer: 0.1.0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrfriv
+  tittel:
+  - 'TODO: tittel for enhetsregisteret-bvrfriv'
+  beskrivelse:
+  - Generert modell for 'enhetsregisteret_bvrfriv'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrfriv
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrfriv/
+  kontaktpunkt:
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  lisens: https://data.norge.no/nlod/no/2.0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: '2026-08-23'
+  endringsdato: '2026-08-23'
+  versjonsnummer: 0.1.0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinnfelles
   tittel:
   - Enhetsregisteret - BVINN
   beskrivelse:
   - Berettigede, verger, rettighetshavere i næring (BVRiNN)
   utgiver: https://data.norge.no/organizations/974760673
-  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn
-  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinn/
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinnfelles
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinnfelles/
   kontaktpunkt:
   - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   lisens: https://data.norge.no/nlod/no/2.0
   status: http://purl.org/adms/status/UnderDevelopment
   utgivelsesdato: '2026-06-10'
-  endringsdato: '2026-06-10'
-  versjonsnummer: 1.0.0
+  endringsdato: '2026-08-31'
+  versjonsnummer: 1.1.2
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
-  inneholder_modellelement:
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innrapportering
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonHovedenhet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Forretningsadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Stedsadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Vegadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Adressenummer
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Varslingsadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Mobilnummer
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Postboksadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/InternasjonalAdresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Kontaktopplysning
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Telefonnummer
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/VirksomhetsinformasjonUnderenhet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Beliggenhetsadresse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Aktivitet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/TypeAktivitet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Omdanning
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolletypegruppe
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolle
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rolleinnehaver
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Ansvarsandel
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Broek
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Virksomhet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Person
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokura
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Prokurabestemmelse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Rollesett
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/SignaturberettigetEllerProkurist
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrett
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signaturrettsbestemmelse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Foretaksinformasjon
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/EierskifteAktivitet
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/DelerEierskifte
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Matrikkelnummer
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Innsender
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Fagsystemreferanse
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Signering
-  - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrinn/Gebyransvarlig
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrstiftelsesdokument
+  tittel:
+  - 'TODO: tittel for enhetsregisteret-bvrstiftelsesdokument'
+  beskrivelse:
+  - Generert modell for 'enhetsregisteret_bvrstiftelsesdokument'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-bvrstiftelsesdokument
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrstiftelsesdokument/
+  kontaktpunkt:
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  lisens: https://data.norge.no/nlod/no/2.0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: '2026-08-23'
+  endringsdato: '2026-08-23'
+  versjonsnummer: 0.1.0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
+- id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-frivilligorganisasjonapi
+  tittel:
+  - 'TODO: tittel for enhetsregisteret-frivilligorganisasjonapi'
+  beskrivelse:
+  - Generert modell for 'enhetsregisteret_frivilligorganisasjonapi'.
+  utgiver: https://data.norge.no/organizations/974760673
+  identifikator_literal: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/enhetsregisteret-frivilligorganisasjonapi
+  informasjonsmodellidentifikator: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-frivilligorganisasjonapi/
+  kontaktpunkt:
+  - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
+  lisens: https://data.norge.no/nlod/no/2.0
+  status: http://purl.org/adms/status/UnderDevelopment
+  utgivelsesdato: '2026-08-23'
+  endringsdato: '2026-08-23'
+  versjonsnummer: 0.1.0
+  type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
 - id: https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/javazonetalk
   tittel:
   - 'TODO: tittel for javazonetalk'
@@ -192,8 +237,8 @@ informasjonsmodeller:
   - https://github.com/brreg/linkml-datamodellering-no/blob/main/CONTRIBUTING.md#rapportering-av-feil
   lisens: https://data.norge.no/nlod/no/2.0
   status: http://purl.org/adms/status/UnderDevelopment
-  utgivelsesdato: '2026-08-27'
-  endringsdato: '2026-08-27'
+  utgivelsesdato: '2026-08-31'
+  endringsdato: '2026-08-31'
   versjonsnummer: 0.1.0
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   inneholder_modellelement:
@@ -217,8 +262,8 @@ informasjonsmodeller:
   lisens: https://data.norge.no/nlod/no/2.0
   status: http://purl.org/adms/status/UnderDevelopment
   utgivelsesdato: '2024-01-01'
-  endringsdato: '2026-08-02'
-  versjonsnummer: 1.7.0
+  endringsdato: '2026-08-28'
+  versjonsnummer: 1.9.1
   type_concept: https://data.norge.no/vocabulary/modelldcatno#LogicalDataModel
   inneholder_modellelement:
   - https://data.norge.no/organizations/974760673/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere/Aksjeselskap

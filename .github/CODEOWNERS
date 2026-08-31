@@ -8,7 +8,7 @@
 
 # brreg — Brønnøysundregistra
 /src/linkml/ngr/ngr-virksomhet/                   @AudunVindenesEggeBR
-/src/linkml/oreg/enhetsregisteret-bvrinn/         @AudunVindenesEggeBR
+/src/linkml/oreg/enhetsregisteret-bvrinnfelles/   @AudunVindenesEggeBR
 /src/linkml/oreg/register-over-aksjeeiere/        @AudunVindenesEggeBR
 
 # digdir — Digitaliseringsdirektoratet

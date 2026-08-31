@@ -38,7 +38,7 @@ samanlikning av tre `oreg`-skjema:
 |---|---|---|---|
 | `lunchregisteret` (før fiks) | Full URI: `https://data.norge.no/oreg/lunchregisteret/eksempel-1` | Ja (matchar `default_prefix`) | FEIL |
 | `register-over-aksjeeiere` | CURIE alt frå kjelda: `aksje:Aksjeselskap1` | Ja, men alt CURIE | OK |
-| `enhetsregisteret-bvrinn` | Full URI: `https://example.org/innrapportering/1` | Nei (framand plassholder-navnerom) | OK |
+| `enhetsregisteret-bvrinnfelles` | Full URI: `https://example.org/innrapportering/1` | Nei (framand plassholder-navnerom) | OK |
 
 Same familie som BUG-1 (`LangString` vert ikkje korrekt rekonstruert frå
 TTL): `rdflib_loader` bevarer ikkje alltid den opphavlege

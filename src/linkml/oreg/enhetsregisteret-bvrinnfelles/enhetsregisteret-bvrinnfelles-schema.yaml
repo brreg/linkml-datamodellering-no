@@ -4,14 +4,15 @@
 
 id: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles
 name: enhetsregisteret_bvrinnfelles
-title: 'TODO: tittel for enhetsregisteret-bvrinnfelles'
-description: Generert modell for 'enhetsregisteret_bvrinnfelles'.
-version: 0.1.0
-license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
+title: Enhetsregisteret - BVINN
+version: "1.1.2"
+license: https://data.norge.no/nlod/no/2.0
+description: Berettigede, verger, rettighetshavere i næring (BVRiNN)
+
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-23'
-  utgivelsesdato: '2026-08-23'
+  endringsdato: "2026-08-31"
+  utgivelsesdato: "2026-06-10"
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -30,7 +31,13 @@ default_range: string
 imports:
 - linkml:types
 - ../../felles/brreg-felles-typer/brreg-felles-typer-schema
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
 # Organisasjonsform, Organisasjonsnummer, Virksomhetsnavn, Kommunenummer,
 # Postnummer, Bruksenhetsnummer, Husnummer, Husbokstav, NasjonaltNummer,
 # Epostadresse (tidl. E_postadresse), Postboksnummer, Landkode, URL,
@@ -145,7 +152,7 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - enhetsregisteret_bvrinnfelles_versjon
+    - versjon
     - innsendertjenste
     - innsendingstidspunkt
     - maalformForTilbakemelding
@@ -157,7 +164,7 @@ classes:
     - gebyransvarlig
     - lenkeForEttersending
     slot_usage:
-      enhetsregisteret_bvrinnfelles_versjon:
+      versjon:
         required: true
         in_subset:
         - Obligatorisk
@@ -432,6 +439,7 @@ classes:
     slot_usage:
       nummer:
         required: true
+        range: Husnummer
         in_subset:
         - Obligatorisk
       bokstav:
@@ -594,7 +602,7 @@ classes:
         required: true
         in_subset:
         - Obligatorisk
-  EnhetsregisteretBvrinnfellesKontaktopplysning:
+  Kontaktopplysning:
     description: 'TODO: beskriv klassen'
     class_uri: vcard:Kind
     annotations:
@@ -1097,10 +1105,10 @@ classes:
       begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
-    - enhetsregisteret_bvrinnfelles_beskrivelse
+    - beskrivelse
     - underenhet
     slot_usage:
-      enhetsregisteret_bvrinnfelles_beskrivelse:
+      beskrivelse:
         in_subset:
         - Anbefalt
       underenhet:
@@ -1223,8 +1231,7 @@ classes:
         in_subset:
         - Anbefalt
   EnhetsregisteretBvrinnfellesContainer:
-    description: containerklasse for serialisering av klasser i enhetsregisteret_bvrinnfelles
-      modellen
+    description: 'TODO: beskriv containerklassen'
     tree_root: true
     attributes:
       innrapporteringer:
@@ -1295,7 +1302,7 @@ classes:
         inlined_as_list: true
       kontaktopplysninger:
         description: 'TODO: beskriv eigenskapen'
-        range: EnhetsregisteretBvrinnfellesKontaktopplysning
+        range: Kontaktopplysning
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -1462,11 +1469,11 @@ classes:
         inlined: true
         inlined_as_list: true
 slots:
-  enhetsregisteret_bvrinnfelles_kontaktinformasjon:
-    description: Kontaktinformasjon for ressursen.
-    slot_uri: dcat:contactPoint
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
     range: uriorcurie
-  enhetsregisteret_bvrinnfelles_versjon:
+  versjon:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:versjon
     range: Versjonsnummer
@@ -1525,7 +1532,7 @@ slots:
   navn:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:navn
-    range: string
+    range: Virksomhetsnavn
   maalform:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:maalform
@@ -1577,7 +1584,7 @@ slots:
   kontaktopplysning:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:kontaktopplysning
-    range: EnhetsregisteretBvrinnfellesKontaktopplysning
+    range: Kontaktopplysning
   virksomhetsinformasjonUnderenhet:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:virksomhetsinformasjonUnderenhet
@@ -1586,8 +1593,7 @@ slots:
   aktivitet:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:aktivitet
-    range: TypeAktivitet
-    multivalued: true
+    range: Aktivitet
   omdanning:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:omdanning
@@ -1983,7 +1989,7 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:hvilkeDeler
     range: DelerEierskifte
-  enhetsregisteret_bvrinnfelles_beskrivelse:
+  beskrivelse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:beskrivelse
     range: string
@@ -2028,5 +2034,3 @@ slots:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:gebyransvarligType
     range: GebyransvarligType
-# TODO: Gjennomgå klassenavn, skildringar og slot_uri — desse er generert frå JSON Schema og kan trenge justering.
-# TODO: Erstatt generated:-prefikset i class_uri/slot_uri med eit reelt vokabular.

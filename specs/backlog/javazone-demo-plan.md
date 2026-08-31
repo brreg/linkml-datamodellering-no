@@ -134,7 +134,7 @@ Eit 100 %-navnetreff med **tydeleg ulikt** innhald (openbert ikkje eit
 reelt duplikat) pluss eit 82 %-fuzzy-treff — begge involverer noko
 tilskuarane nett har sett bli laga, i staden for eit abstrakt eksempel dei
 ikkje har kontekst for. `Aktivitet` finst frå før i
-`src/linkml/oreg/enhetsregisteret-bvrinn/enhetsregisteret-bvrinn-schema.yaml`.
+`src/linkml/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.yaml`.
 
 ### Ferdig kopierbar klassedefinisjon (steg 5)
 
