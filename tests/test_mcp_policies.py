@@ -157,6 +157,7 @@ annotations:
 prefixes:
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
+  dcatap: http://data.europa.eu/r5r/
   dqv: http://www.w3.org/ns/dqv#
   foaf: http://xmlns.com/foaf/0.1/
   ex: https://example.org/
@@ -164,6 +165,7 @@ default_prefix: https://example.org/
 classes:
   Container:
     tree_root: true
+    description: Containerklasse for testfixturen
     attributes:
       kataloger:
         range: Katalog
@@ -214,6 +216,8 @@ classes:
       - tema
       - tittel
       - utgiver
+      - tilgangsrettigheter
+      - gjeldende_lovgivning
   Kvalitetsmaal:
     class_uri: dqv:Metric
     description: Eit kvalitetsmål
@@ -262,6 +266,14 @@ slots:
     description: Opphavar
     slot_uri: dct:creator
     range: string
+  tilgangsrettigheter:
+    description: Tilgangsrettar
+    slot_uri: dct:accessRights
+    range: uriorcurie
+  gjeldende_lovgivning:
+    description: Gjeldande lovgjeving
+    slot_uri: dcatap:applicableLegislation
+    range: uriorcurie
 """
 
 
