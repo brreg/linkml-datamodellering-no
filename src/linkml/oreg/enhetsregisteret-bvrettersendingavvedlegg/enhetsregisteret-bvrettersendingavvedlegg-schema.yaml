@@ -27,12 +27,11 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrettersendingavved
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+# UUID og Organisasjonsnummer kjem no frå brreg-felles-typer (jf.
+# specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md).
 types:
-  UUID:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
   InnsendertjenesteType:
     uri: xsd:string
     base: str
@@ -41,11 +40,6 @@ types:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
-  Organisasjonsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[2389][0-9]{8}$
 classes:
   MeldingForEttersendingAvVedlegg:
     description: 'TODO: beskriv klassen'

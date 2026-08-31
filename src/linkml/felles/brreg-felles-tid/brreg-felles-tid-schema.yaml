@@ -1,0 +1,87 @@
+id: https://data.norge.no/felles/brreg-felles-tid
+name: brreg-felles-tid
+title: BRREG felles tid
+description: >-
+  Gjenbrukbare tidsperiode-klassar utleia frå Brønnøysundregistrene (BR)
+  sin interne Strukturtypekatalog_v1 (MagicDraw/XMI), pakken
+  "Komplekstyper" (Tidsperiode, TidsperiodeDatoKlokkeslett). Sjå
+  specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for
+  bakgrunn, metode og avklaringane denne modellen byggjer på.
+
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-08-31"
+  utgivelsesdato: "2026-08-31"
+  status: http://purl.org/adms/status/UnderDevelopment
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  brreg_felles_tid: https://data.norge.no/felles/brreg-felles-tid/
+  dct: http://purl.org/dc/terms/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/felles/brreg-felles-tid/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../brreg-felles-typer/brreg-felles-typer-schema
+
+# ---------------------------------------------------------------------------
+# Klasser
+#
+# Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Tidsperiode og
+# Komplekstyper::TidsperiodeDatoKlokkeslett).
+# ---------------------------------------------------------------------------
+
+classes:
+
+  Tidsperiode:
+    class_uri: dct:PeriodOfTime
+    description: Ei tidsperiode avgrensa av ein frå- og til-dato.
+    slots:
+      - id
+      - fra_dato
+      - til_dato
+
+  TidsperiodeDatoKlokkeslett:
+    class_uri: brreg_felles_tid:TidsperiodeDatoKlokkeslett
+    description: Ei tidsperiode avgrensa av frå- og til-tidspunkt (dato og klokkeslett).
+    slots:
+      - id
+      - fra
+      - til
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  id:
+    identifier: true
+    range: uriorcurie
+    description: URI-identifikator for ressursen.
+
+  fra_dato:
+    slot_uri: brreg_felles_tid:fraDato
+    range: date
+    description: Startdatoen for tidsperioden.
+
+  til_dato:
+    slot_uri: brreg_felles_tid:tilDato
+    range: date
+    description: Sluttdatoen for tidsperioden.
+
+  fra:
+    slot_uri: brreg_felles_tid:fra
+    range: DateTime
+    description: Start-tidspunktet (dato og klokkeslett) for tidsperioden.
+
+  til:
+    slot_uri: brreg_felles_tid:til
+    range: DateTime
+    description: Slutt-tidspunktet (dato og klokkeslett) for tidsperioden.

@@ -1,0 +1,19 @@
+publish_external: false
+validation_policy: bronze
+
+generators:
+  jsonld_context: false
+  shacl: false
+  python: false
+  json_schema: false
+  owl: false
+  rdf: false
+  protobuf: false
+  graphql: false
+  erdiagram: true
+  docs: true
+  plantuml: false
+  example_rdf: false
+  xsd: false
+  openapi: false
+  asyncapi: false

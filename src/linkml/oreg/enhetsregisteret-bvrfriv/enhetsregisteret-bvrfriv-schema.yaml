@@ -27,7 +27,11 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrfriv/
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+# NasjonaltNummer, Organisasjonsnummer, Tekst50, Kontonummer, URL og
+# Epostadresse (tidl. E_postadresse) kjem no frå brreg-felles-typer (jf.
+# specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md).
 types:
   Versjonsnummer:
     uri: xsd:string
@@ -51,30 +55,7 @@ types:
     base: str
     description: 'TODO: beskriv typen'
     pattern: ^[\d+() -]+$
-  NasjonaltNummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[0-9]{5,15}$
-  E_postadresse:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
   FagsystemId:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Organisasjonsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[2389][0-9]{8}$
-  Tekst50:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Kontonummer:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -94,10 +75,6 @@ types:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
-  URL:
-    uri: xsd:anyURI
-    base: str
-    description: Tester ikke på patterns siden lovlig patterns kan skifte.
 enums:
   Maalform:
     description: 'TODO: beskriv enumet'
@@ -508,7 +485,7 @@ slots:
   e_postadresse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrfriv:e_postadresse
-    range: E_postadresse
+    range: Epostadresse
   internasjonaltPrefiks:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrfriv:internasjonaltPrefiks

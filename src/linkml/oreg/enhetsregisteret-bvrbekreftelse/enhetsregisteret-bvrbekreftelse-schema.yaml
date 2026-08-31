@@ -28,26 +28,11 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrbekreftelse/
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
-types:
-  Organisasjonsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[2389][0-9]{8}$
-  Virksomhetsnavn:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Foedselsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[0-9]{11}$
-  Dato:
-    uri: xsd:date
-    base: str
-    description: 'TODO: beskriv typen'
+# Organisasjonsnummer, Virksomhetsnavn og Foedselsnummer kjem no frå
+# brreg-felles-typer (jf. specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md).
+# Dato er fjerna til fordel for linkml:types sin builtin `date`.
 enums:
   TypeBekreftelse:
     description: 'TODO: beskriv enumet'
@@ -323,7 +308,7 @@ slots:
   eierskiftedato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrbekreftelse:eierskiftedato
-    range: Dato
+    range: date
   gjelderHeleAktiviteten:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrbekreftelse:gjelderHeleAktiviteten

@@ -1,0 +1,391 @@
+id: https://data.norge.no/felles/brreg-felles-typer
+name: brreg-felles-typer
+title: BRREG felles typer
+description: >-
+  Gjenbrukbare primitivtypar utleia frå Brønnøysundregistrene (BR) sin
+  interne Løsningstypekatalog_v1 (MagicDraw/XMI). Skjemaet er den felles
+  kjelda for typar som elles vart lokalt (og inkonsistent) redefinert i
+  kvart av dei sju enhetsregisteret-*-skjemaa, jf.
+  specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.
+  Berre denne kjeldekatalogen ("Løsningsmodell"-laget hos BR) er brukt her
+  — BRReferansemodell_v3 sitt eige, arva typelag i Strukturtypekatalog_v1
+  er eit separat, ikkje-importert lag (sjå nemnde spec, Funn 3).
+
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-08-31"
+  utgivelsesdato: "2026-08-31"
+  status: http://purl.org/adms/status/UnderDevelopment
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  brreg_felles_typer: https://data.norge.no/felles/brreg-felles-typer/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/felles/brreg-felles-typer/
+default_range: string
+
+imports:
+  - linkml:types
+
+# ---------------------------------------------------------------------------
+# Typar
+#
+# Kjelde: BR Løsningstypekatalog_v1 (MagicDraw/XMI), pakkane Primitivtyper,
+# Kodetyper og Enkeltyper. Alle 59 typane frå kjelda er kontoførte her:
+# 53 er deklarerte under, og 6 (Primitivtyper-pakken sine `string`, `date`,
+# `time`, `decimal`, `boolean` og `integer`) er UTELATT med hensikt — dei
+# har identisk namn som builtin-typar frå `linkml:types` (importert over),
+# og ei lokal omdeklarering ville kollidert med desse (jf. "Conflicting
+# URIs"-feilen dokumentert i specs/done/oreg-scaffold-generering-feiler.md).
+# Bruk `linkml:types` sine `string`/`date`/`time`/`decimal`/`boolean`/
+# `integer` direkte i staden for.
+# ---------------------------------------------------------------------------
+
+types:
+
+  # --- Primitivtyper (XSD-baserte, 14 av 20 — 6 kolliderer med linkml:types, sjå over) ---
+
+  AnyURI:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::anyURI)
+    uri: xsd:anyURI
+    base: str
+    description: Ein absolutt eller relativ URI (xsd:anyURI).
+
+  DateTime:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::dateTime)
+    uri: xsd:dateTime
+    base: str
+    description: Dato og klokkeslett (xsd:dateTime).
+
+  Long:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::long)
+    uri: xsd:long
+    base: str
+    description: Eit 64-bits heiltal (xsd:long).
+
+  BrregGYear:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::gYear). Prefiksa
+    # "Brreg" sidan "GYear" alt er definert i common-ap-no-schema (som alle
+    # sju enhetsregisteret-*-skjema importerer transitivt via dcat-ap-no) —
+    # utan prefikset ville dette kollidert, jf. "Conflicting URIs"-feilen i
+    # specs/done/oreg-scaffold-generering-feiler.md.
+    uri: xsd:gYear
+    base: str
+    description: Eit årstal (xsd:gYear).
+
+  GYearMonth:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::gYearMonth)
+    uri: xsd:gYearMonth
+    base: str
+    description: Månad og år (xsd:gYearMonth).
+
+  Int:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::int). Brukar
+    # xsd:integer (ikkje xsd:int) — repoet sin lint-policy tillèt ikkje
+    # xsd:int (bunden 32-bits variant), jf. linkml-lint-regelen "no_xsd_int_type".
+    uri: xsd:integer
+    base: str
+    description: Eit heiltal, opphavleg xsd:int i kjelda.
+
+  Short:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::short)
+    uri: xsd:short
+    base: str
+    description: Eit 16-bits heiltal (xsd:short).
+
+  NegativeInteger:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::negativeInteger)
+    uri: xsd:negativeInteger
+    base: str
+    description: Eit heiltal mindre enn null (xsd:negativeInteger).
+
+  NonPositiveInteger:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::nonPositiveInteger)
+    uri: xsd:nonPositiveInteger
+    base: str
+    description: Eit heiltal mindre enn eller lik null (xsd:nonPositiveInteger).
+
+  PositiveInteger:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::positiveInteger)
+    uri: xsd:positiveInteger
+    base: str
+    description: Eit heiltal større enn null (xsd:positiveInteger).
+
+  BrregNonNegativeInteger:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::nonNegativeInteger).
+    # Prefiksa "Brreg" sidan "NonNegativeInteger" alt er definert i
+    # common-ap-no-schema (jf. kommentaren ved BrregGYear over).
+    uri: xsd:nonNegativeInteger
+    base: str
+    description: Eit heiltal større enn eller lik null (xsd:nonNegativeInteger).
+
+  HexBinary:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::hexBinary)
+    uri: xsd:hexBinary
+    base: str
+    description: Binærdata heksadesimalt koda (xsd:hexBinary).
+
+  Base64Binary:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::base64Binary)
+    uri: xsd:base64Binary
+    base: str
+    description: Binærdata base64-koda (xsd:base64Binary).
+
+  Token:
+    # Kjelde: BR Løsningstypekatalog_v1 (Primitivtyper::token)
+    uri: xsd:token
+    base: str
+    description: Ein normalisert tekststreng utan linjeskift/dobbelt mellomrom (xsd:token).
+
+  # --- Kodetyper (13) ---
+
+  Saksstatus:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Saksstatus)
+    uri: xsd:string
+    base: str
+    description: Kode for status på ei sak hos BR.
+
+  Fylkesnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Fylkesnummer)
+    uri: xsd:string
+    base: str
+    description: Nummerkode for fylke, jf. SSB sin fylkesinndeling.
+
+  Spraakkode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Språkkode)
+    uri: xsd:string
+    base: str
+    description: Kode for skriftspråk/målform.
+
+  InstitusjonellSektorkode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::InstitusjonellSektorkode)
+    uri: xsd:string
+    base: str
+    description: SSB sin institusjonelle sektorkode for ei verksemd.
+
+  Valutakode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Valutakode)
+    uri: xsd:string
+    base: str
+    description: ISO 4217-valutakode.
+
+  Landkode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Landkode)
+    uri: xsd:string
+    base: str
+    description: Kode for land.
+
+  Postnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Postnummer)
+    uri: xsd:string
+    base: str
+    description: Norsk postnummer (4 sifer).
+    pattern: ^[0-9]{4}$
+
+  Organisasjonsform:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Organisasjonsform)
+    uri: xsd:string
+    base: str
+    description: Kode for organisasjonsform, jf. Einingsregisteret sitt kodeverk.
+
+  Kommunenummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Kommunenummer)
+    uri: xsd:string
+    base: str
+    description: Norsk kommunenummer (4 sifer).
+    pattern: ^[0-9]{4}$
+
+  Virksomhetsstatus:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Virksomhetsstatus)
+    uri: xsd:string
+    base: str
+    description: Kode for status på ei verksemd (t.d. aktiv, konkurs, oppløyst).
+
+  Naeringskode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::Næringskode)
+    uri: xsd:string
+    base: str
+    description: Kode frå SSB sin standard for næringsgruppering (SN2007).
+
+  PersonstatusType:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::PersonstatusType)
+    uri: xsd:string
+    base: str
+    description: Kode for status på ein person i BR sine register.
+
+  LandkodeIsoAlpha3:
+    # Kjelde: BR Løsningstypekatalog_v1 (Kodetyper::LandkodeIsoAlpha3)
+    uri: xsd:string
+    base: str
+    description: ISO 3166-1 alpha-3-landkode (t.d. NOR).
+    pattern: ^[A-Z]{3}$
+
+  # --- Enkeltyper (26) ---
+
+  Epostadresse:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::E-postadresse)
+    uri: xsd:string
+    base: str
+    description: Ei e-postadresse.
+
+  PrefiksMedNasjonalKode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::PrefiksMedNasjonalKode)
+    uri: xsd:string
+    base: str
+    description: Internasjonalt telefonprefiks (landkode), t.d. "+47".
+
+  Husbokstav:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Husbokstav)
+    uri: xsd:string
+    base: str
+    description: Husbokstav i ei vegadresse.
+
+  Husnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Husnummer)
+    uri: xsd:string
+    base: str
+    description: Husnummer i ei vegadresse.
+
+  NasjonaltNummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::NasjonaltNummer)
+    uri: xsd:string
+    base: str
+    description: Telefonnummer utan landkode/prefiks.
+
+  Virksomhetsnavn:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Virksomhetsnavn)
+    uri: xsd:string
+    base: str
+    description: Namnet på ei verksemd, slik det er registrert i Einingsregisteret.
+
+  Organisasjonsnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Organisasjonsnummer)
+    uri: xsd:string
+    base: str
+    description: Organisasjonsnummer for ei norsk verksemd (9 sifer), jf. Einingsregisteret.
+    pattern: ^[2389][0-9]{8}$
+
+  BRPersonId:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::BRPersonId)
+    uri: xsd:string
+    base: str
+    description: BR sin interne identifikator for ein person.
+
+  Kontonummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Kontonummer)
+    uri: xsd:string
+    base: str
+    description: Norsk bankkontonummer (11 sifer).
+    pattern: ^[0-9]{11}$
+
+  Aktivitetskode:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Aktivitetskode)
+    uri: xsd:string
+    base: str
+    description: Kode for ein aktivitetstype i BR sine register.
+
+  AktoerId:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::AktørId)
+    uri: xsd:string
+    base: str
+    description: BR sin interne identifikator for ein aktør (person eller verksemd).
+
+  Foedselsnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Fødselsnummer)
+    uri: xsd:string
+    base: str
+    description: Norsk fødselsnummer eller D-nummer (11 sifer).
+    pattern: ^[0-9]{11}$
+
+  Binaerobjekt:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Binærobjekt)
+    uri: xsd:base64Binary
+    base: str
+    description: Eit vedlagt binærobjekt (t.d. eit dokument), base64-koda.
+
+  URI:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::URI)
+    uri: xsd:anyURI
+    base: str
+    description: Ein Uniform Resource Identifier.
+
+  URL:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::URL)
+    uri: xsd:anyURI
+    base: str
+    description: Ein Uniform Resource Locator (nettadresse).
+
+  UUID:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::UUID)
+    uri: xsd:string
+    base: str
+    description: >-
+      Ein universelt unik identifikator (UUID/GUID). Strukturtypekatalog_v1
+      kallar den tilsvarande typen sin "GUID" — denne modellen brukar
+      "UUID" konsekvent, jf. avklaring i
+      specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.
+    pattern: ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+
+  Beloep:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Beløp)
+    uri: xsd:decimal
+    base: str
+    description: Eit pengebeløp.
+
+  MappeId:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::MappeId)
+    uri: xsd:string
+    base: str
+    description: BR sin interne identifikator for ei saksmappe.
+
+  Tekst50:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Tekst50)
+    uri: xsd:string
+    base: str
+    description: Fritekst avgrensa til 50 teikn.
+
+  Tekst255:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Tekst255)
+    uri: xsd:string
+    base: str
+    description: Fritekst avgrensa til 255 teikn.
+
+  Tekst1000:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Tekst1000)
+    uri: xsd:string
+    base: str
+    description: Fritekst avgrensa til 1000 teikn.
+
+  Postboksnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Postboksnummer)
+    uri: xsd:string
+    base: str
+    description: Nummeret på ein postboks.
+
+  BRAdresseId:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::BRAdresseId)
+    uri: xsd:string
+    base: str
+    description: BR sin interne identifikator for ei adresse.
+
+  Tekst175:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Tekst175)
+    uri: xsd:string
+    base: str
+    description: Fritekst avgrensa til 175 teikn.
+
+  Bruksenhetsnummer:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Bruksenhetsnummer)
+    uri: xsd:string
+    base: str
+    description: Bruksenhetsnummer (bustadnummer) i ei vegadresse, t.d. "H0101".
+
+  Tekst100:
+    # Kjelde: BR Løsningstypekatalog_v1 (Enkeltyper::Tekst100)
+    uri: xsd:string
+    base: str
+    description: Fritekst avgrensa til 100 teikn.

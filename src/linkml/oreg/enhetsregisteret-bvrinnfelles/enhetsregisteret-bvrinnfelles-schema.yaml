@@ -29,7 +29,17 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrinnfelles/
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+# Organisasjonsform, Organisasjonsnummer, Virksomhetsnavn, Kommunenummer,
+# Postnummer, Bruksenhetsnummer, Husnummer, Husbokstav, NasjonaltNummer,
+# Epostadresse (tidl. E_postadresse), Postboksnummer, Landkode, URL,
+# Tekst1000 og Tekst50 kjem no frå brreg-felles-typer. Dato er fjerna til
+# fordel for linkml:types sin builtin `date`. Den lokale heiltalstypen for
+# aktivitetskode er omdøypt til AktivitetskodeTal (var Aktivitetskode) sidan
+# brreg-felles-typer sin Aktivitetskode er ein tekstleg BR-forretningskode
+# (uri: xsd:string) — ulik semantikk trass i same opphavlege namn. Sjå
+# specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.
 types:
   Versjonsnummer:
     uri: xsd:string
@@ -48,48 +58,11 @@ types:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
-  Organisasjonsform:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
   Virksomhetstype:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
-  Organisasjonsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Virksomhetsnavn:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Dato:
-    uri: xsd:date
-    base: str
-    description: 'TODO: beskriv typen'
   Ansvarsform:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Kommunenummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Postnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Bruksenhetsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: ^[LHUK][0-9]{4}?$
-  Husnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Husbokstav:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -98,33 +71,9 @@ types:
     base: str
     description: 'TODO: beskriv typen'
     pattern: ^[\d+() -]+$
-  NasjonaltNummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  E_postadresse:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Postboksnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Landkode:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  URL:
-    uri: xsd:anyURI
-    base: str
-    description: Tester ikke på patterns siden lovlig patterns kan skifte.
-  Aktivitetskode:
+  AktivitetskodeTal:
     uri: xsd:integer
     base: int
-    description: 'TODO: beskriv typen'
-  Tekst1000:
-    uri: xsd:string
-    base: str
     description: 'TODO: beskriv typen'
   Rolletypegruppe_2:
     uri: xsd:string
@@ -151,10 +100,6 @@ types:
     base: str
     description: 'TODO: beskriv typen'
   FagsystemId:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Tekst50:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -1596,15 +1541,15 @@ slots:
   datoForAvtale:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:datoForAvtale
-    range: Dato
+    range: date
   stiftelsesdato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:stiftelsesdato
-    range: Dato
+    range: date
   vedtektsdato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:vedtektsdato
-    range: Dato
+    range: date
   formaal:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:formaal
@@ -1759,7 +1704,7 @@ slots:
     description: The type of property E-postadresse (E-postadresse) has subclasses.
       Double-click on this comment to see the class hierarchy.
     slot_uri: enhetsregisteret_bvrinnfelles:e_postadresse
-    range: E_postadresse
+    range: Epostadresse
   internasjonaltPrefiks:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:internasjonaltPrefiks
@@ -1860,11 +1805,11 @@ slots:
   oppstartsdato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:oppstartsdato
-    range: Dato
+    range: date
   nedleggelsesdato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:nedleggelsesdato
-    range: Dato
+    range: date
   beliggenhetsadresse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:beliggenhetsadresse
@@ -1872,7 +1817,7 @@ slots:
   datoGyldigFra:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:datoGyldigFra
-    range: Dato
+    range: date
   rekkefoelge:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:rekkefoelge
@@ -1880,7 +1825,7 @@ slots:
   aktivitetskode:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:aktivitetskode
-    range: Aktivitetskode
+    range: AktivitetskodeTal
   tekst:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:tekst
@@ -2033,7 +1978,7 @@ slots:
   eierskiftedato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:eierskiftedato
-    range: Dato
+    range: date
   hvilkeDeler:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrinnfelles:hvilkeDeler

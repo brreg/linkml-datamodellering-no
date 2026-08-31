@@ -27,21 +27,17 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-frivilligorganisasjo
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+# Organisasjonsnummer og Kontonummer kjem no frå brreg-felles-typer. Dato
+# er fjerna til fordel for linkml:types sin builtin `date`. Sjå
+# specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.
 types:
   ICNPOKategori:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
   ICNPOKategorinummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Dato:
-    uri: xsd:date
-    base: str
-    description: 'TODO: beskriv typen'
-  Organisasjonsnummer:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -55,10 +51,6 @@ types:
     base: str
     description: 'TODO: beskriv typen'
   IdentifikatorInformasjonstype:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Kontonummer:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -374,7 +366,7 @@ slots:
   innfoertDato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:innfoertDato
-    range: Dato
+    range: date
   relasjoner:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:relasjoner
@@ -383,11 +375,11 @@ slots:
   foersteGangInnfoert:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:foersteGangInnfoert
-    range: Dato
+    range: date
   slettetDato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:slettetDato
-    range: Dato
+    range: date
   kategori:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:kategori
@@ -411,7 +403,7 @@ slots:
   sistOppdaterteVedtekter:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:sistOppdaterteVedtekter
-    range: Dato
+    range: date
   deltarI:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:deltarI
@@ -423,11 +415,11 @@ slots:
   fraDato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:fraDato
-    range: Dato
+    range: date
   tilDato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:tilDato
-    range: Dato
+    range: date
   harPaatattSegRapporteringsplikt:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:harPaatattSegRapporteringsplikt
@@ -435,7 +427,7 @@ slots:
   avslutningsdatoForRegnskapsperiode:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:avslutningsdatoForRegnskapsperiode
-    range: Dato
+    range: date
   sistInnsendteAArsregnskap:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:sistInnsendteAArsregnskap
@@ -447,7 +439,7 @@ slots:
   registreringsdato:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:registreringsdato
-    range: Dato
+    range: date
   identifikatorInformasjonstype:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_frivilligorganisasjonapi:identifikatorInformasjonstype

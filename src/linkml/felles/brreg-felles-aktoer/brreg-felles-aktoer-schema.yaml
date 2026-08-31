@@ -1,0 +1,320 @@
+id: https://data.norge.no/felles/brreg-felles-aktoer
+name: brreg-felles-aktoer
+title: BRREG felles aktør
+description: >-
+  Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.)
+  utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3
+  (MagicDraw/XMI), pakken "Aktør", pluss dei aktør-relaterte komplekstypane
+  frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator,
+  Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer
+  brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå
+  specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for
+  bakgrunn, metode og avklaringane denne modellen byggjer på.
+
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-08-31"
+  utgivelsesdato: "2026-08-31"
+  status: http://purl.org/adms/status/UnderDevelopment
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  brreg_felles_aktoer: https://data.norge.no/felles/brreg-felles-aktoer/
+  foaf: http://xmlns.com/foaf/0.1/
+  rov: http://www.w3.org/ns/regorg#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/felles/brreg-felles-aktoer/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../brreg-felles-adresse/brreg-felles-adresse-schema
+
+# ---------------------------------------------------------------------------
+# Klasser
+#
+# Kjelde: BR BRReferansemodell_v3 (pakken "Aktør") for aktørklassane, og
+# Strukturtypekatalog_v1 (pakken "Komplekstyper") for Personnavn/
+# Personidentifikator/Virksomhetsidentifikator. Feltet "identifikator" på
+# Aktør er, som i brreg-felles-adresse, forenkla til `string` sidan BR sin
+# generiske "Identifikator"-basistype ikkje er importert (jf. avklaring i
+# søsterspecen).
+# ---------------------------------------------------------------------------
+
+classes:
+
+  Aktoer:
+    class_uri: foaf:Agent
+    description: Ein aktør — person eller verksemd. Abstrakt basisklasse for Virksomhet og Person.
+    slots:
+      - id
+      - geografisk_adresse
+      - kontaktinformasjon
+      - rolle
+      - identifikator
+      - digital_adresse
+      - relasjon
+
+  Virksomhet:
+    is_a: Aktoer
+    class_uri: rov:RegisteredOrganization
+    description: Ei verksemd registrert i Einingsregisteret.
+    slots:
+      - virksomhetsidentifikator
+      - virksomhetsnavn
+      - organisasjonsnummer
+      - virksomhetsstatus
+    slot_usage:
+      organisasjonsnummer:
+        required: true
+
+  Person:
+    is_a: Aktoer
+    class_uri: foaf:Person
+    description: Ein fysisk person.
+    slots:
+      - br_person_id
+      - personidentifikator
+      - foedsel_eller_d_nummer
+      - personnavn
+      - personstatus
+      - statsborgerskap
+
+  Kontaktinformasjon:
+    class_uri: brreg_felles_aktoer:Kontaktinformasjon
+    description: Kontaktinformasjon (digital og/eller geografisk adresse) for ein aktør.
+    slots:
+      - id
+      - digital_adresse
+      - geografisk_adresse
+
+  Rolle:
+    class_uri: brreg_felles_aktoer:Rolle
+    description: Ei rolle ein aktør har overfor ein annan aktør (t.d. styreleiar, revisor).
+    slots:
+      - id
+      - type
+      - rolletypegruppe
+      - kontaktinformasjon
+      - rolleinnehaver
+      - geografisk_adresse
+      - digital_adresse
+
+  Rolletypegruppe:
+    class_uri: brreg_felles_aktoer:Rolletypegruppe
+    description: Ei gruppering av rolletypar (t.d. "styre").
+    slots:
+      - id
+      - type
+      - rolle
+
+  Relasjon:
+    class_uri: brreg_felles_aktoer:Relasjon
+    description: Ein relasjon mellom to aktørar.
+    slots:
+      - id
+      - type
+      - aktoer
+
+  # --- Aktør-relaterte komplekstypar frå Strukturtypekatalog_v1 ---
+
+  Personnavn:
+    class_uri: brreg_felles_aktoer:Personnavn
+    description: Fullt namn på ein person, delt opp i for-, mellom- og etternamn.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Personnavn)
+    slots:
+      - id
+      - fornavn
+      - mellomnavn
+      - etternavn
+    slot_usage:
+      fornavn:
+        required: true
+      etternavn:
+        required: true
+
+  Personidentifikator:
+    class_uri: brreg_felles_aktoer:Personidentifikator
+    description: Ein identifikator for ein person, med ein type som seier kva slag identifikator det er.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Personidentifikator)
+    slots:
+      - id
+      - verdi
+      - personidentifikator_type
+    slot_usage:
+      verdi:
+        required: true
+      personidentifikator_type:
+        required: true
+
+  Virksomhetsidentifikator:
+    class_uri: brreg_felles_aktoer:Virksomhetsidentifikator
+    description: Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Virksomhetsidentifikator)
+    slots:
+      - id
+      - verdi
+      - virksomhetsidentifikator_type
+    slot_usage:
+      verdi:
+        required: true
+      virksomhetsidentifikator_type:
+        required: true
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  geografisk_adresse:
+    slot_uri: brreg_felles_aktoer:geografiskAdresse
+    range: GeografiskAdresse
+    description: Geografisk adresse knytt til aktøren/rolla.
+
+  digital_adresse:
+    slot_uri: brreg_felles_aktoer:digitalAdresse
+    range: DigitalAdresse
+    description: Digital adresse knytt til aktøren/rolla.
+
+  kontaktinformasjon:
+    slot_uri: brreg_felles_aktoer:kontaktinformasjon
+    range: Kontaktinformasjon
+    description: Kontaktinformasjon for aktøren/rolla.
+
+  rolle:
+    slot_uri: brreg_felles_aktoer:rolle
+    range: Rolle
+    multivalued: true
+    description: Roller aktøren har.
+
+  relasjon:
+    slot_uri: brreg_felles_aktoer:relasjon
+    range: Relasjon
+    multivalued: true
+    description: Relasjonar aktøren har til andre aktørar.
+
+  virksomhetsidentifikator:
+    slot_uri: brreg_felles_aktoer:virksomhetsidentifikator
+    range: Virksomhetsidentifikator
+    description: Identifikatoren for verksemda.
+
+  virksomhetsnavn:
+    slot_uri: brreg_felles_aktoer:virksomhetsnavn
+    range: Virksomhetsnavn
+    description: Namnet på verksemda.
+
+  organisasjonsnummer:
+    slot_uri: brreg_felles_aktoer:organisasjonsnummer
+    range: Organisasjonsnummer
+    description: Organisasjonsnummeret til verksemda.
+
+  virksomhetsstatus:
+    slot_uri: brreg_felles_aktoer:virksomhetsstatus
+    range: Virksomhetsstatus
+    description: Statusen til verksemda.
+
+  br_person_id:
+    slot_uri: brreg_felles_aktoer:brPersonId
+    range: BRPersonId
+    description: BR sin interne identifikator for personen.
+
+  personidentifikator:
+    slot_uri: brreg_felles_aktoer:personidentifikator
+    range: Personidentifikator
+    description: Identifikatoren for personen.
+
+  foedsel_eller_d_nummer:
+    slot_uri: brreg_felles_aktoer:foedselEllerDNummer
+    range: Foedselsnummer
+    description: Fødselsnummeret eller D-nummeret til personen.
+
+  personnavn:
+    slot_uri: brreg_felles_aktoer:personnavn
+    range: Personnavn
+    description: Namnet på personen.
+
+  personstatus:
+    slot_uri: brreg_felles_aktoer:personstatus
+    range: PersonstatusType
+    description: Statusen til personen.
+
+  statsborgerskap:
+    slot_uri: brreg_felles_aktoer:statsborgerskap
+    range: Landkode
+    description: Statsborgarskapet til personen.
+
+  rolletypegruppe:
+    slot_uri: brreg_felles_aktoer:rolletypegruppe
+    range: Rolletypegruppe
+    description: Rolletypegruppa rolla høyrer til.
+
+  rolleinnehaver:
+    slot_uri: brreg_felles_aktoer:rolleinnehaver
+    range: Aktoer
+    description: Aktøren som innehar rolla.
+
+  aktoer:
+    slot_uri: brreg_felles_aktoer:aktoer
+    range: Aktoer
+    description: Aktøren relasjonen gjeld.
+
+  fornavn:
+    slot_uri: brreg_felles_aktoer:fornavn
+    range: string
+    description: Fornamnet til personen.
+
+  mellomnavn:
+    slot_uri: brreg_felles_aktoer:mellomnavn
+    range: string
+    description: Mellomnamnet til personen, dersom personen har det.
+
+  etternavn:
+    slot_uri: brreg_felles_aktoer:etternavn
+    range: string
+    description: Etternamnet til personen.
+
+  verdi:
+    slot_uri: brreg_felles_aktoer:verdi
+    range: string
+    description: Verdien til identifikatoren.
+
+  personidentifikator_type:
+    slot_uri: brreg_felles_aktoer:personidentifikatorType
+    range: PersonidentifikatorType
+    description: Kva slag personidentifikator dette er.
+
+  virksomhetsidentifikator_type:
+    slot_uri: brreg_felles_aktoer:virksomhetsidentifikatorType
+    range: VirksomhetsidentifikatorType
+    description: Kva slag verksemdsidentifikator dette er.
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+enums:
+
+  PersonidentifikatorType:
+    description: Kva slag personidentifikator ein Personidentifikator inneheld.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::PersonidentifikatorType)
+    permissible_values:
+      foedselsnummer:
+        description: Norsk fødselsnummer.
+      d_nummer:
+        description: Norsk D-nummer.
+      utenlandsk_personidentifikator:
+        description: Utanlandsk personidentifikator.
+
+  VirksomhetsidentifikatorType:
+    description: Kva slag verksemdsidentifikator ein Virksomhetsidentifikator inneheld.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::VirksomhetsidentifikatorType)
+    permissible_values:
+      organisasjonsnummer:
+        description: Norsk organisasjonsnummer.
+      utenlandsk_virksomhetsidentifikator:
+        description: Utanlandsk verksemdsidentifikator.

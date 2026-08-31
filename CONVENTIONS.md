@@ -111,6 +111,7 @@ git push origin <schema>-v<versjon>
 | `modellkatalog` | Modellkatalog | `https://data.norge.no/modellkatalog/brreg-modellkatalog` |
 | `fair` | FAIR-metadatamodell | `https://data.norge.no/fair/fair-metadata` |
 | `referanse` | Referanseimplementasjon | `https://data.norge.no/referanse/referanse` |
+| `felles` | Tverrgåande felles-modellar (typar/klassar utleia frå kjeldeorganisasjonar sine eigne referansekatalogar, t.d. BR) | `https://data.norge.no/felles/brreg-felles-typer` |
 
 URI-ar er **persistente**: `id`-feltet skal ikkje endrast etter første publisering.
 

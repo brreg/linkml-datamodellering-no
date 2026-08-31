@@ -29,17 +29,21 @@ default_prefix: https://data.norge.no/oreg/enhetsregisteret-bvrstiftelsesdokumen
 default_range: string
 imports:
 - linkml:types
+- ../../felles/brreg-felles-typer/brreg-felles-typer-schema
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+# Virksomhetsnavn, Postnummer, Landkode, Organisasjonsnummer,
+# Foedselsnummer, Tekst100 og Tekst50 kjem no frå brreg-felles-typer. Dato
+# er fjerna til fordel for linkml:types sin builtin `date`. Den lokale
+# strengbaserte typen for beløp er omdøypt til BeloepStreng (var Beloep)
+# sidan brreg-felles-typer sin Beloep er eit xsd:decimal — ulik
+# representasjon trass i same opphavlege namn. Sjå
+# specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.
 types:
-  Virksomhetsnavn:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
   BeloepFriDesimal:
     uri: xsd:float
     base: float
     description: 'TODO: beskriv typen'
-  Beloep:
+  BeloepStreng:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -52,35 +56,7 @@ types:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
-  Postnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: '[0-9]{4}'
-  Landkode:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: '[A-Z]{2}'
   Rolletype:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Organisasjonsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: '[2389][0-9]{8}'
-  Foedselsnummer:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-    pattern: '[0-9]{11}'
-  Tekst100:
-    uri: xsd:string
-    base: str
-    description: 'TODO: beskriv typen'
-  Tekst50:
     uri: xsd:string
     base: str
     description: 'TODO: beskriv typen'
@@ -872,7 +848,7 @@ slots:
   beloep:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrstiftelsesdokument:beloep
-    range: Beloep
+    range: BeloepStreng
   utgiftsbeskrivelse:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrstiftelsesdokument:utgiftsbeskrivelse
@@ -1055,7 +1031,7 @@ slots:
   innbetalingsfrist:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrstiftelsesdokument:innbetalingsfrist
-    range: Dato
+    range: date
   vederlag:
     description: 'TODO: beskriv eigenskapen'
     slot_uri: enhetsregisteret_bvrstiftelsesdokument:vederlag
