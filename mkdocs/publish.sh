@@ -115,6 +115,8 @@ Desse sidene viser navnelikskaps-analysar køyrde på tvers av **alle**
 domene i repoet — til skilnad frå dei domene-scopa analysane som ligg
 under kvar enkelt modell sin `## Modellanalyse`-seksjon.
 
+Alle modellanalyser blir kjørt automatisk i [Modell-analyse](https://github.com/brreg/linkml-datamodellering-no/actions/workflows/modell-analyse.yml) workflowen. Klikk deg inn på den siste køyringa av jobben for fulstendig analyseresultat.
+
 - [Liknande klassenavn](liknande-klassenavn-alle-domene.md)
 - [Liknande slotnavn](liknande-slotnavn-alle-domene.md)
 - [Liknande typenavn](liknande-typenavn-alle-domene.md)
