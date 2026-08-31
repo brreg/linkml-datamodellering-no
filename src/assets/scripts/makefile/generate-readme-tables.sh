@@ -35,7 +35,7 @@ generate_schema_table() {
   echo "|---|---|---|---|"
 
   # Domene-rekkefølgje (same som i domene-tabellen)
-  DOMAIN_ORDER=("fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt")
+  DOMAIN_ORDER=("felles" "fair" "ap-no" "referanse" "ngr" "oreg" "fint" "samt")
 
   # Bygg assosiativ array: domain -> liste av skjema-filer
   declare -A DOMAIN_SCHEMAS

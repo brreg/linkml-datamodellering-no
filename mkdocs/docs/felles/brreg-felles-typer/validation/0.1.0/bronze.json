@@ -1,0 +1,13 @@
+{
+  "schema": "brreg-felles-typer",
+  "domain": "felles",
+  "version": "0.1.0",
+  "validation_policy": "bronze",
+  "validated_at": "2026-08-31T15:13:11.836328+00:00",
+  "result": {
+    "valid": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "issues": []
+  }
+}
