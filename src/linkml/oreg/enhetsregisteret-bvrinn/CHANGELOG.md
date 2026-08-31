@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.2...enhetsregisteret-bvrinn-v1.2.0) (2026-08-31)
+
+
+### Features
+
+* **felles:** opprett brreg-felles-*-modellar og migrer enhetsregisteret-* ([ae3467d](https://github.com/brreg/linkml-datamodellering-no/commit/ae3467d430eb797f370f428fd791a8c966e85f17))
+
 ## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.1...enhetsregisteret-bvrinn-v1.1.2) (2026-08-28)
 
 
