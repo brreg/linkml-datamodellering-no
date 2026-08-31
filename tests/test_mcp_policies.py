@@ -887,6 +887,110 @@ slots:
         self.assertTrue(has_error(r, "build_yaml_generator_disabled"))
 
 
+# ── Felles-datakatalog ───────────────────────────────────────────────────────
+
+class TestFellesDatakatalog(unittest.TestCase):
+    """Testar for dei to sjekkane retta i
+    specs/done/kjeldehenvisning-felles-katalog-policyar.md: kjeldeverifisering
+    mot ModelDCAT-AP-NO synte at informasjonsmodell_har_kontaktpunkt faktisk er
+    Obligatorisk (skal vere error, ikkje warning) og at
+    modellkatalog_har_identifikator faktisk er Anbefalt (skal vere warning,
+    ikkje error)."""
+
+    _SCHEMA_BASE = """\
+id: https://example.org/schema
+name: TestSchema
+description: Testmodell
+prefixes:
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  modelldcatno: https://data.norge.no/vocabulary/modelldcatno#
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Container:
+    tree_root: true
+    attributes:
+      modellkatalogar:
+        range: Modellkatalog
+      informasjonsmodellar:
+        range: Informasjonsmodell
+  Modellkatalog:
+    slots:
+      - id
+      - tittel
+      - beskrivelse
+      - utgiver
+      - kontaktpunkt
+      - hardel{modellkatalog_identifikator_slot}
+  Informasjonsmodell:
+    slots:
+      - id
+      - tittel
+      - utgiver{informasjonsmodell_kontaktpunkt_slot}
+slots:
+  id:
+    identifier: true
+    range: uriorcurie
+  tittel:
+    slot_uri: dct:title
+    range: string
+  beskrivelse:
+    slot_uri: dct:description
+    range: string
+  utgiver:
+    slot_uri: dct:publisher
+    range: string
+  kontaktpunkt:
+    slot_uri: dcat:contactPoint
+    range: string
+  hardel:
+    slot_uri: dct:hasPart
+    range: string
+  identifikator:
+    slot_uri: dct:identifier
+    range: string
+"""
+
+    def _schema(self, modellkatalog_har_identifikator: bool, informasjonsmodell_har_kontaktpunkt: bool) -> str:
+        return self._SCHEMA_BASE.format(
+            modellkatalog_identifikator_slot="\n      - identifikator" if modellkatalog_har_identifikator else "",
+            informasjonsmodell_kontaktpunkt_slot="\n      - kontaktpunkt" if informasjonsmodell_har_kontaktpunkt else "",
+        )
+
+    def test_modellkatalog_manglar_identifikator_gir_advarsel_ikkje_feil(self):
+        r = validate_schema(
+            self._schema(modellkatalog_har_identifikator=False, informasjonsmodell_har_kontaktpunkt=True),
+            "felles-datakatalog",
+        )
+        matches = [i for i in r["issues"] if i["target"] == "class:Modellkatalog" and "dct:identifier" in i["message"]]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["severity"], "warning")
+
+    def test_modellkatalog_med_identifikator_gir_ingen_avvik(self):
+        r = validate_schema(
+            self._schema(modellkatalog_har_identifikator=True, informasjonsmodell_har_kontaktpunkt=True),
+            "felles-datakatalog",
+        )
+        self.assertFalse(any(i["target"] == "class:Modellkatalog" and "dct:identifier" in i["message"] for i in r["issues"]))
+
+    def test_informasjonsmodell_manglar_kontaktpunkt_gir_feil(self):
+        r = validate_schema(
+            self._schema(modellkatalog_har_identifikator=True, informasjonsmodell_har_kontaktpunkt=False),
+            "felles-datakatalog",
+        )
+        matches = [i for i in r["issues"] if i["target"] == "class:Informasjonsmodell" and "dcat:contactPoint" in i["message"]]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["severity"], "error")
+
+    def test_informasjonsmodell_med_kontaktpunkt_gir_ingen_avvik(self):
+        r = validate_schema(
+            self._schema(modellkatalog_har_identifikator=True, informasjonsmodell_har_kontaktpunkt=True),
+            "felles-datakatalog",
+        )
+        self.assertFalse(any(i["target"] == "class:Informasjonsmodell" and "dcat:contactPoint" in i["message"] for i in r["issues"]))
+
+
 # ── Instans-sjekkar (instance_checks) ──────────────────────────────────────────
 
 class TestInstanceCheckWalk(unittest.TestCase):

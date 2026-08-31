@@ -20,6 +20,8 @@ recommended:
 checks:
 
   # ── Import-krav ─────────────────────────────────────────────────────────────
+  # Repo-krav — LinkML-teknisk føresetnad for å uttrykke vokabularet,
+  # ikkje eit eige punkt i sjølve spesifikasjonsteksten. Ingen spec_url.
 
   schema_importerer_modelldcat_ap_no:
     severity: error
@@ -37,6 +39,7 @@ checks:
       Skjemaet må deklarere dct:-prefikset (Dublin Core Terms).
     check: schema_declares_standard_prefix
     standard_prefixes: [dct]
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Navnerom
 
   schema_brukar_dcat_prefix:
     severity: error
@@ -44,8 +47,11 @@ checks:
       Skjemaet må deklarere dcat:-prefikset.
     check: schema_declares_standard_prefix
     standard_prefixes: [dcat]
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Navnerom
 
   # ── Containerklasse-krav ─────────────────────────────────────────────────────
+  # Repo-konvensjon (tree_root-mønster) — spec_url peikar til klassen sin
+  # generelle omtale for kontekst, ikkje til eit normativt containerkrav.
 
   container_har_modellkatalog:
     severity: error
@@ -53,6 +59,7 @@ checks:
       Containerklassen (tree_root) må ha eit attributt med range Modellkatalog.
     check: container_has_class
     class: Modellkatalog
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog
 
   container_har_informasjonsmodell:
     severity: error
@@ -60,6 +67,7 @@ checks:
       Containerklassen må ha eit attributt med range Informasjonsmodell.
     check: container_has_class
     class: Informasjonsmodell
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell
 
   # ── Modellkatalog-krav (dcat:Catalog) — obligatoriske ─────────────────────────
 
@@ -69,6 +77,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dct:title
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-tittel
 
   modellkatalog_har_beskrivelse:
     severity: error
@@ -76,13 +85,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dct:description
-
-  modellkatalog_har_identifikator:
-    severity: error
-    description: Modellkatalog må ha dct:identifier. Obligatorisk i ModelDCAT-AP-NO.
-    check: merged_class_has_slot_with_uri
-    class: Modellkatalog
-    slot_uri: dct:identifier
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-beskrivelse
 
   modellkatalog_har_utgjevar:
     severity: error
@@ -90,6 +93,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dct:publisher
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-utgiver
 
   modellkatalog_har_kontaktpunkt:
     severity: error
@@ -97,6 +101,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dcat:contactPoint
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-kontaktpunkt
 
   modellkatalog_har_del:
     severity: error
@@ -104,8 +109,21 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dct:hasPart
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-har-del
 
   # ── Modellkatalog-krav — anbefalte ─────────────────────────────────────────────
+
+  modellkatalog_har_identifikator:
+    severity: warning
+    description: >
+      Modellkatalog bør ha dct:identifier. Anbefalt i ModelDCAT-AP-NO —
+      spesifikasjonen presiserer eksplisitt (kap. 4.4) at dct:identifier medvite
+      er sett som anbefalt, ikkje obligatorisk, sidan instansen alt får ein
+      «innebygd» identifikator (URI-en/subjektet i RDF-triplet).
+    check: merged_class_has_slot_with_uri
+    class: Modellkatalog
+    slot_uri: dct:identifier
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-identifikator
 
   modellkatalog_har_lisens:
     severity: warning
@@ -113,6 +131,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: dct:license
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-lisens
 
   modellkatalog_har_modell:
     severity: warning
@@ -122,6 +141,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Modellkatalog
     slot_uri: modelldcatno:model
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-modell
 
   # ── Informasjonsmodell-krav — obligatoriske ───────────────────────────────────
 
@@ -131,6 +151,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dct:title
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-tittel
 
   informasjonsmodell_har_utgjevar:
     severity: error
@@ -139,6 +160,18 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dct:publisher
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-utgiver
+
+  informasjonsmodell_har_kontaktpunkt:
+    severity: error
+    description: >
+      Informasjonsmodell må ha dcat:contactPoint. Obligatorisk i ModelDCAT-AP-NO
+      (multiplisitet 1..n) — retta frå tidlegare warning, sjå
+      specs/done/kjeldehenvisning-felles-katalog-policyar.md.
+    check: merged_class_has_slot_with_uri
+    class: Informasjonsmodell
+    slot_uri: dcat:contactPoint
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-kontaktpunkt
 
   # ── Informasjonsmodell-krav — anbefalte ───────────────────────────────────────
 
@@ -148,6 +181,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dct:description
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-beskrivelse
 
   informasjonsmodell_har_identifikator:
     severity: warning
@@ -155,6 +189,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dct:identifier
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-identifikator
 
   informasjonsmodell_har_modellidentifikator:
     severity: warning
@@ -164,13 +199,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: modelldcatno:informationModelIdentifier
-
-  informasjonsmodell_har_kontaktpunkt:
-    severity: warning
-    description: Informasjonsmodell bør ha dcat:contactPoint. Anbefalt i ModelDCAT-AP-NO.
-    check: merged_class_has_slot_with_uri
-    class: Informasjonsmodell
-    slot_uri: dcat:contactPoint
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-informasjonsmodellidentifikator
 
   informasjonsmodell_har_lisens:
     severity: warning
@@ -178,6 +207,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dct:license
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-lisens
 
   informasjonsmodell_har_tema:
     severity: warning
@@ -185,6 +215,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: dcat:theme
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-tema
 
   informasjonsmodell_har_modellelement:
     severity: warning
@@ -194,10 +225,12 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Informasjonsmodell
     slot_uri: modelldcatno:containsModelElement
+    spec_url: https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-inneholder-modellelement
 
 instance_checks:
 
   # ── Instans-validering av utgjevar-URI ────────────────────────────────────────
+  # Repo-intern kjende-utgivar-liste — ikkje frå spesifikasjonen. Ingen spec_url.
 
   utgjevar_er_kjend_org:
     severity: error

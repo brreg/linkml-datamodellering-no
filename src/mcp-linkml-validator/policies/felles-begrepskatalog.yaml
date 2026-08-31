@@ -38,6 +38,7 @@ checks:
       Skjemaet må deklarere skos:-prefikset. Alle begrep er skos:Concept.
     check: schema_declares_standard_prefix
     standard_prefixes: [skos]
+    spec_url: https://informasjonsforvaltning.github.io/skos-ap-no-begrep/#Navnerom-brukt-i-standarden
 
   schema_brukar_dct_prefix:
     severity: error
@@ -46,8 +47,11 @@ checks:
       Nødvendig for dct:identifier, dct:publisher, dct:title o.a.
     check: schema_declares_standard_prefix
     standard_prefixes: [dct]
+    spec_url: https://informasjonsforvaltning.github.io/skos-ap-no-begrep/#Navnerom-brukt-i-standarden
 
   # ── Containerklasse-krav ─────────────────────────────────────────────────────
+  # Repo-konvensjon (tree_root-mønster) — spec_url peikar til klassen sin
+  # generelle omtale for kontekst, ikkje til eit normativt containerkrav.
 
   container_har_begrep:
     severity: error
@@ -56,6 +60,7 @@ checks:
       Felles Begrepskatalog krev minst eitt begrep per katalog.
     check: container_has_class
     class: Begrep
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep
 
   container_har_samling:
     severity: warning
@@ -64,6 +69,7 @@ checks:
       Anbefalt for å organisere begrep i navngjeve samlingar (skos:Collection).
     check: container_has_class
     class: Samling
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling
 
   # ── Begrep-krav (skos:Concept) — SKOS-AP-NO-Begrep obligatoriske ─────────────
 
@@ -74,6 +80,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: skos:prefLabel
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term
 
   begrep_anbefalt_term_er_multivalued_langstring:
     severity: warning
@@ -88,6 +95,7 @@ checks:
     slot_uri: skos:prefLabel
     expected_range: LangString
     expected_multivalued: true
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term
 
   begrep_har_definisjon:
     severity: error
@@ -99,6 +107,7 @@ checks:
     slot_uris:
       - skos:definition
       - euvoc:xlDefinition
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-definisjon-direkte-angivelse
 
   begrep_har_identifikator:
     severity: error
@@ -108,6 +117,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:identifier
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-identifikator
 
   begrep_har_utgjevar:
     severity: error
@@ -117,6 +127,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:publisher
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-publisert-av
 
   begrep_har_kontaktpunkt:
     severity: error
@@ -125,6 +136,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dcat:contactPoint
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-kontaktpunkt
 
   # ── Begrep-krav — SKOS-AP-NO-Begrep anbefalte ────────────────────────────────
 
@@ -136,6 +148,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:subject
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-fagområde
 
   begrep_har_ansvarleg_verksemd:
     severity: warning
@@ -144,6 +157,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:creator
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-ansvarlig-virksomhet
 
   begrep_har_gyldig_fra:
     severity: warning
@@ -152,6 +166,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: euvoc:startDate
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-gyldig-fra-og-med
 
   begrep_har_gyldig_til:
     severity: warning
@@ -160,6 +175,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: euvoc:endDate
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-gyldig-til-og-med
 
   begrep_har_opprettingsdato:
     severity: warning
@@ -168,6 +184,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:created
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-opprettet
 
   begrep_har_endringsdato:
     severity: warning
@@ -176,6 +193,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: dct:modified
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-sist-oppdatert
 
   begrep_har_merknad:
     severity: warning
@@ -184,6 +202,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: skos:scopeNote
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-merknad
 
   begrep_har_tillate_term:
     severity: warning
@@ -192,6 +211,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Begrep
     slot_uri: skos:altLabel
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-tillatt-term
 
   # ── Definisjon-krav (euvoc:XlNote) ───────────────────────────────────────────
 
@@ -202,6 +222,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Definisjon
     slot_uri: rdf:value
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Definisjon-tekst
 
   definisjon_har_kjelde_relasjon:
     severity: warning
@@ -211,6 +232,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Definisjon
     slot_uri: skosno:relationshipWithSource
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Definisjon-forhold-til-kilde
 
   # ── AssosiativRelasjon-krav (skosno:AssociativeConceptRelation) ───────────────
 
@@ -222,6 +244,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: AssosiativRelasjon
     slot_uri: skosno:hasToConcept
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Assosiativ-begrepsrelasjon-har-til-begrep
 
   assosiativ_relasjon_har_relasjontype:
     severity: error
@@ -231,6 +254,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: AssosiativRelasjon
     slot_uri: skosno:relationRole
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Assosiativ-begrepsrelasjon-relasjonsrolle
 
   # ── GeneriskRelasjon-krav (skosno:GenericConceptRelation) ────────────────────
 
@@ -242,6 +266,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: GeneriskRelasjon
     slot_uri: skosno:hasGenericConcept
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Generisk-begrepsrelasjon-har-overbegrep
 
   generisk_relasjon_har_underomgrep:
     severity: error
@@ -251,6 +276,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: GeneriskRelasjon
     slot_uri: skosno:hasSpecificConcept
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Generisk-begrepsrelasjon-har-underbegrep
 
   generisk_relasjon_har_inndelingskriterium:
     severity: warning
@@ -260,6 +286,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: GeneriskRelasjon
     slot_uri: dct:description
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Generisk-begrepsrelasjon-inndelingskriterium
 
   # ── PartitivRelasjon-krav (skosno:PartitiveConceptRelation) ──────────────────
 
@@ -271,6 +298,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: PartitivRelasjon
     slot_uri: skosno:hasPartitiveConcept
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Partitiv-begrepsrelasjon-har-delbegrep
 
   partitiv_relasjon_har_heilskapleg_omgrep:
     severity: error
@@ -280,6 +308,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: PartitivRelasjon
     slot_uri: skosno:hasComprehensiveConcept
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Partitiv-begrepsrelasjon-har-helhetsbegrep
 
   partitiv_relasjon_har_inndelingskriterium:
     severity: warning
@@ -289,6 +318,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: PartitivRelasjon
     slot_uri: dct:description
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Partitiv-begrepsrelasjon-inndelingskriterium
 
   # ── Samling-krav (skos:Collection) — SKOS-AP-NO-Begrep obligatoriske ─────────
 
@@ -299,6 +329,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dct:identifier
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-identifikator
 
   samling_har_tittel:
     severity: error
@@ -307,6 +338,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dct:title
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-navn
 
   samling_har_utgjevar:
     severity: error
@@ -315,6 +347,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dct:publisher
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-publisert-av
 
   samling_har_kontaktpunkt:
     severity: error
@@ -323,6 +356,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dcat:contactPoint
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-kontaktpunkt
 
   samling_har_medlem:
     severity: error
@@ -332,6 +366,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: skos:member
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-inneholder-begrep
 
   # ── Samling-krav — SKOS-AP-NO-Begrep anbefalte ───────────────────────────────
 
@@ -343,6 +378,7 @@ checks:
     check: merged_class_has_slot_with_uri
     class: Samling
     slot_uri: dct:description
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling-beskrivelse
 
 instance_checks:
 
@@ -361,8 +397,10 @@ instance_checks:
     relasjon_slot_uri: euvoc:xlDefinition
     krev_spraak: [nb, nn]
     id_suffiks_pattern: "-([a-z]{2})$"
+    spec_url: https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term
 
   # ── Instans-validering av utgjevar-URI ────────────────────────────────────────
+  # Repo-intern kjende-utgivar-liste — ikkje frå spesifikasjonen. Ingen spec_url.
 
   utgjevar_er_kjend_org:
     severity: error

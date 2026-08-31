@@ -224,33 +224,41 @@ som har ein tilhøyrande datafil.
 For begrepskatalogskjema som publiserer til [data.norge.no/concepts](https://data.norge.no/concepts)
 via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering/publisering-begrep/) for full rettleiing.
 
-| Kategori | Krav | Alvor | Kode |
-|---|---|---|---|
-| Import og prefiks | Importerer `skos-ap-no-schema` | **error** | `schema_importerer_skos_ap_no` |
-| Import og prefiks | Deklarerer `skos:`-prefix | **error** | `schema_brukar_skos_prefix` |
-| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` |
-| Containerklasse | Container har attributt med range `Begrep` | **error** | `container_har_begrep` |
-| Containerklasse | Container har attributt med range `Samling` | warning | `container_har_samling` |
-| `Begrep`-krav | `skos:prefLabel` | **error** | `begrep_har_anbefalt_term` |
-| `Begrep`-krav | `skos:definition` eller `euvoc:xlDefinition` | **error** | `begrep_har_definisjon` |
-| `Begrep`-krav | `dct:identifier` | **error** | `begrep_har_identifikator` |
-| `Begrep`-krav | `dct:publisher` | **error** | `begrep_har_utgjevar` |
-| `Begrep`-krav | `dcat:contactPoint` | **error** | `begrep_har_kontaktpunkt` |
-| `Begrep`-krav | `dct:subject` | warning | `begrep_har_fagomrade` |
-| `Begrep`-krav | `dct:creator` | warning | `begrep_har_ansvarleg_verksemd` |
-| `Begrep`-krav | `euvoc:startDate` | warning | `begrep_har_gyldig_fra` |
-| `Begrep`-krav | `euvoc:endDate` | warning | `begrep_har_gyldig_til` |
-| `Begrep`-krav | `dct:created` | warning | `begrep_har_opprettingsdato` |
-| `Begrep`-krav | `dct:modified` | warning | `begrep_har_endringsdato` |
-| `Begrep`-krav | `skos:scopeNote` | warning | `begrep_har_merknad` |
-| `Begrep`-krav | `skos:altLabel` | warning | `begrep_har_tillate_term` |
-| Tospråkskrav | `anbefalt_term` (skos:prefLabel) har range `LangString` og `multivalued: true` | warning | `begrep_anbefalt_term_er_multivalued_langstring` |
-| Tospråkskrav | `har_definisjon` har minst éi Definisjon per språk (nb, nn) | warning | `begrep_har_definisjon_pa_nb_og_nn` |
-| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` |
+| Kategori | Krav | Alvor | Kode | Kjelde |
+|---|---|---|---|---|
+| Import og prefiks | Importerer `skos-ap-no-schema` | **error** | `schema_importerer_skos_ap_no` | Repo-krav¹ |
+| Import og prefiks | Deklarerer `skos:`-prefix | **error** | `schema_brukar_skos_prefix` | [Vedlegg A — Navnerom brukt i standarden](https://informasjonsforvaltning.github.io/skos-ap-no-begrep/#Navnerom-brukt-i-standarden) |
+| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` | [Vedlegg A — Navnerom brukt i standarden](https://informasjonsforvaltning.github.io/skos-ap-no-begrep/#Navnerom-brukt-i-standarden) |
+| Containerklasse | Container har attributt med range `Begrep` | **error** | `container_har_begrep` | [§ Begrep](https://data.norge.no/specification/skos-ap-no-begrep#Begrep)² |
+| Containerklasse | Container har attributt med range `Samling` | warning | `container_har_samling` | [§ Begrepssamling](https://data.norge.no/specification/skos-ap-no-begrep#Begrepssamling)² |
+| `Begrep`-krav | `skos:prefLabel` | **error** | `begrep_har_anbefalt_term` | [§ Begrep – anbefalt term](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term) |
+| `Begrep`-krav | `skos:definition` eller `euvoc:xlDefinition` | **error** | `begrep_har_definisjon` | [§ Begrep – definisjon, direkte angivelse](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-definisjon-direkte-angivelse) / [via definisjonsobjekt](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-definisjon-via-definisjonsobjekt) |
+| `Begrep`-krav | `dct:identifier` | **error** | `begrep_har_identifikator` | [§ Begrep – identifikator](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-identifikator) |
+| `Begrep`-krav | `dct:publisher` | **error** | `begrep_har_utgjevar` | [§ Begrep – publisert av](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-publisert-av) |
+| `Begrep`-krav | `dcat:contactPoint` | **error** | `begrep_har_kontaktpunkt` | [§ Begrep – kontaktpunkt](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-kontaktpunkt) |
+| `Begrep`-krav | `dct:subject` | warning | `begrep_har_fagomrade` | [§ Begrep – fagområde](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-fagområde) |
+| `Begrep`-krav | `dct:creator` | warning | `begrep_har_ansvarleg_verksemd` | [§ Begrep – ansvarlig virksomhet](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-ansvarlig-virksomhet) |
+| `Begrep`-krav | `euvoc:startDate` | warning | `begrep_har_gyldig_fra` | [§ Begrep – dato gyldig fra og med](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-gyldig-fra-og-med) |
+| `Begrep`-krav | `euvoc:endDate` | warning | `begrep_har_gyldig_til` | [§ Begrep – dato gyldig til og med](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-gyldig-til-og-med) |
+| `Begrep`-krav | `dct:created` | warning | `begrep_har_opprettingsdato` | [§ Begrep – dato opprettet](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-opprettet) |
+| `Begrep`-krav | `dct:modified` | warning | `begrep_har_endringsdato` | [§ Begrep – dato sist oppdatert](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-dato-sist-oppdatert) |
+| `Begrep`-krav | `skos:scopeNote` | warning | `begrep_har_merknad` | [§ Begrep – merknad](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-merknad) |
+| `Begrep`-krav | `skos:altLabel` | warning | `begrep_har_tillate_term` | [§ Begrep – tillatt term](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-tillatt-term) |
+| Tospråkskrav | `anbefalt_term` (skos:prefLabel) har range `LangString` og `multivalued: true` | warning | `begrep_anbefalt_term_er_multivalued_langstring` | [§ Begrep – anbefalt term](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term) (Merknad 1) |
+| Tospråkskrav | `har_definisjon` har minst éi Definisjon per språk (nb, nn) | warning | `begrep_har_definisjon_pa_nb_og_nn` | [§ Begrep – anbefalt term](https://data.norge.no/specification/skos-ap-no-begrep#Begrep-anbefalt-term) (Merknad 1+2) |
+| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` | Repo-intern³ |
 
 `Begrep`-krava er obligatoriske per SKOS-AP-NO-Begrep. `Definisjon`-, `AssosiativRelasjon`-,
 `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav er dokumenterte i
 [`policies/felles-begrepskatalog.yaml`](felles-begrepskatalog.yaml).
+
+¹ **Repo-krav:** LinkML-teknisk føresetnad for å uttrykke vokabularet (import av
+skjema, deklarasjon av prefiks) — ikkje eit eige punkt i spesifikasjonsteksten.
+² **Repo-konvensjon:** containerklasse (`tree_root`)-mønsteret er repoet sin eigen
+måte å eksponere klassane på, ikkje eit krav frå spesifikasjonen — lenkja peikar til
+klassen sin generelle omtale i spesifikasjonen for kontekst.
+³ **Repo-intern:** lista over kjende utgivar-URI-ar er halden i repoet, ikkje henta
+frå spesifikasjonen.
 
 **Om tospråkskravet (SK5, SKOS-AP-NO v.2.0.15):** `begrep_anbefalt_term_er_multivalued_langstring`
 er ein schemasjekk — sikrar at skjemaet **kan** innehalde tospråkverdiar.
@@ -268,33 +276,47 @@ gjennomgang av `.ttl`-fila for å verifiere at både `@nb` og `@nn` er til stade
 For modellkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
 via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering/publisering-modell/) for full rettleiing.
 
-| Kategori | Krav | Alvor | Kode |
-|---|---|---|---|
-| Import og prefiks | Importerer `modelldcat-ap-no-schema` | **error** | `schema_importerer_modelldcat_ap_no` |
-| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` |
-| Import og prefiks | Deklarerer `dcat:`-prefix | **error** | `schema_brukar_dcat_prefix` |
-| Containerklasse | Container har attributt med range `Modellkatalog` | **error** | `container_har_modellkatalog` |
-| Containerklasse | Container har attributt med range `Informasjonsmodell` | **error** | `container_har_informasjonsmodell` |
-| `Modellkatalog`-krav | `dct:title` | **error** | `modellkatalog_har_tittel` |
-| `Modellkatalog`-krav | `dct:description` | **error** | `modellkatalog_har_beskrivelse` |
-| `Modellkatalog`-krav | `dct:identifier` | **error** | `modellkatalog_har_identifikator` |
-| `Modellkatalog`-krav | `dct:publisher` | **error** | `modellkatalog_har_utgjevar` |
-| `Modellkatalog`-krav | `dcat:contactPoint` | **error** | `modellkatalog_har_kontaktpunkt` |
-| `Modellkatalog`-krav | `dct:hasPart` | **error** | `modellkatalog_har_del` |
-| `Modellkatalog`-krav | `dct:license` | warning | `modellkatalog_har_lisens` |
-| `Modellkatalog`-krav | `modelldcatno:model` | warning | `modellkatalog_har_modell` |
-| `Informasjonsmodell`-krav | `dct:title` | **error** | `informasjonsmodell_har_tittel` |
-| `Informasjonsmodell`-krav | `dct:publisher` | **error** | `informasjonsmodell_har_utgjevar` |
-| `Informasjonsmodell`-krav | `dct:description` | warning | `informasjonsmodell_har_beskrivelse` |
-| `Informasjonsmodell`-krav | `dct:identifier` | warning | `informasjonsmodell_har_identifikator` |
-| `Informasjonsmodell`-krav | `modelldcatno:informationModelIdentifier` | warning | `informasjonsmodell_har_modellidentifikator` |
-| `Informasjonsmodell`-krav | `dcat:contactPoint` | warning | `informasjonsmodell_har_kontaktpunkt` |
-| `Informasjonsmodell`-krav | `dct:license` | warning | `informasjonsmodell_har_lisens` |
-| `Informasjonsmodell`-krav | `dcat:theme` | warning | `informasjonsmodell_har_tema` |
-| `Informasjonsmodell`-krav | `modelldcatno:containsModelElement` | warning | `informasjonsmodell_har_modellelement` |
-| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` |
+| Kategori | Krav | Alvor | Kode | Kjelde |
+|---|---|---|---|---|
+| Import og prefiks | Importerer `modelldcat-ap-no-schema` | **error** | `schema_importerer_modelldcat_ap_no` | Repo-krav¹ |
+| Import og prefiks | Deklarerer `dct:`-prefix | **error** | `schema_brukar_dct_prefix` | [Vedlegg A — Navnerom](https://data.norge.no/specification/modelldcat-ap-no#Navnerom) |
+| Import og prefiks | Deklarerer `dcat:`-prefix | **error** | `schema_brukar_dcat_prefix` | [Vedlegg A — Navnerom](https://data.norge.no/specification/modelldcat-ap-no#Navnerom) |
+| Containerklasse | Container har attributt med range `Modellkatalog` | **error** | `container_har_modellkatalog` | [§ Modellkatalog](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog)² |
+| Containerklasse | Container har attributt med range `Informasjonsmodell` | **error** | `container_har_informasjonsmodell` | [§ Informasjonsmodell](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell)² |
+| `Modellkatalog`-krav | `dct:title` | **error** | `modellkatalog_har_tittel` | [§ Modellkatalog – tittel](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-tittel) |
+| `Modellkatalog`-krav | `dct:description` | **error** | `modellkatalog_har_beskrivelse` | [§ Modellkatalog – beskrivelse](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-beskrivelse) |
+| `Modellkatalog`-krav | `dct:identifier` | warning | `modellkatalog_har_identifikator` | [§ Modellkatalog – identifikator](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-identifikator) |
+| `Modellkatalog`-krav | `dct:publisher` | **error** | `modellkatalog_har_utgjevar` | [§ Modellkatalog – utgiver](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-utgiver) |
+| `Modellkatalog`-krav | `dcat:contactPoint` | **error** | `modellkatalog_har_kontaktpunkt` | [§ Modellkatalog – kontaktpunkt](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-kontaktpunkt) |
+| `Modellkatalog`-krav | `dct:hasPart` | **error** | `modellkatalog_har_del` | [§ Modellkatalog – har del](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-har-del) |
+| `Modellkatalog`-krav | `dct:license` | warning | `modellkatalog_har_lisens` | [§ Modellkatalog – lisens](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-lisens) |
+| `Modellkatalog`-krav | `modelldcatno:model` | warning | `modellkatalog_har_modell` | [§ Modellkatalog – modell](https://data.norge.no/specification/modelldcat-ap-no#Modellkatalog-modell) |
+| `Informasjonsmodell`-krav | `dct:title` | **error** | `informasjonsmodell_har_tittel` | [§ Informasjonsmodell – tittel](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-tittel) |
+| `Informasjonsmodell`-krav | `dct:publisher` | **error** | `informasjonsmodell_har_utgjevar` | [§ Informasjonsmodell – utgiver](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-utgiver) |
+| `Informasjonsmodell`-krav | `dcat:contactPoint` | **error** | `informasjonsmodell_har_kontaktpunkt` | [§ Informasjonsmodell – kontaktpunkt](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-kontaktpunkt) |
+| `Informasjonsmodell`-krav | `dct:description` | warning | `informasjonsmodell_har_beskrivelse` | [§ Informasjonsmodell – beskrivelse](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-beskrivelse) |
+| `Informasjonsmodell`-krav | `dct:identifier` | warning | `informasjonsmodell_har_identifikator` | [§ Informasjonsmodell – identifikator](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-identifikator) |
+| `Informasjonsmodell`-krav | `modelldcatno:informationModelIdentifier` | warning | `informasjonsmodell_har_modellidentifikator` | [§ Informasjonsmodell – informasjonsmodellidentifikator](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-informasjonsmodellidentifikator) |
+| `Informasjonsmodell`-krav | `dct:license` | warning | `informasjonsmodell_har_lisens` | [§ Informasjonsmodell – lisens](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-lisens) |
+| `Informasjonsmodell`-krav | `dcat:theme` | warning | `informasjonsmodell_har_tema` | [§ Informasjonsmodell – tema](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-tema) |
+| `Informasjonsmodell`-krav | `modelldcatno:containsModelElement` | warning | `informasjonsmodell_har_modellelement` | [§ Informasjonsmodell – inneholder modellelement](https://data.norge.no/specification/modelldcat-ap-no#Informasjonsmodell-inneholder-modellelement) |
+| Instanssjekk | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | **error** | `utgjevar_er_kjend_org` | Repo-intern³ |
 
-`Modellkatalog`- og `Informasjonsmodell`-krava er obligatoriske per ModelDCAT-AP-NO.
+`Modellkatalog`- og `Informasjonsmodell`-krava er obligatoriske per ModelDCAT-AP-NO,
+med unntak av `dct:identifier` (anbefalt — sjå eiga fotnote i kjeldetabellen for
+`modellkatalog_har_identifikator`; det same gjeld transitivt for
+`informasjonsmodell_har_identifikator`, som alt sto som `warning`). Merk òg at
+`dcat:contactPoint` på `Informasjonsmodell` er obligatorisk (`error`), retta frå
+tidlegare `warning` — sjå `specs/done/kjeldehenvisning-felles-katalog-policyar.md`
+for grunngjeving og kjeldeverifisering.
+
+¹ **Repo-krav:** LinkML-teknisk føresetnad for å uttrykke vokabularet (import av
+skjema, deklarasjon av prefiks) — ikkje eit eige punkt i spesifikasjonsteksten.
+² **Repo-konvensjon:** containerklasse (`tree_root`)-mønsteret er repoet sin eigen
+måte å eksponere klassane på, ikkje eit krav frå spesifikasjonen — lenkja peikar til
+klassen sin generelle omtale i spesifikasjonen for kontekst.
+³ **Repo-intern:** lista over kjende utgivar-URI-ar er halden i repoet, ikkje henta
+frå spesifikasjonen.
 
 ---
 
