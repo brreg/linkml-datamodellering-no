@@ -270,6 +270,16 @@ Nye skjema under `src/linkml/<domain>/<modell>/` vert oppdaga automatisk — ing
 
 `make docs-publish` køyrer `mkdocs/publish.sh` som kopier artefakter og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
 
+**WSL2 + podman: `http://localhost:8000` fungerer ikkje i nettlesaren på Windows-verten?**
+Podman sin rootless nettverksbakend (`pasta`) lyttar berre på IPv4, medan WSL2 sin standard NAT-baserte `localhostForwarding` handterer IPv4/IPv6 asymmetrisk — resultatet kan vere at `http://localhost:8000/...` eller `http://127.0.0.1:8000/...` ikkje lastar i ein nettlesar på Windows-verten, sjølv om `docs-serve`-containeren køyrer og svarar korrekt internt i WSL2 (t.d. via `curl` frå WSL2-terminalen). Windows-brannmuren er **ikkje** årsaka — brannmuren filtrerer aldri loopback-trafikk (`127.0.0.1`/`::1`), og trafikk som faktisk passerer brannmuren (t.d. direkte mot WSL2-VM-en sin eigen IP) fungerer heile tida.
+
+Fiks: aktiver WSL2 sin **mirrored** nettverksmodus. Legg til i `C:\Users\<brukar>\.wslconfig` (opprett fila om ho ikkje finst):
+```
+[wsl2]
+networkingMode=mirrored
+```
+Køyr deretter `wsl --shutdown` frå ein Windows PowerShell (stoppar **alle** WSL2-distribusjonar — lagre anna arbeid først), opne WSL2-terminalen att, og start containeren på nytt med `make docs-serve`. `make check-prereqs` varslar automatisk dersom mirrored-modus ikkje er aktiv i eit WSL2-miljø.
+
 ## LinkML-modell utkast (mcp-linkml-modell-utkast)
 
 | Kommando | Beskriving | Output |
