@@ -3,12 +3,13 @@
 Genererer ein ## Modellanalyse-seksjon frå dei per-skjema
 modellanalyse-rapportane (similar-classes/-slots/-types-domain-report.md,
 ubrukte-slots/-enums/-types/-subsets-report.md,
-isolerte-klasser-report.md) til stdout.
+isolerte-klasser-report.md, ikkje-tilkopla-container-report.md) til stdout.
 
 Rapportfilene vert skrivne av generate.yml sitt «Køyr modellanalyse per
 skjema»-steg (make analyse-similar-classes-domain/-slots-domain/-types-domain
-og make analyse-ubrukte-slots/-enums/-types/-subsets/analyse-isolerte-klasser
-NAME=<skjema>/SCHEMA=<sti>) til generated/<domain>/<schema>/model-analyse/ —
+og make analyse-ubrukte-slots/-enums/-types/-subsets/analyse-isolerte-klasser/
+analyse-ikkje-tilkopla-container NAME=<skjema>/SCHEMA=<sti>) til
+generated/<domain>/<schema>/model-analyse/ —
 sjå specs/done/modellanalyse-per-skjema-index-md.md,
 specs/backlog/modellanalyse-liknande-typenamn.md og
 specs/backlog/modellanalyse-ubrukte-lokale-definisjonar.md. Dei er
@@ -26,7 +27,7 @@ ikkje til noka konkret fil. Dei tre similar-*-domain-analysane har no ein
 faktisk publisert cross-domain-motpart (--scope all, køyrd éin gong i
 generate.yml sin publish-jobb og publisert som statiske sider under
 mkdocs/docs/modellanalyse/ av mkdocs/publish.sh), så fotnota for desse
-lenkar no direkte til den sida i staden. Dei fem ubrukt-lokalt/isolert-
+lenkar no direkte til den sida i staden. Dei seks ubrukt-lokalt/isolert-
 analysane har inga meiningsfull cross-domain-form (dei er per definisjon
 per-skjema) og får difor ingen fotnote i det heile — sjå
 cross_domain_report_relpath=None per oppføring under.
@@ -54,6 +55,13 @@ REPORTS = [
         "isolerte-klasser-report.md",
         "Isolerte klasser",
         "isolerte klasser",
+        None,
+        None,
+    ),
+    (
+        "ikkje-tilkopla-container-report.md",
+        "Klasser ikkje kopla til containerklassen",
+        "klasser ikkje kopla til containerklassen",
         None,
         None,
     ),

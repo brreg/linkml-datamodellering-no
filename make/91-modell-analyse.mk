@@ -27,7 +27,8 @@ SIMILARITY_THRESHOLD ?= 0.8
         analyse-similar-domene-batch analyse-similar-alle-domene-batch \
         analyse-ubrukte-slots analyse-ubrukte-enums \
         analyse-ubrukte-types analyse-ubrukte-subsets \
-        analyse-isolerte-klasser analyse-lokal-modellanalyse-domene \
+        analyse-isolerte-klasser analyse-ikkje-tilkopla-container \
+        analyse-lokal-modellanalyse-domene \
         analyse-iri-dereferering analyse-innhaldsforhandling \
         analyse-ap-no-gjenbruk analyse-modell-sammenhenger analyse-sammendrag
 
@@ -96,7 +97,12 @@ analyse-isolerte-klasser: ## Finn lokale klasser utan referansar til/frå noka a
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --kind class --schema $(SCHEMA)
 
-analyse-lokal-modellanalyse-domene: ## Skriv alle fem ubrukt-lokalt/isolerte-klasser-rapportane for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated]
+analyse-ikkje-tilkopla-container: ## Finn lokale klasser som ikkje er nåbare frå containerklassen (tree_root), sjølv om dei er kopla til kvarandre [SCHEMA=<sti>]
+	$(call print_header,analyse-ikkje-tilkopla-container,SCHEMA=$(SCHEMA)) 1>&2
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
+	  --kind unreachable --schema $(SCHEMA)
+
+analyse-lokal-modellanalyse-domene: ## Skriv alle seks ubrukt-lokalt/isolerte-klasser/ikkje-tilkopla-container-rapportane for alle skjema i domenet, éin kontainar (sjå specs/done/effektiviser-modellanalyse-koyretid.md) [DOMAIN=<domene>] [OUT_DIR=generated]
 	$(call print_header,analyse-lokal-modellanalyse-domene,DOMAIN=$(DOMAIN)) 1>&2
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/find-unused-local-definitions.py \
 	  --domain $(DOMAIN) --out-dir $(if $(OUT_DIR),$(OUT_DIR),generated)

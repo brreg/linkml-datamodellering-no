@@ -41,6 +41,20 @@ Ei klasse med minst éi REELL (ikkje-container) tilkopling — anten
 utgåande til, eller innkomande frå, ei anna lokal klasse — vert aldri
 flagga, sjølv om ho i tillegg er referert av containeren.
 
+--kind unreachable er ein sjette analyse, komplementær til --kind class —
+ikkje ei erstatning. --kind class spør «har denne klassa NOKA parvis
+tilkopling til noka anna lokal klasse?», uavhengig av containeren. Det
+spørsmålet går glipp av eit reelt tilfelle: ein heil, INTERNT
+samanhengande klynge av klassar (kvar kopla til minst éi anna i klynga)
+som sjølv aldri vert nådd frå containerklassen — t.d. eit gløymt
+scaffold-subtre. --kind unreachable spør i staden «kan denne klassa
+faktisk NÅAST frå containeren, modellen sitt eintydige inngangspunkt?»,
+via BFS over ein udirigert graf av class_connections(). Ei klasse som er
+«Kun tilkopla via containerklassen» (jf. --kind class) ER nådd frå
+containeren og vert difor IKKJE flagga her; ei heilt isolert klasse er
+per definisjon uoppnåeleg og dukkar difor opp i BÅDE rapportane (venta
+overlapp, ikkje ein feil).
+
 Krev SchemaView (og dermed induced_slot()-arveoppløysing) — bruk
 LINKML_RUN, ikkje PYTHON_RUN (jf. check-import-duplicates.py).
 
@@ -52,9 +66,9 @@ To bruksmåtar:
 
 2. Batch, fil-skriving (sjå
    specs/backlog/effektiviser-modellanalyse-koyretid.md): bygg **eitt**
-   SchemaView per skjema og skriv alle fem kind-rapportane i éin
-   Python-prosess i staden for fem separate podman-kontainarar (kvar med
-   sin eigen ~0,9 s linkml_runtime-importskatt) — det er denne 5×
+   SchemaView per skjema og skriv alle seks kind-rapportane i éin
+   Python-prosess i staden for seks separate podman-kontainarar (kvar med
+   sin eigen ~0,9 s linkml_runtime-importskatt) — det er denne
    redundante import+SchemaView-kostnaden per skjema som gjorde
    modellanalyse-steget til det klart tyngste steget i generate.yml:
      python3 find-unused-local-definitions.py --domain <domene> --out-dir <sti>
@@ -93,6 +107,7 @@ KIND_LABELS = {
     "type": "typar",
     "subset": "subsets",
     "class": "klasser",
+    "unreachable": "klasser ikkje kopla til containerklassen",
 }
 
 # Rapportfilnavn — MÅ matche det .github/workflows/generate.yml (og
@@ -104,9 +119,10 @@ KIND_TO_REPORT_FILENAME = {
     "type": "ubrukte-types-report.md",
     "subset": "ubrukte-subsets-report.md",
     "class": "isolerte-klasser-report.md",
+    "unreachable": "ikkje-tilkopla-container-report.md",
 }
 
-ALL_KINDS = ("slot", "enum", "type", "subset", "class")
+ALL_KINDS = ("slot", "enum", "type", "subset", "class", "unreachable")
 
 
 def log_error(msg: str) -> None:
@@ -267,10 +283,60 @@ def find_isolated_classes(sv) -> list[tuple[str, str, str]]:
     return sorted(isolated)
 
 
+def find_classes_unreachable_from_container(sv) -> list[tuple[str, str]]:
+    """Finn lokale klasser (unnateke containeren) som IKKJE er nåbare frå
+    containerklassen (tree_root) via BFS over ein udirigert graf bygd frå
+    class_connections() (slot-/attributtrange, is_a/mixins).
+
+    I motsetnad til find_isolated_classes() (som spør om ei klasse har
+    NOKA parvis tilkopling til noka anna lokal klasse, uavhengig av
+    containeren) spør denne om klassa faktisk kan NÅAST frå containeren
+    — modellen sitt eintydige inngangspunkt. Ein heil, internt
+    samanhengande klynge av klassar som sjølv ikkje er kopla til
+    containeren (t.d. eit gløymt/scaffold-subtre) vert ikkje fanga av
+    find_isolated_classes() (kvar klasse i klynga har jo ei reell
+    tilkopling til ei anna klasse i klynga), men FANGAST her. Ei heilt
+    isolert klasse er per definisjon uoppnåeleg og dukkar difor opp i
+    begge rapportane (venta overlapp, ikkje ein feil)."""
+    all_local = local_classes(sv, include_root=True)
+    container = next((c for c in all_local if c.tree_root), None)
+    if container is None:
+        return []  # no_container_class-sjekken fangar dette separat
+
+    # Udirigert graf: A->B gjev kant begge vegar (i motsetnad til
+    # class_connections() sin eigen retning, som berre er A sine
+    # UTGÅANDE referansar) — "kopla til" skal tolkast symmetrisk her.
+    graph: dict[str, set[str]] = {c.name: set() for c in all_local}
+    for c in all_local:
+        for target in class_connections(sv, c):
+            graph[c.name].add(target)
+            graph.setdefault(target, set()).add(c.name)
+
+    visited: set[str] = {container.name}
+    queue = list(graph.get(container.name, ()))
+    while queue:
+        name = queue.pop()
+        if name in visited:
+            continue
+        visited.add(name)
+        queue.extend(graph.get(name, ()))
+
+    unreachable = []
+    for c in all_local:
+        if c.tree_root or c.name in visited:
+            continue
+        description = (c.description or "").strip()
+        unreachable.append((c.name, description))
+    return sorted(unreachable)
+
+
 def compute_items_and_total(sv, kind: str) -> tuple[list[tuple], int]:
     """(items, total) for éin kind — delt av stdout-modus og batch-modus."""
     if kind == "class":
         return find_isolated_classes(sv), len(local_classes(sv, include_root=True))
+    if kind == "unreachable":
+        total = max(len(local_classes(sv, include_root=True)) - 1, 0)
+        return find_classes_unreachable_from_container(sv), total
     items = find_unused(sv, kind)
     local_names = {
         "slot": sv.schema.slots or {},
@@ -286,6 +352,13 @@ def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -
     if kind == "class":
         title = f"# Isolerte lokale klasser ({schema_path})"
         empty_msg = f"Ingen isolerte lokale klasser funne ({total} klasser sjekka)."
+        col_a = "Klasse"
+    elif kind == "unreachable":
+        title = f"# Klasser ikkje kopla til containerklassen ({schema_path})"
+        empty_msg = (
+            f"Ingen klasser utan tilkopling til containerklassen funne "
+            f"({total} klasser sjekka)."
+        )
         col_a = "Klasse"
     else:
         title = f"# Ubrukte lokale {label} ({schema_path})"
@@ -310,6 +383,18 @@ def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -
             f"lokale klasser** ({n_isolated} heilt isolert, "
             f"{n_container_only} kun tilkopla via containerklassen)."
         )
+    elif kind == "unreachable":
+        lines.append(f"| {col_a} | Skildring |")
+        lines.append("|---|---|")
+        for name, description in items:
+            lines.append(f"| `{name}` | {description or '(inga skildring)'} |")
+        lines.append(
+            f"\n**Totalt: {len(items)} klasser ikkje kopla til containerklassen, "
+            f"av {total} lokale klasser (containeren sjølv ikkje medrekna).** "
+            "Merk: heilt isolerte klasser (sjå isolerte-klasser-report.md) "
+            "dukkar òg opp her, sidan dei per definisjon ikkje kan nåast frå "
+            "containeren."
+        )
     else:
         lines.append(f"| {col_a} | Skildring |")
         lines.append("|---|---|")
@@ -321,7 +406,7 @@ def format_report(kind: str, schema_path: str, items: list[tuple], total: int) -
 
 
 def process_schema_all_kinds(schema_path: Path, out_dir: Path) -> bool:
-    """Byggjer eitt SchemaView for schema_path og skriv alle fem
+    """Byggjer eitt SchemaView for schema_path og skriv alle seks
     kind-rapportane til out_dir. Returnerer False (loggar sjølv) viss
     skjemaet ikkje kunne lastast — kallar avgjer sjølv om det skal stoppe
     resten av ein batch eller halde fram."""
