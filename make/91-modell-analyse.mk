@@ -14,6 +14,8 @@
 # - src/assets/scripts/makefile/find-similar-names.py
 # - src/assets/scripts/makefile/find-unused-local-definitions.py
 # - src/assets/scripts/makefile/check-iri-resolution.py
+# - src/assets/scripts/makefile/check-ap-no-reuse.py
+# - src/assets/scripts/makefile/check-model-relationships.py
 # - src/assets/scripts/makefile/summarise-modell-analyse.py
 # ==============================================================================
 
@@ -26,7 +28,8 @@ SIMILARITY_THRESHOLD ?= 0.8
         analyse-ubrukte-slots analyse-ubrukte-enums \
         analyse-ubrukte-types analyse-ubrukte-subsets \
         analyse-isolerte-klasser analyse-lokal-modellanalyse-domene \
-        analyse-iri-dereferering analyse-innhaldsforhandling analyse-sammendrag
+        analyse-iri-dereferering analyse-innhaldsforhandling \
+        analyse-ap-no-gjenbruk analyse-modell-sammenhenger analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
@@ -106,6 +109,14 @@ analyse-innhaldsforhandling: ## Testar innhaldsforhandling (Accept-header for fo
 	$(call print_header,analyse-innhaldsforhandling) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-iri-resolution.py --check innhaldsforhandling $(if $(DOMAIN),--domain $(DOMAIN))
 
-analyse-sammendrag: ## Les dei seks analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
+analyse-ap-no-gjenbruk: ## Sjekk at ap-no/*-skjema importerer common-ap-no-schema, og at ingen skjema utanfor ap-no/* importerer det direkte (Digdir-regel 14)
+	$(call print_header,analyse-ap-no-gjenbruk) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-ap-no-reuse.py
+
+analyse-modell-sammenhenger: ## Kryssreferer importgraf mot modellkatalogen sine har_del/er_i_samsvar_med/er_profil_av/erstatter-annotasjonar (Digdir-regel 12)
+	$(call print_header,analyse-modell-sammenhenger) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-model-relationships.py
+
+analyse-sammendrag: ## Les analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
 	$(call print_header,analyse-sammendrag) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/summarise-modell-analyse.py

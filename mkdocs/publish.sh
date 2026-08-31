@@ -58,10 +58,12 @@ generate_validation_docs() {
 
     {
         cat <<'EOF'
-# Valideringsregler
+# Valideringsreglar
 
 !!! note "Beskrivelse"
 
+     Valideringsreglar består av policyer som du kan velge å etterleve og maskinelt validere etterlevelsen av. Alle må som minimum etterleve bronze policyen.
+     
      Denne sida er generert automatisk frå validator-dokumentasjonen i `src/mcp-linkml-validator/policies/`. Sjå [GitHub-repoet](https://github.com/brreg/linkml-datamodellering-no/tree/main/src/mcp-linkml-validator) for siste versjon.
 
 ---

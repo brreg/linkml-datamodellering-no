@@ -341,7 +341,9 @@ ikkje IRI-/nettverkssjekkar) — sjå
 | `make analyse-similar-types-all [SIMILARITY_THRESHOLD=0.8]` | Finn typar (`types:`) med liknande navn på tvers av alle domene. | Markdown-tabell til stdout |
 | `make analyse-iri-dereferering` | Testar IRI-dereferering (IRI resolution) for `id`/`default_prefix`/`prefixes`-IRI-ar i alle skjema. Kjende, avgjorde ikkje-dereferbare mønster (`schema.fintlabs.no`, `data.norge.no/vocabulary/ngr-*`, `example.org`-plasshaldarar) er utelatne frå testen. Krev nettverkstilgang. | Markdown-tabell til stdout |
 | `make analyse-innhaldsforhandling` | Testar innhaldsforhandling (Accept-header for format/språk) for IRI-ar repoet eig (`id`/`default_prefix`). Krev nettverkstilgang. | Markdown-tabell til stdout |
-| `make analyse-sammendrag` | Les dei åtte `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
+| `make analyse-ap-no-gjenbruk` | Digdir-regel 14 (Gjenbruk): sjekkar at alle `ap-no/*`-skjema importerer `common-ap-no-schema` (direkte eller transitivt), og flaggar skjema utanfor `ap-no/*` som importerer det direkte i staden for via ein AP-NO-profil. Rapporterer berre avvik. | Markdown til stdout |
+| `make analyse-modell-sammenhenger` | Digdir-regel 12 (Sammenhenger mellom modeller): kryssreferer LinkML sin `imports:`-graf mot `har_del`/`er_i_samsvar_med`/`er_profil_av`/`erstatter`/`er_erstattet_av` i modellkatalog-datafilene (`src/linkml/modellkatalog/*/data/*/*.yaml`). Rapporterer berre avvik. | Markdown til stdout |
+| `make analyse-sammendrag` | Les `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
 
 ## Påskeegg: Gource-visualisering
 

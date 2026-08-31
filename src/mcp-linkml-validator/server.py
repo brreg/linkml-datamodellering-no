@@ -596,6 +596,58 @@ def _check_slot_has_range_and_multivalued(sv, schema, config, issues):
             ))
 
 
+_STANDARD_TYPE_URI_PREFIXES = (
+    "xsd:", "http://www.w3.org/2001/XMLSchema#",
+    "rdf:", "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs:", "http://www.w3.org/2000/01/rdf-schema#",
+    "owl:", "http://www.w3.org/2002/07/owl#",
+)
+
+
+def _check_local_types_have_standard_uri(sv, schema, config, issues):
+    """Digdir-regel 15: primitive datatypar skal vere standardiserte (XSD/RDFS).
+    Sjekkar berre lokalt definerte typar (schema sitt eige types:-felt) — typar
+    arva frå linkml:types er alt garantert XSD-mappa av LinkML-modellen sjølv."""
+    for tname, tdef in (schema.types or {}).items():
+        type_uri = str(tdef.uri or "")
+        if not type_uri:
+            issues.append(issue(
+                config["severity"], "local_type_missing_uri", f"type:{tname}",
+                f"Lokal type '{tname}' manglar uri: mot eit standardnamnerom (xsd/rdf/rdfs/owl)",
+            ))
+        elif not type_uri.startswith(_STANDARD_TYPE_URI_PREFIXES):
+            issues.append(issue(
+                config["severity"], "local_type_nonstandard_uri", f"type:{tname}",
+                f"Lokal type '{tname}' har uri: '{type_uri}' som ikkje er frå eit kjent "
+                "standardnamnerom (xsd/rdf/rdfs/owl)",
+            ))
+
+
+def _check_build_yaml_generator_flag(schema_path, config, issues):
+    """Digdir-regel 5: modellen skal vere tilgjengeleg med god visuell
+    representasjon. Les sysken-fila build.yaml (om ho finst) og krev at ein
+    gitt generator-flagg er slått på. Hoppar stille over når det ikkje finst
+    nokon build.yaml å lese — t.d. eit ephemeralt schemaText-kall utan
+    schema_path, eller eit skjema utanfor det manifest-baserte byggjesystemet.
+    Dette er ikkje eit avvik i seg sjølv, difor ingen issue i det tilfellet."""
+    if not schema_path:
+        return
+    build_yaml_path = Path(schema_path).parent / "build.yaml"
+    if not build_yaml_path.is_file():
+        return
+    try:
+        build_config = yaml.safe_load(build_yaml_path.read_text(encoding="utf-8")) or {}
+    except Exception as exc:
+        sys.stderr.write(f"ÅTVARING: kunne ikkje lese/parse {build_yaml_path}: {exc}\n")
+        return
+    generator = config["generator"]
+    if not (build_config.get("generators") or {}).get(generator):
+        issues.append(issue(
+            config["severity"], "build_yaml_generator_disabled", "schema",
+            f"build.yaml manglar generators.{generator}: true",
+        ))
+
+
 _CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
@@ -618,6 +670,7 @@ _CHECK_HANDLERS = {
     "class_count":                        _check_class_count,
     "controlled_vocabulary_annotations":  _check_controlled_vocabulary_annotations,
     "slot_has_range_and_multivalued":     _check_slot_has_range_and_multivalued,
+    "local_types_have_standard_uri":      _check_local_types_have_standard_uri,
 }
 
 
@@ -804,10 +857,18 @@ def _run_instance_checks(sv, schema, instance, policy, issues):
             handler(sv, schema, instance, config, issues)
 
 
-def _run_checks(sv, schema, policy: dict, issues: list) -> None:
+def _run_checks(sv, schema, policy: dict, issues: list, schema_path: str | None = None) -> None:
     for key in ("checks", "fair_checks"):
         for config in policy.get(key, {}).values():
-            handler = _CHECK_HANDLERS.get(config.get("check"))
+            check_name = config.get("check")
+            # build_yaml_generator_flag krev filsystemtilgang (sysken-fila
+            # build.yaml) utover sjølve skjemaobjektet, difor spesialhandtert
+            # her i staden for via den uniforme (sv, schema, config, issues)-
+            # signaturen som alle andre sjekkfunksjonar deler.
+            if check_name == "build_yaml_generator_flag":
+                _check_build_yaml_generator_flag(schema_path, config, issues)
+                continue
+            handler = _CHECK_HANDLERS.get(check_name)
             if handler:
                 handler(sv, schema, config, issues)
 
@@ -937,7 +998,7 @@ def validate_schema(schema_text: str | None = None, policy_name: str = "bronze",
                 ))
 
         # 5) Policy-spesifikke struktursjekkar (checks + fair_checks)
-        _run_checks(sv, schema, policy, issues)
+        _run_checks(sv, schema, policy, issues, schema_path=schema_path)
 
         # 6) Instans-spesifikke policy-sjekkar (instance_checks)
         if instance_text is not None:

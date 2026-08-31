@@ -76,6 +76,19 @@ checks:
     digdir_rule: 11
     fair_principle: R1.3
 
+  schema_importerer_dqv_ap_no:
+    severity: warning
+    description: >
+      Skjemaet bør importere dqv-ap-no-schema (direkte eller transitivt) for å
+      gjenbruke kvalitetsvokabularet (Kvalitetsmaal, Kvalitetsmaaling,
+      Kvalitetsdimensjon, Kvalitetsmerknad) i staden for å definere eigne
+      tilsvarande klassar/slots. Digdir-regel 14: Gjenbruk.
+    check: schema_imports
+    must_import: dqv-ap-no-schema
+    characteristic_class: Kvalitetsmaal
+    digdir_rule: 14
+    fair_principle: I3
+
   # ── Katalog (dcat:Catalog) ──────────────────────────────────────────────────
 
   katalog_beskrivelse:

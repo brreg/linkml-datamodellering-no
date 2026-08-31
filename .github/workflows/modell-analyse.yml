@@ -235,6 +235,62 @@ jobs:
           path: innhaldsforhandling-report.md
           retention-days: 30
 
+  ap-no-gjenbruk:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Sjekk gjenbruk av common-ap-no-schema (Digdir-regel 14)
+        run: |
+          set -uo pipefail
+          make analyse-ap-no-gjenbruk > ap-no-gjenbruk-report.md
+          {
+            echo "## AP-NO-gjenbruk (Digdir-regel 14)"
+            cat ap-no-gjenbruk-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ap-no-gjenbruk-report
+          path: ap-no-gjenbruk-report.md
+          retention-days: 30
+
+  modell-sammenhenger:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Sjekk ut repo
+        uses: actions/checkout@v7
+
+      - name: Bygg python-container
+        run: make build-docker-python
+
+      - name: Kryssreferer importgraf mot modellkatalogen (Digdir-regel 12)
+        run: |
+          set -uo pipefail
+          make analyse-modell-sammenhenger > modell-sammenhenger-report.md
+          {
+            echo "## Samanhengar mellom modellar (Digdir-regel 12)"
+            cat modell-sammenhenger-report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Last opp rapport
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: modell-sammenhenger-report
+          path: modell-sammenhenger-report.md
+          retention-days: 30
+
   sammendrag:
     needs:
       - similar-classes-domain
@@ -245,6 +301,8 @@ jobs:
       - similar-types-all
       - iri-dereferering
       - innhaldsforhandling
+      - ap-no-gjenbruk
+      - modell-sammenhenger
     if: always()
     runs-on: ubuntu-22.04
     permissions:

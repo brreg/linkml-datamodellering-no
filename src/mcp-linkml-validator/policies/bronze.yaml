@@ -161,3 +161,26 @@ checks:
       SKAL/BØR/KAN-formulering som matcher vokabular_krav. Sikrar konsistent og
       maskinlesbar dokumentasjon av vokabularkrav.
     check: controlled_vocabulary_annotations
+
+  schema_har_erdiagram_aktivert:
+    severity: warning
+    description: >
+      build.yaml bør ha generators.erdiagram: true, slik at eit ER-diagram vert
+      generert for skjemaet (make gen-erdiagram-mermaid). Digdir-regel 5:
+      Visualisering. Sjølve diagrammet sin Mermaid-syntaks vert validert
+      nattleg av mermaid-render-jobben i lenkje-og-mermaid-sjekk.yml — denne
+      sjekken dekkjer berre at generering faktisk er slått på.
+    check: build_yaml_generator_flag
+    generator: erdiagram
+    digdir_rule: 5
+
+  local_types_have_standard_uri:
+    severity: warning
+    description: >
+      Lokalt definerte typar (schemaets eige types:-felt) bør oppgje ein uri:
+      mot eit standardisert namnerom (xsd/rdf/rdfs/owl). Digdir-regel 15:
+      Standardiserte datatyper. Typar arva frå linkml:types er alt garantert
+      XSD-mappa av LinkML-modellen sjølv og treng ingen eigen sjekk.
+    check: local_types_have_standard_uri
+    digdir_rule: 15
+    fair_principle: I1

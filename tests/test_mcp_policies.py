@@ -420,6 +420,62 @@ slots:
         self.assertFalse(issues_for(r, "all_classes_have_identifier", "class:Container"))
         self.assertFalse(issues_for(r, "all_classes_have_concept_ref", "class:Container"))
 
+    # ── Regel 15: Standardiserte datatyper ──────────────────────────────────
+
+    def test_lokal_type_utan_uri_gir_advarsel(self):
+        schema = _BRONZE_PASS.replace(
+            "classes:\n",
+            "types:\n  EigenType:\n    base: str\n    description: Ein type utan uri\nclasses:\n",
+            1,
+        )
+        r = validate_schema(schema, "bronze")
+        self.assertTrue(has_warning(r, "local_type_missing_uri"))
+
+    def test_lokal_type_med_ikkje_standard_uri_gir_advarsel(self):
+        schema = _BRONZE_PASS.replace(
+            "classes:\n",
+            "types:\n  EigenType:\n    base: str\n    uri: https://example.org/vocab/EigenType\n"
+            "    description: Ein type med ikkje-standard uri\nclasses:\n",
+            1,
+        )
+        r = validate_schema(schema, "bronze")
+        self.assertTrue(has_warning(r, "local_type_nonstandard_uri"))
+
+    def test_lokal_type_med_xsd_uri_gir_ingen_advarsel(self):
+        schema = _BRONZE_PASS.replace(
+            "classes:\n",
+            "types:\n  EigenType:\n    base: str\n    uri: xsd:string\n"
+            "    description: Ein type med standard uri\nclasses:\n",
+            1,
+        )
+        r = validate_schema(schema, "bronze")
+        self.assertFalse(has_warning(r, "local_type_missing_uri"))
+        self.assertFalse(has_warning(r, "local_type_nonstandard_uri"))
+
+    # ── Regel 5: Visualisering (build.yaml generators.erdiagram) ────────────
+
+    def test_erdiagram_ikkje_aktivert_gir_advarsel(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            schema_path = Path(tmp) / "schema.yaml"
+            schema_path.write_text(_BRONZE_PASS, encoding="utf-8")
+            (Path(tmp) / "build.yaml").write_text("generators:\n  erdiagram: false\n", encoding="utf-8")
+            r = validate_schema(policy_name="bronze", schema_path=str(schema_path))
+        self.assertTrue(has_warning(r, "build_yaml_generator_disabled"))
+
+    def test_erdiagram_aktivert_gir_ingen_advarsel(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            schema_path = Path(tmp) / "schema.yaml"
+            schema_path.write_text(_BRONZE_PASS, encoding="utf-8")
+            (Path(tmp) / "build.yaml").write_text("generators:\n  erdiagram: true\n", encoding="utf-8")
+            r = validate_schema(policy_name="bronze", schema_path=str(schema_path))
+        self.assertFalse(has_warning(r, "build_yaml_generator_disabled"))
+
+    def test_ingen_build_yaml_gir_ingen_advarsel(self):
+        # Ephemeralt schemaText-kall (ingen sysken-build.yaml å lese) skal
+        # ikkje utløyse sjekken.
+        r = validate_schema(_BRONZE_PASS, "bronze")
+        self.assertFalse(has_warning(r, "build_yaml_generator_disabled"))
+
 
 # ── Silver ───────────────────────────────────────────────────────────────────
 
@@ -539,6 +595,35 @@ classes:
         r = validate_schema(schema, "silver")
         no_container = [i for i in r["issues"] if i["code"] == "no_container_class"]
         self.assertEqual(len(no_container), 1)  # deduplisert — berre éin feil
+
+    def test_manglar_kvalitetsmaal_gir_advarsel_om_manglande_dqv_import(self):
+        # Ingen Kvalitetsmaal-klasse (verken lokalt definert eller importert)
+        # — korkje den direkte import-strengsjekken eller
+        # characteristic_class-fallbacken finn dqv-vokabularet.
+        schema = """\
+id: https://example.org/schema
+name: TestSchema
+description: Testmodell
+prefixes:
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Ting:
+    description: Ei ting
+    slots:
+      - id
+slots:
+  id:
+    description: Identifikator
+    identifier: true
+    range: uriorcurie
+"""
+        self.assertTrue(has_warning(validate_schema(schema, "silver"), "missing_required_import"))
+
+    def test_kvalitetsmaal_klasse_dekkjer_dqv_import_sjekken(self):
+        # _SILVER_PASS definerer Kvalitetsmaal lokalt (proxy for reell import
+        # via characteristic_class-fallbacken) — skal ikkje gje åtvaring.
+        self.assertFalse(has_warning(validate_schema(_SILVER_PASS, "silver"), "missing_required_import"))
 
 
 # ── Gold ─────────────────────────────────────────────────────────────────────
@@ -759,6 +844,47 @@ slots:
     range: uriorcurie
 """
         self.assertTrue(has_error(validate_schema(schema, "gold"), "fair_r12"))
+
+    def test_manglar_kvalitetsmaal_gir_feil_om_manglande_dqv_import(self):
+        schema = """\
+id: https://example.org/schema
+name: TestSchema
+title: Testtittel
+description: Testmodell
+version: "1.0"
+prefixes:
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Ting:
+    description: Ei ting
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
+    slots:
+      - id
+slots:
+  id:
+    description: Identifikator
+    identifier: true
+    range: uriorcurie
+"""
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "missing_required_import"))
+
+    def test_lokal_type_utan_standard_uri_gir_feil(self):
+        schema = _GOLD_PASS.replace(
+            "classes:\n",
+            "types:\n  EigenType:\n    base: str\n    description: Ein type utan uri\nclasses:\n",
+            1,
+        )
+        self.assertTrue(has_error(validate_schema(schema, "gold"), "local_type_missing_uri"))
+
+    def test_erdiagram_ikkje_aktivert_gir_feil(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            schema_path = Path(tmp) / "schema.yaml"
+            schema_path.write_text(_GOLD_PASS, encoding="utf-8")
+            (Path(tmp) / "build.yaml").write_text("generators:\n  erdiagram: false\n", encoding="utf-8")
+            r = validate_schema(policy_name="gold", schema_path=str(schema_path))
+        self.assertTrue(has_error(r, "build_yaml_generator_disabled"))
 
 
 # ── Instans-sjekkar (instance_checks) ──────────────────────────────────────────

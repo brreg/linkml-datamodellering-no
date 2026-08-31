@@ -255,6 +255,39 @@ checks:
     check: container_has_class
     class: Kvalitetsmerknad
 
+  schema_har_erdiagram_aktivert:
+    severity: error
+    description: >
+      build.yaml skal ha generators.erdiagram: true, slik at eit ER-diagram
+      vert generert for skjemaet. Digdir-regel 5: Visualisering. Krev: ikkje
+      berre anbefalt (bronze-nivå).
+    check: build_yaml_generator_flag
+    generator: erdiagram
+    digdir_rule: 5
+
+  schema_importerer_dqv_ap_no:
+    severity: error
+    description: >
+      Skjemaet skal importere dqv-ap-no-schema (direkte eller transitivt) for
+      å gjenbruke kvalitetsvokabularet i staden for å definere eigne
+      tilsvarande klassar/slots. Digdir-regel 14: Gjenbruk. Krev: ikkje berre
+      anbefalt (sølv-nivå).
+    check: schema_imports
+    must_import: dqv-ap-no-schema
+    characteristic_class: Kvalitetsmaal
+    digdir_rule: 14
+    fair_principle: I3
+
+  local_types_have_standard_uri:
+    severity: error
+    description: >
+      Lokalt definerte typar (schemaets eige types:-felt) skal oppgje ein
+      uri: mot eit standardisert namnerom (xsd/rdf/rdfs/owl). Digdir-regel 15:
+      Standardiserte datatyper. Krev: ikkje berre anbefalt (bronze-nivå).
+    check: local_types_have_standard_uri
+    digdir_rule: 15
+    fair_principle: I1
+
 # FAIR-sjekkar — alle brot gir feil (severity: error)
 # Kvar sjekk er ein dict med:
 #   principle   — FAIR-prinsipp (F1, F2, I1, R1.1, …)
