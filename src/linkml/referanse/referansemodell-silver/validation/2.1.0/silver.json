@@ -1,0 +1,13 @@
+{
+  "schema": "referansemodell-silver",
+  "domain": "referanse",
+  "version": "2.1.0",
+  "validation_policy": "silver",
+  "validated_at": "2026-09-01T06:39:28.747850+00:00",
+  "result": {
+    "valid": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "issues": []
+  }
+}

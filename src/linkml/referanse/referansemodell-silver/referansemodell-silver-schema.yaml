@@ -17,6 +17,8 @@ annotations:
   status: http://purl.org/adms/status/UnderDevelopment
   endringsdato: "2026-08-25"
   utgivelsesdato: "2026-08-23"
+  # silver: schema_has_annotation_oppdateringsfrekvens → warning
+  oppdateringsfrekvens: http://publications.europa.eu/resource/authority/frequency/IRREG
 
 imports:
   - linkml:types
@@ -26,6 +28,7 @@ prefixes:
   ex:    https://example.org/vocab/
   dct:   http://purl.org/dc/terms/
   dcat:  http://www.w3.org/ns/dcat#
+  dcatap: http://data.europa.eu/r5r/
   foaf:  http://xmlns.com/foaf/0.1/
   dqv:   http://www.w3.org/ns/dqv#
 
@@ -33,9 +36,12 @@ default_prefix: https://data.norge.no/linkml/referansemodell-silver/
 default_range: string
 
 subsets:
-  Obligatorisk: {}
-  Anbefalt: {}
-  Valgfri: {}
+  Obligatorisk:
+    description: Felt som er obligatoriske i henhold til sølvpolicyen.
+  Anbefalt:
+    description: Felt som er anbefalte, men ikkje påkravde, i henhold til sølvpolicyen.
+  Valgfri:
+    description: Felt som er valfrie i henhold til sølvpolicyen.
 
 classes:
 
@@ -48,51 +54,61 @@ classes:
     tree_root: true
     attributes:
       katalogar:
+        description: Katalogane som inngår i datafila.
         range: Katalog
         multivalued: true
         inlined: true
         inlined_as_list: true
       katalogpostar:
+        description: Katalogpostane som inngår i datafila.
         range: Katalogpost
         multivalued: true
         inlined: true
         inlined_as_list: true
       datasett:
+        description: Datasetta som inngår i datafila.
         range: Datasett
         multivalued: true
         inlined: true
         inlined_as_list: true
       distribusjoner:
+        description: Distribusjonane som inngår i datafila.
         range: Distribusjon
         multivalued: true
         inlined: true
         inlined_as_list: true
       datatenestar:
+        description: Datatenestane som inngår i datafila.
         range: Datatjeneste
         multivalued: true
         inlined: true
         inlined_as_list: true
       aktorar:
+        description: Aktørane som inngår i datafila.
         range: Aktor
         multivalued: true
         inlined: true
         inlined_as_list: true
       kvalitetsmaal:
+        description: Kvalitetsmåla som inngår i datafila.
         range: Kvalitetsmaal
         multivalued: true
         inlined: true
         inlined_as_list: true
       kvalitetsmaalingar:
+        description: Kvalitetsmålingane som inngår i datafila.
         range: Kvalitetsmaaling
         multivalued: true
         inlined: true
         inlined_as_list: true
       kvalitetsdimensjonar:
+        description: Kvalitetsdimensjonane som inngår i datafila.
         range: Kvalitetsdimensjon
         multivalued: true
         inlined: true
         inlined_as_list: true
       kvalitetsmerknader:
+        description: Kvalitetsmerknadene som inngår i datafila.
         range: Kvalitetsmerknad
         multivalued: true
         inlined: true
@@ -145,6 +161,7 @@ classes:
 
   # silver: datasett_tittel, datasett_beskrivelse, datasett_kontaktpunkt,
   #         datasett_utgiver, datasett_tema → error
+  # silver: datasett_tilgangsrettigheter, datasett_lovgivning → warning
   Datasett:
     description: Ei samling av data, utgitt eller kuratert av ei einskild kjelde.
     class_uri: dcat:Dataset
@@ -157,6 +174,8 @@ classes:
       - kontaktpunkt
       - utgjevar
       - tema
+      - tilgangsrettigheter
+      - gjeldende_lovgivning
     slot_usage:
       tittel:
         required: true
@@ -173,8 +192,13 @@ classes:
       tema:
         required: true
         in_subset: [Obligatorisk]
+      tilgangsrettigheter:
+        in_subset: [Anbefalt]
+      gjeldende_lovgivning:
+        in_subset: [Anbefalt]
 
   # silver: distribusjon_tilgangsurl → error
+  # silver: distribusjon_lisens → warning
   Distribusjon:
     description: Ei spesifikk representasjon av eit datasett.
     class_uri: dcat:Distribution
@@ -183,10 +207,13 @@ classes:
     slots:
       - id
       - tilgangsurl
+      - lisens
     slot_usage:
       tilgangsurl:
         required: true
         in_subset: [Obligatorisk]
+      lisens:
+        in_subset: [Anbefalt]
 
   # silver: datatjeneste_endepunktsurl, datatjeneste_kontaktpunkt,
   #         datatjeneste_tittel, datatjeneste_utgiver → error
@@ -337,5 +364,24 @@ slots:
     description: Navn på aktøren.
     slot_uri: foaf:name
     range: string
+
+  # Datasett: silver datasett_tilgangsrettigheter (dct:accessRights)
+  tilgangsrettigheter:
+    description: Tilgangsnivå for datasettet.
+    slot_uri: dct:accessRights
+    range: uriorcurie
+
+  # Datasett: silver datasett_lovgivning (dcatap:applicableLegislation)
+  gjeldende_lovgivning:
+    description: Gjeldande lovgjeving (lovheimel) for tilgang til ressursen.
+    slot_uri: dcatap:applicableLegislation
+    range: uriorcurie
+    multivalued: true
+
+  # Distribusjon: silver distribusjon_lisens (dct:license)
+  lisens:
+    description: Lisens som regulerer bruken av ressursen.
+    slot_uri: dct:license
+    range: uriorcurie
 
   # Containerslots — silver container_has_class-sjekkar (error/warning)

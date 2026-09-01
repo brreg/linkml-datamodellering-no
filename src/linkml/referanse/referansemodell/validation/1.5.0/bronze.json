@@ -1,0 +1,13 @@
+{
+  "schema": "referansemodell",
+  "domain": "referanse",
+  "version": "1.5.0",
+  "validation_policy": "bronze",
+  "validated_at": "2026-09-01T06:40:53.473490+00:00",
+  "result": {
+    "valid": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "issues": []
+  }
+}

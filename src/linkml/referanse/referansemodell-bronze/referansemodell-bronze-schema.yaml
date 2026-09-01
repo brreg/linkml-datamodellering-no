@@ -31,9 +31,12 @@ default_prefix: https://data.norge.no/linkml/referansemodell-bronze/
 default_range: string
 
 subsets:
-  Obligatorisk: {}
-  Anbefalt: {}
-  Valgfri: {}
+  Obligatorisk:
+    description: Felt som er obligatoriske i henhold til bronsepolicyen.
+  Anbefalt:
+    description: Felt som er anbefalte, men ikkje påkravde, i henhold til bronsepolicyen.
+  Valgfri:
+    description: Felt som er valfrie i henhold til bronsepolicyen.
 
 classes:
 
@@ -43,6 +46,7 @@ classes:
     tree_root: true
     attributes:
       ressursar:
+        description: Ressursane som inngår i datafila.
         range: Ressurs
         multivalued: true
         inlined: true

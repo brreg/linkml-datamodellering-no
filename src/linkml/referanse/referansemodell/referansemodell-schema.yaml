@@ -39,6 +39,7 @@ classes:
     tree_root: true
     attributes:
       ressursar:
+        description: Ressursane som inngår i datafila.
         range: Ressurs
         multivalued: true
         inlined: true
@@ -48,7 +49,10 @@ classes:
   Ressurs:
     description: Ein generisk ressurs med tittel, skildring og utgjevar.
     class_uri: dct:BibliographicResource
-    # annotations.begrepsidentifikator kan leggjast til når klassen har ei reell begrepsdefinisjon.
+    # annotations.begrepsidentifikator brukar TODO-placeholder inntil klassen
+    # har ei reell begrepsdefinisjon i Felles begrepskatalog.
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
     slots:
       - id
       - tittel
