@@ -20,7 +20,7 @@ generate_modell_analyse() {
     else
         echo "## Modellanalyse"
         echo ""
-        echo "> Modellanalysen samanliknar dette skjemaet sine lokalt definerte klasse- og slotnavn mot andre skjema i same domene, og flaggar par med høg navnelikskap som eit mogleg duplikat- eller konsolideringssignal."
+        echo "> Modellanalysen gjer analyser som kan påpeike moglege avvik for oppfølging. Dette er meir informativ innsikt til hjelp med modelleringa."
         echo ""
         echo "*Modellanalyse ikkje tilgjengeleg — krev at generate-workflowen har køyrt.*"
     fi
