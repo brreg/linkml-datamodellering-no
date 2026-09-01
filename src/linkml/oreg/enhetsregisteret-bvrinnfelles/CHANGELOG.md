@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinnfelles-v1.1.2...enhetsregisteret-bvrinnfelles-v1.2.0) (2026-09-01)
+
+
+### Features
+
+* **felles:** opprett brreg-felles-*-modellar og migrer enhetsregisteret-* ([ae3467d](https://github.com/brreg/linkml-datamodellering-no/commit/ae3467d430eb797f370f428fd791a8c966e85f17))
+* **oreg:** scaffold seks nye enhetsregisteret-domenemodellar frå JSON Schema ([64387d8](https://github.com/brreg/linkml-datamodellering-no/commit/64387d86de20616139b17298c906506626d53ee8))
+
+
+### Bug Fixes
+
+* **class-uri:** rett 24 klassar til eksterne vokabularekvivalentar ([2becb35](https://github.com/brreg/linkml-datamodellering-no/commit/2becb35defec6f9024a75bf1168c175ae36000be))
+* **make:** bytt vegg-klokke til monotonisk tidtaking i byggesystemet ([afe90d0](https://github.com/brreg/linkml-datamodellering-no/commit/afe90d0b723abe1b0ccaee958d7a836e6d8548b3))
+* rett importnamnekollisjon i oreg-skjema og legg til dublettsjekk i validate ([50f2729](https://github.com/brreg/linkml-datamodellering-no/commit/50f272979573523d865f3a3cb82606be8aefcc5b))
+
 ## [1.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinn-v1.1.1...enhetsregisteret-bvrinn-v1.1.2) (2026-08-28)
 
 
