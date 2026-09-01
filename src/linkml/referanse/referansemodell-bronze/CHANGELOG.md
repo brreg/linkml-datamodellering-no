@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-bronze-v1.2.0...referansemodell-bronze-v1.2.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **referanse:** fjern alle valideringsfunn i referansemodellane ([c90728b](https://github.com/brreg/linkml-datamodellering-no/commit/c90728bea35e451a144e64389474f667606a6167))
+
 ## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-bronze-v1.1.1...referansemodell-bronze-v1.2.0) (2026-08-25)
 
 
