@@ -46,12 +46,24 @@ gitt konvensjonen elles — vart då tolka bokstaveleg som verdien
 gjev ei tydeleg feilmelding:
 
 ```bash
-# Køyr frå repo-rota, med standardverdiar (oreg/javazonetalk):
+# Køyr frå repo-rota, med standardverdiar (oreg/javazonetalk, QUICK=true):
 bash src/assets/scripts/demo/javazone-demo-script.sh
 
 # ... eller med eigne verdiar (rekkjefølgje spelar inga rolle):
 bash src/assets/scripts/demo/javazone-demo-script.sh DOMAIN=<domain> NAME=<navn>
+
+# Full, uavkorta presentasjonsmodus (steg 1-4 vist interaktivt):
+bash src/assets/scripts/demo/javazone-demo-script.sh QUICK=false
 ```
+
+`QUICK` (default `true`) hoppar over steg 1-4 (`make help`,
+`check-prereqs`, `new-modell` og live-redigeringa) heilt og genererer i
+staden `$SCHEMA` direkte, ferdig i tilstanden han skal vere i etter steg
+4 — presentasjonen (med Enter-pausar) startar då på steg 5. Nyttig for
+rask, gjenteken øving på steg 5-14 utan å klikke seg gjennom fire kjende,
+uendra innleiingssteg kvar gong. Sjå
+[javazone-demo-quick-flag.md](javazone-demo-quick-flag.md) for grunngjeving
+og teknisk tilnærming.
 
 Vel du eit anna domene enn `oreg`, skriv scriptet automatisk ut ei åtvaring
 om at «Aktivitet»-tipset i steg 5 (sjå under) var funne spesifikt for
@@ -76,7 +88,11 @@ make help
 make check-prereqs
 
 # 3. Opprett ein ny, tom modell (~10 s)
-make new-modell DOMAIN=oreg NAME=javazonetalk
+# SKIP_EXAMPLE=1 held demoen offline-sikker — hoppar over den
+# nettverksavhengige eksempeldatagenereringa (som elles krev å laste heile
+# importkjeda til det versjonslåste dcat-ap-no-importet). Sjå
+# new-modell-skip-example.md.
+make new-modell DOMAIN=oreg NAME=javazonetalk SKIP_EXAMPLE=1
 
 # 4. Lint skjemaet (~1 s)
 make lint SCHEMA=src/linkml/oreg/javazonetalk/javazonetalk-schema.yaml
@@ -310,11 +326,11 @@ Aktivitet/Foredragsholder/Konferanse-utvidinga over). To slag funn:
    - `all_slots_have_slot_uri` — `slot_uri` manglar på alle dei nye
      globale slotsa (ingen av dei har `slot_uri` sett)
 
-Steget viser retteinga for eit representativt utval — to klasser
-(`Foredrag`, `Sesjon`) for begrepsidentifikator, to slots (`har_foredrag`,
-`tid_start`) for slot_uri — og seier eksplisitt at same mønster gjeld
-resten, i staden for å lime inn alle seks klassane/atten slotsa (ville
-teke for mykje av dei 10 minutta).
+Steget viser retteinga for eit representativt utval — éin klasse
+(`Foredrag`) for begrepsidentifikator, éin slot (`har_foredrag`) for
+slot_uri — og seier eksplisitt at same mønster gjeld resten, i staden for
+å lime inn alle seks klassane/atten slotsa (ville teke for mykje av dei
+10 minutta).
 
 ### Fargelegging i scriptet
 

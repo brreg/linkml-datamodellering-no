@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Monkeypatch for ein kjend feil i linkml/linkml_runtime sin relative-import-oppløysing.
+"""Monkeypatchar for kjende svake punkt i linkml/linkml_runtime sin
+skjemalasting via versjonslåste URL-importar.
 
 To UAVHENGIGE stader i linkml/linkml_runtime løyser relative importar
 (`../foo`) i eit importert skjema ved å bruke `pathlib.Path`/
@@ -23,7 +24,7 @@ Denne patchen overstyrer berre resolusjonssteget for URL-baserte skjemanavn
 anna åtferd (lokale filsystem-stiar, CURIE-importar som `linkml:types`) er
 uendra kopi av upstream-koden.
 
-Dei to stadene:
+Dei tre stadene:
 
 1. `linkml_runtime.utils.schemaview.SchemaView.imports_closure()` — brukt av
    generatorar som byggjer på `SchemaView` direkte
@@ -37,11 +38,28 @@ Dei to stadene:
    — ikkje dekt av fiksen i (1), oppdaga då `make domain-oreg` framleis
    feila for pythongen/protogen/rdfgen/graphqlgen/plantumlgen/
    jsonldcontextgen etter at (1) var patcha i `batch-generate.py`.
+3. `hbreader.hbopen()` — det eine, delte lågnivåpunktet der **begge**
+   familiane over til slutt hentar sjølve innhaldet til eit URL-basert
+   import (`yaml_loader.load()` → `hbread()` → `hbopen()` →
+   `urllib.request.urlopen()`, stadfesta ved kjeldekode-sporing). Pakkar
+   inn kallet med eit kort gjenforsøk ved transiente nettverksfeil
+   (`URLError`/`socket.gaierror`/`ConnectionError`/`TimeoutError` — aldri
+   `HTTPError`, som representerer eit ekte HTTP-svar). Motivert av
+   sporadiske `<urlopen error [Errno -3] Try again>`-feil (DNS-glipp,
+   `EAI_AGAIN`) observerte under `make domain-oreg` sin parallelliserte
+   batch-køyring, der mange podman-containarar løyser same eksterne
+   vertsnamn samstundes. Sjå
+   specs/done/domain-oreg-nettverksflakiness.md. I motsetnad til (1) og
+   (2) pakkar denne berre inn ein offentleg, stabil funksjonsgrense —
+   ho les ikkje/kopierer ikkje intern kjeldekode, og treng difor ingen
+   `_EXPECTED_SOURCE_MARKER`-sjekk.
 
-MERK: bind seg til den interne implementasjonen i
+MERK: (1) og (2) bind seg til den interne implementasjonen i
 linkml==1.11.1 / linkml_runtime>=1.11.1,<2.0.0 (pinna i
 src/assets/containers/Dockerfile.linkml / Dockerfile.mcp-linkml). Må
-verifiserast på nytt ved oppgradering — sjå `_EXPECTED_SOURCE_MARKER_*` under.
+verifiserast på nytt ved oppgradering — sjå `_EXPECTED_SOURCE_MARKER_*`
+under. (3) er robust mot slike oppgraderingar (pakkar berre inn, kjenner
+ikkje til interne detaljar).
 """
 
 import sys
@@ -201,8 +219,51 @@ def _apply_mergeutils_patch() -> None:
     mu_mod.resolve_merged_imports = patched_resolve_merged_imports
 
 
+def _apply_retry_patch(retries: int = 3, backoff_seconds: float = 2.0) -> None:
+    """Pakk inn hbreader.hbopen() med gjenforsøk ved transiente nettverksfeil.
+
+    hbopen() er det eine, delte lågnivåpunktet der BÅDE SchemaView- og
+    SchemaLoader-baserte lastevegar til slutt hentar innhaldet til eit
+    URL-basert import (t.d. det versjonslåste dcat-ap-no-importet) — sjå
+    modulen sin toppkommentar, punkt 3. Retryar berre transportlagsfeil
+    (DNS-glipp, mellombels tilkoplingsfeil) — aldri ekte HTTP-feilsvar
+    (HTTPError, t.d. 404), sidan eit gjenforsøk der berre ville forsinke
+    ei uunngåeleg feilmelding.
+    """
+    import socket
+    import time
+    from urllib.error import HTTPError, URLError
+
+    import hbreader
+
+    original_hbopen = hbreader.hbopen
+
+    def hbopen_with_retry(*args, **kwargs):
+        source = args[0] if args else kwargs.get("source", "?")
+        last_exc = None
+        for attempt in range(1, retries + 1):
+            try:
+                return original_hbopen(*args, **kwargs)
+            except HTTPError:
+                raise
+            except (URLError, socket.gaierror, ConnectionError, TimeoutError) as exc:
+                last_exc = exc
+                if attempt < retries:
+                    print(
+                        f"ÅTVARING: nettverksfeil ved henting av '{source}' "
+                        f"(forsøk {attempt}/{retries}: {exc}) — prøver på nytt "
+                        f"om {backoff_seconds}s …",
+                        file=sys.stderr,
+                    )
+                    time.sleep(backoff_seconds)
+        raise last_exc
+
+    hbreader.hbopen = hbopen_with_retry
+
+
 @lru_cache(maxsize=1)
 def apply() -> None:
-    """Installer begge patchane. Trygt å kalle fleire gonger (cacha via lru_cache)."""
+    """Installer alle tre patchane. Trygt å kalle fleire gonger (cacha via lru_cache)."""
     _apply_schemaview_patch()
     _apply_mergeutils_patch()
+    _apply_retry_patch()

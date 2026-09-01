@@ -11,8 +11,8 @@ version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-08-31'
-  utgivelsesdato: '2026-08-31'
+  endringsdato: '2026-09-01'
+  utgivelsesdato: '2026-09-01'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -77,17 +77,17 @@ classes:
     - malgruppe
     - har_foredragsholdere
     - innsendingsstatus
+
   Sesjon:
     description: Ei tidsavgrensa økt der eit foredrag vert halde.
     class_uri: javazonetalk:Sesjon
-    annotations:
-      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
     slots:
     - id
     - tid_start
     - tid_slutt
     - har_foredrag
     - har_sesjonslokale
+
   Timeplan:
     description: Ei tidsplanoppføring som viser alle foredrag pr dag.
     class_uri: javazonetalk:Timeplan
@@ -159,14 +159,15 @@ slots:
     range: integer
 
   har_foredrag:
+    slot_uri: javazonetalk:har_foredrag
     description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
     range: Foredrag
     multivalued: true
-    slot_uri: javazonetalk:har_foredrag
+
   tid_start:
     description: Tidspunktet sesjonen startar.
     range: datetime
-    slot_uri: javazonetalk:tid_start
+
   tid_slutt:
     description: Tidspunktet sesjonen sluttar.
     range: datetime

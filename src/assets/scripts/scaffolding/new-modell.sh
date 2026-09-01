@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # Opprettar filstruktur og boilerplate for ein ny LinkML-domenemodell.
-# Bruk: bash src/assets/scripts/scaffolding/new-modell.sh <name> <domain> [json-schema-sti]
+# Bruk: bash src/assets/scripts/scaffolding/new-modell.sh <name> <domain> [json-schema-sti] [--skip-example]
 set -euo pipefail
 
 NAME="${1:-}"
 DOMAIN="${2:-}"
 JSON_SCHEMA="${3:-}"
+SKIP_EXAMPLE_FLAG="${4:-}"
 
 if [[ -z "$NAME" || -z "$DOMAIN" ]]; then
     echo "Feil: NAME og DOMAIN er påkravde." >&2
-    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<navn> [JSON_SCHEMA=<sti>]" >&2
+    echo "Bruk: make new-modell DOMAIN=<domene> NAME=<navn> [JSON_SCHEMA=<sti>] [SKIP_EXAMPLE=1]" >&2
     exit 1
 fi
 
@@ -222,22 +223,8 @@ print(container_name or '${SCHEMA_NAME}Container', container_slot or '${SCHEMA_N
 ")
 
 echo ""
-echo "Genererer eksempeldata frå skjemaet..."
-# Monterer src/assets/scripts/utils/ slik at validator.py kan bruke
-# linkml_relative_import_patch (BUG-15/bugs/relativ-import-via-versjonslast-url.md)
-# — utan den feilar SchemaView på det versjonslåste dcat-ap-no-importet.
-EXAMPLE_DATA=$(podman run -i --rm \
-      -v "$LINKML_GEN_DIR/server.py:/app/server.py:ro" \
-      -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
-      -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
-      -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
-      -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
-      -v "$SCHEMA_FILE:/app/schema.yaml:ro" \
-      "$LINKML_GEN_IMAGE" \
-      python3 /app/validator.py /app/schema.yaml "${SCHEMA_NAME}:eksempel") || EXAMPLE_DATA=""
-
-if [[ -z "$EXAMPLE_DATA" ]]; then
-    echo "ÅTVARING: automatisk eksempelgenerering feila — skriv minimal stub i staden." >&2
+if [[ "$SKIP_EXAMPLE_FLAG" == "--skip-example" ]]; then
+    echo "Hoppar over eksempeldatagenerering (SKIP_EXAMPLE=1) — skriv minimal stub i staden."
     cat > "$EXAMPLE_FILE" << EOF
 # Eksempel for $NAME
 # Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
@@ -246,15 +233,40 @@ $CONTAINER_SLOT:
   - id: ${SCHEMA_NAME}:eksempel-1
 EOF
 else
-    {
-        echo "# Eksempel for $NAME"
-        echo "# Alle slots er fylt med genererte placeholder-verdiar (dummy, 0, 2024-01-01,"
-        echo "# 'Eksempelverdi for <slot>' osv.), inkl. kryssreferansar mellom instansane."
-        echo "# Desse må erstattast med reelle verdiar før modellen er produksjonsklar — nokre"
-        echo "# kan òg bryte pattern-/verdiavgrensingar som ikkje er tilfredsstilte generisk."
-        echo "---"
-        echo "$EXAMPLE_DATA"
-    } > "$EXAMPLE_FILE"
+    echo "Genererer eksempeldata frå skjemaet..."
+    # Monterer src/assets/scripts/utils/ slik at validator.py kan bruke
+    # linkml_relative_import_patch (BUG-15/bugs/relativ-import-via-versjonslast-url.md)
+    # — utan den feilar SchemaView på det versjonslåste dcat-ap-no-importet.
+    EXAMPLE_DATA=$(podman run -i --rm \
+          -v "$LINKML_GEN_DIR/server.py:/app/server.py:ro" \
+          -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
+          -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
+          -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
+          -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
+          -v "$SCHEMA_FILE:/app/schema.yaml:ro" \
+          "$LINKML_GEN_IMAGE" \
+          python3 /app/validator.py /app/schema.yaml "${SCHEMA_NAME}:eksempel") || EXAMPLE_DATA=""
+
+    if [[ -z "$EXAMPLE_DATA" ]]; then
+        echo "ÅTVARING: automatisk eksempelgenerering feila — skriv minimal stub i staden." >&2
+        cat > "$EXAMPLE_FILE" << EOF
+# Eksempel for $NAME
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+$CONTAINER_SLOT:
+  - id: ${SCHEMA_NAME}:eksempel-1
+EOF
+    else
+        {
+            echo "# Eksempel for $NAME"
+            echo "# Alle slots er fylt med genererte placeholder-verdiar (dummy, 0, 2024-01-01,"
+            echo "# 'Eksempelverdi for <slot>' osv.), inkl. kryssreferansar mellom instansane."
+            echo "# Desse må erstattast med reelle verdiar før modellen er produksjonsklar — nokre"
+            echo "# kan òg bryte pattern-/verdiavgrensingar som ikkje er tilfredsstilte generisk."
+            echo "---"
+            echo "$EXAMPLE_DATA"
+        } > "$EXAMPLE_FILE"
+    fi
 fi
 
 MANIFEST_FILE="$SCHEMA_DIR/build.yaml"

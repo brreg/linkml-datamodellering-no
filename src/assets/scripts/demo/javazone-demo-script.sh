@@ -2,10 +2,17 @@
 # Steg-for-steg demo-script for JavaZone-presentasjonen — sjå
 # specs/backlog/javazone-demo-plan.md for full kontekst og grunngjeving.
 #
-# Køyr FRÅ REPO-ROTA: bash src/assets/scripts/demo/javazone-demo-script.sh [DOMAIN=<domene>] [NAME=<navn>]
+# Køyr FRÅ REPO-ROTA: bash src/assets/scripts/demo/javazone-demo-script.sh [DOMAIN=<domene>] [NAME=<navn>] [QUICK=<true|false>]
 #   Same ARG=verdi-stil som resten av repoet sine make-kommandoar.
 #   DOMAIN — default: oreg
 #   NAME   — default: javazonetalk
+#   QUICK  — default: true. Ved "true" hoppar scriptet over steg 1-4 (make
+#            help, check-prereqs, new-modell og live-redigeringa) heilt —
+#            ingen prompt, ingen diffvising for desse stega — og genererer
+#            i staden $SCHEMA direkte i nøyaktig den tilstanden fila skal
+#            vere i etter steg 4. Presentasjonen (med Enter-pausar) startar
+#            då på steg 5. Sett QUICK=false for den fulle, uavkorta demoen.
+#            Sjå specs/backlog/javazone-demo-quick-flag.md.
 # Kvart steg viser tittel + kommando, ventar på Enter, køyrer så kommandoen.
 # Steg 4 og 6 har ingen enkelt kommando — dei set i staden inn kjende,
 # ferdigskrivne YAML-blokkar direkte i $SCHEMA (ingen manuell copy-paste)
@@ -25,13 +32,24 @@ set -uo pipefail
 
 DOMAIN="oreg"
 NAME="javazonetalk"
+QUICK="true"
 for arg in "$@"; do
     case "$arg" in
         DOMAIN=*) DOMAIN="${arg#DOMAIN=}" ;;
         NAME=*) NAME="${arg#NAME=}" ;;
+        QUICK=*)
+            QUICK="${arg#QUICK=}"
+            case "$QUICK" in
+                true|false) ;;
+                *)
+                    echo "Feil: QUICK må vere 'true' eller 'false' (fekk '$QUICK')." >&2
+                    exit 1
+                    ;;
+            esac
+            ;;
         *)
             echo "Feil: ukjent argument '$arg'." >&2
-            echo "Bruk: bash $0 [DOMAIN=<domene>] [NAME=<navn>]" >&2
+            echo "Bruk: bash $0 [DOMAIN=<domene>] [NAME=<navn>] [QUICK=<true|false>]" >&2
             exit 1
             ;;
     esac
@@ -119,6 +137,15 @@ run_validate() {
     make mcp-linkml-valider-modell SCHEMA="$SCHEMA" | less -R -F -X
 }
 
+# run_view_schema — same less-mønster som run_help/run_validate, brukt av
+# QUICK=true-greina til å vise det stille-genererte $SCHEMA rett før
+# steg 5, sidan QUICK=true (i motsetnad til QUICK=false) ikkje har vist
+# innhaldet undervegs via diff.
+run_view_schema() {
+    echo "${CLR_DBG}(trykk 'q' for å lukke less og halde fram i scriptet)${CLR_RST}"
+    less -R -F -X "$SCHEMA"
+}
+
 # insert_before_line SCHEMA ANKERLINJE INNHALD
 # Set inn INNHALD (kan vere fleire linjer) rett før den fyrste linja i
 # SCHEMA som er eksakt lik ANKERLINJE. Reint tekstbasert (ingen
@@ -202,25 +229,73 @@ do_insert() {
     rm -f "$before"
 }
 
+# extract_block SCHEMA STARTLINJE
+# Skriv ut blokka som startar på STARTLINJE (til og med block_end_line
+# sitt sluttpunkt) til stdout. Brukt av do_replace for å isolere kvar
+# blokk sitt før-/etter-innhald til eiga diff (sjå grunngjeving der).
+extract_block() {
+    local schema="$1" start="$2" end
+    end=$(block_end_line "$schema" "$start")
+    sed -n "${start},${end}p" "$schema"
+}
+
 # do_replace NOKKELLINJE1 INNHALD1 [NOKKELLINJE2 INNHALD2 ...]
 # Same mønster som do_insert, men byter ut éin eller fleire kjende
-# blokkar (replace_block) i staden for å setje inn nytt innhald. Brukt
-# av steg 6 — begge erstattingane i éin del vert vist i same diff.
+# blokkar (replace_block). Kvar blokk vert diffa isolert — berre
+# blokka sitt eige før-/etter-innhald, ikkje heile fila — og alle
+# blokkdiffane vert samla og viste i éin `less`-visning (éin pause,
+# som før). Isolasjonen er naudsynt fordi git sitt kontekstvindauge
+# (3 linjer, standard) elles anten ikkje når fram til nøkkellinja
+# (om endringa ligg langt nede i ei kort blokk) eller lek inn i
+# naboblokka (om nøkkellinja ligg nær toppen) — begge deler kan ikkje
+# unngåast samstundes med éin diff over heile fila, sidan ulike
+# blokker treng ulikt "før"/"etter"-kontekstbehov. Sjå
+# specs/done/javazone-demo-har-foredrag-diff.md.
 do_replace() {
-    local before ok=1
+    local before ok=1 combined=""
     prompt_enter
     before="$(mktemp)"
     cp "$SCHEMA" "$before"
     while [ "$#" -ge 2 ]; do
-        replace_block "$SCHEMA" "$1" "$2" || ok=0
+        local key="$1" content="$2"
+        local old_start old_tmp new_start new_tmp block_diff
+        old_start=$(grep -n -F -x -m1 "$key" "$before" | cut -d: -f1)
+        if [ -z "$old_start" ]; then
+            echo "${CLR_ERR}Fann ikkje blokka '${key}' i ${before}${CLR_RST}" >&2
+            ok=0
+            shift 2
+            continue
+        fi
+        old_tmp="$(mktemp)"
+        extract_block "$before" "$old_start" > "$old_tmp"
+
+        if ! replace_block "$SCHEMA" "$key" "$content"; then
+            ok=0
+            rm -f "$old_tmp"
+            shift 2
+            continue
+        fi
+
+        new_start=$(grep -n -F -x -m1 "$key" "$SCHEMA" | cut -d: -f1)
+        new_tmp="$(mktemp)"
+        extract_block "$SCHEMA" "$new_start" > "$new_tmp"
+
+        # sed henta ut alt frå fyrste "@@" — dropper "diff --git"/"index"/
+        # "---"/"+++"-headera, som elles ville vist meiningslause
+        # mktemp-filnamn (old_tmp/new_tmp er ikkje ekte stiar i skjemaet).
+        block_diff=$(git diff --no-index --color=always -- "$old_tmp" "$new_tmp" | sed -n '/@@/,$p')
+        combined+="${CLR_DBG}${key}${CLR_RST}"$'\n'"${block_diff}"$'\n\n'
+
+        rm -f "$old_tmp" "$new_tmp"
         shift 2
     done
+    rm -f "$before"
     if [ "$ok" -eq 1 ]; then
-        show_diff "$before" "$SCHEMA"
+        echo "${CLR_DBG}(trykk 'q' for å lukke less og halde fram i scriptet)${CLR_RST}"
+        printf '%s' "$combined" | less -R -F -X
     else
         echo "${CLR_ERR}(erstatting feila — sjå output over, avgjer sjølv om du held fram)${CLR_RST}"
     fi
-    rm -f "$before"
 }
 
 # Pipar analyse-*-targeta sin markdown-tabell gjennom glow for pen
@@ -361,25 +436,10 @@ step() {
 }
 echo ""
 echo ""
-step boxes "1. Sjå tilgjengelege kommandoar" \
-    "${CLR_STEP}make help${CLR_RST} | less -R" \
-    run_help
-echo ""
-echo ""
-step boxes "2. Sjekk at miljøet er klart" \
-    "${CLR_STEP}bash src/assets/scripts/makefile/check-prereqs.bash${CLR_RST}" \
-    bash src/assets/scripts/makefile/check-prereqs.bash
-echo ""
-step boxes "3. Opprett ein ny, tom modell" \
-    "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST}" \
-    make new-modell DOMAIN="$DOMAIN" NAME="$NAME"
-# echo ""
-# echo ""
-# read -rp "Trykk Enter når du er ferdig … "
- echo ""
- echo ""
-print_heading boxes "4a. Rediger klasser"
-
+# Innhaldet scriptet set inn i $SCHEMA i steg 4 (klasser/slots/enums) —
+# definert éin gong her slik at både den interaktive (QUICK=false) og
+# den stille (QUICK=true) vegen til same sluttresultat brukar identisk
+# innhald (DRY). Sjå specs/backlog/javazone-demo-quick-flag.md.
 classes_content=$(cat <<EOF
   Foredragsholder:
     description: Ein person som melder inn/held eit foredrag.
@@ -437,19 +497,7 @@ classes_content=$(cat <<EOF
     - antall_plasser
 EOF
 )
-cat <<EOF
 
-Set inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — seks klasser,
-knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar
-(scriptet set dei inn automatisk, diffen vert vist etterpå):
-
-EOF
-
-do_insert "slots:" "$classes_content"
- echo ""
- echo ""
-print_heading boxes "4b. Rediger slots"
-echo ""
 slots_content=$(cat <<EOF
   navn:
     description: Navnet på foredragshaldaren.
@@ -528,18 +576,7 @@ slots_content=$(cat <<EOF
     range: datetime
 EOF
 )
-cat <<EOF
-Set inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
-common-ap-no-importen — dei atten andre er nye, sett inn automatisk,
-diffen vert vist etterpå):
 
-EOF
-
-do_insert "$TRAILING_MARKER" "$slots_content"
-echo ""
-echo ""
-print_heading boxes "4c. Rediger enumerations"
-echo ""
 enums_content=$(cat <<EOF
 enums:
   InnsendingStatus:
@@ -553,14 +590,76 @@ enums:
         description: Avvist
 EOF
 )
-cat <<EOF
+
+if [ "$QUICK" = "false" ]; then
+    step boxes "1. Sjå tilgjengelege kommandoar" \
+        "${CLR_STEP}make help${CLR_RST} | less -R" \
+        run_help
+    echo ""
+    echo ""
+    step boxes "2. Sjekk at miljøet er klart" \
+        "${CLR_STEP}bash src/assets/scripts/makefile/check-prereqs.bash${CLR_RST}" \
+        bash src/assets/scripts/makefile/check-prereqs.bash
+    echo ""
+    step boxes "3. Opprett ein ny, tom modell" \
+        "${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST} ${CLR_WARN}SKIP_EXAMPLE=1${CLR_RST}" \
+        make new-modell DOMAIN="$DOMAIN" NAME="$NAME" SKIP_EXAMPLE=1
+    # echo ""
+    # echo ""
+    # read -rp "Trykk Enter når du er ferdig … "
+     echo ""
+     echo ""
+    print_heading boxes "4a. Rediger klasser"
+
+    cat <<EOF
+
+Set inn under '${CLR_DBG}classes:${CLR_RST}' i ${CLR_DBG}${SCHEMA}${CLR_RST} — seks klasser,
+knytt saman, slik at ER-diagrammet i steg 11 viser reelle relasjonar
+(scriptet set dei inn automatisk, diffen vert vist etterpå):
+
+EOF
+
+    do_insert "slots:" "$classes_content"
+     echo ""
+     echo ""
+    print_heading boxes "4b. Rediger slots"
+    echo ""
+    cat <<EOF
+Set inn under '${CLR_DBG}slots:${CLR_RST}' (${CLR_DBG}id${CLR_RST} og ${CLR_DBG}tittel${CLR_RST} finst alt via
+common-ap-no-importen — dei atten andre er nye, sett inn automatisk,
+diffen vert vist etterpå):
+
+EOF
+
+    do_insert "$TRAILING_MARKER" "$slots_content"
+    echo ""
+    echo ""
+    print_heading boxes "4c. Rediger enumerations"
+    echo ""
+    cat <<EOF
 Set inn heilt til slutt i skjemaet (nytt toppnivå-felt '${CLR_DBG}enums:${CLR_RST}',
 same nivå som '${CLR_DBG}classes:${CLR_RST}' og '${CLR_DBG}slots:${CLR_RST}',
 diffen vert vist etterpå):
 
 EOF
 
-do_insert "$TRAILING_MARKER" "$enums_content"
+    do_insert "$TRAILING_MARKER" "$enums_content"
+else
+    print_heading boxes "1-4. Generer skjema (QUICK)"
+    echo ""
+    echo "\$ ${CLR_STEP}make new-modell${CLR_RST} ${CLR_OK}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_OK}NAME=${NAME}${CLR_RST} ${CLR_WARN}SKIP_EXAMPLE=1${CLR_RST}"
+    echo "${CLR_DBG}QUICK=true — hoppar over steg 1-4 (make help / check-prereqs / new-modell / live-redigering).${CLR_RST}"
+    echo "${CLR_DBG}Genererer ${SCHEMA} direkte, ferdig i tilstanden han skal vere i etter steg 4 …${CLR_RST}"
+    if ! make new-modell DOMAIN="$DOMAIN" NAME="$NAME" SKIP_EXAMPLE=1; then
+        echo "${CLR_ERR}(new-modell feila — sjå output over, held fram likevel; seinare steg vil truleg feile òg)${CLR_RST}"
+    fi
+    insert_before_line "$SCHEMA" "slots:" "$classes_content"
+    insert_before_line "$SCHEMA" "$TRAILING_MARKER" "$slots_content"
+    insert_before_line "$SCHEMA" "$TRAILING_MARKER" "$enums_content"
+    prompt_enter "Trykk Enter for å sjå det genererte skjemaet … "
+    run_view_schema
+    #echo "${CLR_OK}Ferdig — held fram frå steg 5.${CLR_RST}"
+fi
 echo ""
 echo ""
 step boxes "5. Valider skjemaet" \
@@ -584,10 +683,10 @@ Steg 5 sin rapport har to slag funn:
    - annotations.begrepsidentifikator manglar på alle seks nye klassane
    - slot_uri manglar på dei nye globale slotsa
 
-Scriptet byter automatisk ut '${CLR_DBG}Foredrag:${CLR_RST}'/'${CLR_DBG}Sesjon:${CLR_RST}'
-(begrepsidentifikator) og '${CLR_DBG}har_foredrag:${CLR_RST}'/'${CLR_DBG}tid_start:${CLR_RST}'
+Scriptet byter automatisk ut '${CLR_DBG}Foredrag:${CLR_RST}'
+(begrepsidentifikator) og '${CLR_DBG}har_foredrag:${CLR_RST}'
 (slot_uri) i éin omgang — viser mønsteret for begge funna, same retting
-gjeld for dei fire andre klassane og resten av dei nye slotsa. Diffen
+gjeld for dei fem andre klassane og resten av dei nye slotsa. Diffen
 vert vist etterpå:
 
 EOF
@@ -607,37 +706,30 @@ new_foredrag=$(cat <<EOF
     - innsendingsstatus
 EOF
 )
-new_sesjon=$(cat <<EOF
-  Sesjon:
-    description: Ei tidsavgrensa økt der eit foredrag vert halde.
-    class_uri: ${NAME}:Sesjon
-    annotations:
-      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
-    slots:
-    - id
-    - tid_start
-    - tid_slutt
-    - har_foredrag
-    - har_sesjonslokale
-EOF
-)
+# block_end_line reknar den tomme linja rett før neste klassenøkkel
+# ("  Sesjon:") som del av Foredrag-blokka. $() strip automatisk alle
+# linjeskift på slutten av heredoc-fangsten over, så den tomme linja må
+# leggjast attende eksplisitt — elles vil do_replace sin isolerte
+# blokkdiff (sjå der) vise "annotations:"-tillegget og det tapte
+# linjeskiftet som to separate hunkar i staden for éin, sidan dei ni
+# uendra "slots:"-linjene mellom er breiare enn git sitt standard
+# kontekstvindauge på 3 linjer.
+new_foredrag+=$'\n'
+# slot_uri plassert rett etter nøkkellinja (ikkje sist): sjølv med
+# do_replace sin isolerte blokkdiff (som hindrar lekkasje til naboblokka)
+# krevst det framleis at den faktiske endringa ligg innanfor git sitt
+# standard "før"-kontekstvindauge (3 linjer) frå nøkkellinja, elles vert
+# ikkje "har_foredrag:"-linja sjølv vist i diffen.
 new_har_foredrag=$(cat <<EOF
   har_foredrag:
+    slot_uri: ${NAME}:har_foredrag
     description: Referanse til foredraget denne tidsplanoppføringa gjeld for.
     range: Foredrag
     multivalued: true
-    slot_uri: ${NAME}:har_foredrag
 EOF
 )
-new_tid_start=$(cat <<EOF
-  tid_start:
-    description: Tidspunktet sesjonen startar.
-    range: datetime
-    slot_uri: ${NAME}:tid_start
-EOF
-)
-do_replace "  Foredrag:" "$new_foredrag" "  Sesjon:" "$new_sesjon" \
-    "  har_foredrag:" "$new_har_foredrag" "  tid_start:" "$new_tid_start"
+new_har_foredrag+=$'\n'
+do_replace "  Foredrag:" "$new_foredrag" "  har_foredrag:" "$new_har_foredrag"
 echo ""
 echo ""
 step boxes "7. Valider skjemaet" \

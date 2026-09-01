@@ -20,12 +20,12 @@
 # mal manuelt dersom eit nytt monolittisk skjema nokon gong trengst.
 # ==============================================================================
 
-new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (DOMAIN=<domene> NAME=<modell> [JSON_SCHEMA=<sti til json-schema>])
+new-modell: ## Opprett katalogstruktur og boilerplate for ny domenemodell (DOMAIN=<domene> NAME=<modell> [JSON_SCHEMA=<sti til json-schema>] [SKIP_EXAMPLE=1])
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
-	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell DOMAIN=<domene> NAME=<modell> [JSON_SCHEMA=<sti>]"; exit 1; }
-	$(call print_header,new-modell,DOMAIN=$(DOMAIN)  NAME=$(NAME)$(if $(JSON_SCHEMA),  JSON_SCHEMA=$(JSON_SCHEMA)))
+	  { eval "$$LOG_FUNCTIONS"; log_error "Bruk: make new-modell DOMAIN=<domene> NAME=<modell> [JSON_SCHEMA=<sti>] [SKIP_EXAMPLE=1]"; exit 1; }
+	$(call print_header,new-modell,DOMAIN=$(DOMAIN)  NAME=$(NAME)$(if $(JSON_SCHEMA),  JSON_SCHEMA=$(JSON_SCHEMA))$(if $(SKIP_EXAMPLE),  SKIP_EXAMPLE=$(SKIP_EXAMPLE)))
 	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory build-docker-mcp-modell-utkast
-	bash src/assets/scripts/scaffolding/new-modell.sh "$(NAME)" "$(DOMAIN)" "$(JSON_SCHEMA)"
+	bash src/assets/scripts/scaffolding/new-modell.sh "$(NAME)" "$(DOMAIN)" "$(JSON_SCHEMA)" "$(if $(SKIP_EXAMPLE),--skip-example)"
 
 remove-modell: ## Fjern ein domenemodell etter tryggleikssjekkar (DOMAIN=<domene> NAME=<modell>) [CONFIRM=1]
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \

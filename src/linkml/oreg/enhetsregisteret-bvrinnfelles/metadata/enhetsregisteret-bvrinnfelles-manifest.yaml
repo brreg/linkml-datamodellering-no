@@ -8,10 +8,10 @@ tittel:
 beskrivelse:
   nb: Berettigede, verger, rettighetshavere i næring (BVRiNN)
   nn: Berettigede, verger, rettighetshavere i næring (BVRiNN)
-versjonsnummer: 1.1.2
+versjonsnummer: 1.2.0
 lisens: https://data.norge.no/nlod/no/2.0
 utgiver: https://data.norge.no/organizations/974760673
-endringsdato: '2026-08-31'
+endringsdato: '2026-09-01'
 utgivelsesdato: '2026-06-10'
 status: http://purl.org/adms/status/UnderDevelopment
 heimeside: https://brreg.github.io/linkml-datamodellering-no/oreg/enhetsregisteret-bvrinnfelles/
@@ -72,5 +72,6 @@ finnes_i_format:
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/diagrams/enhetsregisteret-bvrinnfelles.puml
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-ontology.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-shapes.ttl
 - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/oreg/enhetsregisteret-bvrinnfelles/enhetsregisteret-bvrinnfelles-schema.yaml

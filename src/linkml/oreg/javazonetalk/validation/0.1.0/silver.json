@@ -3,11 +3,11 @@
   "domain": "oreg",
   "version": "0.1.0",
   "validation_policy": "silver",
-  "validated_at": "2026-08-31T08:56:15.223625+00:00",
+  "validated_at": "2026-09-01T08:34:02.393346+00:00",
   "result": {
     "valid": false,
     "errorCount": 4,
-    "warningCount": 25,
+    "warningCount": 27,
     "issues": [
       {
         "severity": "error",
@@ -108,6 +108,12 @@
       {
         "severity": "warning",
         "code": "all_slots_have_slot_uri",
+        "target": "slot:tid_start",
+        "message": "Slot 'tid_start' manglar slot_uri — formell RDF-semantikk er ikkje definert"
+      },
+      {
+        "severity": "warning",
+        "code": "all_slots_have_slot_uri",
         "target": "slot:tid_slutt",
         "message": "Slot 'tid_slutt' manglar slot_uri — formell RDF-semantikk er ikkje definert"
       },
@@ -140,6 +146,12 @@
         "code": "all_classes_have_concept_ref",
         "target": "class:Konferanse",
         "message": "Klasse 'Konferanse' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
+      },
+      {
+        "severity": "warning",
+        "code": "all_classes_have_concept_ref",
+        "target": "class:Sesjon",
+        "message": "Klasse 'Sesjon' manglar annotations.begrepsidentifikator som peikar på begrep i https://concept-catalog.fellesdatakatalog.digdir.no/collections"
       },
       {
         "severity": "warning",
