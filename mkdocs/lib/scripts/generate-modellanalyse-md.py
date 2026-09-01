@@ -41,6 +41,14 @@ skiljerad) i staden for parsa frå kvar rapport sin eigen menneskelesbare
 rapportfil får ingen parentes (ikkje "(0)", som ville sett ut som eit
 stadfesta nullfunn).
 
+Blockquote per underoverskrift: kvar underoverskrift får òg si eiga
+statiske `>`-blockquote (same tekst i alle modellar, uavhengig av faktiske
+funn i denne bygginga) som forklarar kva analysen ser etter og kva
+konsekvens eit funn kan ha — sjå
+specs/done/modellanalyse-blockquote-per-underoverskrift.md. Blockquoten
+for dei tre similar-*-analysane nemner ikkje cross-domain-motparten — det
+tek den eksisterande fotnota (cross_domain_relpath/-label) seg av.
+
 Bruk: python3 generate-modellanalyse-md.py <model-analyse-dir> <domain> <schema>
 """
 
@@ -48,6 +56,8 @@ import sys
 from pathlib import Path
 
 # (rapportfil, ###-overskrift, objekttype brukt i fotnoteteksten,
+#  blockquote-tekst som forklarar kva analysen ser etter og kva konsekvens
+#  eit funn kan ha (statisk, same i alle modellar),
 #  relativ sti til cross-domain-sida frå mkdocs/docs/<domain>/<schema>/index.md
 #  (None = ingen cross-domain-ekvivalent, ingen fotnote), fotnote-lenkjetekst)
 REPORTS = [
@@ -55,6 +65,11 @@ REPORTS = [
         "isolerte-klasser-report.md",
         "Isolerte klasser",
         "isolerte klasser",
+        "Analysen identifiserer klassar som ikkje har nokon strukturell "
+        "kopling til andre klassar i skjemaet — verken via arv eller ved å "
+        "bli refererte av ein slot. Eit funn kan tyde på ei gløymd eller "
+        "ubrukt klasse, eller ei klasse som manglar ein slot som skal kople "
+        "han til resten av modellen.",
         None,
         None,
     ),
@@ -62,6 +77,10 @@ REPORTS = [
         "ikkje-tilkopla-container-report.md",
         "Klasser ikkje kopla til containerklassen",
         "klasser ikkje kopla til containerklassen",
+        "Analysen sjekkar om kvar klasse i skjemaet er nåbar frå "
+        "containerklassen (`tree_root`) via slot-referansar. Ei klasse som "
+        "ikkje er nåbar dukkar ikkje opp i instansar eller JSON-Schema "
+        "generert frå containerklassen, og kan vere daud kode i skjemaet.",
         None,
         None,
     ),
@@ -69,6 +88,10 @@ REPORTS = [
         "ubrukte-slots-report.md",
         "Ubrukte slots",
         "ubrukte slots",
+        "Analysen finn slots definerte lokalt i skjemaet som ingen klasse "
+        "faktisk brukar. Slike slots aukar vedlikehaldsbyrda og kan "
+        "forvirre lesarar om kva som er i aktiv bruk — vurder å fjerne dei "
+        "eller kople dei til rette klassar.",
         None,
         None,
     ),
@@ -76,6 +99,9 @@ REPORTS = [
         "ubrukte-types-report.md",
         "Ubrukte types",
         "ubrukte types",
+        "Analysen finn types definerte lokalt i skjemaet som ingen slot "
+        "brukar som `range`. Ein ubrukt type er ei daud definisjon som bør "
+        "fjernast eller takast i bruk.",
         None,
         None,
     ),
@@ -83,6 +109,9 @@ REPORTS = [
         "ubrukte-enums-report.md",
         "Ubrukte enumerations",
         "ubrukte enumerations",
+        "Analysen finn enumerations definerte lokalt i skjemaet som ingen "
+        "slot brukar som `range`. Ein ubrukt enumeration er ei daud "
+        "definisjon som bør fjernast eller takast i bruk.",
         None,
         None,
     ),
@@ -90,6 +119,9 @@ REPORTS = [
         "ubrukte-subsets-report.md",
         "Ubrukte subsets",
         "ubrukte subsets",
+        "Analysen finn subsets definerte lokalt i skjemaet som ingen klasse "
+        "eller slot er merkt med. Eit ubrukt subset gjev ingen reell "
+        "gruppering og bør fjernast eller takast i bruk.",
         None,
         None,
     ),
@@ -97,6 +129,11 @@ REPORTS = [
         "similar-classes-domain-report.md",
         "Liknande klassenavn",
         "klassenavn",
+        "Analysen samanliknar klassenamn i dette skjemaet mot klassenamn i "
+        "andre skjema i same domene, og flaggar par med høg navnelikskap. "
+        "Eit funn kan tyde på utilsikta duplisering av same omgrep under "
+        "ulike namn — vurder konsolidering eller import i staden for ny "
+        "lokal definisjon.",
         "../../modellanalyse/liknande-klassenavn-alle-domene.md",
         "Analyse av klassenavn på tvers av alle domene",
     ),
@@ -104,6 +141,11 @@ REPORTS = [
         "similar-slots-domain-report.md",
         "Liknande slotnavn",
         "slotnavn",
+        "Analysen samanliknar slotnamn i dette skjemaet mot slotnamn i "
+        "andre skjema i same domene, og flaggar par med høg navnelikskap. "
+        "Eit funn kan tyde på utilsikta duplisering av same omgrep under "
+        "ulike namn — vurder konsolidering eller import i staden for ny "
+        "lokal definisjon.",
         "../../modellanalyse/liknande-slotnavn-alle-domene.md",
         "Analyse av slotnavn på tvers av alle domene",
     ),
@@ -111,6 +153,11 @@ REPORTS = [
         "similar-types-domain-report.md",
         "Liknande typenavn",
         "typenavn",
+        "Analysen samanliknar typenamn i dette skjemaet mot typenamn i "
+        "andre skjema i same domene, og flaggar par med høg navnelikskap. "
+        "Eit funn kan tyde på utilsikta duplisering av same omgrep under "
+        "ulike namn — vurder konsolidering eller import i staden for ny "
+        "lokal definisjon.",
         "../../modellanalyse/liknande-typenavn-alle-domene.md",
         "Analyse av typenavn på tvers av alle domene",
     ),
@@ -172,7 +219,14 @@ def main() -> None:
     ]
 
     any_report_found = False
-    for filename, heading, objekttype, cross_domain_relpath, cross_domain_label in REPORTS:
+    for (
+        filename,
+        heading,
+        objekttype,
+        blockquote_text,
+        cross_domain_relpath,
+        cross_domain_label,
+    ) in REPORTS:
         report_path = analyse_dir / filename
         body = None
         if not report_path.is_file():
@@ -185,10 +239,10 @@ def main() -> None:
                 print(f"ÅTVARING: klarte ikkje lese {report_path}: {e}", file=sys.stderr)
 
         if body is None:
-            lines += ["", f"### {heading}", ""]
+            lines += ["", f"### {heading}", "", f"> {blockquote_text}", ""]
             lines.append("*Rapport ikkje tilgjengeleg for denne bygginga.*")
         else:
-            lines += ["", f"### {heading} ({count_table_rows(body)})", ""]
+            lines += ["", f"### {heading} ({count_table_rows(body)})", "", f"> {blockquote_text}", ""]
             lines.append(body)
 
         if cross_domain_relpath:
