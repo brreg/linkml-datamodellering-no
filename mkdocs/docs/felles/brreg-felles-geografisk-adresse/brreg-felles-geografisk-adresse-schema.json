@@ -1,0 +1,615 @@
+{
+    "$defs": {
+        "Adressenummer": {
+            "additionalProperties": false,
+            "description": "Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse.",
+            "properties": {
+                "bokstav": {
+                    "description": "Husbokstaven, dersom adressa har ein.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nummer": {
+                    "description": "Husnummeret.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "nummer"
+            ],
+            "title": "Adressenummer",
+            "type": "object"
+        },
+        "Fylke": {
+            "additionalProperties": false,
+            "description": "Eit norsk fylke.",
+            "properties": {
+                "fylkesnavn": {
+                    "description": "Namnet p\u00e5 fylket.",
+                    "type": "string"
+                },
+                "fylkesnummer": {
+                    "description": "Fylkesnummeret.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "fylkesnummer",
+                "fylkesnavn"
+            ],
+            "title": "Fylke",
+            "type": "object"
+        },
+        "GeografiskAdresse": {
+            "additionalProperties": false,
+            "description": "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under.",
+            "properties": {
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskAdresse",
+            "type": "object"
+        },
+        "InternasjonalAdresse": {
+            "additionalProperties": false,
+            "description": "Ei adresse i eit anna land enn Noreg, i fri form.",
+            "properties": {
+                "adresseidentifikator": {
+                    "description": "Ein ekstern identifikator for adressa (t.d. fr\u00e5 eit utanlandsk adresseregister).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressenavn": {
+                    "description": "Namnet p\u00e5 vegen/gata/staden.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressenummer_tekst": {
+                    "description": "Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen, sidan format varierer mellom land).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "boenhet": {
+                    "description": "Bueining/leilegheitsnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "by_eller_stedsnavn": {
+                    "description": "By- eller stadnamn.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bygning": {
+                    "description": "Bygningsnamn eller -nummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "distrikt_eller_bydel": {
+                    "description": "Distrikt eller bydel.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "etasjenummer": {
+                    "description": "Etasjenummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fri_adressetekst": {
+                    "description": "Heile adressa som fritekst, n\u00e5r ho ikkje kan strukturerast i felta over.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "landkode": {
+                    "description": "Landet adressa ligg i.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postboks": {
+                    "description": "Postboksnummer (utanlandsk format).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postkode": {
+                    "description": "Utanlandsk postkode (ikkje norsk postnummer).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "region": {
+                    "description": "Region, delstat eller provins.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "InternasjonalAdresse",
+            "type": "object"
+        },
+        "Kommune": {
+            "additionalProperties": false,
+            "description": "Ein norsk kommune.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenavn": {
+                    "description": "Namnet p\u00e5 kommunen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "Kommunenummeret.",
+                    "pattern": "^[0-9]{4}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "kommunenummer",
+                "kommunenavn"
+            ],
+            "title": "Kommune",
+            "type": "object"
+        },
+        "Matrikkeladresse": {
+            "additionalProperties": false,
+            "description": "Ei matrikkeladresse (knytt til eit matrikkelnummer).",
+            "properties": {
+                "adressetilleggsnavn": {
+                    "description": "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bruksenhetsnummer": {
+                    "description": "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\".",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "matrikkeladresse_id": {
+                    "description": "BR sin interne identifikator for matrikkeladressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "matrikkelnummer": {
+                    "description": "Matrikkelnummeret adressa er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "undernummer": {
+                    "description": "Undernummer for seksjonert eigedom.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Matrikkeladresse",
+            "type": "object"
+        },
+        "Matrikkelnummer": {
+            "additionalProperties": false,
+            "description": "Eit matrikkelnummer (g\u00e5rds-, bruks-, feste- og seksjonsnummer).",
+            "properties": {
+                "bruksnummer": {
+                    "description": "Bruksnummer i matrikkelen.",
+                    "type": "integer"
+                },
+                "festenummer": {
+                    "description": "Festenummer i matrikkelen (for festetomter).",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "gaardsnummer": {
+                    "description": "G\u00e5rdsnummer i matrikkelen.",
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer": {
+                    "description": "Kommunenummeret.",
+                    "pattern": "^[0-9]{4}$",
+                    "type": "string"
+                },
+                "seksjonsnummer": {
+                    "description": "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar).",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kommunenummer",
+                "gaardsnummer",
+                "bruksnummer"
+            ],
+            "title": "Matrikkelnummer",
+            "type": "object"
+        },
+        "Postboksadresse": {
+            "additionalProperties": false,
+            "description": "Ei postboksadresse.",
+            "properties": {
+                "anleggsnavn": {
+                    "description": "Namnet p\u00e5 anlegget/institusjonen postboksen h\u00f8yrer til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommune": {
+                    "description": "Kommunen adressa ligg i.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postboksnummer": {
+                    "description": "Nummeret p\u00e5 postboksen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "poststed": {
+                    "description": "Poststedet adressa h\u00f8yrer til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Postboksadresse",
+            "type": "object"
+        },
+        "Poststed": {
+            "additionalProperties": false,
+            "description": "Eit poststed knytt til eit postnummer.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Namnet p\u00e5 ressursen.",
+                    "type": "string"
+                },
+                "postnummer": {
+                    "description": "Postnummeret.",
+                    "pattern": "^[0-9]{4}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "navn",
+                "postnummer"
+            ],
+            "title": "Poststed",
+            "type": "object"
+        },
+        "Stedsadresse": {
+            "additionalProperties": false,
+            "description": "Ei stadfesta adresse utan vegadresse (t.d. i utmark).",
+            "properties": {
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommune": {
+                    "description": "Kommunen adressa ligg i.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "poststed": {
+                    "description": "Poststedet adressa h\u00f8yrer til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stedsnavn": {
+                    "description": "Namnet p\u00e5 staden (for adresser utan vegadresse).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Stedsadresse",
+            "type": "object"
+        },
+        "Vegadresse": {
+            "additionalProperties": false,
+            "description": "Ei vegadresse (adressenavn + adressenummer).",
+            "properties": {
+                "adressenavn": {
+                    "description": "Namnet p\u00e5 vegen/gata/staden.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressenummer": {
+                    "description": "Husnummer og eventuell husbokstav i vegadressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressetilleggsnavn": {
+                    "description": "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "br_adresse_id": {
+                    "description": "BR sin interne identifikator for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bruksenhetsnummer": {
+                    "description": "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\".",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "co_navn": {
+                    "description": "C/O-namn (omsorgsperson/-verksemd) knytt til adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fylke": {
+                    "description": "Fylket adressa ligg i.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommune": {
+                    "description": "Kommunen adressa ligg i.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kort_adressenavn": {
+                    "description": "Forkorta versjon av adressenamnet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "poststed": {
+                    "description": "Poststedet adressa h\u00f8yrer til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag geografisk adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vegadresse_id": {
+                    "description": "BR sin interne identifikator for vegadressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Vegadresse",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/felles/brreg-felles-geografisk-adresse",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.11.0",
+    "title": "brreg-felles-geografisk-adresse",
+    "type": "object",
+    "version": "0.1.0"
+}
+

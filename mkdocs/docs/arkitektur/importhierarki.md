@@ -99,14 +99,16 @@ FELLES-domenet inneheld gjenbrukbare felleskomponentar (adresse, aktør, tid, ty
 linkml:types
     └── brreg-felles-typer-schema
         ├── brreg-felles-tid-schema
-        └── brreg-felles-adresse-schema
+        ├── brreg-felles-geografisk-adresse-schema
+        │   └── brreg-felles-aktoer-schema
+        └── brreg-felles-digital-adresse-schema
             └── brreg-felles-aktoer-schema
 ```
 
 **Reglane:**
 - `brreg-felles-typer-schema` er det einaste FELLES-skjemaet som importerer direkte frå `linkml:types`
-- `brreg-felles-tid-schema` og `brreg-felles-adresse-schema` importerer `brreg-felles-typer-schema` for gjenbrukbare primitivtypar
-- `brreg-felles-aktoer-schema` importerer `brreg-felles-adresse-schema` (og får dermed også `brreg-felles-typer-schema`) for `GeografiskAdresse`/`DigitalAdresse`
+- `brreg-felles-tid-schema`, `brreg-felles-geografisk-adresse-schema` og `brreg-felles-digital-adresse-schema` importerer `brreg-felles-typer-schema` for gjenbrukbare primitivtypar
+- `brreg-felles-aktoer-schema` importerer **både** `brreg-felles-geografisk-adresse-schema` (for `GeografiskAdresse`) og `brreg-felles-digital-adresse-schema` (for `DigitalAdresse`) — og får dermed også `brreg-felles-typer-schema` transitivt. `brreg-felles-aktoer-schema` er difor teikna som eit blad under begge greinene over (éin node, to foreldre — treet er strengt tatt ein DAG her, ikkje eit reint tre)
 - Domenemodellar (t.d. OREG sine enhetsregisteret-*-modellar) importerer eitt eller fleire FELLES-skjema direkte, avhengig av kva klassar dei treng
 
 ---

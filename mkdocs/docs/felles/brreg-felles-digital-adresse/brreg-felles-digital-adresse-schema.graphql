@@ -1,0 +1,62 @@
+# metamodel_version: 1.11.0
+# version: 0.1.0
+type DigitalAdresse
+  {
+    id: String!
+    identifikator: String
+    type: String
+  }
+
+type EPostadresse
+  {
+    id: String!
+    identifikator: String
+    type: String
+    domenenavn: String
+    brukernavn: String
+  }
+
+type IPAdresse
+  {
+    id: String!
+    identifikator: String
+    type: String
+    ipNummer: String
+  }
+
+type Meldingsboks
+  {
+    id: String!
+    identifikator: String
+    type: String
+    meldingsbokstype: String
+  }
+
+type Mobiltelefonnummer
+  {
+    id: String!
+    identifikator: String
+    type: String
+    prefiksMedNasjonalKode: PrefiksMedNasjonalKode
+    nasjonaltNummer: NasjonaltNummer
+  }
+
+type Nettadresse
+  {
+    id: String!
+    identifikator: String
+    type: String
+    protokoll: String
+    domenenavn: String
+    filsti: String
+  }
+
+type Telefonnummer
+  {
+    id: String!
+    identifikator: String
+    type: String
+    prefiksMedNasjonalKode: PrefiksMedNasjonalKode
+    nasjonaltNummer: NasjonaltNummer
+  }
+

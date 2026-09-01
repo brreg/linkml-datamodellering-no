@@ -98,7 +98,7 @@ aktoer = yaml_loader.load('mine-data.yaml', target_class=Aktoer)
 | --- | --- |
 | Name | brreg-felles-aktoer |
 | Title | BRREG felles aktør |
-| Description | Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Aktør", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på. |
+| Description | Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Aktør", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer brreg-felles-geografisk-adresse for GeografiskAdresse og brreg-felles-digital-adresse for DigitalAdresse. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på. |
 | Schema URI | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | Versjon | 0.1.0 |
 | Lisens | [https://data.norge.no/nlod/no/2.0](https://data.norge.no/nlod/no/2.0) |
@@ -106,12 +106,12 @@ aktoer = yaml_loader.load('mine-data.yaml', target_class=Aktoer)
 | Status | [http://purl.org/adms/status/UnderDevelopment](http://purl.org/adms/status/UnderDevelopment) |
 | Endringsdato | 2026-08-31 |
 | Utgivelsesdato | 2026-08-31 |
-| Imports | `linkml:types`<br>`../brreg-felles-adresse/brreg-felles-adresse-schema` |
+| Imports | `linkml:types`<br>`../brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema`<br>`../brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema` |
 
 
 ---
 
-## Avhengigheiter (3) {#avhengigheiter}
+## Avhengigheiter (4) {#avhengigheiter}
 
 > Denne modellen importerer og gjenbruker komponentar frå andre skjema. 
 > Importerte klasser og eigenskapar kan vere synlege i diagram, valideringsrapportar og andre analysar sjølv om dei ikkje blir lista som lokale element i denne modellen.
@@ -121,12 +121,13 @@ Dette skjemaet importerer følgjande skjema (direkte og transitivt):
 ```
 linkml:types  # direkte import
 └── brreg-felles-typer-schema  # transitiv import
-    └── brreg-felles-adresse-schema  # direkte import
+    ├── brreg-felles-geografisk-adresse-schema  # direkte import
+    └── brreg-felles-digital-adresse-schema  # direkte import
 ```
 
 *Sjå [Importhierarki](../../arkitektur/importhierarki.md) for oversikt over heile repoet sitt importhierarki.*
 
-*Importerte modeller: [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml), [brreg-felles-adresse](../brreg-felles-adresse/#datamodell), [brreg-felles-typer](../brreg-felles-typer/#datamodell)*
+*Importerte modeller: [linkml:types](https://github.com/linkml/linkml-model/blob/main/linkml_model/model/schema/types.yaml), [brreg-felles-digital-adresse](../brreg-felles-digital-adresse/#datamodell), [brreg-felles-geografisk-adresse](../brreg-felles-geografisk-adresse/#datamodell), [brreg-felles-typer](../brreg-felles-typer/#datamodell)*
 
 
 ---
@@ -171,7 +172,7 @@ Kjelde-datamodell i LinkML-format: [`brreg-felles-aktoer-schema.yaml`](https://g
 | [Virksomhetsidentifikator](klasser/virksomhetsidentifikator.md) | Ein identifikator for ei verksemd, med ein type som seier kva slag identifikator det er. |
 
 
-*Importerte klasser: [brreg-felles-adresse](../brreg-felles-adresse/#classes)*
+*Importerte klasser: [brreg-felles-digital-adresse](../brreg-felles-digital-adresse/#classes), [brreg-felles-geografisk-adresse](../brreg-felles-geografisk-adresse/#classes)*
 
 ---
 
@@ -188,13 +189,13 @@ Kjelde-datamodell i LinkML-format: [`brreg-felles-aktoer-schema.yaml`](https://g
 | [etternavn](klasser/etternavn.md) | Etternamnet til personen. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [foedsel_eller_d_nummer](klasser/foedsel_eller_d_nummer.md) | Fødselsnummeret eller D-nummeret til personen. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [fornavn](klasser/fornavn.md) | Fornamnet til personen. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
-| [id](klasser/id.md) | URI-identifikator for ressursen. | [https://data.norge.no/felles/brreg-felles-adresse](https://data.norge.no/felles/brreg-felles-adresse) |
-| [identifikator](klasser/identifikator.md) | Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt). | [https://data.norge.no/felles/brreg-felles-adresse](https://data.norge.no/felles/brreg-felles-adresse) |
+| [id](klasser/id.md) | URI-identifikator for ressursen. | [https://data.norge.no/felles/brreg-felles-geografisk-adresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse) |
+| [identifikator](klasser/identifikator.md) | Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt). | [https://data.norge.no/felles/brreg-felles-digital-adresse](https://data.norge.no/felles/brreg-felles-digital-adresse) |
 | [mellomnavn](klasser/mellomnavn.md) | Mellomnamnet til personen, dersom personen har det. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [organisasjonsnummer](klasser/organisasjonsnummer.md) | Organisasjonsnummeret til verksemda. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [personstatus](klasser/personstatus.md) | Statusen til personen. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [statsborgerskap](klasser/statsborgerskap.md) | Statsborgarskapet til personen. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
-| [type](klasser/type.md) | Diskriminator for kva slag adresse dette er. | [https://data.norge.no/felles/brreg-felles-adresse](https://data.norge.no/felles/brreg-felles-adresse) |
+| [type](klasser/type.md) | Diskriminator for kva slag adresse dette er. | [https://data.norge.no/felles/brreg-felles-geografisk-adresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse) |
 | [verdi](klasser/verdi.md) | Verdien til identifikatoren. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [virksomhetsnavn](klasser/virksomhetsnavn.md) | Namnet på verksemda. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
 | [virksomhetsstatus](klasser/virksomhetsstatus.md) | Statusen til verksemda. | [https://data.norge.no/felles/brreg-felles-aktoer](https://data.norge.no/felles/brreg-felles-aktoer) |
@@ -224,7 +225,7 @@ Kjelde-datamodell i LinkML-format: [`brreg-felles-aktoer-schema.yaml`](https://g
 
 
 
-*Importerte slots: [brreg-felles-adresse](../brreg-felles-adresse/#slots)*
+*Importerte slots: [brreg-felles-digital-adresse](../brreg-felles-digital-adresse/#slots), [brreg-felles-geografisk-adresse](../brreg-felles-geografisk-adresse/#slots)*
 
 ---
 

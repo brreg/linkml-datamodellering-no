@@ -9,7 +9,7 @@ _Eit fasttelefonnummer._
 
 
 
-URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer)
+URI: [brreg_felles_digital_adresse:Telefonnummer](https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer)
 
 
 
@@ -22,14 +22,25 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
       DigitalAdresse <|-- Telefonnummer
         click DigitalAdresse href "../digitaladresse/"
       
-      Telefonnummer : id
+      Telefonnummer : digital_adresse_id
         
           
     
         
         
-        Telefonnummer --> "1" Uriorcurie : id
+        Telefonnummer --> "1" Uriorcurie : digital_adresse_id
         click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
+    
+
+        
+      Telefonnummer : digital_adresse_type
+        
+          
+    
+        
+        
+        Telefonnummer --> "0..1" String : digital_adresse_type
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -66,17 +77,6 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
     
 
         
-      Telefonnummer : type
-        
-          
-    
-        
-        
-        Telefonnummer --> "0..1" String : type
-        click String href "http://www.w3.org/2001/XMLSchema#string"
-    
-
-        
       
 ```
 
@@ -100,7 +100,7 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer) |
+| Class URI | [brreg_felles_digital_adresse:Telefonnummer](https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer) |
 
 ## Eigenskapar
 
@@ -116,9 +116,9 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
 
 | Navn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- |
-| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_id](digital_adresse_id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
 | [identifikator](identifikator.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Identifikator for den digitale adressa (form varierer per undertype). | [DigitalAdresse](digitaladresse.md) |
-| [type](type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_type](digital_adresse_type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
 
 
 
@@ -143,7 +143,7 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 
 
 
@@ -152,8 +152,8 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Telefonnummer |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer |
+| self | brreg_felles_digital_adresse:Telefonnummer |
+| native | https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer |
 
 
 
@@ -170,12 +170,12 @@ URI: [brreg_felles_adresse:Telefonnummer](https://data.norge.no/felles/brreg-fel
 ```yaml
 name: Telefonnummer
 description: Eit fasttelefonnummer.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 slots:
 - prefiks_med_nasjonal_kode
 - nasjonalt_nummer
-class_uri: brreg_felles_adresse:Telefonnummer
+class_uri: brreg_felles_digital_adresse:Telefonnummer
 
 ```
 </details>
@@ -186,14 +186,14 @@ class_uri: brreg_felles_adresse:Telefonnummer
 ```yaml
 name: Telefonnummer
 description: Eit fasttelefonnummer.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 attributes:
   prefiks_med_nasjonal_kode:
     name: prefiks_med_nasjonal_kode
     description: Internasjonalt telefonprefiks (landkode), t.d. "+47".
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:prefiksMedNasjonalKode
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:prefiksMedNasjonalKode
     owner: Telefonnummer
     domain_of:
     - Mobiltelefonnummer
@@ -202,61 +202,46 @@ attributes:
   nasjonalt_nummer:
     name: nasjonalt_nummer
     description: Telefonnummeret utan landkode/prefiks.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:nasjonaltNummer
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:nasjonaltNummer
     owner: Telefonnummer
     domain_of:
     - Mobiltelefonnummer
     - Telefonnummer
     range: NasjonaltNummer
-  id:
-    name: id
+  digital_adresse_id:
+    name: digital_adresse_id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:id
     identifier: true
+    alias: id
     owner: Telefonnummer
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Poststed
-    - Kommune
-    - Fylke
-    - Matrikkelnummer
-    - Adressenummer
-    - Aktoer
-    - Kontaktinformasjon
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
-    - Personnavn
-    - Personidentifikator
-    - Virksomhetsidentifikator
     range: uriorcurie
     required: true
   identifikator:
     name: identifikator
     description: Identifikator for den digitale adressa (form varierer per undertype).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:identifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:identifikator
     owner: Telefonnummer
     domain_of:
     - DigitalAdresse
     - Aktoer
     range: string
-  type:
-    name: type
+  digital_adresse_type:
+    name: digital_adresse_type
     description: Diskriminator for kva slag digital adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:type
+    alias: type
     owner: Telefonnummer
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Telefonnummer
+class_uri: brreg_felles_digital_adresse:Telefonnummer
 
 ```
 </details>

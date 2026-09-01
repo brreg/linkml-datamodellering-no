@@ -1,0 +1,532 @@
+@prefix brreg_felles_geografisk_adresse: <https://data.norge.no/felles/brreg-felles-geografisk-adresse/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+locn:Address a sh:NodeShape ;
+    rdfs:comment "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under." ;
+    sh:closed true ;
+    sh:ignoredProperties ( brreg_felles_geografisk_adresse:boenhet brreg_felles_geografisk_adresse:fylke brreg_felles_geografisk_adresse:etasjenummer brreg_felles_geografisk_adresse:bygning brreg_felles_geografisk_adresse:adressetilleggsnavn brreg_felles_geografisk_adresse:postboksnummer brreg_felles_geografisk_adresse:distriktEllerBydel brreg_felles_geografisk_adresse:poststed brreg_felles_geografisk_adresse:vegadresseId brreg_felles_geografisk_adresse:byEllerStedsnavn brreg_felles_geografisk_adresse:adressenummer brreg_felles_geografisk_adresse:adressenavn brreg_felles_geografisk_adresse:anleggsnavn brreg_felles_geografisk_adresse:kommune brreg_felles_geografisk_adresse:postkode brreg_felles_geografisk_adresse:adressenummerTekst rdf:type brreg_felles_geografisk_adresse:matrikkeladresseId brreg_felles_geografisk_adresse:matrikkelnummer brreg_felles_geografisk_adresse:undernummer brreg_felles_geografisk_adresse:friAdressetekst brreg_felles_geografisk_adresse:postboks brreg_felles_geografisk_adresse:landkode brreg_felles_geografisk_adresse:region brreg_felles_geografisk_adresse:adresseidentifikator brreg_felles_geografisk_adresse:stedsnavn brreg_felles_geografisk_adresse:bruksenhetsnummer brreg_felles_geografisk_adresse:kortAdressenavn ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ] ;
+    sh:targetClass locn:Address .
+
+brreg_felles_geografisk_adresse:InternasjonalAdresse a sh:NodeShape ;
+    rdfs:comment "Ei adresse i eit anna land enn Noreg, i fri form." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Bueining/leilegheitsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:boenhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Region, delstat eller provins." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path brreg_felles_geografisk_adresse:region ],
+        [ sh:datatype xsd:string ;
+            sh:description "Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path brreg_felles_geografisk_adresse:adresseidentifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Distrikt eller bydel." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path brreg_felles_geografisk_adresse:distriktEllerBydel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen, sidan format varierer mellom land)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:adressenummerTekst ],
+        [ sh:datatype xsd:string ;
+            sh:description "By- eller stadnamn." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path brreg_felles_geografisk_adresse:byEllerStedsnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på vegen/gata/staden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:adressenavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Postboksnummer (utanlandsk format)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:postboks ],
+        [ sh:datatype xsd:string ;
+            sh:description "Heile adressa som fritekst, når ho ikkje kan strukturerast i felta over." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path brreg_felles_geografisk_adresse:friAdressetekst ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utanlandsk postkode (ikkje norsk postnummer)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path brreg_felles_geografisk_adresse:postkode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Etasjenummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:etasjenummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Landet adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path brreg_felles_geografisk_adresse:landkode ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bygningsnamn eller -nummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:bygning ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:InternasjonalAdresse .
+
+brreg_felles_geografisk_adresse:Matrikkeladresse a sh:NodeShape ;
+    rdfs:comment "Ei matrikkeladresse (knytt til eit matrikkelnummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Undernummer for seksjonert eigedom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:undernummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:bruksenhetsnummer ],
+        [ sh:class brreg_felles_geografisk_adresse:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret adressa er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:matrikkelnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for matrikkeladressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:matrikkeladresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:adressetilleggsnavn ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Matrikkeladresse .
+
+brreg_felles_geografisk_adresse:Postboksadresse a sh:NodeShape ;
+    rdfs:comment "Ei postboksadresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på anlegget/institusjonen postboksen høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:anleggsnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:class brreg_felles_geografisk_adresse:Poststed ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:poststed ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nummeret på postboksen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:postboksnummer ],
+        [ sh:class brreg_felles_geografisk_adresse:Kommune ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:kommune ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:id ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Postboksadresse .
+
+brreg_felles_geografisk_adresse:Stedsadresse a sh:NodeShape ;
+    rdfs:comment "Ei stadfesta adresse utan vegadresse (t.d. i utmark)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:class brreg_felles_geografisk_adresse:Poststed ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:poststed ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på staden (for adresser utan vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:stedsnavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:class brreg_felles_geografisk_adresse:Kommune ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:kommune ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Stedsadresse .
+
+brreg_felles_geografisk_adresse:Vegadresse a sh:NodeShape ;
+    rdfs:comment "Ei vegadresse (adressenavn + adressenummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class brreg_felles_geografisk_adresse:Fylke ;
+            sh:description "Fylket adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path brreg_felles_geografisk_adresse:fylke ],
+        [ sh:class brreg_felles_geografisk_adresse:Kommune ;
+            sh:description "Kommunen adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path brreg_felles_geografisk_adresse:kommune ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag geografisk adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path brreg_felles_geografisk_adresse:type ],
+        [ sh:class brreg_felles_geografisk_adresse:Poststed ;
+            sh:description "Poststedet adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:poststed ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på vegen/gata/staden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:adressenavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:bruksenhetsnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path brreg_felles_geografisk_adresse:brAdresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "BR sin interne identifikator for vegadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:vegadresseId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path brreg_felles_geografisk_adresse:adressetilleggsnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path brreg_felles_geografisk_adresse:coNavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Forkorta versjon av adressenamnet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:kortAdressenavn ],
+        [ sh:class brreg_felles_geografisk_adresse:Adressenummer ;
+            sh:description "Husnummer og eventuell husbokstav i vegadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:adressenummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path brreg_felles_geografisk_adresse:id ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Vegadresse .
+
+brreg_felles_geografisk_adresse:Adressenummer a sh:NodeShape ;
+    rdfs:comment "Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Husnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:nummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Husbokstaven, dersom adressa har ein." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:bokstav ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Adressenummer .
+
+brreg_felles_geografisk_adresse:Fylke a sh:NodeShape ;
+    rdfs:comment "Eit norsk fylke." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Fylkesnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:fylkesnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på fylket." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:fylkesnavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Fylke .
+
+brreg_felles_geografisk_adresse:Matrikkelnummer a sh:NodeShape ;
+    rdfs:comment "Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Bruksnummer i matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_geografisk_adresse:bruksnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Festenummer i matrikkelen (for festetomter)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_geografisk_adresse:festenummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommunenummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:kommunenummer ;
+            sh:pattern "^[0-9]{4}$" ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_geografisk_adresse:seksjonsnummer ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Gårdsnummer i matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:gaardsnummer ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Matrikkelnummer .
+
+brreg_felles_geografisk_adresse:Kommune a sh:NodeShape ;
+    rdfs:comment "Ein norsk kommune." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommunenummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:kommunenummer ;
+            sh:pattern "^[0-9]{4}$" ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på kommunen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:kommunenavn ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Kommune .
+
+brreg_felles_geografisk_adresse:Poststed a sh:NodeShape ;
+    rdfs:comment "Eit poststed knytt til eit postnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_geografisk_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namnet på ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_geografisk_adresse:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Postnummeret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_geografisk_adresse:postnummer ;
+            sh:pattern "^[0-9]{4}$" ] ;
+    sh:targetClass brreg_felles_geografisk_adresse:Poststed .
+
+

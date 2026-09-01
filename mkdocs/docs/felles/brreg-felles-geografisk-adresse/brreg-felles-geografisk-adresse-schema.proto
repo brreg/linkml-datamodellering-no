@@ -1,0 +1,125 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 0.1.0
+// Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse.
+message Adressenummer
+ {
+  uriorcurie id = 0
+  husnummer nummer = 0
+  husbokstav bokstav = 0
+ }
+// Eit norsk fylke.
+message Fylke
+ {
+  uriorcurie id = 0
+  fylkesnummer fylkesnummer = 0
+  string fylkesnavn = 0
+ }
+// Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under.
+message GeografiskAdresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+ }
+// Ei adresse i eit anna land enn Noreg, i fri form.
+message InternasjonalAdresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+  string adressenavn = 0
+  string adressenummerTekst = 0
+  string bygning = 0
+  string etasjenummer = 0
+  string boenhet = 0
+  string postboks = 0
+  string postkode = 0
+  string byEllerStedsnavn = 0
+  string region = 0
+  string distriktEllerBydel = 0
+  landkode landkode = 0
+  string friAdressetekst = 0
+  string adresseidentifikator = 0
+ }
+// Ein norsk kommune.
+message Kommune
+ {
+  uriorcurie id = 0
+  kommunenummer kommunenummer = 0
+  string kommunenavn = 0
+ }
+// Ei matrikkeladresse (knytt til eit matrikkelnummer).
+message Matrikkeladresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+  string matrikkeladresseId = 0
+  bruksenhetsnummer bruksenhetsnummer = 0
+  string adressetilleggsnavn = 0
+  matrikkelnummer matrikkelnummer = 0
+  integer undernummer = 0
+ }
+// Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer).
+message Matrikkelnummer
+ {
+  uriorcurie id = 0
+  kommunenummer kommunenummer = 0
+  integer gaardsnummer = 0
+  integer bruksnummer = 0
+  integer festenummer = 0
+  integer seksjonsnummer = 0
+ }
+// Ei postboksadresse.
+message Postboksadresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+  postboksnummer postboksnummer = 0
+  string anleggsnavn = 0
+  poststed poststed = 0
+  kommune kommune = 0
+ }
+// Eit poststed knytt til eit postnummer.
+message Poststed
+ {
+  uriorcurie id = 0
+  string navn = 0
+  postnummer postnummer = 0
+ }
+// Ei stadfesta adresse utan vegadresse (t.d. i utmark).
+message Stedsadresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+  string stedsnavn = 0
+  poststed poststed = 0
+  kommune kommune = 0
+ }
+// Ei vegadresse (adressenavn + adressenummer).
+message Vegadresse
+ {
+  uriorcurie id = 0
+  string brAdresseId = 0
+  string coNavn = 0
+  string type = 0
+  string vegadresseId = 0
+  bruksenhetsnummer bruksenhetsnummer = 0
+  string adressenavn = 0
+  string kortAdressenavn = 0
+  adressenummer adressenummer = 0
+  poststed poststed = 0
+  string adressetilleggsnavn = 0
+  kommune kommune = 0
+  fylke fylke = 0
+ }
+

@@ -1,0 +1,122 @@
+# metamodel_version: 1.11.0
+# version: 0.1.0
+type Adressenummer
+  {
+    id: String!
+    nummer: Husnummer!
+    bokstav: Husbokstav
+  }
+
+type Fylke
+  {
+    id: String!
+    fylkesnummer: Fylkesnummer!
+    fylkesnavn: String!
+  }
+
+type GeografiskAdresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+  }
+
+type InternasjonalAdresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+    adressenavn: String
+    adressenummerTekst: String
+    bygning: String
+    etasjenummer: String
+    boenhet: String
+    postboks: String
+    postkode: String
+    byEllerStedsnavn: String
+    region: String
+    distriktEllerBydel: String
+    landkode: Landkode
+    friAdressetekst: String
+    adresseidentifikator: String
+  }
+
+type Kommune
+  {
+    id: String!
+    kommunenummer: Kommunenummer!
+    kommunenavn: String!
+  }
+
+type Matrikkeladresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+    matrikkeladresseId: String
+    bruksenhetsnummer: Bruksenhetsnummer
+    adressetilleggsnavn: String
+    matrikkelnummer: Matrikkelnummer
+    undernummer: Int
+  }
+
+type Matrikkelnummer
+  {
+    id: String!
+    kommunenummer: Kommunenummer!
+    gaardsnummer: Int!
+    bruksnummer: Int!
+    festenummer: Int
+    seksjonsnummer: Int
+  }
+
+type Postboksadresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+    postboksnummer: Postboksnummer
+    anleggsnavn: String
+    poststed: Poststed
+    kommune: Kommune
+  }
+
+type Poststed
+  {
+    id: String!
+    navn: String!
+    postnummer: Postnummer!
+  }
+
+type Stedsadresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+    stedsnavn: String
+    poststed: Poststed
+    kommune: Kommune
+  }
+
+type Vegadresse
+  {
+    id: String!
+    brAdresseId: String
+    coNavn: String
+    type: String
+    vegadresseId: String
+    bruksenhetsnummer: Bruksenhetsnummer
+    adressenavn: String
+    kortAdressenavn: String
+    adressenummer: Adressenummer
+    poststed: Poststed
+    adressetilleggsnavn: String
+    kommune: Kommune
+    fylke: Fylke
+  }
+

@@ -9,7 +9,7 @@ _Ei postboksadresse._
 
 
 
-URI: [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse)
+URI: [brreg_felles_geografisk_adresse:Postboksadresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse)
 
 
 
@@ -133,7 +133,7 @@ URI: [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-f
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse) |
+| Class URI | [brreg_felles_geografisk_adresse:Postboksadresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse) |
 
 ## Eigenskapar
 
@@ -179,7 +179,7 @@ URI: [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-f
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -188,8 +188,8 @@ URI: [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-f
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Postboksadresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse |
+| self | brreg_felles_geografisk_adresse:Postboksadresse |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse |
 
 
 
@@ -206,14 +206,14 @@ URI: [brreg_felles_adresse:Postboksadresse](https://data.norge.no/felles/brreg-f
 ```yaml
 name: Postboksadresse
 description: Ei postboksadresse.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slots:
 - postboksnummer
 - anleggsnavn
 - poststed
 - kommune
-class_uri: brreg_felles_adresse:Postboksadresse
+class_uri: brreg_felles_geografisk_adresse:Postboksadresse
 
 ```
 </details>
@@ -224,14 +224,14 @@ class_uri: brreg_felles_adresse:Postboksadresse
 ```yaml
 name: Postboksadresse
 description: Ei postboksadresse.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 attributes:
   postboksnummer:
     name: postboksnummer
     description: Nummeret på postboksen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:postboksnummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:postboksnummer
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -239,8 +239,8 @@ attributes:
   anleggsnavn:
     name: anleggsnavn
     description: Namnet på anlegget/institusjonen postboksen høyrer til.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:anleggsnavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:anleggsnavn
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -248,8 +248,8 @@ attributes:
   poststed:
     name: poststed
     description: Poststedet adressa høyrer til.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:poststed
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:poststed
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -259,8 +259,8 @@ attributes:
   kommune:
     name: kommune
     description: Kommunen adressa ligg i.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:kommune
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:kommune
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -270,12 +270,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: Postboksadresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -294,8 +293,8 @@ attributes:
   br_adresse_id:
     name: br_adresse_id
     description: BR sin interne identifikator for adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:brAdresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
     owner: Postboksadresse
     domain_of:
     - GeografiskAdresse
@@ -303,8 +302,8 @@ attributes:
   co_navn:
     name: co_navn
     description: C/O-namn (omsorgsperson/-verksemd) knytt til adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:coNavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
     owner: Postboksadresse
     domain_of:
     - GeografiskAdresse
@@ -312,17 +311,16 @@ attributes:
   type:
     name: type
     description: Diskriminator for kva slag geografisk adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:type
     owner: Postboksadresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Rolle
     - Rolletypegruppe
     - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Postboksadresse
+class_uri: brreg_felles_geografisk_adresse:Postboksadresse
 
 ```
 </details>

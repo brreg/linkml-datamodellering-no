@@ -348,12 +348,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: Person
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -405,8 +404,8 @@ attributes:
     name: identifikator
     description: Generisk identifikator (form varierer per samanheng — brukt både
       for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:identifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:identifikator
     owner: Person
     domain_of:
     - DigitalAdresse

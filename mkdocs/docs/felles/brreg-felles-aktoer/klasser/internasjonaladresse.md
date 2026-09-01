@@ -9,7 +9,7 @@ _Ei adresse i eit anna land enn Noreg, i fri form._
 
 
 
-URI: [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse)
+URI: [brreg_felles_geografisk_adresse:InternasjonalAdresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse)
 
 
 
@@ -232,7 +232,7 @@ URI: [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/br
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse) |
+| Class URI | [brreg_felles_geografisk_adresse:InternasjonalAdresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse) |
 
 ## Eigenskapar
 
@@ -287,7 +287,7 @@ URI: [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/br
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -296,8 +296,8 @@ URI: [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/br
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:InternasjonalAdresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse |
+| self | brreg_felles_geografisk_adresse:InternasjonalAdresse |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse |
 
 
 
@@ -314,7 +314,7 @@ URI: [brreg_felles_adresse:InternasjonalAdresse](https://data.norge.no/felles/br
 ```yaml
 name: InternasjonalAdresse
 description: Ei adresse i eit anna land enn Noreg, i fri form.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slots:
 - adressenavn
@@ -335,7 +335,7 @@ slot_usage:
     name: adressenummer_tekst
     description: Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen,
       sidan format varierer mellom land).
-class_uri: brreg_felles_adresse:InternasjonalAdresse
+class_uri: brreg_felles_geografisk_adresse:InternasjonalAdresse
 
 ```
 </details>
@@ -346,7 +346,7 @@ class_uri: brreg_felles_adresse:InternasjonalAdresse
 ```yaml
 name: InternasjonalAdresse
 description: Ei adresse i eit anna land enn Noreg, i fri form.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slot_usage:
   adressenummer_tekst:
@@ -357,8 +357,8 @@ attributes:
   adressenavn:
     name: adressenavn
     description: Namnet på vegen/gata/staden.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressenavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressenavn
     owner: InternasjonalAdresse
     domain_of:
     - Vegadresse
@@ -368,8 +368,8 @@ attributes:
     name: adressenummer_tekst
     description: Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen,
       sidan format varierer mellom land).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressenummerTekst
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressenummerTekst
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -377,8 +377,8 @@ attributes:
   bygning:
     name: bygning
     description: Bygningsnamn eller -nummer.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:bygning
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:bygning
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -386,8 +386,8 @@ attributes:
   etasjenummer:
     name: etasjenummer
     description: Etasjenummer.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:etasjenummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:etasjenummer
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -395,8 +395,8 @@ attributes:
   boenhet:
     name: boenhet
     description: Bueining/leilegheitsnummer.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:boenhet
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:boenhet
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -404,8 +404,8 @@ attributes:
   postboks:
     name: postboks
     description: Postboksnummer (utanlandsk format).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:postboks
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:postboks
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -413,8 +413,8 @@ attributes:
   postkode:
     name: postkode
     description: Utanlandsk postkode (ikkje norsk postnummer).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:postkode
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:postkode
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -422,8 +422,8 @@ attributes:
   by_eller_stedsnavn:
     name: by_eller_stedsnavn
     description: By- eller stadnamn.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:byEllerStedsnavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:byEllerStedsnavn
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -431,8 +431,8 @@ attributes:
   region:
     name: region
     description: Region, delstat eller provins.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:region
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:region
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -440,8 +440,8 @@ attributes:
   distrikt_eller_bydel:
     name: distrikt_eller_bydel
     description: Distrikt eller bydel.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:distriktEllerBydel
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:distriktEllerBydel
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -449,8 +449,8 @@ attributes:
   landkode:
     name: landkode
     description: Landet adressa ligg i.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:landkode
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:landkode
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -459,8 +459,8 @@ attributes:
     name: fri_adressetekst
     description: Heile adressa som fritekst, når ho ikkje kan strukturerast i felta
       over.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:friAdressetekst
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:friAdressetekst
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -468,8 +468,8 @@ attributes:
   adresseidentifikator:
     name: adresseidentifikator
     description: Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adresseidentifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adresseidentifikator
     owner: InternasjonalAdresse
     domain_of:
     - InternasjonalAdresse
@@ -477,12 +477,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: InternasjonalAdresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -501,8 +500,8 @@ attributes:
   br_adresse_id:
     name: br_adresse_id
     description: BR sin interne identifikator for adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:brAdresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
     owner: InternasjonalAdresse
     domain_of:
     - GeografiskAdresse
@@ -510,8 +509,8 @@ attributes:
   co_navn:
     name: co_navn
     description: C/O-namn (omsorgsperson/-verksemd) knytt til adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:coNavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
     owner: InternasjonalAdresse
     domain_of:
     - GeografiskAdresse
@@ -519,17 +518,16 @@ attributes:
   type:
     name: type
     description: Diskriminator for kva slag geografisk adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:type
     owner: InternasjonalAdresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Rolle
     - Rolletypegruppe
     - Relasjon
     range: string
-class_uri: brreg_felles_adresse:InternasjonalAdresse
+class_uri: brreg_felles_geografisk_adresse:InternasjonalAdresse
 
 ```
 </details>

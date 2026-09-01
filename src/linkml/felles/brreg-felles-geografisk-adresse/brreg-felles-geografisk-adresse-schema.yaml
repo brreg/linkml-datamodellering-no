@@ -1,0 +1,433 @@
+id: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+name: brreg-felles-geografisk-adresse
+title: BRREG felles geografisk adresse
+description: >-
+  Gjenbrukbare geografiske adresseklassar utleia frå Brønnøysundregistrene
+  (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse"
+  (GeografiskAdresse-hierarkiet), pluss dei adresse-relaterte
+  komplekstypane frå Strukturtypekatalog_v1 (Poststed, Kommune, Fylke,
+  Matrikkelnummer, Adressenummer) som adressehierarkiet er avhengig av.
+  Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for
+  bakgrunn, metode og avklaringane denne modellen byggjer på.
+
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-09-01"
+  utgivelsesdato: "2026-09-01"
+  status: http://purl.org/adms/status/UnderDevelopment
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  brreg_felles_geografisk_adresse: https://data.norge.no/felles/brreg-felles-geografisk-adresse/
+  locn: http://www.w3.org/ns/locn#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/felles/brreg-felles-geografisk-adresse/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../brreg-felles-typer/brreg-felles-typer-schema
+
+# ---------------------------------------------------------------------------
+# Klasser
+#
+# Kjelde: BR BRReferansemodell_v3 (pakken "Adresse") for adresseklassane,
+# og Strukturtypekatalog_v1 (pakken "Komplekstyper") for Poststed/Kommune/
+# Fylke/Matrikkelnummer/Adressenummer. Felt som i kjelda er typa generisk
+# til den abstrakte Strukturtypekatalog-basen "Identifikator" — og som
+# ikkje har eit namnelik motstykke i brreg-felles-typer — er forenkla til
+# `string` her, med ein TODO-kommentar (jf. avklaring i søsterspecen,
+# sidan brreg-felles-struktur-typer ikkje vart oppretta).
+# ---------------------------------------------------------------------------
+
+classes:
+
+  GeografiskAdresse:
+    class_uri: locn:Address
+    description: Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under.
+    slots:
+      - id
+      - br_adresse_id
+      - co_navn
+      - type
+    slot_usage:
+      br_adresse_id:
+        description: BR sin interne identifikator for adressa.
+        # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+      type:
+        description: Diskriminator for kva slag geografisk adresse dette er.
+
+  Postboksadresse:
+    is_a: GeografiskAdresse
+    class_uri: brreg_felles_geografisk_adresse:Postboksadresse
+    description: Ei postboksadresse.
+    slots:
+      - postboksnummer
+      - anleggsnavn
+      - poststed
+      - kommune
+
+  Stedsadresse:
+    is_a: GeografiskAdresse
+    class_uri: brreg_felles_geografisk_adresse:Stedsadresse
+    description: Ei stadfesta adresse utan vegadresse (t.d. i utmark).
+    slots:
+      - stedsnavn
+      - poststed
+      - kommune
+
+  Vegadresse:
+    is_a: GeografiskAdresse
+    class_uri: brreg_felles_geografisk_adresse:Vegadresse
+    description: Ei vegadresse (adressenavn + adressenummer).
+    slots:
+      - vegadresse_id
+      - bruksenhetsnummer
+      - adressenavn
+      - kort_adressenavn
+      - adressenummer
+      - poststed
+      - adressetilleggsnavn
+      - kommune
+      - fylke
+    slot_usage:
+      vegadresse_id:
+        description: BR sin interne identifikator for vegadressa.
+        # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+
+  Matrikkeladresse:
+    is_a: GeografiskAdresse
+    class_uri: brreg_felles_geografisk_adresse:Matrikkeladresse
+    description: Ei matrikkeladresse (knytt til eit matrikkelnummer).
+    slots:
+      - matrikkeladresse_id
+      - bruksenhetsnummer
+      - adressetilleggsnavn
+      - matrikkelnummer
+      - undernummer
+    slot_usage:
+      matrikkeladresse_id:
+        description: BR sin interne identifikator for matrikkeladressa.
+        # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+
+  InternasjonalAdresse:
+    is_a: GeografiskAdresse
+    class_uri: brreg_felles_geografisk_adresse:InternasjonalAdresse
+    description: Ei adresse i eit anna land enn Noreg, i fri form.
+    slots:
+      - adressenavn
+      - adressenummer_tekst
+      - bygning
+      - etasjenummer
+      - boenhet
+      - postboks
+      - postkode
+      - by_eller_stedsnavn
+      - region
+      - distrikt_eller_bydel
+      - landkode
+      - fri_adressetekst
+      - adresseidentifikator
+    slot_usage:
+      adressenummer_tekst:
+        description: Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen, sidan format varierer mellom land).
+
+  # --- Adresse-relaterte komplekstypar frå Strukturtypekatalog_v1 ---
+
+  Poststed:
+    class_uri: brreg_felles_geografisk_adresse:Poststed
+    description: Eit poststed knytt til eit postnummer.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Poststed)
+    slots:
+      - id
+      - navn
+      - postnummer
+    slot_usage:
+      navn:
+        required: true
+      postnummer:
+        required: true
+
+  Kommune:
+    class_uri: brreg_felles_geografisk_adresse:Kommune
+    description: Ein norsk kommune.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Kommune)
+    slots:
+      - id
+      - kommunenummer
+      - kommunenavn
+    slot_usage:
+      kommunenummer:
+        required: true
+      kommunenavn:
+        required: true
+
+  Fylke:
+    class_uri: brreg_felles_geografisk_adresse:Fylke
+    description: Eit norsk fylke.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Fylke)
+    slots:
+      - id
+      - fylkesnummer
+      - fylkesnavn
+    slot_usage:
+      fylkesnummer:
+        required: true
+      fylkesnavn:
+        required: true
+
+  Matrikkelnummer:
+    class_uri: brreg_felles_geografisk_adresse:Matrikkelnummer
+    description: Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer).
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Matrikkelnummer)
+    slots:
+      - id
+      - kommunenummer
+      - gaardsnummer
+      - bruksnummer
+      - festenummer
+      - seksjonsnummer
+    slot_usage:
+      kommunenummer:
+        required: true
+      gaardsnummer:
+        required: true
+      bruksnummer:
+        required: true
+
+  Adressenummer:
+    class_uri: brreg_felles_geografisk_adresse:Adressenummer
+    description: Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse.
+    # Kjelde: BR Strukturtypekatalog_v1 (Komplekstyper::Adressenummer)
+    slots:
+      - id
+      - nummer
+      - bokstav
+    slot_usage:
+      nummer:
+        required: true
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  id:
+    identifier: true
+    range: uriorcurie
+    description: URI-identifikator for ressursen.
+
+  br_adresse_id:
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
+    range: string
+    description: "BR sin interne identifikator for adressa."
+
+  co_navn:
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
+    range: string
+    description: "C/O-namn (omsorgsperson/-verksemd) knytt til adressa."
+
+  type:
+    slot_uri: brreg_felles_geografisk_adresse:type
+    range: string
+    description: "Diskriminator for kva slag adresse dette er."
+
+  postboksnummer:
+    slot_uri: brreg_felles_geografisk_adresse:postboksnummer
+    range: Postboksnummer
+    description: Nummeret på postboksen.
+
+  anleggsnavn:
+    slot_uri: brreg_felles_geografisk_adresse:anleggsnavn
+    range: string
+    description: Namnet på anlegget/institusjonen postboksen høyrer til.
+
+  poststed:
+    slot_uri: brreg_felles_geografisk_adresse:poststed
+    range: Poststed
+    description: "Poststedet adressa høyrer til."
+
+  kommune:
+    slot_uri: brreg_felles_geografisk_adresse:kommune
+    range: Kommune
+    description: "Kommunen adressa ligg i."
+
+  stedsnavn:
+    slot_uri: brreg_felles_geografisk_adresse:stedsnavn
+    range: string
+    description: Namnet på staden (for adresser utan vegadresse).
+
+  vegadresse_id:
+    slot_uri: brreg_felles_geografisk_adresse:vegadresseId
+    range: string
+    description: "BR sin interne identifikator for vegadressa."
+
+  bruksenhetsnummer:
+    slot_uri: brreg_felles_geografisk_adresse:bruksenhetsnummer
+    range: Bruksenhetsnummer
+    description: 'Bruksenhetsnummer (bustadnummer) i adressa, t.d. "H0101".'
+
+  adressenavn:
+    slot_uri: brreg_felles_geografisk_adresse:adressenavn
+    range: string
+    description: "Namnet på vegen/gata/staden."
+
+  kort_adressenavn:
+    slot_uri: brreg_felles_geografisk_adresse:kortAdressenavn
+    range: string
+    description: Forkorta versjon av adressenamnet.
+
+  adressenummer:
+    slot_uri: brreg_felles_geografisk_adresse:adressenummer
+    range: Adressenummer
+    description: "Husnummer og eventuell husbokstav i vegadressa."
+
+  adressetilleggsnavn:
+    slot_uri: brreg_felles_geografisk_adresse:adressetilleggsnavn
+    range: string
+    description: "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)."
+
+  fylke:
+    slot_uri: brreg_felles_geografisk_adresse:fylke
+    range: Fylke
+    description: "Fylket adressa ligg i."
+
+  matrikkeladresse_id:
+    slot_uri: brreg_felles_geografisk_adresse:matrikkeladresseId
+    range: string
+    description: "BR sin interne identifikator for matrikkeladressa."
+
+  matrikkelnummer:
+    slot_uri: brreg_felles_geografisk_adresse:matrikkelnummer
+    range: Matrikkelnummer
+    description: "Matrikkelnummeret adressa er knytt til."
+
+  undernummer:
+    slot_uri: brreg_felles_geografisk_adresse:undernummer
+    range: integer
+    description: Undernummer for seksjonert eigedom.
+
+  adressenummer_tekst:
+    slot_uri: brreg_felles_geografisk_adresse:adressenummerTekst
+    range: string
+    description: "Adressenummer som fritekst (for utanlandske adresser med anna format enn norsk husnummer/husbokstav)."
+
+  bygning:
+    slot_uri: brreg_felles_geografisk_adresse:bygning
+    range: string
+    description: "Bygningsnamn eller -nummer."
+
+  etasjenummer:
+    slot_uri: brreg_felles_geografisk_adresse:etasjenummer
+    range: string
+    description: "Etasjenummer."
+
+  boenhet:
+    slot_uri: brreg_felles_geografisk_adresse:boenhet
+    range: string
+    description: "Bueining/leilegheitsnummer."
+
+  postboks:
+    slot_uri: brreg_felles_geografisk_adresse:postboks
+    range: string
+    description: "Postboksnummer (utanlandsk format)."
+
+  postkode:
+    slot_uri: brreg_felles_geografisk_adresse:postkode
+    range: string
+    description: Utanlandsk postkode (ikkje norsk postnummer).
+
+  by_eller_stedsnavn:
+    slot_uri: brreg_felles_geografisk_adresse:byEllerStedsnavn
+    range: string
+    description: "By- eller stadnamn."
+
+  region:
+    slot_uri: brreg_felles_geografisk_adresse:region
+    range: string
+    description: "Region, delstat eller provins."
+
+  distrikt_eller_bydel:
+    slot_uri: brreg_felles_geografisk_adresse:distriktEllerBydel
+    range: string
+    description: "Distrikt eller bydel."
+
+  landkode:
+    slot_uri: brreg_felles_geografisk_adresse:landkode
+    range: Landkode
+    description: "Landet adressa ligg i."
+
+  fri_adressetekst:
+    slot_uri: brreg_felles_geografisk_adresse:friAdressetekst
+    range: string
+    description: "Heile adressa som fritekst, når ho ikkje kan strukturerast i felta over."
+
+  adresseidentifikator:
+    slot_uri: brreg_felles_geografisk_adresse:adresseidentifikator
+    range: string
+    description: "Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister)."
+
+  navn:
+    slot_uri: brreg_felles_geografisk_adresse:navn
+    range: string
+    description: "Namnet på ressursen."
+
+  postnummer:
+    slot_uri: brreg_felles_geografisk_adresse:postnummer
+    range: Postnummer
+    description: "Postnummeret."
+
+  kommunenummer:
+    slot_uri: brreg_felles_geografisk_adresse:kommunenummer
+    range: Kommunenummer
+    description: "Kommunenummeret."
+
+  kommunenavn:
+    slot_uri: brreg_felles_geografisk_adresse:kommunenavn
+    range: string
+    description: "Namnet på kommunen."
+
+  fylkesnummer:
+    slot_uri: brreg_felles_geografisk_adresse:fylkesnummer
+    range: Fylkesnummer
+    description: "Fylkesnummeret."
+
+  fylkesnavn:
+    slot_uri: brreg_felles_geografisk_adresse:fylkesnavn
+    range: string
+    description: "Namnet på fylket."
+
+  gaardsnummer:
+    slot_uri: brreg_felles_geografisk_adresse:gaardsnummer
+    range: integer
+    description: "Gårdsnummer i matrikkelen."
+
+  bruksnummer:
+    slot_uri: brreg_felles_geografisk_adresse:bruksnummer
+    range: integer
+    description: "Bruksnummer i matrikkelen."
+
+  festenummer:
+    slot_uri: brreg_felles_geografisk_adresse:festenummer
+    range: integer
+    description: "Festenummer i matrikkelen (for festetomter)."
+
+  seksjonsnummer:
+    slot_uri: brreg_felles_geografisk_adresse:seksjonsnummer
+    range: integer
+    description: "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar)."
+
+  nummer:
+    slot_uri: brreg_felles_geografisk_adresse:nummer
+    range: Husnummer
+    description: "Husnummeret."
+
+  bokstav:
+    slot_uri: brreg_felles_geografisk_adresse:bokstav
+    range: Husbokstav
+    description: "Husbokstaven, dersom adressa har ein."

@@ -1,0 +1,234 @@
+@prefix brreg_felles_digital_adresse: <https://data.norge.no/felles/brreg-felles-digital-adresse/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+brreg_felles_digital_adresse:DigitalAdresse a sh:NodeShape ;
+    rdfs:comment "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under." ;
+    sh:closed true ;
+    sh:ignoredProperties ( brreg_felles_digital_adresse:brukernavn brreg_felles_digital_adresse:nasjonaltNummer brreg_felles_digital_adresse:filsti rdf:type brreg_felles_digital_adresse:prefiksMedNasjonalKode brreg_felles_digital_adresse:domenenavn brreg_felles_digital_adresse:ipNummer brreg_felles_digital_adresse:protokoll brreg_felles_digital_adresse:meldingsbokstype ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:type ] ;
+    sh:targetClass brreg_felles_digital_adresse:DigitalAdresse .
+
+brreg_felles_digital_adresse:EPostadresse a sh:NodeShape ;
+    rdfs:comment "Ei e-postadresse, delt opp i brukarnamn og domenenavn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Domenenamnet i adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:domenenavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Brukarnamnet (lokaldelen) i e-postadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:brukernavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:id ] ;
+    sh:targetClass brreg_felles_digital_adresse:EPostadresse .
+
+brreg_felles_digital_adresse:IPAdresse a sh:NodeShape ;
+    rdfs:comment "Ei IP-adresse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "IP-nummeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:ipNummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:id ] ;
+    sh:targetClass brreg_felles_digital_adresse:IPAdresse .
+
+brreg_felles_digital_adresse:Meldingsboks a sh:NodeShape ;
+    rdfs:comment "Ei digital meldingsboks (t.d. Altinn)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kva type digital meldingsboks dette er (t.d. Altinn)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:meldingsbokstype ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:id ] ;
+    sh:targetClass brreg_felles_digital_adresse:Meldingsboks .
+
+brreg_felles_digital_adresse:Mobiltelefonnummer a sh:NodeShape ;
+    rdfs:comment "Eit mobiltelefonnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:prefiksMedNasjonalKode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Telefonnummeret utan landkode/prefiks." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:nasjonaltNummer ] ;
+    sh:targetClass brreg_felles_digital_adresse:Mobiltelefonnummer .
+
+brreg_felles_digital_adresse:Nettadresse a sh:NodeShape ;
+    rdfs:comment "Ei nettadresse (protokoll, domenenavn og filsti)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Domenenamnet i adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:domenenavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_digital_adresse:identifikator ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Filstien i nettadressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:filsti ],
+        [ sh:datatype xsd:string ;
+            sh:description "Protokollen for nettadressa, t.d. https." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:protokoll ] ;
+    sh:targetClass brreg_felles_digital_adresse:Nettadresse .
+
+brreg_felles_digital_adresse:Telefonnummer a sh:NodeShape ;
+    rdfs:comment "Eit fasttelefonnummer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path brreg_felles_digital_adresse:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Diskriminator for kva slag digital adresse dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path brreg_felles_digital_adresse:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Telefonnummeret utan landkode/prefiks." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path brreg_felles_digital_adresse:nasjonaltNummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path brreg_felles_digital_adresse:prefiksMedNasjonalKode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path brreg_felles_digital_adresse:identifikator ] ;
+    sh:targetClass brreg_felles_digital_adresse:Telefonnummer .
+
+

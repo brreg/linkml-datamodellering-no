@@ -149,7 +149,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -159,7 +159,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:Address |
-| native | https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/GeografiskAdresse |
 
 
 
@@ -177,7 +177,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 name: GeografiskAdresse
 description: Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane
   under.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 slots:
 - id
 - br_adresse_id
@@ -202,7 +202,7 @@ class_uri: locn:Address
 name: GeografiskAdresse
 description: Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane
   under.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 slot_usage:
   br_adresse_id:
     name: br_adresse_id
@@ -214,12 +214,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: GeografiskAdresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -238,8 +237,8 @@ attributes:
   br_adresse_id:
     name: br_adresse_id
     description: BR sin interne identifikator for adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:brAdresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
     owner: GeografiskAdresse
     domain_of:
     - GeografiskAdresse
@@ -247,8 +246,8 @@ attributes:
   co_navn:
     name: co_navn
     description: C/O-namn (omsorgsperson/-verksemd) knytt til adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:coNavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
     owner: GeografiskAdresse
     domain_of:
     - GeografiskAdresse
@@ -256,12 +255,11 @@ attributes:
   type:
     name: type
     description: Diskriminator for kva slag geografisk adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:type
     owner: GeografiskAdresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Rolle
     - Rolletypegruppe
     - Relasjon

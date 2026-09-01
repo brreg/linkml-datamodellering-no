@@ -10,16 +10,16 @@ Aktoer {
     string identifikator  
 }
 DigitalAdresse {
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 EPostadresse {
     string brukernavn  
     string domenenavn  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 Fylke {
     uriorcurie id  
@@ -34,9 +34,9 @@ GeografiskAdresse {
 }
 IPAdresse {
     string ip_nummer  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 InternasjonalAdresse {
     string adresseidentifikator  
@@ -85,24 +85,24 @@ Matrikkelnummer {
 }
 Meldingsboks {
     string meldingsbokstype  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 Mobiltelefonnummer {
     NasjonaltNummer nasjonalt_nummer  
     PrefiksMedNasjonalKode prefiks_med_nasjonal_kode  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 Nettadresse {
     string domenenavn  
     string filsti  
     string protokoll  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 Person {
     BRPersonId br_person_id  
@@ -158,9 +158,9 @@ Stedsadresse {
 Telefonnummer {
     NasjonaltNummer nasjonalt_nummer  
     PrefiksMedNasjonalKode prefiks_med_nasjonal_kode  
-    uriorcurie id  
+    uriorcurie digital_adresse_id  
+    string digital_adresse_type  
     string identifikator  
-    string type  
 }
 Vegadresse {
     string adressenavn  

@@ -50,11 +50,11 @@ brreg_felles_tid:Tidsperiode a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty brreg_felles_tid:til_dato ],
         [ a owl:Restriction ;
-            owl:cardinality 1 ;
-            owl:onProperty brreg_felles_tid:id ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty brreg_felles_tid:fra_dato ] ;
+            owl:onProperty brreg_felles_tid:fra_dato ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty brreg_felles_tid:id ] ;
     skos:definition "Ei tidsperiode avgrensa av ein frå- og til-dato." ;
     skos:exactMatch dct:PeriodOfTime ;
     skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
@@ -67,11 +67,11 @@ brreg_felles_tid:TidsperiodeDatoKlokkeslett a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty brreg_felles_tid:fra ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty brreg_felles_tid:til ],
-        [ a owl:Restriction ;
             owl:cardinality 1 ;
-            owl:onProperty brreg_felles_tid:id ] ;
+            owl:onProperty brreg_felles_tid:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty brreg_felles_tid:til ] ;
     skos:definition "Ei tidsperiode avgrensa av frå- og til-tidspunkt (dato og klokkeslett)." ;
     skos:exactMatch brreg_felles_tid:TidsperiodeDatoKlokkeslett ;
     skos:inScheme <https://data.norge.no/felles/brreg-felles-tid> .
@@ -111,13 +111,13 @@ brreg_felles_tid:id a owl:DatatypeProperty ;
 xsd:string a rdfs:Datatype ;
     owl:equivalentClass [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ;
-            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ],
+            owl:withRestrictions ( [ xsd:pattern "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ] ) ],
+        [ a rdfs:Datatype ;
+            owl:onDatatype xsd:string ;
+            owl:withRestrictions ( [ xsd:pattern "^[2389][0-9]{8}$" ] ) ],
         [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ;
             owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ],
-        [ a rdfs:Datatype ;
-            owl:onDatatype xsd:string ;
-            owl:withRestrictions ( [ xsd:pattern "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ] ) ],
         [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ;
             owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ],
@@ -126,9 +126,9 @@ xsd:string a rdfs:Datatype ;
             owl:withRestrictions ( [ xsd:pattern "^[A-Z]{3}$" ] ) ],
         [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ;
-            owl:withRestrictions ( [ xsd:pattern "^[2389][0-9]{8}$" ] ) ],
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ],
         [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ;
-            owl:withRestrictions ( [ xsd:pattern "^[0-9]{11}$" ] ) ] .
+            owl:withRestrictions ( [ xsd:pattern "^[0-9]{4}$" ] ) ] .
 
 

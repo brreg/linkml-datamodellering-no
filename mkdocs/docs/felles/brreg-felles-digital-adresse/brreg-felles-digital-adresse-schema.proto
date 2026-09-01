@@ -1,0 +1,65 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 0.1.0
+// Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under.
+message DigitalAdresse
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+ }
+// Ei e-postadresse, delt opp i brukarnamn og domenenavn.
+message EPostadresse
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  string domenenavn = 0
+  string brukernavn = 0
+ }
+// Ei IP-adresse.
+message IPAdresse
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  string ipNummer = 0
+ }
+// Ei digital meldingsboks (t.d. Altinn).
+message Meldingsboks
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  string meldingsbokstype = 0
+ }
+// Eit mobiltelefonnummer.
+message Mobiltelefonnummer
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  prefiksMedNasjonalKode prefiksMedNasjonalKode = 0
+  nasjonaltNummer nasjonaltNummer = 0
+ }
+// Ei nettadresse (protokoll, domenenavn og filsti).
+message Nettadresse
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  string protokoll = 0
+  string domenenavn = 0
+  string filsti = 0
+ }
+// Eit fasttelefonnummer.
+message Telefonnummer
+ {
+  uriorcurie id = 0
+  string identifikator = 0
+  string type = 0
+  prefiksMedNasjonalKode prefiksMedNasjonalKode = 0
+  nasjonaltNummer nasjonaltNummer = 0
+ }
+

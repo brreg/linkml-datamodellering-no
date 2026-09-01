@@ -1,0 +1,292 @@
+{
+    "$defs": {
+        "DigitalAdresse": {
+            "additionalProperties": false,
+            "description": "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DigitalAdresse",
+            "type": "object"
+        },
+        "EPostadresse": {
+            "additionalProperties": false,
+            "description": "Ei e-postadresse, delt opp i brukarnamn og domenenavn.",
+            "properties": {
+                "brukernavn": {
+                    "description": "Brukarnamnet (lokaldelen) i e-postadressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "domenenavn": {
+                    "description": "Domenenamnet i adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "EPostadresse",
+            "type": "object"
+        },
+        "IPAdresse": {
+            "additionalProperties": false,
+            "description": "Ei IP-adresse.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ip_nummer": {
+                    "description": "IP-nummeret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "IPAdresse",
+            "type": "object"
+        },
+        "Meldingsboks": {
+            "additionalProperties": false,
+            "description": "Ei digital meldingsboks (t.d. Altinn).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "meldingsbokstype": {
+                    "description": "Kva type digital meldingsboks dette er (t.d. Altinn).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Meldingsboks",
+            "type": "object"
+        },
+        "Mobiltelefonnummer": {
+            "additionalProperties": false,
+            "description": "Eit mobiltelefonnummer.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nasjonalt_nummer": {
+                    "description": "Telefonnummeret utan landkode/prefiks.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prefiks_med_nasjonal_kode": {
+                    "description": "Internasjonalt telefonprefiks (landkode), t.d. \"+47\".",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Mobiltelefonnummer",
+            "type": "object"
+        },
+        "Nettadresse": {
+            "additionalProperties": false,
+            "description": "Ei nettadresse (protokoll, domenenavn og filsti).",
+            "properties": {
+                "domenenavn": {
+                    "description": "Domenenamnet i adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "filsti": {
+                    "description": "Filstien i nettadressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "protokoll": {
+                    "description": "Protokollen for nettadressa, t.d. https.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Nettadresse",
+            "type": "object"
+        },
+        "Telefonnummer": {
+            "additionalProperties": false,
+            "description": "Eit fasttelefonnummer.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator": {
+                    "description": "Identifikator for den digitale adressa (form varierer per undertype).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nasjonalt_nummer": {
+                    "description": "Telefonnummeret utan landkode/prefiks.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prefiks_med_nasjonal_kode": {
+                    "description": "Internasjonalt telefonprefiks (landkode), t.d. \"+47\".",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "description": "Diskriminator for kva slag digital adresse dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Telefonnummer",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/felles/brreg-felles-digital-adresse",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.11.0",
+    "title": "brreg-felles-digital-adresse",
+    "type": "object",
+    "version": "0.1.0"
+}
+

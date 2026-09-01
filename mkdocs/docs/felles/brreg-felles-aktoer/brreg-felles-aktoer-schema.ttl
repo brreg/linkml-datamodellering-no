@@ -9,22 +9,22 @@
     dcterms:license "https://data.norge.no/nlod/no/2.0" ;
     dcterms:title "BRREG felles aktør" ;
     pav:version "0.1.0" ;
-    sh:declare [ sh:namespace "https://data.norge.no/felles/brreg-felles-aktoer/"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "https://data.norge.no/felles/brreg-felles-aktoer/"^^xsd:anyURI ;
             sh:prefix "brreg_felles_aktoer" ],
         [ sh:namespace "http://www.w3.org/ns/regorg#"^^xsd:anyURI ;
             sh:prefix "rov" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
         [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
-            sh:prefix "foaf" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ] ;
+            sh:prefix "foaf" ] ;
     linkml:annotations [ skos:example "2026-08-31" ;
-            linkml:tag "endringsdato"^^xsd:anyURI ],
-        [ skos:example "2026-08-31" ;
             linkml:tag "utgivelsesdato"^^xsd:anyURI ],
         [ skos:example "https://data.norge.no/organizations/974760673" ;
             linkml:tag "utgiver"^^xsd:anyURI ],
+        [ skos:example "2026-08-31" ;
+            linkml:tag "endringsdato"^^xsd:anyURI ],
         [ skos:example "http://purl.org/adms/status/UnderDevelopment" ;
             linkml:tag "status"^^xsd:anyURI ] ;
     linkml:classes <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer>,
@@ -57,18 +57,19 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/Virksomhetsidentifikator> ;
     linkml:default_prefix "https://data.norge.no/felles/brreg-felles-aktoer/" ;
     linkml:default_range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:description "Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken \"Aktør\", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på." ;
+    linkml:description "Gjenbrukbare aktørklassar (Aktør, Virksomhet, Person, Rolle m.fl.) utleia frå Brønnøysundregistrene (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken \"Aktør\", pluss dei aktør-relaterte komplekstypane frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator, Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer brreg-felles-geografisk-adresse for GeografiskAdresse og brreg-felles-digital-adresse for DigitalAdresse. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn, metode og avklaringane denne modellen byggjer på." ;
     linkml:enums <https://data.norge.no/felles/brreg-felles-aktoer/PersonidentifikatorType>,
         <https://data.norge.no/felles/brreg-felles-aktoer/VirksomhetsidentifikatorType> ;
-    linkml:generation_date "2026-08-31T20:21:33"^^xsd:dateTime ;
+    linkml:generation_date "2026-09-01T05:18:52"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
-    linkml:imports "../brreg-felles-adresse/brreg-felles-adresse-schema"^^xsd:anyURI,
+    linkml:imports "../brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema"^^xsd:anyURI,
+        "../brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema"^^xsd:anyURI,
         "../brreg-felles-typer/brreg-felles-typer-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer_nummer>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
         <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Fylke_fylkesnavn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Fylke_fylkesnummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_br_adresse_id>,
@@ -109,6 +110,8 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/bygning>,
         <https://data.norge.no/felles/brreg-felles-aktoer/co_navn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_type>,
         <https://data.norge.no/felles/brreg-felles-aktoer/distrikt_eller_bydel>,
         <https://data.norge.no/felles/brreg-felles-aktoer/domenenavn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/etasjenummer>,
@@ -168,8 +171,8 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/virksomhetsnavn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/virksomhetsstatus> ;
     linkml:source_file "brreg-felles-aktoer-schema.yaml" ;
-    linkml:source_file_date "2026-08-31T15:37:46"^^xsd:dateTime ;
-    linkml:source_file_size 9672 ;
+    linkml:source_file_date "2026-09-01T05:16:26"^^xsd:dateTime ;
+    linkml:source_file_size 9823 ;
     linkml:types <https://data.norge.no/felles/brreg-felles-aktoer/Aktivitetskode>,
         <https://data.norge.no/felles/brreg-felles-aktoer/AktoerId>,
         <https://data.norge.no/felles/brreg-felles-aktoer/AnyURI>,
@@ -690,10 +693,10 @@
 <https://data.norge.no/felles/brreg-felles-aktoer/utenlandsk_virksomhetsidentifikator> linkml:description "Utanlandsk verksemdsidentifikator." .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer_nummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI ;
     skos:prefLabel "nummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI ;
     linkml:description "Husnummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
@@ -702,7 +705,7 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Husnummer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI ;
     linkml:usage_slot_name "nummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/BRPersonId> a linkml:TypeDefinition ;
@@ -728,10 +731,10 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Fylke_fylkesnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI ;
     skos:prefLabel "fylkesnavn" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI ;
     linkml:description "Namnet på fylket." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
@@ -740,14 +743,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI ;
     linkml:usage_slot_name "fylkesnavn" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Fylke_fylkesnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI ;
     skos:prefLabel "fylkesnummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI ;
     linkml:description "Fylkesnummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
@@ -756,7 +759,7 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Fylkesnummer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI ;
     linkml:usage_slot_name "fylkesnummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Husbokstav> a linkml:TypeDefinition ;
@@ -767,10 +770,10 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse_ip_nummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/ipNummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/ipNummer"^^xsd:anyURI ;
     skos:prefLabel "ip_nummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/ip_nummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/ip_nummer"^^xsd:anyURI ;
     linkml:description "IP-nummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> ;
@@ -778,14 +781,14 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/ipNummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/ipNummer"^^xsd:anyURI ;
     linkml:usage_slot_name "ip_nummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse_adressenummer_tekst> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummerTekst"^^xsd:anyURI ;
     skos:prefLabel "adressenummer_tekst" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummer_tekst"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummer_tekst"^^xsd:anyURI ;
     linkml:description "Adressenummer som fritekst (ikkje strukturert som Adressenummer-klassen, sidan format varierer mellom land)." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
@@ -793,14 +796,14 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummerTekst"^^xsd:anyURI ;
     linkml:usage_slot_name "adressenummer_tekst" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Kommune_kommunenavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI ;
     skos:prefLabel "kommunenavn" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI ;
     linkml:description "Namnet på kommunen." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
@@ -809,14 +812,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI ;
     linkml:usage_slot_name "kommunenavn" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Kommune_kommunenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     skos:prefLabel "kommunenummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     linkml:description "Kommunenummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
@@ -825,14 +828,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Kommunenummer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     linkml:usage_slot_name "kommunenummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse_matrikkeladresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresseId"^^xsd:anyURI ;
     skos:prefLabel "matrikkeladresse_id" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresse_id"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for matrikkeladressa." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
@@ -840,14 +843,14 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresseId"^^xsd:anyURI ;
     linkml:usage_slot_name "matrikkeladresse_id" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer_bruksnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI ;
     skos:prefLabel "bruksnummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI ;
     linkml:description "Bruksnummer i matrikkelen." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
@@ -856,14 +859,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI ;
     linkml:usage_slot_name "bruksnummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer_gaardsnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI ;
     skos:prefLabel "gaardsnummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI ;
     linkml:description "Gårdsnummer i matrikkelen." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
@@ -872,14 +875,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI ;
     linkml:usage_slot_name "gaardsnummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer_kommunenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     skos:prefLabel "kommunenummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     linkml:description "Kommunenummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
@@ -888,7 +891,7 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Kommunenummer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     linkml:usage_slot_name "kommunenummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/NasjonaltNummer> a linkml:TypeDefinition ;
@@ -977,10 +980,10 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Poststed_navn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI ;
     skos:prefLabel "navn" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI ;
     linkml:description "Namnet på ressursen." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
@@ -989,14 +992,14 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI ;
     linkml:usage_slot_name "navn" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Poststed_postnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI ;
     skos:prefLabel "postnummer" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI ;
     linkml:description "Postnummeret." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
@@ -1005,7 +1008,7 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Postnummer> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI ;
     linkml:usage_slot_name "postnummer" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/PrefiksMedNasjonalKode> a linkml:TypeDefinition ;
@@ -1016,10 +1019,10 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse_vegadresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/vegadresseId"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresseId"^^xsd:anyURI ;
     skos:prefLabel "vegadresse_id" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/vegadresse_id"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for vegadressa." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
@@ -1027,7 +1030,7 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/vegadresseId"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresseId"^^xsd:anyURI ;
     linkml:usage_slot_name "vegadresse_id" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Virksomhet_organisasjonsnummer> a linkml:SlotDefinition ;
@@ -1093,34 +1096,34 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/adresseidentifikator> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adresseidentifikator"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adresseidentifikator"^^xsd:anyURI ;
     linkml:description "Ein ekstern identifikator for adressa (t.d. frå eit utanlandsk adresseregister)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adresseidentifikator"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adresseidentifikator"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/adressenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adressenummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummer"^^xsd:anyURI ;
     linkml:description "Husnummer og eventuell husbokstav i vegadressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/adressenummer_tekst> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummer_tekst"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummerTekst"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummer_tekst"^^xsd:anyURI ;
     linkml:description "Adressenummer som fritekst (for utanlandske adresser med anna format enn norsk husnummer/husbokstav)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenummerTekst"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenummerTekst"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/aktoer> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1133,44 +1136,44 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/aktoer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/anleggsnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/anleggsnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/anleggsnavn"^^xsd:anyURI ;
     linkml:description "Namnet på anlegget/institusjonen postboksen høyrer til." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/anleggsnavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/anleggsnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/boenhet> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/boenhet"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/boenhet"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/boenhet"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/boenhet"^^xsd:anyURI ;
     linkml:description "Bueining/leilegheitsnummer." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/boenhet"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/boenhet"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/bokstav> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/bokstav"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/bokstav"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bokstav"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bokstav"^^xsd:anyURI ;
     linkml:description "Husbokstaven, dersom adressa har ein." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Husbokstav> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/bokstav"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bokstav"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/br_adresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/brAdresseId"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/br_adresse_id"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/brAdresseId"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/br_adresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for adressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/brAdresseId"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/brAdresseId"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/br_person_id> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1183,64 +1186,75 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/brPersonId"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/brukernavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/brukernavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/brukernavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/brukernavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/brukernavn"^^xsd:anyURI ;
     linkml:description "Brukarnamnet (lokaldelen) i e-postadressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/EPostadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/EPostadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/brukernavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/brukernavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/bruksnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI ;
     linkml:description "Bruksnummer i matrikkelen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/by_eller_stedsnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/byEllerStedsnavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/by_eller_stedsnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/byEllerStedsnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/by_eller_stedsnavn"^^xsd:anyURI ;
     linkml:description "By- eller stadnamn." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/byEllerStedsnavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/byEllerStedsnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/bygning> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/bygning"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/bygning"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bygning"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bygning"^^xsd:anyURI ;
     linkml:description "Bygningsnamn eller -nummer." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/bygning"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bygning"^^xsd:anyURI .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_type> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/type"^^xsd:anyURI ;
+    skos:prefLabel "type" ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/digital_adresse_type"^^xsd:anyURI ;
+    linkml:description "Diskriminator for kva slag adresse dette er." ;
+    linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+    linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/type"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/distrikt_eller_bydel> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/distriktEllerBydel"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/distrikt_eller_bydel"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/distriktEllerBydel"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/distrikt_eller_bydel"^^xsd:anyURI ;
     linkml:description "Distrikt eller bydel." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/distriktEllerBydel"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/distriktEllerBydel"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/etasjenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/etasjenummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/etasjenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/etasjenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/etasjenummer"^^xsd:anyURI ;
     linkml:description "Etasjenummer." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/etasjenummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/etasjenummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/etternavn> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1253,24 +1267,24 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/etternavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/festenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/festenummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/festenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/festenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/festenummer"^^xsd:anyURI ;
     linkml:description "Festenummer i matrikkelen (for festetomter)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/festenummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/festenummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/filsti> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/filsti"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/filsti"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/filsti"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/filsti"^^xsd:anyURI ;
     linkml:description "Filstien i nettadressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/filsti"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/filsti"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/foedsel_eller_d_nummer> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1293,124 +1307,124 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/fornavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/fri_adressetekst> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/friAdressetekst"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fri_adressetekst"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/friAdressetekst"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fri_adressetekst"^^xsd:anyURI ;
     linkml:description "Heile adressa som fritekst, når ho ikkje kan strukturerast i felta over." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/friAdressetekst"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/friAdressetekst"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/fylke> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/fylke"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fylke"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylke"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylke"^^xsd:anyURI ;
     linkml:description "Fylket adressa ligg i." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/fylke"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylke"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/fylkesnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI ;
     linkml:description "Namnet på fylket." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/fylkesnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI ;
     linkml:description "Fylkesnummeret." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Fylkesnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/fylkesnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/fylkesnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/gaardsnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI ;
     linkml:description "Gårdsnummer i matrikkelen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/gaardsnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/gaardsnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/ip_nummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/ipNummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/ip_nummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/ipNummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/ip_nummer"^^xsd:anyURI ;
     linkml:description "IP-nummeret." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/ipNummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/ipNummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/kommunenavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI ;
     linkml:description "Namnet på kommunen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/kort_adressenavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kortAdressenavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kort_adressenavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kortAdressenavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kort_adressenavn"^^xsd:anyURI ;
     linkml:description "Forkorta versjon av adressenamnet." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kortAdressenavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kortAdressenavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/landkode> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/landkode"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/landkode"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/landkode"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/landkode"^^xsd:anyURI ;
     linkml:description "Landet adressa ligg i." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Landkode> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/landkode"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/landkode"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/matrikkeladresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresse_id"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresseId"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for matrikkeladressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkeladresseId"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkeladresseId"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/matrikkelnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkelnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkelnummer"^^xsd:anyURI ;
     linkml:description "Matrikkelnummeret adressa er knytt til." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/matrikkelnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/matrikkelnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/meldingsbokstype> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/meldingsbokstype"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/meldingsbokstype"^^xsd:anyURI ;
     linkml:description "Kva type digital meldingsboks dette er (t.d. Altinn)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Meldingsboks> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Meldingsboks> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/meldingsbokstype"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/meldingsbokstype"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/mellomnavn> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1423,24 +1437,24 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/mellomnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/navn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI ;
     linkml:description "Namnet på ressursen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/navn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/navn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/nummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI ;
     linkml:description "Husnummeret." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Husnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/nummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/nummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/personidentifikator> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1483,64 +1497,64 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/personstatus"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/postboks> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/postboks"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/postboks"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboks"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboks"^^xsd:anyURI ;
     linkml:description "Postboksnummer (utanlandsk format)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/postboks"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboks"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/postboksnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/postboksnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/postboksnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboksnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboksnummer"^^xsd:anyURI ;
     linkml:description "Nummeret på postboksen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Postboksnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/postboksnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postboksnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/postkode> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/postkode"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/postkode"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postkode"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postkode"^^xsd:anyURI ;
     linkml:description "Utanlandsk postkode (ikkje norsk postnummer)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/postkode"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postkode"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/postnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI ;
     linkml:description "Postnummeret." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Postnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/postnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/postnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/protokoll> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/protokoll"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/protokoll"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/protokoll"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/protokoll"^^xsd:anyURI ;
     linkml:description "Protokollen for nettadressa, t.d. https." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/protokoll"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/protokoll"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/region> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/region"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/region"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/region"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/region"^^xsd:anyURI ;
     linkml:description "Region, delstat eller provins." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/region"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/region"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/rolleinnehaver> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1563,14 +1577,14 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/rolletypegruppe"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/seksjonsnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/seksjonsnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/seksjonsnummer"^^xsd:anyURI ;
     linkml:description "Seksjonsnummer i matrikkelen (for seksjonerte eigedomar)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/seksjonsnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/seksjonsnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/statsborgerskap> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1583,44 +1597,34 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/statsborgerskap"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/stedsnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/stedsnavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/stedsnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/stedsnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/stedsnavn"^^xsd:anyURI ;
     linkml:description "Namnet på staden (for adresser utan vegadresse)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Stedsadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Stedsadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/stedsnavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/stedsnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/undernummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/undernummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/undernummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/undernummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/undernummer"^^xsd:anyURI ;
     linkml:description "Undernummer for seksjonert eigedom." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/integer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/undernummer"^^xsd:anyURI .
-
-<https://data.norge.no/felles/brreg-felles-aktoer/uriorcurie> a linkml:TypeDefinition ;
-    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
-    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
-    linkml:base "URIorCURIE" ;
-    linkml:definition_uri "https://w3id.org/linkml/Uriorcurie"^^xsd:anyURI ;
-    linkml:description "a URI or a CURIE" ;
-    linkml:imported_from "linkml:types" ;
-    linkml:repr "str" ;
-    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/undernummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/vegadresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/vegadresseId"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/vegadresse_id"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresseId"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for vegadressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/vegadresseId"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/vegadresseId"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/virksomhetsidentifikator> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1684,29 +1688,29 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Meldingsboks> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Meldingsboks"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:Meldingsboks"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks"^^xsd:anyURI ;
     linkml:description "Ei digital meldingsboks (t.d. Altinn)." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/meldingsbokstype> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Mobiltelefonnummer> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Mobiltelefonnummer"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Mobiltelefonnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:Mobiltelefonnummer"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Mobiltelefonnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Mobiltelefonnummer"^^xsd:anyURI ;
     linkml:description "Eit mobiltelefonnummer." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/nasjonalt_nummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/prefiks_med_nasjonal_kode> .
 
@@ -1740,70 +1744,70 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/utenlandsk_virksomhetsidentifikator> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/adressenavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adressenavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenavn"^^xsd:anyURI ;
     linkml:description "Namnet på vegen/gata/staden." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adressenavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressenavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/adressetilleggsnavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressetilleggsnavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressetilleggsnavn"^^xsd:anyURI ;
     linkml:description "Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/adressetilleggsnavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/adressetilleggsnavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/bruksenhetsnummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksenhetsnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksenhetsnummer"^^xsd:anyURI ;
     linkml:description "Bruksenhetsnummer (bustadnummer) i adressa, t.d. \"H0101\"." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Bruksenhetsnummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/bruksenhetsnummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/bruksenhetsnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/domenenavn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/domenenavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/domenenavn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/domenenavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/domenenavn"^^xsd:anyURI ;
     linkml:description "Domenenamnet i adressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/EPostadresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/domenenavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/domenenavn"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/kommunenummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI ;
     linkml:description "Kommunenummeret." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Kommune>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Kommunenummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommunenummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommunenummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/nasjonalt_nummer> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/nasjonaltNummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/nasjonalt_nummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/nasjonaltNummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/nasjonalt_nummer"^^xsd:anyURI ;
     linkml:description "Telefonnummeret utan landkode/prefiks." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Mobiltelefonnummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Telefonnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Telefonnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/NasjonaltNummer> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/nasjonaltNummer"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/nasjonaltNummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/organisasjonsnummer> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1817,15 +1821,25 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/organisasjonsnummer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/prefiks_med_nasjonal_kode> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/prefiksMedNasjonalKode"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/prefiks_med_nasjonal_kode"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/prefiksMedNasjonalKode"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/prefiks_med_nasjonal_kode"^^xsd:anyURI ;
     linkml:description "Internasjonalt telefonprefiks (landkode), t.d. \"+47\"." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Mobiltelefonnummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Telefonnummer> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Telefonnummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/PrefiksMedNasjonalKode> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/prefiksMedNasjonalKode"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/prefiksMedNasjonalKode"^^xsd:anyURI .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/uriorcurie> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "URIorCURIE" ;
+    linkml:definition_uri "https://w3id.org/linkml/Uriorcurie"^^xsd:anyURI ;
+    linkml:description "a URI or a CURIE" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/verdi> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1839,18 +1853,18 @@
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/verdi"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/EPostadresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:EPostadresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/EPostadresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/EPostadresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:EPostadresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/EPostadresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/EPostadresse"^^xsd:anyURI ;
     linkml:description "Ei e-postadresse, delt opp i brukarnamn og domenenavn." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
         <https://data.norge.no/felles/brreg-felles-aktoer/brukernavn>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/domenenavn>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id> .
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/domenenavn> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Kommunenummer> a linkml:TypeDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-typer"^^xsd:anyURI ;
@@ -1861,28 +1875,28 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/kommune> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/kommune"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/kommune"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommune"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommune"^^xsd:anyURI ;
     linkml:description "Kommunen adressa ligg i." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Stedsadresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/kommune"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/kommune"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/poststed> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/poststed"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/poststed"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/poststed"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/poststed"^^xsd:anyURI ;
     linkml:description "Poststedet adressa høyrer til." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Stedsadresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/poststed"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/poststed"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/relasjon> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1907,10 +1921,10 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/id> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Stedsadresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Stedsadresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Stedsadresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Stedsadresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Stedsadresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Stedsadresse"^^xsd:anyURI ;
     linkml:description "Ei stadfesta adresse utan vegadresse (t.d. i utmark)." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_usage [ ] ;
@@ -1923,29 +1937,29 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/stedsnavn> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Telefonnummer> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Telefonnummer"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Telefonnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:Telefonnummer"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer"^^xsd:anyURI ;
     linkml:description "Eit fasttelefonnummer." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/nasjonalt_nummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/prefiks_med_nasjonal_kode> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/identifikator> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI ;
     linkml:description "Generisk identifikator (form varierer per samanheng — brukt både for digitale adresser og, via brreg-felles-aktoer, for aktørar generelt)." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Aktoer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/kontaktinformasjon> a linkml:SlotDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -1970,18 +1984,31 @@
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/Rolle> ;
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/rolle"^^xsd:anyURI .
 
+<https://data.norge.no/felles/brreg-felles-aktoer/type> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI ;
+    linkml:description "Diskriminator for kva slag adresse dette er." ;
+    linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/Relasjon>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/Rolle>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/Rolletypegruppe> ;
+    linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
+    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI .
+
 <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:IPAdresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/IPAdresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/IPAdresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:IPAdresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse"^^xsd:anyURI ;
     linkml:description "Ei IP-adresse." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
         <https://data.norge.no/felles/brreg-felles-aktoer/IPAdresse_ip_nummer>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id> .
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Relasjon> a linkml:ClassDefinition ;
     skos:inScheme "https://data.norge.no/felles/brreg-felles-aktoer"^^xsd:anyURI ;
@@ -2029,25 +2056,11 @@
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_uri "https://data.norge.no/felles/brreg-felles-aktoer/geografiskAdresse"^^xsd:anyURI .
 
-<https://data.norge.no/felles/brreg-felles-aktoer/type> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
-    linkml:description "Diskriminator for kva slag adresse dette er." ;
-    linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/Relasjon>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/Rolle>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/Rolletypegruppe> ;
-    linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
-    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI .
-
 <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_br_adresse_id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/brAdresseId"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/brAdresseId"^^xsd:anyURI ;
     skos:prefLabel "br_adresse_id" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/br_adresse_id"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/br_adresse_id"^^xsd:anyURI ;
     linkml:description "BR sin interne identifikator for adressa." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
@@ -2055,14 +2068,14 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/brAdresseId"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/brAdresseId"^^xsd:anyURI ;
     linkml:usage_slot_name "br_adresse_id" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_type> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI ;
     skos:prefLabel "type" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI ;
     linkml:description "Diskriminator for kva slag geografisk adresse dette er." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
@@ -2070,29 +2083,29 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/type"^^xsd:anyURI ;
     linkml:usage_slot_name "type" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Nettadresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Nettadresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Nettadresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Nettadresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:Nettadresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse"^^xsd:anyURI ;
     linkml:description "Ei nettadresse (protokoll, domenenavn og filsti)." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/domenenavn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/filsti>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/protokoll> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Postboksadresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Postboksadresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Postboksadresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Postboksadresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse"^^xsd:anyURI ;
     linkml:description "Ei postboksadresse." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_usage [ ] ;
@@ -2106,20 +2119,35 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/poststed> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/co_navn> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/coNavn"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/co_navn"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-geografisk-adresse/coNavn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/co_navn"^^xsd:anyURI ;
     linkml:description "C/O-namn (omsorgsperson/-verksemd) knytt til adressa." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/coNavn"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/coNavn"^^xsd:anyURI .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/type"^^xsd:anyURI ;
+    skos:prefLabel "type" ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/digital_adresse_type"^^xsd:anyURI ;
+    linkml:description "Diskriminator for kva slag digital adresse dette er." ;
+    linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+    linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+    linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_type> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/type"^^xsd:anyURI ;
+    linkml:usage_slot_name "digital_adresse_type" .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI ;
     skos:prefLabel "identifikator" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI ;
     linkml:description "Identifikator for den digitale adressa (form varierer per undertype)." ;
     linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
@@ -2127,23 +2155,21 @@
     linkml:is_usage_slot true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/identifikator"^^xsd:anyURI ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator"^^xsd:anyURI ;
     linkml:usage_slot_name "identifikator" .
 
-<https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
-    skos:prefLabel "type" ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
-    linkml:description "Diskriminator for kva slag digital adresse dette er." ;
-    linkml:domain <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
+<https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/felles/brreg-felles-digital-adresse/id"^^xsd:anyURI ;
+    skos:prefLabel "id" ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/digital_adresse_id"^^xsd:anyURI ;
+    linkml:description "URI-identifikator for ressursen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
-    linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/type> ;
-    linkml:is_usage_slot true ;
+    linkml:identifier true ;
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> ;
-    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/string> ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/type"^^xsd:anyURI ;
-    linkml:usage_slot_name "type" .
+    linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/uriorcurie> ;
+    linkml:required true ;
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/id"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/integer> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"." ;
@@ -2156,10 +2182,10 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#integer"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Adressenummer"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Adressenummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Adressenummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Adressenummer"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Adressenummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Adressenummer"^^xsd:anyURI ;
     linkml:description "Adressenummeret (husnummer og eventuell husbokstav) i ei vegadresse." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer_nummer>,
@@ -2167,10 +2193,10 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/id> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Kommune> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Kommune"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Kommune"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Kommune"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Kommune"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Kommune"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Kommune"^^xsd:anyURI ;
     linkml:description "Ein norsk kommune." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Kommune_kommunenavn>,
@@ -2224,10 +2250,10 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/rolle> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Fylke> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Fylke"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Fylke"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Fylke"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Fylke"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Fylke"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Fylke"^^xsd:anyURI ;
     linkml:description "Eit norsk fylke." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Fylke_fylkesnavn>,
@@ -2257,10 +2283,10 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/statsborgerskap> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Poststed> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Poststed"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Poststed"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Poststed"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Poststed"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Poststed"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Poststed"^^xsd:anyURI ;
     linkml:description "Eit poststed knytt til eit postnummer." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Poststed_navn>,
@@ -2279,10 +2305,10 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/id> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkeladresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Matrikkeladresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Matrikkeladresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse"^^xsd:anyURI ;
     linkml:description "Ei matrikkeladresse (knytt til eit matrikkelnummer)." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_usage [ ] ;
@@ -2323,34 +2349,11 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/id>,
         <https://data.norge.no/felles/brreg-felles-aktoer/mellomnavn> .
 
-<https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:DigitalAdresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/DigitalAdresse"^^xsd:anyURI ;
-    linkml:description "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under." ;
-    linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_type>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id> .
-
-<https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "locn:Address"^^xsd:anyURI ;
-    linkml:class_uri "http://www.w3.org/ns/locn#Address"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/GeografiskAdresse"^^xsd:anyURI ;
-    linkml:description "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under." ;
-    linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_br_adresse_id>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_type>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/co_navn>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/id> .
-
 <https://data.norge.no/felles/brreg-felles-aktoer/Vegadresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Vegadresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Vegadresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Vegadresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Vegadresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse"^^xsd:anyURI ;
     linkml:description "Ei vegadresse (adressenavn + adressenummer)." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_usage [ ] ;
@@ -2368,11 +2371,34 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/kort_adressenavn>,
         <https://data.norge.no/felles/brreg-felles-aktoer/poststed> .
 
+<https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-digital-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_digital_adresse:DigitalAdresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/DigitalAdresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-digital-adresse/DigitalAdresse"^^xsd:anyURI ;
+    linkml:description "Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_digital_adresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse_identifikator>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/digital_adresse_id> .
+
+<https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "locn:Address"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/ns/locn#Address"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/GeografiskAdresse"^^xsd:anyURI ;
+    linkml:description "Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_br_adresse_id>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse_type>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/co_navn>,
+        <https://data.norge.no/felles/brreg-felles-aktoer/id> .
+
 <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:Matrikkelnummer"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/Matrikkelnummer"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:Matrikkelnummer"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkelnummer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkelnummer"^^xsd:anyURI ;
     linkml:description "Eit matrikkelnummer (gårds-, bruks-, feste- og seksjonsnummer)." ;
     linkml:slot_usage [ ] ;
     linkml:slots <https://data.norge.no/felles/brreg-felles-aktoer/Matrikkelnummer_bruksnummer>,
@@ -2383,12 +2409,11 @@
         <https://data.norge.no/felles/brreg-felles-aktoer/seksjonsnummer> .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/id> a linkml:SlotDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/id"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/id"^^xsd:anyURI ;
     linkml:description "URI-identifikator for ressursen." ;
     linkml:domain_of <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Aktoer>,
-        <https://data.norge.no/felles/brreg-felles-aktoer/DigitalAdresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Fylke>,
         <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse>,
         <https://data.norge.no/felles/brreg-felles-aktoer/Kommune>,
@@ -2405,13 +2430,13 @@
     linkml:owner <https://data.norge.no/felles/brreg-felles-aktoer/Adressenummer> ;
     linkml:range <https://data.norge.no/felles/brreg-felles-aktoer/uriorcurie> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-adresse/id"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/id"^^xsd:anyURI .
 
 <https://data.norge.no/felles/brreg-felles-aktoer/InternasjonalAdresse> a linkml:ClassDefinition ;
-    skos:inScheme "https://data.norge.no/felles/brreg-felles-adresse"^^xsd:anyURI ;
-    skos:mappingRelation "brreg_felles_adresse:InternasjonalAdresse"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse"^^xsd:anyURI ;
-    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-adresse/InternasjonalAdresse"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/felles/brreg-felles-geografisk-adresse"^^xsd:anyURI ;
+    skos:mappingRelation "brreg_felles_geografisk_adresse:InternasjonalAdresse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse"^^xsd:anyURI ;
     linkml:description "Ei adresse i eit anna land enn Noreg, i fri form." ;
     linkml:is_a <https://data.norge.no/felles/brreg-felles-aktoer/GeografiskAdresse> ;
     linkml:slot_usage [ ] ;

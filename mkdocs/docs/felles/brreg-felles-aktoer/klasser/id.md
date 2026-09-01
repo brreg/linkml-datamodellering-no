@@ -9,7 +9,7 @@ _URI-identifikator for ressursen._
 
 
 
-URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.no/felles/brreg-felles-adresse/id)
+URI: [https://data.norge.no/felles/brreg-felles-geografisk-adresse/id](https://data.norge.no/felles/brreg-felles-geografisk-adresse/id)
 <!-- no inheritance hierarchy -->
 
 
@@ -21,7 +21,6 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [GeografiskAdresse](geografiskadresse.md) | Ei geografisk adresse. Abstrakt basisklasse for dei konkrete adressetypane under. |  no  |
-| [DigitalAdresse](digitaladresse.md) | Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under. |  no  |
 | [Poststed](poststed.md) | Eit poststed knytt til eit postnummer. |  no  |
 | [Kommune](kommune.md) | Ein norsk kommune. |  no  |
 | [Fylke](fylke.md) | Eit norsk fylke. |  no  |
@@ -40,12 +39,6 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 | [Vegadresse](vegadresse.md) | Ei vegadresse (adressenavn + adressenummer). |  no  |
 | [Matrikkeladresse](matrikkeladresse.md) | Ei matrikkeladresse (knytt til eit matrikkelnummer). |  no  |
 | [InternasjonalAdresse](internasjonaladresse.md) | Ei adresse i eit anna land enn Noreg, i fri form. |  no  |
-| [IPAdresse](ipadresse.md) | Ei IP-adresse. |  no  |
-| [EPostadresse](epostadresse.md) | Ei e-postadresse, delt opp i brukarnamn og domenenavn. |  no  |
-| [Nettadresse](nettadresse.md) | Ei nettadresse (protokoll, domenenavn og filsti). |  no  |
-| [Meldingsboks](meldingsboks.md) | Ei digital meldingsboks (t.d. Altinn). |  no  |
-| [Mobiltelefonnummer](mobiltelefonnummer.md) | Eit mobiltelefonnummer. |  no  |
-| [Telefonnummer](telefonnummer.md) | Eit fasttelefonnummer. |  no  |
 | [Virksomhet](virksomhet.md) | Ei verksemd registrert i Einingsregisteret. |  no  |
 | [Person](person.md) | Ein fysisk person. |  no  |
 
@@ -61,7 +54,7 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 | Property | Value |
 | --- | --- |
 | Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
-| Domain Of | [GeografiskAdresse](geografiskadresse.md), [DigitalAdresse](digitaladresse.md), [Poststed](poststed.md), [Kommune](kommune.md), [Fylke](fylke.md), [Matrikkelnummer](matrikkelnummer.md), [Adressenummer](adressenummer.md), [Aktoer](aktoer.md), [Kontaktinformasjon](kontaktinformasjon.md), [Rolle](rolle.md), [Rolletypegruppe](rolletypegruppe.md), [Relasjon](relasjon.md), [Personnavn](personnavn.md), [Personidentifikator](personidentifikator.md), [Virksomhetsidentifikator](virksomhetsidentifikator.md) |
+| Domain Of | [GeografiskAdresse](geografiskadresse.md), [Poststed](poststed.md), [Kommune](kommune.md), [Fylke](fylke.md), [Matrikkelnummer](matrikkelnummer.md), [Adressenummer](adressenummer.md), [Aktoer](aktoer.md), [Kontaktinformasjon](kontaktinformasjon.md), [Rolle](rolle.md), [Rolletypegruppe](rolletypegruppe.md), [Relasjon](relasjon.md), [Personnavn](personnavn.md), [Personidentifikator](personidentifikator.md), [Virksomhetsidentifikator](virksomhetsidentifikator.md) |
 
 ### Cardinality and Requirements
 
@@ -94,7 +87,7 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -103,8 +96,8 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/felles/brreg-felles-adresse/id |
-| native | https://data.norge.no/felles/brreg-felles-adresse/id |
+| self | https://data.norge.no/felles/brreg-felles-geografisk-adresse/id |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/id |
 
 
 
@@ -115,11 +108,10 @@ URI: [https://data.norge.no/felles/brreg-felles-adresse/id](https://data.norge.n
 ```yaml
 name: id
 description: URI-identifikator for ressursen.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 identifier: true
 domain_of:
 - GeografiskAdresse
-- DigitalAdresse
 - Poststed
 - Kommune
 - Fylke

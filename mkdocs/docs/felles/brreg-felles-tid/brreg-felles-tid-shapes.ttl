@@ -10,22 +10,22 @@ dct:PeriodOfTime a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
-            sh:description "Startdatoen for tidsperioden." ;
+            sh:description "Sluttdatoen for tidsperioden." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path brreg_felles_tid:fraDato ],
+            sh:order 2 ;
+            sh:path brreg_felles_tid:tilDato ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path brreg_felles_tid:id ],
         [ sh:datatype xsd:date ;
-            sh:description "Sluttdatoen for tidsperioden." ;
+            sh:description "Startdatoen for tidsperioden." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path brreg_felles_tid:tilDato ] ;
+            sh:order 1 ;
+            sh:path brreg_felles_tid:fraDato ] ;
     sh:targetClass dct:PeriodOfTime .
 
 brreg_felles_tid:TidsperiodeDatoKlokkeslett a sh:NodeShape ;
@@ -38,17 +38,17 @@ brreg_felles_tid:TidsperiodeDatoKlokkeslett a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path brreg_felles_tid:til ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path brreg_felles_tid:id ],
         [ sh:datatype xsd:dateTime ;
             sh:description "Start-tidspunktet (dato og klokkeslett) for tidsperioden." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path brreg_felles_tid:fra ] ;
+            sh:path brreg_felles_tid:fra ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path brreg_felles_tid:id ] ;
     sh:targetClass brreg_felles_tid:TidsperiodeDatoKlokkeslett .
 
 

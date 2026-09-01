@@ -9,7 +9,7 @@ _Generisk identifikator (form varierer per samanheng — brukt både for digital
 
 
 
-URI: [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-felles-adresse/identifikator)
+URI: [brreg_felles_digital_adresse:identifikator](https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator)
 <!-- no inheritance hierarchy -->
 
 
@@ -44,7 +44,7 @@ URI: [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-fel
 | --- | --- |
 | Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [DigitalAdresse](digitaladresse.md), [Aktoer](aktoer.md) |
-| Slot URI | [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-felles-adresse/identifikator) |
+| Slot URI | [brreg_felles_digital_adresse:identifikator](https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator) |
 
 ### Cardinality and Requirements
 
@@ -69,7 +69,7 @@ URI: [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-fel
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 
 
 
@@ -78,8 +78,8 @@ URI: [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-fel
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:identifikator |
-| native | https://data.norge.no/felles/brreg-felles-adresse/identifikator |
+| self | brreg_felles_digital_adresse:identifikator |
+| native | https://data.norge.no/felles/brreg-felles-digital-adresse/identifikator |
 
 
 
@@ -91,8 +91,8 @@ URI: [brreg_felles_adresse:identifikator](https://data.norge.no/felles/brreg-fel
 name: identifikator
 description: Generisk identifikator (form varierer per samanheng — brukt både for
   digitale adresser og, via brreg-felles-aktoer, for aktørar generelt).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
-slot_uri: brreg_felles_adresse:identifikator
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+slot_uri: brreg_felles_digital_adresse:identifikator
 domain_of:
 - DigitalAdresse
 - Aktoer

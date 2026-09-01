@@ -9,7 +9,7 @@ _Ei IP-adresse._
 
 
 
-URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-adresse/IPAdresse)
+URI: [brreg_felles_digital_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse)
 
 
 
@@ -22,14 +22,25 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
       DigitalAdresse <|-- IPAdresse
         click DigitalAdresse href "../digitaladresse/"
       
-      IPAdresse : id
+      IPAdresse : digital_adresse_id
         
           
     
         
         
-        IPAdresse --> "1" Uriorcurie : id
+        IPAdresse --> "1" Uriorcurie : digital_adresse_id
         click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
+    
+
+        
+      IPAdresse : digital_adresse_type
+        
+          
+    
+        
+        
+        IPAdresse --> "0..1" String : digital_adresse_type
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -51,17 +62,6 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
         
         
         IPAdresse --> "0..1" String : ip_nummer
-        click String href "http://www.w3.org/2001/XMLSchema#string"
-    
-
-        
-      IPAdresse : type
-        
-          
-    
-        
-        
-        IPAdresse --> "0..1" String : type
         click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
@@ -89,7 +89,7 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-adresse/IPAdresse) |
+| Class URI | [brreg_felles_digital_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse) |
 
 ## Eigenskapar
 
@@ -104,9 +104,9 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
 
 | Navn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- |
-| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_id](digital_adresse_id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
 | [identifikator](identifikator.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Identifikator for den digitale adressa (form varierer per undertype). | [DigitalAdresse](digitaladresse.md) |
-| [type](type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_type](digital_adresse_type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
 
 
 
@@ -131,7 +131,7 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 
 
 
@@ -140,8 +140,8 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:IPAdresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/IPAdresse |
+| self | brreg_felles_digital_adresse:IPAdresse |
+| native | https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse |
 
 
 
@@ -158,7 +158,7 @@ URI: [brreg_felles_adresse:IPAdresse](https://data.norge.no/felles/brreg-felles-
 ```yaml
 name: IPAdresse
 description: Ei IP-adresse.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 slots:
 - ip_nummer
@@ -166,7 +166,7 @@ slot_usage:
   ip_nummer:
     name: ip_nummer
     description: IP-nummeret.
-class_uri: brreg_felles_adresse:IPAdresse
+class_uri: brreg_felles_digital_adresse:IPAdresse
 
 ```
 </details>
@@ -177,7 +177,7 @@ class_uri: brreg_felles_adresse:IPAdresse
 ```yaml
 name: IPAdresse
 description: Ei IP-adresse.
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 slot_usage:
   ip_nummer:
@@ -187,60 +187,45 @@ attributes:
   ip_nummer:
     name: ip_nummer
     description: IP-nummeret.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:ipNummer
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:ipNummer
     owner: IPAdresse
     domain_of:
     - IPAdresse
     range: string
-  id:
-    name: id
+  digital_adresse_id:
+    name: digital_adresse_id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:id
     identifier: true
+    alias: id
     owner: IPAdresse
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Poststed
-    - Kommune
-    - Fylke
-    - Matrikkelnummer
-    - Adressenummer
-    - Aktoer
-    - Kontaktinformasjon
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
-    - Personnavn
-    - Personidentifikator
-    - Virksomhetsidentifikator
     range: uriorcurie
     required: true
   identifikator:
     name: identifikator
     description: Identifikator for den digitale adressa (form varierer per undertype).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:identifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:identifikator
     owner: IPAdresse
     domain_of:
     - DigitalAdresse
     - Aktoer
     range: string
-  type:
-    name: type
+  digital_adresse_type:
+    name: digital_adresse_type
     description: Diskriminator for kva slag digital adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:type
+    alias: type
     owner: IPAdresse
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
     range: string
-class_uri: brreg_felles_adresse:IPAdresse
+class_uri: brreg_felles_digital_adresse:IPAdresse
 
 ```
 </details>

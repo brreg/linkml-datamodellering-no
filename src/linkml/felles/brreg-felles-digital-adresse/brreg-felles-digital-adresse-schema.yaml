@@ -1,0 +1,188 @@
+id: https://data.norge.no/felles/brreg-felles-digital-adresse
+name: brreg-felles-digital-adresse
+title: BRREG felles digital adresse
+description: >-
+  Gjenbrukbare digitale adresseklassar utleia frå Brønnøysundregistrene
+  (BR) sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse"
+  (DigitalAdresse-hierarkiet). Sjå
+  specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for
+  bakgrunn, metode og avklaringane denne modellen byggjer på.
+
+  BR sin eigen `Nettadresse`-undertype "Aksesspunkt" er medvite utelaten
+  her: feltet `aksesspunktoperatoer` peikar til `Virksomhet` (definert i
+  brreg-felles-aktoer, som importerer denne modellen) og ville gjort
+  importgrafen sirkulær. Sjå nemnde spec § Funn 4.
+
+version: "0.1.0"
+license: https://data.norge.no/nlod/no/2.0
+
+annotations:
+  utgiver: https://data.norge.no/organizations/974760673
+  endringsdato: "2026-09-01"
+  utgivelsesdato: "2026-09-01"
+  status: http://purl.org/adms/status/UnderDevelopment
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  brreg_felles_digital_adresse: https://data.norge.no/felles/brreg-felles-digital-adresse/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/felles/brreg-felles-digital-adresse/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../brreg-felles-typer/brreg-felles-typer-schema
+
+# ---------------------------------------------------------------------------
+# Klasser
+#
+# Kjelde: BR BRReferansemodell_v3 (pakken "Adresse"), DigitalAdresse-
+# hierarkiet. Felt som i kjelda er typa generisk til den abstrakte
+# Strukturtypekatalog-basen "Identifikator" — og som ikkje har eit
+# namnelik motstykke i brreg-felles-typer — er forenkla til `string` her,
+# med ein TODO-kommentar (jf. avklaring i søsterspecen, sidan
+# brreg-felles-struktur-typer ikkje vart oppretta).
+# ---------------------------------------------------------------------------
+
+classes:
+
+  DigitalAdresse:
+    class_uri: brreg_felles_digital_adresse:DigitalAdresse
+    description: Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under.
+    slots:
+      - digital_adresse_id
+      - identifikator
+      - digital_adresse_type
+    slot_usage:
+      identifikator:
+        description: Identifikator for den digitale adressa (form varierer per undertype).
+        # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+      digital_adresse_type:
+        description: Diskriminator for kva slag digital adresse dette er.
+
+  IPAdresse:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:IPAdresse
+    description: Ei IP-adresse.
+    slots:
+      - ip_nummer
+    slot_usage:
+      ip_nummer:
+        description: IP-nummeret.
+        # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+
+  EPostadresse:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:EPostadresse
+    description: Ei e-postadresse, delt opp i brukarnamn og domenenavn.
+    slots:
+      - domenenavn
+      - brukernavn
+
+  Nettadresse:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:Nettadresse
+    description: Ei nettadresse (protokoll, domenenavn og filsti).
+    slots:
+      - protokoll
+      - domenenavn
+      - filsti
+
+  Meldingsboks:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:Meldingsboks
+    description: Ei digital meldingsboks (t.d. Altinn).
+    slots:
+      - meldingsbokstype
+
+  Mobiltelefonnummer:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:Mobiltelefonnummer
+    description: Eit mobiltelefonnummer.
+    slots:
+      - prefiks_med_nasjonal_kode
+      - nasjonalt_nummer
+
+  Telefonnummer:
+    is_a: DigitalAdresse
+    class_uri: brreg_felles_digital_adresse:Telefonnummer
+    description: Eit fasttelefonnummer.
+    slots:
+      - prefiks_med_nasjonal_kode
+      - nasjonalt_nummer
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  digital_adresse_id:
+    alias: id
+    slot_uri: brreg_felles_digital_adresse:id
+    identifier: true
+    range: uriorcurie
+    description: URI-identifikator for ressursen.
+    # Namngjeven "digital_adresse_id" (i staden for "id") for å unngå eit
+    # navnekollisjon-avvik ("Conflicting URIs") når brreg-felles-aktoer
+    # importerer både denne og brreg-felles-geografisk-adresse (som har sin
+    # eigen, uavhengig definerte "id"-slot) — LinkML tillet ikkje at to
+    # sysken-skjema uavhengig definerer eit globalt element med same navn
+    # når begge vert slått saman av ein tredje importør. `alias: id` gjer at
+    # slotet framleis presenterer seg som "id" i klassane som brukar det.
+
+  digital_adresse_type:
+    alias: type
+    slot_uri: brreg_felles_digital_adresse:type
+    range: string
+    description: "Diskriminator for kva slag adresse dette er."
+    # Sjå grunngjeving for "digital_adresse_"-prefikset ved digital_adresse_id over.
+
+  identifikator:
+    slot_uri: brreg_felles_digital_adresse:identifikator
+    range: string
+    description: >-
+      Generisk identifikator (form varierer per samanheng — brukt både for
+      digitale adresser og, via brreg-felles-aktoer, for aktørar generelt).
+    # TODO: vurder eigen felles-type når/dersom brreg-felles-struktur-typer vert oppretta.
+
+  ip_nummer:
+    slot_uri: brreg_felles_digital_adresse:ipNummer
+    range: string
+    description: "IP-nummeret."
+
+  domenenavn:
+    slot_uri: brreg_felles_digital_adresse:domenenavn
+    range: string
+    description: "Domenenamnet i adressa."
+
+  brukernavn:
+    slot_uri: brreg_felles_digital_adresse:brukernavn
+    range: string
+    description: "Brukarnamnet (lokaldelen) i e-postadressa."
+
+  protokoll:
+    slot_uri: brreg_felles_digital_adresse:protokoll
+    range: string
+    description: "Protokollen for nettadressa, t.d. https."
+
+  filsti:
+    slot_uri: brreg_felles_digital_adresse:filsti
+    range: string
+    description: "Filstien i nettadressa."
+
+  meldingsbokstype:
+    slot_uri: brreg_felles_digital_adresse:meldingsbokstype
+    range: string
+    description: "Kva type digital meldingsboks dette er (t.d. Altinn)."
+
+  prefiks_med_nasjonal_kode:
+    slot_uri: brreg_felles_digital_adresse:prefiksMedNasjonalKode
+    range: PrefiksMedNasjonalKode
+    description: 'Internasjonalt telefonprefiks (landkode), t.d. "+47".'
+
+  nasjonalt_nummer:
+    slot_uri: brreg_felles_digital_adresse:nasjonaltNummer
+    range: NasjonaltNummer
+    description: "Telefonnummeret utan landkode/prefiks."

@@ -1,0 +1,57 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "DigitalAdresse" [[{Ei digital adresse. Abstrakt basisklasse for dei konkrete digitale adressetypane under.}]] {
+    {field} id : uriorcurie  
+    {field} identifikator : string  
+    {field} type : string  
+}
+class "Telefonnummer" [[{Eit fasttelefonnummer.}]] {
+    {field} prefiks_med_nasjonal_kode : PrefiksMedNasjonalKode  
+    {field} nasjonalt_nummer : NasjonaltNummer  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Nettadresse" [[{Ei nettadresse (protokoll, domenenavn og filsti).}]] {
+    {field} protokoll : string  
+    {field} domenenavn : string  
+    {field} filsti : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Mobiltelefonnummer" [[{Eit mobiltelefonnummer.}]] {
+    {field} prefiks_med_nasjonal_kode : PrefiksMedNasjonalKode  
+    {field} nasjonalt_nummer : NasjonaltNummer  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "Meldingsboks" [[{Ei digital meldingsboks (t.d. Altinn).}]] {
+    {field} meldingsbokstype : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "IPAdresse" [[{Ei IP-adresse.}]] {
+    {field} ip_nummer : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+class "EPostadresse" [[{Ei e-postadresse, delt opp i brukarnamn og domenenavn.}]] {
+    {field} domenenavn : string  
+    {field} brukernavn : string  
+    {field} id(i) : uriorcurie  
+    {field} identifikator(i) : string  
+    {field} type(i) : string  
+}
+"DigitalAdresse" ^-- "Telefonnummer"
+"DigitalAdresse" ^-- "Nettadresse"
+"DigitalAdresse" ^-- "Mobiltelefonnummer"
+"DigitalAdresse" ^-- "Meldingsboks"
+"DigitalAdresse" ^-- "IPAdresse"
+"DigitalAdresse" ^-- "EPostadresse"
+@enduml

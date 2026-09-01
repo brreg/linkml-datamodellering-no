@@ -9,7 +9,7 @@ _Ei digital meldingsboks (t.d. Altinn)._
 
 
 
-URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks)
+URI: [brreg_felles_digital_adresse:Meldingsboks](https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks)
 
 
 
@@ -22,14 +22,25 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
       DigitalAdresse <|-- Meldingsboks
         click DigitalAdresse href "../digitaladresse/"
       
-      Meldingsboks : id
+      Meldingsboks : digital_adresse_id
         
           
     
         
         
-        Meldingsboks --> "1" Uriorcurie : id
+        Meldingsboks --> "1" Uriorcurie : digital_adresse_id
         click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
+    
+
+        
+      Meldingsboks : digital_adresse_type
+        
+          
+    
+        
+        
+        Meldingsboks --> "0..1" String : digital_adresse_type
+        click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
         
@@ -51,17 +62,6 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
         
         
         Meldingsboks --> "0..1" String : meldingsbokstype
-        click String href "http://www.w3.org/2001/XMLSchema#string"
-    
-
-        
-      Meldingsboks : type
-        
-          
-    
-        
-        
-        Meldingsboks --> "0..1" String : type
         click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
@@ -89,7 +89,7 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks) |
+| Class URI | [brreg_felles_digital_adresse:Meldingsboks](https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks) |
 
 ## Eigenskapar
 
@@ -104,9 +104,9 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
 
 | Navn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- |
-| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_id](digital_adresse_id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
 | [identifikator](identifikator.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Identifikator for den digitale adressa (form varierer per undertype). | [DigitalAdresse](digitaladresse.md) |
-| [type](type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_type](digital_adresse_type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
 
 
 
@@ -131,7 +131,7 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 
 
 
@@ -140,8 +140,8 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Meldingsboks |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Meldingsboks |
+| self | brreg_felles_digital_adresse:Meldingsboks |
+| native | https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks |
 
 
 
@@ -158,11 +158,11 @@ URI: [brreg_felles_adresse:Meldingsboks](https://data.norge.no/felles/brreg-fell
 ```yaml
 name: Meldingsboks
 description: Ei digital meldingsboks (t.d. Altinn).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 slots:
 - meldingsbokstype
-class_uri: brreg_felles_adresse:Meldingsboks
+class_uri: brreg_felles_digital_adresse:Meldingsboks
 
 ```
 </details>
@@ -173,66 +173,51 @@ class_uri: brreg_felles_adresse:Meldingsboks
 ```yaml
 name: Meldingsboks
 description: Ei digital meldingsboks (t.d. Altinn).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 attributes:
   meldingsbokstype:
     name: meldingsbokstype
     description: Kva type digital meldingsboks dette er (t.d. Altinn).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:meldingsbokstype
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:meldingsbokstype
     owner: Meldingsboks
     domain_of:
     - Meldingsboks
     range: string
-  id:
-    name: id
+  digital_adresse_id:
+    name: digital_adresse_id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:id
     identifier: true
+    alias: id
     owner: Meldingsboks
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Poststed
-    - Kommune
-    - Fylke
-    - Matrikkelnummer
-    - Adressenummer
-    - Aktoer
-    - Kontaktinformasjon
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
-    - Personnavn
-    - Personidentifikator
-    - Virksomhetsidentifikator
     range: uriorcurie
     required: true
   identifikator:
     name: identifikator
     description: Identifikator for den digitale adressa (form varierer per undertype).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:identifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:identifikator
     owner: Meldingsboks
     domain_of:
     - DigitalAdresse
     - Aktoer
     range: string
-  type:
-    name: type
+  digital_adresse_type:
+    name: digital_adresse_type
     description: Diskriminator for kva slag digital adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:type
+    alias: type
     owner: Meldingsboks
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Meldingsboks
+class_uri: brreg_felles_digital_adresse:Meldingsboks
 
 ```
 </details>

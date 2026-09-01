@@ -9,7 +9,7 @@ _Ei matrikkeladresse (knytt til eit matrikkelnummer)._
 
 
 
-URI: [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse)
+URI: [brreg_felles_geografisk_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse)
 
 
 
@@ -144,7 +144,7 @@ URI: [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse) |
+| Class URI | [brreg_felles_geografisk_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse) |
 
 ## Eigenskapar
 
@@ -191,7 +191,7 @@ URI: [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -200,8 +200,8 @@ URI: [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Matrikkeladresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Matrikkeladresse |
+| self | brreg_felles_geografisk_adresse:Matrikkeladresse |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse |
 
 
 
@@ -218,7 +218,7 @@ URI: [brreg_felles_adresse:Matrikkeladresse](https://data.norge.no/felles/brreg-
 ```yaml
 name: Matrikkeladresse
 description: Ei matrikkeladresse (knytt til eit matrikkelnummer).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slots:
 - matrikkeladresse_id
@@ -230,7 +230,7 @@ slot_usage:
   matrikkeladresse_id:
     name: matrikkeladresse_id
     description: BR sin interne identifikator for matrikkeladressa.
-class_uri: brreg_felles_adresse:Matrikkeladresse
+class_uri: brreg_felles_geografisk_adresse:Matrikkeladresse
 
 ```
 </details>
@@ -241,7 +241,7 @@ class_uri: brreg_felles_adresse:Matrikkeladresse
 ```yaml
 name: Matrikkeladresse
 description: Ei matrikkeladresse (knytt til eit matrikkelnummer).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slot_usage:
   matrikkeladresse_id:
@@ -251,8 +251,8 @@ attributes:
   matrikkeladresse_id:
     name: matrikkeladresse_id
     description: BR sin interne identifikator for matrikkeladressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:matrikkeladresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:matrikkeladresseId
     owner: Matrikkeladresse
     domain_of:
     - Matrikkeladresse
@@ -260,8 +260,8 @@ attributes:
   bruksenhetsnummer:
     name: bruksenhetsnummer
     description: Bruksenhetsnummer (bustadnummer) i adressa, t.d. "H0101".
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:bruksenhetsnummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:bruksenhetsnummer
     owner: Matrikkeladresse
     domain_of:
     - Vegadresse
@@ -270,8 +270,8 @@ attributes:
   adressetilleggsnavn:
     name: adressetilleggsnavn
     description: Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressetilleggsnavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressetilleggsnavn
     owner: Matrikkeladresse
     domain_of:
     - Vegadresse
@@ -280,8 +280,8 @@ attributes:
   matrikkelnummer:
     name: matrikkelnummer
     description: Matrikkelnummeret adressa er knytt til.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:matrikkelnummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:matrikkelnummer
     owner: Matrikkeladresse
     domain_of:
     - Matrikkeladresse
@@ -289,8 +289,8 @@ attributes:
   undernummer:
     name: undernummer
     description: Undernummer for seksjonert eigedom.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:undernummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:undernummer
     owner: Matrikkeladresse
     domain_of:
     - Matrikkeladresse
@@ -298,12 +298,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: Matrikkeladresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -322,8 +321,8 @@ attributes:
   br_adresse_id:
     name: br_adresse_id
     description: BR sin interne identifikator for adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:brAdresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
     owner: Matrikkeladresse
     domain_of:
     - GeografiskAdresse
@@ -331,8 +330,8 @@ attributes:
   co_navn:
     name: co_navn
     description: C/O-namn (omsorgsperson/-verksemd) knytt til adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:coNavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
     owner: Matrikkeladresse
     domain_of:
     - GeografiskAdresse
@@ -340,17 +339,16 @@ attributes:
   type:
     name: type
     description: Diskriminator for kva slag geografisk adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:type
     owner: Matrikkeladresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Rolle
     - Rolletypegruppe
     - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Matrikkeladresse
+class_uri: brreg_felles_geografisk_adresse:Matrikkeladresse
 
 ```
 </details>

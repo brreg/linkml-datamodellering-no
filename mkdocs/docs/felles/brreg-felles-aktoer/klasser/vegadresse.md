@@ -9,7 +9,7 @@ _Ei vegadresse (adressenavn + adressenummer)._
 
 
 
-URI: [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles-adresse/Vegadresse)
+URI: [brreg_felles_geografisk_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse)
 
 
 
@@ -188,7 +188,7 @@ URI: [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles-adresse/Vegadresse) |
+| Class URI | [brreg_felles_geografisk_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse) |
 
 ## Eigenskapar
 
@@ -239,7 +239,7 @@ URI: [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 
 
 
@@ -248,8 +248,8 @@ URI: [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Vegadresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Vegadresse |
+| self | brreg_felles_geografisk_adresse:Vegadresse |
+| native | https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse |
 
 
 
@@ -266,7 +266,7 @@ URI: [brreg_felles_adresse:Vegadresse](https://data.norge.no/felles/brreg-felles
 ```yaml
 name: Vegadresse
 description: Ei vegadresse (adressenavn + adressenummer).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slots:
 - vegadresse_id
@@ -282,7 +282,7 @@ slot_usage:
   vegadresse_id:
     name: vegadresse_id
     description: BR sin interne identifikator for vegadressa.
-class_uri: brreg_felles_adresse:Vegadresse
+class_uri: brreg_felles_geografisk_adresse:Vegadresse
 
 ```
 </details>
@@ -293,7 +293,7 @@ class_uri: brreg_felles_adresse:Vegadresse
 ```yaml
 name: Vegadresse
 description: Ei vegadresse (adressenavn + adressenummer).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
 is_a: GeografiskAdresse
 slot_usage:
   vegadresse_id:
@@ -303,8 +303,8 @@ attributes:
   vegadresse_id:
     name: vegadresse_id
     description: BR sin interne identifikator for vegadressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:vegadresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:vegadresseId
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -312,8 +312,8 @@ attributes:
   bruksenhetsnummer:
     name: bruksenhetsnummer
     description: Bruksenhetsnummer (bustadnummer) i adressa, t.d. "H0101".
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:bruksenhetsnummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:bruksenhetsnummer
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -322,8 +322,8 @@ attributes:
   adressenavn:
     name: adressenavn
     description: Namnet på vegen/gata/staden.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressenavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressenavn
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -332,8 +332,8 @@ attributes:
   kort_adressenavn:
     name: kort_adressenavn
     description: Forkorta versjon av adressenamnet.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:kortAdressenavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:kortAdressenavn
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -341,8 +341,8 @@ attributes:
   adressenummer:
     name: adressenummer
     description: Husnummer og eventuell husbokstav i vegadressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressenummer
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressenummer
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -350,8 +350,8 @@ attributes:
   poststed:
     name: poststed
     description: Poststedet adressa høyrer til.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:poststed
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:poststed
     owner: Vegadresse
     domain_of:
     - Postboksadresse
@@ -361,8 +361,8 @@ attributes:
   adressetilleggsnavn:
     name: adressetilleggsnavn
     description: Tilleggsnamn til adressa (t.d. stadnamn i tillegg til vegadresse).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:adressetilleggsnavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:adressetilleggsnavn
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -371,8 +371,8 @@ attributes:
   kommune:
     name: kommune
     description: Kommunen adressa ligg i.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:kommune
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:kommune
     owner: Vegadresse
     domain_of:
     - Postboksadresse
@@ -382,8 +382,8 @@ attributes:
   fylke:
     name: fylke
     description: Fylket adressa ligg i.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:fylke
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:fylke
     owner: Vegadresse
     domain_of:
     - Vegadresse
@@ -391,12 +391,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
     identifier: true
     owner: Vegadresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Poststed
     - Kommune
     - Fylke
@@ -415,8 +414,8 @@ attributes:
   br_adresse_id:
     name: br_adresse_id
     description: BR sin interne identifikator for adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:brAdresseId
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:brAdresseId
     owner: Vegadresse
     domain_of:
     - GeografiskAdresse
@@ -424,8 +423,8 @@ attributes:
   co_navn:
     name: co_navn
     description: C/O-namn (omsorgsperson/-verksemd) knytt til adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:coNavn
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:coNavn
     owner: Vegadresse
     domain_of:
     - GeografiskAdresse
@@ -433,17 +432,16 @@ attributes:
   type:
     name: type
     description: Diskriminator for kva slag geografisk adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+    slot_uri: brreg_felles_geografisk_adresse:type
     owner: Vegadresse
     domain_of:
     - GeografiskAdresse
-    - DigitalAdresse
     - Rolle
     - Rolletypegruppe
     - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Vegadresse
+class_uri: brreg_felles_geografisk_adresse:Vegadresse
 
 ```
 </details>

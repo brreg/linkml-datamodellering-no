@@ -9,7 +9,7 @@ _Ei nettadresse (protokoll, domenenavn og filsti)._
 
 
 
-URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felles-adresse/Nettadresse)
+URI: [brreg_felles_digital_adresse:Nettadresse](https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse)
 
 
 
@@ -22,6 +22,28 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
       DigitalAdresse <|-- Nettadresse
         click DigitalAdresse href "../digitaladresse/"
       
+      Nettadresse : digital_adresse_id
+        
+          
+    
+        
+        
+        Nettadresse --> "1" Uriorcurie : digital_adresse_id
+        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
+    
+
+        
+      Nettadresse : digital_adresse_type
+        
+          
+    
+        
+        
+        Nettadresse --> "0..1" String : digital_adresse_type
+        click String href "http://www.w3.org/2001/XMLSchema#string"
+    
+
+        
       Nettadresse : domenenavn
         
           
@@ -44,17 +66,6 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
     
 
         
-      Nettadresse : id
-        
-          
-    
-        
-        
-        Nettadresse --> "1" Uriorcurie : id
-        click Uriorcurie href "http://www.w3.org/2001/XMLSchema#anyURI"
-    
-
-        
       Nettadresse : identifikator
         
           
@@ -73,17 +84,6 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
         
         
         Nettadresse --> "0..1" String : protokoll
-        click String href "http://www.w3.org/2001/XMLSchema#string"
-    
-
-        
-      Nettadresse : type
-        
-          
-    
-        
-        
-        Nettadresse --> "0..1" String : type
         click String href "http://www.w3.org/2001/XMLSchema#string"
     
 
@@ -111,7 +111,7 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
 
 | Property | Value |
 | --- | --- |
-| Class URI | [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felles-adresse/Nettadresse) |
+| Class URI | [brreg_felles_digital_adresse:Nettadresse](https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse) |
 
 ## Eigenskapar
 
@@ -128,9 +128,9 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
 
 | Navn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- |
-| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_id](digital_adresse_id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen. | [DigitalAdresse](digitaladresse.md) |
 | [identifikator](identifikator.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Identifikator for den digitale adressa (form varierer per undertype). | [DigitalAdresse](digitaladresse.md) |
-| [type](type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
+| [digital_adresse_type](digital_adresse_type.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Diskriminator for kva slag digital adresse dette er. | [DigitalAdresse](digitaladresse.md) |
 
 
 
@@ -155,7 +155,7 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
 ### Schema Source
 
 
-* from schema: https://data.norge.no/felles/brreg-felles-adresse
+* from schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 
 
 
@@ -164,8 +164,8 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | brreg_felles_adresse:Nettadresse |
-| native | https://data.norge.no/felles/brreg-felles-adresse/Nettadresse |
+| self | brreg_felles_digital_adresse:Nettadresse |
+| native | https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse |
 
 
 
@@ -182,13 +182,13 @@ URI: [brreg_felles_adresse:Nettadresse](https://data.norge.no/felles/brreg-felle
 ```yaml
 name: Nettadresse
 description: Ei nettadresse (protokoll, domenenavn og filsti).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 slots:
 - protokoll
 - domenenavn
 - filsti
-class_uri: brreg_felles_adresse:Nettadresse
+class_uri: brreg_felles_digital_adresse:Nettadresse
 
 ```
 </details>
@@ -199,14 +199,14 @@ class_uri: brreg_felles_adresse:Nettadresse
 ```yaml
 name: Nettadresse
 description: Ei nettadresse (protokoll, domenenavn og filsti).
-from_schema: https://data.norge.no/felles/brreg-felles-adresse
+from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
 is_a: DigitalAdresse
 attributes:
   protokoll:
     name: protokoll
     description: Protokollen for nettadressa, t.d. https.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:protokoll
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:protokoll
     owner: Nettadresse
     domain_of:
     - Nettadresse
@@ -214,8 +214,8 @@ attributes:
   domenenavn:
     name: domenenavn
     description: Domenenamnet i adressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:domenenavn
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:domenenavn
     owner: Nettadresse
     domain_of:
     - EPostadresse
@@ -224,60 +224,45 @@ attributes:
   filsti:
     name: filsti
     description: Filstien i nettadressa.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:filsti
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:filsti
     owner: Nettadresse
     domain_of:
     - Nettadresse
     range: string
-  id:
-    name: id
+  digital_adresse_id:
+    name: digital_adresse_id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:id
     identifier: true
+    alias: id
     owner: Nettadresse
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Poststed
-    - Kommune
-    - Fylke
-    - Matrikkelnummer
-    - Adressenummer
-    - Aktoer
-    - Kontaktinformasjon
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
-    - Personnavn
-    - Personidentifikator
-    - Virksomhetsidentifikator
     range: uriorcurie
     required: true
   identifikator:
     name: identifikator
     description: Identifikator for den digitale adressa (form varierer per undertype).
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:identifikator
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:identifikator
     owner: Nettadresse
     domain_of:
     - DigitalAdresse
     - Aktoer
     range: string
-  type:
-    name: type
+  digital_adresse_type:
+    name: digital_adresse_type
     description: Diskriminator for kva slag digital adresse dette er.
-    from_schema: https://data.norge.no/felles/brreg-felles-adresse
-    slot_uri: brreg_felles_adresse:type
+    from_schema: https://data.norge.no/felles/brreg-felles-digital-adresse
+    slot_uri: brreg_felles_digital_adresse:type
+    alias: type
     owner: Nettadresse
     domain_of:
-    - GeografiskAdresse
     - DigitalAdresse
-    - Rolle
-    - Rolletypegruppe
-    - Relasjon
     range: string
-class_uri: brreg_felles_adresse:Nettadresse
+class_uri: brreg_felles_digital_adresse:Nettadresse
 
 ```
 </details>

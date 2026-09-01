@@ -2,13 +2,14 @@
 
 FELLES-domenet inneheld gjenbrukbare felleskomponentar utleia frå Brønnøysundregistrene (BR) sine interne referansemodellar (BRReferansemodell_v3, Strukturtypekatalog_v1, Løsningstypekatalog_v1), meint for import inn i andre domenemodellar — først og fremst OREG-modellane for Enhetsregisteret.
 
-Domenet inneheld fire modellar: `brreg-felles-typer` (gjenbrukbare primitivtypar), `brreg-felles-tid` (tidsperiode-klassar), `brreg-felles-adresse` (geografisk og digital adresse) og `brreg-felles-aktoer` (Aktør, Virksomhet, Person, Rolle m.fl.). Importrekkjefølgja følgjer denne lista — kvar modell kan importere dei føregåande, men ikkje omvendt.
+Domenet inneheld fem modellar: `brreg-felles-typer` (gjenbrukbare primitivtypar), `brreg-felles-tid` (tidsperiode-klassar), `brreg-felles-geografisk-adresse` (geografisk adresse), `brreg-felles-digital-adresse` (digital adresse) og `brreg-felles-aktoer` (Aktør, Virksomhet, Person, Rolle m.fl.). Importrekkjefølgja følgjer denne lista — kvar modell kan importere dei føregåande, men ikkje omvendt.
 
 **Typisk brukar:** Modellerarar i Brønnøysundregistrene som treng felles adresse-, aktør-, tids- eller typedefinisjonar i eigne domenemodellar, i staden for å redefinere dei lokalt i kvart skjema.
 
 | Modell | Tilgjengelege artefakter |
 |--------|--------------------------|
-| [brreg-felles-adresse](brreg-felles-adresse/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
 | [brreg-felles-aktoer](brreg-felles-aktoer/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [brreg-felles-digital-adresse](brreg-felles-digital-adresse/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OpenAPI 3.1 · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · GraphQL-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [brreg-felles-geografisk-adresse](brreg-felles-geografisk-adresse/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OpenAPI 3.1 · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · GraphQL-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
 | [brreg-felles-tid](brreg-felles-tid/index.md) | SHACL shapes · OWL ontologi · RDF/Turtle skjema · ER-diagram (Mermaid) · PlantUML-diagram |
 | [brreg-felles-typer](brreg-felles-typer/index.md) | ER-diagram (Mermaid) |

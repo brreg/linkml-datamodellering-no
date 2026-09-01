@@ -1,0 +1,53 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-digital-adresse
+tittel:
+  nb: BRREG felles digital adresse
+  nn: BRREG felles digital adresse
+beskrivelse:
+  nb: 'Gjenbrukbare digitale adresseklassar utleia frå Brønnøysundregistrene (BR)
+    sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" (DigitalAdresse-hierarkiet).
+    Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+
+    BR sin eigen `Nettadresse`-undertype "Aksesspunkt" er medvite utelaten her: feltet
+    `aksesspunktoperatoer` peikar til `Virksomhet` (definert i brreg-felles-aktoer,
+    som importerer denne modellen) og ville gjort importgrafen sirkulær. Sjå nemnde
+    spec § Funn 4.'
+  nn: 'Gjenbrukbare digitale adresseklassar utleia frå Brønnøysundregistrene (BR)
+    sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" (DigitalAdresse-hierarkiet).
+    Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+
+    BR sin eigen `Nettadresse`-undertype "Aksesspunkt" er medvite utelaten her: feltet
+    `aksesspunktoperatoer` peikar til `Virksomhet` (definert i brreg-felles-aktoer,
+    som importerer denne modellen) og ville gjort importgrafen sirkulær. Sjå nemnde
+    spec § Funn 4.'
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-09-01'
+utgivelsesdato: '2026-09-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-digital-adresse/
+inneholder_modellelement:
+- https://data.norge.no/felles/brreg-felles-digital-adresse/DigitalAdresse
+- https://data.norge.no/felles/brreg-felles-digital-adresse/IPAdresse
+- https://data.norge.no/felles/brreg-felles-digital-adresse/EPostadresse
+- https://data.norge.no/felles/brreg-felles-digital-adresse/Nettadresse
+- https://data.norge.no/felles/brreg-felles-digital-adresse/Meldingsboks
+- https://data.norge.no/felles/brreg-felles-digital-adresse/Mobiltelefonnummer
+- https://data.norge.no/felles/brreg-felles-digital-adresse/Telefonnummer
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema.graphql
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/diagrams/brreg-felles-digital-adresse-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-digital-adresse/diagrams/brreg-felles-digital-adresse.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema.yaml

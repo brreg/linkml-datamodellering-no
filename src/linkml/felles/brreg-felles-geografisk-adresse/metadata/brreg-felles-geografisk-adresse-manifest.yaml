@@ -1,0 +1,51 @@
+# Generert av CI frå generate-informasjonsmodell.py — ikkje rediger manuelt
+# Kjelder: schema.yaml, build.yaml, CODEOWNERS.md, lokale klasser, genererte artefakter
+
+id: https://data.norge.no/felles/brreg-felles-geografisk-adresse
+tittel:
+  nb: BRREG felles geografisk adresse
+  nn: BRREG felles geografisk adresse
+beskrivelse:
+  nb: Gjenbrukbare geografiske adresseklassar utleia frå Brønnøysundregistrene (BR)
+    sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" (GeografiskAdresse-hierarkiet),
+    pluss dei adresse-relaterte komplekstypane frå Strukturtypekatalog_v1 (Poststed,
+    Kommune, Fylke, Matrikkelnummer, Adressenummer) som adressehierarkiet er avhengig
+    av. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+  nn: Gjenbrukbare geografiske adresseklassar utleia frå Brønnøysundregistrene (BR)
+    sin interne BRReferansemodell_v3 (MagicDraw/XMI), pakken "Adresse" (GeografiskAdresse-hierarkiet),
+    pluss dei adresse-relaterte komplekstypane frå Strukturtypekatalog_v1 (Poststed,
+    Kommune, Fylke, Matrikkelnummer, Adressenummer) som adressehierarkiet er avhengig
+    av. Sjå specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for bakgrunn,
+    metode og avklaringane denne modellen byggjer på.
+versjonsnummer: 0.1.0
+lisens: https://data.norge.no/nlod/no/2.0
+utgiver: https://data.norge.no/organizations/974760673
+endringsdato: '2026-09-01'
+utgivelsesdato: '2026-09-01'
+status: http://purl.org/adms/status/UnderDevelopment
+heimeside: https://brreg.github.io/linkml-datamodellering-no/felles/brreg-felles-geografisk-adresse/
+inneholder_modellelement:
+- http://www.w3.org/ns/locn#Address
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Postboksadresse
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Stedsadresse
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Vegadresse
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkeladresse
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/InternasjonalAdresse
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Poststed
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Kommune
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Fylke
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Matrikkelnummer
+- https://data.norge.no/felles/brreg-felles-geografisk-adresse/Adressenummer
+finnes_i_format:
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-context.jsonld
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-ontology.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-openapi.yaml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema.graphql
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema.json
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema.proto
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-shapes.ttl
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/diagrams/brreg-felles-geografisk-adresse-filtered.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/generated/felles/brreg-felles-geografisk-adresse/diagrams/brreg-felles-geografisk-adresse.puml
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/src/linkml/felles/brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema.yaml

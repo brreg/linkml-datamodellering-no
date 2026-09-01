@@ -7,7 +7,8 @@ description: >-
   (MagicDraw/XMI), pakken "Aktør", pluss dei aktør-relaterte komplekstypane
   frå Strukturtypekatalog_v1 (Personnavn, Personidentifikator,
   Virksomhetsidentifikator) som aktørklassane er avhengige av. Importerer
-  brreg-felles-adresse for GeografiskAdresse/DigitalAdresse. Sjå
+  brreg-felles-geografisk-adresse for GeografiskAdresse og
+  brreg-felles-digital-adresse for DigitalAdresse. Sjå
   specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md for
   bakgrunn, metode og avklaringane denne modellen byggjer på.
 
@@ -32,7 +33,8 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../brreg-felles-adresse/brreg-felles-adresse-schema
+  - ../brreg-felles-geografisk-adresse/brreg-felles-geografisk-adresse-schema
+  - ../brreg-felles-digital-adresse/brreg-felles-digital-adresse-schema
 
 # ---------------------------------------------------------------------------
 # Klasser
@@ -40,7 +42,7 @@ imports:
 # Kjelde: BR BRReferansemodell_v3 (pakken "Aktør") for aktørklassane, og
 # Strukturtypekatalog_v1 (pakken "Komplekstyper") for Personnavn/
 # Personidentifikator/Virksomhetsidentifikator. Feltet "identifikator" på
-# Aktør er, som i brreg-felles-adresse, forenkla til `string` sidan BR sin
+# Aktør er, som i brreg-felles-digital-adresse, forenkla til `string` sidan BR sin
 # generiske "Identifikator"-basistype ikkje er importert (jf. avklaring i
 # søsterspecen).
 # ---------------------------------------------------------------------------
