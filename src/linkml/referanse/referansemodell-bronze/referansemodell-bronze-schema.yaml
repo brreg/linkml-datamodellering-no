@@ -11,12 +11,12 @@ description: >-
   Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata
   (title, version), class_uri, identifier-slot, slot_uri og begrepsidentifikator
   på riktig format.
-version: "1.2.0"
+version: "1.2.1"
 license: https://data.norge.no/nlod/no/2.0
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
   status: http://purl.org/adms/status/UnderDevelopment
-  endringsdato: "2026-08-25"
+  endringsdato: "2026-09-01"
   utgivelsesdato: "2026-08-23"
 
 imports:

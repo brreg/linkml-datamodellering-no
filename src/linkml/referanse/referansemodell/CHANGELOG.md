@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-v1.5.0...referansemodell-v1.5.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **referanse:** fjern alle valideringsfunn i referansemodellane ([c90728b](https://github.com/brreg/linkml-datamodellering-no/commit/c90728bea35e451a144e64389474f667606a6167))
+
 ## [1.5.0](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-v1.4.0...referansemodell-v1.5.0) (2026-08-25)
 
 
