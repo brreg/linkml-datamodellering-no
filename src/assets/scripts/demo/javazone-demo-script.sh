@@ -747,29 +747,27 @@ step boxes "9. Finn ubrukte slots i modellen" \
     run_analyse_unused_slots
 echo ""
 
-step boxes "10. Finn liknande klassenavn på tvers av domenet" \
-    "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
-    run_analyse_similar_classes
-echo ""
-step boxes "11. Finn liknande slotnavn på tvers av domenet" \
-    "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
-    run_analyse_similar_slots
-echo ""
-step boxes "12. Generer JSON Schema frå den redigerte modellen" \
+# step boxes "10. Finn liknande klassenavn på tvers av domenet" \
+#     "${CLR_STEP}make analyse-similar-classes-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
+#     run_analyse_similar_classes
+# echo ""
+# step boxes "11. Finn liknande slotnavn på tvers av domenet" \
+#     "${CLR_STEP}make analyse-similar-slots-domain${CLR_RST} ${CLR_WARN}DOMAIN=${DOMAIN}${CLR_RST} ${CLR_WARN}NAME=${NAME}${CLR_RST}" \
+#     run_analyse_similar_slots
+# echo ""
+step boxes "10. Generer JSON Schema frå den redigerte modellen" \
     "${CLR_STEP}make gen-jsonschema${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-jsonschema SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "13. Generer PlantUML-diagram" \
+step boxes "11. Generer PlantUML-diagram" \
     "${CLR_STEP}make gen-plantuml${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-plantuml SCHEMA="$SCHEMA"
 echo ""
 echo ""
-step boxes "14. Generer ModelDCAT-metadata" \
+step boxes "12. Generer ModelDCAT-metadata" \
     "${CLR_STEP}make gen-informasjonsmodell-instance${CLR_RST} ${CLR_WARN}SCHEMA=${SCHEMA}${CLR_RST}" \
     make gen-informasjonsmodell-instance SCHEMA="$SCHEMA"
-
-read -rp "Trykk Enter når du er ferdig … "
 echo ""
 echo ""
 echo ""

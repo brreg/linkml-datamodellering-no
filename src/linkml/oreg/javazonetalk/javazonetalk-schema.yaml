@@ -11,8 +11,8 @@ version: 0.1.0
 license: https://data.norge.no/nlod/no/2.0  # Andre gyldige lisensar: https://brreg.github.io/linkml-datamodellering-no/ap-no/common-ap-no/klasser/eulicence/
 annotations:
   utgiver: https://data.norge.no/organizations/974760673
-  endringsdato: '2026-09-01'
-  utgivelsesdato: '2026-09-01'
+  endringsdato: '2026-09-02'
+  utgivelsesdato: '2026-09-02'
   status: http://purl.org/adms/status/UnderDevelopment
 prefixes:
   linkml: https://w3id.org/linkml/
