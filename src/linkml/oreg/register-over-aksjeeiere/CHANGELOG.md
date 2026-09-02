@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.9.2...register-over-aksjeeiere-v1.10.0) (2026-09-01)
+
+
+### Features
+
+* **demo:** legg til QUICK-modus for javazone-demo-script.sh, gjer batch-generering robust mot DNS-flakiness ([504bd69](https://github.com/brreg/linkml-datamodellering-no/commit/504bd6996d00097001d23e713821efc208f8dc4f))
+
 ## [1.9.2](https://github.com/brreg/linkml-datamodellering-no/compare/register-over-aksjeeiere-v1.9.1...register-over-aksjeeiere-v1.9.2) (2026-08-28)
 
 
