@@ -256,7 +256,11 @@ def _apply_retry_patch(retries: int = 3, backoff_seconds: float = 2.0) -> None:
                         file=sys.stderr,
                     )
                     time.sleep(backoff_seconds)
-        raise last_exc
+        if last_exc is not None:
+            raise last_exc
+        raise RuntimeError(
+            f"hbopen_with_retry: ingen forsøk gjort for '{source}' (retries={retries} <= 0)"
+        )
 
     hbreader.hbopen = hbopen_with_retry
 
