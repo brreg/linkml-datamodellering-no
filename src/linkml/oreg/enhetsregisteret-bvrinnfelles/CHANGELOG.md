@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinnfelles-v1.2.0...enhetsregisteret-bvrinnfelles-v1.3.0) (2026-09-01)
+
+
+### Features
+
+* **demo:** legg til QUICK-modus for javazone-demo-script.sh, gjer batch-generering robust mot DNS-flakiness ([504bd69](https://github.com/brreg/linkml-datamodellering-no/commit/504bd6996d00097001d23e713821efc208f8dc4f))
+
 ## [1.2.0](https://github.com/brreg/linkml-datamodellering-no/compare/enhetsregisteret-bvrinnfelles-v1.1.2...enhetsregisteret-bvrinnfelles-v1.2.0) (2026-09-01)
 
 
