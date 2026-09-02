@@ -695,7 +695,7 @@ new_foredrag=$(cat <<EOF
     description: Eit forslag til foredrag sendt inn til vurdering.
     class_uri: ${NAME}:Foredrag
     annotations:
-      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/964338531/concepts/e6bfeb15-5a47-4e68-83cd-03b0710f89d6
     slots:
     - id
     - tittel
