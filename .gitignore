@@ -5,6 +5,8 @@ mkdocs/site/
 .claude/*
 !.claude/rules/
 !.claude/rules/**
+!.claude/skills/
+!.claude/skills/**
 # Genererte portalsider — alltid regenerert av publish.sh / CI
 mkdocs/docs/ap-no/
 mkdocs/docs/begrepskatalog/
