@@ -78,90 +78,44 @@ jobs:
               echo 'module.exports={extends:[\"@commitlint/config-conventional\"]}' > commitlint.config.js && \
               npx commitlint --from origin/${{ github.base_ref }} --to HEAD"
 
-  checkout-source:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    outputs:
-      domains: ${{ steps.discover.outputs.domains }}
-      domain_list: ${{ steps.discover.outputs.domain_list }}
-      images: ${{ steps.image-tags-filtered.outputs.images }}
-      image_tags: ${{ steps.image-tags.outputs.image_tags }}
-    steps:
-      - uses: actions/checkout@v7
-      - name: Oppdag domene
-        id: discover
-        uses: ./.github/actions/discover-domains
-      - name: Bygg image-tag-oppslag
-        id: image-tags
-        uses: ./.github/actions/compute-image-tags
-      - name: Filtrer til always_required-images for validering
-        id: image-tags-filtered
-        run: |
-          # Validering treng alle always_required-images (jf. generate.yml sitt
-          # tilsvarande steg) — ikkje berre linkml-local + mcp-linkml-validator.
-          # python-pytest er også always_required: save-validation-log.py
-          # (kalla frå make validate-data/validate-examples, begge CI-kalla
-          # per domene nedanfor) køyrer i python-pytest-kontaineren. Denne
-          # lista vart tidlegare
-          # hardkoda til dei to andre og gløymde python-pytest — då prøvde
-          # PYTHON_RUN å pulle localhost/python-pytest:latest som eit ekte
-          # registry og feila. Slå opp always_required dynamisk i staden for
-          # å hardkode, jf. DRY-prinsippet i CLAUDE.md. `image_tags` treng
-          # derimot ikkje filtrerast — superset-outputen frå
-          # compute-image-tags er harmlaus å bruke direkte (ubrukte
-          # nøklar i eit JSON-oppslag kostar ingenting).
-          images=$(echo '${{ steps.image-tags.outputs.images }}' | jq -c '[.[] | select(.always_required) | {name, make_target}]')
-          echo "images=$images" >> "$GITHUB_OUTPUT"
-      - name: Fjern gamle valideringsloggar før artifact-upload
-        run: |
-          # Ekskluder validation/-katalogar frå source-artifact
-          # slik at berre nygenerte loggar vert lasta opp seinare
-          find src/linkml -type d -name validation -exec rm -rf {} + 2>/dev/null || true
-      - uses: actions/upload-artifact@v7
-        with:
-          name: source
-          path: |
-            src/
-            .github/
-            Makefile
-            make/
-          retention-days: 1
-          include-hidden-files: true
-
-  ensure-images:
-    name: "build-image / ${{ matrix.image.name }}"
-    needs: [checkout-source]
-    runs-on: ubuntu-22.04
+  oppsett:
+    # Deler checkout-source + ensure-images med generate.yml og
+    # lenkje-og-mermaid-sjekk.yml via ein intern reusable workflow — sjå
+    # reusable-oppsett.yml og specs/backlog/evaluering-dry-github-workflows.md
+    # (G1/G2). `always-required-only: true`: validering treng alle
+    # always_required-images (jf. generate.yml sitt tilsvarande behov) —
+    # ikkje berre linkml-local + mcp-linkml-validator. python-pytest er
+    # også always_required: save-validation-log.py (kalla frå make
+    # validate-data/validate-examples, begge CI-kalla per domene
+    # nedanfor) køyrer i python-pytest-kontaineren. `image_tags` treng
+    # derimot ikkje filtrerast — superset-outputen frå compute-image-tags
+    # er harmlaus å bruke direkte (ubrukte nøklar i eit JSON-oppslag
+    # kostar ingenting). `clean-validation-logs: true`: ekskluder
+    # validation/-katalogar frå source-artifact slik at berre nygenerte
+    # loggar vert lasta opp seinare. `artifact-paths` innsnevra —
+    # validering treng ikkje mkdocs/, README.md eller CODEOWNERS.md.
+    #
+    # permissions her (ikkje berre inni reusable-oppsett.yml sine jobbar)
+    # er nødvendig — GITHUB_TOKEN sine faktiske permissions i ein kalla
+    # reusable workflow er det MEST restriktive av kva kallejobben og kva
+    # den kalla workflowen sjølv deklarerer. packages: write krevst for at
+    # ensure-images-jobben skal kunne pushe til GHCR.
     permissions:
       contents: read
       packages: write
-    strategy:
-      # Image-lista kjem frå src/assets/containers/images.json (autoritativ
-      # kjelde, filtrert til always_required-images i checkout-source sitt
-      # image-tags-steg) — ikkje hardkoda her lenger.
-      matrix:
-        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
-      fail-fast: false
-    steps:
-      - uses: actions/download-artifact@v8
-        with:
-          name: source
-      - name: Set opp podman (crun + GHCR-login)
-        uses: ./.github/actions/prepare-podman
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sikre ${{ matrix.image.name }} i GHCR
-        uses: ./.github/actions/ensure-image
-        with:
-          name: ${{ matrix.image.name }}
-          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
-          make_target: ${{ matrix.image.make_target }}
+    uses: ./.github/workflows/reusable-oppsett.yml
+    with:
+      always-required-only: true
+      clean-validation-logs: true
+      artifact-paths: |
+        src/
+        .github/
+        Makefile
+        make/
 
   validate:
     name: "validate / ${{ matrix.domain }}"
-    needs: [ensure-images, checkout-source]
+    needs: [oppsett]
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-22.04
     permissions:
@@ -169,7 +123,7 @@ jobs:
       packages: read
     strategy:
       matrix:
-        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+        domain: ${{ fromJson(needs.oppsett.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -193,8 +147,8 @@ jobs:
         if: steps.cache-validated.outputs.cache-hit != 'true'
         uses: ./.github/actions/pull-images
         with:
-          images: ${{ needs.checkout-source.outputs.images }}
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          images: ${{ needs.oppsett.outputs.images }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Valider skjema mot validation_policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
@@ -270,7 +224,7 @@ jobs:
           if-no-files-found: ignore
 
   create-pr-with-validation-logs:
-    needs: [validate, checkout-source]
+    needs: [validate, oppsett]
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     permissions:
@@ -283,7 +237,7 @@ jobs:
         run: |
           # Last ned kvar domain-artifact direkte til gjeldande katalog
           # (artifacts inneheld allereie src/linkml/<domain>/<modell>/validation/-struktur)
-          for domain in ${{ needs.checkout-source.outputs.domain_list }}; do
+          for domain in ${{ needs.oppsett.outputs.domain_list }}; do
             artifact_name="validation-logs-$domain"
             if gh run download ${{ github.run_id }} -n "$artifact_name" -D . 2>/dev/null; then
               echo "✓ Lasta ned $artifact_name"

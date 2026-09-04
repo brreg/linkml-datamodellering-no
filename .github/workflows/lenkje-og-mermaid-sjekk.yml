@@ -6,101 +6,55 @@ on:
     - cron: '0 6 * * *' # Kvar natt kl. 06:00 UTC
 
 jobs:
-  checkout-source:
+  oppsett:
     # Genererer generated/-innhaldet lenkjesjekk-jobben treng for å køyre
     # make docs-publish/docs-build — utan dette ville lychee aldri sjå dei
     # genererte per-domene-dokumentasjonssidene (dei er .gitignore-a, jf.
     # spec-en). Sjølvstendig frå generate.yml (triggerar berre på push til
-    # main, ikkje eige schedule), men byggjer på dei same delte actionane
-    # som generate.yml no brukar — sjå
-    # specs/done/lenkjesjekk-dekk-genererte-sider-nattleg.md.
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    outputs:
-      domains: ${{ steps.discover.outputs.domains }}
-      domain_list: ${{ steps.discover.outputs.domain_list }}
-      images: ${{ steps.image-tags.outputs.images }}
-      image_tags: ${{ steps.image-tags.outputs.image_tags }}
-    steps:
-      - uses: actions/checkout@v7
-      - name: Oppdag domene
-        id: discover
-        uses: ./.github/actions/discover-domains
-      - name: Bygg image-tag-oppslag
-        id: image-tags
-        uses: ./.github/actions/compute-image-tags
-      - uses: actions/upload-artifact@v7
-        with:
-          name: source
-          path: |
-            src/
-            mkdocs/
-            .github/
-            Makefile
-            make/
-            README.md
-            CODEOWNERS.md
-          retention-days: 1
-          include-hidden-files: true
-
-  # Sikrar at kvart nødvendig image finst i GHCR (bygg + push berre viss det
-  # manglar, via skopeo-sjekk) FØR generate-matrisa treng dei — utan denne
-  # jobben fell kvar av dei ${{ ... }} matrise-cellene i generate tilbake til
-  # eit eige lokalt bygg viss eit image-tag manglar i GHCR, som i verste
-  # fall gjev duplisert byggjekostnad multiplisert med talet på celler. Same
-  # jobb som generate.yml (line 75–122) — sjå
-  # specs/backlog/lenkjesjekk-reduser-clock-time.md.
-  ensure-images:
-    name: "build-image / ${{ matrix.image.name }}"
-    needs: [checkout-source]
-    runs-on: ubuntu-22.04
+    # main, ikkje eige schedule). Deler checkout-source + ensure-images med
+    # generate.yml og validate.yml via ein intern reusable workflow — sjå
+    # reusable-oppsett.yml, specs/done/lenkjesjekk-dekk-genererte-sider-nattleg.md
+    # og specs/backlog/evaluering-dry-github-workflows.md (G1/G2).
+    #
+    # permissions her (ikkje berre inni reusable-oppsett.yml sine jobbar)
+    # er nødvendig — GITHUB_TOKEN sine faktiske permissions i ein kalla
+    # reusable workflow er det MEST restriktive av kva kallejobben og kva
+    # den kalla workflowen sjølv deklarerer. packages: write krevst for at
+    # ensure-images-jobben skal kunne pushe til GHCR.
     permissions:
       contents: read
       packages: write
-    strategy:
-      matrix:
-        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
-      fail-fast: false
+    uses: ./.github/workflows/reusable-oppsett.yml
+
+  # lychee er eit tredjeparts, ferdigbygd image (docker.io) — ikkje eit av
+  # våre eigne images.json-image, difor ikkje via ensure-image (som
+  # byggjer+pushar til vårt eige GHCR). Tidlegare eit steg inni
+  # ensure-images-jobben, flytta hit som eigen jobb då den jobben vart
+  # delt med generate.yml/validate.yml via reusable-oppsett.yml (jobbar i
+  # ein reusable workflow kan ikkje ta imot ekstra steg injisert frå
+  # kallaren). Merk (uendra frå før): kvar jobb køyrer på eigen runner, så
+  # dette overfører ikkje biletet til lenkjesjekk sin runner — `podman
+  # run` der pullar framleis sjølv om det manglar lokalt. Sjå
+  # specs/backlog/lenkjesjekk-reduser-clock-time.md.
+  trekk-inn-lychee:
+    needs: [oppsett]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
     steps:
-      - uses: actions/download-artifact@v8
-        with:
-          name: source
-          path: .
-
-      - name: Set opp podman (crun + GHCR-login)
-        uses: ./.github/actions/prepare-podman
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sikre ${{ matrix.image.name }} i GHCR
-        uses: ./.github/actions/ensure-image
-        with:
-          name: ${{ matrix.image.name }}
-          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
-          make_target: ${{ matrix.image.make_target }}
-
-      # lychee er eit tredjeparts, ferdigbygd image (docker.io) — ikkje eit
-      # av våre eigne images.json-image, difor ikkje via ensure-image
-      # (som byggjer+pushar til vårt eige GHCR). Samla likevel her, saman
-      # med resten av "sikre image er klare"-arbeidet, i staden for som eit
-      # eige seint steg midt i lenkjesjekk-jobben. Merk: kvar jobb køyrer på
-      # eigen runner, så dette overfører ikkje biletet til lenkjesjekk sin
-      # runner — `podman run` der pullar framleis sjølv om det manglar
-      # lokalt. Sjå specs/backlog/lenkjesjekk-reduser-clock-time.md.
       - name: Trekk inn lychee
         run: podman pull docker.io/lycheeverse/lychee:latest
 
   generate:
     name: "generate / ${{ matrix.domain }}"
-    needs: [ensure-images, checkout-source]
+    needs: [oppsett]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: read
     strategy:
       matrix:
-        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+        domain: ${{ fromJson(needs.oppsett.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -144,7 +98,7 @@ jobs:
         uses: ./.github/actions/pull-images
         with:
           images: ${{ steps.detect-images.outputs.images }}
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -309,7 +263,7 @@ jobs:
           retention-days: 30
 
   lenkjesjekk:
-    needs: [checkout-source, generate]
+    needs: [oppsett, generate]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -325,7 +279,7 @@ jobs:
       - name: Slå saman genererte domene-artefakt til generated/
         uses: ./.github/actions/merge-generated-artifacts
         with:
-          domain_list: ${{ needs.checkout-source.outputs.domain_list }}
+          domain_list: ${{ needs.oppsett.outputs.domain_list }}
 
       - name: Logg inn på GHCR
         uses: ./.github/actions/ghcr-login
@@ -336,7 +290,7 @@ jobs:
         uses: ./.github/actions/pull-images
         with:
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Cache publisert dokumentasjonsportal
         id: cache-docs

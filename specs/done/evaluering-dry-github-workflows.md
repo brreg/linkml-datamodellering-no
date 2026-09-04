@@ -325,3 +325,56 @@ gjennomgang av alle 15 `prepare-podman`-kallestader mot faktisk før-
 struktur (statisk `images`-liste vs. dynamisk `detect-required-images`-
 mellomsteg — sistnemnde jobbar fekk berre crun+ghcr-login samla, pull-
 images-steget urørt som eige steg etterpå).
+
+**G1+G2 (etter oppfølgingsbestilling):** Ny intern reusable workflow
+`.github/workflows/reusable-oppsett.yml` (`on.workflow_call`), med to
+jobbar (`checkout-source` → `ensure-images`, lenka internt via `needs:` —
+begge INNI same fil, ikkje over ein `workflow_call`-grense, sidan berre
+`ensure-images` treng `checkout-source` sine outputs). Parametrisert for
+skilnadene mellom dei tre kallarane:
+- `always-required-only` (boolean, default `false`) — validate.yml sitt
+  behov for å filtrere `images`-outputen til berre `always_required`.
+  Løyst med eit reint bash-basert steg (`if [ "${{ inputs.X }}" = "true"
+  ]`) i staden for eit GH-uttrykk-ternær (`cond && a || b`), for å unngå
+  uverifisert uttrykkssyntaks i noko med så stor blast radius.
+- `clean-validation-logs` (boolean, default `false`) — validate.yml sitt
+  ekstra oppryddingssteg før artifact-opplasting.
+- `artifact-paths` (multi-line string, default dekker
+  generate.yml/lenkje-og-mermaid-sjekk.yml sitt identiske behov) —
+  validate.yml overstyrer med ei innsnevra liste.
+
+`generate.yml`, `lenkje-og-mermaid-sjekk.yml` og `validate.yml` fekk kvar
+sin `checkout-source`+`ensure-images`-jobb erstatta med éin
+`oppsett:`-jobb (`uses: ./.github/workflows/reusable-oppsett.yml`, med
+eksplisitt `permissions: contents: read, packages: write` — GITHUB_TOKEN
+sine faktiske permissions i ein kalla reusable workflow er det MEST
+restriktive av kva kallejobben OG kva den kalla workflowen sjølv
+deklarerer, så dette måtte setjast på kallejobben, ikkje berre inni
+`reusable-oppsett.yml`). Alle nedstraums-jobbar (11 stader på tvers av dei
+tre filene) fekk `needs: [...]` og `needs.checkout-source.outputs.X` →
+`needs.oppsett.outputs.X` oppdatert.
+
+**Avvik frå opphavleg plan, med grunngjeving:** to per-kallar-ekstrasteg
+kunne IKKJE bli verande inni den delte `ensure-images`-jobben, sidan ein
+reusable workflow sine jobbar er faste — kallaren kan ikkje injisere
+ekstra steg midt inni. `generate.yml` sitt reint diagnostiske
+"Logg artifact-innhald og miljøinfo"-steg (disk/versjon-info, ingen
+nedstraums-forbrukar) vart **fjerna heilt** — informasjonen er uansett
+synleg i kvart podman/skopeo-kommandokall sin eigen output.
+`lenkje-og-mermaid-sjekk.yml` sitt "Trekk inn lychee"-steg vart **flytta**
+til ein ny, liten, uavhengig jobb (`trekk-inn-lychee`) — biletet sitt
+eige kommentar stadfesta alt at steget ikkje overfører til
+lenkjesjekk-jobben sin eigen runner uansett (kvar jobb har eigen runner),
+så flyttinga endrar ikkje funksjonell åtferd, og gir i tillegg ein liten
+biverknad: han køyrer no éin gong (eigen jobb) i staden for éin gong per
+image i den tidlegare matrisa (marginal effektiviseringsgevinst, ikkje
+sjølve føremålet med flyttinga).
+
+**Verifisert:** `actionlint` (ingen `[expression]`-feil — inkluderer
+GitHub sin eigen validering av at `needs:`-jobbnamn og
+`needs.X.outputs.Y`-referansar faktisk finst, kritisk for akkurat denne
+endringa sin risikoprofil) og YAML-syntakssjekk på alle fem endra
+workflow-filer og den nye `reusable-oppsett.yml`.
+
+Alle kandidatar frå denne evalueringa (K1, K2, K3, G1, G2) er no
+realiserte.

@@ -1,0 +1,134 @@
+name: (intern) Oppsett — checkout, bilettaggar, sikra image
+
+# Intern reusable workflow (workflow_call) — IKKJE forveksle med
+# reusable-generate.yml/reusable-validate.yml, som er public-facing API
+# for EKSTERNE repo som skal generere/validere eitt enkelt skjema. Denne
+# fila deler i staden `checkout-source`- og `ensure-images`-jobbane som
+# tidlegare var nesten identisk dupliserte i generate.yml,
+# lenkje-og-mermaid-sjekk.yml og validate.yml. Sjå
+# specs/backlog/evaluering-dry-github-workflows.md (G1/G2) for
+# gjennomførbarleiksvurdering og grunngjeving.
+#
+# Kva som MEDVITE er halde UTANFOR denne delte kjernen (jf. utgreiinga):
+# generate.yml sitt "Logg artifact-innhald og miljøinfo"-debugsteg (reint
+# diagnostisk, ingen nedstraums-forbrukar) er fjerna heilt (ikkje
+# reetablert nokon stad — informasjonen er uansett synleg i kvart
+# podman/skopeo-kommandokall sin eigen output). lenkje-og-mermaid-sjekk.yml
+# sitt "Trekk inn lychee"-steg er FLYTTA til ein eigen, liten jobb i den
+# fila (ikkje inni denne delte kjernen) — reusable workflow-jobbar kan
+# ikkje ta imot ekstra steg injisert frå kallaren.
+
+on:
+  workflow_call:
+    inputs:
+      always-required-only:
+        description: >-
+          Filtrer images-outputen til berre always_required-image
+          (validate.yml sitt behov — dei andre to brukar superset-lista).
+        type: boolean
+        default: false
+      clean-validation-logs:
+        description: >-
+          Fjern gamle validation/-katalogar før artifact-opplasting
+          (validate.yml sitt behov, hindrar stale loggar frå å bli lasta
+          opp saman med kjeldekoden).
+        type: boolean
+        default: false
+      artifact-paths:
+        description: >-
+          Multi-line sti-liste for source-artifacten. Standard dekker
+          generate.yml/lenkje-og-mermaid-sjekk.yml sitt behov (heile
+          mkdocs/, README.md, CODEOWNERS.md inkludert); validate.yml
+          overstyrer med ei innsnevra liste.
+        type: string
+        default: |
+          src/
+          mkdocs/
+          .github/
+          Makefile
+          make/
+          README.md
+          CODEOWNERS.md
+    outputs:
+      domains:
+        value: ${{ jobs.checkout-source.outputs.domains }}
+      domain_list:
+        value: ${{ jobs.checkout-source.outputs.domain_list }}
+      images:
+        value: ${{ jobs.checkout-source.outputs.images }}
+      image_tags:
+        value: ${{ jobs.checkout-source.outputs.image_tags }}
+
+jobs:
+  checkout-source:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    outputs:
+      domains: ${{ steps.discover.outputs.domains }}
+      domain_list: ${{ steps.discover.outputs.domain_list }}
+      images: ${{ steps.images-final.outputs.images }}
+      image_tags: ${{ steps.image-tags.outputs.image_tags }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Oppdag domene
+        id: discover
+        uses: ./.github/actions/discover-domains
+
+      - name: Bygg image-tag-oppslag
+        id: image-tags
+        uses: ./.github/actions/compute-image-tags
+
+      - name: Bygg endeleg images-liste (filtrert eller superset)
+        # Reint bash-basert val i staden for eit GH-uttrykk-ternær
+        # (inputs.X && a || b) — enklare å verifisere korrekt.
+        id: images-final
+        run: |
+          if [ "${{ inputs.always-required-only }}" = "true" ]; then
+            images=$(echo '${{ steps.image-tags.outputs.images }}' | jq -c '[.[] | select(.always_required) | {name, make_target}]')
+          else
+            images='${{ steps.image-tags.outputs.images }}'
+          fi
+          echo "images=$images" >> "$GITHUB_OUTPUT"
+
+      - name: Fjern gamle valideringsloggar før artifact-upload
+        if: inputs.clean-validation-logs
+        run: |
+          find src/linkml -type d -name validation -exec rm -rf {} + 2>/dev/null || true
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: source
+          path: ${{ inputs.artifact-paths }}
+          retention-days: 1
+          include-hidden-files: true
+
+  ensure-images:
+    name: "build-image / ${{ matrix.image.name }}"
+    needs: [checkout-source]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
+      fail-fast: false
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
+          path: .
+
+      - name: Set opp podman (crun + GHCR-login)
+        uses: ./.github/actions/prepare-podman
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sikre ${{ matrix.image.name }} i GHCR
+        uses: ./.github/actions/ensure-image
+        with:
+          name: ${{ matrix.image.name }}
+          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
+          make_target: ${{ matrix.image.make_target }}

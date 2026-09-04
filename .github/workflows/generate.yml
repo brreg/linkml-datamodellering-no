@@ -44,82 +44,22 @@ env:
 
 jobs:
 
-  checkout-source:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    outputs:
-      domains: ${{ steps.discover.outputs.domains }}
-      domain_list: ${{ steps.discover.outputs.domain_list }}
-      images: ${{ steps.image-tags.outputs.images }}
-      image_tags: ${{ steps.image-tags.outputs.image_tags }}
-    steps:
-      - uses: actions/checkout@v7
-      - name: Oppdag domene
-        id: discover
-        uses: ./.github/actions/discover-domains
-      - name: Bygg image-tag-oppslag
-        id: image-tags
-        uses: ./.github/actions/compute-image-tags
-      - uses: actions/upload-artifact@v7
-        with:
-          name: source
-          path: |
-            src/
-            mkdocs/
-            .github/
-            Makefile
-            make/
-            README.md
-            CODEOWNERS.md
-          retention-days: 1
-          include-hidden-files: true
-
-  ensure-images:
-    name: "build-image / ${{ matrix.image.name }}"
-    needs: [checkout-source]
-    runs-on: ubuntu-22.04
+  oppsett:
+    # Deler checkout-source + ensure-images med lenkje-og-mermaid-sjekk.yml
+    # og validate.yml via ein intern reusable workflow — sjå
+    # reusable-oppsett.yml og specs/backlog/evaluering-dry-github-workflows.md
+    # (G1/G2). Standard-inputa dekker denne fila sitt behov (superset
+    # images, ingen filtrering/opprydding).
+    #
+    # permissions her (ikkje berre inni reusable-oppsett.yml sine jobbar)
+    # er nødvendig — GITHUB_TOKEN sine faktiske permissions i ein kalla
+    # reusable workflow er det MEST restriktive av kva kallejobben og kva
+    # den kalla workflowen sjølv deklarerer. packages: write krevst for at
+    # ensure-images-jobben skal kunne pushe til GHCR.
     permissions:
       contents: read
       packages: write
-    strategy:
-      # Image-lista kjem frå src/assets/containers/images.json (autoritativ
-      # kjelde, lasta via checkout-source sitt image-tags-steg) — ikkje
-      # hardkoda her lenger.
-      matrix:
-        image: ${{ fromJson(needs.checkout-source.outputs.images) }}
-      fail-fast: false
-    steps:
-      - uses: actions/download-artifact@v8
-        with:
-          name: source
-          path: .
-
-      - name: Logg artifact-innhald og miljøinfo
-        run: |
-          echo "=== Artifact-innhald etter download ==="
-          ls -lah src/assets/containers/ 2>/dev/null || echo "src/assets/containers/ finst ikkje"
-          ls -lah ${{ matrix.image.dockerfile }} 2>/dev/null || echo "${{ matrix.image.dockerfile }} finst ikkje"
-          echo ""
-          echo "=== Disk-bruk ==="
-          df -h
-          echo ""
-          echo "=== Versjonsinformasjon ==="
-          echo "podman: $(podman --version)"
-          echo "crun: $(crun --version | head -1)"
-          echo "skopeo: $(skopeo --version)"
-
-      - name: Set opp podman (crun + GHCR-login)
-        uses: ./.github/actions/prepare-podman
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sikre ${{ matrix.image.name }} i GHCR
-        uses: ./.github/actions/ensure-image
-        with:
-          name: ${{ matrix.image.name }}
-          tag: ghcr.io/${{ github.repository_owner }}/${{ matrix.image.name }}:${{ fromJson(needs.checkout-source.outputs.image_tags)[matrix.image.name] }}
-          make_target: ${{ matrix.image.make_target }}
+    uses: ./.github/workflows/reusable-oppsett.yml
 
   modellanalyse-tvers-domene:
     # Eiga jobb (i staden for eit steg i `publish`) slik at dei ~30-40 s
@@ -131,7 +71,7 @@ jobs:
     # specs/done/effektiviser-modellanalyse-koyretid.md (Tiltak 5-oppfølging,
     # parallelliser mot heile `generate`-matrisa i staden for berre internt
     # i `publish`-jobben).
-    needs: [ensure-images, checkout-source]
+    needs: [oppsett]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -168,7 +108,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: '[{"name":"python-pytest","make_target":"build-docker-python"}]'
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Køyr modellanalyse på tvers av domene
         if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
@@ -213,14 +153,14 @@ jobs:
     # Cacha (jf. Cache-steget under) sidan denne planen sitt vedtak om å
     # ikkje cache vart reversert — sjå
     # specs/done/cache-valider-og-analyser-modellanalyse.md.
-    needs: [ensure-images, checkout-source]
+    needs: [oppsett]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: read
     strategy:
       matrix:
-        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+        domain: ${{ fromJson(needs.oppsett.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -269,7 +209,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: '[{"name":"linkml-local","make_target":"build-docker-linkml"},{"name":"python-pytest","make_target":"build-docker-python"},{"name":"mcp-linkml-validator","make_target":"build-docker-mcp-validator"}]'
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Valider alle skjema for ${{ matrix.domain }}
         if: steps.cache-valider.outputs.cache-hit != 'true'
@@ -426,7 +366,7 @@ jobs:
 
   generate:
     name: "generate / ${{ matrix.domain }}"
-    needs: [ensure-images, checkout-source]
+    needs: [oppsett]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -434,7 +374,7 @@ jobs:
       packages: read
     strategy:
       matrix:
-        domain: ${{ fromJson(needs.checkout-source.outputs.domains) }}
+        domain: ${{ fromJson(needs.oppsett.outputs.domains) }}
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8
@@ -515,7 +455,7 @@ jobs:
         uses: ./.github/actions/pull-images
         with:
           images: ${{ steps.detect-images.outputs.images }}
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Generer alle artefakter for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
@@ -543,7 +483,7 @@ jobs:
           retention-days: 1
 
   publish:
-    needs: [generate, valider-og-analyser, checkout-source, modellanalyse-tvers-domene]
+    needs: [generate, valider-og-analyser, oppsett, modellanalyse-tvers-domene]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -561,7 +501,7 @@ jobs:
       - name: Slå saman genererte domene-artefakt til generated/
         uses: ./.github/actions/merge-generated-artifacts
         with:
-          domain_list: ${{ needs.checkout-source.outputs.domain_list }}
+          domain_list: ${{ needs.oppsett.outputs.domain_list }}
 
       - name: Last ned modellanalyse-tvers-domene-artefakt
         # Produsert av den parallelle modellanalyse-tvers-domene-jobben
@@ -606,7 +546,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
-          image_tags: ${{ needs.checkout-source.outputs.image_tags }}
+          image_tags: ${{ needs.oppsett.outputs.image_tags }}
 
       - name: Publiser og bygg dokumentasjonsportal
         if: steps.cache-site.outputs.cache-hit != 'true'
