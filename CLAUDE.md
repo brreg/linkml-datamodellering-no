@@ -15,8 +15,8 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
 
 1. **Les tilbake instruksjonen** — skriv i 1-2 setningar kva du har forstått at brukaren vil ha gjort
 2. **Avklar antakelser** — dersom du må gjere val eller antakelser for å utføre instruksjonen, spør brukaren om desse før du startar arbeidet
-3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnavn>.md` med bakgrunn, nummererte steg og handlingsliste. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
-4. **Utfør arbeidet** — følg spesifikasjonen og oppdater han etter kvart steg
+3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnavn>.md` med bakgrunn, nummererte steg, handlingsliste og ei tom `## Avgjerder`-seksjon. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
+4. **Utfør arbeidet** — følg spesifikasjonen og oppdater han etter kvart steg. Logg **ikkje-trivielle val** (dømmekraft, avvik frå eksplisitt instruks, eller val mellom fleire rimelege alternativ) i `## Avgjerder`-seksjonen etter kvart som dei vert tekne — kort kva som vart valt og kvifor
 5. **Avslutning** — når alle tiltak er utførte: (a) generer kompakt commit-melding, (b) legg til `## Utført`-seksjon i specen, (c) flytt specen til `specs/done/`
 
 **Når treng du ikkje ny spec?**
