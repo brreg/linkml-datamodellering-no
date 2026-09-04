@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.2](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.14.1...dcat-ap-no-v2.14.2) (2026-09-04)
+
+
+### Bug Fixes
+
+* **mcp-validator:** fiks P5 falske containerkrav, legg til P2-4 tiltak ([a4b7b7a](https://github.com/brreg/linkml-datamodellering-no/commit/a4b7b7aa13c30514660040757e894073a4eb5be3))
+
 ## [2.14.1](https://github.com/brreg/linkml-datamodellering-no/compare/dcat-ap-no-v2.14.0...dcat-ap-no-v2.14.1) (2026-08-17)
 
 
