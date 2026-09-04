@@ -16,6 +16,8 @@
 # - src/assets/scripts/makefile/check-iri-resolution.py
 # - src/assets/scripts/makefile/check-ap-no-reuse.py
 # - src/assets/scripts/makefile/check-model-relationships.py
+# - src/assets/scripts/makefile/check-cache-key-coverage.py
+# - src/assets/scripts/makefile/check-scaffold-todo-age.py
 # - src/assets/scripts/makefile/summarise-modell-analyse.py
 # ==============================================================================
 
@@ -30,7 +32,8 @@ SIMILARITY_THRESHOLD ?= 0.8
         analyse-isolerte-klasser analyse-ikkje-tilkopla-container \
         analyse-lokal-modellanalyse-domene \
         analyse-iri-dereferering analyse-innhaldsforhandling \
-        analyse-ap-no-gjenbruk analyse-modell-sammenhenger analyse-sammendrag
+        analyse-ap-no-gjenbruk analyse-modell-sammenhenger \
+        analyse-cache-key-konsistens analyse-scaffold-todo-alder analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
@@ -122,6 +125,14 @@ analyse-ap-no-gjenbruk: ## Sjekk at ap-no/*-skjema importerer common-ap-no-schem
 analyse-modell-sammenhenger: ## Kryssreferer importgraf mot modellkatalogen sine har_del/er_i_samsvar_med/er_profil_av/erstatter-annotasjonar (Digdir-regel 12)
 	$(call print_header,analyse-modell-sammenhenger) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-model-relationships.py
+
+analyse-cache-key-konsistens: ## Sjekk at delte cache-nøklar (same namneprefiks) er byte-for-byte identiske på tvers av .github/workflows/*.yml
+	$(call print_header,analyse-cache-key-konsistens) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-cache-key-coverage.py
+
+analyse-scaffold-todo-alder: ## Finn skjema med uendra scaffold-TODO frå new-modell.sh eldre enn ein terskel [THRESHOLD_DAYS=90]
+	$(call print_header,analyse-scaffold-todo-alder) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-scaffold-todo-age.py $(if $(THRESHOLD_DAYS),--threshold-days $(THRESHOLD_DAYS))
 
 analyse-sammendrag: ## Les analyse-*-rapportfilene og skriv ein konsolidert sammendrag-tabell
 	$(call print_header,analyse-sammendrag) 1>&2

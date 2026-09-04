@@ -52,6 +52,7 @@ den publiserte portalen — er utelatne.
 | [AsyncAPI CLI](https://github.com/asyncapi/cli) | Apache License 2.0 | AsyncAPI-spesifikasjonsgenerering |
 | [Python](https://www.python.org/) | PSF License 2.0 | Køyretidsmiljø i containerbileta |
 | [mkdocs-material](https://github.com/squidfunk/mkdocs-material) | MIT License | Tema for denne dokumentasjonsportalen |
+| [Git](https://git-scm.com/) | GNU General Public License v2.0 | `git log`-oppslag i python-pytest-biletet (skjema-opprettingsdato for check-scaffold-todo-age.py) |
 
 Fullstendig oversikt over alle verktøy som er vurdert — inkludert dei som
 ikkje krev attribution, og kvifor — finst i

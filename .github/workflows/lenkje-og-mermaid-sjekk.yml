@@ -116,13 +116,18 @@ jobs:
         uses: actions/cache@v6
         with:
           path: generated/${{ matrix.domain }}/
-          # Identisk nøkkel-formel som generate.yml (line 153–169) — deler
-          # dermed cache-innslag på tvers av workflowar i same repo, sidan
-          # GitHub Actions-cache ikkje er isolert per workflow. Sjå
-          # generate.yml for grunngjeving av den eksplisitte fil-lista, og
-          # specs/backlog/lenkjesjekk-reduser-clock-time.md for kvifor
-          # dette vart lagt til her.
-          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
+          # Nøkkel-formel MÅ vere byte-for-byte identisk med generate.yml sin
+          # tilsvarande "Cache genererte artefakter"-steg — dei to deler
+          # cache-innslag på tvers av workflowar i same repo, sidan GitHub
+          # Actions-cache ikkje er isolert per workflow. Sjå generate.yml
+          # for grunngjeving av den eksplisitte fil-lista (innsnevra frå
+          # breie 'src/assets/scripts/**' i
+          # specs/done/scripts-glob-cache-miss-generate-jobb.md — denne fila
+          # dreiv frå den fiksen fram til
+          # specs/done/evaluering-gjentakande-monster-backlog.md (P3) fanga
+          # avviket), og specs/backlog/lenkjesjekk-reduser-clock-time.md for
+          # kvifor cross-workflow-delinga vart lagt til her.
+          key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/makefile/**', 'src/assets/scripts/scaffolding/resolve-catalog-slug.sh', 'src/assets/scripts/utils/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
 
       - name: Oppgrader crun
         if: steps.cache-generated.outputs.cache-hit != 'true'

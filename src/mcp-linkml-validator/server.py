@@ -392,7 +392,61 @@ def _check_class_has_slot_with_uri(sv, schema, config, issues):
         ))
 
 
+_CORE_CATALOG_CLASSES = ("Katalog", "Datasett", "Kvalitetsmaal", "Kvalitetsmaaling")
+
+
+def _class_used_as_range(schema, target_class):
+    """Sjekk om target_class er brukt som range på noka global slot eller
+    klasse-attributt i skjemaet — skil eit skjema som faktisk modellerer
+    konseptet frå eit som berre har tilgang til klassen via import (jf.
+    _check_class_has_slot_with_uri sin tilsvarande "lokalt definert"-vakt)."""
+    for slot in (schema.slots or {}).values():
+        if str(slot.range) == target_class:
+            return True
+    for cls in (schema.classes or {}).values():
+        for attr in (cls.attributes or {}).values():
+            if str(attr.range) == target_class:
+                return True
+    return False
+
+
+def _container_class_requirement_applies(schema, target_class, severity):
+    """Er container-kravet for target_class i det heile meiningsfullt for
+    dette skjemaet?
+
+    - target_class sjølv brukt som range nokon stad → alltid meiningsfullt
+      (uansett severity) — skjemaet refererer nettopp denne klassen.
+    - Elles, berre for severity != "error" ("anbefalt"-nivå, t.d.
+      Distribusjon): meiningsfullt dersom skjemaet alt er katalog-/
+      kvalitetsmåling-forma via minst éin av dei fire kjerneklassane
+      (Katalog/Datasett/Kvalitetsmaal/Kvalitetsmaaling) — ei mjuk
+      tilleggsanbefaling skal framleis synast for eit skjema som alt
+      modellerer kjernekonsepta, sjølv om ikkje akkurat DENNE klassen er
+      referert. For "error"-nivå (dei fire obligatoriske krava sjølve)
+      held IKKJE denne brei fallbacken — elles ville t.d. eit skjema som
+      berre refererer Kvalitetsmaaling (som samt-bu) bli tvinga til å
+      også ha Katalog/Kvalitetsmaal, sjølv om det ikkje modellerer dei i
+      det heile. Sjå specs/done/evaluering-gjentakande-monster-backlog.md
+      (P5, Modus A)."""
+    if _class_used_as_range(schema, target_class):
+        return True
+    if severity == "error":
+        return False
+    return any(_class_used_as_range(schema, c) for c in _CORE_CATALOG_CLASSES)
+
+
 def _check_container_has_class(sv, schema, config, issues):
+    exclude = set(config.get("exclude_schemas", []))
+    if (schema.name or "") in exclude:
+        # Vokabular-/profilskjema (AP-NO, fair) som per konvensjon aldri har
+        # containerklasse i det heile (.claude/rules/linkml-schema.md) —
+        # kravet er strukturelt umogleg å oppfylle for desse, ikkje eit
+        # reelt avvik. Sjå specs/done/evaluering-gjentakande-monster-backlog.md
+        # (P5, Modus B).
+        return
+
+    target_class = config["class"]
+
     container_cls = container_name = None
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
@@ -403,12 +457,20 @@ def _check_container_has_class(sv, schema, config, issues):
     if container_cls is None:
         if not any(i["code"] == "no_container_class" for i in issues):
             issues.append(issue(
-                "error", "no_container_class", "schema",
+                config["severity"], "no_container_class", "schema",
                 "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav",
             ))
         return
 
-    target_class = config["class"]
+    if not _container_class_requirement_applies(schema, target_class, config["severity"]):
+        # Containeren finst, men skjemaet modellerer ikkje target_class
+        # (eller noko av kjernekonsepta) nokon stad i det heile — kravet om
+        # å eksponere klassen via containeren er difor ikkje meiningsfullt.
+        # Hindrar falske feil for domenemodellar utan noko katalog-/
+        # kvalitetsmålingsscenario (P5, Modus A). Sjå
+        # specs/done/evaluering-gjentakande-monster-backlog.md.
+        return
+
     container_ranges = {
         str(attr.range)
         for attr in (container_cls.attributes or {}).values()

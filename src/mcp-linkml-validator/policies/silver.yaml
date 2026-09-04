@@ -19,6 +19,31 @@ recommended:
 common_classes:
   must_use: []
 
+# AP-NO-/fair-vokabularskjema (og delte felles-/fint-common-basisskjema) har
+# per konvensjon ALDRI containerklasse i det heile
+# (.claude/rules/linkml-schema.md) — dei 8 container_*-sjekkane under nyttar
+# dette ankeret som exclude_schemas, sidan kravet er strukturelt umogleg å
+# oppfylle for desse (P5, Modus B). Sjå
+# specs/done/evaluering-gjentakande-monster-backlog.md. Toppnivå-nøkkel
+# (ikkje inni `checks:`) slik at `_run_checks()` ikkje tolkar han som ein
+# sjekk-config i seg sjølv.
+container_exclude_schemas: &container_exclude_schemas
+  - dcat-ap-no
+  - dqv-ap-no
+  - dqv-core
+  - modelldcat-ap-no
+  - modelldcat-katalog
+  - modelldcat-modell
+  - skos-ap-no
+  - xkos-ap-no
+  - cpsv-ap-no
+  - fair-metadata
+  - fint-common
+  - brreg-felles-aktoer
+  - brreg-felles-digital-adresse
+  - brreg-felles-geografisk-adresse
+  - brreg-felles-tid
+
 checks:
 
   # ── Livssyklusmetadata (Digdir-regel 9, 10, 11) ────────────────────────────
@@ -307,6 +332,13 @@ checks:
   # ── Containerklasse-krav ────────────────────────────────────────────────────
   # Sjekkar at ein domenemodell som bruker AP-NO-profilene
   # eksponerer dei påkravde og anbefalte klassane via containerklassen (tree_root).
+  #
+  # exclude_schemas (jf. `container_exclude_schemas`-ankeret over `checks:`):
+  # AP-NO-/fair-vokabularskjema o.l. har aldri containerklasse i det heile
+  # (P5, Modus B). `_check_container_has_class` (server.py) filtrerer i
+  # tillegg bort domenemodellar som ikkje modellerer noko katalog-/
+  # kvalitetsmålingsscenario i det heile (P5, Modus A) — den vakta treng
+  # ingen skjemaliste, sidan ho er innhaldsbasert.
 
   container_katalog:
     principle: DCAT-AP-NO
@@ -314,6 +346,7 @@ checks:
     description: Containerklassen skal ha eit attributt med range Katalog (dcat:Catalog). Obligatorisk i DCAT-AP-NO 2.
     check: container_has_class
     class: Katalog
+    exclude_schemas: *container_exclude_schemas
 
   container_datasett:
     principle: DCAT-AP-NO / DQV-AP-NO
@@ -321,6 +354,7 @@ checks:
     description: Containerklassen skal ha eit attributt med range Datasett (dcat:Dataset). Obligatorisk i DCAT-AP-NO 2 og DQV-AP-NO.
     check: container_has_class
     class: Datasett
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsmaal:
     principle: DQV-AP-NO
@@ -328,6 +362,7 @@ checks:
     description: Containerklassen skal ha eit attributt med range Kvalitetsmaal (dqv:Metric). Obligatorisk i DQV-AP-NO.
     check: container_has_class
     class: Kvalitetsmaal
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsmaaling:
     principle: DQV-AP-NO
@@ -335,6 +370,7 @@ checks:
     description: Containerklassen skal ha eit attributt med range Kvalitetsmaaling (dqv:QualityMeasurement). Obligatorisk i DQV-AP-NO.
     check: container_has_class
     class: Kvalitetsmaaling
+    exclude_schemas: *container_exclude_schemas
 
   container_distribusjon:
     principle: DCAT-AP-NO
@@ -342,6 +378,7 @@ checks:
     description: Containerklassen bør ha eit attributt med range Distribusjon (dcat:Distribution). Anbefalt i DCAT-AP-NO 2.
     check: container_has_class
     class: Distribusjon
+    exclude_schemas: *container_exclude_schemas
 
   container_datatjeneste:
     principle: DCAT-AP-NO
@@ -349,6 +386,7 @@ checks:
     description: Containerklassen bør ha eit attributt med range Datatjeneste (dcat:DataService). Anbefalt i DCAT-AP-NO 2.
     check: container_has_class
     class: Datatjeneste
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsdimensjon:
     principle: DQV-AP-NO
@@ -356,6 +394,7 @@ checks:
     description: Containerklassen bør ha eit attributt med range Kvalitetsdimensjon (dqv:Dimension). Anbefalt i DQV-AP-NO.
     check: container_has_class
     class: Kvalitetsdimensjon
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsmerknad:
     principle: DQV-AP-NO
@@ -363,6 +402,7 @@ checks:
     description: Containerklassen bør ha eit attributt med range Kvalitetsmerknad (dqv:QualityAnnotation). Anbefalt i DQV-AP-NO.
     check: container_has_class
     class: Kvalitetsmerknad
+    exclude_schemas: *container_exclude_schemas
 
 # ── Instansvalidering ───────────────────────────────────────────────────────
 

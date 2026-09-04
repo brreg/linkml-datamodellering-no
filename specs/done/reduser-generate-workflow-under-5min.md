@@ -388,3 +388,10 @@ og bomme korrekt for køyringar med reelle skjema-/malendringar.
 
 Specen vert verande i `specs/backlog/` til tiltak 2 er vurdert/utført og
 CI-tidsbruken for tiltak 1 er stadfesta.
+
+**Stadfesta av brukar 2026-09-04** (jf.
+`specs/done/evaluering-gjentakande-monster-backlog.md`, P6): CI-tidsbruken
+for tiltak 1 er stadfesta som forventa. Tiltak 2 er vurdert (ikkje
+utført) i `specs/backlog/flytt-domene-docs-generering-til-matrise.md` —
+same konklusjon der: venta med sjølve splittinga. Flytta til
+`specs/done/`.

@@ -569,6 +569,11 @@ slots:
         self.assertFalse(any(i["target"] == "class:Katalogpost" for i in r["issues"]))
 
     def test_container_utan_katalog_gir_feil(self):
+        # Skjemaet må sjølv modellere Katalog (her: ei Ting som viser til
+        # Katalog) for at kravet skal vere meiningsfullt — sjå
+        # _schema_is_catalog_shaped() i server.py (P5, Modus A). Eit skjema
+        # som ikkje refererer Katalog nokon stad vert IKKJE lenger flagga
+        # (det er nettopp den falske feilen P5 fiksar).
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -584,8 +589,58 @@ classes:
         range: Ting
   Ting:
     description: Ei ting
+    attributes:
+      katalog:
+        range: Katalog
+  Katalog:
+    description: Ein DCAT-katalog
 """
         self.assertTrue(has_error(validate_schema(schema, "silver"), "container_missing_required_class"))
+
+    def test_domenemodell_utan_katalogscenario_utloyser_ikkje_container_krav(self):
+        # P5, Modus A (specs/done/evaluering-gjentakande-monster-backlog.md):
+        # eit domeneskjema som ikkje modellerer Katalog/Datasett/Kvalitetsmaal/
+        # Kvalitetsmaaling nokon stad (verken i containeren eller elles) skal
+        # IKKJE krevjast å eksponere desse via containeren — same situasjon
+        # som FINT-/BVR-domenemodellane som utløyste denne fiksen.
+        schema = """\
+id: https://example.org/schema
+name: TestSchema
+description: Testmodell
+prefixes:
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Container:
+    tree_root: true
+    attributes:
+      ting:
+        range: Ting
+  Ting:
+    description: Ei ting utan noko katalog-/kvalitetsmålingsscenario
+"""
+        r = validate_schema(schema, "silver")
+        self.assertFalse(has_error(r, "container_missing_required_class"))
+        self.assertFalse(has_warning(r, "container_missing_recommended_class"))
+
+    def test_vokabularskjema_i_exclude_schemas_utloyser_ikkje_no_container(self):
+        # P5, Modus B: AP-NO-/fair-vokabularskjema har per konvensjon aldri
+        # containerklasse i det heile (.claude/rules/linkml-schema.md) —
+        # exclude_schemas i silver.yaml (container_exclude_schemas-ankeret)
+        # skal hindre at dette flaggast som eit avvik.
+        schema = """\
+id: https://data.norge.no/ap-no/dcat-ap-no
+name: dcat-ap-no
+description: Simulerer eit AP-NO-vokabularskjema utan containerklasse
+prefixes:
+  ex: https://example.org/
+default_prefix: ex
+classes:
+  Katalog:
+    description: Ein DCAT-katalog
+"""
+        r = validate_schema(schema, "silver")
+        self.assertFalse(has_error(r, "no_container_class"))
 
     def test_container_utan_distribusjon_gir_advarsel(self):
         # Container har alle obligatoriske klasser, men manglar Distribusjon (anbefalt)

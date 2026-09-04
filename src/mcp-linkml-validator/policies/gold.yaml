@@ -31,6 +31,30 @@ recommended:
 common_classes:
   must_use: []
 
+# Same liste som container_exclude_schemas i silver.yaml — MÅ haldast i
+# synk manuelt, sidan YAML-ankeret der ikkje er tilgjengeleg på tvers av
+# filer. Berre dei fire container_*-sjekkane gold.yaml faktisk REDEKLARERER
+# under (for å oppgradere severity til error) treng denne — dei fire som
+# ikkje er redeklarerte her (container_katalog/-datasett/-kvalitetsmaal/
+# -kvalitetsmaaling) arvar silver.yaml sin fulle config, inkl. exclude_schemas,
+# uendra. Sjå specs/done/evaluering-gjentakande-monster-backlog.md (P5, Modus B).
+container_exclude_schemas: &container_exclude_schemas
+  - dcat-ap-no
+  - dqv-ap-no
+  - dqv-core
+  - modelldcat-ap-no
+  - modelldcat-katalog
+  - modelldcat-modell
+  - skos-ap-no
+  - xkos-ap-no
+  - cpsv-ap-no
+  - fair-metadata
+  - fint-common
+  - brreg-felles-aktoer
+  - brreg-felles-digital-adresse
+  - brreg-felles-geografisk-adresse
+  - brreg-felles-tid
+
 # Oppgrader bronze-åtvarslane til feil på gullnivå.
 # _merge_policies slår saman checks frå parent og child med {**parent, **child},
 # slik at child-nøklar overstyrer parent-nøklar med same navn.
@@ -249,6 +273,7 @@ checks:
       (sølv-nivå).
     check: container_has_class
     class: Distribusjon
+    exclude_schemas: *container_exclude_schemas
 
   container_datatjeneste:
     principle: DCAT-AP-NO
@@ -259,6 +284,7 @@ checks:
       (sølv-nivå).
     check: container_has_class
     class: Datatjeneste
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsdimensjon:
     principle: DQV-AP-NO
@@ -268,6 +294,7 @@ checks:
       (dqv:Dimension). Anbefalt i DQV-AP-NO. Krev: ikkje berre anbefalt (sølv-nivå).
     check: container_has_class
     class: Kvalitetsdimensjon
+    exclude_schemas: *container_exclude_schemas
 
   container_kvalitetsmerknad:
     principle: DQV-AP-NO
@@ -278,6 +305,7 @@ checks:
       (sølv-nivå).
     check: container_has_class
     class: Kvalitetsmerknad
+    exclude_schemas: *container_exclude_schemas
 
   schema_har_erdiagram_aktivert:
     severity: error

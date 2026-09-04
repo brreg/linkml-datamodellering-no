@@ -183,3 +183,12 @@ i punkt 5, eller no dersom brukar ønskjer å arkivere med denne
 avgrensinga dokumentert (jf. presedens i
 `specs/done/docs-only-endring-cache-miss-alle-domene.md`, der same type
 attståande live-verifisering vart arkivert med tilsvarande merknad).
+
+**Stadfesta av brukar 2026-09-04** (jf.
+`specs/done/evaluering-gjentakande-monster-backlog.md`, P6): CI-åtferda i
+punkt 5 er stadfesta. Merk: same feilklasse (breitt glob for
+`src/assets/scripts/**`) vart uavhengig funne att i
+`lenkje-og-mermaid-sjekk.yml` (retta same dag, sjå P3 i
+`evaluering-gjentakande-monster-backlog.md`) — denne fila sin fiks dekte
+altså berre `generate.yml`, ikkje alle stader same nøkkel vert brukt.
+Flytta til `specs/done/`.

@@ -33,6 +33,7 @@ lint: ## Køyr linkml lint [SCHEMA=<sti>]
 	$(call print_header,lint,$(if $(SCHEMA),SCHEMA=$(SCHEMA),(alle skjema)))
 	@$(LINKML_RUN) python3 src/assets/scripts/makefile/batch-lint.py \
 		--config src/assets/containers/.linkmllint.yaml -- $(if $(SCHEMA),$(SCHEMA),$(SCHEMAS))
+	@$(LINKML_RUN) python3 src/assets/scripts/makefile/check-import-duplicates.py $(call get_target_schemas)
 
 check-import-duplicates: ## Sjekk at lokale slots/klasser/typar/enum ikkje kolliderer med navn frå importerte skjema [DOMAIN=<domene>|SCHEMA=<sti>]
 	$(call print_header,check-import-duplicates,$(if $(SCHEMA),SCHEMA=$(SCHEMA),$(if $(DOMAIN),DOMAIN=$(DOMAIN),(alle skjema))))

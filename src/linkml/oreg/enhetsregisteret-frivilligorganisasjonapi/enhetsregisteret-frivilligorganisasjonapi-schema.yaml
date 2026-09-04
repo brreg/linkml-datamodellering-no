@@ -28,7 +28,7 @@ default_range: string
 imports:
 - linkml:types
 - ../../felles/brreg-felles-typer/brreg-felles-typer-schema
-- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # TODO: endre/legg til imports etter behov
+- https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/dcat-ap-no-v2.14.1/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema  # krevst for felles id-slot frå common-ap-no (jf. specs/done/evaluering-gjentakande-monster-backlog.md, P4)
 # Organisasjonsnummer og Kontonummer kjem no frå brreg-felles-typer. Dato
 # er fjerna til fordel for linkml:types sin builtin `date`. Sjå
 # specs/done/felles-typar-enhetsregisteret-fra-br-katalogar.md.

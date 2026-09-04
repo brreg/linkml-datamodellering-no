@@ -196,3 +196,7 @@ CLAUDE.md), og at ei ny CodeQL-køyring skjer deretter — dette kan difor
 ikkje stadfestast i denne økta. Spesifikasjonen vert ståande i
 `specs/backlog/` (ikkje flytta til `specs/done/`) til steg 4 er stadfesta,
 eventuelt steg 5 er utført av brukaren.
+
+**Stadfesta av brukar 2026-09-04** (jf.
+`specs/done/evaluering-gjentakande-monster-backlog.md`, P6): steg 4/5 sin
+CI-åtferd er stadfesta. Flytta til `specs/done/`.

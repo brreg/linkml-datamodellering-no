@@ -1,0 +1,14 @@
+{
+  "_generated_by": "utils/validation_log.py::write_validation_log (kalla frå save-validation-log.py / run-validation.sh) — ikkje rediger manuelt",
+  "schema": "referansemodell-gold",
+  "domain": "referanse",
+  "version": "2.1.1",
+  "validation_policy": "gold",
+  "validated_at": "2026-09-04T13:32:20.160524+00:00",
+  "result": {
+    "valid": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "issues": []
+  }
+}

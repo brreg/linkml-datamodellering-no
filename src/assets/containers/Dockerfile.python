@@ -7,6 +7,10 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /work
 
+# git: nødvendig for check-scaffold-todo-age.py sitt `git log`-oppslag av
+# skjema-opprettingsdato (jf. specs/done/evaluering-gjentakande-monster-backlog.md, P4)
+RUN apk add --no-cache git
+
 # installer pytest
 COPY requirements-python-test.txt .
 RUN pip install --no-cache-dir -r requirements-python-test.txt
