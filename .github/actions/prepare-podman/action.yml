@@ -1,0 +1,46 @@
+name: 'Set opp podman (crun + GHCR-login + valfri image-henting)'
+description: >-
+  Oppgraderer crun og loggar podman inn mot GHCR — paret som gjentek seg i
+  kvar jobb som skal byggje/pushe/pulle image. Valfritt hentar i tillegg
+  ei fast, kjend liste image frå GHCR (pull-images) rett etterpå, for
+  jobbar der biletbehovet ikkje er dynamisk (jf. jobbar som først må
+  `detect-required-images` — dei kallar pull-images som eit separat steg
+  etter denne actionen i staden). Sjå
+  specs/done/evaluering-dry-github-workflows.md (K3). Merk: composite
+  actions kan ikkje uttrykkje ein eigen `if:` for steg via input — ein
+  cache-hit-vakt må difor framleis leggjast på KALLESTEGET
+  (`if: steps.<cache-id>.outputs.cache-hit != 'true'`), ikkje inni denne
+  actionen.
+inputs:
+  github-token:
+    description: 'GitHub-token med tilgang til GHCR (typisk secrets.GITHUB_TOKEN)'
+    required: true
+  images:
+    description: >-
+      Valfri JSON-array [{name, make_target}, ...] for pull-images. Utelat
+      for jobbar som berre treng crun+ghcr-login (t.d. ensure-images-jobbar
+      som sjølv kallar ensure-image, eller jobbar med dynamisk biletbehov
+      via detect-required-images).
+    required: false
+    default: ''
+  image_tags:
+    description: 'image_tags-output (påkravd berre dersom images er sett)'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - name: Oppgrader crun
+      uses: ./.github/actions/upgrade-crun
+
+    - name: Logg inn på GHCR
+      uses: ./.github/actions/ghcr-login
+      with:
+        github-token: ${{ inputs.github-token }}
+
+    - name: Last images inn i podman frå GHCR
+      if: inputs.images != ''
+      uses: ./.github/actions/pull-images
+      with:
+        images: ${{ inputs.images }}
+        image_tags: ${{ inputs.image_tags }}

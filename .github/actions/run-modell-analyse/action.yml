@@ -1,0 +1,55 @@
+name: 'Køyr modell-analyse-mål og last opp rapport'
+description: >-
+  Kapslar inn det 4-stegs skjelettet felles for dei 10 analyse-*-jobbane i
+  modell-analyse.yml: hent python-pytest frå GHCR (i staden for å byggje
+  det lokalt frå botnen), køyr eit analyse-*-make-target, skriv resultatet
+  til $GITHUB_STEP_SUMMARY, og last opp rapporten som artefakt. Krev at ein
+  ensure-images-jobb har sikra python-pytest i GHCR på førehand (sender
+  image_tags-outputen hans inn som image-tags). Sjå
+  specs/done/evaluering-dry-github-workflows.md (K1).
+inputs:
+  github-token:
+    description: 'GitHub-token med tilgang til GHCR (typisk secrets.GITHUB_TOKEN)'
+    required: true
+  image-tags:
+    description: 'image_tags-outputen frå ensure-images-jobben'
+    required: true
+  make-target:
+    description: 'analyse-*-make-target som skal køyrast (t.d. analyse-similar-classes-domain)'
+    required: true
+  report-file:
+    description: 'Filnamn rapporten skal skrivast til (t.d. similar-classes-domain-report.md)'
+    required: true
+  summary-title:
+    description: 'Overskrift i $GITHUB_STEP_SUMMARY (utan ## — leggjast til av actionen)'
+    required: true
+  artifact-name:
+    description: 'Namn på den opplasta artefakten'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set opp podman (crun + GHCR-login + hent python-pytest)
+      uses: ./.github/actions/prepare-podman
+      with:
+        github-token: ${{ inputs.github-token }}
+        images: '[{"name":"python-pytest","make_target":"build-docker-python"}]'
+        image_tags: ${{ inputs.image-tags }}
+
+    - name: Køyr ${{ inputs.make-target }}
+      shell: bash
+      run: |
+        set -uo pipefail
+        make ${{ inputs.make-target }} > ${{ inputs.report-file }}
+        {
+          echo "## ${{ inputs.summary-title }}"
+          cat ${{ inputs.report-file }}
+        } >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Last opp rapport
+      if: always()
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ inputs.report-file }}
+        retention-days: 30

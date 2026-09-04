@@ -147,11 +147,8 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: source
-      - name: Oppgrader crun
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        uses: ./.github/actions/ghcr-login
+      - name: Set opp podman (crun + GHCR-login)
+        uses: ./.github/actions/prepare-podman
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 

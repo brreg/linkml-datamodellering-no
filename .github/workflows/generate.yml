@@ -109,11 +109,8 @@ jobs:
           echo "crun: $(crun --version | head -1)"
           echo "skopeo: $(skopeo --version)"
 
-      - name: Oppgrader crun
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        uses: ./.github/actions/ghcr-login
+      - name: Set opp podman (crun + GHCR-login)
+        uses: ./.github/actions/prepare-podman
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -165,20 +162,11 @@ jobs:
           path: generated/modell-analyse-tvers-domene/
           key: v1-modellanalyse-tvers-domene-${{ hashFiles('src/linkml/**') }}-infra-${{ hashFiles('src/assets/scripts/makefile/find-similar-names.py', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
 
-      - name: Oppgrader crun
+      - name: Set opp podman (crun + GHCR-login + hent python-pytest)
         if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
-        uses: ./.github/actions/ghcr-login
+        uses: ./.github/actions/prepare-podman
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Last python-pytest frå GHCR
-        if: steps.cache-modellanalyse-tvers.outputs.cache-hit != 'true'
-        uses: ./.github/actions/pull-images
-        with:
           images: '[{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
@@ -270,25 +258,16 @@ jobs:
           path: generated/${{ matrix.domain }}/
           key: v1-valider-og-analyser-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/scripts/makefile/run-validation.sh', 'src/assets/scripts/makefile/find-similar-names.py', 'src/assets/scripts/makefile/find-unused-local-definitions.py', 'src/assets/scripts/utils/validation_log.py', 'src/assets/scripts/utils/linkml_relative_import_patch.py', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.mcp-linkml', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
 
-      - name: Oppgrader crun
-        if: steps.cache-valider.outputs.cache-hit != 'true'
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        if: steps.cache-valider.outputs.cache-hit != 'true'
-        uses: ./.github/actions/ghcr-login
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Last images inn i podman frå GHCR
+      - name: Set opp podman (crun + GHCR-login + hent images)
         if: steps.cache-valider.outputs.cache-hit != 'true'
         # Statisk liste — linkml-local/python-pytest/mcp-linkml-validator
         # er alt always_required i images.json (validering+modellanalyse
         # sine einaste avhengigheiter, uavhengig av domenet sine
         # generator-flagg) — treng difor ikkje detect-required-images
         # (som er laga for gen-domain sine valfrie generator-avhengige image).
-        uses: ./.github/actions/pull-images
+        uses: ./.github/actions/prepare-podman
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           images: '[{"name":"linkml-local","make_target":"build-docker-linkml"},{"name":"python-pytest","make_target":"build-docker-python"},{"name":"mcp-linkml-validator","make_target":"build-docker-mcp-validator"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
@@ -518,13 +497,9 @@ jobs:
           # utelatne — verifisert ikkje i kallgrafen.
           key: v4-generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.avrotize', 'src/assets/containers/Dockerfile.asyncapi-cli-minimal', 'src/assets/scripts/makefile/**', 'src/assets/scripts/scaffolding/resolve-catalog-slug.sh', 'src/assets/scripts/utils/**', 'src/assets/templates/**', 'make/00-settings.mk', 'make/01-containers.mk', 'make/02-schema-discovery.mk', 'make/03-output.mk', 'make/10-generator-macros.mk', 'make/11-generator-targets.mk', 'make/20-domain-targets.mk', 'make/30-instances.mk', 'make/40-validation.mk', 'make/80-images.mk', 'Makefile') }}
 
-      - name: Oppgrader crun
+      - name: Set opp podman (crun + GHCR-login)
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        uses: ./.github/actions/ghcr-login
+        uses: ./.github/actions/prepare-podman
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -618,17 +593,7 @@ jobs:
           path: mkdocs/site/
           key: v1-site-${{ hashFiles('generated/**', 'mkdocs/publish.sh', 'mkdocs/lib/**', 'mkdocs/docs/**', 'mkdocs/overrides/**', 'src/assets/containers/Dockerfile.mkdocs', 'README.md', 'src/assets/scripts/makefile/generate-readme-tables.sh', 'src/mcp-linkml-validator/policies/README.md') }}
 
-      - name: Oppgrader crun
-        if: steps.cache-site.outputs.cache-hit != 'true'
-        uses: ./.github/actions/upgrade-crun
-
-      - name: Logg inn på GHCR
-        if: steps.cache-site.outputs.cache-hit != 'true'
-        uses: ./.github/actions/ghcr-login
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Last mkdocs-local og python-pytest frå GHCR (parallelt)
+      - name: Set opp podman (crun + GHCR-login + hent mkdocs-local/python-pytest)
         # mkdocs/publish.sh (via mkdocs/lib/utils/python_container.sh) køyrer
         # YAML-oppslag i python-pytest-kontaineren i staden for python3
         # direkte på runneren — sjå
@@ -637,8 +602,9 @@ jobs:
         # (checkout-source) som resten av workflowen brukar — sjå
         # specs/backlog/parallell-image-pull-publish-jobb.md.
         if: steps.cache-site.outputs.cache-hit != 'true'
-        uses: ./.github/actions/pull-images
+        uses: ./.github/actions/prepare-podman
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           images: '[{"name":"mkdocs-local","make_target":"build-docker-mkdocs"},{"name":"python-pytest","make_target":"build-docker-python"}]'
           image_tags: ${{ needs.checkout-source.outputs.image_tags }}
 
