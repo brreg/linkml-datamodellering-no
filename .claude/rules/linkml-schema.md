@@ -130,6 +130,35 @@ Containerklasse:
 - `/los/begrep/`-URI-ar finst ikkje — berre `/los/tema/`, `/los/ord/`, `/los/hendelse/`
 - `dct:subject` (`begrep`-slot) peikar til fagomgrep i begrepskatalog — ikkje til Los
 
+### Trygg fjerning av ein import
+
+Eit tomt/lite treff på **klassebruk** (ingen importert klasse brukt som
+`range`/`is_a` nokon stad i skjemaet) er **ikkje** bevis på at ein import
+er ubrukt — importen kan framleis vere nødvendig for delte **globale
+slots** (t.d. `id`, `tittel`) eller **typar** (t.d. `LangString`) som
+konsumerast transitivt (t.d. via `common-ap-no-schema`, nådd gjennom ein
+AP-NO-profil).
+
+**Fell aldri tilbake til å kopiere inn den manglande slot-/
+type-definisjonen lokalt** for å fikse ein lint-feil som oppstår etter at
+ein import er fjerna (`Slot 'id' ... not found`,
+`range 'LangString' is not defined`, `Undefined subset references` o.l.).
+Dette bryt importhierarkiet sitt DRY-føremål (CLAUDE.md: "klasser og slots
+definerast éin stad og importerast nedover") ved å skape ein ny, parallell
+kopi av noko som alt har éi kjelde. Sjå
+`specs/done/evaluering-gjentakande-monster-backlog.md` (P4a) for eit reelt
+tilfelle: fjerning av ein tilsynelatande ubrukt `dcat-ap-no`-import braut
+fem skjema, sidan dei transitivt trong `id`/`tittel`/`LangString` frå
+`common-ap-no-schema`.
+
+**Rett framgangsmåte ved fjerning av ein import:**
+1. Fjern importen.
+2. Køyr `make lint SCHEMA=<sti>` (og `make roundtrip SCHEMA=<sti>`).
+3. Feilar det med udeklarerte slots/typar/subsets → importen var **ikkje**
+   ubrukt. Set han attende — **ikkje** definer det manglande lokalt.
+4. Berre dersom lint/roundtrip framleis er grøne etter fjerning, er
+   importen trygt fjerna.
+
 ### Ny profil eller domenemodell
 Sjå `mkdocs/docs/kom-i-gang/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
