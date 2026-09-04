@@ -1,9 +1,10 @@
 ---
 name: make-conventions
-description: Batching- og wrapper-target-mønster for make/*.mk-generatorar og src/assets/scripts/**, pluss peikar til "ingen stille feil"-prinsippet. Lastast automatisk ved arbeid med filer under make/ eller src/assets/scripts/.
+description: Batching- og wrapper-target-mønster for make/*.mk-generatorar, src/assets/scripts/** og mkdocs/lib/scripts/**, pluss peikar til "ingen stille feil"-prinsippet. Lastast automatisk ved arbeid med filer under make/, src/assets/scripts/ eller mkdocs/lib/scripts/.
 paths:
   - "make/**"
   - "src/assets/scripts/**"
+  - "mkdocs/lib/scripts/**"
 ---
 
 ## Ingen stille feil

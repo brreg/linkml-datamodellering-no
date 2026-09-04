@@ -3,7 +3,7 @@
   "domain": "oreg",
   "version": "0.1.0",
   "validation_policy": "silver",
-  "validated_at": "2026-09-02T20:11:43.225648+00:00",
+  "validated_at": "2026-09-04T09:34:45.376370+00:00",
   "result": {
     "valid": false,
     "errorCount": 4,
