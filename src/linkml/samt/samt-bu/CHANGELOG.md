@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.12.0...samt-bu-v1.12.1) (2026-09-04)
+
+
+### Bug Fixes
+
+* **mcp-validator:** fiks P5 falske containerkrav, legg til P2-4 tiltak ([a4b7b7a](https://github.com/brreg/linkml-datamodellering-no/commit/a4b7b7aa13c30514660040757e894073a4eb5be3))
+
 ## [1.12.0](https://github.com/brreg/linkml-datamodellering-no/compare/samt-bu-v1.11.0...samt-bu-v1.12.0) (2026-08-28)
 
 

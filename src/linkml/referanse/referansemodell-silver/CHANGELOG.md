@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-silver-v2.1.1...referansemodell-silver-v2.1.2) (2026-09-04)
+
+
+### Bug Fixes
+
+* **mcp-validator:** fiks P5 falske containerkrav, legg til P2-4 tiltak ([a4b7b7a](https://github.com/brreg/linkml-datamodellering-no/commit/a4b7b7aa13c30514660040757e894073a4eb5be3))
+
 ## [2.1.1](https://github.com/brreg/linkml-datamodellering-no/compare/referansemodell-silver-v2.1.0...referansemodell-silver-v2.1.1) (2026-09-01)
 
 
