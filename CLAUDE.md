@@ -17,7 +17,7 @@ Desse dokumenta er autoritative kjelder — ikkje dupliser innhald herifrå i CL
 2. **Avklar antakelser** — dersom du må gjere val eller antakelser for å utføre instruksjonen, spør brukaren om desse før du startar arbeidet
 3. **Skriv spesifikasjon** — opprett ei ny spec i `specs/backlog/<kortnavn>.md` med bakgrunn, nummererte steg, handlingsliste og ei tom `## Avgjerder`-seksjon. **Unntak:** dersom du allereie jobbar med å realisere tiltak i ein eksisterande spec i `specs/backlog/`, treng du ikkje opprette ny spec
 4. **Utfør arbeidet** — følg spesifikasjonen og oppdater han etter kvart steg. Logg **ikkje-trivielle val** (dømmekraft, avvik frå eksplisitt instruks, eller val mellom fleire rimelege alternativ) i `## Avgjerder`-seksjonen etter kvart som dei vert tekne — kort kva som vart valt og kvifor
-5. **Avslutning** — når alle tiltak er utførte: (a) generer kompakt commit-melding, (b) legg til `## Utført`-seksjon i specen, (c) flytt specen til `specs/done/`
+5. **Avslutning** — når alle tiltak er utførte: (a) evaluer om arbeidet avslører eit konkret, ikkje-spekulativt mønster/lærdom (ein feil retta, ei fallgruve unngått, ein gjentakande avveging) som bør fangast som ny eller endra Claude Code-rule — krev same konkrete grunngjeving som `.claude/skills/ny-rule/SKILL.md` steg 1, og spør brukaren om dei ønskjer å leggje til/endre den aktuelle rula før du går vidare, (b) generer kompakt commit-melding, (c) legg til `## Utført`-seksjon i specen, (d) flytt specen til `specs/done/`
 
 **Når treng du ikkje ny spec?**
 - Du utfører allereie tiltak frå ein eksisterande spec i `specs/backlog/`
