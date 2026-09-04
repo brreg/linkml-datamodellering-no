@@ -237,6 +237,11 @@ def process_org(org, schemas, dry_run):
 
     if not dry_run and (updated_names or added_names):
         with open(catalog_path, "w", encoding="utf-8") as fh:
+            fh.write(
+                "# Delvis generert av update-modellkatalog.py / gen-modelldcat-elements.py.\n"
+                "# Nye stub-oppføringar (merka med TODO) krev manuell utfylling — "
+                "resten vert overskrive ved neste køyring.\n\n"
+            )
             yaml.dump(
                 catalog,
                 fh,

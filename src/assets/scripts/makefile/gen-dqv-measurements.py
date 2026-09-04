@@ -23,6 +23,11 @@ import sys
 from datetime import date
 from pathlib import Path
 
+DQV_MARKER = (
+    "# kvalitetsmaalingar: generert av gen-dqv-measurements.py — ikkje rediger manuelt "
+    "(resten av fila er produksjonsdata)\n"
+)
+
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "src" / "assets" / "scripts"))
@@ -197,10 +202,16 @@ def process_datafile(manifest_path, profile, today, dry_run):
     text = text[:block_start] + block_text + text[block_end:]
 
     # 2) Sett inn/oppdater toppnivå-blokka kvalitetsmaalingar:.
-    new_section = "kvalitetsmaalingar:\n" + render_entries(list(existing_measurements.values()))
+    # Merk: DQV_MARKER er inkludert i new_section OG "slukt" attende inn i
+    # den erstatta regionen under (dersom han alt står der frå ei tidlegare
+    # køyring) — elles ville han hopa seg opp med éi ny linje per køyring.
+    new_section = DQV_MARKER + "kvalitetsmaalingar:\n" + render_entries(list(existing_measurements.values()))
     top_block = find_top_level_block(text, "kvalitetsmaalingar")
     if top_block is not None:
-        text = text[: top_block[0]] + new_section + text[top_block[1] :]
+        block_start_pos = top_block[0]
+        if text[:block_start_pos].endswith(DQV_MARKER):
+            block_start_pos -= len(DQV_MARKER)
+        text = text[:block_start_pos] + new_section + text[top_block[1] :]
     else:
         if not text.endswith("\n"):
             text += "\n"

@@ -29,6 +29,7 @@ def build_validation_log_entry(
     kategorietikett (t.d. `examples`, `data-<catalog>`).
     """
     return {
+        "_generated_by": "utils/validation_log.py::write_validation_log (kalla frå save-validation-log.py / run-validation.sh) — ikkje rediger manuelt",
         "schema": schema_name,
         "domain": domain,
         "version": version,

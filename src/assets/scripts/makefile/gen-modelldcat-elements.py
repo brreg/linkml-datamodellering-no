@@ -318,6 +318,11 @@ def process_org_schemas(org, schemas, dry_run):
 
     if not dry_run and processed:
         with open(catalog_path, "w", encoding="utf-8") as fh:
+            fh.write(
+                "# Delvis generert av update-modellkatalog.py / gen-modelldcat-elements.py.\n"
+                "# Nye stub-oppføringar (merka med TODO) krev manuell utfylling — "
+                "resten vert overskrive ved neste køyring.\n\n"
+            )
             yaml.dump(catalog, fh, allow_unicode=True, sort_keys=False, default_flow_style=False)
         print(f"  Skreiv {catalog_path}")
     elif dry_run and processed:
