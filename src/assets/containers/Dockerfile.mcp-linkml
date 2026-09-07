@@ -16,6 +16,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY --from=base-builder /install /usr/local
+# Delt utils-modul (mcp_jsonrpc_stdio, linkml_relative_import_patch m.fl.) —
+# alle tre server.py-filene importerer via sys.path.insert(0, "/app/utils").
+# Bakt inn her (i staden for berre montert lokalt via podman run -v) slik at
+# det publiserte biletet er sjølvstendig — kritisk for ekstern bruk via
+# reusable-validate.yml/flatten-and-validate.bash, som ikkje monterer denne
+# katalogen. Sjå .claude/rules/container-images.md § «Ein ny påkravd delt
+# modul krev full kartlegging av alle monteringsstader».
+COPY src/assets/scripts/utils/ utils/
 
 FROM base-runtime AS validator
 COPY src/mcp-linkml-validator/server.py src/mcp-linkml-validator/validate-and-log.py ./

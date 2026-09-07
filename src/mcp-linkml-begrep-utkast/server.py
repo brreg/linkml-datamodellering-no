@@ -2,6 +2,7 @@
 """MCP-server for generering og validering av SKOS-AP-NO Begrep-instansar."""
 
 import json
+import os
 import sys
 import yaml
 from pathlib import Path
@@ -18,6 +19,12 @@ from mcp_jsonrpc_stdio import dispatch, run_stdio_loop  # noqa: E402
 
 
 _PROFILES_DIR = Path(__file__).parent / "profiles"
+
+# Rotkatalog for skjema/begrep innanfor det monterte /repo-treet. Default
+# "src/linkml" er dette repoet sin konvensjon — overstyrbar slik at serveren
+# kan peikast mot eit eksternt repo med ein annan skjema-katalogstruktur
+# (t.d. -e SCHEMA_ROOT=schema i .mcp.json/podman run for det eksterne repoet).
+_SCHEMA_ROOT = os.environ.get("SCHEMA_ROOT", "src/linkml")
 
 
 def _list_profiles() -> list:
@@ -305,7 +312,7 @@ TOOL_SKRIV_BEGREP_FIL = {
     "name": "skriv_begrep_fil",
     "description": (
         "Genererer begreps-YAML og skriv direkte til begrepssamling-struktur. "
-        "Skriv til src/linkml/<domain>/begrepssamling-<navn>/begrep/<slug>.yaml. "
+        f"Skriv til {_SCHEMA_ROOT}/<domain>/begrepssamling-<navn>/begrep/<slug>.yaml. "
         "Returnerer filsti."
     ),
     "inputSchema": {
@@ -544,7 +551,7 @@ def _handle_skriv_begrep_fil(msg_id, arguments: dict) -> dict:
         return _param_error(msg_id, "fagomrade_uri")
 
     # Bygg output-sti
-    output_path = Path("/repo") / "src/linkml" / domain / begrepssamling / "begrep" / f"{slug}.yaml"
+    output_path = Path("/repo") / _SCHEMA_ROOT / domain / begrepssamling / "begrep" / f"{slug}.yaml"
 
     try:
         result_path = skriv_begrep_til_fil(

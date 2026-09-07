@@ -37,6 +37,22 @@ fi
 # Kan overstyrast utanfrå (t.d. for å bruke eit spesifikt image)
 MCP_IMAGE="${MCP_IMAGE:-mcp-linkml-validator}"
 
+# utils/ (mcp_jsonrpc_stdio m.fl.) er bakt inn i biletet (sjå
+# Dockerfile.mcp-linkml) — denne monteringa er berre ei valfri
+# lokal-dev-bekvemmelegheit (live-edit av utils/ utan rebuild), same
+# grunngjeving som server.py/policies-monteringane under. Utleia frå
+# VALIDATOR_DIR (ikkje REPO_ROOT) sidan dei to peikar på ulike repo i den
+# eksterne reusable-validate.yml-vegen — der finst ikkje denne katalogen
+# (sparse-checkout hentar han ikkje), så monter berre viss han faktisk
+# finst. IKKJE gjer denne monteringa ubetinga: podman lagar elles ein tom
+# katalog for ein manglande vertssti, som ville skygge for det bakte-inn
+# eksemplaret i biletet og reintrodusere ModuleNotFoundError.
+UTILS_DIR="$(dirname "$(dirname "$VALIDATOR_DIR")")/assets/scripts/utils"
+UTILS_MOUNT=()
+if [ -d "$UTILS_DIR" ]; then
+    UTILS_MOUNT=(-v "$UTILS_DIR:/app/utils:ro")
+fi
+
 # Send skjemastien direkte til MCP-serveren (schemaPath, ikkje schemaText) —
 # heile repoet vert montert read-only på /repo slik at SchemaView kan løyse
 # relative importar. Policyar vert monterte inn frå repoet slik at endringar
@@ -65,6 +81,7 @@ print('\n'.join(json.dumps(m) for m in msgs))
   -v "$REPO_ROOT:/repo:ro" \
   -v "$VALIDATOR_DIR/server.py:/app/server.py:ro" \
   -v "$VALIDATOR_DIR/policies:/app/policies:ro" \
+  "${UTILS_MOUNT[@]}" \
   "$MCP_IMAGE" | python3 -c "
 import json, sys
 for line in sys.stdin:

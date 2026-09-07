@@ -9,6 +9,14 @@
 #   [out-fil]      valfri — skriv til fil i staden for stdout
 #   [id-prefiks]   valfri — jf. <navn>:eksempel-N-konvensjonen
 #   [overwrite]    valfri — "1" for å tillate overskriving av eksisterande out-fil
+#
+# Miljøvariablar:
+#   SCHEMA_REPO_ROOT  valfri — repoet skjemaet ligg i, monterast read-only for
+#                     å løyse relative importar. Default: næraste git-rot for
+#                     skjemafila (fungerer difor også for eit skjema i eit
+#                     anna, t.d. eksternt, repo — ikkje berre dette repoet).
+#   LINKML_GEN_IMAGE  valfri — image-namn/-tag for mcp-linkml-modell-utkast.
+#                     Default: lokalbygd "mcp-linkml-modell-utkast".
 set -euo pipefail
 
 SCHEMA_PATH="${1:-}"
@@ -32,15 +40,29 @@ if [[ -n "$OUT_FILE" && -f "$OUT_FILE" && "$OVERWRITE" != "1" ]]; then
     exit 1
 fi
 
-REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
-LINKML_GEN_DIR="$REPO_ROOT/src/mcp-linkml-modell-utkast"
-LINKML_GEN_IMAGE="mcp-linkml-modell-utkast"
+# TOOL_REPO_ROOT: kor sjølve mcp-linkml-modell-utkast-verktøyet (kjeldekode
+# og/eller lokalbygd image) bur — alltid dette repoet, uavhengig av kvar
+# skjemaet ligg.
+TOOL_REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
+LINKML_GEN_DIR="$TOOL_REPO_ROOT/src/mcp-linkml-modell-utkast"
+LINKML_GEN_IMAGE="${LINKML_GEN_IMAGE:-mcp-linkml-modell-utkast}"
 SCHEMA_ABS="$(cd "$(dirname "$SCHEMA_PATH")" && pwd)/$(basename "$SCHEMA_PATH")"
 
+# SCHEMA_REPO_ROOT: repoet skjemaet sjølv ligg i — monterast read-only slik
+# at relative importar til søskenskjema løysest (t.d. dqv-ap-no frå
+# dcat-ap-no). Treng IKKJE vere dette repoet: default er næraste git-rot for
+# skjemafila, slik at scriptet også kan peikast mot eit skjema i eit anna
+# (t.d. eksternt) repo — set SCHEMA_REPO_ROOT eksplisitt for å overstyre.
+SCHEMA_REPO_ROOT="${SCHEMA_REPO_ROOT:-$(cd "$(dirname "$SCHEMA_ABS")" && git rev-parse --show-toplevel 2>/dev/null || true)}"
+if [[ -z "$SCHEMA_REPO_ROOT" ]]; then
+    echo "Feil: fann ikkje noko git-repo for $SCHEMA_PATH, og SCHEMA_REPO_ROOT er ikkje sett eksplisitt." >&2
+    exit 1
+fi
+
 case "$SCHEMA_ABS" in
-    "$REPO_ROOT"/*) SCHEMA_REL="${SCHEMA_ABS#"$REPO_ROOT"/}" ;;
+    "$SCHEMA_REPO_ROOT"/*) SCHEMA_REL="${SCHEMA_ABS#"$SCHEMA_REPO_ROOT"/}" ;;
     *)
-        echo "Feil: $SCHEMA_PATH ligg utanfor repoet ($REPO_ROOT) — kan ikkje monterast." >&2
+        echo "Feil: $SCHEMA_PATH ligg utanfor SCHEMA_REPO_ROOT ($SCHEMA_REPO_ROOT) — kan ikkje monterast." >&2
         exit 1
         ;;
 esac
@@ -58,8 +80,8 @@ EXAMPLE_DATA=$(podman run -i --rm \
       -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
       -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
       -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
-      -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
-      -v "$REPO_ROOT:/work:ro" \
+      -v "$TOOL_REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
+      -v "$SCHEMA_REPO_ROOT:/work:ro" \
       "$LINKML_GEN_IMAGE" \
       python3 /app/validator.py "/work/$SCHEMA_REL" "$ID_PREFIX") || {
     echo "Feil: eksempelgenerering feila for $SCHEMA_PATH" >&2

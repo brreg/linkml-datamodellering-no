@@ -105,6 +105,24 @@ jobs:
 | `instance` | string | (automatisk) | Sti til datafil — funnen automatisk i `examples/` om han ikkje er oppgitt |
 | `version` | string | (frå `linkml-datamodellering.yaml`) | Overstyrer versjonen som vert lesen frå konfigurasjonsfila |
 
+### Lint
+
+```yaml
+jobs:
+  lint:
+    uses: brreg/linkml-datamodellering-no/.github/workflows/reusable-lint.yml@main
+    with:
+      schema: src/linkml/mitt-domene/min-modell/min-modell-schema.yaml
+```
+
+Køyrer same stilsjekk (`linkml lint`, navnekonvensjonar/URI-ar/obligatoriske felt) og
+navnekollisjons-sjekk mot importerte skjema som lokal `make lint`.
+
+| Input | Type | Standard | Skildring |
+|---|---|---|---|
+| `schema` | string | — (påkravd) | Sti til skjemafil, relativ til repo-rota |
+| `version` | string | (frå `linkml-datamodellering.yaml`) | Overstyrer versjonen som vert lesen frå konfigurasjonsfila |
+
 ### Generering av artefakter
 
 ```yaml
@@ -254,3 +272,55 @@ Tilgjengelege image-taggar: `latest`, `main`, skjema-spesifikke taggar (`dcat-ap
     [Bootstrap](#bootstrap-ein-kommando) den enklaste vegen — han hentar
     desse støttefilene og køyrer full policy-validering automatisk via
     `reusable-validate.yml`.
+
+### 2 — Modell-/begrepsutkast-assistanse via MCP
+
+`mcp-linkml-modell-utkast` (LinkML-skjemautkast frå JSON Schema/tomt skjema) og
+`mcp-linkml-begrep-utkast` (SKOS-AP-NO Begrep-utkast) er, i motsetnad til
+`mcp-linkml-validator` over, **fullstendig sjølvstendige** container-bilete —
+kjeldekoden er bakt inn ved byggjetid, ikkje bind-montert frå dette repoet. Eit
+eksternt repo kan difor bruke dei direkte frå Claude Code (eller anna
+MCP-kompatibelt verktøy) utan nokon lokal checkout av kjeldekoden, ved å leggje
+dette til i sin eigen `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "linkml-modell-utkast": {
+      "type": "stdio",
+      "command": "podman",
+      "args": ["run", "-i", "--rm", "ghcr.io/brreg/mcp-linkml-modell-utkast:latest"]
+    },
+    "linkml-begrep-utkast": {
+      "type": "stdio",
+      "command": "bash",
+      "args": [
+        "-c",
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO:/repo:ro\" -v \"$REPO/src/linkml:/repo/src/linkml:rw\" ghcr.io/brreg/mcp-linkml-begrep-utkast:latest"
+      ]
+    }
+  }
+}
+```
+
+`mcp-linkml-modell-utkast` treng ingen montering i det heile — han genererer eit
+skjemautkast frå input og returnerer det via MCP-verktøykallet, utan å lese eller
+skrive filer i det kallande repoet.
+
+`mcp-linkml-begrep-utkast` **skriv** genererte begrepsfiler til
+`<repo>/src/linkml/<domain>/<begrepssamling>/begrep/<slug>.yaml` — monter difor
+repoet (les/skriv, som over). Følgjer ikkje det eksterne repoet
+`src/linkml`-konvensjonen, set `SCHEMA_ROOT` til rett katalog:
+
+```json
+"args": [
+  "-c",
+  "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -e SCHEMA_ROOT=schema -v \"$REPO:/repo:ro\" -v \"$REPO/schema:/repo/schema:rw\" ghcr.io/brreg/mcp-linkml-begrep-utkast:latest"
+]
+```
+
+!!! tip "Versjonspinning"
+    Byt `:latest` til ein skjema-spesifikk versjon-tag (same konvensjon som
+    [Skjema-URL-ar og versjonering](#versjonerte-artefakter)) for reproduserbare
+    resultat — `:latest` kan gje eit anna skjemautkast-mønster etter ei framtidig
+    oppdatering av policyane i `mcp-linkml-modell-utkast`/`mcp-linkml-begrep-utkast`.

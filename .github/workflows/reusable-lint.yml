@@ -1,0 +1,95 @@
+name: Reusable - LinkML lint
+
+on:
+  workflow_call:
+    inputs:
+      schema:
+        description: 'Sti til skjemafil (relativ til repo-rota, t.d. src/linkml/mitt-domene/min-modell/min-modell-schema.yaml)'
+        type: string
+        required: true
+      version:
+        description: 'Versjon av linkml-datamodellering-no (t.d. v1.0.0). Overstyrer linkml-datamodellering.yaml. Standard: latest.'
+        type: string
+        default: ''
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+
+    steps:
+      - name: Sjekk ut kallande repo
+        uses: actions/checkout@v7
+
+      - name: Les versjon frå linkml-datamodellering.yaml
+        id: config
+        run: |
+          VERSION="${{ inputs.version }}"
+          if [ -z "$VERSION" ] && [ -f linkml-datamodellering.yaml ]; then
+            VERSION=$(grep '^ap-no-version:' linkml-datamodellering.yaml | awk '{print $2}')
+          fi
+          VERSION="${VERSION:-latest}"
+
+          # Tryggleik: avgrens checkout-ref til forventa, stabile verdiar.
+          # Tillat berre "latest" eller semver-taggar på forma vMAJOR.MINOR.PATCH.
+          if ! echo "$VERSION" | grep -Eq '^(latest|v[0-9]+\.[0-9]+\.[0-9]+)$'; then
+            echo "::error::Ugyldig versjon '$VERSION'. Tillatne verdiar er 'latest' eller semver-tag på forma vX.Y.Z."
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      # Hentar lint-komponentane frå denne workflowen sitt eige repo — same
+      # batch-lint.py/check-import-duplicates.py som lokal `make lint` bruker,
+      # éin kjelde i staden for to som kan drive frå kvarandre. Kopierer dei
+      # inn i kallande repo sin katalogstruktur (i staden for berre montert
+      # frå _linkml-tools) fordi begge script løyser sin delte
+      # linkml_relative_import_patch-avhengigheit repo-relativt
+      # (Path(__file__).resolve().parent.parent / "utils") — dei må difor
+      # liggje under src/assets/scripts/makefile/ med src/assets/scripts/utils/
+      # som søsken, ikkje i ein vilkårleg undermappe.
+      - name: Hent lint-verktøy frå brreg/linkml-datamodellering-no
+        uses: actions/checkout@v7
+        with:
+          repository: brreg/linkml-datamodellering-no
+          ref: ${{ steps.config.outputs.version }}
+          persist-credentials: false
+          sparse-checkout: |
+            src/assets/containers/.linkmllint.yaml
+            src/assets/scripts/makefile/batch-lint.py
+            src/assets/scripts/makefile/check-import-duplicates.py
+            src/assets/scripts/utils
+          path: _linkml-tools
+
+      - name: Kopier lint-verktøy inn i kallande repo
+        run: |
+          if [ -e src/assets ]; then
+            echo "::error::Kallande repo har alt ein src/assets-katalog — reusable-lint.yml kan ikkje trygt kopiere over utan å risikere å overskrive han. Kontakt vedlikehaldar av brreg/linkml-datamodellering-no."
+            exit 1
+          fi
+          mkdir -p src/assets/containers src/assets/scripts/makefile
+          cp _linkml-tools/src/assets/containers/.linkmllint.yaml src/assets/containers/.linkmllint.yaml
+          cp _linkml-tools/src/assets/scripts/makefile/batch-lint.py src/assets/scripts/makefile/batch-lint.py
+          cp _linkml-tools/src/assets/scripts/makefile/check-import-duplicates.py src/assets/scripts/makefile/check-import-duplicates.py
+          cp -r _linkml-tools/src/assets/scripts/utils src/assets/scripts/utils
+          rm -rf _linkml-tools
+
+      - name: Trekk inn linkml-local image
+        run: |
+          VERSION="${{ steps.config.outputs.version }}"
+          podman pull "ghcr.io/brreg/linkml-local:${VERSION}"
+          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" localhost/linkml-local:latest
+
+      - name: Lint skjema (stilsjekk + navnekollisjonar mot importerte skjema)
+        env:
+          SCHEMA: ${{ inputs.schema }}
+        run: |
+          set -euo pipefail
+          podman run --rm -v "$PWD:/work" -w /work -e PYTHONWARNINGS=ignore --user root \
+            localhost/linkml-local:latest \
+            python3 src/assets/scripts/makefile/batch-lint.py \
+              --config src/assets/containers/.linkmllint.yaml -- "$SCHEMA"
+          podman run --rm -v "$PWD:/work" -w /work -e PYTHONWARNINGS=ignore --user root \
+            localhost/linkml-local:latest \
+            python3 src/assets/scripts/makefile/check-import-duplicates.py "$SCHEMA"

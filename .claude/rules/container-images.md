@@ -1,12 +1,14 @@
 ---
 name: container-images
-description: Container-invokeringsmønster i make/01-containers.mk, make/60-mcp.mk, Makefile og Dockerfile*/requirements*.txt under src/assets/containers/ — WORK_MOUNT, eksplisitt env-vidareføring, stdin-fella (BUG-10), attribution-plikt for nye verktøy, full kartlegging av monteringsstader for nye delte moduler. Lastast automatisk ved arbeid med desse filene.
+description: Container-invokeringsmønster i make/01-containers.mk, make/60-mcp.mk, Makefile og Dockerfile*/requirements*.txt under src/assets/containers/ — WORK_MOUNT, eksplisitt env-vidareføring, stdin-fella (BUG-10), attribution-plikt for nye verktøy, full kartlegging av monteringsstader for nye delte moduler (inkl. Dockerfile COPY-lister, frittståande orkestreringsskript og .mcp.json). Lastast automatisk ved arbeid med desse filene.
 paths:
   - "src/assets/containers/**"
   - "make/01-containers.mk"
   - "make/60-mcp.mk"
   - "Makefile"
   - "src/assets/scripts/scaffolding/**"
+  - "src/mcp-*/flatten-and-validate.bash"
+  - ".mcp.json"
 ---
 
 ## WORK_MOUNT-mønsteret
@@ -88,15 +90,53 @@ kontainer, ikkje berre Makefile-targeta:
 2. `-test`-oppskrifter som monterer kjeldekatalogen separat frå
    `-run`/`-smoke` (ofte ein annan monteringssti/`PYTHONPATH`, difor ikkje
    automatisk dekt av (1))
-3. Scaffolding-script som byggjer sine eigne `podman run`-kall direkte
-   (t.d. `src/assets/scripts/scaffolding/new-modell.sh`) — desse duplekserer
-   make-variablane sine monteringar manuelt og må oppdaterast separat
+3. Scaffolding-/orkestreringsscript som byggjer sine eigne `podman run`-kall
+   direkte (t.d. `src/assets/scripts/scaffolding/new-modell.sh`,
+   `src/mcp-linkml-validator/flatten-and-validate.bash`) — desse
+   duplekserer make-variablane sine monteringar manuelt og må oppdaterast
+   separat
 4. `tests/test_make.sh` sine direkte `podman run`-kall (skil seg frå
    make-targeta sine, søk spesifikt etter scriptnamnet)
 5. CI-cache-nøklar i `.github/workflows/*.yml` som eksplisitt listar
    avhengige filer (`hashFiles(...)`) — ei ny transitiv avhengigheit må
    leggjast til der, elles gjev ei framtidig endring i modulet eit stille
    cache-hit i staden for reell re-køyring
+6. **`Dockerfile*` sine `COPY`-lister** — den avgjerande, lett gløymde
+   staden: eit `podman run`-kall utan eksplisitt filmontering (t.d. det
+   publiserte `ghcr.io/brreg/*`-biletet brukt av reusable workflows/eksterne
+   repo) er heilt avhengig av at modulen faktisk vart bygd inn i biletet.
+   Sjekk **kvart** `FROM ... AS <stadium>`-steg i `Dockerfile.mcp-linkml`
+   (validator/modell-utkast/begrep-utkast har separate `COPY`-linjer) —
+   ikkje anta at éin retta `COPY`-linje dekker alle tre. Verifiser med ein
+   reell `podman build` + køyring **utan** noka ekstra `-v`-montering
+   utover det biletet sjølv inneheld — det er den einaste måten å fange opp
+   at ei fil berre finst via lokal bind-mount, ikkje i biletet.
+7. **`.mcp.json`** i repo-rota — kontributørane sitt eige lokale Claude
+   Code MCP-oppsett for dei tre serverane, heilt separat frå
+   Makefile-måla og difor ikkje dekt av punkt 1-2.
+
+Konkret hending der punkt 3, 6 og 7 mangla frå denne sjekklista sjølv (ein
+tidlegare versjon av dette avsnittet dekte berre punkt 1-5): konsolideringa
+av `mcp_jsonrpc_stdio.py` oppdaterte `Makefile`/`make/60-mcp.mk`/
+`new-modell.sh`/`tests/test_make.sh`, men verken
+`Dockerfile.mcp-linkml` sine `COPY`-linjer,
+`flatten-and-validate.bash` (brukt av
+`.github/workflows/reusable-validate.yml` — den eksterne
+bootstrap-valideringsvegen) eller `.mcp.json`. Stadfesta reprodusert:
+`podman build ... --target validator` etterfølgt av `podman run -i --rm
+mcp-linkml-validator` (utan `utils`-montering) gav
+`ModuleNotFoundError: No module named 'mcp_jsonrpc_stdio'`. Sjå
+`specs/done/rule-full-kartlegging-manglar-dockerfile-og-mcp-json.md`.
+
+**Automatisert kontroll (punkt 6 og 7):** `make analyse-container-copy-konsistens`
+(`src/assets/scripts/makefile/check-container-copy-coverage.py`) sjekkar
+punkt 6 (Dockerfile-`COPY`-dekning for kvar `server.py` med eit
+`sys.path.insert(0, "/app/utils")`-mønster) og eit avgrensa tilfelle av
+sparse-checkout-dekning for reusable workflows (punkt 5) automatisk — køyr
+han etter endringar i `Dockerfile.mcp-linkml` eller ein ny/endra delt
+utils-modul. Dekker **ikkje** punkt 1-4 og 7 (`.mcp.json`, make-variablar,
+`-test`-oppskrifter, scaffolding-script) — desse må framleis sjekkast for
+hand.
 
 For sjølve scriptet: prøv fleire kandidat-`sys.path`-oppføringar (éin per
 kjend monteringsmønster: flatt i same katalog som scriptet, `/repo/...` for

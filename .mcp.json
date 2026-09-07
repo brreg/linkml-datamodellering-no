@@ -5,7 +5,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-modell-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/converter.py:/app/converter.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/validator.py:/app/validator.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/profiles:/app/profiles:ro\" mcp-linkml-modell-utkast"
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-modell-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/converter.py:/app/converter.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/validator.py:/app/validator.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/profiles:/app/profiles:ro\" -v \"$REPO/src/assets/scripts/utils:/app/utils:ro\" mcp-linkml-modell-utkast"
       ],
       "env": {}
     },
@@ -14,7 +14,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-validator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-validator/policies:/app/policies:ro\" mcp-linkml-validator"
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-validator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-validator/policies:/app/policies:ro\" -v \"$REPO/src/assets/scripts/utils:/app/utils:ro\" mcp-linkml-validator"
       ],
       "env": {}
     },
@@ -23,7 +23,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-begrep-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/generator.py:/app/generator.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/los_tema.py:/app/los_tema.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/profiles:/app/profiles:ro\" -v \"$REPO:/repo:ro\" -v \"$REPO/src/linkml:/repo/src/linkml:rw\" mcp-linkml-begrep-utkast"
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-begrep-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/generator.py:/app/generator.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/los_tema.py:/app/los_tema.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/profiles:/app/profiles:ro\" -v \"$REPO/src/assets/scripts/utils:/app/utils:ro\" -v \"$REPO:/repo:ro\" -v \"$REPO/src/linkml:/repo/src/linkml:rw\" mcp-linkml-begrep-utkast"
       ],
       "env": {}
     }

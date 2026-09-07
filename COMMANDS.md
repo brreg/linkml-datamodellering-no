@@ -346,6 +346,7 @@ ikkje IRI-/nettverkssjekkar) — sjå
 | `make analyse-ap-no-gjenbruk` | Digdir-regel 14 (Gjenbruk): sjekkar at alle `ap-no/*`-skjema importerer `common-ap-no-schema` (direkte eller transitivt), og flaggar skjema utanfor `ap-no/*` som importerer det direkte i staden for via ein AP-NO-profil. Rapporterer berre avvik. | Markdown til stdout |
 | `make analyse-modell-sammenhenger` | Digdir-regel 12 (Sammenhenger mellom modeller): kryssreferer LinkML sin `imports:`-graf mot `har_del`/`er_i_samsvar_med`/`er_profil_av`/`erstatter`/`er_erstattet_av` i modellkatalog-datafilene (`src/linkml/modellkatalog/*/data/*/*.yaml`). Rapporterer berre avvik. | Markdown til stdout |
 | `make analyse-sammendrag` | Les `analyse-*`-rapportfilene og skriv ein konsolidert sammendrag-tabell med tal på funn/feil per sjekk-type. Krev at rapportfilene alt finst (generert av dei andre `analyse-*`-måla). | Markdown-tabell til stdout |
+| `make analyse-container-copy-konsistens` | Sjekk at `Dockerfile.mcp-linkml` sine `COPY`-lister og `.github/workflows/reusable-*.yml` sine sparse-checkout-lister dekker harde `src/assets/scripts/utils/`-avhengigheiter (t.d. `mcp_jsonrpc_stdio.py`) — fangar den regresjonsklassen skildra i `.claude/rules/container-images.md` § «Ein ny påkravd delt modul krev full kartlegging av alle monteringsstader». **Feilar** (exit 1) ved avvik, i motsetnad til dei andre `analyse-*`-måla i denne seksjonen. | Markdown til stdout |
 
 ## Påskeegg: Gource-visualisering
 

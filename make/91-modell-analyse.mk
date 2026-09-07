@@ -17,6 +17,7 @@
 # - src/assets/scripts/makefile/check-ap-no-reuse.py
 # - src/assets/scripts/makefile/check-model-relationships.py
 # - src/assets/scripts/makefile/check-cache-key-coverage.py
+# - src/assets/scripts/makefile/check-container-copy-coverage.py
 # - src/assets/scripts/makefile/check-scaffold-todo-age.py
 # - src/assets/scripts/makefile/summarise-modell-analyse.py
 # ==============================================================================
@@ -33,7 +34,8 @@ SIMILARITY_THRESHOLD ?= 0.8
         analyse-lokal-modellanalyse-domene \
         analyse-iri-dereferering analyse-innhaldsforhandling \
         analyse-ap-no-gjenbruk analyse-modell-sammenhenger \
-        analyse-cache-key-konsistens analyse-scaffold-todo-alder analyse-sammendrag
+        analyse-cache-key-konsistens analyse-container-copy-konsistens \
+        analyse-scaffold-todo-alder analyse-sammendrag
 
 analyse-similar-classes-domain: ## Finn klasser med liknande navn innanfor same domene [DOMAIN=<domene>] [NAME=<modell>] [SIMILARITY_THRESHOLD=0.8]
 	$(call print_header,analyse-similar-classes-domain) 1>&2
@@ -129,6 +131,10 @@ analyse-modell-sammenhenger: ## Kryssreferer importgraf mot modellkatalogen sine
 analyse-cache-key-konsistens: ## Sjekk at delte cache-nøklar (same namneprefiks) er byte-for-byte identiske på tvers av .github/workflows/*.yml
 	$(call print_header,analyse-cache-key-konsistens) 1>&2
 	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-cache-key-coverage.py
+
+analyse-container-copy-konsistens: ## Sjekk at Dockerfile.mcp-linkml sine COPY-lister og reusable-*.yml sine sparse-checkout-lister dekker harde utils-avhengigheiter
+	$(call print_header,analyse-container-copy-konsistens) 1>&2
+	@$(PYTHON_RUN) python3 /work/src/assets/scripts/makefile/check-container-copy-coverage.py
 
 analyse-scaffold-todo-alder: ## Finn skjema med uendra scaffold-TODO frå new-modell.sh eldre enn ein terskel [THRESHOLD_DAYS=90]
 	$(call print_header,analyse-scaffold-todo-alder) 1>&2
