@@ -1418,6 +1418,7 @@ print('\n'.join(json.dumps(m) for m in msgs))
         -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/converter.py:/app/converter.py:ro" \
         -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/validator.py:/app/validator.py:ro" \
         -v "$REPO_ROOT/src/mcp-linkml-modell-utkast/profiles:/app/profiles:ro" \
+        -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
         mcp-linkml-modell-utkast \
     | python3 -c "
 import json, sys

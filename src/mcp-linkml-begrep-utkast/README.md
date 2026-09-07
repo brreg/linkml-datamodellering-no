@@ -8,10 +8,10 @@ Serveren følgjer mønsteret i `specs/begrep-modellering.md` og produserer
 
 ```bash
 # Bygg containeren (éin gong)
-make mcp-begrep-build
+make build-docker-mcp-begrep-utkast
 
 # List tilgjengelege profiler
-make mcp-begrep-list-profiles
+make mcp-linkml-begrep-utkast-list-profiles
 
 # Køyr serveren interaktivt (MCP stdio-transport)
 make mcp-linkml-begrep-utkast-run
@@ -288,7 +288,7 @@ Lim innhaldet inn i ei eksisterande instansfil under dei tilsvarande listene
 Profilen styrer standardverdiar og URI-mønster. Standard profil er `default`.
 
 ```bash
-make mcp-begrep-list-profiles
+make mcp-linkml-begrep-utkast-list-profiles
 ```
 
 Profilane ligg i `profiles/<navn>.yaml`:

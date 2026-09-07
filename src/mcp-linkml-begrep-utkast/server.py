@@ -6,13 +6,18 @@ import sys
 import yaml
 from pathlib import Path
 
+# Delt utils-modul (mcp_jsonrpc_stdio) ligg i src/assets/scripts/utils/ i
+# repoet. Ulike invokeringar monterer/kopierer han til ulike kontainarstiar
+# — prøv alle kjende kandidatar. Sjå
+# src/assets/scripts/utils/mcp_jsonrpc_stdio.py for grunngjeving.
+sys.path.insert(0, "/app/utils")
+sys.path.insert(0, "/repo/src/assets/scripts/utils")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "assets" / "scripts" / "utils"))
+
+from mcp_jsonrpc_stdio import dispatch, run_stdio_loop  # noqa: E402
+
 
 _PROFILES_DIR = Path(__file__).parent / "profiles"
-
-
-def send(obj: dict) -> None:
-    sys.stdout.write(json.dumps(obj, ensure_ascii=False) + "\n")
-    sys.stdout.flush()
 
 
 def _list_profiles() -> list:
@@ -387,80 +392,15 @@ TOOL_SKRIV_BEGREP_FIL = {
 # Meldingshandtering
 # ---------------------------------------------------------------------------
 
-def handle(msg: dict) -> dict | None:
-    method = msg.get("method", "")
-    msg_id = msg.get("id")
-
-    if method == "initialize":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {
-                "protocolVersion": "2024-11-05",
-                "capabilities": {"tools": {}},
-                "serverInfo": {"name": "mcp-linkml-begrep-utkast", "version": "1.0.0"},
-            },
-        }
-
-    if method == "initialized":
-        return None
-
-    if method == "tools/list":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {
-                "tools": [
-                    TOOL_OPPRETT_BEGREP,
-                    TOOL_SKRIV_BEGREP_FIL,
-                    TOOL_VALIDER_BEGREP,
-                    TOOL_LIST_PROFILES,
-                    TOOL_LIST_LOS_TEMA,
-                    TOOL_SOK_BEGREPSKATALOG,
-                ]
-            },
-        }
-
-    if method == "tools/call":
-        tool_name = (msg.get("params") or {}).get("name")
-        arguments = (msg.get("params") or {}).get("arguments") or {}
-
-        if tool_name == "list_profiles":
-            return {
-                "jsonrpc": "2.0",
-                "id": msg_id,
-                "result": {
-                    "content": [
-                        {"type": "text", "text": json.dumps(_list_profiles(), ensure_ascii=False)}
-                    ]
-                },
-            }
-
-        if tool_name == "list_los_tema":
-            return _handle_list_los_tema(msg_id)
-
-        if tool_name == "opprett_begrep":
-            return _handle_opprett_begrep(msg_id, arguments)
-
-        if tool_name == "skriv_begrep_fil":
-            return _handle_skriv_begrep_fil(msg_id, arguments)
-
-        if tool_name == "valider_begrep":
-            return _handle_valider_begrep(msg_id, arguments)
-
-        if tool_name == "sok_begrepskatalog":
-            return _handle_sok_begrepskatalog(msg_id, arguments)
-
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "error": {"code": -32602, "message": f"Ukjent verktøy: {tool_name}"},
-        }
-
+def _handle_list_profiles(msg_id, arguments: dict) -> dict:
     return {
         "jsonrpc": "2.0",
         "id": msg_id,
-        "error": {"code": -32601, "message": f"Metode ikkje funnen: {method}"},
+        "result": {
+            "content": [
+                {"type": "text", "text": json.dumps(_list_profiles(), ensure_ascii=False)}
+            ]
+        },
     }
 
 
@@ -769,26 +709,31 @@ def _param_error(msg_id, param: str) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
-# Hovudløkke
-# ---------------------------------------------------------------------------
+_TOOL_HANDLERS = {
+    "list_profiles": _handle_list_profiles,
+    "list_los_tema": lambda msg_id, arguments: _handle_list_los_tema(msg_id),
+    "opprett_begrep": _handle_opprett_begrep,
+    "skriv_begrep_fil": _handle_skriv_begrep_fil,
+    "valider_begrep": _handle_valider_begrep,
+    "sok_begrepskatalog": _handle_sok_begrepskatalog,
+}
 
-def main():
-    for raw in sys.stdin:
-        raw = raw.strip()
-        if not raw:
-            continue
-        try:
-            msg = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            send({"jsonrpc": "2.0", "id": None,
-                  "error": {"code": -32700, "message": f"Parse-feil: {exc}"}})
-            continue
 
-        response = handle(msg)
-        if response is not None:
-            send(response)
+def handle(msg: dict) -> dict | None:
+    return dispatch(
+        msg,
+        tools=[
+            TOOL_OPPRETT_BEGREP,
+            TOOL_SKRIV_BEGREP_FIL,
+            TOOL_VALIDER_BEGREP,
+            TOOL_LIST_PROFILES,
+            TOOL_LIST_LOS_TEMA,
+            TOOL_SOK_BEGREPSKATALOG,
+        ],
+        tool_handlers=_TOOL_HANDLERS,
+        server_name="mcp-linkml-begrep-utkast",
+    )
 
 
 if __name__ == "__main__":
-    main()
+    run_stdio_loop(handle)

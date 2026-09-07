@@ -72,6 +72,7 @@ LINKML_YAML=$(python3 "$REQUEST_SCRIPT" \
       -v "$LINKML_GEN_DIR/converter.py:/app/converter.py:ro" \
       -v "$LINKML_GEN_DIR/validator.py:/app/validator.py:ro" \
       -v "$LINKML_GEN_DIR/profiles:/app/profiles:ro" \
+      -v "$REPO_ROOT/src/assets/scripts/utils:/app/utils:ro" \
       "$LINKML_GEN_IMAGE" \
   | python3 "$RESPONSE_SCRIPT")
 

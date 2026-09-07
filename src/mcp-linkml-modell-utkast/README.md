@@ -6,10 +6,10 @@ MCP-server for generering av LinkML-skjema frå JSON Schema (eller som tomt utka
 
 ```bash
 # Generer frå ein JSON Schema-fil (legg fila i tmp/ først)
-make mcp-generate SCHEMA=tmp/modell.json
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json
 
 # Valfrie parametrar
-make mcp-generate SCHEMA=tmp/modell.json FORMAT=json-schema POLICY=default
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json FORMAT=json-schema POLICY=silver
 ```
 
 Generert YAML-fil vert skriven til same katalog som inputfila (`tmp/modell-schema.yaml`).
@@ -97,7 +97,7 @@ Når `validate: true` (standard) køyrer to steg automatisk etter generering:
 Policyar styrer korleis konverteringa oppfører seg. Standard policy er `bronze`.
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json POLICY=bronze
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json POLICY=bronze
 
 # List tilgjengelege policyar via MCP-verktøyet list_policies
 ```
@@ -122,7 +122,7 @@ Policyane ligg i `profiles/<navn>.yaml` (katalognavnet er eit attverande, ikkje 
 Bruk `POLICY=silver` for å generere skjema med silver-annotasjonar (Digdir-regel 9, 10, 11):
 
 ```bash
-make mcp-generate SCHEMA=tmp/modell.json POLICY=silver
+make mcp-linkml-modell-utkast SCHEMA=tmp/modell.json POLICY=silver
 ```
 
 Det genererte skjemaet vil innehalde ein `annotations:`-blokk med TODO-stubs:

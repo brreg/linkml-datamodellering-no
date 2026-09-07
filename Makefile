@@ -53,11 +53,16 @@ include make/91-modell-analyse.mk
 # ---------------------------------------------------------------------------
 LINKML_MOD_DIR   := src/mcp-linkml-modell-utkast
 LINKML_MOD_IMAGE := mcp-linkml-modell-utkast
+# mcp_jsonrpc_stdio.py (src/assets/scripts/utils/) er delt JSON-RPC-stdio-
+# mekanikk brukt av alle tre MCP-serverane sin server.py — sjå
+# src/assets/scripts/utils/mcp_jsonrpc_stdio.py og
+# .claude/rules/mcp-server-python.md.
 LINKML_MOD_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_MOD_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(LINKML_MOD_DIR)/converter.py:/app/converter.py:ro" \
   -v "$(CURDIR)/$(LINKML_MOD_DIR)/validator.py:/app/validator.py:ro" \
-  -v "$(CURDIR)/$(LINKML_MOD_DIR)/profiles:/app/profiles:ro"
+  -v "$(CURDIR)/$(LINKML_MOD_DIR)/profiles:/app/profiles:ro" \
+  -v "$(CURDIR)/src/assets/scripts/utils:/app/utils:ro"
 
 LINKML_BEGREP_DIR   := src/mcp-linkml-begrep-utkast
 LINKML_BEGREP_IMAGE := mcp-linkml-begrep-utkast
@@ -67,6 +72,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/los_tema.py:/app/los_tema.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/concept_search.py:/app/concept_search.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
+  -v "$(CURDIR)/src/assets/scripts/utils:/app/utils:ro" \
   -v "$(CURDIR):/repo:ro" \
   -v "$(CURDIR)/src/linkml:/repo/src/linkml:rw"
 

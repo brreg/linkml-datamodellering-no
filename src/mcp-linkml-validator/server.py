@@ -8,10 +8,16 @@ import tempfile
 import yaml
 from pathlib import Path
 
-# Heile repoet er montert read-only på /repo (sjå flatten-and-validate.bash),
-# så det delte patch-modulet er tilgjengeleg utan å byggje det inn i imaget.
-# Sjå src/assets/scripts/utils/linkml_relative_import_patch.py for grunngjeving.
+# Delte utils-modul (mcp_jsonrpc_stdio, linkml_relative_import_patch) ligg i
+# src/assets/scripts/utils/ i repoet. Ulike invokeringar monterer/kopierer
+# dei til ulike kontainarstiar — prøv alle kjende kandidatar. Sjå
+# src/assets/scripts/utils/mcp_jsonrpc_stdio.py for grunngjeving.
+sys.path.insert(0, "/app/utils")
 sys.path.insert(0, "/repo/src/assets/scripts/utils")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "assets" / "scripts" / "utils"))
+
+from mcp_jsonrpc_stdio import dispatch, run_stdio_loop  # noqa: E402
+
 try:
     import linkml_relative_import_patch
     linkml_relative_import_patch.apply()
@@ -94,11 +100,6 @@ def _is_base_policy(name: str) -> bool:
         return not bool(raw.get("extends"))
     except FileNotFoundError:
         return True
-
-
-def send(obj: dict) -> None:
-    sys.stdout.write(json.dumps(obj, ensure_ascii=False) + "\n")
-    sys.stdout.flush()
 
 
 # ---------------------------------------------------------------------------
@@ -1277,115 +1278,64 @@ TOOL_DEF_INSTANCE = {
 }
 
 
-def handle(msg: dict) -> dict | None:
-    method = msg.get("method", "")
-    msg_id = msg.get("id")
-
-    if method == "initialize":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {
-                "protocolVersion": "2024-11-05",
-                "capabilities": {"tools": {}},
-                "serverInfo": {"name": "mcp-linkml-validator", "version": "1.0.0"},
-            },
-        }
-
-    if method == "initialized":
-        return None  # notifikasjon — ingen respons
-
-    if method == "tools/list":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {"tools": [TOOL_DEF, TOOL_DEF_INSTANCE]},
-        }
-
-    if method == "tools/call":
-        tool_name = msg.get("params", {}).get("name")
-        arguments = msg.get("params", {}).get("arguments", {})
-
-        if tool_name == "validate_linkml_schema":
-            policy_name = arguments.get("policy", "bronze")
-            instance_text = arguments.get("instanceText") or None
-            schema_path = arguments.get("schemaPath") or None
-            schema_text = arguments.get("schemaText") or None
-            result = validate_schema(schema_text, policy_name, instance_text, schema_path=schema_path)
-            return {
-                "jsonrpc": "2.0",
-                "id": msg_id,
-                "result": {
-                    "content": [
-                        {"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}
-                    ]
-                },
-            }
-
-        if tool_name == "validate_linkml_instance":
-            instance_schema_text = arguments.get("schemaText") or None
-            instance_schema_path = arguments.get("schemaPath") or None
-            if instance_schema_text is None and instance_schema_path is None:
-                result = {
-                    "valid": False, "errorCount": 1, "warningCount": 0,
-                    "issues": [issue("error", "parse_error", "schema",
-                                      "Anten schemaText eller schemaPath må oppgjevast")],
-                }
-            else:
-                result = validate_instance(
-                    instance_schema_text,
-                    arguments.get("instanceText", ""),
-                    arguments.get("targetClass") or None,
-                    schema_path=instance_schema_path,
-                )
-            return {
-                "jsonrpc": "2.0",
-                "id": msg_id,
-                "result": {
-                    "content": [
-                        {"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}
-                    ]
-                },
-            }
-
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "error": {"code": -32602, "message": f"Ukjent verktøy: {tool_name}"},
-        }
-
+def _handle_validate_schema(msg_id, arguments: dict) -> dict:
+    policy_name = arguments.get("policy", "bronze")
+    instance_text = arguments.get("instanceText") or None
+    schema_path = arguments.get("schemaPath") or None
+    schema_text = arguments.get("schemaText") or None
+    result = validate_schema(schema_text, policy_name, instance_text, schema_path=schema_path)
     return {
         "jsonrpc": "2.0",
         "id": msg_id,
-        "error": {"code": -32601, "message": f"Metode ikkje funnen: {method}"},
+        "result": {
+            "content": [
+                {"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}
+            ]
+        },
     }
 
 
-def main():
-    for raw in sys.stdin:
-        raw = raw.strip()
-        if not raw:
-            continue
-        try:
-            msg = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            send({"jsonrpc": "2.0", "id": None,
-                  "error": {"code": -32700, "message": f"Parse-feil: {exc}"}})
-            continue
+def _handle_validate_instance(msg_id, arguments: dict) -> dict:
+    instance_schema_text = arguments.get("schemaText") or None
+    instance_schema_path = arguments.get("schemaPath") or None
+    if instance_schema_text is None and instance_schema_path is None:
+        result = {
+            "valid": False, "errorCount": 1, "warningCount": 0,
+            "issues": [issue("error", "parse_error", "schema",
+                              "Anten schemaText eller schemaPath må oppgjevast")],
+        }
+    else:
+        result = validate_instance(
+            instance_schema_text,
+            arguments.get("instanceText", ""),
+            arguments.get("targetClass") or None,
+            schema_path=instance_schema_path,
+        )
+    return {
+        "jsonrpc": "2.0",
+        "id": msg_id,
+        "result": {
+            "content": [
+                {"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}
+            ]
+        },
+    }
 
-        try:
-            response = handle(msg)
-        except Exception as exc:
-            # Ein uventa feil i handteringa av éin melding skal ikkje ta ned
-            # resten av stdin-straumen — kritisk når fleire valideringskall
-            # vert batcha inn i éin serverprosess (sjå batch-flatten-and-
-            # validate.py), sidan éin ubehandla exception elles ville drepe
-            # heile prosessen og miste resultatet for alle attverande jobbar.
-            response = {"jsonrpc": "2.0", "id": msg.get("id"),
-                        "error": {"code": -32000, "message": f"Uventa feil: {exc}"}}
-        if response is not None:
-            send(response)
+
+_TOOL_HANDLERS = {
+    "validate_linkml_schema": _handle_validate_schema,
+    "validate_linkml_instance": _handle_validate_instance,
+}
+
+
+def handle(msg: dict) -> dict | None:
+    return dispatch(
+        msg,
+        tools=[TOOL_DEF, TOOL_DEF_INSTANCE],
+        tool_handlers=_TOOL_HANDLERS,
+        server_name="mcp-linkml-validator",
+    )
 
 
 if __name__ == "__main__":
-    main()
+    run_stdio_loop(handle)

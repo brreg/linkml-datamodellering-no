@@ -189,6 +189,8 @@ jobs:
         #   tillegg linkml_relative_import_patch.py — utan denne i "infra"-
         #   hashen ville ei retting der (t.d. av BUG-x i bugs/) gitt eit
         #   stille cache-hit i staden for reell re-køyring
+        # - server.py importerer i tillegg mcp_jsonrpc_stdio.py (delt
+        #   JSON-RPC-stdio-mekanikk, sjå .claude/rules/mcp-server-python.md)
         # - dei tre statisk pulla images sine Dockerfile
         # - make/80-images.mk (pull-images fell tilbake til `make <target>`
         #   ved GHCR-pull-feil)
@@ -196,7 +198,7 @@ jobs:
         uses: actions/cache@v6
         with:
           path: generated/${{ matrix.domain }}/
-          key: v1-valider-og-analyser-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/scripts/makefile/run-validation.sh', 'src/assets/scripts/makefile/find-similar-names.py', 'src/assets/scripts/makefile/find-unused-local-definitions.py', 'src/assets/scripts/utils/validation_log.py', 'src/assets/scripts/utils/linkml_relative_import_patch.py', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.mcp-linkml', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
+          key: v1-valider-og-analyser-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/scripts/makefile/run-validation.sh', 'src/assets/scripts/makefile/find-similar-names.py', 'src/assets/scripts/makefile/find-unused-local-definitions.py', 'src/assets/scripts/utils/validation_log.py', 'src/assets/scripts/utils/linkml_relative_import_patch.py', 'src/assets/scripts/utils/mcp_jsonrpc_stdio.py', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/assets/containers/Dockerfile.linkml', 'src/assets/containers/Dockerfile.mcp-linkml', 'src/assets/containers/Dockerfile.python', 'make/00-settings.mk', 'make/01-containers.mk', 'make/80-images.mk', 'make/91-modell-analyse.mk', 'Makefile') }}
 
       - name: Set opp podman (crun + GHCR-login + hent images)
         if: steps.cache-valider.outputs.cache-hit != 'true'

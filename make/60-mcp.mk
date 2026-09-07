@@ -11,9 +11,14 @@
 # MCP-validator
 # ---------------------------------------------------------------------------
 
+# mcp_jsonrpc_stdio.py (src/assets/scripts/utils/) er delt JSON-RPC-stdio-
+# mekanikk brukt av alle tre MCP-serverane sin server.py — sjå
+# src/assets/scripts/utils/mcp_jsonrpc_stdio.py og
+# .claude/rules/mcp-server-python.md.
 MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/server.py:/app/server.py:ro" \
-  -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
+  -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro" \
+  -v "$(CURDIR)/src/assets/scripts/utils:/app/utils:ro"
 
 build-docker-mcp-validator: ## Bygg container-image for validator MCP-serveren
 	$(call print_header,build-docker-mcp-validator)
@@ -56,6 +61,7 @@ mcp-linkml-modell-utkast-test: build-docker-mcp-modell-utkast ## Køyr alle unit
 	@podman run --rm \
 		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
 		-v "$(CURDIR)/tests:/app/tests:ro" \
+		-v "$(CURDIR)/src/assets/scripts/utils:/app/utils:ro" \
 		-w /app/tests \
 		-e PYTHONPATH=/app/mcp-linkml-modell-utkast \
 		$(LINKML_MOD_IMAGE) \

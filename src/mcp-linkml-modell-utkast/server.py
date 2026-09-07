@@ -6,15 +6,20 @@ import sys
 import yaml
 from pathlib import Path
 
+# Delt utils-modul (mcp_jsonrpc_stdio) ligg i src/assets/scripts/utils/ i
+# repoet. Ulike invokeringar monterer/kopierer han til ulike kontainarstiar
+# — prøv alle kjende kandidatar. Sjå
+# src/assets/scripts/utils/mcp_jsonrpc_stdio.py for grunngjeving.
+sys.path.insert(0, "/app/utils")
+sys.path.insert(0, "/repo/src/assets/scripts/utils")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "assets" / "scripts" / "utils"))
+
+from mcp_jsonrpc_stdio import dispatch, run_stdio_loop  # noqa: E402
+
 
 # Katalogen heiter framleis "profiles" fysisk på disk — sjå spec
 # specs/backlog/erstatt-profil-med-policy.md for grunngjeving/oppfølging.
 _POLICIES_DIR = Path(__file__).parent / "profiles"
-
-
-def send(obj: dict) -> None:
-    sys.stdout.write(json.dumps(obj, ensure_ascii=False) + "\n")
-    sys.stdout.flush()
 
 
 def _list_policies() -> list:
@@ -98,59 +103,15 @@ TOOL_LIST_POLICIES = {
 # Meldingshandtering
 # ---------------------------------------------------------------------------
 
-def handle(msg: dict) -> dict | None:
-    method = msg.get("method", "")
-    msg_id = msg.get("id")
-
-    if method == "initialize":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {
-                "protocolVersion": "2024-11-05",
-                "capabilities": {"tools": {}},
-                "serverInfo": {"name": "mcp-linkml-modell-utkast", "version": "1.0.0"},
-            },
-        }
-
-    if method == "initialized":
-        return None
-
-    if method == "tools/list":
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "result": {"tools": [TOOL_GENERATE, TOOL_LIST_POLICIES]},
-        }
-
-    if method == "tools/call":
-        tool_name = (msg.get("params") or {}).get("name")
-        arguments = (msg.get("params") or {}).get("arguments") or {}
-
-        if tool_name == "list_policies":
-            return {
-                "jsonrpc": "2.0",
-                "id": msg_id,
-                "result": {
-                    "content": [
-                        {"type": "text", "text": json.dumps(_list_policies(), ensure_ascii=False)}
-                    ]
-                },
-            }
-
-        if tool_name == "generate_linkml":
-            return _handle_generate(msg_id, arguments)
-
-        return {
-            "jsonrpc": "2.0",
-            "id": msg_id,
-            "error": {"code": -32602, "message": f"Ukjent verktøy: {tool_name}"},
-        }
-
+def _handle_list_policies(msg_id, arguments: dict) -> dict:
     return {
         "jsonrpc": "2.0",
         "id": msg_id,
-        "error": {"code": -32601, "message": f"Metode ikkje funnen: {method}"},
+        "result": {
+            "content": [
+                {"type": "text", "text": json.dumps(_list_policies(), ensure_ascii=False)}
+            ]
+        },
     }
 
 
@@ -226,26 +187,20 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
-# Hovudløkke
-# ---------------------------------------------------------------------------
+_TOOL_HANDLERS = {
+    "list_policies": _handle_list_policies,
+    "generate_linkml": _handle_generate,
+}
 
-def main():
-    for raw in sys.stdin:
-        raw = raw.strip()
-        if not raw:
-            continue
-        try:
-            msg = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            send({"jsonrpc": "2.0", "id": None,
-                  "error": {"code": -32700, "message": f"Parse-feil: {exc}"}})
-            continue
 
-        response = handle(msg)
-        if response is not None:
-            send(response)
+def handle(msg: dict) -> dict | None:
+    return dispatch(
+        msg,
+        tools=[TOOL_GENERATE, TOOL_LIST_POLICIES],
+        tool_handlers=_TOOL_HANDLERS,
+        server_name="mcp-linkml-modell-utkast",
+    )
 
 
 if __name__ == "__main__":
-    main()
+    run_stdio_loop(handle)

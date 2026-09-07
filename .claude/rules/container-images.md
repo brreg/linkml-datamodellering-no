@@ -1,9 +1,12 @@
 ---
 name: container-images
-description: Container-invokeringsmønster i make/01-containers.mk og Dockerfile*/requirements*.txt under src/assets/containers/ — WORK_MOUNT, eksplisitt env-vidareføring, stdin-fella (BUG-10), attribution-plikt for nye verktøy. Lastast automatisk ved arbeid med desse filene.
+description: Container-invokeringsmønster i make/01-containers.mk, make/60-mcp.mk, Makefile og Dockerfile*/requirements*.txt under src/assets/containers/ — WORK_MOUNT, eksplisitt env-vidareføring, stdin-fella (BUG-10), attribution-plikt for nye verktøy, full kartlegging av monteringsstader for nye delte moduler. Lastast automatisk ved arbeid med desse filene.
 paths:
   - "src/assets/containers/**"
   - "make/01-containers.mk"
+  - "make/60-mcp.mk"
+  - "Makefile"
+  - "src/assets/scripts/scaffolding/**"
 ---
 
 ## WORK_MOUNT-mønsteret
@@ -62,6 +65,46 @@ Alternativt: bygg om til `for x in $$(...)`-mønsteret, som ikkje deler fd 0
 mellom iterasjonar (uegna for svært store lister, sidan heile ordlista må
 evaluerast i minnet før løkka startar). `validate-data` brukar dette
 mønsteret og er ikkje råka av same feil.
+
+## Ein ny påkravd delt modul krev full kartlegging av alle monteringsstader
+
+Ei fil under `src/assets/scripts/utils/` som eit `server.py`/script **ikkje
+kan starte utan** (i motsetnad til ein valfri bug-workaround med mjuk
+try/except-fallback, t.d. `linkml_relative_import_patch.py`) må vere
+tilgjengeleg i **kvar einaste** kontainarinvokering av det scriptet — ikkje
+berre det opplagte `-run`/`-smoke`-make-targetet. Same fallgruve som
+env-variabel-vidareføringa over («forsvinn stille dersom `-e`-linja
+manglar»), berre for filmonteringar: mankar mounten éin stad, feilar akkurat
+den kodevegen med `ModuleNotFoundError` — gjerne først i CI eller hos ein
+ekstern brukar, lenge etter at dei "opplagte" targeta er verifiserte.
+
+**Framgangsmåte** (jf. konsolideringa av `mcp_jsonrpc_stdio.py` på tvers av
+dei tre MCP-serverane, `specs/done/mcp-server-python-tiltak.md`): grep heile
+repoet etter **alle** stader det aktuelle scriptet vert køyrt i ein
+kontainer, ikkje berre Makefile-targeta:
+
+1. Make-variablar for interaktiv køyring (t.d. `MCP_RUN`, `LINKML_MOD_RUN`
+   i `Makefile`/`make/60-mcp.mk`)
+2. `-test`-oppskrifter som monterer kjeldekatalogen separat frå
+   `-run`/`-smoke` (ofte ein annan monteringssti/`PYTHONPATH`, difor ikkje
+   automatisk dekt av (1))
+3. Scaffolding-script som byggjer sine eigne `podman run`-kall direkte
+   (t.d. `src/assets/scripts/scaffolding/new-modell.sh`) — desse duplekserer
+   make-variablane sine monteringar manuelt og må oppdaterast separat
+4. `tests/test_make.sh` sine direkte `podman run`-kall (skil seg frå
+   make-targeta sine, søk spesifikt etter scriptnamnet)
+5. CI-cache-nøklar i `.github/workflows/*.yml` som eksplisitt listar
+   avhengige filer (`hashFiles(...)`) — ei ny transitiv avhengigheit må
+   leggjast til der, elles gjev ei framtidig endring i modulet eit stille
+   cache-hit i staden for reell re-køyring
+
+For sjølve scriptet: prøv fleire kandidat-`sys.path`-oppføringar (éin per
+kjend monteringsmønster: flatt i same katalog som scriptet, `/repo/...` for
+heile-repo-monteringar, repo-relativ sti for direkte git-checkout-køyring)
+— men **ikkje** legg til ein mjuk try/except-fallback slik
+`linkml_relative_import_patch.py` gjer. Den fallbacken er trygg berre fordi
+patchen er ein valfri bug-workaround; ein hard avhengigheit skal krasje
+høgt med ein naturleg `ImportError` dersom ingen kandidat finn fila.
 
 ## Attribution-plikt for nye verktøyavhengigheiter
 

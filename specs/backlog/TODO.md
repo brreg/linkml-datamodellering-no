@@ -69,6 +69,8 @@ badges i readme?
 
    gjer ein analyse av all kildekode og identifiser gjentakelsar som kan la seg kode en gang og gjenbrukes ihht DRY prinsippet
 
+Evaluer om vi kan lage en plugin til vs-code som gjer det enklare å jobbe med linkml-modellering?
+To ting eg tenker på er context-aware auto-complete og evnt. panel som viser f.eks alle tilgjengelige types, slots og enums i modellen slik at du slepp å søke og scrolle opp og ned i modellfila så mykje når du editerer klasser. Du må gjerne komme med forslag til andre ting som kan forenkle brukeropplevelsen ved linkml-modellering. Skriv til /specs
 
 
 
